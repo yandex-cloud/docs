@@ -784,6 +784,10 @@ For more information, see [{#T}](../postbox/security/index.md).
 
 {% include [cloud-registry-artifacts-pusher](../_roles/cloud-registry/artifacts/pusher.md) %}
 
+#### cloud-registry.artifacts.scanner {#cloud-registry-artifacts-scanner}
+
+{% include [cloud-registry-artifacts-scanner](../_roles/cloud-registry/artifacts/scanner.md) %}
+
 For more information, see [{#T}](../cloud-registry/security/index.md).
 
 

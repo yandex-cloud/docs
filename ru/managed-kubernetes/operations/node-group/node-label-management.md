@@ -57,8 +57,8 @@
         * В поле **{{ ui-key.yacloud.k8s.MaintenanceSection.maintenance-window-field-with-none-option_tx5Wn }}** выберите окно для [обновлений](../../concepts/release-channels-and-updates.md#updates):
           * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-disabled }}` — отключение автоматических обновлений.
           * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-anytime }}` — обновления разрешены в любое время.
-          * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-daily }}` — обновления будут происходить во временной интервал, указанный в поле **{{ ui-key.yacloud.k8s.clusters.create.field_maintenance-daily }}**.
-          * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-weekly }}` — обновления будут происходить во временной интервал, указанный в поле **{{ ui-key.yacloud.k8s.clusters.create.label_maintenance-weekly }}**.
+          * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-daily }}` — укажите начало и длительность интервала времени в UTC, в течение которого запустится обновление. Параметр не связан с длительностью самого обновления и временем его окончания.
+          * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-weekly }}` — укажите день, начало и длительность интервала времени в UTC, в течение которого запустится обновление. Параметр не связан с длительностью самого обновления и временем его окончания.
      1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_additional }}**:
         * В поле **{{ ui-key.yacloud.k8s.node-groups.create.field_node-labels }}** нажмите кнопку **{{ ui-key.yacloud.k8s.node-groups.create.button_add-node-label }}** и укажите ее ключ и значение. Если необходимо, добавьте несколько меток.
      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.

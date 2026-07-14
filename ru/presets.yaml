@@ -4354,10 +4354,23 @@ default:
             new_limit: Новый лимит
         branding:
           AuthBrandingForm:
+            autoLoginSection:
+              federationFieldLabel: Федерация
+              redirectLabel: Перенаправление в федерацию удостоверений
+              title: Автоматический вход
             clearAllAction: Сбросить все
+            federationLoginSection:
+              addButton: Добавить
+              buttonTextFieldLabel: Имя кнопки
+              federationFieldLabel: Федерация
             loginSection:
+              federationLabel: Федерация удостоверений
+              loginInputLabel: Ввод логина
+              placeholderInlineLabel: Подсказка
+              ssoLabel: Single-Sign On
               title: Форма входа
               welcomeLabel: Приветствие
+              yandexIdLabel: Яндекс ID
             styleSection:
               colorLabel: Основной цвет
               title: Цвета и изображения
@@ -7062,7 +7075,6 @@ default:
             field_address-type: Публичный адрес
             field_cluster-cidr: CIDR кластера
             field_kms-key: Ключ шифрования
-            field_maintenance-daily: Начало окна обновления в UTC
             field_master-type: Тип мастера
             field_master-version: Версия Kubernetes
             field_network: Облачная сеть
@@ -7074,7 +7086,6 @@ default:
             field_subnetwork: Подсеть
             field_tunnel-mode: Сilium CNI
             label_logging-enabled: Запись логов
-            label_maintenance-weekly: Расписание по дням
             label_master-computing-resources: Вычислительные ресурсы
             label_master-preset-group-cpu-optimized: CPU optimized
             label_master-preset-group-memory-optimized: Memory optimized
@@ -8347,7 +8358,6 @@ default:
           label_anomaly-threshold: Порог аномальности
           label_create-exclusion-rule: Создать правило-исключение
           label_create-profile: Создать профиль WAF
-          label_exclusion-rule-exclude-rules: Пропускать проверки
           label_paranoia-level: Уровень паранойи
           label_paranoia-option-1: Только 1
           label_profiles: Профили WAF
@@ -8355,7 +8365,11 @@ default:
           label_save-settings: Сохранить настройки
           title_exclusion-rule-condition-section: Условия на трафик
           title_exclusion-rules: Правила-исключения
+          value_exclude-all-no: Выбранные правила
           value_exclude-all-yes: Все правила
+        WafProfileExclusionRuleForm:
+          RulesSection:
+            title_exclusion-rule-rules-section_cdWEW: Исключаемые проверки
       smartcaptcha:
         button_captcha-settings-create: Создать капчу
         CaptchaSettingsForm:

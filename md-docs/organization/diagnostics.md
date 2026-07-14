@@ -1,6 +1,6 @@
-[Документация Yandex Cloud](../index.md) > [Yandex Identity Hub](index.md) > Диагностика ошибок > Общие ошибки для федераций
+[Документация Yandex Cloud](../index.md) > [Yandex Identity Hub](index.md) > Диагностика ошибок > Общие ошибки
 
-# Диагностика ошибок в федерациях
+# Общие ошибки
 
 ## Федерация не найдена {#federation-not-found}
 
@@ -17,6 +17,24 @@
 ## Внутренняя ошибка приложения {#internal-server-error}
 
 Произошла непредвиденная ошибка в работе приложения, обратитесь в [службу поддержки](https://center.yandex.cloud/support).
+
+## Организация содержит облака {#organization-contains-clouds}
+
+Полное сообщение об ошибке:
+
+`Organization '**********' contains clouds, please delete them all. Example **********`
+
+Ошибка возникает при попытке удаления организации, в которой есть облака.
+
+Сперва удалите [облака](../resource-manager/operations/cloud/delete.md), а после — [удалите организацию](operations/delete-org.md).
+
+## У пользователя нет разрешений на использование приложения {#no-assignments}
+
+Полное сообщение об ошибке:
+
+`User has no assignments to use the application. Please contact your administrator to assign access to this application.`
+
+Ошибка возникает, если пользователь пытается воспользоваться приложением, к которому у него нет доступа. Обратитесь к администратору организации, чтобы он назначил вам доступ к приложению.
 
 ## Смотрите также {#see-also}
 

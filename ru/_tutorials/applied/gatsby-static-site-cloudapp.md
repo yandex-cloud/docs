@@ -33,7 +33,7 @@
 
 ## Установите Gatsby с помощью {{ cloud-apps-name }} {#install-gatsby}
 
-Установите [статический сайт](marketplace/products/yc/static-site) на Gatsby с помощью {{ cloud-apps-name }}. Приложение развернет сайт в [{{ objstorage-name }}](../../storage/) и настроит доступ по домену.
+Установите [статический сайт](/marketplace/products/yc/static-site) на Gatsby с помощью {{ cloud-apps-name }}. Приложение развернет сайт в [{{ objstorage-name }}](../../storage/) и настроит доступ по домену.
 
 {% list tabs group=instructions %}
 

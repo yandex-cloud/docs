@@ -16,6 +16,9 @@ meta:
 blocks:
   - type: card-layout-block
     title: Yandex MetaData Hub
+    visible:
+      sm: false
+      md: true
     description: "Yandex\_Cloud service for database connection management, storage of data exchange schemas and dataset descriptions, plus a metadata management system."
     colSizes:
       all: 12

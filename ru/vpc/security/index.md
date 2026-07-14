@@ -24,7 +24,7 @@ description: Управление доступом в сервисе облач�
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
-![image](../../_assets/vpc/security/service-roles-hierarchy.svg)
+{% include [vpc](../../_mermaid/roles/vpc.md) %}
 
 ### Сервисные роли {#service-roles}
 

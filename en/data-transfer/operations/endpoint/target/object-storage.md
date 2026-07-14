@@ -102,6 +102,6 @@ After configuring the data source and target, [create and start the transfer](..
 
 ## Troubleshooting data transfer issues {#troubleshooting}
 
-For more troubleshooting tips, see [Troubleshooting](../../../troubleshooting/index.md).
+For the full list of recommendations, see [Troubleshooting](../../../troubleshooting/index.md).
 
 {% include [update-not-supported](../../../../_includes/data-transfer/troubles/object-storage/update-not-supported.md) %}

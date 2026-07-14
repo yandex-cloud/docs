@@ -69,7 +69,7 @@ description: Следуя данной инструкции, вы сможете
      * `--cluster-name` — имя [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster), в котором будет создана группа узлов.
      * `--cores` — количество vCPU для узлов {{ managed-k8s-name }}.
      * `--core-fraction` — [гарантированная доля vCPU](../../../compute/concepts/performance-levels.md) для узлов {{ managed-k8s-name }}.
-     * `--daily-maintenance-window` — настройки окна [обновлений](../../concepts/release-channels-and-updates.md#updates).
+     * `--daily-maintenance-window` — начало и длительность интервала времени в UTC, в течение которого запустится [обновление](../../concepts/release-channels-and-updates.md#updates). Параметр не связан с длительностью самого обновления и временем его окончания.
      * `--disk-size` — [размер диска](../../../compute/concepts/disk.md#maximum-disk-size) узла {{ managed-k8s-name }}.
      * `--disk-type` — [тип диска](../../../compute/concepts/disk.md#disks_types) узла {{ managed-k8s-name }}: `network-nvme` или `network-hdd`.
      * Тип масштабирования:
@@ -485,7 +485,7 @@ description: Следуя данной инструкции, вы сможете
     * Максимальное количество узлов, на которое можно расширить группу при ее изменении или обновлении — `3`.
     * Максимальное количество узлов, которые могут быть недоступны в ходе изменения или обновления группы — `1`.
 * Объем RAM — два ГБ.
-* Время для [обновления](../../concepts/release-channels-and-updates.md#updates) — в период с 22:00 до 08:00 UTC.
+* Окно запуска [обновления](../../concepts/release-channels-and-updates.md#updates) — с 22:00 UTC, длительностью не более десяти часов. Параметры окна не связаны с длительностью самого обновления и временем его окончания.
 * Тип [ускорения сети](../../../compute/concepts/software-accelerated-network.md) — `standard` (без ускорения).
 * Сетевые настройки:
   * [Идентификатор группы безопасности](../../../vpc/operations/security-group-get-info.md), например `{{ security-group }}`.

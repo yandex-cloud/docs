@@ -19,7 +19,7 @@
 - Проверка в консоли управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. Выберите сервис **Yandex SmartCaptcha**.
+  1. [Перейдите](https://console.yandex.cloud/link/smartcaptcha) в сервис **Yandex SmartCaptcha**.
   1. Убедитесь, что [создана](../../smartcaptcha/operations/create-captcha.md) хотя бы одна капча для вашего приложения.
 
 {% endlist %}
@@ -50,7 +50,7 @@ Yandex Cloud позволяет клиентам выстроить соотве
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором будет создан реестр.
-  1. В списке сервисов выберите **Container Registry**.
+  1. [Перейдите](https://console.yandex.cloud/link/container-registry) в сервис **Container Registry**.
   1. Нажмите кнопку **Создать реестр**.
   1. В поле **Имя** введите имя реестра. Требования к имени:
       
@@ -89,7 +89,8 @@ Yandex Cloud позволяет клиентам выстроить соотве
 - Проверка в консоли управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, которому принадлежит реестр с Docker-образами.
-  1. Выберите реестр в сервисе **Container Registry**.
+  1. [Перейдите](https://console.yandex.cloud/link/container-registry) в сервис **Container Registry**.
+  1. Выберите нужный реестр.
   1. Перейдите на вкладку **Сканер уязвимостей** и нажмите кнопку **Изменить настройки**.
   1. Убедитесь, что сканирование Docker-образов при загрузке включено.
 
@@ -114,7 +115,8 @@ Yandex Cloud позволяет клиентам выстроить соотве
 - Проверка в консоли управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, которому принадлежит реестр с Docker-образами.
-  1. Выберите реестр в сервисе **Container Registry**.
+  1. [Перейдите](https://console.yandex.cloud/link/container-registry) в сервис **Container Registry**.
+  1. Выберите нужный реестр.
   1. Перейдите на вкладку **Сканер уязвимостей** и нажмите кнопку **Изменить настройки**.
   1. Убедитесь, что сканирование Docker-образов по расписанию включено и оно проходит не реже, чем раз в неделю.
 
@@ -247,7 +249,7 @@ Yandex Cloud позволяет клиентам выстроить соотве
 - Проверка в консоли управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите проверить статус Smart Web Security.
-  1. В списке сервисов выберите **Smart Web Security**.
+  1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
   1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **Профили безопасности**.
   1. Убедитесь, что у вас есть созданные профили безопасности.
   1. Если профили безопасности есть, рекомендация выполняется. В противном случае перейдите к п. «Инструкции и решения по выполнению».
@@ -283,7 +285,7 @@ Yandex Cloud позволяет клиентам выстроить соотве
 - Проверка в консоли управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором необходимо проверить наличие правила WAF в профиле безопасности.
-  1. В списке сервисов выберите **Smart Web Security**.
+  1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
   1. Убедитесь, что у вас в профиле безопасности есть правило безопасности с типом **Web Application Firewall**.
 
 {% endlist %}
@@ -307,7 +309,7 @@ Yandex Cloud позволяет клиентам выстроить соотве
 - Проверка в консоли управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором необходимо проверить наличие профилей ARL.
-  1. В списке сервисов выберите **Smart Web Security**.
+  1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
   1. На панели слева выберите ![image](../../_assets/smartwebsecurity/arl.svg) **Профили ARL** и убедитесь, что у вас есть профили ARL, подключенные к профилю безопасности.
 
 {% endlist %}
@@ -333,7 +335,7 @@ Yandex Cloud позволяет клиентам выстроить соотве
 - Проверка в консоли управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором расположен инстанс GitLab.
-  1. В списке сервисов выберите **Managed Service for&nbsp;GitLab**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-gitlab) в сервис **Managed Service for&nbsp;GitLab**.
   1. Выберите нужный инстанс и в правом верхнем углу страницы нажмите **Редактировать**.
   1. Убедитесь, что в поле **Правила ревью кода** выбрана настроенная [конфигурация](../../managed-gitlab/concepts/approval-rules.md#packages) правил ревью кода.
 
@@ -357,7 +359,7 @@ Yandex Cloud позволяет клиентам выстроить соотве
 
   1. Откройте консоль Yandex Cloud в вашем браузере.
   1. Перейдите в нужный каталог.
-  1. В списке сервисов выберите **Smart Web Security**.
+  1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
   1. Перейдите в раздел **Списки**.
   1. Убедитесь, что у вас есть созданные списки.
   1. Если списки есть, рекомендация выполняется. Если нет, перейдите к пункту «Инструкции и решения по выполнению».

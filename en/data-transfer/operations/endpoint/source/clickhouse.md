@@ -235,7 +235,7 @@ After configuring the data source and target, [create and start the transfer](..
 * [Data is not transferred](#no-transfer).
 * [Unsupported date range](#date-range).
 
-For more troubleshooting tips, see [Troubleshooting](../../../troubleshooting/index.md).
+For the full list of recommendations, see [Troubleshooting](../../../troubleshooting/index.md).
 
 {% include [no-new-tables](../../../../_includes/data-transfer/troubles/clickhouse/no-new-tables.md) %}
 

@@ -119,7 +119,7 @@ After configuring the data source and target, [create and start the transfer](..
 * [`SSL is required` error](#ssl-required)
 * [No tables found](#no-tables).
 
-For more troubleshooting tips, see [Troubleshooting](../../../troubleshooting/index.md).
+For the full list of recommendations, see [Troubleshooting](../../../troubleshooting/index.md).
 
 {% include [ambiguous-object-resolution-os](../../../../_includes/data-transfer/troubles/elastic-opensearch/ambiguous-object-resolution-os.md) %}
 

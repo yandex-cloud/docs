@@ -17,7 +17,7 @@
 - Проверка в консоли управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha_ru }}**.
+  1. [Перейдите]({{ link-console-main }}/link/smartcaptcha) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha_ru }}**.
   1. Убедитесь, что [создана](../../../smartcaptcha/operations/create-captcha.md) хотя бы одна капча для вашего приложения.
 
 {% endlist %}
@@ -48,7 +48,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создан реестр.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. [Перейдите]({{ link-console-main }}/link/container-registry) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.cr.overview.button_create }}**.
   1. В поле **{{ ui-key.yacloud.cr.overview.popup-create_field_name }}** введите имя реестра. Требования к имени:
       
@@ -201,7 +201,7 @@
 - Проверка в консоли управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите проверить статус {{ sws-name }}.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. На панели слева выберите ![shield-check](../../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. Убедитесь, что у вас есть созданные профили безопасности.
   1. Если профили безопасности есть, рекомендация выполняется. В противном случае перейдите к п. «Инструкции и решения по выполнению».
@@ -237,7 +237,7 @@
 - Проверка в консоли управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором необходимо проверить наличие правила WAF в профиле безопасности.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Убедитесь, что у вас в профиле безопасности есть правило безопасности с типом **Web Application Firewall**.
 
 {% endlist %}
@@ -261,7 +261,7 @@
 - Проверка в консоли управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором необходимо проверить наличие профилей ARL.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. На панели слева выберите ![image](../../../_assets/smartwebsecurity/arl.svg) **Профили ARL** и убедитесь, что у вас есть профили ARL, подключенные к профилю безопасности.
 
 {% endlist %}
@@ -287,7 +287,7 @@
 - Проверка в консоли управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором расположен инстанс {{ GL }}.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+  1. [Перейдите]({{ link-console-main }}/link/managed-gitlab) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
   1. Выберите нужный инстанс и в правом верхнем углу страницы нажмите **{{ ui-key.yacloud.common.edit }}**.
   1. Убедитесь, что в поле **{{ ui-key.yacloud.gitlab.field_approval-rules }}** выбрана настроенная [конфигурация](../../../managed-gitlab/concepts/approval-rules.md#packages) правил ревью кода.
 
@@ -311,7 +311,7 @@
 
   1. Откройте консоль {{ yandex-cloud }} в вашем браузере.
   1. Перейдите в нужный каталог.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Перейдите в раздел **{{ ui-key.yacloud.smart-web-security.match-lists.label_match-lists }}**.
   1. Убедитесь, что у вас есть созданные списки.
   1. Если списки есть, рекомендация выполняется. Если нет, перейдите к пункту «Инструкции и решения по выполнению».

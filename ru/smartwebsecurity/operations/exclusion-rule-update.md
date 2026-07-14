@@ -14,24 +14,17 @@ description: Следуя данной инструкции, вы сможете
   1. На панели слева выберите ![image](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}**.
   1. Выберите профиль, в котором вы хотите изменить [правило-исключение](../concepts/waf.md#exclusion-rules).
   1. В меню слева перейдите на вкладку ![image](../../_assets/console-icons/file-xmark.svg) **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rules }}**.
-  1. В строке с нужным правилом нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**. В открывшемся окне:
-      1. Измените имя и описание правила-исключения.
-      1. (опционально) Включите опцию **{{ ui-key.yacloud.smart-web-security.waf.field_logging }}**, чтобы логировать факты срабатывания правил-исключений.
-      1. В поле **{{ ui-key.yacloud.smart-web-security.waf.label_exclusion-rule-exclude-rules }}** выберите:
-          * **Все правила** — исключение будет срабатывать для всех правил.
-          * **Выбранные правила** — исключение будет срабатывать для выбранных правил. Нажмите **{{ ui-key.yacloud.smart-web-security.waf.action_exclusion-rule-add-rules }}**, чтобы выбрать правила.
+  1. В строке с нужным правилом нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
+  1. Измените имя и описание правила-исключения.
+  1. (опционально) Включите опцию **{{ ui-key.yacloud.smart-web-security.waf.field_logging }}**, чтобы логировать факты срабатывания правил-исключений.
+  
+  1. {% include [waf-rule-rules-section](../../_includes/smartwebsecurity/waf-rule-rules-section.md) %}
+  
+  1. {% include [waf-rule-request-condition](../../_includes/smartwebsecurity/waf-rule-request-condition.md) %}
 
-      1. В блоке **{{ ui-key.yacloud.smart-web-security.waf.label_request-condition_33CzA }}** выберите:
-          * **Весь запрос** — исключение будет применяться ко всему HTTP-запросу.
-          * **Часть запроса** — исключение будет применяться только к той части запроса, которая указана в параметрах. Остальной запрос будет проверяться в соответствии с настройками WAF-профиля.
+  1. {% include [waf-rule-traffic-conditions](../../_includes/smartwebsecurity/waf-rule-traffic-conditions.md) %}
 
-             В поле **Параметры исключений** выберите один или несколько параметров: `HTTP body`, `Cookie`, `HTTP header` или `Query params`. Для каждого параметра задайте значение. При необходимости включите опцию **Учитывать регистр**.
-
-             Чтобы добавить еще одно значение для параметра, нажмите ![plus-sign](../../_assets/console-icons/plus.svg) **или**.
-
-      1. {% include [waf-rule-traffic-conditions](../../_includes/smartwebsecurity/waf-rule-traffic-conditions.md) %}
-
-      1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - {{ TF }} {#tf}
 
