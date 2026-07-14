@@ -88,6 +88,10 @@ Workflows и EventRouter находятся на стадии <a href="../overvi
 
  - [Vector Store](operations/workflows/constructor/vectorstore.md)
 
+ - [OCR](operations/workflows/constructor/ocr.md)
+
+ - [Распознавание речи](operations/workflows/constructor/stt.md)
+
  - [Cloud Functions](operations/workflows/constructor/functioncall.md)
 
  - [Serverless Containers](operations/workflows/constructor/containercall.md)
@@ -345,6 +349,10 @@ Workflows и EventRouter находятся на стадии <a href="../overvi
  - [VectorStore](concepts/workflows/yawl/integration/vectorstore.md)
 
  - [DatabaseQuery](concepts/workflows/yawl/integration/databasequery.md)
+
+ - [OCR](concepts/workflows/yawl/integration/ocr.md)
+
+ - [STT](concepts/workflows/yawl/integration/stt.md)
 
 ##### Управляющие шаги
 

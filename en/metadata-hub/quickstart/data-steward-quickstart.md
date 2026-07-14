@@ -30,7 +30,7 @@ To get started:
 
 ## Required paid resources {#paid-resources}
 
-The cost of infrastructure support includes a fee for {{ mpg-full-name }} cluster computing resources, storage volume, and backups (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+The cost of infrastructure support includes a fee for {{ mpg-full-name }} cluster computing resources, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
 
 ## Getting started {#before-you-begin}
 
@@ -56,7 +56,7 @@ The cost of infrastructure support includes a fee for {{ mpg-full-name }} cluste
 - Management console
 
   1. In the [management console]({{ link-console-main }}), select the resource folder you [prepared earlier](#before-you-begin).
-  1. [Go](../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+  1. [Navigate](../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
   1. Click **{{ ui-key.yacloud.data-catalog.action_create-catalog }}**.
   1. Set a **{{ ui-key.yacloud.common.name }}** for the metadata catalog.

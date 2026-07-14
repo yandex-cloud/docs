@@ -114,7 +114,7 @@
 
 ## Установите Hugo с помощью Cloud Apps {#install-hugo}
 
-Установите [статический сайт](marketplace/products/yc/static-site) на Hugo с помощью Cloud Apps. Приложение развернет сайт в [Object Storage](../../storage/index.md) и настроит доступ по домену.
+Установите [статический сайт](https://yandex.cloud/ru/marketplace/products/yc/static-site) на Hugo с помощью Cloud Apps. Приложение развернет сайт в [Object Storage](../../storage/index.md) и настроит доступ по домену.
 
 {% list tabs group=instructions %}
 

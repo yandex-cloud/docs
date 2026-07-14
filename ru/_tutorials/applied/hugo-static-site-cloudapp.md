@@ -33,7 +33,7 @@
 
 ## Установите Hugo с помощью {{ cloud-apps-name }} {#install-hugo}
 
-Установите [статический сайт](marketplace/products/yc/static-site) на Hugo с помощью {{ cloud-apps-name }}. Приложение развернет сайт в [{{ objstorage-name }}](../../storage/) и настроит доступ по домену.
+Установите [статический сайт](/marketplace/products/yc/static-site) на Hugo с помощью {{ cloud-apps-name }}. Приложение развернет сайт в [{{ objstorage-name }}](../../storage/) и настроит доступ по домену.
 
 {% list tabs group=instructions %}
 

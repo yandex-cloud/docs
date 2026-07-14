@@ -256,7 +256,7 @@ Known issues when using a {{ MG }} endpoint:
 * [Source data cannot be sharded](#cannot-get-delimiters)
 * [Transfer failure with the `cursor.Decode` error](#invalid-length)
 
-For more troubleshooting tips, see [Troubleshooting](../../../troubleshooting/index.md).
+For the full list of recommendations, see [Troubleshooting](../../../troubleshooting/index.md).
 
 {% include [string-size](../../../../_includes/data-transfer/troubles/mongodb/string-size.md) %}
 

@@ -28,6 +28,8 @@
 * [Модели AI Studio](workflows/constructor/foundationmodelscall.md)
 * [Агент AI Studio](workflows/constructor/aistudioagent.md)
 * [Vector Store](workflows/constructor/vectorstore.md)
+* [OCR](workflows/constructor/ocr.md)
+* [Распознавание речи](workflows/constructor/stt.md)
 * [Cloud Functions](workflows/constructor/functioncall.md)
 * [Serverless Containers](workflows/constructor/containercall.md)
 * [Yandex Cloud Postbox](workflows/constructor/postbox.md)

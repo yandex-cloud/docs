@@ -39,7 +39,7 @@
 - Проверка в консоли управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором расположен инстанс Managed Service for Kubernetes.
-  1. В списке сервисов выберите **Managed Service for&nbsp;Kubernetes**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Убедитесь, что в [метках узлов Kubernetes](../../managed-kubernetes/concepts/index.md#node-labels) и [метках ресурсов сервисов Yandex Cloud](../../resource-manager/concepts/labels.md) нет критичных данных.
 
 {% endlist %}
@@ -199,13 +199,15 @@
 - Проверка в консоли управления {#console}
 
   Чтобы узнать список доступных версий для кластера Kubernetes:
-  1. Перейдите на страницу [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) и выберите сервис **Managed Service for&nbsp;Kubernetes**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите нужный [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Нажмите на имя нужного кластера Kubernetes.
   1. Нажмите кнопку **Редактировать** в правом верхнем углу.
   1. Получите список доступных версий в поле **Версия Kubernetes** блока **Конфигурация мастера**.
 
   Чтобы узнать список доступных версий для группы узлов Kubernetes:
-  1. Перейдите на страницу каталога и выберите сервис **Managed Service for&nbsp;Kubernetes**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите нужный [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Нажмите на имя нужного кластера Kubernetes и перейдите на вкладку **Управление узлами**.
   1. Выберите нужную группу узлов Kubernetes в списке и нажмите кнопку **Редактировать** в правом верхнем углу.
   1. Получите список доступных версий в поле **Версия Kubernetes**.

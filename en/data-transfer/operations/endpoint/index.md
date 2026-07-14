@@ -157,7 +157,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -249,7 +249,7 @@ You cannot change the endpoint type and the database type. For some endpoints, y
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -263,7 +263,7 @@ You cannot change the endpoint type and the database type. For some endpoints, y
 
   {% endnote %}
 
-  Use the [update](../../api-ref/Endpoint/update) API method, providing the following in your request:
+  Use the [update](../../api-ref/Endpoint/update) API method and provide the following in the request:
   * Endpoint ID in the `endpointId` parameter.
   * Endpoint name in the `name` parameter.
   * Endpoint description in the `description` parameter.

@@ -11,6 +11,8 @@
 * [Модели AI Studio](foundationmodelscall.md)
 * [Агент AI Studio](aistudioagent.md)
 * [Vector Store](vectorstore.md)
+* [OCR](ocr.md)
+* [Распознавание речи](stt.md)
 * [Cloud Functions](functioncall.md)
 * [Serverless Containers](containercall.md)
 * [Yandex Cloud Postbox](postbox.md)

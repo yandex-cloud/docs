@@ -295,7 +295,7 @@
   * Чтобы убедиться, что у вас используется защита от DDoS-атак на прикладном уровне:
 
       1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите проверить статус Smart Web Security.
-      1. В списке сервисов выберите **Smart Web Security**.
+      1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
       1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **Профили безопасности**.
       1. Убедитесь, что у вас есть созданные профили безопасности.
       1. Если профили безопасности есть, рекомендация выполняется. Если нет, перейдите к пункту «Инструкции и решения по выполнению».
@@ -412,7 +412,7 @@ Yandex Cloud Desktop — сервис для управления виртуал
 - Проверка в консоли управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы хотите проверить наличие [рабочих столов](../../cloud-desktop/concepts/desktops-and-groups.md).
-  1. В списке сервисов выберите **Cloud Desktop**.
+  1. [Перейдите](https://console.yandex.cloud/link/cloud-desktop) в сервис **Cloud Desktop**.
   1. На панели слева выберите ![image](../../_assets/console-icons/display.svg) **Рабочие столы**.
   1. Если в списке есть хотя бы один созданный рабочий стол, то рекомендация выполняется. В противном случае, переходите к п. «Инструкции и решения по выполнению».
 

@@ -65,8 +65,8 @@
    * В поле **{{ ui-key.yacloud.k8s.MaintenanceSection.maintenance-window-field-with-none-option_tx5Wn }}** настройте окно для обновлений:
      * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-disabled }}` — отключение автоматических обновлений.
      * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-anytime }}` — обновления разрешены в любое время.
-     * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-daily }}` — обновления будут происходить во временном интервале, указанном в поле **{{ ui-key.yacloud.k8s.clusters.create.field_maintenance-daily }}**.
-     * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-weekly }}` — обновления будут происходить во временном интервале, указанном в поле **{{ ui-key.yacloud.k8s.clusters.create.label_maintenance-weekly }}**.
+     * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-daily }}` — укажите начало и длительность интервала времени в UTC, в течение которого запустится обновление. Параметр не связан с длительностью самого обновления и временем его окончания.
+     * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-weekly }}` — укажите день, начало и длительность интервала времени в UTC, в течение которого запустится обновление. Параметр не связан с длительностью самого обновления и временем его окончания.
 1. В блоке **{{ ui-key.yacloud.k8s.clusters.create.section_allocation }}**:
    * (Опционально) Выберите [контроллер сетевых политик](../../managed-kubernetes/concepts/network-policy.md#policy-controllers):
 

@@ -130,7 +130,7 @@ The first one is service availability. Currently, {{ metastore-name }} only work
 
 Additionally, {{ metastore-name }} is only accessible via an internal VPC IP address and does not have a public DNS name. This provides additional security but requires all services connecting to {{ metastore-name }} to be in the same VPC or have configured network access.
 
-One more aspect to consider is network security. For {{ metastore-name }} to work properly, you need to configure security groups correctly to allow the required network traffic. Othewise clusters may indicate a `DEAD` state, which makes it difficult to diagnose issues (see [Security group setup guide](../../metadata-hub/operations/metastore/configure-security-group.md)).
+One more aspect to consider is network security. For {{ metastore-name }} to work properly, you need to configure security groups correctly to allow the required network traffic. Otherwise, the cluster may be shown as `DEAD`, which makes it difficult to diagnose issues (see the [security group setup guide](../../metadata-hub/operations/metastore/configure-security-group.md)).
 
 Learn more about {{ metastore-name }} in [this Apache® guide](https://cwiki.apache.org/confluence/display/hive/design#Design-Metastore).
 

@@ -319,7 +319,7 @@ To accelerate the delivery of large volumes of data to {{ CH }} from queues asso
 * [Lack of resources or increasing data latency](#pod-restarted).
 * [Data blocks limit exceeded](#partition-blocks).
 
-For more troubleshooting tips, see [Troubleshooting](../../../troubleshooting/index.md).
+For the full list of recommendations, see [Troubleshooting](../../../troubleshooting/index.md).
 
 {% include [no-new-tables](../../../../_includes/data-transfer/troubles/clickhouse/no-new-tables.md) %}
 

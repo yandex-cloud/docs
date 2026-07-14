@@ -1,0 +1,4 @@
+В блоке **{{ ui-key.yacloud.smart-web-security.WafProfileExclusionRuleForm.RulesSection.title_exclusion-rule-rules-section_cdWEW }}** выберите:
+  * **{{ ui-key.yacloud.smart-web-security.waf.value_exclude-all-yes }}** — исключение будет срабатывать для всех правил.
+    Используйте этот вариант, если нужно полностью отключить проверку выбранного трафика WAF-правилами. Например, если определенный эндпоинт принимает данные в формате, который стабильно вызывает ложные срабатывания.
+  * **{{ ui-key.yacloud.smart-web-security.waf.value_exclude-all-no }}** — исключение будет срабатывать для указанных правил. Нажмите **{{ ui-key.yacloud.smart-web-security.waf.action_exclusion-rule-add-rules }}** и выберите правила, вызывающие ложные срабатывания.

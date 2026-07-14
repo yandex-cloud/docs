@@ -293,7 +293,7 @@
   * Чтобы убедиться, что у вас используется защита от DDoS-атак на прикладном уровне:
 
       1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите проверить статус {{ sws-name }}.
-      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+      1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
       1. На панели слева выберите ![shield-check](../../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
       1. Убедитесь, что у вас есть созданные профили безопасности.
       1. Если профили безопасности есть, рекомендация выполняется. Если нет, перейдите к пункту «Инструкции и решения по выполнению».
@@ -410,7 +410,7 @@
 - Проверка в консоли управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите проверить наличие [рабочих столов](../../../cloud-desktop/concepts/desktops-and-groups.md).
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
+  1. [Перейдите]({{ link-console-main }}/link/cloud-desktop) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/display.svg) **{{ ui-key.yacloud.vdi.label_desktops }}**.
   1. Если в списке есть хотя бы один созданный рабочий стол, то рекомендация выполняется. В противном случае, переходите к п. «Инструкции и решения по выполнению».
 
