@@ -35,6 +35,7 @@
 [Selectel](https://selectel.ru) | M9 | 1 000 | - |
 [Юл-ком](https://ul-com.ru) | TEHNO | 10 000 | - |
 [NEXTREMUM](https://nextremum.net/ru) | TEHNO, M9 | 10 000 | - |
+[Телеком биржа](https://cirex.ru) | NORD | 1 000 | - |
 
 где:
 

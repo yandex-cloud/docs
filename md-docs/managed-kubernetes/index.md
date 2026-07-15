@@ -60,8 +60,6 @@
 
  - [Установка ExternalDNS c Webhook Cloud DNS](operations/applications/externaldns.md)
 
- - [Установка Falco](operations/applications/falco.md)
-
  - [Установка Filebeat OSS](operations/applications/filebeat-oss.md)
 
  - [Установка Fluent Bit](operations/applications/fluentbit.md)

@@ -155,7 +155,7 @@
    kubectl create namespace ns
    ```
 
-1. Создайте секрет `yc-auth` с ключом `sa-key.json`, который вы создали при [установке](#install-eso) External Secrets Operator:
+1. Создайте секрет `yc-auth` с ключом `sa-key.json`, который вы создали при [установке](#install-eso-lockbox) External Secrets Operator:
 
    ```bash
    kubectl --namespace ns create secret generic yc-auth \

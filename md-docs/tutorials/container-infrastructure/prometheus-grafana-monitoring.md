@@ -98,8 +98,8 @@ Prometheus Operator с поддержкой Monitoring упрощает уста
 1. Чтобы установить [Helm-чарт](https://helm.sh/docs/topics/charts/) с Prometheus Operator, выполните команду:
 
    ```bash
-   helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/prometheus/kube-prometheus-stack \
-     --version 72.6.2-1 \
+   helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/prometheus/charts/kube-prometheus-stack \
+     --version 86.2.3-1 \
      --untar && \
    helm install \
      --namespace <пространство_имен_для_Prometheus_Operator> \

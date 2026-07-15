@@ -174,12 +174,10 @@ Starboard Operator — это бесплатный инструмент, кот�
 
 Интеграция {{ lockbox-name }} с {{ k8s }} выполнена с помощью открытого проекта [External Secrets](https://external-secrets.io/latest/). Решение доступно в {{ marketplace-name }} в базовом упрощенном сценарии — [External Secrets Operator с поддержкой Yandex Lockbox](/marketplace/products/yc/external-secrets).
 
-
 Полезные инструкции по работе с External Secrets:
 
 * [инструкция](https://external-secrets.io/latest/provider/yandex-lockbox/) по работе с External Secrets и {{ lockbox-name }} из описания проекта;
 * [инструкция](../../lockbox/tutorials/kubernetes-lockbox-secrets.md) по работе с External Secrets и {{ lockbox-name }} из документации {{ yandex-cloud }}.
-
 
 [Описано](https://external-secrets.io/latest/guides/multi-tenancy/#eso-as-a-service) множество способов разделения доступа к секретам в рамках данного инструмента.
 
@@ -312,7 +310,7 @@ Starboard Operator — это бесплатный инструмент, кот�
 * Экспорт логов в {{ cloud-logging-name }} с использованием Fluent Bit описан в документации  [{{ managed-k8s-name }}](../../managed-kubernetes/tutorials/fluent-bit-logging.md).
 * Экспорт логов подов в Elastic или Splunk рассмотрен в [{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud-examples/yc-mk8s-osquery-kubequery/blob/main/README.md).
 
-В {{ marketplace-name }} доступны плагин Filebeat для передачи логов в Elastic и [Fluent Bit с плагином {{ cloud-logging-name }}](/marketplace/products/yc/fluent-bit).
+В {{ marketplace-name }} доступен [Fluent Bit с плагином {{ cloud-logging-name }}](/marketplace/products/yc/fluent-bit).
 
 ### Метрики {{ k8s }} {#kubernetes-metrics}
 

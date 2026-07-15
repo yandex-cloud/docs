@@ -134,8 +134,8 @@ Gwin — инструмент для управления балансировщ
     - Федерация сервисных аккаунтов {#wlif}
 
       ```bash
-      helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/gwin/gwin-chart \
-        --version v1.4.0 \
+      helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/gwin/charts/gwin-chart \
+        --version v1.8.1 \
         --untar \
       helm install \
         --namespace <пространство_имен> \
@@ -148,8 +148,8 @@ Gwin — инструмент для управления балансировщ
     - Авторизованный ключ {#authorized-key}
 
       ```bash
-      helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/gwin/gwin-chart \
-        --version v1.4.0 \
+      helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/gwin/charts/gwin-chart \
+        --version v1.8.1 \
         --untar \
       helm install \
         --namespace <пространство_имен> \

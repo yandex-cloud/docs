@@ -39,6 +39,8 @@ items:
         href: concepts/configuration.md
       - name: Уведомления об операциях с письмами
         href: concepts/notification.md
+      - name: Симулятор доставки писем
+        href: concepts/mail-simulator.md
       - name: Отслеживание открытия писем
         href: concepts/mail-opened.md
       - name: Отслеживание переходов по ссылкам в письмах
@@ -150,6 +152,10 @@ items:
                   aws-compatible-api/api-ref/delete-configuration-set-event-destination.md
           - name: Заголовки запросов
             href: aws-compatible-api/api-ref/request-headers.md
+      - name: SMTP
+        items:
+          - name: Ответы SMTP
+            href: api-ref/smtp-errors.md
   - name: Метрики {{ monitoring-name }}
     href: metrics.md
   - name: Аудитные логи {{ at-name }}

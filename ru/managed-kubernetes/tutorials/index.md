@@ -65,8 +65,8 @@ C помощью {{ managed-k8s-name }} вы можете работать с [�
 
 * [{#T}](marketplace/argo-cd.md)
 * [{#T}](marketplace/crossplane.md)
-* [{#T}](kubernetes-lockbox-secrets.md)
 * [{#T}](fluent-bit-logging.md)
+* [{#T}](kubernetes-lockbox-secrets.md)
 * [{#T}](marketplace/gateway-api.md)
 * [{#T}](alb-ingress-controller.md)
 * [{#T}](alb-ingress-controller-log-options.md)

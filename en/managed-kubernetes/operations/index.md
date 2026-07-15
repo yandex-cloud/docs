@@ -30,7 +30,6 @@ description: In this article, you will learn how to work with the managed servic
 * [{#T}](applications/crossplane.md)
 * [{#T}](applications/external-secrets-operator.md)
 * [{#T}](applications/externaldns.md)
-* [{#T}](applications/falco.md)
 * [{#T}](applications/filebeat-oss.md)
 * [{#T}](applications/fluentbit.md)
 * [{#T}](applications/gatekeeper.md)

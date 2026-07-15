@@ -69,14 +69,11 @@
 
 * [Шифрование секретов в Managed Service for Kubernetes](../tutorials/kms-k8s.md)
 * [Использование зашифрованных дисков для постоянных томов](../operations/volumes/encrypted-disks.md)
-
-
 * [Синхронизация с секретами Yandex Lockbox](../tutorials/kubernetes-lockbox-secrets.md)
+
 
 ## Полезные ссылки {#see-also}
 
 * [Установка HashiCorp Vault с поддержкой Key Management Service](../operations/applications/hashicorp-vault.md)
 * [Использование HashiCorp Vault для хранения секретов](../tutorials/marketplace/hashicorp-vault.md)
-* [Шифрование секретов в Managed Service for Kubernetes](../tutorials/kms-k8s.md)
 * [Установка External Secrets Operator с поддержкой Yandex Lockbox](../operations/applications/external-secrets-operator.md)
-* [Синхронизация с секретами Yandex Lockbox](../tutorials/kubernetes-lockbox-secrets.md)

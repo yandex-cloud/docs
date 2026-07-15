@@ -55,8 +55,6 @@ items:
             href: operations/applications/external-secrets-operator.md
           - name: Installing ExternalDNS with Webhook {{ dns-name }}
             href: operations/applications/externaldns.md
-          - name: Installing Falco
-            href: operations/applications/falco.md
           - name: Installing Filebeat OSS
             href: operations/applications/filebeat-oss.md
           - name: Installing Fluent Bit
