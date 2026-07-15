@@ -47,8 +47,8 @@
 
    ```bash
    cat sa-key.json | helm registry login cr.yandex --username 'json_key' --password-stdin && \
-   helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/fluent-bit/fluent-bit \
-     --version 4.2.3-1 \
+   helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/fluent-bit/charts/fluent-bit \
+     --version 5.0.0 \
      --untar && \
    helm install \
      --namespace <пространство_имен> \

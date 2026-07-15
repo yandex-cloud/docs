@@ -47,7 +47,7 @@ description: Из статьи вы узнаете, в каких сервиса
 
 ## Примеры использования {#examples}
 
-* [{#T}](../tutorials/kubernetes-lockbox-secrets.md)  
+* [{#T}](../tutorials/kubernetes-lockbox-secrets.md)
 * [{#T}](../tutorials/ci-cd-serverless.md)
 * [{#T}](../tutorials/static-key-in-lockbox/console.md)
 * [{#T}](../tutorials/websocket-app.md)

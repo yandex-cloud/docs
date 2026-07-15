@@ -2,7 +2,6 @@
 
 # Установка External Secrets Operator с поддержкой Yandex Lockbox
 
-
 [External Secrets Operator](https://yandex.cloud/ru/marketplace/products/yc/external-secrets) — оператор Kubernetes, который интегрирует внешние системы управления секретами, такие как [Yandex Lockbox](../../../lockbox/index.md), AWS Secrets Manager, Azure Key Vault, HashiCorp Vault, Google Secrets Manager и другие. Оператор считывает информацию из внешних [API](../../../glossary/rest-api.md) и автоматически вводит значения в Kubernetes Secret.
 
 External Secrets Operator с поддержкой Yandex Lockbox позволяет настроить синхронизацию [секретов Yandex Lockbox](../../../lockbox/concepts/secret.md) с [секретами](../../concepts/encryption.md) [кластера Managed Service for Kubernetes](../../concepts/index.md#kubernetes-cluster).
@@ -54,7 +53,7 @@ External Secrets Operator с поддержкой Yandex Lockbox позволя�
 
    ```bash
    helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/external-secrets/charts/external-secrets \
-     --version 2.5.0 \
+     --version 2.5.0-2 \
      --untar && \
    helm install \
      --namespace <пространство_имен> \

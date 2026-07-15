@@ -51,8 +51,6 @@ items:
             href: operations/applications/external-secrets-operator.md
           - name: Установка ExternalDNS c Webhook {{ dns-name }}
             href: operations/applications/externaldns.md
-          - name: Установка Falco
-            href: operations/applications/falco.md
           - name: Установка Filebeat OSS
             href: operations/applications/filebeat-oss.md
           - name: Установка Fluent Bit

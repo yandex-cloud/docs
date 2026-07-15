@@ -87,8 +87,8 @@
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Velero выполните команду, указав в ней параметры ресурсов, созданных [ранее](#before-you-begin):
 
    ```bash
-   helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/velero/chart/velero \
-        --version 8.5.0-5 \
+   helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/velero-yc-csi/charts/velero \
+        --version 12.1.0-2 \
         --untar && \
    helm install \
         --namespace velero \

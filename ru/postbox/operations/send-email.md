@@ -11,6 +11,12 @@ description: Следуя данной инструкции, вы сможете
 * с помощью [AWS SDK](#aws-sdk);
 * с помощью утилиты [cURL](#curl).
 
+{% note tip %}
+
+Чтобы проверить отправку без реального получателя, отправьте письмо на один из адресов [симулятора доставки](../concepts/mail-simulator.md).
+
+{% endnote %}
+
 {% include [tls](../../_includes/postbox/tls.md) %}
 
 ## Перед началом работы {#before-begin}

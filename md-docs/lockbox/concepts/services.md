@@ -44,7 +44,7 @@
 
 ## Примеры использования {#examples}
 
-* [Синхронизация с секретами Yandex Managed Service for Kubernetes](../tutorials/kubernetes-lockbox-secrets.md)  
+* [Синхронизация с секретами Yandex Managed Service for Kubernetes](../tutorials/kubernetes-lockbox-secrets.md)
 * [Построение пайплайна CI/CD с использованием serverless-продуктов](../tutorials/ci-cd-serverless.md)
 * [Использование секрета Yandex Lockbox для хранения статического ключа доступа с помощью CLI](../tutorials/static-key-in-lockbox/console.md)
 * [Создание интерактивного serverless-приложения с использованием WebSocket](../tutorials/websocket-app.md)

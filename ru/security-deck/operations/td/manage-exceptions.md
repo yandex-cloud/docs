@@ -27,10 +27,7 @@ description: В данном разделе вы узнаете, как в мо�
       Список исключений для правил модуля {{ td-full-name }} приведен в блоке **{{ td-full-name }}** и содержит следующие поля:
 
       * **{{ ui-key.yacloud_org.security.controls.ScopeFilterTable.field_reason_qN8a7 }}** — указанная пользователем при создании причина исключения.
-      * **ui-key.yacloud_org.security.controls.ScopeFilterTable.field_reason_qN8a7** — вариант действия для создаваемого исключения:
-
-          * `{{ ui-key.yacloud_org.security.controls.ScopeFilterTable.field_type_manual_mbKxp }}` — при соответствии заданным в исключении условиям ресурс будет генерировать сигналы о соответствии правилу.
-          * `{{ ui-key.yacloud_org.security.controls.ScopeFilterTable.field_type_exclude_cigcD }}` — при соответствии заданным в исключении условиям ресурс не будет генерировать сигналы о соответствии проверяемых ресурсов правилу.
+      * **{{ ui-key.yacloud_org.security.controls.ControlsExceptionTable.field_status }}** — статус исключения.
       * **{{ ui-key.yacloud_org.security.controls.ScopeFilterTable.field_rules_vBK4W }}** — количество правил, проверка на соответствие с которыми исключена. Чтобы посмотреть подробный список исключаемых правил, нажмите на строку с исключением.
       * **{{ ui-key.yacloud_org.security.controls.ScopeFilterTable.field_author_8hf4z }}** — информация о пользователе, создавшем исключение, а также о дате и времени создания.
 
