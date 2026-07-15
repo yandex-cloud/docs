@@ -27,7 +27,6 @@
 * [Установка Crossplane с поддержкой Yandex Cloud](applications/crossplane.md)
 * [Установка External Secrets Operator с поддержкой Yandex Lockbox](applications/external-secrets-operator.md)
 * [Установка ExternalDNS c Webhook Yandex Cloud DNS](applications/externaldns.md)
-* [Установка Falco](applications/falco.md)
 * [Установка Filebeat OSS](applications/filebeat-oss.md)
 * [Установка Fluent Bit с плагином для Yandex Cloud Logging](applications/fluentbit.md)
 * [Установка Gatekeeper](applications/gatekeeper.md)

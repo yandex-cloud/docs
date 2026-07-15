@@ -67,8 +67,8 @@ Metrics Provider транслирует метрики объектов [кла�
 
    ```bash
    cat sa-key.json | helm registry login cr.yandex --username 'json_key' --password-stdin && \
-   helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/metric-provider/chart/metric-provider \
-     --version 0.1.13 \
+   helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/metric-provider/charts/metric-provider \
+     --version 0.1.14 \
      --untar
    ```
 

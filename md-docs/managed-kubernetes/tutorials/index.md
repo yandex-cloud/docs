@@ -67,8 +67,8 @@ C помощью Managed Service for Kubernetes вы можете работат
 
 * [Интеграция с Argo CD](marketplace/argo-cd.md)
 * [Интеграция с Crossplane](marketplace/crossplane.md)
-* [Синхронизация с секретами Yandex Lockbox](kubernetes-lockbox-secrets.md)
 * [Настройка Fluent Bit для работы с Yandex Cloud Logging](fluent-bit-logging.md)
+* [Синхронизация с секретами Yandex Lockbox](kubernetes-lockbox-secrets.md)
 * [Настройка Gateway API](marketplace/gateway-api.md)
 * [Настройка L7-балансировщика Yandex Application Load Balancer с помощью Ingress-контроллера](alb-ingress-controller.md)
 * [Настройка логирования для L7-балансировщика Yandex Application Load Balancer с помощью Ingress-контроллера](alb-ingress-controller-log-options.md)

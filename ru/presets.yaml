@@ -434,7 +434,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart
-        tag: v0.2.26
+        tag: v0.2.27
     yc_argo-cd:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd
@@ -457,7 +457,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/cert-manager-webhook-yandex/cert-manager-webhook-yandex
-        tag: 1.0.9
+        tag: 1.0.11
     yc_chaos-mesh:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/chaos-mesh/chart/chaos-mesh
@@ -474,23 +474,19 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/external-secrets/charts/external-secrets
-        tag: 2.5.0
+        tag: 2.5.0-2
     yc_externaldns:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/externaldns/chart/externaldns
         tag: 0.5.1-b
-    yc_falco:
-      helmChart:
-        name: cr.yandex/yc-marketplace/falco
-        tag: 2.2.5
     yc_filebeat-oss:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/filebeat-oss/chart/filebeat-oss
         tag: 7.12.1-1
     yc_fluent-bit:
       helmChart:
-        name: cr.yandex/yc-marketplace/yandex-cloud/fluent-bit/fluent-bit
-        tag: 4.2.3-1
+        name: cr.yandex/yc-marketplace/yandex-cloud/fluent-bit/charts/fluent-bit
+        tag: 5.0.0
     yc_gatekeeper:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/gatekeeper/gatekeeper
@@ -512,8 +508,8 @@ default:
         tag: 0.54.1
     yc_gwin:
       helmChart:
-        name: cr.yandex/yc-marketplace/yandex-cloud/gwin/gwin-chart
-        tag: v1.4.0
+        name: cr.yandex/yc-marketplace/yandex-cloud/gwin/charts/gwin-chart
+        tag: v1.8.1
     yc_istio:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/istio/istio
@@ -539,8 +535,8 @@ default:
     yc_metric-provider:
       helmChart:
         name: >-
-          cr.yandex/yc-marketplace/yandex-cloud/metric-provider/chart/metric-provider
-        tag: 0.1.13
+          cr.yandex/yc-marketplace/yandex-cloud/metric-provider/charts/metric-provider
+        tag: 0.1.14
     yc_node-local-dns:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/node-local-dns
@@ -552,16 +548,17 @@ default:
         tag: 0.1.6
     yc_prometheus-operator:
       helmChart:
-        name: cr.yandex/yc-marketplace/yandex-cloud/prometheus/kube-prometheus-stack
-        tag: 72.6.2-1
+        name: >-
+          cr.yandex/yc-marketplace/yandex-cloud/prometheus/charts/kube-prometheus-stack
+        tag: 86.2.3-1
     yc_thumbor:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/thumbor/thumbor/chart/thumbor
         tag: 0.1.2-10
     yc_velero-yc-csi:
       helmChart:
-        name: cr.yandex/yc-marketplace/yandex-cloud/velero/chart/velero
-        tag: 8.5.0-5
+        name: cr.yandex/yc-marketplace/yandex-cloud/velero-yc-csi/charts/velero
+        tag: 12.1.0-2
   ml-platform-full-name: Yandex DataSphere
   ml-platform-name: DataSphere
   ml-platform-short-name: DataSphere
@@ -4622,6 +4619,7 @@ default:
             field_author_8hf4z: Создано
             field_reason_qN8a7: Причина исключения
             field_rules_vBK4W: Правила
+            field_scope_kCG8J: Ресурс
             field_type_exclude_cigcD: Проверка не требуется
             field_type_manual_mbKxp: Проверено вручную
         discovery:
@@ -6818,7 +6816,7 @@ default:
             button_open-add-notification-dialog: Добавить уведомление
           label_create_cloud: Создать облако
           quotas:
-            button_action-request: Повысить
+            button_action-request: Изменить
             column_usage: Использование
             label_pending-requests-title: Запросы в обработке
             label_quota-empty: Квота не выделена

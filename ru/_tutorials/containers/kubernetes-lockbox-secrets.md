@@ -1,5 +1,3 @@
-
-
 С помощью инструмента [External Secrets Operator](https://external-secrets.io/latest/provider/yandex-lockbox/) вы можете настроить синхронизацию [секретов](../../lockbox/concepts/secret.md) [{{ lockbox-name }}](../../lockbox/) с [секретами](../../managed-kubernetes/concepts/encryption.md) [кластера {{ managed-k8s-full-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
 
 Существует [несколько схем интеграции](https://external-secrets.io/latest/guides/multi-tenancy/) {{ lockbox-name }} с сервисом {{ managed-k8s-name }}. Далее для примера рассматривается схема [ESO as a Service](https://external-secrets.io/latest/guides/multi-tenancy/#eso-as-a-service):
@@ -123,7 +121,7 @@
    kubectl create namespace ns
    ```
 
-1. Создайте секрет `yc-auth` с ключом `sa-key.json`, который вы создали при [установке](#install-eso) External Secrets Operator:
+1. Создайте секрет `yc-auth` с ключом `sa-key.json`, который вы создали при [установке](#install-eso-lockbox) External Secrets Operator:
 
    ```bash
    kubectl --namespace ns create secret generic yc-auth \

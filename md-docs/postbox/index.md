@@ -46,6 +46,8 @@ Cloud Postbox позволяет не тратить бюджет и время 
 
  - [Уведомления об операциях с письмами](concepts/notification.md)
 
+ - [Симулятор доставки писем](concepts/mail-simulator.md)
+
  - [Отслеживание открытия писем](concepts/mail-opened.md)
 
  - [Отслеживание переходов по ссылкам в письмах](concepts/click-tracking.md)
@@ -145,6 +147,10 @@ Cloud Postbox позволяет не тратить бюджет и время 
  - [Метод DeleteConfigurationSetEventDestination](aws-compatible-api/api-ref/delete-configuration-set-event-destination.md)
 
  - [Заголовки запросов](aws-compatible-api/api-ref/request-headers.md)
+
+### SMTP
+
+ - [Ответы SMTP](api-ref/smtp-errors.md)
 
  - [Метрики Monitoring](metrics.md)
 

@@ -30,7 +30,6 @@ description: Из статьи вы узнаете, как работать с �
 * [{#T}](applications/crossplane.md)
 * [{#T}](applications/external-secrets-operator.md)
 * [{#T}](applications/externaldns.md)
-* [{#T}](applications/falco.md)
 * [{#T}](applications/filebeat-oss.md)
 * [{#T}](applications/fluentbit.md)
 * [{#T}](applications/gatekeeper.md)

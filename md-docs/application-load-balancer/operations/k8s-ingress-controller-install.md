@@ -93,7 +93,7 @@
    ```bash
    cat sa-key.json | helm registry login cr.yandex --username 'json_key' --password-stdin && \
    helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart \
-     --version v0.2.26 \
+     --version v0.2.27 \
      --untar && \
    helm install \
      --namespace <пространство_имен> \
