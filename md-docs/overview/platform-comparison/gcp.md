@@ -29,6 +29,7 @@
 | Cloud Memorystore | [Yandex Managed Service for Valkey™](../../managed-valkey/index.md) |
 | Cloud Pub/Sub | [Yandex Cloud Postbox](../../postbox/index.md)<br/>[Yandex Data Streams](../../data-streams/index.md)<br/>[Yandex Message Queue](../../message-queue/index.md)<br/>[Yandex Cloud Notification Service](../../notifications/index.md) |
 | Cloud Quotas | [Yandex Cloud Quota Manager](../../quota-manager/index.md) |
+| Cloud Router | [Yandex Cloud Router](../../cloud-router/index.md) |
 | Cloud Run | [Yandex Container Solution](../../cos/index.md)<br/>[Yandex Serverless Containers](../../serverless-containers/index.md) |
 | Cloud SDK | [Yandex Cloud CLI](../../cli/index.md) |
 | Cloud Search | [Yandex Search API](https://aistudio.yandex.ru/docs/ru/search-api/concepts) |

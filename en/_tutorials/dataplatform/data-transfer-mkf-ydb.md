@@ -37,6 +37,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
        1. [In the source cluster, create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `sensors`.
        1. [In the source cluster, create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions for the new topic.
 
+   
    - {{ TF }} {#tf}
 
        1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
@@ -55,17 +56,20 @@ If you no longer need the resources you created, [delete them](#clear-out).
            * {{ KF }} topic.
            * {{ KF }} user.
            * {{ ydb-name }} database.
+           * Service account for connecting to the {{ ydb-name }} database.
+           * {{ KF }} endpoint.
+           * {{ ydb-name }} endpoint.
            * Transfer.
 
-       1. In the `data-transfer-mkf-ydb.tf` file, specify these variables:
+       1. In the `data-transfer-mkf-ydb.tf` file, specify the following variables:
 
+           * `folder_id`: ID of the folder to create the required resources in.
            * `source_kf_version`: {{ KF }} version in the source cluster.
            * `source_user_name`: Username for connection to the {{ KF }} topic.
            * `source_user_password`: User password.
            * `target_db_name`: {{ ydb-name }} database name.
-           * `transfer_enabled`: `0` to ensure that no transfer is created before you [manually create the target endpoint](#prepare-transfer).
 
-       1. Validate your {{ TF }} configuration files using this command:
+       1. Make sure the {{ TF }} configuration files are correct using this command:
 
            ```bash
            terraform validate
@@ -78,6 +82,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
            {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
            {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+
 
    {% endlist %}
 
@@ -115,126 +120,124 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Prepare and activate a transfer {#prepare-transfer}
 
-1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
+{% list tabs group=instructions %}
 
-    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `YDB`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.title }}**:
+- Manually {#manual}
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.connection.title }}**:
-           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}**: Select the {{ ydb-name }} database from the list.
+    1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-           
-           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}**: Select an existing service account or create a new one with the `editor` role.
+        * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `YDB`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.title }}**:
+
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.connection.title }}**:
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}**: Select your {{ ydb-name }} database from the list.
+
+                
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}**: Select an existing service account or create a new one with the `ydb.editor` role.
 
 
-1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
+    1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Kafka`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.title }}**:
-       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
+        * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Kafka`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.title }}**:
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
 
-          Select your source cluster from the list and specify its connection settings.
-       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**.
-          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.format.title }}**: `JSON`.
-          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: You can specify a schema using one of these two methods:
-            * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.fields.title }}`.
+                Select your source cluster from the list and specify its connection settings.
 
-              Set a list of topic fields manually:
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**:
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.format.title }}**: `JSON`.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: You can specify a schema using one of these two methods:
 
-              | Name | Type | Key |
-              | :-- | :-- | :--- |
-              |`device_id`|`STRING`| Yes|
-              |`datetime` |`STRING`|  |
-              |`latitude` |`DOUBLE`|  |
-              |`longitude`|`DOUBLE`|  |
-              |`altitude` |`DOUBLE`|  |
-              |`speed`    |`DOUBLE`|  |
-              |`battery_voltage`| `DOUBLE`||
-              |`cabin_temperature`| `UINT16`||
-              | `fuel_level`|`UINT16`||
+                    * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.fields.title }}`.
 
-            * `JSON specification`.
+                        Set a list of topic fields manually:
 
-              Create and upload a data schema file in JSON format, `json_schema.json`:
+                       | Name                 | Type      | Key |
+                       |:--------------------|:---------|:-----|
+                       | `device_id`         | `STRING` | Yes   |
+                       | `datetime`          | `STRING` |      |
+                       | `latitude`          | `DOUBLE` |      |
+                       | `longitude`         | `DOUBLE` |      |
+                       | `altitude`          | `DOUBLE` |      |
+                       | `speed`             | `DOUBLE` |      |
+                       | `battery_voltage`   | `DOUBLE` |      |
+                       | `cabin_temperature` | `UINT16` |      |
+                       | `fuel_level`        | `UINT16` |      |
 
-              {% cut "json_schema.json" %}
+                    * `JSON specification`.
 
-              ```json
-              [
-                  {
-                      "name": "device_id",
-                      "type": "string",
-                      "key": true
-                  },
-                  {
-                      "name": "datetime",
-                      "type": "string"
-                  },
-                  {
-                      "name": "latitude",
-                      "type": "double"
-                  },
-                  {
-                      "name": "longitude",
-                      "type": "double"
-                  },
-                  {
-                      "name": "altitude",
-                      "type": "double"
-                  },
-                  {
-                      "name": "speed",
-                      "type": "double"
-                  },
-                  {
-                      "name": "battery_voltage",
-                      "type": "double"
-                  },
-                  {
-                      "name": "cabin_temperature",
-                      "type": "uint16"
-                  },
-                  {
-                      "name": "fuel_level",
-                      "type": "uint16"
-                  }
-              ]
-              ```
+                        Create and upload a data schema file in JSON format, `json_schema.json`:
 
-              {% endcut %}
+                        {% cut "json_schema.json" %}
 
-1. Create a transfer:
+                        ```json
+                        [
+                            {
+                                "name": "device_id",
+                                "type": "string",
+                                "key": true
+                            },
+                            {
+                                "name": "datetime",
+                                "type": "string"
+                            },
+                            {
+                                "name": "latitude",
+                                "type": "double"
+                            },
+                            {
+                                "name": "longitude",
+                                "type": "double"
+                            },
+                            {
+                                "name": "altitude",
+                                "type": "double"
+                            },
+                            {
+                                "name": "speed",
+                                "type": "double"
+                            },
+                            {
+                                "name": "battery_voltage",
+                                "type": "double"
+                            },
+                            {
+                                "name": "cabin_temperature",
+                                "type": "uint16"
+                            },
+                            {
+                                "name": "fuel_level",
+                                "type": "uint16"
+                            }
+                        ]
+                        ```
 
-    {% list tabs group=instructions %}
+                        {% endcut %}
 
-    - Manually {#manual}
+    1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**-type that will use the endpoints you created.
+    1. [Activate](../../data-transfer/operations/transfer.md#activate) the transfer.
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**-type that will use the endpoints you created.
-        1. [Activate](../../data-transfer/operations/transfer.md#activate) the transfer.
 
-    - {{ TF }} {#tf}
+- {{ TF }} {#tf}
 
-        1. In the `data-transfer-mkf-ydb.tf` file, specify the following variables:
+    1. In the `data-transfer-mkf-ydb.tf` file, set the `transfer_enabled` variable to `1` to create your endpoints and transfer.
 
-            * `source_endpoint_id`: Source endpoint ID.
-            * `target_endpoint_id`: Target endpoint ID.
-            * `transfer_enabled`: Set to `1` to create the transfer.
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
-        1. Validate your {{ TF }} configuration files using this command:
+        ```bash
+        terraform validate
+        ```
 
-            ```bash
-            terraform validate
-            ```
+        {{ TF }} will display any configuration errors detected in your files.
 
-            {{ TF }} will display any configuration errors detected in your files.
+    1. Create the required infrastructure:
 
-        1. Create the required infrastructure:
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-            {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+        The transfer will be activated automatically upon creation.
 
-            The transfer will be activated automatically upon creation.
 
-    {% endlist %}
+{% endlist %}
 
 ## Test the transfer {#verify-transfer}
 
@@ -330,26 +333,26 @@ Before deleting any resources, [deactivate the transfer](../../data-transfer/ope
 
 {% endnote %}
 
-To minimize resource consumption, delete the resources you no longer need:
+To reduce the consumption of resources, delete those you do not need:
 
-1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
-1. [Delete the source and target endpoints](../../data-transfer/operations/endpoint/index.md#delete).
+{% list tabs group=instructions %}
+
+- Manually {#manual}
+
+    1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
+    1. [Delete the source and target endpoints](../../data-transfer/operations/endpoint/index.md#delete).
+
+    
+    1. If you created a service account when creating the target endpoint, [delete it](../../iam/operations/sa/delete.md).
 
 
-1. If you created a service account when creating the target endpoint, [delete it](../../iam/operations/sa/delete.md).
+    1. [Delete the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
+    1. [Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
 
 
-1. Delete the other resources depending on how you created them:
+- {{ TF }} {#tf}
 
-   {% list tabs group=instructions %}
+    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
-   - Manually {#manual}
 
-       1. [Delete the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
-       1. [Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
-
-   - {{ TF }} {#tf}
-
-       {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
-
-   {% endlist %}
+{% endlist %}

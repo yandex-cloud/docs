@@ -9,6 +9,8 @@ description: Следуя данной инструкции, с помощью �
 
 Каждая ветка выполнения внутри шага While (с учетом всех шагов [Switch](./switch.md)) должна содержать [интеграционный шаг](./index.md#integration-steps) или шаг [Success](./success.md), [Fail](./fail.md) или [Wait](./wait.md).
 
+{% include [templating-note](../../../../_includes/serverless-integrations/templating-note.md) %}
+
 {% list tabs %}
 
 - Консоль управления {#console}

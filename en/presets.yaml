@@ -1038,6 +1038,12 @@ default:
         12-month: dn2tvhgbuvohlnad2k6x
         3-month: dn2srbkn5ce5cooadlam
         6-month: dn2jezaritxjqnxhtgln
+      ba-i312-s-1_10g:
+        1-day: dn2v3nzkyhevnkcjm6p3
+        1-month: dn2wekfztklezwxtqy2i
+        12-month: dn26hqkghwo62qlle6us
+        3-month: dn2bdzddffpjdd7uv6ul
+        6-month: dn2kb3iwp44nha6kdiwc
       ba-i407-s-10g:
         1-day: dn2ouvd21k0ibt7asnui
         1-month: dn23f47oub924jn942p9
@@ -1215,6 +1221,16 @@ default:
         6-month: dn2zrlohcdk7mq6w5ebw
       bms-publicannounce-pi-prefix-any:
         1-month: dn2waf73ew5izjrkgflw
+      bms-r162-body:
+        1-month: dn2zjp3yzaeu4wvlmiuf
+        12-month: dn2dhl4vasigq4j62aqk
+        3-month: dn2n5d7bs4a4xnz42gs2
+        6-month: dn25zde5xrtjfig2ci6p
+      bms-r163-body:
+        1-month: dn2suxupujdijkwjpanb
+        12-month: dn2pfigwksn2qw7idwcx
+        3-month: dn2yv2k3bb5v2q3umcyn
+        6-month: dn2mvfybussqrwlasrnd
       bms-ram3-128:
         1-month: dn2dspoxf6trcs7xcb3j
         12-month: dn2aljp6sqk57xc2qebu
@@ -3425,6 +3441,9 @@ default:
           idp_section_download_metadata_action: Download metadata file
           idp_section_title: Identity provider (IdP) configuration
           oauth_field_auth_endpoint: Authorization endpoint
+          oauth_field_auth_method_client_secret_basic: Client secret basic
+          oauth_field_auth_method_client_secret_post: Client secret post
+          oauth_field_authentication_methods: Authentication methods
           oauth_field_client_id: ClientID
           oauth_field_open_id: OpenID Configuration
           oauth_field_redirect_uri: Redirect URI
@@ -3432,6 +3451,7 @@ default:
           oauth_field_token_endpoint: Token endpoint
           oauth_field_user_info_endpoint: Userinfo endpoint
           oauth_idp_section_title: Identity provider (IdP) configuration
+          oauth_security_section_title: OAuth/OIDC security
           oauth_service_section_title: Service provider (SP) configuration
           saml_field_issuer: Issuer / IdP EntityID
           saml_field_login: Login URL
@@ -3758,6 +3778,9 @@ default:
             field-name_1VbM1: Name
             oauth-title_uUs4x: OIDC (OpenID Connect)
             saml-title_kyofk: SAML (Security Assertion Markup Language)
+            section-app-type_mbu85: Application type
+          AppEditPage:
+            field-require-pkce_9rAab: Require PKCE
           AppPageLayout:
             action_add_attribute: Add attribute
             action_add_group_attribute: Add group attribute
@@ -3774,6 +3797,7 @@ default:
           NameIdAttributeFormDialog:
             field_nameId_email_mqNDG: 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress '
             field_nameId_persistent_kZU3P: urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+          native-title_1VrmN: Native Application
           OauthAppEditForm:
             field-description_fcXBi: Description
             field-labels_kc4MN: Labels
@@ -3806,6 +3830,8 @@ default:
             signature-mode-assertions_thJgN: Assertions
             signature-mode-response_x7SKD: Response
             signature-mode-response-and-assertions_u2j6T: Assertions and Response
+          spa-title_1mhon: Single-Page Application
+          web-title_aeKTZ: Web Application
         billing:
           ChangeLimitsBlock:
             change_limit_action: Change limit
@@ -6323,6 +6349,7 @@ default:
               button_create_service-account-key: Create static access key
               button_create-key-popup: Create new key
               column_key_last-used-at: Date of last use
+              column_key_masked-secret: API key
               column_key_scope: Scope
               field_key-description: Description
               field_key-expires-at: Expires at
@@ -6826,6 +6853,7 @@ default:
             label_indexes: Suggested indexes
             label_interval-first: Interval 1
             label_interval-second: Interval 2
+            label_plan-text: Plan text
             label_profiling: Profiling
             label_queries: Queries
             label_sessions: Sessions
@@ -7126,6 +7154,10 @@ default:
           label_task-status-planned: Planned
           title_maintenance: Maintenance
           title_task-details: Task details
+        resources:
+          DiskAutoscalingFieldGroup:
+            field_autoscaling_fsAon: Increase size
+            field_disk-size-limit_bK9Ng: Maximum storage size
         shard-groups:
           button_add-group: Create shard group
       metadata-hub:
@@ -9724,6 +9756,13 @@ default:
         yds_properties_topic_view_spec_layout_title: Topic
         ymq_integration_title: Message Queue
         ymq_properties_queue_arn_view_spec_layout_title: ARN of the queue
+    yc-ui-ai-studio:
+      components:
+        LabelSet:
+          button_add-label_7L5iz: Add label
+      ui:
+        add-description_dYQ89: Add description
+        field_logging_qiiYa: Write logs
     yc-ui-datasphere:
       alias:
         private: Private

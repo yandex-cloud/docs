@@ -52,7 +52,7 @@ Added the `managed-mongodb.restorer` role for restoring clusters from backups. T
 
 ## April 2025 {#apr-2025}
 
-* Added support for {{ MG }} 8.0. To learn how to update your cluster to the latest version, see [{#T}](operations/cluster-version-update.md).
+* Added support for {{ MG }} 8.0. To learn how to update a cluster to the latest version, see [{#T}](operations/cluster-version-update.md).
 * Added support for [restoring sharded clusters from backups](operations/cluster-backups.md#restore).
 
 
@@ -71,7 +71,7 @@ Added support for [setting a retention period for automatic backups](operations/
 
 ## September 2024 {#sep-2024}
 
-Added support for {{ MG }} version 7.0. To learn how to update your cluster to the latest version, see [{#T}](operations/cluster-version-update.md).
+Added support for {{ MG }} version 7.0. To learn how to update a cluster to the latest version, see [{#T}](operations/cluster-version-update.md).
 
 ## February 2024 {#feb-2024}
 

@@ -44,7 +44,9 @@ Storing backups in {{ mmy-name }}:
 
 * In an existing cluster, you can set up the retention period for automatic backups ranging from 7 (default) to 60 days. Manual backups are stored with no time limit.
 
-* After you delete a cluster, all its backups are kept for seven days.
+* After you delete a cluster, all its backups are kept for seven days, including those created manually. Backup storage during this period is free of charge.
+
+* {% include [manual-backup-delete-restriction](../../_includes/mdb/backups/manual-backup-delete-restriction.md) %}
 
 * {% include [no-quotes-no-limits](../../_includes/mdb/backups/no-quotes-no-limits.md) %}
 
@@ -54,7 +56,7 @@ Storing backups in {{ mmy-name }}:
 
 ## Recovery from a backup {#capabilities}
 
-Restoring a cluster from a backup creates a new cluster with that backup’s data. If your folder lacks [resources](../concepts/limits.md) to create such a cluster, you will not be able to recover it from a backup. The average backup recovery speed is 10 MBps per database core.
+Restoring a cluster from a backup creates a new cluster with that backup’s data. If your folder lacks [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup. The average backup recovery speed is 10 MBps per database core.
 
 When restored to the current point in time, the new cluster will reflect the state of:
 

@@ -45,7 +45,7 @@ When creating a cluster, specify:
     * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
 
 
-You can access a cluster created in a folder from any VM in the same cloud network. For more information about networking, see [this {{ vpc-name }} guide](../../vpc/).
+You can access a cluster created in a folder from any VM in the same cloud network. For more on how the network operates, see [this {{ vpc-name }} guide](../../vpc/).
 
 
 {% include [monitoring-access](../../_includes/mdb/monitoring-access.md) %}

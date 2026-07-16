@@ -423,6 +423,8 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 
 Имя события | Описание
 --- | ---
+`AddCluster` | Добавление кластера
+`DeleteCluster` | Удаление кластера
 `TriggerAdmissionControl` | Срабатывание [модуля](../../security-deck/concepts/kspm.md) KSPM при проверке создаваемых и изменяемых ресурсов
 `TriggerInventoryControlBatch` | Срабатывание модуля KSPM при пакетной проверке конфигурации
 `TriggerInventoryControlEvent` | Срабатывание модуля KSPM при проверке конфигурации по событию

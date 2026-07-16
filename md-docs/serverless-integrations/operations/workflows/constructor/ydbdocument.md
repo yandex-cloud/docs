@@ -2,6 +2,12 @@
 
 # Взаимодействие с документными таблицами в базе данных Yandex Managed Service for YDB
 
+{% note tip %}
+
+В интерфейсе Yandex AI Studio некоторые поля отмечены значком ![image](../../../../_assets/console-icons/curly-brackets.svg). В таких полях можно указывать [шаблоны](../../../concepts/workflows/templating.md) и динамически получать данные из предыдущих шагов рабочего процесса. Чтобы не писать шаблон вручную, нажмите ![image](../../../../_assets/console-icons/curly-brackets.svg) или введите в поле `{{`.
+
+{% endnote %}
+
 {% list tabs %}
 
 - Консоль управления {#console}

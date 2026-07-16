@@ -202,7 +202,7 @@ To view detailed information on the state of individual {{ mgp-name }} hosts, re
 
 {% endlist %}
 
-## PXF monitoring {#monitoring-pxf}
+## {{ ui-key.yacloud.greenplum.cluster.pxf.value_pxf }} dashboard {#monitoring-pxf}
 
 To view detailed information about the [PXF](external-tables.md) state:
 
@@ -220,18 +220,60 @@ To view detailed information about the [PXF](external-tables.md) state:
 
     The page displays the following charts:
 
-    * **Liveness**: PXF state on hosts.
-    * **JVM memory**: JVM PXF memory usage, in GB.
-    * **JVM threads**: Number of JVM PXF threads.
-    * **Connections**: Number of connections.
-    * **PXF threads**: Number of PXF threads.
-    * **PXF Busy threads**: Number of busy PXF threads.
-    * **Log messages**: Number of messages of the `warn`, `trace`, `info`, `fatal`, `error`, and `debug` types.
-    * **Sent data**: Amount of sent data.
-    * **Received data**: Amount of received data.
-    * **File handles**: Number of files opened during the PXF process.
-    * **Sent records**: Number of records sent by PXF.
-    * **Received records**: Number of records received by PXF.
+    * **Signals**:
+        * **Availability**: PXF service availability over the last five minutes.
+        * **Memory Utilization**: Indicates RAM usage by the PXF service.
+        * **CPU Utilization**: Indicates CPU usage by the PXF service.
+
+    * **Overview**: General metrics of the PXF service:
+        * **Unavailable instances**: Unavailable PXF instances.
+        * **Max Memory Usage**: Maximum RAM usage across all PXF instances.
+        * **Total OOM Events**: Total number of out-of-memory events on all PXF instances over a period of time.
+        * **Max CPU Usage**: Maximum CPU usage across all PXF instances.
+        * **Max PXF Threads Usage**: Maximum number of busy and running PXF threads across all instances.
+        * **Total Log Events By Level**: Total number of `warn`, `error`, and `fatal` log events across all PXF instances.
+        * **Total Sent And Received Data**: Total size of data exchanged by the PXF data sources and the database per second.
+        * **Total Sent And Received Records**: Total number of records exchanged by the PXF data sources and the database per second.
+        * **Total Read And Write Requests**: Total number of read and write requests from the database to the data source per second.
+        * **Max Read And Write Requests Latency**: Maximum latency of read and write requests.
+
+    * **By host statistics**: Metrics broken down by hosts:
+        * **Top 10 Hosts By Memory Usage**: Top ten hosts by PXF service RAM usage.
+        * **OOM Events By Hosts**: Number of out-of-memory events on each PXF instance for a period of time.
+        * **Top 10 Hosts By CPU Usage**: Top ten hosts by PXF service CPU usage.
+        * **Top 10 Hosts By PXF Current Threads Usage**: Top ten PXF instances by number of running threads.
+        * **Top 10 Hosts By Busy PXF Threads Usage**: Top ten PXF instances by number of busy threads.
+        * **Top 10 Hosts By Fatal Log Events**: Top ten hosts by number of `fatal` log events in PXF logs.
+        * **Top 10 Hosts By Error Log Events**: Top ten hosts by number of `error` log events in PXF logs.
+        * **Top 10 Hosts By Warn Log Events**: Top ten hosts by number of `warn` log events in PXF logs.
+        * **Top 10 Hosts By Sent Data**: Top ten hosts by amount of data sent from PXF data sources to the database per second.
+        * **Top 10 Hosts By Received Data**: Top ten hosts by amount of data received by PXF data sources from the database per second.
+        * **Top 10 Hosts By Sent Records**: Top ten hosts by number of records sent from the PXF data source to the database per second.
+        * **Top 10 Hosts By Received Records**: Top ten hosts by number of records received by PXF data sources from the database per second.
+        * **Top 10 Hosts By Read Requests**: Top ten hosts by number of read requests from the database to the PXF data source per second.
+        * **Top 10 Hosts By Write Records**: Top ten hosts by number of write requests from the database to the PXF data source per second.
+        * **Top 10 Hosts By Read Requests Latency**: Top ten hosts by latency of read requests from the database to the PXF data source.
+        * **Top 10 Hosts By Write Requests Latency**: Top ten hosts by latency of write requests from the database to the PXF data source.
+
+    * **By server statistics**: Metrics broken down by PXF data sources:
+        * **Top 10 Servers By Sent Data**: Top ten PXF data sources by amount of data sent to the database per second.
+        * **Top 10 Servers By Received Data**: Top ten PXF data sources by amount of data received from the database per second.
+        * **Top 10 Servers By Sent Records**: Top ten PXF data sources by number of records sent to the database per second.
+        * **Top 10 Servers By Received Records**: Top ten PXF data sources by number of records received from the database per second.
+        * **Top 10 Servers By Read Requests**: Top ten PXF data sources by number of read requests to the database per second.
+        * **Top 10 Servers By Write Requests**: Top ten PXF data sources by number of write requests to the database per second.
+        * **Top 10 Servers By Read Requests Latency**: Top ten PXF data sources by database read request latency.
+        * **Top 10 Servers By Write Requests Latency**: Top ten PXF data sources by database write request latency.
+
+    * **By user statistics**: Metrics broken down by users:
+        * **Top 10 Users By Sent Data**:Top ten users by amount of data sent from PXF data sources to the database per second.
+        * **Top 10 Users By Received Data**: Top ten users by amount of data received by PXF data sources from the database per second.
+        * **Top 10 Users By Sent Records**: Top ten users by number of records sent from the PXF data source to the database per second.
+        * **Top 10 Users By Received Records**: Top ten users by number of records received by PXF data sources from the database per second.
+        * **Top 10 Users By Read Requests**: Top ten users by number of read requests from the database to the PXF data source per second.
+        * **Top 10 Users By Write Records**: Top ten users by number of write requests from the database to the PXF data source per second.
+        * **Top 10 users By Read Requests Latency**: Top ten users by latency of read requests from the database to the PXF data source.
+        * **Top 10 Users By Write Requests Latency**: Top ten users by latency of write requests from the database to the PXF data source.
 
 {% endlist %}
 
@@ -298,7 +340,7 @@ To configure state indicator alerts for a [cluster](#monitoring-cluster) and [ho
   1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select:
       * **{{ mgp-name }} — Cluster Overview** to configure cluster alerts.
       * **{{ mgp-name }} — Host Overview** to configure host alerts.
-  1. In the indicator chart, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+  1. On the indicator chart of interest, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
   1. If the chart shows multiple metrics, select the data query to generate the metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. For more on the query language, see [this {{ monitoring-full-name }} guide](../../monitoring/concepts/querying.md).
   1. Set the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` thresholds for notifications.
   1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.

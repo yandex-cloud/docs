@@ -39,7 +39,7 @@ Module features:
 * Quick filtering and searching through the nested structure.
 * Integration with ACL and support of permissions at the JSON command level.
 
-Examples of commands available in a cluster with the Valkey-JSON module installed: `JSON.SET`, `JSON.GET`, `JSON.ARRINSERT`, `JSON.ARRLEN`. See the [full list of available commands](https://valkey.io/commands/#json).
+Examples of commands available in a cluster with the Valkey-JSON module installed: `JSON.SET`, `JSON.GET`, `JSON.ARRINSERT`, `JSON.ARRLEN`. [Full list of available commands](https://valkey.io/commands/#json).
 
 For more on employing the module, see [this official guide](https://valkey.io/topics/valkey-json/).
 

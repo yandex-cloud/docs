@@ -43,7 +43,7 @@ To deactivate an authentication policy, follow these steps:
 
 #### Useful links {#see-also}
 
-* [{#T}](../../concepts/applications.md)
+* [{#T}](../../concepts/applications/index.md)
 * [{#T}](../../concepts/authentication-policy.md)
 * [{#T}](./create.md)
 * [{#T}](./update.md)

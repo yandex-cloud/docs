@@ -1,12 +1,12 @@
 ---
 title: Access management in {{ mmy-full-name }}
-description: Access management in the {{ MY }} database creation and management service. This section describes the resources you can assign a role for, the roles this service has, and the roles required for specific actions.
+description: Access management in the {{ MY }} database creation and management service. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
 ---
 
 # Access management in {{ mmy-name }}
 
 
-In this section, you will learn about the following:
+In this section, you will learn about:
 
 * [Resources you can assign a role for](#resources).
 * [Roles this service has](#roles-list).

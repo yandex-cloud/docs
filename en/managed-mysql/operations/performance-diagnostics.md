@@ -42,7 +42,7 @@
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](cluster-create.md).
+        For information on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. To enable and configure statistics collection, add the `performance_diagnostics` section to the cluster configuration:
 
@@ -150,7 +150,7 @@
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-    1. To enable the collection of statistics when creating a cluster:
+    1. To enable collection of statistics when creating a cluster:
 
         1. Use the [ClusterService/Create](../api-ref/grpc/Cluster/create.md) method and add the `config_spec.performance_diagnostics` parameter to the [gRPCurl cluster creation command](cluster-create.md#grpc-api):
 
@@ -184,7 +184,7 @@
 
         1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
-    1. To enable the collection of statistics when updating an existing cluster:
+    1. To enable collection of statistics when updating an existing cluster:
 
         1. Call the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
@@ -311,4 +311,4 @@ Statistic metric | Unit | Description
 **Errors** | Count | Number of query execution errors
 **Warnings** | Count | Number of query execution warnings
 
-For more information about the statistics you can get, see [this {{ MY }} article](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-events-statements-current-table.html).
+To learn more about the displayed statistics, see [this {{ MY }} guide](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-events-statements-current-table.html).

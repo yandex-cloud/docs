@@ -132,6 +132,8 @@
 
  - [Управление доступом к кластеру](operations/metastore/cluster-access.md)
 
+ - [Техническое обслуживание](operations/metastore/cluster-maintenance.md)
+
  - [Удаление кластера](operations/metastore/cluster-delete.md)
 
 ### Практические руководства
@@ -153,6 +155,8 @@
  - [Кластеры Apache Hive™ Metastore](concepts/metastore.md)
 
  - [Имперсонация в Apache Hive™ Metastore](concepts/metastore-impersonation.md)
+
+ - [Техническое обслуживание](concepts/metastore-maintenance.md)
 
  - [Сервисные роли для управления доступом](security/metastore-roles.md)
 

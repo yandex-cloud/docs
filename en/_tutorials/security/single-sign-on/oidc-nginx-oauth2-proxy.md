@@ -4,7 +4,7 @@ Some applications have no built-in support for single sign-on (SSO). However, yo
 
 In this guide, you will use the [OAuth2 Proxy](https://oauth2-proxy.github.io/oauth2-proxy/) utility combined with a reverse proxy to integrate a simple application with {{ org-full-name }} and restrict access to it exclusively to specified {{ org-full-name }} users via [OpenID Connect](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) (OIDC)-based single sign-on.
 
-This guide uses [nginx](https://nginx.org/en/) as the proxy server and a static HTML page as the test application. To enable your {{ org-full-name }} users to access the test application, you will create and configure an [OIDC app](../../../organization/concepts/applications.md#oidc). Additionally, you will need a {{ compute-full-name }} [VM instance](../../../compute/concepts/vm.md) to run `nginx` and `OAuth2 Proxy` and host your test application. Furthermore, to implement secure access to the test application, you will need a domain name and an SSL certificate issued for it.
+This guide uses [nginx](https://nginx.org/en/) as the proxy server and a static HTML page as the test application. To enable your {{ org-full-name }} users to access the test application, you will create and configure an [OIDC app](../../../organization/concepts/applications/oidc.md). Additionally, you will need a {{ compute-full-name }} [VM instance](../../../compute/concepts/vm.md) to run `nginx` and `OAuth2 Proxy` and host your test application. Furthermore, to implement secure access to the test application, you will need a domain name and an SSL certificate issued for it.
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
 
@@ -28,6 +28,7 @@ To configure application access for your {{ org-full-name }} users, do the follo
   1. In the top-right corner, click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** and in the window that opens:
 
       1. Select the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.oauth-title_uUs4x }}** single sign-on method.
+      1. {% include [org-oidc-app-select-web-type-step](../../../_tutorials/_tutorials_includes/org-oidc-app-select-web-type-step.md) %}
       1. In the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** field, specify a name for your new app: `website-oidc-app`.
       1. In the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-folder_rANM4 }}** field, select the folder where you want to create an OAuth client for your app.
       1. Optionally, in the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-description_kzkNB }}** field, enter a description for the new app.
@@ -38,7 +39,7 @@ To configure application access for your {{ org-full-name }} users, do the follo
           1. Press **Enter**.
       1. Click **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
   1. In the window that opens, on the **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** tab, under **{{ ui-key.yacloud_org.application.overview.idp_section_title }}**, copy and save the `{{ ui-key.yacloud_org.application.overview.oauth_field_client_id }}` value representing the unique OAuth client ID. You will need this value later when setting up `OAuth2 Proxy`.
-  1. Create an [app secret](../../../organization/concepts/applications.md#oidc-secret):
+  1. Create an [app secret](../../../organization/concepts/applications/oidc.md#oidc-secret):
   
       {% include [oidc-generate-secret](../../../_includes/organization/oidc-generate-secret.md) %}
 
@@ -556,7 +557,7 @@ Also, in your cloud network, [create](../../../vpc/operations/security-group-cre
         * `cookie_secret`: Cookie secret you generated and saved earlier.
         * `email_domains`: List of email domains for which {{ org-full-name }} user authentication in the test app is allowed.
 
-            `OAuth2 Proxy` checks the email domain specified in the `{{ ui-key.yacloud_org.page.user.field_user-email }}` field of the user's settings in {{ org-full-name }} (the `email` [attribute](../../../organization/concepts/applications.md#oidc-attributes)).
+            `OAuth2 Proxy` checks the email domain specified in the `{{ ui-key.yacloud_org.page.user.field_user-email }}` field of the user's settings in {{ org-full-name }} (the `email` [attribute](../../../organization/concepts/applications/oidc.md#oidc-attributes)).
 
             In the `email_domains` field, specify the email domain of the user you previously added to your OIDC app. If you added a user group to the OIDC app, specify the email domain of a group user on whose behalf you will test authentication. You can specify multiple domains, comma-separated.
 

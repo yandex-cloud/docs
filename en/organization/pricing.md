@@ -37,7 +37,7 @@ You can [manage](#pricing-management) {{ org-full-name }} billing through the [{
 
 ## {{ org-full-name }} billing management {#pricing-management}
 
-With [SAML](./concepts/applications.md#saml) and [OIDC](./concepts/applications.md#oidc) apps, {{ org-full-name }} users can authenticate in [external applications](./tutorials/single-sign-on/index.md), such as [Grafana Cloud](https://grafana.com/products/cloud/), [Zabbix](https://www.zabbix.com), etc. Connecting {{ org-full-name }} users to external applications is [billable](#rules). You can [manage](./operations/manage-billing.md) {{ org-full-name }} billing through the [{{ cloud-center }} interface]({{ link-org-cloud-center }}).
+With [SAML](./concepts/applications/saml.md) and [OIDC](./concepts/applications/oidc.md) apps, {{ org-full-name }} users can authenticate in [external applications](./tutorials/single-sign-on/index.md), such as [Grafana Cloud](https://grafana.com/products/cloud/), [Zabbix](https://www.zabbix.com), etc. Connecting {{ org-full-name }} users to external applications is [billable](#rules). You can [manage](./operations/manage-billing.md) {{ org-full-name }} billing through the [{{ cloud-center }} interface]({{ link-org-cloud-center }}).
 
 To manage {{ org-full-name }} billing and use its billable features, link a [billing account](../billing/concepts/billing-account.md) to {{ org-full-name }}.
 

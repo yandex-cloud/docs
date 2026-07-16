@@ -31,4 +31,4 @@ This error may occur during external replication using the [master host's specif
    START SLAVE;
    ```
 
-If the master host in the source cluster changes, the replication will be reconfigured to use the new master host. For more information about configurations, see [this {{ MY }} article](https://dev.mysql.com/doc/refman/8.0/en/change-master-to.html).
+If the master host in the source cluster changes, the replication will be reconfigured to use the new master host. Read more about the setting in [this {{ MY }} guide](https://dev.mysql.com/doc/refman/8.0/en/change-master-to.html).

@@ -11,7 +11,7 @@ The initial grant can be issued to an individual or legal entity owned by the sa
 * Have not activated the [trial period](../billing/concepts/trial-period.md).
 
 
-The initial grant terms of use are different for individual and business accounts. Learn more about grants in the [{{ billing-name }} documentation](../billing/concepts/bonus-account.md).
+The initial grant terms of use are different for individual and business accounts. Learn more about grants in [this {{ billing-name }} guide](../billing/concepts/bonus-account.md).
 
 {% include [grant-support](../_includes/billing/grant-support.md) %}
 

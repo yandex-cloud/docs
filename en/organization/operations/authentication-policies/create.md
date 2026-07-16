@@ -22,7 +22,7 @@ To create an authentication policy:
   1. Click **{{ ui-key.yacloud_org.organization.security-settings.auth-policies-create-policy-action }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a [name](*policy_name) for the policy.
   1. Optionally, provide the policy description in the **{{ ui-key.yacloud.common.description }}** field.
-  1. Optionally, set [labels](*labels) for the policy in the **{{ ui-key.yacloud.common.labels }}** field.
+  1. Optionally, set policy [labels](*labels) in the **{{ ui-key.yacloud.common.labels }}** field.
   1. Make sure the **{{ ui-key.yacloud_org.form.auth-policy.caption.active }}** option is enabled.
   1. Set the policy **{{ ui-key.yacloud_org.organization.security-settings.AuthPolicyForm.section_title_scope_b9vbe }}**:
 
@@ -38,7 +38,7 @@ To create an authentication policy:
 
 #### Useful links {#see-also}
 
-* [{#T}](../../concepts/applications.md)
+* [{#T}](../../concepts/applications/index.md)
 * [{#T}](../../concepts/authentication-policy.md)
 * [{#T}](./activate-deactivate.md)
 * [{#T}](./update.md)
@@ -49,4 +49,4 @@ To create an authentication policy:
 * It can only contain lowercase Latin letters, numbers, and hyphens.
 * It must start with a letter and cannot end with a hyphen.
 
-[*labels]: Labels are `key:value` pairs you can use to logically group your resources. For more information, see [{#T}](../../../resource-manager/concepts/labels.md).
+[*labels]: Labels are `key:value` pairs you can use to organize resources into logical groups. For more information, see [{#T}](../../../resource-manager/concepts/labels.md).

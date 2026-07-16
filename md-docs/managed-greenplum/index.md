@@ -212,7 +212,11 @@ Greenplum<sup>®</sup> — аналитическая колоночная ма�
 
  - [Настройки СУБД](concepts/settings-list.md)
 
- - [Отличия Apache Cloudberry™ от Greenplum®](concepts/cloudberry-vs-greenplum/breaking-changes.md)
+### Отличия Apache Cloudberry™ от Greenplum®
+
+ - [Почему выбирают Apache Cloudberry™](concepts/cloudberry-vs-greenplum/why-cloudberry.md)
+
+ - [Обратно несовместимые изменения в Apache Cloudberry™](concepts/cloudberry-vs-greenplum/breaking-changes.md)
 
  - [Управление доступом](security/index.md)
 

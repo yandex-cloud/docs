@@ -100,7 +100,7 @@ Create the required resources:
         * `username` and `password`: Database owner username and password.
         * Names and versions of {{ PG }} extensions used in Amazon RDS. To list all required extensions, uncomment and copy the `extension` section.
 
-    1. Validate your {{ TF }} configuration files using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -185,7 +185,7 @@ In {{ mpg-name }} clusters, subscriptions can be used by the database owner, i.e
 
     {% endnote %}
 
-    For details on creating subscriptions, see [this {{ PG }} article]({{ pg-docs }}/sql-createsubscription.html).
+    To learn more about creating subscriptions, see [this {{ PG }} guide]({{ pg-docs }}/sql-createsubscription.html).
 
 1. To get the replication status, check the `pg_subscription_rel` folders:
 
@@ -213,7 +213,7 @@ To complete synchronization between the source and target clusters:
 
     Note the `*.*_seq` pattern we use. If your source database has sequences that do not match this pattern, use a different pattern to export them.
 
-    To learn more about patterns, see [this {{ PG }} article]({{ pg-docs }}/app-psql.html#APP-PSQL-PATTERNS).
+    To learn more about patterns, see [these {{ PG }} guides]({{ pg-docs }}/app-psql.html#APP-PSQL-PATTERNS).
 
 1. Restore the dump containing database sequences into your target cluster:
 

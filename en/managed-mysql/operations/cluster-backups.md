@@ -516,7 +516,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
   {{ TF }} will create the new cluster. The databases and users will be deployed from the backup.
 
-  For more information, see [this {{ TF }} provider guide]({{ tf-provider-mmy }}).
+  For more on the properties of the `yandex_mdb_mysql_cluster` resource, see [this provider guide]({{ tf-provider-mmy }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
@@ -731,7 +731,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [this {{ TF }} provider article]({{ tf-provider-mmy }}).
+  For more on the properties of the `yandex_mdb_mysql_cluster` resource, see [this provider guide]({{ tf-provider-mmy }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
@@ -871,9 +871,9 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create such a file, see [Creating a cluster](cluster-create.md).
+        To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-        For a complete list of configurable {{ mmy-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
+        For a complete list of configurable {{ mmy-name }} cluster fields, see [this provider guide]({{ tf-provider-mpg }}).
 
     1. To set the retention period for automatic backups, add the `backup_retain_period_days` section to the {{ mmy-name }} cluster description:
 
@@ -892,7 +892,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [this {{ TF }} provider guide]({{ tf-provider-mmy }}).
+  For more on the properties of the `yandex_mdb_mysql_cluster` resource, see [this provider guide]({{ tf-provider-mmy }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 

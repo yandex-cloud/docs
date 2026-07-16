@@ -9,6 +9,7 @@ After creating a cluster, you can:
 
 * [Change the host class](#change-resource-preset).
 * [Change the disk type and expand the storage capacity](#change-disk-size).
+* [Set up automatic storage expansion](#disk-size-autoscale).
 * [Configure](#change-mongod-config) {{ SD }} servers as per the {{ MG }} documentation.
 * [Configure advanced cluster settings](#change-additional-settings).
 * [Move the cluster](#move-cluster) to another folder.
@@ -163,10 +164,10 @@ We recommend changing the host class only when the cluster is idle.
           --header "Content-Type: application/json" \
           --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>' \
           --data '{
-                    "updateMask": "configSpec.mongodb.<Yandex_StoreDoc_host_type>.resources.resourcePresetId",
+                    "updateMask": "configSpec.mongodb.<host_type>.resources.resourcePresetId",
                     "configSpec": {
                       "mongodb": {
-                        "<Yandex_StoreDoc_host_type>": {
+                        "<host_type>": {
                           "resources": {
                             "resourcePresetId": "<host_class>"
                           }
@@ -182,7 +183,7 @@ We recommend changing the host class only when the cluster is idle.
 
           Here, we provide only one setting.
 
-      * `configSpec.mongodb.<Yandex_StoreDoc_host_type>.resources.resourcePresetId`: New [host class](../concepts/instance-types.md).
+      * `configSpec.mongodb.<host_type>.resources.resourcePresetId`: New [host type](../concepts/instance-types.md).
 
         The {{ SD }} host type depends on the [sharding type](../concepts/sharding.md). The possible values are `mongod`, `mongocfg`, `mongos`, and `mongoinfra`. For a non-sharded cluster, use `mongod`.
 
@@ -212,12 +213,12 @@ We recommend changing the host class only when the cluster is idle.
                 "cluster_id": "<cluster_ID>",
                 "update_mask": {
                   "paths": [
-                    "config_spec.mongodb.<Yandex_StoreDoc_host_type>.resources.resource_preset_id"
+                    "config_spec.mongodb.<host_type>.resources.resource_preset_id"
                   ]
                 },
                 "config_spec": {
                   "mongodb": {
-                    "<Yandex_StoreDoc_host_type>": {
+                    "<host_type>": {
                       "resources": {
                         "resource_preset_id": "<host_class>"
                       }
@@ -235,7 +236,7 @@ We recommend changing the host class only when the cluster is idle.
 
           Here, we provide only one setting.
 
-      * `config_spec.mongodb.<Yandex_StoreDoc_host_type>.resources.resource_preset_id`: New host class.
+      * `config_spec.mongodb.<host_type>.resources.resource_preset_id`: New host type.
       
         The {{ SD }} host type depends on the [sharding type](../concepts/sharding.md). The possible values are `mongod`, `mongocfg`, `mongos`, and `mongoinfra`. For a non-sharded cluster, use `mongod`.
 
@@ -372,10 +373,10 @@ We recommend changing the host class only when the cluster is idle.
           --header "Content-Type: application/json" \
           --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>' \
           --data '{
-                    "updateMask": "configSpec.mongodb.<Yandex_StoreDoc_host_type>.resources.diskTypeId,configSpec.mongodb.<Yandex_StoreDoc_host_type>.resources.diskSize",
+                    "updateMask": "configSpec.mongodb.<host_type>.resources.diskTypeId,configSpec.mongodb.<host_type>.resources.diskSize",
                     "configSpec": {
                       "mongodb": { 
-                        "<Yandex_StoreDoc_host_type>": {
+                        "<host_type>": {
                           "resources": {
                             "diskTypeId": "<disk_type>",
                             "diskSize": "<storage_size_in_bytes>"
@@ -390,7 +391,7 @@ We recommend changing the host class only when the cluster is idle.
 
       * `updateMask`: Comma-separated string of settings to update.
       
-      * `configSpec.mongodb.<Yandex_StoreDoc_host_type>.resources`: Storage settings:
+      * `configSpec.mongodb.<host_type>.resources`: Storage parameters:
 
           * `diskTypeId`: [Disk type](../concepts/storage.md).
           * `diskSize`: New storage size in bytes.
@@ -423,13 +424,13 @@ We recommend changing the host class only when the cluster is idle.
                 "cluster_id": "<cluster_ID>",
                 "update_mask": {
                   "paths": [
-                    "config_spec.mongodb.<Yandex_StoreDoc_host_type>.resources.disk_type_id",
-                    "config_spec.mongodb.<Yandex_StoreDoc_host_type>.resources.disk_size"
+                    "config_spec.mongodb.<host_type>.resources.disk_type_id",
+                    "config_spec.mongodb.<host_type>.resources.disk_size"
                   ]
                 },
                 "config_spec": {
                   "mongodb": {
-                    "<Yandex_StoreDoc_host_type>": {
+                    "<host_type>": {
                       "resources": {
                         "disk_type_id": "<disk_type>",
                         "disk_size": "<storage_size_in_bytes>"
@@ -446,7 +447,7 @@ We recommend changing the host class only when the cluster is idle.
 
       * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
-      * `config_spec.mongodb.<Yandex_StoreDoc_host_type>.resources.disk_size`: Storage settings:
+      * `config_spec.mongodb.<host_type>.resources.disk_size`: Storage parameters:
 
           * `disk_type_id`: [Disk type](../concepts/storage.md).
           * `disk_size`: New storage size in bytes.
@@ -454,6 +455,291 @@ We recommend changing the host class only when the cluster is idle.
         The {{ SD }} host type depends on the [sharding type](../concepts/sharding.md). The possible values are `mongod`, `mongocfg`, `mongos`, and `mongoinfra`. For a non-sharded cluster, use `mongod`.
 
       You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+{% endlist %}
+
+## Set up automatic storage expansion {#disk-size-autoscale}
+
+{% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
+
+For more information about storage and autoscaling, see the [relevant section](../concepts/storage.md#auto-rescale).
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  To set up automatic storage expansion:
+
+  1. Open the [folder dashboard]({{ link-console-main }}).
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
+  1. Depending on the [sharding type](../concepts/sharding.md#shard-management) you select, go to the section of the cluster resources you need to update: **Resources**, **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongod-resources_ncXUZ }}**, **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongoinfra-resources_13TPT }}**, **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongocfg-resources_1cuU2 }}**, or **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongos-resources_wBGnr }}**.
+  1. Optionally, under **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}**, specify the following settings:
+
+      * In the **{{ ui-key.yacloud.mdb.resources.DiskAutoscalingFieldGroup.field_autoscaling_fsAon }}** field, set the conditions for automatic storage expansion:
+
+          * Storage usage percentage to trigger storage expansion during the next [maintenance window](../concepts/maintenance.md#maintenance-window).
+          * Storage usage percentage to trigger its immediate expansion.
+
+          If both conditions are set, the percentage in the first condition must be lower than in the second one.
+
+          For more information on the storage expansion criteria, see [this section](../concepts/storage.md#auto-rescale).
+
+      * In the **{{ ui-key.yacloud.mdb.resources.DiskAutoscalingFieldGroup.field_disk-size-limit_bK9Ng }}** field, specify the maximum storage size that can be set during autoscaling.
+
+      {% note info %}
+
+      If you have set a condition to enable storage expansion during the maintenance window, set the maintenance time under **{{ ui-key.yacloud.mdb.forms.section_additional }}**.
+
+      {% endnote %}
+
+  1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  To set up automatic storage expansion:
+
+  1. View the description of the CLI command for updating a cluster:
+
+      ```bash
+      {{ yc-mdb-mg }} cluster update --help
+      ```
+
+  1. Run the following command, specifying the settings for automatic storage expansion:
+
+      ```bash
+      {{ yc-mdb-mg }} cluster create \
+         ...
+         --disk-size-autoscaling <host_type>-planned-usage-threshold=<scheduled_expansion_percentage>,`
+                                `<host_type>-emergency-usage-threshold=<immediate_expansion_percentage>,`
+                                `<host_type>-disk-size-limit=<maximum_storage_size_in_GB> \
+         ...
+      ```
+
+      Where:
+
+      * `<host_type>`: [Host type](../concepts/host-roles.md) to configure a storage for. The possible values are `mongod`, `mongocfg`, `mongos`, and `mongoinfra`.
+
+      * `<host_type>-planned-usage-threshold`: Storage usage percentage to trigger a storage expansion during the next [maintenance window](../concepts/maintenance.md#maintenance-window).
+
+        Use a value between `0` and `100`%. The default value is `0`, i.e., automatic expansion is disabled.
+
+        If you set this option, configure the maintenance time.
+
+      * `<host_type>-emergency-usage-threshold`: Storage usage percentage to trigger an immediate storage expansion.
+
+        Use a value between `0` and `100`%. The default value is `0`, i.e., automatic expansion is disabled.
+
+        {% note info %}
+
+        If both options are set, the percentage for planned expansion must be lower than the threshold for immediate expansion.
+
+        {% endnote %}
+
+      * `<host_type>-disk-size-limit`: Maximum storage size after expansion, in GB.
+
+
+- {{ TF }} {#tf}
+
+  To set up automatic storage expansion:
+
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
+
+      To learn how to create this file, see [Creating a cluster](cluster-create.md).
+
+  1. Add or modify the section with settings for the relevant host type in the {{ mmg-name }} cluster description.
+
+     Type of host | Section name
+     --- | ---
+     `MONGOD` | `disk_size_autoscaling_mongod`
+     `MONGOINFRA` | `disk_size_autoscaling_mongoinfra`
+     `MONGOS` | `disk_size_autoscaling_mongos`
+     `MONGOCFG` | `disk_size_autoscaling_mongocfg`
+
+     You can specify one or multiple sections.
+
+      Here is an example:
+
+      ```hcl
+      resource "yandex_mdb_mongodb_cluster" "<cluster_name>" {
+        ...
+        disk_size_autoscaling_mongod {
+          planned_usage_threshold   = "<scheduled_expansion_percentage>"
+          emergency_usage_threshold = "<immediate_expansion_percentage>"
+          disk_size_limit           = "<maximum_storage_size_in_GB>"
+        }
+      }
+      ```
+
+      Where:
+
+      * `planned_usage_threshold` (optional): Storage usage percentage to trigger a storage expansion during the next [maintenance window](../concepts/maintenance.md#maintenance-window).
+
+        Use a value between `0` and `100`%. The default value is `0`, i.e., automatic expansion is disabled.
+
+        If you set this condition, [configure](#change-additional-settings) the maintenance schedule.
+
+      * `emergency_usage_threshold` (optional): Storage usage percentage to trigger an immediate storage expansion.
+
+        Use a value between `0` and `100`%. The default value is `0`, i.e., automatic expansion is disabled.
+
+        {% note info %}
+
+        If both options are set, the percentage for planned expansion must be lower than the threshold for immediate expansion.
+
+        {% endnote %}
+
+      * `disk_size_limit`: Maximum storage size after expansion, in GB.
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm updating the resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-mmg }}).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
+
+
+- REST API {#api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+      ```bash
+      curl \
+          --request PATCH \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --header "Content-Type: application/json" \
+          --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>' \
+          --data '{
+                    "updateMask": "configSpec.mongodb.<host_type>.diskSizeAutoscaling",
+                    "configSpec": {
+                      "mongodb": { 
+                        "<host_type>": {
+                          "diskSizeAutoscaling": {
+                            "plannedUsageThreshold": "<scheduled_expansion_percentage>",
+                            "emergencyUsageThreshold": "<immediate_expansion_percentage>",
+                            "diskSizeLimit": "<maximum_storage_size_in_GB>"
+                          }  
+                        }
+                      }
+                    }
+                  }'
+      ```             
+
+      Where:
+
+      * `updateMask`: Comma-separated string of settings to update.
+
+      * `<host_type>`: [Host type](../concepts/host-roles.md) to configure a storage for. The possible values are `mongod`, `mongocfg`, `mongos`, and `mongoinfra`.
+      
+      * `configSpec.mongodb.<host_type>.diskSizeAutoscaling`: Settings for automatic storage expansion.
+
+        * `plannedUsageThreshold`: Storage usage percentage to trigger a storage expansion during the next [maintenance window](../concepts/maintenance.md#maintenance-window).
+
+          Use a value between `0` and `100`%. The default value is `0`, i.e., automatic expansion is disabled.
+
+          If you set this condition, [configure](#change-additional-settings) the maintenance schedule.
+
+        * `emergencyUsageThreshold`: Storage usage percentage to trigger an immediate storage expansion.
+
+          Use a value between `0` and `100`%. The default value is `0`, i.e., automatic expansion is disabled.
+
+          {% note info %}
+
+          If both options are set, the percentage for planned expansion must be lower than the threshold for immediate expansion.
+
+          {% endnote %}
+
+        * `diskSizeLimit`: Maximum storage size after expansion, in GB.
+
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mongodb/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<cluster_ID>",
+                "update_mask": {
+                  "paths": [
+                    "config_spec.mongodb.<host_type>.disk_size_autoscaling"
+                  ]
+                },
+                "config_spec": {
+                  "mongodb": {
+                    "<host_type>": {
+                      "disk_size_autoscaling": {
+                        "planned_usage_threshold": "<scheduled_expansion_percentage>",
+                        "emergency_usage_threshold": "<immediate_expansion_percentage>",
+                        "disk_size_limit": "<maximum_storage_size_in_GB>"
+                      }
+                    }
+                  }
+                }
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.mongodb.v1.ClusterService.Update
+      ```
+
+      Where:
+
+      * `update_mask`: List of settings to update as an array of strings (`paths[]`).
+
+      * `<host_type>`: [Host type](../concepts/host-roles.md) to configure a storage for. The possible values are `mongod`, `mongocfg`, `mongos`, and `mongoinfra`.
+
+      * `config_spec.mongodb.<host_type>.disk_size_autoscaling`: Settings for automatic storage expansion.
+
+        * `planned_usage_threshold`: Storage usage percentage to trigger a storage expansion during the next [maintenance window](../concepts/maintenance.md#maintenance-window).
+
+          Use a value between `0` and `100`%. The default value is `0`, i.e., automatic expansion is disabled.
+
+          If you set this condition, [configure](#change-additional-settings) the maintenance schedule.
+
+        * `emergency_usage_threshold`: Storage usage percentage to trigger an immediate storage expansion.
+
+          Use a value between `0` and `100`%. The default value is `0`, i.e., automatic expansion is disabled.
+
+          {% note info %}
+
+          If both options are set, the percentage for planned expansion must be lower than the threshold for immediate expansion.
+
+          {% endnote %}
+
+        * `disk_size_limit`: Maximum storage size after expansion, in GB.
+
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -513,10 +799,10 @@ You can change the DBMS settings for your cluster hosts.
           --header "Content-Type: application/json" \
           --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>' \
           --data '{
-                    "updateMask": "configSpec.mongodb.<Yandex_StoreDoc_host_type>.config.<setting_1>,configSpec.mongodb.<Yandex_StoreDoc_host_type>.config.<setting_2>,...,configSpec.mongodb.<Yandex_StoreDoc_host_type>.config.<setting_N>",
+                    "updateMask": "configSpec.mongodb.<host_type>.config.<setting_1>,configSpec.mongodb.<host_type>.config.<setting_2>,...,configSpec.mongodb.<host_type>.config.<setting_N>",
                     "configSpec": {
                       "mongodb": {    
-                        "<Yandex_StoreDoc_host_type>": {
+                        "<host_type>": {
                           "config": {
                             "<setting_1>": "<value_1>",
                             "<setting_2>": "<value_2>",
@@ -533,7 +819,7 @@ You can change the DBMS settings for your cluster hosts.
 
       * `updateMask`: Comma-separated string of settings to update.
 
-      * `configSpec.mongodb.<Yandex_StoreDoc_host_type>.config`: List of {{ SD }} settings. Enter each setting on a new line, separated by commas. All supported settings are described in the [API reference](../api-ref/Cluster/update.md) and in [{#T}](../concepts/settings-list.md).
+      * `configSpec.mongodb.<host_type>.config`: List of {{ SD }} settings. Enter each setting on a new line, separated by commas. All supported settings are described in the [API reference](../api-ref/Cluster/update.md) and in [{#T}](../concepts/settings-list.md).
 
         The {{ SD }} host type depends on the [sharding type](../concepts/sharding.md). The possible values are `mongod`, `mongocfg`, `mongos`, and `mongoinfra`. For a non-sharded cluster, use `mongod`.
 
@@ -563,15 +849,15 @@ You can change the DBMS settings for your cluster hosts.
                 "cluster_id": "<cluster_ID>",
                 "update_mask": {
                   "paths": [
-                    "config_spec.mongodb.<Yandex_StoreDoc_host_type>.config.<setting_1>",
-                    "config_spec.mongodb.<Yandex_StoreDoc_host_type>.config.<setting_2>",
+                    "config_spec.mongodb.<host_type>.config.<setting_1>",
+                    "config_spec.mongodb.<host_type>.config.<setting_2>",
                     ...
-                    "config_spec.mongodb.<Yandex_StoreDoc_host_type>.config.<setting_N>"
+                    "config_spec.mongodb.<host_type>.config.<setting_N>"
                   ]
                 },
                 "config_spec": {
                   "mongodb": {    
-                    "<Yandex_StoreDoc_host_type>": {
+                    "<host_type>": {
                       "config": {
                         "<setting_1>": "<value_1>",
                         "<setting_2>": "<value_2>",
@@ -590,7 +876,7 @@ You can change the DBMS settings for your cluster hosts.
 
       * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
-      * `config_spec.mongodb.<Yandex_StoreDoc_host_type>.config`: List of {{ SD }} settings. Enter each setting on a new line, separated by commas. All supported settings are described in the [API reference](../api-ref/grpc/Cluster/update.md) and in [{#T}](../concepts/settings-list.md).
+      * `config_spec.mongodb.<host_type>.config`: List of {{ SD }} settings. Enter each setting on a new line, separated by commas. All supported settings are described in the [API reference](../api-ref/grpc/Cluster/update.md) and in [{#T}](../concepts/settings-list.md).
 
         The {{ SD }} host type depends on the [sharding type](../concepts/sharding.md). The possible values are `mongod`, `mongocfg`, `mongos`, and `mongoinfra`. For a non-sharded cluster, use `mongod`.
 

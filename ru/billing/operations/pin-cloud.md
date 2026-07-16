@@ -23,18 +23,31 @@ description: Следуя данной инструкции, вы сможете
 
 - {{ billing-interface }} {#billing}
 
-  1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
-  1. Выберите платежный аккаунт, к которому хотите привязать облако.
-  1. На панели слева выберите ![image](../../_assets/console-icons/cloud.svg) **{{ ui-key.yacloud_org.billing.account.entities.label_title }}**.
-  1. Нажмите ![image](../../_assets/console-icons/link.svg) **{{ ui-key.yacloud_billing.billing.account.bind-cloud.button_bind }}** в верхнем правом углу страницы.
+   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+   1. Выберите платежный аккаунт, к которому хотите привязать облако.
+   1. Перейдите к привязке облака или сервиса одним из способов:
 
-     ![image](../../_assets/billing/billing-pin-cloud-1-4.png)
-  
-  1. В поле **{{ ui-key.yacloud_org.billing.account.entities.label_type }}** выберите нужный тип сущности из списка, а затем — ресурс, который хотите привязать к платежному аккаунту.
-  1. Нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.bind-cloud.button_bind }}** — добавленное облако или сервис появится в списке.
-  1. Погасите задолженность на старом платежном аккаунте, если перепривязали облако.
+       * В блоке **{{ ui-key.yacloud_billing.billing.account.dashboard-resources.title_section-billable }}** раздела ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_org.billing.account.switch_overview }}** нажмите кнопку ![alt text](../../_assets/console-icons/link.svg) **{{ ui-key.yacloud_billing.billing.account.bind-cloud.button_bind }}**.
 
-     ![image](../../_assets/billing/billing-pin-cloud-5-6.png) 
+         {% cut "Шаги в интерфейсе" %}
+
+         ![image](../../_assets/billing/pin-cloud-account.png)
+
+         {% endcut %}
+
+       * На панели слева выберите ![image](../../_assets/console-icons/cloud.svg) **{{ ui-key.yacloud_org.billing.account.entities.label_title }}**. В верхнем правом углу страницы нажмите ![image](../../_assets/console-icons/link.svg) **{{ ui-key.yacloud_billing.billing.account.bind-cloud.button_bind }}**.
+
+         {% cut "Шаги в интерфейсе" %}
+
+         ![image](../../_assets/billing/pin-cloud-billable-entities.png)
+
+         {% endcut %}
+
+     1. В поле **{{ ui-key.yacloud_org.billing.account.entities.label_type }}** выберите нужный тип сущности из списка, а затем — ресурс, который хотите привязать к платежному аккаунту.
+     1. Нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.bind-cloud.button_bind }}** — добавленное облако или сервис появится в списке.
+     1. Погасите задолженность на старом платежном аккаунте, если перепривязали облако.
+
+         ![image](../../_assets/billing/pin-cloud-billable-entities-window.png)
 
 - {{ TF }} {#tf}
 
@@ -78,19 +91,30 @@ description: Следуя данной инструкции, вы сможете
 
 ## Как проверить привязку облака {#check-binding}
 
-Чтобы проверить привязку облака или сервиса к платежному аккаунту:
+Проверить привязку облака или сервиса к платежному аккаунту можно двумя способами:
 
-{% list tabs group=instructions %}
+  {% list tabs %}
 
-- {{ billing-interface }} {#billing}
+  - Через Аккаунт
+
+    1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+    1. Выберите платежный аккаунт, к которому привязали новое облако или сервис.
   
-  1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
-  1. Выберите платежный аккаунт, к которому привязали новое облако или сервис.
-  1. На панели слева выберите ![image](../../_assets/console-icons/cloud.svg) **{{ ui-key.yacloud_org.billing.account.entities.label_title }}**.
+        В блоке **{{ ui-key.yacloud_billing.billing.account.dashboard-resources.title_section-billable }}** отображаются тип и количество привязанных ресурсов.
 
-  В списке должна появиться новая строка с идентификатором привязанного облака или сервиса.
+    1. Для получения более подробной информации о привязанных ресурсах нажмите на ресурс или ![alt text](../../_assets/console-icons/chevron-right.svg) **{{ ui-key.yacloud.common.action_show-all }}**.
 
-{% endlist %}
+      Отобразится список всех привязанных облаков и сервисов.
+
+  - Через Облака и сервисы
+
+    1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+    1. Выберите платежный аккаунт, к которому привязали новое облако или сервис.
+    1. На панели слева выберите ![image](../../_assets/console-icons/cloud.svg) **{{ ui-key.yacloud_org.billing.account.entities.label_title }}**.
+
+      Отобразится список всех привязанных облаков и сервисов.
+
+  {% endlist %}
 
 ## Особенности управления ресурсами в организациях {#bind-cloud-organization}
 

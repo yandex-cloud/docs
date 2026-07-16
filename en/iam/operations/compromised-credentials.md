@@ -110,3 +110,5 @@ You can learn more about the support terms [here](../../support/overview.md).
 1. Make sure secrets are separated from the source code. This will help you avoid adding them to public repositories, such as GitHub, along with the code and making them vulnerable.
 1. [Manage secrets in your cloud](../../security/standard/encryption.md).
 1. [Collect, monitor, and analyze audit logs](../../security/standard/audit-logs.md).
+
+

@@ -9,14 +9,14 @@ The host class determines the computing power allocated for each host in a clust
 
 {% note info %}
 
-The amount of memory allocated to a host also depends on the `maxmemory` configuration parameter for {{ RD }} hosts: the maximum amount of data equals {{ mrd-memory-used }} of available memory. For more information, see [Memory management](../memory-management.md).
+The amount of memory allocated to a host also depends on the `maxmemory` configuration parameter for {{ RD }} hosts: the maximum amount of data equals {{ mrd-memory-used }} of available memory. To learn more, see [Memory management](../memory-management.md).
 
 {% endnote %}
 
 
 The host class determines the available [disk types](.././storage.md):
 
-* **hm1**:`network-ssd`, `local-ssd`.
+* **hm1**: `network-ssd`, `local-ssd`.
 * **hm2**: `network-ssd`, `local-ssd`, `network-ssd-nonreplicated`.
 * **hm3**: `network-ssd`, `network-ssd-nonreplicated`.
 * **b1**, **b2**, **b3**: `network-ssd`.

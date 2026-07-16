@@ -8,9 +8,11 @@ description: Follow this guide to update an OIDC application in {{ org-full-name
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
 
+{% include [oidc-app-types-ui-notice](../../../_includes/organization/oidc-app-types-ui-notice.md) %}
+
 ## Update the app's basic settings {#update-basic-settings}
 
-To update the [OIDC app's](../../concepts/applications.md#oidc) basic settings:
+To update the [OIDC app's](../../concepts/applications/oidc.md) basic settings:
 
 {% list tabs group=instructions %}
 
@@ -107,7 +109,7 @@ To update the [OIDC app's](../../concepts/applications.md#oidc) basic settings:
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the {{ TF }} configuration file, edit the [OIDC application](../../concepts/applications.md#oidc) settings:
+  1. In the {{ TF }} configuration file, edit the [OIDC application](../../concepts/applications/oidc.md) settings:
 
     ```hcl
     resource "yandex_organizationmanager_idp_application_oauth_application" "example_oidc_app" {
@@ -135,7 +137,7 @@ To update the [OIDC app's](../../concepts/applications.md#oidc) basic settings:
     Where:
 
     * `application_id`: OIDC app ID. This is a required setting.
-    * `organization_id`: [ID of the organization](../organization-get-id.md) the OIDC application belongs to. This is a required setting.
+    * `organization_id`: [ID of the organization](../organization-get-id.md) the OIDC application resides in. This is a required setting.
     * `--name`: New name for the OIDC app. The name must be unique within the organization and follow the naming requirements:
 
       {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
@@ -293,9 +295,37 @@ To update the service provider configuration in an OIDC app:
 
 {% endlist %}
 
-## Updating an app's secret {#update-secret}
+## Update the application security settings {#update-secret}
 
-There is no way you can view or update an app’s [secret](../../concepts/applications.md#oidc-secret). Instead, you can generate a new one:
+{% note info %}
+
+You can only manage security settings in OIDC apps of the `{{ ui-key.yacloud_org.organization.apps.web-title_aeKTZ }}` [type](*oidc_app_type).
+
+{% endnote %}
+
+To update an OIDC app's security settings:
+
+{% list tabs group=instructions %}
+
+- {{ cloud-center }} UI {#cloud-center}
+
+  1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
+  1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and select the OIDC app.
+  1. At the top right, click ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. {% include [oidc-app-update-security-settings](../../../_includes/organization/oidc-app-update-security-settings.md) %}
+  1. Click **{{ ui-key.yacloud.common.save }}**.
+
+{% endlist %}
+
+### Updating an app's secret {#update-secret}
+
+{% note info %}
+
+You can only manage secrets in OIDC apps of the `{{ ui-key.yacloud_org.organization.apps.web-title_aeKTZ }}` [type](*oidc_app_type).
+
+{% endnote %}
+
+There is no way you can view or update an app’s [secret](../../concepts/applications/oidc.md#oidc-secret). Instead, you can generate a new one:
 
 {% list tabs group=instructions %}
 
@@ -387,5 +417,7 @@ Update the list of your [organization's](../../concepts/organization.md) users w
 * [{#T}](./oidc-create.md)
 * [{#T}](./oidc-deactivate-remove.md)
 * [{#T}](../add-account.md)
-* [{#T}](../../concepts/applications.md#oidc)
+* [{#T}](../../concepts/applications/oidc.md)
 * [{#T}](../manage-groups.md)
+
+[*oidc_app_type]: OIDC app type in {{ org-full-name }} (`{{ ui-key.yacloud_org.organization.apps.web-title_aeKTZ }}`, `{{ ui-key.yacloud_org.organization.apps.spa-title_1mhon }}`, and `{{ ui-key.yacloud_org.organization.apps.native-title_1VrmN }}`) determines whether you can use application secrets and some other settings. For more information, see [{#T}](../../concepts/applications/oidc.md#oidc-application-types).

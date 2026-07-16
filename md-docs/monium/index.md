@@ -202,6 +202,8 @@ Monium платформа для сбора, хранения и анализа 
 
  - [Object Storage](metrics-ref/storage-ref.md)
 
+ - [Virtual Private Cloud](metrics-ref/vpc-ref.md)
+
  - [Serverless Integrations](metrics-ref/serverless-integrations-ref.md)
 
  - [Serverless Containers](metrics-ref/serverless-containers-ref.md)

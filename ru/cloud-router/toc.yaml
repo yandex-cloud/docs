@@ -88,6 +88,8 @@ items:
         href: tutorials/ri-prefixes-upsert.md
   - name: Управление доступом
     href: security/index.md
+  - name: Правила тарификации
+    href: pricing.md
   - name: Справочник CLI (англ.)
     items:
       - name: Overview

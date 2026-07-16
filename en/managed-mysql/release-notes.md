@@ -79,7 +79,7 @@ Added the **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** op
 ## Q2 2023 {#q2-2023}
 
 * New {{ MY }} versions are out: [5.7.39](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-39.html) and [8.0.30](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-30.html).
-* {{ MY }} 5.7 now supports analyzing queries using `query_response_time_stats`. For more information, see [this Percona article](https://docs.percona.com/percona-server/5.7/diagnostics/response_time_distribution.html).
+* {{ MY }} 5.7 now supports analyzing queries using `query_response_time_stats`. For more information, see [this Percona guide](https://docs.percona.com/percona-server/5.7/diagnostics/response_time_distribution.html).
 * Added new global user permissions: `FLUSH_OPTIMIZER_COSTS` and `SHOW_ROUTINE`.
 
 ## Q4 2022 {#q4-2022}

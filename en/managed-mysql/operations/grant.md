@@ -1,6 +1,6 @@
 ---
 title: Managing {{ MY }} user permissions
-description: You can manage {{ MY }} user permissions for the whole cluster or individual databases by changing user privileges. User’s privileges can vary across different databases. To learn more about supported privileges, refer to the respective privilege descriptions.
+description: You can manage {{ MY }} user permissions for the whole cluster or individual databases by changing user privileges. User’s privileges can vary across different databases. To learn more about supported privileges, see the privilege descriptions.
 ---
 
 # Managing user permissions
@@ -68,9 +68,9 @@ You can manage [user permissions](../concepts/user-rights.md) for the whole clus
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      For more on how to create this file, see [Creating a cluster](cluster-create.md).
+      For information on how to create this file, see [Creating a cluster](cluster-create.md).
 
   1. Find the relevant `yandex_mdb_mysql_user` resource and change the list of user’s privileges for the appropriate database in the `roles` parameter:
 
@@ -95,11 +95,11 @@ You can manage [user permissions](../concepts/user-rights.md) for the whole clus
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/mdb_mysql_user).
+  For more on the properties of the `yandex_mdb_mysql_user` resource, see [this provider guide]({{ tf-provider-resources-link }}/mdb_mysql_user).
 
 - REST API {#api}
 
@@ -141,7 +141,7 @@ You can manage [user permissions](../concepts/user-rights.md) for the whole clus
           * `databaseName`: Name of the database to which the user will have access.
           * `roles`: Array of user privileges, each provided as a separate string in the array. For the list of possible values, see [User privileges in a cluster](../concepts/user-rights.md#db-privileges).
 
-          For each database, add a separate element with permission settings to the `permissions` array.
+          In the `permissions` array, add a separate element with permission settings for each database.
 
       You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters), and the username from the [list of cluster users](#list-users).
 
@@ -197,7 +197,7 @@ You can manage [user permissions](../concepts/user-rights.md) for the whole clus
           * `database_name`: Name of the database to which the user will have access.
           * `roles`: Array of user privileges, each provided as a separate string in the array. For the list of possible values, see [User privileges in a cluster](../concepts/user-rights.md#db-privileges).
 
-          For each database, add a separate element with permission settings to the `permissions` array.
+          In the `permissions` array, add a separate element with permission settings for each database.
 
       You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters), and the username from the [list of cluster users](#list-users).
 

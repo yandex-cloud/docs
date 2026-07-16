@@ -5,7 +5,7 @@ description: Follow this guide to connect to a {{ VLK }} cluster.
 
 # Connecting to a {{ VLK }} cluster from applications
 
-You can connect to a {{ VLK }} cluster using [command line tools](#command-line-tools), [graphical IDEs](#connection-ide), or [Docker containers](#connection-docker). To learn how to connect from your application code, see [Code examples](./code-examples.md).
+You can connect to a {{ VLK }} cluster using [command line tools](#command-line-tools), [graphical IDEs](#connection-ide), or [Docker containers](#connection-docker). To learn how to connect from the code of your application, see [Code examples](./code-examples.md).
 
 ## Command line tools {#command-line-tools}
 

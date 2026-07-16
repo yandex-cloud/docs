@@ -1,0 +1,3 @@
+Under **{{ ui-key.yacloud_org.application.overview.oauth_security_section_title }}**, disable the **{{ ui-key.yacloud_org.organization.apps.AppEditPage.field-require-pkce_9rAab }}** option so that {{ org-full-name }} does not require the external application to use the [PKCE](*pkce_info) security extension when exchanging data.
+
+[*pkce_info]: PKCE is a security extension used in OAuth 2.0 to minimize the risk of authentication data interception. For more information, see [{#T}](../../organization/concepts/applications/oidc.md#pkce).

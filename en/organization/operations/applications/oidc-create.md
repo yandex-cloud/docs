@@ -6,9 +6,11 @@ description: Follow this guide to create an OIDC application in {{ org-full-name
 # Creating an OIDC application in {{ org-full-name }}
 
 
-To authenticate your [organization](../../concepts/organization.md)'s users to external apps using SSO based on [OpenID connect](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) (OIDC), create an [OIDC application](../../concepts/applications.md#oidc) in {{ org-full-name }} and configure it appropriately both in {{ org-full-name }} and on your service provider's side.
+To authenticate your [organization](../../concepts/organization.md)'s users to external apps using SSO based on the [OpenID connect](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) (OIDC), create an [OIDC application](../../concepts/applications/oidc.md) in {{ org-full-name }} and configure it appropriately both in {{ org-full-name }} and on your service provider side.
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
+
+{% include [oidc-app-types-ui-notice](../../../_includes/organization/oidc-app-types-ui-notice.md) %}
 
 ## Create an app {#create-app}
 
@@ -20,6 +22,11 @@ To authenticate your [organization](../../concepts/organization.md)'s users to e
   1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
   1. In the top-right corner, click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** and in the window that opens:
       1. Select the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.oauth-title_uUs4x }}** single sign-on method.
+      1. In the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.section-app-type_mbu85 }}** field, select the [type](*oidc_app_type) of your new app:
+
+          * [{{ ui-key.yacloud_org.organization.apps.web-title_aeKTZ }}](../../concepts/applications/oidc.md#oidc-web): Optimized for user authentication to external web applications with a server end (backend).
+          * [{{ ui-key.yacloud_org.organization.apps.spa-title_1mhon }}](../../concepts/applications/oidc.md#oidc-single-page): Optimized for user authentication to external [SPA](https://en.wikipedia.org/wiki/Single-page_application) applications.
+          * [{{ ui-key.yacloud_org.organization.apps.native-title_1VrmN }}](../../concepts/applications/oidc.md#oidc-native): Optimized for user authentication to external mobile or desktop applications.
       1. In the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** field, specify a name for your new app. The name must be unique within the organization and follow the naming requirements:
 
           {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
@@ -150,7 +157,7 @@ To authenticate your [organization](../../concepts/organization.md)'s users to e
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. Describe the [OAuth client](../../concepts/applications.md) parameters in the {{ TF }} configuration file:
+  1. Describe the [OAuth client](../../concepts/applications/oidc.md) parameters in the {{ TF }} configuration file:
 
      ```hcl
      resource "yandex_iam_oauth_client" "example_oauth_client" {
@@ -174,7 +181,7 @@ To authenticate your [organization](../../concepts/organization.md)'s users to e
 
      For more on the properties of the `yandex_iam_oauth_client` resource, see [this provider guide]({{ tf-provider-resources-link }}/iam_oauth_client).
 
-  1. In the {{ TF }} configuration file, describe the OAuth client [secret](../../concepts/applications.md#oidc-secret) parameters:
+  1. In the {{ TF }} configuration file, describe the OAuth client [secret](../../concepts/applications/oidc.md#oidc-secret) parameters:
 
      ```hcl
      resource "yandex_iam_oauth_client_secret" "example_oauth_client_secret" {
@@ -188,7 +195,7 @@ To authenticate your [organization](../../concepts/organization.md)'s users to e
 
      For more on the properties of the `yandex_iam_oauth_client_secret` resource, see [this provider guide]({{ tf-provider-resources-link }}/iam_oauth_client_secret).
 
-  1. Describe the [OIDC application](../../concepts/applications.md#oidc) parameters in the {{ TF }} configuration file:
+  1. Describe the [OIDC application](../../concepts/applications/oidc.md) parameters in the {{ TF }} configuration file:
 
      ```hcl
      resource "yandex_organizationmanager_idp_application_oauth_application" "example_oidc_app" {
@@ -265,13 +272,13 @@ Depending on the options supported by your service provider, you can configure t
 - Manual setup
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
-  1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and select the OIDC app.
+  1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and then, your OIDC app.
   1. On the **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** tab, under **{{ ui-key.yacloud_org.application.overview.idp_section_title }}**, expand the **{{ ui-key.yacloud_org.application.overview.idp_section_closed_text }}** section and copy the parameter values to use on the service provider side:
 
       {% include [oidc-app-sp-parameter-list](../../../_includes/organization/oidc-app-sp-parameter-list.md) %}
 
   1. {% include [oidc-generate-secret](../../../_includes/organization/oidc-generate-secret.md) %}
-  1. On the service provider side, set up integration with your {{ org-full-name }} OIDC application by specifying the parameters you copied and the generated secret. If you need help, refer to your service provider's documentation or support team.
+  1. On the service provider side, set up integration with the {{ org-full-name }} OIDC app by specifying the copied parameters and the new secret (for `{{ ui-key.yacloud_org.organization.apps.web-title_aeKTZ }}` apps). If you need help, refer to your service provider's documentation or support team.
 
 - Configuration URL
 
@@ -281,11 +288,13 @@ Depending on the options supported by your service provider, you can configure t
 
       This URL exposes all configuration values required on the service provider side (except for the secret).
   1. {% include [oidc-generate-secret](../../../_includes/organization/oidc-generate-secret.md) %}
-  1. If your service provider supports using a configuration URL to configure the application, set up integration with your {{ org-full-name }} OIDC application on the service provider side by specifying the copied link and secret. If you need help, refer to your service provider's documentation or support team.
+  1. If your service provider supports configuration URLs for app configuration, set up integration with the {{ org-full-name }} OIDC app on the service provider side by specifying the link and secret you copied (for `{{ ui-key.yacloud_org.organization.apps.web-title_aeKTZ }}` apps). If you need help, refer to your service provider's documentation or support team.
 
 {% endlist %}
 
 ### Configure your OIDC application in {{ org-full-name }} {#setup-idp}
+
+{% include [oidc-app-types-ui-notice](../../../_includes/organization/oidc-app-types-ui-notice.md) %}
 
 Before configuring your OIDC application in {{ org-full-name }}, get the redirect URI address (addresses) from your service provider. Then, navigate to the OIDC application settings in {{ org-full-name }}:
 
@@ -401,5 +410,7 @@ To make sure both your OIDC application and service provider integration work co
 * [{#T}](./oidc-update.md)
 * [{#T}](./oidc-deactivate-remove.md)
 * [{#T}](../add-account.md)
-* [{#T}](../../concepts/applications.md#oidc)
+* [{#T}](../../concepts/applications/oidc.md)
 * [{#T}](../manage-groups.md)
+
+[*oidc_app_type]: OIDC app type in {{ org-full-name }} (`{{ ui-key.yacloud_org.organization.apps.web-title_aeKTZ }}`, `{{ ui-key.yacloud_org.organization.apps.spa-title_1mhon }}`, and `{{ ui-key.yacloud_org.organization.apps.native-title_1VrmN }}`) determines whether you can use application secrets and some other settings. For more information, see [{#T}](../../concepts/applications/oidc.md#oidc-application-types).

@@ -534,6 +534,6 @@ items:
     href: at-ref.md
   - name: История изменений
     href: release-notes.md
-  - name: Решение проблем
+  - name: Вопросы и ответы
     href: troubleshooting.md
 path: ru/cdn/toc.yaml

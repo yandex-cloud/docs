@@ -3,7 +3,7 @@
 
 [1C:Enterprise](https://scloud.ru/1s-predpriyatie/) is a development platform for 1C accounting and business automation applications. The platform supports [OpenID Connect](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) (OIDC) authentication to provide secure SSO for your organization's users.
 
-To authenticate your [organization's](../../../organization/concepts/organization.md) users to 1C:Enterprise with OpenID Connect SSO, create an [OIDC app](../../../organization/concepts/applications.md#oidc) in {{ org-full-name }} and configure it appropriately both in {{ org-full-name }} and 1C:Enterprise.
+For the users of your [organization](../../../organization/concepts/organization.md) to be able to authenticate to 1C:Enterprise via OpenID Connect SSO, create an [OIDC app](../../../organization/concepts/applications/oidc.md) in {{ org-full-name }} and configure it both in {{ org-full-name }} and 1C:Enterprise.
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
 
@@ -29,6 +29,7 @@ To complete this tutorial, you may need a valid [1C:ITS agreement](https://its.1
     1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
     1. In the top-right corner, click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** and in the window that opens:
         1. Select the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.oauth-title_uUs4x }}** single sign-on method.
+        1. {% include [org-oidc-app-select-web-type-step](../../../_tutorials/_tutorials_includes/org-oidc-app-select-web-type-step.md) %}
         1. In the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** field, specify `enterprise-1c-oidc-app`.
         1. In the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-folder_rANM4 }}** field, select the folder where you want to create an OAuth client for your app.
         1. Click **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
@@ -70,7 +71,7 @@ To complete this tutorial, you may need a valid [1C:ITS agreement](https://its.1
      status: ACTIVE
      ```
 
-     Save the `id` field value: you will need it to create and configure your app.
+     Save the `id` field value for when you need to create and configure your app.
 
   1. Create a secret for your OAuth client:
 
@@ -149,7 +150,7 @@ Set up the 1C:Enterprise integration with the OIDC app you created in {{ org-ful
 - {{ cloud-center }} UI {#cloud-center}
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
-  1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and then, the OIDC app.
+  1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and select the OIDC app.
   1. On the **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** tab, under **{{ ui-key.yacloud_org.application.overview.idp_section_title }}**, expand the **{{ ui-key.yacloud_org.application.overview.idp_section_closed_text }}** section and copy the parameter values you need to specify in 1C:Enterprise:
 
         * `{{ ui-key.yacloud_org.application.overview.oauth_field_client_id }}`: Unique application ID.
@@ -159,7 +160,7 @@ Set up the 1C:Enterprise integration with the OIDC app you created in {{ org-ful
 
 - CLI {#cli}
 
-  1. Get information about your new OIDC application:
+  1. Get the new OIDC app info:
 
      ```bash
      yc organization-manager idp application oauth application get <app_ID>
@@ -217,16 +218,17 @@ Set up the 1C:Enterprise integration with the OIDC app you created in {{ org-ful
 - {{ cloud-center }} UI {#cloud-center}
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
-  1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and then, the OIDC app.
+  1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and select the OIDC app.
   1. At the top right, click ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** and in the window that opens:
+
       1. In the **{{ ui-key.yacloud_org.application.overview.oauth_field_redirect_uri }}** field, specify the 1C infobase URL for OIDC app response processing, formatted as follows:
 
-        ```text
-        <1C_infobase_publication_domain>/<application_name>/authform.html
-        ```
+          ```text
+          <1C_infobase_publication_domain>/<application_name>/authform.html
+          ```
 
-        For example: `https://your.company.ru/your-app/authform.html`.
-
+          For example: `https://your.company.ru/your-app/authform.html`.
+      1. {% include [org-oidc-app-disable-pkce](../../../_tutorials/_tutorials_includes/org-oidc-app-disable-pkce.md) %}
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -242,7 +244,7 @@ Set up the 1C:Enterprise integration with the OIDC app you created in {{ org-ful
      Where:
      
      * `<OAuth_client_ID>`: OAuth client ID you got when creating it.
-     * `--redirect-uris`: 1C infobase URL for OIDC app response processing. For example: `https://your.company.ru/your-app/authform.html`.
+     * `--redirect-uris`: 1C infobase URL for OIDC app response processing, e.g., `https://your.company.ru/your-app/authform.html`.
 
      Result:
 

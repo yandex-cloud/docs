@@ -2,7 +2,7 @@
 
 Passwork is a corporate platform designed for secure and reliable storage of secrets (passwords, keys, tokens, etc.), secret management, and automation of employee access to secrets within an organization. Passwork supports SAML authentication for secure SSO for the users of your organization.
 
-For the users of your [organization](../../../organization/concepts/organization.md) to authenticate to Passwork via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-full-name }} and configure it both on the {{ org-full-name }} and Passwork side.
+For the users of your [organization](../../../organization/concepts/organization.md) to authenticate to Passwork via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications/saml.md) in {{ org-full-name }} and configure it both on the {{ org-full-name }} and Passwork side.
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 
@@ -23,6 +23,7 @@ To grant access to Passwork to the users of your organization:
     1. In the top-right corner, click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** and in the window that opens:
         1. Select the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.saml-title_kyofk }}** single sign-on method.
         1. In the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** field, specify a name for your new app: `passwork-app`.
+
         1. Optionally, in the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-description_kzkNB }}** field, enter a description for the new app.
         1. Optionally, add [labels](../../../resource-manager/concepts/labels.md):
 
@@ -65,7 +66,7 @@ The SAML application can be set up in Passwork either by a user with the adminis
 
         * **Enable SSO**.
         * **Automatically confirm new users from SSO**.
-    * Under **User Attributes**, specify the user [attribute](../../../organization/concepts/applications.md#saml-attributes) names:
+    * Under **User Attributes**, specify the user [attribute](../../../organization/concepts/applications/saml.md#saml-attributes) names:
 
         * In the **Email attribute** field: `emailaddress`.
         * In the **Full name attribute** field: `fullname`.

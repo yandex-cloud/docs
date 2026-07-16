@@ -47,6 +47,7 @@
 * [Yandex Serverless Containers](serverless-containers-ref.md)
 * [Yandex SmartCaptcha](captcha-ref.md)
 * [Yandex Smart Web Security](smartwebsecurity-ref.md)
+* [Yandex Virtual Private Cloud](vpc-ref.md)
 * [Yandex Unified Agent](unifiedagent-ref.md)
 
 _ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

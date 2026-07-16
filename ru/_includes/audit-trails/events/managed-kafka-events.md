@@ -11,6 +11,7 @@
 `GrantUserPermission` | Назначение прав пользователю кластера
 `MoveCluster` | Перемещение кластера
 `PauseConnector` | Приостановка коннектора
+`RescheduleMaintenance` | Перенос запланированного технического обслуживания
 `ResumeConnector` | Возобновление работы коннектора
 `RevokeUserPermission` | Отзыв прав у пользователя кластера
 `SetClusterAccessBindings` | Назначение прав доступа к кластеру

@@ -37,6 +37,7 @@
 
 * [{#T}](../tutorials/protected-access-to-content/index.md)
 * [{#T}](../tutorials/cdn-hosting/index.md)
+* [{#T}](../../architecture/static-website-in-yc.md)
 
 
 ## Время ответа от источника {#timeout}

@@ -3,18 +3,20 @@
 
 {% include [What is the Sqoop](./header.md) %}
 
-
-## Required paid resources {#paid-resources}
-
-* {{ dataproc-name }} cluster: use of computing resources with a {{ dataproc-name }} markup, use of network drives, retrieval and storage of logs, volume of outgoing traffic (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
-* {{ mmy-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../../managed-mysql/pricing.md)).
-* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-* NAT gateway: hourly use of the gateway and its outgoing traffic (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-* {{ objstorage-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
-* VM instance: use of computing resources, storage, public IP address, and OS (see [{{ compute-name }} pricing](../../../compute/pricing.md)).
-
-
 ## Getting started {#before-you-begin}
+
+{% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
+
+### Required paid resources {#paid-resources}
+
+* {{ dataproc-name }} cluster: use of computing resources with a {{ dataproc-name }} markup, use of network drives, retrieval and storage of logs, amount of outgoing traffic (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
+* {{ mmy-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../../managed-mysql/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
+* NAT gateway: hourly use of the gateway and its outgoing traffic (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* {{ objstorage-full-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
+* VM instance: use of computing resources, storage, public IP address, and OS (see [{{ compute-full-name }} pricing](../../../compute/pricing.md)).
+
+## Set up your infrastructure {#infra}
 
 {% include [Same Network](../../_tutorials_includes/note-same-network.md) %}
 
@@ -89,7 +91,7 @@ You can create other resources manually or using {{ TF }}.
 
         For an SSH connection to the hosts of a {{ dataproc-name }} cluster version 1.x , use the `root` username.
 
-1. Validate your {{ TF }} configuration files using this command:
+1. Make sure the {{ TF }} configuration files are correct using this command:
 
     ```bash
     terraform validate
@@ -108,7 +110,7 @@ You can create other resources manually or using {{ TF }}.
 ## Set up the source cluster {#prepare}
 
 1. [Connect](../../../managed-mysql/operations/connect/index.md) to the `db1` database in the {{ mmy-full-name }} cluster as `user1`.
-1. Add test data to the database. The example uses a simple table with people's names and ages:
+1. Populate the database with test data. The example uses a simple table with people's names and ages:
 
     1. Create a table:
 
@@ -218,7 +220,7 @@ Let's assume that:
 
 {% include [Check import](./check-import.md) %}
 
-## Deleting the created resources {#clear-out}
+## Deleting the resources you created {#clear-out}
 
 Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 

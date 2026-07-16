@@ -58,3 +58,7 @@ description: Из статьи вы узнаете, для чего нужен �
   ```
 
 {% endlist %}
+
+#### Полезные ссылки {#see-also}
+
+* [{#T}](../../architecture/static-website-in-yc.md)

@@ -2,7 +2,7 @@ In {{ org-full-name }}, [authentication policies](../../organization/concepts/au
 
 [*user_groups]: You can group {{ org-full-name }} users to simplify access management in {{ yandex-cloud }}. For more information, see [{#T}](../../organization/concepts/groups.md).
 
-[*applications]: {{ org-full-name }} SAML and OIDC applications allow {{ yandex-cloud }} users to authenticate in services of third-party service providers. For more information, see [{#T}](../../organization/concepts/applications.md).
+[*applications]: {{ org-full-name }} SAML and OIDC applications allow {{ yandex-cloud }} users to authenticate in services of third-party service providers. For more information, see [{#T}](../../organization/concepts/applications/index.md).
 
 [*user_accounts]: {{ yandex-cloud }} uses Yandex accounts as well as federated and local user accounts. For more information, see [{#T}](../../iam/concepts/users/accounts.md).
 

@@ -2,7 +2,7 @@
 
 [Selectel](https://selectel.ru/) is a cloud infrastructure and data center provider offering dedicated servers, cloud platforms, and data storage services. Selectel supports SAML authentication to provide secure SSO for your organization's users.
 
-For the users of your [organization](../../../organization/concepts/organization.md) to be able to authenticate to Selectel via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-full-name }} and configure it both in {{ org-full-name }} and Selectel.
+For the users of your [organization](../../../organization/concepts/organization.md) to be able to authenticate to Selectel via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications/saml.md) in {{ org-full-name }} and configure it both in {{ org-full-name }} and Selectel.
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 

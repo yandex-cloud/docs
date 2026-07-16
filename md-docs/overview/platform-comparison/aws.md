@@ -68,6 +68,7 @@
 | AWS Service Quotas | [Yandex Cloud Quota Manager](../../quota-manager/index.md) |
 | AWS Shield,</br>AWS WAF | [Yandex Smart Web Security](../../smartwebsecurity/index.md) |
 | AWS Step Functions | [Yandex Serverless Integrations: Workflows](../../serverless-integrations/quickstart/workflows.md) |
+| AWS Transit Gateway | [Yandex Cloud Router](../../cloud-router/index.md) |
 | AWS WAF Captcha | [Yandex SmartCaptcha](../../smartcaptcha/index.md) |
 | Elastic Load Balancing: Application Load Balancer | [Yandex Application Load Balancer](../../application-load-balancer/index.md) |
 | Elastic Load Balancing: Network Load Balancer | [Yandex Network Load Balancer](../../network-load-balancer/index.md) |

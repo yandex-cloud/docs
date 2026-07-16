@@ -80,7 +80,7 @@ description: Хостинг статических сайтов – позвол
 
 Все варианты настройки хостинга доступны через [HTTP API](../s3/api-ref/hosting.md), совместимый с Amazon S3.
 
-После настройки бакета для хостинга сайт становится доступен по адресу:
+{#bucket-url}После настройки бакета для хостинга сайт становится доступен по адресу:
 
 
 ```
@@ -130,3 +130,4 @@ http(s)://{{ s3-web-host }}/<имя_бакета>
 * [{#T}](../tutorials/static/index.md)
 * [{#T}](../tutorials/gatsby-static-website.md)
 * [{#T}](../tutorials/alice-shareable-todolist.md)
+* [{#T}](../../architecture/static-website-in-yc.md)

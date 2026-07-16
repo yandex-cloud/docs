@@ -168,12 +168,12 @@ If your company has a user and access management system (e.g., Active Directory 
 
 You do not need to use any third-party user and access management systems. You can create a [user pool](./concepts/user-pools.md) to house [local user](../iam/concepts/users/accounts.md#local) accounts as you create them within your {{ org-full-name }} [organization](./concepts/organization.md).
 
-Moreover, {{ org-full-name }} can act as an identity provider for you to authenticate your users with third-party systems and solutions using [apps](./concepts/applications.md).
+Moreover, {{ org-full-name }} can act as an identity provider for you to authenticate your users with third-party systems and solutions using [apps](./concepts/applications/index.md).
 
 For more information, see:
 * [{#T}](./concepts/add-federation.md)
 * [{#T}](./concepts/user-pools.md)
-* [{#T}](./concepts/applications.md)
+* [{#T}](./concepts/applications/index.md)
 
 ### Enable access via {{ oslogin }} {#os-login-access}
 

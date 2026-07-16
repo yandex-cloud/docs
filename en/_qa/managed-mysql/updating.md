@@ -1,7 +1,7 @@
 
 #### Can I manage a cluster using SQL commands? {#sql-control}
 
-There are some restrictions on cluster management using SQL commands. For more information, see [{#T}](../../managed-mysql/concepts/sql-limits.md).
+Cluster management via SQL commands has certain restrictions. For more information, see [{#T}](../../managed-mysql/concepts/sql-limits.md).
 
 #### How do I reduce the size of a disk? {#reduce-size}
 

@@ -3,7 +3,7 @@
 
 [OpenVPN Community Edition](https://openvpn.net/community/) is a free, open-source version of OpenVPN for establishing secure VPN connections. Starting with version 2.6.2, OpenVPN Community Edition supports authentication through external providers via the [OpenID Connect](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) (OIDC) protocol with the help of the [openvpn-auth-oauth2](https://github.com/jkroepke/openvpn-auth-oauth2) plugin.
 
-For the users of your [organization](../../../organization/concepts/organization.md) to be able to authenticate to OpenVPN Community Edition via OpenID Connect SSO, create an [OIDC app](../../../organization/concepts/applications.md#oidc) and configure it both in {{ org-full-name }} and OpenVPN.
+For the users of your [organization](../../../organization/concepts/organization.md) to be able to authenticate to OpenVPN Community Edition via OpenID Connect SSO, create an [OIDC app](../../../organization/concepts/applications/oidc.md) and configure it both in {{ org-full-name }} and OpenVPN.
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
 
@@ -29,7 +29,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The infrastructure support cost includes:
 
 * Fee for a continuously running [VM](../../../compute/concepts/vm.md) (see [{{ compute-full-name }} pricing](../../../compute/pricing.md)).
-* Fee for using an [OIDC application](../../../organization/concepts/applications.md#oidc) (see [{{ org-full-name }} pricing](../../../organization/pricing.md)).
+* Fee for using an [OIDC application](../../../organization/concepts/applications/oidc.md) (see [{{ org-full-name }} pricing](../../../organization/pricing.md)).
 
 ## Create the infrastructure {#deploy}
 
@@ -256,6 +256,7 @@ sudo cp /etc/openvpn/easy-rsa/pki/dh.pem /etc/openvpn/
   1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
   1. In the center of the page, click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** and in the window that opens:
       1. Select the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.oauth-title_uUs4x }}** single sign-on method.
+      1. {% include [org-oidc-app-select-web-type-step](../../../_tutorials/_tutorials_includes/org-oidc-app-select-web-type-step.md) %}
       1. In the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** field, specify a name for the new app, e.g., `openvpn-oidc-app`.
       1. In the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-folder_rANM4 }}** field, select the folder where you want to create an OAuth client for your app.
       1. Optionally, in the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-description_kzkNB }}** field, enter a description for the new app.

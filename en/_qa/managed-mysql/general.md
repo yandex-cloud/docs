@@ -52,7 +52,7 @@ Before creating a database cluster in {{ mmy-short-name }}, you need to decide o
 - Network for your cluster.
 - Number of hosts in your cluster and availability zone for each host.
 
-For more information, see [Getting started](../../managed-mysql/quickstart.md).
+For more details, see [Getting started](../../managed-mysql/quickstart.md).
 
 #### How many database hosts can a cluster contain? {#how-many-hosts}
 
@@ -93,7 +93,7 @@ Maintenance in {{ mmy-short-name }} includes:
 
 - Automatic installation of database management system updates and patches for hosts in both running and stopped clusters.
 - Changes in the host class and storage size.
-- Other {{ mmy-short-name }} maintenance activities.
+- Other {{ mmy-short-name }} maintenance tasks.
 
 For more information, see [Maintenance](../../managed-mysql/concepts/maintenance.md).
 

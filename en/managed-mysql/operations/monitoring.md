@@ -13,7 +13,7 @@ description: You can monitor the state of a {{ mmy-name }} cluster and its indiv
 
 {% include [alerts](../../_includes/mdb/alerts.md) %}
 
-## Monitoring the cluster state {#monitoring-cluster}
+## Cluster state monitoring {#monitoring-cluster}
 
 To view detailed information on the health state of a {{ mmy-name }} cluster:
 
@@ -197,9 +197,9 @@ To view detailed information on the state of individual {{ mmy-name }} hosts:
         * **{{ mmy-name }} — Cluster Overview** to set up cluster alerts.
         * **{{ mmy-name }} — Host Overview** to set up host alerts.
 
-    1. In the chart you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+    1. On the chart of interest, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
-    1. If the chart displays multiple metrics, select the data query for the relevant metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. To learn more about the query language, see [this {{ monitoring-full-name }} article](../../monitoring/concepts/querying.md).
+    1. If the chart displays multiple metrics, select the data query for the relevant metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. For more on the query language, see [this {{ monitoring-full-name }} guide](../../monitoring/concepts/querying.md).
 
     1. Set the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` alert thresholds.
 
@@ -224,10 +224,10 @@ The `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_
 * `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: `96,636,764,160` bytes (90%)
 * `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: `85,899,345,920` bytes (80%)
 
-You can check the current storage size in the [cluster details](cluster-list.md#get-cluster). For a complete list of supported metrics, see [this {{ monitoring-name }} article](../../monitoring/metrics-ref/managed-mysql-ref.md).
+You can check the current storage size in the [cluster details](cluster-list.md#get-cluster). For a complete list of supported metrics, see [this {{ monitoring-name }} guide](../../monitoring/metrics-ref/managed-mysql-ref.md).
 
 
-## Cluster state and status {#cluster-health-and-status}
+## Cluster health and status {#cluster-health-and-status}
 
 {% include [health-and-status](../../_includes/mdb/monitoring-cluster-health-and-status.md) %}
 

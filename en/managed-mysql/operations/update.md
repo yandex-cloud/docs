@@ -22,7 +22,7 @@ After creating a cluster, you can:
 * [Move the cluster](#move-cluster) to another folder.
 * [Edit security groups](#change-sg-set).
 
-When configuration changes in clusters with two or more hosts require a host restart, during the master upgrade, one of the replicas takes over its role. Once the upgrade is complete, the host with the highest [failover priority](../concepts/replication.md#master-failover) becomes a new master. In a cluster with multiple hosts of maximum priority, the one with the least lag behind the master will be selected.
+When configuration changes in clusters with two or more hosts require a host restart, during the master upgrade, one of the replicas takes over its role. Once the upgrade is complete, the host with the highest [failover priority](../concepts/replication.md#master-failover) becomes a new master. In a cluster with several hosts of maximum priority, the one with the least lag behind the master will be selected.
 
 {% note tip %}
 
@@ -105,11 +105,11 @@ We recommend changing the host class only when the cluster is idle.
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      For more on how to create this file, see [Creating a cluster](./cluster-create.md).
+      For information on how to create this file, see [Creating a cluster](./cluster-create.md).
 
-  1. Edit the `resource_preset_id` value in the `resources` section of your {{ mmy-name }} cluster description:
+  1. In the {{ mmy-name }} cluster description, change the `resource_preset_id` parameter value under `resources`:
 
       ```hcl
       resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
@@ -129,7 +129,7 @@ We recommend changing the host class only when the cluster is idle.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see [this {{ TF }} provider guide]({{ tf-provider-mmy }}).
+    For more on the properties of the `yandex_mdb_mysql_cluster` resource, see [this provider guide]({{ tf-provider-mmy }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
@@ -267,7 +267,7 @@ We recommend changing the host class only when the cluster is idle.
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      For more on how to create this file, see [Creating a cluster](./cluster-create.md).
+      For information on how to create this file, see [Creating a cluster](./cluster-create.md).
 
   1. Under `resources`, change the `disk_type_id` and `disk_size` parameter values:
 
@@ -290,7 +290,7 @@ We recommend changing the host class only when the cluster is idle.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [this {{ TF }} provider guide]({{ tf-provider-mmy }}).
+  For more on the properties of the `yandex_mdb_mysql_cluster` resource, see [this provider guide]({{ tf-provider-mmy }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
@@ -427,9 +427,9 @@ We recommend changing the host class only when the cluster is idle.
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      For more on how to create this file, see [Creating a cluster](./cluster-create.md).
+      For information on how to create this file, see [Creating a cluster](./cluster-create.md).
 
   1. In the {{ mmy-name }} cluster description, add or update the [DBMS settings](../concepts/settings-list.md) under `mysql_config`:
 
@@ -451,7 +451,7 @@ We recommend changing the host class only when the cluster is idle.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_mysql_cluster#mysql-config).
+  For more on the properties of the `yandex_mdb_mysql_cluster` resource, see [this provider guide]({{ tf-provider-resources-link }}/mdb_mysql_cluster#mysql-config).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
@@ -490,7 +490,7 @@ We recommend changing the host class only when the cluster is idle.
 
           Here, we provide only one setting.
 
-      * `configSpec.mysqlConfig_<{{ MY }}_version>`: {{ MY }} settings. Specify each setting on a separate line, separated by commas.
+      * `configSpec.mysqlConfig_<{{ MY }}_version>`: {{ MY }} settings. Enter each setting on a new line, separated by commas.
 
           See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.mysql.v1.UpdateClusterRequest) for the list of {{ MY }} versions supporting this option. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for descriptions and possible values of the settings.
 
@@ -554,7 +554,7 @@ We recommend changing the host class only when the cluster is idle.
 
 For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.md).
 
-## Changing additional cluster settings {#change-additional-settings}
+## Configuring advanced cluster settings {#change-additional-settings}
 
 {% list tabs group=instructions %}
 
@@ -615,7 +615,7 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
 
     * `--backup-retain-period-days`: Automatic backup retention period, in days. The valid values range from `7` to `60`. The default value is `7`.
 
-    * `--datalens-access`: Enables access to the cluster from {{ datalens-name }}. The default value is `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).
+    * `--datalens-access`: Enables access to the cluster from {{ datalens-name }}. The default value is `false`. Read more about setting up a connection in [this section](datalens-connect.md).
 
     * `--websql-access`: Enables [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. The default value is `false`.
 
@@ -640,7 +640,7 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      For more on how to create this file, see [Creating a cluster](cluster-create.md).
+      For information on how to create this file, see [Creating a cluster](cluster-create.md).
 
   1. To change the backup start time, add the `backup_window_start` section to the {{ mmy-name }} cluster description:
 
@@ -715,7 +715,7 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [this {{ TF }} provider guide]({{ tf-provider-mmy }}).
+  For more on the properties of the `yandex_mdb_mysql_cluster` resource, see [this provider guide]({{ tf-provider-mmy }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
@@ -786,7 +786,7 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
 
           * `access`: Settings for cluster access from {{ yandex-cloud }} services:
 
-            * `dataLens`: Access from {{ datalens-name }}. For more information about setting up a connection, see [Connecting from {{ datalens-name }}](datalens-connect.md).
+            * `dataLens`: Access from {{ datalens-name }}. For more on setting up a connection, see [Connecting from {{ datalens-name }}](datalens-connect.md).
             * `webSql`: [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}.
             * `yandexQuery`: YQL queries against cluster databases from [{{ yq-full-name }}](../../query/concepts/index.md). This feature is currently at the [Preview](../../overview/concepts/launch-stages.md) stage.
 
@@ -1097,9 +1097,9 @@ To perform a master failover:
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](./cluster-create.md).
+        For information on how to create this file, see [Creating a cluster](./cluster-create.md).
 
     1. In the {{ mmy-name }} cluster description, add or update the `folder_id` argument:
 
@@ -1118,7 +1118,7 @@ To perform a master failover:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see [this {{ TF }} provider guide]({{ tf-provider-mmy }}).
+    For more on the properties of the `yandex_mdb_mysql_cluster` resource, see [this provider guide]({{ tf-provider-mmy }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
@@ -1213,11 +1213,11 @@ To perform a master failover:
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      For more on how to create this file, see [Creating a cluster](./cluster-create.md).
+      For information on how to create this file, see [Creating a cluster](./cluster-create.md).
 
-  1. Edit the `security_group_ids` parameter in the {{ mmy-name }} cluster description:
+  1. Update the `security_group_ids` value in the {{ mmy-name }} cluster description:
 
       ```hcl
       resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
@@ -1234,7 +1234,7 @@ To perform a master failover:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [this {{ TF }} provider guide]({{ tf-provider-mmy }}).
+  For more on the properties of the `yandex_mdb_mysql_cluster` resource, see [this provider guide]({{ tf-provider-mmy }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 

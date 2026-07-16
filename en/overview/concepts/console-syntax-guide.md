@@ -48,7 +48,7 @@ If you want to run your Bash code in cmd or PowerShell, bring it to the appropri
 
 1. Replace the directory separator in file paths: `/` in Linux and `\` in Windows.
 1. Replace line break characters. Instead of `\`, use `^` in cmd and `` ` `` in PowerShell.
-1. Check out the rules for using all kinds of quotation marks, as they are handled differently in [Linux](http://mywiki.wooledge.org/Quotes) and [PowerShell](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_quoting_rules?view=powershell-7).
+1. Consult the rules for using all types of quotation marks, as they are handled differently in [Linux](http://mywiki.wooledge.org/Quotes) and [PowerShell](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_quoting_rules?view=powershell-7).
 1. Check out the syntax for using variables.
 
    {% cut "Examples of using variables" %}
@@ -62,7 +62,7 @@ If you want to run your Bash code in cmd or PowerShell, bring it to the appropri
 
 ### Check the format of equivalent commands {#check-format}
 
-Many commands in cmd and PowerShell have aliases equivalent to Bash commands. For example, to run the `Set-Location` PowerShell command for changing a directory, type `cd` in the terminal.
+Many commands in cmd and PowerShell have aliases similar to Bash commands. For example, the `Set-Location` PowerShell command (change to a different directory) will be run if you type `cd`in the terminal.
 If the code execution fails:
 
 1. Check if the Bash command has an equivalent in your terminal. For example, in PowerShell, run:
@@ -94,7 +94,7 @@ If the code execution fails:
    For the full list of aliases, see the `alias` command output.
 
 1. Make sure the command in your command shell performs the same function as its equivalent Bash command.
-1. Check the command format: the alias keys may differ. For example, the `ls` command has an alias in PowerShell, but the argument keys are different.
+1. Check the command format: the alias keys may differ. For example, the `ls` command has an alias of the same name in PowerShell, but the argument keys differ.
 
 ### Replace other commands with their equivalents {#replace-analogs}
 
@@ -125,10 +125,10 @@ If the code execution fails:
 
 1. If a command has no direct equivalent, you can perform the same action using a combination of commands or other methods. For example, to convert a file to [Base64](https://en.wikipedia.org/wiki/Base64) in PowerShell, use the static Convert method: `[Convert]::ToBase64String([IO.File]::ReadAllBytes(''<filename>''))`.
 
-1. Consider the specifics of your command shell. For example, PowerShell works with objects and their properties rather than text. Therefore, instead of searching by `grep`, you will need to use the `Where-Object` PowerShell command in most cases. It handles objects with required property values. To search for a sequence of characters, use the `Select-String` command.
+1. Consider the specifics of your command shell. For example, PowerShell works with objects and their properties rather than text. Therefore, instead of searching by `grep`, you will need to use the `Where-Object` PowerShell command in most cases. It handles objects with the required property values. To search for a sequence of characters, use the `Select-String` command.
 
 ### Check the names of system variables and auxiliary syntax {#replace-analogs}
 
-1. Check the names of environment variables. For example, Windows uses the `USERNAME` environment variable instead of the `USER` variable used in Linux. 
+1. Check the names of environment variables. For example, instead of the `USER` environment variable used in Linux, the `USERNAME` variable is employed in Windows. 
 1. If your code contains comparison, selection, or loop statements, change the syntax to meet the requirements of your command shell. To learn more about the difference between the Bash and PowerShell auxiliary syntax, see [Bash vs PowerShell Cheat Sheet](https://blog.ironmansoftware.com/daily-powershell/bash-powershell-cheatsheet).
 

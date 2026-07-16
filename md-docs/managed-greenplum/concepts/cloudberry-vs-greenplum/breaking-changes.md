@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../index.md) > [Концепции](../overview.md) > Отличия Apache Cloudberry™ от Greenplum®
+[Документация Yandex Cloud](../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../index.md) > [Концепции](../overview.md) > Отличия Apache Cloudberry™ от Greenplum® > Обратно несовместимые изменения в Apache Cloudberry™
 
 # Обратно несовместимые изменения в СУБД Apache Cloudberry™ по сравнению с Greenplum® в сервисе Yandex MPP Analytics for PostgreSQL
 
@@ -1094,6 +1094,11 @@ SELECT * FROM pg_sequences WHERE sequencename = 'example_seq';
 Адаптировать кодовую базу приложения и скрипты: отказаться от удаленных объектов и учесть изменения в существующих.
 
 ## Изменения в конфигурации и управлении ресурсами {#config-updates}
+
+### Изменения в работе ресурсных групп {#resource-groups}
+
+Отличия в работе ресурсных групп в Apache Cloudberry™ и Greenplum® подробно описаны в
+[отдельной статье](../resource-groups.md).
 
 ### Удаление параметров конфигурации {#config-params}
 

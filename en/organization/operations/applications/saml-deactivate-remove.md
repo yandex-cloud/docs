@@ -10,7 +10,7 @@ description: Follow this guide to deactivate, reactivate, and delete a SAML appl
 
 ## Deactivate the application {#deactivate}
 
-If you need to temporarily disable [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language)-based single sign-on authentication to an external app for the users of your [organization](../../concepts/organization.md), deactivate the relevant [SAML application](../../concepts/applications.md#saml) in {{ org-full-name }}:
+If you need to temporarily disable [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language)-based single sign-on authentication to an external app for the users of your [organization](../../concepts/organization.md), deactivate the relevant [SAML application](../../concepts/applications/saml.md) in {{ org-full-name }}:
 
 {% list tabs group=instructions %}
 
@@ -186,5 +186,5 @@ As a result, the SAML application will be deleted, and the users will no longer 
 * [{#T}](./saml-create.md)
 * [{#T}](./saml-update.md)
 * [{#T}](../add-account.md)
-* [{#T}](../../concepts/applications.md#saml)
+* [{#T}](../../concepts/applications/saml.md)
 * [{#T}](../manage-groups.md)

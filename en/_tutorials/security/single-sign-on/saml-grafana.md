@@ -2,7 +2,7 @@
 
 [Grafana Cloud](https://grafana.com/products/cloud/) is a managed cloud monitoring and observability platform that brings together Grafana, Prometheus, Loki, and other tools for data visualization and analysis. Grafana Cloud supports SAML authentication to provide secure SSO for your organization's users.
 
-For the users of your [organization](../../../organization/concepts/organization.md) to be able to authenticate to Grafana Cloud via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-full-name }} and configure it both in {{ org-full-name }} and Grafana Cloud.
+For the users of your [organization](../../../organization/concepts/organization.md) to be able to authenticate to Grafana Cloud via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications/saml.md) in {{ org-full-name }} and configure it both in {{ org-full-name }} and Grafana Cloud.
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 
@@ -232,5 +232,5 @@ To make sure both your SAML app and Grafana Cloud integration work correctly, au
 1. On the Grafana Cloud sign in page, click **Sign in with SAML**.
 1. On the {{ yandex-cloud }} sign in page, enter the user email and password. The user or group they belong to must be added to the application.
 1. Make sure you have authenticated in Grafana Cloud.
-1. If you have configured role mapping, go to the user profile in Grafana Cloud and make sure the appropriate role is displayed under **Organization**.  
+1. If you have configured role mapping, go to the user profile in Grafana Cloud and make sure the appropriate role is displayed under **Organization**.
 

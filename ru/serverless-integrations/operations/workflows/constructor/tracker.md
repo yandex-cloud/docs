@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Обращение к {{ tracker-full-name }} API
 
+{% include [templating-note](../../../../_includes/serverless-integrations/templating-note.md) %}
+
 {% list tabs %}
 
 - Консоль управления {#console}

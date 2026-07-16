@@ -31,7 +31,7 @@ The infrastructure support cost includes:
 
 * Fee for {{ ydb-short-name }} operations and data storage (see [{{ ydb-full-name }} pricing](../../ydb/pricing/serverless.md)).
 * Fee for {{ yds-short-name }} data storage (see [{{ yds-full-name }} pricing](../../data-streams/pricing.md)).
-* Fee for function invocation count, computing resources allocated for the function, and outgoing traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
+* Fee for the number of function calls, computing resources allocated for the function, and outgoing traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
 * Fee for using {{ postbox-full-name }} (see [{{ postbox-name }} pricing](../../postbox/pricing.md)).
 * Fee for the {{ datalens-short-name }} plan (see [{{ datalens-full-name }} pricing](../../datalens/pricing.md)).
 
@@ -299,7 +299,7 @@ To monitor the emails you send, set up a [connection](../../datalens/concepts/co
       * **Service account**: `yds-functions`.
       * **Database**: `postbox-events-ydb`.
       * **Cache TTL in seconds**: `Default`.
-      * Enable the **SQL query access level** option and select `Allow subqueries in datasets`.
+      * Enable the **SQL query access level** option and select `Only subqueries`.
 
   1. Click **Create connection**.
   1. In the window that opens, select a workbook for your new connection and click **Create**.

@@ -1,0 +1,3 @@
+In the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.section-app-type_mbu85 }}** field, select [{{ ui-key.yacloud_org.organization.apps.web-title_aeKTZ }}](*web_app_type).
+
+[*web_app_type]: OIDC apps of the `{{ ui-key.yacloud_org.organization.apps.web-title_aeKTZ }}` type are optimized for user authentication to external web apps with a server end (backend), where the application secret can be safely stored. For more information about OIDC application types, see [{#T}](../../organization/concepts/applications/oidc.md#oidc-application-types).
