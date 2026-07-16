@@ -344,7 +344,13 @@ items:
       - name: Domains
         href: concepts/domains.md
       - name: Applications (SSO)
-        href: concepts/applications.md
+        items:
+          - name: Overview
+            href: concepts/applications/index.md
+          - name: SAML apps
+            href: concepts/applications/saml.md
+          - name: OIDC apps
+            href: concepts/applications/oidc.md
       - name: '{{ oslogin }}'
         href: concepts/os-login.md
       - name: MFA

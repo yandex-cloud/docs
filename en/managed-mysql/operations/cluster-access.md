@@ -210,17 +210,17 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 - {{ TF }} {#tf}
 
    {% note info %}
-
+    
    To assign roles for a {{ mmy-name }} cluster, use the `yandex_mdb_mysql_cluster_iam_binding` resource with the `members` parameter.
-
+   
    {% endnote %}
 
   1. Open the current configuration file with the {{ mmy-name }} cluster description.
-
-     For more on how to create this file, see [{#T}](cluster-create.md).
-
+ 
+     For information on how to create this file, see [{#T}](cluster-create.md).
+ 
   1. Add a resource description:
-
+   
      ```hcl
      resource "yandex_mdb_mysql_cluster_iam_binding" "<local_resource_name>" {
        cluster_id = "<cluster_ID>"
@@ -233,7 +233,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
      * `cluster_id`: Cluster ID.
      * `role`: [Role](../security/index.md#roles-list) being assigned, e.g., `managed-mysql.editor`.
-     * `members`: Array of types and IDs of [subjects](../../iam/concepts/access-control/index.md#subject) the role is assigned to in `<subject_type>:<subject_ID>` format.
+     * `members`: Array of types and IDs of [subjects](../../iam/concepts/access-control/index.md#subject) getting the role, in `<subject_type>:<subject_ID>` format.
    
        Here is an example:
        
@@ -251,7 +251,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
      
-     For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_mysql_cluster_iam_binding).
+     For more on the properties of the `yandex_mdb_mysql_cluster_iam_binding` resource, see [this provider guide]({{ tf-provider-resources-link }}/mdb_mysql_cluster_iam_binding).
 
   1. To view a list of roles assigned for the cluster, run this [CLI](../../cli/) command:
    
@@ -435,17 +435,17 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 - {{ TF }} {#tf}
 
    {% note info %}
-
+    
    To assign roles for a {{ mmy-name }} cluster, use the `yandex_mdb_mysql_cluster_iam_binding` resource with the `members` parameter.
-
+    
    {% endnote %}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
-
-     For more on how to create this file, see [Creating a cluster](cluster-create.md).
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
+ 
+     For information on how to create this file, see [Creating a cluster](cluster-create.md).
 
   1. Add resource descriptions:
-
+   
      ```hcl
      resource "yandex_mdb_mysql_cluster_iam_binding" "<resource_1_local_name>" {
        cluster_id = "<cluster_ID>"
@@ -464,10 +464,10 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
      * `cluster_id`: Cluster ID.
      * `role`: [Role](../security/index.md#roles-list) being assigned, e.g., `managed-mysql.editor`.
-     * `members`: Array of types and IDs of [subjects](../../iam/concepts/access-control/index.md#subject) the role is assigned to in `<subject_type>:<subject_ID>` format.
-
+     * `members`: Array of types and IDs of [subjects](../../iam/concepts/access-control/index.md#subject) getting the role, in `<subject_type>:<subject_ID>` format.
+   
        Here is an example:
-
+       
        * `serviceAccount:${yandex_iam_service_account.mmy_sa.id}`
        * `userAccount:ajerq94v************`
        * `system:allAuthenticatedUsers`
@@ -481,11 +481,11 @@ Thus, you can granularly assign different roles for particular clusters to diffe
   1. Confirm updating the resources.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-     For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_mysql_cluster_iam_binding).
+     
+     For more on the properties of the `yandex_mdb_mysql_cluster_iam_binding` resource, see [this provider guide]({{ tf-provider-resources-link }}/mdb_mysql_cluster_iam_binding).
 
   1. To view a list of roles assigned for the cluster, run this [CLI](../../cli/) command:
-
+   
      ```bash
      {{ yc-mdb-my }} cluster list-access-bindings <cluster_name_or_ID>
      ```
@@ -623,17 +623,17 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 - {{ TF }} {#tf}
 
   {% note info %}
-
+   
   To revoke roles for a {{ mmy-name }} cluster, use the `yandex_mdb_mysql_cluster_iam_binding` resource with the `members` parameter.
-
+   
   {% endnote %}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
-
-     For more on how to create this file, see [Creating a cluster](cluster-create.md).
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
+ 
+     For information on how to create this file, see [Creating a cluster](cluster-create.md).
 
   1. Find the description of the resource with the role you want to revoke and delete this description:
-
+   
      ```hcl
      resource "yandex_mdb_mysql_cluster_iam_binding" "<local_resource_name>" {
        cluster_id = "<cluster_ID>"
@@ -650,10 +650,10 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
      
-     For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_mysql_cluster_iam_binding).
+     For more on the properties of the `yandex_mdb_mysql_cluster_iam_binding` resource, see [this provider guide]({{ tf-provider-resources-link }}/mdb_mysql_cluster_iam_binding).
 
   1. To view a list of roles assigned for the cluster, run this [CLI](../../cli/) command:
-
+   
      ```bash
      {{ yc-mdb-my }} cluster list-access-bindings <cluster_name_or_ID>
      ```
@@ -870,9 +870,9 @@ For a service account to be able to view the info of all {{ mmy-name }} clusters
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
-
-     For more on how to create this file, see [Creating a cluster](cluster-create.md).
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
+ 
+     For information on how to create this file, see [Creating a cluster](cluster-create.md).
 
   1. Add resource descriptions:
 

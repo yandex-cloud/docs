@@ -200,7 +200,11 @@ items:
       - name: Настройки СУБД
         href: concepts/settings-list.md
       - name: Отличия {{ CB }} от {{ GP }}
-        href: concepts/cloudberry-vs-greenplum/breaking-changes.md
+        items:
+          - name: Почему выбирают {{ CB }}
+            href: concepts/cloudberry-vs-greenplum/why-cloudberry.md
+          - name: Обратно несовместимые изменения в {{ CB }}
+            href: concepts/cloudberry-vs-greenplum/breaking-changes.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

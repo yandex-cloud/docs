@@ -51,6 +51,11 @@ New host classes are available for {{ PG }} clusters on AMD Zen 4 and AMD Zen 4 
 
 # {{ mpg-full-name }} release notes
 
+## May 2026 {#may-2026}
+
+* In the [Performance diagnostics](operations/performance-diagnostics.md) section, you can now navigate from the **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_sessions }}** tab to detailed query info. Tooltips for the query plan were added to the **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_plan-text }}** tab.
+* Improved the [master failover](operations/connect/fqdn.md#automatic-master-host-selection) operation logic. You can now set up the priority of hosts that are candidates for the master role.
+
 ## April 2026 {#apr-2026}
 
 * Added [MDB Advisor](./operations/performance-diagnostics.md) to analyze cluster performance and get optimization recommendations.

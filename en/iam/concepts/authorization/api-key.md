@@ -70,9 +70,11 @@ When creating an API key in the [management console]({{ link-console-main }}), s
 
 ## Identifying an API key {#identify-key}
 
-The [list](../../operations/authentication/manage-api-keys.md#list-api-keys) of API keys in the {{ yandex-cloud }} CLI includes the `MASKED KEY` field which shows the last six characters of the key’s secret part. This helps you match the API key to its ID. Displaying the six characters is secure as the entire key is not revealed.
+When [viewing the list](../../operations/authentication/manage-api-keys.md#list-api-keys) of API keys, the last six characters of the key’s secret part are shown. The {{ yandex-cloud }} CLI shows them in the `MASKED KEY` field, the API, in the `maskedSecret` field, and the management console, in the **{{ ui-key.yacloud.iam.folder.service-account.overview.column_key_masked-secret }}** column.
 
-Use the `MASKED KEY` field to quickly identify a key, e.g., when searching for a key in leak databases or mapping keys in other systems with keys in {{ yandex-cloud }}.
+This allows you to match the API key with its ID, e.g., to check if the key is in leak databases or map keys in other systems with keys in {{ yandex-cloud }}.
+
+Displaying the six characters is secure as the entire key is not revealed.
 
 ## Using an API key {#use}
 

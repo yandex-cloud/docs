@@ -156,9 +156,9 @@ You can add and remove databases, view database details, and manage some databas
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      To learn how to create this file, see [Creating a cluster](cluster-create.md).
+      For information on how to create this file, see [Creating a cluster](cluster-create.md).
 
   1. Add the `yandex_mdb_mysql_database` resource:
 
@@ -175,11 +175,11 @@ You can add and remove databases, view database details, and manage some databas
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_mysql_database).
+  For more on the properties of the `yandex_mdb_mysql_database` resource, see [this provider guide]({{ tf-provider-resources-link }}/mdb_mysql_database).
 
 - REST API {#api}
 
@@ -268,9 +268,9 @@ You can add and remove databases, view database details, and manage some databas
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      To learn how to create this file, see [Creating a cluster](cluster-create.md).
+      For information on how to create this file, see [Creating a cluster](cluster-create.md).
 
   1. Remove the `yandex_mdb_mysql_database` resource with the name of the database you want to delete.
 
@@ -278,11 +278,11 @@ You can add and remove databases, view database details, and manage some databas
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_mysql_database).
+  For more on the properties of the `yandex_mdb_mysql_database` resource, see [this provider guide]({{ tf-provider-resources-link }}/mdb_mysql_database).
 
 - REST API {#api}
 
@@ -375,9 +375,9 @@ You can set or update the [sql_mode](../concepts/settings-list.md#setting-sql-mo
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        To learn how to create this file, see [Creating a cluster](./cluster-create.md).
+        For information on how to create this file, see [Creating a cluster](./cluster-create.md).
 
     1. Specify the required SQL modes in the `sql_mode` parameter under `mysql_config`:
 
@@ -395,11 +395,11 @@ You can set or update the [sql_mode](../concepts/settings-list.md#setting-sql-mo
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_mysql_cluster#mysql-config).
+    For more on the properties of the yandex_mdb_mysql_cluster resource, see [this provider guide]({{ tf-provider-resources-link }}/mdb_mysql_cluster#mysql-config).
 
     {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
@@ -437,7 +437,7 @@ You can set or update the [sql_mode](../concepts/settings-list.md#setting-sql-mo
 
           Here, we provide only one setting.
 
-      * `configSpec.mysqlConfig_<{{ MY }}_version>.sqlMode`: List of SQL modes. For all available modes, see the following {{ MY }} docs:
+      * `configSpec.mysqlConfig_<{{ MY }}_version>.sqlMode`: List of SQL modes. For available modes, see the following {{ MY }} docs:
 
           * [Version 5.7](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting)
           * [Version 8.0](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-setting)
@@ -489,7 +489,7 @@ You can set or update the [sql_mode](../concepts/settings-list.md#setting-sql-mo
 
           Here, we provide only one setting.
 
-      * `config_spec.mysql_config_<{{ MY }}_version>.sql_mode`: List of SQL modes. For all available modes, see the following {{ MY }} docs:
+      * `config_spec.mysql_config_<{{ MY }}_version>.sql_mode`: List of SQL modes. For available modes, see the following {{ MY }} docs:
 
           * [Version 5.7](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting)
           * [Version 8.0](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-setting)

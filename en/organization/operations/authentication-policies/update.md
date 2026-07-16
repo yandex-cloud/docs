@@ -23,7 +23,7 @@ To edit an authentication policy:
   1. Optionally, change the policy [name](*policy_name) in the **{{ ui-key.yacloud.common.name }}** field.
   1. Optionally, change the policy description in the **{{ ui-key.yacloud.common.description }}** field.
   1. Optionally, set [labels](*labels) for the policy in the **{{ ui-key.yacloud.common.labels }}** field.
-  1. Optionally, toggle **{{ ui-key.yacloud_org.form.auth-policy.caption.active }}** to deactivate or activate the policy.
+  1. Optionally, disable or enable the **{{ ui-key.yacloud_org.form.auth-policy.caption.active }}** option to disable or enable the policy respectively.
   1. Optionally, configure **{{ ui-key.yacloud_org.organization.security-settings.AuthPolicyForm.section_title_scope_b9vbe }}** policies:
 
       {% include [auth-policy-and-logic-notice](../../../_includes/organization/auth-policy-and-logic-notice.md) %}
@@ -38,7 +38,7 @@ To edit an authentication policy:
 
 #### Useful links {#see-also}
 
-* [{#T}](../../concepts/applications.md)
+* [{#T}](../../concepts/applications/index.md)
 * [{#T}](../../concepts/authentication-policy.md)
 * [{#T}](./create.md)
 * [{#T}](./activate-deactivate.md)
@@ -49,4 +49,4 @@ To edit an authentication policy:
 * It can only contain lowercase Latin letters, numbers, and hyphens.
 * It must start with a letter and cannot end with a hyphen.
 
-[*labels]: Labels are `key:value` pairs you can use to logically group your resources. For more information, see [{#T}](../../../resource-manager/concepts/labels.md).
+[*labels]: Labels are `key:value` pairs you can use to organize resources into logical groups. For more information, see [{#T}](../../../resource-manager/concepts/labels.md).

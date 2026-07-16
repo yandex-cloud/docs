@@ -62,3 +62,4 @@ description: Из статьи вы узнаете, в каких сервиса
 
 * [Статический сайт в {{ objstorage-name }}](../../tutorials/web/static/index.md)
 * [{{ api-gw-full-name }}](../../api-gateway/)
+* [{#T}](../../architecture/static-website-in-yc.md)

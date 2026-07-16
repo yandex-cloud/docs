@@ -1,6 +1,6 @@
 * `--security-group-ids` — список идентификаторов [групп безопасности](../../metadata-hub/operations/metastore/configure-security-group.md).
 * `--resource-preset-id` — [конфигурация вычислительных ресурсов](../../metadata-hub/concepts/metastore.md#presets).
-* `--maintenance-window` — настройки времени технического обслуживания (в т. ч. для выключенных кластеров), где `type` — тип технического обслуживания:
+* `--maintenance-window` — настройки времени [технического обслуживания](../../metadata-hub/concepts/metastore-maintenance.md) (в т. ч. для выключенных кластеров), где `type` — тип технического обслуживания:
 
     {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 

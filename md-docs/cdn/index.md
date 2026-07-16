@@ -545,4 +545,4 @@ Yandex Cloud CDN позволяет организовать доставку к
 
  - [История изменений](release-notes.md)
 
- - [Решение проблем](troubleshooting.md)
+ - [Вопросы и ответы](troubleshooting.md)

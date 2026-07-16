@@ -2,7 +2,7 @@
 
 [Harbor](https://goharbor.io/) is an open-source registry of container development artifacts: container images, Helm charts, and other data types. Harbor supports authentication via [OpenID Connect](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) (OIDC), allowing you to use an external identity provider for user single sign-on.
 
-For the users of your [organization](../../../organization/concepts/organization.md) to sign in to Harbor using OpenID Connect, create an [OIDC application](../../../organization/concepts/applications.md#oidc) in {{ org-full-name }} and set up the integration both in {{ org-full-name }} and Harbor.
+For the users of your [organization](../../../organization/concepts/organization.md) to sign in to Harbor using OpenID Connect, create an [OIDC application](../../../organization/concepts/applications/oidc.md) in {{ org-full-name }} and set up the integration both in {{ org-full-name }} and Harbor.
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
 
@@ -22,6 +22,7 @@ To grant access to Harbor to organization users:
     1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
     1. In the top-right corner, click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** and in the window that opens:
         1. Select the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.oauth-title_uUs4x }}** single sign-on method.
+        1. {% include [org-oidc-app-select-web-type-step](../../../_tutorials/_tutorials_includes/org-oidc-app-select-web-type-step.md) %}
         1. In the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** field, specify a name for your new app: `harbor-oidc-app`.
         1. In the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-folder_rANM4 }}** field, select the folder where you want to create an OAuth client for your app.
         1. Optionally, in the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-description_kzkNB }}** field, enter a description for the new app.
@@ -349,7 +350,7 @@ Before configuring OIDC, make sure the web interface is accessible via HTTPS. Th
 
 1. Click **Save**.
 
-For more information on fields and limitations in OIDC mode, see [this official Harbor guide](https://goharbor.io/docs/latest/administration/configure-authentication/oidc-auth/).
+For more information on OIDC mode fields and limitations, see [this official Harbor guide](https://goharbor.io/docs/latest/administration/configure-authentication/oidc-auth/).
 
 ### Add a user {#add-user}
 

@@ -19,7 +19,7 @@ After creating a cluster, you can:
 * [Change the disk type and expand the storage](#change-disk-size).
 
 
-* [Set up automatic storage expansion](#disk-size-aut0scale).
+* [Set up automatic storage expansion](#disk-size-autoscale).
 
 * [Configure](#change-valkey-config) {{ VLK }} servers as described in the [{{ VLK }}](https://valkey.io/docs) documentation. For a list of supported settings, see [{#T}](../concepts/settings-list.md) and the [API reference](../api-ref/Cluster/update.md).
 
@@ -720,7 +720,7 @@ We recommend changing the host class only when the cluster is idle.
      {{ yc-mdb-rd }} cluster update --help
      ```
 
-  1. Specify the required storage size in the cluster update command. The new size must be at least as large as the current `disk_size` value in the cluster properties.
+  1. Specify the required storage size in the cluster update command. The new size must be at least as big as the current `disk_size` value in the cluster properties.
 
      ```bash
      {{ yc-mdb-rd }} cluster update <cluster_name_or_ID> \
@@ -864,7 +864,7 @@ We recommend changing the host class only when the cluster is idle.
 
 ## Set up automatic storage expansion {#disk-size-autoscale}
 
-For more information about storage and its autoscaling, see [Storage in {{ mrd-name }}](../concepts/storage.md).
+For more information about storage and autoscaling, see [Storage in {{ mrd-name }}](../concepts/storage.md).
 
 {% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
 
@@ -1123,7 +1123,7 @@ You can change the DBMS settings for your cluster hosts. You can find all the su
 
         * `configSpec.redisConfig_<{{ VLK }}_version>`: {{ VLK }} settings. Enter each setting on a new line, separated by commas.
 
-            See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.redis.v1.UpdateClusterRequest) for the list of {{ VLK }} versions available for the parameter. See [{#T}](../concepts/settings-list.md) for descriptions and possible values of the settings.
+            See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.redis.v1.UpdateClusterRequest) for the list of {{ VLK }} versions supporting this option. See [{#T}](../concepts/settings-list.md) for descriptions and possible values of the settings.
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -1177,7 +1177,7 @@ You can change the DBMS settings for your cluster hosts. You can find all the su
 
         * `config_spec.redis_config_<{{ VLK }}_version>`: {{ VLK }} settings. Enter each setting on a new line, separated by commas.
 
-            See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.redis.v1.UpdateClusterRequest) for the list of {{ VLK }} versions available for the parameter. See [{#T}](../concepts/settings-list.md) for descriptions and possible values of the settings.
+            See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.redis.v1.UpdateClusterRequest) for the list of {{ VLK }} versions supporting this option. See [{#T}](../concepts/settings-list.md) for descriptions and possible values of the settings.
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -1866,3 +1866,4 @@ You cannot disable sharding in a cluster where it is already enabled.
 You may need to [configure security groups](connect/index.md#configuring-security-groups) to enable access to your cluster.
 
 {% endnote %}
+

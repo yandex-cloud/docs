@@ -47,9 +47,6 @@ To allow {{ datalens-name }} to connect to your cluster and work with its data, 
   1. [Set up your connection](#connector-settings).
   1. Check that the settings are correct by clicking **Check connection**.
   1. After a successful connection test, click **Create connection**.
-
-     ![screen04](../../_assets/managed-postgresql/operations/datalens-connect/screen04.png)
-
   1. In the window that opens, specify the connection name and click **Create**.
 
      ![screen05](../../_assets/managed-postgresql/operations/datalens-connect/screen05.png)
@@ -127,8 +124,8 @@ After creating the connection, you can:
      1. Select **Path to database** from the drop-down list.
      1. Select the user from the drop-down list.
      1. Enter this user's password.
-     1. Specify the cache TTL or leave the default value. The recommended value is 300 seconds (5 minutes).
-     1. Configure the **Raw SQL level**.
+     1. Specify cache TTL or leave the default value. The recommended value is 300 seconds (5 minutes).
+     1. Set up **Raw SQL level**.
 
         ![screen09](../../_assets/managed-postgresql/operations/datalens-connect/screen09.png)
 

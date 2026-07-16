@@ -30,6 +30,8 @@
 
 * [Что делать, если при работе воркера возникает ошибка `EOF fatal`?](#eof-fatal-error)
 
+* [Что делать, если SSL-сертификат просрочен?](#ssl-certificate-expired)
+
 #### В чем преимущества Managed Service for GitLab перед пользовательской инсталляцией GitLab Community Edition? {#advantages}
 
 Основное преимущество Managed Service for GitLab заключается в том, что он позволяет сократить затраты на установку и администрирование GitLab. Кроме того, в Managed Service for GitLab добавлена функциональность, которой нет в [Community Edition](https://about.gitlab.com/install/ce-or-ee/) (например, правила ревью кода). Подробнее читайте в разделе [Преимущества сервиса перед пользовательской инсталляцией GitLab](../concepts/managed-gitlab-vs-custom-installation.md).
@@ -127,3 +129,9 @@ sysctl -w net.core.wmem_default=6250000
 sysctl -w net.ipv4.tcp_rmem='4096 6250000 26214400'
 sysctl -w net.ipv4.tcp_wmem='4096 6250000 26214400'
 ```
+
+#### Что делать, если SSL-сертификат просрочен? {#ssl-certificate-expired}
+
+Обычно SSL-сертификат на инстансах Managed Service for GitLab перевыпускается автоматически. Если этого не произошло, [перезапустите](../operations/instance/instance-stop.md) инстанс.
+
+Если перезапуск не решил проблему, обратитесь в [техническую поддержку](https://center.yandex.cloud/support).

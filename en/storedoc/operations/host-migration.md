@@ -80,7 +80,7 @@ description: In this tutorial, you will learn how to migrate {{ SD }} cluster ho
 
    - REST API {#api}
 
-      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
             {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -121,7 +121,7 @@ description: In this tutorial, you will learn how to migrate {{ SD }} cluster ho
             * `priority`: Host priority for master promotion during [failover](../concepts/replication.md#master-failover).
             * `tags`: Host tags.
 
-            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+            You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
 
       1. Check the [server response](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -189,7 +189,7 @@ description: In this tutorial, you will learn how to migrate {{ SD }} cluster ho
 
    You will see the FQDN under `NAME` in the command output.
 
-   For details on how to get a host’s FQDN in the [management console]({{ link-console-main }}), see [this guide](connect/index.md#get-fqdn).
+   For steps to get a host FQDN in the [management console]({{ link-console-main }}), see [this guide](connect/index.md#get-fqdn).
 
 1. Delete the hosts in the source availability zone:
 

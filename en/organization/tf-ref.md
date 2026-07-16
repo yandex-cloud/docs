@@ -18,13 +18,13 @@ description: This page lists the {{ TF }} provider resources and data sources su
 | [yandex_organizationmanager_group_mapping]({{ tf-provider-resources-link }}/organizationmanager_group_mapping) | Setting up [user group mapping](./concepts/add-federation.md#group-mapping) |
 | [yandex_organizationmanager_group_mapping_item]({{ tf-provider-resources-link }}/organizationmanager_group_mapping_item) | [User group mapping](./concepts/add-federation.md#group-mapping) element |
 | [yandex_organizationmanager_group_membership]({{ tf-provider-resources-link }}/organizationmanager_group_membership) | Member of a [user group](./concepts/groups.md) |
-| [yandex_organizationmanager_idp_application_oauth_application]({{ tf-provider-resources-link }}/organizationmanager_idp_application_oauth_application) | [OIDC app](./concepts/applications.md#oidc) |
-| [yandex_organizationmanager_idp_application_saml_application]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application) | [SAML app](./concepts/applications.md#saml) |
+| [yandex_organizationmanager_idp_application_oauth_application]({{ tf-provider-resources-link }}/organizationmanager_idp_application_oauth_application) | [OIDC app](./concepts/applications/oidc.md) |
+| [yandex_organizationmanager_idp_application_saml_application]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application) | [SAML app](./concepts/applications/saml.md) |
 | [yandex_organizationmanager_idp_user]({{ tf-provider-resources-link }}/organizationmanager_idp_user) | [Local user](../iam/concepts/users/accounts.md#local) |
 | [yandex_organizationmanager_idp_userpool]({{ tf-provider-resources-link }}/organizationmanager_idp_userpool) | [User pool](./concepts/user-pools.md) |
 | [yandex_organizationmanager_mfa_enforcement]({{ tf-provider-resources-link }}/organizationmanager_mfa_enforcement) | [MFA policy](./concepts/mfa.md#mfa-policies) |
 | [yandex_organizationmanager_mfa_enforcement_audience]({{ tf-provider-resources-link }}/organizationmanager_mfa_enforcement_audience) | [MFA policy](./concepts/mfa.md#mfa-policies) target group |
-| [yandex_organizationmanager_organization_iam_binding]({{ tf-provider-resources-link }}/organizationmanager_organization_iam_binding) | [Assigning](../iam/concepts/access-control/index.md#access-bindings) access permissions for an organization. It has a limit of 1,000 bindings per resource. <br>We recommend using `yandex_organizationmanager_organization_iam_binding` instead of `yandex_organizationmanager_organization_iam_member`. |
+| [yandex_organizationmanager_organization_iam_binding]({{ tf-provider-resources-link }}/organizationmanager_organization_iam_binding) | [Assigning](../iam/concepts/access-control/index.md#access-bindings) access permissions for an organization. Limited to 1,000 bindings per resource. <br>We recommend using `yandex_organizationmanager_organization_iam_binding` instead of `yandex_organizationmanager_organization_iam_member`. |
 | [yandex_organizationmanager_organization_iam_member]({{ tf-provider-resources-link }}/organizationmanager_organization_iam_member) | [Assigning](../iam/concepts/access-control/index.md#access-bindings) access permissions for an organization. |
 | [yandex_organizationmanager_os_login_settings]({{ tf-provider-resources-link }}/organizationmanager_os_login_settings) | [{{ oslogin }}](./concepts/os-login.md) access settings |
 | [yandex_organizationmanager_saml_federation]({{ tf-provider-resources-link }}/organizationmanager_saml_federation) | [SAML-compatible identity federation](./concepts/add-federation.md) |
@@ -39,8 +39,8 @@ description: This page lists the {{ TF }} provider resources and data sources su
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
 | [yandex_organizationmanager_group]({{ tf-provider-datasources-link }}/organizationmanager_group) | [User group](./concepts/groups.md) information |
-| [yandex_organizationmanager_idp_application_oauth_application]({{ tf-provider-datasources-link }}/organizationmanager_idp_application_oauth_application) | Information about the [OIDC application](./concepts/applications.md#oidc) |
-| [yandex_organizationmanager_idp_application_saml_application]({{ tf-provider-datasources-link }}/organizationmanager_idp_application_saml_application) | Information about the [SAML application](./concepts/applications.md#saml) |
+| [yandex_organizationmanager_idp_application_oauth_application]({{ tf-provider-datasources-link }}/organizationmanager_idp_application_oauth_application) | Information about the [OIDC application](./concepts/applications/oidc.md) |
+| [yandex_organizationmanager_idp_application_saml_application]({{ tf-provider-datasources-link }}/organizationmanager_idp_application_saml_application) | Information about the [SAML application](./concepts/applications/saml.md) |
 | [yandex_organizationmanager_idp_user]({{ tf-provider-datasources-link }}/organizationmanager_idp_user) | [Local user](../iam/concepts/users/accounts.md#local) information |
 | [yandex_organizationmanager_idp_userpool]({{ tf-provider-datasources-link }}/organizationmanager_idp_userpool) | [User pool](./concepts/user-pools.md) information |
 | [yandex_organizationmanager_mfa_enforcement]({{ tf-provider-datasources-link }}/organizationmanager_mfa_enforcement) | [MFA policy](./concepts/mfa.md#mfa-policies) information |

@@ -95,3 +95,9 @@ sysctl -w net.core.wmem_default=6250000
 sysctl -w net.ipv4.tcp_rmem='4096 6250000 26214400'
 sysctl -w net.ipv4.tcp_wmem='4096 6250000 26214400'
 ```
+
+#### Что делать, если SSL-сертификат просрочен? {#ssl-certificate-expired}
+
+Обычно SSL-сертификат на инстансах {{ mgl-name }} перевыпускается автоматически. Если этого не произошло, [перезапустите](../../managed-gitlab/operations/instance/instance-stop.md) инстанс.
+
+Если перезапуск не решил проблему, обратитесь в [техническую поддержку]({{ link-console-support }}).

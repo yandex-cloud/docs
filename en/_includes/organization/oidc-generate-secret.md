@@ -1,9 +1,11 @@
-Under **{{ ui-key.yacloud_org.application.overview.secret_section_title }}**, click **{{ ui-key.yacloud_org.application.overview.secret_section_add_new_secret_action }}**, and in the window that opens:
+Create an app secret (only available for applications of the `{{ ui-key.yacloud_org.organization.apps.web-title_aeKTZ }}` [type](../../organization/concepts/applications/oidc.md#oidc-application-types)):
 
-1. Optionally, add a description for the new secret.
-1. Click **{{ ui-key.yacloud.common.create }}**.
+1. Under **{{ ui-key.yacloud_org.application.overview.secret_section_title }}**, click **{{ ui-key.yacloud_org.application.overview.secret_section_add_new_secret_action }}**, and in the window that opens:
 
-The window will display the generated [application secret](../../organization/concepts/applications.md#oidc-secret). Save this value.
+    1. Optionally, add a description for the new secret.
+    1. Click **{{ ui-key.yacloud.common.create }}**.
+
+The window will display the generated [application secret](../../organization/concepts/applications/oidc.md#oidc-secret). Save this value.
 
 {% note warning %}
 

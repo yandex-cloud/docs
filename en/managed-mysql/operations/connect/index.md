@@ -83,7 +83,9 @@ For more information about security groups, see [{#T}](../../concepts/network.md
 
 ## Obtaining an SSL certificate {#get-ssl-cert}
 
+
 Publicly accessible {{ MY }} hosts only support encrypted connections. To use them, get an SSL certificate:
+
 
 {% include [install-certificate](../../../_includes/mdb/mmy/install-certificate.md) %}
 

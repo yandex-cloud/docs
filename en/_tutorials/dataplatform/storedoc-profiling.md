@@ -1,4 +1,4 @@
-# {{ MG }} performance analysis and optimization
+# {{ SD }} performance analysis and optimization
 
 
 In this tutorial, you will learn how to:
@@ -9,7 +9,7 @@ In this tutorial, you will learn how to:
 {{ mmg-name }} cluster performance decline most often stems from one of the following causes:
 
 * [High CPU and disk I/O usage](#cpu-io-deficit).
-* [Inefficient {{ MG }} queries](#inefficient-queries).
+* [Inefficient {{ SD }} queries](#inefficient-queries).
 * [Locks](#locks).
 * [Insufficient disk space](#disk-deficit).
 
@@ -17,9 +17,9 @@ The following are tips for diagnosing and resolving these issues.
 
 ## Getting started {#before-start}
 
-1. Install the {{ MG }}, `mongostat`, and `mongotop` performance [tools](../../storedoc/operations/tools.md#monitoring-tools) on an external host that has network access to your {{ MG }} host. For more details, see [this guide](../../storedoc/operations/connect/index.md).
+1. Install the {{ SD }}, `mongostat`, and `mongotop` performance [{#T}](../../storedoc/operations/connect/index.md), [tools](../../storedoc/operations/tools.md#monitoring-tools) on an external host that has network access to your {{ SD }} host.
 1. Determine which databases need to be checked for issues.
-1. [Create a {{ MG }} user](../../storedoc/operations/cluster-users.md#adduser) with the [`mdbMonitor`](../../storedoc/concepts/users-and-roles.md#mdbMonitor) role for these databases. You need to do this in order to use `mongostat` and `mongotop`.
+1. [Create a {{ SD }} user](../../storedoc/operations/cluster-users.md#adduser) with the [`mdbMonitor`](../../storedoc/concepts/users-and-roles.md#mdbMonitor) role for these databases. You need to do this in order to use `mongostat` and `mongotop`.
 
 ## Diagnosing resource shortages {#cpu-io-deficit}
 
@@ -27,7 +27,7 @@ If any of the CPU and disk I/O resources plateaued, i.e., a previously growing [
 
 In most cases, high CPU and disk I/O usage are caused by inefficient indexes or excessive host workload.
 
-Start diagnostics by analyzing the workload pattern and identifying problematic collections using the built-in [{{ MG }} monitoring tools](../../storedoc/operations/tools.md#monitoring-tools). Next, analyze the performance of specific queries using [logs](../../storedoc/operations/tools.md#explore-logs) or [profiler data](../../storedoc/operations/tools.md#explore-profiler).
+Start diagnostics by analyzing the workload pattern and identifying problematic collections using the built-in [{{ SD }} monitoring tools](../../storedoc/operations/tools.md#monitoring-tools). Next, analyze the performance of specific queries using [logs](../../storedoc/operations/tools.md#explore-logs) or [profiler data](../../storedoc/operations/tools.md#explore-profiler).
 
 Take note of the following queries:
 
@@ -77,7 +77,7 @@ When performance drops, you can diagnose the problem in real time using the [lis
 
 ## Diagnosing inefficient queries {#inefficient-queries}
 
-To identify problematic queries in {{ MG }}:
+To identify problematic queries in {{ SD }}:
 
 * Review the [logs](../../storedoc/operations/tools.md#explore-logs). Pay special attention to the following:
 
@@ -112,7 +112,7 @@ If you can neither optimize troublesome queries nor eliminate them, you have to 
 
 Poor query performance can result from locks.
 
-{{ MG }} does not provide detailed information about locks. You can only use indirect methods to find out what is locking a specific query:
+{{ SD }} does not provide detailed information about locks. You can only use indirect methods to find out what is locking a specific query:
 
 * Pay attention to large or growing `db.serverStatus().metrics.operation.writeConflicts` values, as they may indicate high write contention on certain documents.
 

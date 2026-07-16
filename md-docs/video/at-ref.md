@@ -44,6 +44,7 @@ yandex.cloud.audit.video.<имя_события>
 `EpisodePerformAction` | Выполнение действий с эпизодом
 `InitializeChannelAdminChat` | Инициализация чата администраторов канала
 `InitializeEpisodeChat` | Инициализация чата эпизода
+`RenewVideoSource` | Обновление источника видео
 `ResetChannelAdminChat` | Сброс чата администраторов канала
 `ResyncEpisodeChatAdmins` | Синхронизация администраторов чата эпизода
 `SetChannelAccessBindings` | Назначение прав доступа на канал

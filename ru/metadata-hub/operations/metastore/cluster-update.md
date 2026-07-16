@@ -29,12 +29,21 @@ description: Следуя данной инструкции, вы сможете
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите другую [группу безопасности](configure-security-group.md) или создайте новую.
   1. В блоке **{{ ui-key.yacloud.metastore.label_resource-preset }}** измените [конфигурацию кластера](../../concepts/metastore.md#presets).
-  1. В блоке **{{ ui-key.yacloud.logging.label_title }}** включите или выключите запись логов. Если логирование включено:
+  1. В блоке **{{ ui-key.yacloud.logging.label_title }}** включите или отключите запись логов. Если логирование включено:
       * Укажите, в какую лог-группу или каталог будут записываться логи.
       * Выберите минимальный уровень логирования. 
       
       Подробнее читайте в разделе [Передача логов кластера](logging.md).
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}** включите или выключите защиту кластера от удаления.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
+      
+      1. Включите или отключите защиту кластера от удаления. 
+          
+          {% include [Ограничения защиты от удаления кластера](../../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+      1. Измените время [технического обслуживания](../../concepts/metastore-maintenance.md) кластера:
+
+          {% include [Maintenance window](../../../_includes/metadata-hub/metastore-maintenance-window-console.md) %}
+
   1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.
 
 - CLI {#cli}
@@ -66,7 +75,7 @@ description: Следуя данной инструкции, вы сможете
          --resource-preset-id <идентификатор_вычислительных_ресурсов> \
          --maintenance-window type=<тип_технического_обслуживания>,`
                               `day=<день_недели>,`
-                              `hour=<час_дня> \
+                              `hour=<порядковый_номер_часового_интервала> \
          --deletion-protection \
          --log-enabled \
          --log-folder-id <идентификатор_каталога> \
@@ -121,7 +130,7 @@ description: Следуя данной инструкции, вы сможете
           "maintenanceWindow": {
             "weeklyMaintenanceWindow": {
             "day": "<день_недели>",
-            "hour": "<час>"
+            "hour": "<порядковый_номер_часового_интервала>"
             }
           }
         }
@@ -200,7 +209,7 @@ description: Следуя данной инструкции, вы сможете
           "maintenance_window": {
             "weekly_maintenance_window": {
               "day": "<день_недели>",
-              "hour": "<час>"
+              "hour": "<порядковый_номер_часового_интервала>"
             }
           }
         }

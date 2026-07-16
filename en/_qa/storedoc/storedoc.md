@@ -29,7 +29,7 @@ Backups are created every 24 hours and retained for 7 days after creation. Data 
 
 #### What limitations apply to {{ SD }} database clusters? {#cluster-limitations}
 
-For details on {{ mmg-name }} limitations, see [Quotas and limits](../../storedoc/concepts/limits.md).
+For more on {{ mmg-name }} limits, see [Quotas and limits](../../storedoc/concepts/limits.md).
 
 #### Why is my cluster slow even though the computing resources are not fully utilized? {#throttling}
 

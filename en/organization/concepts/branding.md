@@ -10,7 +10,7 @@ description: '{{ org-full-name }} allows you to customize the appearance of auth
 
 In {{ org-full-name }}, you can customize the appearance of authentication pages and login forms to align them with your corporate style and preferences.
 
-Authentication pages can be branded only if signing in via SSO to external [applications](./applications.md). The login pages of other {{ yandex-cloud }} services do not support branding.
+Authentication pages can be branded only if signing in via SSO to external [applications](./applications/index.md). The login pages of other {{ yandex-cloud }} services do not support branding.
 
 {% note info %}
 

@@ -8,4 +8,4 @@
 
 * [{{ captcha-name }} server keys](../../../smartcaptcha/concepts/keys.md)
 * [Refresh tokens](../../../iam/concepts/authorization/refresh-token.md)
-* [OIDC app secrets](../../../organization/concepts/applications.md#oidc-secret)
+* [OIDC app secrets](../../../organization/concepts/applications/oidc.md#oidc-secret)

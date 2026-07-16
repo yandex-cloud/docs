@@ -79,5 +79,5 @@ links:
     description: Configure access permissions for the service
     href: security/
   - title: Pricing policy
-    description: Service pricing and cost calculation
+    description: Prices and cost calculation rules
     href: pricing/

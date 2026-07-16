@@ -222,7 +222,10 @@
           "logIndexMetadataAccess": "boolean",
           "logMonitoringChecks": "boolean",
           "logIndexMaintenance": "boolean",
-          "logBackupOperations": "boolean"
+          "logBackupOperations": "boolean",
+          "logAuthenticatedRequests": "boolean",
+          "logIndexEvents": "boolean",
+          "logBadHeaders": "boolean"
         },
         "cloudStorage": {
           "enabled": "boolean"
@@ -699,6 +702,9 @@ Acceptable values are 0 to 59, inclusive. ||
 || logMonitoringChecks | **boolean** ||
 || logIndexMaintenance | **boolean** ||
 || logBackupOperations | **boolean** ||
+|| logAuthenticatedRequests | **boolean** ||
+|| logIndexEvents | **boolean** ||
+|| logBadHeaders | **boolean** ||
 |#
 
 ## CloudStorage {#yandex.cloud.mdb.opensearch.v1.CloudStorage}

@@ -14,14 +14,14 @@ Connections between your database cluster and application are always encrypted w
 
 A read-only replica is a {{ MY }} database cluster host available only for reads that synchronizes its data with the master host. This applies only to clusters with more than one host. You can use a read-only replica to reduce the load on the master host experiencing high read traffic to its database.
 
-#### What restrictions are placed on {{ MY }} database clusters? {#instance-limitations}
+#### What limitations apply to {{ MY }} database clusters? {#instance-limitations}
 
-For details, see [Quotas and limits](../../managed-mysql/concepts/limits.md) for {{ mmy-short-name }}. To learn about the properties of the clusters you can create with {{ mmy-short-name }}, see [Host classes](../../managed-mysql/concepts/instance-types.md).
+For more on {{ mmy-short-name }} limits, see [Quotas and limits](../../managed-mysql/concepts/limits.md). To learn about the properties of the clusters you can create with {{ mmy-short-name }}, see [Host classes](../../managed-mysql/concepts/instance-types.md).
 
 #### Why is my cluster slow even though the computing resources are not fully utilized? {#throttling}
 
 {% include [throttling](../throttling.md) %}
 
-To increase the maximum IOPS and bandwidth values and make throttling less likely, increase the storage size when [updating your cluster](../../managed-mysql/operations/update.md#change-disk-size).
+To increase the maximum IOPS and bandwidth and reduce the risk of throttling, expand the storage size when [updating your cluster](../../managed-mysql/operations/update.md#change-disk-size).
 
-If you are using the `network-hdd` storage, consider switching to `network-ssd` or `network-ssd-nonreplicated` by [restoring the cluster](../../managed-mysql/operations/cluster-backups.md#restore) from a backup.
+For storage using the `network-hdd` disk type, we recommend switching to `network-ssd` or `network-ssd-nonreplicated` via a [cluster restore](../../managed-mysql/operations/cluster-backups.md#restore) from backup.

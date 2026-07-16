@@ -40,7 +40,7 @@ If you delete a Docker image stored in {{ ml-platform-name }}, you will not be a
 
 You can [publish](../operations/user-images.md#share) a Docker image stored in {{ ml-platform-name }} in the community to use it in multiple projects. To do this, you need at least the `Editor` role in the project and the `Developer` role in the community you want to publish it in. You can open the access on the **{{ ui-key.yc-ui-datasphere.common.access }}** tab on the Docker image view page. The resource available to the community will appear on the community page under **{{ ui-key.yc-ui-datasphere.spaces-page.community-resources }}**. While the image is published, you cannot delete it.
 
-For more information, see [{#T}](../operations/user-images.md).
+For more information on working with Docker images, see [{#T}](../operations/user-images.md).
 
 ## Docker image requirements {#requirements}
 

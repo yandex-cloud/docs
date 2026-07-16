@@ -325,7 +325,7 @@ When you select a new maintenance window, any scheduled maintenance that does no
                  "maintenanceWindow": {
                    "weeklyMaintenanceWindow": {
                      "day": "<day_of_week>",
-                     "hour": "<hour>"
+                     "hour": "<sequence_number_of_hour_interval>"
                    }
                  }
                }'
@@ -340,10 +340,10 @@ When you select a new maintenance window, any scheduled maintenance that does no
      * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, including for stopped clusters. In `maintenanceWindow`, provide one of these two parameters:
 
        * `anytime`: Maintenance can be scheduled for any time.
-       * `weeklyMaintenanceWindow`: Maintenance can only be scheduled for a specific day of week and hour:
+       * `weeklyMaintenanceWindow`: Maintenance can only be scheduled for a specific day of week and a sequence number of an hour interval:
 
          * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-         * `hour`: UTC hour in `HH` format, from `1` to `24`.
+         * `hour`: Sequence number of a UTC hour interval in `HH` format, from `1` to `24`.
 
      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -375,7 +375,7 @@ When you select a new maintenance window, any scheduled maintenance that does no
              "maintenance_window": {
                "weekly_maintenance_window": {
                  "day": "<day_of_week>",
-                 "hour": "<hour>"
+                 "hour": "<sequence_number_of_hour_interval>"
                }
              }
            }' \

@@ -69,7 +69,7 @@ keywords:
         
         1. **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}** — настройки времени [технического обслуживания](../concepts/maintenance.md):
 
-           {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
+           {% include [Maintenance window](../../_includes/managed-spark/maintenance-window-console.md) %}
 
         1. **{{ ui-key.yacloud.spark.label_metastore }}** — [metastore-сервер](../../metadata-hub/concepts/metastore.md), подключенный к вашему кластеру.
 

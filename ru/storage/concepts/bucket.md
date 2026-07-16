@@ -135,6 +135,7 @@ _Бакет_ — это выделенная часть хранилища {{ ob
 * [{#T}](../tutorials/bucket-to-bucket.md)
 * [{#T}](../tutorials/batch-recognition-stt.md)
 * [{#T}](../tutorials/mgp-config-server-for-s3.md)
+* [{#T}](../../architecture/static-website-in-yc.md)
 
 ### Полезные ссылки {#see-also}
 

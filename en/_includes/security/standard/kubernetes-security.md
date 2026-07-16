@@ -89,7 +89,7 @@ We do not recommend granting access to the {{ k8s }} API and node groups from no
 * [Security group setup guide](../../../managed-kubernetes/operations/connect/security-groups.md).
 * Use network policy configuration tools via the [Calico](../../../managed-kubernetes/concepts/network-policy.md#calico) (basic) or [Cilium CNI](../../../managed-kubernetes/concepts/network-policy.md#cilium) (advanced) plugins in {{ yandex-cloud }}. By default, apply the `default deny` rules for incoming and outgoing traffic with only the relevant traffic allowed.
 * For online endpoints, allocate an independent {{ k8s }} cluster or independent node groups (using such mechanisms as [Taints and Tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/#:~:text=Node%20affinity%20is%20a%20property,onto%20nodes%20with%20matching%20taints) + [Node affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/)). By doing this, you establish a DMZ so that if your nodes are compromised online, your attack surface is small.
-* To enable incoming network access to your workloads via HTTP/HTTPS, use the [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) resource. There are at least two Ingress controller options that you can use in {{ yandex-cloud }}:
+* To enable incoming network access to your workloads via HTTP/HTTPS, use the [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) resource. There are at least two controller options you can use in {{ yandex-cloud }}:
 
   * [Yandex Cloud Gwin Controller](../../../managed-kubernetes/alb-ref/gwin-index.md).
   * [Application Load Balancer of an Ingress controller](../../../application-load-balancer/tools/k8s-ingress-controller/index.md).
@@ -98,7 +98,7 @@ We do not recommend granting access to the {{ k8s }} API and node groups from no
 
 For the {{ k8s }} cluster to run, you need two service accounts: [the service account of the cluster and the service account of the node group](../../../managed-kubernetes/security/index.md#sa-annotation). The access of IAM accounts to {{ managed-k8s-name }} resources is managed at the following levels:
 
-* {{ managed-k8s-name }}service roles (access to the {{ yandex-cloud }} API). These enable you to control clusters and node groups (for example, create a cluster, create/edit/delete a node group, and so on).
+* {{ managed-k8s-name }} service roles (access to the {{ yandex-cloud }} API). These enable you to control clusters and node groups (for example, create a cluster, create/edit/delete a node group, and so on).
 * Service roles to access the {{ k8s }} API. These let you control cluster resources via the {{ k8s }} API (for example, perform standard actions with {{ k8s }}: create, delete, view namespaces, work with pods, deployments, create roles, and so on). Only the basic global roles at the cluster level are available: `k8s.cluster-api.cluster-admin`, `k8s.cluster-api.editor`, and `k8s.cluster-api.viewer`.
 * Primitive roles. These are global primitive IAM roles that include service roles (e.g., the primitive `admin` role includes both the service administration role and the administrative role to access the {{ k8s }} API).
 * Standard {{ k8s }} roles. Inside the {{ k8s }} cluster itself, you can use {{ k8s }} tools to create both regular roles and cluster roles. Thus you can manage access for IAM accounts at the namespace level. To assign IAM roles at the namespace level, you can manually create RoleBinding objects in a relevant namespace stating the cloud user's IAM ID in the **subjects name** field.
@@ -182,7 +182,7 @@ Using {{ container-registry-name }} to store images will also provide centralize
 
 #### 7.8 One of the three latest {{ k8s }} versions is used, updates are monitored {#version-update}
 
-For {{ k8s }}, both automatic and manual updates are available for [clusters](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and [node groups](../../../managed-kubernetes/concepts/index.md#node-group). You can request a manual update of the {{ k8s }} cluster or its nodes to the latest supported [version](../../../managed-kubernetes/concepts/release-channels-and-updates.md) at any time. Manual updates bypass any configured maintenance windows and maintenance exceptions. {{ k8s }} issues updates in a regular manner. To meet the Information Security standards:
+In {{ k8s }}, both automatic and manual updates are available for [clusters](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and [node groups](../../../managed-kubernetes/concepts/index.md#node-group). You can request a manual update of your {{ k8s }} cluster or its nodes to the latest supported [version](../../../managed-kubernetes/concepts/release-channels-and-updates.md) at any time. Manual updates bypass any configured maintenance windows and maintenance exceptions. {{ k8s }} issues updates in a regular manner. To meet the Information Security standards:
 
 * Select a relevant update channel and enable either automatic installation of updates, or manual installation immediately after publication in the selected channel.
 * Check that the update settings meet the Information Security standards.
@@ -222,7 +222,7 @@ For {{ k8s }}, both automatic and manual updates are available for [clusters](..
 
 - Checking via the API {#api}
 
-  To get a list of available versions, use the [list](../../../managed-kubernetes/managed-kubernetes/api-ref/Version/list.md).
+  To get a list of available versions, use the [list](../../../managed-kubernetes/managed-kubernetes/api-ref/Version/list.md) method.
 
 {% endlist %}
 

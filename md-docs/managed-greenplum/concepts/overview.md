@@ -10,13 +10,13 @@
 
     Greenplum® создавалась как open-source проект, но в 2024 году доступ к исходному коду закрыли. Несмотря на это, в сервисе Yandex MPP Analytics for PostgreSQL по-прежнему поддерживается Greenplum® версии 6 на основе ее open-source [форка](https://github.com/open-gpdb/gpdb).
 
-* Apache Cloudberry™ 2 — основана на Greenplum® версии 7, но использует более новое ядро PostgreSQL версии 14, а также поддерживает работу с динамическими таблицами и форматом [PAX](https://cloudberry.apache.org/docs/operate-with-data/pax-table-format/).
+* Apache Cloudberry™ 2.x — основана на Greenplum® версии 7, но использует более новое ядро PostgreSQL версии 14, а также поддерживает работу с динамическими таблицами и форматом [PAX](https://cloudberry.apache.org/docs/operate-with-data/pax-table-format/).
 
     Apache Cloudberry™ — это open-source проект, который разрабатывается под лицензией Apache License v2.0. 
 
     Apache Cloudberry™ будет базовым дистрибутивом для новых мажорных версий сервиса Yandex MPP Analytics for PostgreSQL.
 
-Подробнее о различиях Apache Cloudberry™ и Greenplum® в [отдельном разделе](cloudberry-vs-greenplum/breaking-changes.md).
+Подробнее о различиях Apache Cloudberry™ и Greenplum® в [отдельном разделе](cloudberry-vs-greenplum/why-cloudberry.md).
 
 Yandex MPP Analytics for PostgreSQL берет на себя большую часть работ по обслуживанию кластеров, в том числе:
 

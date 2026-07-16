@@ -221,6 +221,7 @@ default:
   forms-full-name: Яндекс Формы
   forms-name: Формы
   forms-short-name: Forms
+  foundation-models-full-name: Yandex AI Studio
   foundation-models-name: AI Studio
   GL: GitLab
   gl:
@@ -1039,6 +1040,12 @@ default:
         12-month: dn2tvhgbuvohlnad2k6x
         3-month: dn2srbkn5ce5cooadlam
         6-month: dn2jezaritxjqnxhtgln
+      ba-i312-s-1_10g:
+        1-day: dn2v3nzkyhevnkcjm6p3
+        1-month: dn2wekfztklezwxtqy2i
+        12-month: dn26hqkghwo62qlle6us
+        3-month: dn2bdzddffpjdd7uv6ul
+        6-month: dn2kb3iwp44nha6kdiwc
       ba-i407-s-10g:
         1-day: dn2ouvd21k0ibt7asnui
         1-month: dn23f47oub924jn942p9
@@ -1216,6 +1223,16 @@ default:
         6-month: dn2zrlohcdk7mq6w5ebw
       bms-publicannounce-pi-prefix-any:
         1-month: dn2waf73ew5izjrkgflw
+      bms-r162-body:
+        1-month: dn2zjp3yzaeu4wvlmiuf
+        12-month: dn2dhl4vasigq4j62aqk
+        3-month: dn2n5d7bs4a4xnz42gs2
+        6-month: dn25zde5xrtjfig2ci6p
+      bms-r163-body:
+        1-month: dn2suxupujdijkwjpanb
+        12-month: dn2pfigwksn2qw7idwcx
+        3-month: dn2yv2k3bb5v2q3umcyn
+        6-month: dn2mvfybussqrwlasrnd
       bms-ram3-128:
         1-month: dn2dspoxf6trcs7xcb3j
         12-month: dn2aljp6sqk57xc2qebu
@@ -4554,7 +4571,6 @@ default:
         alerts:
           comment_form:
             send: Отправить
-          filters-button: Фильтры
         comp:
           SetsTable:
             action_disable_5hgkz: Выключить проверку
@@ -5503,6 +5519,7 @@ default:
         label_resource-http-headers-request-headers: Заголовки запроса к источнику
         label_resource-http-headers-response-headers: Заголовки ответа клиенту
         label_resource-raw-logs: Выгрузка логов
+        label_resource-security: Безопасность
         label_resources-list: CDN-ресурсы
         label_responses-hit: Ответы из кеша
         label_responses-miss: Ответы с запросами к источникам
@@ -5746,6 +5763,7 @@ default:
         type_sms: SMS-сообщения
         type_web: Push-уведомления в браузере
       common:
+        action_show-all: Показать все
         add: Добавить
         all: Все
         apply: Применить

@@ -185,7 +185,7 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-     For more on how to create this file, see [Creating a cluster](cluster-create.md).
+     For information on how to create this file, see [Creating a cluster](cluster-create.md).
   1. Add the `host` section to the {{ mmy-name }} cluster description:
 
      
@@ -216,7 +216,7 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [this {{ TF }} provider guide]({{ tf-provider-mmy }}).
+  For more on the properties of the `yandex_mdb_mysql_cluster` resource, see [this provider guide]({{ tf-provider-mmy }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
@@ -399,7 +399,7 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
   To change the cluster host settings:
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-     For more on how to create this file, see [Creating a cluster](cluster-create.md).
+     For information on how to create this file, see [Creating a cluster](cluster-create.md).
   1. In the {{ mmy-name }} cluster description, change the attributes of the `host` section referring to the host you want to update.
 
      
@@ -428,7 +428,7 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [this {{ TF }} provider guide]({{ tf-provider-mmy }}).
+  For more on the properties of the `yandex_mdb_mysql_cluster` resource, see [this provider guide]({{ tf-provider-mmy }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
@@ -578,7 +578,7 @@ If you are deleting the master host, {{ mmy-name }} will automatically promote t
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-     For more on how to create this file, see [Creating a cluster](cluster-create.md).
+     For information on how to create this file, see [Creating a cluster](cluster-create.md).
   1. Delete the `host` section from the {{ mmy-name }} cluster description.
   1. Make sure the settings are correct.
 
@@ -588,7 +588,7 @@ If you are deleting the master host, {{ mmy-name }} will automatically promote t
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [this {{ TF }} provider guide]({{ tf-provider-mmy }}).
+  For more on the properties of the `yandex_mdb_mysql_cluster` resource, see [this provider guide]({{ tf-provider-mmy }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 

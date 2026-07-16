@@ -38,7 +38,7 @@ keywords:
            Формат названия пакета и выбор версии определены командой установки: `pip install` — для pip-пакетов, `apt install` — для deb-пакетов.
         1. В настройке **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}** измените время [технического обслуживания](../concepts/maintenance.md) кластера:
 
-           {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
+           {% include [Maintenance window](../../_includes/managed-spark/maintenance-window-console.md) %}
 
         1. Выберите кластер [{{ metastore-name }}](../../metadata-hub/concepts/metastore.md) для подключения в качестве хранилища метаданных.
         1. Установите или снимите защиту от удаления кластера.

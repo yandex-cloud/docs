@@ -1708,6 +1708,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [ScheduleVersionDestruction](audit/lockbox/events-ref/ScheduleVersionDestruction.md)
 
+ - [SetCurrentVersion](audit/lockbox/events-ref/SetCurrentVersion.md)
+
  - [SetSecretAccessBindings](audit/lockbox/events-ref/SetSecretAccessBindings.md)
 
  - [UpdateSecret](audit/lockbox/events-ref/UpdateSecret.md)
@@ -1963,6 +1965,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [MoveCluster](audit/mdb/kafka/events-ref/MoveCluster.md)
 
  - [PauseConnector](audit/mdb/kafka/events-ref/PauseConnector.md)
+
+ - [RescheduleMaintenance](audit/mdb/kafka/events-ref/RescheduleMaintenance.md)
 
  - [ResumeConnector](audit/mdb/kafka/events-ref/ResumeConnector.md)
 
@@ -3133,6 +3137,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [InitializeChannelAdminChat](audit/video/events-ref/InitializeChannelAdminChat.md)
 
  - [InitializeEpisodeChat](audit/video/events-ref/InitializeEpisodeChat.md)
+
+ - [RenewVideoSource](audit/video/events-ref/RenewVideoSource.md)
 
  - [ResetChannelAdminChat](audit/video/events-ref/ResetChannelAdminChat.md)
 

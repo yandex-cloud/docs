@@ -5,7 +5,7 @@ description: Follow this guide to send multiple template emails in one request i
 
 # Bulk email sending
 
-Using the `SendBulkEmail` method, you can send multiple template emails in one request. Such a request contains a shared template and the emails to send. For each email, you can specify recipients, data to populate the template, headers, and tags.
+Using the `SendBulkEmail` method, you can send multiple template emails in one request. The request contains a shared template and emails to send. For each email, you can specify recipients, data to populate the template, headers, and tags.
 
 {% include [before-begin](../../_includes/postbox/before-begin.md) %}
 
@@ -121,7 +121,7 @@ Using the `SendBulkEmail` method, you can send multiple template emails in one r
 
    The item order in `BulkEmailEntryResults` matches that in `BulkEmailEntries`. Where an individual email is not delivered, the returned result contains the error status and description in the `Error` field of the corresponding item.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../aws-compatible-api/api-ref/send-bulk-email.md)
 * [{#T}](send-templated-email.md)

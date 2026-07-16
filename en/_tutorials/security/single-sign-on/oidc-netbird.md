@@ -3,7 +3,7 @@
 
 [NetBird](https://netbird.io/) is a platform for establishing secure access to network resources. NetBird supports [OpenID Connect](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) authentication (OIDC) for the users of your organization to use single sign-on via {{ org-full-name }}.
 
-In this tutorial, you will create an OIDC app and [user pool](../../../organization/concepts/user-pools.md) in {{ org-full-name }}, get a `Client ID`, app secret, and [configuration URL](../../../organization/concepts/applications.md#oidc-sp-setup), and then configure an external OIDC provider in NetBird Dashboard.
+In this tutorial, you will create an OIDC app and [user pool](../../../organization/concepts/user-pools.md) in {{ org-full-name }}, get a `Client ID`, app secret, and [configuration URL](../../../organization/concepts/applications/oidc.md#oidc-sp-setup), and then configure an external OIDC provider in NetBird Dashboard.
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
 
@@ -23,7 +23,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The cost of infrastructure support includes a fee for using the [OIDC app](../../../organization/concepts/applications.md#oidc) (see [{{ org-full-name }} pricing](../../../organization/pricing.md)).
+The cost of infrastructure support includes a fee for using the [OIDC app](../../../organization/concepts/applications/oidc.md) (see [{{ org-full-name }} pricing](../../../organization/pricing.md)).
 
 ### Getting started {#check-to-begin}
 
@@ -50,6 +50,7 @@ The examples below use the following NetBird address: `https://netbird.example.c
   1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
   1. Click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** and in the window that opens:
       1. Select the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.oauth-title_uUs4x }}** single sign-on (SSO) method.
+      1. {% include [org-oidc-app-select-web-type-step](../../../_tutorials/_tutorials_includes/org-oidc-app-select-web-type-step.md) %}
       1. In the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** field, specify `netbird-oidc-app`.
       1. In the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-folder_rANM4 }}** field, select the folder where you want to create an OAuth client for your app.
       1. Optionally, enter a description in the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-description_kzkNB }}** field, e.g., `OIDC app for integration with NetBird`.
@@ -139,7 +140,7 @@ The examples below use the following NetBird address: `https://netbird.example.c
 
 ### Configure user OIDC attributes {#setup-scopes}
 
-NetBird typically uses standard [attributes](../../../organization/concepts/applications.md#oidc-attributes) (scopes):
+NetBird typically uses standard [attributes](../../../organization/concepts/applications/oidc.md#oidc-attributes) (scopes):
 
 **Minimum required set**: `openid, email, profile`.
 

@@ -52,7 +52,7 @@ Restrict network access to the {{ k8s }} API (master) and node groups using [ins
 When using an ALB as an [Ingress Gateway](../../application-load-balancer/tools/k8s-ingress-controller/index.md), also complete the following steps:
 
 1. Apply the security group to the ALB.
-2. Additionally, apply the security group to the node group:
+1. Additionally, apply the security group to the node group:
 
     * Source type: `<security group applied for the ALB>`.
     * Destination type: `node group`.
@@ -81,7 +81,7 @@ For online endpoints, we recommend allocating an independent {{ k8s }} cluster o
 
 To enable incoming network access to your workloads via HTTP/HTTPS, use the [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) resource.
 
-There are at least two controller options that you can use in {{ yandex-cloud }}:
+There are at least two controller options you can use in {{ yandex-cloud }}:
 - [Yandex Cloud Gwin Controller](../../managed-kubernetes/alb-ref/gwin-index.md).
 - [{{ alb-name }} Ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md).
 
@@ -156,7 +156,7 @@ You can use, for example, [Osquery](https://osquery.io/) as an agent installed o
 One of the methods to solve this task:
 
 1. Use [readOnlyRootFilesystem](https://www.thorsten-hans.com/read-only-filesystems-in-docker-and-kubernetes/) in pods.
-2. Make sure to mount folders to write the data to as separate volumes: as emptydir or individual disks.
+1. Make sure to mount folders to write the data to as separate volumes: as emptydir or individual disks.
 
 If you mount folders as emptydir, files are stored on the node in the `/var/lib/kubelet/pods/PODUID/volumes/kubernetes.ioempty-dir/VOLUMENAME` folder. To ensure data integrity, you can monitor this folder by Osquery as [node OS files](#fim-OS-files).
 

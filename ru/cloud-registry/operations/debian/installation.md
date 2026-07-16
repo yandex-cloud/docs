@@ -178,7 +178,7 @@ GPG-ключ требуется для реестра с подписью мет
 
 {% endlist %}
 
-## Добавление данных для аутентификации {#auth}
+### Добавление данных для аутентификации {#auth}
 
 {% include [apt-auth-conf-warning](../../../_includes/cloud-registry/apt-auth-conf-warning.md) %}
 

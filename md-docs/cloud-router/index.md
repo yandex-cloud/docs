@@ -88,6 +88,8 @@ Yandex Cloud Router — сервис для управления сетевым�
 
  - [Управление доступом](security/index.md)
 
+ - [Правила тарификации](pricing.md)
+
 ## Справочник CLI (англ.)
 
  - [Overview](cli-ref/index.md)

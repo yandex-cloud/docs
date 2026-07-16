@@ -1716,6 +1716,8 @@ items:
             href: audit/lockbox/events-ref/RotateSecret.md
           - name: ScheduleVersionDestruction
             href: audit/lockbox/events-ref/ScheduleVersionDestruction.md
+          - name: SetCurrentVersion
+            href: audit/lockbox/events-ref/SetCurrentVersion.md
           - name: SetSecretAccessBindings
             href: audit/lockbox/events-ref/SetSecretAccessBindings.md
           - name: UpdateSecret
@@ -1977,6 +1979,8 @@ items:
             href: audit/mdb/kafka/events-ref/MoveCluster.md
           - name: PauseConnector
             href: audit/mdb/kafka/events-ref/PauseConnector.md
+          - name: RescheduleMaintenance
+            href: audit/mdb/kafka/events-ref/RescheduleMaintenance.md
           - name: ResumeConnector
             href: audit/mdb/kafka/events-ref/ResumeConnector.md
           - name: RevokeUserPermission
@@ -3181,6 +3185,8 @@ items:
             href: audit/video/events-ref/InitializeChannelAdminChat.md
           - name: InitializeEpisodeChat
             href: audit/video/events-ref/InitializeEpisodeChat.md
+          - name: RenewVideoSource
+            href: audit/video/events-ref/RenewVideoSource.md
           - name: ResetChannelAdminChat
             href: audit/video/events-ref/ResetChannelAdminChat.md
           - name: ResyncEpisodeChatAdmins

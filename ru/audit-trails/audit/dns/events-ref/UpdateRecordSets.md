@@ -316,7 +316,7 @@ Includes only one of the fields `description`. ||
 ||Field | Description ||
 || networkIds[] | **string**
 
-The number of elements must be in the range 0-100. ||
+The number of elements must be in the range 0-128. ||
 |#
 
 ## RecordSet {#yandex.cloud.dns.v1.RecordSet}

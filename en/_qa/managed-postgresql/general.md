@@ -159,7 +159,7 @@ You can monitor metrics with a minimum granularity of five seconds.
 
 {% include [logs](../logs.md) %}
 
-#### What restrictions are placed on {{ PG }} database clusters? {#instance-limitations}
+#### What limitations apply to {{ PG }} database clusters? {#instance-limitations}
 
 To learn about {{ mpg-short-name }} quotas and limits, see [{#T}](../../managed-postgresql/concepts/limits.md). Also refer to [{#T}](../../managed-postgresql/concepts/instance-types.md) for the specifications of clusters you can create with {{ mpg-short-name }}.
 

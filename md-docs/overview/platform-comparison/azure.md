@@ -38,6 +38,7 @@
 | Azure Stack Hub | [Yandex Cloud Stackland](../../stackland/index.md) |
 | Azure Synapse Analytics | [Yandex MPP Analytics for PostgreSQL](../../managed-greenplum/index.md) |
 | Azure Virtual Desktop | [Yandex Cloud Desktop](../../cloud-desktop/index.md) |
+| Azure Virtual WAN | [Yandex Cloud Router](../../cloud-router/index.md) |
 | Blob Storage | [Yandex Object Storage](../../storage/index.md) |
 | Cognitive Services: Language | [Yandex Translate](https://aistudio.yandex.ru/docs/ru/translate/concepts/index) |
 | Cognitive Services: Speech | [Yandex SpeechKit](https://aistudio.yandex.ru/docs/ru/speechkit/overview) |

@@ -2,7 +2,7 @@
 
 Time zones are set as UTC offsets. For example, use `'+03:00'` for Moscow. Time zone names are not supported.
 
-For more information, see [this {{ MY }} article](https://dev.mysql.com/doc/refman/5.7/en/time-zone-support.html#time-zone-variables).
+For more information, see [this {{ MY }} guide](https://dev.mysql.com/doc/refman/5.7/en/time-zone-support.html#time-zone-variables).
 
 #### How do I set SQL mode? {#sql-mode}
 

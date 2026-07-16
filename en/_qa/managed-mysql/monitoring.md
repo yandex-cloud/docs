@@ -43,7 +43,7 @@ To view the current user’s queries, run:
 SHOW PROCESSLIST;
 ```
 
-For a detailed description of the query result, see [this {{ MY }} article](https://dev.mysql.com/doc/refman/5.7/en/show-processlist.html).
+For a detailed description of the output, see [this {{ MY }} guide](https://dev.mysql.com/doc/refman/5.7/en/show-processlist.html).
 
 #### What other diagnostic information is available? {#trouble-info}
 
@@ -68,16 +68,16 @@ Use [{{ monitoring-full-name }}]({{ link-monitoring }}). For the setup guide, se
 When selecting a metric, set `service` to **{{ ui-key.yacloud_monitoring.services.label_mysql }}**.
 
 
-#### How do I set up an alert that triggers as soon as a certain percentage of disk space has been used up? {#disk-space-percentage}
+#### How do I configure an alert for when disk space usage reaches a certain percentage? {#disk-space-percentage}
 
-[Create an alert](../../managed-mysql/operations/monitoring.md#monitoring-integration) for the `disk.used_bytes` metric in {{ monitoring-full-name }}. This metric shows the disk space usage in the {{ mmy-name }} cluster.
+[Create an alert](../../managed-mysql/operations/monitoring.md#monitoring-integration) for the `disk.used_bytes` metric in {{ monitoring-full-name }}. This metric shows the disk space usage in the {{ mmy-name }} cluster.
 
-For `disk.used_bytes`, use notification thresholds. Their recommended values are as follows:
+For `disk.used_bytes`, use notification thresholds. With the following recommended values:
 
-* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: 90% of disk space
-* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: 80% of disk space
+* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: 90% of disk space.
+* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: 80% of disk space.
 
-Thresholds values must be specified in bytes. For example, the recommended values for a 100 GB disk are as follows:
+Thresholds are set in bytes only. For example, the recommended values for a 100 GB disk are as follows:
 
-* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: `96636764160` bytes (90%)
-* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: `85899345920` bytes (80%)
+* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: `96636764160` bytes (90%).
+* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: `85899345920` bytes (80%).

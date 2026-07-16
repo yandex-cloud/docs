@@ -17,7 +17,7 @@ This section provides recommendations for protecting authentication, authorizati
 
 &#x2713; **Use user pools for local accounts**: [User pools](../../organization/concepts/user-pools.md) allow you to manage local users, domains, access permissions, and authentication settings in a centralized way.
 
-&#x2713; **Configure SSO for external systems**: Use [{{ org-full-name }} applications](../../organization/concepts/applications.md), if you want {{ yandex-cloud }} to act as an identity provider (IdP) for external services.
+&#x2713; **Configure SSO for external systems**: Use [{{ org-full-name }} applications](../../organization/concepts/applications/index.md), if you want {{ yandex-cloud }} to act as an identity provider (IdP) for external services.
 
 ## Roles and resources {#resources-and-roles}
 

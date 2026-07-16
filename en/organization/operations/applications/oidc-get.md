@@ -12,7 +12,7 @@ description: Follow this guide to get information about an OIDC app in {{ org-fu
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
   1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
-  1. Click the row with the [OIDC app](../../concepts/applications.md#oidc) you want to get info about.
+  1. Click the row with the [OIDC app](../../concepts/applications/oidc.md) you want to get info about.
 
 - CLI {#cli}
 
@@ -20,7 +20,7 @@ description: Follow this guide to get information about an OIDC app in {{ org-fu
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI command to get information about the [OIDC app](../../concepts/applications.md#oidc):
+  1. View the description of the CLI command to get information about the [OIDC app](../../concepts/applications/oidc.md):
 
      ```bash
      yc organization-manager idp application oauth application get --help

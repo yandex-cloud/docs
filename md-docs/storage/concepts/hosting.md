@@ -79,7 +79,7 @@ Object Storage позволяет настроить бакет:
 
 Все варианты настройки хостинга доступны через [HTTP API](../s3/api-ref/hosting.md), совместимый с Amazon S3.
 
-После настройки бакета для хостинга сайт становится доступен по адресу:
+{#bucket-url}После настройки бакета для хостинга сайт становится доступен по адресу:
 
 
 ```
@@ -146,3 +146,4 @@ http(s)://website.yandexcloud.net/<имя_бакета>
 * [Статический сайт в Yandex Object Storage](../tutorials/static/index.md)
 * [Хостинг статического сайта на фреймворке Gatsby в Yandex Object Storage](../tutorials/gatsby-static-website.md)
 * [Разработка навыка Алисы и сайта с авторизацией](../tutorials/alice-shareable-todolist.md)
+* [Развертывание статического веб-сайта в отказоустойчивой конфигурации в Yandex Cloud](../../architecture/static-website-in-yc.md)

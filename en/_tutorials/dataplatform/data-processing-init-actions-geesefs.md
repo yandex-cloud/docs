@@ -7,6 +7,7 @@ With these actions, you can automate the installation and setup of [GeeseFS](../
 
 To set up GeeseFS:
 
+1. [Set up your infrastructure](#infra).
 1. [Prepare the initialization action](#prepare-init-scripts).
 1. [Create a cluster that uses the initialization action](#create-cluster).
 1. [Check bucket availability](#check-availability).
@@ -14,19 +15,20 @@ To set up GeeseFS:
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
-## Required paid resources {#paid-resources}
-
-The support cost for this solution includes:
-
-* Fee for a {{ dataproc-name }} cluster (see [{{ dataproc-name }} pricing](../../data-proc/pricing.md)).
-* Fee for a NAT gateway (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* {{ objstorage-name }} bucket fee: data storage and data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
-* Fee for public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-
-
 ## Getting started {#before-you-begin}
 
-Set up your infrastructure:
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+
+### Required paid resources {#paid-resources}
+
+* {{ dataproc-name }} cluster: use of computing resources with a {{ dataproc-name }} markup, use of network drives, retrieval and storage of logs, amount of outgoing traffic (see [{{ dataproc-name }} pricing](../../data-proc/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* NAT gateway: hourly use of the gateway and its outgoing traffic (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ objstorage-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+
+
+## Set up your infrastructure {#infra}
 
 {% list tabs group=instructions %}
 
@@ -80,7 +82,7 @@ Set up your infrastructure:
       * `dataproc_name`: {{ dataproc-name }} cluster name.
       * `ssh-path`: Path to the public SSH key file for your {{ dataproc-name }} cluster.
 
-  1. Validate your {{ TF }} configuration files using this command:
+  1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
@@ -160,7 +162,7 @@ Set up your infrastructure:
 
   1. In the `data-processing-init-actions-geesefs.tf` file, set the variable value as follows: `create_cluster` = `1`.
 
-  1. Validate your {{ TF }} configuration files using this command:
+  1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
@@ -196,7 +198,7 @@ Before deleting the infrastructure, manually delete all objects from the bucket.
 
 {% endnote %}
 
-Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 {% list tabs group=instructions %}
 

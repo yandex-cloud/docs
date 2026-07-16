@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Отправка сообщений в топик {{ yds-full-name }}
 
+{% include [templating-note](../../../../_includes/serverless-integrations/templating-note.md) %}
+
 {% list tabs %}
 
 - Консоль управления {#console}
