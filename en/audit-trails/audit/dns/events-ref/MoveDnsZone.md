@@ -310,5 +310,5 @@ Includes only one of the fields `destinationFolderId`. ||
 ||Field | Description ||
 || networkIds[] | **string**
 
-The number of elements must be in the range 0-100. ||
+The number of elements must be in the range 0-128. ||
 |#

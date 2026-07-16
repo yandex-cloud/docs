@@ -24,7 +24,7 @@ Sign up for {{ yandex-cloud }} and create a [billing account](../../../billing/c
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder.
+  1. In the [management console]({{ link-console-main }}), select the relevant folder.
   1. At the top of the screen, click ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.marketplace-v2.label_service-name }}**.
   1. In the **{{ ui-key.yacloud.marketplace-v2.label_product-filter-search-placeholder }}** field, enter the name of the product you want to install or use search filters by category, [product type](../../concepts/users/products-types.md), or billing type. You can also use sorting.
   1. Click the selected {{ marketplace-name }} product's card and study its description, use cases, and other information.

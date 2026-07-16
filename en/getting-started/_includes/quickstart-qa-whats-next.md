@@ -6,7 +6,7 @@
 
 Billing accounts are used to identify users paying for {{ yandex-cloud }} resources. Even if you plan to use only free services, you still need a billing account: this is how you get your grants and promo codes.
 
-To activate a billing account, we ask you to link a bank card to make sure you are a human, not a robot. As soon as you link a card, a small amount will be debited from it and promptly returned. That is how we verify that your card is real. 
+To activate a billing account, we ask you to link a bank card to make sure you are a human, not a robot. As soon as you link a card, a small amount will be debited from it and promptly returned. That is how we verify that your card is real.
 
 Payments for {{ yandex-cloud }} services and resources can be debited from your bank card only after you explicitly allow us to do it, that is, after you switch to paid use.
 
@@ -22,7 +22,7 @@ To activate a billing account, we ask you to link a bank card to make sure you a
 
 #### I accidentally switched to paid use. Did I lose my initial grant? Can I get it back? {#accidental-switching-trial}
 
-No, you cannot switch back to the trial version, but the grant will not be lost. The initial grant will be used up first. For more information about the spending sequence, see [Billing cycle for businesses and individual entrepreneurs](../../billing/payment/billing-cycle-business.md).
+No, you cannot switch back to the trial version. However, your grant is not lost. Costs will be deducted from your remaining grant balance first. For more information, see [Billing cycle for organizations and individual entrepreneurs](../../billing/payment/billing-cycle-business.md).
 
 #### I have not used up the initial grant, but my cloud is blocked. What should I do? {#cloud-blocked-during-trial}
 
@@ -30,7 +30,7 @@ Make sure that a valid card is linked to your account. If you link a card and th
 
 #### I was unable to use up the initial grant within 60 days. Can I use {{ yandex-cloud }}? {#initial-grant-expiring}
 
-When the initial grant period ends, its unused amount expires and the access to your resources is suspended for 60 days. To continue using {{ yandex-cloud }}, switch to paid use. 
+When the initial grant period ends, its unused amount expires and the access to your resources is suspended for 60 days. To continue using {{ yandex-cloud }}, switch to paid use.
 
 ### Questions about documents {#documents}
 
@@ -44,7 +44,7 @@ The {{ yandex-cloud }} platform meets the PCI DSS requirements, which makes its 
 
 There is no printed form of the offer.
 
-The invoice is not physically provided either, but you can generate it in the console and print it out. For more information, see [{#T}](../../billing/operations/download-reporting-docs.md).
+The invoice is not physically provided either, but you can generate it in the console and print it out. Read more in [{#T}](../../billing/operations/download-reporting-docs.md).
 
 #### I need an agreement signed by both parties, not an offer. Can I get it? {#signed-agreement}
 

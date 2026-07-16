@@ -30,7 +30,7 @@ The {{ yandex-cloud }} platform meets the PCI DSS requirements, which makes its 
 
 There is no printed form of the offer.
 
-Also, we do not provide physical invoices. For more information, see [{#T}](../../billing/operations/download-reporting-docs.md).
+Also, we do not provide physical invoices. Read more in [{#T}](../../billing/operations/download-reporting-docs.md).
 
 #### I need an agreement signed by both parties, not an offer. Can I get it? {#signed-agreement}
 

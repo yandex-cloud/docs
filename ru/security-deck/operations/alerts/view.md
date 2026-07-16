@@ -19,8 +19,6 @@ description: В данном разделе вы узнаете, как в {{ sd
 
       Для каждого алерта в таблице отображается следующая информация:
 
-      {% include [table-columns-tip](../../../_includes/security-deck/table-columns-tip.md) %}
-
       * ![traffic-light](../../../_assets/console-icons/traffic-light.svg) — уровень критичности алерта:
           * ![cspm-rule-notice-icon](../../../_assets/security-deck/cspm-rule-notice-icon.svg) — {{ ui-key.yacloud_org.shared.components.severity_info_biSRh }};
           * ![cspm-low-severity-icon](../../../_assets/security-deck/cspm-low-severity-icon.svg) — {{ ui-key.yacloud_org.shared.components.severity_low_tqf9A }}.
@@ -36,8 +34,10 @@ description: В данном разделе вы узнаете, как в {{ sd
       * **{{ ui-key.yacloud_org.security-center.alerts.caption_created-by }}** и **{{ ui-key.yacloud_org.security-center.alerts.caption_modified-at }}** — даты и время создания и изменения алерта.
       * **{{ ui-key.yacloud_org.security-center.alerts.caption_incident }}** — инцидент, с которым связан алерт.
 
-{% endlist %}
+  1. (Опционально) [Настройте](#configure) отображение алертов.
 
+
+{% endlist %}
 
 ## Найти алерты {#search}
 
@@ -48,17 +48,28 @@ description: В данном разделе вы узнаете, как в {{ sd
   1. Перейдите в сервис [{{ sd-full-name }}]({{ link-sd-main }}).
   1. На панели слева выберите ![alerts](../../../_assets/security-deck/alerts.svg) **{{ ui-key.yacloud_org.security-center.label_alerts }}**.
   1. В верхней части окна выберите [окружение](../../concepts/workspace.md), для которого хотите найти алерты.
-  1. Нажмите ![sliders](../../../_assets/console-icons/sliders.svg) **{{ ui-key.yacloud_org.security.alerts.filters-button }}**, чтобы раскрыть панель фильтров.
-
-      Для поиска и анализа вы можете использовать:
-
-      * Текстовый поиск по заголовкам и описаниям алертов.
-      * Визуальную группировку по типу алерта.
-      * Сортировку по датам и уровню критичности.
-      * Фильтры.
+  1. В строке поиска введите часть заголовка или описания необходимого алерта.
+  1. (Опционально) [Настройте](#configure) отображение результатов поиска.
 
 {% endlist %}
 
+## Настроить отображение алертов {#configure}
+
+{% list tabs group=instructions %}
+
+- Интерфейс {{ sd-name }} {#cloud-sd}
+
+  1. Перейдите в сервис [{{ sd-full-name }}]({{ link-sd-main }}).
+  1. На панели слева выберите ![alerts](../../../_assets/security-deck/alerts.svg) **{{ ui-key.yacloud_org.security-center.label_alerts }}**.
+  1. В верхней части окна выберите [окружение](../../concepts/workspace.md), для которого хотите увидеть алерты.
+  1. Сгруппируйте алерты по проблеме или типу алерта. Справа от строки поиска нажмите ![alt text](../../../_assets/console-icons/layout-split-rows.svg) и выберите группировку.
+  1. Отсортируйте алерты по дате или уровню критичности. Над панелью фильтров нажмите ![alt text](../../../_assets/console-icons/bars-ascending-align-left-arrow-up.svg) и выберите тип сортировки.
+  1. Чтобы отфильтровать алерты, используйте панель над таблицей. В выпадающих списках выберите необходимые значения.
+
+     Для настройки видимости фильтров, справа от них нажмите кнопку ![plus](../../../_assets/console-icons/plus.svg) и выберите значения, которые нужно показать или скрыть.
+  1. Настройте видимость столбцов. В правой части шапки таблицы нажмите значок ![gear](../../../_assets/console-icons/gear.svg). Выберите необходимые значения и нажмите **{{ ui-key.yacloud_org.common.apply }}**.
+
+{% endlist %}
 
 ## Посмотреть подробную информацию об алерте {#detailed-info}
 

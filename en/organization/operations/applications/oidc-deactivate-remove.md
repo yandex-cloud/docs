@@ -10,7 +10,7 @@ description: Follow this guide to deactivate, reactivate, and delete an OIDC app
 
 ## Deactivate the application {#deactivate}
 
-If you need to temporarily disable authentication in an external app using the [OpenID Connect](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) (OIDC) single sign-on for your [organization’s](../../concepts/organization.md) users, deactivate the relevant [OIDC application](../../concepts/applications.md#oidc) in {{ org-full-name }}:
+If you need to temporarily disable authentication in an external app using the [OpenID Connect](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) (OIDC) single sign-on for your [organization’s](../../concepts/organization.md) users, deactivate the relevant [OIDC application](../../concepts/applications/oidc.md) in {{ org-full-name }}:
 
 {% list tabs group=instructions %}
 
@@ -185,7 +185,7 @@ To delete an OIDC application:
 
      Where:
 
-     * `organization_id`: [ID of the organization](../organization-get-id.md) the OIDC app resides in.
+     * `organization_id`: [ID of the organization](../organization-get-id.md) the OIDC app belongs to.
      * `name`: OIDC app name.
      * `description`: OIDC app description.
      * `client_grant`: OAuth client connection settings:
@@ -195,7 +195,7 @@ To delete an OIDC application:
        * `group_distribution_type`: Group distribution type.
      * `labels`: List of [labels](../../../resource-manager/concepts/labels.md).
 
-     For more on the properties of the `yandex_organizationmanager_idp_application_oauth_application` resource, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_oauth_application).
+     For more on `yandex_organizationmanager_idp_application_oauth_application` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_oauth_application).
 
   1. Apply the changes:
 
@@ -220,5 +220,5 @@ This will delete the OIDC application, and the users will no longer be able to u
 * [{#T}](./oidc-create.md)
 * [{#T}](./oidc-update.md)
 * [{#T}](../add-account.md)
-* [{#T}](../../concepts/applications.md#oidc)
+* [{#T}](../../concepts/applications/oidc.md)
 * [{#T}](../manage-groups.md)

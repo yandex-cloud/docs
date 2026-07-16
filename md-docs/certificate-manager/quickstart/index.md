@@ -178,3 +178,4 @@
 * [Сертификат от Let's Encrypt](../concepts/managed-certificate.md)
 * [Проверка прав на домен](../concepts/challenges.md)
 * [Настройка HTTPS в бакете](../../storage/operations/hosting/certificate.md)
+* [Развертывание статического веб-сайта в отказоустойчивой конфигурации в Yandex Cloud](../../architecture/static-website-in-yc.md)

@@ -13,7 +13,7 @@ For more information on the {{ mmy-name }} cluster structure, see [Resource rela
 
 {% note info %}
 
-* The number of hosts you can create together with a {{ MY }} cluster depends on the selected [disk type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
+* The number of hosts you can create with a {{ MY }} cluster depends on the selected [disk type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
 * The available disk types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md#available-flavors).
 
 {% endnote %}
@@ -22,7 +22,7 @@ For more information on the {{ mmy-name }} cluster structure, see [Resource rela
 ## Creating a cluster {#create-cluster}
 
 
-To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role along with the [{{ roles.mmy.editor }} role or higher](../security/index.md#roles-list). For more information on assigning roles, see [this {{ iam-name }} guide](../../iam/operations/roles/grant.md).
+To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role along with the [{{ roles.mmy.editor }} role or higher](../security/index.md#roles-list). For information on assigning roles, see [this {{ iam-name }} guide](../../iam/operations/roles/grant.md).
 
 
 
@@ -52,7 +52,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
        {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
-     * Select the storage size for data and backups. For more information on how backups take up storage space, see [Backups](../concepts/backup.md).
+     * Select the storage size for data and backups. For details on how backups consume storage space, see [Backups](../concepts/backup.md).
 
        {% note info %}
 
@@ -67,7 +67,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
        * To use a previously created key, select it in the **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}** field.
 
-       To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
+       Learn more about disk encryption in [Storage](../concepts/storage.md#disk-encryption).
 
 
   1. Optionally, under **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}**:
@@ -97,7 +97,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select:
 
      * [Cloud network](../../vpc/concepts/network.md#network) for the cluster.
-     * [Security groups](../../vpc/concepts/security-groups.md) for the cluster network traffic. You may also need to [configure security groups](./connect/index.md#configure-security-groups) to connect to the {{ mmy-name }} cluster.
+     * [Security groups](../../vpc/concepts/security-groups.md) for the cluster network traffic. You may need to additionally [configure security groups](./connect/index.md#configure-security-groups) to enable access to your {{ mmy-name }} cluster.
 
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, click ![image](../../_assets/console-icons/pencil.svg) and specify the settings for the database hosts created together with the {{ mmy-name }} cluster:
@@ -253,10 +253,10 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      
      * `--disk-encryption-key-id`: Disk encryption using a [custom KMS key](../../kms/concepts/key.md).
 
-       To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
+       Learn more about disk encryption in [Storage](../concepts/storage.md#disk-encryption).
 
 
-     * `--datalens-access`: Enables access to the cluster from {{ datalens-full-name }}. The default value is `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).
+     * `--datalens-access`: Enables access to the cluster from {{ datalens-full-name }}. The default value is `false`. Read more about setting up a connection in [this section](datalens-connect.md).
      * `--websql-access`: Enables [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. The default value is `false`.
      * `--yandexquery-access`: Enables YQL queries against cluster databases from [{{ yq-full-name }}](../../query/concepts/index.md). This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage. The default value is `false`.
 
@@ -392,7 +392,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
        }
        ```
 
-       To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
+       Learn more about disk encryption in [Storage](../concepts/storage.md#disk-encryption).
 
 
      * {% include [Access settings](../../_includes/mdb/mmy/terraform/access-settings.md) %}
@@ -445,7 +445,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
        For `sessions_sampling_interval` and `statements_sampling_interval`, the valid values range from `1` to `86400` seconds.
 
-     For more information about the resources you can create with {{ TF }}, see [this provider article]({{ tf-provider-mmy }}).
+     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-mmy }}).
   1. Make sure the configuration files are correct.
 
      {% include [terraform-create-cluster-step-2](../../_includes/mdb/terraform-create-cluster-step-2.md) %}
@@ -572,7 +572,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
           * `access`: Settings for cluster access from {{ yandex-cloud }} services:
 
-            * `dataLens`: Access from {{ datalens-full-name }}. For more information about setting up a connection, see [{#T}](datalens-connect.md).
+            * `dataLens`: Access from {{ datalens-full-name }}. Read more about setting up a connection in [this section](datalens-connect.md).
             * `webSql`: [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}.
             * `yandexQuery`: YQL queries against cluster databases from [{{ yq-full-name }}](../../query/concepts/index.md). This feature is currently at the [Preview](../../overview/concepts/launch-stages.md) stage.
 
@@ -608,7 +608,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
               * `databaseName`: Name of the database to which the user will have access.
               * `roles`: Array of user privileges, each provided as a separate string in the array. For the list of possible values, see [User privileges in a cluster](../concepts/user-rights.md#db-privileges).
 
-              For each database, add a separate element with permission settings to the `permissions` array.
+              In the `permissions` array, add a separate element with permission settings for each database.
 
       * `hostSpecs`: Cluster host settings as an array of elements, one per host. Each element has the following structure:
 
@@ -745,7 +745,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
           * `access`: Settings for cluster access from {{ yandex-cloud }} services:
 
-            * `data_lens`: Access from {{ datalens-full-name }}. For more information about setting up a connection, see [{#T}](datalens-connect.md).
+            * `data_lens`: Access from {{ datalens-full-name }}. Read more about setting up a connection in [this section](datalens-connect.md).
             * `web_sql`: [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}.
             * `yandex_query`: YQL queries against cluster databases from [{{ yq-full-name }}](../../query/concepts/index.md). This feature is currently at the [Preview](../../overview/concepts/launch-stages.md) stage.
 

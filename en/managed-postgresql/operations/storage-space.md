@@ -370,7 +370,7 @@ To disable read-only mode:
                  "maintenanceWindow": {
                    "weeklyMaintenanceWindow": {
                      "day": "<day_of_week>",
-                     "hour": "<hour>"
+                     "hour": "<sequence_number_of_hour_interval>"
                    }
                  }
                }'
@@ -392,7 +392,7 @@ To disable read-only mode:
 
         Learn more about the storage expansion criteria [here](../concepts/storage.md#auto-rescale).
 
-     * `maintenanceWindow`: Maintenance window schedule. This setting is required only if `plannedUsageThreshold` is set. Contains the following:
+     * `maintenanceWindow`: Maintenance window schedule. This setting is required only if `plannedUsageThreshold` is set. It contains the following:
 
        * `weeklyMaintenanceWindow.day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
        * `weeklyMaintenanceWindow.hour`: UTC hour, from `1` to `24`.
@@ -439,7 +439,7 @@ To disable read-only mode:
              "maintenance_window": {
                "weekly_maintenance_window": {
                  "day": "<day_of_week>",
-                 "hour": "<hour>"
+                 "hour": "<sequence_number_of_hour_interval>"
                }
              }
            }' \
@@ -459,7 +459,7 @@ To disable read-only mode:
 
         Learn more about the storage expansion criteria [here](../concepts/storage.md#auto-rescale).
 
-     * `maintenance_window`: Maintenance window schedule. This setting is required only if `planned_usage_threshold` is set. Contains the following:
+     * `maintenance_window`: Maintenance window schedule. This setting is required only if `planned_usage_threshold` is set. It contains the following:
 
        * `weekly_maintenance_window.day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
        * `weekly_maintenance_window.hour`: UTC hour, from `1` to `24`.

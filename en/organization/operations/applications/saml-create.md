@@ -6,7 +6,7 @@ description: Follow this guide to create a SAML application in {{ org-full-name 
 # Creating a SAML application in {{ org-full-name }}
 
 
-To authenticate your [organization](../../concepts/organization.md)'s users to external apps using [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language)-based SSO, create a [SAML application](../../concepts/applications.md#saml) in {{ org-full-name }} and configure it appropriately both in {{ org-full-name }} and on your service provider side.
+To authenticate your [organization](../../concepts/organization.md)'s users to external apps using [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language)-based SSO, create a [SAML application](../../concepts/applications/saml.md) in {{ org-full-name }} and configure it appropriately both in {{ org-full-name }} and on your service provider side.
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 
@@ -311,5 +311,5 @@ To make sure both your SAML application and service provider integration work co
 * [{#T}](./saml-update.md)
 * [{#T}](./saml-deactivate-remove.md)
 * [{#T}](../add-account.md)
-* [{#T}](../../concepts/applications.md#saml)
+* [{#T}](../../concepts/applications/saml.md)
 * [{#T}](../manage-groups.md)

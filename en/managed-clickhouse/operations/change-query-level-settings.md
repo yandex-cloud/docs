@@ -112,7 +112,7 @@ You can specify [{{ CH }} settings at the query level]({{ ch.docs }}{{ lang }}/o
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm resource changes.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -379,7 +379,7 @@ You can specify {{ CH }} settings when [creating](#create-settings-profile) or [
          clickhouse-client --host {{ host-name }}.{{ dns-zone }} \
                            --user user1 \
                            --database db1 \
-                           --port 9440 \
+                           --port 9000 \
                            --ask-password \
                            --idle_connection_timeout 60
          ```

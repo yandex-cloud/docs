@@ -27,7 +27,7 @@
 
 {% include [quota-trigger-count](quota-trigger-count.md) %}
 
-For more information on the relationship between quotas, see [this section](../functions/concepts/limits.md#related-quotas).
+The relationships between quotas are described in [{#T}](../functions/concepts/limits.md#related-quotas).
 
 #### Limits {#functions-limits}
 

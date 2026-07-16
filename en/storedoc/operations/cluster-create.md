@@ -97,6 +97,25 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
              To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
 
 
+     1. Optionally, under **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}**, specify the following settings:
+
+         * In the **{{ ui-key.yacloud.mdb.resources.DiskAutoscalingFieldGroup.field_autoscaling_fsAon }}** field, set the conditions for automatic storage expansion:
+
+             * Storage usage percentage to trigger its expansion during the next [maintenance window](../concepts/maintenance.md#maintenance-window).
+             * Storage usage percentage to trigger its immediate expansion.
+
+             If both conditions are set, the percentage for maintenance window expansion must be lower than the threshold for immediate expansion.
+
+             Learn more about the storage expansion criteria [here](../concepts/storage.md#auto-rescale).
+
+         * In the **{{ ui-key.yacloud.mdb.resources.DiskAutoscalingFieldGroup.field_disk-size-limit_bK9Ng }}** field, specify the maximum storage size that can be set during autoscaling.
+
+         {% note info %}
+
+         If you have enabled storage expansion during the maintenance window, set the maintenance time under **{{ ui-key.yacloud.mdb.forms.section_additional }}**.
+
+         {% endnote %}
+
      1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, add the database hosts to be created alongside the cluster:
 
          
@@ -109,7 +128,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
          To ensure fault tolerance while using `local-ssd` and `network-ssd-nonreplicated` disks, you need a minimum of 3 hosts. For more information, see [Storage](../concepts/storage.md).
 
          
-         By default, hosts are created across multiple availability zones. For more information, see [host management](hosts.md).
+         By default, hosts are created across multiple availability zones. Learn more about [host management](hosts.md).
 
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, specify the database details:
@@ -314,6 +333,39 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
       * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
         {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+      To set up [automatic storage expansion](../concepts/storage.md#auto-rescale), specify the `--disk-size-autoscaling` parameter:
+
+      ```bash
+      {{ yc-mdb-mg }} cluster create \
+         ...
+         --disk-size-autoscaling <host_type>-planned-usage-threshold=<scheduled_expansion_percentage>,`
+                                `<host_type>-emergency-usage-threshold=<immediate_expansion_percentage>,`
+                                `<host_type>-disk-size-limit=<maximum_storage_size_in_GB> \
+         ...
+      ```
+
+      Where:
+
+      * `<host_type>`: [Host type](../concepts/host-roles.md) to configure a storage for. The possible values are `mongod`, `mongocfg`, `mongos`, and `mongoinfra`.
+
+      * `<host_type>-planned-usage-threshold`: Storage usage percentage to trigger a storage expansion during the next [maintenance window](../concepts/maintenance.md#maintenance-window).
+
+        Use a value between `0` and `100`%. The default value is `0`, i.e., automatic expansion is disabled.
+
+        If you set this option, configure the maintenance time.
+
+      * `<host_type>-emergency-usage-threshold`: Storage usage percentage to trigger an immediate storage expansion.
+
+        Use a value between `0` and `100`%. The default value is `0`, i.e., automatic expansion is disabled.
+
+        {% note info %}
+
+        If both options are set, the percentage for planned expansion must be lower than the threshold for immediate expansion.
+
+        {% endnote %}
+
+      * `<host_type>-disk-size-limit`: Maximum storage size after expansion, in GB.
 
       {% note info %}
 
@@ -618,6 +670,51 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
        To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
 
+     To configure [automatic storage expansion](../concepts/storage.md#auto-rescale), add a section with settings for the relevant host type to the cluster description:
+     
+     Type of host | Section name
+     --- | ---
+     `MONGOD` | `disk_size_autoscaling_mongod`
+     `MONGOINFRA` | `disk_size_autoscaling_mongoinfra`
+     `MONGOS` | `disk_size_autoscaling_mongos`
+     `MONGOCFG` | `disk_size_autoscaling_mongocfg`
+
+     You can specify one or multiple sections.
+
+       Here is an example:
+
+       ```hcl
+       resource "yandex_mdb_mongodb_cluster" "<cluster_name>" {
+         ...
+         disk_size_autoscaling_mongod {
+           planned_usage_threshold   = "<scheduled_expansion_percentage>"
+           emergency_usage_threshold = "<immediate_expansion_percentage>"
+           disk_size_limit           = "<maximum_storage_size_in_GB>"
+         }
+         ...
+       }
+       ```
+
+       Where:
+
+       * `planned_usage_threshold` (optional): Storage usage percentage to trigger a storage expansion during the next [maintenance window](../concepts/maintenance.md#maintenance-window).
+
+         Use a value between `0` and `100`%. The default value is `0`, i.e., automatic expansion is disabled.
+
+         If you set this option, configure the maintenance time.
+
+       * `emergency_usage_threshold` (optional): Storage usage percentage to trigger an immediate storage expansion.
+
+         Use a value between `0` and `100`%. The default value is `0`, i.e., automatic expansion is disabled.
+
+         {% note info %}
+
+         If both options are set, the percentage for planned expansion must be lower than the threshold for immediate expansion.
+
+         {% endnote %}
+
+       * `disk_size_limit`: Maximum storage size after expansion, in GB.
+
      For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-mmg }}).
 
   1. Make sure the settings are correct.
@@ -671,6 +768,11 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
                   "resourcePresetId": "<host_class>",
                   "diskSize": "<storage_size_in_bytes>",
                   "diskTypeId": "<disk_type>"
+                },
+                "diskSizeAutoscaling": {
+                  "plannedUsageThreshold": "<scheduled_expansion_percentage>",
+                  "emergencyUsageThreshold": "<immediate_expansion_percentage>",
+                  "diskSizeLimit": "<maximum_storage_size_in_GB>"
                 }
               }
             },
@@ -761,6 +863,11 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
                   "resourcePresetId": "<host_class>",
                   "diskSize": "<storage_size_in_bytes>",
                   "diskTypeId": "<disk_type>"
+                },
+                "diskSizeAutoscaling": {
+                  "plannedUsageThreshold": "<scheduled_expansion_percentage>",
+                  "emergencyUsageThreshold": "<immediate_expansion_percentage>",
+                  "diskSizeLimit": "<maximum_storage_size_in_GB>"
                 }
               },
               "mongoinfra": {
@@ -768,6 +875,11 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
                   "resourcePresetId": "<host_class>",
                   "diskSize": "<storage_size_in_bytes>",
                   "diskTypeId": "<disk_type>"
+                },
+                "diskSizeAutoscaling": {
+                  "plannedUsageThreshold": "<scheduled_expansion_percentage>",
+                  "emergencyUsageThreshold": "<immediate_expansion_percentage>",
+                  "diskSizeLimit": "<maximum_storage_size_in_GB>"
                 }
               }
             },
@@ -865,6 +977,11 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
                   "resourcePresetId": "<host_class>",
                   "diskSize": "<storage_size_in_bytes>",
                   "diskTypeId": "<disk_type>"
+                },
+                "diskSizeAutoscaling": {
+                  "plannedUsageThreshold": "<scheduled_expansion_percentage>",
+                  "emergencyUsageThreshold": "<immediate_expansion_percentage>",
+                  "diskSizeLimit": "<maximum_storage_size_in_GB>"
                 }
               },
               "mongos": {
@@ -872,6 +989,11 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
                   "resourcePresetId": "<host_class>",
                   "diskSize": "<storage_size_in_bytes>",
                   "diskTypeId": "<disk_type>"
+                },
+                "diskSizeAutoscaling": {
+                  "plannedUsageThreshold": "<scheduled_expansion_percentage>",
+                  "emergencyUsageThreshold": "<immediate_expansion_percentage>",
+                  "diskSizeLimit": "<maximum_storage_size_in_GB>"
                 }
               },
               "mongocfg": {
@@ -879,6 +1001,11 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
                   "resourcePresetId": "<host_class>",
                   "diskSize": "<storage_size_in_bytes>",
                   "diskTypeId": "<disk_type>"
+                },
+                "diskSizeAutoscaling": {
+                  "plannedUsageThreshold": "<scheduled_expansion_percentage>",
+                  "emergencyUsageThreshold": "<immediate_expansion_percentage>",
+                  "diskSizeLimit": "<maximum_storage_size_in_GB>"
                 }
               }
             },
@@ -978,13 +1105,33 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         * `configSpec`: Cluster settings:
 
             * `version`: {{ SD }} version, 5.0, 6.0, or 7.0.
-            * `mongod`, `mongoinfra`, `mongos`, `mongocfg`: Host types.
+            * `mongod`, `mongoinfra`, `mongos`, `mongocfg`: [Host types](../concepts/host-roles.md).
 
               * `resources`: Cluster resources:
 
                 * `resourcePresetId`: [Host class](../concepts/instance-types.md).
                 * `diskSize`: Disk size in bytes.
                 * `diskTypeId`: [Disk type](../concepts/storage.md).
+
+              * `diskSizeAutoscaling`: Settings for automatic storage [expansion](../concepts/storage.md#auto-rescale).
+
+                * `plannedUsageThreshold`: Storage usage percentage to trigger a storage expansion during the next [maintenance window](../concepts/maintenance.md#maintenance-window).
+
+                  Use a value between `0` and `100`%. The default value is `0`, i.e., automatic expansion is disabled.
+
+                  If you set this option, configure the maintenance time.
+
+                * `emergencyUsageThreshold`: Storage usage percentage to trigger an immediate storage expansion.
+
+                  Use a value between `0` and `100`%. The default value is `0`, i.e., automatic expansion is disabled.
+
+                  {% note info %}
+
+                  If both options are set, the percentage for planned expansion must be lower than the threshold for immediate expansion.
+
+                  {% endnote %}
+
+                * `diskSizeLimit`: Maximum storage size after expansion, in GB.
 
             * `backupWindowStart`: [Backup](../concepts/backup.md) window settings.
 
@@ -1087,6 +1234,11 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
                   "resource_preset_id": "<host_class>",
                   "disk_size": "<storage_size_in_bytes>",
                   "disk_type_id": "<disk_type>"
+                },
+                "disk_size_autoscaling": {
+                  "planned_usage_threshold": "<scheduled_expansion_percentage>",
+                  "emergency_usage_threshold": "<immediate_expansion_percentage>",
+                  "disk_size_limit": "<maximum_storage_size_in_GB>"
                 }
               }
             },
@@ -1177,6 +1329,11 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
                   "resource_preset_id": "<host_class>",
                   "disk_size": "<storage_size_in_bytes>",
                   "disk_type_id": "<disk_type>"
+                },
+                "disk_size_autoscaling": {
+                  "planned_usage_threshold": "<scheduled_expansion_percentage>",
+                  "emergency_usage_threshold": "<immediate_expansion_percentage>",
+                  "disk_size_limit": "<maximum_storage_size_in_GB>"
                 }
               },
               "mongoinfra": {
@@ -1184,6 +1341,11 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
                   "resource_preset_id": "<host_class>",
                   "disk_size": "<storage_size_in_bytes>",
                   "disk_type_id": "<disk_type>"
+                },
+                "disk_size_autoscaling": {
+                  "planned_usage_threshold": "<scheduled_expansion_percentage>",
+                  "emergency_usage_threshold": "<immediate_expansion_percentage>",
+                  "disk_size_limit": "<maximum_storage_size_in_GB>"
                 }
               }
             },
@@ -1281,6 +1443,11 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
                   "resource_preset_id": "<host_class>",
                   "disk_size": "<storage_size_in_bytes>",
                   "disk_type_id": "<disk_type>"
+                },
+                "disk_size_autoscaling": {
+                  "planned_usage_threshold": "<scheduled_expansion_percentage>",
+                  "emergency_usage_threshold": "<immediate_expansion_percentage>",
+                  "disk_size_limit": "<maximum_storage_size_in_GB>"
                 }
               },
               "mongos": {
@@ -1288,6 +1455,11 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
                   "resource_preset_id": "<host_class>",
                   "disk_size": "<storage_size_in_bytes>",
                   "disk_type_id": "<disk_type>"
+                },
+                "disk_size_autoscaling": {
+                  "planned_usage_threshold": "<scheduled_expansion_percentage>",
+                  "emergency_usage_threshold": "<immediate_expansion_percentage>",
+                  "disk_size_limit": "<maximum_storage_size_in_GB>"
                 }
               },
               "mongocfg": {
@@ -1295,6 +1467,11 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
                   "resource_preset_id": "<host_class>",
                   "disk_size": "<storage_size_in_bytes>",
                   "disk_type_id": "<disk_type>"
+                },
+                "disk_size_autoscaling": {
+                  "planned_usage_threshold": "<scheduled_expansion_percentage>",
+                  "emergency_usage_threshold": "<immediate_expansion_percentage>",
+                  "disk_size_limit": "<maximum_storage_size_in_GB>"
                 }
               }
             },
@@ -1394,13 +1571,33 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         * `config_spec`: Cluster settings:
 
           * `version`: {{ SD }} version, 5.0, 6.0, or 7.0.
-            * `mongod`, `mongoinfra`, `mongos`, `mongocfg`: Host types.
+            * `mongod`, `mongoinfra`, `mongos`, `mongocfg`: [Host types](../concepts/host-roles.md).
 
               * `resources`: Cluster resources:
 
                 * `resource_preset_id`: [Host class](../concepts/instance-types.md).
                 * `disk_size`: Disk size, in bytes.
                 * `disk_type_id`: [Disk type](../concepts/storage.md).
+
+              * `disk_size_autoscaling`: Settings for automatic storage [expansion](../concepts/storage.md#auto-rescale).
+
+                * `planned_usage_threshold`: Storage usage percentage to trigger a storage expansion during the next [maintenance window](../concepts/maintenance.md#maintenance-window).
+
+                  Use a value between `0` and `100`%. The default value is `0`, i.e., automatic expansion is disabled.
+
+                  If you set this option, configure the maintenance time.
+
+                * `emergency_usage_threshold`: Storage usage percentage to trigger an immediate storage expansion.
+
+                  Use a value between `0` and `100`%. The default value is `0`, i.e., automatic expansion is disabled.
+
+                  {% note info %}
+
+                  If both options are set, the percentage for planned expansion must be lower than the threshold for immediate expansion.
+
+                  {% endnote %}
+
+                * `disk_size_limit`: Maximum storage size after expansion, in GB.
 
             * `backup_window_start`: [Backup](../concepts/backup.md) window settings.
 

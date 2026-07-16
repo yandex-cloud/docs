@@ -55,3 +55,7 @@
   ```
 
 {% endlist %}
+
+#### Полезные ссылки {#see-also}
+
+* [Развертывание статического веб-сайта в отказоустойчивой конфигурации в Yandex Cloud](../../architecture/static-website-in-yc.md)

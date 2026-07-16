@@ -197,3 +197,4 @@ server {
 #### Полезные ссылки {#see-also}
 
 * [Документация Let's Encrypt. Виды проверок](https://letsencrypt.org/ru/docs/challenge-types/)
+* [Развертывание статического веб-сайта в отказоустойчивой конфигурации в Yandex Cloud](../../architecture/static-website-in-yc.md)

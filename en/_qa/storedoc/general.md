@@ -3,7 +3,7 @@
 {{ mmg-short-name }} is a service that helps you create, operate, and scale {{ SD }} databases in the cloud.
 
 With {{ mmg-short-name }}, you can:
-- Create databases that meet your performance requirements.
+- Create a database with the performance specs tailored to your needs.
 - Scale computing power and dedicated storage capacity for your databases.
 - Retrieve database logs.
 
@@ -26,7 +26,7 @@ Additionally, {{ mmg-short-name }} ensures replication across database hosts (bo
 
 {% include [responsibilities-link](../../_includes/mdb/responsibilities-link.md) %}
 
-#### When should I use {{ mmg-short-name }} and when database-hosting VMs? {#mdb-advantage}
+#### When to use {{ mmg-short-name }} and when database VMs? {#mdb-advantage}
 
 {{ yandex-cloud }} offers two approaches for working with databases:
 
@@ -102,7 +102,7 @@ When new minor versions are released, the cluster software is updated after a sh
 
 Following a one-month grace period after the end of support for a DBMS version, the relevant database cluster owners receive email notifications.
 
-From that point on, you can no longer create new hosts with unsupported DBMS versions. Following a post-notification grace period of seven days for minor versions and one month for major versions, database clusters are automatically updated to the next supported release. We update unsupported major versions even when you have automatic updates turned off.
+For clusters with a deprecated DBMS version, there is no option to create new hosts or restore from backups. Following a post-notification grace period of seven days for minor versions and one month for major versions, database clusters are automatically updated to the next supported release. We update unsupported major versions even when you have automatic updates turned off.
 
 
 #### How do you calculate usage cost for a database host? {#db-cost}
@@ -116,7 +116,7 @@ In {{ mmg-short-name }}, the usage cost is calculated based on the following:
 
 #### How can I change the computing resources and storage size for a database cluster? {#resources-change}
 
-You can scale your computing resources and storage size by selecting a different host class for your cluster in the [management console]({{ link-console-main }}).
+You can scale your computing resources and storage size directly in the [management console]({{ link-console-main }}) by selecting a different host class for your cluster.
 
 Cluster modifications are applied within 30 minutes. This window may also be used for other maintenance tasks, such as installing updates.
 
@@ -152,7 +152,7 @@ All database hosts support monitoring metrics specific to their DBMS type. For e
 
 You can monitor metrics with a five-second minimum granularity.
 
-#### How can I configure an alert for when disk usage reaches a certain percentage? {#disk-space-percentage}
+#### How do I configure an alert for when disk space usage reaches a certain percentage? {#disk-space-percentage}
 
 [Create an alert](../../storedoc/operations/monitoring.md#monitoring-integration) for the `disk.used_bytes` metric in {{ monitoring-full-name }}. This metric shows the disk space usage in the {{ mmg-name }} cluster.
 

@@ -161,7 +161,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
      {% note warning %}
 
-     You can only enable {{ mdb-lb }} when creating a cluster.
+     You can enable {{ mdb-lb }} only when creating a cluster.
 
      {% endnote %}
 
@@ -536,7 +536,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
        "maintenanceWindow": {
          "weeklyMaintenanceWindow": {
            "day": "<day_of_week>",
-           "hour": "<hour>"
+           "hour": "<sequence_number_of_hour_interval>"
          }
        }
      }
@@ -627,7 +627,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
        * `weeklyMaintenanceWindow`: Maintenance takes place once a week at the specified time:
 
          * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-         * `hour`: UTC hour, from `1` to `24`.
+         * `hour`: Sequence number of a UTC hour interval, from `1` to `24`.
 
            > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
@@ -729,7 +729,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
        "maintenance_window": {
          "weekly_maintenance_window": {
            "day": "<day_of_week>",
-           "hour": "<hour>"
+           "hour": "<sequence_number_of_hour_interval>"
          }
        }
      }

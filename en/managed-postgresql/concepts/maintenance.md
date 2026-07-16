@@ -45,10 +45,4 @@ In multi-host clusters, the maintenance is run as follows:
 
 ## How maintenance impacts a cluster {#impact-on-cluster}
 
-Depending on its type, maintenance can impact your cluster as follows:
-
-* Show little to no impact on database users.
-* Break database connections in place, forcing clients to re-establish their connections.
-* Make your cluster read-only for a while.
-* Make your cluster completely unavailable for a while due to a reboot.
-* Cause master host failover in the cluster, making the database read-only for a while.
+{% include [impact-on-cluster](../../_includes/impact-on-cluster.md) %}

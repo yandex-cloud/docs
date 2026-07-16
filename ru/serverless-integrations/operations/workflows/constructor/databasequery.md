@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Выполнение SQL-запросов к базам данных
 
+{% include [templating-note](../../../../_includes/serverless-integrations/templating-note.md) %}
+
 {% list tabs %}
 
 - Консоль управления {#console}

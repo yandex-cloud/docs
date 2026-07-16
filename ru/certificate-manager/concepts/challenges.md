@@ -162,3 +162,4 @@ server {
 #### Полезные ссылки {#see-also}
 
 * [Документация Let's Encrypt. Виды проверок](https://letsencrypt.org/ru/docs/challenge-types/)
+* [{#T}](../../architecture/static-website-in-yc.md)

@@ -13,7 +13,7 @@ When using managed database (MDB) services, such as {{ mpg-short-name }}, {{ mch
 
 * **Backup and recovery**. Backup and recovery of the cluster and its individual parts. Recovery from a backup is not guaranteed if the problem is due to an error on the database provider's side or to data architecture. {{ yandex-cloud }} support will explain what has led to the error and how to avoid it in the future. They will also restore the cluster, if possible.
 
-* **Cluster operations**. Facilitating MDB cluster operations available through the [management console](../../console/index.yaml), [API](../../api-design-guide/index.yaml), [CLI](../../cli/index.yaml), or [Terraform](../../terraform/index.yaml).
+* **Cluster operations**. Facilitating MDB cluster operations available through the [management console](../../console/index.yaml), [API](../../api-design-guide/index.yaml), [CLI](../../cli/index.yaml), or [{{ TF }}](../../terraform/index.yaml).
 
 * **MDB tools**. Providing {{ yandex-cloud }} managed database tools (see the [MDB documentation](#mdb-docs) table), such as performance diagnostics, command center, cluster (host) and DBMS monitoring (monitoring agents, metrics, and dashboards), alerts, and log display.
 
@@ -44,7 +44,7 @@ When using managed database (MDB) services, such as {{ mpg-short-name }}, {{ mch
 
 ## {{ yandex-cloud }} customer control zone {#customer-responsibilities}
 
-* **Operations with clusters**. Self-management of MDB clusters through available interfaces: [management console](../../console/index.yaml), [API](../../api-design-guide/index.yaml), [CLI](../../cli/index.yaml), or [Terraform](../../terraform/index.yaml).
+* **Operations with clusters**. Self-management of MDB clusters through available interfaces: [management console](../../console/index.yaml), [API](../../api-design-guide/index.yaml), [CLI](../../cli/index.yaml), or [{{ TF }}](../../terraform/index.yaml).
 
 * **Maintenance window**. Scheduling the maintenance window interval for a predictable operational timeline.
 

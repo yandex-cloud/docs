@@ -62,7 +62,9 @@ Storing backups in {{ mpg-name }}:
 
     * Manual backups are stored with no time limit.
 
-* After you delete a cluster, all its backups are kept for seven days.
+* After you delete a cluster, all its backups are kept for seven days, including those created manually. Backup storage during this period is free of charge.
+
+* {% include [manual-backup-delete-restriction](../../_includes/mdb/backups/manual-backup-delete-restriction.md) %}
 
 * {% include [no-quotes-no-limits](../../_includes/mdb/backups/no-quotes-no-limits.md) %}
 
@@ -93,7 +95,7 @@ Periodically test the recovery of production system clusters. Verify data integr
 
 > For example, if the backup operation ended on August 10, 2020 at 12:00:00 UTC, the current date is August 15, 2020, 19:00:00 UTC, and the most recent WAL was saved on August 15, 2020, 18:50:00 UTC, the cluster can be restored to any state between August 10, 2020, 12:00:01 UTC and August 15, 2020, 18:50:00 UTC, inclusive.
 
-WAL consists of 16 MB files that are archived in a running cluster when the required size is reached or if the time specified by the [archive timeout](./settings-list.md#setting-archive-timeout) cluster-level DBMS setting has passed since a file was last archived. The archive is then uploaded to object storage.
+WAL consists of 16 MB files that are archived in a running cluster when the required size is reached or if the time specified by the [archive timeout](./settings-list.md#setting-archive-timeout) cluster-level DBMS setting has passed since a file was last archived. Then archived entries are uploaded to object storage.
 
 {% note warning %}
 

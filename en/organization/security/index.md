@@ -37,8 +37,8 @@ You can also assign roles for individual resources within the service:
   * [Organization](../operations/security.md)
   * [User pool](../concepts/user-pools.md)
   * [User group](../operations/access-manage-group.md)
-  * [SAML app](../concepts/applications.md#saml)
-  * [OIDC app](../concepts/applications.md#oidc)
+  * [SAML app](../concepts/applications/saml.md)
+  * [OIDC app](../concepts/applications/oidc.md)
 
 - {{ TF }} {#tf}
 
@@ -54,8 +54,8 @@ You can also assign roles for individual resources within the service:
   * [Organization](../operations/security.md)
   * [User pool](../concepts/user-pools.md)
   * [User group](../operations/access-manage-group.md)
-  * [SAML app](../concepts/applications.md#saml)
-  * [OIDC app](../concepts/applications.md#oidc)
+  * [SAML app](../concepts/applications/saml.md)
+  * [OIDC app](../concepts/applications/oidc.md)
 
 {% endlist %}
 

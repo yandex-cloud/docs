@@ -441,6 +441,13 @@ description: Следуя данной инструкции, вы сможете
 #### Полезные ссылки {#see-also}
 
 * [{#T}](../../qa.md#qa-mime-type)
+
 * [{#T}](own-domain.md)
+
 * [{#T}](multiple-domains/index.md)
+
+
 * [{#T}](certificate.md)
+
+* [{#T}](../../../architecture/static-website-in-yc.md)
+

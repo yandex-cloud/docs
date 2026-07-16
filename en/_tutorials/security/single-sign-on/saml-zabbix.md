@@ -2,7 +2,7 @@
 
 [Zabbix](https://www.zabbix.com/) is an open-source, enterprise-level monitoring system for tracking the performance and health of servers, networks, apps, and other IT resources. Zabbix supports SAML authentication to provide secure SSO for your organization's users.
 
-For the users of your [organization](../../../organization/concepts/organization.md) to be able to authenticate to Zabbix via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-full-name }} and configure it both in {{ org-full-name }} and Zabbix.
+For the users of your [organization](../../../organization/concepts/organization.md) to be able to authenticate to Zabbix via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications/saml.md) in {{ org-full-name }} and configure it both in {{ org-full-name }} and Zabbix.
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 

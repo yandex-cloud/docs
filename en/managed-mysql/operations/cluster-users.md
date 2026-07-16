@@ -183,7 +183,7 @@ You can add and remove users, as well as manage their settings.
     To view the password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the new user. This will open the page of the {{ lockbox-name }} secret containing the password. To view passwords, you need the `lockbox.payloadViewer` role.
 
 
-  * `permissions`: List of databases the user should have access to.
+  * `permissions`: List of databases the user must have access to.
 
   {% include [username-limits](../../_includes/mdb/mmy/note-info-user-name-and-pass-limits.md) %}
 
@@ -191,9 +191,9 @@ You can add and remove users, as well as manage their settings.
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      To learn how to create this file, see [Creating a cluster](./cluster-create.md).
+      For information on how to create this file, see [Creating a cluster](./cluster-create.md).
 
   1. Add the `yandex_mdb_mysql_user` resource:
 
@@ -229,11 +229,11 @@ You can add and remove users, as well as manage their settings.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_mysql_user).
+  For more on the properties of the `yandex_mdb_mysql_user` resource, see [this provider guide]({{ tf-provider-resources-link }}/mdb_mysql_user).
 
 - REST API {#api}
 
@@ -277,9 +277,9 @@ You can add and remove users, as well as manage their settings.
       * `permissions`: User permission settings:
 
           * `databaseName`: Name of the database to which the user will have access.
-          * `roles`: Array of user privileges, each privilege is provided as a separate string in the array. For the list of possible values, see [{#T}](../concepts/user-rights.md#db-privileges).
+          * `roles`: Array of user privileges, each provided as a separate string in the array. For the list of possible values, see [{#T}](../concepts/user-rights.md#db-privileges).
 
-          For each database, add a separate element with permission settings to the `permissions` array.
+          In the `permissions` array, add a separate element with permission settings for each database.
 
   1. Call the [User.create](../api-ref/User/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
@@ -298,7 +298,7 @@ You can add and remove users, as well as manage their settings.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -340,7 +340,7 @@ You can add and remove users, as well as manage their settings.
       * `permissions`: User permissions:
 
           * `database_name`: Name of the database to which the user will have access.
-          * `roles`: Array of user privileges, each priviledge is provided as a separate string in the array. For the list of possible values, see [{#T}](../concepts/user-rights.md#db-privileges).
+          * `roles`: Array of user privileges, each provided as a separate string in the array. For the list of possible values, see [{#T}](../concepts/user-rights.md#db-privileges).
 
           In the `permissions` array, add a separate element with permission settings for each database.
 
@@ -419,9 +419,9 @@ You can add and remove users, as well as manage their settings.
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      To learn how to create this file, see [Creating a cluster](./cluster-create.md).
+      For information on how to create this file, see [Creating a cluster](./cluster-create.md).
 
   1. Locate the `yandex_mdb_mysql_user` resource for the user in question.
 
@@ -454,11 +454,11 @@ You can add and remove users, as well as manage their settings.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_mysql_user).
+  For more on the properties of the `yandex_mdb_mysql_user` resource, see [this provider guide]({{ tf-provider-resources-link }}/mdb_mysql_user).
 
 - REST API {#api}
 
@@ -625,9 +625,9 @@ To change user's database access privileges, follow [this guide](grant.md#grant-
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      For more on how to create this file, see [Creating a cluster](./cluster-create.md).
+      For information on how to create this file, see [Creating a cluster](./cluster-create.md).
 
   1. Locate the `yandex_mdb_mysql_user` resource for the user in question.
 
@@ -666,11 +666,11 @@ To change user's database access privileges, follow [this guide](grant.md#grant-
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_mysql_user).
+  For more on the properties of the `yandex_mdb_mysql_user` resource, see [this provider guide]({{ tf-provider-resources-link }}/mdb_mysql_user).
 
 - REST API {#api}
 
@@ -709,7 +709,7 @@ To change user's database access privileges, follow [this guide](grant.md#grant-
       Where:
 
       * `updateMask`: Comma-separated string of settings to update.
-      * `globalPermissions`: Array of administrative privileges, each provided as a separate string in the array. For the list of possible values, see the [method description](../api-ref/User/update.md#yandex.cloud.mdb.mysql.v1.UpdateUserRequest).
+      * `globalPermissions`: Array of administrative privileges, each provided as a separate string in the array. For the list of possible values, see [this method description](../api-ref/User/update.md#yandex.cloud.mdb.mysql.v1.UpdateUserRequest).
       * `connectionLimits`: User connection settings:
 
           * `maxQuestionsPerHour`: Maximum number of requests per hour.
@@ -719,7 +719,7 @@ To change user's database access privileges, follow [this guide](grant.md#grant-
 
           The minimum value for each of these connection settings is `0`.
 
-      * `authenticationPlugin`: User authentication plugin. For the list of available plugins, see the [method description](../api-ref/User/update.md#yandex.cloud.mdb.mysql.v1.UpdateUserRequest).
+      * `authenticationPlugin`: User authentication plugin. For the list of available plugins, see [this method description](../api-ref/User/update.md#yandex.cloud.mdb.mysql.v1.UpdateUserRequest).
 
       You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters), and the username from the [list of cluster users](#list-users).
 
@@ -774,7 +774,7 @@ To change user's database access privileges, follow [this guide](grant.md#grant-
       Where:
 
       * `update_mask`: List of settings to update as an array of strings (`paths[]`).
-      * `global_permissions`: Array of administrative privileges, each provided as a separate string in the array. For the list of possible values, see the [method description](../api-ref/grpc/User/update.md#yandex.cloud.mdb.mysql.v1.UpdateUserRequest).
+      * `global_permissions`: Array of administrative privileges, each provided as a separate string in the array. For the list of possible values, see [this method description](../api-ref/grpc/User/update.md#yandex.cloud.mdb.mysql.v1.UpdateUserRequest).
       * `connection_limits`: User connection settings:
 
           * `max_questions_per_hour`: Maximum number of requests per hour.
@@ -784,7 +784,7 @@ To change user's database access privileges, follow [this guide](grant.md#grant-
 
           The minimum value for each of these connection settings is `0`.
 
-      * `authentication_plugin`: User authentication plugin. For the list of available plugins, see the [method description](../api-ref/grpc/User/update.md#yandex.cloud.mdb.mysql.v1.UpdateUserRequest).
+      * `authentication_plugin`: User authentication plugin. For the list of available plugins, see [this method description](../api-ref/grpc/User/update.md#yandex.cloud.mdb.mysql.v1.UpdateUserRequest).
 
       You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters), and the username from the [list of cluster users](#list-users).
 
@@ -818,9 +818,9 @@ To change user's database access privileges, follow [this guide](grant.md#grant-
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      To learn how to create this file, see [Creating a cluster](cluster-create.md).
+      For information on how to create this file, see [Creating a cluster](cluster-create.md).
 
   1. Delete the `yandex_mdb_mysql_user` resource with the target user’s description.
 
@@ -828,11 +828,11 @@ To change user's database access privileges, follow [this guide](grant.md#grant-
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_mysql_user).
+  For more on the properties of the `yandex_mdb_mysql_user` resource, see [this provider guide]({{ tf-provider-resources-link }}/mdb_mysql_user).
 
 - REST API {#api}
 

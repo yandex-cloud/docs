@@ -59,3 +59,4 @@ Yandex Smart Web Security позволяет защитить инфрастру
 
 * [Статический сайт в Object Storage](../../tutorials/web/static/index.md)
 * [Yandex API Gateway](../../api-gateway/index.md)
+* [Развертывание статического веб-сайта в отказоустойчивой конфигурации в Yandex Cloud](../../architecture/static-website-in-yc.md)

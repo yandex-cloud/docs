@@ -2,7 +2,7 @@
 
 [Jenkins](https://www.jenkins.io/) is an open-source Java-based software system designed to support continuous software integration.
 
-For the users of your [organization](../../../organization/concepts/organization.md) to be able to authenticate to Jenkins via OpenID Connect SSO, create an [OIDC app](../../../organization/concepts/applications.md#oidc) and configure it both in {{ org-full-name }} and Jenkins.
+For the users of your [organization](../../../organization/concepts/organization.md) to be able to authenticate to Jenkins via OpenID Connect SSO, create an [OIDC app](../../../organization/concepts/applications/oidc.md) and configure it both in {{ org-full-name }} and Jenkins.
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
 
@@ -28,6 +28,7 @@ To give access to Jenkins to the users of your organization:
    1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
    1. In the top-right corner, click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** and in the window that opens:
       1. Select the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.oauth-title_uUs4x }}** single sign-on method.
+      1. {% include [org-oidc-app-select-web-type-step](../../../_tutorials/_tutorials_includes/org-oidc-app-select-web-type-step.md) %}
       1. In the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** field, specify a name for your new app: `jenkins-oidc`.
       1. In the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-folder_rANM4 }}** field, select the folder where you want to create an OAuth client for your app.
       1. Optionally, in the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-description_kzkNB }}** field, enter a description for the new app.
@@ -38,7 +39,7 @@ To give access to Jenkins to the users of your organization:
          1. Press **Enter**.
       1. Click **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
    1. On the **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** tab of the window that opens, copy under **{{ ui-key.yacloud_org.application.overview.idp_section_title }}** and save the `{{ ui-key.yacloud_org.application.overview.oauth_field_client_id }}` and `{{ ui-key.yacloud_org.application.overview.oauth_field_open_id }}` values.
-   1. Create an [app secret](../../../organization/concepts/applications.md#oidc-secret):
+   1. Create an [app secret](../../../organization/concepts/applications/oidc.md#oidc-secret):
 
       {% include [oidc-generate-secret](../../../_includes/organization/oidc-generate-secret.md) %}
 

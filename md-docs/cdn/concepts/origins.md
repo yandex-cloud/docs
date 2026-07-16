@@ -39,6 +39,7 @@
 
 * [Организация защищенного доступа к контенту в Cloud CDN](../tutorials/protected-access-to-content/index.md)
 * [Настройка хостинга статического сайта в бакете Yandex Object Storage с доступом через Yandex Cloud CDN](../tutorials/cdn-hosting/index.md)
+* [Развертывание статического веб-сайта в отказоустойчивой конфигурации в Yandex Cloud](../../architecture/static-website-in-yc.md)
 
 
 ## Время ответа от источника {#timeout}

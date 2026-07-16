@@ -29,7 +29,7 @@ To get started with {{ cloud-shell-name }}:
 
     {% note info %}
 
-    You can run up to four parallel sessions in the terminal. To run a new session, click ![plus-sign](../../_assets/console-icons/plus.svg). Once started, a session can remain active for up to 12 hours. Inactive sessions are automatically terminated after 30 minutes of inactivity. For more information about limitations in {{ cloud-shell-name }}, see [Limits](../concepts/cloud-shell/limits.md).
+    You can run up to four parallel sessions in the terminal. To run a new session, click ![plus-sign](../../_assets/console-icons/plus.svg). Once started, a session can remain active for up to 12 hours. Inactive sessions are automatically terminated after 30 minutes of inactivity. For more on {{ cloud-shell-name }} limits, see [Limits](../concepts/cloud-shell/limits.md).
 
     {% endnote %}
    

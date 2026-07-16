@@ -19,7 +19,7 @@ For convenience, the log view pages have the following filters:
 
 ## Login logs {#auth-logs}
 
-_Login logs_ display authentication events in apps connected to your organization ({{ yandex-cloud }} console, [{{ src-full-name }}]({{ link-src-docs }})) as well as [external apps](applications.md) with SSO authentication.
+_Login logs_ record authentication events in apps connected to your organization ({{ yandex-cloud }} console, [{{ src-full-name }}]({{ link-src-docs }})) as well as [external apps](applications/index.md) with SSO authentication.
 
 ## Audit logs {#audit-logs}
 

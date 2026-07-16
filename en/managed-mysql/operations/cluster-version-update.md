@@ -8,7 +8,7 @@ In multi-host clusters, upgrades proceed in this sequence:
 
 1. Replicas are taken offline for an upgrade and stopped, one by one. The replicas are queued randomly. Following the upgrade, the replicas get back online. Read performance may temporarily degrade at this stage, as some replicas will be unavailable.
 
-1. The master host turns off for the upgrade. During the master upgrade, one of the replicas takes over its role and becomes available for writing. Once the upgrade is complete, the host with the highest [failover priority](../concepts/replication.md#master-failover) becomes the new master. If the cluster has several hosts with maximum priority, the one with the least lag behind the master will be selected.
+1. The master host turns off for the upgrade. During the master upgrade, one of the replicas takes over its role and becomes available for writing. Once the upgrade is complete, the host with the highest [failover priority](../concepts/replication.md#master-failover) becomes the new master. In a cluster with several hosts of maximum priority, the one with the least lag behind the master will be selected.
 
     {% include [note-role-master](../../_includes/mdb/mmy/note-role-master.md) %}
 
@@ -164,7 +164,7 @@ When getting ready for an upgrade, a comprehensive approach to testing and compa
 
    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      For more on how to create this file, see [Creating a cluster](cluster-create.md).
+      For information on how to create this file, see [Creating a cluster](cluster-create.md).
 
    1. Add the `version` field to the `yandex_mdb_mysql_cluster` resource or change the field value if it already exists:
 
@@ -184,7 +184,7 @@ When getting ready for an upgrade, a comprehensive approach to testing and compa
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see [this {{ TF }} provider article]({{ tf-provider-mmy }}).
+   For more on the properties of the `yandex_mdb_mysql_cluster` resource, see [this provider guide]({{ tf-provider-mmy }}).
 
    {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 

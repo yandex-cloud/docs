@@ -3,7 +3,7 @@
 
 [Grafana Cloud](https://grafana.com/products/cloud/) is a managed cloud monitoring and observability platform that brings together Grafana, Prometheus, Loki, and other tools for data visualization and analysis. Grafana Cloud supports [OpenID Connect](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) (OIDC) authentication to provide secure SSO for your organization's users.
 
-For the users of your [organization](../../../organization/concepts/organization.md) to be able to authenticate to Grafana Cloud via OpenID Connect SSO, create an [OIDC app](../../../organization/concepts/applications.md#oidc) in {{ org-full-name }} and configure it both in {{ org-full-name }} and Grafana Cloud.
+For the users of your [organization](../../../organization/concepts/organization.md) to be able to authenticate to Grafana Cloud via OpenID Connect SSO, create an [OIDC app](../../../organization/concepts/applications/oidc.md) in {{ org-full-name }} and configure it both in {{ org-full-name }} and Grafana Cloud.
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
 
@@ -44,6 +44,7 @@ To configure OIDC in Grafana Cloud, you need organization administrator permissi
     1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
     1. In the top-right corner, click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** and in the window that opens:
         1. Select the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.oauth-title_uUs4x }}** single sign-on method.
+        1. {% include [org-oidc-app-select-web-type-step](../../../_tutorials/_tutorials_includes/org-oidc-app-select-web-type-step.md) %}
         1. In the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** field, specify a name for your new app: `grafana-cloud-oidc-app`.
         1. In the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-folder_rANM4 }}** field, select the folder where you want to create an OAuth client for your app.
         1. Optionally, in the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-description_kzkNB }}** field, enter a description for the new app.
@@ -241,14 +242,14 @@ To integrate Grafana Cloud with the OIDC app you created in {{ org-full-name }},
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
   1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and select the OIDC app.
   1. At the top right, click ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** and in the window that opens:
+
       1. In the **{{ ui-key.yacloud_org.application.overview.oauth_field_redirect_uri }}** field, specify the authentication endpoint for your Grafana Cloud instance formatted as follows:
 
-        ```text
-        <Grafana_Cloud_instance_URL>/login/generic_oauth
-        ```
+          ```text
+          <Grafana_Cloud_instance_URL>/login/generic_oauth
+          ```
 
-        For example: `https://your-org.grafana.net/login/generic_oauth`.
-
+          For example: `https://your-org.grafana.net/login/generic_oauth`.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -300,6 +301,7 @@ In the Generic OAuth settings:
 1. In the **Client Secret** field, specify the value you copied from the **{{ ui-key.yacloud_org.application.overview.secret_section_title }}** section when setting up the OIDC application in {{ org-full-name }}.
 1. Click **Enter OpenID Connect Discovery URL** and then, in the window that opens, specify the URL you copied from the **{{ ui-key.yacloud_org.application.overview.oauth_field_open_id }}** field when setting up the OIDC application in {{ org-full-name }}.
 1. Enable **Allow sign up** to automatically create users on first sign-in.
+1. Expand **Extra security measures** and enable the **Use PKCE** option.
 
 ### Add a user {#add-user}
 

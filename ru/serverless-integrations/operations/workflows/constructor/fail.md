@@ -7,6 +7,8 @@ description: Следуя данной инструкции, вы сможете
 
 Управляющий шаг Fail завершает запуск рабочего процесса с ошибкой. Если шаг находится внутри шагов [Foreach](./foreach.md) или [Parallel](./parallel.md), завершается запуск всего рабочего процесса, а не только текущей ветки выполнения.
 
+{% include [templating-note](../../../../_includes/serverless-integrations/templating-note.md) %}
+
 {% list tabs %}
 
 - Консоль управления {#console}

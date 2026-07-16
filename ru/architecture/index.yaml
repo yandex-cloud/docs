@@ -41,6 +41,16 @@ blocks:
         controlPosition: content
         animated: false
       - type: basic-card
+        title: Размещение статического сайта в Yandex Cloud
+        text: >-
+          Обзор вариантов решения задачи по размещению статического сайта в
+          отказоустойчивой конфигурации в инфраструктуре Yandex Cloud.
+        urlTitle: "Размещение статического сайта в Yandex\_Cloud"
+        url: static-website-in-yc
+        border: shadow
+        controlPosition: content
+        animated: false
+      - type: basic-card
         title: "Тестирование отказоустойчивости в Yandex\_Cloud"
         text: >-
           Практические рекомендации по тестированию отказоустойчивости при

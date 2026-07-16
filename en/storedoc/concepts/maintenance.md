@@ -8,6 +8,7 @@ description: In {{ mmg-name }}, maintenance means automatic installation of data
 Maintenance includes:
 
 * Automatic installation of DBMS updates and patches for hosts (including for stopped clusters).
+* Scheduled [automatic storage expansion](./storage.md#auto-rescale).
 * Other maintenance activities.
 
 A major DBMS version update is not part of maintenance. For more information about migrating between versions, see [{#T}](../operations/cluster-version-update.md).

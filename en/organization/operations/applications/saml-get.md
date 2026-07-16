@@ -12,7 +12,7 @@ description: Follow this guide to get information about a SAML app in {{ org-ful
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
   1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
-  1. Click the row with the [SAML app](../../concepts/applications.md#saml) you want to get info about.
+  1. Click the row with the [SAML app](../../concepts/applications/saml.md) you want to get info about.
 
 - CLI {#cli}
 
@@ -20,7 +20,7 @@ description: Follow this guide to get information about a SAML app in {{ org-ful
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI command to get information about the [SAML app](../../concepts/applications.md#saml):
+  1. View the description of the CLI command to get information about the [SAML app](../../concepts/applications/saml.md):
 
      ```bash
      yc organization-manager idp application saml application get --help

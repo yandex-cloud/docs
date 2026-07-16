@@ -5,7 +5,7 @@ description: In this tutorial, you will learn how to connect to a database in a 
 
 # Connecting to a {{ SD }} cluster from applications
 
-You can connect to a {{ SD }} cluster using [command line tools](#command-line-tools), [graphical IDEs](#connection-ide), or [Docker containers](#connection-docker). For details on connecting from your application code, see [Code examples](code-examples.md).
+You can connect to a {{ SD }} cluster using [command line tools](#command-line-tools), [graphical IDEs](#connection-ide), or [Docker containers](#connection-docker). To learn how to connect from the code of your application, see [Code examples](code-examples.md).
 
 In the following examples, we assume that the `root.crt` [SSL certificate](index.md#get-ssl-cert) is located in one of these directories:
 
@@ -13,6 +13,8 @@ In the following examples, we assume that the `root.crt` [SSL certificate](index
 * `$HOME\.mongodb` for Windows
 
 After you successfully connect to the cluster and run a test query, you will see the name of the database you connected to.
+
+{% include [warning-write-concern](../../../_includes/storedoc/warning-write-concern.md) %}
 
 ## Command line tools {#command-line-tools}
 
@@ -222,11 +224,11 @@ From graphical IDEs, you can only connect to public cluster hosts using an SSL c
 
               {% include [see-fdqn-host](../../../_includes/mdb/mmg/fqdn-host.md) %}
 
-      1. Click **Download** to get the database driver.
+      1. Click **Download** to download the connection driver.
    1. On the **SSH/SSL** tab:
       1. Enable **Use SSL**.
       1. In the **CA file** field, specify the path to the [SSL certificate for your connection](./index.md#get-ssl-cert).
-1. Click **Test Connection**. If the connection is successful, you will see the connection status, DBMS information, and driver details.
+1. Click **Test Connection**. If the connection is successful, you will see the connection status and information about the DBMS and driver.
 1. Click **OK** to save the data source.
 
 ### DBeaver {#dbeaver}

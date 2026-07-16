@@ -13,7 +13,7 @@ description: Follow this guide to get a list of OIDC apps in {{ org-full-name }}
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
   1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
 
-     This will display all [OIDC apps](../../concepts/applications.md#oidc) available in your organization.
+     This will display all [OIDC apps](../../concepts/applications/oidc.md) available in your organization.
 
 - CLI {#cli}
 
@@ -21,7 +21,7 @@ description: Follow this guide to get a list of OIDC apps in {{ org-full-name }}
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command to get a list of [OIDC apps](../../concepts/applications.md#oidc):
+  1. See the description of the CLI command to get a list of [OIDC apps](../../concepts/applications/oidc.md):
 
      ```bash
      yc organization-manager idp application oauth application list --help

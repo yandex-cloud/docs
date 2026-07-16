@@ -11,6 +11,8 @@ items:
           Развертывание веб-приложения в отказоустойчивой конфигурации в {{
           yandex-cloud }}
         href: app-in-k8s.md
+      - name: Размещение статического сайта в {{ yandex-cloud }}
+        href: static-website-in-yc.md
       - name: Тестирование отказоустойчивости в {{ yandex-cloud }}
         items:
           - name: Тестирование инфраструктуры на основе {{ alb-name }}

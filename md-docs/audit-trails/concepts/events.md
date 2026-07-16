@@ -634,6 +634,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `EpisodePerformAction` | Выполнение действий с эпизодом
 `InitializeChannelAdminChat` | Инициализация чата администраторов канала
 `InitializeEpisodeChat` | Инициализация чата эпизода
+`RenewVideoSource` | Обновление источника видео
 `ResetChannelAdminChat` | Сброс чата администраторов канала
 `ResyncEpisodeChatAdmins` | Синхронизация администраторов чата эпизода
 `SetChannelAccessBindings` | Назначение прав доступа на канал
@@ -1033,12 +1034,13 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 --- | ---
 `AddVersion` | Добавление версии секрета
 `ActivateSecret` | Активация секрета
-`CancelVersionDestruction` | Отмена ранее запланированного уничтожения версии секрета
+`CancelVersionDestruction` | Отмена ранее запланированного удаления версии секрета
 `CreateSecret` | Создание секрета
 `DeactivateSecret` | Деактивация секрета
 `DeleteSecret` | Удаление секрета
 `RotateSecret` | Ротация секрета
-`ScheduleVersionDestruction` | Распланирование уничтожения версии секрета
+`ScheduleVersionDestruction` | Запланировано удаление версии секрета
+`SetCurrentVersion` | Назначение текущей версии секрета
 `SetSecretAccessBindings` | Назначение прав доступа для секрета
 `UpdateSecret` | Изменение секрета
 `UpdateSecretAccessBindings` | Изменение прав доступа для секрета
@@ -1075,6 +1077,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `GrantUserPermission` | Назначение прав пользователю кластера
 `MoveCluster` | Перемещение кластера
 `PauseConnector` | Приостановка коннектора
+`RescheduleMaintenance` | Перенос запланированного технического обслуживания
 `ResumeConnector` | Возобновление работы коннектора
 `RevokeUserPermission` | Отзыв прав у пользователя кластера
 `SetClusterAccessBindings` | Назначение прав доступа к кластеру

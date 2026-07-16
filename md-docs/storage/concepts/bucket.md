@@ -169,6 +169,7 @@ Object Storage автоматически отправляет метрики р
 * [Автоматическое копирование объектов из одного бакета Object Storage в другой](../tutorials/bucket-to-bucket.md)
 * [Регулярное асинхронное распознавание аудиофайлов в бакете Object Storage](../tutorials/batch-recognition-stt.md)
 * [Создание внешней таблицы на базе таблицы из бакета с помощью конфигурационного файла](../tutorials/mgp-config-server-for-s3.md)
+* [Развертывание статического веб-сайта в отказоустойчивой конфигурации в Yandex Cloud](../../architecture/static-website-in-yc.md)
 
 ### Полезные ссылки {#see-also}
 

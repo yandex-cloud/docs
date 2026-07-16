@@ -586,7 +586,7 @@ You may need to disable certain rules to prevent false positives and create excl
   1. Enter a name for the rule, e.g., `waf-rule-1`.
   1. Set a higher priority for the rule than that of the Smart Protection rules, e.g., `1111`.
   1. Enable **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}**.
-  1. Select **{{ ui-key.yacloud.smart-web-security.overview.column_type }}**: `{{ ui-key.yacloud.smart-web-security.overview.label_waf-rule }}`.
+  1. Select **{{ ui-key.yacloud.smart-web-security.overview.column_type }}** for `{{ ui-key.yacloud.smart-web-security.overview.label_waf-rule }}`.
   1. In the list of WAF profiles, select `waf-site-protection`.
 
 {% endlist %}
@@ -616,9 +616,7 @@ You can also view extended logs in the {{ sws-name }} interface.
 
 {% endlist %}
 
-Since WAF is configured for each web service individually, test WAF in logging mode for no less than a week. For ML WAF and Yandex Ruleset, the setup may take less time. During this stage, you may get false positives, so you should track them in logs and adjust the rule parameters. For example, if the rule with `id920280` gets triggered incorrectly when using HTTP/2, you can disable it immediately. This rule will work correctly with HTTP/1.1.
-
-Once WAF is configured and in regular operation mode, use logs and monitoring charts to check the rules on a regular basis. This will allow you to track anomalies and adjust the protection specifically for your web app.
+{% include [waf-tuning-recommendation](../../_includes/smartwebsecurity/waf-tuning-recommendation.md) %}
 
 ## Further configuration of security policies {#further-configuration}
 

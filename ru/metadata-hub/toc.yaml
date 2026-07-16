@@ -137,6 +137,8 @@ items:
             href: operations/metastore/logging.md
           - name: Управление доступом к кластеру
             href: operations/metastore/cluster-access.md
+          - name: Техническое обслуживание
+            href: operations/metastore/cluster-maintenance.md
           - name: Удаление кластера
             href: operations/metastore/cluster-delete.md
       - name: Практические руководства
@@ -165,6 +167,8 @@ items:
             href: concepts/metastore.md
           - name: Имперсонация в {{ metastore-name }}
             href: concepts/metastore-impersonation.md
+          - name: Техническое обслуживание
+            href: concepts/metastore-maintenance.md
       - name: Сервисные роли для управления доступом
         href: security/metastore-roles.md
       - name: Решение проблем

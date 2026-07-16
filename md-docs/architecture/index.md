@@ -8,6 +8,8 @@
 
  - [Развертывание веб-приложения в отказоустойчивой конфигурации в Yandex Cloud](app-in-k8s.md)
 
+ - [Размещение статического сайта в Yandex Cloud](static-website-in-yc.md)
+
 ### Тестирование отказоустойчивости в Yandex Cloud
 
  - [Тестирование инфраструктуры на основе Application Load Balancer](testing-zone-failure-for-alb.md)

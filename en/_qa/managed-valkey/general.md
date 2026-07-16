@@ -52,7 +52,7 @@ Before you create a database cluster in {{ mrd-short-name }}, you need to decide
 - Your cluster network.
 - Number of hosts in your cluster and availability zone for each host.
 
-For more information, see [Getting started](../../managed-valkey/quickstart.md).
+For more details, see [Getting started](../../managed-valkey/quickstart.md).
 
 #### How many database hosts can a cluster contain? {#how-many-hosts}
 
@@ -149,7 +149,7 @@ For all database hosts, you can monitor metrics specific to their DBMS type. For
 
 You can monitor metrics with a minimum granularity of five seconds.
 
-#### How can I configure an alert for when disk usage reaches a certain percentage? {#disk-space-percentage}
+#### How do I configure an alert for when disk space usage reaches a certain percentage? {#disk-space-percentage}
 
 [Create an alert](../../managed-valkey/operations/monitoring.md#monitoring-integration) for the `disk.used_bytes` metric in {{ monitoring-full-name }}. This metric shows the disk space usage in the {{ mrd-name }} cluster.
 
@@ -196,7 +196,7 @@ Complete error message:
 curl: (35) schannel: next InitializeSecurityContext failed: Unknown error (0x80092012)
 The revocation function was unable to check revocation for the certificate
 ```
-This indicates that the verification of the website’s certificate against the revocation list failed during the connection attempt.
+This means that, when connecting to the website, the function was unable to check if its certificate was listed as revoked.
 
 To fix this error:
 

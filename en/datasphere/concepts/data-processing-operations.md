@@ -1,6 +1,6 @@
 # Computing on Apache Spark™ clusters
 
-To use {{ dataproc-name }} clusters, pre-configure a project. To learn more, see the [concept](data-processing.md#settings).
+To work with {{ dataproc-name }} clusters, a project needs to be pre-configured. For more information, see [this concept](data-processing.md#settings).
 
 Regardless of the deployment option, all {{ dataproc-name }} clusters are charged based on the [{{ dataproc-full-name }} pricing policy](../../data-proc/pricing.md). To view all the clusters available in your project, navigate to **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** ⟶ ![image](../../_assets/data-processing/data-processing.svg) **{{ ui-key.yc-ui-datasphere.resources.dataProc }}** on the project page.
 

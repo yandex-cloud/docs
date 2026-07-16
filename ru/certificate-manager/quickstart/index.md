@@ -160,3 +160,4 @@
 * [{#T}](../concepts/managed-certificate.md)
 * [{#T}](../concepts/challenges.md)
 * [Настройка HTTPS в бакете](../../storage/operations/hosting/certificate.md)
+* [{#T}](../../architecture/static-website-in-yc.md)

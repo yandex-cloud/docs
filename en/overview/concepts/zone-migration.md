@@ -45,7 +45,7 @@ If your group has an [L7 load balancer](../../compute/operations/instance-groups
 
 In most cases, to migrate a managed database service host, you need to create a host in the new availability zone, add it to the cluster, and specify the FQDN of the new host in the backend or client.
 
-Refer to service-specific migration guides:
+See these service-specific migration guides:
 
 * [{{ dataproc-name }}](../../data-proc/operations/migration-to-an-availability-zone.md).
 * [{{ dataproc-name }} HDFS-based](../../data-proc/tutorials/hdfs-cluster-migration.md).

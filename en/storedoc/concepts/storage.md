@@ -62,6 +62,24 @@ To keep your cluster up and running as the host is switching over to _read-only_
 * [Force data synchronization](../operations/hosts.md#resetup) between hosts. This can help when a large amount of data was deleted from the cluster, but the disk space was not released (marked as available for reuse).
 * Run the `compact` command. First, [add](../operations/cluster-users.md#updateuser) the [mdbDbAdmin role](users-and-roles.md#mdbdbadmin) to the user. 
 
+### Automatic storage expansion {#auto-rescale}
+
+Automatic storage expansion prevents situations where the disk runs out of free space and hosts go read-only. The storage size increases upon reaching the specified threshold percentage of the total capacity. There are two thresholds:
+
+* Scheduled expansion threshold: To schedule such an expansion, an algorithm analyzes data from the last few hours and estimates how quickly the storage is filling up. If the calculations show that the threshold will be exceeded by the start of the nearest [maintenance window](maintenance.md#maintenance-window), the system schedules a storage expansion. If a check at the maintenance start shows that the threshold was indeed exceeded, the storage size is increased.
+
+* Immediate expansion threshold: When reached, the storage size increases immediately.
+
+You can use either one or both thresholds. If you set both, make sure the immediate increase threshold is higher than the scheduled one.
+
+{% include [storage-resize-steps](../../_includes/mdb/mpg/storage-resize-steps.md) %}
+
+{% include [storage-resize-process](../../_includes/mdb/mmg/storage-resize-process.md) %}
+
+
+{% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
+
+
 ## Use cases {#examples}
 
 * [{#T}](../tutorials/data-migration.md)

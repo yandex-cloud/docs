@@ -137,7 +137,8 @@
             "saslEnabledMechanisms": [
               "string"
             ],
-            "transactionalIdExpirationMs": "string"
+            "transactionalIdExpirationMs": "string",
+            "logMessageTimestampType": "string"
           },
           "kafkaConfig_3": {
             "compressionType": "string",
@@ -164,7 +165,8 @@
             "saslEnabledMechanisms": [
               "string"
             ],
-            "transactionalIdExpirationMs": "string"
+            "transactionalIdExpirationMs": "string",
+            "logMessageTimestampType": "string"
           },
           "kafkaConfig_4": {
             "compressionType": "string",
@@ -190,7 +192,8 @@
             "saslEnabledMechanisms": [
               "string"
             ],
-            "transactionalIdExpirationMs": "string"
+            "transactionalIdExpirationMs": "string",
+            "logMessageTimestampType": "string"
           }
           // end of the list of possible fields
         },
@@ -576,6 +579,10 @@ Includes only one of the fields `kafkaConfig_2_8`, `kafkaConfig_3`, `kafkaConfig
 - `SASL_MECHANISM_SCRAM_SHA_256`
 - `SASL_MECHANISM_SCRAM_SHA_512` ||
 || transactionalIdExpirationMs | **string** (int64) ||
+|| logMessageTimestampType | **enum** (MessageTimestampType)
+
+- `MESSAGE_TIMESTAMP_TYPE_CREATE_TIME`
+- `MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME` ||
 |#
 
 ## KafkaConfig3 {#yandex.cloud.mdb.kafka.v1.KafkaConfig3}
@@ -613,6 +620,10 @@ Includes only one of the fields `kafkaConfig_2_8`, `kafkaConfig_3`, `kafkaConfig
 - `SASL_MECHANISM_SCRAM_SHA_256`
 - `SASL_MECHANISM_SCRAM_SHA_512` ||
 || transactionalIdExpirationMs | **string** (int64) ||
+|| logMessageTimestampType | **enum** (MessageTimestampType)
+
+- `MESSAGE_TIMESTAMP_TYPE_CREATE_TIME`
+- `MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME` ||
 |#
 
 ## KafkaConfig4 {#yandex.cloud.mdb.kafka.v1.KafkaConfig4}
@@ -649,6 +660,10 @@ Includes only one of the fields `kafkaConfig_2_8`, `kafkaConfig_3`, `kafkaConfig
 - `SASL_MECHANISM_SCRAM_SHA_256`
 - `SASL_MECHANISM_SCRAM_SHA_512` ||
 || transactionalIdExpirationMs | **string** (int64) ||
+|| logMessageTimestampType | **enum** (MessageTimestampType)
+
+- `MESSAGE_TIMESTAMP_TYPE_CREATE_TIME`
+- `MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME` ||
 |#
 
 ## Zookeeper {#yandex.cloud.mdb.kafka.v1.ConfigSpec.Zookeeper}

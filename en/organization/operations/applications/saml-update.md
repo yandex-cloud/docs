@@ -10,7 +10,7 @@ description: Follow this guide to update a SAML app in {{ org-full-name }}.
 
 ## Update the app's basic settings {#update-basic-settings}
 
-To update the [SAML app's basic settings](../../concepts/applications.md#saml):
+To update the [SAML app's basic settings](../../concepts/applications/saml.md):
 
 {% list tabs group=instructions %}
 
@@ -387,5 +387,5 @@ Update the list of your [organization's](../../concepts/organization.md) users p
 * [{#T}](./saml-create.md)
 * [{#T}](./saml-deactivate-remove.md)
 * [{#T}](../add-account.md)
-* [{#T}](../../concepts/applications.md#saml)
+* [{#T}](../../concepts/applications/saml.md)
 * [{#T}](../manage-groups.md)

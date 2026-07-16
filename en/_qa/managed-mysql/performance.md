@@ -9,12 +9,12 @@ Review the slow query log:
 
 Check host monitoring charts:
 1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-1. Click the name of your cluster and open the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
+1. Click the name of your cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
 1. Go to the **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}** page:
    * We recommend upgrading your host class:
       * If the `Steal` value in the **CPU usage** chart remains consistently high.
       * If the `Free` value in the **Memory usage** chart remains consistently low.
-   * High `iowait` values in the **CPU usage** chart may signal that the disk storage is hitting its IOPS limits. We recommend increasing the value to at least the next [allocation unit](../../compute/concepts/limits.md#compute-limits-disks) threshold or using higher-speed disks. For more information about disk limits and performance, see [this {{ compute-full-name }} article](../../compute/concepts/disk.md).
+   * High `iowait` values in the **CPU usage** chart may signal that the disk storage is hitting its IOPS limits. We recommend increasing the value to at least the next [allocation unit](../../compute/concepts/limits.md#compute-limits-disks) threshold or using higher-speed disks. For more on disk limits and performance, see [this {{ compute-full-name }} guide](../../compute/concepts/disk.md).
 
 {% include [qa-replica-lagging](../../_includes/mdb/mmy/qa-replica-lagging.md) %}
 
@@ -22,7 +22,7 @@ Check host monitoring charts:
 
 Check host monitoring charts:
 1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-1. Click the name of your cluster and open the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
+1. Click the name of your cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
 1. Go to the **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}** page.
 1. Find the resource in question: its chart will be approaching or crossing the limit.
 1. Select the other hosts from the drop-down list and check them as well.
@@ -47,7 +47,7 @@ To get data on CPU usage, use system views. To access these views, you need the 
    SELECT * FROM sys.statement_analysis LIMIT 10;
    ```
 
-Pay attention to queries with high values for `rows_examined` and `rows_sorted`, or those with the `full_scan` flag, as they are likely to use the most CPU. For more information, see [this {{ MY }} article](https://dev.mysql.com/doc/mysql-em-plugin/en/myoem-metric-sysschema-statementanalysis-category.html).
+Pay attention to queries with high values for `rows_examined` and `rows_sorted`, or those with the `full_scan` flag, as they are likely to use the most CPU. For more information, see [this {{ MY }} guide](https://dev.mysql.com/doc/mysql-em-plugin/en/myoem-metric-sysschema-statementanalysis-category.html).
 
 #### How do I find out what is causing high I/O usage? {#high-io}
 
@@ -146,7 +146,7 @@ If the cluster resources are not overloaded yet queries run slowly, use system v
    SELECT * FROM sys.innodb_lock_waits
    ```
 
-For more information, see [this {{ MY }} article](https://dev.mysql.com/doc/refman/8.0/en/sys-schema-table-lock-waits.html).
+For more information, see [this {{ MY }} guide](https://dev.mysql.com/doc/refman/8.0/en/sys-schema-table-lock-waits.html).
 
 #### How do I optimize queries with performance issues? {#query-optimization}
 

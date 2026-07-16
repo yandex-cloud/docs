@@ -30,19 +30,19 @@ Privileges set via SQL are not saved in the cluster configuration and get reset 
 | `ALL_PRIVILEGES` | Allows all actions with user data in the database and allows using the `SHOW SLAVE STATUS` statement. |
 | `ALL` | Synonym for the `ALL_PRIVILEGES` privilege used for managing privileges via the {{ yandex-cloud }} CLI. |
 | `ALTER` | Allows using the `ALTER TABLE` statement to change the structure of any custom tables in the database. To modify a table, you need the `CREATE` and `INSERT` privileges. To rename a table, you need the `ALTER` and `DROP` privileges for the original table and `CREATE` and `INSERT` for the new one. |
-| `ALTER_ROUTINE` | Allows using the `ALTER ROUTINE` statement to change or delete any custom stored procedures and functions in the database. |
+| `ALTER_ROUTINE` | Allows using the `ALTER ROUTINE` operator to change or delete any custom stored procedures and functions in the database. |
 | `CREATE` | Allows using the `CREATE` statement to create custom tables in the database. |
-| `CREATE_ROUTINE` | Allows using the `CREATE ROUTINE` statement to create custom stored procedures and functions in the database. |
-| `CREATE_TEMPORARY_TABLES` | Allows using the `CREATE TEMPORARY TABLE` statement to create temporary custom tables in the database. |
-| `CREATE_VIEW` | Allows using the `CREATE VIEW` statement to create custom views in the database. |
+| `CREATE_ROUTINE` | Allows using the `CREATE ROUTINE` operator to create custom stored procedures and functions in the database. |
+| `CREATE_TEMPORARY_TABLES` | Allows using the `CREATE TEMPORARY TABLE` operator to create temporary custom tables in the database. |
+| `CREATE_VIEW` | Allows using the `CREATE VIEW` operator to create custom views in the database. |
 | `DELETE` | Allows deleting records from any custom tables in the database. |
 | `DROP` | Allows deleting tables and views. |
 | `EVENT` | Allows you to create, change, delete, or display events in the [Event Scheduler](https://dev.mysql.com/doc/refman/8.0/en/events-overview.html). |
 | `EXECUTE` | Allows executing any custom stored procedures and functions. |
 | `INDEX` | Allows you to create and delete indexes from existing tables in the database. |
 | `INSERT` | Allows inserting records into custom DB tables. |
-| `LOCK_TABLES` | Allows the explicit use of the `LOCK TABLES` statement to create table locks in the database. |
-| `REFERENCES` | Enables you to create `FOREIGN KEY` for DB tables. |
+| `LOCK_TABLES` | Allows the explicit use of the `LOCK TABLES` operator to create table locks in the database. |
+| `REFERENCES` | Allows creating external keys (`FOREIGN KEY`) for DB tables. |
 | `SELECT` | Allows you to read data from DB tables. |
 | `SHOW_VIEW` | Allows using the `SHOW CREATE VIEW` statement. |
 | `TRIGGER` | Allows you to create, delete, execute, or display triggers for existing DB tables. |

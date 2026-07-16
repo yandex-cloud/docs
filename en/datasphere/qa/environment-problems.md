@@ -1,15 +1,15 @@
 ---
 title: '{{ ml-platform-full-name }}. Troubleshooting issues with dependencies'
-description: How to install libraries and fix the associated {{ ml-platform-full-name }} errors? Find answers to this and other questions in this article.
+description: How to install libraries and fix related {{ ml-platform-full-name }} errors? Find answers to this and other questions in this article.
 ---
 
-# Solving problems with dependencies in {{ ml-platform-full-name }}
+# Troubleshooting issues with dependencies in {{ ml-platform-full-name }}
 
 By default, {{ ml-platform-name }} already contains popular machine learning packages and libraries. Library versions depend on the system image specified in the project settings. For the full list of installed packages, see [{#T}](../concepts/preinstalled-packages.md).
 
 {% note tip %}
 
-If your project uses multiple libraries and you encounter conflicts with pre-installed libraries, see [Building your own Docker image](#docker). In {{ ml-platform-name }}, usage of the virtual environment and console is limited.
+If your project uses multiple libraries, and you have conflicts with pre-installed libraries, see [Building your own Docker image](#docker). In {{ ml-platform-name }}, usage of the virtual environment and console is limited.
 
 {% endnote %}
 
@@ -20,11 +20,11 @@ Conflicts of library versions occur when two packages require different versions
 
 If the packages you need are missing in the standard {{ ml-platform-name }} image, install them manually.
 
-Some packages depend on the system libraries that you cannot install in {{ ml-platform-name }} due to the restriction on using `sudo` and `apt`. In such cases, you will have to find workarounds.
+Some packages depend on system libraries which you cannot install in {{ ml-platform-name }} due to the restriction on the use of `sudo` and `apt`. If this is your case, you will need a workaround.
 
-If you encounter errors when installing or using packages, this may be due to conflicting versions of the dependent libraries. These errors include such messages as `ModuleNotFoundError` (missing module) or `VersionConflict` (version incompatibility).
+If you get errors when installing or using packages, this may be due to conflicting versions of dependent libraries. Such errors come with messages like `ModuleNotFoundError` (module not found) or `VersionConflict` (incompatible version).
 
-When an error occurs during package installation, `pip` usually outputs a detailed message specifying the reason. For example, in case of a version conflict, `pip` will specify the package and version that have caused the problem. Analyze these messages to understand the root cause of the problem.
+If there is an error during package installation, `pip` usually gives you a message detailing the cause. For example, in case of a version conflict, `pip` will specify the package and version that have caused the problem. Analyze these messages to understand the root cause of the problem.
 
 ## Installing, deleting, or updating packages {#update-version}
 
