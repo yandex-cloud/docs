@@ -189,7 +189,7 @@ As the {{ managed-k8s-name }} cluster has no internet access, you can only conne
 
 1. [Install the {{ yandex-cloud }} command line interface](../../cli/operations/install-cli.md#interactive) (YC CLI).
 1. [Create a YC CLI profile](../../cli/operations/profile/profile-create.md#create).
-1. [Install kubect]({{ k8s-docs }}/tasks/tools/#kubectl) and [configure it to work with the new cluster](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
+1. [Install kubectl]({{ k8s-docs }}/tasks/tools/#kubectl) and [configure it to work with the new cluster](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
 
 ## Check cluster availability {#check}
 
