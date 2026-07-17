@@ -5,8 +5,6 @@ description: A {{ sd-full-name }} workspace is a container holding the {{ sd-nam
 
 # {{ sd-name }} workspaces
 
-{% include [note-preview](../../_includes/note-preview.md) %}
-
 A _{{ sd-name }} workspace_ is a container holding the {{ sd-name }} module settings and resources, a list of controlled resources, control parameters, and other settings. Workspaces allow for more granular management of {{ yandex-cloud }} infrastructure security by monitoring it for compliance with industry security standards.
 
 You can choose {{ org-full-name }} [organizations](../../organization/concepts/organization.md), individual [clouds](../../resource-manager/concepts/resources-hierarchy.md#cloud) and [folders](../../resource-manager/concepts/resources-hierarchy.md#folder) as resources controlled by the workspace. The workspace accesses its controlled resources via [connectors](#connectors).

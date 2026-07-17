@@ -4,13 +4,17 @@
 In this tutorial, you will learn how to create a {{ dataproc-name }} cluster and set up subnets and a NAT gateway.
 
 
-## Required paid resources {#paid-resources}
+## Getting started {#before-you-begin}
 
-The support cost for this solution includes:
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-* {{ dataproc-name }} cluster fee: use of VM computing resources and {{ compute-name }} network disks, as well as {{ cloud-logging-name }} for log management (see [{{ dataproc-name }} pricing](../../data-proc/pricing.md)).
-* Fee for a NAT gateway (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Fee for an {{ objstorage-name }} bucket: data storage and data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+
+### Required paid resources {#paid-resources}
+
+* {{ dataproc-name }} cluster: use of computing resources with a {{ dataproc-name }} markup, use of network drives, retrieval and storage of logs, amount of outgoing traffic (see [{{ dataproc-name }} pricing](../../data-proc/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* NAT gateway: hourly use of the gateway and its outgoing traffic (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ objstorage-full-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 
 
 ## Create resources {#deploy-infrastructure}
@@ -94,7 +98,7 @@ The support cost for this solution includes:
 
     1. Run the `terraform init` command in the working directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use its resources and data sources.
 
-    1. Validate your {{ TF }} configuration files using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -138,6 +142,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
     1. [Delete the {{ dataproc-name }} cluster](../../data-proc/operations/cluster-delete.md).
     1. If you reserved public static IP addresses, release and [delete them](../../vpc/operations/address-delete.md).
+    1. [Delete the {{ objstorage-name }} bucket](../../storage/operations/buckets/delete.md). Before deleting the bucket, [delete all its objects](../../storage/operations/objects/delete.md).
     1. [Delete the subnet](../../vpc/operations/subnet-delete.md).
     1. [Delete the route table](../../vpc/operations/delete-route-table.md).
     1. [Delete the NAT gateway](../../vpc/operations/delete-nat-gateway.md).

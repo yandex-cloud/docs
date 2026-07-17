@@ -4529,15 +4529,6 @@ default:
         alert:
           action_alert_analysis: Анализ алерта
         alerts:
-          caption_assignee: Ответственный
-          caption_category: Тип угрозы
-          caption_classification: Классификация
-          caption_created-by: Создан
-          caption_incident: Инцидент
-          caption_modified-at: Изменён
-          caption_sensor: Источник
-          caption_status: Статус
-          caption_title: Алерт
           sink:
             action_create: Создать приёмник
           title_alert_comments: Комментарии
@@ -4748,6 +4739,8 @@ default:
           detect-deployment_deployed_ejgvu: Развернуто
           detect-overview:
             title-actions-on-trigger_j8dE3: Действия при срабатывании
+          exception-drawer:
+            tab_history: История
           ExceptionsPage:
             create-exception: Новое исключение
           InvestigationPageLayout:
@@ -4763,6 +4756,7 @@ default:
           SiemPageLayout:
             correlationRules: Правила корреляции
             exceptions: Исключения
+          tab_history: История
           template_type_global_qSrVE: Общие
           template_type_local_77J2t: Инстанс
           title_ap766: Сохранить запрос как шаблон
@@ -6562,12 +6556,17 @@ default:
         button_add-record: Добавить запись
         button_record-set-create: Создать запись
         button_zone-create: Создать зону
+        DnsInboundEndpointForm:
+          network_settings_title: Сетевые настройки
+        DnsInboundEndpointsListScreen:
+          create_button: Создать подключение
         label_additional-settings: Дополнительные настройки
         label_auto-select-zone: Определять автоматически
         label_create-subdomain: Создать поддомен
         label_dns-internal-settings: Настройки DNS для внутренних адресов
         label_form-ttl: TTL (в секундах)
         label_fqdn-equal-to-zone: Совпадает с именем зоны (@)
+        label_inbound-endpoints: Входящие подключения
         label_networks: Сети
         label_private: Внутренняя
         label_public: Публичная
@@ -6576,6 +6575,8 @@ default:
         label_zone: Зона
         label_zone-record-sets: Записи
         label_zones-list: Зоны
+      entity:
+        ipAddress: IP-адрес
       forms:
         label_form-id: ID
         label_form-list: Список
@@ -8241,6 +8242,9 @@ default:
         workflow-viewer_node-output-label: Выход
         workflow-viewer_node-settings-label: Настройки
         workflow-viewer_trigger-settings-label: Старт
+      shared:
+        iam:
+          action_assign-roles_8vkmR: Назначить роли
       smart-web-security:
         action_empty: Создать профиль
         advanced_waf:

@@ -12,70 +12,66 @@ editable: false
 
 {% include [vat](../_includes/vat.md) %}
 
-{{ sd-name }} modules are billed separately. You can also choose the Starter package, which includes multiple modules.
+In {{ sd-name }}, each module is billed separately. You can also use package plans and subscriptions.
 
-Pricing details are outlined below:
+You pay for the following modules:
 
-* [Starter package](#starter-rules).
-* [Data Security Posture Management ({{ dspm-name }})](concepts/dspm.md).
-* [{{ atr-name }}](concepts/access-transparency.md).
-* [{{ k8s }}® Security Posture Management ({{ kspm-name }})](./concepts/kspm.md).
-* [Cloud Security Posture Management ({{ cspm-name }})](./concepts/cspm.md).
+* [Data Security Posture Management ({{ dspm-name }})](concepts/dspm.md)
+* [{{ atr-name }}](concepts/access-transparency.md)
+* [{{ k8s }}® Security Posture Management ({{ kspm-name }})](concepts/kspm.md)
+* [Cloud Security Posture Management ({{ cspm-name }})](concepts/cspm.md)
+* [Vulnerability Management ({{ vuln-man-short-name }})](concepts/vulnerability-management.md)
 
-{% note info %}
+You do not pay for:
 
-[Cloud Infrastructure Entitlement Management ({{ ciem-name }})](concepts/ciem.md) and the [AI assistant](concepts/ai-assistant.md) are provided free of charge.
-
-{% endnote %}
-
+* [Cloud Infrastructure Entitlement Management ({{ ciem-name }})](concepts/ciem.md)
+* [Threat detection ({{ td-name }})](concepts/threat-detector.md)
+* [AI assistant](concepts/ai-assistant.md)
 
 ## What goes into the cost of using {{ sd-name }} {#rules}
 
-### Starter package {#starter-rules}
+### Package plans and subscriptions {#starter-rules}
 
-This package includes [Cloud Security Posture Management](./concepts/cspm.md) and [Threat Detector](./concepts/threat-detector.md).
+#|
+|| **Name** | **Description** | **Conditions** ||
+|| {{ sd-name }}. Starter package | Configuration checks for compliance with standards in the [configuration control module](./concepts/cspm.md) and suspicious activity and threat alerts in the [threat detection module](./concepts/threat-detector.md).</br>There are several plans for different numbers of resources per environment. | The prices based on resources per month are fixed and do not depend on the number of days in the month. ||
+|#
 
-Our subscription plans are priced per calendar month.
+The package prices and subscriptions below are per calendar month.
 A calendar month is a period from 00:00 on the first day of the month to 23:59 on the last day of the same month, UTC+3.
 
-Prices for the number of monthly resources are fixed and do not depend on the number of days in the month.
+### Module pricing {#modules-rules}
 
-### {{ atr-name }} {#atr-rules}
+{% note tip %}
 
-The cost for using {{ atr-name }} is monthly-based and depends on the overall resource consumption over the previous month in the organization for which {{ atr-name }} is enabled. You can estimate the resource consumption for your organization based on the [usage details by service](../billing/operations/check-charges.md#services_1) for each [billing account](../billing/concepts/billing-account.md) associated with your organization.
+You can estimate the resource consumption for your organization based on the [usage details by service](../billing/operations/check-charges.md#services_1) for each [billing account](../billing/concepts/billing-account.md) associated with your organization.
 
-The price is calculated in the beginning of the calendar month and does not change over this month. The price does not depend on the number of days in the calendar month when {{ atr-name }} is used from the first day of the month.
+{% endnote %}
 
-When {{ atr-name }} is used from the second day of the calendar month or later, only the remaining time until the end of the month is charged, on an hourly basis.
+#|
+|| **Module** | **Billing unit** | **Conditions** ||
+|| {{ atr-name }} | Overall consumption of resources over the previous month in the organization the module is enabled for. | Calculated monthly.</br>The price is calculated at the beginning of the calendar month and remains unchanged until its end.</br>If the module is used from the first day of the month, the price does not depend on the duration of the calendar month. If used from the second day of the calendar month or later, you pay only for the remaining time until the end of the month on an hourly basis.</br>If you cancel your subscription in the [management console]({{ link-console-main }}), payments will stop to be charged from the first day of the next calendar month. ||
+|| Data Security Posture Management ({{ dspm-name }}) | Module's requests to files in {{ objstorage-full-name }} buckets and on {{ yandex-360 }} disks during [data scans](operations/dspm/create-scan.md). | You pay for requests as per the [{{ objstorage-name }} pricing policy](../storage/pricing.md).</br>Using {{ dspm-name }} is charged separately. ||
+|| {{ k8s }} Security Posture Management ({{ kspm-name }}) | Worker nodes in [{{ managed-k8s-full-name }}](../managed-kubernetes/) clusters covered by scanning | Calculated monthly. ||
+|| Cloud Security Posture Management ({{ cspm-name }}) | Number of the environment's resources checked for compliance with enabled standards:<ul><li>{{ compute-full-name }} virtual machine</li><li>{{ objstorage-full-name }} bucket</li><li>Database clusters ^1^</li><li>{{ k8s }} cluster</li><li>{{ vpc-full-name }} cloud network.</li></ul> | Calculated monthly.</br>All standards are billable except for the [{{ yandex-cloud }} basic security rules](concepts/standard-compliance/yc-security-baseline.md).</br>Each environment is billed separately, even if their resources overlap.</br>Inactive resources are also billable.</br>The price does not depend on the number of days in the calendar month. ||
+|#
 
-If you cancel your {{ atr-name }} subscription in the [management console]({{ link-console-main }}), charges will stop from the first day of the next calendar month.
+^1^ The check includes database clusters of the following services:
 
-### {{ dspm-full-name }} ({{ dspm-name }}) {#dspm-rules}
-
-Using {{ dspm-name }} consists of two main phases, which are billed separately:
-
-* [Data analysis](./concepts/dspm.md#discovery-mode): This is the initial operational phase of {{ dspm-name }}, during which resources containing potentially sensitive data are automatically discovered, identified, and cataloged within the selected environment. Within this phase, 100,000 objects per month are free of charge. Once this limit is exceeded, the use of {{ dspm-name }} is billed either according to your selected plan or per million objects.
-* Continuous monitoring ([scanning](./concepts/dspm.md#scanning)): This phase involves regular requests to files in {{ objstorage-full-name }} buckets and Yandex 360 disks to check for compliance with security policies. The read operations are billed as per [{{ objstorage-name }} pricing](../storage/pricing.md).
+* {{ mch-full-name }}
+* {{ mgp-full-name }}
+* {{ mkf-full-name }}
+* {{ mmy-full-name }}
+* {{ mmg-full-name }}
+* {{ mos-full-name }}
+* {{ mpg-full-name }}
+* {{ mrd-full-name }}
 
 ### Package-based subscription to {{ dspm-name }} {#dspm-package-subscription}
 
 Package-based subscription to {{ dspm-name }} is a special offer that includes all DSPM’s features. To activate this subscription, contact [support]({{ link-console-support }}).
 
 The prices provided herein are per calendar month. A calendar month is a period from 00:00 on the first day of the month to 23:59 on the last day of the same month, UTC+3. The cost is fixed and does not depend on the number of days in the month.
-
-### {{ kspm-full-name }} ({{ kspm-name }}) {#kspm-rules}
-
-The cost for using {{ kspm-full-name }} ({{ kspm-name }}) is monthly-based and depends on the number of worker nodes in [{{ managed-k8s-full-name }}](../managed-kubernetes/) clusters for scanning.
-
-### {{ cspm-full-name }} ({{ cspm-name }}) {#cspm-rules}
-
-Your {{ cspm-name }} charge is calculated monthly and depends on the infrastructure inspection standard selected for the environment and the number of resources covered by the inspection. All standards are billable except for the [{{ yandex-cloud }} basic security rules](concepts/standard-compliance/yc-security-baseline.md).
-
-Each environment is billed separately, even if their resources overlap.
-
-Inactive resources are also billable.
-
-The price does not depend on the number of days in the calendar month.
 
 ### {{ vuln-man-name }} ({{ vuln-man-short-name }}) {#vuln-man-rules}
 

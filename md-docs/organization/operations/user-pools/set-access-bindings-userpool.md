@@ -1,6 +1,6 @@
 [Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > [Пошаговые инструкции](../index.md) > Управление пулами пользователей > Настроить доступ к пулу пользователей
 
-# Настроить доступ пользователям пула
+# Настроить доступ к пулу пользователей
 
 
 Чтобы предоставить доступ к [пулу](../../concepts/user-pools.md), назначьте [роли](../../../iam/concepts/access-control/roles.md) субъектам. [Узнайте](../../security/index.md#roles-list), какие роли действуют в сервисе, чтобы назначить нужные.
@@ -19,11 +19,17 @@
 
 - CLI {#cli}
 
+  {% note alert %}
+  
+  Команда `set-access-bindings` для назначения нескольких ролей полностью перезаписывает права доступа к ресурсу. Все текущие роли на ресурс будут удалены.
+  
+  {% endnote %}
+
   Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-   1. Посмотрите описание команды CLI для назначения ролей пользователям [пула](../../concepts/user-pools.md):
+   1. Посмотрите описание команды CLI для назначения ролей на [пул пользователей](../../concepts/user-pools.md):
 
       ```bash
       yc organization-manager idp userpool set-access-bindings --help
@@ -37,48 +43,49 @@
 
       Где `--organization-id` — [идентификатор организации](../organization-get-id.md), в которой нужно получить список пулов пользователей.
 
-   1. Получите [идентификатор пользователя](../users-get.md), [сервисного аккаунта](../../../iam/operations/sa/get-id.md) или группы пользователей, которым назначаете роли.
+   1. Получите идентификатор [пользователя](../users-get.md), [сервисного аккаунта](../../../iam/operations/sa/get-id.md) или группы, которым нужно предоставить доступ к пулу пользователей.
    1. С помощью команды `yc organization-manager idp userpool set-access-bindings` назначьте роли:
-      
-      * Пользователю с аккаунтом на Яндексе или локальному пользователю:
 
-         ```bash
-         yc organization-manager idp userpool set-access-bindings \
-           --id <идентификатор_пула> \
-           --access-binding role=<роль>,user-account-id=<идентификатор_пользователя>
-         ```
+      ```bash
+      yc organization-manager idp userpool set-access-bindings \
+        --id <идентификатор_пула> \
+        --access-binding role=<роль>,subject=<тип_субъекта>:<идентификатор_субъекта>
+      ```
 
-      * Федеративному пользователю:
+      Где:
 
-         ```bash
-         yc organization-manager idp userpool set-access-bindings \
-           --id <идентификатор_пула> \
-           --access-binding role=<роль>,subject=federatedUser:<идентификатор_пользователя>
-         ```
+      * `--id` — идентификатор пула пользователей, к которому нужно предоставить доступ.
+      * `role` — идентификатор роли, которую нужно назначить.
+      * `subject` — обозначение [субъекта](../../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
-      * Сервисному аккаунту:
+          {% cut "Обозначения субъектов" %}
 
-         ```bash
-         yc organization-manager idp userpool set-access-bindings \
-           --id <идентификатор_пула> \
-           --access-binding role=<роль>,service-account-id=<идентификатор_сервисного_аккаунта>
-         ```
+          Для обозначения субъекта используется комбинация типа и уникального идентификатора — `<тип_субъекта>:<идентификатор>`. Возможные обозначения субъектов:
+          
+          #|
+          || **Тип субъекта** | **Обозначение субъекта** ||
+          || `userAccount`    | `userAccount:<идентификатор_пользователя>` ||
+          || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` ||
+          || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` ||
+          || `group`          | `group:<идентификатор_группы>` ||
+          || `system`         | `system:allAuthenticatedUsers`
+          
+          (группа `All authenticated users`) ||
+          || ^                | `system:allUsers`
+          
+          (группа `All users`) ||
+          || ^                | `system:group:organization:<идентификатор_организации>:users`
+          
+          (группа `All users in organization X`) ||
+          || ^                | `system:group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) ||
+          || ^                | `system:group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) ||
+          |#
 
-      * Группе пользователей:
-
-         ```bash
-         yc organization-manager idp userpool set-access-bindings \
-           --id <идентификатор_пула> \
-           --access-binding role=<роль>,subject=group:<идентификатор_группы>
-         ```
-
-      * Всем авторизованным пользователям ([публичная группа](../../../iam/concepts/access-control/public-group.md) `All authenticated users`):
-
-         ```bash
-         yc organization-manager idp userpool set-access-bindings \
-           --id <идентификатор_пула> \
-           --access-binding role=<роль>,all-authenticated-users
-         ```
+          {% endcut %}
 
       Для каждой роли передайте отдельный параметр `--access-binding`. Пример:
 
@@ -92,6 +99,47 @@
 
 - API {#api}
 
+  {% note alert %}
+  
+  Метод `setAccessBindings` для назначения нескольких ролей полностью перезаписывает права доступа к ресурсу. Все текущие роли на ресурс будут удалены.
+  
+  {% endnote %}
+
   Воспользуйтесь методом REST API [Userpool.SetAccessBindings](../../idp/api-ref/Userpool/setAccessBindings.md) для ресурса [Userpool](../../idp/api-ref/Userpool/index.md) или вызовом gRPC API [UserpoolService/SetAccessBindings](../../idp/api-ref/grpc/Userpool/setAccessBindings.md).
+
+  Передайте в запросе:
+
+  * Роль в параметре `accessBindings[].roleId`.
+  * Идентификатор [субъекта](../../../iam/concepts/access-control/index.md#subject), которому назначается роль на пул пользователей, в параметре `accessBindings[].subject.id`.
+  * Тип субъекта, которому назначается роль на пул пользователей, в параметре `accessBindings[].subject.type`.
+
+      {% cut "Обозначения субъектов" %}
+
+      Для обозначения субъекта используется комбинация типа и уникального идентификатора в полях запроса `subject.type` и `subject.id`. Возможные комбинации:
+      
+      #|
+      || **subject.type** | **subject.id** ||
+      || `userAccount`    | `<идентификатор_пользователя>` ||
+      || `serviceAccount` | `<идентификатор_сервисного_аккаунта>` ||
+      || `federatedUser`  | `<идентификатор_пользователя>` ||
+      || `group`          | `<идентификатор_группы>` ||
+      || `system`         | `allAuthenticatedUsers`
+      
+      (группа `All authenticated users`) ||
+      || ^                | `allUsers`
+      
+      (группа `All users`) ||
+      || ^                | `group:organization:<идентификатор_организации>:users`
+      
+      (группа `All users in organization X`) ||
+      || ^                | `group:federation:<идентификатор_федерации>:users`
+      
+      (группа `All users in federation N`) ||
+      || ^                | `group:userpool:<идентификатор_пула>:users`
+      
+      (группа `All users in userpool P`) ||
+      |#
+
+      {% endcut %}
 
 {% endlist %}

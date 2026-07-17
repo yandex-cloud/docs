@@ -5,7 +5,7 @@
 
 Apache Kafka® — это распределенная система для обмена сообщениями между приложениями по принципу «публикация-подписка».
 
-Сервис Yandex Managed Service for Apache Kafka® помогает разворачивать и поддерживать [кластеры](../../glossary/cluster.md) серверов Apache Kafka® версий 3.6, 3.7, 3.8, 3.9 или 4.0 в инфраструктуре Yandex Cloud.
+Сервис Yandex Managed Service for Apache Kafka® помогает разворачивать и поддерживать [кластеры](../../glossary/cluster.md) серверов Apache Kafka® версий 3.7, 3.8, 3.9, 4.0, 4.1 или 4.2 в инфраструктуре Yandex Cloud.
 
 
 Каждый кластер Managed Service for Apache Kafka® состоит из одного или нескольких [хостов-брокеров](brokers.md), на которых размещены [топики](topics.md) и их разделы. Хосты кластера могут находиться в разных зонах доступности. Подробнее о географии Yandex Cloud в разделе [Обзор платформы](../../overview/concepts/geo-scope.md).

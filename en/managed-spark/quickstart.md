@@ -16,7 +16,7 @@ To get started:
 
 ## Required paid resources {#paid-resources}
 
-The cost of infrastructure support includes a fee for a {{ objstorage-full-name }} bucket (see [{{ objstorage-name }} pricing](../storage/pricing.md)).
+The cost of infrastructure support includes a fee for using a {{ objstorage-full-name }} bucket (see [{{ objstorage-name }} pricing](../storage/pricing.md)).
 
 ## Get your cloud ready {#prepare-cloud}
 

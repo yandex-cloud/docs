@@ -154,8 +154,8 @@
 
    * Значение `ADD` в параметре `access_binding_deltas[].action`, чтобы добавить роль.
    * Роль в параметре `access_binding_deltas[].access_binding.role_id`.
-   * Идентификатор субъекта, на кого назначается роль, в параметре `access_binding_deltas[].access_binding.subject.id`.
-   * Тип субъекта, на кого назначается роль, в параметре `access_binding_deltas[].access_binding.subject.type`.
+   * Идентификатор субъекта, которому назначается роль, в параметре `access_binding_deltas[].access_binding.subject.id`.
+   * Тип субъекта, которому назначается роль, в параметре `access_binding_deltas[].access_binding.subject.type`.
 
 {% endlist %}
 

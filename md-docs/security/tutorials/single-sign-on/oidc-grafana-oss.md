@@ -54,7 +54,8 @@
      ```bash
      yc iam oauth-client create \
        --name grafana-oss-oauth-client \
-       --scopes openid,email,profile,groups
+       --scopes openid,email,profile,groups \
+       --profile-id web
      ```
 
      Где:
@@ -65,6 +66,7 @@
        * `email` — адрес электронной почты пользователя.
        * `profile` — дополнительная информация о пользователе, такая как имя, фамилия, аватар.
        * `groups` — [группы пользователей](../../../organization/concepts/groups.md) в организации.
+     * `--profile-id` — [тип](../../../organization/concepts/applications/oidc.md#oidc-application-types) OAuth-клиента (OIDC-приложения). В руководстве создается OAuth-клиент типа `Web Application`.
 
      Результат:
 
@@ -72,7 +74,12 @@
      id: ajeqqip130i1********
      name: grafana-oss-oauth-client
      folder_id: b1g500m2195v********
+     authentication_methods:
+       - client_secret_basic
+       - client_secret_post
      status: ACTIVE
+     profile_id: web
+     pkce_required: true
      ```
 
      Сохраните значение поля `id`, оно понадобится для создания и настройки приложения.
@@ -282,7 +289,12 @@
     - profile
     - groups
   folder_id: b1gkd6dks6i1********
+  authentication_methods:
+    - client_secret_basic
+    - client_secret_post
   status: ACTIVE
+  profile_id: web
+  pkce_required: true
   ```
 
 {% endlist %}

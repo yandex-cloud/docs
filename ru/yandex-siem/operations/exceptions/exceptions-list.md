@@ -29,6 +29,24 @@ description: Следуя данной инструкции, вы научите
 
 {% endlist %}
 
+## Просмотр истории исключения {#history}
+
+Чтобы просмотреть историю исключений:
+
+{% list tabs group=instructions %}
+
+- Интерфейс {{ cloud-center }} {#cloud-center}
+
+  1. Перейдите в сервис [{{ sd-name }}]({{ link-sd-main }}).
+  1. На панели слева выберите **{{ yandex-siem-full-name }}**.
+  1. Перейдите в раздел **{{ ui-key.yacloud_org.security.siem.SiemPageLayout.exceptions }}**.
+  1. Выберите исключение.
+  1. В открывшемся окне перейдите на вкладку **{{ ui-key.yacloud_org.security.siem.exception-drawer.tab_history }}**.
+
+  Откроется история исключения.
+
+{% endlist %}
+
 ## Фильтрация исключений {#filter}
 
 Чтобы отфильтровать исключения по нужным параметрам:

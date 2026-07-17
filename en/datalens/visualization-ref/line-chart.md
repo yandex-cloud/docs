@@ -127,7 +127,7 @@ In the settings of the line chart added to the dashboard, you can apply modeling
 
     Year | Home appliances | Household goods | Household cleaners
     ----- | ---------| ---------- | ---------- 
-    2?018 | 25K | 21K | 16K
+    2,018 | 25K | 21K | 16K
 
   {% endlist %}
 

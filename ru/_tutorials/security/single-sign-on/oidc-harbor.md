@@ -50,7 +50,8 @@
      ```bash
      yc iam oauth-client create \
        --name harbor-oauth-client \
-       --scopes openid,email,profile,groups
+       --scopes openid,email,profile,groups \
+       --profile-id web
      ```
 
      Где:
@@ -61,6 +62,7 @@
        * `email` — адрес электронной почты пользователя.
        * `profile` — дополнительная информация о пользователе, такая как имя, фамилия, аватар.
        * `groups` — [группы пользователей](../../../organization/concepts/groups.md) в организации.
+     * {% include [org-oidc-app-select-web-type-legend-cli](../../../_tutorials/_tutorials_includes/org-oidc-app-select-web-type-legend-cli.md) %}
 
      Результат:
 
@@ -68,7 +70,12 @@
      id: ajeqqip130i1********
      name: harbor-oauth-client
      folder_id: b1g500m2195v********
+     authentication_methods:
+       - client_secret_basic
+       - client_secret_post
      status: ACTIVE
+     profile_id: web
+     pkce_required: true
      ```
 
      Сохраните значение поля `id`, оно понадобится для создания и настройки приложения.
@@ -263,7 +270,12 @@
     - profile
     - groups
   folder_id: b1gkd6dks6i1********
+  authentication_methods:
+    - client_secret_basic
+    - client_secret_post
   status: ACTIVE
+  profile_id: web
+  pkce_required: true
   ```
 
 {% endlist %}

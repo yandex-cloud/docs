@@ -28,32 +28,29 @@
 
   Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
-  1. Выберите роль, которую хотите назначить.
+  По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  1. [Получите идентификатор пользователя](users-get.md).
-
+  1. Выберите [роль](../../iam/concepts/access-control/roles.md), которую хотите назначить.
+  1. [Получите](users-get.md) идентификатор пользователя.
   1. Назначьте роль с помощью команды:
 
       ```bash
-      yc <имя_сервиса> <ресурс> add-access-binding <имя_или_идентификатор_ресурса> \
+      yc organization-manager organization add-access-binding <имя_или_идентификатор_организации> \
         --role <идентификатор_роли> \
-        --subject <тип_субъекта>:<идентификатор_субъекта>
+        --user-account-id <идентификатор_пользователя>
       ```
 
       Где:
 
-      * `<имя_сервиса>` — имя сервиса, на чей ресурс назначается роль, например, `organization-manager`.
-      * `<ресурс>` — категория ресурса. Для организации всегда имеет значение `organization`.
-      * `<имя_или_идентификатор_ресурса>` — имя или идентификатор ресурса. Для организации в качестве имени используйте [техническое название](org-profile.md).
       * `--role` — идентификатор роли.
-      * `--subject` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
+      * `--user-account-id` — идентификатор пользователя. Также вы можете использовать параметр `--user-yandex-login` и указать логин пользователя вместо идентификатора.
 
-      Например, назначьте пользователю роль администратора на каталог с идентификатором `b1gmit33ngp3********`:
+      Например, назначьте пользователю роль администратора на организацию с идентификатором `b1gmit33ngp3********`:
 
       ```bash
-      yc resource-manager folder add-access-binding b1gmit33ngp3******** \
+      yc organization-manager organization add-access-binding b1gmit33ngp3******** \
         --role resource-manager.admin \
-        --subject userAccount:aje6o61dvog2********
+        --user-account-id aje6o61dvog2********
       ```
 
 - Terraform {#tf}
@@ -63,30 +60,56 @@
   
   Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
-  1. Опишите в конфигурационном файле параметры назначаемых ролей:
+  1. Выберите [роль](../../iam/concepts/access-control/roles.md), которую хотите назначить.
+  1. [Получите](users-get.md) идентификатор пользователя.
+  1. Опишите в конфигурационном файле параметры назначаемых ролей.
+
+      Пример структуры конфигурационного файла для назначения роли на организацию:
 
       ```hcl
       resource "yandex_organizationmanager_organization_iam_binding" "editor" {
         organization_id = "<идентификатор_организации>"
-        role = "<идентификатор_роли>"
-        members = [
-          "federatedUser:<идентификатор_пользователя>",
-        ]
+        role            = "<идентификатор_роли>"
+        member          = "userAccount:<идентификатор_пользователя>"
       }
       ```
 
       Где:
 
       * `organization_id` — [идентификатор](organization-get-id.md) организации.
-      * `role` — роль, которую хотите назначить. Для каждой роли можно использовать только один `yandex_organization manager_organization_iam_binding`.
-      * `members` — массив идентификаторов пользователей, которым будет назначена роль:
+      * `role` — роль, которую хотите назначить. Для каждой роли можно использовать только один ресурс `yandex_organizationmanager_organization_iam_binding`.
+      * `member` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
-        * `userAccount:<идентификатор_пользователя>` — идентификатор аккаунта пользователя на Яндексе или локального пользователя.
-        * `federatedUser:<идентификатор_пользователя>` — идентификатор федеративного пользователя.
-        * `serviceAccount:<идентификатор_сервисного_аккаунта>` — идентификатор сервисного аккаунта.
-        * `group:<идентификатор_группы>` — идентификатор группы пользователей.
+          {% cut "Обозначения субъектов" %}
 
-      Подробнее о ресурсах, которые вы можете создать с помощью Terraform, читайте в [документации провайдера](../../terraform/index.md).
+          Для обозначения субъекта используется комбинация типа и уникального идентификатора — `<тип_субъекта>:<идентификатор>`. Возможные обозначения субъектов:
+          
+          #|
+          || **Тип субъекта** | **Обозначение субъекта** ||
+          || `userAccount`    | `userAccount:<идентификатор_пользователя>` ||
+          || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` ||
+          || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` ||
+          || `group`          | `group:<идентификатор_группы>` ||
+          || `system`         | `system:allAuthenticatedUsers`
+          
+          (группа `All authenticated users`) ||
+          || ^                | `system:allUsers`
+          
+          (группа `All users`) ||
+          || ^                | `system:group:organization:<идентификатор_организации>:users`
+          
+          (группа `All users in organization X`) ||
+          || ^                | `system:group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) ||
+          || ^                | `system:group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) ||
+          |#
+
+          {% endcut %}
+
+      Подробнее о параметрах ресурса `yandex_organizationmanager_organization_iam_binding` читайте в [документации провайдера](../../terraform/resources/organizationmanager_organization_iam_binding.md).
 
   1. Создайте ресурсы:
 
@@ -117,18 +140,18 @@
          ```
       
       1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
-     
-  После этого указанному пользователю будут назначены роли в организации. Проверить появление роли можно в [интерфейсе Cloud Center](https://center.yandex.cloud/organization).
+
+  После этого указанному пользователю будут назначены роли в организации. Проверить назначение роли можно в [интерфейсе Cloud Center](https://center.yandex.cloud/organization).
 
 - API {#api}
 
-  Чтобы назначить роль, воспользуйтесь методом REST API `updateAccessBindings` для соответствующего ресурса:
+  Чтобы назначить роль пользователю на организацию, воспользуйтесь методом REST API [updateAccessBindings](../api-ref/Organization/updateAccessBindings.md) для ресурса [Organization](../api-ref/Organization/index.md) или вызовом gRPC API [OrganizationService/UpdateAccessBindings](../api-ref/grpc/Organization/updateAccessBindings.md).
 
-  1. Выберите роль, которую хотите назначить.
+  1. Выберите [роль](../../iam/concepts/access-control/roles.md), которую хотите назначить.
+  1. [Получите](users-get.md) идентификатор пользователя.
+  1. Сформируйте тело запроса, например в файле `body.json`. В свойстве `action` укажите `ADD`, а в свойстве `subject` — тип `userAccount` или `federatedUser` и идентификатор пользователя:
 
-  1. [Получите идентификатор пользователя](users-get.md).
-
-  1. Сформируйте тело запроса, например, в файле `body.json`. В свойстве `action` укажите `ADD`, а в свойстве `subject` — тип `userAccount` или `federatedUser` и идентификатор пользователя:
+      **body.json:**
 
       ```json
       {
@@ -137,13 +160,49 @@
           "accessBinding": {
             "roleId": "<идентификатор_роли>",
             "subject": {
-              "id": "gfei8n54hmfh********",
+              "id": "<идентификатор_пользователя>",
               "type": "userAccount"
             }
           }
         }]
       }
       ```
+
+      Где:
+
+      * Значение `ADD` в параметре `accessBindingDeltas[].action` указывает, что роль нужно добавить.
+      * `accessBindingDeltas[].accessBinding.roleId` — идентификатор роли, которую нужно назначить.
+      * `accessBindingDeltas[].accessBinding.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
+      * `accessBindingDeltas[].accessBinding.subject.type` — тип субъекта, которому назначается роль.
+
+          {% cut "Обозначения субъектов" %}
+
+          Для обозначения субъекта используется комбинация типа и уникального идентификатора в полях запроса `subject.type` и `subject.id`. Возможные комбинации:
+          
+          #|
+          || **subject.type** | **subject.id** ||
+          || `userAccount`    | `<идентификатор_пользователя>` ||
+          || `serviceAccount` | `<идентификатор_сервисного_аккаунта>` ||
+          || `federatedUser`  | `<идентификатор_пользователя>` ||
+          || `group`          | `<идентификатор_группы>` ||
+          || `system`         | `allAuthenticatedUsers`
+          
+          (группа `All authenticated users`) ||
+          || ^                | `allUsers`
+          
+          (группа `All users`) ||
+          || ^                | `group:organization:<идентификатор_организации>:users`
+          
+          (группа `All users in organization X`) ||
+          || ^                | `group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) ||
+          || ^                | `group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) ||
+          |#
+
+          {% endcut %}
 
   1. Назначьте роль. Например, для организации с идентификатором `bpf3crucp1v2********`:
 

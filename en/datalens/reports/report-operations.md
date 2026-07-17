@@ -98,7 +98,7 @@ You can add, copy, or delete widgets in your report. If your widgets overlap, yo
 ### Adding a widget {#add-widget}
 
 1. Select the report page you want to add the widget to.
-1. Select a widget: [Chart](../concepts/chart/index.md), [Text](../dashboard/widget.md#text), [Title](../dashboard/widget.md#title), or Image. To properly position your widget right away, drag it with the left mouse button held down.
+1. Select a widget: [Chart](../concepts/chart/index.md), [Text](../dashboard/widget.md#text), [Title](../dashboard/widget.md#title), Image, or [Insight](../dashboard/widget.md#ai). To properly position your widget right away, drag it with the left mouse button held down.
 1. Configure your widget:
 
    {% list tabs group=widgets %}
@@ -161,13 +161,35 @@ You can add, copy, or delete widgets in your report. If your widgets overlap, yo
 
      * Optionally, set a [background for your widget](#widget-background).
 
-   - Header {#header}
+   - Title {#header}
 
      * Enter the header text.
      * Select one of the size presets: `XS`, `S`, `M`, `L`, `XL`. Or click ![icon](../../_assets/console-icons/pencil-to-line.svg) and specify font size in pixels.
      * Optionally, set the text color. You can select one from the palette or specify a custom color.
      * Optionally, set a [background for your widget](#widget-background).
      * Optionally, enable **Tooltip** and enter the tooltip text. The input field supports [Markdown](../dashboard/markdown.md).
+
+   
+   - Insight {#ai}
+
+     * **Chart for analysis**. Click ![image](../../_assets/console-icons/chart-column.svg) **Select chart** and select the chart the Neuroanalyst will prepare an insight for.
+     * **Header**. It sets the widget name; by default, it is the name of the selected chart. The name is displayed at the top of the widget if the **Header** option is enabled under **Appearance** (which it is by default).
+     * **Prompt**. Enter a question for the Neuroanalyst to answer.
+
+     {% cut "Example of insight widget settings" %}
+
+     ![image](../../_assets/datalens/report/ai-report-settings.png =517x434)
+      
+     {% endcut %}
+
+     After you save the setting, Neuroanalyst will analyze the specified chart and generate conclusions based on the data and the custom prompt. The result in **Insight** will be updated every time you open the report. If the data in the chart linked to the **Insight** widget changes, an ![image](../../_assets/console-icons/arrow-rotate-left.svg) **Update** button will appear at the top of the widget.
+
+     {% cut "Example of insight widget contents" %}
+
+     ![image](../../_assets/datalens/report/ai-report-result.png)
+        
+     {% endcut %}
+        
 
    {% endlist %}
 
@@ -264,7 +286,7 @@ To configure widget corner rounding:
 
 1. Select the report page the widget is on.
 1. Click ![image](../../_assets/console-icons/gear.svg) next to the widget.
-1. In the **Rounding** field, set widget corner rounding from `0` to `24` in increments of `2`. The default value is `12`.
+1. In the **Rounding** field, set the widget corner rounding from `0` to `24` in increments of `2`. The default value is `12`.
 1. Click **Save**.
 1. In the top-right corner, click **Save**.
 

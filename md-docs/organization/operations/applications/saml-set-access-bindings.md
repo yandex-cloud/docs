@@ -19,11 +19,17 @@
 
 - CLI {#cli}
 
+  {% note alert %}
+  
+  Команда `set-access-bindings` для назначения нескольких ролей полностью перезаписывает права доступа к ресурсу. Все текущие роли на ресурс будут удалены.
+  
+  {% endnote %}
+
   Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-   1. Посмотрите описание команды CLI для назначения ролей пользователям SAML-приложения:
+   1. Посмотрите описание команды CLI для назначения ролей на SAML-приложение:
 
       ```bash
       yc organization-manager idp application saml application set-access-bindings --help
@@ -37,62 +43,54 @@
 
       Где `--organization-id` — [идентификатор организации](../organization-get-id.md), в которой нужно получить список SAML-приложений.
 
-   1. Получите [идентификатор пользователя](../users-get.md), [сервисного аккаунта](../../../iam/operations/sa/get-id.md) или группы пользователей, которым назначаете роли.
-
+   1. Получите идентификатор [пользователя](../users-get.md), [сервисного аккаунта](../../../iam/operations/sa/get-id.md) или группы, которым нужно предоставить доступ к SAML-приложению.
    1. С помощью команды `yc organization-manager idp application saml application set-access-bindings` назначьте роли:
-      
-      * Пользователю с аккаунтом на Яндексе или локальному пользователю:
 
-         ```bash
-         yc organization-manager idp application saml application set-access-bindings \
-           --id <идентификатор_приложения> \
-           --access-binding role=<роль>,user-account-id=<идентификатор_пользователя>
-         ```
+      ```bash
+      yc organization-manager idp application saml application set-access-bindings \
+        --id <идентификатор_приложения> \
+        --access-binding role=<роль>,subject=<тип_субъекта>:<идентификатор_субъекта>
+      ```
 
-      * Всем пользователям федерации:
+      Где:
 
-         ```bash
-         yc organization-manager idp application saml application set-access-bindings \
-           --id <идентификатор_приложения> \
-           --access-binding role=<роль>,federation-users=<идентификатор_федерации>
-         ```
+      * `--id` — идентификатор SAML-приложения, к которому нужно предоставить доступ.
+      * `role` — идентификатор роли, которую нужно назначить.
+      * `subject` — обозначение [субъекта](../../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
-      * Всем пользователям организации:
-        
-         ```bash
-         yc organization-manager idp application saml application set-access-bindings \
-           --id <идентификатор_приложения> \
-           --access-binding role=<роль>,organization-users=<идентификатор_организации>
-         ```
+          {% cut "Обозначения субъектов" %}
 
-      * Сервисному аккаунту:
+          Для обозначения субъекта используется комбинация типа и уникального идентификатора — `<тип_субъекта>:<идентификатор>`. Возможные обозначения субъектов:
+          
+          #|
+          || **Тип субъекта** | **Обозначение субъекта** ||
+          || `userAccount`    | `userAccount:<идентификатор_пользователя>` ||
+          || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` ||
+          || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` ||
+          || `group`          | `group:<идентификатор_группы>` ||
+          || `system`         | `system:allAuthenticatedUsers`
+          
+          (группа `All authenticated users`) ||
+          || ^                | `system:allUsers`
+          
+          (группа `All users`) ||
+          || ^                | `system:group:organization:<идентификатор_организации>:users`
+          
+          (группа `All users in organization X`) ||
+          || ^                | `system:group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) ||
+          || ^                | `system:group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) ||
+          |#
 
-         ```bash
-         yc organization-manager idp application saml application set-access-bindings \
-           --id <идентификатор_приложения> \
-           --access-binding role=<роль>,service-account-id=<идентификатор_сервисного_аккаунта>
-         ```
-
-      * Группе пользователей:
-
-         ```bash
-         yc organization-manager idp application saml application set-access-bindings \
-           --id <идентификатор_приложения> \
-           --access-binding role=<роль>,group-members=<идентификатор_группы>
-         ```
-
-      * Всем авторизованным пользователям ([публичная группа](../../../iam/concepts/access-control/public-group.md) `All authenticated users`):
-
-         ```bash
-         yc organization-manager idp application oauth application set-access-bindings \
-           --id <идентификатор_приложения> \
-           --access-binding role=<роль>,all-authenticated-users
-         ```
+          {% endcut %}
 
       Для каждой роли передайте отдельный параметр `--access-binding`. Пример:
 
       ```bash
-      yc organization-manager idp application oauth application set-access-bindings \
+      yc organization-manager idp application saml application set-access-bindings \
         --id <идентификатор_приложения> \
         --access-binding role=<роль1>,service-account-id=<идентификатор_сервисного_аккаунта> \
         --access-binding role=<роль2>,service-account-id=<идентификатор_сервисного_аккаунта> \
@@ -101,6 +99,47 @@
 
 - API {#api}
 
+  {% note alert %}
+  
+  Метод `setAccessBindings` для назначения нескольких ролей полностью перезаписывает права доступа к ресурсу. Все текущие роли на ресурс будут удалены.
+  
+  {% endnote %}
+
   Воспользуйтесь методом REST API [Application.SetAccessBindings](../../idp/application/saml/api-ref/Application/setAccessBindings.md) для ресурса [Application](../../idp/application/saml/api-ref/Application/index.md) или вызовом gRPC API [ApplicationService/SetAccessBindings](../../idp/application/saml/api-ref/grpc/Application/setAccessBindings.md).
+
+  Передайте в запросе:
+
+  * Роль в параметре `accessBindings[].roleId`.
+  * Идентификатор [субъекта](../../../iam/concepts/access-control/index.md#subject), которому назначается роль на SAML-приложение, в параметре `accessBindings[].subject.id`.
+  * Тип субъекта, которому назначается роль на SAML-приложение, в параметре `accessBindings[].subject.type`.
+
+      {% cut "Обозначения субъектов" %}
+
+      Для обозначения субъекта используется комбинация типа и уникального идентификатора в полях запроса `subject.type` и `subject.id`. Возможные комбинации:
+      
+      #|
+      || **subject.type** | **subject.id** ||
+      || `userAccount`    | `<идентификатор_пользователя>` ||
+      || `serviceAccount` | `<идентификатор_сервисного_аккаунта>` ||
+      || `federatedUser`  | `<идентификатор_пользователя>` ||
+      || `group`          | `<идентификатор_группы>` ||
+      || `system`         | `allAuthenticatedUsers`
+      
+      (группа `All authenticated users`) ||
+      || ^                | `allUsers`
+      
+      (группа `All users`) ||
+      || ^                | `group:organization:<идентификатор_организации>:users`
+      
+      (группа `All users in organization X`) ||
+      || ^                | `group:federation:<идентификатор_федерации>:users`
+      
+      (группа `All users in federation N`) ||
+      || ^                | `group:userpool:<идентификатор_пула>:users`
+      
+      (группа `All users in userpool P`) ||
+      |#
+
+      {% endcut %}
 
 {% endlist %}

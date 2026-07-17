@@ -79,7 +79,7 @@ The following limits apply: 2,000 queries from private embedded charts per seat 
 
    > 2,000 queries x Number of seats
 
-Only successfully completed requests for retrieving data to render charts are counted. If multiple requests are required to render a single chart, this is counted as one request. For more information, see [{#T}](../pricing.md#packet-queries).
+Only successfully completed queries for chart rendering data are counted. If multiple queries are required to render a single chart, they are counted as one query. Read more in [{#T}](../pricing.md#packet-queries).
 
 You can [estimate the number of queries from private embedded charts](#embedded-queries-count) by enabling [Usage Analytics](../operations/connection/create-usage-tracking.md).
 

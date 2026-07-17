@@ -45,7 +45,7 @@ When the [storage](../concepts/storage.md) usage exceeds 97%, the host automatic
     1. **Notifications**: Add the notification channel you created earlier.
 
 
-## Increasing your storage size {#change-disk-size}
+## Changing the disk type and expanding the storage size {#change-disk-size}
 
 {% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
 
@@ -53,15 +53,19 @@ When the [storage](../concepts/storage.md) usage exceeds 97%, the host automatic
 
 * Management console {#console}
 
+   {% note warning %}
+   
+   You can change the disk type for broker hosts only via the CLI, {{ TF }}, or API.
+   
+   {% endnote %}
+   
+
     To increase your cluster storage size:
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
-    1. Edit the settings under **{{ ui-key.yacloud.mdb.forms.section_storage }}**.
-
-        You cannot change the disk type for an {{ KF }} cluster once the cluster is created.
-
+    1. Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**, specify the disk size.
     1. Click **{{ ui-key.yacloud.common.save }}**.
 
 * CLI {#cli}
@@ -70,7 +74,7 @@ When the [storage](../concepts/storage.md) usage exceeds 97%, the host automatic
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To increase your host storage size:
+     To change the disk type and expand the storage size for hosts:
 
     1. View the description of the CLI command for updating a cluster:
 
@@ -78,16 +82,19 @@ When the [storage](../concepts/storage.md) usage exceeds 97%, the host automatic
         {{ yc-mdb-kf }} cluster update --help
         ```
 
-    1. To resize your broker host storage, run this command:
+    1. To change the [disk type](../concepts/storage.md) and storage size of broker hosts, run this command (the storage size must not be less than the `disk_size` cluster setting):
 
         ```bash
         {{ yc-mdb-kf }} cluster update <cluster_name_or_ID> \
+           --disk-type <disk_type> \
            --disk-size <storage_size>
         ```
 
         If you specify no size units, gigabytes are used.
 
-    1. To resize {{ ZK }} host storage, run this command:
+        {% include [update-disk-type](../../_includes/mdb/mkf/update-disk-type.md) %}
+
+    1. To change the storage size of {{ ZK }} hosts, run this command (the storage size must not be less than the `disk_size` cluster setting):
 
         ```bash
         {{ yc-mdb-kf }} cluster update <cluster_name_or_ID> \
@@ -96,23 +103,29 @@ When the [storage](../concepts/storage.md) usage exceeds 97%, the host automatic
 
         If you specify no size units, gigabytes are used.
 
-    You cannot change the disk type for an {{ KF }} cluster once the cluster is created.
+        You cannot change the disk type for {{ ZK }} hosts after they are created.
 
 * {{ TF }} {#tf}
 
-  To increase your cluster storage size:
+  To change the disk type and expand the storage size for a cluster:
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For information about creating this file, see [{#T}](cluster-create.md).
+        For information on how to create this file, see [{#T}](cluster-create.md).
 
-    1. In the {{ mkf-name }} cluster description, change the `disk_size` value in the `kafka.resources` and `zookeeper.resources` sections for {{ KF }} and {{ ZK }} hosts, respectively:
+    1. Update the following settings in your {{ mkf-name }} cluster description:
+       * `disk_size` and `disk_type_id` in the `kafka.resources` section for {{ KF }} broker hosts.
+          
+          {% include [update-disk-type](../../_includes/mdb/mkf/update-disk-type.md) %}
+
+       * `disk_size` in the `zookeeper.resources` section for {{ ZK }} hosts.
 
         ```hcl
         resource "yandex_mdb_kafka_cluster" "<cluster_name>" {
           ...
           kafka {
             resources {
+              disk_type_id = "<disk_type>"
               disk_size = <storage_size_in_GB>
               ...
             }
@@ -127,13 +140,11 @@ When the [storage](../concepts/storage.md) usage exceeds 97%, the host automatic
         }
         ```
 
-        You cannot change the disk type for an {{ KF }} cluster once the cluster is created.
-
     1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -158,10 +169,11 @@ When the [storage](../concepts/storage.md) usage exceeds 97%, the host automatic
             --header "Content-Type: application/json" \
             --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>' \
             --data '{
-                      "updateMask": "configSpec.kafka.resources.diskSize,configSpec.zookeeper.resources.diskSize",
+                      "updateMask": "configSpec.kafka.resources.diskTypeId,configSpec.kafka.resources.diskSize,configSpec.zookeeper.resources.diskSize",
                       "configSpec": {
                         "kafka": {
                           "resources": {
+                            "diskTypeId": "<disk_type>",
                             "diskSize": "<storage_size_in_bytes>"
                           }
                         },
@@ -179,6 +191,10 @@ When the [storage](../concepts/storage.md) usage exceeds 97%, the host automatic
         * `updateMask`: Comma-separated string of settings you want to update.
 
             Specify the relevant parameters:
+            * `configSpec.kafka.resources.diskTypeId`: To change the disk type for broker hosts.
+               
+               {% include [update-disk-type](../../_includes/mdb/mkf/update-disk-type.md) %}
+               
             * `configSpec.kafka.resources.diskSize`: To resize the broker host storage.
             * `configSpec.zookeeper.resources.diskSize`: To resize the {{ ZK }} host storage. Use only for {{ KF }} 3.5 clusters.
         * `configSpec.kafka.resources.diskSize`: Broker host storage size, in bytes.
@@ -211,6 +227,7 @@ When the [storage](../concepts/storage.md) usage exceeds 97%, the host automatic
                   "cluster_id": "<cluster_ID>",
                   "update_mask": {
                     "paths": [
+                      "config_spec.kafka.resources.disk_type_id",
                       "config_spec.kafka.resources.disk_size",
                       "config_spec.zookeeper.resources.disk_size"
                     ]
@@ -218,6 +235,7 @@ When the [storage](../concepts/storage.md) usage exceeds 97%, the host automatic
                   "config_spec": {
                     "kafka": {
                       "resources": {
+                        "disk_type_id": "<disk_type>",
                         "disk_size": "<storage_size_in_bytes>"
                       }
                     },
@@ -237,6 +255,10 @@ When the [storage](../concepts/storage.md) usage exceeds 97%, the host automatic
         * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
             Specify the relevant parameters:
+            * `config_spec.kafka.resources.disk_type_id`: To change the disk type for broker hosts.
+
+               {% include [update-disk-type](../../_includes/mdb/mkf/update-disk-type.md) %}
+
             * `config_spec.kafka.resources.disk_size`: To resize the broker host storage.
             * `config_spec.brokers_count`: To resize the {{ ZK }} host storage. Use only for {{ KF }} 3.5 clusters.
         * `config_spec.kafka.resources.disk_size`: Broker host storage size, in bytes.

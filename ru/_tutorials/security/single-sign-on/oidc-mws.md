@@ -67,7 +67,9 @@
      ```bash
      yc iam oauth-client create \
        --name mws-oauth-client \
-       --scopes openid,email,profile
+       --scopes openid,email,profile \
+       --profile-id web \
+       --pkce-required=false
      ```
 
      Где:
@@ -77,6 +79,8 @@
        * `openid` — идентификатор пользователя. Обязательный атрибут.
        * `email` — адрес электронной почты пользователя.
        * `profile` — дополнительная информация о пользователе, такая как имя, фамилия, аватар.
+     * {% include [org-oidc-app-select-web-type-legend-cli](../../../_tutorials/_tutorials_includes/org-oidc-app-select-web-type-legend-cli.md) %}
+     * {% include [org-oidc-app-disable-pkce-legend-cli](../../../_tutorials/_tutorials_includes/org-oidc-app-disable-pkce-legend-cli.md) %}
 
      Результат:
 
@@ -84,7 +88,11 @@
      id: ajeqqip130i1********
      name: mws-oauth-client
      folder_id: b1g500m2195v********
+     authentication_methods:
+       - client_secret_basic
+       - client_secret_post
      status: ACTIVE
+     profile_id: web
      ```
 
      Сохраните значение поля `id`, оно понадобится для создания и настройки приложения.
@@ -301,7 +309,11 @@
     - email
     - profile
   folder_id: b1gkd6dks6i1********
+  authentication_methods:
+    - client_secret_basic
+    - client_secret_post
   status: ACTIVE
+  profile_id: web
   ```
 
 {% endlist %}

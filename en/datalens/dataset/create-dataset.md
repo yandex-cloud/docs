@@ -88,7 +88,7 @@ You can use SQL queries for database sources only.
 
      {% note info %}
 
-     * To use subqueries as a source, in the connection settings, enable **SQL query access level** → **Allow subqueries in datasets** when creating or editing a [connection](../concepts/connection/index.md).
+     * To use subqueries as a source, enable **Raw SQL level** → **Subqueries only** when creating or editing a [connection](../concepts/connection/index.md).
      * Describing a dataset via a SQL query does not support parameters. However, you can use [parameterized queries](../operations/chart/create-sql-chart.md#selector-parameters) in [QL charts](../concepts/chart/ql-charts.md).
 
      {% endnote %}
@@ -148,14 +148,14 @@ You can join data from source tables.
    You can only link fields with the same [data type](./data-types.md). {{ datalens-short-name }} gets information about the field's data type directly from the connection. If you need to join tables by fields with different data types, use one of these options:
    
    * Convert all the fields to the same data type at the source level.
-   * [Describe the dataset with an SQL query](#add-data). Use the [CAST or CONVERT](https://dev.mysql.com/doc/refman/8.0/en/cast-functions.html) functions to convert the data type. For example:
+   * [Describe the dataset with an SQL query](#add-data). Use the [CAST or CONVERT](https://dev.mysql.com/doc/refman/8.0/en/cast-functions.html) functions to convert the data type. Here is an example:
    
      ```sql
      SELECT * FROM lead INNER JOIN user ON lead.assigned_by_id = CONVERT(user.external_id, CHAR)
      ```
 
 1. If required, link other fields in the tables. To do this, click **Add link**.
-1. Optionally, you can disable the **Optimize link** option to make the link required. In which case the `JOIN` operation will be performed even if you select fields from a single table.
+1. Optionally, you can disable the **Optimize link** option to make the link required. In this case, the `JOIN` operation will be performed even if you select fields from a single table.
 1. Click **Apply**.
 
 By default, when you add a new table from a data source to the workspace, it is automatically linked to the first table listed there. If required, you can link a new table to a specific table. To do this, hover the new table over a previously added one and release when you see a gray border around the latter. A new link to the specified table is created.

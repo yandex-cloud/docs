@@ -1,7 +1,10 @@
 ---
+title: Разрешение облачных DNS-имен в корпоративных сетях
+description: Если у вас есть собственные корпоративные сети, связанные с облачными сетями {{ vpc-full-name }} с помощью сервиса {{ interconnect-full-name }}, то вы можете интегрировать корпоративный DNS с внутренними DNS-зонами в {{ yandex-cloud }} — реализовать разрешение DNS-имен облачных ресурсов в ваших корпоративных сетях, чтобы из корпоративных сетей обращаться к облачным ресурсам и сервисам по имени.
 canonical: '{{ link-docs }}/tutorials/infrastructure-management/dns-integration'
+noIndex: true
 ---
 
-# Интеграция {{ dns-name }} и корпоративного сервиса DNS
+# Разрешение облачных DNS-имен в корпоративной сети
 
 {% include [dns-integration](../../_tutorials/infrastructure/dns-integration.md) %}

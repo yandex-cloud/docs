@@ -41,9 +41,9 @@ To create a {{ MY }} connection:
      * **Host name**: Select the host name from the list of hosts available in the {{ MY }} cluster. You can select multiple hosts. If you fail to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
      * **Port**: Specify the {{ MY }} connection port. The default port is 3306.
      * **Path to database**: Specify the database name.
-     * **Username**: Specify the username for the {{ MY }} connection.
+     * **Username**: Specify a username for the {{ MY }} connection.
      * **Password**: Specify a password for the user.
-     * **Cache TTL in seconds**: Specify the cache TTL or leave the default value. The recommended value is 300 seconds (5 minutes).
+     * **Cache TTL in seconds**: Specify cache TTL or leave the default value. The recommended value is 300 seconds (5 minutes).
      
      {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level.md) %}
 
@@ -56,8 +56,6 @@ To create a {{ MY }} connection:
      {% include [datalens-db-specify-mannualy](../../../_includes/datalens/datalens-db-specify-mannualy.md) %}
 
      {% include [datalens-db-connection-parameters-mysql](../../../_includes/datalens/datalens-db-connection-parameters-mysql.md) %}
-
-     ![image](../../../_assets/datalens/operations/connection/connection-mysql.png)
 
      Click **Check connection** to make sure the parameters are correct.
 
@@ -73,7 +71,7 @@ To create a {{ MY }} connection:
      * **Port**: It is set automatically depending on the selected host.
      * **Database**: Specify the name of the database to connect.
      * **Username**: It is set automatically from the selected connection data.
-     * **Cache TTL in seconds**: Specify the cache TTL or leave the default value. The recommended value is 300 seconds (5 minutes).
+     * **Cache TTL in seconds**: Specify cache TTL or leave the default value. The recommended value is 300 seconds (5 minutes).
      
      {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level.md) %}
 

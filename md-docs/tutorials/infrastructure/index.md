@@ -54,7 +54,7 @@
 * [Настройка локального кеширующего DNS-резолвера](../infrastructure-management/local-dns-cache.md)
 * [Миграция DNS-зон из Яндекс 360 в Cloud DNS](../infrastructure-management/connect-migration.md)
 * [Настройка Yandex Cloud DNS для доступа к кластеру Yandex Managed Service for ClickHouse® из других облачных сетей](../dataplatform/clickhouse-dns-peering.md)
-* [Интеграция Cloud DNS и корпоративного сервиса DNS](../infrastructure-management/dns-integration.md)
+* [Разрешение облачных DNS-имен в корпоративной сети](../infrastructure-management/dns-integration.md)
 * [Создание веб-хука резолвера ACME для ответов на DNS01-проверки](../infrastructure-management/cert-manager-webhook.md)
 
 ## GPU {#gpu}

@@ -3,9 +3,7 @@
 - Консоль управления {#console}
 
   1. Войдите в [консоль управления]({{ link-console-main }}) с учетной записью администратора или владельца облака.
-
-  1. В левой части экрана нажмите на строку с именем [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud) или [каталога](../../resource-manager/concepts/resources-hierarchy#folder), на который вы хотите назначить роль группе пользователей.
-
+  1. В левой части экрана нажмите на строку с именем [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud) или [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder), на который вы хотите назначить роль группе пользователей.
   1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**. В открывшемся окне:
 
       1. Перейдите на вкладку **{{ ui-key.yacloud_org.pages.groups }}** и выберите [группу](../../organization/concepts/groups.md) или воспользуйтесь поиском по названию группы.
@@ -16,7 +14,6 @@
           * `All users in federation N` — в группу входят все пользователи федерации `N`.
 
       1. Нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите [роль](../../iam/concepts/access-control/roles.md), которую хотите назначить группе на облако или каталог, который вы выбрали ранее. Вы можете назначить несколько ролей.
-
       1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -33,15 +30,17 @@
      ```
 
      Где:
-     
+
      * `--role` — идентификатор роли, например, `{{ roles-cloud-owner }}`.
-     * `--subject group` — идентификатор [группы](../../organization/concepts/groups.md), которой назначается роль.
+     * `--subject` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
-         Для того чтобы назначить роль одной из [системных групп](../../iam/concepts/access-control/system-group.md), вместо параметра `--subject` используйте параметр `--organization-users <идентификатор_организации>` или `--federation-users <идентификатор_федерации>`, передав в нем соответственно идентификатор [организации](../../organization/quickstart.md) или [федерации удостоверений](../../organization/concepts/add-federation.md), всем пользователям, которым вы хотите назначить роль.
-         
-         Вы также можете назначить роль системной группе с помощью параметра `--subject`. Для этого передайте в нем идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), соответствующий выбранной системной группе.
+        {% cut "Обозначения субъектов" %}
 
-     Например, назначьте роль `resource-manager.viewer` на [облако](../../resource-manager/concepts/resources-hierarchy.md#folder) `mycloud`:
+        {% include [subjects-designations-cli](../iam/subjects-designations-cli.md) %}
+
+        {% endcut %}
+
+     Например, назначьте роль `resource-manager.viewer` на [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) `mycloud`:
 
      ```bash
      yc resource-manager cloud add-access-binding mycloud \
@@ -51,82 +50,64 @@
 
 - {{ TF }} {#tf}
 
-  {% include [terraform-install](../../_includes/terraform-install.md) %}
+  {% include [terraform-install](../terraform-install.md) %}
 
   1. Добавьте в конфигурационный файл параметры ресурса, укажите нужную [роль](../../iam/concepts/access-control/roles.md) и [группу](../../organization/concepts/groups.md):
 
      ```hcl
      resource "yandex_resourcemanager_cloud_iam_member" "admin" {
-       cloud_id    = "<идентификатор_облака>"
-       role        = "<идентификатор_роли>"
-       member      = "group:<идентификатор_группы>"
+       cloud_id = "<идентификатор_облака>"
+       role     = "<идентификатор_роли>"
+       member   = "group:<идентификатор_группы>"
      }
      ```
 
      Где:
-     
-     * `cloud_id` — [идентификатор облака](../../resource-manager/operations/cloud/get-id.md). Вы также можете назначить роль внутри отдельного [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder). Для этого вместо `cloud_id` укажите `folder_id` и нужный идентификатор каталога в параметрах ресурса.
+
+     * `cloud_id` — [идентификатор облака](../../resource-manager/operations/cloud/get-id.md). Чтобы назначить роль на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), используйте ресурс `yandex_resourcemanager_folder_iam_member` и укажите идентификатор каталога в параметре `folder_id`.
      * `role` — назначаемая роль. Обязательный параметр.
-     * `member` — группа, которой назначается роль. Указывается в виде `group:<идентификатор_группы>`. Обязательный параметр.
+     * `member` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль. Обязательный параметр.
 
-         Для того чтобы назначить роль одной из [системных групп](../../iam/concepts/access-control/system-group.md), в параметре `member` укажите:
+          {% cut "Обозначения субъектов" %}
 
-         * `system:group:organization:<идентификатор_организации>:users` — чтобы назначить роль системной группе `All users in organization X`;
-         * `system:group:federation:<идентификатор_федерации>:users` — чтобы назначить роль системной группе `All users in federation N`.
+          {% include [subjects-designations-terraform](../iam/subjects-designations-terraform.md) %}
 
-     Подробнее о параметрах ресурса `yandex_resourcemanager_cloud_iam_member` читайте в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_iam_member).
+          {% endcut %}
+
+     Подробнее о параметрах ресурсов `yandex_resourcemanager_cloud_iam_member` и `yandex_resourcemanager_folder_iam_member` читайте в документации провайдера для [облака]({{ tf-provider-resources-link }}/resourcemanager_cloud_iam_member) и [каталога]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
+
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить создание ресурса можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/):
+     После этого будут назначены указанные права доступа. Проверить назначение роли можно в [консоли управления]({{ link-console-main }}) или с помощью команды CLI:
 
      ```bash
-     terraform plan
-     ```
-
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
-  1. Разверните облачные ресурсы.
-     1. Если в конфигурации нет ошибок, выполните команду:
-
-        ```bash
-        terraform apply
-        ```
-
-     1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
-
-     После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить создание ресурса можно в [консоли управления]({{ link-console-main }}) или с помощью команды CLI:
-
-     ```bash
-     yc resource-manager folder list-access-bindings <имя_или_идентификатор_папки>
+     yc resource-manager <cloud_или_folder> list-access-bindings <имя_или_идентификатор_облака_или_каталога>
      ```
 
 - API {#api}
 
-  Воспользуйтесь методом REST API `updateAccessBindings` для соответствующего ресурса.
-  1. Выберите [роль](../../iam/concepts/access-control/roles.md) из [справочника ролей {{ yandex-cloud }}](../../iam/roles-reference.md).
-  1. Сформируйте тело запроса, например в файле `body.json`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `group` и идентификатор группы:
+  Чтобы назначить роль группе пользователей на облако, воспользуйтесь методом REST API [updateAccessBindings](../../resource-manager/api-ref/Cloud/updateAccessBindings.md) для ресурса [Cloud](../../resource-manager/api-ref/Cloud/index.md) или вызовом gRPC API [CloudService/UpdateAccessBindings](../../resource-manager/api-ref/grpc/Cloud/updateAccessBindings.md).
 
-     **body.json:**
+  Чтобы назначить роль группе пользователей на каталог, воспользуйтесь методом REST API [updateAccessBindings](../../resource-manager/api-ref/Folder/updateAccessBindings.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/UpdateAccessBindings](../../resource-manager/api-ref/grpc/Folder/updateAccessBindings.md).
 
-     ```json
-     {
-       "accessBindingDeltas": [{
-         "action": "ADD",
-         "accessBinding": {
-           "roleId": "editor",
-           "subject": {
-             "id": "<идентификатор_группы>",
-             "type": "group"
-           }
-         }
-       }]
-     }
-     ```
+  Передайте в запросе:
 
-  1. {% include [grant-role-folder-via-curl-step](../iam/grant-role-folder-via-curl-step.md) %}
+  * Значение `ADD` в параметре `accessBindingDeltas[].action`, чтобы добавить роль.
+  * Роль в параметре `accessBindingDeltas[].accessBinding.roleId`.
+  * Идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль, в параметре `accessBindingDeltas[].accessBinding.subject.id`.
+  * Тип субъекта, которому назначается роль, в параметре `accessBindingDeltas[].accessBinding.subject.type`.
+
+      {% cut "Обозначения субъектов" %}
+
+      {% include [subjects-designations-api](../iam/subjects-designations-api.md) %}
+
+      {% endcut %}
+
 
   Вы можете ознакомиться с подробной инструкцией назначения роли для соответствующего ресурса:
+
   * [{#T}](../../iam/operations/sa/set-access-bindings.md).
   * [{#T}](../../resource-manager/operations/cloud/set-access-bindings.md).
   * [{#T}](../../resource-manager/operations/folder/set-access-bindings.md).

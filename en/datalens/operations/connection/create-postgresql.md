@@ -36,16 +36,14 @@ To create a {{ PG }} connection:
 
      * **Host name**: Select the host name from the list of hosts available in the {{ PG }} cluster. You can select multiple hosts. If you fail to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
      * **Port**: Specify the {{ PG }} connection port. In {{ yandex-cloud }}, the default port is 6432.
-     * **Path to database**: Specify the name of the database to connect to.
-     * **Username**: Specify the username for the {{ PG }} connection.
-     * **Password**: Enter the password for the user.
-     * **Cache TTL in seconds**: Specify the cache TTL or leave the default value. The recommended value is 300 seconds (5 minutes).
+     * **Path to database**: Specify the database name.
+     * **Username**: Specify a username for the {{ PG }} connection.
+     * **Password**: Specify a password for the user.
+     * **Cache TTL in seconds**: Specify cache TTL or leave the default value. The recommended value is 300 seconds (5 minutes).
 
      {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level.md) %}
 
        Click **Check connection** to make sure the parameters are correct.
-
-     ![screen02](../../../_assets/datalens/operations/connection/create-postgresql/screen02.png)
 
    - Specify manually {#manual}
 
@@ -54,8 +52,6 @@ To create a {{ PG }} connection:
      {% include [datalens-db-connection-parameters-postgresql](../../../_includes/datalens/datalens-db-connection-parameters-postgresql.md) %}
 
      Click **Check connection** to make sure the parameters are correct.
-
-     ![screen03](../../../_assets/datalens/operations/connection/create-postgresql/screen03.png)
 
    - {{ connection-manager-name }} {#conn-man}
 
@@ -69,11 +65,9 @@ To create a {{ PG }} connection:
      * **Port**: It is set automatically depending on the selected host.
      * **Database**: Specify the name of the database to connect.
      * **Username**: It is set automatically from the selected connection data.
-     * **Cache TTL in seconds**: Specify the cache TTL or leave the default value. The recommended value is 300 seconds (5 minutes).
+     * **Cache TTL in seconds**: Specify cache TTL or leave the default value. The recommended value is 300 seconds (5 minutes).
      
      {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level.md) %}
-
-     ![screen04](../../../_assets/datalens/operations/connection/create-postgresql/screen04.png)
 
    {% endlist %}
 
@@ -83,7 +77,7 @@ To create a {{ PG }} connection:
 1. In the window that opens:
 
    
-   1. Select the [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to.
+   1. Select a [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to.
 
    1. Enter the connection name.
    
@@ -105,7 +99,5 @@ You can specify additional connection settings under **Advanced connection setti
   * **Off**: Applies the default setting. {{ datalens-short-name }} only uses database-level locale settings.
 
 * **TLS**: Indicates whether TLS is required. When the option is enabled, the `sslmode` parameter is set to `required`. When the option is disabled, the parameter is set to `prefer`.
-* **CA Certificate**: To upload a certificate, click **Attach file** and select the certificate file. When the certificate is uploaded, the field shows the file name.
+* **CA Certificate**: To upload a certificate, click **Attach file** and specify the certificate file. When the certificate is uploaded, the field shows the file name.
 * {% include [datalens-db-connection-export-settings-item](../../../_includes/datalens/operations/datalens-db-connection-export-settings-item.md) %}
-
-![screen07](../../../_assets/datalens/operations/connection/create-postgresql/screen07.png)

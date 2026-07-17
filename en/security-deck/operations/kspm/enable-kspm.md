@@ -5,8 +5,6 @@ description: How to activate and configure {{ kspm-full-name }} ({{ kspm-name }}
 
 # Activating the module {{ kspm-name }}
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 {{ kspm-name }} allows you to flexibly select and customize security rules to meet your organization's specific requirements and create exceptions from the rules.
 
 ## Getting started {#before-you-begin}

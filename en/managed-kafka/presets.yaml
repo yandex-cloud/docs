@@ -1,14 +1,14 @@
 default:
   versions:
     cli:
-      latest: '4.0'
-      str: 3.6, 3.7, 3.8, 3.9 or 4.0
-      str-without-latest: 3.6, 3.7, 3.8 or 3.9
-      zookeeper: 3.6, 3.7, 3.8 or 3.9
+      latest: '4.2'
+      str: 3.7, 3.8, 3.9, 4.0, 4.1 or 4.2
+      str-without-latest: 3.7, 3.8, 3.9, 4.0, 4.1 or 4.2
+      zookeeper: 3.7, 3.8 or 3.9
     console:
-      latest: '4.0'
-      str: 3.6, 3.7, 3.8, 3.9 or 4.0
+      latest: '4.2'
+      str: 3.7, 3.8, 3.9, 4.0, 4.1 or 4.2
     tf:
-      latest: '4.0'
-      str: 3.6, 3.7, 3.8, 3.9 or 4.0
-      zookeeper: 3.6, 3.7, 3.8 or 3.9
+      latest: '4.2'
+      str: 3.7, 3.8, 3.9, 4.0, 4.1 or 4.2
+      zookeeper: 3.7, 3.8 or 3.9

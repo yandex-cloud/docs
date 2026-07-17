@@ -5,8 +5,6 @@ description: In this section, you will learn how to view the current security ru
 
 # Viewing {{ cspm-name }} security control rules and related violations
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 {% include [cspm-use-in-workspaces](../../../_includes/security-deck/cspm-use-in-workspaces.md) %}
 
 ## Viewing general information about security control rules {#general-info}

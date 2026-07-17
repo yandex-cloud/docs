@@ -56,6 +56,10 @@ Yandex Cloud DNS служит для управления зонами DNS и д
 
  - [Создать входящее DNS-подключение](operations/connection-inbound-create.md)
 
+ - [Изменить входящее DNS-подключение](operations/connection-inbound-update.md)
+
+ - [Удалить входящее DNS-подключение](operations/connection-inbound-delete.md)
+
 ## Концепции
 
  - [Обзор](concepts/index.md)
@@ -82,7 +86,7 @@ Yandex Cloud DNS служит для управления зонами DNS и д
 
  - [Миграция DNS-зон из Яндекс 360](tutorials/connect-migration.md)
 
- - [Интеграция с корпоративным сервисом DNS](tutorials/dns-integration.md)
+ - [Разрешение облачных DNS-имен в корпоративной сети](tutorials/dns-integration.md)
 
  - [Интеграция Managed Service for Kubernetes с корпоративной зоной DNS](tutorials/custom-dns.md)
 

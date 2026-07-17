@@ -69,7 +69,7 @@ items:
         href: tutorials/pub-del.md
       - name: Удалить транковое подключение
         href: tutorials/trunk-del.md
-      - name: Интеграция с корпоративным сервисом DNS
+      - name: Разрешение облачных DNS-имен в корпоративной сети
         href: tutorials/dns-integration.md
       - name: >-
           Организация доступа через {{ interconnect-name }} к облачным сетям,

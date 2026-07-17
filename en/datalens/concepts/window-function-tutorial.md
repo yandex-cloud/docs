@@ -204,7 +204,7 @@ You cannot use a [dimension](../dataset/data-model.md#field) directly as the fir
 
 For example, let's assume you need to rank sales records by profit over the entire period in a chart with data grouped by the `Year` and `Category` dimensions. For this, you cannot use the `RANK([Profit])` formula, where `Profit` is a dimension. You need to apply an aggregation function first to convert the `Profit` dimension into a measure. The most suitable aggregate function here is [SUM](../function-ref/SUM.md) that returns the amount of profit: `SUM([Profit])`. Next, apply the [RANK](../function-ref/RANK.md) window function to the resulting measure. The correct resulting formula is `RANK(SUM([Profit]))`.
 
-You can add measures both at the dataset and the chart level. For more information, see [{#T}](aggregation-tutorial.md#create-measure).
+You can add measures both at the dataset and the chart level. Read more in [{#T}](aggregation-tutorial.md#create-measure).
 
 To understand what aggregate function to select for converting dimensions into measures, specify what resulting measure you want to get using a window function. For example, in a chart with data grouped by product `Category`, you need to arrange records by `Sales`. To arrange records by sales amount, use the [SUM](../function-ref/SUM.md) aggregate function: `SUM([Sales])`. To arrange them by sales count, use [COUNT](../function-ref/COUNT.md): `COUNT([Sales])`.
 
@@ -246,7 +246,7 @@ As a result, we should get a pivot table with the IDs of the last sales for the 
 
 1. To group data by sales date (without time), add the `Date` field with the `DATE_PARSE(STR([OrderDatetime]))` formula to your chart.
 1. To sort data by sales time, add the `Time` field with the `RIGHT(STR([OrderDatetime]),8)` formula to your chart.
-1. Select the **Pivot table** chart type. Drag the `ShopName`, `OrderDatetime`, and `OrderID` dimensions to the **Rows** section.
+1. Select **Pivot table** as the chart type. Drag the `ShopName`, `OrderDatetime`, and `OrderID` dimensions to the **Rows** section.
 1. Add the `last_shop_order` measure to your chart. Use the [LAST](../function-ref/LAST.md) window function with grouping by `ShopName` and sorting by `Time`. To convert a string dimension to a measure, use the [ANY](../function-ref/ANY.md) aggregate function with `INCLUDE` grouping (to produce unique values): `ANY([OrderID] INCLUDE [OrderID])`. The resulting formula is `LAST(ANY([OrderID] INCLUDE [OrderID]) WITHIN [ShopName], [Date] ORDER BY [Time])`.
 1. Drag the `last_shop_order` measure to the **Measures** section.
 
@@ -266,7 +266,7 @@ As a result, we should get a pivot table with the IDs of the last sales for the 
 
 {% cut "How do I correctly calculate a cumulative total after adding a field to the _Colors_ section?" %}
 
-As an example, let's assume we have a line chart showing the change in total sales by date (see the [Selling](#usage-window-function) table). The cumulative total (`IncTotal`) is calculated using the [RSUM](../function-ref/RSUM.md) window function: `RSUM(SUM([Sales]))`.
+As an example, let's consider a line chart representing the change in total sales by date (for details, see the [Selling](#usage-window-function) table). The cumulative total (`IncTotal`) is calculated using the [RSUM](../function-ref/RSUM.md) window function: `RSUM(SUM([Sales]))`.
 
 ![image](../../_assets/datalens/concepts/tutorial/window-func-8.png)
 

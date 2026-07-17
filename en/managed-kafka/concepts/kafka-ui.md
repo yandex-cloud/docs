@@ -39,7 +39,7 @@ Main web UI features:
    * Data and configuration export.
    * Light and dark UI themes.
 
-For more information on using the web UI, see the [{{ kafka-ui }} for {{ KF }} documentation]({{ kafka-ui-kafbat }}).
+For more information on using the web UI, see the [{{ kafka-ui }} guides for {{ KF }}]({{ kafka-ui-kafbat }}).
 
 
 For a step-by-step guide on how to enable {{ kafka-ui }}, see [here](../operations/kafka-ui-enable.md).

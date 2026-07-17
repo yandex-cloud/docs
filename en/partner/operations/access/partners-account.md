@@ -11,7 +11,7 @@ To grant access to a partner account:
 
 - Management console {#console}
 
-  For details, see [{#T}](../../../billing/security/index.md#set-member-role).
+  For more information, see [{#T}](../../../billing/security/index.md#set-member-role).
 
 - Partner portal {#partner}
 

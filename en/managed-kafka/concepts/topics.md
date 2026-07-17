@@ -17,7 +17,7 @@ For example, if the data producer is an online store, you can create separate to
 - Message compression.
 - Log purging [in accordance with the policy](../operations/cluster-topics.md#create-topic) when partition messages become outdated or the specified log size is reached.
 
-You can learn more about topics in the [{{ KF }} documentation](https://kafka.apache.org/42/getting-started/introduction/#main-concepts-and-terminology).
+Learn more about topics in [this {{ KF }} guide](https://kafka.apache.org/42/getting-started/introduction/#main-concepts-and-terminology).
 
 ### Service topics {#service-topics}
 
@@ -36,7 +36,7 @@ Using partitions, you can:
 - Distribute the message storage and request processing load among multiple [{{ KF }} brokers](brokers.md).
 - Provide fault tolerance: a partition can be replicated to a specified number of brokers.
 
-You can learn more about partitions in the [{{ KF }} documentation](https://kafka.apache.org/42/getting-started/introduction/#main-concepts-and-terminology).
+Learn more about sections in [this {{ KF }} guide](https://kafka.apache.org/42/getting-started/introduction/#main-concepts-and-terminology).
 
 ## Managing topics and partitions {#management}
 

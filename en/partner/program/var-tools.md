@@ -37,7 +37,7 @@ Deal registration is a partner protection tool that rewards the partner for gene
 
   {% note info %}
   
-  For the effective conditions, see our [offer](https://yandex.ru/legal/cloud_partnership_deal_registration/).
+  For up-to-date conditions, see our [offer](https://yandex.ru/legal/cloud_partnership_deal_registration/).
   
   {% endnote %}
 
@@ -48,7 +48,7 @@ Deal registration is a partner protection tool that rewards the partner for gene
 
   {% note info %}
   
-  For the effective conditions, see our [offer](https://yandex.com/legal/deal_reg_kz/).
+  For up-to-date conditions, see our [offer](https://yandex.com/legal/deal_reg_kz/).
   
   {% endnote %}
 
@@ -56,8 +56,8 @@ Deal registration is a partner protection tool that rewards the partner for gene
 
 
 
-      
-For more on how to create a deal, see [this guide](../operations/deal-registration.md).
+
+For more on creating a deal, see [this guide](../operations/deal-registration.md).
 
 
 ## Deal registration as part of a scheduled procurement {#tender}
@@ -79,7 +79,7 @@ You can also register a deal if you have entered into a contract or agreement wi
 
   {% note info %}
   
-  For the effective conditions, see our [offer](https://yandex.ru/legal/cloud_partnership_procurement/).
+  For up-to-date conditions, see our [offer](https://yandex.ru/legal/cloud_partnership_procurement/).
   
   {% endnote %}
 
@@ -91,7 +91,7 @@ You can also register a deal if you have entered into a contract or agreement wi
 
   {% note info %}
   
-  For the effective conditions, see our [offer](https://yandex.com/legal/cloud_partnership_procurement_kz/).
+  For up-to-date conditions, see our [offer](https://yandex.com/legal/cloud_partnership_procurement_kz/).
   
   {% endnote %}
 
@@ -126,7 +126,7 @@ Project registration is used to link a new project in the existing {{ yandex-clo
 
   {% note info %}
   
-  For the effective conditions, see our [offer](https://yandex.ru/legal/cloud_partnership_project_protect/).
+  For up-to-date conditions, see our [offer](https://yandex.ru/legal/cloud_partnership_project_protect/).
   
   {% endnote %}
 
@@ -140,7 +140,7 @@ Project registration is used to link a new project in the existing {{ yandex-clo
 
   {% note info %}
   
-  For the effective conditions, see our [offer](https://yandex.com/legal/cloud_partnership_project_protect_kz/ru/).
+  For up-to-date conditions, see our [offer](https://yandex.com/legal/cloud_partnership_project_protect_kz/ru/).
   
   {% endnote %}
 

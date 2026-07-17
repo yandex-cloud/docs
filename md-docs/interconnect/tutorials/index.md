@@ -21,6 +21,6 @@
 * [Удалить транковое подключение](trunk-del.md)
 
 ## Интеграции {#interop}
-* [Интеграция Cloud DNS и корпоративного сервиса DNS](dns-integration.md)
+* [Разрешение облачных DNS-имен в корпоративной сети](dns-integration.md)
 * [Организация доступа через Cloud Interconnect к облачным сетям, размещенным за NGFW](cic-with-ngfw.md)
 * [Настройка сетевой связности между подсетями Yandex BareMetal и Yandex Virtual Private Cloud с помощью Cloud Interconnect](bm-vrf-and-vpc-interconnect.md)

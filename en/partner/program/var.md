@@ -30,7 +30,7 @@ A partner bonus is a discount on {{ yandex-cloud }} services applied to the paym
 
 {% note info %}
   
-For the effective conditions, see our [offer](https://yandex.ru/legal/cloud_grant/?lang=ru).
+For up-to-date conditions, see our [offer](https://yandex.ru/legal/cloud_grant/?lang=ru).
   
 {% endnote %}
 

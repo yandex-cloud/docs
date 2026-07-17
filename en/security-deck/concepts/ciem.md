@@ -5,6 +5,8 @@ description: This section describes the {{ sd-name }} {{ ciem-full-name }} ({{ c
 
 # {{ ciem-full-name }} ({{ ciem-name }})
 
+{% include [note-preview](../../_includes/note-preview.md) %}
+
 To ensure data and cloud infrastructure [security](../../security/standard/all.md), you need to regularly audit the access permissions of [users](../../overview/roles-and-resources.md#users) and [service accounts](../../iam/concepts/users/accounts.md#sa).
 
 [{{ ciem-full-name }}]({{ link-sd-main }}iam-diagnostics/), or {{ ciem-name }}, is a tool providing a centralized [view](../operations/ciem/view-permissions.md) of the full list of accesses to the organization's [resources](../../iam/concepts/access-control/resources-with-access-control.md) available to the [subjects](../../iam/concepts/access-control/index.md#subject), i.e., users, service accounts, [user groups](../../organization/concepts/groups.md), [system groups](../../iam/concepts/access-control/system-group.md), and [public groups](../../iam/concepts/access-control/public-group.md). The tool also makes it easy to [revoke](../operations/ciem/revoke-permissions.md) excessive access permissions from subjects.

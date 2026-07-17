@@ -22,7 +22,14 @@ description: В данном разделе вы узнаете, как в мо�
   1. В верхней части окна выберите [окружение](../../concepts/workspace.md), для которого хотите посмотреть информацию о правилах.
   1. На открывшейся странице **{{ ui-key.yacloud_org.security.controls.ControlsPage.security_control_r4yn7 }}** перейдите на вкладку **{{ td-full-name }}**. Открывшийся раздел содержит список правил контроля модуля {{ td-full-name }} для текущего окружения.
 
+      {% note tip %}
+
+      {% include [rules-display-settings](../../../_includes/security-deck/rules-display-settings.md) %}
+
+      {% endnote %}
+
       {% include [td-view-general-info](../../../_includes/security-deck/td-view-general-info.md) %}
+  1. {% include [rules-display-settings](../../../_includes/security-deck/rules-display-settings.md) %}
 
 {% endlist %}
 

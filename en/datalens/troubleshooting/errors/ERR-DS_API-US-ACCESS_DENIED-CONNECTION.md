@@ -9,4 +9,4 @@ description: This page describes the Access to the connection was denied {{ data
 
 The error indicates that the user does not have access to the requested connection.
 
-To fix this error, request the `{{ permission-read }}` access from your connection administrator. For more information about access permissions, see [{#T}](../../security/index.md).
+To fix this error, request the `{{ permission-read }}` access from your connection administrator. For more on access permissions, see [{#T}](../../security/index.md).

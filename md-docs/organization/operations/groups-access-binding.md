@@ -13,9 +13,7 @@
 - Консоль управления {#console}
 
   1. Войдите в [консоль управления](https://console.yandex.cloud) с учетной записью администратора или владельца облака.
-
   1. В левой части экрана нажмите на строку с именем [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud) или [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder), на который вы хотите назначить роль группе пользователей.
-
   1. В верхней части экрана перейдите на вкладку **Права доступа** и нажмите кнопку **Настроить доступ**. В открывшемся окне:
 
       1. Перейдите на вкладку **Группы** и выберите [группу](../concepts/groups.md) или воспользуйтесь поиском по названию группы.
@@ -26,7 +24,6 @@
           * `All users in federation N` — в группу входят все пользователи федерации `N`.
 
       1. Нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите [роль](../../iam/concepts/access-control/roles.md), которую хотите назначить группе на облако или каталог, который вы выбрали ранее. Вы можете назначить несколько ролей.
-
       1. Нажмите **Сохранить**.
 
 - CLI {#cli}
@@ -43,15 +40,40 @@
      ```
 
      Где:
-     
+
      * `--role` — идентификатор роли, например, `resource-manager.clouds.owner`.
-     * `--subject group` — идентификатор [группы](../concepts/groups.md), которой назначается роль.
+     * `--subject` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
-         Для того чтобы назначить роль одной из [системных групп](../../iam/concepts/access-control/system-group.md), вместо параметра `--subject` используйте параметр `--organization-users <идентификатор_организации>` или `--federation-users <идентификатор_федерации>`, передав в нем соответственно идентификатор [организации](../quickstart.md) или [федерации удостоверений](../concepts/add-federation.md), всем пользователям, которым вы хотите назначить роль.
-         
-         Вы также можете назначить роль системной группе с помощью параметра `--subject`. Для этого передайте в нем идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), соответствующий выбранной системной группе.
+        {% cut "Обозначения субъектов" %}
 
-     Например, назначьте роль `resource-manager.viewer` на [облако](../../resource-manager/concepts/resources-hierarchy.md#folder) `mycloud`:
+        Для обозначения субъекта используется параметр `--subject` со значением в формате `<тип_субъекта>:<идентификатор>`. Для некоторых типов субъектов в [Yandex Cloud CLI](../../cli/index.md) вместо `--subject` доступны отдельные параметры, в которых достаточно указать имя или идентификатор субъекта без типа. Возможные обозначения субъектов и соответствующие параметры CLI:
+        
+        #|
+        || **Тип субъекта** | **Обозначение субъекта** | **Параметр Yandex Cloud CLI** ||
+        || `userAccount`    | `userAccount:<идентификатор_пользователя>` | `--user-account-id` или `--user-yandex-login` ||
+        || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` | `--service-account-id` или `--service-account-name` ||
+        || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` | `--user-account-id` ||
+        || `group`          | `group:<идентификатор_группы>` | `--group-members` ||
+        || `system`         | `system:allAuthenticatedUsers`
+        
+        (группа `All authenticated users`) | `--all-authenticated-users` ||
+        || ^                | `system:allUsers`
+        
+        (группа `All users`) | — ||
+        || ^                | `system:group:organization:<идентификатор_организации>:users`
+        
+        (группа `All users in organization X`) | `--organization-users` ||
+        || ^                | `system:group:federation:<идентификатор_федерации>:users`
+        
+        (группа `All users in federation N`) | `--federation-users` ||
+        || ^                | `system:group:userpool:<идентификатор_пула>:users`
+        
+        (группа `All users in userpool P`) | — ||
+        |#
+
+        {% endcut %}
+
+     Например, назначьте роль `resource-manager.viewer` на [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) `mycloud`:
 
      ```bash
      yc resource-manager cloud add-access-binding mycloud \
@@ -70,24 +92,49 @@
 
      ```hcl
      resource "yandex_resourcemanager_cloud_iam_member" "admin" {
-       cloud_id    = "<идентификатор_облака>"
-       role        = "<идентификатор_роли>"
-       member      = "group:<идентификатор_группы>"
+       cloud_id = "<идентификатор_облака>"
+       role     = "<идентификатор_роли>"
+       member   = "group:<идентификатор_группы>"
      }
      ```
 
      Где:
-     
-     * `cloud_id` — [идентификатор облака](../../resource-manager/operations/cloud/get-id.md). Вы также можете назначить роль внутри отдельного [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder). Для этого вместо `cloud_id` укажите `folder_id` и нужный идентификатор каталога в параметрах ресурса.
+
+     * `cloud_id` — [идентификатор облака](../../resource-manager/operations/cloud/get-id.md). Чтобы назначить роль на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), используйте ресурс `yandex_resourcemanager_folder_iam_member` и укажите идентификатор каталога в параметре `folder_id`.
      * `role` — назначаемая роль. Обязательный параметр.
-     * `member` — группа, которой назначается роль. Указывается в виде `group:<идентификатор_группы>`. Обязательный параметр.
+     * `member` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль. Обязательный параметр.
 
-         Для того чтобы назначить роль одной из [системных групп](../../iam/concepts/access-control/system-group.md), в параметре `member` укажите:
+          {% cut "Обозначения субъектов" %}
 
-         * `system:group:organization:<идентификатор_организации>:users` — чтобы назначить роль системной группе `All users in organization X`;
-         * `system:group:federation:<идентификатор_федерации>:users` — чтобы назначить роль системной группе `All users in federation N`.
+          Для обозначения субъекта используется комбинация типа и уникального идентификатора — `<тип_субъекта>:<идентификатор>`. Возможные обозначения субъектов:
+          
+          #|
+          || **Тип субъекта** | **Обозначение субъекта** ||
+          || `userAccount`    | `userAccount:<идентификатор_пользователя>` ||
+          || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` ||
+          || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` ||
+          || `group`          | `group:<идентификатор_группы>` ||
+          || `system`         | `system:allAuthenticatedUsers`
+          
+          (группа `All authenticated users`) ||
+          || ^                | `system:allUsers`
+          
+          (группа `All users`) ||
+          || ^                | `system:group:organization:<идентификатор_организации>:users`
+          
+          (группа `All users in organization X`) ||
+          || ^                | `system:group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) ||
+          || ^                | `system:group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) ||
+          |#
 
-     Подробнее о параметрах ресурса `yandex_resourcemanager_cloud_iam_member` читайте в [документации провайдера](../../terraform/resources/iam_service_account_iam_member.md).
+          {% endcut %}
+
+     Подробнее о параметрах ресурсов `yandex_resourcemanager_cloud_iam_member` и `yandex_resourcemanager_folder_iam_member` читайте в документации провайдера для [облака](../../terraform/resources/resourcemanager_cloud_iam_member.md) и [каталога](../../terraform/resources/resourcemanager_folder_iam_member.md).
+
   1. Создайте ресурсы:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -118,65 +165,57 @@
      
      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-     После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить создание ресурса можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../cli/index.md):
+     После этого будут назначены указанные права доступа. Проверить назначение роли можно в [консоли управления](https://console.yandex.cloud) или с помощью команды CLI:
 
      ```bash
-     terraform plan
-     ```
-
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
-  1. Разверните облачные ресурсы.
-     1. Если в конфигурации нет ошибок, выполните команду:
-
-        ```bash
-        terraform apply
-        ```
-
-     1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
-
-     После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить создание ресурса можно в [консоли управления](https://console.yandex.cloud) или с помощью команды CLI:
-
-     ```bash
-     yc resource-manager folder list-access-bindings <имя_или_идентификатор_папки>
+     yc resource-manager <cloud_или_folder> list-access-bindings <имя_или_идентификатор_облака_или_каталога>
      ```
 
 - API {#api}
 
-  Воспользуйтесь методом REST API `updateAccessBindings` для соответствующего ресурса.
-  1. Выберите [роль](../../iam/concepts/access-control/roles.md) из [справочника ролей Yandex Cloud](../../iam/roles-reference.md).
-  1. Сформируйте тело запроса, например в файле `body.json`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `group` и идентификатор группы:
+  Чтобы назначить роль группе пользователей на облако, воспользуйтесь методом REST API [updateAccessBindings](../../resource-manager/api-ref/Cloud/updateAccessBindings.md) для ресурса [Cloud](../../resource-manager/api-ref/Cloud/index.md) или вызовом gRPC API [CloudService/UpdateAccessBindings](../../resource-manager/api-ref/grpc/Cloud/updateAccessBindings.md).
 
-     **body.json:**
+  Чтобы назначить роль группе пользователей на каталог, воспользуйтесь методом REST API [updateAccessBindings](../../resource-manager/api-ref/Folder/updateAccessBindings.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/UpdateAccessBindings](../../resource-manager/api-ref/grpc/Folder/updateAccessBindings.md).
 
-     ```json
-     {
-       "accessBindingDeltas": [{
-         "action": "ADD",
-         "accessBinding": {
-           "roleId": "editor",
-           "subject": {
-             "id": "<идентификатор_группы>",
-             "type": "group"
-           }
-         }
-       }]
-     }
-     ```
+  Передайте в запросе:
 
-  1. Назначьте роль сервисному аккаунту. Например, на каталог с идентификатором `b1gvmob95yys********`:
-     
-     ```bash
-     export FOLDER_ID=b1gvmob95yys********
-     export IAM_TOKEN=CggaAT********
-     curl \
-       --request POST \
-       --header "Content-Type: application/json" \
-       --header "Authorization: Bearer ${IAM_TOKEN}" \
-       --data '@body.json' \
-       "https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/${FOLDER_ID}:updateAccessBindings"
-     ```
+  * Значение `ADD` в параметре `accessBindingDeltas[].action`, чтобы добавить роль.
+  * Роль в параметре `accessBindingDeltas[].accessBinding.roleId`.
+  * Идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль, в параметре `accessBindingDeltas[].accessBinding.subject.id`.
+  * Тип субъекта, которому назначается роль, в параметре `accessBindingDeltas[].accessBinding.subject.type`.
+
+      {% cut "Обозначения субъектов" %}
+
+      Для обозначения субъекта используется комбинация типа и уникального идентификатора в полях запроса `subject.type` и `subject.id`. Возможные комбинации:
+      
+      #|
+      || **subject.type** | **subject.id** ||
+      || `userAccount`    | `<идентификатор_пользователя>` ||
+      || `serviceAccount` | `<идентификатор_сервисного_аккаунта>` ||
+      || `federatedUser`  | `<идентификатор_пользователя>` ||
+      || `group`          | `<идентификатор_группы>` ||
+      || `system`         | `allAuthenticatedUsers`
+      
+      (группа `All authenticated users`) ||
+      || ^                | `allUsers`
+      
+      (группа `All users`) ||
+      || ^                | `group:organization:<идентификатор_организации>:users`
+      
+      (группа `All users in organization X`) ||
+      || ^                | `group:federation:<идентификатор_федерации>:users`
+      
+      (группа `All users in federation N`) ||
+      || ^                | `group:userpool:<идентификатор_пула>:users`
+      
+      (группа `All users in userpool P`) ||
+      |#
+
+      {% endcut %}
+
 
   Вы можете ознакомиться с подробной инструкцией назначения роли для соответствующего ресурса:
+
   * [Настройка прав доступа к сервисному аккаунту](../../iam/operations/sa/set-access-bindings.md).
   * [Настройка прав доступа к облаку](../../resource-manager/operations/cloud/set-access-bindings.md).
   * [Настройка прав доступа к каталогу](../../resource-manager/operations/folder/set-access-bindings.md).
@@ -190,58 +229,86 @@
 - Интерфейс Cloud Center {#cloud-center}
 
   1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization) с учетной записью администратора или владельца организации.
-
   1. На панели слева выберите ![persons-lock](../../_assets/console-icons/persons-lock.svg) **Права доступа**.
-
   1. Справа сверху нажмите кнопку **Назначить роли**.
-
   1. Перейдите на вкладку **Группы** и выберите [группу](../concepts/groups.md) или воспользуйтесь поиском по названию группы.
 
-     Вы также можете назначить роль одной из [системных](../../iam/concepts/access-control/system-group.md) групп:
+      Вы также можете назначить роль одной из [системных](../../iam/concepts/access-control/system-group.md) групп:
 
-     * `All users in organization X` — в группу входят все пользователи организации `X`.
-     * `All users in federation N` — в группу входят все пользователи федерации `N`.
+      * `All users in organization X` — в группу входят все пользователи организации `X`.
+      * `All users in federation N` — в группу входят все пользователи федерации `N`.
 
   1. Нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите [роль](../../iam/concepts/access-control/roles.md), которую хотите назначить группе на организацию. Вы можете назначить несколько ролей.
-
   1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
   Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
-  1. Назначьте [роль](../../iam/concepts/access-control/roles.md) для [группы](../concepts/groups.md):
+  По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-     ```bash
-     yc organization-manager organization add-access-binding \
-       --subject group:<идентификатор_группы> \
-       --role <идентификатор_роли> \
-       --organization-users <идентификатор_организации> \
-       --federation-users <идентификатор_федерации>
-     ```
+  1. Назначьте [роль](../../iam/concepts/access-control/roles.md) [группе](../concepts/groups.md) на организацию:
 
-     Для того чтобы назначить роль одной из [системных групп](../../iam/concepts/access-control/system-group.md), вместо параметра `--subject` используйте параметр `--organization-users <идентификатор_организации>` или `--federation-users <идентификатор_федерации>`. Передайте в нем соответственно идентификатор [организации](../quickstart.md) или [федерации удостоверений](../concepts/add-federation.md), всем пользователям которых вы хотите назначить роль.
-         
-     Вы также можете назначить роль системной группе с помощью параметра `--subject`. Для этого передайте в нем идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), соответствующий выбранной системной группе.
+      ```bash
+      yc organization-manager organization add-access-binding \
+        --id <идентификатор_организации> \
+        --role <идентификатор_роли> \
+        --subject group:<идентификатор_группы>
+      ```
+
+      Где:
+
+      * `--id` — идентификатор организации, на которую назначается роль.
+      * `--role` — идентификатор роли, которую нужно назначить.
+      * `--subject` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
+
+          {% cut "Обозначения субъектов" %}
+
+          Для обозначения субъекта используется параметр `--subject` со значением в формате `<тип_субъекта>:<идентификатор>`. Для некоторых типов субъектов в [Yandex Cloud CLI](../../cli/index.md) вместо `--subject` доступны отдельные параметры, в которых достаточно указать имя или идентификатор субъекта без типа. Возможные обозначения субъектов и соответствующие параметры CLI:
+          
+          #|
+          || **Тип субъекта** | **Обозначение субъекта** | **Параметр Yandex Cloud CLI** ||
+          || `userAccount`    | `userAccount:<идентификатор_пользователя>` | `--user-account-id` или `--user-yandex-login` ||
+          || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` | `--service-account-id` или `--service-account-name` ||
+          || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` | `--user-account-id` ||
+          || `group`          | `group:<идентификатор_группы>` | `--group-members` ||
+          || `system`         | `system:allAuthenticatedUsers`
+          
+          (группа `All authenticated users`) | `--all-authenticated-users` ||
+          || ^                | `system:allUsers`
+          
+          (группа `All users`) | — ||
+          || ^                | `system:group:organization:<идентификатор_организации>:users`
+          
+          (группа `All users in organization X`) | `--organization-users` ||
+          || ^                | `system:group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) | `--federation-users` ||
+          || ^                | `system:group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) | — ||
+          |#
+
+          {% endcut %}
 
   1. Проверьте, что запрошенные права были выданы:
 
-     ```bash
-     yc organization-manager organization list-access-bindings <идентификатор_организации>
-     ```
+      ```bash
+      yc organization-manager organization list-access-bindings <идентификатор_организации>
+      ```
 
-     Ответ содержит список всех ролей, выданных пользователям и группам в организации:
+      Ответ содержит список всех ролей, выданных пользователям и группам в организации:
 
-     ```text
-     +------------------------------------------+--------------+----------------------+
-     |                 ROLE ID                  | SUBJECT TYPE |      SUBJECT ID      |
-     +------------------------------------------+--------------+----------------------+
-     | organization-manager.admin               | userAccount  | ajev1p2345lj******** |
-     | organization-manager.organizations.owner | userAccount  | ajev1p2345lj******** |
-     | editor                                   | group        | ajev1p2345lj******** |
-     | viewer                                   | group        | ajev1p2345lj******** |
-     +------------------------------------------+--------------+----------------------+
-     ```
+      ```text
+      +------------------------------------------+--------------+----------------------+
+      |                 ROLE ID                  | SUBJECT TYPE |      SUBJECT ID      |
+      +------------------------------------------+--------------+----------------------+
+      | organization-manager.admin               | userAccount  | ajev1p2345lj******** |
+      | organization-manager.organizations.owner | userAccount  | ajev1p2345lj******** |
+      | editor                                   | group        | ajev1p2345lj******** |
+      | viewer                                   | group        | ajev1p2345lj******** |
+      +------------------------------------------+--------------+----------------------+
+      ```
 
 - Terraform {#tf}
 
@@ -264,14 +331,39 @@
      
      * `organization_id` — [идентификатор организации](organization-get-id.md). Обязательный параметр.
      * `role` — назначаемая роль. Обязательный параметр.
-     * `member` — группа, которой назначается роль. Указывается в виде `group:<идентификатор_группы>`. Обязательный параметр.
+     * `member` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль. Обязательный параметр.
 
-         Для того чтобы назначить роль одной из [системных групп](../../iam/concepts/access-control/system-group.md), в параметре `member` укажите:
+          {% cut "Обозначения субъектов" %}
 
-         * `system:group:organization:<идентификатор_организации>:users` — чтобы назначить роль системной группе `All users in organization X`;
-         * `system:group:federation:<идентификатор_федерации>:users` — чтобы назначить роль системной группе `All users in federation N`.
+          Для обозначения субъекта используется комбинация типа и уникального идентификатора — `<тип_субъекта>:<идентификатор>`. Возможные обозначения субъектов:
+          
+          #|
+          || **Тип субъекта** | **Обозначение субъекта** ||
+          || `userAccount`    | `userAccount:<идентификатор_пользователя>` ||
+          || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` ||
+          || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` ||
+          || `group`          | `group:<идентификатор_группы>` ||
+          || `system`         | `system:allAuthenticatedUsers`
+          
+          (группа `All authenticated users`) ||
+          || ^                | `system:allUsers`
+          
+          (группа `All users`) ||
+          || ^                | `system:group:organization:<идентификатор_организации>:users`
+          
+          (группа `All users in organization X`) ||
+          || ^                | `system:group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) ||
+          || ^                | `system:group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) ||
+          |#
+
+          {% endcut %}
 
      Подробнее о параметрах ресурса `yandex_organizationmanager_organization_iam_member` читайте в [документации провайдера](../../terraform/resources/organizationmanager_organization_iam_member.md).
+
   1. Создайте ресурсы:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -302,11 +394,49 @@
      
      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-     После этого в указанном [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder) будут созданы все требуемые ресурсы. Проверить создание ресурсов можно в [интерфейсе Cloud Center](https://center.yandex.cloud/organization) или с помощью команды [CLI](../../cli/index.md):
+     После этого будут назначены указанные права доступа. Проверить назначение роли можно в [интерфейсе Cloud Center](https://center.yandex.cloud/organization) или с помощью команды [CLI](../../cli/index.md):
 
      ```bash
-     yc resource-manager folder list-access-bindings <имя_или_идентификатор_папки>
+     yc organization-manager organization list-access-bindings <идентификатор_организации>
      ```
+
+- API {#api}
+
+  Чтобы назначить роль группе пользователей на организацию, воспользуйтесь методом REST API [updateAccessBindings](../api-ref/Organization/updateAccessBindings.md) для ресурса [Organization](../api-ref/Organization/index.md) или вызовом gRPC API [OrganizationService/UpdateAccessBindings](../api-ref/grpc/Organization/updateAccessBindings.md) и передайте в запросе:
+
+  * Значение `ADD` в параметре `accessBindingDeltas[].action`, чтобы добавить роль.
+  * Роль в параметре `accessBindingDeltas[].accessBinding.roleId`.
+  * Идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль, в параметре `accessBindingDeltas[].accessBinding.subject.id`.
+  * Тип субъекта, которому назначается роль, в параметре `accessBindingDeltas[].accessBinding.subject.type`.
+
+      {% cut "Обозначения субъектов" %}
+
+      Для обозначения субъекта используется комбинация типа и уникального идентификатора в полях запроса `subject.type` и `subject.id`. Возможные комбинации:
+      
+      #|
+      || **subject.type** | **subject.id** ||
+      || `userAccount`    | `<идентификатор_пользователя>` ||
+      || `serviceAccount` | `<идентификатор_сервисного_аккаунта>` ||
+      || `federatedUser`  | `<идентификатор_пользователя>` ||
+      || `group`          | `<идентификатор_группы>` ||
+      || `system`         | `allAuthenticatedUsers`
+      
+      (группа `All authenticated users`) ||
+      || ^                | `allUsers`
+      
+      (группа `All users`) ||
+      || ^                | `group:organization:<идентификатор_организации>:users`
+      
+      (группа `All users in organization X`) ||
+      || ^                | `group:federation:<идентификатор_федерации>:users`
+      
+      (группа `All users in federation N`) ||
+      || ^                | `group:userpool:<идентификатор_пула>:users`
+      
+      (группа `All users in userpool P`) ||
+      |#
+
+      {% endcut %}
 
 {% endlist %}
 

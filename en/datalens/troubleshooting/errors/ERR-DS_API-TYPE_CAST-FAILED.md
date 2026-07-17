@@ -7,7 +7,7 @@ description: This page describes the Data type conversion error {{ datalens-full
 
 `ERR.DS_API.TYPE_CAST.FAILED`
 
-The error occurs because the source database uses values that do not match the column's data type. In this case, {{ datalens-short-name }} cannot convert such values to a type it can work with. For more information, see [{#T}](../../../datalens/dataset/types-lookup-table.md).
+The error occurs because the source database uses values that do not match the column's data type. In this case, {{ datalens-short-name }} cannot convert such values to a type it can work with. Read more in [{#T}](../../../datalens/dataset/types-lookup-table.md).
 
 For a more detailed description of the error, refer to the error text in the source response.
 

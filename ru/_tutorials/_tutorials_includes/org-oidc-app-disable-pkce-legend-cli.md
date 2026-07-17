@@ -1,0 +1,1 @@
+`--pkce-required=false` — параметр, позволяющий отключить требование {{ org-full-name }} к внешнему приложению использовать расширение безопасности [PKCE](../../organization/concepts/applications/oidc.md#pkce).

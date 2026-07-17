@@ -21,12 +21,12 @@ To create an {{ MS }} connection:
 1. Configure the connection as follows:
 
 
-   * **Host name**: Specify the path to a master host or an {{ MS }} master host IP address. You can specify multiple hosts in a comma-separated list. If you fail to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
+   * **Host name**: Specify the path to a master host or a {{ MS }} master host IP address. You can specify multiple hosts in a comma-separated list. If you fail to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
    * **Port**: Specify the {{ MS }} connection port. The default port is 1433.
    * **Path to database**: Specify the database name.
-   * **Username**: Specify the username for the {{ MS }} connection.
+   * **Username**: Specify a username for the {{ MS }} connection.
    * **Password**: Enter the password for the specified user.
-   * **Cache TTL in seconds**: Specify the cache TTL or leave the default value. The recommended value is 300 seconds (5 minutes).
+   * **Cache TTL in seconds**: Specify cache TTL or leave the default value. The recommended value is 300 seconds (5 minutes).
 
    
    {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level.md) %}

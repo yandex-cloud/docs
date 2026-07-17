@@ -47,7 +47,6 @@
 
 * [Архитектура и защита базового интернет-сервиса](../tutorials/web-service.md)
 * [Обновление группы виртуальных машин под нагрузкой](../tutorials/updating-under-load.md)
-* [Интеграция Cloud DNS и корпоративного сервиса DNS](../tutorials/dns-integration.md)
 * [Развертывание Microsoft Exchange](../tutorials/exchange.md)
 * [Развертывание группы доступности Always On с внутренним сетевым балансировщиком](../tutorials/mssql-alwayson-lb.md)
 * [Подключение к Object Storage из Virtual Private Cloud](../tutorials/storage-vpc-access.md)

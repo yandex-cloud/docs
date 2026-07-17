@@ -7,7 +7,6 @@
 * [Отказоустойчивый сайт с балансировкой нагрузки через Yandex Network Load Balancer](load-balancer-website/index.md)
 * [Работа с группой виртуальных машин с автоматическим масштабированием](vm-autoscale/index.md)
 * [Обновление группы виртуальных машин под нагрузкой](updating-under-load.md)
-* [Интеграция Cloud DNS и корпоративного сервиса DNS](dns-integration.md)
 * [Развертывание Microsoft Exchange](exchange.md)
 * [Развертывание группы доступности Always On с внутренним сетевым балансировщиком](mssql-alwayson-lb.md)
 * [Реализация отказоустойчивых сценариев для сетевых виртуальных машин](route-switcher.md)

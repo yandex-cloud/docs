@@ -29,6 +29,24 @@ description: Следуя данной инструкции, вы научите
 
 {% endlist %}
 
+## Просмотр истории правила {#history}
+
+Чтобы просмотреть историю правила корреляции:
+
+{% list tabs group=instructions %}
+
+- Интерфейс {{ cloud-center }} {#cloud-center}
+
+  1. Перейдите в сервис [{{ sd-name }}]({{ link-sd-main }}).
+  1. На панели слева выберите **{{ yandex-siem-full-name }}**.
+  1. Перейдите в раздел **{{ ui-key.yacloud_org.security.siem.SiemPageLayout.correlationRules }}**.
+  1. Выберите правило.
+  1. В открывшемся окне перейдите на вкладку **{{ ui-key.yacloud_org.security.siem.tab_history }}**.
+
+  Откроется история правила корреляции.
+
+{% endlist %}
+
 ## Фильтрация правил {#filter}
 
 Чтобы отфильтровать правила корреляции по нужным параметрам:

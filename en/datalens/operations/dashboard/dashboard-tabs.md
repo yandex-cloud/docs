@@ -28,6 +28,8 @@ You can [add](#tab-add), [rename, duplicate, and delete](#tab-rename-delete) tab
 
 ## Rename, duplicate, or delete a tab {#tab-rename-delete}
 
+1. In the left-hand panel, click ![image](../../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and select the dashboard you need.
+
 
 1. In the top-right corner, click **Edit**.
 1. Click ![image](../../../_assets/console-icons/gear.svg) at the top of the screen. The settings window will open on the right.
@@ -39,6 +41,8 @@ You can [add](#tab-add), [rename, duplicate, and delete](#tab-rename-delete) tab
 1. In the top-right corner, click **Save**.
 
 ## Changing the tab order {#tab-move}
+
+1. In the left-hand panel, click ![image](../../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and select the dashboard you need.
 
 
 1. In the top-right corner, click **Edit**.

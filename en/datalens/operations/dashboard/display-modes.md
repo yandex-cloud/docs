@@ -7,6 +7,8 @@ description: Follow this guide to set up the widget display order on a mobile de
 
 To set up the order of charts and selectors in the mobile version or in mailing lists:
 
+1. In the left-hand panel, click ![image](../../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and select the dashboard you need.
+
 
 1. In the top-right corner, click **Edit**.
 1. Click ![image](../../../_assets/console-icons/gear.svg) at the top of the screen. The settings window will open on the right.

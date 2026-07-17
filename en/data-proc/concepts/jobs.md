@@ -19,7 +19,7 @@ To create and [start jobs](../operations/running-jobs.md), you can:
 
 
 
-* Connect directly to the cluster node. For more information, see the example in the [Running jobs from remote hosts that are not part of the cluster](../tutorials/remote-run-job.md) section.
+* Connect directly to the cluster node. See the example in [Running jobs from remote hosts that are not part of the cluster](../tutorials/remote-run-job.md).
 
 
 To successfully run a job:

@@ -23,7 +23,7 @@ Here is an alternative solution:
 1. Use [MirrorMaker](../../managed-kafka/tutorials/kafka-connectors.md#kf-mirrormaker) to move the topics of your source cluster to the new cluster.
 
 
-#### How can I configure an alert for when disk usage reaches a certain percentage? {#disk-space-percentage}
+#### How do I configure an alert for when disk space usage reaches a certain percentage? {#disk-space-percentage}
 
 [Create an alert](../../managed-kafka/operations/monitoring.md#monitoring-integration) for the `disk.used_bytes` metric in {{ monitoring-full-name }}. This metric shows the disk space usage in the {{ mkf-name }} cluster.
 

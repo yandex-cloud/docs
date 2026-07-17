@@ -62,7 +62,6 @@ IP-адрес [обработчика трафика](listener.md) баланс�
 
 ### Примеры использования {#examples-udp}
 
-* [Интеграция Cloud DNS и корпоративного сервиса DNS](../tutorials/dns-integration.md)
 * [Архитектура и защита базового интернет-сервиса](../tutorials/web-service.md)
 
 
