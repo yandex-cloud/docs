@@ -11,7 +11,7 @@
 1. [Создайте аккаунт в Grafana Cloud](#grafana-account).
 1. [Создайте приложение](#create-app).
 1. [Настройте интеграцию](#setup-integration).
-1. [Убедитесь в корректной работе приложения](#validate)
+1. [Убедитесь в корректной работе приложения](#validate).
 
 ## Создайте аккаунт в Grafana Cloud {#grafana-account}
 
@@ -23,7 +23,7 @@
     - Создайте надежный пароль.
 1. Нажмите **Create my account**.
 1. Подтвердите регистрацию, следуя инструкциям в письме, отправленном на указанный email.
-1. Выберите имя организации (это будет частью URL вашего экземпляра). Например `your-org`.
+1. Выберите имя организации (это будет частью URL вашего экземпляра). Например, `your-org`.
 1. После входа в систему убедитесь, что у вас есть права администратора для настройки SAML в Grafana Cloud.
 
 {% note info %}
@@ -83,13 +83,13 @@
 
 Настройте связь между Grafana Cloud и {{ org-full-name }}:
 
-1. В блоке **Configure IdP using Grafana metadata** скопируйте и сохраните адреса эндпоинтов для получения метаданных (*Metadata URL*) и отправки запросов на аутентификацию пользователей (*Assertion Consumer Service URL*). В дальнейшем вам понадобится второй из этих адресов при настройке интеграции на стороне {{ org-full-name }}.
+1. В блоке **Configure IdP using Grafana metadata** скопируйте и сохраните адреса эндпоинтов для получения метаданных (*Metadata URL*) и отправки запросов на аутентификацию пользователей (*Assertion Consumer Service URL*). В дальнейшем оба эти адреса понадобятся вам при настройке интеграции на стороне {{ org-full-name }}.
 1. Настройте адрес эндпоинта для получения метаданных из {{ org-full-name }}:
 
     1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
     1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное SAML-приложение.
     1. На вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** в блоке **{{ ui-key.yacloud_org.application.overview.idp_section_title }}** скопируйте значение поля **{{ ui-key.yacloud_org.application.overview.saml_field_metadata }}**.
-    1. Вернитесь в Grafana Cloud и  в блоке **Finish configuring Grafana using IdP data** вставьте скопированный адрес в поле **Metadata URL**.
+    1. Вернитесь в Grafana Cloud и в блоке **Finish configuring Grafana using IdP data** вставьте скопированный адрес в поле **Metadata URL**.
 
 #### Сопоставление атрибутов пользователей {#user-mapping}
 
@@ -133,9 +133,9 @@
 
   1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
   1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное SAML-приложение.
-  1. Справа сверху нажмите ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** и в открывшемся окне:  
-      1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-sp-entity-id_snAsX }}** вставьте адрес эндпоинта, который вы скопировали на третьем шаге настройки интеграции в Grafana Cloud в поле **Metadata URL**.
-      1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-acs-urls_eQcJr }}** вставьте адрес эндпоинта, который вы скопировали на третьем шаге настройки интеграции в Grafana Cloud в поле **Assertion Consumer Service URL**.
+  1. Справа сверху нажмите ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** и в открывшемся окне:
+      1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-sp-entity-id_snAsX }}** вставьте адрес эндпоинта, который вы скопировали на первом шаге подключения к IdP в Grafana Cloud в поле **Metadata URL**.
+      1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-acs-urls_eQcJr }}** вставьте адрес эндпоинта, который вы скопировали на первом шаге подключения к IdP в Grafana Cloud в поле **Assertion Consumer Service URL**.
       1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
@@ -197,7 +197,7 @@
         1. Задайте название, например, `grafana-viewer`.
         1. Нажмите **{{ ui-key.yacloud_org.groups.action_create-group }}**.
         1. Добавьте пользователей в группу:
-            1. Перейдите на вкладку **{{ ui-key.yacloud_org.entity.group.title_tab-members }}**.  
+            1. Перейдите на вкладку **{{ ui-key.yacloud_org.entity.group.title_tab-members }}**.
             1. Нажмите **{{ ui-key.yacloud_org.entity.group.action_add-member }}**.
             1. В открывшемся окне выберите нужных пользователей.
             1. Нажмите **{{ ui-key.yacloud.common.save }}**.
@@ -230,9 +230,9 @@
 1. В браузере перейдите по адресу вашего экземпляра Grafana Cloud (например, `https://your-org.grafana.net`).
 1. Если вы были авторизованы в Grafana Cloud, выйдите из профиля.
 1. На странице авторизации Grafana Cloud нажмите **Sign in with SAML**.
-1. На странице авторизации {{ yandex-cloud }} укажите имеил и пароль пользователя. Пользователь должен быть добавлен в приложение или состоять в группе, добавленной в приложение.
+1. На странице авторизации {{ yandex-cloud }} укажите email-адрес и пароль пользователя. Пользователь должен быть добавлен в приложение или состоять в группе, добавленной в приложение.
 1. Убедитесь, что вы аутентифицировались в Grafana Cloud.
-1. Если вы настроили сопоставление ролей, перейдите в профиль пользователя в Grafana Cloud и убедитесь, что в блоке **Organization** отображается соответствующая роль.  
+1. Если вы настроили сопоставление ролей, перейдите в профиль пользователя в Grafana Cloud и убедитесь, что в блоке **Organization** отображается соответствующая роль.
 
 
 #### Полезные ссылки {#see-also}
