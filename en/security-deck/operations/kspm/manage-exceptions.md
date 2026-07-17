@@ -5,8 +5,6 @@ description: Guide on how to manage exceptions from {{ kspm-name }} security con
 
 # Managing exceptions from {{ kspm-name }} security control rules
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 You can use the {{ kspm-name }} module's exceptions to specify objects you want excluded from the [control rules](../../concepts/kspm.md) in place: all {{ k8s }} resources within the workspace or specific objects.
 
 ## Viewing the list of exceptions from the rules {#view-exceptions-list}

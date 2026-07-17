@@ -35,7 +35,7 @@ To create a {{ GP }} connection:
 
      * **Host type**: Select the host type:
        
-       * **Regular** (default): Allows you to select regular hosts to connect to.
+       * **Regular**: Enables you to select regular hosts to connect to.
        * **Special FQDNs**: Enables you to select a [special FQDN](../../../managed-greenplum/operations/connect/fqdn.md#fqdn-master), which always points to the {{ GP }} primary master host.
 
      * **Host name**: Select the host name from the list of hosts available in the {{ GP }} cluster. You can select multiple hosts. If you fail to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
@@ -43,7 +43,7 @@ To create a {{ GP }} connection:
      * **Path to database**: Specify the database name.
      * **Username**: Specify a username for the {{ GP }} connection.
      * **Password**: Specify a password for the user.
-     * **Cache TTL in seconds**: Specify the cache TTL or leave the default value. The recommended value is 300 seconds (5 minutes).
+     * **Cache TTL in seconds**: Specify cache TTL or leave the default value. The recommended value is 300 seconds (5 minutes).
      
      {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level.md) %}
 
@@ -56,11 +56,9 @@ To create a {{ GP }} connection:
       * **Path to database**: Specify the database name.
       * **Username**: Specify a username for the {{ GP }} connection.
       * **Password**: Specify a password for the user.
-      * **Cache TTL in seconds**: Specify the cache TTL or leave the default value. The recommended value is 300 seconds (5 minutes).
+      * **Cache TTL in seconds**: Specify cache TTL or leave the default value. The recommended value is 300 seconds (5 minutes).
       
       {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level.md) %}
-
-      ![image](../../../_assets/datalens/operations/connection/connection-greenplum.png)
 
    {% endlist %}
 

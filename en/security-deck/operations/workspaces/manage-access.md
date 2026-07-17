@@ -5,8 +5,6 @@ description: In this guide, you will learn how to configure workspace access per
 
 # Configuring the {{ sd-name }} workspace access permissions
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 To configure the {{ sd-name }} [workspace](../../concepts/workspace.md) access permissions for other users:
 
 {% list tabs group=instructions %}

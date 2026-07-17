@@ -1,5 +1,5 @@
 ---
-title: Updating a {{ AF }} cluster
+title: Updating an {{ AF }} cluster
 description: After creating an {{ AF }} cluster, you can edit its basic and advanced settings.
 keywords:
   - Updating an {{ AF }} cluster
@@ -61,7 +61,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
         * Add, edit, or delete [{{ AF }} additional properties](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html), e.g., the `api.maximum_page_limit` key with `150` for its value.
 
-            Populate the fields manually or import a configuration from a file (see [sample configuration file](https://{{ s3-storage-host }}/doc-files/managed-airflow/airflow.cfg)).
+            Fill out the fields manually or import a configuration from a file (see this [configuration file example](https://{{ s3-storage-host }}/doc-files/managed-airflow/airflow.cfg)).
 
         * Enable or disable the **{{ ui-key.yacloud.airflow.field_lockbox }}** option allowing you to use secrets in [{{ lockbox-full-name }}](../../lockbox/concepts/index.md) to [store {{ AF }} configuration data, variables, and connection parameters](../concepts/impersonation.md#lockbox-integration).
 
@@ -79,7 +79,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
     To change the cluster settings:
 
-    1. View the description of the CLI command for updating a cluster:
+    1. See the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-af }} cluster update --help
@@ -161,7 +161,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

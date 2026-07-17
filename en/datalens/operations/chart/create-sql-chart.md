@@ -37,10 +37,10 @@ At each step, you can [undo/redo](../../concepts/chart/settings.md#undo-redo) an
    - SQL
 
      1. Click **Select connection**.
-     1. In the list, select a database connection you have access to. Make sure **Raw SQL level** → **Allow subqueries in datasets and queries from charts** is enabled.
+     1. In the list, select a database connection you have access to. Make sure the **Raw SQL level** → **SQL to read** setting is active in the connection.
      1. Click **Create**.
      1. In the **Query** tab, enter your query using the SQL dialect of the database you are querying.
-     1. In the bottom-left corner, click **Start**.
+     1. In the bottom-left corner, click **Run**.
 
      After the query runs, your data will be visualized.
 
@@ -52,7 +52,7 @@ At each step, you can [undo/redo](../../concepts/chart/settings.md#undo-redo) an
      1. In the list, select a {{ prometheus-name }} connection you have access to.
      1. Click **Create**.
      1. Click **Add query** and specify a query in the {{ prometheus-name }} language.
-     1. In the bottom-left corner, click **Start**.
+     1. In the bottom-left corner, click **Run**.
 
      After the query runs, your data will be visualized.
 
@@ -79,7 +79,7 @@ At each step, you can [undo/redo](../../concepts/chart/settings.md#undo-redo) an
      1. In the list, select a {{ monitoring-short-name }} connection you have access to.
      1. Click **Create**.
      1. Click **Add query** and specify a query in the {{ monitoring-short-name }} language.
-     1. In the bottom-left corner, click **Start**.
+     1. In the bottom-left corner, click **Run**.
 
 
      After the query runs, your data will be visualized.
@@ -104,10 +104,10 @@ At each step, you can [undo/redo](../../concepts/chart/settings.md#undo-redo) an
 ## Creating a QL chart from a connection {#connection}
 
 1. Go to an existing database connection.
-1. Make sure **Raw SQL level** → **Allow subqueries in datasets and queries from charts** is enabled.
+1. Make sure the **Raw SQL level** → **SQL to read** setting is active in the connection.
 1. In the top-right corner, click **Create QL chart**.
 1. In the **Query** tab, enter your query using the SQL dialect of the database you are querying.
-1. In the bottom-left corner, click **Start**.
+1. In the bottom-left corner, click **Run**.
 
 After the query runs, your data will be visualized.
 

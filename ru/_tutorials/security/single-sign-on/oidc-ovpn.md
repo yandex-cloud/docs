@@ -288,6 +288,7 @@ sudo cp /etc/openvpn/easy-rsa/pki/dh.pem /etc/openvpn/
      yc iam oauth-client create \
        --name openvpn-oauth-client \
        --scopes openid,email,profile \
+       --profile-id web \
        --redirect-uris "https://<доменное_имя>:9000/oauth2/callback"
      ```
 
@@ -298,6 +299,7 @@ sudo cp /etc/openvpn/easy-rsa/pki/dh.pem /etc/openvpn/
        * `openid` — идентификатор пользователя. Обязательный атрибут.
        * `email` — адрес электронной почты пользователя.
        * `profile` — дополнительная информация о пользователе.
+     * {% include [org-oidc-app-select-web-type-legend-cli](../../../_tutorials/_tutorials_includes/org-oidc-app-select-web-type-legend-cli.md) %}
      * `--redirect-uris` — URI перенаправления после аутентификации.
 
      Результат:
@@ -305,8 +307,19 @@ sudo cp /etc/openvpn/easy-rsa/pki/dh.pem /etc/openvpn/
      ```text
      id: ajeqqip130i1********
      name: openvpn-oauth-client
+     redirect_uris:
+       - https://<доменное_имя>:9000/oauth2/callback
+     scopes:
+       - openid
+       - email
+       - profile
      folder_id: b1g500m2195v********
+     authentication_methods:
+       - client_secret_basic
+       - client_secret_post
      status: ACTIVE
+     profile_id: web
+     pkce_required: true
      ```
 
      Сохраните значение поля `id` — оно понадобится для создания приложения.

@@ -26,91 +26,71 @@ description: Следуя данной инструкции, вы сможете
 - Интерфейс {{ cloud-center }} {#cloud-center}
 
   1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) с учетной записью администратора или владельца организации.
-
   1. На панели слева выберите ![groups](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.groups }}** и нажмите строку с названием [группы](../../organization/concepts/groups.md).
-  
   1. Перейдите на вкладку **{{ ui-key.yacloud_org.entity.group.title_tab-access }}**.
-
   1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
-  
-  1. Выберите пользователя или [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), которому нужно предоставить доступ к группе. При необходимости воспользуйтесь поиском.
-  
+  1. Выберите пользователя, группу или [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), которым нужно предоставить доступ к группе. При необходимости воспользуйтесь поиском.
   1. Нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роли, которые нужно назначить на группу.
-
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-   {% include [set-access-bindings-cli](../../_includes/iam/set-access-bindings-cli.md) %}
+  {% include [set-access-bindings-cli](../../_includes/iam/set-access-bindings-cli.md) %}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   Чтобы назначить несколько ролей на группу пользователей:
+  Чтобы назначить несколько ролей на группу пользователей:
 
-   1. Убедитесь, что на ресурс не назначены роли, которые вы не хотите потерять:
+  1. Убедитесь, что на ресурс не назначены роли, которые вы не хотите потерять:
 
       ```bash
       yc organization-manager group list-access-bindings \
         --id <идентификатор_группы>
       ```
 
-   1. Посмотрите описание команды CLI для назначения ролей:
+  1. Посмотрите описание команды CLI для назначения ролей:
 
       ```bash
       yc organization-manager group set-access-bindings --help
       ```
- 
-   1. Получите список групп пользователей вместе с идентификаторами этих групп:
+
+  1. Получите список групп пользователей вместе с идентификаторами этих групп:
 
       ```bash
       yc organization-manager group list
       ```
-   1. Получите [идентификатор пользователя](../../organization/operations/users-get.md), [сервисного аккаунта](../../iam/operations/sa/get-id.md) или [группы пользователей](group-get-id.md), которым назначаете роли.
 
-   1. С помощью команды `yc organization-manager group set-access-bindings` назначьте роли:
+  1. Получите [идентификатор пользователя](../../organization/operations/users-get.md), [сервисного аккаунта](../../iam/operations/sa/get-id.md) или [группы пользователей](group-get-id.md), которым нужно предоставить доступ к группе.
+  1. С помощью команды `yc organization-manager group set-access-bindings` назначьте роли:
 
-      * Пользователю с аккаунтом на Яндексе или локальному пользователю:
+      ```bash
+      yc organization-manager group set-access-bindings \
+        --id <идентификатор_группы> \
+        --access-binding role=<роль>,subject=<тип_субъекта>:<идентификатор_субъекта>
+      ```
 
-         ```bash
-         yc organization-manager group set-access-bindings \
-           --id <идентификатор_группы> \
-           --access-binding role=<роль>,user-account-id=<идентификатор_пользователя>
-         ```
+      Где:
 
-      * Федеративному пользователю:
+      * `--id` — идентификатор группы пользователей, к которой нужно предоставить доступ.
+      * `role` — идентификатор роли, которую нужно назначить.
+      * `subject` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
-         ```bash
-         yc organization-manager group set-access-bindings \
-           --id <идентификатор_группы> \
-           --access-binding role=<роль>,subject=federatedUser:<идентификатор_пользователя>
-         ```
+          {% cut "Обозначения субъектов" %}
 
-      * Сервисному аккаунту:
+          {% include [subjects-designations-terraform](../../_includes/iam/subjects-designations-terraform.md) %}
 
-         ```bash
-         yc organization-manager group set-access-bindings \
-           --id <идентификатор_группы> \
-           --access-binding role=<роль>,service-account-id=<идентификатор_сервисного_аккаунта>
-         ```
-
-      * Группе пользователей:
-
-         ```bash
-         yc organization-manager group set-access-bindings \
-           --id <идентификатор_группы> \
-           --access-binding role=<роль>,subject=group:<идентификатор_группы>
-         ```
+          {% endcut %}
 
       Для каждой роли передайте отдельный параметр `--access-binding`. Пример:
 
       ```bash
       yc organization-manager group set-access-bindings \
-        --id <идентификатор_группы> \
-        --access-binding role=<роль1>,service-account-id=<идентификатор_сервисного_аккаунта> \
-        --access-binding role=<роль2>,service-account-id=<идентификатор_сервисного_аккаунта> \
-        --access-binding role=<роль3>,service-account-id=<идентификатор_сервисного_аккаунта>
+        --id ins672qpemb4******** \
+        --access-binding role=<роль1>,subject=serviceAccount:<идентификатор_сервисного_аккаунта> \
+        --access-binding role=<роль2>,subject=serviceAccount:<идентификатор_сервисного_аккаунта> \
+        --access-binding role=<роль3>,subject=serviceAccount:<идентификатор_сервисного_аккаунта>
       ```
 
 - {{ TF }} {#tf}
@@ -122,53 +102,61 @@ description: Следуя данной инструкции, вы сможете
   1. Опишите в конфигурационном файле параметры назначаемых ролей:
 
       ```hcl
-      resource "yandex_organizationmanager_group_iam_binding" "role1" {
+      resource "yandex_organizationmanager_group_iam_member" "role1" {
         group_id = "<идентификатор_группы>"
         role     = "<роль1>"
-        members  = ["<тип_субъекта>:<идентификатор_субъекта>"]
+        member   = "<тип_субъекта>:<идентификатор_субъекта>"
       }
 
-      resource "yandex_organizationmanager_group_iam_binding" "role2" {
+      resource "yandex_organizationmanager_group_iam_member" "role2" {
         group_id = "<идентификатор_группы>"
         role     = "<роль2>"
-        members  = ["<тип_субъекта>:<идентификатор_субъекта>"]
+        member   = "<тип_субъекта>:<идентификатор_субъекта>"
       }
 
-      resource "yandex_organizationmanager_group_iam_binding" "role3" {
+      resource "yandex_organizationmanager_group_iam_member" "role3" {
         group_id = "<идентификатор_группы>"
         role     = "<роль3>"
-        members  = ["<тип_субъекта>:<идентификатор_субъекта>"]
+        member   = "<тип_субъекта>:<идентификатор_субъекта>"
       }
       ```
 
       Где:
 
       * `group_id` — [идентификатор группы пользователей](group-get-id.md).
-      * `role` — роль, которую хотите назначить. Для каждой роли можно использовать только один `yandex_organizationmanager_group_iam_binding`.
-      * `members` — массив идентификаторов пользователей, которым будет назначена роль:
+      * `role` — роль, которую хотите назначить.
+      * `member` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
-        * `userAccount:<идентификатор_пользователя>` — идентификатор аккаунта пользователя на Яндексе или локального пользователя.
-        * `federatedUser:<идентификатор_пользователя>` — идентификатор федеративного пользователя.
-        * `serviceAccount:<идентификатор_сервисного_аккаунта>` — идентификатор сервисного аккаунта.
-        * `group:<идентификатор_группы>` — идентификатор группы пользователей.
+          {% cut "Обозначения субъектов" %}
 
-      Подробнее о ресурсах, которые вы можете создать с помощью {{ TF }}, читайте в [документации провайдера]({{ tf-provider-link }}).
+          {% include [subjects-designations-terraform](../../_includes/iam/subjects-designations-terraform.md) %}
+
+          {% endcut %}
+
+      Подробнее о параметрах ресурса `yandex_organizationmanager_group_iam_member` читайте в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_group_iam_member).
 
   1. Создайте ресурсы:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
-   
-  После этого указанному пользователю будут назначены несколько ролей на группу пользователей. Проверить появление ролей можно в [интерфейсе {{ cloud-center }}]({{ link-org-cloud-center }}).
+
+  После этого указанному субъекту будут назначены несколько ролей на группу пользователей. Проверить назначение ролей можно в [интерфейсе {{ cloud-center }}]({{ link-org-cloud-center }}).
 
 - API {#api}
 
-   {% include [set-access-bindings-api](../../_includes/iam/set-access-bindings-api.md) %}
+  {% include [set-access-bindings-api](../../_includes/iam/set-access-bindings-api.md) %}
 
-   Воспользуйтесь методом [setAccessBindings](../api-ref/Group/setAccessBindings.md) для ресурса [Group](../api-ref/Group/index.md) или вызовом gRPC API [GroupService/SetAccessBindings](../api-ref/grpc/Group/setAccessBindings.md). Передайте в запросе массив из объектов, каждый из которых соответствует отдельной роли и содержит следующие данные:
+  Чтобы назначить несколько ролей субъекту на группу пользователей, воспользуйтесь методом REST API [setAccessBindings](../api-ref/Group/setAccessBindings.md) для ресурса [Group](../api-ref/Group/index.md) или вызовом gRPC API [GroupService/SetAccessBindings](../api-ref/grpc/Group/setAccessBindings.md). Передайте в запросе массив из объектов, каждый из которых соответствует отдельной роли и содержит следующие данные:
 
-   * Роль в параметре `accessBindings[].roleId`.
-   * Идентификатор субъекта, на кого назначаются роли, в параметре `accessBindings[].subject.id`.
-   * Тип субъекта, на кого назначаются роли, в параметре `accessBindings[].subject.type`.
+  * Роль в параметре `accessBindings[].roleId`.
+  * Идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначаются роли, в параметре `accessBindings[].subject.id`.
+  * Тип субъекта, которому назначаются роли, в параметре `accessBindings[].subject.type`.
+
+      {% cut "Обозначения субъектов" %}
+
+      {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+      {% endcut %}
+
 
 {% endlist %}
 

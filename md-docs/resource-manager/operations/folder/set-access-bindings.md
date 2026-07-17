@@ -36,13 +36,15 @@
 
   Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
+  По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
   1. Посмотрите описание команды для назначения роли на каталог:
 
       ```bash
       yc resource-manager folder add-access-binding --help
       ```
 
-  1. Выберите каталог, например `my-folder`:
+  1. Получите список доступных каталогов:
 
       ```bash
       yc resource-manager folder list
@@ -58,7 +60,7 @@
       +----------------------+-----------+--------+--------+
       ```
 
-  1. Выберите [роль](../../../iam/concepts/access-control/roles.md):
+  1. Получите список доступных ролей:
 
       ```bash
       yc iam role list
@@ -93,13 +95,47 @@
         default_email: test-user@yandex.ru
       ```
 
-  1. Назначьте пользователю `test-user` роль `editor` на каталог `my-folder`. В субъекте укажите тип `userAccount` и ID пользователя:
+  1. Назначьте пользователю роль на каталог. В субъекте укажите тип `userAccount` и идентификатор пользователя:
 
       ```bash
       yc resource-manager folder add-access-binding my-folder \
         --role editor \
         --subject userAccount:gfei8n54hmfh********
       ```
+
+      Где:
+
+      * `--role` — идентификатор роли, которую нужно назначить.
+      * `--subject` — обозначение [субъекта](../../../iam/concepts/access-control/index.md#subject), которому назначается роль.
+
+          {% cut "Обозначения субъектов" %}
+
+          Для обозначения субъекта используется параметр `--subject` со значением в формате `<тип_субъекта>:<идентификатор>`. Для некоторых типов субъектов в [Yandex Cloud CLI](../../../cli/index.md) вместо `--subject` доступны отдельные параметры, в которых достаточно указать имя или идентификатор субъекта без типа. Возможные обозначения субъектов и соответствующие параметры CLI:
+          
+          #|
+          || **Тип субъекта** | **Обозначение субъекта** | **Параметр Yandex Cloud CLI** ||
+          || `userAccount`    | `userAccount:<идентификатор_пользователя>` | `--user-account-id` или `--user-yandex-login` ||
+          || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` | `--service-account-id` или `--service-account-name` ||
+          || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` | `--user-account-id` ||
+          || `group`          | `group:<идентификатор_группы>` | `--group-members` ||
+          || `system`         | `system:allAuthenticatedUsers`
+          
+          (группа `All authenticated users`) | `--all-authenticated-users` ||
+          || ^                | `system:allUsers`
+          
+          (группа `All users`) | — ||
+          || ^                | `system:group:organization:<идентификатор_организации>:users`
+          
+          (группа `All users in organization X`) | `--organization-users` ||
+          || ^                | `system:group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) | `--federation-users` ||
+          || ^                | `system:group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) | — ||
+          |#
+
+          {% endcut %}
 
   Чтобы назначить роль не пользователю, а [сервисному аккаунту](../../../iam/concepts/users/service-accounts.md), [группе пользователей](../../../organization/concepts/groups.md) или [системной группе](../../../iam/concepts/access-control/system-group.md), воспользуйтесь [примерами](../../../iam/operations/roles/grant.md#cloud-or-folder).
 
@@ -110,92 +146,101 @@
   
   Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
-  {% note alert %}
+  1. Опишите в конфигурационном файле параметры назначаемых ролей.
 
-  Не создавайте ресурс совместно с ресурсом `yandex_resourcemanager_folder_iam_policy`. Они будут конфликтовать.
+      Пример структуры конфигурационного файла:
 
-  {% endnote %}
+      ```hcl
+      data "yandex_resourcemanager_folder" "project1" {
+        folder_id = "<идентификатор_каталога>"
+      }
 
-  Чтобы назначить роль на каталог, созданный с помощью Terraform:
+      resource "yandex_resourcemanager_folder_iam_member" "editor" {
+        folder_id = "${data.yandex_resourcemanager_folder.project1.id}"
+        role      = "editor"
+        member    = "userAccount:<идентификатор_пользователя>"
+      }
+      ```
 
-  1. Опишите в конфигурационном файле параметры роли каталога:
+      Где:
 
-     * `folder_id` — [идентификатор каталога](get-id.md), на который назначаются права. Обязательный параметр.
-     * `role` — назначаемая роль. Обязательный параметр.
+      * `folder_id` — [идентификатор каталога](get-id.md), на который назначаются права. Обязательный параметр.
+      * `role` — роль, которую нужно назначить. В одном ресурсе `yandex_resourcemanager_folder_iam_member` можно назначить только одну роль.
+      * `member` — обозначение [субъекта](../../../iam/concepts/access-control/index.md#subject), которому назначается роль. Обязательный параметр.
 
-       {% note info %}
+          {% cut "Обозначения субъектов" %}
 
-       Для каждой роли можно использовать только один ресурс `yandex_resourcemanager_folder_iam_member`.
+          Для обозначения субъекта используется комбинация типа и уникального идентификатора — `<тип_субъекта>:<идентификатор>`. Возможные обозначения субъектов:
+          
+          #|
+          || **Тип субъекта** | **Обозначение субъекта** ||
+          || `userAccount`    | `userAccount:<идентификатор_пользователя>` ||
+          || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` ||
+          || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` ||
+          || `group`          | `group:<идентификатор_группы>` ||
+          || `system`         | `system:allAuthenticatedUsers`
+          
+          (группа `All authenticated users`) ||
+          || ^                | `system:allUsers`
+          
+          (группа `All users`) ||
+          || ^                | `system:group:organization:<идентификатор_организации>:users`
+          
+          (группа `All users in organization X`) ||
+          || ^                | `system:group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) ||
+          || ^                | `system:group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) ||
+          |#
 
-       {% endnote %}
+          {% endcut %}
 
-     * `member` — пользователь, которому будет присвоена роль. Обязательный параметр. Может иметь одно из следующих значений:
-       * `userAccount:<идентификатор_пользователя>` — [ID пользователя](../../../organization/operations/users-get.md).
-       * `serviceAccount:<идентификатор_сервисного_аккаунта>` — [ID сервисного аккаунта](../../../iam/operations/sa/get-id.md).
-       * `federatedUser:<идентификатор_пользовательского_аккаунта>` — [ID пользовательского аккаунта](../../../organization/operations/users-get.md).
-       * `system:group:organization:<идентификатор_организации>:users` — идентификатор [организации](../../../organization/quickstart.md), чтобы назначить роль [системной группе](../../../iam/concepts/access-control/system-group.md#allOrganizationUsers) `All users in organization X`.
-       * `system:group:federation:<идентификатор_федерации>:users` — идентификатор [федерации удостоверений](../../../organization/concepts/add-federation.md), чтобы назначить роль [системной группе](../../../iam/concepts/access-control/system-group.md#allFederationUsers) `All users in federation N`.
+      Подробнее о параметрах ресурса `yandex_resourcemanager_folder_iam_member` в Terraform читайте в [документации провайдера](../../../terraform/resources/resourcemanager_folder_iam_member.md).
 
-     {% cut "Пример назначения роли на каталог с помощью Terraform" %}
+  1. Создайте ресурсы:
 
-     ```hcl
-     ...
-     data "yandex_resourcemanager_folder" "project1" {
-       folder_id = "<идентификатор_каталога>"
-     }
+      1. В терминале перейдите в директорию с конфигурационным файлом.
+      1. Проверьте корректность конфигурации с помощью команды:
+      
+         ```bash
+         terraform validate
+         ```
+      
+         Если конфигурация является корректной, появится сообщение:
+      
+         ```bash
+         Success! The configuration is valid.
+         ```
+      
+      1. Выполните команду:
+      
+         ```bash
+         terraform plan
+         ```
+      
+         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+      1. Примените изменения конфигурации:
+      
+         ```bash
+         terraform apply
+         ```
+      
+      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-     resource "yandex_resourcemanager_folder_iam_member" "editor" {
-       folder_id = "${data.yandex_resourcemanager_folder_iam_member.project1.id}"
-       role      = "editor"
-       member    = "userAccount:<login@yandex.ru>"
-     }
-     ...
-     ```
-
-     {% endcut %}
-
-     Подробнее о параметрах ресурса `yandex_resourcemanager_folder_iam_member` в Terraform читайте в [документации провайдера](../../../terraform/resources/resourcemanager_folder_iam_member.md).
-
-  1. Проверьте конфигурацию командой:
-     ```
-     terraform validate
-     ```
-
-     Если конфигурация является корректной, появится сообщение:
-
-     ```
-     Success! The configuration is valid.
-     ```
-
-  1. Выполните команду:
-     ```
-     terraform plan
-     ```
-
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
-
-  1. Примените изменения конфигурации:
-     ```
-     terraform apply
-     ```
-
-  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
-
-     Проверить изменение каталога можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../../cli/quickstart.md):
-
-     ```
-     yc resource-manager folder list-access-bindings <имя_или_идентификатор_каталога>
-     ```
+      После этого будут назначены права доступа к каталогу.
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Folder/updateAccessBindings.md) для ресурса [Folder](../../api-ref/Folder/index.md) или вызовом gRPC API [FolderService/UpdateAccessBindings](../../api-ref/grpc/Folder/updateAccessBindings.md). Вам понадобится ID каталога и ID пользователя, которому назначается роль на каталог.
+  Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Folder/updateAccessBindings.md) для ресурса [Folder](../../api-ref/Folder/index.md) или вызовом gRPC API [FolderService/UpdateAccessBindings](../../api-ref/grpc/Folder/updateAccessBindings.md). Вам понадобится идентификатор каталога и идентификатор пользователя, которому назначается роль на каталог.
 
-  1. Узнайте ID каталога с помощью метода REST API [list](../../api-ref/Folder/list.md):
+  1. Узнайте идентификатор каталога с помощью метода REST API [list](../../api-ref/Folder/list.md):
+
       ```bash
       curl \
         --header "Authorization: Bearer <IAM-токен>" \
-        https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders?cloudId=b1gg8sgd16g7********
+        https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders?cloudId=<идентификатор_облака>
       ```
 
       Результат:
@@ -214,7 +259,8 @@
       }
       ```
 
-  1. Узнайте ID пользователя по логину с помощью метода REST API [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md):
+  1. Узнайте идентификатор пользователя по логину с помощью метода REST API [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md):
+
       ```bash
       curl \
         --header "Authorization: Bearer <IAM-токен>" \
@@ -233,7 +279,7 @@
       }
       ```
 
-  1. Назначьте пользователю роль `editor` на каталог `my-folder`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и ID пользователя:
+  1. Назначьте пользователю роль на каталог. В свойстве `action` укажите `ADD`, а в свойстве `subject` — тип `userAccount` и идентификатор пользователя:
 
       ```bash
       curl \
@@ -241,16 +287,55 @@
         --header 'Content-Type: application/json' \
         --header "Authorization: Bearer <IAM-токен>" \
         --data '{
-        "accessBindingDeltas": [{
-            "action": "ADD",
-            "accessBinding": {
-                "roleId": "editor",
+          "accessBindingDeltas": [
+            {
+              "action": "ADD",
+              "accessBinding": {
+                "roleId": "<роль>",
                 "subject": {
-                    "id": "gfei8n54hmfh********",
-                    "type": "userAccount"
-        }}}]}' \
-        https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/b1gd129pp9ha********:updateAccessBindings
+                  "id": "<идентификатор_пользователя>",
+                  "type": "userAccount"
+                }
+              }
+            }
+          ]
+        }' \
+        https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/<идентификатор_каталога>:updateAccessBindings
       ```
+
+      Где:
+
+      * `roleId` — назначаемая роль.
+      * `subject` — [субъект](../../../iam/concepts/access-control/index.md#subject), которому назначается роль.
+
+          {% cut "Обозначения субъектов" %}
+
+          Для обозначения субъекта используется комбинация типа и уникального идентификатора в полях запроса `subject.type` и `subject.id`. Возможные комбинации:
+          
+          #|
+          || **subject.type** | **subject.id** ||
+          || `userAccount`    | `<идентификатор_пользователя>` ||
+          || `serviceAccount` | `<идентификатор_сервисного_аккаунта>` ||
+          || `federatedUser`  | `<идентификатор_пользователя>` ||
+          || `group`          | `<идентификатор_группы>` ||
+          || `system`         | `allAuthenticatedUsers`
+          
+          (группа `All authenticated users`) ||
+          || ^                | `allUsers`
+          
+          (группа `All users`) ||
+          || ^                | `group:organization:<идентификатор_организации>:users`
+          
+          (группа `All users in organization X`) ||
+          || ^                | `group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) ||
+          || ^                | `group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) ||
+          |#
+
+          {% endcut %}
 
 {% endlist %}
 
@@ -272,25 +357,70 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
-
-  Команда `add-access-binding` позволяет добавить только одну роль. Вы можете назначить несколько ролей с помощью команды `set-access-binding`.
+  Команда `add-access-binding` позволяет добавить только одну роль. Вы можете назначить несколько ролей с помощью команды `set-access-bindings`.
 
   {% note alert %}
-
-  Команда `set-access-binding` полностью перезаписывает права доступа к ресурсу! Все текущие роли на ресурс будут удалены.
-
+  
+  Команда `set-access-bindings` для назначения нескольких ролей полностью перезаписывает права доступа к ресурсу. Все текущие роли на ресурс будут удалены.
+  
   {% endnote %}
 
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+
+  По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
   1. Убедитесь, что на ресурс не назначены роли, которые вы не хотите потерять:
+
       ```bash
-      yc resource-manager folder list-access-bindings my-folder
+      yc resource-manager folder list-access-bindings <имя_или_идентификатор_каталога>
       ```
-  1. Например, назначьте роль нескольким пользователям:
+
+  1. Чтобы назначить роль, выполните команду:
+
+      ```bash
+      yc resource-manager folder set-access-bindings <имя_или_идентификатор_каталога> \
+        --access-binding role=<роль>,subject=<тип_субъекта>:<идентификатор_субъекта>
+      ```
+
+      Где:
+
+      * `role` — идентификатор роли, которую нужно назначить.
+      * `subject` — обозначение [субъекта](../../../iam/concepts/access-control/index.md#subject), которому назначается роль.
+
+          {% cut "Обозначения субъектов" %}
+
+          Для обозначения субъекта используется комбинация типа и уникального идентификатора — `<тип_субъекта>:<идентификатор>`. Возможные обозначения субъектов:
+          
+          #|
+          || **Тип субъекта** | **Обозначение субъекта** ||
+          || `userAccount`    | `userAccount:<идентификатор_пользователя>` ||
+          || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` ||
+          || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` ||
+          || `group`          | `group:<идентификатор_группы>` ||
+          || `system`         | `system:allAuthenticatedUsers`
+          
+          (группа `All authenticated users`) ||
+          || ^                | `system:allUsers`
+          
+          (группа `All users`) ||
+          || ^                | `system:group:organization:<идентификатор_организации>:users`
+          
+          (группа `All users in organization X`) ||
+          || ^                | `system:group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) ||
+          || ^                | `system:group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) ||
+          |#
+
+          {% endcut %}
+
+      Для каждой роли передайте отдельный параметр `--access-binding`. Например:
 
       ```bash
       yc resource-manager folder set-access-bindings my-folder \
-        --access-binding role=editor,subject=userAccount:gfei8n54hmfh********
+        --access-binding role=editor,subject=userAccount:gfei8n54hmfh******** \
         --access-binding role=viewer,subject=userAccount:helj89sfj80a********
       ```
 
@@ -303,86 +433,98 @@
   
   Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
-  {% note alert %}
+  1. Опишите в конфигурационном файле параметры прав доступа к каталогу.
 
-  Не создавайте ресурс совместно с ресурсом `yandex_resourcemanager_folder_iam_policy`. Они будут конфликтовать.
+      Пример структуры конфигурационного файла:
 
-  {% endnote %}
+      ```hcl
+      data "yandex_resourcemanager_folder" "project1" {
+        folder_id = "<идентификатор_каталога>"
+      }
 
-  Чтобы назначить несколько ролей на каталог, созданный с помощью Terraform:
+      resource "yandex_resourcemanager_folder_iam_member" "member1" {
+        folder_id = "${data.yandex_resourcemanager_folder.project1.id}"
+        role      = "<роль_1>"
+        member    = "userAccount:<идентификатор_пользователя>"
+      }
 
-  1. Опишите в конфигурационном файле параметры роли каталога:
+      resource "yandex_resourcemanager_folder_iam_member" "member2" {
+        folder_id = "${data.yandex_resourcemanager_folder.project1.id}"
+        role      = "<роль_2>"
+        member    = "userAccount:<идентификатор_пользователя>"
+      }
+      ```
 
-     * `folder_id` — [идентификатор каталога](get-id.md), на который назначаются права. Обязательный параметр.
-     * `role` — назначаемая роль. Обязательный параметр.
+      Где:
 
-       {% note info %}
+      * `folder_id` — [идентификатор каталога](get-id.md), на который назначаются права. Обязательный параметр.
+      * `role` — роль, которую нужно назначить. В одном ресурсе `yandex_resourcemanager_folder_iam_member` можно назначить только одну роль.
+      * `member` — обозначение [субъекта](../../../iam/concepts/access-control/index.md#subject), которому назначается роль. Обязательный параметр.
 
-       Для каждой роли можно использовать только один ресурс `yandex_resourcemanager_folder_iam_member`.
+          {% cut "Обозначения субъектов" %}
 
-       {% endnote %}
+          Для обозначения субъекта используется комбинация типа и уникального идентификатора — `<тип_субъекта>:<идентификатор>`. Возможные обозначения субъектов:
+          
+          #|
+          || **Тип субъекта** | **Обозначение субъекта** ||
+          || `userAccount`    | `userAccount:<идентификатор_пользователя>` ||
+          || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` ||
+          || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` ||
+          || `group`          | `group:<идентификатор_группы>` ||
+          || `system`         | `system:allAuthenticatedUsers`
+          
+          (группа `All authenticated users`) ||
+          || ^                | `system:allUsers`
+          
+          (группа `All users`) ||
+          || ^                | `system:group:organization:<идентификатор_организации>:users`
+          
+          (группа `All users in organization X`) ||
+          || ^                | `system:group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) ||
+          || ^                | `system:group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) ||
+          |#
 
-     * `member` — пользователь, которому будет присвоена роль. Чтобы добавить пользователя в список, создайте запись в формате `userAccount:<идентификатор_пользователя>`, где `<идентификатор_пользователя>` — email-адрес аккаунта Яндекс (например, `ivan@yandex.ru`). Обязательный параметр.
+          {% endcut %}
 
-     {% cut "Пример назначения роли на каталог с помощью Terraform" %}
+  1. Создайте ресурсы:
 
-     ```hcl
-     ...
-     data "yandex_resourcemanager_folder" "project1" {
-       folder_id = "<идентификатор_каталога>"
-     }
+      1. В терминале перейдите в директорию с конфигурационным файлом.
+      1. Проверьте корректность конфигурации с помощью команды:
+      
+         ```bash
+         terraform validate
+         ```
+      
+         Если конфигурация является корректной, появится сообщение:
+      
+         ```bash
+         Success! The configuration is valid.
+         ```
+      
+      1. Выполните команду:
+      
+         ```bash
+         terraform plan
+         ```
+      
+         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+      1. Примените изменения конфигурации:
+      
+         ```bash
+         terraform apply
+         ```
+      
+      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-     resource "yandex_resourcemanager_folder_iam_member" "editor" {
-       folder_id = "${data.yandex_resourcemanager_folder.project1.id}"
-       role      = "editor"
-       member    = "userAccount:<login1@yandex.ru>"
-     }
-     resource "yandex_resourcemanager_folder_iam_member" "operator" {
-       folder_id = "${data.yandex_resourcemanager_folder.project1.id}"
-       role      = "operator"
-       member    = "userAccount:<login1@yandex.ru>"
-     }
-     ...
-     ```
-
-     {% endcut %}
-
-     Подробнее о параметрах ресурса `yandex_resourcemanager_folder_iam_member` в Terraform читайте в [документации провайдера](../../../terraform/resources/resourcemanager_folder_iam_member.md).
-
-  1. Проверьте конфигурацию командой:
-     ```
-     terraform validate
-     ```
-
-     Если конфигурация является корректной, появится сообщение:
-
-     ```
-     Success! The configuration is valid.
-     ```
-
-  1. Выполните команду:
-     ```
-     terraform plan
-     ```
-
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
-
-  1. Примените изменения конфигурации:
-     ```
-     terraform apply
-     ```
-
-  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
-
-     Проверить изменение каталога можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../../cli/quickstart.md):
-
-     ```
-     yc resource-manager folder list-access-bindings <имя_или_идентификатор_каталога>
-     ```
+      После этого будут назначены права доступа к каталогу.
 
 - API {#api}
 
-  Назначьте одному пользователю роль `editor`, а другому `viewer`:
+  Назначьте роли пользователям:
 
   ```bash
   curl \
@@ -390,54 +532,80 @@
     --header 'Content-Type: application/json' \
     --header "Authorization: Bearer <IAM-токен>" \
     --data '{
-    "accessBindingDeltas": [{
-        "action": "ADD",
-        "accessBinding": {
-            "roleId": "editor",
+      "accessBindingDeltas": [
+        {
+          "action": "ADD",
+          "accessBinding": {
+            "roleId": "<роль_1>",
             "subject": {
-                "id": "gfei8n54hmfh********",
-                "type": "userAccount"
+              "id": "<идентификатор_пользователя>",
+              "type": "userAccount"
             }
-        }
-    },{
-        "action": "ADD",
-        "accessBinding": {
-            "roleId": "viewer",
+          }
+        },
+        {
+          "action": "ADD",
+          "accessBinding": {
+            "roleId": "<роль_2>",
             "subject": {
-                "id": "helj89sfj80a********",
-                "type": "userAccount"
-    }}}]}' \
-    https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/b1gd129pp9ha********:updateAccessBindings
+              "id": "<идентификатор_пользователя>",
+              "type": "userAccount"
+            }
+          }
+        }
+      ]
+    }' \
+    https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/<идентификатор_каталога>:updateAccessBindings
   ```
+
+  Где:
+
+  * `roleId` — назначаемая роль.
+  * `subject` — [субъект](../../../iam/concepts/access-control/index.md#subject), которому назначается роль.
+
+      {% cut "Обозначения субъектов" %}
+
+      Для обозначения субъекта используется комбинация типа и уникального идентификатора в полях запроса `subject.type` и `subject.id`. Возможные комбинации:
+      
+      #|
+      || **subject.type** | **subject.id** ||
+      || `userAccount`    | `<идентификатор_пользователя>` ||
+      || `serviceAccount` | `<идентификатор_сервисного_аккаунта>` ||
+      || `federatedUser`  | `<идентификатор_пользователя>` ||
+      || `group`          | `<идентификатор_группы>` ||
+      || `system`         | `allAuthenticatedUsers`
+      
+      (группа `All authenticated users`) ||
+      || ^                | `allUsers`
+      
+      (группа `All users`) ||
+      || ^                | `group:organization:<идентификатор_организации>:users`
+      
+      (группа `All users in organization X`) ||
+      || ^                | `group:federation:<идентификатор_федерации>:users`
+      
+      (группа `All users in federation N`) ||
+      || ^                | `group:userpool:<идентификатор_пула>:users`
+      
+      (группа `All users in userpool P`) ||
+      |#
+
+      {% endcut %}
 
   Вы также можете назначать роли с помощью метода REST API [setAccessBindings](../../api-ref/Folder/setAccessBindings.md) для ресурса [Folder](../../api-ref/Folder/index.md) или вызова gRPC API [FolderService/SetAccessBindings](../../api-ref/grpc/Folder/setAccessBindings.md).
 
   {% note alert %}
-
-  Метод `setAccessBindings` полностью перезаписывает права доступа к ресурсу! Все текущие роли на ресурс будут удалены.
-
+  
+  Метод `setAccessBindings` для назначения нескольких ролей полностью перезаписывает права доступа к ресурсу. Все текущие роли на ресурс будут удалены.
+  
   {% endnote %}
-
-  ```bash
-  curl \
-    --request POST \
-    --header 'Content-Type: application/json' \
-    --header "Authorization: Bearer <IAM-токен>" \
-    --data '{
-    "accessBindings": [{
-        "roleId": "editor",
-        "subject": { "id": "ajei8n54hmfh********", "type": "userAccount" }
-    },{
-        "roleId": "viewer",
-        "subject": { "id": "helj89sfj80a********", "type": "userAccount" }
-    }]}' \
-    https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/b1gd129pp9ha********:setAccessBindings
-  ```
 
 {% endlist %}
 
 
 ## Доступ к каталогу для сервисного аккаунта {#access-to-sa}
+
+Сервисному аккаунту можно [назначать](../../../iam/operations/sa/assign-role-for-sa.md#binding-role-resource) роли на любые облака и каталоги в рамках организации, к которой он принадлежит.
 
 {% list tabs group=instructions %}
 
@@ -456,11 +624,10 @@
   Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   1. Выберите роль, которую хотите назначить сервисному аккаунту. Описание ролей можно найти в документации Yandex Identity and Access Management в [справочнике ролей Yandex Cloud](../../../iam/roles-reference.md).
-  
   1. Узнайте идентификатор сервисного аккаунта по его имени:
   
       ```bash
-      yc iam service-account get my-robot
+      yc iam service-account get <имя_сервисного_аккаунта>
       ```
   
       Результат:
@@ -488,13 +655,19 @@
       +----------------------+------------------+-----------------+
       ```
   
-  1. Назначьте роль `viewer` сервисному аккаунту `my-robot`, используя его идентификатор:
+  1. Назначьте роль сервисному аккаунту, используя его идентификатор:
   
       ```bash
-      yc resource-manager folder add-access-binding my-folder \
-        --role viewer \
-        --subject serviceAccount:aje6o61dvog2********
+      yc resource-manager folder add-access-binding <имя_или_идентификатор_каталога> \
+        --role <роль> \
+        --service-account-id <идентификатор_сервисного_аккаунта>
       ```
+  
+  
+      Где:
+  
+      * `--role` — идентификатор роли, которую нужно назначить.
+      * `--service-account-id` — идентификатор сервисного аккаунта. Также вы можете использовать параметр `--service-account-name` и указать логин пользователя вместо идентификатора.
 
 - Terraform {#tf}
 
@@ -503,77 +676,86 @@
   
   Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
-  {% note alert %}
+  1. Назначьте роль `editor` сервисному аккаунту:
 
-  Не создавайте ресурс совместно с ресурсом `yandex_resourcemanager_folder_iam_policy`. Они будут конфликтовать.
+      ```hcl
+      data "yandex_resourcemanager_folder" "project1" {
+        folder_id = "<идентификатор_каталога>"
+      }
 
-  {% endnote %}
+      resource "yandex_resourcemanager_folder_iam_member" "editor" {
+        folder_id = "${data.yandex_resourcemanager_folder.project1.id}"
+        role      = "editor"
+        member    = "serviceAccount:<идентификатор_сервисного_аккаунта>"
+      }
+      ```
 
-  Чтобы назначить роль для сервисного аккаунта на каталог, созданный с помощью Terraform:
+      Где:
 
-  1. Опишите в конфигурационном файле параметры роли каталога:
+      * `folder_id` — [идентификатор каталога](get-id.md).
+      * `role` — роль, которую нужно назначить.
+      * `member` — обозначение [субъекта](../../../iam/concepts/access-control/index.md#subject), которому назначается роль. Для сервисного аккаунта укажите `serviceAccount:<идентификатор_сервисного_аккаунта>`.
 
-     * `folder_id` — [идентификатор каталога](get-id.md), на который назначаются права. Обязательный параметр.
-     * `role` — назначаемая роль. Обязательный параметр.
+          {% cut "Обозначения субъектов" %}
 
-       {% note info %}
+          Для обозначения субъекта используется комбинация типа и уникального идентификатора — `<тип_субъекта>:<идентификатор>`. Возможные обозначения субъектов:
+          
+          #|
+          || **Тип субъекта** | **Обозначение субъекта** ||
+          || `userAccount`    | `userAccount:<идентификатор_пользователя>` ||
+          || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` ||
+          || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` ||
+          || `group`          | `group:<идентификатор_группы>` ||
+          || `system`         | `system:allAuthenticatedUsers`
+          
+          (группа `All authenticated users`) ||
+          || ^                | `system:allUsers`
+          
+          (группа `All users`) ||
+          || ^                | `system:group:organization:<идентификатор_организации>:users`
+          
+          (группа `All users in organization X`) ||
+          || ^                | `system:group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) ||
+          || ^                | `system:group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) ||
+          |#
 
-       Для каждой роли можно использовать только один ресурс `yandex_resourcemanager_folder_iam_member`.
+          {% endcut %}
 
-       {% endnote %}
+  1. Создайте ресурсы:
 
-     * `member` — пользователь, которому будет присвоена роль. Чтобы добавить пользователя в список, создайте запись в формате `serviceAccount:<идентификатор_сервисного_аккаунта>`, где `<идентификатор_сервисного_аккаунта>` — [идентификатор сервисного аккаунта](../../../iam/operations/sa/get-id.md). Вы можете перечислить несколько сервисных аккаунтов. Обязательный параметр.
+      1. В терминале перейдите в директорию с конфигурационным файлом.
+      1. Проверьте корректность конфигурации с помощью команды:
+      
+         ```bash
+         terraform validate
+         ```
+      
+         Если конфигурация является корректной, появится сообщение:
+      
+         ```bash
+         Success! The configuration is valid.
+         ```
+      
+      1. Выполните команду:
+      
+         ```bash
+         terraform plan
+         ```
+      
+         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+      1. Примените изменения конфигурации:
+      
+         ```bash
+         terraform apply
+         ```
+      
+      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-     {% cut "Пример назначения роли на каталог с помощью Terraform" %}
-
-     ```hcl
-     ...
-     data "yandex_resourcemanager_folder" "project1" {
-       folder_id = "<идентификатор_каталога>"
-     }
-
-     resource "yandex_resourcemanager_folder_iam_member" "editor" {
-       folder_id = "${data.yandex_resourcemanager_folder.project1.id}"
-       role      = "editor"
-       member   = "serviceAccount:<идентификатор_сервисного_аккаунта>"
-     }
-     ...
-     ```
-
-     {% endcut %}
-
-     Подробнее о параметрах ресурса `yandex_resourcemanager_folder_iam_member` в Terraform читайте в [документации провайдера](../../../terraform/resources/resourcemanager_folder_iam_member.md).
-
-  1. Проверьте конфигурацию командой:
-     ```
-     terraform validate
-     ```
-
-     Если конфигурация является корректной, появится сообщение:
-
-     ```
-     Success! The configuration is valid.
-     ```
-
-  1. Выполните команду:
-     ```
-     terraform plan
-     ```
-
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
-
-  1. Примените изменения конфигурации:
-     ```
-     terraform apply
-     ```
-
-  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
-
-     Проверить изменение каталога можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../../cli/quickstart.md):
-
-     ```
-     yc resource-manager folder list-access-bindings <имя_или_идентификатор_каталога>
-     ```
+      После этого будут назначены права доступа к каталогу.
 
 - API {#api}
 
@@ -585,8 +767,8 @@
   1. Получите список сервисных аккаунтов в каталоге, чтобы узнать их идентификаторы:
   
       ```bash
-      export FOLDER_ID=b1gvmob95yys********
-      export IAM_TOKEN=CggaATEVAgA...
+      export FOLDER_ID=<идентификатор_каталога>
+      export IAM_TOKEN=<IAM-токен>
       curl \
         --header "Authorization: Bearer ${IAM_TOKEN}" \
         "https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=${FOLDER_ID}"
@@ -609,23 +791,57 @@
       }
       ```
   
-  1. Сформируйте тело запроса, например в файле `body.json`. В свойстве `action` укажите `ADD`, в свойстве `roleId` — нужную роль, например `editor`, а в свойстве `subject` — тип `serviceAccount` и идентификатор сервисного аккаунта:
+  1. Сформируйте тело запроса, например в файле `body.json`. В свойстве `action` укажите `ADD`:
   
-      **body.json:**
       ```json
       {
         "accessBindingDeltas": [{
           "action": "ADD",
           "accessBinding": {
-            "roleId": "editor",
+            "roleId": "<роль>",
             "subject": {
-              "id": "ajebqtreob2d********",
+              "id": "<идентификатор_сервисного_аккаунта>",
               "type": "serviceAccount"
             }
           }
         }]
       }
       ```
+  
+      Где:
+  
+      * `roleId` — назначаемая роль.
+      * `subject` — [субъект](../../../iam/concepts/access-control/index.md#subject), которому назначается роль.
+  
+          {% cut "Обозначения субъектов" %}
+  
+          Для обозначения субъекта используется комбинация типа и уникального идентификатора в полях запроса `subject.type` и `subject.id`. Возможные комбинации:
+          
+          #|
+          || **subject.type** | **subject.id** ||
+          || `userAccount`    | `<идентификатор_пользователя>` ||
+          || `serviceAccount` | `<идентификатор_сервисного_аккаунта>` ||
+          || `federatedUser`  | `<идентификатор_пользователя>` ||
+          || `group`          | `<идентификатор_группы>` ||
+          || `system`         | `allAuthenticatedUsers`
+          
+          (группа `All authenticated users`) ||
+          || ^                | `allUsers`
+          
+          (группа `All users`) ||
+          || ^                | `group:organization:<идентификатор_организации>:users`
+          
+          (группа `All users in organization X`) ||
+          || ^                | `group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) ||
+          || ^                | `group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) ||
+          |#
+  
+          {% endcut %}
+  
   1. Назначьте роль сервисному аккаунту. Например, на каталог с идентификатором `b1gvmob95yys********`:
      
      ```bash
@@ -673,7 +889,36 @@
 
       * `<имя_или_идентификатор_каталога>` — имя или идентификатор каталога.
       * `--role` — идентификатор роли, например `editor`.
-      * `--subject` — идентификатор аккаунта пользователя, которому назначается роль.
+      * `--subject` — обозначение [субъекта](../../../iam/concepts/access-control/index.md#subject), которому назначается роль.
+
+          {% cut "Обозначения субъектов" %}
+
+          Для обозначения субъекта используется параметр `--subject` со значением в формате `<тип_субъекта>:<идентификатор>`. Для некоторых типов субъектов в [Yandex Cloud CLI](../../../cli/index.md) вместо `--subject` доступны отдельные параметры, в которых достаточно указать имя или идентификатор субъекта без типа. Возможные обозначения субъектов и соответствующие параметры CLI:
+          
+          #|
+          || **Тип субъекта** | **Обозначение субъекта** | **Параметр Yandex Cloud CLI** ||
+          || `userAccount`    | `userAccount:<идентификатор_пользователя>` | `--user-account-id` или `--user-yandex-login` ||
+          || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` | `--service-account-id` или `--service-account-name` ||
+          || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` | `--user-account-id` ||
+          || `group`          | `group:<идентификатор_группы>` | `--group-members` ||
+          || `system`         | `system:allAuthenticatedUsers`
+          
+          (группа `All authenticated users`) | `--all-authenticated-users` ||
+          || ^                | `system:allUsers`
+          
+          (группа `All users`) | — ||
+          || ^                | `system:group:organization:<идентификатор_организации>:users`
+          
+          (группа `All users in organization X`) | `--organization-users` ||
+          || ^                | `system:group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) | `--federation-users` ||
+          || ^                | `system:group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) | — ||
+          |#
+
+          {% endcut %}
 
       Например, назначьте федеративному пользователю с идентификатором `aje6o61dvog2********` роль `editor` на каталог `my-folder`:
 

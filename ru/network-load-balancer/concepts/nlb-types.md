@@ -38,7 +38,6 @@ description: 'Сетевой балансировщик в {{ yandex-cloud }} м
 * [{#T}](../tutorials/vpc-cr-access.md)
 * [{#T}](../tutorials/storage-vpc-access.md)
 * [{#T}](../tutorials/route-switcher.md)
-* [{#T}](../tutorials/dns-integration.md)
 * [{#T}](../tutorials/migration-from-nlb-to-alb/index.md)
 
 #### Полезные ссылки {#see-also}

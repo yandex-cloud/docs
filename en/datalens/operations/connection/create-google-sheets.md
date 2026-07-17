@@ -51,7 +51,7 @@ To create a Google Sheets connection:
 1. Set the **Show column headers** option to **Yes** or **No**.
 1. Optionally, enable automatic updates for spreadsheet data. To do this, in the top-right corner, select **Update automatically**. Spreadsheet data will be updated every 30 minutes or less often. To update your data manually, click **Update data**.
 1. Click **Create connection**.
-1. Select the [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
+1. Select a [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
 1. Enter a name for the connection and click **Create**.
 
 You can add, rename, and delete files in the connection.
@@ -62,7 +62,7 @@ You can add, rename, and delete files in the connection.
 
 {% include [datalens-file-connection-export-settings](../../../_includes/datalens/operations/datalens-file-connection-export-settings.md) %}
 
-## Limitations {#restrictions}
+## Limits {#restrictions}
 
 When creating a connection to Google Sheets, consider the following limitations:
 
@@ -81,7 +81,7 @@ When creating a connection to Google Sheets, consider the following limitations:
 ## FAQ {#qa}
 
 
-See [how to replace a legacy Google Sheets connection with a new one](../../qa/connections.md#google-sheets-v2).
+For details, see [how to replace a legacy Google Sheets connection with a new one](../../qa/connections.md#google-sheets-v2).
 
 
 {% cut "What do I do if a Google Sheets spreadsheet works incorrectly?" %}

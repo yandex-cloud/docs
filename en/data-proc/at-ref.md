@@ -7,7 +7,7 @@ description: This page provides a reference for {{ dataproc-name }} events track
 
 {{ at-name }} supports tracking control plane events for {{ dataproc-full-name }}. For more information, see [{#T}](../audit-trails/concepts/format.md).
 
-The `event_type` value follows this general format:
+The general format of the `event_type` field value is as follows:
 
 ```text
 {{ at-event-prefix }}.audit.dataproc.<event_name>

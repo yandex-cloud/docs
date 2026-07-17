@@ -9,7 +9,7 @@
 
 {% note info %}
 
-В настоящее время создавать OIDC-приложения [типов](../../concepts/applications/oidc.md#oidc-application-types) `Single-Page Application` и `Native Application`, а также управлять такими приложениями можно только в [интерфейсе Cloud Center](https://center.yandex.cloud/organization).
+В настоящее время создавать OIDC-приложения [типов](../../concepts/applications/oidc.md#oidc-application-types) `Single-Page Application` и `Native Application`, а также управлять такими приложениями можно в [интерфейсе Cloud Center](https://center.yandex.cloud/organization) и с помощью [Yandex Cloud CLI](../../../cli/index.md) и [API](../../../api-design-guide/index.md).
 
 {% endnote %}
 
@@ -51,110 +51,144 @@
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  1. Посмотрите описание команды CLI для создания OIDC-приложения:
+  1. Посмотрите описание команды CLI для создания OAuth-клиента:
 
-     ```bash
-     yc organization-manager idp application oauth application create --help
-     ```
+      ```bash
+      yc iam oauth-client create --help
+      ```
+  1. Определите [тип](*oidc_app_type) OAuth-клиента (OIDC-приложения), который вы будете создавать. Выбор типа зависит от способности поставщика услуг безопасно хранить секрет приложения.
+  
+      {% note warning %}
+
+      Тип OAuth-клиента задается при его создании и не может быть изменен позднее.
+
+      {% endnote %}
 
   1. Создайте OAuth-клиент:
 
-     ```bash
-     yc iam oauth-client create \
-       --name <имя_OAuth-клиента> \
-       --scopes <атрибут>[,<атрибут>]
-     ```
+      ```bash
+      yc iam oauth-client create \
+        --name <имя_OAuth-клиента> \
+        --scopes <атрибут>[,<атрибут>] \
+        --profile-id <тип_OAuth-клиента>
+      ```
 
-     Где:
+      Где:
 
-     * `--name` — имя OAuth-клиента.
-     * `--scopes` — набор атрибутов пользователей, которые будут доступны поставщику услуг. Укажите один или несколько атрибутов через запятую в формате `<атрибут1>,<атрибут2>`. Возможные атрибуты:
-       * `openid` — идентификатор пользователя. Обязательный атрибут.
-       * `profile` — дополнительная информация о пользователе, такая как имя, фамилия, аватар.
-       * `email` — адрес электронной почты пользователя.
-       * `address` — место жительства пользователя.
-       * `phone` — номер телефона пользователя.
-       * `groups` — [группы пользователей](../../concepts/groups.md) в организации.
+      * `--name` — имя OAuth-клиента.
+      * `--scopes` — набор атрибутов пользователей, которые будут доступны поставщику услуг. Укажите один или несколько атрибутов через запятую в формате `<атрибут1>,<атрибут2>`. Возможные атрибуты:
 
-     Результат:
+          * `openid` — идентификатор пользователя. Обязательный атрибут.
+          * `profile` — дополнительная информация о пользователе, такая как имя, фамилия, аватар.
+          * `email` — адрес электронной почты пользователя.
+          * `groups` — [группы пользователей](../../concepts/groups.md) в организации.
+      * `--profile-id` — тип OAuth-клиента. Возможные значения:
 
-     ```text
-     id: ajeqqip130i1********
-     name: test-oauth-client
-     folder_id: b1g500m2195v********
-     status: ACTIVE
-     ```
+          * `web` — тип [Web Application](../../concepts/applications/oidc.md#oidc-web), оптимально подходит для аутентификации пользователей во внешних веб-приложениях, имеющих серверную часть (бэкенд).
+          * `user-agent` — тип [Single-Page Application](../../concepts/applications/oidc.md#oidc-single-page), оптимально подходит для аутентификации пользователей во внешних приложениях, построенных по технологии [SPA](https://ru.wikipedia.org/wiki/Одностраничное_приложение).
+          * `native` — тип [Native Application](../../concepts/applications/oidc.md#oidc-native), оптимально подходит для аутентификации пользователей во внешних мобильных или настольных приложениях, установленных на устройствах пользователей.
 
-     Сохраните значение поля `id`, оно понадобится для создания и настройки приложения.
+      Результат:
 
-  1. Создайте секрет для OAuth-клиента:
+      ```text
+      id: ajejvqe2ahei********
+      name: test-oauth-client
+      scopes:
+        - email
+        - groups
+        - openid
+        - profile
+      folder_id: b1gt6g8ht345********
+      authentication_methods:
+        - client_secret_basic
+        - client_secret_post
+      status: ACTIVE
+      profile_id: web
+      pkce_required: true
+      ```
 
-     ```bash
-     yc iam oauth-client-secret create --oauth-client-id <идентификатор_OAuth-клиента>
-     ```
+      Сохраните значение поля `id`, оно понадобится для создания и настройки приложения.
+  1. Если вы создаете OAuth-клиент типа `Web Application`, создайте секрет для OAuth-клиента:
 
-     Результат:
+      {% note info %}
 
-     ```text
-     oauth_client_secret:
-       id: ajeq9jfrmc5t********
-       oauth_client_id: ajeqqip130i1********
-       masked_secret: yccs__939233b8ac****
-       created_at: "2025-10-21T10:14:17.861652377Z"
-     secret_value: yccs__939233b8ac********
-     ```
+      Для OAuth-клиентов типов `Single-Page Application` и `Native Application` создать секрет нельзя.
 
-     Сохраните значение поля `secret_value`, оно понадобится для [настроек приложения](#setup-application) на стороне поставщика услуг.
+      {% endnote %}
   
+      ```bash
+      yc iam oauth-client-secret create \
+        --oauth-client-id <идентификатор_OAuth-клиента>
+      ```
+
+      Результат:
+
+      ```text
+      oauth_client_secret:
+        id: ajedt5kmvp3u********
+        oauth_client_id: ajejvqe2ahei********
+        masked_secret: yccs__1db656e68e****
+        created_at: "2026-07-16T09:24:10.547Z"
+      secret_value: yccs__1db656e68e********
+      ```
+
+      Сохраните значение поля `secret_value`, оно понадобится для [настроек приложения](#setup-application) на стороне поставщика услуг.
+  1. Посмотрите описание команды CLI для создания OIDC-приложения:
+
+      ```bash
+      yc organization-manager idp application oauth application create --help
   1. Создайте OIDC-приложение:
 
-     ```bash
-     yc organization-manager idp application oauth application create \
-       --organization-id <идентификатор_организации> \
-       --name <имя_приложения> \
-       --description <описание_приложения> \
-       --client-id <идентификатор_OAuth-клиента> \
-       --authorized-scopes <атрибут>[,<атрибут>] \
-       --group-distribution-type all-groups \
-       --labels <ключ>=<значение>[,<ключ>=<значение>]
-     ```
+      ```bash
+      yc organization-manager idp application oauth application create \
+        --organization-id <идентификатор_организации> \
+        --name <имя_приложения> \
+        --description <описание_приложения> \
+        --client-id <идентификатор_OAuth-клиента> \
+        --authorized-scopes <атрибут>[,<атрибут>] \
+        --group-distribution-type all-groups \
+        --labels <ключ>=<значение>[,<ключ>=<значение>]
+      ```
 
-     Где:
+      Где:
 
-     * `--organization-id` — [идентификатор организации](../organization-get-id.md), в которой нужно создать OIDC-приложение. Обязательный параметр.
-     * `--name` — имя OIDC-приложения. Обязательный параметр. Имя должно быть уникальным в пределах организации и соответствовать требованиям:
+      * `--organization-id` — [идентификатор организации](../organization-get-id.md), в которой нужно создать OIDC-приложение. Обязательный параметр.
+      * `--name` — имя OIDC-приложения. Обязательный параметр. Имя должно быть уникальным в пределах организации и соответствовать требованиям:
 
-       * длина — от 1 до 63 символов;
-       * может содержать строчные буквы латинского алфавита, цифры и дефисы;
-       * первый символ — буква, последний — не дефис.
+          * длина — от 1 до 63 символов;
+          * может содержать строчные буквы латинского алфавита, цифры и дефисы;
+          * первый символ — буква, последний — не дефис.
 
-     * `--description` — описание OIDC-приложения. Необязательный параметр.
-     * `--client-id` — идентификатор OAuth-клиента, полученный на втором шаге. Обязательный параметр.
-     * `--authorized-scopes` — укажите те же атрибуты, которые были указаны при создании OAuth-клиента.
-     * `--group-distribution-type` — если при создании OAuth-клиента вы указали атрибут `groups`, укажите, какие группы пользователей будут переданы поставщику услуг. Возможные значения:
-       * `all-groups` — поставщику услуг будут переданы все группы, в которые входит пользователь.
+      * `--description` — описание OIDC-приложения. Необязательный параметр.
+      * `--client-id` — идентификатор OAuth-клиента, полученный на втором шаге. Обязательный параметр.
+      * `--authorized-scopes` — укажите те же атрибуты, которые были указаны при создании OAuth-клиента.
+      * `--group-distribution-type` — если при создании OAuth-клиента вы указали атрибут `groups`, укажите, какие группы пользователей будут переданы поставщику услуг. Возможные значения:
+          * `all-groups` — поставщику услуг будут переданы все группы, в которые входит пользователь.
 
-          Максимальное количество передаваемых групп — 1 000. Если количество групп, в которые входит пользователь, превышает это число, на сторону поставщика услуг будет передана только первая тысяча групп.
-       * `assigned-groups` — из всех групп, в которые входит пользователь, поставщику услуг будут переданы только те группы, которые будут явно [заданы](#users-and-groups).
-       * `none` — поставщику услуг не будут переданы группы, в которые входит пользователь.
-     * `--labels` — список [меток](../../../resource-manager/concepts/labels.md). Необязательный параметр. Можно указать одну или несколько меток через запятую в формате `<ключ1>=<значение1>,<ключ2>=<значение2>`.
+              Максимальное количество передаваемых групп — 1 000. Если количество групп, в которые входит пользователь, превышает это число, на сторону поставщика услуг будет передана только первая тысяча групп.
+          * `assigned-groups` — из всех групп, в которые входит пользователь, поставщику услуг будут переданы только те группы, которые будут явно [заданы](#users-and-groups).
+          * `none` — поставщику услуг не будут переданы группы, в которые входит пользователь.
+      * `--labels` — список [меток](../../../resource-manager/concepts/labels.md). Необязательный параметр. Можно указать одну или несколько меток через запятую в формате `<ключ1>=<значение1>,<ключ2>=<значение2>`.
 
-     Результат:
+      Результат:
 
-     ```text     
-     id: ek0o663g4rs2********
-     name: oidc-app
-     organization_id: bpf2c65rqcl8********
-     group_claims_settings:
-       group_distribution_type: NONE
-     client_grant:
-       client_id: ajeqqip130i1********
-       authorized_scopes:
-         - openid
-     status: ACTIVE
-     created_at: "2025-10-21T10:51:28.790866Z"
-     updated_at: "2025-10-21T12:37:19.274522Z"
-     ```
+      ```text     
+      id: ek0op26034ug********
+      name: oidc-app
+      organization_id: bpf2c65rqcl8********
+      group_claims_settings:
+        group_distribution_type: ALL_GROUPS
+      client_grant:
+        client_id: ajejvqe2ahei********
+        authorized_scopes:
+          - openid
+          - profile
+          - groups
+          - email
+      status: ACTIVE
+      created_at: "2026-07-16T08:22:45.446107Z"
+      updated_at: "2026-07-16T08:22:46.489330Z"
+      ```
 
 - Terraform {#tf}
 
@@ -187,8 +221,6 @@
        * `openid` — идентификатор пользователя. Обязательный атрибут.
        * `profile` — дополнительная информация о пользователе, такая как имя, фамилия, аватар.
        * `email` — адрес электронной почты пользователя.
-       * `address` — место жительства пользователя.
-       * `phone` — номер телефона пользователя.
        * `groups` — группы пользователей в организации.
 
      Подробнее о параметрах ресурса `yandex_iam_oauth_client` читайте в [документации провайдера](../../../terraform/resources/iam_oauth_client.md).
@@ -291,9 +323,9 @@
 
 - API {#api}
 
-  1. Воспользуйтесь методом REST API [OAuthClient.Create](../../../iam/api-ref/OAuthClient/create.md) для ресурса [OAuthClient](../../../iam/api-ref/grpc/OAuthClient/index.md) или вызовом gRPC API [OAuthClientService/Create](../../../iam/api-ref/grpc/OAuthClient/create.md).
-  1. Воспользуйтесь методом REST API [OAuthClientSecret.Create](../../../iam/api-ref/OAuthClientSecret/create.md) для ресурса [OAuthClientSecret](../../../iam/api-ref/OAuthClientSecret/index.md) или вызовом gRPC API [OAuthClientSecretService/Create](../../../iam/api-ref/grpc/OAuthClientSecret/create.md).
-  1. Воспользуйтесь методом REST API [Application.Create](../../idp/application/oauth/api-ref/Application/create.md) для ресурса [Application](../../idp/application/oauth/api-ref/Application/index.md) или вызовом gRPC API [ApplicationService/Create](../../idp/application/oauth/api-ref/grpc/Application/create.md).  
+  1. Чтобы создать OAuth-клиент, воспользуйтесь методом REST API [OAuthClient.Create](../../../iam/api-ref/OAuthClient/create.md) для ресурса [OAuthClient](../../../iam/api-ref/grpc/OAuthClient/index.md) или вызовом gRPC API [OAuthClientService/Create](../../../iam/api-ref/grpc/OAuthClient/create.md).
+  1. Чтобы создать секрет OAuth-клиента, воспользуйтесь методом REST API [OAuthClientSecret.Create](../../../iam/api-ref/OAuthClientSecret/create.md) для ресурса [OAuthClientSecret](../../../iam/api-ref/OAuthClientSecret/index.md) или вызовом gRPC API [OAuthClientSecretService/Create](../../../iam/api-ref/grpc/OAuthClientSecret/create.md).
+  1. Чтобы создать OIDC-приложение, воспользуйтесь методом REST API [Application.Create](../../idp/application/oauth/api-ref/Application/create.md) для ресурса [Application](../../idp/application/oauth/api-ref/Application/index.md) или вызовом gRPC API [ApplicationService/Create](../../idp/application/oauth/api-ref/grpc/Application/create.md).  
 
 {% endlist %}
 
@@ -373,7 +405,7 @@
 
 {% note info %}
 
-В настоящее время создавать OIDC-приложения [типов](../../concepts/applications/oidc.md#oidc-application-types) `Single-Page Application` и `Native Application`, а также управлять такими приложениями можно только в [интерфейсе Cloud Center](https://center.yandex.cloud/organization).
+В настоящее время создавать OIDC-приложения [типов](../../concepts/applications/oidc.md#oidc-application-types) `Single-Page Application` и `Native Application`, а также управлять такими приложениями можно в [интерфейсе Cloud Center](https://center.yandex.cloud/organization) и с помощью [Yandex Cloud CLI](../../../cli/index.md) и [API](../../../api-design-guide/index.md).
 
 {% endnote %}
 
@@ -425,37 +457,65 @@
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  1. Посмотрите описание команды CLI для настройки OAuth-клиента:
+  1. Посмотрите описание команды CLI для изменения OAuth-клиента:
 
-     ```bash
-     yc iam oauth-client update --help
-     ```
+      ```bash
+      yc iam oauth-client update --help
+      ```
 
   1. Выполните команду:
 
-     ```bash
-     yc iam oauth-client update \
-       --id <идентификатор_OAuth-клиента> \
-       --redirect-uris <адрес>[,<адрес>]
-     ```
+      ```bash
+      yc iam oauth-client update \
+        --id <идентификатор_OAuth-клиента> \
+        --redirect-uris <адрес>[,<адрес>] \
+        --auth-methods <способ_передачи_секрета> \
+        --pkce-required
+      ```
 
-     Где:
+      Где:
 
-     * `--id` — идентификатор OAuth-клиента.
-     * `--redirect-uris` — укажите полученный у поставщика услуг адрес или несколько адресов в формате `<адрес1>,<адрес2>`.
+      * `--id` — идентификатор OAuth-клиента.
+      * `--redirect-uris` — укажите полученный у поставщика услуг адрес или несколько адресов в формате `<адрес1>,<адрес2>`.
+      * `--auth-methods` — [способы передачи секрета](../../concepts/applications/oidc.md#secret-delivery) приложения. Параметр доступен только для OAuth-клиентов типа `Web Application`. Возможные значения:
 
-     Результат:
+          * `client_secret_basic` — секрет приложения передается в HTTP-заголовке `Authorization: Basic`.
+          * `client_secret_post` — секрет приложения передается в теле POST-запроса.
 
-     ```text
-     id: ajeqqip130i1********
-     name: test-oauth-client
-     redirect_uris:
-       - https://example.com
-       - https://example.ru
-     folder_id: b1g500m2195v********
-     status: ACTIVE
-     ```
+          Чтобы OIDC-приложение могло использовать оба способа передачи секрета, задайте в параметре `--auth-methods` оба значения через запятую.
+          
+          По умолчанию при создании OAuth-клиента типа `Web Application` для него включены оба способа передачи секрета.
+      * `--pkce-required` — параметр, позволяющий управлять требованием для поставщика услуг использовать [PKCE](../../concepts/applications/oidc.md#pkce):
 
+          * Чтобы включить требование использовать PKCE, передайте в команде параметр `--pkce-required`.
+          * Чтобы отключить требование использовать PKCE (только для OAuth-клиентов типа `Web Application`), передайте в команде параметр `--pkce-required=false`.
+
+              {% note info %}
+
+              Для OAuth-клиентов типов `Single-Page Application` и `Native Application` отключить требование PKCE нельзя.
+
+              {% endnote %}
+
+      Результат:
+
+      ```text
+      id: ajejvqe2ahei********
+      name: test-oauth-client
+      redirect_uris:
+        - https://example.com
+        - https://example.ru
+      scopes:
+        - email
+        - groups
+        - openid
+        - profile
+      folder_id: b1gt6g8ht345********
+      authentication_methods:
+        - client_secret_post
+      status: ACTIVE
+      profile_id: web
+      pkce_required: true
+      ```
 
 - Terraform {#tf}
 

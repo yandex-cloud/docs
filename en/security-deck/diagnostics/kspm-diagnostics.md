@@ -29,10 +29,10 @@ The service account specified when [activating the module](../operations/kspm/en
 
  An unexpected error occurred while checking access permissions in the cluster. Either the cluster is unavailable or access is restricted by [network policies](../../managed-kubernetes/concepts/network-policy.md). 
 
- ## Component is unhealthy {#unhealthy-component}
+## Component is unhealthy {#unhealthy-component}
  
- Component operation error. Contact [support]({{ link-console-support }}).
+Component operation error. Contact [support]({{ link-console-support }}).
 
- ## Component sync failed {#failed-sync}
+## Component sync failed {#failed-sync}
  
- An unexpected error occurred while modifying the component. Contact [support]({{ link-console-support }}).
+An unexpected error occurred while modifying the component. Contact [support]({{ link-console-support }}).

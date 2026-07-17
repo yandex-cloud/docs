@@ -65,9 +65,37 @@
 
       Где:
 
-      * `--role` — идентификатор роли, которую надо отозвать, например, `organization-manager.admin`.
-      * `<тип_субъекта>` — тип [субъекта](../../iam/concepts/access-control/index.md#subject), у которого отзывается роль.
-      * `<идентификатор_субъекта>` — идентификатор субъекта.
+      * `--role` — идентификатор роли, которую надо отозвать, например `organization-manager.admin`.
+      * `--subject` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), у которого отзывается роль.
+
+          {% cut "Обозначения субъектов" %}
+
+          Для обозначения субъекта используется параметр `--subject` со значением в формате `<тип_субъекта>:<идентификатор>`. Для некоторых типов субъектов в [Yandex Cloud CLI](../../cli/index.md) вместо `--subject` доступны отдельные параметры, в которых достаточно указать имя или идентификатор субъекта без типа. Возможные обозначения субъектов и соответствующие параметры CLI:
+          
+          #|
+          || **Тип субъекта** | **Обозначение субъекта** | **Параметр Yandex Cloud CLI** ||
+          || `userAccount`    | `userAccount:<идентификатор_пользователя>` | `--user-account-id` или `--user-yandex-login` ||
+          || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` | `--service-account-id` или `--service-account-name` ||
+          || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` | `--user-account-id` ||
+          || `group`          | `group:<идентификатор_группы>` | `--group-members` ||
+          || `system`         | `system:allAuthenticatedUsers`
+          
+          (группа `All authenticated users`) | `--all-authenticated-users` ||
+          || ^                | `system:allUsers`
+          
+          (группа `All users`) | — ||
+          || ^                | `system:group:organization:<идентификатор_организации>:users`
+          
+          (группа `All users in organization X`) | `--organization-users` ||
+          || ^                | `system:group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) | `--federation-users` ||
+          || ^                | `system:group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) | — ||
+          |#
+
+          {% endcut %}
 
       Например, чтобы отозвать роль у пользователя с идентификатором `aje6o61dvog2********`:
 
@@ -79,7 +107,7 @@
 
 - API {#api}
 
-  1. Посмотрите, кому и какие роли назначены на ресурс с помощью метода `listAccessBindings`. Например, чтобы посмотреть роли в организации с идентификатором `bpf3crucp1v2********`:
+  1. Посмотрите, кому и какие роли назначены на ресурс с помощью метода REST API [listAccessBindings](../api-ref/Organization/listAccessBindings.md) для ресурса [Organization](../api-ref/Organization/index.md) или вызова gRPC API [OrganizationService/ListAccessBindings](../api-ref/grpc/Organization/listAccessBindings.md). Например, чтобы посмотреть роли в организации с идентификатором `bpf3crucp1v2********`:
 
       ```bash
       export ORGANIZATION_ID=bpf3crucp1v2********
@@ -93,19 +121,21 @@
 
       ```text
       {
-      "accessBindings": [
-      {
-        "subject": {
-        "id": "aje6o61dvog2********",
-        "type": "userAccount"
-        },
-        "roleId": "organization-manager.admin"
-      }
-      ]
+        "accessBindings": [
+          {
+            "subject": {
+              "id": "aje6o61dvog2********",
+              "type": "userAccount"
+            },
+            "roleId": "organization-manager.admin"
+          }
+        ]
       }
       ```
 
-  1. Сформируйте тело запроса, например, в файле `body.json`. В теле запроса укажите, какие права доступа необходимо удалить. Например, отзовите у пользователя `aje6o61dvog2********` роль `organization-manager.admin`:
+  1. Сформируйте тело запроса, например в файле `body.json`. В теле запроса укажите, какие права доступа необходимо удалить. Например, отзовите у пользователя `aje6o61dvog2********` роль `organization-manager.admin`:
+
+      **body.json:**
 
       ```json
       {
@@ -122,7 +152,43 @@
       }
       ```
 
-  1. Отзовите роль, удалив указанные права доступа:
+      Где:
+
+      * Значение `REMOVE` в параметре `accessBindingDeltas[].action` указывает, что роль нужно отозвать.
+      * `accessBindingDeltas[].accessBinding.roleId` — идентификатор роли, которую нужно отозвать.
+      * `accessBindingDeltas[].accessBinding.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), у которого отзывается роль.
+      * `accessBindingDeltas[].accessBinding.subject.type` — тип субъекта, у которого отзывается роль.
+
+          {% cut "Обозначения субъектов" %}
+
+          Для обозначения субъекта используется комбинация типа и уникального идентификатора в полях запроса `subject.type` и `subject.id`. Возможные комбинации:
+          
+          #|
+          || **subject.type** | **subject.id** ||
+          || `userAccount`    | `<идентификатор_пользователя>` ||
+          || `serviceAccount` | `<идентификатор_сервисного_аккаунта>` ||
+          || `federatedUser`  | `<идентификатор_пользователя>` ||
+          || `group`          | `<идентификатор_группы>` ||
+          || `system`         | `allAuthenticatedUsers`
+          
+          (группа `All authenticated users`) ||
+          || ^                | `allUsers`
+          
+          (группа `All users`) ||
+          || ^                | `group:organization:<идентификатор_организации>:users`
+          
+          (группа `All users in organization X`) ||
+          || ^                | `group:federation:<идентификатор_федерации>:users`
+          
+          (группа `All users in federation N`) ||
+          || ^                | `group:userpool:<идентификатор_пула>:users`
+          
+          (группа `All users in userpool P`) ||
+          |#
+
+          {% endcut %}
+
+  1. Отзовите роль с помощью метода REST API [updateAccessBindings](../api-ref/Organization/updateAccessBindings.md) для ресурса [Organization](../api-ref/Organization/index.md) или вызова gRPC API [OrganizationService/UpdateAccessBindings](../api-ref/grpc/Organization/updateAccessBindings.md):
 
       ```bash
       export ORGANIZATION_ID=bpf3crucp1v2********
@@ -131,7 +197,7 @@
         --request POST \
         --header "Content-Type: application/json" \
         --header "Authorization: Bearer ${IAM_TOKEN}" \
-        --data '@body.json' \ 
+        --data '@body.json' \
         "https://organization-manager.api.cloud.yandex.net/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
       ```
 

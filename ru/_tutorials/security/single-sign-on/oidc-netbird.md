@@ -66,10 +66,14 @@
 
      ```bash
      yc iam oauth-client create \
-       --name netbird-oauth-client
+       --name netbird-oauth-client \
+       --profile-id web
      ```
 
-     Где `--name` — имя OAuth-клиента.
+     Где:
+     
+     * `--name` — имя OAuth-клиента.
+     * {% include [org-oidc-app-select-web-type-legend-cli](../../../_tutorials/_tutorials_includes/org-oidc-app-select-web-type-legend-cli.md) %}
 
      Результат:
 
@@ -77,7 +81,12 @@
      id: aje9rrbpcndp********
      name: netbird-oauth-client
      folder_id: b1g07hj5r6i4********
+     authentication_methods:
+       - client_secret_basic
+       - client_secret_post
      status: ACTIVE
+     profile_id: web
+     pkce_required: true
      ```
 
      Где `id` — идентификатор созданного OAuth-клиента. Сохраните его значение — оно понадобится для создания OIDC-приложения и секрета.

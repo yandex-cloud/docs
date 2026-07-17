@@ -49,10 +49,6 @@ blocks:
     textContent:
       title: Yandex Security Deck
       text: >-
-        Yandex Security Deck is at the [Preview
-        stage](https://yandex.cloud/en/docs/overview/concepts/launch-stages).
-
-
         Its tools allow you to monitor and respond to incidents, detect
         container image vulnerabilities, manage cloud infrastructure
         configuration and container security, monitor and protect access to

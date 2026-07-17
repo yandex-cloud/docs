@@ -6,7 +6,7 @@ description: In this tutorial, you will learn about the wizard and charts in {{ 
 # {{ datalens-full-name }} wizard charts
 
 
-The wizard is a constructor that allows you to create charts based on the data from one or more datasets (see [{#T}](./multidataset-chart.md)). You can create an unlimited number of charts based on a single dataset.
+The wizard is a constructor where you create new charts based on data from one or more datasets (for details, see [{#T}](./multidataset-chart.md)). You can create an unlimited number of charts based on a single dataset.
 
 
 

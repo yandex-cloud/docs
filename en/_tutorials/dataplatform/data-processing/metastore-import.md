@@ -5,6 +5,7 @@ You can transfer metadata between [{{ dataproc-full-name }} clusters](../../../d
 
 To transfer metadata between {{ dataproc-name }} clusters:
 
+1. [Set up your infrastructure](#infra).
 1. [Create a test table](#create-table).
 1. [Export data](#export-data).
 1. [Connect {{ dataproc-name }} to {{ metastore-name }}](#connect).
@@ -25,16 +26,21 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% endnote %}
 
-## Required paid resources {#paid-resources}
-
-* {{ dataproc-name }} cluster: use of computing resources with a {{ dataproc-name }} markup, use of network drives, retrieval and storage of logs, amount of outgoing traffic (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
-* {{ metastore-name }} cluster: computing resources of cluster components (see [{{ metadata-hub-name }} pricing](../../../metadata-hub/pricing.md)).
-* {{ objstorage-full-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
-* NAT gateway: hourly use of the gateway and its outgoing traffic (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 
 ## Getting started {#before-you-begin}
 
-Set up your infrastructure:
+{% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
+
+
+### Required paid resources {#paid-resources}
+
+* {{ dataproc-name }} clusters: use of computing resources with a {{ dataproc-name }} markup, use of network drives, retrieval and storage of logs, amount of outgoing traffic (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
+* {{ metastore-name }} cluster: computing resources of cluster components (see [{{ metadata-hub-name }} pricing](../../../metadata-hub/pricing.md)).
+* {{ objstorage-full-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
+* NAT gateway: hourly use of the gateway and its outgoing traffic (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
+
+
+## Set up your infrastructure {#infra}
 
 {% list tabs group=instructions %}
 
@@ -157,7 +163,7 @@ Set up your infrastructure:
         * `folder_id`: Cloud folder ID, same as in the provider settings.
         * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} clusters. Learn more about connecting to a {{ dataproc-name }} host over SSH [here](../../../data-proc/operations/connect-ssh.md).
 
-    1. Validate your {{ TF }} configuration files using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate

@@ -1,0 +1,1 @@
+`--profile-id` — [тип](../../organization/concepts/applications/oidc.md#oidc-application-types) OAuth-клиента (OIDC-приложения). В руководстве создается OAuth-клиент типа `{{ ui-key.yacloud_org.organization.apps.web-title_aeKTZ }}`.

@@ -14,7 +14,7 @@ To fix this error, select another subnet whose IP address range does not overlap
 
 {% include notitle [attach-sa-create-update](../attach-sa-create-update.md) %}
 
-### How do I fix the `No module named 'airflow.providers.postgres.operators'` error? {#airflow-provider-postgres-operators}
+### How to fix the `No module named 'airflow.providers.postgres.operators'` error? {#airflow-provider-postgres-operators}
 
 When accessing a {{ mpg-name }} cluster from an {{ maf-name }} cluster, you may get this error:
 
@@ -30,9 +30,9 @@ ModuleNotFoundError: No module named 'airflow.providers.postgres.operators'
 
 **Solution**:
 
-If using a newer provider version, use SQLExecuteQueryOperator instead of PostgresOperator. For more information, see [the official documentation](https://airflow.apache.org/docs/apache-airflow-providers-postgres/6.0.0/operators/postgres_operator_howto_guide.html).
+If using a newer provider version, use SQLExecuteQueryOperator instead of PostgresOperator. For more information, see [this article](https://airflow.apache.org/docs/apache-airflow-providers-postgres/6.0.0/operators/postgres_operator_howto_guide.html).
 
-### How do I fix the `AirflowException: Unknown hook type "postgres"` error? {#airflow-provider-postgres-operators-2}
+### How to fix the `AirflowException: Unknown hook type "postgres"` error? {#airflow-provider-postgres-operators-2}
 
 When accessing a {{ mpg-name }} cluster from an {{ maf-name }} cluster, you may get this error:
 
@@ -47,7 +47,7 @@ By default, the `apache-airflow-providers-postgres` provider is not installed in
 
 When creating or updating a {{ maf-name }} cluster, add the `apache-airflow-providers-postgres` pip package under **{{ ui-key.yacloud.mdb.forms.section_dependencies }}**.
 
-### How do I fix the `No module named 'airflow_clickhouse_plugin'` error? {#airflow-clickhouse-plugin}
+### How to fix the `No module named 'airflow_clickhouse_plugin'` error? {#airflow-clickhouse-plugin}
 
 When accessing a {{ mch-name }} cluster from an {{ maf-name }} cluster, you may get this error:
 
@@ -65,7 +65,7 @@ By default, the `airflow-clickhouse-plugin` plugin is not installed in {{ maf-na
 
 When creating or updating a {{ maf-name }} cluster, add the `airflow-clickhouse-plugin` pip package under **{{ ui-key.yacloud.mdb.forms.section_dependencies }}**.
 
-### How do I fix the `SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED]` error? {#airflow-clickhouse-ssl}
+### How to fix the `SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED]` error? {#airflow-clickhouse-ssl}
 
 When trying to connect to a {{ mch-name }} cluster from a {{ maf-name }} cluster, you may get this error:
 

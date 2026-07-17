@@ -17,23 +17,6 @@ description: В данном разделе вы узнаете, как в {{ sd
 
       Открывшийся раздел содержит список [алертов](../../concepts/alerts.md).
 
-      Для каждого алерта в таблице отображается следующая информация:
-
-      * ![traffic-light](../../../_assets/console-icons/traffic-light.svg) — уровень критичности алерта:
-          * ![cspm-rule-notice-icon](../../../_assets/security-deck/cspm-rule-notice-icon.svg) — {{ ui-key.yacloud_org.shared.components.severity_info_biSRh }};
-          * ![cspm-low-severity-icon](../../../_assets/security-deck/cspm-low-severity-icon.svg) — {{ ui-key.yacloud_org.shared.components.severity_low_tqf9A }}.
-          * ![cspm-moderate-severity-icon](../../../_assets/security-deck/cspm-moderate-severity-icon.svg) — {{ ui-key.yacloud_org.shared.components.severity_medium_8LZ4w }}.
-          * ![cspm-high-severity-icon](../../../_assets/security-deck/cspm-high-severity-icon.svg) — {{ ui-key.yacloud_org.shared.components.severity_high_cahHH }}.
-
-      * **{{ ui-key.yacloud_org.security-center.alerts.caption_title }}** — заголовок алерта.
-      * **{{ ui-key.yacloud_org.security-center.alerts.caption_category }}** — угроза, с которой связан алерт.
-      * **{{ ui-key.yacloud_org.security-center.alerts.caption_sensor }}** — модуль, от которого поступил алерт.
-      * **{{ ui-key.yacloud_org.security-center.alerts.caption_status }}** — статус алерта.
-      * **{{ ui-key.yacloud_org.security-center.alerts.caption_classification }}** — классификация активности.
-      * **{{ ui-key.yacloud_org.security-center.alerts.caption_assignee }}** — пользователь, назначенный ответственным за алерт.
-      * **{{ ui-key.yacloud_org.security-center.alerts.caption_created-by }}** и **{{ ui-key.yacloud_org.security-center.alerts.caption_modified-at }}** — даты и время создания и изменения алерта.
-      * **{{ ui-key.yacloud_org.security-center.alerts.caption_incident }}** — инцидент, с которым связан алерт.
-
   1. (Опционально) [Настройте](#configure) отображение алертов.
 
 

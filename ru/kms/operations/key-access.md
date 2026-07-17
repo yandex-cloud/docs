@@ -124,8 +124,8 @@ description: Следуя данной инструкции, вы сможете
 
   * Значение `ADD` в параметре `accessBindingDeltas[].action`, чтобы добавить роль.
   * Роль в параметре `accessBindingDeltas[].accessBinding.roleId`.
-  * Идентификатор субъекта, на кого назначается роль, в параметре `accessBindingDeltas[].accessBinding.subject.id`.
-  * Тип субъекта, на кого назначается роль, в параметре `accessBindingDeltas[].accessBinding.subject.type`.
+  * Идентификатор субъекта, которому назначается роль, в параметре `accessBindingDeltas[].accessBinding.subject.id`.
+  * Тип субъекта, которому назначается роль, в параметре `accessBindingDeltas[].accessBinding.subject.type`.
 
 {% endlist %}
 

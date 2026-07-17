@@ -88,8 +88,6 @@ Yandex Network Load Balancer (NLB) предназначен для постро�
 
  - [Обновление группы ВМ под нагрузкой](tutorials/updating-under-load.md)
 
- - [Интеграция Cloud DNS и корпоративного сервиса DNS](tutorials/dns-integration.md)
-
  - [Подключение к Object Storage из Virtual Private Cloud](tutorials/storage-vpc-access.md)
 
  - [Подключение к Container Registry из Virtual Private Cloud](tutorials/vpc-cr-access.md)

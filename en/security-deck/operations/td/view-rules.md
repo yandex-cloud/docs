@@ -5,6 +5,8 @@ description: In this section, you will learn how to view the active security rul
 
 # Viewing {{ td-full-name }} ({{ td-name }}) security control rules
 
+{% include [note-preview](../../../_includes/note-preview.md) %}
+
 {% include [td-use-in-workspaces](../../../_includes/security-deck/td-use-in-workspaces.md) %}
 
 ## Viewing general information about security control rules {#general-info}

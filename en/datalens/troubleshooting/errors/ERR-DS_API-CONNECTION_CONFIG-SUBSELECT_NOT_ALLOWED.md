@@ -9,7 +9,7 @@ description: This page describes the Subquery source is disallowed in the connec
 
 This error occurs when subqueries to the source are disabled in the connection settings.
 
-To fix it, turn on **SQL query access level** in the connection settings.
+To fix it, enable the **Raw SQL level** option in the connection settings.
 
 {% note info %}
 

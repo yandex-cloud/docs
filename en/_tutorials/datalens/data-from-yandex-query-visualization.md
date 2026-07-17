@@ -57,8 +57,8 @@ To create a {{ yq-full-name }} connection:
 
    * **Cloud and folder**: Select the folder with your service account.
    * **Service account**: Select an existing [service account](../../iam/concepts/users/service-accounts.md) or create a new one.
-   * **Cache TTL in seconds**: Specify the cache TTL or leave the default value.
-   * **Raw SQL level**: Select **Allow subqueries from datasets and queries from charts**.
+   * **Cache TTL in seconds**: Specify cache TTL or leave the default value.
+   * **Raw SQL level**: Select the **SQL to read** option.
 
 1. Click **Create connection**.
 1. Enter `yq-connect` as your connection name and click **Create**.
@@ -66,9 +66,6 @@ To create a {{ yq-full-name }} connection:
 ## Configure the dataset fields {#create_dataset}
 
 1. In the top-right corner of the page where you created the connection, click **Create dataset**.
-
-   ![create-dataset](../../_assets/datalens/yandex-query-visualization/create-dataset.png)
-
 1. In the window that opens, enter the query text below and click **Create**.
 
    ```sql

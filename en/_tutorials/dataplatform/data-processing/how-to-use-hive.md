@@ -6,6 +6,19 @@ You can run Hive jobs from the [{{ yandex-cloud }} CLI](#run-hive-job-cli) and d
 
 {% include [get-logs-info](../../../_includes/data-processing/note-info-get-logs.md) %}
 
+
+## Getting started {#before-you-begin}
+
+{% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
+
+
+### Required paid resources {#paid-resources}
+
+* {{ dataproc-name }} clusters: use of computing resources with a {{ dataproc-name }} markup, use of network drives, retrieval and storage of logs, amount of outgoing traffic (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
+* {{ objstorage-full-name }} buckets: use of storage, data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
+
+
 ## Working with jobs in the {{ yandex-cloud }} CLI {#run-hive-job-cli}
 
 {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -17,9 +30,9 @@ There are two ways to send an SQL query to Hive:
 * [In the job run command](#sql-in-cli).
 * [In the {{ objstorage-name }} object](#sql-from-objstorage) the {{ dataproc-name }} cluster service account has read access to.
 
-The query execution result is saved to an {{ objstorage-full-name }} bucket linked to the cluster together with the service output.
+The query execution result is saved to a {{ objstorage-full-name }} bucket linked to the cluster together with the service output.
 
-### Getting started {#before-you-begin-yc-cli}
+### Set up your infrastructure {#infra-yc-cli}
 
 1. [Create a service account](../../../iam/operations/sa/create.md) with the `dataproc.agent` and `dataproc.provisioner` roles.
 
@@ -279,7 +292,7 @@ The query execution result is saved to an {{ objstorage-full-name }} bucket link
 
 ## Working with jobs in the Hive CLI {#hive-shell}
 
-### Getting started {#before-you-begin-hive-shell}
+### Set up your infrastructure {#infra-hive-shell}
 
 1. [Create a service account](../../../iam/operations/sa/create.md) with the `dataproc.agent` and `dataproc.provisioner` roles.
 
@@ -373,3 +386,11 @@ The query execution result is saved to an {{ objstorage-full-name }} bucket link
     ```
 
     {% endcut %}
+
+
+## Delete the resources you created {#clear-out}
+
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+
+1. [Delete the {{ dataproc-name }} clusters](../../../data-proc/operations/cluster-delete.md).
+1. [Delete the {{ objstorage-name }} buckets](../../../storage/operations/buckets/delete.md). Before deleting your buckets, make sure to [have deleted all objects from those buckets](../../../storage/operations/objects/delete.md).

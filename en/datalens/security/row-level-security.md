@@ -30,26 +30,19 @@ For users, access control is based on the access configuration which looks like 
 
 For example, to configure `user-login` access to all rows with the `first-company` value in the `Company name` field, [set the following configuration](#how-to-manage-rls):
 
-
-
 ```yaml
 'first-company': user-login@yandex.ru
 ```
 
 {% include [datalens-domain-federation-note](../../_includes/datalens/datalens-domain-federation-note.md) %}
 
-
 To configure access for multiple users, list their accounts in the access configuration separated by commas:
-
-
 
 ```yaml
 'first-company': user-login-1@yandex.ru, user-login-2@yandex.ru, user-login-3@yandex.ru
 ```
 
-
 ### Access for user groups {#group-rls}
-
 
 For user groups, access control is based on the access configuration which looks like this:
 
@@ -66,27 +59,19 @@ For example, to configure `group-name` user group access to all rows with the `f
 'first-company': @group:group-name
 ```
 
-
-
 To configure access for multiple user groups, list them in the access configuration separated by commas:
-
 
 ```yaml
 'first-company': @group:group-name-1, @group:group-name-2, @group:group-name-3
 ```
 
-
-
 You can configure access for users and groups at the same time:
-
 
 ```yaml
 'first-company': user-login-1@yandex.ru, user-login-2@yandex.ru, @group:group-name-1, @group:group-name-2
 ```
 
 {% include [datalens-domain-federation-note](../../_includes/datalens/datalens-domain-federation-note.md) %}
-
-
 
 ### Wildcards and quotation marks in RLS configuration {#special-}
 
@@ -100,11 +85,9 @@ You can define values, users, and group names using wildcard characters:
 
   For example, to configure access to all rows with any value in the `Company name` field, set the following configuration:
 
-
   ```yaml
   *: user-login-1@yandex.ru, @group:group-name-1
   ```
-
 
 * `value_1` is available to all users and groups
 
@@ -126,19 +109,15 @@ Quotes in values are set using double quotes:
 
 For example, to set quotation marks for the `first-company "Example"` company name in the `Company name` field, specify the following configuration:
 
-
 ```yaml
 'first-company ''Example''': user-login-1@yandex.ru, @group:group-name-1
 ```
 
-
 You can also use the `"` character:
-
 
 ```yaml
 'first-company "Example"': user-login-1@yandex.ru, @group:group-name-1
 ```
-
 
 
 ## Configuring RLS at the data source level {#datasource-rls}

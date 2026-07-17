@@ -8,9 +8,21 @@ There are multiple ways to run a Spark or PySpark job in a {{ dataproc-name }} c
 
 Below is an example demonstrating the calculation of 2018 US air traffic statistics based on data from [transtats.bts.gov](https://transtats.bts.gov/). The dataset is stored in [Parquet](https://parquet.apache.org/) format in a public {{ objstorage-full-name }} bucket named `yc-mdb-examples`.
 
+
 ## Getting started {#before-you-begin}
 
-Set up your infrastructure:
+{% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
+
+
+### Required paid resources {#paid-resources}
+
+* {{ dataproc-name }} cluster: use of computing resources with a {{ dataproc-name }} markup, use of network drives, retrieval and storage of logs, amount of outgoing traffic (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
+* NAT gateway: hourly use of the gateway and its outgoing traffic (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* {{ objstorage-full-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
+
+
+## Set up your infrastructure {#infra}
 
 {% list tabs group=resources %}
 
@@ -94,7 +106,7 @@ Set up your infrastructure:
         * {{ dataproc-name }} cluster.
 
     1. In the `data-proc-for-spark-jobs.tf` configuration file, specify the required parameters.
-    1. Validate your {{ TF }} configuration files using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -650,6 +662,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
     1. [Delete the {{ dataproc-name }} cluster](../../../data-proc/operations/cluster-delete.md).
     1. If you reserved public static IP addresses, release and [delete them](../../../vpc/operations/address-delete.md).
+    1. [Delete the bucket](../../../storage/operations/buckets/delete.md). Before deleting the bucket, [delete all its objects](../../../storage/operations/objects/delete.md).
     1. [Delete the subnet](../../../vpc/operations/subnet-delete.md).
     1. [Delete the route table](../../../vpc/operations/delete-route-table.md).
     1. [Delete the NAT gateway](../../../vpc/operations/delete-nat-gateway.md).

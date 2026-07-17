@@ -65,7 +65,6 @@ IP-адрес [обработчика трафика](listener.md) баланс�
 
 ### Примеры использования {#examples-udp}
 
-* [{#T}](../tutorials/dns-integration.md)
 * [{#T}](../tutorials/web-service.md)
 
 

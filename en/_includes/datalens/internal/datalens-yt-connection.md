@@ -11,13 +11,11 @@ To create a {{ ytsaurus-name }} CHYT connection:
    * **Port**: Specify the CHYT connection port.
    * **Clique alias**: Specify the alias of a running clique. By default, the `*ch_public` public clique is used.
    * **{{ ytsaurus-name }} token**: Manually set the OAuth token to use with {{ ytsaurus-name }}. For more information, see [this {{ ytsaurus-name }} guide](https://ytsaurus.tech/docs/en/user-guide/storage/auth).
-   * **Cache TTL in seconds**: Specify the cache TTL or leave the default value. The recommended value is 300 seconds (5 minutes).
+   * **Cache TTL in seconds**: Specify cache TTL or leave the default value. The recommended value is 300 seconds (5 minutes).
 
    {% include [datalens-db-sql-level](../datalens-db-connection-sql-level.md) %}
 
    * **HTTPS**. Enable the secure connection option if your server supports HTTPS.
-
-   ![image](../../../_assets/datalens/operations/connection/connection-ytsaurus.png)
 
 
 1. Optionally, test the connection by clicking **Check connection**.

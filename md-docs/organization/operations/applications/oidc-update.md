@@ -7,7 +7,7 @@
 
 {% note info %}
 
-В настоящее время создавать OIDC-приложения [типов](../../concepts/applications/oidc.md#oidc-application-types) `Single-Page Application` и `Native Application`, а также управлять такими приложениями можно только в [интерфейсе Cloud Center](https://center.yandex.cloud/organization).
+В настоящее время создавать OIDC-приложения [типов](../../concepts/applications/oidc.md#oidc-application-types) `Single-Page Application` и `Native Application`, а также управлять такими приложениями можно в [интерфейсе Cloud Center](https://center.yandex.cloud/organization) и с помощью [Yandex Cloud CLI](../../../cli/index.md) и [API](../../../api-design-guide/index.md).
 
 {% endnote %}
 
@@ -267,56 +267,62 @@
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  1. Посмотрите описание команды CLI для настройки OAuth-клиента:
+  1. Посмотрите описание команды CLI для изменения OAuth-клиента:
 
-     ```bash
-     yc iam oauth-client update --help
-     ```
+      ```bash
+      yc iam oauth-client update --help
+      ```
 
   1. Выполните команду:
 
-     ```bash
-     yc iam oauth-client update \
-       --id <идентификатор_OAuth-клиента> \
-       --new-name <новое_имя_OAuth-клиента> \
-       --redirect-uris <адрес>[,<адрес>] \
-       --scopes <атрибут>[,<атрибут>]
-     ```
+      ```bash
+      yc iam oauth-client update \
+        --id <идентификатор_OAuth-клиента> \
+        --new-name <новое_имя_OAuth-клиента> \
+        --redirect-uris <адрес>[,<адрес>] \
+        --scopes <атрибут>[,<атрибут>]
+      ```
 
-     Где:
+      Где:
 
-     * `--id` — идентификатор OAuth-клиента.
-     * `--new-name` — новое имя OAuth-клиента.
-     * `--scopes` — новый набор атрибутов пользователей, которые будут доступны поставщику услуг. Укажите один или несколько атрибутов через запятую в формате `<атрибут1>,<атрибут2>`. Возможные атрибуты:
-       * `openid` — идентификатор пользователя. Обязательный атрибут.
-       * `profile` — дополнительная информация о пользователе, такая как имя, фамилия, аватар.
-       * `email` — адрес электронной почты пользователя.
-       * `address` — место жительства пользователя.
-       * `phone` — номер телефона пользователя.
-       * `groups` — [группы пользователей](../../concepts/groups.md) в организации.
+      * `--id` — идентификатор OAuth-клиента.
+      * `--new-name` — новое имя OAuth-клиента.
+      * `--scopes` — новый набор атрибутов пользователей, которые будут доступны поставщику услуг. Укажите один или несколько атрибутов через запятую в формате `<атрибут1>,<атрибут2>`. Возможные атрибуты:
+          * `openid` — идентификатор пользователя. Обязательный атрибут.
+          * `profile` — дополнительная информация о пользователе, такая как имя, фамилия, аватар.
+          * `email` — адрес электронной почты пользователя.
+          * `address` — место жительства пользователя.
+          * `phone` — номер телефона пользователя.
+          * `groups` — [группы пользователей](../../concepts/groups.md) в организации.
 
-         {% note warning %}
-         
-         Новый набор атрибутов пользователей также необходимо указать в [базовых настройках приложения](#update-basic-settings) с помощью параметра `--authorized-scopes`.
-         
-         {% endnote %}
+              {% note warning %}
+              
+              Новый набор атрибутов пользователей также необходимо указать в [базовых настройках приложения](#update-basic-settings) с помощью параметра `--authorized-scopes`.
+              
+              {% endnote %}
 
-     * `--redirect-uris` — укажите новые полученные у поставщика услуг адрес или несколько адресов в формате `<адрес1>,<адрес2>`.
+      * `--redirect-uris` — укажите новые полученные у поставщика услуг адрес или несколько адресов в формате `<адрес1>,<адрес2>`.
 
-     Результат:
+      Результат:
 
-     ```text
-     id: ajejklv8g9kh********
-     name: my-oauth-client
-     redirect_uris:
-       - https://example2.com
-       - https://example2.ru
-     scopes:
-       - openid
-       - profile
-     folder_id: b1g500m2195v********
-     status: ACTIVE
-     ```
+      ```text
+      id: ajejvqe2ahei********
+      name: test-oauth-client
+      redirect_uris:
+        - https://example.com
+        - https://example.ru
+      scopes:
+        - email
+        - groups
+        - openid
+        - profile
+      folder_id: b1gt6g8ht345********
+      authentication_methods:
+        - client_secret_post
+      status: ACTIVE
+      profile_id: web
+      pkce_required: true
+      ```
 
 - Terraform {#tf}
 
@@ -397,7 +403,6 @@
 
   Воспользуйтесь методом REST API [OAuthClient.Update](../../../iam/api-ref/OAuthClient/update.md) для ресурса [OAuthClient](../../../iam/api-ref/grpc/OAuthClient/index.md) или вызовом gRPC API [OAuthClientService/Update](../../../iam/api-ref/grpc/OAuthClient/update.md).
 
-
 {% endlist %}
 
 ## Измените настройки безопасности приложения {#update-secret}
@@ -431,6 +436,64 @@
      
          Чтобы отказаться от использования этого расширения, отключите опцию **Требовать PKCE**.
   1. Нажмите кнопку **Сохранить**.
+
+- CLI {#cli}
+
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+
+  По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
+  1. Посмотрите описание команды CLI для изменения OAuth-клиента:
+
+      ```bash
+      yc iam oauth-client update --help
+      ```
+
+  1. Выполните команду:
+
+      ```bash
+      yc iam oauth-client update \
+        --id <идентификатор_OAuth-клиента> \
+        --auth-methods <способ_передачи_секрета> \
+        --pkce-required
+      ```
+
+      Где:
+
+      * `--id` — идентификатор OAuth-клиента.
+      * `--auth-methods` — [способы передачи секрета](../../concepts/applications/oidc.md#secret-delivery) приложения. Возможные значения:
+
+          * `client_secret_basic` — секрет приложения передается в HTTP-заголовке `Authorization: Basic`.
+          * `client_secret_post` — секрет приложения передается в теле POST-запроса.
+
+          Чтобы OIDC-приложение могло использовать оба способа передачи секрета, задайте в параметре `--auth-methods` оба значения через запятую.
+      * `--pkce-required` — параметр, позволяющий управлять требованием для поставщика услуг использовать [PKCE](../../concepts/applications/oidc.md#pkce):
+
+          * Чтобы включить требование использовать PKCE, передайте в команде параметр `--pkce-required`.
+          * Чтобы отключить требование использовать PKCE, передайте в команде параметр `--pkce-required=false`.
+
+      Результат:
+
+      ```text
+      id: ajejvqe2ahei********
+      name: test-oauth-client
+      scopes:
+        - email
+        - groups
+        - openid
+        - profile
+      folder_id: b1gt6g8ht345********
+      authentication_methods:
+        - client_secret_basic
+        - client_secret_post
+      status: ACTIVE
+      profile_id: web
+      pkce_required: true
+      ```
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [OAuthClient.Update](../../../iam/api-ref/OAuthClient/update.md) для ресурса [OAuthClient](../../../iam/api-ref/grpc/OAuthClient/index.md) или вызовом gRPC API [OAuthClientService/Update](../../../iam/api-ref/grpc/OAuthClient/update.md).
 
 {% endlist %}
 
@@ -478,28 +541,29 @@
 
   1. Посмотрите описание команды CLI для создания нового секрета OIDC-приложения:
 
-     ```bash
-     yc iam oauth-client-secret create --help
-     ```
+      ```bash
+      yc iam oauth-client-secret create --help
+      ```
 
   1. Выполните команду:
 
-     ```bash
-     yc iam oauth-client-secret create --oauth-client-id <идентификатор_OAuth-клиента>
-     ```
+      ```bash
+      yc iam oauth-client-secret create \
+        --oauth-client-id <идентификатор_OAuth-клиента>
+      ```
 
-     Результат:
+      Результат:
 
-     ```text
-     oauth_client_secret:
-       id: aje0hjqp68u6********
-       oauth_client_id: ajejklv8g9kh********
-       masked_secret: yccs__9e1d5f6d5c****
-       created_at: "2025-10-23T11:44:50.739768533Z"
-     secret_value: yccs__9e1d5f6d5c********
-     ```
+      ```text
+      oauth_client_secret:
+        id: aje0hjqp68u6********
+        oauth_client_id: ajejklv8g9kh********
+        masked_secret: yccs__9e1d5f6d5c****
+        created_at: "2025-10-23T11:44:50.739768533Z"
+      secret_value: yccs__9e1d5f6d5c********
+      ```
 
-     Не забудьте указать новый секрет в настройках на стороне поставщика услуг. При необходимости обратитесь к документации или в службу поддержки вашего поставщика услуг.
+      Не забудьте указать новый секрет в настройках на стороне поставщика услуг. При необходимости обратитесь к документации или в службу поддержки вашего поставщика услуг.
 
 - Terraform {#tf}
 
@@ -563,7 +627,6 @@
     ```bash
     yc iam oauth-client-secret list --oauth-client-id <идентификатор_OAuth-клиента>
     ```
-
 
 - API {#api}
 

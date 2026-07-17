@@ -18,9 +18,14 @@ description: В данном разделе вы узнаете, как можн
   1. В верхней части окна выберите [окружение](../../concepts/workspace.md), для которого хотите посмотреть информацию о правилах.
   1. На открывшейся странице **{{ ui-key.yacloud_org.security.controls.ControlsPage.security_control_r4yn7 }}** перейдите на вкладку **{{ k8s }}®**. Открывшийся раздел содержит список правил контроля, которые входят в состав заданных для текущего окружения [стандартов безопасности](../../concepts/workspace.md#standards).
 
+      {% note tip %}
+
+      {% include [rules-display-settings](../../../_includes/security-deck/rules-display-settings.md) %}
+
+      {% endnote %}
+
       Для каждого правила в таблице отображается следующая информация:
       
-      {% include [table-columns-tip](../../../_includes/security-deck/table-columns-tip.md) %}
       
       * ![traffic-light](../../../_assets/console-icons/traffic-light.svg) — уровень критичности правила: значок, информирующий о том, насколько критичным для безопасности является нарушение правила:
       

@@ -5,8 +5,6 @@ description: Guide on working with the {{ kspm-full-name }} ({{ kspm-name }}) in
 
 # Working with the {{ kspm-name }} dashboard
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 To work with the dashboard, you need the `security-deck.viewer` role or higher for the folder containing the {{ kspm-name }} resources.
 
 {% list tabs group=instructions %}

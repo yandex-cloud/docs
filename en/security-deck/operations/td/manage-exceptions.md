@@ -5,6 +5,8 @@ description: In this section, you will learn how to create, modify, and delete e
 
 # Managing exceptions to the {{ td-full-name }} ({{ td-name }}) module's security rules
 
+{% include [note-preview](../../../_includes/note-preview.md) %}
+
 {% include [td-use-in-workspaces](../../../_includes/security-deck/td-use-in-workspaces.md) %}
 
 [Exceptions](../../concepts/threat-detector.md#exceptions) to the {{ td-full-name }} module's security control [rules](../../concepts/threat-detector.md#rules) allow you to flexibly configure when and for which objects the results of a rule check should be ignored.

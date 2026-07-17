@@ -10,7 +10,7 @@ When you create a host in a subcluster, {{ dataproc-name }} generates an FQDN an
 
 The host IP address may change during operation; however, its FQDN is permanent.
 
-To learn how to get a host’s FQDN, see [this guide](../operations/fqdn.md).
+For how to get a host FQDN, see [this guide](../operations/fqdn.md).
 
 {% note warning %}
 

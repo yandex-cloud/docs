@@ -241,7 +241,7 @@ Where all the fields are optional:
     {% endnote %}
 
 * `size`: Table size, including font size, line spacing, and indentation within cells. The value type is a string of the `l`, `m`, or `s` value.
-* `events`: Specifies a configuration for cross-filtering in the table. To override this configuration for a specific cell, use the `custom` field for the cell. For more information, see [{#T}](../cross-filtration.md).
+* `events`: Specifies a cross-filtering configuration for the table. This configuration can be overridden at the cell level using the `custom` field. For more information, see [{#T}](../cross-filtration.md).
 
 
 ## Examples {#examples}

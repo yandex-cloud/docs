@@ -58,7 +58,7 @@
 * [Создать пул пользователей](user-pools/create-userpool.md)
 * [Редактировать пул пользователей](user-pools/edit-userpool.md)
 * [Управление доменами в пуле пользователей](user-pools/manage-domain.md)
-* [Настроить доступ пользователям пула](user-pools/set-access-bindings-userpool.md)
+* [Настроить доступ к пулу пользователей](user-pools/set-access-bindings-userpool.md)
 * [Настроить парольную политику](user-pools/set-password-policy.md)
 * [Получить список пулов пользователей](user-pools/get-list-userpools.md)
 * [Получить информацию о пуле пользователей](user-pools/get-userpool.md)

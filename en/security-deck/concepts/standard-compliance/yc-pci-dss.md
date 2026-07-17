@@ -5,8 +5,6 @@ description: This section sets forth rules that help you automate compliance wit
 
 # PCI DSS requirements
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 These rules help you automate compliance with data security standards designed to protect payment card data.
 
 The standard was established by the Payment Card Industry Security Standards Council (PCI SSC) founded by major international payment systems including Visa, MasterCard, American Express, Discover, and JCB.

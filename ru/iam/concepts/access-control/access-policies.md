@@ -131,6 +131,7 @@ _Политики авторизации_ (политики) — это меха
 
 {% endnote %}
 
+* [aistudio.responses.restrictNetworkAccess](#aistudio-responses-restrictNetworkAccess)
 * [serverless.containers.restrictNetworkAccess](#serverless-containers-restrictNetworkAccess)
 * [serverless.containers.restrictResourceVPCNetwork](#serverless-containers-restrictResourceVPCNetwork)
 * [serverless.functions.restrictNetworkAccess](#serverless-functions-restrictNetworkAccess)
@@ -140,6 +141,15 @@ _Политики авторизации_ (политики) — это меха
 * [serverless.responses.restrictNetworkAccess](#serverless-responses-restrictNetworkAccess)
 * [serverless.workflows.restrictNetworkAccess](#serverless-workflows-restrictNetworkAccess)
 * [serverless.workflows.restrictResourceVPCNetwork](#serverless-workflows-restrictResourceVPCNetwork)
+
+#### aistudio.responses.restrictNetworkAccess {#aistudio-responses-restrictNetworkAccess}
+
+Политика запрещает отправку запросов [Responses API]({{ link-docs-ai }}ai-studio/api/Responses/) в {{ ai-studio-full-name }} и управление ими с любых адресов, за исключением заданных явно IP-адресов или [облачных сетей](../../../vpc/concepts/network.md#network) {{ vpc-full-name }}.
+
+Настраиваемые параметры (применяются с логикой `ИЛИ`):
+
+* `allowed_src_ips` — список IP-адресов или диапазонов IP-адресов в нотации [CIDR](https://ru.wikipedia.org/wiki/Бесклассовая_адресация), с которых разрешен вызов функций и управление ими.
+* `allowed_vpc_network_ids` — список идентификаторов облачных сетей, в которых разрешен вызов функций и управление ими через настроенное [сервисное подключение](../../../vpc/concepts/private-endpoint.md).
 
 #### serverless.containers.restrictNetworkAccess {#serverless-containers-restrictNetworkAccess}
 

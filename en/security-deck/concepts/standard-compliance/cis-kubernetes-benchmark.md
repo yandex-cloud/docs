@@ -5,8 +5,6 @@ description: This ruleset contains the CIS {{ k8s }} Benchmark recommendations f
 
 # CIS Benchmark™ requirements for {{ k8s }}
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 This ruleset contains the [CIS {{ k8s }} Benchmark](https://www.cisecurity.org/benchmark/kubernetes) recommendations for secure operation of components running on {{ k8s }} nodes.
 
 The ruleset contains only automatic checks corresponding to the `4. Worker Nodes` section:

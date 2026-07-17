@@ -7,8 +7,6 @@ description: This section describes how to get started with {{ sd-name }} and ma
 
 {{ sd-name }} offers tools for data security and compliance with regulatory requirements and industry standards.
 
-{% include [note-service-preview](../_includes/note-service-preview.md) %}
-
 ## Getting started {#before-begin}
 
 To get started with {{ sd-name }} in {{ yandex-cloud }}:
@@ -70,7 +68,7 @@ For more information, see [{#T}](./concepts/dspm.md).
 
 ### {{ ciem-full-name }} ({{ ciem-name }}) {#ciem}
 
-{{ sd-name }} [{{ ciem-full-name }}]({{ link-sd-main }}iam-diagnostics/) is a tool providing a centralized [view](./operations/ciem/view-permissions.md) of the full list of accesses to the organization's [resources](../iam/concepts/access-control/resources-with-access-control.md) available to [subjects](../iam/concepts/access-control/index.md#subject), i.e., [users](../overview/roles-and-resources.md#users), [service accounts](../iam/concepts/users/service-accounts.md), [user groups](../organization/concepts/groups.md), [system groups](../iam/concepts/access-control/system-group.md), and [public groups](../iam/concepts/access-control/public-group.md). The tool also makes it easy to [revoke](./operations/ciem/revoke-permissions.md) excessive access permissions from subjects. To learn more, see [{#T}](./concepts/ciem.md).
+{{ sd-name }} [{{ ciem-full-name }}]({{ link-sd-main }}iam-diagnostics/) is a tool providing a centralized [view](./operations/ciem/view-permissions.md) of the full list of accesses to the organization's [resources](../iam/concepts/access-control/resources-with-access-control.md) available to [subjects](../iam/concepts/access-control/index.md#subject), i.e., [users](../overview/roles-and-resources.md#users), [service accounts](../iam/concepts/users/service-accounts.md), [user groups](../organization/concepts/groups.md), [system groups](../iam/concepts/access-control/system-group.md), and [public groups](../iam/concepts/access-control/public-group.md). The tool also makes it easy to [revoke](./operations/ciem/revoke-permissions.md) excessive access permissions from subjects. For more information, see [{#T}](./concepts/ciem.md).
 
 To get started with the {{ ciem-name }} module, follow the guides for [viewing](./operations/ciem/view-permissions.md) and [revoking](./operations/ciem/revoke-permissions.md) accesses.
 

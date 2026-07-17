@@ -72,7 +72,7 @@ OIDC-приложения в Yandex Identity Hub в зависимости от 
 
 {% note info %}
 
-В настоящее время создавать OIDC-приложения [типов](oidc.md#oidc-application-types) `Single-Page Application` и `Native Application`, а также управлять такими приложениями можно только в [интерфейсе Cloud Center](https://center.yandex.cloud/organization).
+В настоящее время создавать OIDC-приложения [типов](oidc.md#oidc-application-types) `Single-Page Application` и `Native Application`, а также управлять такими приложениями можно в [интерфейсе Cloud Center](https://center.yandex.cloud/organization) и с помощью [Yandex Cloud CLI](../../../cli/index.md) и [API](../../../api-design-guide/index.md).
 
 {% endnote %}
 

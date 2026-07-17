@@ -25,7 +25,7 @@ _[{{ kraft-name }}](https://docs.confluent.io/platform/current/kafka-metadata/kr
 * The cluster becomes more fault-tolerant and recovers almost instantly in case of a failure.
 * You can create a greater number of partitions within the cluster.
 
-For more information, see the Confluent [website](https://developer.confluent.io/learn/kraft/#benefits-of-kafkas-new-quorum-controller) and [documentation](https://docs.confluent.io/platform/current/kafka-metadata/kraft.html).
+For more information, see the Confluent [website](https://developer.confluent.io/learn/kraft/#benefits-of-kafkas-new-quorum-controller) and [guides](https://docs.confluent.io/platform/current/kafka-metadata/kraft.html).
 
 {{ kraft-short-name }} cons arise from the [cluster topology specifics](#cluster-topology):
 

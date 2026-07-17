@@ -5,8 +5,6 @@ description: Follow this guide to learn how to manually initiate the procedure t
 
 # Checking a workspace for compliance with control rules
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 {% include [cspm-use-in-workspaces](../../../_includes/security-deck/cspm-use-in-workspaces.md) %}
 
 The check for compliance with security control rules of the {{ cspm-name }} module is performed automatically every eight hours; however, users with the `cspm.editor` [role](../../security/cspm-roles.md#cspm-editor) or higher can run the check manually.

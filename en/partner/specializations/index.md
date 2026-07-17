@@ -87,6 +87,6 @@ Partners with the **{{ yandex-cloud }} Expert** and **{{ yandex-cloud }} Profess
 
 Rebates and co-marketing budget accrue for each quarter the partner holds an active status. You can see your rebates under **Rebate accrual balance** on the [partner portal](https://partners.yandex.cloud/). 
 
-For more information on using the co-marketing budget, see [Co-marketing program](../program/var-tools.md#co-marketing).
+Learn more about using the co-marketing budget in [Co-marketing program](../program/var-tools.md#co-marketing).
 
-For more information on getting partner rewards, see the [Partner Agreement](https://yandex.ru/legal/cloud_partnership/?lang=ru).
+For more on partner rewards, see the [partner agreement](https://yandex.ru/legal/cloud_partnership/?lang=ru) section.

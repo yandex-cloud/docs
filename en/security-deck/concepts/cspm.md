@@ -5,8 +5,6 @@ description: '{{ cspm-full-name }} ({{ cspm-name }}) ensures that the cloud infr
 
 # {{ cspm-full-name }} ({{ cspm-name }})
 
-{% include [note-preview](../../_includes/note-preview.md) %}
-
 {% include [cspm-basic-intro](../../_includes/security-deck/cspm-basic-intro.md) %}
 
 The check resumes every eight hours. Upon completion, the system updates the violation count, applies created exceptions, and sends alerts.

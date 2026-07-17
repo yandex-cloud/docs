@@ -39,7 +39,7 @@ A critical error was detected which caused the current operation to be interrupt
 
 #### Objects of this type are not available for export and import {#export-object-type}
 
-Some object types are not available for import and export, see the [Restrictions](./export-and-import.md#restrictions) section for details.
+Some object types are not available for import and export. For more information, see [Restrictions](./export-and-import.md#restrictions).
 
 #### Some connection types are not supported in the current {{ datalens-short-name }} version {#export-connection-type}
 
@@ -99,7 +99,7 @@ A critical error was detected which caused the current operation to be interrupt
 
 #### Objects of this type are not available for export and import {#import-object-type}
 
-Some object types are not available for import and export, see the [Restrictions](./export-and-import.md#restrictions) section for details.
+Some object types are not available for import and export. For more information, see [Restrictions](./export-and-import.md#restrictions).
 
 #### Some connection types are not supported in the current {{ datalens-short-name }} version {#import-connection-type}
 

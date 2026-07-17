@@ -17,7 +17,7 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 
 1. In the left-hand panel, click ![image](../../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and select the dashboard you need.
 1. At the top of the page, click **Edit**.
-1. In the panel at the bottom of the page, click ![image](../../../_assets/console-icons/sliders.svg) **Selector** and drag it where you want it to be.
+1. In the panel at the bottom of the page, click ![image](../../../_assets/console-icons/sliders.svg) **Selector** and drag it to a desired location.
 
    
    ![image](../../../_assets/datalens/operations/widget-select-js.png =650x95)
@@ -161,7 +161,7 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
    * **Reset button**: Adds a widget button which resets the values of all the widget selectors to their defaults.
 
    
-   * **Background**: Widget background color and opacity separately for the light and dark theme.
+   * **Background**: Sets the widget background color and opacity for the light and dark theme individually.
    * **Rounding**: Widget corner rounding.
 
 
@@ -170,7 +170,7 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
    
    * Optionally, for a widget with multiple selectors, use the **Show in tabs** field to configure how to display the selector on the dashboard:
 
-     * `Current tab <tab_name>`: Display on selected tab. This is the default option.
+     * `Current tab <tab_name>`: Display on the selected tab. This is the default option.
      * `Selected tabs`: Select one or more tabs to display the selector on. By default, the current tab is selected.
      * `All tabs`: Display on all tabs.
      
@@ -239,7 +239,7 @@ To paste a copied selector onto your dashboard:
 1. In the left-hand panel, click ![image](../../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and select the dashboard you need.
 1. At the top of the page, click **Edit**.
 1. Select the dashboard tab you want to paste the widget onto.
-1. In the panel at the bottom of the page, hold down ![image](../../../_assets/console-icons/copy-plus.svg) **Paste** and drag the widget and drag it where you want it to be. To paste the widget at the bottom of your dashboard, simply click ![image](../../../_assets/console-icons/copy-plus.svg) **Paste**.
+1. In the panel at the bottom of the page, hold down ![image](../../../_assets/console-icons/copy-plus.svg) **Paste** and drag the widget to a desired location. To paste the widget at the bottom of your dashboard, simply click ![image](../../../_assets/console-icons/copy-plus.svg) **Paste**.
 
    If you are trying to paste a selector into another tab of the current dashboard, select:
    

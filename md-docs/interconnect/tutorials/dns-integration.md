@@ -1,144 +1,185 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Interconnect](../index.md) > [Практические руководства](index.md) > Интеграция с корпоративным сервисом DNS
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Interconnect](../index.md) > [Практические руководства](index.md) > Разрешение облачных DNS-имен в корпоративной сети
 
-# Интеграция Cloud DNS и корпоративного сервиса DNS
+# Разрешение облачных DNS-имен в корпоративной сети
 
-Если у вас есть собственные корпоративные сети, связанные с внутренними [сетями](../../vpc/concepts/network.md#network) в вашем [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud) Yandex Cloud с помощью сервиса [Yandex Cloud Interconnect](../index.md), то можно интегрировать корпоративный DNS с [Cloud DNS](../../dns/index.md). Это позволит обращаться к ресурсам и сервисам по имени независимо от их расположения: в корпоративной или облачной сетях.
+Если у вас есть собственные корпоративные сети, связанные с [облачными сетями](../../vpc/concepts/network.md#network) Yandex Cloud (например, с помощью сервиса [Yandex Cloud Interconnect](../index.md)), то вы можете интегрировать корпоративный DNS с внутренними DNS-зонами в Yandex Cloud и реализовать разрешение DNS-имен облачных ресурсов в ваших корпоративных сетях. Это позволит по имени обращаться к облачным ресурсам и сервисам Yandex Cloud из корпоративных сетей.
 
-Делегировать управление DNS-записями во [внутренних зонах](../../dns/concepts/dns-zone.md#private-zones) Yandex Cloud вашим DNS-серверам в корпоративной сети не получится, так как NS-записи для внутренней DNS-зоны игнорируются. Чтобы распознавание имен сервисов и ресурсов в облачных сетях выполнялось при использовании внутренних зон, настройте отдельные DNS-форвардеры в облачных подсетях. _DNS-форвардеры_ — серверы DNS, которые по-разному перенаправляют запросы в зависимости от имени, указанного в запросе. Рекомендуем использовать [CoreDNS](https://coredns.io/) или [Unbound](https://www.nlnetlabs.nl/projects/unbound/).
+Чтобы настроить разрешение внутренних облачных DNS-имен клиентами в вашей корпоративной сети, вы создадите на стороне Yandex Cloud [входящее DNS-подключение](../../dns/concepts/dns-connection.md#dns-inbound), которое будет перенаправлять DNS-запросы из корпоративной сети на [DNS-резолверы](../../dns/concepts/dns-resolver.md) в подсетях Virtual Private Cloud. На стороне корпоративной сети вы настроите DNS-сервер так, чтобы все DNS-запросы к облачным ресурсам направлялись на IP-адрес созданного входящего DNS-подключения.
 
-{% note warning %}
+В данном сценарии пользователь, подключенный к корпоративной сети в `subnet1`, разрешает DNS-имя хоста в [кластере](../../managed-postgresql/concepts/index.md) Yandex Managed Service for PostgreSQL, отправляя DNS-запросы через локальный [DNS-форвардер](*dns_forwarder).
 
-Некоторые DNS-форвардеры сверяют расположение зон в Cloud DNS со своими настройками при валидации ответа. В этом случае необходимо указать в настройках только зоны, существующие в Cloud DNS. Например, если записи размещены в общей зоне `.`, настройте переадресацию для нее.
+Схема решения:
 
-{% endnote %}
+![DNS integration example](../../_assets/dns/dns-integration-26.svg "DNS integration example")
 
-Чтобы настроить распознавание имен корпоративных сервисов и ресурсов в облачных сетях Yandex Cloud:
+1. Корпоративная сеть:
 
-1. [Ознакомьтесь с описанием примера интеграции](#network-desc).
-1. [Настройте DNS в облаке](#setup-cloud-dns).
-1. [Настройте корпоративные серверы DNS](#setup-on-prem-dns).
-1. [Проверьте работу сервиса](#check-dns-service).
+    * Состоит из подсети `subnet1` с диапазоном адресов `172.16.1.0/24`.
+    * В подсети `subnet1` размещен DNS-сервер (DNS-форвардер) с IP-адресом `172.16.1.200`.
+
+        Этот сервер обслуживает DNS-зону в подсети `subnet1` и перенаправляет DNS-запросы компьютера пользователя с IP-адресом `172.16.1.10` в облачную сеть на IP-адрес [входящего DNS-подключения](../../dns/concepts/dns-connection.md#dns-inbound), созданного на стороне Yandex Cloud.
+1. Облачная сеть Yandex Cloud:
+
+    * Состоит из [подсети](../../vpc/concepts/network.md#subnet) `subnet2` с диапазоном адресов `192.168.1.0/24`.
+    * В подсети `subnet2` расположен кластер Yandex Managed Service for PostgreSQL.
+    
+        В этом руководстве вы настроите интеграцию таким образом, чтобы DNS-имя ([FQDN](../../glossary/fqdn.md)) хоста этого кластера успешно разрешалось изнутри корпоративной сети.
+    * В облачной сети создано [входящее DNS-подключение](../../dns/concepts/dns-connection.md#dns-inbound), позволяющее клиентам из корпоративной сети разрешать DNS-имена во [внутренних DNS-зонах](../../dns/concepts/dns-zone.md#private-zones) Yandex Cloud.
+
+        Входящему DNS-подключению присвоен IP-адрес `192.168.1.200`, относящийся к подсети `subnet2` и зарезервированный в сервисе Yandex Virtual Private Cloud.
+1. С помощью сервиса Yandex Cloud Interconnect корпоративная и облачная сети связаны между собой так, что все IP-адреса подсети в одной сети доступны из подсети в другой сети и наоборот.
+
+Чтобы настроить разрешение DNS-имен облачных ресурсов и сервисов Yandex Cloud в корпоративных сетях:
+
+1. [Подготовьте облако к работе](#before-you-begin).
+1. [Настройте облачную инфраструктуру](#setup-cloud-dns).
+1. [Настройте корпоративную сеть](#setup-on-prem-dns).
+1. [Проверьте работу интеграции](#check-dns-service).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
-## Пример интеграции {#network-desc}
-
-![DNS integration example](../../_assets/dns/dns-integration.svg "DNS integration example")
-
-1. Корпоративная сеть состоит из двух [подсетей](../../vpc/concepts/network.md#subnet): `172.16.1.0/24` и `172.16.2.0/24`.
-
-1. В этих подсетях размещено по одному DNS-серверу:
-
-    * `172.16.1.5`: ns1.corp.example.net
-    * `172.16.2.5`: ns2.corp.example.net
-   
-    Эти серверы обслуживают DNS-зону `corp.example.net`.
-
-1. Облачная сеть Yandex Cloud также состоит из двух подсетей:
-
-   * `172.16.3.0/24`: subnet3, [зона доступности](../../overview/concepts/geo-scope.md) `ru-central1-d`.
-   * `172.16.4.0/24`: subnet4, зона доступности `ru-central1-b`.
-
-    В этих подсетях размещены DNS-серверы Yandex Cloud: `172.16.3.2` и `172.16.4.2`.
-
-    Эти серверы обслуживают [внутренние DNS-зоны](../../dns/concepts/dns-zone.md#private-zones) в облачной сети.
-
-1. Корпоративная и облачная сети связаны между собой так, что все подсети одной сети доступны из подсетей другой сети и наоборот.
-
-Далее будут настроены два DNS-форвардера в облачной сети:
-
-* `172.16.3.5`: forwarder1.internal
-* `172.16.4.5`: forwarder2.internal
-
-Они будут перенаправлять DNS-запросы следующим образом:
-
-* Запросы к зоне `corp.example.net` — через корпоративные DNS-серверы `172.16.1.5` и `172.16.2.5`.
-* Все прочие запросы (к зоне `.`) — через внутренние DNS-серверы Yandex Cloud, соответствующим подсетям: `172.16.3.2` и `172.16.4.2`.
-
-Для обеспечения отказоустойчивости работы DNS-форвардеров, они будут размещены за [внутренним сетевым балансировщиком](../../network-load-balancer/concepts/nlb-types.md) Yandex Network Load Balancer. Все запросы к DNS-форвардерам (как из облачной сети, так и из корпоративной сети) будут выполняться через этот балансировщик.
-
 ## Перед началом работы {#before-you-begin}
 
-1. Для установки DNS-форвардеров в каждой из облачных подсетей `subnet3` и `subnet4` [создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) из публичного образа [Ubuntu 20.04](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-20-04-lts) с параметрами:
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-    * **Имя**:
-        * `forwarder1` — для ВМ в подсети `subnet3`;
-        * `forwarder2` — для ВМ в подсети `subnet4`.
-    * В блоке **Сетевые настройки**:
-      * **Публичный IP-адрес**: `Без адреса`.
-      * **Внутренний IPv4-адрес**: выберите `Вручную` и укажите:
-        * 172.16.3.5 — для ВМ `forwarder1`;
-        * 172.16.4.5 — для ВМ `forwarder2`.
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
-1. Для подключения из интернета и проверки сервиса в подсети `subnet4` создайте еще одну ВМ из публичного образа [Ubuntu 20.04](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-20-04-lts) с параметрами:
-
-    * **Имя**: `test1`.
-    * В блоке **Сетевые настройки**:
-      * **Публичный IP-адрес**: `Автоматически`.
-      * **Внутренний IPv4-адрес**: `Автоматически`.
-  
-1. Для установки ПО из интернета в подсетях `subnet3` и `subnet4` [настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md).
+[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры входят:
-* плата за постоянно запущенную виртуальную машину ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
-* плата за использование динамического или статического внешнего IP-адреса ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md));
-* плата за использование сетевого балансировщика ([тарифы Yandex Network Load Balancer](../../network-load-balancer/pricing.md)).
+В стоимость поддержки создаваемой инфраструктуры входят:
 
-## Настройте DNS в облаке {#setup-cloud-dns}
+* Плата за ресурсы кластера Managed Service for PostgreSQL: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for PostgreSQL](../../managed-postgresql/pricing.md)).
+* Плата за использование сервиса Yandex Cloud Interconnect ([тарифы Cloud Interconnect](../pricing.md)).
 
-1. [Установите DNS-форвардеры](#setup-dns-forwarders).
-1. [Настройте сетевой балансировщик](#setup-cloud-balancer).
-1. [Настройте сервис DHCP](#setup-cloud-dhcp).
+## Настройте облачную инфраструктуру {#setup-cloud-dns}
 
-### Установите DNS-форвардеры {#setup-dns-forwarders}
+На стороне Yandex Cloud вы создадите облачную сеть с одной подсетью, кластер Managed Service for PostgreSQL с одним хостом и входящее DNS-подключение.
 
-{% list tabs %}
+### Создайте облачную сеть {#create-network}
 
-- CoreDNS
+{% list tabs group=instructions %}
 
-  1. [Подключитесь к ВМ](../../compute/operations/vm-connect/ssh.md) для установки DNS-форвардера через промежуточную ВМ `test1`.
+- Консоль управления {#console}
 
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете создавать облачную инфраструктуру.
+  1. Перейдите в сервис **Virtual Private Cloud** и нажмите кнопку **Создать сеть**.
+  1. В поле **Имя** задайте [имя](*name) облачной сети `my-vpc-network`.
+  1. Отключите опцию **Создать подсети**.
+  1. Нажмите **Создать сеть**.
+
+{% endlist %}
+
+### Создайте подсеть {#create-subnet}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
+  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. На панели слева выберите ![subnets](../../_assets/console-icons/nodes-right.svg) **Подсети** и нажмите кнопку **Создать подсеть**.
+  1. В поле **Имя** задайте [имя](*name) подсети `subnet2`.
+  1. В поле **Зона доступности** выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-b`.
+  1. В поле **Сеть** выберите облачную сеть `my-vpc-network`, созданную ранее.
+  1. В поле **CIDR** задайте CIDR подсети `192.168.1.0/24`.
+  1. Нажмите **Создать подсеть**.
+
+{% endlist %}
+
+### Создайте кластер Yandex Managed Service for PostgreSQL {#create-cluster}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
+  1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL** и нажмите кнопку **Создать кластер**.
+  1. В поле **Имя кластера** задайте [имя](*name) кластера `my-postgresql-cluster`.
+  1. В блоке **База данных** в поле **Пароль** выберите `Сгенерировать`.
+  1. В блоке **Сетевые настройки** выберите созданную ранее облачную сеть `my-vpc-network`.
+  1. В блоке **Хосты** оставьте один хост в зоне доступности `ru-central1-b`.
+
+      Чтобы удалить лишние хосты, в строке с соответствующим хостом нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../_assets/console-icons/trash-bin.svg) **Удалить**.
+  
+      {% note tip %}
+
+      Одного хоста достаточно, чтобы проверить работу рассматриваемого решения.
+      
+      В рабочих сценариях не рекомендуется создавать кластер из одного хоста. Такой кластер обходится дешевле, но не обеспечивает [высокую доступность](../../managed-postgresql/concepts/high-availability.md#host-configuration).
+
+      {% endnote %}
+
+  1. Значения остальных параметров оставьте без изменений и нажмите кнопку **Создать кластер**.
+
+{% endlist %}
+
+### Создайте входящее DNS-подключение {#create-inbound-endpoint}
+
+Создайте [входящее DNS-подключение](../../dns/concepts/dns-connection.md#dns-inbound), через которое клиенты из корпоративной сети смогут разрешать DNS-имена во внутренних DNS-зонах Yandex Cloud:
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога, в котором вы создаете инфраструктуру.
+  1. Перейдите в сервис **Cloud DNS**.
+  1. На панели слева выберите ![nodes-down](../../_assets/console-icons/nodes-down.svg) **Входящие подключения** и нажмите кнопку **Создать подключение**. В открывшемся окне:
+
+      1. В поле **Имя** задайте [имя](*name) `corp-example-net-inbound`.
+      1. В блоке **Сетевые настройки** в поле **Сеть** выберите облачную сеть `my-vpc-network`.
+      1. В поле **IP-адрес** нажмите кнопку **Зарезервировать**, чтобы зарезервировать статический внутренний IP-адрес для создаваемого DNS-подключения. В открывшемся окне:
+
+          1. В поле **Имя** задайте [имя](*name) резервируемого адреса `corp-example-net-inbound-address`.
+          1. В поле **Подсеть** выберите подсеть `subnet2`, в которой будет зарезервирован IP-адрес.
+
+              {% note info %}
+
+              IP-адрес входящего DNS-подключения может относиться к любой из подсетей в выбранной облачной сети. При этом указывать IP-адреса, уже используемые ресурсами Yandex Cloud, нельзя.
+
+              {% endnote %}
+
+          1. В поле **Внутренний IPv4 адрес** задайте IP-адрес `192.168.1.200` (относится к диапазону адресов подсети `subnet2`).
+          1. Нажмите кнопку **Создать**, чтобы зарезервировать адрес.
+    1. Нажмите кнопку **Создать**, чтобы создать входящее DNS-подключение.
+
+{% endlist %}
+
+## Настройте корпоративную сеть {#setup-on-prem-dns}
+
+Настройте корпоративную сеть так, чтобы DNS-запросы к [внутренним зонам Yandex Cloud](../../dns/concepts/dns-zone.md#private-zones) направлялись на зарезервированный внутренний IP-адрес `192.168.1.200`, который [был назначен](#create-inbound-endpoint) входящему DNS-подключению.
+
+Например, в корпоративной подсети вы можете создать [DNS-форвардер](*dns_forwarder) и задать его IP-адрес в качестве адреса основного DNS-сервера на сетевых интерфейсах клиентов в корпоративной подсети `subnet1`. Для создания DNS-форвардеров рекомендуем использовать утилиты [CoreDNS](https://coredns.io/) или [Unbound](https://www.nlnetlabs.nl/projects/unbound/).
+
+{% cut "Пример настройки DNS-форвардера" %}
+
+{% list tabs accordion %}
+
+- Настройка DNS-переадресации с помощью CoreDNS
+
+  1. Подключитесь к хосту, на котором будет настроен DNS-форвардер.
   1. Скачайте актуальную версию `CoreDNS` со [страницы производителя](https://github.com/coredns/coredns/releases/latest) и установите ее:
 
       ```bash
-      cd /var/tmp && wget <URL_пакета> -O - | tar -zxvf
+      cd /var/tmp && wget <URL_пакета> -O - | tar -xz
       sudo mv coredns /usr/local/sbin
       ```
-
   1. Создайте файл конфигурации `CoreDNS`: 
-     
-     * `forwarder1`:
 
-         ```bash
-         sudo mkdir /etc/coredns
-         sudo tee >> /etc/coredns/Corefile <<EOF
-         corp.example.net {
-           forward . 172.16.1.5 172.16.2.5
-         }
-         . {
-           forward . 172.16.3.2
-           health
-         }
-         EOF
-         ```
-
-     * `forwarder2`:
-
-         ```bash
-         sudo mkdir /etc/coredns
-         sudo tee >> /etc/coredns/Corefile <<EOF
-         corp.example.net {
-           forward . 172.16.1.5 172.16.2.5
-         }
-         . {
-           forward . 172.16.4.2
-           health
-         }
-         EOF
-         ```
-
+      ```bash
+      sudo mkdir /etc/coredns
+      sudo tee >> /etc/coredns/Corefile <<EOF
+      mdb.yandexcloud.net {
+        forward . 192.168.1.200
+      }
+      . {
+        forward . <IP-адрес_основного_DNS-сервера_в_корпоративной_подсети>
+      }
+      EOF
+      ```
   1. Настройте автоматический запуск `CoreDNS`:
 
       ```bash
@@ -160,8 +201,7 @@
       EOF
       sudo systemctl enable --now coredns
       ```
-
-  1. Отключите системную службу распознавания имен DNS, чтобы ее функции выполнял локальный DNS-форвардер. В Ubuntu 20.04 это можно сделать командами:
+  1. Отключите системную службу распознавания имен DNS, чтобы ее функции выполнял локальный DNS-форвардер. Например, в ОС Linux Ubuntu 20.04 это можно сделать с помощью команд:
 
       ```bash
       sudo systemctl disable --now systemd-resolved
@@ -169,68 +209,40 @@
       echo "nameserver 127.0.0.1" | sudo tee /etc/resolv.conf
       ```
 
-- Unbound
+- Настройка DNS-переадресации с помощью Unbound
 
-  1. [Подключитесь к ВМ](../../compute/operations/vm-connect/ssh.md) DNS-форвардера через промежуточную ВМ `test1`.
-  1. Установите пакет `unbound`:
+  1. Подключитесь к хосту, на котором будет настроен DNS-форвардер.
+  1. Установите пакет `unbound` (приведен пример для ОС Linux Ubuntu):
 
       ```bash
       sudo apt update && sudo apt install --yes unbound
       ```
-
-  1. Настройте и перезапустите DNS-форвардер:
-
-      {% cut "unbound.conf для forwarder1" %}
-    
+  1. Создайте файл конфигурации `unbound`:
+   
       ```bash
       sudo tee -a /etc/unbound/unbound.conf <<EOF
       server:
         module-config: "iterator"
         interface: 0.0.0.0
         access-control: 127.0.0.0/8   allow
-        access-control: 172.16.0.0/21 allow
+        access-control: 192.168.0.0/21 allow
 
       forward-zone:
-        name: "corp.example.net"
-        forward-addr: 172.16.1.5
-        forward-addr: 172.16.2.5
+        name: "mdb.yandexcloud.net"
+        forward-addr: 192.168.1.200
 
       forward-zone:
         name: "."
-        forward-addr: 172.16.3.2
+        forward-addr: <IP-адрес_основного_DNS-сервера_в_корпоративной_подсети>
       EOF
       ``` 
-      {% endcut %}
-
-      {% cut "unbound.conf для forwarder2" %}
-
-      ```bash
-      sudo tee -a /etc/unbound/unbound.conf <<EOF
-      server:
-        module-config: "iterator"
-        interface: 0.0.0.0
-        access-control: 127.0.0.0/8   allow
-        access-control: 172.16.0.0/21 allow
-
-      forward-zone:
-        name: "corp.example.net"
-        forward-addr: 172.16.1.5
-        forward-addr: 172.16.2.5
-
-      forward-zone:
-        name: "."
-        forward-addr: 172.16.4.2
-      EOF
-      ```
-      {% endcut %}
-
   1. Перезапустите Unbound:
 
       ```bash
       sudo systemctl restart unbound
       ```
 
-  1. Отключите системную службу распознавания имен DNS, чтобы ее функции выполнял локальный DNS-форвардер. В Ubuntu 20.04 это можно сделать командами:
+  1. Отключите системную службу распознавания имен DNS, чтобы ее функции выполнял локальный DNS-форвардер. Например, в ОС Linux Ubuntu 20.04 это можно сделать с помощью команд:
 
       ```bash
       sudo systemctl disable --now systemd-resolved
@@ -240,103 +252,54 @@
 
 {% endlist %}
 
-### Настройте сетевой балансировщик Network Load Balancer {#setup-cloud-balancer}
+{% endcut %}
 
-Создайте [внутренний сетевой балансировщик](../../network-load-balancer/operations/internal-lb-create.md) с параметрами:
 
-{% note info %}
+## Проверьте работу интеграции {#check-dns-service}
 
-Обработка UDP-трафика для сетевого балансировщика по умолчанию выключена. Чтобы включить обработку UDP-трафика на сетевом балансировщике, обратитесь в [техническую поддержку](../../support/overview.md). Подробнее можно прочитать [здесь](../../network-load-balancer/concepts/specifics.md#nlb-udp).
+1. Получите FQDN хоста созданного ранее кластера `my-postgresql-cluster`.
 
-{% endnote %}
+    О том, как узнать FQDN хоста, читайте в разделе [FQDN хостов PostgreSQL](../../managed-postgresql/operations/connect/fqdn.md).
+1. Убедитесь, что с компьютера в корпоративной сети выполняется разрешение имен во внутренней DNS-зоне Yandex Cloud `mdb.yandexcloud.net`. Для этого выполните команду, указав в ней FQDN хоста кластера.
 
-* **Тип**: `Внутренний`.
-
-* В блоке **Обработчики**:
-  * **Подсеть**: выберите `subnet3` из списка.
-  * **Протокол**: `UDP`.
-  * **Порт**: `53`.
-  * **Целевой порт**: `53`.
-
-* В блоке **Целевые группы**:
-  * Создайте группу, состоящую из хостов `forwarder1` и `forwarder2`.
-  * В блоке **Проверка состояния** укажите параметры:
-
-    {% list tabs %}
-
-    * CoreDNS
-      * **Тип**: `HTTP`.
-      * **Путь**: `/health`.
-      * **Порт**: `8080`.
-
-    * Unbound
-      * **Тип**: `TCP`.
-      * **Порт**: `53`.
-
-    {% endlist %}
-
-При создании балансировщика ему будет автоматически назначен IP-адрес из подсети `subnet3`.
-
-{% note info %}
-
-Внутренний сетевой балансировщик не будет отвечать на DNS-запросы от форвардеров, из которых состоит его целевая группа: `forwarder1` и `forwarder2`. Это связано с особенностями реализации, подробнее в разделе [Типы сетевых балансировщиков](../../network-load-balancer/concepts/nlb-types.md).
-
-{% endnote %}
-
-### Настройте сервис DHCP {#setup-cloud-dhcp}
-
-Чтобы хосты в облачной сети автоматически использовали корпоративный сервис DNS, в [настройках DHCP](../../vpc/concepts/dhcp-options.md) для подсетей `subnet3` и `subnet4` укажите:
-
-1. **Серверы доменных имен**: IP-адрес, который был [назначен балансировщику](#setup-cloud-balancer).
-1. (Опционально) **Доменное имя**: `corp.example.net`.
-
-Чтобы обновить сетевые настройки на хостах `forwarder1`, `forwarder2` и `test1`, выполните команду:
-
-```bash
-sudo netplan apply
-```
-
-После обновления сетевых настроек хосты в облачной сети будут использовать балансировщик вместо сервера DNS Yandex Cloud.
-
-## Настройте корпоративные серверы DNS {#setup-on-prem-dns}
-
-Настройте корпоративные серверы так, чтобы DNS-запросы к [внутренним зонам Yandex Cloud](../../dns/concepts/dns-zone.md#private-zones) направлялись на IP-адрес, который был [назначен балансировщику](#setup-cloud-balancer).
-
-## Проверьте работу сервиса {#check-dns-service}
-
-1. Проверьте, что на облачных хостах `forwarder1`, `forwarder2` и `test1` выполняется распознавание имен во внутренней зоне `corp.example.net`:
+    Например:
 
     ```bash
-    host ns1.corp.example.net
-    ns1.corp.example.net has address 172.16.1.5
+    host rc1d-oсfgp28n0k358fj1.mdb.yandexcloud.net
     ```
 
-1. Проверьте, что на облачных хостах `forwarder1`, `forwarder2` и `test1` выполняется распознавание имен в публичных зонах, например:
+    Результат:
+
+    ```text
+    rc1d-oсfgp28n0k358fj1.mdb.yandexcloud.net has address 192.168.1.20
+    ```
+1. Убедитесь, что на компьютере в корпоративной сети выполняется разрешение имен в публичных зонах, например:
 
     ```bash
     host cisco.com
+    ```
+
+    Результат:
+
+    ```text
     cisco.com has address 72.163.4.185
     ...
     ```
-1. Проверьте, что на корпоративных DNS-серверах `ns1` и `ns2` выполняется распознавание внутренних имен Yandex Cloud, например:
-
-    ```bash
-    host ns.internal
-    ns.internal has address 10.130.0.2
-    ```
-
-1. Чтобы убедиться, что сервисы запускаются автоматически, перезапустите ВМ `forwarder1`, `forwarder2` и `test1` и повторите проверки.
 
 ## Как удалить созданные ресурсы {#clear-out}
 
 Чтобы перестать платить за ресурсы:
 
-* [удалите ВМ](../../compute/operations/vm-control/vm-delete.md);
-* [удалите статические публичные IP-адреса](../../vpc/operations/address-delete.md), если вы зарезервировали их специально для своих ВМ;
-* [удалите целевые группы](../../network-load-balancer/operations/target-group-delete.md);
-* [удалите обработчики](../../network-load-balancer/operations/listener-remove.md);
-* [удалите сетевой балансировщик](../../network-load-balancer/operations/load-balancer-delete.md);
-* [удалите подсети](../../vpc/operations/subnet-delete.md);
-* [удалите таблицу маршрутизации](../../vpc/operations/delete-route-table.md);
-* [удалите NAT-шлюз](../../vpc/operations/delete-nat-gateway.md);
-* [удалите сети](../../vpc/operations/network-delete.md).
+* [удалите кластер Managed Service for PostgreSQL](../../managed-postgresql/operations/cluster-delete.md);
+* [удалите входящее DNS-подключение](../../dns/operations/connection-inbound-delete.md);
+* [удалите зарезервированный внутренний IP-адрес](../../vpc/operations/private-ip-delete.md);
+* [удалите подсеть](../../vpc/operations/subnet-delete.md);
+* [удалите облачную сеть](../../vpc/operations/network-delete.md).
+
+[*name]: Требования к имени:
+         
+         * длина — от 3 до 63 символов;
+         * может содержать строчные буквы латинского алфавита, цифры и дефисы;
+         * первый символ — буква, последний — не дефис.
+
+[*dns_forwarder]: DNS-форвардер — это специальный DNS-сервер, который по-разному перенаправляет DNS-запросы в зависимости от доменного имени, указанного в запросе.

@@ -22,7 +22,7 @@ Pricing will be based on the number of _seats_ within one {{ datalens-full-name 
 
 * Every {{ datalens-full-name }} user will need a seat, even if only to view or edit dashboards.
 * Seats are issued automatically when new users first log in to {{ datalens-full-name }}.
-* Seats can be managed by the administrator, see [below](#manage-seats) for details.
+* Seats can be managed by the administrator. See [below](#manage-seats) for details.
 * While you can still manage access to objects in {{ datalens-full-name }} using [roles and access permissions](./security/index.md), a seat does not provide access to objects.
 
 ### Active users and seats {#difference}

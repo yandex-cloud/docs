@@ -6,7 +6,27 @@ In this article, we use a simple example to show how MapReduce works in {{ datap
 
 To run MapReduce on Hadoop, we use the Streaming interface. At the same time, the data preprocessing (map) and the final output computation (reduce) stages use programs that read data from a standard program input (`stdin`) and write their result to a standard output (`stdout`).
 
+To execute a MapReduce job:
+
+1. [Set up your infrastructure](#infra).
+1. [Create a MapReduce job](#create-job).
+
+If you no longer need the resources you created, [delete them](#clear-out).
+
+
 ## Getting started {#before-you-begin}
+
+{% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
+
+
+### Required paid resources {#paid-resources}
+
+* {{ dataproc-name }} cluster: use of computing resources with a {{ dataproc-name }} markup, use of network drives, retrieval and storage of logs, amount of outgoing traffic (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
+* {{ objstorage-full-name }} buckets: use of storage, data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
+
+
+## Set up your infrastructure {#infra}
 
 1. [Create a service account](../../../iam/operations/sa/create.md) with the `dataproc.agent` and `dataproc.provisioner` roles.
 

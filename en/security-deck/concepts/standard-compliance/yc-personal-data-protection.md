@@ -5,8 +5,6 @@ description: This collection of rules automates legal compliance monitoring for 
 
 # Requirements of the Federal Law FZ-152 on Personal Data
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 This collection of rules automates legal compliance monitoring in {{ yandex-cloud }} resources as per Russian Federal Law No. 152-FZ of July 27, 2006.
 
 These rules ensure protection of personal data in accordance with FSTEC Requirements (Order 21):

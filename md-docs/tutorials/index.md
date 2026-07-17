@@ -522,7 +522,7 @@
 
  - [Настройка Cloud DNS для доступа к кластеру Managed Service for ClickHouse® из других облачных сетей](dataplatform/clickhouse-dns-peering.md)
 
- - [Интеграция Cloud DNS и корпоративного сервиса DNS](infrastructure-management/dns-integration.md)
+ - [Разрешение облачных DNS-имен в корпоративной сети](infrastructure-management/dns-integration.md)
 
  - [Создание веб-хука резолвера ACME для ответов на DNS01-проверки](infrastructure-management/cert-manager-webhook.md)
 

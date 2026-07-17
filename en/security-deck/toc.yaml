@@ -142,8 +142,14 @@ items:
         href: diagnostics/index.md
       - name: '{{ kspm-name }} errors'
         href: diagnostics/kspm-diagnostics.md
+      - name: '{{ cspm-name }} errors'
+        href: diagnostics/cspm-diagnostics.md
       - name: '{{ dspm-name }} errors'
         href: diagnostics/dspm-diagnostics.md
+      - name: '{{ td-name }} errors'
+        href: diagnostics/td-diagnostics.md
+      - name: '{{ vuln-man-short-name }} errors'
+        href: diagnostics/vm-diagnostic.md
   - name: Access management
     items:
       - name: Common {{ sd-name }} roles

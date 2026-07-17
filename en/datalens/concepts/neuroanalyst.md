@@ -25,13 +25,13 @@ description: In this article, you will learn about {{ datalens-full-name }} Neur
 * Your data and queries are not logged, nor used for model tuning.
 * The admin can [disable generation of insights for your users](#prohibit) at the dashboard or report level.
 
-See also [Neuroanalyst limits](./limits.md#datalens-ai-limits).
+See more about Neuroanalyst limits [here](./limits.md#datalens-ai-limits).
 
 
 
 ## Banning the use of Neuroanalyst {#prohibit}
 
-{{ datalens-name }} users can use Neuroanalyst by default. Any user with the `{{ roles-datalens-admin }}` role can disable this option at the {{ datalens-short-name }} instance level or for individual dashboards or reports:
+{{ datalens-name }} users can use Neuroanalyst by default. Any user with the `{{ roles-datalens-admin }}` role can disable this option at the {{ datalens-short-name }} instance level or for individual dashboards/reports:
 
 {% list tabs %}
 

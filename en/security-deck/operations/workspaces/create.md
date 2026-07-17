@@ -5,8 +5,6 @@ description: In this guide, you will learn how to create an workspace in {{ sd-f
 
 # Creating a {{ sd-name }} workspace 
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 Before creating a [workspace](../../concepts/workspace.md), make sure you have the necessary [permissions](../../security/index.md) to work with the {{ sd-name }} modules. You optimal roles are:
 
 * `security-deck.admin` for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to store the {{ sd-name }} resources and modules.

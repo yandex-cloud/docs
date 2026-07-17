@@ -20,6 +20,12 @@ description: В данном разделе вы узнаете, как в мо�
   1. В верхней части окна выберите [окружение](../../concepts/workspace.md), для которого хотите посмотреть информацию о правилах.
   1. На открывшейся странице **{{ ui-key.yacloud_org.security.controls.ControlsPage.security_control_r4yn7 }}** перейдите на вкладку **{{ ui-key.yacloud_org.security.controls.ControlsPageLayout.configuration_w7Kw7 }}**. Открывшийся раздел содержит список правил контроля, которые входят в состав заданных для текущего окружения [стандартов безопасности](../../concepts/workspace.md#standards).
 
+      {% note tip %}
+
+      {% include [rules-display-settings](../../../_includes/security-deck/rules-display-settings.md) %}
+
+      {% endnote %}
+
       {% include [cspm-view-general-info](../../../_includes/security-deck/cspm-view-general-info.md) %}
 
 {% endlist %}

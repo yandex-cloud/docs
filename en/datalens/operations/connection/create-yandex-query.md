@@ -19,12 +19,12 @@ To create a {{ yq-full-name }} connection:
 
    * **Cloud and folder**: Select the folder with your {{ yq-full-name }} connection.
    * **Service account**: Select an existing [service account](../../../iam/concepts/users/service-accounts.md) or create a new one.
-   * **Cache TTL in seconds**: Specify the cache TTL or leave the default value.
+   * **Cache TTL in seconds**: Specify cache TTL or leave the default value.
    * **Raw SQL level**: Enables you to use an ad-hoc SQL query to [generate a dataset](../../dataset/settings.md#sql-request-in-datatset).
 
 1. Optionally, test the connection by clicking **Check connection**.
 1. Click **Create connection**.
-1. Select the [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
+1. Select a [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
 1. Enter a name for the connection and click **Create**.
 
 

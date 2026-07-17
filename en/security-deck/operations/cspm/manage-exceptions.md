@@ -5,8 +5,6 @@ description: In this section, you will learn how to create, modify, and delete e
 
 # Managing exceptions to {{ cspm-name }} security control rules
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 {% include [cspm-use-in-workspaces](../../../_includes/security-deck/cspm-use-in-workspaces.md) %}
 
 [Exceptions](../../concepts/cspm.md#exceptions) to the {{ cspm-name }} module's security control [rules](../../concepts/cspm.md#rules) allow you to flexibly configure when and for which objects the results of a rule check should be ignored.
