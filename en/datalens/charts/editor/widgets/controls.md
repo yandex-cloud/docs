@@ -7,7 +7,7 @@ description: In this tutorial, you will learn how to work with a dashboard selec
 
 Selector describes a set of [controls](#controls) to specify dashboard chart parameters.
 
-The chart parses the parameter and applies a filter based on the field the parameter is linked with (see example). When supplying numeric parameter values to the selector, convert them to a string or an array of strings. This will prevent data presentation inconsistencies in different widget states, e.g., when it is simply displayed on the dashboard or opened for editing.
+The chart parses the parameter and applies a filter based on the field the parameter is linked with (see the example below). When supplying numeric parameter values to the selector, convert them to a string or an array of strings. This will prevent data presentation inconsistencies in different widget states, e.g., when it is simply displayed on the dashboard or opened for editing.
 
 {% note info %}
 

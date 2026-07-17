@@ -42,15 +42,15 @@ Your administrators can manually reassign seats as needed.
 
 ### Do I need to purchase {{ datalens-name }} seats for viewers of embedded private objects? {#seats-for-external-clients}
 
-Only users who log in directly to {{ datalens-name }} need seats. If you have any [embedded private charts](../../datalens/security/private-embedded-objects.md) in external resources, e.g., in your customers' accounts, you do not need to purchase seats for these customers since they never log in to {{ datalens-name }}.
+Viewers of [embedded private objects](../../datalens/security/private-embedded-objects.md) do not authenticate in {{ datalens-name }} and, therefore, do not need a seat. However, when viewing embedded private objects, users initiate data queries to render charts, and such queries are billable.
 
-The system counts the number of queries against data sources from embedded private charts, i.e., those in the wizard and Editor as well as QL charts, that are executed when rendering these objects. Only successfully completed queries for retrieving data to render charts are counted. If multiple queries are required to render a single chart, this is counted as one query. For embedded private dashboards, queries from the added charts are summed up.
+The system counts the [number of queries against data sources from embedded private charts](../../datalens/settings/seats.md#embedded-queries-count), i.e., those in the wizard and Editor as well as QL charts, that are executed when rendering these objects. Only successfully completed queries for chart rendering data are counted. If multiple queries are required to render a single chart, this is counted as one query. For embedded private dashboards, queries from the added charts are summed up.
 
 The total number of queries from all private charts in an instance per month must not exceed this limit:
 
 > 2,000 queries x Number of seats
 
-If you exceed this limit, you will need to purchase additional seats. When the limit on the number of queries from embedded private charts is exceeded and [automatic seat purchase](../../datalens/settings/seats.md#purchase-automatically) is enabled, there is no automatic repurchase of new seats.
+If you exceed this limit, you will need to purchase additional seats. If the limit on the number of queries from embedded private charts is exceeded and [auto-purchasing](../../datalens/settings/seats.md#purchase-automatically) is on, no new seats will be automatically procured.
 
 ### How can I track the number of queries from embedded private objects? {#statistics}
 

@@ -38,12 +38,9 @@ To create a connection:
       * Username: `samples_ro`.
       * Password: `MsgfcjEhJk`.
 
-   1. Enable **Allow subqueries in datasets and queries from charts**.
+   1. Enable the **SQL to read** option.
    1. Click **Check connection** and make sure you get a green check mark.
    1. Click **Create connection**.
-
-      ![create-connection](../_assets/datalens/quickstart/create-sample-connection.png)
-
    1. In the window that opens, click **Create workbook**.
 
       ![create-workbook](../_assets/datalens/quickstart/create-workbook.png)
@@ -83,7 +80,7 @@ To create a dataset based on the `Sample ClickHouse` connection:
 
 1. Create a measure for the number of orders:
 
-   1. Rename the `OrderID` field as `OrderCount`: click the field name, delete the current name, and enter the new one.
+   1. Rename the `OrderID` field to `OrderCount`: click the field name, delete the current name, and enter the new one.
    1. Select **Number of unique** for the `OrderCount` field in the **Aggregation** column.
 
 1. Change the data type for the `ShopAddressCoord` field: select **Geopoint** in the **Type** column.
@@ -184,7 +181,7 @@ To create a dashboard:
 
 
 
-1. In the panel at the bottom of the page, hold down ![image](../_assets/console-icons/chart-column.svg) **Chart** and drag it to desired position.
+1. In the panel at the bottom of the page, click ![image](../_assets/console-icons/chart-column.svg) **Chart** and drag it to a desired location.
 1. In the window that opens, click **Select**.
 1. Select the `Sales map` chart.
 
@@ -221,7 +218,7 @@ By default, the chart used for filtering filters data in all charts on the curre
 
 To add a selector to a dashboard:
 
-1. In the panel at the bottom of the page, hold down ![image](../_assets/console-icons/sliders.svg) **Selector** and drag it to desired position.
+1. In the panel at the bottom of the page, click ![image](../_assets/console-icons/sliders.svg) **Selector** and drag it to a desired location.
 1. Add the calendar selector for the order date:
 
    1. Select `Sales Dataset`.
@@ -273,7 +270,6 @@ You can grant access to your dashboard to other users:
    1. In the left-hand panel, select ![image](../_assets/console-icons/sliders.svg) **Service settings**.
    1. Select the **Users** tab.
    1. Under **Invite users**, do the following.
-
    1. Enter the email addresses of the users you want to invite, e.g., `{{ login-example }}`.
 
       You can send invitations to any email address. Invited users will be able to select the appropriate Yandex account once they accept the invitation.
@@ -295,7 +291,7 @@ You can grant access to your dashboard to other users:
 
       ![wb-access](../_assets/datalens/quickstart/access.png)
 
-   1. In the window that opens, select a user or user group, specify the appropriate permission, and click **Save**. The user or user group will be granted permissions to this object.
+   1. In the window that opens, select a user or user group, specify the appropriate permission, and click **Save**. The user or user group will get permissions for this object.
 
 You can make the charts and dashboards you create [publicly available](./concepts/datalens-public.md), so any user can follow a link to view a published object without logging in. You can [embed](./security/embedded-objects.md) published dashboards and charts into your website or app using `iframe`.
 

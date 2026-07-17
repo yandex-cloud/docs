@@ -14,6 +14,6 @@ To create a connection to [1C Extractor](https://bi.denvic.ru/):
 1. Get a token for the connection: in 1C, open **1C Extractor**, select **License key** → **Get token**, and copy the token. For more information, see [this guide](https://docs.denvic.tech/extractor_docs/extractor_docs/ustanovka-2/licenzirovanie-i-prava/licenzirovanie-i-token-dlya-konnektora-1s-k-yande/nastroyka-extraktora-1s-dlya-licenzii-datalens/).
 1. In the **Access token** field, paste the copied token.
 1. Click **Create connection**.
-1. Select the [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
+1. Select a [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
 1. Enter a name for the connection and click **Create**.
 

@@ -92,7 +92,7 @@ In this case, additional restrictions are imposed on `lhs` and `rhs`:
 * The `lhs` and `rhs` must be sorted tables.
 * The `USING/ON` clause must only use sorted columns.
 
-For example:
+Here is an example:
 
 * Let's assume that `lhs` is sorted by the `l1, l2, ..., ln` columns, and `rhs`, by the `r1, r2, ..., rm` columns.
 * The `JOIN` `ON` clause should look like a set of `l1 = r1 , ..., lk = rk` equations for a certain `k` (the equations can be listed in any order).

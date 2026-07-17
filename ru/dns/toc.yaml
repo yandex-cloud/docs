@@ -47,6 +47,10 @@ items:
         items:
           - name: Создать входящее DNS-подключение
             href: operations/connection-inbound-create.md
+          - name: Изменить входящее DNS-подключение
+            href: operations/connection-inbound-update.md
+          - name: Удалить входящее DNS-подключение
+            href: operations/connection-inbound-delete.md
   - name: Концепции
     items:
       - name: Обзор
@@ -73,7 +77,7 @@ items:
         href: tutorials/local-dns-cache.md
       - name: "Миграция DNS-зон из Яндекс\_360"
         href: tutorials/connect-migration.md
-      - name: Интеграция с корпоративным сервисом DNS
+      - name: Разрешение облачных DNS-имен в корпоративной сети
         href: tutorials/dns-integration.md
       - name: Интеграция {{ managed-k8s-name }} с корпоративной зоной DNS
         href: tutorials/custom-dns.md

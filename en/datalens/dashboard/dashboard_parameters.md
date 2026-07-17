@@ -52,7 +52,7 @@ The values in the link will take priority. For example, if the dashboard setting
 
 Chart parameters apply only to the chart itself. Thus, you can view the same chart with different filters on the same dashboard tab. You can [add parameters for the chart](../operations/chart/add-parameters.md) in its settings on the dashboard.
 
-You can transmit a parameter value to a wizard chart using field ID ([see the guide](../operations/chart/add-guid.md)).
+You can transmit a parameter value to a wizard chart using a field ID ([see this guide](../operations/chart/add-guid.md)).
 
 {% include [datalens-chart-parameters-example](../../_includes/datalens/datalens-chart-parameters-example.md) %}
 
@@ -131,7 +131,7 @@ For example, if the current time is `2020-03-24T23:30:39.874Z`, then:
 
 {% note info %}
 
-If castings are not specified, then for units of day and longer, the time is cast to the start of the day, i.e., `00:00:00.000`; for shorter units the current time is used.
+If castings are not specified, then for units of day and longer, the time is cast to the start of the day, i.e., `00:00:00.000`; for shorter units, the current time is used.
 
 {% endnote %}
 

@@ -30,3 +30,5 @@
 ## DNS-подключения {#dns-connection}
 
 - [Создать входящее DNS-подключение](connection-inbound-create.md)
+- [Изменить входящее DNS-подключение](connection-inbound-update.md)
+- [Удалить входящее DNS-подключение](connection-inbound-delete.md)

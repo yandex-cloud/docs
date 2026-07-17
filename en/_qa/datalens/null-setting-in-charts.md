@@ -1,6 +1,6 @@
 ### Why does a line connect points with missing values in-between and Display as 0 enabled? {#null-setting-in-charts}
 
-If the source data has a row with `null` for a measure value, this point will not be plotted on a chart with default settings. On the chart, it will appear as a line gap, skipped column or point. For example, if the source has a row with the date, `20.07.2022`, but the sales total for it is not specified.
+If the source data has a row with `null` for the measure value, this point will not be plotted on the chart with default settings (there will be a gap in the line, or the column/point will be skipped). For example, if the source has a row with the date, `20.07.2022`, but the sales total for it is not specified.
 
 You can configure how the chart will display null values in the chart section settings:
 

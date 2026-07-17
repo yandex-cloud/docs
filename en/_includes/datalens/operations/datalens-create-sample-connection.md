@@ -19,14 +19,10 @@
       * Username: `samples_ro`.
       * Password: `MsgfcjEhJk`.
 
-    1. Enable **Allow subqueries in datasets and queries from charts**.
+    1. Enable the **SQL to read** option.
     1. Check the connection and click **Create connection**.
     1. Enter the connection name: `Sample ClickHouse`.
     1. Click **Create**.
-
-      
-      ![create-connection](../../../_assets/datalens/sql-chart/create-sample-connection-sql-chart.png)
-
 
 
 Wait for the connection to be saved.

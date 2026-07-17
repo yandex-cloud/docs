@@ -21,13 +21,11 @@ To create a {{ SR }} connection:
 
    * **Host name**: Specify the path to the {{ SR }} host. You can specify multiple hosts in a comma-separated list. If you fail to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
    * **Port**: Specify the {{ SR }} connection port. The default port is 9030.
-   * **Username**: Specify the username for the {{ SR }} connection.
-   * **Password**: Enter the password for the user.
-   * **Cache TTL in seconds**. Specify the cache TTL or leave the default value. The recommended value is 300 seconds (5 minutes).
+   * **Username**: Specify a username for the {{ SR }} connection.
+   * **Password**: Specify a password for the user.
+   * **Cache TTL**: Specify cache TTL in seconds or leave the default value. The recommended value is 300 seconds (5 minutes).
    
    {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level.md) %}
-
-   ![image](../../../_assets/datalens/operations/connection/connection-starrocks.png)
 
 1. Optionally, test the connection by clicking **Check connection**.
 1. Click **Create connection**.

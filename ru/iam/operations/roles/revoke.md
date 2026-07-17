@@ -40,15 +40,22 @@
     1. Чтобы удалить права доступа, выполните команду:
 
         ```bash
-        yc <имя_сервиса> <категория_ресурса> remove-access-binding <имя_или_идентификатор_ресурса> \
+        yc <имя_сервиса> <категория_ресурса> remove-access-binding \
+            --id <идентификатор_ресурса> \
             --role <идентификатор_роли> \
             --subject <тип_субъекта>:<идентификатор_субъекта>
         ```
 
         Где:
+        * `--id` — идентификатор ресурса, с которого отзывается роль.
         * `--role` — идентификатор роли, которую надо отозвать, например `{{ roles-cloud-owner }}`.
-        * `<тип_субъекта>` — тип [субъекта](../../concepts/access-control/index.md#subject), у которого отзывается роль.
-        * `<идентификатор_субъекта>` — идентификатор субъекта.
+        * `--subject` — обозначение [субъекта](../../concepts/access-control/index.md#subject), у которого отзывается роль.
+
+            {% cut "Обозначения субъектов" %}
+
+            {% include [subjects-designations-cli](../../../_includes/iam/subjects-designations-cli.md) %}
+
+            {% endcut %}
 
 - {{ TF }} {#tf}
 
@@ -60,14 +67,17 @@
         resource "yandex_resourcemanager_cloud_iam_binding" "admin" {
             cloud_id    = "<идентификатор_облака>"
             role        = "<роль>"
-            members     = [
-            "serviceAccount:<идентификатор_сервисного_аккаунта>",
-            "userAccount:<идентификатор_пользователя>",
-            ]
+            members     = ["<субъект_1>","<субъект_2>,...,<субъект_n>"]
         }
         ```
 
-    1. Удалите запись с информацией о субъекте, у которого нужно отозвать права, из перечня пользователей `members`.
+    1. Удалите запись с информацией о субъекте, у которого нужно отозвать права, из перечня [субъектов](../../concepts/access-control/index.md#subject) `members`.
+
+        {% cut "Обозначения субъектов" %}
+
+        {% include [subjects-designations-terraform](../../../_includes/iam/subjects-designations-terraform.md) %}
+
+        {% endcut %}
 
        Подробнее о параметрах ресурса `yandex_resourcemanager_cloud_iam_binding` читайте в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
 

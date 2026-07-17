@@ -79,15 +79,45 @@
     1. Чтобы удалить права доступа, выполните команду:
 
         ```bash
-        yc <имя_сервиса> <категория_ресурса> remove-access-binding <имя_или_идентификатор_ресурса> \
+        yc <имя_сервиса> <категория_ресурса> remove-access-binding \
+            --id <идентификатор_ресурса> \
             --role <идентификатор_роли> \
             --subject <тип_субъекта>:<идентификатор_субъекта>
         ```
 
         Где:
+        * `--id` — идентификатор ресурса, с которого отзывается роль.
         * `--role` — идентификатор роли, которую надо отозвать, например `resource-manager.clouds.owner`.
-        * `<тип_субъекта>` — тип [субъекта](../../concepts/access-control/index.md#subject), у которого отзывается роль.
-        * `<идентификатор_субъекта>` — идентификатор субъекта.
+        * `--subject` — обозначение [субъекта](../../concepts/access-control/index.md#subject), у которого отзывается роль.
+
+            {% cut "Обозначения субъектов" %}
+
+            Для обозначения субъекта используется параметр `--subject` со значением в формате `<тип_субъекта>:<идентификатор>`. Для некоторых типов субъектов в [Yandex Cloud CLI](../../../cli/index.md) вместо `--subject` доступны отдельные параметры, в которых достаточно указать имя или идентификатор субъекта без типа. Возможные обозначения субъектов и соответствующие параметры CLI:
+            
+            #|
+            || **Тип субъекта** | **Обозначение субъекта** | **Параметр Yandex Cloud CLI** ||
+            || `userAccount`    | `userAccount:<идентификатор_пользователя>` | `--user-account-id` или `--user-yandex-login` ||
+            || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` | `--service-account-id` или `--service-account-name` ||
+            || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` | `--user-account-id` ||
+            || `group`          | `group:<идентификатор_группы>` | `--group-members` ||
+            || `system`         | `system:allAuthenticatedUsers`
+            
+            (группа `All authenticated users`) | `--all-authenticated-users` ||
+            || ^                | `system:allUsers`
+            
+            (группа `All users`) | — ||
+            || ^                | `system:group:organization:<идентификатор_организации>:users`
+            
+            (группа `All users in organization X`) | `--organization-users` ||
+            || ^                | `system:group:federation:<идентификатор_федерации>:users`
+            
+            (группа `All users in federation N`) | `--federation-users` ||
+            || ^                | `system:group:userpool:<идентификатор_пула>:users`
+            
+            (группа `All users in userpool P`) | — ||
+            |#
+
+            {% endcut %}
 
 - Terraform {#tf}
 
@@ -102,14 +132,40 @@
         resource "yandex_resourcemanager_cloud_iam_binding" "admin" {
             cloud_id    = "<идентификатор_облака>"
             role        = "<роль>"
-            members     = [
-            "serviceAccount:<идентификатор_сервисного_аккаунта>",
-            "userAccount:<идентификатор_пользователя>",
-            ]
+            members     = ["<субъект_1>","<субъект_2>,...,<субъект_n>"]
         }
         ```
 
-    1. Удалите запись с информацией о субъекте, у которого нужно отозвать права, из перечня пользователей `members`.
+    1. Удалите запись с информацией о субъекте, у которого нужно отозвать права, из перечня [субъектов](../../concepts/access-control/index.md#subject) `members`.
+
+        {% cut "Обозначения субъектов" %}
+
+        Для обозначения субъекта используется комбинация типа и уникального идентификатора — `<тип_субъекта>:<идентификатор>`. Возможные обозначения субъектов:
+        
+        #|
+        || **Тип субъекта** | **Обозначение субъекта** ||
+        || `userAccount`    | `userAccount:<идентификатор_пользователя>` ||
+        || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` ||
+        || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` ||
+        || `group`          | `group:<идентификатор_группы>` ||
+        || `system`         | `system:allAuthenticatedUsers`
+        
+        (группа `All authenticated users`) ||
+        || ^                | `system:allUsers`
+        
+        (группа `All users`) ||
+        || ^                | `system:group:organization:<идентификатор_организации>:users`
+        
+        (группа `All users in organization X`) ||
+        || ^                | `system:group:federation:<идентификатор_федерации>:users`
+        
+        (группа `All users in federation N`) ||
+        || ^                | `system:group:userpool:<идентификатор_пула>:users`
+        
+        (группа `All users in userpool P`) ||
+        |#
+
+        {% endcut %}
 
        Подробнее о параметрах ресурса `yandex_resourcemanager_cloud_iam_binding` читайте в [документации провайдера](../../../terraform/resources/iam_service_account_iam_binding.md).
 

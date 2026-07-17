@@ -5,8 +5,6 @@ description: '{{ kspm-full-name }} ({{ kspm-name }}) ensures that containerized 
 
 # {{ kspm-full-name }} ({{ kspm-name }})
 
-{% include [note-preview](../../_includes/note-preview.md) %}
-
 {% include [kspm-basic-intro](../../_includes/security-deck/kspm-basic-intro.md) %}
 
 The {{ kspm-name }} configuration is set when you [create](../operations/workspaces/create.md) a workspace and may include checking clusters for compliance with the following standards:

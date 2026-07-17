@@ -70,7 +70,7 @@ Yandex Cloud Interconnect позволяет организовать выдел
 
  - [Удалить транковое подключение](tutorials/trunk-del.md)
 
- - [Интеграция с корпоративным сервисом DNS](tutorials/dns-integration.md)
+ - [Разрешение облачных DNS-имен в корпоративной сети](tutorials/dns-integration.md)
 
  - [Организация доступа через Cloud Interconnect к облачным сетям, размещенным за NGFW](tutorials/cic-with-ngfw.md)
 

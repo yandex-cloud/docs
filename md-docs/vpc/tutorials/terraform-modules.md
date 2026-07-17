@@ -210,8 +210,8 @@ export PATH=$PATH:/path/to/terraform
      1. Получите список сервисных аккаунтов в каталоге, чтобы узнать их идентификаторы:
      
          ```bash
-         export FOLDER_ID=b1gvmob95yys********
-         export IAM_TOKEN=CggaATEVAgA...
+         export FOLDER_ID=<идентификатор_каталога>
+         export IAM_TOKEN=<IAM-токен>
          curl \
            --header "Authorization: Bearer ${IAM_TOKEN}" \
            "https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=${FOLDER_ID}"
@@ -234,23 +234,57 @@ export PATH=$PATH:/path/to/terraform
          }
          ```
      
-     1. Сформируйте тело запроса, например в файле `body.json`. В свойстве `action` укажите `ADD`, в свойстве `roleId` — нужную роль, например `editor`, а в свойстве `subject` — тип `serviceAccount` и идентификатор сервисного аккаунта:
+     1. Сформируйте тело запроса, например в файле `body.json`. В свойстве `action` укажите `ADD`:
      
-         **body.json:**
          ```json
          {
            "accessBindingDeltas": [{
              "action": "ADD",
              "accessBinding": {
-               "roleId": "editor",
+               "roleId": "<роль>",
                "subject": {
-                 "id": "ajebqtreob2d********",
+                 "id": "<идентификатор_сервисного_аккаунта>",
                  "type": "serviceAccount"
                }
              }
            }]
          }
          ```
+     
+         Где:
+     
+         * `roleId` — назначаемая роль.
+         * `subject` — [субъект](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
+     
+             {% cut "Обозначения субъектов" %}
+     
+             Для обозначения субъекта используется комбинация типа и уникального идентификатора в полях запроса `subject.type` и `subject.id`. Возможные комбинации:
+             
+             #|
+             || **subject.type** | **subject.id** ||
+             || `userAccount`    | `<идентификатор_пользователя>` ||
+             || `serviceAccount` | `<идентификатор_сервисного_аккаунта>` ||
+             || `federatedUser`  | `<идентификатор_пользователя>` ||
+             || `group`          | `<идентификатор_группы>` ||
+             || `system`         | `allAuthenticatedUsers`
+             
+             (группа `All authenticated users`) ||
+             || ^                | `allUsers`
+             
+             (группа `All users`) ||
+             || ^                | `group:organization:<идентификатор_организации>:users`
+             
+             (группа `All users in organization X`) ||
+             || ^                | `group:federation:<идентификатор_федерации>:users`
+             
+             (группа `All users in federation N`) ||
+             || ^                | `group:userpool:<идентификатор_пула>:users`
+             
+             (группа `All users in userpool P`) ||
+             |#
+     
+             {% endcut %}
+     
      1. Назначьте роль сервисному аккаунту. Например, на каталог с идентификатором `b1gvmob95yys********`:
         
         ```bash

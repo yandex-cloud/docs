@@ -10,14 +10,17 @@ To configure integration between {{ mkf-name }} and {{ dataproc-name }} clusters
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
-## Required paid resources {#paid-resources}
+## Getting started {#before-you-begin}
 
-The support cost for this solution includes:
+{% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
 
-* {{ mkf-name }} cluster fee: use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ KF }} pricing](../../../managed-kafka/pricing.md)).
-* Fee for a {{ dataproc-name }} cluster (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
-* Fee for a NAT gateway (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-* Fee for an {{ objstorage-name }} bucket: data storage and data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
+
+### Required paid resources {#paid-resources}
+
+* {{ mkf-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../../managed-kafka/pricing.md)).
+* {{ dataproc-name }} cluster: use of computing resources with a {{ dataproc-name }} markup, use of network drives, retrieval and storage of logs, amount of outgoing traffic (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
+* NAT gateway: hourly use of the gateway and its outgoing traffic (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
+* {{ objstorage-full-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
 
 
 ## Set up your infrastructure {#infra}
@@ -38,8 +41,8 @@ The support cost for this solution includes:
       * `dataproc.agent`
       * `dataproc.user`
 
-   1. [Create a bucket](../../../storage/operations/buckets/create.md) named `dataproc-bucket`.
-   1. [Grant the `dataproc-sa` service account](../../../storage/operations/buckets/edit-acl.md) the `FULL_CONTROL` permission for `dataproc-bucket`.
+   1. [Create a bucket](../../../storage/operations/buckets/create.md) with a unique name within {{ objstorage-name }}.
+   1. [Grant](../../../storage/operations/buckets/edit-acl.md) the `FULL_CONTROL` permission for the new bucket to the `dataproc-sa` service account.
    1. [Create a {{ dataproc-name }} cluster](../../../data-proc/operations/cluster-create.md#create) with the following parameters:
 
       * **{{ ui-key.yacloud.mdb.forms.base_field_name }}**: `dataproc-cluster`.
@@ -55,7 +58,7 @@ The support cost for this solution includes:
 
       * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `dataproc-sa`.
       * **{{ ui-key.yacloud.mdb.forms.config_field_zone }}**: `{{ region-id }}-b`.
-      * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: `dataproc-bucket`.
+      * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: Name of the new bucket.
       * **{{ ui-key.yacloud.mdb.forms.config_field_network }}**: `dataproc-network`.
       * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `dataproc-security-group`.
       * **{{ ui-key.yacloud.mdb.forms.section_subclusters }}**: Master, one subcluster named `Data` and one subcluster named `Compute`.
@@ -111,7 +114,7 @@ The support cost for this solution includes:
       * `folder_id`: Cloud folder ID, same as in the provider settings.
       * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} cluster. Learn more about connecting to a {{ dataproc-name }} host over SSH [here](../../../data-proc/operations/connect-ssh.md).
 
-   1. Validate your {{ TF }} configuration files using this command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
@@ -195,7 +198,7 @@ The support cost for this solution includes:
          .selectExpr("CAST(value AS STRING)") \
          .where(col("value").isNotNull())
 
-      df.write.format("text").save("s3a://dataproc-bucket/kafka-read-batch-output")
+      df.write.format("text").save("s3a://<new_bucket_name>/kafka-read-batch-output")
 
    if __name__ == "__main__":
       main()
@@ -240,7 +243,7 @@ The support cost for this solution includes:
 
       df = spark.sql("select value from received_messages")
 
-      df.write.format("text").save("s3a://dataproc-bucket/kafka-read-stream-output")
+      df.write.format("text").save("s3a://<new_bucket_name>/kafka-read-stream-output")
 
    if __name__ == "__main__":
       main()
@@ -250,9 +253,9 @@ The support cost for this solution includes:
 
 1. [Get the {{ KF }} host FQDN](../../../managed-kafka/operations/connect/index.md#get-fqdn) and specify it in each script.
 1. [Upload](../../../storage/operations/objects/upload.md) the prepared scripts to the bucket root.
-1. [Create a PySpark job](../../../data-proc/operations/jobs-pyspark.md#create) for writing a message to the {{ KF }} topic. In the **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** field, specify the `s3a://dataproc-bucket/kafka-write.py` script path.
+1. [Create a PySpark job](../../../data-proc/operations/jobs-pyspark.md#create) for writing a message to the {{ KF }} topic. In the **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** field, specify the script path: `s3a://<new_bucket_name>/kafka-write.py`.
 1. Wait for the [job status](../../../data-proc/operations/jobs-pyspark.md#get-info) to change to `Done`.
-1. Make sure the data is successfully written to the topic. To do this, create a new PySpark job for reading data from the topic and batch processing. In the **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** field, specify the `s3a://dataproc-bucket/kafka-read-batch.py` script path.
+1. Make sure the data is successfully written to the topic. To do this, create a new PySpark job for reading data from the topic and batch processing. In the **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** field, specify the script path: `s3a://<new_bucket_name>/kafka-read-batch.py`.
 1. Wait for the new job status to change to `Done`.
 1. [Download](../../../storage/operations/objects/download.md) the file with the read data from the bucket:
 
@@ -267,7 +270,7 @@ The support cost for this solution includes:
 
    The file resides in the new folder named `kafka-read-batch-output` in the bucket.
 
-1. Read messages from the topic during stream processing. To do this, create another PySpark job. In the **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** field, specify the `s3a://dataproc-bucket/kafka-read-stream.py` script path.
+1. Read messages from the topic during stream processing. To do this, create another PySpark job. In the **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** field, specify the script path: `s3a://<new_bucket_name>/kafka-read-stream.py`.
 1. Wait for the new job status to change to `Done`.
 1. Download the files with the read data from the bucket:
 

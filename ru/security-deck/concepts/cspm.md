@@ -21,6 +21,8 @@ description: Контроль конфигурации ({{ cspm-name }}) кон�
 
 ### Общая информация о правилах {#general-info}
 
+Чтобы отфильтровать правила, используйте панель над таблицей. В выпадающих списках выберите необходимые значения.
+
 {% include [cspm-view-general-info](../../_includes/security-deck/cspm-view-general-info.md) %}
 
 ### Подробная информация о правиле {#detailed-info}

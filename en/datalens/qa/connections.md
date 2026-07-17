@@ -31,8 +31,8 @@ description: This page covers FAQ about connections.
 
 Here is an example:
 
-* Value in the source: `2025-03-31 10:00:00+01:00`
-* Value in {{ datalens-short-name }}: `2025-03-31 10:00:00`
+* Value in the source: `2025-03-31 10:00:00+01:00`.
+* Value in {{ datalens-short-name }}: `2025-03-31 10:00:00`.
 
 [Time zone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List) is factored into the calculations, including if [type conversion](../function-ref/type-conversion-functions.md) functions are used.
 

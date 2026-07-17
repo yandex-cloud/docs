@@ -11,7 +11,7 @@ As a data source, we will use a direct [connection](../tutorials/data-from-ch-to
 
 ## Grouping in LOD expressions {#lod-grouping}
 
-Use the following keywords to specify the level of detail in LOD expressions (see [{#T}](../function-ref/aggregation-functions.md#syntax)):
+Use the following keywords to specify the level of detail in LOD expressions (for details, see [{#T}](../function-ref/aggregation-functions.md#syntax)):
 
 * [FIXED](#fixed)
 * [INCLUDE](#include)
@@ -166,7 +166,7 @@ Let's have a look at the chart which calculates the percentage of each product c
 
 For `INCLUDE`, there is no equivalent in window functions: you cannot add new dimensions there.
 
-## Limitations {#restrictions}
+## Limits {#restrictions}
 
 Certain limitations apply when it comes to the level of detail in LOD expressions:
 
@@ -187,7 +187,7 @@ Certain limitations apply when it comes to the level of detail in LOD expression
      In this case, the nested aggregation will be grouped by dimensions [inherited](../function-ref/aggregation-functions.md#syntax-lod-inheritance) from the top-level aggregation (`[Region]` and `[Category]`) plus the `[City]` dimension added to the grouping with the help of `INCLUDE`. The top-level aggregation will thus be calculated grouped by the chart's `[Region]` and `[Category]` dimensions, and the nested aggregation will use grouping by the `[Region]`, `[Category]`, and `[City]` dimensions.
 
    - Incorrect
-
+  
      ```
      AVG([Sales] INCLUDE [City])
      ```

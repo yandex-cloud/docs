@@ -1,7 +1,5 @@
 Для каждого правила в таблице отображается следующая информация:
 
-{% include [table-columns-tip](./table-columns-tip.md) %}
-
 * {% include [sec-rules-criticality-levels](./sec-rules-criticality-levels.md) %}
 * **{{ ui-key.yacloud_org.security.controls.rule-result.controlRule_kr2Bv }}** — название правила и его краткая суть. Чтобы [подробнее узнать](../../security-deck/operations/td/view-rules.md#detailed-info) о правиле, нажмите на строку таблицы с его именем.
 * **{{ ui-key.yacloud_org.security.controls.rule-result.standards_iv6a5 }}** — значок (значки), соответствующие [стандартам безопасности](../../security-deck/concepts/workspace.md#standards), которые используют данное правило. Если значок цветной, значит, правило проверяется для соответствующего стандарта. Если значок серый — значит, не проверяется.

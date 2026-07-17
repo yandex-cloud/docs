@@ -8,7 +8,27 @@ You can also run jobs in the {{ dataproc-name }} cluster from {{ ml-platform-ful
 
 {% endnote %}
 
+To run jobs from remote hosts that are not part of the cluster:
+
+1. [Set up your infrastructure](#infra).
+1. [Run the jobs](#spark-submit).
+
+If you no longer need the resources you created, [delete them](#clear-out).
+
+
 ## Getting started {#before-you-begin}
+
+{% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
+
+
+### Required paid resources {#paid-resources}
+
+* {{ dataproc-name }} cluster: use of computing resources with a {{ dataproc-name }} markup, use of network drives, retrieval and storage of logs, amount of outgoing traffic (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
+* VM instance: use of computing resources, storage, public IP address, and OS (see [{{ compute-full-name }} pricing](../../../compute/pricing.md)).
+
+
+## Set up your infrastructure {#infra}
 
 Create and configure a host to run jobs remotely on the {{ dataproc-name }} cluster:
 
@@ -16,6 +36,7 @@ Create and configure a host to run jobs remotely on the {{ dataproc-name }} clus
 
 - Image version 1.4
 
+  1. [Create a {{ dataproc-name }} cluster](../../../data-proc/operations/cluster-create.md).
   1. [Create a VM](../../../compute/operations/vm-create/create-linux-vm.md) running Ubuntu 16.04 LTS.
   1. To provide network access to the {{ dataproc-name }} cluster hosting this VM, [set up security groups](../../../data-proc/operations/security-groups.md) for the cluster.
   1. [Connect](../../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH:
@@ -82,6 +103,7 @@ Create and configure a host to run jobs remotely on the {{ dataproc-name }} clus
 
 - Image version 2.0
 
+  1. [Create a {{ dataproc-name }} cluster](../../../data-proc/operations/cluster-create.md).
   1. [Create a VM](../../../compute/operations/vm-create/create-linux-vm.md) running Ubuntu 20.04 LTS.
   1. To provide network access to the {{ dataproc-name }} cluster hosting this VM, [set up security groups](../../../data-proc/operations/security-groups.md) for the cluster.
   1. [Connect](../../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH:
@@ -320,3 +342,11 @@ Create and configure a host to run jobs remotely on the {{ dataproc-name }} clus
 {% endlist %}
 
 {% include [get-logs-info](../../../_includes/data-processing/note-info-get-logs.md) %}
+
+
+## Delete the resources you created {#clear-out}
+
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+
+1. [Delete the {{ dataproc-name }} cluster](../../../data-proc/operations/cluster-delete.md).
+1. [Delete the VM](../../../compute/operations/vm-control/vm-delete.md).

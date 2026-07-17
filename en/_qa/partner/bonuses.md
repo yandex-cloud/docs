@@ -12,7 +12,7 @@ You can link a customer subaccount to a partner account on the [partner portal](
 
 Linked subaccounts cannot see the partner discount in the management console. {{ yandex-cloud }} does not issue separate payment invoices to subaccounts.
 
-For more information about the discount amount, see the [Partner agreement](https://yandex.ru/legal/cloud_grant/?lang=ru).
+For more on the discount amount, see [Partner agreement](https://yandex.ru/legal/cloud_grant/?lang=ru).
 
 #### What is not included when calculating a partner bonus? {#no-bonus}
 

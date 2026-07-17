@@ -39,7 +39,6 @@
 
 * [Архитектура и защита базового интернет-сервиса](../tutorials/web-service.md)
 * [Обновление группы виртуальных машин под нагрузкой](../tutorials/updating-under-load.md)
-* [Интеграция Cloud DNS и корпоративного сервиса DNS](../tutorials/dns-integration.md)
 * [Развертывание Microsoft Exchange](../tutorials/exchange.md)
 * [Развертывание группы доступности Always On с внутренним сетевым балансировщиком](../tutorials/mssql-alwayson-lb.md)
 * [Миграция сервисов с балансировщика NLB на L7-балансировщик ALB для подключения защиты Yandex Smart Web Security](../tutorials/migration-from-nlb-to-alb/index.md)

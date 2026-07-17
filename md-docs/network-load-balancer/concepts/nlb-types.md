@@ -35,7 +35,6 @@
 * [Подключение к Container Registry из Virtual Private Cloud](../tutorials/vpc-cr-access.md)
 * [Подключение к Object Storage из Virtual Private Cloud](../tutorials/storage-vpc-access.md)
 * [Реализация отказоустойчивых сценариев для сетевых виртуальных машин](../tutorials/route-switcher.md)
-* [Интеграция Cloud DNS и корпоративного сервиса DNS](../tutorials/dns-integration.md)
 * [Миграция сервисов с балансировщика NLB на L7-балансировщик ALB для подключения защиты Yandex Smart Web Security](../tutorials/migration-from-nlb-to-alb/index.md)
 
 #### Полезные ссылки {#see-also}

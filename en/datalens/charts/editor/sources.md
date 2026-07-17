@@ -13,7 +13,7 @@ You can get data from any of the following sources:
 * [Connection to databases via an SQL query](./tabs.md#sources-database)
 * [Connection via API Connector](./tabs.md#sources-api-connector)
 
-For more information, see [Sources](./tabs.md#sources).
+Learn more about the [Sources](./tabs.md#sources) tab.
 
 
 Editor supports multiple data sources.

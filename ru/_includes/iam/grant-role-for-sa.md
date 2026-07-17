@@ -37,7 +37,7 @@
   ```bash
   yc resource-manager <категория_ресурса> add-access-binding <имя_или_идентификатор_ресурса> \
     --role <идентификатор_роли> \
-    --subject serviceAccount:<идентификатор_сервисного_аккаунта>
+    --service-account-id <идентификатор_сервисного_аккаунта>
   ```
 
   Где:
@@ -45,9 +45,9 @@
   * `<категория_ресурса>` — `cloud`, чтобы назначить роль на облако, или `folder`, чтобы назначить роль на каталог.
   * `<имя_или_идентификатор_ресурса>` — имя или идентификатор ресурса, на который назначается роль.
   * `--role` — идентификатор роли, например `{{ roles-viewer }}`.
-  * `--subject serviceAccount` — идентификатор сервисного аккаунта, которому назначается роль.
+  * `--service-account-id` — идентификатор сервисного аккаунта, которому назначается роль.
 
-  Например, чтобы назначить сервисному аккаунту роль `{{ roles-viewer }}` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) `my-folder`:
+  Например, чтобы назначить сервисному аккаунту роль на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder):
 
   {% include [grant-role-for-sa-to-folder-via-cli](grant-role-for-sa-to-folder-via-cli.md) %}
 
@@ -55,51 +55,40 @@
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
+  1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать.
 
-     Пример структуры конфигурационного файла:
+      Пример структуры конфигурационного файла для назначения роли на каталог:
 
-     ```
-     resource "yandex_resourcemanager_folder_iam_member" "admin-account-iam" {
-       folder_id   = "<идентификатор_каталога>"
-       role        = "<роль>"
-       member      = "serviceAccount:<идентификатор_сервисного_аккаунта>"
-     }
-     ```
+      ```hcl
+      resource "yandex_resourcemanager_folder_iam_member" "admin-account-iam" {
+        folder_id   = "<идентификатор_каталога>"
+        role        = "<роль>"
+        member      = "serviceAccount:<идентификатор_сервисного_аккаунта>"
+      }
+      ```
 
-     Где:
-     * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md). Обязательный параметр.
-     * `role` — назначаемая роль. Описание ролей можно найти в документации {{ iam-full-name }} в [справочнике ролей {{ yandex-cloud }}](../../iam/roles-reference.md). Обязательный параметр.
-     * `member` — [идентификатор](../../iam/operations/sa/get-id.md) сервисного аккаунта, которому назначается роль. Указывается в виде `serviceAccount:<идентификатор_сервисного_аккаунта>`. Обязательный параметр.
+      Где:
+      * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md). Обязательный параметр.
+      * `role` — назначаемая роль. Описание ролей можно найти в документации {{ iam-full-name }} в [справочнике ролей {{ yandex-cloud }}](../../iam/roles-reference.md). Обязательный параметр.
+      * `member` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль. Для сервисного аккаунта укажите `serviceAccount:<идентификатор_сервисного_аккаунта>`.
 
-     Подробнее о ресурсах, которые вы можете создать с помощью {{ TF }}, читайте в [документации провайдера]({{ tf-provider-link }}).
+          {% cut "Обозначения субъектов" %}
 
-  1. Проверьте корректность конфигурационных файлов.
+          {% include [subjects-designations-terraform](subjects-designations-terraform.md) %}
 
-     1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
-     1. Выполните проверку с помощью команды:
+          {% endcut %}
 
-        ```
-        terraform plan
-        ```
+      Подробнее о ресурсах, которые вы можете создать с помощью {{ TF }}, читайте в [документации провайдера]({{ tf-provider-link }}).
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+  1. Создайте ресурсы:
 
-  1. Разверните облачные ресурсы.
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     1. Если в конфигурации нет ошибок, выполните команду:
+      После этого будут назначены права доступа к каталогу. Проверить назначение роли можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
-        ```
-        terraform apply
-        ```
-
-     1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
-
-     После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить создание ресурса можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
-
-     ```bash
-     yc resource-manager folder list-access-bindings <имя_или_идентификатор_каталога>
-     ```
+      ```bash
+      yc resource-manager folder list-access-bindings <имя_или_идентификатор_каталога>
+      ```
 
 - API {#api}
 
@@ -144,18 +133,18 @@
   ```bash
   yc organization-manager organization add-access-binding <имя_или_идентификатор_организации> \
     --role <идентификатор_роли> \
-    --subject serviceAccount:<идентификатор_сервисного_аккаунта>
+    --service-account-id <идентификатор_сервисного_аккаунта>
   ```
 
   Где:
+
   * `<имя_или_идентификатор_организации>` — техническое название или [идентификатор](../../organization/operations/organization-get-id.md) организации.
   * `--role` — идентификатор роли, например `{{ roles-viewer }}`.
-  * `--subject serviceAccount` — идентификатор сервисного аккаунта, которому назначается роль.
+  * `--service-account-id` — идентификатор сервисного аккаунта, которому назначается роль.
 
   Например, чтобы назначить сервисному аккаунту роль `{{ roles-viewer }}` на организацию `MyOrg`:
 
   1. Выберите роль, которую хотите назначить сервисному аккаунту. Описание ролей можно найти в документации {{ iam-full-name }} в [справочнике ролей {{ yandex-cloud }}](../../iam/roles-reference.md).
-
   1. Получите список доступных вам организаций, чтобы узнать их идентификаторы и технические названия:
 
       ```bash
@@ -210,14 +199,14 @@
       ```bash
       yc organization-manager organization add-access-binding bpf1smsil5q0******** \
         --role viewer \
-        --subject serviceAccount:aje6o61dvog2********
+        --service-account-id aje6o61dvog2********
       ```
 
 - {{ TF }} {#tf}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
+  1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать.
 
      Пример структуры конфигурационного файла:
 
@@ -225,41 +214,26 @@
      resource "yandex_organizationmanager_organization_iam_binding" "editor" {
        organization_id   = "<идентификатор_организации>"
        role              = "<роль>"
-       members           = [
-                             "serviceAccount:<идентификатор_сервисного_аккаунта>",
-                           ]
+       members           = ["serviceAccount:<идентификатор_сервисного_аккаунта>",]
      }
      ```
 
      Где:
      * `organization_id` — [идентификатор](../../organization/operations/organization-get-id.md) организации. Обязательный параметр.
-     * `role` — назначаемая роль. Описание ролей можно найти в документации {{ iam-full-name }} в [справочнике ролей {{ yandex-cloud }}](../../iam/roles-reference.md). Для каждой роли можно использовать только один `yandex_organization manager_organization_iam_binding`. Обязательный параметр.
-     * `members` — [идентификатор](../../iam/operations/sa/get-id.md) сервисного аккаунта, которому назначается роль. Указывается в виде `serviceAccount:<идентификатор_сервисного_аккаунта>`. Обязательный параметр.
+     * `role` — назначаемая роль. Описание ролей можно найти в документации {{ iam-full-name }} в [справочнике ролей {{ yandex-cloud }}](../../iam/roles-reference.md). Для каждой роли можно использовать только один ресурс `yandex_organizationmanager_organization_iam_binding`. Обязательный параметр.
+     * `members` — обозначения [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль. Обязательный параметр.
 
-     Подробнее о ресурсах, которые вы можете создать с помощью {{ TF }}, читайте в [документации провайдера]({{ tf-provider-link }}).
+     Подробнее о параметрах ресурса `yandex_organizationmanager_organization_iam_binding` читайте в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_organization_iam_binding).
 
-  1. Проверьте корректность конфигурационных файлов.
-    
-     1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
-     1. Выполните проверку с помощью команды:
- 
-        ```
-        terraform plan
-        ```
+  1. Проверьте корректность настроек.
 
-     Если конфигурация описана верно, в терминале отобразится список назначенных ролей. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
- 
-  1. Разверните облачные ресурсы.
-  
-     1. Если в конфигурации нет ошибок, выполните команду:
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-        ```
-        terraform apply
-        ```
+  1. Назначьте роль.
 
-     1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
-	 
-     После этого в указанной организации будут созданы все требуемые ресурсы. Проверить создание ресурса можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+     После этого будут назначены права доступа к организации. Проверить назначение роли можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
      ```bash
      yc organization-manager organization list-access-bindings <имя_или_идентификатор_организации>
@@ -267,7 +241,7 @@
 
 - API {#api}
 
-  Чтобы назначить сервисному аккаунту роль на организацию, воспользуйтесь методом REST API [updateAccessBindings](../../organization/api-ref/Organization/updateAccessBindings.md) для ресурса [Organization](../../organization/api-ref/Organization/index.md):
+  Чтобы назначить сервисному аккаунту роль на организацию, воспользуйтесь методом REST API [updateAccessBindings](../../organization/api-ref/Organization/updateAccessBindings.md) для ресурса [Organization](../../organization/api-ref/Organization/index.md) или вызовом gRPC API [OrganizationService/UpdateAccessBindings](../../organization/api-ref/grpc/Organization/updateAccessBindings.md):
 
   1. Выберите роль, которую хотите назначить сервисному аккаунту. Описание ролей можно найти в документации {{ iam-full-name }} в [справочнике ролей {{ yandex-cloud }}](../../iam/roles-reference.md).
   1. [Узнайте](../../resource-manager/operations/folder/get-id.md) ID каталога с сервисными аккаунтами.
@@ -275,8 +249,8 @@
   1. Получите список сервисных аккаунтов в каталоге, чтобы узнать их идентификаторы:
 
       ```bash
-      export FOLDER_ID=b1gvmob95yys********
-      export IAM_TOKEN=CggaATEVAgA...
+      export FOLDER_ID=<идентификатор_каталога>
+      export IAM_TOKEN=<IAM-токен>
       curl \
         --header "Authorization: Bearer ${IAM_TOKEN}" \
         "https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=${FOLDER_ID}"
@@ -302,7 +276,7 @@
   1. Получите список организаций, чтобы узнать их идентификаторы:
 
       ```bash
-      export IAM_TOKEN=CggaATEVAgA... 
+      export IAM_TOKEN=<IAM-токен>
       curl \
         --header "Authorization: Bearer ${IAM_TOKEN}" \
         --request GET \
@@ -324,7 +298,7 @@
       }
       ```
 
-  1. Сформируйте тело запроса, например в файле `body.json`. В свойстве `action` укажите `ADD`, в свойстве `roleId` — нужную роль, например `{{ roles-viewer }}`, а в свойстве `subject` — тип `serviceAccount` и идентификатор сервисного аккаунта:
+  1. Сформируйте тело запроса, например в файле `body.json`. В свойстве `action` укажите `ADD`:
 
       **body.json:**
 
@@ -333,9 +307,9 @@
         "accessBindingDeltas": [{
           "action": "ADD",
           "accessBinding": {
-            "roleId": "viewer",
+            "roleId": "<роль>",
             "subject": {
-              "id": "ajebqtreob2d********",
+              "id": "<идентификатор_сервисного_аккаунта>",
               "type": "serviceAccount"
             }
           }
@@ -343,11 +317,23 @@
       }
       ```
 
-  1. Назначьте роль сервисному аккаунту. Например, на организацию с идентификатором `bpfaidqca8vd********`:
+      Где:
+
+      * `roleId` — назначаемая роль.
+      * `subject` — [субъект](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
+
+          {% cut "Обозначения субъектов" %}
+
+          {% include [subjects-designations-api](subjects-designations-api.md) %}
+
+          {% endcut %}
+
+
+  1. Назначьте роль сервисному аккаунту:
 
       ```bash
-      export ORGANIZATION_ID=bpfaidqca8vd********
-      export IAM_TOKEN=CggaATEVAgA...
+      export ORGANIZATION_ID=<идентификатор_организации>
+      export IAM_TOKEN=<IAM_токен>
       curl \
         --header "Content-Type: application/json" \
         --header "Authorization: Bearer ${IAM_TOKEN}" \

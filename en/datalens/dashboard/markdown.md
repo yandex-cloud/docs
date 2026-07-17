@@ -522,10 +522,10 @@ Using text definitions, you can set a description of the structure, which is the
 <pre><code>
 ```mermaid
 graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
+    A-->B
+    A-->C
+    B-->D
+    C-->D
 ```
 </code></pre>
 
@@ -533,7 +533,7 @@ will be displayed as:
 
 ![mermaid-flowcharts-example](../../_assets/datalens/internal/editor/mermaid-flowcharts-example.svg)
 
-See the [Mermaid guides](https://mermaid.js.org/intro/) for details.
+See [this Mermaid guide](https://mermaid.js.org/intro/) for details.
 
 {% note info %}
 

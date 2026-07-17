@@ -107,6 +107,6 @@
 ## Примеры использования {#examples}
 
 * [Настройка локального кеширующего DNS-резолвера](../tutorials/local-dns-cache.md)
-* [Интеграция Cloud DNS и корпоративного сервиса DNS](../tutorials/dns-integration.md)
+* [Разрешение облачных DNS-имен в корпоративной сети](../tutorials/dns-integration.md)
 * [Настройка Yandex Cloud DNS для доступа к кластеру управляемых баз данных из других облачных сетей](../tutorials/mdb-dns-peering.md)
 * [Привязка доменного имени к ВМ с веб-сервером с помощью консоли управления, CLI или API](../tutorials/bind-domain-vm/console.md)

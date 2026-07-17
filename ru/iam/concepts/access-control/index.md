@@ -56,27 +56,20 @@
 
 Роли назначаются субъектам. Существуют следующие типы субъектов:
 
-* `userAccount` — [аккаунт на Яндексе](../users/accounts.md#passport), добавленный в {{ yandex-cloud }}, или аккаунт из [пула пользователей](../../../organization/concepts/user-pools.md):
-
-* `serviceAccount` — [сервисный аккаунт](../users/service-accounts.md), созданный в {{ yandex-cloud }}:
+* `userAccount` — [аккаунт на Яндексе](../users/accounts.md#passport), добавленный в {{ yandex-cloud }}, или аккаунт из [пула пользователей](../../../organization/concepts/user-pools.md).
+* `serviceAccount` — [сервисный аккаунт](../users/service-accounts.md), созданный в {{ yandex-cloud }}.
 
     {% include [include](../../../_includes/sa-assign-role-note.md) %}
 
-* `federatedUser` — аккаунт пользователя [федерации удостоверений](../../../organization/concepts/add-federation.md), например из Active Directory:
-
-* `group` — [группа пользователей](../../../organization/concepts/groups.md) [{{ org-full-name }}](../../../organization/), созданная администратором организации:
-
+* `federatedUser` — аккаунт пользователя [федерации удостоверений](../../../organization/concepts/add-federation.md), например из Active Directory.
+* `group` — [группа пользователей](../../../organization/concepts/groups.md) [{{ org-full-name }}](../../../organization/), созданная администратором организации.
 * `system` — [системная](./system-group.md) или [публичная](./public-group.md) группа пользователей:
-
     * `All authenticated users` — [публичная группа](./public-group.md#allAuthenticatedUsers) всех авторизованных пользователей.
-
     * `All users` — [публичная группа](./public-group.md#allUsers) всех пользователей.
-
     * `All users in organization X` — [системная группа](./system-group.md#allOrganizationUsers) всех пользователей организации `X`.
-
     * `All users in federation N` — [системная группа](./system-group.md#allFederationUsers) всех пользователей федерации `N`.
-
     * `All users in userpool P` — [системная группа](./system-group.md#allUserpoolUsers) всех локальных пользователей пула `P`.
+
 
 ### Назначение прав доступа {#access-bindings}
 

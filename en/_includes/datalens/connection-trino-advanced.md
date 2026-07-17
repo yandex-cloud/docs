@@ -1,0 +1,1 @@
+Optionally, configure **Advanced connection settings**. For more information, see [Additional settings](#additional-settings).

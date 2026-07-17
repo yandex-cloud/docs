@@ -56,7 +56,7 @@ Create a QL chart based on the `Sample ClickHouse` connection:
 
    {% note info %}
 
-   Make sure **Raw SQL level** → **Allow subqueries in datasets and queries from charts** is enabled.
+   Make sure the **Raw SQL level** → **SQL to read** setting is active in the connection.
 
    {% endnote %}
 
@@ -144,7 +144,7 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add charts and oth
 
 ## Add the QL chart to the dashboard {#add-sql-chart-to-dashboard}
 
-1. In the panel at the bottom of the page, click ![image](../../_assets/console-icons/chart-column.svg) **Chart** and drag it where you want it to be.
+1. In the panel at the bottom of the page, click ![image](../../_assets/console-icons/chart-column.svg) **Chart** and drag it to a desired location.
 
    ![add-chart](../../_assets/datalens/sql-chart/add-chart.png)
 
@@ -162,7 +162,7 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add charts and oth
 
 Add [selectors](../../datalens/dashboard/selector.md) to filter charts by date and client statuses:
 
-1. In the panel at the bottom of the page, click ![image](../../_assets/console-icons/sliders.svg) **Selector** and drag it where you want it to be.
+1. In the panel at the bottom of the page, click ![image](../../_assets/console-icons/sliders.svg) **Selector** and drag to a desired location.
 
    ![image](../../_assets/datalens/sql-chart/add-selector.png)
 

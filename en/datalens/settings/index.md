@@ -51,6 +51,6 @@ To change the current user's settings, select ![image](../../_assets/console-ico
 * **Appearance**: Select a UI theme and contrast level.
 * **AI settings**: [Set up a custom AI prompt](../concepts/neuroanalyst.md#user-promt).
 
-For more information, see [{#T}](../../console/operations/update.md).
+Read more in [{#T}](../../console/operations/update.md).
 
 

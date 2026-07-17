@@ -603,7 +603,7 @@ items:
               Настройка {{ dns-name }} для доступа к кластеру {{ mch-name }} из
               других облачных сетей
             href: dataplatform/clickhouse-dns-peering.md
-          - name: Интеграция {{ dns-name }} и корпоративного сервиса DNS
+          - name: Разрешение облачных DNS-имен в корпоративной сети
             href: infrastructure-management/dns-integration.md
           - name: Создание веб-хука резолвера ACME для ответов на DNS01-проверки
             href: infrastructure-management/cert-manager-webhook.md

@@ -22,8 +22,12 @@ To automate operations with {{ dataproc-name }} using {{ maf-name }}:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+## Getting started {#before-you-begin}
 
-## Required paid resources {#paid-resources}
+{% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
+
+
+### Required paid resources {#paid-resources}
 
 * {{ maf-name }} cluster: computing resources of cluster components (see [{{ maf-name }} pricing](../../../managed-airflow/pricing.md)).
 * {{ metastore-name }} cluster: computing resources of cluster components (see [{{ metadata-hub-full-name }} pricing](../../../metadata-hub/pricing.md#metastore)).

@@ -40,12 +40,12 @@ To create a {{ CH }} connection:
 
      * **Host name**: Select the host name from the list of hosts available in the {{ CH }} cluster. You can select multiple hosts. If you fail to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
      * **HTTP interface port**: Specify the {{ CH }} connection port. The default port is 8443.
-     * **Username**: Specify the username for the {{ CH }} connection.
+     * **Username**: Specify a username for the {{ CH }} connection.
 
        {% include [datalens-db-note](../../../_includes/datalens/datalens-db-note.md) %}
 
      * **Password**: Specify a password for the user.
-     * **Cache TTL in seconds**: Specify the cache TTL or leave the default value. The recommended value is 300 seconds (5 minutes).
+     * **Cache TTL in seconds**: Specify cache TTL or leave the default value. The recommended value is 300 seconds (5 minutes).
 
      {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level.md) %}
 
@@ -59,7 +59,6 @@ To create a {{ CH }} connection:
 
      {% include [datalens-db-connection-parameters](../../../_includes/datalens/datalens-db-connection-parameters.md) %}
      
-     ![image](../../../_assets/datalens/operations/connection/connection-clickhouse.png)
 
      Click **Check connection** to make sure the parameters are correct.
 
@@ -74,7 +73,7 @@ To create a {{ CH }} connection:
      * **Host**: Select the host from the list of available hosts in the {{ CH }} cluster.
      * **Port**: It is set automatically depending on the selected host.
      * **Username**: It is set automatically from the selected connection data.
-     * **Cache TTL in seconds**: Specify the cache TTL or leave the default value. The recommended value is 300 seconds (5 minutes).
+     * **Cache TTL in seconds**: Specify cache TTL or leave the default value. The recommended value is 300 seconds (5 minutes).
      
      {% include [datalens-db-connection-parameters](../../../_includes/datalens/datalens-db-connection-parameters.md) %}
 

@@ -5,8 +5,6 @@ description: In this guide, you will learn how to delete a workspace in {{ sd-fu
 
 # Deleting a {{ sd-name }} workspace
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 To delete a {{ sd-name }} [workspace](../../concepts/workspace.md):
 
 {% list tabs group=instructions %}

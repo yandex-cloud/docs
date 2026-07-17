@@ -18,6 +18,8 @@ Hidden tabs are not visible by default when you open the dashboard, but you see 
 
 To hide a selected tab:
 
+1. In the left-hand panel, click ![image](../../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and select the dashboard you need.
+
 
 1. In the top-right corner, click **Edit**.
 1. Click ![image](../../../_assets/console-icons/gear.svg) at the top of the screen. The settings window will open on the right.
@@ -33,6 +35,8 @@ The tab will no longer be visible by default when you open the dashboard, but yo
 ## Showing a selected tab {#tab-show}
 
 To make the tab visible again:
+
+1. In the left-hand panel, click ![image](../../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and select the dashboard you need.
 
 
 1. In the top-right corner, click **Edit**.
@@ -50,6 +54,7 @@ If [all tabs are hidden](#tabs-all-hide) in the dashboard settings, the tab will
  
 To hide all tabs:
 
+1. In the left-hand panel, click ![image](../../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and select the dashboard you need.
 1. In the top-right corner, click **Edit**.
 1. At the top of the screen, click ![image](../../../_assets/console-icons/gear.svg). The settings window will open on the right.
 
@@ -65,6 +70,7 @@ All tabs, except for the first one not hidden [separately](#tab-hide), will no l
  
 To show all tabs:
 
+1. In the left-hand panel, click ![image](../../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and select the dashboard you need.
 1. In the top-right corner, click **Edit**.
 1. At the top of the screen, click ![image](../../../_assets/console-icons/gear.svg). The settings window will open on the right.
 
@@ -80,6 +86,7 @@ All tabs, except those [hidden separately](#tab-hide), will be visible when you 
 
 To share a link to a hidden tab:
 
+1. In the left-hand panel, click ![image](../../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and select the dashboard you need.
 1. In the top-right corner of the dashboard, click **Edit** and navigate to the hidden tab you want to share.
 
 
@@ -87,7 +94,7 @@ To share a link to a hidden tab:
 1. In the window that opens, enable **Open current tab by default**.
 1. Optionally, configure other settings:
 
-   * Language, theme, menu display.
+   * Set the language, theme, and menu display.
    * Save selector values.
 
    * If you have set up an [identity federation](../../../organization/concepts/add-federation.md), save the federation to share your link with the federation users.

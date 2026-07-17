@@ -57,7 +57,7 @@ You can view the commission statistics and download a detailed report in `.csv` 
 
 ### Subaccount details {#client-stat}
 
-This section provides detailed information about how customers are using the services. For more information, see [{#T}](operations/get-client-stat.md).
+This section provides detailed information about how customers are using the services. Read more in [{#T}](operations/get-client-stat.md).
 
 
 ### Rebate accrual balance {#balance}

@@ -8,4 +8,4 @@ description: This page describes the Joined columns should form prefix of joined
 `ERR.DS_API.DB.CHYT.INVALID_SORTED_JOIN.NOT_KEY_PREFIX_COLUMN`
 
 The column used in `JOIN` is not a table key prefix.
-See the [{#T}](ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-NOT_A_KEY_COLUMN.md) error.
+For more on this error, see [{#T}](ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-NOT_A_KEY_COLUMN.md).

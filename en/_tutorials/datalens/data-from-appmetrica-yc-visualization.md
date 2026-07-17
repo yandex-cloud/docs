@@ -185,10 +185,7 @@ To set up the connection and export data from your app, see the guide in [Export
    1. Enter `AppMetrica_workshop` for the name.
    1. Select the {{ CH }} host from the **Host name** drop-down list.
    1. Select the username and enter the password from step [1.1](#ch-connection).
-   1. Enable **Allow subqueries in datasets and queries from charts**.
-  
-      ![image](../../_assets/datalens/solution-13/08-ch-connection.png)
-
+   1. Enable the **SQL to read** option.
    1. Click **Check connection**.
 
 1. After a successful check, click **Create connection**. In the window that opens, enter the connection name and click **Create**.

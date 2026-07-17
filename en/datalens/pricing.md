@@ -24,7 +24,7 @@ editable: false
 
 * Every {{ datalens-full-name }} user needs a seat, even if only to view or edit dashboards.
 * Seats are issued automatically when new users first log in to {{ datalens-full-name }}.
-* Seats can be managed by the administrator, see [this article](./settings/seats.md) for details.
+* Seats can be managed by the administrator. Read [this article](./settings/seats.md) for details.
 * You can manage access to objects in {{ datalens-full-name }} using [roles and access permissions](./security/index.md); a seat does not provide access to objects.
 
 {% note info %}

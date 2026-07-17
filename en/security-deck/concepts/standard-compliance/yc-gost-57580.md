@@ -5,8 +5,6 @@ description: This section sets forth rules that help you automate compliance wit
 
 # Requirements of the GOST R 57580 standard
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 GOST R 57580 is the national security standard for banking and financial operations. This standard defines information protection levels and establishes baseline administrative and technical safeguards for each tier.
 
 The standard aligns implemented controls with the active threat landscape and accepted operational risks associated with financial and banking services, including money transfers.

@@ -733,7 +733,7 @@ All.
 
 #### Arguments {#get-action-params-args}
 
-`arg` (_string_): String with the key name (alias) in the `links` object on the **Meta** tab.
+`arg` (_string_): String with the key name (alias) in the `links` object on the  **Meta** tab.
 
 #### Returned result {#get-id-result}
 
@@ -1769,7 +1769,7 @@ Where:
   
   const currentParamA = Number(paramA[0]);
   
-  Editor.updateParams({paramB: [`${currentParamA} value`]})
+  Editor.updateParams({paramB: [`${currentParamA}` value]})
   
   module.exports = [
       {
@@ -1798,7 +1798,7 @@ Where:
 
   The initial values ​​are: `paramA: '1'` and `paramB: 'Value 1'`.
   
-  After you click the button on the **Controls** tab, `paramA` increases by `1`. If its value is greater than `2`, it gets set to `1`. The `paramB` value changes with the help of the `Editor.updateParams()` method to `${currentParamA} value`, where ${currentParamA}` is the current `paramA` value.
+  After you click the button on the **Controls** tab, `paramA` increases by `1`. If its value is greater than `2`, it gets set to `1`. The `paramB` value changes with the help of the `Editor.updateParams()` method to `${currentParamA} value`, where `${currentParamA}` is the current `paramA` value.
   
   After this, the selector will be redrawn based on the current `paramB` value.
 

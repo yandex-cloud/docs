@@ -66,7 +66,7 @@ You can add a selector to a dashboard to modify query output in its associated w
 * On the dashboard, selectors and charts built from a single dataset get linked automatically.
 * Selectors and charts built from different datasets can be linked manually using aliases.
 
-Before creating a link, make sure the field used by the selector as a filter is included in the dataset the chart is built from. Otherwise, the link will not work. For more information, see [{#T}](../operations/dashboard/create-alias.md).
+Before creating a link, make sure the field used by the selector as a filter is present in the dataset the chart is built on. Otherwise, the link will not work. For more information, see [{#T}](../operations/dashboard/create-alias.md).
 
 
 ## Optimizing data when joining tables {#join-optimization}

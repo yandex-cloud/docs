@@ -14,4 +14,4 @@ if(
 
 For a line chart, you can drag-and-drop only measures, including the [Measure Values](../../datalens/concepts/chart/measure-values.md) measure, to the **Signatures** section.
 
-If you move the same measure in the **Y** axis section to the **Signatures** section, you will see signatures on the chart (see the [screenshot](https://storage.yandexcloud.net/doc-files/signatures.png)).
+If you move to the **Signatures** section the same measure as in the **Y** axis section, you will see labels on the chart (see the [screenshot](https://storage.yandexcloud.net/doc-files/signatures.png) for details).

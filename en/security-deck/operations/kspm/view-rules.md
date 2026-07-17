@@ -5,8 +5,6 @@ description: In this section, you will learn how to view active {{ k8s }} contro
 
 # Viewing {{ k8s }} control rules
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 To view {{ k8s }} control rules, you need the `security-deck.viewer` role or higher for the folder containing the {{ kspm-name }} module resources.
 
 To view active {{ k8s }} control rules:

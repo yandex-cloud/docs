@@ -173,7 +173,7 @@ description: Следуя этой инструкции, вы сможете о�
 
           В данном случае указан только один параметр: `configSpec.version`.
 
-        * `configSpec.version` — версия {{ KF }}, до которой нужно обновиться: {{ versions.cli.str-without-latest }}.
+        * `configSpec.version` — версия {{ KF }}, до которой нужно обновиться: {{ versions.cli.str }}.
 
        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
 
@@ -219,7 +219,7 @@ description: Следуя этой инструкции, вы сможете о�
 
           В данном случае указан только один параметр: `config_spec.version`.
 
-        * `config_spec.version` — версия {{ KF }}, до которой нужно обновиться: {{ versions.cli.str-without-latest }}.
+        * `config_spec.version` — версия {{ KF }}, до которой нужно обновиться: {{ versions.cli.str }}.
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
 

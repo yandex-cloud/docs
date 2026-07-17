@@ -4238,6 +4238,10 @@ default:
             workspace_title_365xt: Workspace name
           WorkspaceKspmResourcesForm:
             section-title_iYCNY: Scope of control
+          WorkspaceModuleErrorsTable:
+            field_date_d5R8n: Date
+            field_message_b4Q1s: Message
+            field_source_y9C3p: Source
           WorkspaceOnboardingForm:
             accessRightsTitle: Access bindings
             createAndContinue_1yfFr: Create and continue

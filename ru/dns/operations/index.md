@@ -33,3 +33,5 @@ description: Пошаговые инструкции по работе с DNS-з
 ## DNS-подключения {#dns-connection}
 
 - [{#T}](connection-inbound-create.md)
+- [{#T}](connection-inbound-update.md)
+- [{#T}](connection-inbound-delete.md)

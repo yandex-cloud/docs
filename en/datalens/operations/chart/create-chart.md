@@ -30,7 +30,7 @@ To create a chart:
    1. In the top-right corner, click **Save**.
    1. In the window that opens, enter a name for your chart and click **Save**.
 
-## Creating a copy or draft of the chart {#create-chart-copy}
+## Creating a chart copy or draft {#create-chart-copy}
 
 To create a chart copy, use one of these methods:
 

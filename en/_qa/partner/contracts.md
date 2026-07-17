@@ -26,7 +26,7 @@ At the end of each month, we will email you a service report that will show you 
 
 At the end of the reporting month, starting from the second month of paid consumption, you have 15 days to settle the payment invoice you receive. During this period and until you deposit funds on your account, your [credit limit](../../billing/concepts/billing-threshold.md) is activated. This credit limit is calculated automatically based on the average monthly consumption over the past few months.
 
-If you do not settle the payment before the end of the current month or the credit limit is exceeded, we will contact you to clarify the reasons for the delay in payment and agree on the deadline for depositing the funds. If we fail to receive your response after several attempts to contact you, your resources may be suspended until the issue is resolved. For more information about suspending and restoring access to our services, see **Billing cycle** in the {{ billing-name }} documentation:
+If you do not settle the payment before the end of the current month or the credit limit is exceeded, we will contact you to clarify the reasons for the delay in payment and agree on the deadline for depositing the funds. If we fail to receive your response after several attempts to contact you, your resources may be suspended until the issue is resolved. For more information about suspending and restoring access to our services, see **Billing cycle** in the {{ billing-name }} guide:
 
 * [Individuals](../../billing/payment/billing-cycle-individual.md)
 * [Businesses and individual entrepreneurs](../../billing/payment/billing-cycle-business.md)
@@ -37,7 +37,7 @@ Partners can issue payment invoices to their customers at any time. We only moni
 
 #### How do I download reporting documents in the management console? {#docs}
 
-See the {{ billing-name }} [documentation](../../billing/operations/download-reporting-docs.md) for details.
+For more information, see [this {{ billing-name }} guide](../../billing/operations/download-reporting-docs.md).
 
 #### How do I issue an invoice? {#bill}
 

@@ -21,29 +21,29 @@ Neuroanalyst analyzes your dashboard charts, generates findings based on their d
 * [Chart information](../operations/chart/add-description.md).
 * Dashboard chart [description and tooltip](../operations/dashboard/add-chart.md) (other than tables).
 
-You can use Neuroanalyst for the entire dashboard or individual charts on the dashboard. To use Neuroanalyst on your dashboard:
+You can use Neuroanalyst on your dashboard for a dashboard tab or individual charts on the dashboard. To use Neuroanalyst on your dashboard:
 
 {% list tabs %}
 
-- For entire dashboard
+- For a dashboard tab
 
   1. Click **Neuroanalyst** at the top of the dashboard to open the **Neuroanalyst** tab on the right.
 
-     {% cut "Neuroanalyst for entire dashboard" %}
+     {% cut "Neuroanalyst for a dashboard tab" %}
 
      ![image](../../_assets/datalens/ai/ai-analytic-on-dashboard.png)
 
      {% endcut %}
 
-  1. Select a question or ask your own one, e.g., "What charts can I add to the dashboard?".
+  1. Select a question or ask your own one, e.g., "What promotion should I run?".
 
-     {% cut "Question for Neuroanalyst" %}
+     {% cut "Question to Neuroanalyst" %}
 
      ![image](../../_assets/datalens/ai/ai-analytic-on-dashboard-ask.png)
 
      {% endcut %}
 
-     Neuroanalyst will give a detailed answer and suggest possible solutions and recommendations.
+     Neuroanalyst will analyze the current tab's contents, delve into the charts relevant for the answer, and generate a detailed response.
 
      {% cut "Neuroanalyst's answer" %}
 
@@ -69,9 +69,10 @@ You can use Neuroanalyst for the entire dashboard or individual charts on the da
 
      {% endcut %}
 
+  
   1. Select a question or ask your own, e.g., "What insights can I get from this data?".
 
-     {% cut "Question for Neuroanalyst" %}
+     {% cut "Question to Neuroanalyst" %}
 
      ![image](../../_assets/datalens/ai/ai-analytic-on-dashboard-chart-ask.png)
 
@@ -84,6 +85,7 @@ You can use Neuroanalyst for the entire dashboard or individual charts on the da
      ![image](../../_assets/datalens/ai/ai-analytic-on-dashboard-chart-result.png)
 
      {% endcut %}
+
 
 {% endlist %}
 
@@ -109,18 +111,18 @@ You can [ban](../operations/dashboard/dashboard-neuroanalyst-off.md) the use of 
 
 Neuroanalyst 2.0 analyzes the dataset underlying your dashboard and can return an existing chart as a response or build a new chart based on the dataset. It uses the dataset and a [reference tab](#reference-tab) as context. Neuroanalyst 2.0 uses charts from the reference tab as templates when constructing new charts.
 
-{{ datalens-name }} features the beta version of Neuroanalyst 2.0: to use it, [enable this option](#turn-on) in your dashboard settings.
+To use Neuroanalyst's multi-agent mode, [enable the option](#turn-on) in the dashboard settings.
 
 
 ### Reference tab {#reference-tab}
 
-Neuroanalyst 2.0 uses charts from the reference tab as verified examples of using the dataset and visualizing data.
+Neuroanalyst 2.0 treats charts from the reference tab as verified examples of using the dataset and visualizing data.
 
-While you can select any dashboard tab, the Neuroanalyst performance will effectively depend on your selection.
+While you can select any dashboard tab, Neuroanalyst's performance will effectively depend on your selection.
 
 When selecting a reference tab, please follow these recommendations:
 
-* On the tab, place [wizard charts](../concepts/chart/dataset-based-charts.md) that describe your dataset from different angles and answer different questions.
+* On the tab, place [wizard charts](../concepts/chart/dataset-based-charts.md) that describe your dataset in various aspects and answer different questions.
 * In the descriptions of your dashboard charts or widgets, provide examples of questions they help answer.
 * Instead of tab selectors, use filters in charts to make your charts answer more specific questions.
 * Employ charts based on a single dataset.
@@ -141,5 +143,5 @@ To enable Neuroanalyst 2.0 on your dashboard:
 
 ### Limits {#restrictions-2}
 
-* It only applies to one dataset, that underlying your reference tab.
+* It only applies to one dataset, the one underlying your reference tab.
 * Neuroanalyst's recommendations include the titles of the first three charts.

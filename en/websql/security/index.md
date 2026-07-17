@@ -1,16 +1,16 @@
 ---
 title: Access management in {{ websql-name }}
-description: Access management in {{ websql-name }}, a service for working with queries to managed database clusters. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required for specific actions.
+description: Access management in {{ websql-name }}, a service for working with queries to managed database clusters. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
 ---
 
 # Access management in {{ websql-name }}
 
 
-In this section, you will learn:
+In this section, you will learn about:
 
-* [What resources you can assign a role for](#resources).
-* [What roles this service has](#roles-list).
-* [What roles are required](#required-roles) for specific actions.
+* [Resources you can assign a role for](#resources).
+* [Roles this service has](#roles-list).
+* [Roles required](#required-roles) for specific actions.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
@@ -24,13 +24,13 @@ To assign a role for a resource, you need the `websql.admin` role or one of the 
 
 You can also assign roles in the [{{ websql-name }} interface]({{ websql-link }}) for [saved](../concepts/index.md#saved-queries) and [historical queries](../concepts/index.md#query-log) you published.
 
-## What roles this service has {#roles-list}
+## Roles this service has {#roles-list}
 
 You can use {{ websql-full-name }} roles (_service roles_) and {{ yandex-cloud }} roles (_primitive roles_) to manage query access permissions.
 
 ### Service roles {#service-roles}
 
-The list below shows all roles used for access control in {{ websql-name }}.
+The list below shows all the roles used for access control in {{ websql-name }}.
 
 {% include [mermaid websql roles](../../_mermaid/roles/websql.md) %}
 
@@ -104,9 +104,9 @@ The role is assigned for a saved query you published.
 
 {% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
 
-## What roles do I need {#required-roles}
+## Required roles {#required-roles}
 
-The table below lists the roles required for specific actions. You can always assign a role with more permissions. For example, you can assign the `editor` role instead of `viewer`. If you need access to multiple types of managed DB clusters within one folder, you can assign the `mdb.auditor` role for this folder, but bear in mind that the user will thus get excessive [permissions](../../iam/roles-reference.md#mdb-auditor).
+The table below lists the roles required for specific actions. You can always assign a role with more permissions, e.g., `editor` instead of `viewer`. If you need access to multiple types of managed DB clusters within one folder, you can assign the `mdb.auditor` role for this folder, but bear in mind that the user will thus get excessive [permissions](../../iam/roles-reference.md#mdb-auditor).
 
 Action | Required roles
 ----- | -----

@@ -4,7 +4,27 @@
 
 In this article, a simple example demonstrates how you can use Hive in {{ dataproc-name }} for data analysis. In the example below, we use Hive to analyze the population of the largest cities in Russia.
 
+To execute a Hive job:
+
+1. [Set up your infrastructure](#infra).
+1. [Create a Hive job](#create-job).
+
+If you no longer need the resources you created, [delete them](#clear-out).
+
+
 ## Getting started {#before-you-begin}
+
+{% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
+
+
+### Required paid resources {#paid-resources}
+
+* {{ dataproc-name }} cluster: use of computing resources with a {{ dataproc-name }} markup, use of network drives, retrieval and storage of logs, amount of outgoing traffic (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
+* {{ objstorage-full-name }} buckets: use of storage, data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
+
+
+## Set up your infrastructure {#infra}
 
 1. [Create a service account](../../../iam/operations/sa/create.md) with the `dataproc.agent` and `dataproc.provisioner` roles.
 
@@ -17,7 +37,7 @@ In this article, a simple example demonstrates how you can use Hive in {{ datapr
         * `HDFS`
         * `SPARK`
         * `HIVE`
-    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: Select the service account you previously created.
+    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: Select the service account you created earlier.
     * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: Select a bucket for the processing results.
 
 ## Create a Hive job {#create-job}

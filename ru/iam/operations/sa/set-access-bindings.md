@@ -8,217 +8,318 @@
 
 {% endnote %}
 
+
 ## Назначить роль на сервисный аккаунт {#assign-role-to-sa}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите каталог, которому принадлежит сервисный аккаунт.
-    1. [Перейдите]({{ link-console-main }}/link/iam) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-    1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** и выберите нужный сервисный аккаунт.
-    1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
-    1. В окне **{{ ui-key.yacloud_components.acl.label.title }}** в поле **{{ ui-key.yacloud_components.acl.label.subject }}** выберите пользователя из списка или воспользуйтесь поиском по пользователям.
-    1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.button.add-role }}**.
-    1. Выберите роль.
-    1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите каталог, которому принадлежит сервисный аккаунт.
+  1. [Перейдите]({{ link-console-main }}/link/iam) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** и выберите нужный сервисный аккаунт.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+  1. Нажмите **{{ ui-key.yacloud.shared.iam.action_assign-roles_8vkmR }}**.
+  1. В окне **{{ ui-key.yacloud_components.acl.label.title }}** в поле **{{ ui-key.yacloud_components.acl.label.subject }}** выберите субъект или воспользуйтесь поиском.
+  1. Нажмите ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль.
+  1. Нажмите **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
 - CLI {#cli}
 
-    {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-    1. Посмотрите описание команды для назначения роли на сервисный аккаунт как на ресурс:
+  1. Посмотрите описание команды для назначения роли на сервисный аккаунт как на ресурс:
 
-        ```bash
-        yc iam service-account add-access-binding --help
-        ```
+      ```bash
+      yc iam service-account add-access-binding --help
+      ```
 
-    1. Выберите сервисный аккаунт, например `my-robot`:
+  1. Узнайте идентификатор [роли](../../concepts/access-control/roles.md):
 
-        ```bash
-        yc iam service-account list
-        ```
+      ```bash
+      yc iam role list
+      ```
 
-        Результат:
+      Результат:
 
-        ```
-        +----------------------+----------+------------------+
-        |          ID          |   NAME   |   DESCRIPTION    |
-        +----------------------+----------+------------------+
-        | ajebqtreob2d******** | test-sa  | test-description |
-        | aje6o61dvog2******** | my-robot |                  |
-        +----------------------+----------+------------------+
-        ```
+      ```text
+      +-------------------------------------+-------------+
+      |                 ID                  | DESCRIPTION |
+      +-------------------------------------+-------------+
+      | access-transparency.admin           |             |
+      | access-transparency.billingProvider |             |
+      | access-transparency.editor          |             |
+      | ...                                 |             |
+      ```
 
-    1. Выберите [роль](../../concepts/access-control/roles.md):
+  1. Назначьте субъекту роль на сервисный аккаунт:
 
-        ```bash
-        yc iam role list
-        ```
+      ```bash
+      yc iam service-account add-access-binding <имя_или_идентификатор_сервисного_аккаунта> \
+        --role <идентификатор_роли> \
+        --subject <тип_субъекта>:<идентификатор_субъекта>
+      ```
 
-        Результат:
+      Где:
 
-        ```
-        +--------------------------------+-------------+
-        |               ID               | DESCRIPTION |
-        +--------------------------------+-------------+
-        | admin                          |             |
-        | compute.images.user            |             |
-        | editor                         |             |
-        | ...                            |             |
-        +--------------------------------+-------------+
-        ```
+      * `--role` — идентификатор роли, которую нужно назначить.
+      * `--subject` — обозначение [субъекта](../../concepts/access-control/index.md#subject), которому назначается роль.
 
-    1. Узнайте ID пользователя по логину или адресу электронной почты. Чтобы назначить роль не пользователю, а сервисному аккаунту или группе пользователей, воспользуйтесь [примерами](#examples) ниже.
+          {% cut "Обозначения субъектов" %}
 
-        ```bash
-        yc iam user-account get test-user
-        ```
+          {% include [subjects-designations-cli](../../../_includes/iam/subjects-designations-cli.md) %}
 
-        Результат:
-
-        ```
-        id: gfei8n54hmfh********
-        yandex_passport_user_account:
-            login: test-user
-            default_email: test-user@yandex.ru
-        ```
-
-    1. Назначьте пользователю `test-user` роль `editor` на сервисный аккаунт `my-robot`. В субъекте укажите тип `userAccount` и ID пользователя:
-
-        ```bash
-        yc iam service-account add-access-binding my-robot \
-          --role editor \
-          --subject userAccount:gfei8n54hmfh********
-        ```
+          {% endcut %}
 
 - {{ TF }} {#tf}
 
-    {% include [terraform-install](../../../_includes/terraform-install.md) %}
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-    1. Добавьте в конфигурационный файл параметры ресурса и укажите роль пользователей для доступа к сервисному аккаунту:
+  1. Опишите в конфигурационном файле ресурс с ролью на организацию.
 
-       * `service_account_id` — идентификатор сервисного аккаунта, к которому нужно настроить доступ.
-       * `role` — назначаемая роль. Обязательный параметр.
-       * `members` — список пользователей и сервисных аккаунтов, которым назначается роль. Указывается в виде `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`. Обязательный параметр.
+      Пример структуры конфигурационного файла:
 
-       Пример структуры конфигурационного файла:
+      ```hcl
+      resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {
+        service_account_id = "<идентификатор_сервисного_аккаунта>"
+        role               = "<роль>"
+        members            = ["<субъект_1>","<субъект_2>,...,<субъект_n>"]
+      }
+      ```
 
-       ```
-       resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {
-         service_account_id = "<идентификатор_сервисного_аккаунта>"
-         role               = "<роль>"
-         members            = [
-           "federatedUser:<идентификатор_пользователя>",
-         ]
-       }
-       ```
+      Где:
 
-       Подробнее о ресурсах, которые вы можете создать с помощью {{ TF }}, читайте в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
+      * `service_account_id` — идентификатор сервисного аккаунта, к которому нужно настроить доступ.
+      * `role` — назначаемая роль.
+      * `members` — обозначения [субъектов](../../concepts/access-control/index.md#subject), которым назначается роль.
 
-    1. Проверьте корректность конфигурационных файлов.
+          {% cut "Обозначения субъектов" %}
 
-       1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
-       1. Выполните проверку с помощью команды:
+          {% include [subjects-designations-terraform](../../../_includes/iam/subjects-designations-terraform.md) %}
 
-          ```
-          terraform plan
-          ```
+          {% endcut %}
 
-       Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+      Подробнее о ресурсах, которые вы можете создать с помощью {{ TF }}, читайте в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
 
-    1. Разверните облачные ресурсы.
+  1. Проверьте корректность настроек.
 
-       1. Если в конфигурации нет ошибок, выполните команду:
+      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-          ```
-          terraform apply
-          ```
+  1. Назначьте роль.
 
-       1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
+      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-       После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить создание ресурса можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+      После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить создание ресурса можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
 
-       ```
-       yc resource-manager service-account list-access-bindings <имя_или_идентификатор_сервисного_аккаунта>
-       ```
+      ```
+      yc resource-manager service-account list-access-bindings <имя_или_идентификатор_сервисного_аккаунта>
+      ```
 
 - API {#api}
 
-    Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/ServiceAccount/updateAccessBindings.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/UpdateAccessBindings](../../api-ref/grpc/ServiceAccount/updateAccessBindings.md). Вам понадобится ID сервисного аккаунта и ID пользователя, которому назначается роль на сервисный аккаунт.
+  Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/ServiceAccount/updateAccessBindings.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/UpdateAccessBindings](../../api-ref/grpc/ServiceAccount/updateAccessBindings.md). Вам понадобится идентификатор сервисного аккаунта и идентификатор субъекта, которому назначается роль на сервисный аккаунт.
 
-    1. Узнайте ID сервисного аккаунта с помощью метода REST API [list](../../api-ref/ServiceAccount/list.md):
+  1. Узнайте идентификатор сервисного аккаунта с помощью метода REST API [list](../../api-ref/ServiceAccount/list.md):
 
-        ```bash
-        curl \
-          --header "Authorization: Bearer <IAM-токен>" \
-          https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=b1gvmob95yys********
-        ```
+      ```bash
+      curl \
+        --header "Authorization: Bearer <IAM-токен>" \
+        https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=<идентификатор_каталога>
+      ```
 
-        Результат:
+      Результат:
 
-        ```
-        {
-        "serviceAccounts": [
-            {
-            "id": "aje6o61dvog2********",
-            "folderId": "b1gvmob95yys********",
-            "createdAt": "2018-10-19T13:26:29Z",
-            "name": "my-robot"
-            }
-            ...
-        ]
-        }
-        ```
+      ```json
+      {
+      "serviceAccounts": [
+          {
+          "id": "aje6o61dvog2********",
+          "folderId": "b1gvmob95yys********",
+          "createdAt": "2018-10-19T13:26:29Z",
+          "name": "my-robot"
+          }
+          ...
+      ]
+      }
+      ```
 
-    1. Узнайте ID пользователя по логину с помощью метода REST API [getByLogin](../../api-ref/YandexPassportUserAccount/getByLogin.md):
-        
-        ```bash
-        curl \
-          --header "Authorization: Bearer <IAM-токен>" \
-          https://iam.{{ api-host }}/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
-        ```
+  1. Назначьте субъекту роль на сервисный аккаунт, в свойстве `action` укажите `ADD`:
 
-        Результат:
+      ```bash
+      curl \
+        --request POST \
+        --header 'Content-Type: application/json' \
+        --header "Authorization: Bearer <IAM-токен>" \
+        --data '{
+        "accessBindingDeltas": [{
+            "action": "ADD",
+            "accessBinding": {
+                "roleId": "<роль>",
+                "subject": {
+                    "id": "<идентификатор_субъекта>",
+                    "type": "<тип_субъекта>"
+        }}}]}' \
+        https://iam.{{ api-host }}/iam/v1/serviceAccounts/<идентификатор_сервисного_аккаунта>:updateAccessBindings
+      ```
 
-        ```
-        {
-        "id": "gfei8n54hmfh********",
-        "yandexPassportUserAccount": {
-            "login": "test-user",
-            "defaultEmail": "test-user@yandex.ru"
-        }
-        }
-        ```
+      Где:
 
-    1. Назначьте пользователю роль `editor` на сервисный аккаунт `my-robot`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и ID пользователя:
+      * `roleId` — назначаемая роль.
+      * `subject` — [субъект](../../concepts/access-control/index.md#subject), которому назначается роль.
 
-       ```bash
-       curl \
-         --request POST \
-         --header 'Content-Type: application/json' \
-         --header "Authorization: Bearer <IAM-токен>" \
-         --data '{
-         "accessBindingDeltas": [{
-             "action": "ADD",
-             "accessBinding": {
-                 "roleId": "editor",
-                 "subject": {
-                     "id": "gfei8n54hmfh********",
-                     "type": "userAccount"
-         }}}]}' \
-         https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2********:updateAccessBindings
-        ```
+          {% cut "Обозначения субъектов" %}
+
+          {% include [subjects-designations-api](../../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
+
+      * `<идентификатор_сервисного_аккаунта>` — идентификатор сервисного аккаунта, к которому нужно настроить доступ.
 
 {% endlist %}
 
+
 ## Примеры {#examples}
 
+* [Настроить доступ пользователя к сервисному аккаунту](#user-access).
 * [Назначить несколько ролей](#multiple-roles).
 * [Настроить доступ сервисного аккаунта к другому сервисному аккаунту](#access-to-sa).
+
+
+### Настроить доступ пользователя к сервисному аккаунту {#user-access}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите каталог, которому принадлежит сервисный аккаунт.
+  1. [Перейдите]({{ link-console-main }}/link/iam) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** и выберите нужный сервисный аккаунт.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+  1. Нажмите **{{ ui-key.yacloud.shared.iam.action_assign-roles_8vkmR }}**.
+  1. В окне **{{ ui-key.yacloud_components.acl.label.title }}** в поле **{{ ui-key.yacloud_components.acl.label.subject }}** выберите пользователя из списка или воспользуйтесь поиском по пользователям.
+  1. Нажмите ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль.
+  1. Нажмите **{{ ui-key.yacloud_components.acl.action.apply }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  Назначьте пользователю `test-user` роль `editor` на сервисный аккаунт `my-robot`:
+
+      ```bash
+      yc iam service-account add-access-binding my-robot \
+        --role editor \
+        --user-yandex-login test-user
+      ```
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Добавьте в конфигурационный файл параметры ресурса и укажите роль пользователей для доступа к сервисному аккаунту.
+
+      Пример структуры конфигурационного файла:
+
+      ```hcl
+      resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {
+        service_account_id = "aje6o61dvog2********"
+        role               = "editor"
+        members            = ["userAccount:gfei8n54hmfh********",]
+      }
+      ```
+
+      Где:
+
+      * `service_account_id` — идентификатор сервисного аккаунта, к которому нужно настроить доступ.
+      * `role` — назначаемая роль.
+      * `members` — список пользователей, которым назначается роль. Указывается в виде `userAccount:<идентификатор_пользователя>`.
+
+      Подробнее о ресурсах, которые вы можете создать с помощью {{ TF }}, читайте в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
+
+  1. Проверьте корректность настроек.
+
+      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+
+  1. Назначьте роль.
+
+      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
+      После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить создание ресурса можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+      ```
+      yc resource-manager service-account list-access-bindings <имя_или_идентификатор_сервисного_аккаунта>
+      ```
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/ServiceAccount/updateAccessBindings.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/UpdateAccessBindings](../../api-ref/grpc/ServiceAccount/updateAccessBindings.md). Вам понадобится идентификатор сервисного аккаунта и идентификатор пользователя, которому назначается роль на сервисный аккаунт.
+
+  1. Узнайте идентификатор сервисного аккаунта с помощью метода REST API [list](../../api-ref/ServiceAccount/list.md):
+
+      ```bash
+      curl \
+        --header "Authorization: Bearer <IAM-токен>" \
+        https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=b1gvmob95yys********
+      ```
+
+      Результат:
+
+      ```json
+      {
+      "serviceAccounts": [
+          {
+          "id": "aje6o61dvog2********",
+          "folderId": "b1gvmob95yys********",
+          "createdAt": "2018-10-19T13:26:29Z",
+          "name": "my-robot"
+          }
+          ...
+      ]
+      }
+      ```
+
+  1. Узнайте идентификатор пользователя по логину с помощью метода REST API [getByLogin](../../api-ref/YandexPassportUserAccount/getByLogin.md):
+      
+      ```bash
+      curl \
+        --header "Authorization: Bearer <IAM-токен>" \
+        https://iam.{{ api-host }}/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
+      ```
+
+      Результат:
+
+      ```json
+      {
+      "id": "gfei8n54hmfh********",
+      "yandexPassportUserAccount": {
+          "login": "test-user",
+          "defaultEmail": "test-user@yandex.ru"
+      }
+      }
+      ```
+
+  1. Назначьте пользователю роль `editor` на сервисный аккаунт `my-robot`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и идентификатор пользователя:
+
+      ```bash
+      curl \
+        --request POST \
+        --header 'Content-Type: application/json' \
+        --header "Authorization: Bearer <IAM-токен>" \
+        --data '{
+        "accessBindingDeltas": [{
+            "action": "ADD",
+            "accessBinding": {
+                "roleId": "editor",
+                "subject": {
+                    "id": "gfei8n54hmfh********",
+                    "type": "userAccount"
+        }}}]}' \
+        https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2********:updateAccessBindings
+      ```
+
+{% endlist %}
 
 ### Назначить несколько ролей {#multiple-roles}
 
@@ -242,7 +343,7 @@
         yc iam service-account list-access-bindings my-robot
         ```
 
-    1. Например, назначьте роль нескольким пользователям:
+    1. Назначьте роль нескольким пользователям:
 
         ```bash
         yc iam service-account set-access-bindings my-robot \
@@ -258,72 +359,55 @@
 
   1. Добавьте в конфигурационный файл параметры ресурса и укажите роль пользователей для доступа к сервисному аккаунту:
 
-       * `service_account_id` — идентификатор сервисного аккаунта, к которому нужно настроить доступ.
-       * `role` — назначаемая роль. Обязательный параметр.
+      * `service_account_id` — идентификатор сервисного аккаунта, к которому нужно настроить доступ.
+      * `role` — назначаемая роль.
 
-       {% note info %}
+          {% note info %}
 
-       Для каждой роли можно использовать только один ресурс `yandex_iam_service_account_iam_binding`.
+          Для каждой роли можно использовать только один ресурс `yandex_iam_service_account_iam_binding`.
 
-       {% endnote %}
+          {% endnote %}
 
-       * `members` — список пользователей и сервисных аккаунтов, которым назначается роль. Указывается в виде `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`. Обязательный параметр.
+      * `members` — список пользователей и сервисных аккаунтов, которым назначается роль. Указывается в виде `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
 
-     {% cut "Пример назначения нескольких ролей на сервисный аккаунт с помощью {{ TF }}" %}
+      {% cut "Пример назначения нескольких ролей на сервисный аккаунт с помощью {{ TF }}" %}
 
-     ```hcl
-     ...
-     resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {
-       service_account_id = "aje82upckiqh********"
-       role               = "admin"
-       members = [
-         "userAccount:aje82upckiqh********",
-       ]
-     }
-     resource "yandex_iam_service_account_iam_binding" "admin-account-iam2" {
-       service_account_id = "aje82upckiqh********"
-       role               = "viewer"
-       members = [
-         "userAccount:aje82upckiqh********",
-       ]
-     }
-     ...
-     ```
+      ```hcl
+      ...
+      resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {
+        service_account_id = "aje82upckiqh********"
+        role               = "admin"
+        members = [
+          "userAccount:aje82upckiqh********",
+        ]
+      }
+      resource "yandex_iam_service_account_iam_binding" "admin-account-iam2" {
+        service_account_id = "aje82upckiqh********"
+        role               = "viewer"
+        members = [
+          "userAccount:aje82upckiqh********",
+        ]
+      }
+      ...
+      ```
 
-     {% endcut %}
+      {% endcut %}
 
-     Подробнее о ресурсах, которые вы можете создать с помощью {{ TF }}, читайте в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
+      Подробнее о ресурсах, которые вы можете создать с помощью {{ TF }}, читайте в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
  
-  1. Проверьте конфигурацию командой:
-     ```
-     terraform validate
-     ``` 
+  1. Проверьте корректность настроек.
 
-     Если конфигурация является корректной, появится сообщение:
+      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-     ```
-     Success! The configuration is valid.
-     ```
+  1. Назначьте роль.
 
-  1. Выполните команду:
-     ```
-     terraform plan
-     ```
+      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+      Проверить изменение каталога можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
 
-  1. Примените изменения конфигурации:
-     ```
-     terraform apply
-     ```
-
-  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
-
-     Проверить изменение каталога можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
-
-     ```
-     yc resource-manager service-account list-access-bindings <имя_или_идентификатор_сервисного_аккаунта>
-     ```
+      ```bash
+      yc resource-manager service-account list-access-bindings <имя_или_идентификатор_сервисного_аккаунта>
+      ```
 
 - API {#api}
 
@@ -381,6 +465,7 @@
 
 {% endlist %}
 
+
 ### Настроить доступ сервисного аккаунта к другому сервисному аккаунту {#access-to-sa}
 
 Разрешите сервисному аккаунту `test-sa` управлять сервисным аккаунтом `my-robot`:
@@ -391,7 +476,7 @@
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  1. Узнайте ID сервисного аккаунта `test-sa`, которому вы хотите назначить роль. Чтобы узнать ID, получите список доступных сервисных аккаунтов:
+  1. Узнайте идентификатор сервисного аккаунта `test-sa`, которому вы хотите назначить роль. Чтобы узнать идентификатор, получите список доступных сервисных аккаунтов:
 
       ```bash
       yc iam service-account list
@@ -408,12 +493,12 @@
       +----------------------+----------+------------------+
       ```
 
-  1. Назначьте роль `editor` сервисному аккаунту `test-sa`, указав его ID. В типе субъекта укажите `serviceAccount`:
+  1. Назначьте роль `editor` сервисному аккаунту `test-sa`, указав его идентификатор:
 
       ```bash
       yc iam service-account add-access-binding my-robot \
         --role editor \
-        --subject serviceAccount:ajebqtreob2d********
+        --service-account-id ajebqtreob2d********
       ```
 
 - {{ TF }} {#tf}
@@ -422,64 +507,47 @@
 
   Чтобы разрешить сервисному аккаунту `test-sa` управлять сервисным аккаунтом `my-robot`, созданным при помощи {{ TF }}:
 
-    1. Добавьте в конфигурационный файл параметры ресурса и укажите роль пользователей для доступа к сервисному аккаунту:
+  1. Добавьте в конфигурационный файл параметры ресурса и укажите роль пользователей для доступа к сервисному аккаунту:
 
-       * `service_account_id` — идентификатор сервисного аккаунта, к которому нужно настроить доступ.
-       * `role` — назначаемая роль. Обязательный параметр.
-       * `members` — список пользователей и сервисных аккаунтов, которым назначается роль. Указывается в виде `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`. Обязательный параметр.
+      * `service_account_id` — идентификатор сервисного аккаунта, к которому нужно настроить доступ.
+      * `role` — назначаемая роль.
+      * `members` — список пользователей и сервисных аккаунтов, которым назначается роль. Указывается в виде `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
 
-     {% cut "Пример разрешения сервисному аккаунту `test-sa` управлять сервисным аккаунтом `my-robot` с помощью {{ TF }}" %}
+      {% cut "Пример разрешения сервисному аккаунту `test-sa` управлять сервисным аккаунтом `my-robot` с помощью {{ TF }}" %}
 
-     ```hcl
-     ...
-     resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {
-       service_account_id = "aje82upckiqh********"
-       role               = "admin"
-       members = [
-         "serviceAccount:aje82upckiqh********",
-       ]
-     }
-     ...
-     ```
+      ```hcl
+      ...
+      resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {
+        service_account_id = "aje82upckiqh********"
+        role               = "admin"
+        members = [
+          "serviceAccount:aje82upckiqh********",
+        ]
+      }
+      ...
+      ```
 
-     {% endcut %}
+      {% endcut %}
 
-     Подробнее о ресурсах, которые вы можете создать с помощью {{ TF }}, читайте в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
+      Подробнее о ресурсах, которые вы можете создать с помощью {{ TF }}, читайте в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
 
-  1. Проверьте конфигурацию командой:
-     ```
-     terraform validate
-     ```
+  1. Проверьте корректность настроек.
 
-     Если конфигурация является корректной, появится сообщение:
+      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-     ```
-     Success! The configuration is valid.
-     ```
+  1. Назначьте роль.
 
-  1. Выполните команду:
-     ```
-     terraform plan
-     ```
+      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+      Проверить изменение каталога можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
 
-  1. Примените изменения конфигурации:
-     ```
-     terraform apply
-     ```
-
-  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
-
-     Проверить изменение каталога можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
-
-     ```
-     yc resource-manager service-account list-access-bindings <имя_или_идентификатор_сервисного_аккаунта>
-     ```
+      ```
+      yc resource-manager service-account list-access-bindings <имя_или_идентификатор_сервисного_аккаунта>
+      ```
 
 - API {#api}
 
-  1. Узнайте ID сервисного аккаунта `test-sa`, которому вы хотите назначить роль. Чтобы узнать ID, получите список доступных сервисных аккаунтов:
+  1. Узнайте идентификатор сервисного аккаунта `test-sa`, которому вы хотите назначить роль. Чтобы узнать идентификатор, получите список доступных сервисных аккаунтов:
 
       ```bash
       curl \
@@ -509,7 +577,7 @@
       }
       ```
 
-  1. Назначьте сервисному аккаунту `test-sa` роль `editor` на другой сервисный аккаунт `my-robot`. В свойстве `subject` укажите тип `serviceAccount` и ID `test-sa`. В URL запроса в качестве ресурса укажите ID `my-robot`:
+  1. Назначьте сервисному аккаунту `test-sa` роль `editor` на другой сервисный аккаунт `my-robot`. В свойстве `subject` укажите тип `serviceAccount` и идентификатор `test-sa`. В URL запроса в качестве ресурса укажите идентификатор `my-robot`:
 
       ```bash
       curl \
@@ -530,6 +598,7 @@
 
 {% endlist %}
 
-#### Полезные ссылки {#see-also}
+
+## Полезные ссылки {#see-also}
 
 * [{#T}](./impersonate-sa.md)

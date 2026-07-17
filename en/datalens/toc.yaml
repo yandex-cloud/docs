@@ -58,7 +58,7 @@ items:
             href: tutorials/datalens.md
       - name: Service analytics
         items:
-          - name: 'Yandex Metrica: direct connection'
+          - name: 'Yandex Metrica: Direct connection'
             href: tutorials/data-from-metrica-visualization.md
           - name: 'Yandex Metrica: data export, post-processing, and visualization'
             href: tutorials/data-from-metrica-yc-visualization.md
@@ -894,7 +894,7 @@ items:
                 href: operations/dashboard/add-title.md
               - name: Adding a JS selector to a dashboard
                 href: charts/editor/add-js-selector.md
-              - name: Adding Neuroanalyst to the dashboard
+              - name: Adding an insight widget to a dashboard
                 href: operations/dashboard/add-ai.md
               - name: Copying widgets on a dashboard
                 href: operations/dashboard/copying-widgets.md
@@ -924,11 +924,11 @@ items:
                 href: operations/dashboard/edit-alias.md
           - name: Appearance customization options
             items:
-              - name: Configuring dashboard background
+              - name: Configuring the dashboard background
                 href: operations/dashboard/add-dashboard-background.md
-              - name: Configuring the background and opacity of dashboard widgets
+              - name: Configuring the background and opacity of dashnboard widgets
                 href: operations/dashboard/add-widget-background.md
-              - name: Configuring corner rounding on a dashboard
+              - name: Configuring roundings on the dashboard
                 href: operations/dashboard/add-rounding.md
               - name: Configuring offsets on the dashboard
                 href: operations/dashboard/add-margins.md
@@ -1337,7 +1337,7 @@ items:
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-INVALID_QUERY_STRUCTURE-INCONSISTENT_AGGREGATION.md
-      - name: Changing the data source is not available
+      - name: Data source modification is not allowed
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-PREVIEW_SOURCE_MODIFICATION_NOT_ALLOWED.md

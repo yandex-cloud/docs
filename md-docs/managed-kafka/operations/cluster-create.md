@@ -665,7 +665,7 @@
      Где:
 
      * `--environment` — окружение кластера: `prestable` или `production`.
-     * `--version` — версия Apache Kafka®: 3.6, 3.7, 3.8 или 3.9. Дополнительно передайте [конфигурацию хостов ZooKeeper](../concepts/index.md#zookeeper).
+     * `--version` — версия Apache Kafka®: 3.7, 3.8 или 3.9. Дополнительно передайте [конфигурацию хостов ZooKeeper](../concepts/index.md#zookeeper).
      * `--schema-registry` — управление схемами данных с помощью [Managed Schema Registry](../concepts/managed-schema-registry.md).
 
          {% note warning %}
@@ -1111,7 +1111,7 @@
      Где:
 
      * `environment` — окружение кластера: `PRESTABLE` или `PRODUCTION`.
-     * `version` — версия Apache Kafka®: 3.6, 3.7, 3.8 или 3.9. Дополнительно передайте [конфигурацию хостов ZooKeeper](../concepts/index.md#zookeeper).
+     * `version` — версия Apache Kafka®: 3.7, 3.8 или 3.9. Дополнительно передайте [конфигурацию хостов ZooKeeper](../concepts/index.md#zookeeper).
      * `zones` и `brokers_count` — зоны доступности и число хостов-брокеров в каждой зоне.
      * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
@@ -1466,7 +1466,7 @@
 
             * `configSpec` — конфигурация кластера:
 
-                * `version` — версия Apache Kafka®: 3.6, 3.7, 3.8 или 3.9. Дополнительно передайте [конфигурацию хостов ZooKeeper](../concepts/index.md#zookeeper).
+                * `version` — версия Apache Kafka®: 3.7, 3.8 или 3.9. Дополнительно передайте [конфигурацию хостов ZooKeeper](../concepts/index.md#zookeeper).
                 * `kafka` — конфигурация Apache Kafka®:
 
                     * `resources.resourcePresetId` — идентификатор [класса хостов](../concepts/instance-types.md). Список доступных классов хостов с их идентификаторами можно запросить с помощью метода [ResourcePreset.list](../api-ref/ResourcePreset/list.md).
@@ -1806,7 +1806,7 @@
 
             * `config_spec` — конфигурация кластера:
 
-                * `version` — версия Apache Kafka®: 3.6, 3.7, 3.8 или 3.9. Дополнительно передайте [конфигурацию хостов ZooKeeper](../concepts/index.md#zookeeper).
+                * `version` — версия Apache Kafka®: 3.7, 3.8 или 3.9. Дополнительно передайте [конфигурацию хостов ZooKeeper](../concepts/index.md#zookeeper).
                 * `kafka` — конфигурация Apache Kafka®:
 
                     * `resources.resource_preset_id` — идентификатор [класса хостов](../concepts/instance-types.md). Список доступных классов хостов с их идентификаторами можно запросить с помощью вызова [ResourcePreset.list](../api-ref/grpc/ResourcePreset/list.md).

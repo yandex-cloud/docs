@@ -1,9 +1,9 @@
 ---
-title: Connecting to an {{ KF }} cluster in {{ mkf-full-name }}
+title: Connecting to a {{ KF }} cluster in {{ mkf-full-name }}
 description: Follow this guide to connect to {{ KF }} cluster hosts using command line tools and from a Docker container.
 ---
 
-# Connecting to an {{ KF }} cluster from applications
+# Connecting to a {{ KF }} cluster from applications
 
 This section provides settings for connecting to {{ mkf-name }} cluster hosts using [command line tools](#command-line-tools) and from a [Docker container](#docker). To learn how to connect from your application code, see [Code examples](code-examples.md).
 

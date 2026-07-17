@@ -1,11 +1,11 @@
 ---
-title: How to add Neuroanalyst to a dashboard chart in {{ datalens-full-name }}
-description: Follow this guide to add Neuroanalyst for a chart to a dashboard in {{ datalens-full-name }}.
+title: How to add Insight to a dashboard chart in {{ datalens-full-name }}
+description: Follow this guide to add Insight for a chart to a dashboard in {{ datalens-full-name }}.
 ---
 
-# Adding Neuroanalyst to a dashboard in {{ datalens-full-name }}
+# Adding an insight widget to a dashboard in {{ datalens-full-name }}
 
-Follow these steps to add Neuroanalyst to a dashboard:
+To add a Neuroanalyst insight widget to the dashboard, follow these steps:
 
 
 {% include [datalens-workbooks-collections-select-note](../../../_includes/datalens/operations/datalens-workbooks-collections-select-note.md) %}
@@ -13,7 +13,7 @@ Follow these steps to add Neuroanalyst to a dashboard:
 
 1. In the left-hand panel, click ![image](../../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and select the dashboard you need.
 1. At the top of the page, click **Edit**.
-1. In the panel at the bottom of the page, click ![image](../../../_assets/console-icons/sparkles-fill.svg) **Neuroanalyst** and drag it where you want it to be.
+1. In the panel at the bottom of the page, click ![image](../../../_assets/console-icons/sparkles-fill.svg) **Insight** and drag it to a desired location.
 
    ![image](../../../_assets/datalens/operations/widget-select-ai.png =687x90)
 
@@ -28,16 +28,16 @@ Follow these steps to add Neuroanalyst to a dashboard:
    * **Rounding**. It sets the widget corner rounding.
 
 
-   {% cut "Example of Neuroanalyst settings" %}
+   {% cut "Example of insight widget settings" %}
 
-   ![image](../../../_assets/datalens/dashboard/ai-settings.png =597x431)
+   ![image](../../../_assets/datalens/dashboard/ai-settings.png =562x435)
    
    {% endcut %}
 
 1. Click **Add**. The widget will appear on the dashboard.
-1. In the top-right corner of the dashboard, click **Save**. Neuroanalyst will analyze the specified chart and generate conclusions based on the data and the custom prompt. The result will be updated every time you open the dashboard. If the data in the chart linked to Neuroanalyst changes after you receive the Neuroanalyst result, an ![image](../../../_assets/console-icons/arrow-rotate-left.svg) **Update** button will appear at the top of the widget.
+1. In the top-right corner of the dashboard, click **Save**. Neuroanalyst will analyze the specified chart and generate conclusions based on the data and the custom prompt. The result in **Insight** will be updated every time you open the dashboard. If the data in the chart linked to the **Insight** widget changes, an ![image](../../../_assets/console-icons/arrow-rotate-left.svg) **Update** button will appear at the top of the widget.
 
-   {% cut "Example of Neuroanalyst response" %}
+   {% cut "Example of insight widget contents" %}
 
    ![image](../../../_assets/datalens/dashboard/ai-result.png)
    

@@ -17,9 +17,14 @@ To migrate an HDFS cluster:
 To get started, [create a subnet](../../../vpc/operations/subnet-create.md) in the availability zone to which you are migrating the cluster.
 
 
-## Required paid resources {#paid-resources}
+## Getting started {#before-you-begin}
 
-The support cost includes the fee for the {{ dataproc-name }} clusters (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
+{% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
+
+
+### Required paid resources {#paid-resources}
+
+The cost of infrastructure for migrating to another availability zone includes a fee for {{ dataproc-name }} clusters: use of computing resources with a {{ dataproc-name }} markup, use of network drives, retrieval and storage of logs, amount of outgoing traffic (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
 
 
 ## Create a cluster via import in {{ TF }} {#create}
@@ -89,7 +94,7 @@ To create a {{ dataproc-name }} cluster in a different availability zone with th
    1. [Get the authentication credentials](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
    1. In the same directory, [configure and initialize the provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Instead of manually creating the provider configuration file, you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
    1. Move the configuration file to the `imported-cluster` directory and [specify the arguments](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not set the authentication credentials as environment variables, specify them in the configuration file.
-   1. Validate your {{ TF }} configuration files using this command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate

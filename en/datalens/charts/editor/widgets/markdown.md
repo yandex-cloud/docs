@@ -9,7 +9,7 @@ Visualization for rendering Markdown, a simplified markup language.
 
 It supports [GitHub Flavored Markdown (GFM)](https://github.github.com/gfm/), except for inline raw HTML, certain plugins, and [Yandex Flavored Markdown](https://diplodoc.com/docs/ru/index-yfm) features.
 
-Charts are rendered using the [@diplodoc/transform](https://www.npmjs.com/package/@diplodoc/transform) library. For more information, see the [relevant Diplodoc article](https://diplodoc.com/docs/ru/tools/transform/).
+Сharts are rendered using the [@diplodoc/transform](https://www.npmjs.com/package/@diplodoc/transform) library. For more, see [this Diplodoc guide](https://diplodoc.com/docs/ru/tools/transform/).
 
 ## Available markup components {#about-markdown}
 
@@ -71,7 +71,7 @@ module.exports = {
 
 ### Headings {#headers}
 
-To create a heading, use the (#) character, for example:
+To create a heading, use the `#` sign, for example:
 
 ```markdown
 # H1 heading
@@ -115,25 +115,25 @@ To make text <u>underlined</u>, wrap it in double pluses (++):
 This text is ++underlined++.
 ```
 
-To create a <sub>subscript</sub>, wrap the text in tilde characters (~):
+To create a <sub>subscript</sub>, wrap the text in tilde signs (~):
 
 ```markdown
 This text is in ~subscript~.
 ```
 
-To create a ^superscript^, wrap the text in (^) characters:
+To create a ^superscript^, wrap the text in `^` signs:
 
 ```markdown
 This text is in ^superscript^.
 ```
 
-To make text <samp>monospaced</samp>, wrap it in (##) characters:
+To make text <samp>monospaced</samp>, wrap it in `##` signs:
 
 ```markdown
 This text is ##monospaced##.
 ```
 
-To <mark>highlight</mark> text, wrap it in double equal characters (==):
+To <mark>highlight</mark> text, wrap it in double equal signs (==):
 
 ```markdown
 This text is ==highlighted==.
@@ -380,15 +380,15 @@ Markup:
 
 - Item 1 name
 
-  Item 1 content.
+  Item 1 content
 
 - Item 2 name
 
-  Item 2 content.
+  Item 2 content
  
 - Item 3 name
 
-  Item 3 content.
+  Item 3 content
 
 {% endlist %}
 ```
@@ -399,19 +399,19 @@ will be displayed as:
 
 - Item 1 name
 
-  Item 1 content.
+  Item 1 content
 
 - Item 2 name
 
-  Item 2 content.
+  Item 2 content
  
 - Item 3 name
 
-  Item 3 content.
+  Item 3 content
 
 {% endlist %}
 
-If you want an item to be expanded by default, add the {selected} attribute to it:
+If you want an item to be expanded by default, add the {selected} attribute to it.
 
 Markup:
 
@@ -420,7 +420,7 @@ Markup:
 
 - Item 1 name
 
-  Item 1 content.
+  Item 1 content
 
 - Item 2 name {selected}
 
@@ -428,7 +428,7 @@ Markup:
  
 - Item 3 name
 
-  Item 3 content.
+  Item 3 content
 
 {% endlist %}
 ```
@@ -439,7 +439,7 @@ will be displayed as:
 
 - Item 1 name
 
-  Item 1 content.
+  Item 1 content
 
 - Item 2 name {selected}
 
@@ -447,7 +447,7 @@ will be displayed as:
  
 - Item 3 name
 
-  Item 3 content.
+  Item 3 content
 
 {% endlist %}
 
@@ -543,10 +543,10 @@ Using text definitions, you can set a description of the structure, which is the
 <pre><code>
 ```mermaid
 graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
+    A-->B
+    A-->C
+    B-->D
+    C-->D
 ```
 </code></pre>
 
@@ -554,7 +554,7 @@ will be displayed as:
 
 ![mermaid-flowcharts-example](../../../../_assets/datalens/internal/editor/mermaid-flowcharts-example.svg)
 
-See the [Mermaid documentation](https://mermaid.js.org/intro/) for details.
+See [this Mermaid guide](https://mermaid.js.org/intro/) for details.
 
 {% note info %}
 

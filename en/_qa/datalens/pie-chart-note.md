@@ -26,4 +26,4 @@ You will get the same result as with the first formula. Try both and pick the on
 
 Formula: `[Category] + ' ' + STR(INT(SUM([Sales])/SUM(SUM([Sales]) TOTAL) * 100)) + '%'`
 
-See the [screenshot](https://storage.yandexcloud.net/doc-files/pie-chart.png).
+For more information, see [this screenshot](https://storage.yandexcloud.net/doc-files/pie-chart.png).

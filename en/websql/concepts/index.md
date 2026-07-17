@@ -77,4 +77,4 @@ _Historical queries_ are queries executed in your {{ yandex-cloud }} [organizati
 * ![image](../../_assets/websql/error.svg): Query execution failed.
 * ![image](../../_assets/websql/unknown.svg): Unexpected error on the {{ websql-full-name }} side.
 
-To learn more about handling historical queries, see [this guide](../operations/history.md).
+To learn more about using historical queries, see [this guide](../operations/history.md).

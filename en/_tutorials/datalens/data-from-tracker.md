@@ -174,8 +174,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
     * **Raw SQL level**: `Forbid`.
     * **HTTPS**: `{{ ui-key.yacloud.common.enabled }}`.
 
-      ![Connection settings](../../_assets/datalens/connection-settings.png =680x665)
-
 1. Click **Create connection**.
 
 ## Create a dataset {#dataset-create}
@@ -223,13 +221,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% cut "Example of a dashboard based on data from the `v_tracker_issues` table" %}
 
-![Sample dashboard based on data from the v_tracker_issues table](../../_assets/datalens/dashboard-from-table-issues.png)
+![Example of a dashboard based on data from the `v_tracker_issues` table](../../_assets/datalens/dashboard-from-table-issues.png)
 
 {% endcut %}
 
 {% cut "Example of a dashboard based on data from the `db1.v_tracker_statuses` table" %}
 
-![Sample dashboard based on data from the db1.v_tracker_statuses table](../../_assets/datalens/dashboard-from-table-statuses.png)
+![Example of a dashboard based on data from the `db1.v_tracker_statuses` table](../../_assets/datalens/dashboard-from-table-statuses.png)
 
 {% endcut %}
 

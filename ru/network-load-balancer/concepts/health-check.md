@@ -58,7 +58,6 @@ description: Из статьи вы узнаете для чего нужна п
 ## Примеры использования {#examples}
 
 * [{#T}](../tutorials/updating-under-load.md)
-* [{#T}](../tutorials/dns-integration.md)
 * [{#T}](../tutorials/exchange.md)
 * [{#T}](../tutorials/route-switcher.md)
 * [{#T}](../tutorials/migration-from-nlb-to-alb/index.md)

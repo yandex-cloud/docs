@@ -54,7 +54,8 @@
       ```bash
       yc iam oauth-client create \
         --name website-oauth-client \
-        --scopes openid,email,profile
+        --scopes openid,email,profile \
+        --profile-id web
       ```
 
       Где:
@@ -64,6 +65,7 @@
           * `openid` — идентификатор пользователя. Обязательный атрибут.
           * `email` — адрес электронной почты пользователя.
           * `profile` — дополнительная информация о пользователе, такая как имя, фамилия, аватар.
+      * {% include [org-oidc-app-select-web-type-legend-cli](../../../_tutorials/_tutorials_includes/org-oidc-app-select-web-type-legend-cli.md) %}
 
       Результат:
 
@@ -75,7 +77,12 @@
         - openid
         - profile
       folder_id: b1gkd6dks6i1********
+      authentication_methods:
+        - client_secret_basic
+        - client_secret_post
       status: ACTIVE
+      profile_id: web
+      pkce_required: true
       ```
 
       Сохраните ClientID приложения (значение поля `id`) — оно понадобится для создания секрета и настройки `OAuth2 Proxy`.
@@ -189,7 +196,12 @@
       - openid
       - profile
     folder_id: b1gkd6dks6i1********
+    authentication_methods:
+      - client_secret_basic
+      - client_secret_post
     status: ACTIVE
+    profile_id: web
+    pkce_required: true
   ```
 
 {% endlist %}

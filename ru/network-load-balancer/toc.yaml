@@ -81,8 +81,6 @@ items:
             href: tutorials/vm-autoscale/terraform.md
       - name: Обновление группы ВМ под нагрузкой
         href: tutorials/updating-under-load.md
-      - name: Интеграция {{ dns-name }} и корпоративного сервиса DNS
-        href: tutorials/dns-integration.md
       - name: Подключение к {{ objstorage-name }} из {{ vpc-name }}
         href: tutorials/storage-vpc-access.md
       - name: Подключение к {{ container-registry-name }} из {{ vpc-name }}

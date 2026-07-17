@@ -19,8 +19,6 @@
    1. Enter the connection name: `Sample ClickHouse`.
    1. Click **Create**.
 
-      ![create-connection](../../../_assets/datalens/operations/connection/create-sample-connection-parametrization.png)
-
 
 
 Wait for the connection to be saved.
