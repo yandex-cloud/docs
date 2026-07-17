@@ -1,1 +1,1 @@
-[Install kubect]({{ k8s-docs }}/tasks/tools/install-kubectl) and [configure it to work with the new cluster](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
+[Install kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) and [configure it to work with the new cluster](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
