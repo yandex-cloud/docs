@@ -56,7 +56,7 @@ resource "yandex_compute_instance_iam_binding" "editor" {
 ## Arguments & Attributes Reference
 
 - `id` (String). The ID of this resource.
-- `instance_id` (**Required**)(String). The ID of the compute `instance` to attach the policy to.
+- `instance_id` (**Required**)(String). The ID of the `instance` to attach the policy to.
 - `members` (**Required**)(Set Of String). An array of identities that will be granted the privilege in the `role`. Each entry can have one of the following values:
  * **userAccount:{user_id}**: A unique user ID that represents a specific Yandex account.
  * **serviceAccount:{service_account_id}**: A unique service account ID.

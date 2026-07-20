@@ -25,4 +25,4 @@ Where:
     * `enabled`: Flag showing whether the origin is enabled.
     * `backup`: Flag showing whether the origin as a backup one. For more on priorities, see [{#T}](../../cdn/concepts/origins.md#groups).
 
-For more information about resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/cdn_origin_group).
+For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/cdn_origin_group).

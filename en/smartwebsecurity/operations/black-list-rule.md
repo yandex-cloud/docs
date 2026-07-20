@@ -21,7 +21,7 @@ description: Follow this guide to set up a rule for blocking black addresses in 
   1. Set a higher **{{ ui-key.yacloud.smart-web-security.overview.column_priority }}** than that of the Smart Protection rules, e.g., `9100`.
   1. Enable **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}**.
   1. Specify the rule settings:
-
+  
      * **{{ ui-key.yacloud.smart-web-security.overview.column_type }}**: `{{ ui-key.yacloud.smart-web-security.overview.label_base-rule }}`.
      * **{{ ui-key.yacloud.smart-web-security.overview.column_action-type }}**: `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}` or `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-captcha }}`.
      * **Traffic**: `On condition`.
@@ -38,7 +38,7 @@ description: Follow this guide to set up a rule for blocking black addresses in 
 
 {% endlist %}
 
-### Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](list-create.md)
 * [{#T}](profile-create.md)

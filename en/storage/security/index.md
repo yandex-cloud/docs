@@ -12,7 +12,7 @@ description: Access management in {{ objstorage-full-name }} (S3), a service for
 In this section, you will learn about:
 
 * [Resources you can assign a role for](#resources).
-* [Roles available in this service](#roles-list).
+* [Roles this service has](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 

@@ -94,7 +94,7 @@
 
       {% endcut %}
 
-      For more details about the `yc alb virtual-host prepend-http-route` command with the full list of properties, see the [CLI reference](../../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/prepend-http-route.md).
+      For more information about the `yc alb virtual-host prepend-http-route` command, along with the full list of properties, see the [CLI reference](../../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/prepend-http-route.md).
 
 - insert-http-route
 
@@ -195,6 +195,6 @@
 
       {% endcut %}
 
-      For more details about the `yc alb virtual-host insert-http-route` command with the full list of properties, see the [CLI reference](../../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/insert-http-route.md).
+      For more information about the `yc alb virtual-host insert-http-route` command, along with the full list of properties, see the [CLI reference](../../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/insert-http-route.md).
 
 {% endlist %}

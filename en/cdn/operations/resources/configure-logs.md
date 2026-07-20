@@ -1,6 +1,6 @@
 # Configuring log export
 
-[Log export](../../concepts/logs.md) is a paid feature. See [{#T}](../../pricing.md) for billing information.
+[Log export](../../concepts/logs.md) is a paid feature. See [{#T}](../../pricing.md) for billing details.
 
 For a description of fields of exported logs, see the [Query log reference](../../logs-ref.md).
 

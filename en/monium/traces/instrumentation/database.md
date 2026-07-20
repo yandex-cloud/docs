@@ -1,10 +1,10 @@
 # Working with databases
 
-With [auto-instrumentation](auto.md), spans for database calls are created and attributes are filled automatically. If using [manual instrumentation](manual.md), follow the conventions described below.
+With [auto-instrumentation](auto.md), spans for database calls are created and attributes are filled automatically. In case of [manual instrumentation](manual.md), follow the convention described below.
 
 ## Naming convention {#naming}
 
-The span name has the `<db.operation> <db.name>.<db.sql.table>` format, e.g., `SELECT shop.orders`. If any of the components is not available, you can omit it: `SELECT shop`, `SELECT orders`. For more information, see the [database span naming specification](https://opentelemetry.io/docs/specs/semconv/database/database-spans/#name).
+The span name has the `<db.operation> <db.name>.<db.sql.table>` format, e.g., `SELECT shop.orders`. If any of the components is not available, you can omit it: `SELECT shop`, `SELECT orders`. For more information, see the [DB span naming specification](https://opentelemetry.io/docs/specs/semconv/database/database-spans/#name).
 
 ## Attributes {#attributes}
 

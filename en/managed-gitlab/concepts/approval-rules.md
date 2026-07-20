@@ -13,7 +13,7 @@ If approval rules are enabled in your {{ GL }} instance, {{ mgl-name }} analyzes
 
 If you manually resolve the thread, it will be recreated. If the merge request is approved regardless of the existing rules, users with the `Maintainer` role or higher will receive an email notification about the violated approval workflow.
 
-For more information about working with approval rules, see [Setting up approval rules](../operations/approval-rules.md).
+For more on working with approval rules, see [Setting up approval rules](../operations/approval-rules.md).
 
 ## {{ GL }} token {#gitlab-token}
 
@@ -35,7 +35,7 @@ You can choose a suitable configuration based on your team's objectives:
 * **Standard**: Allows you to configure multiple rules for each project and assign [code owners](../operations/approval-rules.md#code-ownership) to specific files or directories (up to 10 entries). It work best for medium-sized teams (10 to 30 people).
 * **Advanced**: Includes all features of the standard configuration with no limit on the number of code ownership entries, and allows setting up different approval rules for different project branches. This configuration is a fit for for large teams (over 30 people).
 
-See the table below for a more detailed comparison of what different configurations provide:
+See the table below for a detailed comparison of different configurations:
 
 | Features                  | Description | Basic<br>configuration | Standard<br>configuration | Advanced<br>configuration |
 |:----------------------------------|:---------|:------------------------------------:|:---------------------------------------:|:------------------------------------:|

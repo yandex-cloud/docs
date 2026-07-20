@@ -14,7 +14,7 @@ To enable CDN servers to establish HTTPS connections with origins, you need to c
 For a resource, you can also configure:
 
 * HTTP `Host` header value in CDN server requests to origins: the primary [domain name for content delivery](resource.md#hostnames), value copied from the client request, or an arbitrary value.
-* Other HTTP headers in CDN server requests to origins (see [instructions](../operations/resources/configure-headers.md)).
+* Other HTTP headers in CDN server requests to origins by following [this guide](../operations/resources/configure-headers.md).
 * Receiving segmented files from origins by CDN servers: [content segmentation](slicing.md).
 * [Following request redirects](follow-redirects.md) received from content origins.
 * Custom server name for [SNI (Server Name Indication)](https://{{ lang }}.wikipedia.org/wiki/Server_Name_Indication) when establishing an HTTPS connection from CDN servers to the origin.

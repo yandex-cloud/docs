@@ -160,7 +160,7 @@ To create a [target group](../concepts/target-group.md):
        * `private_ipv4_address`: Setting indicating that the IP address is outside {{ vpc-name }}.
        * `ip_address`: Resource’s private IPv4 address. This IP address must belong to the [RFC 1918 private address range](https://datatracker.ietf.org/doc/html/rfc1918#section-3). For more information, see [Subnets](../../vpc/concepts/network.md#subnet).
 
-     For more information about `yandex_alb_target_group` properties, see [this {{ TF }} provider guide]({{ tf-provider-alb-targetgroup }}).
+     For more on the properties of the `yandex_alb_target_group` resource, see [this provider guide]({{ tf-provider-alb-targetgroup }}).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

@@ -125,7 +125,7 @@ To enable access via a secure token:
         * `secure_key`: Secret key you created.
         * `enable_ip_url_signing`: Optional parameter, `true` or `false`. It restricts access to the CDN resource by IP address. The trusted IP address itself is provided outside the CDN resource and specified as a parameter when generating an [MD5](https://{{ lang }}.wikipedia.org/wiki/MD5) hash for a pre-signed URL. If the parameter is not set, file access will be allowed from any IP address.
 
-        For more information about the `yandex_cdn_resource` properties in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
+        For more on the properties of `yandex_cdn_resource` in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/cdn_resource).
      1. Apply the changes:
 
         {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -190,7 +190,7 @@ To disable access to a CDN resource via a secure token:
      }
      ```
 
-     For more information about the `yandex_cdn_resource` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/cdn_resource).
+     For more on the properties of `yandex_cdn_resource` in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/cdn_resource).
   1. Apply the changes:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

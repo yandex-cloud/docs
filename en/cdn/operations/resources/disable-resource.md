@@ -1,13 +1,13 @@
 ---
-title: Suspending and resuming a resource
+title: Suspending and resuming resource operation
 description: Follow this guide to suspend and resume a CDN resource.
 ---
 
-# Suspending and resuming a resource
+# Suspending and resuming resource operation
 
 ## Suspending a resource {#disable-resource}
 
-To suspend a resource, disable end-user access to the content. Follow these steps:
+To suspend a resource, disable end-user access to the content. Proceed as follows:
 
 {% list tabs group=instructions %}
 
@@ -118,9 +118,9 @@ To suspend a resource, disable end-user access to the content. Follow these step
 
      {% endcut %}
 
-      For more information about the `yandex_cdn_resource` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/cdn_resource).
+      For more on the properties of `yandex_cdn_resource` in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/cdn_resource).
 
-  1. In the command line, go to the directory with the {{ TF }} configuration file.
+  1. In the command line, navigate to the directory with the {{ TF }} configuration file.
 
   1. Check the configuration using this command:
      ```
@@ -161,7 +161,7 @@ To suspend a resource, disable end-user access to the content. Follow these step
 
 ## Suspending a resource {#enable-resource}
 
-To restore a resource to working order, enable end-user access to the content. Follow these steps:
+To restore a resource to working order, enable end-user access to the content. Proceed as follows:
 
 {% list tabs group=instructions %}
 
@@ -272,9 +272,9 @@ To restore a resource to working order, enable end-user access to the content. F
 
      {% endcut %}
 
-      For more information about the `yandex_cdn_resource` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/cdn_resource).
+      For more on the properties of `yandex_cdn_resource` in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/cdn_resource).
 
-  1. In the command line, go to the directory with the {{ TF }} configuration file.
+  1. In the command line, navigate to the directory with the {{ TF }} configuration file.
 
   1. Check the configuration using this command:
      ```

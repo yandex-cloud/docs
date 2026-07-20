@@ -38,7 +38,7 @@ description: Follow this guide to update or delete a topic.
       --topic-arn <topic_ARN>
      ```
      
-  For more information about the [set-topic-attributes](https://docs.aws.amazon.com/cli/latest/reference/sns/set-topic-attributes.html) and [get-topic-attributes](https://docs.aws.amazon.com/cli/latest/reference/sns/get-topic-attributes.html) commands, see the AWS documentation.
+  For more on commands, see these AWS guides: [set-topic-attributes](https://docs.aws.amazon.com/cli/latest/reference/sns/set-topic-attributes.html) and [get-topic-attributes](https://docs.aws.amazon.com/cli/latest/reference/sns/get-topic-attributes.html).
 
 - AWS SDK for Python {#python}
 
@@ -77,7 +77,7 @@ description: Follow this guide to update or delete a topic.
   aws sns delete-topic --topic-arn <topic_ARN>
   ```
 
-  For more information about the `aws sns delete-topic` command, see the [AWS documentation](https://docs.amazonaws.cn/en_us/sns/latest/dg/sns-delete-subscription-topic.html).
+  Learn more about the `aws sns delete-topic` command in [this AWS guide](https://docs.amazonaws.cn/en_us/sns/latest/dg/sns-delete-subscription-topic.html).
 
 - AWS SDK for Python {#python}
 

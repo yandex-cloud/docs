@@ -31,7 +31,7 @@ When creating a load balancer, specify a [network](../../vpc/concepts/network.md
 
 {% include [backend-healthcheck](../../_includes/application-load-balancer/backend-healthcheck.md) %}
 
-See [below](#lcu-scaling-subnet-sizes) to learn what subnet sizes are recommended for load balancers.
+For information on recommended subnet sizes for the load balancer, see [this section](#lcu-scaling-subnet-sizes).
 
 ### Internal IP addresses {#internal-ips}
 
@@ -43,7 +43,7 @@ To correctly distribute the load across backends, add a permission for incoming 
 1. To enable nodes to freely communicate with backends, add these CIDRs to the list of allowed sources.
 
 > For example, the load balancer uses subnets with CIDRs `10.0.1.0/24` and `10.0.2.0/24`, and backends receive traffic on port `8080`. In which case you will need two [rules](../../vpc/concepts/security-groups.md#security-groups-rules) to allow traffic from the load balancer nodes:
-> 
+>
 > | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
 > | --- | --- | --- | --- | --- |
 > | Inbound | `8080` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.0.1.0/24` |
@@ -51,7 +51,7 @@ To correctly distribute the load across backends, add a permission for incoming 
 
 ## Autoscaling and resource units {#lcu-scaling}
 
-An internal group of VM instances called _resource units_ is created in each availability zone of the load balancer. 
+An internal group of VM instances called _resource units_ is created in each availability zone of the load balancer.
 
 {% include [lcu-thresholds](../../_includes/application-load-balancer/lcu-thresholds.md) %}
 
@@ -64,7 +64,7 @@ An internal group of VM instances called _resource units_ is created in each ava
 >
 > {% include [lcu-example-amounts](../../_includes/application-load-balancer/lcu-example-amounts.md) %}
 
-By default, the minimum number of resource units per availability zone is 2. You can increase it in the autoscaling settings. For more information, see [below](#lcu-scaling-settings).
+By default, the minimum number of resource units per availability zone is 2. You can increase it in the autoscaling settings. For more information, see [Autoscaling settings](#lcu-scaling-settings).
 
 The number of resource units affects the cost of using the load balancer. For more information, see [{#T}](../pricing.md).
 
@@ -89,7 +89,6 @@ Maximum total number of resource units
   Make sure this value is no less than the number of load balancer availability zones multiplied by the minimum number of resource units per zone.
 
 You can set autoscaling for a group of resource units of your load balancer when [creating](../operations/application-load-balancer-create.md) or [updating](../operations/application-load-balancer-update.md) it.
-
 
 ### Recommended subnet sizes {#lcu-scaling-subnet-sizes}
 
@@ -153,4 +152,4 @@ If an HTTPS listener is used, specify a [certificate](../../certificate-manager/
 
 #### Useful links {#see-also}
 
-* [Cloud load balancers: Enhancing availability and fault tolerance](https://yandex.cloud/ru/blog/posts/2025/04/load-balancers-guide)
+[Cloud load balancers: Enhancing availability and fault tolerance](https://yandex.cloud/ru/blog/posts/2025/04/load-balancers-guide)

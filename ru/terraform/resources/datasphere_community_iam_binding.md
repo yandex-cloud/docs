@@ -40,7 +40,7 @@ resource "yandex_datasphere_community_iam_binding" "community-iam" {
 
 ## Arguments & Attributes Reference
 
-- `community_id` (**Required**)(String). The ID of the compute `community` to attach the policy to.
+- `community_id` (**Required**)(String). The ID of the `community` to attach the policy to.
 - `id` (String). The ID of this resource.
 - `members` (**Required**)(Set Of String). An array of identities that will be granted the privilege in the `role`. Each entry can have one of the following values:
  * **userAccount:{user_id}**: A unique user ID that represents a specific Yandex account.

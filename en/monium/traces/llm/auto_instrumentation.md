@@ -53,7 +53,7 @@ Where:
 - `<your_API_key>`: API key of the service account with the `monium.traces.writer` role.
 - `<project_name>`: Project name in `folder__<folder_ID>` format, e.g., `folder__b1g2e3abc4def5ghij6k`.
 
-For more information on special {{ monium-name }} headers, see [{#T}](../../collector/otlp-protocol.md#headers).
+Learn more about special {{ monium-name }} headers [here](../../collector/otlp-protocol.md#headers).
 
 Additionally, set a variable to capture the content of prompts and model responses:
 

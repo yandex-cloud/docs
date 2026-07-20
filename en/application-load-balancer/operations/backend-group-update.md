@@ -144,7 +144,7 @@ description: Step-by-step guide for editing a backend group.
      * `labels`: Labels in `key=value` format. This is an optional setting.
      * `session_affinity`: [Session affinity](../../application-load-balancer/concepts/backend-group.md#session-affinity) settings. This is an optional setting. Select one of the modes:
 
-       * `connection`: Session affinity by the `source_ip` [IP address](../../vpc/concepts/address.md). It can either be `true` or `false`.
+       * `connection`: Session affinity by the `source_ip` [IP address](../../vpc/concepts/address.md). It can be either `true` or `false`.
        * `connection`: Session affinity by cookie. Specify the following settings in `<parameter_1>=<value>,<parameter_2>=<value>` format:
          * `name`: Cookie name. This is a required setting.
          * `path`: Path to the website section where the cookie will apply. If no path is set, requests from the same user may go to different backends.
@@ -155,7 +155,7 @@ description: Step-by-step guide for editing a backend group.
 
        {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
-     For more information about `yandex_alb_backend_group` properties, see [this {{ TF }} provider guide]({{ tf-provider-alb-backendgroup }}).
+     For more on the properties of the `yandex_alb_backend_group` resource, see [this provider guide]({{ tf-provider-alb-backendgroup }}).
   1. Apply the changes:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -288,7 +288,7 @@ description: Step-by-step guide for editing a backend group.
 
      {% include [TF-backend-settings](../../_includes/application-load-balancer/TF-backend-settings.md) %}
 
-     For more information about `yandex_alb_backend_group` properties, see [this {{ TF }} provider guide]({{ tf-provider-alb-backendgroup }}).
+     For more on the properties of the `yandex_alb_backend_group` resource, see [this provider guide]({{ tf-provider-alb-backendgroup }}).
   1. Apply the changes:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -318,7 +318,7 @@ description: Step-by-step guide for editing a backend group.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. Click your group name.
   1. Next to the backend name, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
-  1. In the window that opens, specify backend settings. For more information about these settings, see [above](#add-backend).
+  1. In the window that opens, specify backend settings. For more information about the settings, see [Adding a backend to a group](#add-backend).
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -454,7 +454,7 @@ description: Step-by-step guide for editing a backend group.
 
      {% include [TF-backend-settings](../../_includes/application-load-balancer/TF-backend-settings.md) %}
 
-     For more information about `yandex_alb_backend_group` properties, see [this {{ TF }} provider guide]({{ tf-provider-alb-backendgroup }}).
+     For more on the properties of the `yandex_alb_backend_group` resource, see [this provider guide]({{ tf-provider-alb-backendgroup }}).
   1. Apply the changes:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -569,7 +569,7 @@ To remove a backend from a group:
      }
      ```
 
-     For more information about `yandex_alb_backend_group` properties, see [this {{ TF }} provider guide]({{ tf-provider-alb-backendgroup }}).
+     For more on the properties of the `yandex_alb_backend_group` resource, see [this provider guide]({{ tf-provider-alb-backendgroup }}).
   1. Apply the changes:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -586,6 +586,6 @@ To remove a backend from a group:
 
 {% endlist %}
 
-### Useful links {#see-also}
+#### Useful links {#see-also}
 
-* [{#T}](../concepts/best-practices.md)
+[{#T}](../concepts/best-practices.md)

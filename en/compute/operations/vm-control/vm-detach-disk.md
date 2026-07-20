@@ -10,6 +10,12 @@ You cannot detach a boot disk from a VM. You cannot detach a local disk from a V
 
 To successfully detach a disk from a running VM, the operating system must be ready to handle detach disk commands. Before detaching a disk, make sure the OS is booted up or stop the VM; otherwise the operation will fail. If an error occurs, stop the VM and try again. 
 
+{% note warning %}
+
+Before you detach a disk from a running VM, unmount it in the operating system, for example, `sudo umount /data`. Otherwise, the data on the disk may get damaged.
+
+{% endnote %}
+
 To detach a disk from a VM:
 
 {% list tabs group=instructions %}

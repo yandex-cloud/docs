@@ -108,6 +108,29 @@ flowchart TB
 
     {% endnote %}
 
+### Обратная запись паролей в Active Directory {#password-writeback}
+
+{% note info %}
+
+Функциональность обратной записи паролей находится на стадии [Preview](../../overview/concepts/launch-stages.md). Чтобы получить к ней доступ, обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
+
+{% endnote %}
+
+Агент синхронизации позволяет выполнять _обратную запись паролей_ пользователей (password writeback) в Active Directory. Обратная запись паролей обеспечивает обновление пароля пользователя в Active Directory, если пароль этого пользователя был изменен на стороне Yandex Identity Hub в следующих случаях:
+
+* пользователь, для которого настроена синхронизация с Active Directory, [изменил свой пароль](../operations/manage-account.md#edit-password) в Yandex Identity Hub;
+* администратор организации [сбросил пароль](../operations/user-pools/reset-user-password.md#reset) пользователя, для которого настроена синхронизация с Active Directory;
+* пользователь, для которого настроена синхронизация с Active Directory, установил новый пароль в Yandex Identity Hub после того, как пароль этого пользователя был сброшен администратором.
+
+Обратная запись паролей выполняется в следующем порядке:
+
+1. Пользователь или администратор выполняют запрос на изменение пароля пользователя в Yandex Identity Hub.
+1. Агент синхронизации предпринимает попытку обновить пароль этого пользователя в Active Directory.
+
+    Попытка смены пароля в Active Directory может завершиться неудачей, например, если новый пароль не соответствует требованиям, заданным в политиках безопасности Active Directory.
+1. Если попытка изменить пароль в Active Directory завершилась успехом, пароль пользователя изменяется также и на стороне Yandex Identity Hub.
+1. Если попытка изменить пароль в Active Directory завершилась неудачей, пароль пользователя на стороне Yandex Identity Hub также остается неизменным.
+
 ## Настройка синхронизации {#sync-setup}
 
 Чтобы реализовать синхронизацию пользователей и групп Yandex Identity Hub с Active Directory, необходимо выполнить предварительные настройки, как на стороне вашего [контроллера домена](https://ru.wikipedia.org/wiki/Контроллер_домена) с развернутыми службами Active Directory, так и на стороне Yandex Cloud.
@@ -227,6 +250,10 @@ flowchart TB
 * добавление пользователей в группы и исключение их из групп;
 * изменение паролей пользователей.
 
+Если для учетной записи пользователя на стороне Active Directory задано значение поля **accountExpires**, агент синхронизирует это значение с полем **Дата деактивации** (`expires_at`) в свойствах локального пользователя Yandex Identity Hub. При наступлении момента, указанного в этом поле, локальный пользователь Yandex Identity Hub будет автоматически [деактивирован](../operations/user-pools/deactivate-user.md).
+
+В этом случае, чтобы повторно активировать пользователя, измените или удалите значение поля **accountExpires** для учетной записи пользователя на стороне Active Directory.
+
 ### Логирование процесса синхронизации {#logging}
 
 Агент Identity Hub AD Sync Agent регистрирует события, возникающие в процессе синхронизации.
@@ -273,6 +300,10 @@ flowchart TB
   # (only available when the agent is installed on a Compute Cloud VM).
   # If `true`, the cloud_credentials_file_path parameter will be ignored.
   use_metadata_service: true|false
+  
+  # Enable Password Writeback so the agent can synchronize password changes
+  # back from Yandex Identity Hub to Active Directory.
+  enable_password_writeback: true|false
   
   # Enable the Dry Run mode.
   # If `true`, no changes will be applied to users or groups in Yandex Identity Hub.
@@ -382,7 +413,19 @@ flowchart TB
       * `true` — агент синхронизации будет получать IAM-токены сервисного аккаунта через сервис метаданных виртуальной машины и использовать их для аутентификации в API Yandex Cloud. Значение параметра `cloud_credentials_file_path` при этом будет игнорироваться.
   
           Чтобы агент мог получать IAM-токены, он должен быть установлен на виртуальной машине Yandex Compute Cloud, к которой подключен сервисный аккаунт с [необходимыми](ad-sync.md#yc-setup) правами доступа.
-      * `false` — агент синхронизации не будет получать IAM-токены, а аутентификация в API Yandex Cloud будет выполняться с помощью авторизационного ключа, заданного в параметре `cloud_credentials_file_path`.
+      * `false` — агент синхронизации не будет получать IAM-токены, а аутентификация в API Yandex Cloud будет выполняться с помощью авторизованного ключа, заданного в параметре `cloud_credentials_file_path`.
+  * `enable_password_writeback` — параметр, управляющий [обратной записью паролей](ad-sync.md#password-writeback) пользователей в Active Directory.
+  
+      {% note info %}
+      
+      Функциональность обратной записи паролей находится на стадии [Preview](../../overview/concepts/launch-stages.md). Чтобы получить к ней доступ, обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
+      
+      {% endnote %}
+  
+      Возможные значения:
+  
+      * `true` — при попытке изменить пароль синхронизированного пользователя на стороне Yandex Identity Hub ([изменение пароля](../operations/manage-account.md#edit-password) самим пользователем или [сброс пароля](../operations/user-pools/reset-user-password.md#reset) администратором) агент сначала попытается изменить пароль соответствующего пользователя в Active Directory, и только в случае успеха этой операции пароль будет изменен в Yandex Identity Hub.
+      * `false` — при изменении пароля синхронизированного пользователя на стороне Yandex Identity Hub пароль этого пользователя не будет изменен в Active Directory. Если после изменения пароля выполнить [полную синхронизацию](ad-sync.md#full-sync), агент заменит обновленный пароль в Yandex Identity Hub паролем, взятым из Active Directory. Это также поведение по умолчанию, если функциональность обратной записи не активирована.
   * `dry_run` — настройки [тестового запуска](ad-sync.md#dry-run) агента (dry run):
   
       * `enabled: true` — активирован режим dry run. Агент не вносит изменения в данные пользователей и групп Yandex Identity Hub. Вместо этого он тестирует выполнение всех предусмотренных конфигурацией агента операций и сохраняет результаты этих тестов в [логах](ad-sync.md#logging) его работы.
@@ -548,6 +591,10 @@ flowchart TB
   # If `true`, the cloud_credentials_file_path parameter will be ignored.
   use_metadata_service: true|false
   
+  # Enable Password Writeback so the agent can synchronize password changes
+  # back from Yandex Identity Hub to Active Directory.
+  enable_password_writeback: true|false
+  
   # Enable the Dry Run mode.
   # If `true`, no changes will be applied to users or groups in Yandex Identity Hub.
   # Instead, all pending operations will be saved to the current log file location.
@@ -661,7 +708,19 @@ flowchart TB
       * `true` — агент синхронизации будет получать IAM-токены сервисного аккаунта через сервис метаданных виртуальной машины и использовать их для аутентификации в API Yandex Cloud. Значение параметра `cloud_credentials_file_path` при этом будет игнорироваться.
   
           Чтобы агент мог получать IAM-токены, он должен быть установлен на виртуальной машине Yandex Compute Cloud, к которой подключен сервисный аккаунт с [необходимыми](ad-sync.md#yc-setup) правами доступа.
-      * `false` — агент синхронизации не будет получать IAM-токены, а аутентификация в API Yandex Cloud будет выполняться с помощью авторизационного ключа, заданного в параметре `cloud_credentials_file_path`.
+      * `false` — агент синхронизации не будет получать IAM-токены, а аутентификация в API Yandex Cloud будет выполняться с помощью авторизованного ключа, заданного в параметре `cloud_credentials_file_path`.
+  * `enable_password_writeback` — параметр, управляющий [обратной записью паролей](ad-sync.md#password-writeback) пользователей в Active Directory.
+  
+      {% note info %}
+      
+      Функциональность обратной записи паролей находится на стадии [Preview](../../overview/concepts/launch-stages.md). Чтобы получить к ней доступ, обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
+      
+      {% endnote %}
+  
+      Возможные значения:
+  
+      * `true` — при попытке изменить пароль синхронизированного пользователя на стороне Yandex Identity Hub ([изменение пароля](../operations/manage-account.md#edit-password) самим пользователем или [сброс пароля](../operations/user-pools/reset-user-password.md#reset) администратором) агент сначала попытается изменить пароль соответствующего пользователя в Active Directory, и только в случае успеха этой операции пароль будет изменен в Yandex Identity Hub.
+      * `false` — при изменении пароля синхронизированного пользователя на стороне Yandex Identity Hub пароль этого пользователя не будет изменен в Active Directory. Если после изменения пароля выполнить [полную синхронизацию](ad-sync.md#full-sync), агент заменит обновленный пароль в Yandex Identity Hub паролем, взятым из Active Directory. Это также поведение по умолчанию, если функциональность обратной записи не активирована.
   * `dry_run` — настройки [тестового запуска](ad-sync.md#dry-run) агента (dry run):
   
       * `enabled: true` — активирован режим dry run. Агент не вносит изменения в данные пользователей и групп Yandex Identity Hub. Вместо этого он тестирует выполнение всех предусмотренных конфигурацией агента операций и сохраняет результаты этих тестов в [логах](ad-sync.md#logging) его работы.

@@ -278,9 +278,9 @@ To change L7 load balancer settings:
      ...
      ```
 
-     For more information about `yandex_alb_load_balancer` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/alb_load_balancer).
+     For more on the properties of the `yandex_alb_load_balancer` resource, see [this provider guide]({{ tf-provider-resources-link }}/alb_load_balancer).
 
-  1. Check the configuration using this command:
+  1. Validate your configuration using this command:
 
      ```bash
      terraform validate
@@ -399,7 +399,7 @@ To delete a listener from your L7 load balancer:
      ...
      ```
 
-     For more information about `yandex_alb_load_balancer` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/alb_load_balancer).
+     For more on the properties of the `yandex_alb_load_balancer` resource, see [this provider guide]({{ tf-provider-resources-link }}/alb_load_balancer).
 
   1. Validate your configuration using this command:
 

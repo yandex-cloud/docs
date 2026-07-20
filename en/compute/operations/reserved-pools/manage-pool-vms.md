@@ -1,6 +1,6 @@
 ---
 title: Managing VMs in a reserved instance pool
-description: In this article, you will learn how to create {{ compute-full-name }} VMs in a reserved instance pool and how to attach/detach existing VMs to/from such pools.
+description: In this article, you will learn how to create {{ compute-full-name }} VMs in a reserved instance pool and how to link/unlink existing VMs to/from such pools.
 ---
 
 # Managing VMs in a reserved instance pool

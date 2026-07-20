@@ -17,11 +17,17 @@ description: Follow this guide to edit a WAF exclusion rule.
   1. In the rule row, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**. In the window that opens:
       1. Edit the exclusion rule name and description as needed.
       1. Optionally, enable **{{ ui-key.yacloud.smart-web-security.waf.field_logging }}** to log exception rule triggering.
-      1. Under **{{ ui-key.yacloud.smart-web-security.waf.label_request-condition_33CzA }}**, edit rules from the basic set to which the exclusion will apply:
-          * `{{ ui-key.yacloud.smart-web-security.waf.value_exclude-all-yes }}`: Exclusion will apply to all rules.
-          * `{{ ui-key.yacloud.smart-web-security.waf.value_exclude-all-no }}`: Exclusion will apply to the selected rules.
+      1. In the **{{ ui-key.yacloud.smart-web-security.waf.label_exclusion-rule-exclude-rules }}** field, select:
+          * **All rules**: Exclusion will apply to all rules.
+          * **Selected rules**: Exclusion will apply to selected rules. Click **{{ ui-key.yacloud.smart-web-security.waf.action_exclusion-rule-add-rules }}** to select rules.
 
-             Click **{{ ui-key.yacloud.smart-web-security.waf.action_exclusion-rule-add-rules }}** to select rules from the basic set.
+      1. Under **{{ ui-key.yacloud.smart-web-security.waf.label_request-condition_33CzA }}**, select:
+          * **Entire request**: Exception will apply to entire HTTP request.
+          * **Request part**: Exception will apply only to the request part specified in the parameters. The rest of the request will be checked according to the WAF profile settings.
+
+             In the **Exception parameters** field, select one or more of the following: `HTTP body`, `Cookie`, `HTTP header`, or `Query params`. Set a value for each parameter. Enable **Case sensitive** as needed.
+
+             To add one more value for a parameter, click ![plus-sign](../../_assets/console-icons/plus.svg) **or**.
 
       1. {% include [waf-rule-traffic-conditions](../../_includes/smartwebsecurity/waf-rule-traffic-conditions.md) %}
 
@@ -87,7 +93,7 @@ description: Follow this guide to edit a WAF exclusion rule.
       }
       ```
 
-      For more information about `sws_waf_profile` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/sws_waf_profile).
+      For more on the properties of the `sws_waf_profile` resource, see [this provider guide]({{ tf-provider-resources-link }}/sws_waf_profile).
 
   1. Apply the changes:
 
@@ -101,7 +107,7 @@ description: Follow this guide to edit a WAF exclusion rule.
 
 {% endlist %}
 
-### Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](exclusion-rule-add.md)
 * [{#T}](exclusion-rule-delete.md)

@@ -26,7 +26,7 @@ description: Follow this guide to update an endpoint.
       ```bash
       aws sns set-endpoint-attributes \
         --endpoint-arn <endpoint_ARN> \
-        --attributes <parameter_1>=<new_value1>, ... <parameterN>=<new_valueN>
+        --attributes <parameter1>=<new_value1>, ... <parameterN>=<new_valueN>
       ```
 
       Where:
@@ -34,7 +34,7 @@ description: Follow this guide to update an endpoint.
       * `--endpoint-arn` is the endpoint ID (ARN).
       * `--attributes` are comma-separated endpoint parameters you want to edit, in `<parameter>=<new_value>` format.
 
-      For more information about the `aws sns set-endpoint-attributes` command, see the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/set-endpoint-attributes.html).
+      Learn more about the `aws sns set-endpoint-attributes` command in [this AWS guide](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/set-endpoint-attributes.html).
 
 - AWS SDK for Python {#python}
 
@@ -45,7 +45,7 @@ description: Follow this guide to update an endpoint.
       response = client.set_endpoint_attributes(
           EndpointArn="<endpoint_ARN>",
           Attributes={
-              "<parameter_1>": "<new_value1>",
+              "<parameter1>": "<new_value1>",
               ...
               "<parameterN>": "<new_valueN>"
           }
@@ -67,7 +67,7 @@ description: Follow this guide to update an endpoint.
       $response = $client->setEndpointAttributes([
           'EndpointArn' => '<endpoint_ARN>',
           'Attributes' => [
-              '<parameter_1>' => '<new_value1>',
+              '<parameter1>' => '<new_value1>',
               ...
               '<parameterN>' => '<new_valueN>'
           ],

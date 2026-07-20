@@ -87,6 +87,7 @@ output "instance_external_ip" {
   - `security_group_ids` (Set Of String). Security Group (SG) IDs for network interface.
   - `subnet_id` (**Required**)(String). ID of the subnet to attach this interface to. The subnet must exist in the same zone where this instance will be created.
 - `platform_id` (String). The type of virtual machine to create.
+- `reserved_instance_pool_id` (String). ID of the reserved instance pool to attach this instance to.
 - `resources` [Block]. Compute resources that are allocated for the instance.
   - `core_fraction` (Number). If provided, specifies baseline performance for a core as a percent.
   - `cores` (**Required**)(Number). CPU cores for the instance.

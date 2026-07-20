@@ -67,7 +67,7 @@ provider "yandex" {
   folder_id = var.folder_id
 }
 
-# Create network
+# Creating a network
 
 resource "yandex_vpc_network" "nextcloud-network" {
   name = local.network_name
@@ -229,7 +229,7 @@ resource "yandex_compute_instance" "nextcloud-vm" {
   }
 
   metadata = {
-    user-data = "#cloud-config\nusers:\n  - name: yc-user\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh-authorized-keys:\n      - ${file(var.ssh_key_path)}"
+    user-data = "#cloud-config\nusers:\n  - name: yc-user\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh_authorized_keys:\n      - ${file(var.ssh_key_path)}"
   }
 }
 
@@ -270,14 +270,14 @@ resource "yandex_mdb_mysql_cluster" "nextcloud-cluster" {
   }
 }
 
-# Creating a database in a MySQL cluster
+# Creating a database in the MySQL cluster
 
 resource "yandex_mdb_mysql_database" "nextcloud-db" {
   cluster_id = yandex_mdb_mysql_cluster.nextcloud-cluster.id
   name       = local.db_name
 }
 
-# Creating a database user in a MySQL cluster
+# Creating a database user in the MySQL cluster
 
 resource "yandex_mdb_mysql_user" "my_user" {
   cluster_id = yandex_mdb_mysql_cluster.nextcloud-cluster.id

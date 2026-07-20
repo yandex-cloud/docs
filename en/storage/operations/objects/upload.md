@@ -74,7 +74,7 @@ You can use [tools](../../tools/index.md) that support {{ objstorage-name }} and
      * `--endpoint-url`: {{ objstorage-name }} endpoint.
      * `s3 cp --recursive`: Command to upload all objects stored in a local directory, including the nested ones. To upload objects, in the first part of the command, provide the path to the folder from which you want to copy the files to the bucket, and in the second part, the name of your bucket and storage [folder ID](../../concepts/object.md#folder).
 
-  `aws s3 cp` is a high-level command providing limited features. For more information, see the [AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html). To access all upload features supported by {{ objstorage-name }}, use the [aws s3api put-object](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object.html) command instead (see examples of using [object locks](../../concepts/object-lock.md) [below](#w-object-lock)).
+  `aws s3 cp` is a high-level command providing limited features. For more information, see the [AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html). All upload features {{ objstorage-name }} supports can be used when running the [aws s3api put-object](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object.html) command (see examples of using [object locks](../../concepts/object-lock.md) [below](#w-object-lock)).
 
 - {{ TF }} {#tf}
 
@@ -321,7 +321,7 @@ If your bucket already has [default retention periods](../../concepts/object-loc
      * `--object-lock-mode` and `--object-lock-retain-until-date` to set a retention period for an object version that overrides the bucket's default retention settings.
      * `--object-lock-legal-hold-status` to set a legal hold on an object version.
 
-     For more information about these parameters, see above.
+     For more information about these parameters, see the steps above.
 
 - AWS CLI {#aws-cli}
 
@@ -358,7 +358,7 @@ If your bucket already has [default retention periods](../../concepts/object-loc
      * `--object-lock-mode` and `--object-lock-retain-until-date` to set a retention period for an object version that overrides the bucket's default retention settings.
      * `--object-lock-legal-hold-status` to set a legal hold on an object version.
  
-     For more information about these parameters, see above.
+     For more information about these parameters, see the steps above.
 
 - API {#api}
 

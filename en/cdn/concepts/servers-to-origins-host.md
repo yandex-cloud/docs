@@ -46,7 +46,7 @@ Choosing the correct setting for the `Host` header depends on the origins you us
   1. Select the `{{ ui-key.yacloud.cdn.value_host-header-custom }}` option and specify `<bucket_name>.{{ s3-storage-host }}` as the value. If the bucket is configured for [static website hosting](../../storage/concepts/hosting.md), specify `<bucket_name>.{{ s3-web-host }}`.
   1. Configure other origins (servers and L7 load balancers) so that they accept requests with the specified header value.
 
-  If there are multiple buckets in the group, we recommend using the L7 load balancer with buckets that act as backends instead (see the configuration example for [blue-green and canary deployment](../tutorials/blue-green-canary-deployment.md)).
+  If there are multiple buckets in the group, we recommend using the L7 load balancer with buckets that act as backends instead (see the configuration example for [blue-green and canary deployment scenario](../tutorials/blue-green-canary-deployment.md)).
 
   In other cases, the setting depends on what requests the origins accept. To check that the origin accepts requests with the selected `Host` header value correctly, run this command:
 

@@ -38,6 +38,7 @@ The support cost for this solution includes:
    * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: Select the security groups you created earlier.
    * **{{ ui-key.yacloud.k8s.node-groups.create.field_node-taints }}**: Specify the `nvidia.com/gpu=true:NoSchedule` [taint policy](../../managed-kubernetes/concepts/index.md#taints-tolerations).
 
+   {% include [cgroups-v2-platform](../../_includes/managed-kubernetes/cgroups-v2-platform.md) %}
 
 1. {% include [kubectl-install](../../_includes/managed-kubernetes/kubectl-install.md) %}
 

@@ -1,4 +1,10 @@
 ```mermaid
+%%{
+  init: {
+    "flowchart": { "defaultRenderer": "elk" },
+    "elk": { "nodePlacementStrategy": "BRANDES_KOEPF" }
+  }
+}%%
 flowchart BT
     websql.executedQueries.editor --> websql.editor
     websql.user --> websql.editor

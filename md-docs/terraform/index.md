@@ -220,6 +220,8 @@ Yandex Cloud предоставляет провайдер, набор моду�
 
  - [cloudregistry_registry_ip_permission](data-sources/cloudregistry_registry_ip_permission.md)
 
+ - [cloudregistry_scan_policy](data-sources/cloudregistry_scan_policy.md)
+
 ##### Resources
 
  - [cloudregistry_folder](resources/cloudregistry_folder.md)
@@ -233,6 +235,8 @@ Yandex Cloud предоставляет провайдер, набор моду�
  - [cloudregistry_registry_iam_binding](resources/cloudregistry_registry_iam_binding.md)
 
  - [cloudregistry_registry_ip_permission](resources/cloudregistry_registry_ip_permission.md)
+
+ - [cloudregistry_scan_policy](resources/cloudregistry_scan_policy.md)
 
 #### Compute Cloud
 
@@ -253,6 +257,8 @@ Yandex Cloud предоставляет провайдер, набор моду�
  - [compute_instance_group](data-sources/compute_instance_group.md)
 
  - [compute_placement_group](data-sources/compute_placement_group.md)
+
+ - [compute_reserved_instance_pool](data-sources/compute_reserved_instance_pool.md)
 
  - [compute_snapshot](data-sources/compute_snapshot.md)
 
@@ -289,6 +295,8 @@ Yandex Cloud предоставляет провайдер, набор моду�
  - [compute_placement_group](resources/compute_placement_group.md)
 
  - [compute_placement_group_iam_binding](resources/compute_placement_group_iam_binding.md)
+
+ - [compute_reserved_instance_pool](resources/compute_reserved_instance_pool.md)
 
  - [compute_snapshot](resources/compute_snapshot.md)
 
@@ -1044,6 +1052,8 @@ Yandex Cloud предоставляет провайдер, набор моду�
 
  - [sws_advanced_rate_limiter_profile](data-sources/sws_advanced_rate_limiter_profile.md)
 
+ - [sws_match_list](data-sources/sws_match_list.md)
+
  - [sws_security_profile](data-sources/sws_security_profile.md)
 
  - [sws_waf_profile](data-sources/sws_waf_profile.md)
@@ -1053,6 +1063,8 @@ Yandex Cloud предоставляет провайдер, набор моду�
 ##### Resources
 
  - [sws_advanced_rate_limiter_profile](resources/sws_advanced_rate_limiter_profile.md)
+
+ - [sws_match_list](resources/sws_match_list.md)
 
  - [sws_security_profile](resources/sws_security_profile.md)
 

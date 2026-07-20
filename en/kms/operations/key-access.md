@@ -106,7 +106,7 @@ You can grant access to a [symmetric key](../concepts/key.md) to a user, service
       * `role`: [Role](../security/index.md#roles-list) to assign.
       * `member`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-      For more information about the `yandex_kms_symmetric_key_iam_member` resource properties, see [this provider guide]({{ tf-provider-resources-link }}/kms_symmetric_key_iam_member).
+      For more on the properties of the `yandex_kms_symmetric_key_iam_member` resource, see [this provider guide]({{ tf-provider-resources-link }}/kms_symmetric_key_iam_member).
 
   1. Create the resources:
 
@@ -252,7 +252,7 @@ You can grant access to a [symmetric key](../concepts/key.md) to a user, service
       * `role`: [Role](../security/index.md#roles-list) to assign.
       * `member`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-      For more information about the `yandex_kms_symmetric_key_iam_member` resource properties, see [this provider guide]({{ tf-provider-resources-link }}/kms_symmetric_key_iam_member).
+      For more on the properties of the `yandex_kms_symmetric_key_iam_member` resource, see [this provider guide]({{ tf-provider-resources-link }}/kms_symmetric_key_iam_member).
 
   1. Create the resources:
 

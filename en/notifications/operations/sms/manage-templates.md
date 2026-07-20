@@ -55,4 +55,4 @@ To delete an SMS template in the `Deregistered` status:
 
 #### Useful links {#see-also}
 
-* [{#T}](../../concepts/sms.md#templates)
+[{#T}](../../concepts/sms.md#templates)

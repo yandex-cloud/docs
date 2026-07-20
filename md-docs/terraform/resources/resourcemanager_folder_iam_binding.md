@@ -34,7 +34,7 @@ resource "yandex_resourcemanager_folder_iam_binding" "admin" {
 
 ## Arguments & Attributes Reference
 
-- `folder_id` (**Required**)(String). The ID of the compute `folder` to attach the policy to.
+- `folder_id` (**Required**)(String). The ID of the `folder` to attach the policy to.
 - `id` (String). The ID of this resource.
 - `members` (**Required**)(Set Of String). An array of identities that will be granted the privilege in the `role`. Each entry can have one of the following values:
  * **userAccount:{user_id}**: A unique user ID that represents a specific Yandex account.

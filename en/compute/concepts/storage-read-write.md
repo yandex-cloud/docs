@@ -36,6 +36,12 @@ VMs with [vCPU performance level](performance-levels.md) below 100% may operate 
 
 ## Disk and file storage performance {#performance}
 
+Performance of VMs with disks depends on these two categories of limits:
+* [VM disk usage limits](limits.md#compute-limits-vm-disks) set the total maximum load across all VM disks. These limits scale in proportion to the number of vCPUs allocated to a VM.
+* [Disk and file storage limits](limits.md#compute-limits-disks) define individual load thresholds per disk based on its type and size.
+
+Actual disk performance is limited by the lowest of these two values.
+
 The maximum IOPS values are achieved when performing reads and writes that are 4 KB in size. Network SSDs and file storage have much higher IOPS for read operations and process requests faster than HDDs.
 
 For maximum bandwidth, we recommend 4 MB reads and writes.
@@ -89,7 +95,7 @@ You can test the performance of your network disks with [fio](https://fio.readth
 
     * `--filesize`: Size of the file the utility creates and uses to test input and output.
     * `--direct`: Flag that toggles buffering; `0` means buffering is used, `1` means buffering is not used.
-    * `--rw`: Load template. The possible values are: 
+    * `--rw`: Load template. The possible values are as follows: 
       * `read`: Sequential reads.
       * `write`: Sequential writes.
       * `rw`: Sequential reads and writes.
@@ -300,3 +306,16 @@ _Throttling_ is a feature that forcibly limits the performance. When throttled, 
 Disk performance depends on its [size](disk.md#maximum-disk-size). To improve the overall performance of the disk subsystem, use VMs with SSD network storage (`network-ssd`). Every increment of 32 GB increases the number of allocation units and, in turn, the performance.
 
 You can select the storage type only when creating a VM. However, you can [take a disk snapshot](../operations/disk-control/create-snapshot.md) and [create a new VM](../operations/vm-create/create-from-snapshots.md) from such a snapshot with a `network-ssd`.
+
+### Disk load impact on VM network performance {#disk-load-network-impact}
+
+Without a [software-accelerated network](software-accelerated-network.md), user workloads and VM network traffic processing tasks share [the same compute cores](software-accelerated-network.md#reg-vm) allocated to the VM. If the load on VM disks is high, e.g., when creating [snapshots](snapshot.md) or [backups](backups.md) of large disks, user processes may consume substantial vCPU capacity. This deprives networking processes of computing resources and may cause short-term network issues, such as increased latency or packet loss. This behavior is standard both for VMs and physical servers with high simultaneous load on disks and network.
+
+{% note tip %}
+
+To mitigate the impact of disk load on VM network performance, use one of these approaches:
+* Reduce the rate of backup operations and other tasks that lead to peak loads on disks.
+* Enable a [software-accelerated network](software-accelerated-network.md) for the VM to allocate dedicated compute cores to network traffic and prevent resource contention with user workloads.
+
+{% endnote %}
+

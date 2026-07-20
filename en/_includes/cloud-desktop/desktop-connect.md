@@ -32,7 +32,7 @@
 
   #### Useful links {#mac-see-also}
 
-  * [Getting started with a remote desktop in macOS]({{ ms.docs }}/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac)
+  [Getting started with a remote desktop in macOS]({{ ms.docs }}/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac)
 
 - Linux {#linux}
 
@@ -57,6 +57,6 @@
 
   #### Useful links {#lin-see-also}
 
-  * [Installing Remmina on non-Ubuntu Linux distributions](https://remmina.org/how-to-install-remmina/)
+  [Installing Remmina on non-Ubuntu Linux distributions](https://remmina.org/how-to-install-remmina/)
 
 {% endlist %}

@@ -36,13 +36,13 @@ To view a dashboard with the most common metrics for a {{ yandex-cloud }} resour
 
      For example, **Compute** (to search for {{ compute-name }} dashboards) or **Logs Overview** (for {{ monium-logs-name }}).
   
-     For descriptions of dashboards and metrics, refer to relevant guides.
+     For a description of dashboards and metrics, refer to relevant guides.
   
   1. To make a custom dashboard out of the service dashboard's widgets, [copy the widgets](../../monium/operations/dashboard/widget-management.md) to your dashboard or [copy the entire dashboard](../../monium/operations/dashboard/copy.md).
 
 {% endlist %}
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [Data model](../concepts/data-model.md)
 * [Query language](../concepts/querying.md)

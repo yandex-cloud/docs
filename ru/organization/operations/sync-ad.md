@@ -279,6 +279,12 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
+{% note info %}
+
+{% include [ad-sync-account-expires-solution](../../_includes/organization/ad-sync-account-expires-solution.md) %}
+
+{% endnote %}
+
 #### Полезные ссылки {#see-also}
 
 * [{#T}](../concepts/ad-sync.md)

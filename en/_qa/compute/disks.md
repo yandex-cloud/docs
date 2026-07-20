@@ -85,7 +85,7 @@ Snapshots are billed and count towards [quotas]({{ link-console-quotas }}) based
    * Role for the cloud: `resource-manager.clouds.member`.
    * Role for the folder: `viewer` or `compute.images.user`.
 
-   For details, see [{#T}](../../iam/operations/roles/grant.md).
+   See [{#T}](../../iam/operations/roles/grant.md).
 1. Create an image from your snapshot under **{{ ui-key.yacloud.compute.snapshots_81jHX }}** or from the disk itself under **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
 
 A user in the cloud you want to move your VM to must follow these steps:
@@ -119,9 +119,9 @@ For more information, see [{#T}](../../compute/concepts/backups.md).
 Yes, you can add a disk to multiple schedules. There are fixed [limits](../../compute/concepts/limits.md#compute-limits-snapshot-schedule) on the number of schedules for a disk.
 
 
-#### What time zone is used for configuring snapshot schedules? {#snapshot-schedule-tz}
+#### What time zone is used for snapshot schedules? {#snapshot-schedule-tz}
 
-All times are [UTC±00:00](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00).
+Use [UTC±00:00](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00).
 
 
 #### Can I choose a folder for scheduled disk snapshots? {#snapshot-schedule-catalog}
@@ -139,12 +139,12 @@ See [{#T}](../../compute/concepts/snapshot-schedule.md#cron).
 After. A new snapshot is created first, then the oldest one is deleted. For example, if you want to keep only the most recent five snapshots, the first snapshot will only be deleted after the sixth one is created, the second snapshot will be deleted after the seventh one is created, and so on.
 
 
-#### What happens to running operations and existing snapshots when I change, disable, or delete a disk snapshot schedule? {#snapshot-schedule-stop-delete}
+#### What happens to operations and existing snapshots if I edit, stop, or delete a disk snapshot schedule? {#snapshot-schedule-stop-delete}
 
 All running snapshot creation or deletion operations initiated prior to changing, disabling, or deleting the schedule will be completed. Snapshots that were not deleted according to schedule [retention settings](../../compute/concepts/snapshot-schedule.md#retention) will stay unaffected.
 
 
-#### What happens to my data when I delete a VM? {#delete-vm}
+#### What happens to the data if I delete a VM? {#delete-vm}
 
 When selecting a disk to attach to your VM, you can specify whether to delete that disk when deleting the VM. You can enable this option when creating or updating a VM, or when attaching a new disk to it.
 
@@ -152,7 +152,7 @@ Disks attached to a VM prior to its deletion will automatically be detached. Thi
 
 If you want to have a disk deleted with the VM is it attached to, enable the relevant option when creating the VM, updating it, or attaching the disk. Such disks will be deleted along with the VM.
 
-#### Do I have to stop a VM to create disk snapshots? Do I have to wait until disk snapshots are created before I can start a VM? {#create-snapshot}
+#### Do I have to stop the VM to create disk snapshots? Do I have to wait until disk snapshots are created before I can start a VM? {#create-snapshot}
 
 You do not have to stop your VM. However, keep in mind that a snapshot only contains the data available on the disk at the time of creating the snapshot. You need to take care of data integrity yourself. For more information on how to create a disk snapshot, see [{#T}](../../compute/operations/disk-control/create-snapshot.md).
 
@@ -160,11 +160,17 @@ Snapshots are created asynchronously. You can resume writing data to your disk i
 
 #### Can I download an image of a created VM? {#download-image}
 
-This option is not currently supported. However, you can copy data from your VM using application software, such as `rsync`, `dd`, or `GNU Wget`.
+This option is not currently supported. 
 
-If you would like us to implement an option to manually download or upload VM images and disk snapshots from or to external resources or a local device, consider [suggesting](https://yandex.cloud/ru/features) this feature or voting for a similar one. We regularly review all suggestions and add them to our development roadmap. We will notify you as soon as the feature you suggested or voted for has been implemented.
+You can copy data from your VM using application software, such as [rsync](https://en.wikipedia.org/wiki/Rsync), [dd](https://en.wikipedia.org/wiki/Dd_(Unix)), or [GNU Wget](https://en.wikipedia.org/wiki/Wget).
 
-#### How do I detect processes that are putting a heavy load on the disk? {#disk-heavy-load}
+{% note tip %}
+
+Alternatively, you can use ![image](../../_assets/overview/solution-library-icon.svg) [yc-disk-export-tool](https://github.com/yandex-cloud-examples/yc-disk-export-tool) by {{ yandex-cloud }} community.
+
+{% endnote %}
+
+#### How do I detect processes that cause a heavy load on the disk? {#disk-heavy-load}
 
 You can detect these processes using [iotop](https://manpages.ubuntu.com/manpages/xenial/man8/iotop.8.html). Run it on a schedule with [cron](https://en.wikipedia.org/wiki/Cron) and log any processes that have a data transfer rate of more than 1,000 KB/s:
 

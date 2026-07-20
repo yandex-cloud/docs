@@ -29,12 +29,12 @@ As soon as a notification channel is created, the following additional parameter
 
 Each sending of a notification can have one of the following statuses:
 
-Status | Description
+Stage | Description
 ----- | -----
 `{{ ui-key.yacloud_monitoring.channel.status-description_success }}` | Notification successful.
 `{{ ui-key.yacloud_monitoring.channel.status-description_error }}` | Notification not sent due to an error.
 `{{ ui-key.yacloud_monitoring.channel.status-description_resource_exhausted }}` | Notification not sent due to a sending method restriction.
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
-* [Creating a notification channel](../../operations/alert/create-channel.md)
+[Creating a notification channel](../../operations/alert/create-channel.md)

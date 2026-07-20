@@ -6,13 +6,13 @@
   * **{{ ui-key.yacloud.cns.field_apns-team-id }}** (Team ID): You can find it in the top-right corner of your Apple developer account. It must be 10 characters long and contain only numbers and Latin letters.
   * **{{ ui-key.yacloud.cns.field_apns-bundle-id }}**: Get the [bundle ID](https://developer.apple.com/documentation/appstoreconnectapi/list_bundle_ids) in your Apple developer account: **Certificates, Identifiers & Profiles** → **Identifiers** or in the Xcode app: **Target** → **General** → **Identity**. It may contain only numbers, Latin letters, hyphens, and periods.
    
-   Learn more about the token in [this Apple guide](https://developer.apple.com/documentation/usernotifications/establishing-a-token-based-connection-to-apns).
+   Learn more about tokens in [this Apple guide](https://developer.apple.com/documentation/usernotifications/establishing-a-token-based-connection-to-apns).
 
 * To authenticate with a certificate, you will need:
   * **{{ ui-key.yacloud.cns.field_apns-certificate }}**: SSL certificate file in `.pem` format.
   * **{{ ui-key.yacloud.cns.field_apns-private-key }}**: Key file in `.pem` format. 
 
-  Learn more about the certificate in [this Apple guide](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/establishing_a_certificate-based_connection_to_apns#2947597).
+  Read more about certificates in [this Apple guide](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/establishing_a_certificate-based_connection_to_apns#2947597).
 
   {% include [convert-p12-to-pem](convert-p12-to-pem.md) %}
 

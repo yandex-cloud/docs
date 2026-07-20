@@ -10,11 +10,13 @@
   * `Effect` — запрет или разрешение запрошенного действия. Возможные значения: `Allow` и `Deny`.
   * `Principal` — идентификатор субъекта запрошенного разрешения. Получателем может быть [пользователь](../../organization/operations/users-get.md), [сервисный аккаунт](../../iam/operations/sa/get-id.md) или [группа пользователей](../../organization/operations/manage-groups.md). Необязательный параметр. Возможные значения:
     * `"*"`.
-    * `"CanonicalUser": "<идентификатор_субъекта>"`. 
+    * `"CanonicalUser": "<идентификатор_субъекта>"`.
 
     Идентификаторы можно получить следующими способами:
 
     {% include [acl-grantee](acl-grantee.md) %}
+
+    {% include [canonical-user-identification](../../_includes/storage/canonical-user-identification.md) %}
 
   * `Action` — [действие](../../storage/s3/api-ref/policy/actions.md), которое будет разрешено при срабатывании политики. Примеры возможных значений: `s3:GetObject`, `s3:PutObject`. `*` — если необходимо применять политику ко всем действиям.
   * `Resource` — ресурс, к которому будет применяться правило.

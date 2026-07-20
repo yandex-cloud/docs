@@ -156,7 +156,7 @@ Instance details include:
       * `output "instance_domain"`: Output variable that contains information about the domain:
          * `value`: Return value.
 
-     You can replace `domain` with any other parameter to get the information you need. For more information about the `gitlab_instance` data source properties, see [this {{ TF }} provider guide]({{ tf-provider-datasources-link }}/gitlab_instance).
+     You can replace `domain` with another variable to get the information you need. For more on the properties of the `gitlab_instance` data source, see [this provider guide]({{ tf-provider-datasources-link }}/gitlab_instance).
 
   1. Apply the configuration:
 

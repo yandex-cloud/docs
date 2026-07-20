@@ -114,7 +114,7 @@ A VM must have a boot disk attached. You can also attach extra disks to your VM.
 
     Auto-deletion of secondary disks is _disabled_ by default.
 
-  You can set the auto-deletion configuration both when creating or updating a VM using the `auto-delete` parameter, which can either be `true` or `false`. You can use this parameter in the following flags:
+  You can set up the auto-deletion configuration either when creating or updating a VM using the `auto-delete` parameter, which can either be `true` or `false`. You can use this parameter in the following flags:
   * `--create-disk`: To create a secondary disk.
   * `--attach-disk`: To attach an existing disk as a secondary disk.
   * `--create-boot-disk`: To create a boot disk.
@@ -153,7 +153,7 @@ A VM must have a boot disk attached. You can also attach extra disks to your VM.
 
 {% endlist %}
 
-For interface-specific examples of auto-delete configuration, see [{#T}](../operations/vm-create/create-linux-vm.md).
+For interface-specific examples of auto-delete configuration update, see [{#T}](../operations/vm-create/create-linux-vm.md).
 
 ## Backups {#backup}
 
@@ -190,3 +190,4 @@ For more information, see [{#T}](encryption.md).
 * [Guides on creating disks](../operations/index.md#disk-create)
 * [Guides on managing disks](../operations/index.md#disk-control)
 * [Guides on disk snapshots and schedules](../operations/index.md#snapshots)
+* [{#T}](../qa/disks.md)

@@ -72,8 +72,8 @@ In case of an error, {{ cns-name }} returns a message with the appropriate HTTP 
 
 For a list of common error codes for all actions, see [{#T}](common-errors.md).
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](index.md)
 * [{#T}](send-request.md)
-* [GetEndpointAttributes API action](https://docs.aws.amazon.com/sns/latest/api/API_GetEndpointAttributes.html) in the AWS documentation.
+* [GetEndpointAttributes API action](https://docs.aws.amazon.com/sns/latest/api/API_GetEndpointAttributes.html) in the AWS documentation

@@ -13,7 +13,7 @@ To integrate an authentication provider for {{ GL }} via OmniAuth, [add your pro
 1. Select a type and specify the [authentication provider settings](#params).
 1. Click **{{ ui-key.yacloud.common.create }}**.
 
-For more information about using OmniAuth in {{ GL }}, see [this {{ GL }} article]({{ gl.docs }}/ee/integration/omniauth.html).
+For more information about using OmniAuth in {{ GL }}, see [this {{ GL }} guide]({{ gl.docs }}/ee/integration/omniauth.html).
 
 ## Authentication provider settings {#params}
 
@@ -31,27 +31,27 @@ Other settings depend on the provider type you select.
 
 {% include [omniauth-common](../../_includes/managed-gitlab/omniauth-common.md) %}
 
-You can learn how to obtain an app ID and secret key in [this guide]({{ gl.docs }}/ee/integration/bitbucket.html#bitbucket-omniauth-provider) on setting up a provider.
+You can learn how to obtain an app ID and secret key in [this guide on setting up a provider]({{ gl.docs }}/ee/integration/bitbucket.html#bitbucket-omniauth-provider).
 
 ### Github Enterprise {#gitlab-ee}
 
 {% include [omniauth-common](../../_includes/managed-gitlab/omniauth-common.md) %}
 * **URL**: Link to the GitHub repository.
 
-You can learn how to obtain an app ID and secret key in [this guide]({{ gl.docs }}/ee/integration/github.html) on setting up a provider.
+You can learn how to obtain an app ID and secret key in [this guide on setting up a provider]({{ gl.docs }}/ee/integration/github.html).
 
 ### {{ GL }} self-managed {#gitlab-self}
 
 {% include [omniauth-common](../../_includes/managed-gitlab/omniauth-common.md) %}
 * **Site**: Link to the {{ GL }} repository.
 
-You can learn how to obtain an app ID and secret key in [this guide]({{ gl.docs }}/ee/integration/gitlab.html) on setting up a provider.
+You can learn how to obtain an app ID and secret key in [this guide on setting up a provider]({{ gl.docs }}/ee/integration/gitlab.html).
 
 ### Google OAuth 2.0 {#google}
 
 {% include [omniauth-common](../../_includes/managed-gitlab/omniauth-common.md) %}
 
-You can learn how to obtain an app ID and secret key in [this guide]({{ gl.docs }}/ee/integration/google.html#configure-the-google-cloud-resource-manager) on setting up a provider.
+You can learn how to obtain an app ID and secret key in [this guide on setting up a provider]({{ gl.docs }}/ee/integration/google.html#configure-the-google-cloud-resource-manager).
 
 ### Keycloak {#keycloak}
 
@@ -97,7 +97,7 @@ To learn how to configure an LDAP server to work with {{ GL }}, see [this {{ GL 
 * **Client Secret**: Client secret key obtained when registering the application.
 * **Tenant ID**: Tenant ID obtained when registering the application.
 
-To learn how to register an application on the Azure side, see [this {{ GL }} article]({{ gl.docs }}/ee/integration/azure.html#register-an-azure-application).
+To learn how to register an application on the Azure side, see [this {{ GL }} guide]({{ gl.docs }}/ee/integration/azure.html#register-an-azure-application).
 
 ### Microsoft Azure OAuth 2 {#azure-oauth}
 
@@ -106,7 +106,7 @@ To learn how to register an application on the Azure side, see [this {{ GL }} ar
 * **Client Secret**: Client secret key obtained when registering the application.
 * **Tenant ID**: Tenant ID obtained when registering the application.
 
-To learn how to register an application on the Azure side, see [this {{ GL }} article]({{ gl.docs }}/ee/integration/azure.html#register-an-azure-application).
+To learn how to register an application on the Azure side, see [this {{ GL }} guide]({{ gl.docs }}/ee/integration/azure.html#register-an-azure-application).
 
 ### SAML {#saml}
 
@@ -117,7 +117,7 @@ To learn how to register an application on the Azure side, see [this {{ GL }} ar
 * **Issuer**: Unique ID of the application where user authentication will be performed, such as `https://example.gitlab.yandexcloud.net`.
 * **Name identifier format**: Name ID format. It is issued when configuring the IdP.
 
-To learn how to configure SAML on the IdP side, see [this {{ GL }} article]({{ gl.docs }}/ee/integration/saml.html#configure-saml-on-your-idp).
+To learn how to configure SAML on the IdP side, see [this {{ GL }} guide]({{ gl.docs }}/ee/integration/saml.html#configure-saml-on-your-idp).
 
 ### Yandex ID {#yandex-id}
 
@@ -126,7 +126,7 @@ To learn how to configure SAML on the IdP side, see [this {{ GL }} article]({{ g
 * **Client Secret**: Client secret key obtained when registering the application.
 * **Site**: Link to the {{ GL }} repository.
 
-To learn how to register an application on the IdP side, see [this {{ yandex-oauth }} article](https://yandex.ru/dev/id/doc/en/register-client). When registering an app, allow access to the user's email address. If selecting web services as the platform, use the **Redirect URI** field to specify a URL in the following format:
+To learn how to register an application on the IdP side, see [this {{ yandex-oauth }} guide](https://yandex.ru/dev/id/doc/en/register-client). When registering an app, allow access to the user's email address. If selecting web services as the platform, use the **Redirect URI** field to specify a URL in the following format:
 
 ```text
 https://<{{ GL }}_instance_address>/users/auth/Yandex/callback

@@ -38,7 +38,7 @@ This example uses an object of the following format as the parameter:
     /**
      * @type {boolean} (optional) autoplay when switching to content.
      * By default, preserves the playback state used at time the method is called.
-     * Autoplay may fail. See https://developer.chrome.com/blog/autoplay/
+     * Autoplay may fail. Read more: https://developer.chrome.com/blog/autoplay/
      * autoplay
      */
     autoplay,
@@ -197,6 +197,31 @@ Example of disabling subtitles:
 player.setTextTrack(null);
 ```
 
+#### setVideoTrack {#setvideotrack}
+
+Switches the video track.
+
+The `value` value from the track object obtained from [videoTracks](./player-state.md#state-videoTracks) is provided as the parameter.
+
+Example of switching tracks:
+
+```javascript
+var tracks = player.getState().videoTracks;
+if (tracks.length > 0) {
+    player.setVideoTrack(tracks[0].value);
+}
+```
+
+Example of track switching at playback start:
+
+```javascript
+player.once('VideoTracksChange', ({ videoTracks }) => {
+    if (videoTracks.length > 0) {
+        player.setVideoTrack(videoTracks[0].value);
+    }
+});
+```
+
 #### setPlaybackSpeed {#setplaybackspeed}
 
 Sets video playback speed.
@@ -267,4 +292,4 @@ player.destroy();
 
 #### Useful links {#see-also}
 
-* [Interface: PlayerSdkApi](../../api-ref/javascript/interfaces/PlayerSdkEventHandlers.md) in the API reference
+[Interface: PlayerSdkApi](../../api-ref/javascript/interfaces/PlayerSdkApi.md): Description of player management methods in the API reference

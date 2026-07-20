@@ -37,7 +37,7 @@ You will see the following charts:
    1. In the [management console]({{ link-console-main }}), select the folder with the instance for which you want to set up alerts.
    1. Go to ![image](../../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
    1. On the home page, under **{{ ui-key.yacloud_monitoring.homepage.title_service-dashboards }}**, select **Managed Gitlab**.
-   1. In the chart you need, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+   1. On the chart of interest, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
    1. If the selected chart contains multiple metrics in the **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.alert-config }}** section, you can keep all data queries or only specific ones. For example, for the **System disk** metric, you can remove the redundant free storage space query and keep only the used space query.
 
       To remove the redundant query, click ![options](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud_monitoring.actions.common.delete }}** in the query row.

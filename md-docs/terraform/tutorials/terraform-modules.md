@@ -560,7 +560,7 @@ module "yc-vpc" {
 
 ## Подключите модуль Managed Service for Kubernetes {#k8s-module}
 
-Добавьте в конфигурацию модуль `terraform-yc-vpc` и конфигурацию кластера Managed Service for Kubernetes с высокодоступным мастером и двумя группами узлов:
+Добавьте в конфигурацию модуль `terraform-yc-kubernetes` и конфигурацию кластера Managed Service for Kubernetes с высокодоступным мастером и двумя группами узлов:
 
 ```hcl
 module "kube" {

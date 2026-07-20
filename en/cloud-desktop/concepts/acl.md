@@ -34,7 +34,7 @@ If a user is removed from the list of {{ yandex-cloud }} users for any reason, e
 1. A user group member gets authenticated using [Yandex ID](https://yandex.ru/support/id/index.html) or [Single Sign-On (SSO)](../../organization/concepts/add-federation.md) on the [User desktop showcase](showcase.md) page. The showcase displays the desktops available to a given user.
 1. From the showcase, the user group member downloads the RDP file for the appropriate desktop and [connects](../operations/desktops/connect.md) to it.
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [Getting started with {{ cloud-desktop-name }}](../quickstart.md)
 * [Access management](../security/index.md)

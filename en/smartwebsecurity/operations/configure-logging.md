@@ -5,8 +5,6 @@ description: Follow this guide to configure logging in {{ sws-full-name }}.
 
 # Configuring logging via {{ sws-name }}
 
-{% include [logging-preview](../../_includes/smartwebsecurity/logging-preview.md) %}
-
 {% include [logging-services](../../_includes/smartwebsecurity/logging-services.md) %}
 
 ### Enable logging {#enable-logging}
@@ -30,7 +28,7 @@ To view logs, you need the [logging.viewer](../../logging/security/index.md#logg
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the {{ sws-name }} profile.
   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/profiles.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
+  1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/profiles.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. In the row with the security profile you need, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Enable **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.loggingEnable_6eK2x }}**.
   1. In the **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.outputTitle_tw1oT }}** field, select **{{ cloud-logging-name }}**.
@@ -64,7 +62,7 @@ To view logs, you need the [logging.viewer](../../logging/security/index.md#logg
   1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, create or select an account with the `logging.writer` role.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
-  For other ways to enable event logging, see [{#T}](../../audit-trails/operations/create-trail.md).
+  For other ways to enable event logging, see [this article](../../audit-trails/operations/create-trail.md).
 
   To make {{ sws-full-name }} deliver its events to {{ at-name }}:
 
@@ -181,7 +179,7 @@ To view logs, you need the [logging.viewer](../../logging/security/index.md#logg
      yandex.cloud.audit.smartwebsecurity.<event_name>
      ```
 
-     For examples of how to create queries, see [{#T}](../../audit-trails/tutorials/search-events-audit-logs/examples.md).
+     For examples of how to create queries, see [this article](../../audit-trails/tutorials/search-events-audit-logs/examples.md).
 
   1. To view log details, expand it.
 

@@ -39,7 +39,7 @@ resource "yandex_cm_certificate_iam_binding" "viewer_binding" {
 
 ## Arguments & Attributes Reference
 
-- `certificate_id` (**Required**)(String). The ID of the compute `certificate` to attach the policy to.
+- `certificate_id` (**Required**)(String). The ID of the `certificate` to attach the policy to.
 - `id` (String). The ID of this resource.
 - `members` (**Required**)(Set Of String). An array of identities that will be granted the privilege in the `role`. Each entry can have one of the following values:
  * **userAccount:{user_id}**: A unique user ID that represents a specific Yandex account.

@@ -138,9 +138,17 @@ You can add VMs from different folders, networks, and subnets to your cluster. F
 
 Maximum Gen2 cluster size is 20 VMs with 8 GPU, 80 GB VRAM, 180 vCPU, 1,440 GB RAM configuration. The actual maximum cluster size is limited by the technical availability of the resources.
 
-## See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/vm-create/create-vm-with-gpu.md)
-* [Adding a GPU to an existing VM](../operations/vm-control/vm-update-resources.md#add-gpu)
-* [Changing the number of GPUs](../operations/vm-control/vm-update-resources.md#update-gpu)
-* [Questions about GPUs](../../compute/qa/gpu.md)
+* [{#T}](../operations/vm-control/vm-update-resources.md#add-gpu)
+* [{#T}](../operations/vm-control/vm-update-resources.md#update-gpu)
+* [{#T}](../operations/gpu-cluster/gpu-cluster-create.md)
+* [{#T}](../operations/gpu-cluster/gpu-add-to-cluster.md)
+* [{#T}](../operations/gpu-cluster/gpu-cluster-test-physical-state.md)
+* [{#T}](../operations/gpu-cluster/gpu-cluster-mpirun-parallel.md)
+* [{#T}](../operations/gpu-cluster/test-infiniband-bandwidth.md)
+* [{#T}](../operations/gpu-driver-update.md)
+* [{#T}](../tutorials/gpu-cluster-deepseek.md)
+* [{#T}](../tutorials/vllm-gemma-gpu.md)
+* [{#T}](../../compute/qa/gpu.md)

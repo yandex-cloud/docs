@@ -41,7 +41,7 @@ To configure ads:
 1. [Sign up](http://partner.yandex.ru/form/) for the Yandex Advertising Network (YAN).
 1. Submit a request to [support](https://yandex.ru/support2/partner/ru/support) to add your video resource.
 
-    For more details, see the Yandex documentation: [New partners](https://yandex.ru/support2/partner/ru/joining/) and [Creating a video resource](https://yandex.ru/support2/partner/ru/video/resource).
+    For more information, see these Yandex guides: [New partners](https://yandex.ru/support2/partner/ru/joining/) and [Creating a video resource](https://yandex.ru/support2/partner/ru/video/resource).
 
     After creating a video resource, the **Video advertising** section will appear in the Yandex Advertising Network interface, and the video resource itself will appear in the **Video advertising → Video resources** tab. It will be assigned a unique `Page ID` and get the **New** status.
 

@@ -5,7 +5,7 @@ description: '{{ monitoring-name }} gRPC API reference: description of services,
 
 # Overview
 
-This API reference is organized by resource. To perform an operation on a resource, make an RPC call. For more information, see the [{{ yandex-cloud }} API guidelines](../../../api-design-guide/).
+This API reference is organized by resource. To perform an operation on a resource, make an RPC call. For more information, see [{{ yandex-cloud }} API concepts](../../../api-design-guide/).
 
 Service|Description|Use cases
 ------|--------|--------

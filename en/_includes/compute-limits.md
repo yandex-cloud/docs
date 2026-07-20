@@ -230,7 +230,17 @@ Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
 
 {% include [warn-performance-many-devices](../compute/_includes_service/warn-performance-many-devices.md) %}
 
-### VM limits on disk operations {#compute-limits-vm-disks}
+### VM limits related to disks {#compute-limits-vm-disks}
+
+The values listed below are VM side limitations. They scale with the number of vCPUs: the row value is multiplied by the number of vCPUs to set the upper boundary of the total load on all disks attached to the VM. For example, for a VM with 4 vCPUs and a network SSD, the total maximum IOPS cannot exceed _4 × 3,500 = 14,000_.
+
+The actual performance of an individual disk is also capped by its [own limits](#compute-limits-disks). The final value is determined as the minimum of the two: the VM limit and the disk limit.
+
+{% note info %}
+
+IOPS and bandwidth limits of an individual disk depend on the number of [allocation units](../compute/concepts/storage-read-write.md). For more information, see [{#T}](../compute/concepts/storage-read-write.md#performance).
+
+{% endnote %}
 
 {% list tabs group=disks %}
 

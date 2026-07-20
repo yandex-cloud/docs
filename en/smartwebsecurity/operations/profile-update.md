@@ -144,7 +144,7 @@ description: Follow this guide to edit basic settings of a {{ sws-full-name }} s
 
      {% endcut %}
 
-      For more information about the `yandex_sws_security_profile` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/sws_security_profile).
+      For more on the properties of the `yandex_sws_security_profile` resource, see [this provider guide]({{ tf-provider-resources-link }}/sws_security_profile).
 
   1. Apply the changes:
 
@@ -162,7 +162,7 @@ description: Follow this guide to edit basic settings of a {{ sws-full-name }} s
 
 {% endlist %}
 
-### Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](rule-add.md)
 * [{#T}](rule-update.md)

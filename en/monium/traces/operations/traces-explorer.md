@@ -26,6 +26,6 @@ The results are displayed as a list of traces. For each trace, the list shows it
 
 This mode retrieves individual **spans** meeting all criteria of your query. Use this mode to search for specific operations by attributes, regardless of their associated trace.
 
-Span-based search supports all standard trace keys plus custom span attributes (labels). For more information on supported keys and operators, see [{#T}](query-language.md).
+Span-based search supports all standard trace keys plus custom span attributes (labels). Learn about the supported keys and operators in [{#T}](query-language.md).
 
 In addition to the span list, the page displays charts for the retrieved spans, showing span counts and duration percentiles. This data can be dynamically grouped by any attribute you select.

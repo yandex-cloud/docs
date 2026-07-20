@@ -20,7 +20,7 @@ You can also combine these operations using the [tools](../tools/index.md).
 
 You can configure [lifecycles](lifecycles.md) for bucket objects.
 
-{{ objstorage-name }} limits the size of objects and their metadata. For more information, see [{#T}](limits.md).
+{{ objstorage-name }} limits the size of objects and their metadata. For details, see [{#T}](limits.md).
 
 ## Key {#key}
 
@@ -41,7 +41,7 @@ Used characters:
 || Not recommended | `\`, `{`, `}`, `^`, ``` ` ```, `%`, `[`, `]`, `"`, `<`, `>`, `~`, ```|```, `#` and characters from the extended [ASCII](https://{{ lang }}.wikipedia.org/wiki/ASCII) table with codes `128`-`255` | These characters require significant special processing, which may differ depending on your software. ||
 |#
 
-For more information about keys in the AWS S3 API, see the [Naming Amazon S3 objects](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html) page.
+For more on keys in the AWS S3 API, see [Naming Amazon S3 objects](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html).
 
 ### Directory {#folder}
 

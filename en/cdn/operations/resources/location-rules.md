@@ -70,11 +70,11 @@ After creating a rule, you can configure its advanced settings:
   1. Configure advanced rule settings:
 
       * To set up advanced content caching options, go to the ![image](../../../_assets/console-icons/cloud.svg) **{{ ui-key.yacloud.cdn.label_resource-cache }}** tab and click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. For more information, see [{#T}](./configure-caching.md).
-      * To configure HTTP request and response headers, CORS for responses to clients, and allowed HTTP methods for client requests, go to the ![image](../../../_assets/console-icons/arrow-up-to-line.svg) **{{ ui-key.yacloud.cdn.label_resource-http-headers }}** tab and click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. For more information, see:
+      * To configure HTTP request and response headers, CORS for responses to clients, and allowed HTTP methods for client requests, go to the ![image](../../../_assets/console-icons/arrow-up-to-line.svg) **{{ ui-key.yacloud.cdn.label_resource-http-headers }}** tab and click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. For more information, see these pages:
           * [{#T}](configure-headers.md)
           * [{#T}](configure-cors.md)
           * [{#T}](configure-http.md)
-      * To configure file compression and segmentation, go to the ![image](../../../_assets/console-icons/box.svg) **{{ ui-key.yacloud.cdn.label_resource-content }}** tab and click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. For more information, see:
+      * To configure file compression and segmentation, go to the ![image](../../../_assets/console-icons/box.svg) **{{ ui-key.yacloud.cdn.label_resource-content }}** tab and click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. For more information, see these pages:
           * [{#T}](enable-compression.md)
           * [{#T}](enable-segmentation.md)
 
@@ -86,7 +86,7 @@ After creating a rule, you can configure its advanced settings:
 
 {% endlist %}
 
-### Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/location-rules.md)
 * [{#T}](./configure-caching.md)

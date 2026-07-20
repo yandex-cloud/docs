@@ -21,6 +21,14 @@ To ensure the snapshot data integrity:
       ```
       Where `--freeze` is the parameter to freeze the file system. Replace `<mount_point>` with the folder where the file system is mounted, e.g., `/mnt/vdc2`.
 
+      {% note warning %}
+
+      Do not freeze the root file system: it is enough to run the `sync` command for it.
+
+     Applications writing to this disk may throw errors during the freeze. If such applications cannot be paused, do not use freezing; run `sync` instead.
+
+      {% endnote %}
+
   1. Create a snapshot by following the steps [below](#create).
 
   1. Unfreeze the file system:

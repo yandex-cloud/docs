@@ -28,7 +28,7 @@ The minimum information you need to create a channel depends on the platform and
 * Key or key ID, token, or certificate.
 * Developer, application, or project ID.
 
-For the full list of details required for each notification channel, see [{#T}](../operations/push/channel-create.md). You can get your authentication parameters in the developer console of the relevant mobile platform.
+For the full list of input data for each notification channel, see [{#T}](../operations/push/channel-create.md). You can get your authentication parameters in the developer console of the relevant mobile platform.
 
 Once you create a notification channel, it gets a unique ID (ARN).
 
@@ -56,7 +56,7 @@ We do not recommend overwriting the token in the endpoint each time the app is l
 
 {% endnote %}
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [Service overview](index.md)
 * [Getting started with push notifications](../quickstart-push.md)

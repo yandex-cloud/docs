@@ -215,7 +215,7 @@ Here is an example:
 
 {% endlist %}
 
-For more information about creating a {{ managed-k8s-name }} node group and parameters to provide, see [{#T}](./node-group/node-group-create.md).
+For more information about creating a {{ managed-k8s-name }} node group and parameters that have to be provided, see [{#T}](./node-group/node-group-create.md).
 
 ## Update node group keys {#node-add-metadata}
 

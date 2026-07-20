@@ -105,8 +105,8 @@ HTTP | Error code | Extended code | Description
 --- | --- | --- | ---
 400 | UserError | VerifiedTooRecently | Insufficient time has passed since the number was confirmed.
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](index.md)
 * [{#T}](send-request.md)
-* [DeleteSMSSandboxPhoneNumber](https://docs.aws.amazon.com/sns/latest/api/API_DeleteSMSSandboxPhoneNumber.html) in AWS reference.
+* [DeleteSMSSandboxPhoneNumber](https://docs.aws.amazon.com/sns/latest/api/API_DeleteSMSSandboxPhoneNumber.html) in the AWS documentation

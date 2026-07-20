@@ -3,8 +3,8 @@
 You can use instance groups to host applications with _stateful_, _stateless_, and combined workloads.
 
 The difference between stateful and stateless workloads lies in whether the application saves data about its states and/or user interaction history:
-* Stateful: State data is stored. Examples: RESTless services, databases, message queues, monitoring servers, and log servers.
-* Stateless: State data is not stored. Examples: RESTful services and web application frontend.
+* Stateful: State data is stored. Here are some examples: RESTless services, databases, message queues, monitoring servers, and log servers.
+* Stateless: State data is not stored. Here are some examples: RESTful services and web application frontend.
 
 Application states can be stored on [secondary disks of the group instances](#disks) or in the [cloud resources independent of the instance group](#external-resources).
 
@@ -32,6 +32,6 @@ If you meet these conditions, the instance group will not delete secondary disks
 ## Storing states outside the instance group {#external-resources}
 
 To freely manage group instances with stateful workload applications running, save the application state to cloud resources independent of the instance group:
-* Managed databases
-* [File storages](../filesystem.md) (for more information, see [{#T}](../../operations/instance-groups/create-with-filesystem.md)).
-* {{ objstorage-full-name }} [buckets](../../../storage/concepts/bucket.md) (for more information, see [{#T}](../../operations/instance-groups/create-with-bucket.md)).
+* Managed databases.
+* [File storages](../filesystem.md) (for details, see [{#T}](../../operations/instance-groups/create-with-filesystem.md)).
+* {{ objstorage-full-name }} [buckets](../../../storage/concepts/bucket.md) (for details, see [{#T}](../../operations/instance-groups/create-with-bucket.md)).

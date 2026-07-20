@@ -100,6 +100,11 @@ resource "yandex_vpc_subnet" "foo" {
     - `data_lens` (Bool). Allow access for [Yandex DataLens](https://yandex.cloud/services/datalens).
     - `data_transfer` (Bool). Allow access for [DataTransfer](https://yandex.cloud/services/data-transfer).
     - `web_sql` (Bool). Allow access for [WebSQL](https://yandex.cloud/ru/docs/websql/).
+  - `autocompact_config` [Block]. Autocompaction configuration for the MongoDB cluster.
+    - `bloat_percent` (Number). Bloat percent for autocompaction.
+    - `compaction_type` (String). Compaction type for autocompaction.
+    - `enabled` (Bool). Enable or disable autocompaction.
+    - `target_free_space` (Number). Target free space for autocompaction.
   - `backup_window_start` [Block]. Time to start the daily backup, in the UTC timezone.
     - `hours` (Number). The hour at which backup will be started.
     - `minutes` (Number). The minute at which backup will be started.

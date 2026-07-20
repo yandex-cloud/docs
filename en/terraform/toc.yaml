@@ -299,6 +299,9 @@ items:
                   - name: cloudregistry_registry_ip_permission
                     href: data-sources/cloudregistry_registry_ip_permission.md
                     title: ''
+                  - name: cloudregistry_scan_policy
+                    href: data-sources/cloudregistry_scan_policy.md
+                    title: ''
                 title: ''
               - name: Resources
                 items:
@@ -319,6 +322,9 @@ items:
                     title: ''
                   - name: cloudregistry_registry_ip_permission
                     href: resources/cloudregistry_registry_ip_permission.md
+                    title: ''
+                  - name: cloudregistry_scan_policy
+                    href: resources/cloudregistry_scan_policy.md
                     title: ''
                 title: ''
             title: ''
@@ -349,6 +355,9 @@ items:
                     title: ''
                   - name: compute_placement_group
                     href: data-sources/compute_placement_group.md
+                    title: ''
+                  - name: compute_reserved_instance_pool
+                    href: data-sources/compute_reserved_instance_pool.md
                     title: ''
                   - name: compute_snapshot
                     href: data-sources/compute_snapshot.md
@@ -403,6 +412,9 @@ items:
                     title: ''
                   - name: compute_placement_group_iam_binding
                     href: resources/compute_placement_group_iam_binding.md
+                    title: ''
+                  - name: compute_reserved_instance_pool
+                    href: resources/compute_reserved_instance_pool.md
                     title: ''
                   - name: compute_snapshot
                     href: resources/compute_snapshot.md
@@ -1551,6 +1563,9 @@ items:
                   - name: sws_advanced_rate_limiter_profile
                     href: data-sources/sws_advanced_rate_limiter_profile.md
                     title: ''
+                  - name: sws_match_list
+                    href: data-sources/sws_match_list.md
+                    title: ''
                   - name: sws_security_profile
                     href: data-sources/sws_security_profile.md
                     title: ''
@@ -1565,6 +1580,9 @@ items:
                 items:
                   - name: sws_advanced_rate_limiter_profile
                     href: resources/sws_advanced_rate_limiter_profile.md
+                    title: ''
+                  - name: sws_match_list
+                    href: resources/sws_match_list.md
                     title: ''
                   - name: sws_security_profile
                     href: resources/sws_security_profile.md

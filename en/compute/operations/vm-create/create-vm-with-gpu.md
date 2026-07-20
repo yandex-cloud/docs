@@ -69,9 +69,9 @@ By default, a [cloud](../../../resource-manager/concepts/resources-hierarchy.md#
 
        {% include [gpu-platforms-api](../../../_includes/compute/gpu-platforms-api.md) %}
 
-     * `--cores`: [Number of vCPUs](../../concepts/gpus.md).
+     * `--cores`: Number of vCPUs.
      * `--memory`: Amount of RAM.
-     * `--gpus`: Number of GPUs.
+     * `--gpus`: Number of [GPUs](../../concepts/gpus.md).
      * `--preemptible`: For a [preemptible](../../concepts/preemptible-vm.md) VM.
      * `--network-interface`: VM [network interface](../../concepts/network.md) settings:
          * `subnet-name`: Name of the selected subnet.

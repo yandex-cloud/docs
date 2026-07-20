@@ -158,9 +158,9 @@ To configure the caching parameters of a resource:
          * `ignore_query_params`: Ignore query parameters. This is an optional setting. The default value is `false`.
          * `ignore_cookie`: Ignore cookies. This is an optional setting. The default value is `false`.
 
-      For more information about the `yandex_cdn_resource` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/cdn_resource).
+      For more on the properties of `yandex_cdn_resource` in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/cdn_resource).
 
-  1. In the command line, go to the directory with the {{ TF }} configuration file.
+  1. In the command line, navigate to the directory with the {{ TF }} configuration file.
 
   1. Check the configuration using this command:
      ```

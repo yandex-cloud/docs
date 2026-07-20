@@ -6,7 +6,7 @@ You can find all the supported actions in the [API reference](../api-ref/index.m
 
 To get started with the HTTP API using curl:
 1. [Get your cloud ready](#before-you-begin).
-1. [Get the authentication data](#get-key).
+1. [Get the authentication credentials](#get-key).
 1. [Create a notification channel](#create-channel).
 1. [Get a list of channels](#list-channel).
 1. [Create an endpoint](#create-endpoint).
@@ -89,7 +89,7 @@ Where:
     * `PlatformCredential`: API key.
   * RuStore:
     * `PlatformPrincipal`: Project ID (ProjectID).
-    * `PlatformCredential`: Service token (ServiceToken).
+    * `PlatformCredential`: Service token.
 * `Attributes.entry.N.key`: Authentication attribute keys on the mobile platform.
 
 As a result, you will get a notification channel ID (ARN).

@@ -10,7 +10,7 @@ description: Follow this guide to update a log group.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing your [log group](../concepts/log-group.md).
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+    1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
     1. Next to the log group, click ![image](../../_assets/console-icons/ellipsis.svg).
     1. In the menu that opens, click **{{ ui-key.yacloud.common.edit }}**.
     1. Update the log group settings.
@@ -75,15 +75,15 @@ description: Follow this guide to update a log group.
 
         {% include [retention-period](../../_includes/logging/retention-period-format.md) %}
 
-     For more information about `yandex_logging_group` properties, see this [{{ TF }} provider guide]({{ tf-provider-resources-link }}/logging_group).
+     For more on the properties of the `yandex_logging_group` resource, see [this provider guide]({{ tf-provider-resources-link }}/logging_group).
 
-  1. Check the configuration using this command:
+  1. Validate your configuration using this command:
 
      ```
      terraform validate
      ```
      
-     If the configuration is correct, you will get this message:
+     If the configuration is valid, you will get this message:
      
      ```
      Success! The configuration is valid.
@@ -95,9 +95,9 @@ description: Follow this guide to update a log group.
      terraform plan
      ```
   
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
-  1. Apply the changes:
+  1. Apply the configuration changes:
 
      ```
      terraform apply

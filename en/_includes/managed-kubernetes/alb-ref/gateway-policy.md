@@ -93,7 +93,7 @@ Where:
 
   * `name` (`string`; this is a required field)
   
-    Resource name. For more on the format, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Resource name. The format is described in [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
   * `namespace` (`string`)
   
@@ -119,7 +119,7 @@ Where:
 
   Current status of the policy.
 
-  * `conditions`: Array of status conditions. For more information about the format, see [this {{ k8s }} guide](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#condition-v1-meta).
+  * `conditions`: Array of status conditions. The format is described in [this {{ k8s }} guide](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#condition-v1-meta).
 
   * `attachedGateways`: Number of attached `Gateway` resources.
 

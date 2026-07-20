@@ -82,7 +82,7 @@ In accordance with the safety recommendations, [{{ managed-k8s-name }} cluster a
 * If automatic updates are enabled, certificates are auto updated whenever a {{ managed-k8s-name }} cluster or node group updates.
 * If automatic updates are disabled, a certificate update will be forced a week before they expire.
 
-For more on updating certificates, see [this {{ k8s }} guide](https://kubernetes.io/docs/tasks/tls/certificate-rotation/).
+For more information on updating certificates, see [this {{ k8s }} guide](https://kubernetes.io/docs/tasks/tls/certificate-rotation/).
 
 ## Required update {#necessary-update}
 

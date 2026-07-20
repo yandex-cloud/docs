@@ -14,7 +14,7 @@ To connect a server to {{ backup-full-name }}, you need the `backup.user` [role]
 
 {% note warning %}
 
-Starting August 1, 2026, the [`baremetal.editor`](../../../baremetal/security/index.md#baremetal-editor) and [`baremetal.admin`](../../../baremetal/security/index.md#baremetal-admin) roles get new permissions that allow them to connect {{ baremetal-name }} servers to {{ backup-full-name }}, as well as bind and unbind them from [backup policies](../../concepts/policy.md).
+Starting August 1, 2026, the [baremetal.editor](../../../baremetal/security/index.md#baremetal-editor) and [baremetal.admin](../../../baremetal/security/index.md#baremetal-admin) roles get new permissions from the [backup.user](../../security/index.md#backup-user) role, allowing them to connect {{ baremetal-name }} servers to {{ backup-full-name }}, link and unlink them from [backup policies](../../concepts/policy.md).
 
 {% include [denyActivation-iam-policy-pre-notice](../../../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
 

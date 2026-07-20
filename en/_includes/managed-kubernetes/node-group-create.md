@@ -95,7 +95,7 @@ To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concept
 
     * To connect to nodes using SSH keys, specify the required credentials:
 
-        * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username.
+        * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username.
 
         * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../managed-kubernetes/operations/node-connect-ssh.md#creating-ssh-keys) file.
 

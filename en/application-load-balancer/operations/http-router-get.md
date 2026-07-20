@@ -87,7 +87,7 @@ To get HTTP router information:
       * `output "tf-router-name"`: Output variable with the HTTP router name:
          * `value`: Return value.
 
-     You can replace `name` with another variable to get the information you need. For more information about the `yandex_alb_http_router` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/alb_http_router).
+     You can replace `name` with another variable to get the information you need. For more on the properties of the `yandex_alb_http_router` data source, see [this provider guide]({{ tf-provider-datasources-link }}/alb_http_router).
 
   1. Create the resources:
 

@@ -91,7 +91,7 @@ To configure the AWS CLI:
 
 {% endcut %}
 
-For more information about setting up the AWS CLI, see the [AWS documentation](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html).
+For more information about setting up the AWS CLI, see [this AWS guide](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html).
 
 ## Create a notification channel {#create-channel}
 
@@ -108,7 +108,7 @@ aws sns list-platform-applications
 
 You will get the list of notification channels located in the same folder as the service account.
 
-For more information about the `aws sns list-platform-applications` command, see the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/list-platform-applications.html).
+Learn more about the `aws sns list-platform-applications` command in [this AWS guide](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/list-platform-applications.html).
 
 ## Create an endpoint {#create-endpoint}
 
@@ -162,7 +162,7 @@ Where:
 * `--message-structure`: Message format.
 * `--message`: Message.
 
-For more information about the `aws sns publish` command, see the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/publish.html).
+Learn more about the `aws sns publish` command in [this AWS guide](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/publish.html).
 
 ## Examples {#examples}
 
@@ -180,7 +180,7 @@ Where:
 * `--message`: SMS text.
 * `--message-attributes`: SMS attributes, where `AWS.SNS.SMS.SenderID.StringValue` is the sender's text name.
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [Getting started](../quickstart.md)
 * [AWS SDK for Python (boto3)](sdk-python.md)

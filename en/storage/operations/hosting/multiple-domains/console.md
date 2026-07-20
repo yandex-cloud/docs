@@ -142,7 +142,7 @@ Set up a static website for the bucket and link it to your main `example.com` do
 
           {% note warning %}
 
-          {{ dns-name }} usage is chargeable; for more information, see [{#T}](../../../../dns/pricing.md).
+          {{ dns-name }} usage is chargeable; for more information, see [this pricing page](../../../../dns/pricing.md).
 
           {% endnote %}
 
@@ -198,7 +198,7 @@ Set up a static website for the bucket and link it to your main `example.com` do
           example.com CNAME example.com.{{ s3-web-host }}
           ```
 
-          To use a CNAME resource record, make sure your domain name belongs to at least a third-level domain. This restriction is due to the way CNAME records are handled on DNS hosting platforms. For more information, see [RFC 1912](https://www.ietf.org/rfc/rfc1912.txt), section 2.4.
+          To use a CNAME resource record, make sure your domain name belongs to at least a third-level domain. This restriction is due to the way CNAME records are handled on DNS hosting platforms. For details, see [RFC 1912](https://www.ietf.org/rfc/rfc1912.txt), section 2.4.
 
           Updating resource records may take a while.
 

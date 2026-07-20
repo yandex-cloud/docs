@@ -19,4 +19,4 @@ To ensure correct operation of automatic video playback:
 
 #### Useful links {#see-also}
 
-* [Video player SDK for IFrame](./sdk/iframe/index.md)
+[Video player SDK for IFrame](./sdk/iframe/index.md)

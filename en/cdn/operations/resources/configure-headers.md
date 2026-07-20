@@ -144,9 +144,9 @@ To configure HTTP request and response headers for a resource:
       * The `options` section contains additional parameters of CDN resources:
          * `static_response_headers`: Custom headers that CDN servers send in response to the client. This is an optional setting.
 
-      For more information about the `yandex_cdn_resource` properties in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
+      For more on the properties of `yandex_cdn_resource` in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/cdn_resource).
 
-  1. In the command line, go to the directory with the {{ TF }} configuration file.
+  1. In the command line, navigate to the directory with the {{ TF }} configuration file.
 
   1. Check the configuration using this command:
      ```bash

@@ -15,7 +15,7 @@ The log UI allows you to:
 To view logs, configure their delivery:
 
 * Set up data transfer in OpenTelemetry format for your application or service, e.g., with the help of [OTel Collector](../collector/opentelemetry.md) or [Fluent Bit](../collector/fluentbit.md).
-* Turn on logging for {{ yandex-cloud }} resources. As a general rule, you can set up logging when creating or updating a resource. For more information, see the relevant documentation.
+* Turn on logging for {{ yandex-cloud }} resources. As a general rule, you can set up logging when creating or updating a resource. For more information, see the relevant service guides.
 
   For the list of services that support automated logging, see [{#T}](../../overview/concepts/monitoring-logging-tools.md).
 

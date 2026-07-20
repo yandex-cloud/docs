@@ -55,7 +55,7 @@ description: Follow this guide to delete a WAF exclusion rule.
 
       {% endcut %}
 
-      For more information about `sws_waf_profile` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/sws_waf_profile).
+      For more on the properties of the `sws_waf_profile` resource, see [this provider guide]({{ tf-provider-resources-link }}/sws_waf_profile).
 
   1. Apply the changes:
 

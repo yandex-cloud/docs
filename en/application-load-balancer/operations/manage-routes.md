@@ -203,7 +203,7 @@ To update a route in a [virtual host](../concepts/http-router.md#virtual-host) o
 
         {% endcut %}
 
-        For more details about the `yc alb virtual-host update-http-route` command, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/update-http-route.md).
+        For more information about the `yc alb virtual-host update-http-route` command with the full list of properties, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/update-http-route.md).
 
   - gRPC {#grpc}
 
@@ -355,7 +355,7 @@ To update a route in a [virtual host](../concepts/http-router.md#virtual-host) o
 
         {% endcut %}
 
-        For more details about the `yc alb virtual-host update-grpc-route` command, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/update-grpc-route.md).
+        For more information about the `yc alb virtual-host update-grpc-route` command with the full list of properties, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/update-grpc-route.md).
 
   {% endlist %}
 
@@ -395,7 +395,7 @@ To update a route in a [virtual host](../concepts/http-router.md#virtual-host) o
 
       {% endlist %}
 
-      Learn more about the properties of {{ TF }} resources in the relevant provider guide: [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host).
+      The properties of the resources are covered in this {{ TF }} provider guide: [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host).
   1. Update the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -483,7 +483,7 @@ Requests to the old API continue to arrive at `/api/users`. In which case, you c
             substitute: /api/v1/users/\\1
   ```
 
-  For more details about the `yc alb virtual-host append-http-route` command, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-http-route.md).
+  For more information about the `yc alb virtual-host append-http-route` command with the full list of properties, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-http-route.md).
 
 - {{ TF }} {#tf}
 
@@ -552,7 +552,7 @@ Requests to the old API continue to arrive at `/api/users`. In which case, you c
 
               {% endnote %}
 
-          Learn more about the properties of {{ TF }} resources in the relevant provider guide: [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host).
+          The properties of the resources are covered in this {{ TF }} provider guide: [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host).
 
   1. Create or update the resources:
 
@@ -674,7 +674,7 @@ To delete a route from a [virtual host](../concepts/http-router.md#virtual-host)
 
         {% endcut %}
 
-        For more details about the `yc alb virtual-host remove-http-route` command, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/remove-http-route.md).
+        For more information about the `yc alb virtual-host remove-http-route` command with the full list of properties, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/remove-http-route.md).
 
   - gRPC {#grpc}
 
@@ -753,7 +753,7 @@ To delete a route from a [virtual host](../concepts/http-router.md#virtual-host)
 
         {% endcut %}
 
-        For more details about the `yc alb virtual-host remove-grpc-route` command, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/remove-grpc-route.md).
+        For more information about the `yc alb virtual-host remove-grpc-route` command with the full list of properties, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/remove-grpc-route.md).
 
   {% endlist %}
 
@@ -767,7 +767,7 @@ To delete a route from a [virtual host](../concepts/http-router.md#virtual-host)
 
       {% include [tf-route-reorder-delete-route](../../_includes/application-load-balancer/instruction-steps/tf-route-reorder-delete-route.md) %}
 
-      Learn more about the properties of {{ TF }} resources in the relevant provider guide: [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host).
+      The properties of the resources are covered in this {{ TF }} provider guide: [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host).
   1. Update the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

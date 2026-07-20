@@ -52,7 +52,7 @@ for more information about system groups, see [Cloud Documentation](https://yand
 
 
 - `role` (**Required**)(String). The role that should be assigned. Only one yandex_iam_service_account_iam_binding can be used per role.
-- `service_account_id` (**Required**)(String). The ID of the compute `service_account` to attach the policy to.
+- `service_account_id` (**Required**)(String). The ID of the `service_account` to attach the policy to.
 - `sleep_after` (Number). For test purposes, to compensate IAM operations delay
 
 ## Import

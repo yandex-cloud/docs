@@ -13,7 +13,7 @@ The parent span covers the entire operation. Each attempt is a separate child sp
 || `http.resend_count` | Sequence number of the retry attempt. The initial request has no sequence number; `1` is for the first retry, `2` for the second one, etc. ||
 |#
 
-Populate request attributes (HTTP, RPC, etc.) in alignment with the conventions for each operation type; see [{#T}](http.md), [{#T}](rpc.md).
+The attributes of actual requests (HTTP, RPC, etc.) are filled as per the conventions of the relevant operation type. For details, see [{#T}](http.md) and [{#T}](rpc.md).
 
 ## Example {#example}
 

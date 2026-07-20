@@ -107,8 +107,8 @@ HTTP | Error code | Extended code | Description
 400 | UserError | InvalidOTP | The verification code is invalid, expired, or has been cancelled after an unsuccessful verification attempt.
 404 | NotFound | SMSSandboxPhoneNumberNotFound | This number has not been added to the SMS notification channel for verification.
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](index.md)
 * [{#T}](send-request.md)
-* AWS [VerifySMSSandboxPhoneNumber guide](https://docs.aws.amazon.com/sns/latest/api/API_VerifySMSSandboxPhoneNumber.html).
+* [VerifySMSSandboxPhoneNumber](https://docs.aws.amazon.com/sns/latest/api/API_VerifySMSSandboxPhoneNumber.html) in the AWS documentation

@@ -33,7 +33,7 @@
 
     1. To disable logging, provide an empty value for the `LoggingPath` attribute.        
 
-    For more information about the `aws sns set-endpoint-attributes` command, see the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/set-endpoint-attributes.html).
+    Learn more about the `aws sns set-endpoint-attributes` command in [this AWS guide](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/set-endpoint-attributes.html).
 
 
 {% endlist %}

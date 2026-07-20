@@ -16,7 +16,7 @@ This section describes how to upload files from the browser to {{ objstorage-nam
 
 {% note info %}
 
-You cannot upload objects larger than 5 GB using the form (see [{#T}](limits.md)).
+You cannot use the form to upload objects larger than 5 GB (see [{#T}](limits.md) for details).
 All form fields after the `file` field are ignored.
 
 {% endnote %}

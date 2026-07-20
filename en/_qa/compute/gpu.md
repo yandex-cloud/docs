@@ -7,7 +7,7 @@ keywords:
   - graphics processing units
 ---
 
-# Graphics processing units (GPUs)
+# FAQ on graphics processing units (GPUs) in {{ compute-name }}
 
 {% include [minitoc](minitoc/gpu.md) %}
 

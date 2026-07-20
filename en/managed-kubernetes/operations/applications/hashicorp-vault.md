@@ -67,7 +67,7 @@ To use HashiCorp Vault, you need:
 
 {% note warning %}
 
-When using {{ marketplace-name }} to install HashiCorp Vault that supports {{ kms-name }}, the [Agent Injector](https://developer.hashicorp.com/vault/docs/platform/k8s/injector) will be used to render secrets. To use the alternative [Vault CSI provider](https://developer.hashicorp.com/vault/docs/platform/k8s/csi), install the product using a [Helm chart](#helm-install). Learn more about the differences between these tools in the [HashiCorp guide](https://developer.hashicorp.com/vault/docs/platform/k8s/injector-csi).
+When using {{ marketplace-name }} to install HashiCorp Vault that supports {{ kms-name }}, the [Agent Injector](https://developer.hashicorp.com/vault/docs/platform/k8s/injector) will be used to render secrets. To use the alternative [Vault CSI provider](https://developer.hashicorp.com/vault/docs/platform/k8s/csi), install the product using a [Helm chart](#helm-install). Learn more about the differences between these mechanisms in [this HashiCorp guide](https://developer.hashicorp.com/vault/docs/platform/k8s/injector-csi).
 
 {% endnote %}
 
@@ -118,7 +118,7 @@ When using {{ marketplace-name }} to install HashiCorp Vault that supports {{ km
    --set "csi.enabled=true"
    ```
 
-   Learn more about the differences between these tools in the [HashiCorp guide](https://developer.hashicorp.com/vault/docs/platform/k8s/injector-csi).
+   Learn more about the differences between these mechanisms in [this HashiCorp guide](https://developer.hashicorp.com/vault/docs/platform/k8s/injector-csi).
 
 ## Initializing the vault {#vault-init}
 
@@ -128,7 +128,7 @@ Once HashiCorp Vault is installed, you need to initialize one of its servers. Th
 
 While initializing the vault, you do not need to perform the `unseal` operation as the application image is integrated with {{ kms-name }}.
 
-For more information, see [Auto Unseal](../../../kms/tutorials/vault-secret.md) and [this HashiCorp Vault guide](https://learn.hashicorp.com/tutorials/vault/kubernetes-raft-deployment-guide?in=vault/kubernetes#initialize-and-unseal-vault).
+For more information, see [Auto Unseal](../../../kms/tutorials/vault-secret.md) and the [HashiCorp Vault guide](https://learn.hashicorp.com/tutorials/vault/kubernetes-raft-deployment-guide?in=vault/kubernetes#initialize-and-unseal-vault).
 
 {% endnote %}
 

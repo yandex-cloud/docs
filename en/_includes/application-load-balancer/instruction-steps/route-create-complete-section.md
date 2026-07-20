@@ -91,7 +91,7 @@
 
       {% endlist %}
 
-      Learn more about the properties of resources used in {{ TF }} in this provider guide: [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host).
+      The properties of the resources are covered in this {{ TF }} provider guide: [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host).
   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

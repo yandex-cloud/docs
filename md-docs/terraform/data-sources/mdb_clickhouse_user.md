@@ -20,7 +20,7 @@ output "permissions" {
 
 ## Arguments & Attributes Reference
 
-- `auth_method` (*Read-Only*) (String). Authentication method for the user. Possible values are `password`, `iam`. Default is `password`.
+- `auth_method` (String). Authentication method for the user. Possible values are `password`, `iam`. Default is `password`.
 - `cluster_id` (**Required**)(String). ID of the ClickHouse cluster. Provided by the client when the user is created.
 - `connection_manager` [Block]. Connection Manager connection configuration. Filled in by the server automatically.
   - `connection_id` (*Read-Only*) (String). ID of Connection Manager connection. Filled in by the server automatically. String.

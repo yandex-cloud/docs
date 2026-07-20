@@ -10,7 +10,7 @@ If shielding is enabled for a [resource](resource.md), CDN servers request files
 
 You can select a suitable location when enabling or configuring shielding.
 
-Origin shielding is a paid function. See [{#T}](../pricing.md) for rates.
+Origin shielding is a paid feature. See [{#T}](../pricing.md) for billing details.
 
 #### Useful links {#see-also}
 

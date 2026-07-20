@@ -84,7 +84,7 @@ When uploading an object to {{ objstorage-name }}, you can provide [custom metad
 
   Use the [upload](../../s3/api-ref/object/upload.md) S3 API method, e.g., via `curl`.
 
-  Use `curl` [8.3.0](https://curl.se/changes.html) or higher. For more information, see [Example of using the AWS S3 API](../../api-ref/authentication.md#s3-api-example).
+  Use `curl` [8.3.0](https://curl.se/changes.html) or higher. For details, see [this AWS S3 API use case](../../api-ref/authentication.md#s3-api-example).
 
   ```bash
   AWS_KEY_ID="<static_key_ID>"
@@ -228,7 +228,7 @@ When uploading an object to {{ objstorage-name }}, you can provide [custom metad
 
   Use the [getObjectMeta](../../s3/api-ref/object/getobjectmeta.md) S3 API method, e.g., via `curl`.
 
-  Use `curl` [8.3.0](https://curl.se/changes.html) or higher. For more information, see [Example of using the AWS S3 API](../../api-ref/authentication.md#s3-api-example).
+  Use `curl` [8.3.0](https://curl.se/changes.html) or higher. For details, see [this AWS S3 API use case](../../api-ref/authentication.md#s3-api-example).
 
   ```bash
   AWS_KEY_ID="<static_key_ID>"
@@ -372,7 +372,7 @@ The existing custom metadata will be completely overwritten by the new metadata.
 
   Use the [copy](../../s3/api-ref/object/copy.md) S3 API method, e.g., via `curl`.
 
-  Use `curl` [8.3.0](https://curl.se/changes.html) or higher. For more information, see [Example of using the AWS S3 API](../../api-ref/authentication.md#s3-api-example).
+  Use `curl` [8.3.0](https://curl.se/changes.html) or higher. For details, see [this AWS S3 API use case](../../api-ref/authentication.md#s3-api-example).
 
   ```bash
   AWS_KEY_ID="<static_key_ID>"

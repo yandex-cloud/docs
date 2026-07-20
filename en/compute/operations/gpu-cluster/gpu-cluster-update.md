@@ -12,6 +12,15 @@ For information on how to add a [VM](../../concepts/vm.md) to a GPU cluster, see
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing the GPU cluster.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.gpu-cluster.label_title }}**.
+  1. Next to the GPU cluster, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. In the window that opens, edit the GPU cluster's name, description, or [labels](../../../resource-manager/concepts/labels.md).
+  1. Click **{{ ui-key.yacloud.common.save }}**.
+
 - CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -72,4 +81,16 @@ For information on how to add a [VM](../../concepts/vm.md) to a GPU cluster, see
   yc compute gpu-cluster get <GPU_cluster_name>
   ```
 
+- API {#api}
+
+  To update a GPU cluster, use the [update](../../api-ref/GpuCluster/update.md) REST API method for the [GpuCluster](../../api-ref/GpuCluster/index.md) resource or the [GpuClusterService/Update](../../api-ref/grpc/GpuCluster/update.md) gRPC API call.
+
 {% endlist %}
+
+#### Useful links {#see-also}
+
+* [{#T}](gpu-cluster-create.md)
+* [{#T}](gpu-cluster-delete.md)
+* [{#T}](gpu-add-to-cluster.md)
+* [{#T}](../../concepts/gpus.md)
+* [{#T}](../../concepts/vm-platforms.md)

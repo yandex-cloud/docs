@@ -41,10 +41,10 @@ To balance the load and distribute traffic between {{ k8s }} applications, you c
   1. Go to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page.
   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the name of your cluster and select the ![Marketplace](../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
-  1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [ALB ingress controller](/marketplace/products/yc/alb-ingress-controller) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
+  1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
   1. Configure the application:
 
-     * **Namespace**: Create a new [namespace](../../managed-kubernetes/concepts/index.md#namespace), e.g., `alb-ingress-controller-space`. If you leave the default namespace, the ALB ingress controller may work incorrectly.
+     * **Namespace**: Create a new [namespace](../../managed-kubernetes/concepts/index.md#namespace), e.g., `alb-ingress-controller-space`. If you leave the default namespace, ALB Ingress Controller may work incorrectly.
      * **Application name**: Specify the application name.
      * **Folder ID**: Specify the [folder ID](../../resource-manager/operations/folder/get-id.md).
      * **Cluster ID**: Specify the [cluster ID](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-list.md).
@@ -53,7 +53,7 @@ To balance the load and distribute traffic between {{ k8s }} applications, you c
 
         DaemonSet adds pods with traffic monitoring agents to each node. As a result, node and namespace isolation does not affect monitoring process, which means you get accurate traffic monitoring data. If the number of cluster nodes scales up or down, DaemonSet adds or removes monitoring agents, respectively.
 
-        You can skip this option if you do not need to run cluster health checks or if you are using your own health check solution. For more information on configuring health checks manually, see [{#T}]({{ tutorial-local-link2 }}/custom-health-checks.md).
+        You can skip this option if you do not need to run cluster health checks or if you are using your own health check solution. For more information about configuring manual checks, see [{#T}]({{ tutorial-local-link2 }}/custom-health-checks.md).
 
   1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
   1. Wait for the application to change its status to `Deployed`.
@@ -97,14 +97,14 @@ To balance the load and distribute traffic between {{ k8s }} applications, you c
 
    DaemonSet adds pods with traffic monitoring agents to each node. As a result, node and namespace isolation does not affect monitoring process, which means you get accurate traffic monitoring data. If the number of cluster nodes scales up or down, DaemonSet adds or removes monitoring agents, respectively.
 
-   You can skip this option if you do not need to run cluster health checks or if you are using your own health check solution. For more information on configuring health checks manually, see [{#T}](../../managed-kubernetes/tutorials/custom-health-checks.md).
+   You can skip this option if you do not need to run cluster health checks or if you are using your own health check solution. For more information about configuring manual checks, see [{#T}](../../managed-kubernetes/tutorials/custom-health-checks.md).
 
 ## Use cases {#examples}
 
 * [Setting up an {{ alb-name }} ingress controller](../../managed-kubernetes/tutorials/alb-ingress-controller.md).
 * [Logging settings for {{ alb-name }} ingress controllers](../../managed-kubernetes/tutorials/alb-ingress-controller-log-options.md).
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
-* [Description of Ingress controllers in the {{ k8s }} documentation](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/).
-* [Restrictions when updating the ALB Ingress Controller]({{ ingress-upgrade-local-link2 }})
+* [Description of Ingress controllers in the {{ k8s }} guides](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/)
+* [Restrictions when upgrading ALB Ingress Controller]({{ ingress-upgrade-local-link2 }})

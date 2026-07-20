@@ -48,8 +48,8 @@ Yes, your data should stay safe. However, please note that you should not restar
 
 To update the parameters of your VM, follow these steps:
 1. Create a [snapshot](../../compute/concepts/snapshot.md) of the disk (see [{#T}](../../compute/operations/disk-control/create-snapshot.md) for details).
-1. Shut down the VM gracefully (see [{#T}](../../compute/operations/vm-control/vm-stop-and-start.md) for details).
-1. Update the VM parameters (see [{#T}](../../compute/operations/vm-control/vm-update-resources.md) for details).
+1. Shut down the VM as per the usual procedure (see [{#T}](../../compute/operations/vm-control/vm-stop-and-start.md)).
+1. Edit the VM properties (see [{#T}](../../compute/operations/vm-control/vm-update-resources.md)).
 1. Wait for the operation to complete (the **{{ ui-key.yacloud.compute.operations_kRLeR }}** section in {{ compute-name }}).
 1. Start the VM.
 1. Make sure the new parameters are applied.
@@ -65,9 +65,9 @@ Still, if the server load is small and consistently distributed, we recommend re
 A VM gets its [FQDN](../../vpc/concepts/address.md#fqdn) upon creation, and you cannot change it.
 
 If you need to change the FQDN, delete the VM and create a new one. To ensure data consistency:
-1. Stop the VM (see [{#T}](../../compute/operations/vm-control/vm-stop-and-start.md#stop) for details).
-1. Create a snapshot of the disk (see [{#T}](../../compute/operations/disk-control/create-snapshot.md) for details).
-1. Create a new VM by selecting the snapshot as the source of its boot disk. For details, see [{#T}](../../compute/operations/vm-create/create-from-snapshots.md). While creating, specify the FQDN you need.
+1. Stop the VM (see [{#T}](../../compute/operations/vm-control/vm-stop-and-start.md#stop)).
+1. Create a snapshot of the disk (see [{#T}](../../compute/operations/disk-control/create-snapshot.md)).
+1. Create a new VM by selecting the snapshot as the source of its boot disk (see [{#T}](../../compute/operations/vm-create/create-from-snapshots.md)). While creating, specify the FQDN you need.
 
 #### Can the UUID of a VM change? {#change-uuid}
 

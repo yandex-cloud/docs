@@ -20,7 +20,8 @@ You can use [SDKs](../sdk/index.md) to embed a video player into a website or ap
 
 {% include [player-presets](../../_includes/video/player-presets.md) %}
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
+
 * [{#T}](../operations/video/get-link.md)
 * [{#T}](../operations/streams/get-link.md)
 * [{#T}](../operations/player-control.md)

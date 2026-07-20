@@ -18,4 +18,4 @@ description: Follow this guide to delete a playlist in {{ video-name }}.
 
 #### Useful links {#see-also}
 
-* [Playlists in {{ video-name }}](../../concepts/playlists.md)
+[Playlists in {{ video-name }}](../../concepts/playlists.md)

@@ -28,7 +28,7 @@ To use a custom domain:
 
       {% note warning %}
 
-      {{ dns-name }} usage is chargeable; for more information, see [{#T}](../../../dns/pricing.md).
+      {{ dns-name }} is a billable service; for more information, see [{#T}](../../../dns/pricing.md).
 
       {% endnote %}
 
@@ -84,7 +84,7 @@ To use a custom domain:
       example.com CNAME example.com.{{ s3-web-host }}
       ```
 
-      To use a CNAME resource record, make sure your domain name belongs to at least a third-level domain. This restriction is due to the way CNAME records are handled on DNS hosting platforms. For more information, see [RFC 1912](https://www.ietf.org/rfc/rfc1912.txt), section 2.4.
+      To use a CNAME resource record, make sure your domain name belongs to at least a third-level domain. This restriction is due to the way CNAME records are handled on DNS hosting platforms. For details, see [RFC 1912](https://www.ietf.org/rfc/rfc1912.txt), section 2.4.
 
       Updating resource records may take a while.
 
@@ -97,7 +97,7 @@ To use a custom domain:
        
        {% note info %}
 
-       {{ certificate-manager-name }} usage is free of charge; for more information, see [{#T}](../../../certificate-manager/pricing.md).
+       {{ certificate-manager-name }} is free of charge; for more information, see [{#T}](../../../certificate-manager/pricing.md).
        
        {% endnote %}
        

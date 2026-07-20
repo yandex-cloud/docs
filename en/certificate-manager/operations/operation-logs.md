@@ -154,4 +154,4 @@ The system logs all actions with {{ certificate-manager-name }} resources as a l
 
 #### Useful links {#see-also}
 
-* [{#T}](../../api-design-guide/concepts/about-async.md)
+[{#T}](../../api-design-guide/concepts/about-async.md)

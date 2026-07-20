@@ -301,7 +301,7 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
 
       {% include [trail-create-tf-descs_part2](../../_includes/audit-trails/trail-create-tf-descs-part2.md) %}
 
-      For more information about the `yandex_audit_trails_trail` resource properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/audit_trails_trail).
+      For more on the properties of the `yandex_audit_trails_trail` resource, see [this provider guide]({{ tf-provider-resources-link }}/audit_trails_trail).
 
   1. Create the resources:
 

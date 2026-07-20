@@ -59,11 +59,11 @@ By default, availability zone shutdown is not allowed.
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will change all required resources. You can check the resources for updates in the [management console]({{ link-console-main }}).
+      {{ TF }} will change all required resources. You can check the update in the [management console]({{ link-console-main }}).
 
       {% include [Terraform timeouts](../../../_includes/application-load-balancer/terraform-timeout-alb.md) %}
 
-  For more information about `yandex_alb_load_balancer` properties, see [this provider guide]({{ tf-provider-datasources-link }}/alb_load_balancer).
+  For more on the properties of the `yandex_alb_load_balancer` resource, see [this provider guide]({{ tf-provider-datasources-link }}/alb_load_balancer).
 
 - API {#api}
 
@@ -120,11 +120,11 @@ By default, availability zone shutdown is not allowed.
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will change all required resources. You can check the resources for updates in the [management console]({{ link-console-main }}).
+      {{ TF }} will change all required resources. You can check the update in the [management console]({{ link-console-main }}).
 
       {% include [Terraform timeouts](../../../_includes/application-load-balancer/terraform-timeout-alb.md) %}
 
-  For more information about `yandex_alb_load_balancer` properties, see [this provider guide]({{ tf-provider-datasources-link }}/alb_load_balancer).
+  For more on the properties of the `yandex_alb_load_balancer` resource, see [this provider guide]({{ tf-provider-datasources-link }}/alb_load_balancer).
 
 - API {#api}
 
@@ -137,4 +137,4 @@ By default, availability zone shutdown is not allowed.
 
 #### What's next {whats-next}
 
-* [{#T}](start-and-cancel-shift.md)
+[{#T}](start-and-cancel-shift.md)

@@ -137,4 +137,4 @@ The system logs all actions with {{ cloud-desktop-name }} resources as a list of
 
 #### Useful links {#see-also}
 
-* [{#T}](../../api-design-guide/concepts/about-async.md)
+[{#T}](../../api-design-guide/concepts/about-async.md)

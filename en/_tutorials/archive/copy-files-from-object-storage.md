@@ -13,6 +13,19 @@ Component settings impact bucket file read and write speed:
 * The settings specified when [creating](../../data-proc/operations/cluster-create.md) a cluster affect all the jobs running in the cluster.
 * The settings specified when creating jobs override cluster-level settings and can be job-specific.
 
+
+## Getting started {#before-you-begin}
+
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+
+### Required paid resources {#paid-resources}
+
+* {{ dataproc-name }} cluster: use of computing resources with a {{ dataproc-name }} markup, use of network drives, retrieval and storage of logs, amount of outgoing traffic (see [{{ dataproc-name }} pricing](../../data-proc/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* {{ objstorage-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+
+
 ## DistCp {#distcp}
 
 To copy files from {{ objstorage-name }} to HDFS, use [DistCp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html). This utility helps copy data both within a cluster and between clusters and external storage.
@@ -316,3 +329,11 @@ For more information, see the [Apache Spark guides](https://spark.apache.org/doc
 {% endlist %}
 
 For more information, see [{#T}](../../data-proc/concepts/settings-list.md#spark-settings).
+
+
+## Delete the resources you created {#clear-out}
+
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+
+1. [Delete the {{ dataproc-name }} cluster](../../data-proc/operations/cluster-delete.md).
+1. [Delete the {{ objstorage-name }} bucket](../../storage/operations/buckets/delete.md). Before deleting the bucket, [delete all its objects](../../storage/operations/objects/delete.md).

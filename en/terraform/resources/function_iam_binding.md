@@ -31,7 +31,7 @@ resource "yandex_function_iam_binding" "function-iam" {
 
 ## Arguments & Attributes Reference
 
-- `function_id` (**Required**)(String). The ID of the compute `function` to attach the policy to.
+- `function_id` (**Required**)(String). The ID of the `function` to attach the policy to.
 - `id` (String). The ID of this resource.
 - `members` (**Required**)(Set Of String). An array of identities that will be granted the privilege in the `role`. Each entry can have one of the following values:
  * **userAccount:{user_id}**: A unique user ID that represents a specific Yandex account.

@@ -25,7 +25,7 @@ Where:
 
   * `name` (`string`; this is a required field)
 
-    Resource name. For more information about the format, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Resource name. The format is described in [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
   * `namespace` (`string`)
 

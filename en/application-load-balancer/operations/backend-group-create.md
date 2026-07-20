@@ -245,7 +245,7 @@ To create a [backend group](../concepts/backend-group.md):
 
      {% include [TF-backend-settings](../../_includes/application-load-balancer/TF-backend-settings.md) %}
 
-     For more information about `yandex_alb_backend_group` properties, see [this {{ TF }} provider guide]({{ tf-provider-alb-backendgroup }}).
+     For more on the properties of the `yandex_alb_backend_group` resource, see [this provider guide]({{ tf-provider-alb-backendgroup }}).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -264,6 +264,6 @@ To create a [backend group](../concepts/backend-group.md):
 
 {% endlist %}
 
-### Useful links {#see-also}
+#### Useful links {#see-also}
 
-* [{#T}](../concepts/best-practices.md)
+[{#T}](../concepts/best-practices.md)

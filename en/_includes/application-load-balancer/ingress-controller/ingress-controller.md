@@ -4,7 +4,7 @@ The ingress controller is an {{ alb-name }} tool for creating and managing load 
 
 Once you install an ingress controller in your cluster, it will automatically deploy [L7 load balancers](../../../application-load-balancer/concepts/application-load-balancer.md) with all required {{ alb-name }} components configured according to your [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) resource specifications.
 
-See the full configuration of {{ alb-name }} ingress controller resources in the following sections:
+For a complete {{ alb-name }} ingress controller resource configuration, see the following sections:
 
 * [Ingress]({{ configuration-local-link }}/ingress.md): Traffic routing and controller configuration.
 * [HttpBackendGroup]({{ configuration-local-link }}/http-backend-group.md) and [GrpcBackendGroup]({{ configuration-local-link }}/grpc-backend-group.md): Combining backends into groups.
@@ -90,4 +90,4 @@ You can deploy multiple ingress controllers, e.g., {{ alb-name }} and NGINX, for
 * [Controller operating principles]({{ ingress-local-link }}/principles.md)
 * [Security group configuration]({{ alb-local-link }}/security-groups.md) for a {{ k8s }} cluster and a load balancer
 * [Service account]({{ alb-local-link }}/service-account.md) to support controller operation
-* [ALB ingress Controller in {{ marketplace-full-name }}]({{ link-cloud-marketplace }}/products/yc/alb-ingress-controller)
+* [ALB ingress controller in {{ marketplace-full-name }}]({{ link-cloud-marketplace }}/products/yc/alb-ingress-controller)

@@ -32,7 +32,7 @@ To provide a {{ lockbox-name }} secret to a VM via metadata:
       - name: <username>
         sudo: ALL=(ALL) NOPASSWD:ALL
         shell: /bin/bash
-        ssh-authorized-keys:
+        ssh_authorized_keys:
           - "<user_public_SSH_key>"
     packages:
       - jq
@@ -49,7 +49,7 @@ To provide a {{ lockbox-name }} secret to a VM via metadata:
         {% endnote %}
 
     * `name`: Name of the local user to create on the VM, e.g., `admin`.
-    * `ssh-authorized-keys`: Public SSH key of the new VM user.
+    * `ssh_authorized_keys`: Public SSH key of the new VM user.
 
 1. Create a virtual machine:
 
@@ -162,7 +162,7 @@ To provide a {{ lockbox-name }} secret to a VM via metadata:
 
       {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-      1. In the configuration file, describe the resources you want to create:
+      1. In the configuration file, specify the properties of the resources you want to create:
 
           ```hcl
           # Creating a boot disk for the VM

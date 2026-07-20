@@ -11,7 +11,7 @@ A backend group defines the settings based on which the L7 load balancer sends t
 * Settings for the endpoint health checks.
 * Rules for traffic distribution between endpoints.
 
-The backend group includes a list of backends. Each backend, depending on its [type](#types), points to resources that act as application endpoints: VMs in target groups or a bucket with files. You can assign a relative weight to each backend. Traffic between backends is distributed proportionally to these weights. 
+The backend group includes a list of backends. Each backend, depending on its [type](#types), points to resources that act as application endpoints: VMs in target groups or a bucket with files. You can assign a relative weight to each backend. Traffic between backends is distributed proportionally to these weights.
 
 Weighted routing follows these steps: first, the system selects a backend based on its weight, ignoring the state of endpoints within backends. Then, within the selected backend, it selects a specific endpoint based on its load balancing policy. If the backend has no healthy endpoints, the load balancer will return the `503` error or close the connection. The exact behavior depends on your scenario and load balancer type. The system will not retry to select another backend.
 
@@ -31,7 +31,7 @@ The type of a backend group determines what traffic the load balancer will send 
 
 Groups of the **{{ ui-key.yacloud.alb.label_proto-http }}** and **{{ ui-key.yacloud.alb.label_proto-grpc }}** types connect to [listeners](application-load-balancer.md#listener) of the **{{ ui-key.yacloud.alb.label_listener-type-http }}** type via [HTTP routers](http-router.md). Groups of the **{{ ui-key.yacloud.alb.label_proto-stream }}** type connect to **{{ ui-key.yacloud.alb.label_listener-type-stream }}** listeners directly.
 
-By default, backends of the **{{ ui-key.yacloud.alb.label_proto-stream }}** type can use only the load balancer IP address. To additionally provide the client IP address and other metadata to the backend, enable the [PROXY protocol from HAProxy](https://www.haproxy.org/download/1.9/doc/proxy-protocol.txt) in the backend settings. See [Creating a backend group](../operations/backend-group-create.md) for details.
+By default, backends of the **{{ ui-key.yacloud.alb.label_proto-stream }}** type can use only the load balancer IP address. To additionally provide the client IP address and other metadata to the backend, enable the [PROXY protocol from HAProxy](https://www.haproxy.org/download/1.9/doc/proxy-protocol.txt) in the backend settings. For more information, see [Creating a backend group](../operations/backend-group-create.md).
 
 {% note alert %}
 
@@ -154,7 +154,7 @@ The following health check settings are supported:
   * Request body.
   * Substring in the response that indicates that the health check was successful. If the request body or response body is not specified, a successful connection to the backend is checked.
 
-Note that if the backend is configured to use TLS with the target group endpoints, health checks also use TLS. For example:
+Note that if the backend is configured to use TLS with the target group endpoints, health checks also use TLS. Here is an example:
 
 * If the type of a health check is HTTP, it will be made over HTTPS. 
 
@@ -171,6 +171,6 @@ Note that if the backend is configured to use TLS with the target group endpoint
 * [{#T}](../tutorials/blue-green-canary-deployment.md)
 * [{#T}](../tutorials/logging.md)
 
-### Useful links {#see-also}
+#### Useful links {#see-also}
 
-* [{#T}](best-practices.md)
+[{#T}](best-practices.md)

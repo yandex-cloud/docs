@@ -6,7 +6,7 @@
     bash -c 'curl --silent --remote-name https://{{ s3-storage-host }}/yc-unified-agent/releases/$ua_version/unified_agent && chmod +x ./unified_agent'
     ```
 
-1. Once you have downloaded the agent executable, create a configuration file, e.g., with settings for [delivering Linux system metrics](../../monitoring/operations/unified-agent/linux_metrics.md). For more information on agent configuration, see [{#T}](../../monitoring/concepts/data-collection/unified-agent/configuration.md).
+1. Once you have downloaded the agent executable, create a configuration file, e.g., with settings for [delivering Linux system metrics](../../monitoring/operations/unified-agent/linux_metrics.md). For more information about the agent configuration, see [{#T}](../../monitoring/concepts/data-collection/unified-agent/configuration.md).
 
 
 1. Move the downloaded file to the `/bin/unified_agent` folder.

@@ -4,7 +4,7 @@
 
 {% note warning %}
 
-* If you use a Let's Encrypt certificate, [check domain rights](challenges.md) after you add it.
+* If using a Let's Encrypt certificate, pass the [domain ownership verification procedure](challenges.md) after you have added it.
 * If you have a user certificate, be sure to renew it on time.
 
 {% endnote %}
@@ -12,24 +12,24 @@
 ## Certificate types {#types}
 
 {{ certificate-manager-name }} supports two types of certificates:
-* Let's Encrypt certificates (`Managed`): Certificates issued through [Let's Encrypt](https://letsencrypt.org) and managed by {{ certificate-manager-name }}. For more on this type, see [Let's Encrypt certificate](managed-certificate.md).
-* Custom certificates (`Imported`): Certificates added by the user. Timely renewal of such certificates is under your own responsibility. For more on this type, see [User certificate](imported-certificate.md).
+* Let's Encrypt certificates (`Managed`): Certificates issued through [Let's Encrypt](https://letsencrypt.org) and managed by {{ certificate-manager-name }}. For more information about these certificates, see [Let's Encrypt certificate](managed-certificate.md).
+* Custom certificates (`Imported`): Certificates added by the user. Timely renewal of such certificates is under your own responsibility. For more information about these certificates, see [User certificate](imported-certificate.md).
 
 ## Certificate statuses {#statuses}
 
 The lifecycle and statuses of certificates depend on their type.
 
 * Let's Encrypt certificates (`Managed`) can have the following statuses:
-  * `Validating`: Certificate was requested from Let's Encrypt and is awaiting a successful domain rights check.
+  * `Validating`: Certificate was requested from Let's Encrypt and is awaiting a successful domain ownership verification.
   * `Issued`: Certificate was issued and can be used in services integrated with {{ certificate-manager-name }}.
-  * `Invalid`: Certificate failed the check: the domain rights check took more than one week or failed.
+  * `Invalid`: Certificate failed the verification: the domain ownership verification procedure took more than one week or failed.
     * `Renewing`: Certificate is being renewed.
     * `Renewal_failed`: Renewal failed.
 * Custom (`Imported`) certificates always have the `Issued` status: the certificate was issued and can be used in services integrated with {{ certificate-manager-name }}.
 
 ## Sending notifications to users {#notify}
 
-If the certificate is about to expire and the service failed to reissue it automatically, you're sent a notification asking you to pass the rights check for a domain or upload a new version of the certificate yourself.
+If the certificate is about to expire and could not be reissued automatically, you will get notified and prompted to pass the domain ownership verification procedure or upload a new version of the certificate.
 
 ### Where notifications are sent {#where}
 
@@ -63,5 +63,5 @@ You can use metrics to create alerts. For more information, see [{#T}](../operat
 
 #### Useful links {#see-also}
 
-* [Services integrated with {{ certificate-manager-name }}](services.md).
-* [Domain rights check](challenges.md).
+* [Services integrated with {{ certificate-manager-name }}](services.md)
+* [Domain ownership verification](challenges.md)
