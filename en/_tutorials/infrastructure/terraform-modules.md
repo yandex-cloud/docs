@@ -77,7 +77,7 @@ module "yc-vpc" {
 
 ## Enable {{ managed-k8s-name }} {#k8s-module}
 
-Add the `terraform-yc-vpc` module to the configuration. Also, add the {{ managed-k8s-name }} cluster configuration with a highly available master and two node groups:
+Add the `terraform-yc-kubernetes` module to the configuration. Also, add the {{ managed-k8s-name }} cluster configuration with a highly available master and two node groups:
 
 ```hcl
 module "kube" {
