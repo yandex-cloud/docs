@@ -1,9 +1,9 @@
 ---
-title: How to check domain rights in {{ certificate-manager-full-name }}
-description: Follow this guide to check your domain rights.
+title: How to have domain ownership verified in {{ certificate-manager-full-name }}
+description: Follow this guide to have domain ownership verified.
 ---
 
-# Checking domain rights
+# Verifying domain ownership
 
 To pass [domain ownership verification](../../concepts/challenges.md):
 
@@ -15,8 +15,8 @@ To pass [domain ownership verification](../../concepts/challenges.md):
   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
   1. Select and click the certificate you need checked.
   1. Under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**, you will see the details required to pass the domain rights check.
-  1. As soon as you pass the domain rights check, its status under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}** will change to `Valid`.
-  1. After the check status for all the domains changes to `Valid`, a certificate will be issued and its status will change to `Issued`.
+  1. As soon as you successfully pass the domain ownership verification procedure, its status under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}** will change to `Valid`.
+  1. After the verification status of all domains changes to `Valid`, a certificate will be issued and its status will change to `Issued`.
 
 - CLI {#cli}
 
@@ -67,7 +67,7 @@ To pass [domain ownership verification](../../concepts/challenges.md):
      ```
 
   1. You can find the information you need to pass the rights check under `http_challenge`.
-  1. As soon as you pass the domain rights check, its status will change to `Valid`:
+  1. As soon as you successfully pass the domain ownership verification procedure, its status will change to `Valid`:
 
      ```bash
      yc certificate-manager certificate get \
@@ -85,7 +85,7 @@ To pass [domain ownership verification](../../concepts/challenges.md):
      ...
      ```
 
-  1. After the check status for all the domains changes to `Valid`, a certificate will be issued and its status will change to `Issued`:
+  1. After the verification status of all domains changes to `Valid`, a certificate will be issued and its status will change to `Issued`:
 
      ```bash
      yc certificate-manager certificate get \
@@ -109,7 +109,7 @@ To pass [domain ownership verification](../../concepts/challenges.md):
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  With {{ TF }}, you can create a [DNS record](../../../dns/concepts/resource-record.md) required to check your domain rights. Follow these steps:
+  With {{ TF }}, you can create a [DNS record](../../../dns/concepts/resource-record.md) required to have domain ownership verified. Follow these steps:
   1. In the {{ TF }} configuration file, describe the resources you want to create:
 
      ```hcl
@@ -162,7 +162,7 @@ To pass [domain ownership verification](../../concepts/challenges.md):
        * `certificate_id`: Certificate ID.
        * `wait_validation`: Certificate validation wait flag. If `true`, the operation will not be completed until the certificate is `VALIDATING`. The default value is `false`.
 
-     For more information about resource parameters, see [this {{ TF }} provider guide]({{ tf-provider-link }}).
+     For more on the properties of resources, see [this {{ TF }} provider guide]({{ tf-provider-link }}).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

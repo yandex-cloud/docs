@@ -38,7 +38,7 @@ Where:
   
 The hash function is specified at the end of the selected key. Only `sha256` is used for encryption. {{ kms-short-name }} accepts encrypted text in `base64` encoding and decrypts it with the private key.
 
-The maximum size of a message to encrypt depends on the length of an encryption key and hash function (see [RFC2437](https://datatracker.ietf.org/doc/html/rfc2437#section-7.1)). The maximum message size can be calculated using the following formula:
+The maximum size of a message to encrypt depends on the length of both the encryption key and hash function (see [RFC2437](https://datatracker.ietf.org/doc/html/rfc2437#section-7.1)). The maximum message size can be calculated using the following formula:
 
 ```text
 <message_length> = (k - 2) - 2 × hashLength

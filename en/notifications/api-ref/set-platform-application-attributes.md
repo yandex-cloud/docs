@@ -55,7 +55,7 @@ Attribute | Description
 `PlatformPrincipal` | **string**<br/>Project ID.
 `PlatformCredential` | **string**<br/> Service token.
 
-For more information about authentication attributes, see the [Mobile push notification channels](../concepts/push.md) subsection.
+Authentication attributes are described in [Mobile push notification channels](../concepts/push.md).
 
 ## Response {#response}
 
@@ -100,8 +100,8 @@ In case of an error, {{ cns-name }} returns a message with the appropriate HTTP 
 
 For a list of common error codes for all actions, see [{#T}](common-errors.md).
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](index.md)
 * [{#T}](send-request.md)
-* [SetPlatformApplicationAttributes API action](https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html) in the AWS documentation.
+* [SetPlatformApplicationAttributes API action](https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html) in the AWS documentation

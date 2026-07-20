@@ -8,6 +8,7 @@ description: To back up and save your TLS certificate, get the certificate ID an
 ## Saving a certificate {#backup}
 
 To save a certificate:
+
 1. Get the certificate ID.
 
    {% list tabs group=instructions %}
@@ -87,6 +88,7 @@ You cannot restore an expired certificate.
 {% endnote %}
 
 To restore a user certificate from the certificate chain and key files:
+
 1. Prepare the files with the certificate contents.
 1. Import the certificate.
 
@@ -145,4 +147,4 @@ If you restore a saved [Let's Encrypt certificate](../concepts/managed-certifica
 
 #### Useful links {#see-also}
 
-* [{#T}](import/cert-create.md)
+[{#T}](import/cert-create.md)

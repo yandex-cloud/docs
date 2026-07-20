@@ -21,7 +21,9 @@ The following settings are available in the WAF profile:
 
 A WAF profile supports the following rule sets: ML WAF (Yandex Malicious Score), Yandex Ruleset, [OWASP Core Rule Set](https://coreruleset.org/).
 
-You can view the full list of rules in each set in the {{ sws-name }} interface when [configuring a rule set](../operations/configure-set-rules.md).
+For the full list and description of the rules included in each rule set, see the section dedicated to [configuring a rule set](../operations/configure-set-rules.md) in the [management console]({{ link-console-main }}/link/smartwebsecurity).
+
+{% include [ruleset-preview](../../_includes/smartwebsecurity/ruleset-preview.md) %}
 
 ### ML WAF (Yandex Malicious Score) {#yandex-ml-ruleset}
 
@@ -29,15 +31,16 @@ This rule set was developed by Yandex using machine learning (ML) algorithms. ML
 
 We recommend using this rule set in addition to the OWASP or Yandex Ruleset.
 
-For the full list and description of Yandex rules, see the section dedicated to [configuring a rule set](../operations/configure-set-rules.md) in the [management console]({{ link-console-main }}/link/smartwebsecurity).
+How to set up:
 
-{% include [ruleset-preview](../../_includes/smartwebsecurity/ruleset-preview.md) %}
+* Each rule has its own [anomaly threshold](#anomaly). Requests exceeding this threshold are blocked. The recommended initial value is `90`.
+* The [paranoia level](#paranoia) is not used.
 
 ### Yandex Ruleset {#yandex-ruleset}
 
 Yandex developed this rule set based on real-world experience of protecting company services. It includes rules to detect known attack patterns (signatures), such as code injections (SQLi, XSS), CVE vulnerabilities, and remote code execution. The rule set is continuously updated to protect against new threats as they emerge.
 
-The Yandex Ruleset is divided into individual rule groups that you can manage separately:
+Yandex Ruleset is divided into individual rule groups that you can manage separately:
 
   * **Attack XSS**. Detects [cross-site scripting (XSS)](https://en.wikipedia.org/wiki/Cross-site_scripting), i.e., injection of malicious JavaScript code through server-side vulnerabilities (reflected and stored XSS), e.g., injections in HTTP request parameters or script injection into UI elements.
   * **Attack SQLI**. Detects [SQL injections](https://en.wikipedia.org/wiki/SQL_injection), i.e., malicious SQL code fragments in HTTP request parameters used to manipulate SQL databases.
@@ -46,7 +49,14 @@ The Yandex Ruleset is divided into individual rule groups that you can manage se
   * **Attack Tool**. Detects activity from automated tools: vulnerability scanners, exploit frameworks, brute-force utilities, and other software used for [penetration testing](https://en.wikipedia.org/wiki/Penetration_test) and attacks (based on User-Agent signatures and request patterns).
   * **Attack RCE**. Protects against remote code execution (RCE) and prevents running server OS commands via vulnerable parameters (e.g., system call injections).
 
-#### Available versions {#yandex-ruleset-versions} 
+How to set up:
+
+* Rule groups can be turned on and off independently of each other.
+* Each rule group gets its own [anomaly threshold](#anomaly) and action if this threshold is exceeded.
+* Rules within a group can be filtered by type: basic rules or rules related to CVE vulnerabilities.
+* The [paranoia level](#paranoia) is not used.
+
+#### Available versions {#yandex-ruleset-versions}
 
 ##### Version 0.1.1 {#version-0-1-1}
 
@@ -64,7 +74,13 @@ The first Yandex Ruleset version contains 90 rules for detecting basic types of 
 
 ### OWASP Core Rule Set {#owasp-core-rule-set}
 
-The set was developed by the Open Worldwide Application Security Project (OWASP) to ensure protection against vulnerabilities listed in the [OWASP TOP‑10](https://owasp.org/www-project-top-ten/). The OWASP Core Rule Set consists of rules aimed to detect malicious actions, including malicious file uploads, potential SQL injection attacks, DoS attempts, code injection attempts, and many more. For more information, see the [OWASP Core Rule Set repository on GitHub](https://github.com/coreruleset/coreruleset).
+The set was developed by the Open Worldwide Application Security Project (OWASP) to ensure protection against vulnerabilities listed in the [OWASP TOP‑10](https://owasp.org/www-project-top-ten/). The OWASP Core Rule Set consists of rules aimed to detect malicious actions, including malicious file uploads, potential SQL injection attacks, DoS attempts, code injection attempts, and many more. For more information, see [this OWASP Core Rule Set repository on GitHub](https://github.com/coreruleset/coreruleset).
+
+How to set up:
+
+* You set a common [anomaly threshold](#anomaly) for the whole rule set. If the threshold is exceeded, the request gets blocked.
+* You set a [paranoia level](#paranoia) for the whole rule set.
+* Rules are organized into groups (Method Enforcement, Scanner Detection, Protocol Enforcement, etc.). For each rule, an anomaly value and a blocking rule attribute are specified.
 
 #### Available versions {#owasp-versions}
 
@@ -89,9 +105,11 @@ To protect resources with different security requirements, create multiple WAF p
 
 Each rule from the set is assigned a numeric _anomaly_ value, i.e., a potential attack indicator. The higher this value, the more likely it is that the request that satisfies this rule is in fact an attack.
 
-For the OWASP Core Rule Set , you can set an _anomaly threshold_ for the entire rule set, i.e., the cumulative anomaly score at which a request will be blocked. The possible threshold values are from `2` to `10,000`. We recommend that you start with an anomaly threshold of `25` and gradually reduce it to `5`.
+_Anomaly threshold_ is the total anomaly score of triggered rules that results in blocking the request. The anomaly threshold level depends on the rule set:
 
-For the Yandex Ruleset, you can set the anomaly threshold individually for each rule group. We recommend setting the anomaly threshold to `7`.
+* In the OWASP Core Rule Set, you specify a threshold for the whole rule set. The possible values range ​​from `2` to `10 000`. We recommend that you start with a threshold of `25` and gradually reduce it to `5`.
+* In Yandex Ruleset, you specify a threshold individually for each rule group. The recommend value is `7`.
+* In ML WAF, you specify a threshold individually for each rule. The recommended initial value is `90`.
 
 To reduce the anomaly threshold, address WAF false positives triggered by legitimate requests. To do so, select rules from the basic set and configure [exclusion rules](#exclusion-rules). Additionally, use the **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}** mode in your security profile to test different anomaly thresholds.
 
@@ -105,15 +123,24 @@ In the basic rule set settings, you can configure the overall paranoia level and
 
 ## Exclusion rules {#exclusion-rules}
 
-_Exclusion rules_ are intended to prevent WAF false positives triggered by legitimate requests.
+An _exclusion rule_ disables WAF rules for requests that satisfy the specified conditions. Use exclusion rules to prevent false positives triggered by legitimate traffic.
 
-You can configure skipping checks for specific rules within a particular rule set or across all rules in all rule sets simultaneously. The search covers all SWS rule sets, including inactive ones. To exclude specific rules, use filters.
+An exclusion rule offer these blocks of settings:
 
-You can configure [trigger conditions](conditions.md) for each exclusion rule. If you use several conditions of different types, they all must be satisfied for the exclusion rule to trigger. If no conditions are specified, the exclusion rule will apply to all traffic.
+* **Logging**.
+* **Skip checks**: Which WAF rules to cover by the exclusion – all or selected ones.
+* **Scope**: Which part of the request to exclude when applying WAF rules:
 
-WAF configuration should be tailored to each application; there are no universal WAF configurations. During real-world deployment, false positives are expected; this is part of training the WAF to adapt to your traffic. Configure rules in **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}** mode and analyze [logs](../operations/configure-logging.md). On average, the overall setup process takes about a week, but we still recommend regularly reviewing logs and adjusting rules as needed.
+    * Whole request.
+    * Individual request parameters: `HTTP body`, `Cookie`, `HTTP header`, or `Query params`.
 
-## Useful links {#see-also}
+* [**Traffic conditions**](conditions.md): Which requests are subject to the exclusion. If you set several conditions of different types, the exclusion will apply only if all conditions are met at the same time. If no conditions are set, the exclusion will apply to all traffic.
+
+## WAF setup recommendations {#waf-tuning-recommendation}
+
+{% include [waf-tuning-recommendation](../../_includes/smartwebsecurity/waf-tuning-recommendation.md) %}
+
+#### Useful links {#see-also}
 
 * [{#T}](../quickstart.md#waf)
 * [{#T}](../tutorials/sws-basic-protection.md)

@@ -15,10 +15,9 @@ Make sure the [proxy server](../concepts/domain-protect.md#proxy), [domain](../c
 
 {% endlist %}
 
-### Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](setup-infrastructure.md)
 * [{#T}](proxy-create.md)
 * [{#T}](domain-create.md)
 * [{#T}](host-connect.md)
-

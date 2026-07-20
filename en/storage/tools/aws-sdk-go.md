@@ -26,7 +26,7 @@ The [AWS SDK for Go](https://docs.aws.amazon.com/sdk-for-go/) is a software deve
 
 {% include [storage-sdk-setup-storage-env-variables](../_includes_service/storage-sdk-setup-storage-env-variables.md) %}
 
-## Code snippets {#go-code-examples}
+## Code examples {#go-code-examples}
 
 [AWS SDK v.1](https://github.com/aws/aws-sdk-go) for Go entered maintenance mode in July 2024. We recommend migrating to [AWS SDK v.2](https://github.com/aws/aws-sdk-go-v2).
 
@@ -241,4 +241,4 @@ To get a list of objects in a bucket, provide its name in the `-b` command line 
 
 {% endlist %}
 
-See also the [code samples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3) and [Go SDK API Reference Guide](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3).
+See also the [code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3) and [Go SDK API Reference Guide](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3).

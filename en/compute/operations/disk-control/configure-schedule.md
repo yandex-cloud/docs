@@ -84,7 +84,7 @@ You can configure [snapshot](../../concepts/snapshot.md) [schedules](../../conce
       ```bash
       yc compute snapshot-schedule list-disks <schedule_name_or_ID>
       ```
-      For details, see [here](../../../cli/cli-ref/compute/cli-ref/snapshot-schedule/list-disks.md).
+      [Read more](../../../cli/cli-ref/compute/cli-ref/snapshot-schedule/list-disks.md).
 
   1. Get the schedule name or ID:
 

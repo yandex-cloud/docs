@@ -115,7 +115,7 @@ To edit a key:
      ...
      ```
 
-     For more information about the `yandex_kms_symmetric_key` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/kms_symmetric_key).
+     For more on the properties of the `yandex_kms_symmetric_key` resource, see [this provider guide]({{ tf-provider-resources-link }}/kms_symmetric_key).
   1. Validate your configuration using this command:
 
      ```bash
@@ -209,7 +209,7 @@ To change key status:
      ...
      ```
 
-     For more information about the `yandex_kms_symmetric_key` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/kms_symmetric_key).
+     For more on the properties of the `yandex_kms_symmetric_key` resource, see [this provider guide]({{ tf-provider-resources-link }}/kms_symmetric_key).
 
   1. Validate your configuration using this command:
 
@@ -378,6 +378,6 @@ Deleting a key is an [eventually consistent](../concepts/consistency.md) operati
 
 {% endnote %}
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
-* [Managing {{ kms-name }} keys with {{ TF }}](../../kms/tutorials/terraform-key.md)
+[Managing {{ kms-name }} keys with {{ TF }}](../../kms/tutorials/terraform-key.md)

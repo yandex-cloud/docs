@@ -196,6 +196,6 @@ To connect a security profile to a virtual host:
 
 {% endlist %}
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
-* [{#T}](host-delete.md)
+[{#T}](host-delete.md)

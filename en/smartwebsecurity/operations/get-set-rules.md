@@ -47,7 +47,7 @@ description: Follow this guide to get information about a rule set for a WAF pro
       * `output "waf_rules"`: Output variable that contains information about the WAF rule set:
         * `value`: Return value.
 
-      You can replace `rules` with another variable to get the information you need. For more information about the `yandex_sws_waf_rule_set_descriptor` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/sws_waf_rule_set_descriptor).
+      You can replace `rules` with another variable to get the information you need. For more on the properties of the `yandex_sws_waf_rule_set_descriptor` data source, see [this provider guide]({{ tf-provider-datasources-link }}/sws_waf_rule_set_descriptor).
 
   1. Create the resources:
 

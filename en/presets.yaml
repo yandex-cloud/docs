@@ -509,7 +509,7 @@ default:
     yc_gwin:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/gwin/charts/gwin-chart
-        tag: v1.8.1
+        tag: v1.8.2
     yc_istio:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/istio/istio
@@ -526,8 +526,8 @@ default:
         tag: 1.0.1
     yc_kyverno:
       helmChart:
-        name: cr.yandex/yc-marketplace/multi-kyverno
-        tag: 1.0.0
+        name: cr.yandex/yc-marketplace/yandex-cloud/kyverno/charts/kyverno
+        tag: 3.8.1
     yc_loki:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/grafana/loki/chart/loki
@@ -6003,6 +6003,8 @@ default:
         title_runners: Runners
       gpu-cluster:
         action_create-cluster: Create a cluster
+        field_accessibility-zone: Availability zone
+        field_description: Description
         field_name: Name
         label_title: GPU clusters
         label_zone: Availability zone
@@ -7753,6 +7755,7 @@ default:
           label_anomaly-threshold: Anomaly threshold
           label_create-exclusion-rule: Create exception rule
           label_create-profile: Create WAF profile
+          label_exclusion-rule-exclude-rules: Skip checks
           label_paranoia-level: Paranoia level
           label_paranoia-option-1: Only 1
           label_profiles: WAF profiles
@@ -7760,7 +7763,6 @@ default:
           label_save-settings: Save settings
           title_exclusion-rule-condition-section: Traffic conditions
           title_exclusion-rules: Exclusion rules
-          value_exclude-all-no: Selected rules
           value_exclude-all-yes: All rules
       smartcaptcha:
         button_captcha-settings-create: Create captcha
@@ -10263,6 +10265,7 @@ default:
   video-full-name: Yandex Cloud Video
   video-name: Cloud Video
   video-player-name: Cloud Video Player
+  video-short-name: Cloud Video
   vision-full-name: Yandex Vision OCR
   vision-name: Vision OCR
   vision-short-name: Vision OCR

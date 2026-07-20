@@ -74,7 +74,7 @@ Where:
   * `IsDefault`: Specifies whether the channel is the default channel for outgoing SMS in this cloud.
   * `IsBanned`: Specifies whether the channel is banned by the service.
   * `ChannelState`: Channel state. The possible values are: 
-    * `Registering`: Registering.
+    * `Registering`: Registration in progress
     * `Sandbox`: In [sandbox](../concepts/sms.md#sandbox).
     * `Active`: Active.
     * `Disabled`: Disabled.
@@ -127,7 +127,7 @@ Where:
 
 For a list of common error codes for all actions, see [{#T}](common-errors.md).
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](index.md)
 * [{#T}](send-request.md)

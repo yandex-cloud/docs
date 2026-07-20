@@ -43,7 +43,7 @@ In the span feed, each generation span contains grouped sections:
 
 * **System instructions**: Prompt that shapes the agent's behavior, e.g., "You are a helpful assistant. Answer briefly."
 * **Conversation**: Message history between the user and the agent, which includes the input messages (user prompts, tool call results) and the model's response. 
-* **Available tools**: See [below](#tools).
+* **Available tools**: In the [Available tools](#tools) section.
 
 Messages under **Conversation** are shown in chronological order. The role (user, assistant, system, tool) and message part type (text, tool_call, tool_call_response) are shown explicitly so you could quickly trace the chain: user request → model's response with a tool call → tool output → next request to the model → final response.
 

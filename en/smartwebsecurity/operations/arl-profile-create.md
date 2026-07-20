@@ -63,7 +63,7 @@ description: Follow this guide to create a {{ sws-full-name }} ARL profile.
 
       {% include [arl-profile-parameters](../../_includes/smartwebsecurity/arl-profile-parameters.md) %}
 
-      For more information about `yandex_sws_advanced_rate_limiter_profile` properties, see [this provider guide]({{ tf-provider-resources-link }}/sws_advanced_rate_limiter_profile).
+      For more on the properties of the `yandex_sws_advanced_rate_limiter_profile` resource, see [this provider guide]({{ tf-provider-resources-link }}/sws_advanced_rate_limiter_profile).
 
   1. Create the resources:
 
@@ -79,7 +79,7 @@ description: Follow this guide to create a {{ sws-full-name }} ARL profile.
 
 {% endlist %}
 
-### Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](arl-rule-add.md)
 * [{#T}](profile-update.md)

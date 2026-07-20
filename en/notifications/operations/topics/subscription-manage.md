@@ -37,7 +37,7 @@ description: Follow this guide to update or delete a subscription in {{ cns-name
       --subscription-arn **subscription_ARN**
      ```
 
-  For more information about the [set-subscription-attributes](https://docs.aws.amazon.com/cli/latest/reference/sns/set-subscription-attributes.html) and [get-subscription-attributes](https://docs.aws.amazon.com/cli/latest/reference/sns/get-subscription-attributes.html) commands, see the AWS documentation.
+  For more on commands, see these AWS guides: [set-subscription-attributes](https://docs.aws.amazon.com/cli/latest/reference/sns/set-subscription-attributes.html) and [get-subscription-attributes](https://docs.aws.amazon.com/cli/latest/reference/sns/get-subscription-attributes.html).
 
 - AWS SDK for Python {#python}
 
@@ -76,7 +76,7 @@ description: Follow this guide to update or delete a subscription in {{ cns-name
   aws sns unsubscribe --subscription-arn **subscription_ARN**
   ```
 
-  For more information about the `aws sns unsubscribe` command, see the [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/sns/unsubscribe.html).
+  Learn more about the `aws sns unsubscribe` command in [this AWS guide](https://docs.aws.amazon.com/cli/latest/reference/sns/unsubscribe.html).
 
 - AWS SDK for Python {#python}
 

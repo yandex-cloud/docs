@@ -74,7 +74,7 @@ To create a {{ mgl-name }} instance, you need the [{{ roles-vpc-user }}](../../.
      * `backup_retain_period_days`: Automatic backup retention period, in days.
      * `deletion_protection`: Instance protection against accidental deletion by users. The possible values are `true` or `false`.
 
-     For more information about `yandex_gitlab_instance` properties, see [this provider guide]({{ tf-provider-resources-link }}/gitlab_instance).
+     For more on the properties of the `yandex_gitlab_instance` resource, see [this provider guide]({{ tf-provider-resources-link }}/gitlab_instance).
 
   1. Create the resources:
 

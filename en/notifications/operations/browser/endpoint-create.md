@@ -80,7 +80,7 @@ Once you have the data you need to send to notifications to a user, create an en
      * `--platform-application-arn`: Notification channel ID (ARN).
      * `--token`: [PushSubscription](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription) object obtained through the user's browser, in [JSON](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription/toJSON) format.
 
-     For more information about the `aws sns create-platform-endpoint` command, see the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/create-platform-endpoint.html).
+     Learn more about the `aws sns create-platform-endpoint` command in [this AWS guide](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/create-platform-endpoint.html).
 
 - AWS SDK for Python {#python}
 

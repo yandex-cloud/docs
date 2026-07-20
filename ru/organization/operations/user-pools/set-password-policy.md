@@ -35,7 +35,11 @@ description: Следуя данной инструкции, вы сможете
 
        В поле **{{ ui-key.yacloud_org.organization.userpools.UserpoolPasswordPolicyForm.min_length_title_mvmiQ }}** задайте минимальное число символов в пароле, но не менее 7.
        
-  1. В блоке **Уникальность пароля** в поле **Проверка пароля** при необходимости включите опцию **Нельзя использовать пароль из базы распространенных паролей**. Это защитит пользователей от установки паролей, которые легко подбираются по словарю.
+  1. В блоке **{{ ui-key.yacloud_org.organization.userpools.password_uniqueness_13P78 }}**:
+
+     * В поле **{{ ui-key.yacloud_org.organization.userpools.password_check_gP9tG }}** при необходимости включите опцию **{{ ui-key.yacloud_org.organization.userpools.reject_common_passwords_9bpqu }}**. Это защитит пользователей от установки паролей, которые легко подобрать по словарю.
+     * В поле **История паролей** укажите, сколько последних паролей пользователя нельзя использовать повторно. Значение по умолчанию — `1`, максимальное значение — `10`. 
+
   1. В блоке **{{ ui-key.yacloud_org.organization.userpools.UserpoolPasswordPolicyForm.lifetime_hnEhW }}** задайте минимальный и максимальный срок жизни пароля (до 730 дней) или выберите **{{ ui-key.yacloud_org.organization.userpools.UserpoolPasswordPolicyForm.unlimited_cSfYU }}**.
   1. В блоке **{{ ui-key.yacloud_org.organization.userpools.UserpoolPasswordPolicyForm.brute_force_protection_msHno }}** задайте:
      * **{{ ui-key.yacloud_org.organization.userpools.UserpoolPasswordPolicyForm.attempts_before_lockout_ay7Le }}** — от 1 до 100.

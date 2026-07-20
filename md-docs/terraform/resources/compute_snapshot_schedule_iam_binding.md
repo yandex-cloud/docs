@@ -66,4 +66,4 @@ for more information about system groups, see [Cloud Documentation](../../iam/co
 
 - `role` (**Required**)(String). The role that should be assigned. Only one yandex_compute_snapshot_schedule_iam_binding can be used per role.
 - `sleep_after` (Number). For test purposes, to compensate IAM operations delay
-- `snapshot_schedule_id` (**Required**)(String). The ID of the compute `snapshot_schedule` to attach the policy to.
+- `snapshot_schedule_id` (**Required**)(String). The ID of the `snapshot_schedule` to attach the policy to.

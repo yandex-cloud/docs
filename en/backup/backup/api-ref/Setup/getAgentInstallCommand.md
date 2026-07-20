@@ -19,11 +19,15 @@ apiPlayground:
             Required field.
             - `AGENT_INSTALL_BASH_EXTERNAL_VM`
             - `AGENT_INSTALL_BASH_EXTERNAL_SERVER`
+            - `AGENT_INSTALL_POWERSHELL_EXTERNAL_VM`
+            - `AGENT_INSTALL_POWERSHELL_EXTERNAL_SERVER`
           type: string
           enum:
             - AGENT_INSTALL_COMMAND_TYPE_UNSPECIFIED
             - AGENT_INSTALL_BASH_EXTERNAL_VM
             - AGENT_INSTALL_BASH_EXTERNAL_SERVER
+            - AGENT_INSTALL_POWERSHELL_EXTERNAL_VM
+            - AGENT_INSTALL_POWERSHELL_EXTERNAL_SERVER
         policyIds:
           description: '**string**'
           type: array
@@ -66,7 +70,9 @@ Required field. ||
 Required field.
 
 - `AGENT_INSTALL_BASH_EXTERNAL_VM`
-- `AGENT_INSTALL_BASH_EXTERNAL_SERVER` ||
+- `AGENT_INSTALL_BASH_EXTERNAL_SERVER`
+- `AGENT_INSTALL_POWERSHELL_EXTERNAL_VM`
+- `AGENT_INSTALL_POWERSHELL_EXTERNAL_SERVER` ||
 || policyIds[] | **string** ||
 |#
 

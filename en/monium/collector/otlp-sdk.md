@@ -1,6 +1,6 @@
 # SDKs for data transmission in OpenTelemetry format
 
-{{ monium-name }} accepts data in OpenTelemetry format. The community-developed SDKs for this format are available for many programming languages and IDEs. For details on language support, see [this OpenTelemetry article](https://opentelemetry.io/docs/languages/#status-and-releases).
+{{ monium-name }} accepts data in OpenTelemetry format. The community-developed SDKs for this format are available for many programming languages and IDEs. For supported languages, see [this OpenTelemetry guide](https://opentelemetry.io/docs/languages/#status-and-releases).
 
 We recommend using the official SDKs and adhering to the OpenTelemetry semantic conventions and naming requirements they support.
 

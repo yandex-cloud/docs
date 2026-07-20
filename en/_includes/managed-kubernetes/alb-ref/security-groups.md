@@ -146,7 +146,7 @@ Create the following security groups and rules:
 
   {% endlist %}
 
-For more information on security groups for clusters and node groups, see [{#T}](../../../managed-kubernetes/operations/connect/security-groups.md).
+Security groups for the cluster and node groups are described in [{#T}](../../../managed-kubernetes/operations/connect/security-groups.md).
 
 ### {{ TF }} {#example-terraform}
 

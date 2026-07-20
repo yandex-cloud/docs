@@ -48,7 +48,7 @@ To [stream a video](./concepts/index.md#streams) on the service's [channel](./co
     * **{{ ui-key.yacloud_video.stream-lines.label_server-address }}**
     * **{{ ui-key.yacloud_video.stream-lines.label_stream-key }}**.
 
-To learn more about streams, see [{#T}](./concepts/streams.md#streams).
+For more on broadcasts, see [{#T}](./concepts/streams.md#streams).
 
 ## Set up OBS Studio {#configure-obs}
 

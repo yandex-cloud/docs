@@ -70,7 +70,11 @@ Storage usage is measured in GB per month. The amount of data stored for a month
 
 ### Data operations {#rules-operations}
 
-You pay for the actual number of operations.
+Operations encompass any actions performed on [objects](../storage/concepts/object.md) within a bucket, e.g., uploads, downloads, or metadata retrieval.
+
+Operations may have the GET, PUT, POST, and other types. The operation type depends on the corresponding [AWS S3 API](../storage/s3/api-ref/) method. The only exceptions are LIST operations, which return lists of resources, and TRANSITION operations, which modify the storage class.
+
+You pay for the actual number of operations. The cost does not depend on the interface you use.
 
 Nothing is charged for deleting data (the `DELETE` operation).
 
@@ -79,6 +83,21 @@ Nothing is charged for deleting data (the `DELETE` operation).
 If you delete from your [ice storage](./concepts/storage-class.md) an object that had been stored for less than 12 months, the [balance of the storage charge will be debited](#ice-storage) after the deletion.
 
 {% endnote %}
+
+#### Examples of operations {#operations-examples}
+
+#|
+|| Operation type | AWS S3 API method | Operation ||
+|| GET | [GetObject](../storage/s3/api-ref/object/get.md) | [Downloading an object](../storage/operations/objects/download.md) ||
+|| HEAD | [HeadObject](../storage/s3/api-ref/object/getobjectmeta.md) | [Getting information about an object](../storage/operations/objects/info.md) ||
+|| LIST | [ListObjects](../storage/s3/api-ref/bucket/listobjects.md) | [Getting a list of bucket objects](../storage/operations/objects/list.md) ||
+|| OPTIONS | [options](../storage/s3/api-ref/object/options.md) | [Checking whether a CORS request to an object can be made](../storage/operations/buckets/cors.md) ||
+|| PATCH | [patch](../storage/s3/api-ref/object/patch.md) | [Partial object updates](../storage/concepts/object-patch.md) ||
+|| POST | [CreateMultipartUpload](../storage/s3/api-ref/multipart/startupload.md) | [Creating a multipart upload](../storage/operations/objects/multipart-upload.md) ||
+|| PUT | [PutObject](../storage/s3/api-ref/object/upload.md) | [Uploading an object](../storage/operations/objects/upload.md) ||
+|| TRANSITION | — | [Changing an object storage class](../storage/concepts/storage-class.md#changing-storage-class) ||
+|| DELETE | [DeleteObject](../storage/s3/api-ref/object/delete.md) | [Deleting an object](../storage/operations/objects/delete.md) ||
+|#
 
 
 
@@ -207,6 +226,6 @@ For standard storage, the first gigabyte of data (1 GB), 10,000 PUT operations
 {% include [usd-comparison-3](../_pricing_examples/storage/usd-comparison-3.md) %}
 
 
-### Useful links {#see-also}
+#### Useful links {#see-also}
 
 [{#T}](./concepts/limits.md)

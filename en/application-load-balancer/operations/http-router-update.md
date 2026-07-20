@@ -81,7 +81,7 @@ To update HTTP router parameters:
      ...
      ```
 
-     For more information about `yandex_alb_http_router` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/alb_http_router).
+     For more on the properties of the `yandex_alb_http_router` resource, see [this provider guide]({{ tf-provider-resources-link }}/alb_http_router).
 
   1. To add, update, or delete HTTP router virtual hosts, use the `yandex_alb_virtual_host` resource with your router ID specified in its `http_router_id` field:
 
@@ -102,7 +102,7 @@ To update HTTP router parameters:
      }
      ```
 
-     For more information about the `yandex_alb_virtual_host` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/alb_virtual_host).
+     For more on the properties of the `yandex_alb_virtual_host` resource, see [this provider guide]({{ tf-provider-resources-link }}/alb_virtual_host).
 
   1. Apply the changes:
 
@@ -213,7 +213,7 @@ To change the route timeout for an HTTP router:
      }
      ```
 
-     For more information about the `yandex_alb_virtual_host` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/alb_virtual_host).
+     For more on the properties of the `yandex_alb_virtual_host` resource, see [this provider guide]({{ tf-provider-resources-link }}/alb_virtual_host).
 
   1. Apply the changes:
 

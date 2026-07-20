@@ -49,7 +49,7 @@ description: Follow this guide to create a {{ sws-full-name }} profile.
         * All selected rules applied the **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.denyAndCaptchaTitle_tCthP }}** action (verdict).
         * All selected rules applied the **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.allowTitle_g6CLe }}** action (legitimate requests).
   
-     For more information on how to configure logging, see [this guide](configure-logging.md).
+     For information on how to set up logging, see [{#T}](configure-logging.md).
 
   1. Click ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
   1. In the rule creation window:
@@ -182,7 +182,7 @@ description: Follow this guide to create a {{ sws-full-name }} profile.
 
       If you do not specify the `smart_protection` or `waf` rule type, the system will create a basic rule with simple filtering based on conditions specified under `rule_condition`.
 
-      For more information about `yandex_sws_security_profile` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/sws_security_profile).
+      For more on the properties of the `yandex_sws_security_profile` resource, see [this provider guide]({{ tf-provider-resources-link }}/sws_security_profile).
 
   1. Create the resources:
 
@@ -200,7 +200,7 @@ description: Follow this guide to create a {{ sws-full-name }} profile.
 
 {% endlist %}
 
-### Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](host-connect.md)
 * [{#T}](profile-update.md)

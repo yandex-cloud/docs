@@ -1,4 +1,4 @@
-# Overview and basic concepts
+# Overview and basic terms
 
 {{ monium-logs-name }} is a distributed system for storing, searching, visualizing, and analyzing logs.
 

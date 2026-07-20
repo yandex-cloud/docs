@@ -53,6 +53,7 @@ description: Use this tutorial to create a Linux VM.
      ```bash
      yc compute instance create \
        --name first-instance \
+       --hostname first-instance \
        --zone {{ region-id }}-a \
        --network-interface subnet-name=default-{{ region-id }}-a,nat-ip-version=ipv4 \
        --create-boot-disk image-folder-id=standard-images,image-family=centos-7,kms-key-id=<key_ID>,auto-delete=true \
@@ -66,6 +67,7 @@ description: Use this tutorial to create a Linux VM.
 
        {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
+     * `--hostname`: VM host name. Specifies the [internal FQDN](../../concepts/network.md#hostname) by which the VM will be accessible in the cloud network. This is an optional setting. If not specified, the FQDN is generated from the VM name according to the rules described in [{#T}](../../concepts/network.md#hostname). Once the VM is created, you cannot change its host name and internal FQDN.
      * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) matching the selected subnet.
      * `--network-interface`: VM [network interface](../../concepts/network.md) settings:
          * `subnet-name`: Name of the selected subnet.

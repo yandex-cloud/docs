@@ -1,11 +1,9 @@
 ---
 title: Logging in {{ sws-name }}
-description: What {{ sws-name }} data about requests, rules, and verdicts is available in logs and how to use it for traffic analysis.
+description: Available request, rule, and verdict data in {{ sws-name }} logs, and how to use it for traffic analysis.
 ---
 
 # Logging
-
-{% include [logging-preview](../../_includes/smartwebsecurity/logging-preview.md) %}
 
 {{ sws-name }} enables you to log and analyze data on requests and rules they trigger. You can use this data to configure protection and investigate incidents.
 
@@ -14,7 +12,7 @@ There are two logging options available:
 * Logging via {{ sws-name }}.
 * Logging via the {{ alb-name }} instance the security profile is connected to.
 
-This section covers logging via {{ sws-name }}. This method provides more advanced analysis compared to logging via {{ alb-name }}. For information on request logging via an L7 load balancer, see [{#T}](../operations/configure-logging-alb.md).
+This section covers logging via {{ sws-name }}. This method provides more advanced analysis compared to logging via {{ alb-name }}. Request logging via an L7 load balancer is described in [{#T}](../operations/configure-logging-alb.md).
 
 Logs contain information about HTTP requests processed by {{ sws-name }}. You can only log requests that were blocked with a `DENY` verdict or sent to captcha with a `CAPTCHA` verdict. Additionally, you can log some legitimate requests with an `ALLOW` verdict. To reduce the size of logs, specify a sampling rate for such requests between 1% and 100%.
 
@@ -47,7 +45,7 @@ The description of SWS log fields is given in the table below.
 || `module_type` | [SWS module](index.md) that made the final decision on the request. The possible values are `RULE_CONDITION`, `SMART_PROTECTION`, `WAF`, `ARL`, or `DEFAULT` (the [default basic rule](rules.md#base-rules) in the security profile). ||
 || `action` | Action applied to the request: `ALLOW`, `DENY`, or `CAPTCHA`. ||
 || `matched_rule_name` | Triggered rule name.
-The `sws_service_rule` name corresponds to the [service rule](../../smartwebsecurity/concepts/rules.md#service-rule) that can block traffic during attacks. ||
+The `sws_service_rule` name indicates the [service rule](../../smartwebsecurity/concepts/rules.md#service-rule) that can block traffic during attacks. ||
 || `dry_run_matched_rule_name` | Name of the triggered rule that is in **Dry run** mode. In this mode, the action is not applied to the request, while information about the trigger is logged. ||
 || `matched_rule_verdict` | Expected action (verdict) applied by the rule to the request. The possible values are `ALLOW`, `DENY`, or `CAPTCHA`. ||
 || `dry_run_matched_rule_verdict` | Expected action that would be applied by the rule to the request, but it is not applied in **Dry run** mode. The possible values are `ALLOW`, `DENY`, or `CAPTCHA`. ||

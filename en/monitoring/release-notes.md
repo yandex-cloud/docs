@@ -64,7 +64,7 @@ description: This section contains the {{ monitoring-name }} release notes.
 
 * Added the option to invoke a [{{ sf-name }}](../functions/index.yaml) function to notification channels for alerts. This will allow you to create a webhook for automatic processing of incidents and other events in your cloud.
 
-   For more information, see sections [{#T}](operations/alert/create-channel-function.md) and [{#T}](operations/alert/alert-call-function.md).
+   For more information, see [{#T}](operations/alert/create-channel-function.md) and [{#T}](operations/alert/alert-call-function.md).
 
 * When creating a VM, you can [install an agent](operations/prometheus/ingestion/prometheus-agent.md) for collecting metrics in {{ prometheus-name }} format. By default, Linux system metrics are sent to {{ managed-prometheus-full-name }}. You can also configure delivering your application metrics when creating a VM or at a later time.
 

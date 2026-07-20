@@ -38,7 +38,7 @@ To ensure traces are correctly displayed in the {{ traces-name }} LLM monitoring
 || List of available tools | `gen_ai.tool.definitions` | JSON array | LLM tool signatures. The interface displays the **Available tools** section. ||
 |#
 
-In addition to the specified attributes, the OpenTelemetry standard also describes other useful attributes for GenAI spans, such as `gen_ai.system`, `gen_ai.request.model`, `gen_ai.tool.definitions`, etc. For a full list and description, see the [OpenTelemetry convention for GenAI](https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-spans/).
+In addition to the specified attributes, the OpenTelemetry standard also describes other useful attributes for GenAI spans, such as `gen_ai.system`, `gen_ai.request.model`, `gen_ai.tool.definitions`, etc. For the full list of attributes with descriptions, see the [OpenTelemetry convention for GenAI](https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-spans/).
 
 ### Message format {#messages-format}
 

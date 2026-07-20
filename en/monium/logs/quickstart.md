@@ -4,7 +4,7 @@
 
 This section provides general information about transferring logs from your app to {{ monium-name }} and viewing them.
 
-For {{ yandex-cloud }} resources, see [{#T}](quickstart-resources.md).
+For information on {{ yandex-cloud }} resources, see [{#T}](quickstart-resources.md).
 
 ## Log delivery {#data-send}
 
@@ -50,7 +50,7 @@ If your cloud and application are already configured and you have prior experien
 
 {% endlist %}
 
-For more on logs, see [{#T}](logs-explorer.md).
+For information on how to work with logs, see [{#T}](logs-explorer.md).
 
 ## Service dashboard for logs {#logs-service-dashboard}
 

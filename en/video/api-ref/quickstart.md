@@ -58,7 +58,7 @@ Create a service account you will use to authenticate in the {{ video-name }} AP
   yc iam service-account create --name sa-video-api
   ```
 
-  Where `--name` is the service account name, formatted as follows:
+  Where `--name` is the service account name in the following format:
 
   {% include [name-format](../../_includes/name-format.md) %}
 

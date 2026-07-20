@@ -16,4 +16,4 @@ The system logs all actions on {{ captcha-name }} resources in an operation list
 
 #### Useful links {#see-also}
 
-* [{#T}](../../api-design-guide/concepts/about-async.md)
+[{#T}](../../api-design-guide/concepts/about-async.md)

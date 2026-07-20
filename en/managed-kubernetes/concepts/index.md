@@ -54,7 +54,7 @@ A _master_ is a component that manages a {{ k8s }} cluster.
 A master runs {{ k8s }} control processes including the {{ k8s }} API server, scheduler, and main resource controllers. A master lifecycle is managed by {{ k8s }} when creating or deleting a {{ k8s }} cluster. The master is responsible for global solutions executed on all {{ k8s }} cluster nodes. These include scheduling workloads, such as containerized applications, managing the lifecycle of workloads, and scaling.
 
 There are two types of masters that differ by number of master hosts and by their [availability zone](../../overview/concepts/geo-scope.md) placement:
-* _Base_: Contains one master host in a single availability zone. Such a master is generally cheaper but it does not guarantee high availability.
+* _Base_: Contains one master host in a single availability zone. Most often, such a master is cheaper, but it does not guarantee high availability.
 
 * `Highly available`: Contains three master hosts that you can place as follows:
   * In one availability zone and one subnet. Choose this type if you want to ensure high availability of the cluster and reduce its internal network latency.
@@ -62,7 +62,7 @@ There are two types of masters that differ by number of master hosts and by thei
 
   The internal IP address of a highly available master is available only within a single {{ vpc-full-name }} cloud network.
 
-For more information about master settings, see [{#T}](../operations/kubernetes-cluster/kubernetes-cluster-create.md).
+For more on master settings, see [{#T}](../operations/kubernetes-cluster/kubernetes-cluster-create.md).
 
 ### Master computing resources {#master-resources}
 

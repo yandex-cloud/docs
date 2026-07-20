@@ -58,7 +58,7 @@ for more information about system groups, see [Cloud Documentation](https://yand
 
 
 
-- `placement_group_id` (**Required**)(String). The ID of the compute `placement_group` to attach the policy to.
+- `placement_group_id` (**Required**)(String). The ID of the `placement_group` to attach the policy to.
 - `role` (**Required**)(String). The role that should be assigned. Only one yandex_compute_placement_group_iam_binding can be used per role.
 - `sleep_after` (Number). For test purposes, to compensate IAM operations delay
 

@@ -103,7 +103,7 @@ description: Follow this tutorial to get {{ at-full-name }} trail info.
       * `output "my-trail-status"`: Output variable that contains information about the current trail `status`:
          * `value`: Return value.
 
-     You can replace `status` with another variable to get the information you need. For more information about the `yandex_audit_trails_trail` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/audit_trails_trail).
+     You can replace `status` with another variable to get the information you need. For more on the properties of the `yandex_audit_trails_trail` data source, see [this provider guide]({{ tf-provider-datasources-link }}/audit_trails_trail).
 
   1. Create the resources:
 

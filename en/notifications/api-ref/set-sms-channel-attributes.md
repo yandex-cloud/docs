@@ -116,7 +116,7 @@ HTTP | Error code | Extended code | Description
 400 | UserError | InvalidSMSChannelStateToSetDefault | In its current state, the channel cannot be set as the default channel.
 400 | UserError | InvalidSMSChannelAttributeCombination | The `IsDefault` attribute cannot be provided along with other attributes.
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](index.md)
 * [{#T}](send-request.md)

@@ -46,11 +46,11 @@ You can see an [example](#example) of substitution stages below.
 
 System variable | Description | Possible values
 --- | --- | ---
-`{instance_group.id}` | Instance group ID | String value, e.g., `cl1cd2vd4ohr********`. For more info, see [Getting information about an instance group](../../operations/instance-groups/get-info.md).
-`{instance_group.labels.label_key}` | Value of an instance group's [label](../../../resource-manager/concepts/labels.md) with `label_key` for key. | String value, e.g., `label_value`. For more info, see [Getting information about an instance group](../../operations/instance-groups/get-info.md).
+`{instance_group.id}` | Instance group ID | String value, e.g., `cl1cd2vd4ohr********`. For more information, see [Getting instance group info](../../operations/instance-groups/get-info.md).
+`{instance_group.labels.label_key}` | Value of an instance group's [label](../../../resource-manager/concepts/labels.md) with `label_key` for key. | String value, e.g., `label_value`. For more information, see [Getting instance group info](../../operations/instance-groups/get-info.md).
 `{instance.index}` | Unique instance number in the group. | Values: 1 to N, where N is the number of instances in the group.  
 `{instance.index_in_zone}` | Instance number in the availability zone. It is unique for a specific instance group within a zone. | Values: 1 to N, where N is the number of instances in a single availability zone.
-`{instance.labels.another_label_key}` | Value of a particular instance's label with `another_label_key` for key. | String value, e.g., `another_label_value`. For more info, see [Getting information about a VM](../../operations/vm-info/get-info.md).
+`{instance.labels.another_label_key}` | Value of a particular instance's label with `another_label_key` for key. | String value, e.g., `another_label_value`. For more information, see [Getting instance info](../../operations/vm-info/get-info.md).
 `{instance.short_id}` | Instance ID that is unique within the group. | String value consisting of four alphabetic characters, e.g., `ilum`.
 `{instance.tag}` | Tag of an instance in the group within the availability zone. | Value, specified in the `allocation_policy.zones.instance_tags_pool` field. For more information, see the [Allocation policy](policies/allocation-policy.md).
 `{instance.zone_id}` | Availability zone ID. | Value, specified in the `allocation_policy.zones.zone_id` field. For more information, see the [Allocation policy](policies/allocation-policy.md).

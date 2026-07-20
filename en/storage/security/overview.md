@@ -15,7 +15,7 @@ description: Access management in {{ objstorage-name }}.
 * [Pre-signed URLs](#pre-signed)
 * [{{ vpc-short-name }} service connections](#pe-vpc)
 
-Also, enabled encryption may affect access to buckets and objects in {{ objstorage-name }}. For more information about working with encrypted buckets, see [{#T}](../concepts/encryption.md).
+Also, enabled encryption may affect access to buckets and objects in {{ objstorage-name }}. For more on using encrypted buckets, see [{#T}](../concepts/encryption.md).
 
 The flow chart below shows how these access management methods work together in {{ objstorage-name }}. {#scheme}
 
@@ -47,9 +47,9 @@ The checks follow this algorithm:
 
 ## {{ iam-name }} {#iam}
 
-[{{ iam-name }}](./index.md) is the primary tool for managing access in {{ yandex-cloud }} using roles and [access policies](../../iam/concepts/access-control/access-policies.md). It enables the basic access control policy. For more details, see [{#T}](./index.md#roles-list).
+[{{ iam-name }}](./index.md) is the primary tool for managing access in {{ yandex-cloud }} using roles and [access policies](../../iam/concepts/access-control/access-policies.md). Enables the basic access control functionality. See [{#T}](./index.md#roles-list) for details.
 
-The access grantees include:
+Access grantees:
 * Yandex account
 * [Service account](../../iam/concepts/users/service-accounts.md)
 * [Federated user](../../iam/concepts/users/accounts.md#saml-federation)
@@ -61,7 +61,7 @@ Access is granted for a [cloud](../../resource-manager/concepts/resources-hierar
 
 ## Access control list (ACL) {#acl}
 
-An [access control list (ACL)](./acl.md) is a list of action permissions stored directly in {{ objstorage-name }}. It enables the basic access control policy. ACL permissions for buckets and objects are different; see [{#T}](./acl.md#permissions-types) for details.
+An [access control list (ACL)](./acl.md) is a list of action permissions stored directly in {{ objstorage-name }}. It enables the basic access control policy. ACL permissions for buckets and objects are different. See [{#T}](./acl.md#permissions-types) for details.
 
 {% note info %}
 

@@ -1,6 +1,6 @@
 ---
 title: '{{ cloud-desktop-full-name }} release notes'
-description: This section contains {{ cloud-desktop-name }} release notes.
+description: This section contains the {{ cloud-desktop-name }} release notes.
 ---
 
 # {{ cloud-desktop-name }} release notes

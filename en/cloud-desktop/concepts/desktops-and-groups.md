@@ -19,4 +19,4 @@ A desktop is available to organization users created in [{{ org-full-name }}](..
 
 #### Useful links {#see-also}
 
-* [How to set up remote desktops with {{ cloud-desktop-full-name }}](https://yandex.cloud/ru/blog/remote-workplaces)
+[How to set up remote desktops with {{ cloud-desktop-full-name }}](https://yandex.cloud/ru/blog/remote-workplaces)

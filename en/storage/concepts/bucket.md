@@ -90,7 +90,7 @@ You can:
 
 {% include [intro-access-via-vpc](../../_includes/storage/intro-access-via-vpc.md) %}
 
-For more information on configuring access, see [{#T}](../operations/buckets/access-via-vpc.md).
+For more information on configuring access, see [this article](../operations/buckets/access-via-vpc.md).
 
 
 ## Public access to buckets {#bucket-access}

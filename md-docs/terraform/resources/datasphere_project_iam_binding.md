@@ -63,6 +63,6 @@ for more information about system groups, see [Cloud Documentation](../../iam/co
 
 
 
-- `project_id` (**Required**)(String). The ID of the compute `project` to attach the policy to.
+- `project_id` (**Required**)(String). The ID of the `project` to attach the policy to.
 - `role` (**Required**)(String). The role that should be assigned. Only one yandex_datasphere_project_iam_binding can be used per role.
 - `sleep_after` (Number). For test purposes, to compensate IAM operations delay

@@ -114,8 +114,8 @@ Where:
 
 For a list of common error codes for all actions, see [{#T}](common-errors.md).
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](index.md)
 * [{#T}](send-request.md)
-* [GetSMSAttributes API action](https://docs.aws.amazon.com/sns/latest/api/API_GetSMSAttributes.html) in AWS reference.
+* [GetSMSAttributes API action](https://docs.aws.amazon.com/sns/latest/api/API_GetSMSAttributes.html) in the AWS documentation.

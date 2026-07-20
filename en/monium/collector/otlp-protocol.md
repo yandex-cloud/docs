@@ -24,11 +24,11 @@ Requests are authorized using an API key provided in the `Authorization` header:
 Authorization: Api-Key <API_key>
 ```
 
-The API key is created for a service account with the `monium.telemetry.writer` role. The key must have the `yc.monium.telemetry.write` scope to write any type of telemetry or one or more of the following for granular access: `yc.monium.metrics.write`, `yc.monium.logs.write`, `yc.monium.traces.write`. [Learn more about creating an API key](../../iam/operations/iam-token/create-for-sa.md).
+The API key is created for a service account with the `monium.telemetry.writer` role. The key must have the `yc.monium.telemetry.write` scope to write any type of telemetry or one or more of the following for granular access: `yc.monium.metrics.write`, `yc.monium.logs.write`, `yc.monium.traces.write`. [Learn more about creating an API key](../../iam/operations/authentication/manage-api-keys.md#create-api-key).
 
 ## Headings {#headers}
 
-### Required headers {#required-headers}
+### Mandatory headers {#required-headers}
 
 #|
 || **Header** | **Description** | **Example** ||
@@ -56,7 +56,7 @@ Learn more about sharding parameters in [Basic terms](../concepts/glossary.md#sh
 
 #|
 || **Method** | **HTTP header** | **gRPC** | **Recommendation** ||
-|| No compression. | – | – | For debugging or for a small data stream ||
+|| No compression | – | – | For debugging or for a small data stream ||
 || gzip | `Content-Encoding: gzip` | `grpc-encoding: gzip` | Supported by default ||
 || zstd | `Content-Encoding: zstd` | `grpc-encoding: zstd` | **Recommended**: more efficient in terms of computing resources ||
 |#
@@ -182,7 +182,7 @@ All data point attributes are preserved as {{ monium-name }} metric labels.
 
 {{ monium-name }} supports the **OTLP Protobuf** format for all types of telemetry. The OTLP JSON format is currently supported for logs and traces.
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](otlp-sdk.md)
 * [{#T}](opentelemetry.md)

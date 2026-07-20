@@ -97,7 +97,7 @@ You can edit ARL rules only in an [ARL](../concepts/arl.md) profile. Basic [rule
       }
       ```
 
-      For more information about `yandex_sws_advanced_rate_limiter_profile` properties, see [this provider guide]({{ tf-provider-resources-link }}/sws_advanced_rate_limiter_profile).
+      For more on the properties of the `yandex_sws_advanced_rate_limiter_profile` resource, see [this provider guide]({{ tf-provider-resources-link }}/sws_advanced_rate_limiter_profile).
 
   1. Apply the changes:
 
@@ -111,6 +111,6 @@ You can edit ARL rules only in an [ARL](../concepts/arl.md) profile. Basic [rule
 
 {% endlist %}
 
-### Useful links {#see-also}
+#### Useful links {#see-also}
 
-* [{#T}](rule-delete.md)
+[{#T}](rule-delete.md)

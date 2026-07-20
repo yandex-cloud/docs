@@ -33,6 +33,12 @@ When you create a Windows boot disk image, specify this in the operating system 
 
 {% include [available-image-format](../../_includes/compute/available-image-format.md) %}
 
+## Image as a {{ yandex-cloud }} resource {#image-as-resource}
+
+An image is treated as a resource, similar to a disk. Images are created in folders and inherit their access permissions from the folders in which they reside.
+
+Images consume storage space and are retained indefinitely. Storing images is charged separately. To avoid unnecessary costs, delete unused images. For more information, see [{#T}](../pricing.md).
+
 ## Image family {#family}
 
 If you regularly update your images, you can group them into families. You can use the family name to find the latest image in the family.
@@ -75,6 +81,12 @@ An image can be optimized for frequent VM deployments. This speeds up the deploy
 
 Fast deployment is achieved by using multiple layers for storing data in a storage. The first layer stores the image source data, while the second one stores user data. When creating VM disks from optimized images, the first layer is reused rather than copied to a new storage location every time. Disks created from optimized images run on VMs in the same way as disks created from regular images: they can be used as boot disks and are fully available for data storage. The performance of these disks does not differ from that of regular ones.
 
+{% note warning %}
+
+Deployment optimization is supported only for `network-ssd` and `network-hdd` disk types. While such images will still deploy on [non-replicated SSDs](disk.md#nr-disks) (`network-ssd-nonreplicated`) and [ultra high-speed network storages with three replicas (SSD)](disk.md#disks-types) (`network-ssd-io-m3`), there will be no increase in disk provisioning speed.
+
+{% endnote %}
+
 Regular images from {{ marketplace-name }} are already optimized for deployment. To optimize your image, select the **{{ ui-key.yacloud.compute.images.popup-upload_field_pooled }}** option when uploading the image.
 
 By default, optimized images have a zero [quota](../concepts/limits.md#compute-quotas). To increase the [quota]({{ link-console-quotas }}), contact [support](../../support/overview.md).
@@ -92,3 +104,4 @@ By default, optimized images have a zero [quota](../concepts/limits.md#compute-q
 * [{#T}](../operations/image-create/custom-image.md)
 * [{#T}](../operations/image-control/import.md)
 * [{#T}](../operations/image-control/access.md)
+* [{#T}](../qa/disks.md)

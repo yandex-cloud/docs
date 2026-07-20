@@ -18,4 +18,4 @@ Number of certificates per domain set | 5 per week
 
 #### Useful links {#certificate-manager-see-also}
 
-- [Let's Encrypt documentation: Limits](https://letsencrypt.org/ru/docs/rate-limits/)
+[Let's Encrypt documentation: Limits](https://letsencrypt.org/ru/docs/rate-limits/)

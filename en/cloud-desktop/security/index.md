@@ -1,15 +1,15 @@
 ---
 title: Access management in {{ cloud-desktop-full-name }}
-description: 'Access management in {{ cloud-desktop-full-name }}. Permissions are granted when assigning a role. You can assign a role for an organization, folder, or cloud: all permissions for a cloud or organization are inherited.'
+description: 'Access management in {{ cloud-desktop-full-name }}. Permissions are granted via role assignment. You can assign a role for an organization, folder, or cloud: all permissions for a cloud or organization are inherited.'
 ---
 
 # Access management in {{ cloud-desktop-full-name }}
 
-{{ cloud-desktop-name }} leverages {{ iam-full-name }} roles and [access control lists (ACLs)](../concepts/acl.md) to manage access. [This example](../concepts/acl.md#example) shows how access management works in {{ cloud-desktop-name }}.
+{{ cloud-desktop-name }} leverages {{ iam-full-name }} roles and [access control lists (ACLs)](../concepts/acl.md) to manage access. [Example of using access control mechanisms](../concepts/acl.md#example).
 
-In this section, you will learn:
-* [What resources you can assign a role for](#resources).
-* [Roles existing in this service](#roles-list).
+In this section, you will learn about:
+* [Resources you can assign a role for](#resources).
+* [Roles this service has](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
@@ -19,7 +19,7 @@ In this section, you will learn:
 
 You can assign a role for a [desktop group](../concepts/desktops-and-groups.md) via the [management console]({{ link-console-main }}), {{ yandex-cloud }} [CLI](../../cli/cli-ref/desktops/cli-ref/group/add-access-bindings.md), or [API](../api-ref/authentication.md).
 
-## Roles existing in this service {#roles-list}
+## Roles this service has {#roles-list}
 
 {% include [cloud-desktop](../../_mermaid/roles/cloud-desktop.md) %}
 
@@ -45,7 +45,7 @@ You can assign a role for a [desktop group](../concepts/desktops-and-groups.md) 
 
 {% include [vdi.admin](../../_roles/vdi/admin.md) %}
 
-For more information about service roles, see [{#T}](../../iam/concepts/access-control/roles.md) in the {{ iam-full-name }} documentation.
+To learn more about service roles, see [{#T}](../../iam/concepts/access-control/roles.md) in the {{ iam-full-name }} guides.
 
 ### Primitive roles {#primitive-roles}
 

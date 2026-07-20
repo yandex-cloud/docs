@@ -25,6 +25,8 @@
 
 ## Аутентифицируйтесь в {{ ds-jobs }} {#authentication}
 
+{% include [oaut-unavailable](../../../_includes/iam/oauth-unavailable.md) %}
+
 Чтобы работать с {{ ds-jobs }}, аутентифицируйтесь с аккаунтом на Яндексе или федеративным аккаунтом.
 
 {% list tabs group=authentication %}

@@ -32,7 +32,7 @@ The infrastructure support cost includes:
 
     {% include [sg-common-warning](../security-groups/sg-common-warning.md) %}
 
-1. [Create](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) a {{ managed-k8s-name }} cluster. When creating, specify the preconfigured security groups.
+1. [Create](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) a {{ managed-k8s-name }} cluster. When creating, specify the security groups prepared earlier.
 
 1. {% include [create-node-group](../../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
 

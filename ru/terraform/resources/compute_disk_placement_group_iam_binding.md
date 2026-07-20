@@ -38,7 +38,7 @@ resource "yandex_compute_disk_placement_group_iam_binding" "editor" {
 
 ## Arguments & Attributes Reference
 
-- `disk_placement_group_id` (**Required**)(String). The ID of the compute `disk_placement_group` to attach the policy to.
+- `disk_placement_group_id` (**Required**)(String). The ID of the `disk_placement_group` to attach the policy to.
 - `id` (String). The ID of this resource.
 - `members` (**Required**)(Set Of String). An array of identities that will be granted the privilege in the `role`. Each entry can have one of the following values:
  * **userAccount:{user_id}**: A unique user ID that represents a specific Yandex account.

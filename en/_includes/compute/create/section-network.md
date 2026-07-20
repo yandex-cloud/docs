@@ -15,6 +15,17 @@ Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
     * `{{ ui-key.yacloud.component.compute.network-select.switch_list }}`: To select a public IP address from the list of previously reserved static addresses. For more information, see [{#T}](../../../vpc/operations/set-static-ip.md).
     * `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`: Do not assign a public IP address.
 
+        {% note info %}
+
+        Keep in mind the following features of a VM without a public IP address:
+        * You cannot connect to such a VM from the internet, for example, over SSH.
+        * You can connect to the VM from another VM in the same [cloud network](../../../vpc/concepts/network.md#network) using its private IP address.
+        * To provide outbound internet access to such a VM, use a [NAT gateway](../../../vpc/concepts/gateways.md#nat-gateway) or [NAT instance](../../../tutorials/routing/nat-instance/index.md).
+
+        {% endnote %}
+
+    The use of a public IP address is subject to the [{{ vpc-full-name }} pricing policy](../../../vpc/pricing.md).
+
 * Select [relevant security groups](../../../vpc/concepts/security-groups.md):
 
     * To connect to a virtual machine over `SSH`, the security group must allow incoming network traffic over `TCP` and `UDP` on port `22`.

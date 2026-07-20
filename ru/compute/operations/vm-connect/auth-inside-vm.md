@@ -38,6 +38,7 @@
      yc config profile create my-robot-profile
      ```
 
+
   1. Настройте профиль для запуска команд.
 
      {% include [add-folder](../../../_includes/cli-add-folder.md) %}

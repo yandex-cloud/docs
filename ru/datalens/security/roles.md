@@ -15,6 +15,8 @@ description: В разделе описано, какие роли необхо�
 
 Чтобы предоставить пользователю доступ к {{ datalens-short-name }}, [назначьте](../../organization/security/index.md#add-role) ему одну из ролей. Роли можно назначить аккаунту на Яндексе, [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [федеративным](../../iam/concepts/users/accounts.md#saml-federation) или [локальным](../../iam/concepts/users/accounts.md#local) пользователям, [группе пользователей](../../organization/operations/manage-groups.md), [системной группе](../../iam/concepts/access-control/system-group.md) или [публичной группе](../../iam/concepts/access-control/public-group.md).
 
+{% include [datalens-service-roles](../../_mermaid/roles/datalens-service.md) %}
+
 {% list tabs group=datalens_roles %}
 
 - После перехода на воркбуки и коллекции {#after-workbooks-collections}
@@ -52,6 +54,8 @@ description: В разделе описано, какие роли необхо�
 ## Роли на воркбуки, коллекции и общие объекты {#workbooks-collections-roles}
 
 Эти роли действуют для пользователей, которые перешли на новый подход к организации объектов {{ datalens-short-name }} — в [воркбуках и коллекциях](../workbooks-collections/index.md). Роли позволяют определить уровень доступа для пользователя или группы пользователей к каждому воркбуку, коллекции или общему объекту.
+
+{% include [datalens-workbooks-collections-roles](../../_mermaid/roles/datalens-workbooks-collections.md) %}
 
 ### Роли на воркбуки {#workbook-roles}
 
@@ -114,8 +118,6 @@ description: В разделе описано, какие роли необхо�
 #### datalens.collections.admin {#datalens-collections-admin}
 
 {% include [datalens.collections.admin](../../_roles/datalens/collections/admin.md) %}
-
-Включает разрешения, предоставляемые ролями `datalens.collections.editor` и `datalens.workbooks.admin`.
 
 {% note info %}
 

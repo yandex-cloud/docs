@@ -50,6 +50,7 @@ You can create an empty disk of the specified size.
       ```bash
       yc compute disk create \
         --name first-disk \
+        --zone <availability_zone> \
         --size 10 \
         --description "my first disk via yc" \
         --kms-key-id <key_ID>
@@ -61,6 +62,7 @@ You can create an empty disk of the specified size.
 
           {% include [name-format](../../../_includes/name-format.md) %}
 
+      * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) of the new disk. If the availability zone is not set in the [CLI profile](../../../cli/concepts/core-properties.md) by default, the parameter is required.
       * `--size`: Disk size.
       * `--description`: Disk description.
       * `--kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create an encrypted disk. This is an optional setting.

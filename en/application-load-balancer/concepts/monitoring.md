@@ -29,7 +29,7 @@ For a full list of metrics delivered to {{ monitoring-full-name }}, see the [ref
 
 {{ alb-name }} has aggregate load balancer statistics available. In {{ monitoring-name }} , you can view statistics itemized by the resources associated with the load balancer (HTTP routers, virtual hosts, routes, and the like) as well as [create alerts](../../monitoring/operations/alert/create-alert.md).
 
-For instructions on viewing statistics, see [{#T}](../operations/application-load-balancer-get-stats.md).
+For information on how to view statistics, see [{#T}](../operations/application-load-balancer-get-stats.md).
 
 ## Logging {#logging}
 

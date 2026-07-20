@@ -35,8 +35,8 @@ AWS.SNS.MOBILE.APNS_VOIP.TTL | Lifetime of an incoming VoIP call notification in
 AWS.SNS.MOBILE.APNS_VOIP_SANDBOX.TTL | Lifetime of an incoming VoIP call notification in seconds for apps under testing
 AWS.SNS.MOBILE.APNS.COLLAPSE_ID | ID for multiple notifications that are collapsed into one
 AWS.SNS.MOBILE.APNS.PRIORITY | Notification output priority. A value from `1` to `10`.
-AWS.SNS.MOBILE.APNS.PUSH_TYPE | Notification type. See the [Apple documentation](https://developer.apple.com/documentation/usernotifications/sending-notification-requests-to-apns#Know-when-to-use-push-types) for details.
-AWS.SNS.MOBILE.APNS.TOPIC | Notification topic. See the [Apple documentation](https://developer.apple.com/documentation/usernotifications/sending-notification-requests-to-apns#Send-a-POST-request-to-APNs) for details.
+AWS.SNS.MOBILE.APNS.PUSH_TYPE | Notification type. For more, see [this Apple guide](https://developer.apple.com/documentation/usernotifications/sending-notification-requests-to-apns#Know-when-to-use-push-types).
+AWS.SNS.MOBILE.APNS.TOPIC | Notification topic. For more, see [this Apple guide](https://developer.apple.com/documentation/usernotifications/sending-notification-requests-to-apns#Send-a-POST-request-to-APNs).
 
 #### FCM attributes {#attributes-fcm}
 
@@ -81,7 +81,7 @@ HTTP | Error code | Extended code | Description
 400 | UserError | SMSChannelIsBanned | Attempting to send an SMS using a blocked channel
 400 | UserError | InvalidPhoneNumberRegion | Phone numbers from outside Russia are not supported.
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](index.md)
 * [{#T}](send-request.md)

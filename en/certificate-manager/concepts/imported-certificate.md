@@ -6,7 +6,7 @@ description: In this tutorial, you will learn what a custom certificate is.
 # Custom certificate
 
 {{ certificate-manager-name }} allows you to import certificates provided by third-party authorities and self-signed certificates. To import:
-* A self-signed certificate: Specify the certificate and its private key.
+* A self-signed certificate: Specify the certificate and its private key. 
 * A certificate issued by a third-party certificate authority: Specify the certificate, its private key, and the intermediate certificate chain.
 
 Supported cryptographic algorithms for creating private keys:

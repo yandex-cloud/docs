@@ -35,7 +35,7 @@ description: Follow this guide to update a push notification channel.
       * `--platform-application-arn`: Notification channel ID (ARN).
       * `--attributes`: Comma-separated notification channel parameters you want to update, in `<parameter1>=<new_value1>` format.
 
-      For more information about the `aws sns set-platform-application-attributes` command, see the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/set-platform-application-attributes.html).
+      Learn more about the `aws sns set-platform-application-attributes` command in [this AWS guide](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/set-platform-application-attributes.html).
 
 - AWS SDK for Python {#python}
 
@@ -68,7 +68,7 @@ description: Follow this guide to update a push notification channel.
       $response = $client->setPlatformApplicationAttributes([
           'PlatformApplicationArn' => '<notification_channel_ARN>',
           'Attributes' => [
-              '<parameter_1>' => '<new_value1>',
+              '<parameter1>' => '<new_value1>',
               ...
               '<parameterN>' => '<new_valueN>'
           ],

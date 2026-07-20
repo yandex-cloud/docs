@@ -45,8 +45,8 @@ To create your first bucket in {{ objstorage-name }}:
 1. Choose the default [storage class](concepts/storage-class.md) to use when uploading objects:
     * _Standard storage_ is designed for storing frequently used objects.
     * _Cold storage_ is designed for long-term storage of objects that are rarely read.
-    * _Ice storage_ is designed for objects you need to store for at least one year and which rarely get read requests.
-    * _Intelligent tiering storage_ automatically optimizes costs by moving objects between access levels based on how often they are accessed.
+    * _Ice storage_ is designed for objects you need to store for at least one year and which receive very few read requests.
+    * The _intelligent tiering storage_ automatically optimizes costs by moving objects between access levels based on how often they are accessed.
 1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
 
 ## Uploading files to a bucket {#upload-files}
@@ -73,5 +73,5 @@ To perform operations with buckets and objects, you can use [other tools](tools/
 
 * [{#T}](quickstart/quickstart-aws-cli.md)
 * [Getting started with AWS S3 API in {{ objstorage-full-name }}](./s3/s3-api-quickstart.md)
-* [Webinar: Reducing load on high-traffic infrastructure with Cloud CDN](https://yandex.cloud/ru/events/1489?utm_source=docs&utm_medium=yandex&utm_campaign=infra&utm_content=vebinar&utm_term=cdns3)
+* [Webinar: How to take load off a high-load infrastructure using {{ cdn-name }} and {{ objstorage-name }}](https://yandex.cloud/ru/events/1489?utm_source=docs&utm_medium=yandex&utm_campaign=infra&utm_content=vebinar&utm_term=cdns3)
 

@@ -21,4 +21,4 @@ In {{ cns-name }}, messages to end users are sent through [notification channels
 
 #### Useful links {#see-also}
 
-* [{#T}](./manage-templates.md)
+[{#T}](./manage-templates.md)

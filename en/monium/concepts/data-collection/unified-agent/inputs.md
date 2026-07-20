@@ -48,7 +48,7 @@ Parameter descriptions:
           # Incoming messages are in the prometheus format (https://github.com/prometheus/docs/blob/main/docs/instrumenting/exposition_formats.md).
           prometheus: {}
         
-        metric_name_label:  my_name  # Optional, allows you to rename your application's name label because this name is reserved by the agent.
+        metric_name_label:  my_name  # Optional, allows you to rename your application's `name` label because this name is reserved by the agent.
 
         # Data source polling frequency.
         # Start times are aligned to the grid of the poll_period size starting from the Unix epoch.

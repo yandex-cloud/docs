@@ -85,7 +85,7 @@ To stop an L7 load balancer:
      yc application-load-balancer load-balancer stop <load_balancer_name>
      ```
 
-     For more information about the `application-load-balancer load-balancer stop` command, see this [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/load-balancer/stop.md).
+     For more information about the `application-load-balancer load-balancer stop` command, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/load-balancer/stop.md).
 
 - API {#api}
 
@@ -171,7 +171,7 @@ To start a load balancer:
      yc application-load-balancer load-balancer start <load_balancer_name>
      ```
 
-     For more information about the `application-load-balancer load-balancer start` command, see this [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/load-balancer/start.md).
+     For more information about the `application-load-balancer load-balancer start` command, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/load-balancer/start.md).
 
 - API {#api}
 

@@ -17,7 +17,7 @@ You can back up your {{ compute-name }} [VMs](../../compute/concepts/vm.md) with
 
     {% note warning %}
 
-    Starting August 1, 2026, the [`compute.editor`](../../compute/security/index.md#compute-editor) and [`compute.admin`](../../compute/security/index.md#compute-admin) roles get new permissions that allow them to connect VMs to {{ backup-full-name }}, as well as bind and unbind them from [backup policies](../concepts/policy.md).
+    Starting August 1, 2026, the [compute.editor](../../compute/security/index.md#compute-editor) and [compute.admin](../../compute/security/index.md#compute-admin) roles get new permissions from the [backup.user](../security/index.md#backup-user) role, allowing them to connect VM instances to {{ backup-full-name }}, link and unlink them from [backup policies](../concepts/policy.md).
 
     {% include [denyActivation-iam-policy-pre-notice](../../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
 
@@ -128,7 +128,7 @@ You can back up your {{ compute-name }} [VMs](../../compute/concepts/vm.md) with
       * `--zone`: [Availability zone](../../overview/concepts/geo-scope.md) matching the selected subnet.
       * `subnet-name`: Name of the selected [subnet](../../vpc/concepts/network.md#subnet).
       * `security-group-ids`: ID of the [security group](../../vpc/concepts/security-groups.md) configured to work with {{ backup-name }}.
-      * `image-id`: OS [image ID](../../compute/concepts/image.md). See the [list of supported Linux-based operating systems](../concepts/vm-connection.md#linux).
+      * `image-id`: OS [image ID](../../compute/concepts/image.md). Here is the [list of supported Linux-based operating systems](../concepts/vm-connection.md#linux).
       * `size`: Boot disk size.
       * `--cores`: [Number of vCPUs](../../compute/concepts/vm.md) in the VM.
       * `--core-fraction`: Guaranteed vCPU share, in %.

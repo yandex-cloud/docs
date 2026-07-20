@@ -21,7 +21,7 @@ Value: `CreatePlatformApplication`.||
 || `Name` | **string**
 This is a required field.
 Notification channel name. See the naming requirements in [{#T}](../operations/push/channel-create.md).
-E.g., `com.example.app`.||
+Example: `com.example.app`.||
 
 || `Platform` | **string**
 This is a required field.
@@ -37,17 +37,17 @@ The possible values are:
 || `FolderId` | **string**
 Required field when authenticating via an IAM token.
 [ID of the folder](../../resource-manager/operations/folder/get-id.md) the notification channel is created in. When authenticating via a static service account key, if FolderId is not specified, the channel is created in the same folder as the service account.
-E.g., `b1gsm0k26v1l********`.||
+Example: `b1gsm0k26v1l********`.||
 
 || `Attributes.entry.N.key` | **string**
 This is a required field.
 Attribute key. `N` is a numeric value.
-E.g., `Attributes.entry.1.key=PlatformPrincipal&Attributes.entry.2.key=PlatformCredential`.||
+Example: `Attributes.entry.1.key=PlatformPrincipal&Attributes.entry.2.key=PlatformCredential`.||
 
 || `Attributes.entry.N.value` | **string**
 This is a required field.
 Attribute value. `N` is a numeric value.
-E.g., `Attributes.entry.1.value=c8gzjriSVxDDzX2fAV********&Attributes.entry.2.value=CgB6e3x9iW/qiE9l9wAUPK0e/bJQe5uIgTlYUD4bP********`.||
+Example: `Attributes.entry.1.value=c8gzjriSVxDDzX2fAV********&Attributes.entry.2.value=CgB6e3x9iW/qiE9l9wAUPK0e/bJQe5uIgTlYUD4bP********`.||
 
 || `ResponseFormat` | **string**
 Response format.
@@ -93,7 +93,7 @@ Attribute | Description
 `PlatformPrincipal` | **string**<br/>Project ID.
 `PlatformCredential` | **string**<br/> Service token.
 
-For more information about authentication attributes, see the [Mobile push notification channels](../concepts/push.md) subsection.
+Authentication attributes are described in [Mobile push notification channels](../concepts/push.md).
 
 ## Response {#response}
 
@@ -192,7 +192,7 @@ HTTP | Error code | Extended code | Description
 400 | InvalidParameter | AppAlreadyExists | A mobile push notification channel with such name and platform already exists.
 400 | InvalidParameter | DeletedAppAlreadyExists | You cannot use the name and platform to create a new mobile push notification channel because a channel with the same parameters was recently deleted, and the mobile platform data has not yet been updated.
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](index.md)
 * [{#T}](send-request.md)

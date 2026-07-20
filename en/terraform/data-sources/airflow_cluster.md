@@ -41,6 +41,8 @@ data "yandex_airflow_cluster" "airflow_cluster_by_id" {
 - `dag_processor` [Block]. Configuration of dag-processor instances. Only for airflow version 3.*.
   - `count` (**Required**)(Number). The number of dag-processor instances in the cluster.
   - `resource_preset_id` (**Required**)(String). The identifier of the preset for computational resources available to an instance (CPU, memory etc.).
+- `datacatalog` [Block]. Configuration of Datacatalog integration.
+  - `enabled` (**Required**)(Bool). Enables integrations with Datacatalog.
 - `deb_packages` (Set Of String). System packages that are installed in the cluster.
 - `deletion_protection` (Bool). The `true` value means that resource is protected from accidental deletion.
 - `description` (String). The resource description.

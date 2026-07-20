@@ -107,7 +107,7 @@ Where:
    node --require @opentelemetry/auto-instrumentations-node/register app.js
    ```
 
-## Limitations {#limitations}
+## Limits {#limitations}
 
 Automatic instrumentation covers only those operations for which ready-to-use libraries exist. It does not create spans for:
 

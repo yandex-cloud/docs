@@ -51,8 +51,8 @@
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Kyverno выполните команду:
 
    ```bash
-   helm pull oci://cr.yandex/yc-marketplace/multi-kyverno \
-     --version 1.0.0 \
+   helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/kyverno/charts/kyverno \
+     --version 3.8.1 \
      --untar && \
    helm install \
      --namespace <пространство_имен> \

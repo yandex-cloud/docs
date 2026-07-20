@@ -15,7 +15,7 @@ description: '{{ cns-name }} ({{ cns-short-name }}): Service for multichannel us
 
 Get started with [push notifications](quickstart-push.md) or [SMS](quickstart-sms.md).
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [Getting started with the service via the AWS CLI](./tools/aws-cli.md)
 * [Service overview](./concepts/index.md)

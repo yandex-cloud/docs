@@ -40,7 +40,7 @@ This subsection presents the minimum and maximum computing resource configuratio
 
 {% note info %}
 
-The option with simultaneous maximum configuration of all computing resources is not available for all platforms. For more information, see [Available configurations](#available-configurations).
+The option with simultaneous maximum configuration of all computing resources is not available for all platforms. See [Available configurations](#available-configurations) for details.
 
 {% endnote %}
 

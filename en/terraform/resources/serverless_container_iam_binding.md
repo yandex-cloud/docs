@@ -31,7 +31,7 @@ resource "yandex_serverless_container_iam_binding" "container-iam" {
 
 ## Arguments & Attributes Reference
 
-- `container_id` (**Required**)(String). The ID of the compute `container` to attach the policy to.
+- `container_id` (**Required**)(String). The ID of the `container` to attach the policy to.
 - `id` (String). The ID of this resource.
 - `members` (**Required**)(Set Of String). An array of identities that will be granted the privilege in the `role`. Each entry can have one of the following values:
  * **userAccount:{user_id}**: A unique user ID that represents a specific Yandex account.

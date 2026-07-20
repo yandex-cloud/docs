@@ -57,9 +57,9 @@ Where:
 
   * `name` (`string`; this is a required field)
 
-    Resource name. For more on the format, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Resource name. The format is described in [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
   
-    This name should be specified in the `spec.rules.http.paths.backend.resource.name` field of the `Ingress` resource (see [this configuration]({{ configuration-local-link }}/ingress.md)).
+    This name should be specified in the `spec.rules.http.paths.backend.resource.name` field of the [`Ingress` resource]({{ configuration-local-link }}/ingress.md).
 
     Do not mistake this name for the {{ alb-name }} backend group name.
 
@@ -101,7 +101,7 @@ Where:
         
     * `storageBucket` (`StorageBucketBackend`)
 
-      [{{ objstorage-full-name }} bucket](../../../storage/concepts/bucket.md) for processing requests as a backend. To learn more about using a bucket as a backend, see [{#T}](../../../application-load-balancer/concepts/backend-group.md#types).
+      [{{ objstorage-full-name }} bucket](../../../storage/concepts/bucket.md) for processing requests as a backend. For information on using a bucket as a backend, see [{#T}](../../../application-load-balancer/concepts/backend-group.md#types).
 
       {% include [bucket-availability-note](../../../application-load-balancer/_includes_service/bucket-availability-note.md) %}
 

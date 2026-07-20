@@ -451,12 +451,12 @@ You can find the prerequisites and an AWS SDK for Java installation guide in the
 
     Where:
 
-    * `stringValue`: Sender's text name
-    * `phoneNumber`: Recipient's phone number
-    * `message`: Notification text
+    * `stringValue`: Sender's text name.
+    * `phoneNumber`: Recipient's phone number.
+    * `message`: Notification text.
 
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [Getting started](../quickstart.md)
 * [AWS CLI](aws-cli.md)

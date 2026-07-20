@@ -46,7 +46,9 @@
 
 : Получатель запрошенного разрешения (субъект). Это может быть пользователь {{ iam-short-name }}, [федеративный пользователь](../../../iam/concepts/federations.md), [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), анонимный пользователь или [группа пользователей](../../../organization/concepts/groups.md). Возможные значения:
     * `"*"`.
-    * `"CanonicalUser": "<идентификатор_субъекта>"`. 
+    * `"CanonicalUser": "<идентификатор_субъекта>"`.
+
+    {% include [canonical-user-identification](../../../_includes/storage/canonical-user-identification.md) %}
 
 
 Условие

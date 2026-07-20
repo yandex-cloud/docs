@@ -1,9 +1,9 @@
 ---
-title: Handling errors
+title: Error handling
 description: In this article, you will learn about known errors that occur when sending audit logs to trail destination objects. Follow the suggested recommendations to get the trail back to normal.
 ---
 
-# Handling errors
+# Error handling
 
 
 If a trail is unable to send audit logs to the [destination object](../concepts/trail.md#target), its [status](../concepts/trail.md#status) will change to `Error`. This guide contains recommendations on how get the trail back to normal.
@@ -100,6 +100,6 @@ Check the log group specified in the [trail settings](../concepts/trail.md#trail
 
 Contact [support]({{ link-console-support }}) for additional information and recommendations.
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
-* [{#T}](../../iam/operations/sa/assign-role-for-sa.md)
+[{#T}](../../iam/operations/sa/assign-role-for-sa.md)

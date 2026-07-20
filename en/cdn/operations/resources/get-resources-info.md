@@ -88,7 +88,7 @@ title: How to get information about a resource in {{ cdn-full-name }}
       * `output "resource_active"`: Output variable that shows whether the CDN resource is active:
          * `value`: Return value.
 
-     You can replace `active` with any other parameter to get the information you need. For more information about the `yandex_cdn_resource` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/cdn_resource).
+     You can replace `active` with another variable to get the information you need. For more on the properties of the `yandex_cdn_resource` data source, see [this provider guide]({{ tf-provider-datasources-link }}/cdn_resource).
 
   1. Create the resources:
 
@@ -121,7 +121,7 @@ title: How to get information about a resource in {{ cdn-full-name }}
   1. In the [management console]({{ link-console-main }}), select the folder containing your resource.
   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. Select the CDN resource you created.
-  1. Under **{{ ui-key.yacloud.cdn.label_dns-settings_title }}** on the **{{ ui-key.yacloud.common.overview }}** page, you will see a domain name in `{{ cname-example-yc }}` format.
+  1. Under **{{ ui-key.yacloud.common.overview }}** on the **{{ ui-key.yacloud.cdn.label_dns-settings_title }}** page, you will see a domain name in `{{ cname-example-yc }}` format.
 
 - {{ TF }} {#tf}
 
@@ -150,7 +150,7 @@ title: How to get information about a resource in {{ cdn-full-name }}
       * `output "provider_cname"`: Output variable that contains information about the domain name:
          * `value`: Return value.
 
-     You can replace `provider_cname` with any other parameter to get the information you need. For more information about the `yandex_cdn_resource` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/cdn_resource).
+     You can replace `provider_cname` with another variable to get the information you need. For more on the properties of the `yandex_cdn_resource` data source, see [this provider guide]({{ tf-provider-datasources-link }}/cdn_resource).
 
   1. Get information about resources:
 

@@ -15,6 +15,8 @@ There are two types of roles in {{ datalens-short-name }}:
 
 To grant a user access to {{ datalens-short-name }}, [assign](../../organization/security/index.md#add-role) them a role. You can assign roles to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated](../../iam/concepts/users/accounts.md#saml-federation) or [local](../../iam/concepts/users/accounts.md#local) users, [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md).
 
+{% include [datalens-service-roles](../../_mermaid/roles/datalens-service.md) %}
+
 {% list tabs group=datalens_roles %}
 
 - After switching to workbooks and collections {#after-workbooks-collections}
@@ -52,6 +54,8 @@ To grant a user access to {{ datalens-short-name }}, [assign](../../organization
 ## Roles for workbooks, collections, and shared objects {#workbooks-collections-roles}
 
 These roles are valid for users who adopted the new {{ datalens-short-name }} object layout: in [workbooks and collections](../workbooks-collections/index.md). Roles allow you to define the level of access a user or group of users has to each workbook, collection, or shared object.
+
+{% include [datalens-workbooks-collections-roles](../../_mermaid/roles/datalens-workbooks-collections.md) %}
 
 ### Roles for workbooks {#workbook-roles}
 
@@ -114,8 +118,6 @@ You can [assign](../workbooks-collections/collections-operations.md#wb-coll-gran
 #### datalens.collections.admin {#datalens-collections-admin}
 
 {% include [datalens.collections.admin](../../_roles/datalens/collections/admin.md) %}
-
-This role includes the `datalens.collections.editor` and `datalens.workbooks.admin` permissions.
 
 {% note info %}
 

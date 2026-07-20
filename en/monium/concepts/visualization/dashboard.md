@@ -86,6 +86,6 @@ Parameter-based chart repetition allows you to build multiple similar charts wit
 
 For example, configure repetition based on the `host` parameter to view CPU load charts for each VM. As a result, you will create separate charts for each VM to localize the problem easier. By adding the `cpu` parameter, you can build usage charts for each vCPU of a VM.
 
-For VMs, we recommend you to regularly monitor such parameters as CPU usage, memory usage, and disk errors.
+For VMs, we recommend you to regularly monitor such parameters as CPU and RAM utilization and disk errors.
 
-For more information about chart repetition, see [{#T}](../../operations/dashboard/add-parameters.md#repeated-graphs).
+For chart repetition settings, see [{#T}](../../operations/dashboard/add-parameters.md#repeated-graphs).

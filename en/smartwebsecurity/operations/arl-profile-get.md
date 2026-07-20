@@ -41,7 +41,7 @@ description: Follow this guide to get information about a {{ sws-full-name }} AR
      * `output "profile-created"`: Output variable that contains information about the ARL profile creation timestamp:
        * `value`: Return value.
 
-     You can replace `created_at` with any other parameter to get the information you need. For more information about the `yandex_sws_advanced_rate_limiter_profile` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/sws_advanced_rate_limiter_profile).
+     You can replace `created_at` with another variable to get the information you need. For more on the properties of the `yandex_sws_advanced_rate_limiter_profile` data source, see [this provider guide]({{ tf-provider-datasources-link }}/sws_advanced_rate_limiter_profile).
 
   1. Create the resources:
 

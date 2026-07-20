@@ -12,7 +12,7 @@ To use alerting:
 * [Add alerting rules](#alerting-rule-add).
 * [Set up Alert Manager](#alert-manager-set) to process and deliver notifications.
 
-This section describes some aspects of alerting rules and Alert Manager configuration. For file management, see [{#T}](./recording-rules.md).
+This section describes some aspects of alerting rules and Alert Manager configuration. For file management, see [this section](./recording-rules.md).
 
 You can set up alerting via the [management console]({{ link-console-main }}) or API.
 
@@ -125,7 +125,7 @@ Once you create the alerting rules, they will start to be computed to generate t
 
 You can monitor alert statuses in the [management console]({{ link-monitoring }}), on a separate tab: **{{ prometheus-name }}** → **{{ ui-key.yacloud_monitoring.prometheus.managing-rule.tabs.alerts }}**.
 
-For more on file operations and rule computation, see [{#T}](./recording-rules.md).
+For file operations and rule computation, see [this article](./recording-rules.md).
 
 ## Setting up Alert Manager {#alert-manager-create}
 
