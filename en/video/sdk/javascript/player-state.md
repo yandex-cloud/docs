@@ -121,7 +121,9 @@ A player state is an object with the following fields:
 * [bufferedRanges](#state-bufferedRanges)
 * [isFullscreen](#state-isFullscreen)
 * [textTracks](#state-textTracks)
-* [textTrack](#state-textTrack).
+* [textTrack](#state-textTrack)
+* [videoTracks](#state-videoTracks)
+* [videoTrack](#state-videoTrack)
 
 #### source {#state-source}
 
@@ -225,7 +227,7 @@ The default value is `undefined`.
 
 [Seekable range](#seekable-range-desc).
 
-The default value is `{ start: NaN, end: NaN }`.
+Default value: `{ start: NaN, end: NaN }`.
 
 #### bufferedRanges {#state-bufferedRanges}
 
@@ -275,6 +277,43 @@ The object format is similar to that of [textTracks](#state-textTracks) array it
 
 The default value is `null`.
 
+#### videoTracks {#state-videoTracks}
+
+Array of available video tracks. Each item is an object in the following format:
+
+```javascript
+{
+    /** @type {string} Track name displayed in the interface */
+    name,
+    /** @type {string} Track ID used for changing via setVideoTrack */
+    value,
+    /** @type {number} Video bitrate in Kbps */
+    bitrate,
+    /** @type {number} Video [width] */
+    width,
+    /** @type {number} Video [height] */
+    height,
+    /** @type {boolean} If [auto] true, quality is selected automatically by the player; if false, quality is set manually or via API */
+    auto,
+    /** @type {number} [frameRate] Number of frames per second */
+    frameRate,
+    /** @type {string} [codecs] */
+    codecs,
+}
+```
+
+The default value is an empty array (`[]`).
+
+#### videoTrack {#state-videoTrack}
+
+Current video track. If `null`, the player has not yet selected a track (e.g., until ready).
+
+In auto selection mode, a track object with an `auto: true` field is returned.
+
+The object format matches the format of [videoTracks](#state-videoTracks) array items.
+
+The default value is `null`.
+
 #### Useful links {#see-also}
 
-* [Interface: PlayerSdkState](../../api-ref/javascript/interfaces/PlayerSdkEventHandlers.md) in the API reference
+[Interface: PlayerSdkState](../../api-ref/javascript/interfaces/PlayerSdkState.md): Description of player state parameters in the API reference

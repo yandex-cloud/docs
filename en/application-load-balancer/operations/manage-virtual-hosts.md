@@ -98,7 +98,7 @@ To create a virtual host:
 
       {% endlist %}
 
-      Learn more about the properties of {{ TF }} resources in the relevant provider guide: [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host).
+      The properties of the resources are covered in this {{ TF }} provider guide: [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host).
 
   1. Create the resources:
 
@@ -287,7 +287,7 @@ To update a virtual host:
 
       {% endlist %}
 
-      Learn more about the properties of {{ TF }} resources in the relevant provider guide: [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host).
+      The properties of the resources are covered in this {{ TF }} provider guide: [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host).
   1. Update the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

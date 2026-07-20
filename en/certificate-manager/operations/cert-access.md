@@ -40,13 +40,13 @@ To grant an individual user, user group, or [service account](../../iam/concepts
       +----------------------+--------+-------------+---------------------+----------+---------+
       ```
 
-  1. Check what roles are currently assigned for the resource in question:
+  1. View the list of roles already assigned for the resource:
 
       ```bash
       yc certificate-manager certificate list-access-bindings <certificate_ID>
       ```
 
-  1. Assign the role using this command:
+  1. Assign a role using this command:
 
       * To a user:
 
@@ -98,7 +98,7 @@ To grant an individual user, user group, or [service account](../../iam/concepts
       * `role`: [Role](../security/index.md#roles-list) to assign.
       * `member`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-       For more information about the `yandex_cm_certificate_iam_member` resource properties, see [this provider guide]({{ tf-provider-resources-link }}/cm_certificate_iam_member).
+       For more on the properties of the `yandex_cm_certificate_iam_member` resource, see [this provider guide]({{ tf-provider-resources-link }}/cm_certificate_iam_member).
 
   1. Create the resources:
 
@@ -196,7 +196,7 @@ To grant an individual user, user group, or [service account](../../iam/concepts
       * `role`: [Role](../security/index.md#roles-list) to assign.
       * `member`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-       For more information about the `yandex_cm_certificate_iam_member` resource properties, see [this provider guide]({{ tf-provider-resources-link }}/cm_certificate_iam_member).
+       For more on the properties of the `yandex_cm_certificate_iam_member` resource, see [this provider guide]({{ tf-provider-resources-link }}/cm_certificate_iam_member).
 
   1. Create the resources:
 

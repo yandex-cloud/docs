@@ -37,7 +37,7 @@ description: Follow this guide to update or delete an endpoint.
         * `Token`: [PushSubscription](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription) object obtained through the user's browser, in [JSON](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription/toJSON) format.
         * `CustomUserData`: Additional information.
 
-      For more information about the `aws sns set-endpoint-attributes` command, see the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/set-endpoint-attributes.html).
+      Learn more about the `aws sns set-endpoint-attributes` command in [this AWS guide](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/set-endpoint-attributes.html).
 
 - AWS SDK for Python {#python}
 
@@ -108,7 +108,7 @@ Updating an endpoint may take some time.
 
       Where `--endpoint-arn` is the endpoint ID (ARN).
 
-      For more information about the `aws sns delete-endpoint` command, see the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/delete-endpoint.html).
+      Learn more about the `aws sns delete-endpoint` command in [this AWS guide](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/delete-endpoint.html).
 
 - AWS SDK for Python {#python}
 

@@ -75,14 +75,14 @@ To migrate data to a {{ mgl-name }} instance:
    1. If you used a [custom domain name]({{ gl.docs }}/administration/dedicated/configure_instance/network_security/#custom-domains) for your custom installation and want to keep it, provide that domain name to the support team. They will configure it for your {{ mgl-name }} instance.
    1. In your custom installation, [configure]({{ gl.docs }}/omnibus/settings/dns/) a `CNAME` DNS record to forward users from the {{ mgl-name }} [instance domain](../../concepts/index.md#config) to your custom domain.
 
-### Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/migration.md)
 * [{#T}](../../concepts/index.md)
 * [{#T}](instance-create.md)
 * [{#T}](instance-list.md)
 
-### {{ GL }} guides {#gl-docs}
+#### {{ GL }} guides {#gl-docs}
 
 * [Import and export settings]({{ gl.docs }}/administration/settings/import_and_export_settings/)
 * [Migrate {{ GL }} data by using file exports]({{ gl.docs }}/user/project/settings/import_export/)

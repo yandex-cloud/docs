@@ -39,7 +39,7 @@ To push changes to a {{ mgl-name }} repository, [assign]({{ gl.docs }}/ee/user/p
 
 Users with the `Guest` and `Reporter` roles cannot push changes.
 
-For more information about roles, see the [this {{ GL }} article]({{ gl.docs }}/ee/user/permissions.html).
+Learn more about roles in [this {{ GL }} guide]({{ gl.docs }}/ee/user/permissions.html).
 
 #### I get `500 Internal Server Error` when trying to open my instance. What could be the issue?
 
@@ -58,7 +58,7 @@ You can monitor your disk space usage:
 * In the management console using the [instance state monitoring](../../managed-gitlab/operations/instance/monitoring.md#view-graphs) tools.
 * In [{{ monitoring-full-name }}](../../monitoring/concepts/index.md), where you also can [set up alerts](../../managed-gitlab/operations/instance/monitoring.md#monitoring-integration) for specified metrics.
 
-#### How can I configure an alert for when disk usage reaches a certain percentage? {#alert-for-disk-space}
+#### How do I configure an alert for when disk space usage reaches a certain percentage? {#alert-for-disk-space}
 
 See [Setting up alerts in {{ monitoring-name }} for {{ mgl-name }}](../../managed-gitlab/operations/instance/monitoring.md#monitoring-integration).
 

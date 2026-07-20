@@ -39,6 +39,12 @@
 Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе WebSQL.
 
 ```mermaid
+%%{
+  init: {
+    "flowchart": { "defaultRenderer": "elk" },
+    "elk": { "nodePlacementStrategy": "BRANDES_KOEPF" }
+  }
+}%%
 flowchart BT
     websql.executedQueries.editor --> websql.editor
     websql.user --> websql.editor

@@ -22,7 +22,7 @@ output "permissions" {
 
 ## Arguments & Attributes Reference
 
-- `auth_method` (*Read-Only*) (String). Authentication method for the user. Possible values are `password`, `iam`. Default is `password`.
+- `auth_method` (String). Authentication method for the user. Possible values are `password`, `iam`. Default is `password`.
 - `cluster_id` (**Required**)(String). ID of the ClickHouse cluster. Provided by the client when the user is created.
 - `connection_manager` [Block]. Connection Manager connection configuration. Filled in by the server automatically.
   - `connection_id` (*Read-Only*) (String). ID of Connection Manager connection. Filled in by the server automatically. String.
@@ -208,4 +208,5 @@ If the parameter is set to 0 (default), no hops is allowed.
   - `use_uncompressed_cache` (Bool). Whether to use a cache of uncompressed blocks.
   - `wait_for_async_insert` (Bool). Enables waiting for processing of asynchronous insertion. If enabled, server returns OK only after the data is inserted.
   - `wait_for_async_insert_timeout` (Number). The timeout (in seconds) for waiting for processing of asynchronous insertion. Value must be at least 1000 (1 second).
+
 

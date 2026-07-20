@@ -87,7 +87,7 @@ To add a domain you will need:
 
 After adding a domain [create a security profile](profile-create.md) and [connect](host-connect.md) it to the domain.
 
-### Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](proxy-create.md)
 * [{#T}](profile-create.md)

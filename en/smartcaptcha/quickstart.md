@@ -21,7 +21,7 @@ If you are having problems configuring {{ captcha-name }}:
 
 ## Getting started {#before-begin}
 
-1. Open the [management console]({{ link-console-main }}). Log in to {{ yandex-cloud }} or sign up if you have not already.
+1. Navigate to the [management console]({{ link-console-main }}). Log in to {{ yandex-cloud }} or sign up if you have not already.
 1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have an `ACTIVE` or `TRIAL_ACTIVE` [billing account](../billing/concepts/billing-account.md). If you do not have a billing account, [create one](../billing/quickstart/index.md).
 
 
@@ -43,7 +43,7 @@ If you are having problems configuring {{ captcha-name }}:
     1. Specify the default CAPTCHA settings or keep the existing ones:
        1. [Main challenge](./concepts/tasks.md#main-task): The first challenge given to the user.
        1. [Additional challenge](./concepts/tasks.md#additional-task): This challenge appears if the first challenge results are suspicious, or if the CAPTCHA is set to maximum difficulty.
-       1. [Difficulty level](./concepts/tasks.md#task-difficulty), `{{ ui-key.yacloud.smartcaptcha.value_complexity-medium }}`.
+       1. Select the [difficulty level](./concepts/tasks.md#task-difficulty), `{{ ui-key.yacloud.smartcaptcha.value_complexity-medium }}`.
 
          You can add [challenge options](concepts/captcha-variants.md) and configure incoming traffic rules to show different CAPTCHAs to different users. In this example, you will configure a single CAPTCHA that will apply by default to all users.
 
@@ -64,7 +64,7 @@ If you are having problems configuring {{ captcha-name }}:
     * **{{ ui-key.yacloud.smartcaptcha.label_client-key }}**: Required for adding a {{ captcha-name }} widget to the your website or HTML page.
     * **{{ ui-key.yacloud.smartcaptcha.label_server-key }}**: Required to [check the user’s response](#check-answer).
 
-    Store the keys in a secure place.
+    Store them in a secure place.
 
     ![step4-get-keys](../_assets/smartcaptcha/quickstart/step4-get-keys.png)
 
@@ -281,7 +281,7 @@ Token validation function example:
 
 The service will respond with a JSON object containing the following fields:
 
-* `status`: Validation result, `ok` or `failed`. If the validation is successful, the JSON object is updated with the `host` field indicating the website where validation took place.
+* `status`: Validation result, `ok` or `failed`. If validation succeeds, the JSON object will include the `host` field, indicating the website where the validation took place.
 * `message`: Validation message, e.g., `Invalid or expired Token`.
 
 To process responses correctly, refer to their `status` field. Use the `message` field for diagnostic purposes only.
@@ -302,7 +302,7 @@ See [Advanced widget settings](./concepts/widget-methods.md).
 
 Make sure the domain is listed among allowed websites in the CAPTCHA settings.
 
-## See also {#links}
+## Useful links {#links}
 
 * [Widget integration methods](./concepts/widget-methods.md)
 * [Style customization options](./concepts/captcha-variants.md)

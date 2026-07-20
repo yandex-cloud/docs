@@ -123,9 +123,9 @@ During [instance type](../../concepts/index.md#config) or disk size update, your
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      For more information about creating this file, see [Creating a {{ GL }} instance](instance-create.md#create).
+      For information on how to create this file, see [Creating a {{ GL }} instance](instance-create.md#create).
 
   1. Change the parameter values in the {{ GL }} instance description:
 
@@ -161,7 +161,7 @@ During [instance type](../../concepts/index.md#config) or disk size update, your
       * `backup_retain_period_days`: Automatic backup retention period, in days.
       * `deletion_protection`: Instance protection against accidental deletion by users. The possible values are `true` or `false`.
 
-      For more information about `yandex_gitlab_instance` properties, see [this provider guide]({{ tf-provider-resources-link }}/gitlab_instance).
+      For more on the properties of the `yandex_gitlab_instance` resource, see [this provider guide]({{ tf-provider-resources-link }}/gitlab_instance).
 
   1. Make sure the settings are correct.
 

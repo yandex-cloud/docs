@@ -1,5 +1,33 @@
 [Документация Yandex Cloud](../index.md) > [Terraform в Yandex Cloud](index.md) > Справочник Terraform > История изменений (англ.)
 
+## 0.218.0 (July 20, 2026)
+##### FEATURES:
+* trino: add `protocol` and `rest_uri` options to `metastore` in `yandex_trino_catalog` iceberg connector for Iceberg REST Catalog support
+##### BUG FIXES:
+* serverless: fixed in-place specification updates for yandex_serverless_workflow
+* opensearch: fixed xor check for `disk_size` and `disk_size_gb`
+* fix: opensearch sweeper
+
+## 0.217.0 (July 16, 2026)
+##### FEATURES:
+* postgresql: add write-only `password_wo` and `password_wo_version` attributes to set password without storing it in state
+* smartwebsecurity: add MatchList into piblic terraform + update public terraform for SecurityProfile, ARL, WAF
+* cloudregistry: add `yandex_cloudregistry_scan_policy` resource and datasource
+* trino: add `managed_cluster_id` option to `metastore` in `yandex_trino_catalog` resource and data source
+##### BUG FIXES:
+* storage: yandex_storage_bucket_iam_binding is now removed from state when the bucket is deleted outside terraform, instead of failing refresh
+* iam: destroying a yandex_*_iam_binding or yandex_*_iam_member no longer emits a bogus warning about missing bindings
+
+## 0.216.0 (July 13, 2026)
+##### FEATURES:
+* yandex_mdb_mongodb: support autocompact config settings
+* compute: added new data source and resource yandex_compute_reserved_instance_pool
+* airflow: datacatalog integration settings has been added
+##### ENHANCEMENTS:
+* compute: added `reserved_instance_pool_id` option to instance`
+##### WARNING:
+* mdb_clickhouse: mdb_clickhouse_cluster v1 deprecation
+
 ## 0.215.0 (July 9, 2026)
 ##### FEATURES:
 * yandex_mdb_mongodb_user: support creating IAM users via new `auth_type` attribute (`PASSWORD` or `IAM`)

@@ -1,4 +1,4 @@
-# Handling errors
+# Error handling
 
 When an operation throws an exception, a span must log the `ERROR` status and the `exception` event with the error details. Spans with the `ERROR` status are highlighted in the {{ traces-name }} interface and can be filtered.
 

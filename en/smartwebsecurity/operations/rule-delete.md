@@ -327,7 +327,7 @@ You can delete basic rules, as well as Smart Protection and WAF rules, from a [s
       }
       ```
 
-      For more information about `yandex_sws_security_profile` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/sws_security_profile).
+      For more on the properties of the `yandex_sws_security_profile` resource, see [this provider guide]({{ tf-provider-resources-link }}/sws_security_profile).
 
   1. Create the resources:
 

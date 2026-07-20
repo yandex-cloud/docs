@@ -10,9 +10,9 @@ By default, all data on {{ compute-name }} [disks](../../compute/concepts/disk.m
 
 We also recommend encrypting disks, [snapshots](snapshot.md), and [images](image.md) using custom {{ kms-full-name }} [symmetric keys](../../kms/concepts/key.md). This approach allows you to:
 * Protect yourself against potential threats of isolation breach and data compromise at the virtual infrastructure level.
-* Control and manage the encryption and lifecycle of {{ kms-short-name }} keys. See [{#T}](../../kms/operations/key.md).
-* Improve data access control for your disk by requiring permissions for {{ kms-short-name }} keys. See [{#T}](../../kms/operations/key-access.md).
-* Follow encryption and decryption operations performed using your {{ kms-short-name }} key with the help of {{ at-full-name }}. See [Key usage audit](../../kms/concepts/index.md#keys-audit).
+* Control the encryption and lifecycle of and manage {{ kms-short-name }} keys. For more information, see [{#T}](../../kms/operations/key.md).
+* Level up you disk data access control by setting permissions for the {{ kms-short-name }} key. For more information, see [{#T}](../../kms/operations/key-access.md).
+* Use {{ at-full-name }} to follow the encryption and decryption operations performed with your {{ kms-short-name }} key. For more information, see [Key usage audit](../../kms/concepts/index.md#keys-audit).
 
 You can encrypt the following types of disks:
 * Network SSD (`network-ssd`)

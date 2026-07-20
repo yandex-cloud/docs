@@ -72,6 +72,8 @@ resource "yandex_vpc_subnet" "foo" {
 - `login` (Bool). User's ability to login.
 - `name` (**Required**)(String). The name of the PostgreSQL user.
 - `password` (String). The password of the user.
+- `password_wo` (String). The password of the user. This attribute is write-only and is not stored in state. Requires `password_wo_version` to trigger updates. Write-only arguments are only supported in Terraform v1.11 or higher
+- `password_wo_version` (Number). A version number for the write-only password. Increment this to trigger a password update.
 - `settings` (Map Of String). Map of user settings. [Full description](../../managed-postgresql/api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.UserSettings).
 
   - `default_transaction_isolation` - defines the default isolation level to be set for all new SQL transactions. One of:

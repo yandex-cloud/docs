@@ -55,7 +55,7 @@ To create an endpoint:
 - Management console {#console}
 
   1. Select the notification channel you previously created.
-  1. Navigate to the ![image](../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.cns.label_endpoints }}** tab.
+  1. Navigate to the ![image](../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.cns.label_endpoints }}** tab.
   1. Click **{{ ui-key.yacloud.cns.action_create-endpoint }}**.
   1. Enter **{{ ui-key.yacloud.cns.field_token }}**, a unique token residing on the user device, created by the notification service for the app.
   1. Optionally, enter **{{ ui-key.yacloud.cns.field_endpoint-user-data }}**, a [UTF-8](https://en.wikipedia.org/wiki/UTF-8) encoded text up to 2,048 characters long.
@@ -82,7 +82,7 @@ To create an endpoint:
 
 {% endlist %}
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [Getting started with SMS](quickstart-sms.md)
 * [Getting started with the service via the AWS CLI](./tools/aws-cli.md)

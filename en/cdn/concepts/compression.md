@@ -24,4 +24,4 @@ The MIME type is determined by the `Content-Type` HTTP header value in the origi
 
 #### Useful links {#see-also}
 
-* [Instructions for enabling file compression](../operations/resources/enable-compression.md).
+[Guide on enabling compression](../operations/resources/enable-compression.md).

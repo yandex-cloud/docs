@@ -129,9 +129,9 @@ To enable [compression](../../concepts/compression.md) of [resource](../../conce
       * The `options` section contains additional parameters of CDN resources:
          * `gzip_on`: Flag indicating whether compression will be used.
 
-      For more information about the `yandex_cdn_resource` properties in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
+      For more on the properties of `yandex_cdn_resource` in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/cdn_resource).
 
-  1. In the command line, go to the directory with the {{ TF }} configuration file.
+  1. In the command line, navigate to the directory with the {{ TF }} configuration file.
 
   1. Check the configuration using this command:
      ```

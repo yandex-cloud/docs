@@ -510,7 +510,7 @@ default:
     yc_gwin:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/gwin/charts/gwin-chart
-        tag: v1.8.1
+        tag: v1.8.2
     yc_istio:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/istio/istio
@@ -527,8 +527,8 @@ default:
         tag: 1.0.1
     yc_kyverno:
       helmChart:
-        name: cr.yandex/yc-marketplace/multi-kyverno
-        tag: 1.0.0
+        name: cr.yandex/yc-marketplace/yandex-cloud/kyverno/charts/kyverno
+        tag: 3.8.1
     yc_loki:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/grafana/loki/chart/loki
@@ -4453,10 +4453,15 @@ default:
           field_full-name: Полное имя
           field_password: Пароль
           field_username: Имя пользователя
+          password_check_gP9tG: Проверка пароля
+          password_uniqueness_13P78: Уникальность пароля
+          reject_common_passwords_9bpqu: Нельзя использовать пароль из базы распространённых паролей
           title_password_policy: Парольная политика
           title_personal-info: Персональная информация
           title_userpool_members: Пользователи
           title_userpool_overview: Обзор
+          UserForm:
+            field_expires-at_2bdWC: Дата деактивации
           UserpoolOverviewPage:
             action_set_password_policy_aaDns: Настроить политику
           UserpoolPageLayout:

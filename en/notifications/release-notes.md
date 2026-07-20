@@ -17,7 +17,7 @@ Implemented [topics](concepts/topics.md) to centrally send notifications to mult
 
 In {{ cns-name }}, the topics format is compatible with the [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/welcome.html).
 
-For examples of commands for topics, refer to the [management console]({{ link-console-main }}) and the [step-by-step guide](operations/index.md#topics) sections.
+For examples of commands for topics, refer to the [management console]({{ link-console-main }}) and [step-by-step guide](operations/index.md#topics) sections.
 
 ## Q1 2025 {#q1-2025}
 

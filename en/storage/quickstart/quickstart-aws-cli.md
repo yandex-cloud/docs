@@ -5,7 +5,7 @@ description: Follow this guide to create a bucket and upload an object to it usi
 
 # Getting started with the AWS CLI in {{ objstorage-full-name }}
 
-The [AWS CLI](../tools/aws-cli.md) is one of the most popular tools for working with {{ objstorage-name }}. In this section, you will learn how to use the service with the help of this tool. For guidelines on using the management console, see [{#T}](../quickstart.md).
+The [AWS CLI](../tools/aws-cli.md) is one of the most popular tools for working with {{ objstorage-name }}. In this section, you will learn how to use the service with the help of this tool. To learn how to use the management console, see [{#T}](../quickstart.md).
 
 To get started with the AWS CLI:
 
@@ -233,4 +233,4 @@ Take note of the AWS CLI [features](../tools/aws-cli.md#specifics) when used wit
 #### Useful links {#see-also}
 
 * [{#T}](../s3/s3-api-quickstart.md)
-* [Webinar: How to take load off a high-load infrastructure using Cloud CDN](https://yandex.cloud/ru/events/1489?utm_source=docs&utm_medium=yandex&utm_campaign=infra&utm_content=vebinar&utm_term=cdns3)
+* [Webinar: How to take load off a high-load infrastructure using {{ cdn-name }} and {{ objstorage-name }}](https://yandex.cloud/ru/events/1489?utm_source=docs&utm_medium=yandex&utm_campaign=infra&utm_content=vebinar&utm_term=cdns3)

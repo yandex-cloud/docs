@@ -29,7 +29,7 @@ To view the logs:
 1. To view the logs of another resource immediately, click **{{ ui-key.yacloud_monitoring.querystring.action.add-query }}** and specify the properties of the {{ yandex-cloud }} resource at hand.
 1. Click **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}**.
 
-For more on logs, see [{#T}](logs-explorer.md).
+For information on how to work with logs, see [{#T}](logs-explorer.md).
 
 ## Service dashboard for logs {#logs-service-dashboard}
 

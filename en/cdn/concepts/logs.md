@@ -10,7 +10,7 @@ Do not configure an [access policy](../../storage/concepts/policy.md) that denie
 
 {% endnote %}
 
-Log export is a paid feature. See [{#T}](../pricing.md) for billing information.
+Log export is a paid feature. See [{#T}](../pricing.md) for billing details.
 
 {% include [logs-unload-delay](../../_includes/cdn/logs-unload-delay.md) %}
 

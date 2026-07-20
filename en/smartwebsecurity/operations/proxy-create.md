@@ -46,4 +46,4 @@ The proxy server has an MTU limit of 1,450 bytes for all packets.
 
 ### Useful links {#see-also}
 
-* [{#T}](domain-create.md)
+[{#T}](domain-create.md)

@@ -6,9 +6,12 @@ Only a CDN resource with the `Active` status can distribute the content availabl
 
 For connections between clients and the CDN, you can configure:
 
-* A client's redirect from HTTP to HTTPS or vice versa (see the [instructions](../operations/resources/configure-basics.md)).
-* [Using certificates](clients-to-servers-tls.md) for HTTPS connections.
-* HTTP headers in CDN server responses to clients (see [instructions](../operations/resources/configure-headers.md)).
+* Client redirect from HTTP to HTTPS or vice versa as per this [guide](../operations/resources/configure-basics.md).
+* [certificates](clients-to-servers-tls.md) for HTTPS connections.
+* HTTP headers in CDN server responses to clients as per this [guide](../operations/resources/configure-headers.md).
 * CORS [processing of cross-domain requests](cors.md).
-* HTTP methods that clients are allowed to use in their CDN requests (see the [instructions](../operations/resources/configure-http.md)).
+* HTTP methods allowed to clients in CDN requests as per this [guide](../operations/resources/configure-http.md).
+
+  {% include [post-method](../../_includes/cdn/http-post-method.md) %}
+
 * [Sending compressed content](compression.md) using the `Content-Encoding: gzip` HTTP header.

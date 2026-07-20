@@ -69,6 +69,7 @@ resource "yandex_vpc_subnet" "foo" {
 - `name` (String). The resource name.
 - `network_acceleration_type` (String). Type of network acceleration. Can be `standard` or `software_accelerated`. The default is `standard`.
 - `platform_id` (String). The type of virtual machine to create.
+- `reserved_instance_pool_id` (String). ID of the reserved instance pool to attach this instance to.
 - `service_account_id` (String). [Service account](https://yandex.cloud/docs/iam/concepts/users/service-accounts) which linked to the resource.
 - `status` (*Read-Only*) (String). The status of this instance.
 - `zone` (String). The [availability zone](https://yandex.cloud/docs/overview/concepts/geo-scope) where resource is located. If it is not provided, the default provider zone will be used.

@@ -32,7 +32,7 @@ var player = Ya.playerSdk.init({
 
 {% include [video-content-id-desc](../../../_includes/video/video-content-id-desc.md) %}
 
-For more information on initializing a player, see:
+For player initialization, see:
 
 * [Player initialization parameters](./initialization.md)
 * [Interface: PlayerSdkInitConfig](../../api-ref/javascript/interfaces/PlayerSdkInitConfig.md) in the API reference

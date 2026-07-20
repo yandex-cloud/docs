@@ -7,8 +7,8 @@
 With partial updates, you can store data (e.g., logs) in a bucket as a single file and append data to it from time to time.
 
 This also simplifies large file processing. For example, to change one byte of information in a large file, you can use:
-* Standard [get](../s3/api-ref/object/get.md) and [upload](../s3/api-ref/object/upload.md) S3 API methods by fully downloading and uploading the object back to the storage.
-* [Patch](../s3/api-ref/object/patch.md) method by uploading only the changed/new part of the file to the storage.
+* Standard [GET](../s3/api-ref/object/get.md) and [UPLOAD](../s3/api-ref/object/upload.md) S3 API methods by fully downloading and uploading the object back to the storage.
+* [PATCH](../s3/api-ref/object/patch.md) method by uploading only the changed/new part of the file to the storage.
 
 Such partial overwrite streamlines your {{ objstorage-name }} operations and reduces costs.
 
@@ -16,7 +16,7 @@ With partial updates, the following will be overwritten on the server side:
 * Object as a whole, if initially uploaded using the [PUT](../s3/api-ref/object/upload.md) method.
 * Object components being updated, if the object was initially [uploaded in parts](multipart.md).
 
-This feature is implemented as a [patch](../s3/api-ref/object/patch.md) method and is supported in [GeeseFS](../tools/geesefs.md#patch).
+This feature is implemented as a [PATCH](../s3/api-ref/object/patch.md) method and is supported in [GeeseFS](../tools/geesefs.md#patch).
 
 GeeseFS is the recommended tool for partial updates of objects in a bucket.
 

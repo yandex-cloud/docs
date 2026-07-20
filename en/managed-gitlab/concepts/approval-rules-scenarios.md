@@ -247,13 +247,13 @@ BranchGroups:
 
 {% endnote %}
 
-### Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./approval-rules.md)
 * [{#T}](../operations/approval-rules.md)
 * [{#T}](../operations/instance/instance-create.md)
 
-### {{ GL }} guides {#gl-docs}
+#### {{ GL }} guides {#gl-docs}
 
 * [Merge request approval rules](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/rules.html)
 * [Syntax of CODEOWNERS file](https://docs.gitlab.com/user/project/codeowners/reference/)

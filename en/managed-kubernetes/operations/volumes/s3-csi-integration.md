@@ -141,7 +141,7 @@ For a static `PersistentVolume`:
 
   {% endnote %}
 
-* To update [GeeseFS](../../../storage/tools/geesefs.md) options for working with a bucket, specify them in the `spec.csi.volumeAttributes.options` parameter when creating a `PersistentVolume`. For example, in the `--uid` option, you can specify the ID of the owner of all the files in a storage. To get a list of GeeseFS options, run the `geesefs -h` command or refer to the relevant [GitHub repository](https://github.com/yandex-cloud/geesefs/blob/master/internal/flags.go#L88).
+* To update [GeeseFS](../../../storage/tools/geesefs.md) options for working with a bucket, specify them in the `spec.csi.volumeAttributes.options` parameter when creating a `PersistentVolume`. For example, in the `--uid` option, you can specify the ID of the owner of all the files in a storage. To view the list of GeeseFS options, run the `geesefs -h` command or refer to [this GitHub repository](https://github.com/yandex-cloud/geesefs/blob/master/internal/flags.go#L88).
 
   The GeeseFS options specified under `parameters.options` (or the **GeeseFS mount options** field in the {{ marketplace-full-name }} settings) in `StorageClass` are ignored for a static `PersistentVolume`. For more information, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/storage/storage-classes/#mount-options).
 

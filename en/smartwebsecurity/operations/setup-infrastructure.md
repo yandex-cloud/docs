@@ -25,7 +25,7 @@ To set up your infrastructure to use a proxy server:
 
 {% endlist %}
 
-### Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](validate-availability.md)
 * [{#T}](proxy-create.md)

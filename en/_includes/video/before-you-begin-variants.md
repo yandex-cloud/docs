@@ -19,13 +19,24 @@ To get started with {{ video-name }}:
 
        {% note info %}
 
-       To activate a {{ video-name }} instance, you need the `admin` or `owner` role. For more information about roles, see [{#T}](../../organization/security/index.md).
+       To activate a {{ video-name }} instance, you need the `admin` or `owner` role. For more on roles, see [here](../../organization/security/index.md).
 
        {% endnote %}
 
-     * If you have a cloud but no organization, click **Open Cloud Center**. In the window that opens, enter a name and description for your organization and click **Create organization and Cloud Video**. For more information about working with organizations, see [Getting started with organizations](../../organization/quickstart.md).
+     * If you have a cloud but no organization, click **Open Cloud Center**. In the window that opens, enter a name and description for your organization and click **Create organization and Cloud Video**. For working with organizations, see [Getting started with organizations](../../organization/quickstart.md).
    1. To use {{ video-name }}, make sure you have the _minimum_ [role](../../video/security/index.md#video-editor), `video.editor`, in the organization.
 
 {% endlist %}
+
+{% note info %}
+
+Only users with a [Yandex ID](https://yandex.com/support/id/index.html) or [{{ yandex-360 }}](https://360.yandex.ru/) account can create new billing accounts. You cannot use a [federated](../../iam/concepts/users/accounts.md#saml-federation) account for that.
+
+To link a billing account, the user needs to following [roles](../../video/security/index.md#service-roles):
+
+* `billing.accounts.editor` or higher for a billing account.
+* [`video.admin`](../../video/security/index.md#video-admin) or roles including its permissions, e.g., `{{ roles-organization-owner }}`, for an organization with {{ video-short-name }}.
+
+{% endnote %}
 
 If you encounter a technical issue with the service, contact {{ yandex-cloud }} [support]({{ link-console-support }}).

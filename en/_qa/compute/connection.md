@@ -34,7 +34,7 @@ sudo poweroff
 
 #### I can no longer login to my VM. What should I do? {#new-fail-connection}
 
-Your login details have likely been compromised, resulting in unauthorized access to the VM. Create a [disk snapshot](../../compute/concepts/snapshot.md) of your VM (see [{#T}](../../compute/operations/disk-control/create-snapshot.md) this guide for details) and use it to create a new VM (see [{#T}](../../compute/operations/vm-create/create-from-snapshots.md) this guide for details). If you succeeded connecting to the new VM, make sure to use stronger passwords and do not share your private data.
+Your login details have likely been compromised, resulting in unauthorized access to the VM. Create a [disk snapshot](../../compute/concepts/snapshot.md) of your VM (see [{#T}](../../compute/operations/disk-control/create-snapshot.md)) and use it to create a new VM (see [{#T}](../../compute/operations/vm-create/create-from-snapshots.md)). If you succeeded connecting to the new VM, make sure to use stronger passwords and do not share your private data.
 
 If you cannot access the VM you created from the snapshot either, see [How do I retrieve important data from a failed VM](#get-data-from-fail-vm).
 
@@ -68,7 +68,7 @@ To solve the connection issue, try providing the valid private key using the `-i
 #### How do I set up an RDP/VNC connection to a Linux VM? {#set-rdp-vnc-to-linux}
 
 To enable the GUI on Linux VMs, consider one of these two options:
-* Use RDP or VNC. Follow these steps:
+* Use RDP or VNC. Proceed as follows:
   1. Install the desktop environment on the Linux VM (Ubuntu/CentOS).
   1. Install the `xrdp` or VNC server to connect through RDP or VNC, respectively.
   1. Configure the software.
@@ -81,7 +81,7 @@ To enable the GUI on Linux VMs, consider one of these two options:
 
 #### I can no longer login to my VM. What should I do? {#new-fail-connection}
 
-Your login details have likely been compromised, resulting in unauthorized access to the VM. Create a disk snapshot of your VM (see [{#T}](../../compute/operations/disk-control/create-snapshot.md) this guide for details) and use it to create a new VM (see [{#T}](../../compute/operations/vm-create/create-from-snapshots.md) this guide for details). If you succeeded connecting to the new VM, make sure to use stronger passwords and do not share your private data.
+Your login details have likely been compromised, resulting in unauthorized access to the VM. Create a disk snapshot of your VM (see [{#T}](../../compute/operations/disk-control/create-snapshot.md)) and use it to create a new VM (see [{#T}](../../compute/operations/vm-create/create-from-snapshots.md)). If you succeeded connecting to the new VM, make sure to use stronger passwords and do not share your private data.
 
 If you cannot access the VM you created from the snapshot either, see [How do I retrieve important data from a failed VM](#get-data-from-fail-vm).
 
@@ -111,7 +111,7 @@ If you performed one of these actions, see [How do I retrieve important data fro
 #### How do I retrieve important data from a failed VM? {#get-data-from-fail-vm}
 
 When a VM fails:
-1. Create a snapshot of the faulty disk (see [{#T}](../../compute/operations/disk-control/create-snapshot.md) this guide for details).
+1. Create a snapshot of the disk (see [{#T}](../../compute/operations/disk-control/create-snapshot.md)).
 1. Create a new VM with a secondary (non-bootable) disk recovered from the snapshot (see [{#T}](../../compute/operations/vm-create/create-from-snapshots.md) for details).
 1. Connect to the VM (see [{#T}](../../compute/operations/index.md#vm-use) for details).
 1. Mount the disk (see [{#T}](../../compute/operations/vm-control/vm-attach-disk.md#mount-disk-and-fix-uuid) for details).

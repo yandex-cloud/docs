@@ -70,7 +70,7 @@ The above lists of the current and archived types are provided for indicative pu
 
     For more information, see [this guide](../operations/dedicated-host/create-host-group.md) on creating a group.
 
-^1^ This is the number of vCPUs you can use to run VMs. Other vCPUs of the host are allocated for system usage (see [below](#resource-fragmentation) for details): 20 vCPUs running on the Intel® Xeon® Gold 6338 processors, and 8 vCPUs, on Intel® Xeon® Gold 6354.
+^1^ This is the number of vCPUs you can use to run VMs. The host's other vCPUs are allocated for the system (see [below](#resource-fragmentation) for details): 20 vCPUs on Intel® Xeon® Gold 6338 processors, 8 vCPUs on Intel® Xeon® Gold 6354 processors.
 
 ## Using physical resources of a host {#resource}
 
@@ -94,7 +94,7 @@ In this case, you can run two more VMs with four vCPUs each to fully use the ded
 
 ### Local and network disks {#resource-disks}
 
-Each dedicated host has multiple local disks available. Their number and size depend on the selected host configuration (see [above](#host-types)).
+Each dedicated host has multiple local disks available. Their number and size depend on the host configuration you select (see [above](#host-types)).
 
 You can attach network and local disks to VMs on dedicated hosts. Make sure the configuration meets the following requirements:
 

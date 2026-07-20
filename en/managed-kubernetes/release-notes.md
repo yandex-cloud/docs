@@ -92,7 +92,7 @@ Use the [{{ yandex-cloud }} CLI]({{ link-docs }}/cli/) and [{{ TF }}]({{ link-do
 
   {% note info %}
 
-  If changing the containerd configuration on cluster nodes, before upgrading the cluster, make sure the tools you use to change the configuration are compatible with containerd format versions 1.7 and 2.0 and above. Learn more about configuration format in [this containerd guide](https://containerd.io/docs/1.7/man/containerd-config.toml.5).
+  If modifying the containerd configuration on cluster nodes, before upgrading the cluster, make sure your configuration management tools are compatible with containerd format used in versions 1.7, 2.0, and higher. For more on configuration format, see [this containerd guide](https://containerd.io/docs/1.7/man/containerd-config.toml.5).
 
   {% endnote %}
 

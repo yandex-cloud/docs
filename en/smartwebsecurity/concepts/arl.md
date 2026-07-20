@@ -20,7 +20,7 @@ You can configure ARL using profiles. A profile consists of rules that impose li
 
 An ARL profile is connected to a [security profile](profiles.md). ARL rules are applied to the traffic that has already been through the security profile's rules check. This makes it possible to analyze only the allowed instead of all incoming traffic and makes the ARL module more fault tolerant.
 
-For more information about connecting to a security profile, see [{#T}](../quickstart.md#arl).
+Learn more information about connecting to a security profile [here](../quickstart.md#arl).
 
 An ARL rule has these settings available:
 * [Traffic conditions](#traffic-conditions)
@@ -68,7 +68,7 @@ You can opt for the following actions:
 
 To standardize client response pages whenever an individual rule or any rule in the profile triggers, you can create custom [response templates](response-templates.md).
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../quickstart.md#arl)
 * [{#T}](../operations/arl-profile-create.md)

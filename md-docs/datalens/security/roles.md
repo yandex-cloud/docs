@@ -12,6 +12,16 @@
 
 Чтобы предоставить пользователю доступ к DataLens, [назначьте](../../organization/security/index.md#add-role) ему одну из ролей. Роли можно назначить аккаунту на Яндексе, [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [федеративным](../../iam/concepts/users/accounts.md#saml-federation) или [локальным](../../iam/concepts/users/accounts.md#local) пользователям, [группе пользователей](../../organization/operations/manage-groups.md), [системной группе](../../iam/concepts/access-control/system-group.md) или [публичной группе](../../iam/concepts/access-control/public-group.md).
 
+```mermaid
+%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
+flowchart BT
+
+    dl-visitor["datalens.visitor"] --> dl-creator["datalens.creator"] --> dl-admin["datalens.admin"]
+    dl-metaReader["datalens.metaReader"] --> dl-admin
+
+    dl-instances-user["datalens.instances.user"] --> dl-instances-admin["datalens.instances.admin"]
+```
+
 {% list tabs group=datalens_roles %}
 
 - После перехода на воркбуки и коллекции {#after-workbooks-collections}
@@ -85,6 +95,44 @@
 ## Роли на воркбуки, коллекции и общие объекты {#workbooks-collections-roles}
 
 Эти роли действуют для пользователей, которые перешли на новый подход к организации объектов DataLens — в [воркбуках и коллекциях](../workbooks-collections/index.md). Роли позволяют определить уровень доступа для пользователя или группы пользователей к каждому воркбуку, коллекции или общему объекту.
+
+```mermaid
+%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
+flowchart BT
+
+    subgraph sharedEntries["Общие объекты"]
+    dl-se-limitedViewer["Ограниченный просмотр"] --> dl-se-viewer["Просмотр"] --> dl-se-editor["Редактирование"]
+    dl-se-editor --> dl-se-admin["Администрирование"]
+
+    dl-se-limitedEntryBindingCreator["Привязки без делегаций"] --> dl-se-entryBindingCreator["Привязки с делегацией"] --> dl-se-admin
+    
+    end;
+
+    subgraph collections["Коллекции"]
+
+        dl-coll-visitor["Посещение коллекции"] --> dl-coll-creator["Создание в коллекции"]
+
+    dl-coll-visitor --> dl-coll-limitedViewer["Ограниченный просмотр"] --> dl-coll-viewer["Просмотр"] --> dl-coll-editor["Редактирование"] --> dl-coll-admin["Администрирование"]
+
+    dl-coll-limitedEntryBindingCreator["Привязки без делегаций"]
+    dl-coll-entryBindingCreator["Привязки с делегацией"]
+
+    end;
+
+    subgraph workbooks["Воркбуки"]
+    dl-wb-limitedViewer["Ограниченный просмотр"] --> dl-wb-viewer["Просмотр"] --> dl-wb-editor["Редактирование"] --> dl-wb-admin["Администрирование"]
+    end;
+
+    dl-wb-limitedViewer --> dl-coll-limitedViewer
+    dl-wb-viewer --> dl-coll-viewer
+    dl-wb-editor --> dl-coll-editor
+    dl-wb-admin --> dl-coll-admin
+
+    dl-se-entryBindingCreator --> dl-coll-entryBindingCreator["Привязки с делегацией"]
+
+    dl-se-limitedEntryBindingCreator --> dl-coll-limitedEntryBindingCreator
+
+```
 
 ### Роли на воркбуки {#workbook-roles}
 
@@ -206,8 +254,6 @@
 * просматривать и редактировать все [объекты](../concepts/index.md#component-interrelation), вложенные в воркбуки, которые относятся к текущей и вложенным коллекциям;
 * [встраивать](private-embedded-objects.md) на сайты и в приложения непубличные объекты, вложенные в воркбуки, которые относятся к текущей и вложенным коллекциям;
 * [публиковать](../concepts/datalens-public.md#how-to-publish) объекты, вложенные в воркбуки, которые относятся к текущей и вложенным коллекциям.
-
-Включает разрешения, предоставляемые ролями `datalens.collections.editor` и `datalens.workbooks.admin`.
 
 Включает разрешения, предоставляемые ролями `datalens.collections.editor` и `datalens.workbooks.admin`.
 

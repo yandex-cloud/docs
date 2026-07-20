@@ -29,7 +29,7 @@ Where:
 
   * `name` (`string`; this is a required field)
 
-    Resource name. For more on the format, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Resource name. The format is described in [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
     Do not mistake this name for the {{ alb-name }} route name.
  
@@ -39,7 +39,7 @@ Where:
 
 * `spec` (`GRPCRouteSpec`; this is a required field)
 
-  Resource specification. For more information, see [below](#spec).
+  Resource specification. Read more [below](#spec).
 
 
 {% cut "Example" %}

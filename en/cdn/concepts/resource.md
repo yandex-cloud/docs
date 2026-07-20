@@ -11,7 +11,7 @@ To start distributing content over a CDN, create a resource by following the [in
 After creating a resource, you can also configure for it:
 
 * [Caching](caching.md).
-* HTTP headers and methods (see the [instructions](../operations/resources/configure-http.md)).
+* HTTP headers and methods using [this guide](../operations/resources/configure-http.md).
 * Processing of [cross-domain queries (CORS)](cors.md).
 * [Compression](compression.md) and [segmentation](slicing.md) of content.
 * [Non-standard HTTP responses](../operations/resources/configure-response.md).
@@ -46,7 +46,7 @@ For the resource to run properly, you must have:
 
 You cannot have both a CDN resource and a mail server on the same second-level domain. We recommend creating two domains:
 
-* For content distributed over a CDN. Please note that you should only use {{ cdn-name }} with [CNAME](../../dns/concepts/resource-record.md#cname) resource records, because if using an [ANAME](../../dns/concepts/resource-record.md#aname) record, end users will be getting responses unrelated to their geolocation. For more information about CNAME records and their [limitations](https://www.rfc-editor.org/rfc/rfc1912#section-2.4), see [RFC-1035](https://www.ietf.org/rfc/rfc1035.html#section-3.3.1).
+* For content distributed over a CDN. Please note that you should only use {{ cdn-name }} with [CNAME](../../dns/concepts/resource-record.md#cname) resource records, because if using an [ANAME](../../dns/concepts/resource-record.md#aname) record, end users will be getting responses unrelated to their geolocation. Learn more about CNAME records and their [limitations](https://www.rfc-editor.org/rfc/rfc1912#section-2.4) in [RFC-1035](https://www.ietf.org/rfc/rfc1035.html#section-3.3.1).
 * For lightweight content and your mail server. In this case, you can use ANAME and [MX](../../dns/concepts/resource-record.md#mx) resource records.
 
 {% endnote %}

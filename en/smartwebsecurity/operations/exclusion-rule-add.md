@@ -17,11 +17,17 @@ description: Follow this guide to create a WAF exclusion rule.
       1. Name the exclusion rule.
       1. Optionally, provide a description.
       1. Optionally, enable **{{ ui-key.yacloud.smart-web-security.waf.field_logging }}** to log exception rule triggering.
-      1. Under **{{ ui-key.yacloud.smart-web-security.waf.label_request-condition_33CzA }}**, select rules from the basic set to which the exclusion will apply:
-          * `{{ ui-key.yacloud.smart-web-security.waf.value_exclude-all-yes }}`: Exclusion will apply to all rules.
-          * `{{ ui-key.yacloud.smart-web-security.waf.value_exclude-all-no }}`: Exclusion will apply to the selected rules.
+      1. In the **{{ ui-key.yacloud.smart-web-security.waf.label_exclusion-rule-exclude-rules }}** field, select:
+          * **All rules**: Exclusion will apply to all rules.
+          * **Selected rules**: Exclusion will apply to selected rules. Click **{{ ui-key.yacloud.smart-web-security.waf.action_exclusion-rule-add-rules }}** to select rules.
 
-              Click **{{ ui-key.yacloud.smart-web-security.waf.action_exclusion-rule-add-rules }}** to select rules from the basic set.
+      1. Under **{{ ui-key.yacloud.smart-web-security.waf.label_request-condition_33CzA }}**, select:
+          * **Entire request**: Exception will apply to entire HTTP request.
+          * **Request part**: Exception will apply only to the request part specified in the parameters. The rest of the request will be checked according to the WAF profile settings.
+
+              In the **Exception parameters** field, select one or more of the following: `HTTP body`, `Cookie`, `HTTP header`, or `Query params`. Set a value for each parameter. Enable **Case sensitive** as needed.
+
+              To add one more value for a parameter, click ![plus-sign](../../_assets/console-icons/plus.svg) **or**.
 
       1. {% include [waf-rule-traffic-conditions](../../_includes/smartwebsecurity/waf-rule-traffic-conditions.md) %}
 
@@ -97,7 +103,7 @@ description: Follow this guide to create a WAF exclusion rule.
             * `exclude_all`: Exclusion will apply to all rules. It can be either `false` or `true`.
             * `rule_ids`: List of IDs of rules from the basic set to which the exclusion will apply. To specify individual rules, set `exclude_all` to `false`.
 
-      For more information about `sws_waf_profile` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/sws_waf_profile).
+      For more on the properties of the `sws_waf_profile` resource, see [this provider guide]({{ tf-provider-resources-link }}/sws_waf_profile).
 
   1. Create the resources:
 
@@ -111,7 +117,7 @@ description: Follow this guide to create a WAF exclusion rule.
 
 {% endlist %}
 
-### Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](configure-set-rules.md)
 * [{#T}](exclusion-rule-delete.md)

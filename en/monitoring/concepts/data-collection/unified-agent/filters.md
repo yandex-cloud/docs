@@ -124,7 +124,7 @@ Parameter descriptions:
         # The default time value that need to be added to the output metrics.
         # Two syntax formats for these parameters are supported: absolute and relative.
         # In the absolute format, the time value is expected in ISO 8601 format.
-        # Examples: 2014-03-25 03:59:56.654563, 2012-11-23 11:12:13, 2012-11-23, 1990-03-15T15:10:12.
+        # Here are some examples: 2014-03-25 03:59:56.654563, 2012-11-23 11:12:13, 2012-11-23, 1990-03-15T15:10:12.
         # In the relative format, you must specify an offset from one of the preset values:
         # * now: Current time.
         # * today: Beginning of the current day.
@@ -150,7 +150,7 @@ The filter allows screening out the metrics you are transferring based on label 
     plugin: filter_metrics
     config:
         # Condition for the metrics that need to stay. All other metrics will be filtered out.
-        match: "{name=gauge-*}"  # required
+        match: "{name=gauge-*}"  # Required.
 ```
 
 See also the [query syntax description](../../../concepts/querying.md#selectors).
@@ -191,7 +191,7 @@ Parameter descriptions:
     plugin: transform_metric_label
     config:
         # Name of the label that needs to be transformed.
-        label: name  # required
+        label: name  # Required.
 
         # Adding a prefix to the label value.
         add_value_prefix: ua  # optional
@@ -200,7 +200,7 @@ Parameter descriptions:
         rename_to: second_name  # optional
 
         # Separator that should be used between the prefix you are adding and the current label value.
-        delimiter: .  # optional, the default value is `.`
+        delimiter: .  # Optional, the default value is '.'
 ```
 
 ## Transform_metric_labels filter {#transform_metric_labels_filter}
@@ -227,9 +227,9 @@ Parameter descriptions:
       # Using `{my_label|default_value}`, you can specify a default value if `my_label` is not found.
       # To delete a label, use this syntax: `my_label: "-”`.
       labels:
-        - l2: "prefix_{l1}_suffix"                # required
-        - l3: "prefix2_{l2}_s_{l1|default_value}" # required
-        - l4: "-" # required
+        - l2: "prefix_{l1}_suffix"                # Required.
+        - l3: "prefix2_{l2}_s_{l1|default_value}" # Required.
+        - l4: "-" # Required.
 ```
 
 See also the [query syntax description](../../../concepts/querying.md#selectors).

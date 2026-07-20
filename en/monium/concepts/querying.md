@@ -108,9 +108,9 @@ When searching for traces or spans, you can use additional keys:
 * `span.status`: Span status, `OK`, `ERROR` or `UNKNOWN`; supports the `=` and `!=` operators.
 * `span.duration`: Span duration; supports the `>`, `>=`, `<`, and `<=` comparison operators with duration literals, such as `500ms` or `2s`.
 * `span.critical_path`: Specifies whether the span is on the critical path, `PRESENT` or `ABSENT`; supports the `=` operator.
-* `trace.id`: Trace ID (for searching logs by trace).
+* `trace.id`: Trace ID (to search for logs by trace).
 
-For more information about searching traces, see [{#T}](../traces/operations/traces-explorer.md).
+The search for traces is described in [{#T}](../traces/operations/traces-explorer.md).
 
 The {{ monium-name }} query language is used for conversion of metrics when configuring [dashboards](./visualization/dashboard.md) and [alerts](./alerting.md), as well as in the [MetricsData.read](../api-ref/MetricsData/read.md) API method.
 
@@ -118,7 +118,7 @@ The {{ monium-name }} query language is used for conversion of metrics when conf
 
 The query language supports links to the results of executing other queries as to names of variables.
 
-For example:
+Here is an example:
 
 A: `{project="folder__my_folder_id", cluster="default", service="custom", room="bedroom", building="home", sensor="sensor1" }`
 

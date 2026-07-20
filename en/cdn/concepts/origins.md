@@ -4,7 +4,7 @@ CDN servers retrieve the content requested by clients from _origins_.
 
 When creating a resource, an origin or an [origin group](#groups) is specified for it. After creating a resource, in the resource settings, you can replace an origin with another origin or a resource group with another resource group.
 
-## Origin type {#types}
+## Source type {#types}
 
 As origins, you can use:
 
@@ -75,7 +75,7 @@ If you publish content in two or more buckets, combine them into a group of L7 l
 
 ## How to configure origins {#instructions}
 
-For details, see these guides:
+Follow these guides:
 
 * Configuring an origin or origin group while [creating a resource](../operations/resources/create-resource.md).
 * [Editing the basic settings of a resource](../operations/resources/configure-basics.md), including changing an origin or origin group to a different one.

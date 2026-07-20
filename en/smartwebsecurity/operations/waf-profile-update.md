@@ -81,7 +81,7 @@ description: Follow this guide to edit basic WAF profile settings.
 
      {% endcut %}
 
-      For more information about the `sws_waf_profile` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/sws_waf_profile).
+      For more on the properties of the `sws_waf_profile` resource, see [this provider guide]({{ tf-provider-resources-link }}/sws_waf_profile).
 
   1. Apply the changes:
 
@@ -95,7 +95,7 @@ description: Follow this guide to edit basic WAF profile settings.
 
 {% endlist %}
 
-### Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](waf-profile-delete.md)
 * [{#T}](rule-add.md)

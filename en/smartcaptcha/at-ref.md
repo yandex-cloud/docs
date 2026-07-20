@@ -5,9 +5,9 @@ description: This page provides a reference for {{ captcha-name }} events tracke
 
 # {{ at-full-name }} event reference
 
-{{ at-name }} supports tracking control plane events for {{ captcha-full-name }}. For more details, see [{#T}](../audit-trails/concepts/format.md).
+{{ at-name }} supports tracking control plane events for {{ captcha-full-name }}. For more information, see [{#T}](../audit-trails/concepts/format.md).
 
-The general format of the `event_type` value is as follows:
+The general format of the `event_type` field value is as follows:
 
 ```text
 {{ at-event-prefix }}.audit.smartcaptcha.<event_name>

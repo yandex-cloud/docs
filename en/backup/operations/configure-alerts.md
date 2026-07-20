@@ -114,7 +114,7 @@ To create an alert get notified about failed backup operations:
       1. Enter a query in the query language:
 
           ```text
-          {project = "folder__<folder_ID>", service = "__backup__", cluster = "default", resource_type = "agent", name = "BackupError", action = "CompleteFailed", resource_name = "<VM_name>"}
+          {project = "folder__<folder_ID>", service = "__backup__", cluster = "default", resource_type = "backup", name = "BackupError", action = "CompleteFailed", resource_name = "<VM_name>"}
           ```
 
           Where:

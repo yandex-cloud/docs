@@ -135,7 +135,7 @@ Gwin — инструмент для управления балансировщ
 
       ```bash
       helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/gwin/charts/gwin-chart \
-        --version v1.8.1 \
+        --version v1.8.2 \
         --untar \
       helm install \
         --namespace <пространство_имен> \
@@ -149,7 +149,7 @@ Gwin — инструмент для управления балансировщ
 
       ```bash
       helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/gwin/charts/gwin-chart \
-        --version v1.8.1 \
+        --version v1.8.2 \
         --untar \
       helm install \
         --namespace <пространство_имен> \

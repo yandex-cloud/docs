@@ -332,6 +332,8 @@ description: Следуя данной инструкции, вы сможете
 
          Используется с типом получателя разрешений `CanonicalUser`.
 
+         {% include [canonical-user-identification](../../../_includes/storage/canonical-user-identification.md) %}
+
        * `uri` — идентификатор публичной группы. Используется с типом получателя разрешений `Group`. Возможные значения:
          * `http://acs.amazonaws.com/groups/global/AllUsers` — все пользователи интернета.
          * `http://acs.amazonaws.com/groups/global/AuthenticatedUsers` — все аутентифицированные пользователи {{ yandex-cloud }}.
@@ -406,6 +408,8 @@ description: Следуя данной инструкции, вы сможете
          {% include [acl-grantee](../../../_includes/storage/acl-grantee.md) %}
 
          Используется с типом получателя разрешений `CanonicalUser`.
+
+         {% include [canonical-user-identification](../../../_includes/storage/canonical-user-identification.md) %}
 
        * `uri` — идентификатор публичной группы. Используется с типом получателя разрешений `Group`. Возможные значения:
          * `http://acs.amazonaws.com/groups/global/AllUsers` — все пользователи интернета.

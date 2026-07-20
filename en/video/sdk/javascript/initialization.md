@@ -11,7 +11,7 @@ You can provide initial parameters to [{{ video-player-name }}](../../concepts/p
 
 #### element {#element}
 
-Embed element. This is a required parameter. This can be either an `HTMLElement` pointer or an ID selector.
+Embed element. This is a required setting. This can be either an `HTMLElement` pointer or an ID selector.
 
 Player creation examples:
 
@@ -151,5 +151,5 @@ Interface elements you can hide:
 
 #### Useful links {#see-also}
 
-* [Interface: PlayerSdkInitConfig](../../api-ref/javascript/interfaces/PlayerSdkInitConfig.md) in the API reference
-* [Interface: PlayerSdkSourceParams](../../api-ref/javascript/interfaces/PlayerSdkEventHandlers.md) in the API reference
+* [Interface: PlayerSdkInitConfig](../../api-ref/javascript/interfaces/PlayerSdkInitConfig.md): Description of player initialization parameters in the API reference
+* [Interface: PlayerSdkSourceParams](../../api-ref/javascript/interfaces/PlayerSdkSourceParams.md): Description of video source parameters in the API reference

@@ -77,7 +77,7 @@ To get a [dedicated IP address](../../concepts/dedicated-ip-addressing.md) for [
 
 1. If you had redirected traffic from your CDN resource, restore the original CNAME record.
 
-### Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/dedicated-ip-addressing.md)
 * [{#T}](../../concepts/limits.md)

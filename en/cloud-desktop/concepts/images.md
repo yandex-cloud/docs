@@ -4,7 +4,7 @@ An _image_ is a complete copy of the file system structure and data on a disk. {
 
 An image is used to create a desktop [boot disk](disks.md#boot-disk). 
 
-For more information about images, see the [{{ compute-name }} documentation](../../compute/concepts/image.md).
+For more on images, see [this {{ compute-name }} guide](../../compute/concepts/image.md).
 
 ## System images {#system-images}
 

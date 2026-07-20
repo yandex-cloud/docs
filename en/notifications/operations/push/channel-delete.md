@@ -23,7 +23,7 @@ description: Follow this guide to delete a push notification channel.
 
       Where `--platform-application-arn` is the notification channel ID (ARN).
 
-      For more information about the `aws sns delete-platform-application` command, see the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/delete-platform-application.html).
+      Learn more about the `aws sns delete-platform-application` command in [this AWS guide](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/delete-platform-application.html).
 
 - AWS SDK for Python {#python}
 

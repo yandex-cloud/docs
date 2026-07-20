@@ -1,21 +1,23 @@
 [Документация Yandex Cloud](../../../index.md) > [Monium](../../index.md) > [Трейсы](../index.md) > LLM-мониторинг > Ручная инструментация LLM-приложений
 
-# Инструментирование LLM-приложений: вручную
+# Ручная инструментация LLM-приложений
 
-Ручная инструментация LLM-приложений дает полный контроль над данными трейсов. Вы сами решаете, какие операции размечать спанами, какие атрибуты добавлять, как структурировать иерархию вызовов. Это особенно полезно, когда:
+Ручная инструментация LLM-приложений дает полный контроль над трейсами. Вы можете выбирать, какие операции размечать спанами, какие атрибуты добавлять и как выстраивать иерархию вызовов.
 
-- Используемый фреймворк не поддерживается [автоинструментацией](auto_instrumentation.md);
-- Нужно добавить бизнес-контекст: ID пользователя, ID сессии, версию промпта, параметры A/B-теста;
-- Требуется разметить сложную логику агента: маршрутизацию между LLM, предобработку данных, постобработку ответов;
-- Необходимо инструментировать кастомные инструменты (tools), не покрытые автоинструментацией.
+Ручная инструментация полезна в следующих случаях:
 
-Для ручной инструментации используется [OpenTelemetry SDK](https://opentelemetry.io/docs/languages/) и [семантические конвенции OpenTelemetry для GenAI](https://opentelemetry.io/docs/specs/semconv/gen-ai/). Примеры приведены на Python.
+- Фреймворк не поддерживается [автоинструментацией](auto_instrumentation.md).
+- Нужно добавить бизнес-контекст: ID пользователя, ID сессии, версию промпта, параметры A/B-теста.
+- Требуется разметить сложную логику агента: маршрутизацию между LLM, предобработку данных, постобработку ответов.
+- Необходимо инструментировать модифицированные инструменты (tools), не покрытые автоинструментацией.
+
+Для ручной инструментации используется [OpenTelemetry SDK](https://opentelemetry.io/docs/languages/) и [семантические конвенции OpenTelemetry для GenAI](https://github.com/open-telemetry/semantic-conventions-genai). В этом разделе приведены примеры разметки для Python.
 
 ## Основные соглашения {#conventions}
 
 Следуйте этим соглашениям для корректного отображения трейсов:
 
-1. **Стандарт OpenTelemetry.** Используйте атрибуты из [стандарта OpenTelemetry для GenAI](https://opentelemetry.io/docs/specs/semconv/gen-ai/).
+1. **Стандарт OpenTelemetry.** Используйте атрибуты из [стандарта OpenTelemetry для GenAI](https://github.com/open-telemetry/semantic-conventions-genai).
 2. **Изоляция сервисов.** Каждый LLM-агент должен отправлять спаны с уникальным значением атрибута `service.name`. Это важно для корректной фильтрации данных в системе мониторинга.
 3. **Обязательные атрибуты.** Часть атрибутов обязательна для корректной визуализации в интерфейсе — они перечислены в [таблице ниже](#required-attributes).
 
@@ -35,7 +37,7 @@
 || Список доступных инструментов (tools) | `gen_ai.tool.definitions` | JSON array | Сигнатуры тулов для LLM. В интерфейсе отображается блок «Доступные инструменты» ||
 |#
 
-Кроме указанных атрибутов в стандарте OpenTelemetry описаны и другие полезные атрибуты для GenAI-спанов, такие как `gen_ai.system`, `gen_ai.request.model`, `gen_ai.tool.definitions` и другие. Полный список с описаниями приведен в [конвенции OpenTelemetry для GenAI](https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-spans/).
+Кроме указанных атрибутов в стандарте OpenTelemetry описаны и другие полезные атрибуты для GenAI-спанов, такие как `gen_ai.system`, `gen_ai.request.model`, `gen_ai.tool.definitions` и другие. Полный список с описаниями приведен в [конвенции OpenTelemetry для GenAI](https://github.com/open-telemetry/semantic-conventions-genai).
 
 ### Формат сообщений {#messages-format}
 
@@ -47,40 +49,40 @@
 
 ```
 [{
-    “role”: “user”,
-    “parts”: [
+    "role": "user",
+    "parts": [
       {
-        “type”: “text”,
-        “content”: “Weather in Paris?"
+        "type": "text",
+        "content": "Weather in Paris?"
       }
     ]
   },
   {
-    “role”: “assistant”,
-    “parts”: [
+    "role": "assistant",
+    "parts": [
       {
-        “type”: “tool_call”,
-        “id”: “call_VSPygqKTWdrhaFErNvMV18Yl”,
-        “name”: “get_weather”,
-        “arguments”: {
-          “location”: “Paris”
+        "type": "tool_call",
+        "id": "call_VSPygqKTWdrhaFErNvMV18Yl",
+        "name": "get_weather",
+        "arguments": {
+          "location": "Paris"
         }
       }
     ]
   },
   {
-    “role”: “tool”,
-    “parts”: [
+    "role": "tool",
+    "parts": [
       {
-        “type”: “tool_call_response”,
-        “id”: " call_VSPygqKTWdrhaFErNvMV18Yl”,
-        “result”: “rainy, 57°F”
+        "type": "tool_call_response",
+        "id": " call_VSPygqKTWdrhaFErNvMV18Yl",
+        "result": "rainy, 57°F"
       }
     ]
   }
 ]
 ```
-Подробная JSON Schema для входных сообщений доступна в [документации OpenTelemetry](https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-input-messages.json).
+Подробная JSON Schema для входных сообщений доступна в [документации OpenTelemetry](https://github.com/open-telemetry/semantic-conventions-genai/blob/main/model/gen-ai/gen-ai-input-messages.json).
 
 **Выходные сообщения** (`gen_ai.output.messages`):
 
@@ -115,7 +117,7 @@
   }
 ]
 ```
-Подробная JSON Schema для выходных сообщений доступна в [документации OpenTelemetry](https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-output-messages.json).
+Подробная JSON Schema для выходных сообщений доступна в [документации OpenTelemetry](https://github.com/open-telemetry/semantic-conventions-genai/blob/main/model/gen-ai/gen-ai-output-messages.json).
 
 Если модель вызывает инструмент, выходное сообщение должно содержать `parts` с типом `tool_call`:
 
@@ -162,6 +164,149 @@
 {% endcut %}
 
 
+### Изображения в спанах {#images}
+
+Изображения из диалога с моделью автоматически отображаются в спане, если они корректно описаны в атрибутах `gen_ai.input.messages` и `gen_ai.output.messages`. Отдельные спаны для изображений не нужны, так как изображения уже входят в историю сообщений.
+
+Изображение описывается в форме объекта, входящего в массив `parts` наряду с текстовыми запросами, ответами модели, вызовами инструментов и их ответами. Изображение может входить в состав как запроса пользователя (`gen_ai.input.messages`), так и ответа модели (`gen_ai.output.messages`).
+
+Структура фрагмента массива `parts` с изображением:
+
+```json
+"parts": [
+  ...
+  {
+    "type": "uri",
+    "modality": "image",
+    "uri": "https://cdn.example.com/some_image.jpg",
+    "mime_type": "image/jpeg"
+  },
+  ...
+]
+```
+
+Где:
+
+* `type` — для объектов с описанием изображения значение всегда `uri`.
+* `modality` — для объектов с описанием изображения значение всегда `image`.
+* `uri` — прямая ссылка на изображение со схемой `https://`.
+* `mime_type` — [MIME-тип](https://ru.wikipedia.org/wiki/Список_MIME-типов) файла:
+
+    * `image/jpeg`;
+    * `image/png`;
+    * `image/webp`;
+    * `image/gif`;
+    * `image/svg+xml`.
+
+{% note info %}
+
+Все четыре параметра являются обязательными.
+
+{% endnote %}
+
+Одно сообщение может содержать несколько частей разных типов, например текст и изображение. В интерфейсе Monium все части отобразятся в спане в той последовательности, в которой они указаны в массиве `parts`. При этом изображения автоматически отображаются внутри спана в виде превью в тот момент, когда соответствующий спан попадает в область видимости на экране. Чтобы открыть полноразмерную версию изображения, нажмите на превью.
+
+#### Требования к ссылке на изображение {#image-link-format}
+
+Monium не проксирует изображения, передаваемые в LLM-трейсах. Браузер пользователя загружает их напрямую из источника, указанного в ссылке. Поэтому URL изображений должны соответствовать следующим требованиям:
+
+* **Схема URL**: допускается только `https://`.
+
+    Ссылки со схемой `http://` браузер заблокирует как `mixed content`. Ссылки на изображения со схемой `data:` и кодированием [Base64](https://ru.wikipedia.org/wiki/Base64) не поддерживаются `Monium`.
+
+    {% note tip %}
+
+    Получить ссылку со схемой `https://` вы можете, загрузив изображение в [бакет](*buckets) Yandex Object Storage или на [ресурс](*cdn_resource) Yandex Cloud CDN.
+
+    {% endnote %}
+
+* **Доступность из браузера пользователя**: если браузер не имеет доступа к изображению, изображение не отобразится в спане Monium. Например, ссылка на ресурс в интранете не откроется в браузере компьютера, не подключенного к этому интранету.
+
+    [Подписанные URL](*signed_url) будут открываться до тех пор, пока не истечет срок действия подписи.
+
+#### Примеры сообщений с изображениями {#image-containing-examples}
+
+{% list tabs %}
+
+- Изображение в запросе пользователя
+
+  gen_ai.input.messages:
+
+  ```json
+  [
+    {
+      "role": "user",
+      "parts": [
+        {
+          "type": "text",
+          "content": "Что изображено на этой картинке?"
+        },
+        {
+          "type": "uri",
+          "modality": "image",
+          "uri": "https://example.com/photo.jpg",
+          "mime_type": "image/jpeg"
+        }
+      ]
+    }
+  ]
+  ```
+
+  gen_ai.output.messages:
+
+  ```json
+  [
+    {
+      "role": "assistant",
+      "parts": [
+        {
+          "type": "text",
+          "content": "На картинке изображен закат над морем с силуэтами яхт."
+        }
+      ],
+      "finish_reason": "stop"
+    }
+  ]
+  ```
+
+- Изображение в ответе агента
+
+  gen_ai.input.messages:
+
+  ```json
+  [
+    {
+      "role": "user",
+      "parts": [
+        {
+          "type": "text",
+          "content": "Нарисуй интерфейс идеальной системы Observability"
+        }
+      ]
+    }
+  ]
+  ```
+
+  gen_ai.output.messages:
+
+  ```json
+  [
+    {
+      "role": "assistant",
+      "parts": [
+        {
+          "type": "uri",
+          "modality": "image",
+          "uri": "https://cdn.ya.ru/generated/monium.png",
+          "mime_type": "image/png"
+        }
+      ],
+      "finish_reason": "stop"
+    }
+  ]
+  ```
+
+{% endlist %}
 
 ## Спаны вызова инструментов {#tool-spans}
 
@@ -179,7 +324,7 @@
 || `gen_ai.tool.call.result` | Результат выполнения (сериализованный в строку через `json.dumps()`) | `{"temperature": 18, "condition": "cloudy"}` ||
 |#
 
-Дополнительные примеры правильной инструментации различных сценариев (вызовы инструментов, стриминг, мультимодальность) приведены в разделе [Examples: LLM Calls](https://opentelemetry.io/docs/specs/semconv/gen-ai/non-normative/examples-llm-calls/) документации OpenTelemetry.
+Дополнительные примеры правильной инструментации различных сценариев (вызовы инструментов, стриминг, мультимодальность) приведены в разделе [Examples: LLM Calls](https://github.com/open-telemetry/semantic-conventions-genai/blob/b028dceecdad117461a785c3af35315e7184e813/docs/gen-ai/non-normative/examples-llm-calls.md) документации OpenTelemetry.
 
 {% cut "Пример отображения спана с вызовом инструмента" %}
        
@@ -365,3 +510,13 @@ python agent.py
 Ручные спаны корректно объединяются с автоматически созданными спанами в рамках одного трейса. Это позволяет комбинировать подходы: использовать автоинструментацию для базового покрытия и добавлять ручные спаны в местах, где нужен дополнительный контекст.
 
 Например, если ваш агент использует OpenAI SDK с автоинструментацией, вы можете создать корневой спан вручную для всей операции агента, а вызовы к LLM будут автоматически размечены дочерними спанами. Это обеспечит полную картину работы агента от запроса пользователя до финального ответа.
+
+[*buckets]: Бакет — это часть хранилища Yandex Object Storage, выделенная для данных пользователя. Подробнее читайте в разделе [Бакет в Object Storage](../../../storage/concepts/bucket.md).
+
+[*cdn_resource]: Ресурс — это основная логическая сущность сервиса Yandex Cloud CDN, позволяющая настраивать и управлять распространением контента из источников через точки присутствия. Подробнее читайте в разделе [CDN-ресурс](../../../cdn/concepts/resource.md).
+
+[*signed_url]: Подписанный URL — это URL, содержащий в своих параметрах данные для авторизации запроса. Подробнее о реализации подписанных ссылок в сервисе Yandex Object Storage читайте в разделе [Подписанные (pre-signed) URL](../../../storage/concepts/pre-signed-urls.md).
+
+[*cors_cdn]: Yandex Cloud CDN поддерживает кросс-доменные запросы по механизму CORS (cross-origin resource sharing). Подробнее читайте в разделе [CORS в Cloud CDN](../../../cdn/concepts/cors.md).
+
+[*cors]: CORS — это стандарт, позволяющий предоставлять веб-страницам доступ к объектам на сторонних интернет-ресурсах. Сторонним считается любой интернет-ресурс, который отличается от текущего схемой, доменом или портом. Подробнее читайте в разделе [CORS и принцип одинакового источника](../../../glossary/cors.md).

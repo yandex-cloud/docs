@@ -161,6 +161,8 @@ You can also use [internal IP addresses](../../../vpc/concepts/address.md#intern
   Are you sure you want to continue connecting (yes/no/[fingerprint])?
   ```
 
+  {% include [vm-ssh-verify-fingerprint](../../../_includes/compute/vm-ssh-verify-fingerprint.md) %}
+
   Type `yes` into the terminal and press **Enter**.
 
 - Windows 10/11 {#windows}
@@ -193,6 +195,8 @@ You can also use [internal IP addresses](../../../vpc/concepts/address.md#intern
   ECDSA key fingerprint is SHA256:DfjfFB+in0q0MGi0HnqLNMdHssLfm1yRanB********.
   Are you sure you want to continue connecting (yes/no/[fingerprint])?
   ```
+
+  {% include [vm-ssh-verify-fingerprint](../../../_includes/compute/vm-ssh-verify-fingerprint.md) %}
 
   Type `yes` in the command line and press **Enter**.
 
@@ -252,7 +256,13 @@ For more information on how to solve connection issues, see [FAQ](../../qa/conne
 
 You can add SSH keys for another VM user. To do this, create a new user and add a file with the authorized keys for this user.
 
-To create multiple users with keys at the same time, use [metadata](../../concepts/metadata/sending-metadata.md).
+{% note tip %}
+
+To specify multiple users with keys at the same time when [creating](../vm-create/create-with-cloud-init-scripts.md) a VM, use [metadata](../../concepts/metadata/sending-metadata.md).
+
+You cannot use metadata to add users with keys to an existing VM.
+
+{% endnote %}
 
 To configure users from within the VM, follow these steps:
 
@@ -299,6 +309,15 @@ To configure users from within the VM, follow these steps:
     ```
 
     Where `<public_key>` is the contents of the [public key](#creating-ssh-keys) file for SSH access to the VM.
+
+    The `authorized_keys` file lists all authorized public keys. Each key is specified on a new line in `<key_type> <public_key_body> <optional_comment>` format. Here is an example of a file with multiple keys:
+
+    ```text
+    ssh-ed25519 AAAAC3NzaC1lZDI1NTE5ABFLIFyapYheN7OZNhTaNqEHefjmU5mtzK********+gRPCz user1@Desktop
+    ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDdlxLIFyapYheN7OZNhTaNqEHefjmU5mtzK********+gRPCzxyz user2@Desktop
+    ```
+
+    To add a new key, specify it on a new line at the end of the file. To preserve access for previous users, do not modify or delete the existing keys.
 
 1. Update access permissions for the `authorized_keys` file and `.ssh` folder:
 

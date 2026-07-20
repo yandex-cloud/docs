@@ -7,7 +7,7 @@ description: Follow this guide to disable or enable availability zones for an in
 
 {% include [disable-enable-zone-intro](../../../_includes/instance-groups/disable-enable-zone-intro.md) %}
 
-For more information on instance group behavior when an availability zone is disabled, see [this page](../../concepts/instance-groups/disable-enable-zone.md).
+For more on what you get when disabling an availability zone, see [{#T}](../../concepts/instance-groups/disable-enable-zone.md).
 
 ## Enabling a zonal shift {#disable}
 

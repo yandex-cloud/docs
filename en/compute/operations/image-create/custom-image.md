@@ -140,7 +140,7 @@ To enable serial console access to your VM, configure the image to use `ttyS0` (
 
    {% note info %}
 
-   In some operating systems, `/etc/securetty` is not used and the `root` user can access all terminals by default. To configure access using this file, add a specification for the `pam_securetty.so` module to the `/etc/pam.d/login` file. For more information, see `man pam_securetty` and `man pam.d`.
+   In some operating systems, `/etc/securetty` is not used and the `root` user can access all terminals by default. To configure access using this file, add a specification for the `pam_securetty.so` module to the `/etc/pam.d/login` file. For details, see `man pam_securetty` and `man pam.d`.
 
    {% endnote %}
 

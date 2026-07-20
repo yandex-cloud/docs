@@ -12,11 +12,28 @@ By default, a [cloud](../../../resource-manager/concepts/resources-hierarchy.md#
 
 {% endnote %}
 
-This section explains how to create a GPU cluster. Currently, GPU clusters can only be created in the `{{ region-id }}-a` and `{{ region-id }}-d` [availability zones](../../../overview/concepts/geo-scope.md).
+This section explains how to create a GPU cluster. You can create GPU clusters in the `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-d` [availability zones](../../../overview/concepts/geo-scope.md).
 
 After creating a cluster, you can [add](gpu-add-to-cluster.md) [VMs](../../concepts/vm.md) from the same availability zone to it.
 
 {% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select a [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) for the new GPU cluster.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.gpu-cluster.label_title }}**.
+  1. Click **{{ ui-key.yacloud.gpu-cluster.action_create-cluster }}**.
+  1. In the window that opens:
+
+      1. In the **{{ ui-key.yacloud.gpu-cluster.field_name }}** field, enter a name for the GPU cluster.
+
+          {% include [name-format](../../../_includes/name-format.md) %}
+
+      1. Optionally, in the **{{ ui-key.yacloud.gpu-cluster.field_description }}** field, add a description for the GPU cluster.
+      1. In the **{{ ui-key.yacloud.gpu-cluster.field_accessibility-zone }}** field, select an availability zone for the cluster.
+      1. Optionally, add [labels](../../../resource-manager/concepts/labels.md) to the cluster.
+  1. Click **{{ ui-key.yacloud.gpu-cluster.action_create-cluster }}**.
 
 - CLI {#cli}
 
@@ -75,4 +92,17 @@ After creating a cluster, you can [add](gpu-add-to-cluster.md) [VMs](../../conce
   yc compute gpu-cluster get <GPU_cluster_name>
   ```
 
+- API {#api}
+
+  To create a GPU cluster, use the [create](../../api-ref/GpuCluster/create.md) REST API method for the [GpuCluster](../../api-ref/GpuCluster/index.md) resource or the [GpuClusterService/Create](../../api-ref/grpc/GpuCluster/create.md) gRPC API call.
+
 {% endlist %}
+
+#### Useful links {#see-also}
+
+* [{#T}](gpu-add-to-cluster.md)
+* [{#T}](gpu-cluster-update.md)
+* [{#T}](gpu-cluster-delete.md)
+* [{#T}](../../concepts/gpus.md)
+* [{#T}](../../concepts/vm-platforms.md)
+

@@ -112,8 +112,8 @@ HTTP | Error code | Extended code | Description
 400 | UserError | InvalidPhoneNumberRegion | Phone numbers from outside Russia are not supported.
 400 | ThrottlingException | OTPRateLimitExceeded | The maximum OTP request frequency is exceeded.
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](index.md)
 * [{#T}](send-request.md)
-* [CreateSMSSandboxPhoneNumber](https://docs.aws.amazon.com/sns/latest/api/API_CreateSMSSandboxPhoneNumber.html) in AWS reference.
+* [CreateSMSSandboxPhoneNumber](https://docs.aws.amazon.com/sns/latest/api/API_CreateSMSSandboxPhoneNumber.html) in the AWS documentation

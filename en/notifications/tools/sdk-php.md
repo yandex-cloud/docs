@@ -43,7 +43,7 @@ To get started with the AWS SDK for PHP:
         php composer.phar require aws/aws-sdk-php
         ```
 
-    For other installation methods, see the [AWS documentation](https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/getting-started_installation.html).
+    Other installation methods are described in [this AWS guide](https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/getting-started_installation.html).
 
 1. Create a client:
 
@@ -182,7 +182,7 @@ Where:
   print($response->get('MessageId'));
   ```
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [Getting started](../quickstart.md)
 * [AWS CLI](aws-cli.md)

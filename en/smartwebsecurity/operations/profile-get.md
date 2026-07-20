@@ -86,7 +86,7 @@ description: Follow this guide to get information about a security profile in {{
      * `output "profile-created"`: Output variable that contains information about the security profile creation timestamp:
        * `value`: Return value.
 
-     You can replace `created_at` with any other parameter to get the information you need. For more information about the `yandex_sws_security_profile` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/sws_security_profile).
+     You can replace `created_at` with another variable to get the information you need. For more on the properties of the `yandex_sws_security_profile` data source, see [this provider guide]({{ tf-provider-datasources-link }}/sws_security_profile).
 
   1. Create the resources:
 

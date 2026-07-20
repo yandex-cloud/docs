@@ -16,7 +16,7 @@ Where:
     Instead of the HTTP router name, you can provide its ID in the `--http-router-id` parameter.
 * `--authority`: List of domains for the `Host` header (HTTP/1.1) or the `authority` pseudo-header (HTTP/2) associated with this virtual host, comma-separated. You can use wildcards, e.g., `*.foo.com` or `*-bar.foo.com`. For gRPC traffic, you may specify the load balancer's IP address.
 
-    This is an optional parameter. If not specified, all traffic will be routed to this virtual host.
+    This is an optional setting. If not specified, all traffic will be routed to this virtual host.
 * `--modify-request-header`: Request HTTP header modification settings in `<property>=<value>` format. Available properties:
 
     {% include [cli-vh-modify-header-options](./cli-vh-modify-header-options.md) %}
@@ -41,7 +41,7 @@ Where:
     You can configure only one type of rate limit per virtual host, either `all-requests` or `requests-per-ip`.
 
     This is an optional parameter; if not specified, no rate limiting is applied.
-* `--security-profile-id`: [{{ sws-full-name }}](../../../smartwebsecurity/) [security profile](../../../smartwebsecurity/concepts/profiles.md) ID. A security profile allows you to filter incoming requests, enable [WAF](../../../smartwebsecurity/concepts/waf.md), and set limits on the number of requests for protection against malicious activity. Learn more [here](../../../smartwebsecurity/concepts/profiles.md). This is an optional parameter.
+* `--security-profile-id`: [{{ sws-full-name }}](../../../smartwebsecurity/) [security profile](../../../smartwebsecurity/concepts/profiles.md) ID. A security profile allows you to filter incoming requests, enable [WAF](../../../smartwebsecurity/concepts/waf.md), and set limits on the number of requests for protection against malicious activity. For more information, see [{#T}](../../../smartwebsecurity/concepts/profiles.md). This is an optional setting.
 
 
 Result:

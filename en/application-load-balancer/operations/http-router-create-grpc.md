@@ -174,7 +174,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
 
           {% include [tf-vh-create-legend-last-part](../../_includes/application-load-balancer/instruction-steps/tf-vh-create-legend-last-part.md) %}
 
-      For more information on the properties of {{ TF }} resources, see these provider guides:
+      The properties of the resources are covered in this {{ TF }} provider guide:
       * [yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router) resource
       * [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host) resource
   1. Create the resources

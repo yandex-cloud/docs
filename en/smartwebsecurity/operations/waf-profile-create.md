@@ -94,7 +94,7 @@ description: Follow this guide to create a {{ sws-full-name }} WAF profile.
             * `is_enabled`: Flag to enable or disable a rule.
             * `is_blocking`: [Blocking](../concepts/waf.md#anomaly) rule flag.
 
-      For more information about the `yandex_sws_waf_profile` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/sws_waf_profile).
+      For more on the properties of the `yandex_sws_waf_profile` resource, see [this provider guide]({{ tf-provider-resources-link }}/sws_waf_profile).
 
   1. Create the resources:
 
@@ -110,7 +110,7 @@ description: Follow this guide to create a {{ sws-full-name }} WAF profile.
 
 {% endlist %}
 
-### Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](configure-set-rules.md)
 * [{#T}](rule-add.md)

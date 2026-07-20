@@ -64,7 +64,7 @@ For more information, see [Player initialization parameters](./initialization.md
 
 ## Player controls {#player-controls}
 
-For more info on how to manage the player, see [Player methods](./player-methods.md).
+For information on player control methods, see [Player methods](./player-methods.md).
 
 Example of using methods:
 
@@ -84,7 +84,7 @@ sendCommand('setVolume', { volume: 0.5 });
 
 ## Player events {#player-events}
 
-For details, see [Player events](./player-events.md).
+For information about player events, see [here](./player-events.md).
 
 Example of a subscription to events:
 

@@ -75,7 +75,7 @@ The following viewing statistics are currently available:
 
 ## AI features {#ai-capabilities}
 
-To provide users with more options and expand your video audience, enable AI features built on Yandex ML models. For more information about AI features, see [this article](https://habr.com/ru/companies/yandex/articles/792608/) in the Yandex blog. 
+To provide users with more options and expand your video audience, enable AI features built on Yandex ML models. For more on AI features, see the [Yandex blog](https://habr.com/ru/companies/yandex/articles/792608/).
 
 ### Summarization {#summarization}
 
@@ -99,7 +99,7 @@ You can also upload custom subtitles in SRT and VTT formats. The maximum subtitl
 
 You can also generate timecodes automatically by enabling video [summarization](#summarization).
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [Getting started with video hosting](../hosting.md)
 * [Getting started with API](../api-ref/quickstart.md)

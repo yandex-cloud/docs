@@ -75,7 +75,7 @@ title: How to get information about a target group in {{ alb-full-name }}
       * `output "target_group"`: Output variable with target group resource information:
         * `value`: Return value.
 
-      You can replace `target` with another variable to get the information you need. For more information about the `yandex_alb_target_group` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/alb_target_group).
+      You can replace `target` with another variable to get the information you need. For more on the properties of the `yandex_alb_target_group` data source, see [this provider guide]({{ tf-provider-datasources-link }}/alb_target_group).
 
   1. Create the resources:
 

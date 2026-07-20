@@ -1,6 +1,6 @@
 # Let's Encrypt certificate
 
-You can use {{ certificate-manager-name }} to create Let's Encrypt certificates. Request a certificate and pass the domain rights check. After that, {{ certificate-manager-name }} will manage your certificate by working with Let's Encrypt on your behalf.
+You can use {{ certificate-manager-name }} to create Let's Encrypt certificates. You request a certificate and pass the domain ownership verification procedure. After that, {{ certificate-manager-name }} will manage this certificate by contacting Let's Encrypt on your behalf.
 
 Let's Encrypt provides Domain Validation TLS certificates with a 90-day validity period. If you need Organization Validation or Extended Validation certificates, use a third-party certificate authority to get the certificate, and then upload it to {{ certificate-manager-name }}. For more information, see [User certificate](imported-certificate.md). 
 
@@ -9,20 +9,20 @@ You can use a certificate created with {{ certificate-manager-name }} in the [sp
 ## Getting a certificate {#request}
 
 1. Specify the list of domains you need to issue a certificate for.
-1. Select the type of domain rights check: `HTTP` or `DNS`.
+1. Select domain ownership verification type: `HTTP` or `DNS`.
 
     Certificate status after the request is created: `Validating`. 
-1. To get a certificate, pass the domain rights check for the domains you specified in the previous step.
+1. To get a certificate, pass the ownership verification procedure for the domains you specified in the previous step.
 
     Depending on the selected type of check, put the file on the web server or add a `TXT` or `CNAME` resource record with the appropriate value in the DNS service. To learn more about the types of checks and ways to pass them, see [{#T}](challenges.md).
 
     {% include [checking-domain-rights-cname](../../_includes/certificate-manager/checking-domain-rights-cname.md) %}
 
-1. As soon as the domain rights check is passed, the certificate will be issued and get the `Issued` status. You can use the certificate in services that are integrated with {{ certificate-manager-name }}.
+1. As soon as you successfully pass the domain ownership verification procedure, the certificate will be issued and get the `Issued` status. You can use the certificate in services that are integrated with {{ certificate-manager-name }}.
 
 {% note warning %}
 
-If you fail to pass the domain rights check within a week, the certificate will not be issued and its status will change to `Invalid`.
+If you fail to pass the domain ownership verification procedure within one week, the certificate will not be issued and its status will change to `Invalid`.  
 
 {% endnote %}
 
@@ -38,9 +38,9 @@ The stages of issuing a Let's Encrypt certificate are as follows:
 
 1. Challenge generation.
 
-    At this stage, the domain rights check challenges are generated based on the [ACME](https://tools.ietf.org/html/rfc8555) standard.
+    At this stage, [ACME](https://tools.ietf.org/html/rfc8555)-based domain ownership verification challenges are generated.
 
-1. Passing the domain rights check challenges.
+1. Domain ownership verification procedure.
    
     At this stage, your control of the domains you request the certificate for is verified. To get through the stage, complete these actions for the type of check you selected:
 
@@ -70,7 +70,7 @@ To renew a certificate, follow the steps below. Keep track of the lifecycle of y
 1. {{ certificate-manager-name }} initiates a certificate renewal 30 days prior to its expiration.
     
     After the renewal procedure starts, the certificate gets the `Renewing` status.
-1. Pass domain ownership verification.
+1. Pass the domain ownership verification procedure.
 
     Depending on the type of check you selected, update the file on the web server or update the `TXT` record in the DNS service to the new value. For more information, see [Domain ownership verification](challenges.md).
     
@@ -80,14 +80,14 @@ To renew a certificate, follow the steps below. Keep track of the lifecycle of y
     
     {% endnote %}
     
-1. As soon as the domain rights check is passed, the certificate will be renewed and get the `Issued` status. All the resources that use the certificate will get its new version. 
+1. As soon as you successfully pass the domain ownership verification procedure, the certificate will be renewed and get the `Issued` status. All the resources that use the certificate will get its new version. 
 
-The certificate will not be renewed if the domain rights check ends with an error, even for a single domain. In which case the certificate's status will change to `Renewal_failed`, and it will remain valid until it's expiration date.
+The certificate will not be renewed if the domain ownership verification procedure ends with an error, even for a single domain. In which case the certificate's status will change to `Renewal_failed`, and it will remain valid until it's expiration date.
 Some time after the failed renewal, a new attempt will be made to update the certificate. 
  
 To avoid issues with access to resources that depend on the certificate with the `Renewal_failed` status:
 1. Before the certificate expires, get and [add a new Let's Encrypt certificate](../operations/managed/cert-create.md).
-1. [Pass domain ownership verification](../operations/managed/cert-validate.md).
+1. [Pass the domain ownership verification procedure](../operations/managed/cert-validate.md).
 1. Use the new certificate in your resources.
 
 ## Use cases {#examples}
@@ -98,5 +98,5 @@ To avoid issues with access to resources that depend on the certificate with the
 
 #### Useful links {#see-also}
 
-- [Domain rights check](challenges.md)
-- [Services integrated with {{ certificate-manager-name }}](services.md)
+* [Domain ownership verification](challenges.md)
+* [Services integrated with {{ certificate-manager-name }}](services.md)

@@ -56,6 +56,8 @@ description: Следуя данной инструкции, вы научите
 
                 Вы можете выбрать одновременно нескольких субъектов, для этого выбирайте их поочередно.
 
+                {% include [canonical-user-identification](../../../_includes/storage/canonical-user-identification.md) %}
+
         * **{{ ui-key.yacloud.storage.bucket.policy.field_action }}**, для которого создается правило. Вы также можете выбрать опцию **Все действия**.
         * **{{ ui-key.yacloud.storage.bucket.policy.field_resource }}** — по умолчанию указан выбранный бакет. Чтобы добавить другие ресурсы в правило, нажмите кнопку **{{ ui-key.yacloud.storage.bucket.policy.button_add-resource }}**.
 
@@ -117,11 +119,13 @@ description: Следуя данной инструкции, вы научите
        * `Effect` — запрет или разрешение запрошенного действия. Возможные значения: `Allow` и `Deny`.
        * `Principal` — идентификатор субъекта запрошенного разрешения. Получателем может быть [пользователь](../../../organization/operations/users-get.md), [сервисный аккаунт](../../../iam/operations/sa/get-id.md) или [группа пользователей](../../../organization/operations/manage-groups.md). Необязательный параметр. Возможные значения:
          * `"*"`.
-         * `"CanonicalUser": "<идентификатор_субъекта>"`. 
+         * `"CanonicalUser": "<идентификатор_субъекта>"`.
 
          Идентификаторы можно получить следующими способами:
 
          {% include [acl-grantee](../../../_includes/storage/acl-grantee.md) %}
+
+         {% include [canonical-user-identification](../../../_includes/storage/canonical-user-identification.md) %}
 
        * `Action` — [действие](../../s3/api-ref/policy/actions.md), которое будет разрешено при срабатывании политики. Возможные значения: `s3:GetObject`, `s3:PutObject` и `*` если необходимо применять политику ко всем действиям.
        * `Resource` — ресурс, к которому будет применяться правило.
@@ -197,11 +201,13 @@ description: Следуя данной инструкции, вы научите
        * `Effect` — запрет или разрешение запрошенного действия. Возможные значения: `Allow` и `Deny`.
        * `Principal` — идентификатор субъекта запрошенного разрешения. Получателем может быть [пользователь](../../../organization/operations/users-get.md), [сервисный аккаунт](../../../iam/operations/sa/get-id.md) или [группа пользователей](../../../organization/operations/manage-groups.md). Необязательный параметр. Возможные значения:
          * `"*"`.
-         * `"CanonicalUser": "<идентификатор_субъекта>"`. 
+         * `"CanonicalUser": "<идентификатор_субъекта>"`.
 
          Идентификаторы можно получить следующими способами:
 
          {% include [acl-grantee](../../../_includes/storage/acl-grantee.md) %}
+
+         {% include [canonical-user-identification](../../../_includes/storage/canonical-user-identification.md) %}
 
        * `Action` — [действие](../../s3/api-ref/policy/actions.md), которое будет разрешено при срабатывании политики. Возможные значения: `s3:GetObject`, `s3:PutObject` и `*` если необходимо применять политику ко всем действиям.
        * `Resource` — ресурс, к которому будет применяться правило.

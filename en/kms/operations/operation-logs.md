@@ -150,4 +150,4 @@ The system logs all actions with {{ kms-name }} resources as a list of operation
 
 #### Useful links {#see-also}
 
-* [{#T}](../../api-design-guide/concepts/about-async.md)
+[{#T}](../../api-design-guide/concepts/about-async.md)

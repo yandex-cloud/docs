@@ -50,4 +50,4 @@ When invoking a function in {{ sf-name }}, the alert or escalation will send a J
 * `alertStatus`: [Alert status](../../concepts/alerting/alert.md#alert-statuses) (text).
 * `annotations`: Values of annotations for the fired alert (`key:value` dictionary).
 
-For an example of invoking a function, see [{#T}](alert-call-function.md).
+For a function invocation example, see [{#T}](alert-call-function.md).

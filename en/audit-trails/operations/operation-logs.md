@@ -138,4 +138,4 @@ The system logs all actions with {{ at-name }} resources as a list of operations
 
 #### Useful links {#see-also}
 
-* [{#T}](../../api-design-guide/concepts/about-async.md)
+[{#T}](../../api-design-guide/concepts/about-async.md)

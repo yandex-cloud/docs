@@ -53,4 +53,4 @@ If you are just getting started with tracing, use [this data delivery setup guid
 
 1. To open a separate trace, specify its ID in the **{{ ui-key.yacloud_monitoring.traces.trace-id-input.placeholder }}** field at the top right.
 
-For more on trace viewing and searching, see [{#T}](operations/traces-explorer.md).
+For more on trace searching and viewing, see [{#T}](operations/traces-explorer.md).

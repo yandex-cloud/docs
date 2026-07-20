@@ -1203,7 +1203,7 @@ Use a pre-prepared [image](#create-image), [snapshot](#create-snapshot), or [dis
               * `image_id`: ID of the [pre-prepared image](#create-image) the VM boot disk will be created from.
               * `snapshot_id`: ID of the [pre-prepared snapshot](#create-snapshot) the VM boot disk will be created from.
 
-          For more information about `yandex_compute_disk` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/compute_disk).
+          For more information about the `yandex_compute_disk` resource properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/compute_disk).
 
       * `yandex_compute_instance`: VM description:
           * `name`: VM name. The naming requirements are as follows:

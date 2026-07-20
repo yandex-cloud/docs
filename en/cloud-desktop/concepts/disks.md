@@ -11,11 +11,11 @@ Disks are designed to store data and are attached to [desktops](desktops-and-gro
 
 {{ cloud-desktop-name }} supports network SSDs and HDDs.
 
-Each desktop has a [boot](#boot-disk) disk and a [working](#working-disk) disk attached.
+Each desktop has a [boot](#boot-disk) disk and a [data](#working-disk) disk attached.
 
 You specify disk configuration when [creating a desktop group](../operations/desktop-groups/create.md).
 
-For more information about disks, see the [{{ compute-name }} documentation](../../compute/concepts/disk.md).
+For more on disks, see [this {{ compute-name }} guide](../../compute/concepts/disk.md).
 
 ## Boot disk {#boot-disk}
 
@@ -23,12 +23,12 @@ A boot disk contains OS files and desktop software components.
 
 You cannot edit the boot disk configuration after creating a desktop group.
 
-Updating an [image](images.md), working disk size, vCPU, vCPU and RAM share will delete all data on the boot disk.
+Updating an [image](images.md), data disk size, vCPU, vCPU or RAM share will delete all data on the boot disk.
 
-## Working disk {#working-disk}
+## Data disk {#working-disk}
 
-A working disk contains user files. On Linux desktops, this disk is mounted to the user directory.
+A data disk contains user files. On Linux desktops, this disk is mounted to the user directory.
 
-You can [increase](../operations/desktop-groups/update.md) the size of the working disk after creating a desktop group.
+You can [increase](../operations/desktop-groups/update.md) the data disk size after creating a desktop group.
 
-In case you update the desktop group image, the data on the working disk will be still there.
+All data on the data disk is preserved when you update the desktop group image.

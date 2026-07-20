@@ -61,7 +61,7 @@ description: Follow this guide to edit basic ARL profile settings.
       }
       ```
 
-      For more information about `yandex_sws_advanced_rate_limiter_profile` properties, see [this provider guide]({{ tf-provider-resources-link }}/sws_advanced_rate_limiter_profile).
+      For more on the properties of the `yandex_sws_advanced_rate_limiter_profile` resource, see [this provider guide]({{ tf-provider-resources-link }}/sws_advanced_rate_limiter_profile).
 
   1. Apply the changes:
 
@@ -75,7 +75,7 @@ description: Follow this guide to edit basic ARL profile settings.
 
 {% endlist %}
 
-### Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](arl-profile-delete.md)
 * [{#T}](arl-rule-add.md)

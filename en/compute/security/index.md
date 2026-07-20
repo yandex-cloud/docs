@@ -77,7 +77,7 @@ You can also assign roles for individual resources within the service:
 
 {% note warning %}
 
-Starting August 1, 2026, the `compute.editor` role gets new permissions allowing it to connect VM instances to [{{ backup-full-name }}](../../backup/index.yaml), link and unlink them from [backup policies](../../backup/concepts/policy.md).
+Starting August 1, 2026, the `compute.editor` role gets new permissions from the [backup.user](../../backup/security/index.md#backup-user) role allowing it to connect VM instances to [{{ backup-full-name }}](../../backup/index.yaml), link and unlink them from [backup policies](../../backup/concepts/policy.md).
 
 {% include [denyActivation-iam-policy-pre-notice](../../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
 
@@ -89,7 +89,7 @@ Starting August 1, 2026, the `compute.editor` role gets new permissions allowing
 
 {% note warning %}
 
-Starting August 1, 2026, the `compute.admin` role gets new permissions allowing it to connect VM instances to [{{ backup-full-name }}](../../backup/index.yaml), link and unlink them from [backup policies](../../backup/concepts/policy.md).
+Starting August 1, 2026, the `compute.admin` role gets new permissions from the [backup.user](../../backup/security/index.md#backup-user) role allowing it to connect VM instances to [{{ backup-full-name }}](../../backup/index.yaml), link and unlink them from [backup policies](../../backup/concepts/policy.md).
 
 {% include [denyActivation-iam-policy-pre-notice](../../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
 
@@ -133,7 +133,7 @@ Starting August 1, 2026, the `compute.admin` role gets new permissions allowing 
 
 {% include [iam.serviceAccounts.user](../../_roles/iam/serviceAccounts/user.md) %}
 
-For more information about service roles, see [{#T}](../../iam/concepts/access-control/roles.md) in the {{ iam-full-name }} guides.
+To learn more about service roles, see [{#T}](../../iam/concepts/access-control/roles.md) in the {{ iam-full-name }} guides.
 
 ### Primitive roles {#primitive-roles}
 

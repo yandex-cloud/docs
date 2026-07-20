@@ -1,6 +1,6 @@
 # Input data transformation
 
-{{ monium-name }} currently receives data only in the [OpenTelemetry](https://opentelemetry.io/) format. See [this proto specification](https://github.com/open-telemetry/opentelemetry-proto/blob/main/opentelemetry/proto/collector/logs/v1/logs_service.proto#L33C14-L33C38) for the API and data formats.
+{{ monium-name }} currently receives data only in the [OpenTelemetry](https://opentelemetry.io/) format. For the API and data formats, see [this proto specification](https://github.com/open-telemetry/opentelemetry-proto/blob/main/opentelemetry/proto/collector/logs/v1/logs_service.proto#L33C14-L33C38).
 
 As the OpenTelemetry data model is not a full match of the {{ monium-name }} logical data model (e.g., it does not distinguish between `labels` and `meta`), a number of rules and transformations are applied.
 

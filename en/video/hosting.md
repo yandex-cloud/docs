@@ -5,7 +5,7 @@ description: Follow this guide to upload your video to {{ video-full-name }} and
 
 # Getting started with video hosting in {{ video-full-name }}
 
-To upload a [video](./concepts/index.md#videos) to a service [channel](./concepts/index.md#channels):
+To upload a [video](./concepts/videos.md) to a service [channel](./concepts/index.md#channels):
 1. [Get your cloud ready](#before-you-begin).
 1. [Create a channel](#create-channel).
 1. [Upload a video](#upload-video).
@@ -58,8 +58,6 @@ To upload a [video](./concepts/index.md#videos) to a service [channel](./concept
 1. {% include [add-translation-optional](../_includes/video/add-translation-optional.md) %}
 1. Click **{{ ui-key.yacloud_video.common.action_accept }}**.
 
-To learn more about video, see [{#T}](./concepts/videos.md).
-
 ## Publish your video {#publish-video}
 
 In the video settings window that opens, wait until the video is completely uploaded, processed, and gets the `{{ ui-key.yacloud_video.videos.status_ready }}` status. The `{{ ui-key.yacloud_video.videos.label_visibility-status }}` field value will change to`{{ ui-key.yacloud_video.videos.status_published }}`.
@@ -76,7 +74,7 @@ In the video settings window that opens, wait until the video is completely uplo
 1. Open a new browser page and paste the obtained URL to the address bar.
 1. Click the Play button.
 
-### Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](streaming.md)
 * [{{ video-full-name }} overview](./concepts/index.md)

@@ -99,6 +99,6 @@ To update a secret:
 
 {% endlist %}
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
-* [{#T}](../concepts/secret.md)
+[{#T}](../concepts/secret.md)

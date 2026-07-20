@@ -1,0 +1,3 @@
+Если для учетной записи пользователя на стороне {{ microsoft-idp.ad-short }} задано значение поля **accountExpires**, агент синхронизирует это значение с полем **{{ ui-key.yacloud_org.organization.userpools.UserForm.field_expires-at_2bdWC }}** (`expires_at`) в свойствах локального пользователя {{ org-full-name }}. При наступлении момента, указанного в этом поле, локальный пользователь {{ org-full-name }} будет автоматически [деактивирован](../../organization/operations/user-pools/deactivate-user.md).
+
+В этом случае, чтобы повторно активировать пользователя, измените или удалите значение поля **accountExpires** для учетной записи пользователя на стороне {{ microsoft-idp.ad-short }}.

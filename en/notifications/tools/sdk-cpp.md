@@ -34,9 +34,9 @@ To get the AWS SDK for C++, [compile and build](https://docs.aws.amazon.com/sdk-
 
 Below is a guide on how to build and install the source files on Linux and macOS.
 
-For Windows, see the relevant [AWS documentation](https://docs.aws.amazon.com/sdk-for-cpp/v1/developer-guide/setup-windows.html).
+For Windows, see [this AWS guide](https://docs.aws.amazon.com/sdk-for-cpp/v1/developer-guide/setup-windows.html).
 
-You can also find the prerequisites and a guide in the [AWS documentation](https://docs.aws.amazon.com/sdk-for-cpp/v1/developer-guide/welcome.html).
+You can also find the prerequisites and instructions in [this AWS guide](https://docs.aws.amazon.com/sdk-for-cpp/v1/developer-guide/welcome.html).
 
 ### Get your OS ready {#prepare-os}
 
@@ -481,7 +481,7 @@ Where:
 * `senderIdAttribute.SetStringValue`: Sender's text name
 
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [Getting started](../quickstart.md)
 * [AWS CLI](aws-cli.md)

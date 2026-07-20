@@ -13,7 +13,7 @@ items:
             href: operations/managed/cert-create.md
           - name: Getting the contents of a certificate
             href: operations/managed/cert-get-content.md
-          - name: Passing a domain rights check
+          - name: Passing the domain ownership verification procedure
             href: operations/managed/cert-validate.md
           - name: Renewing a certificate
             href: operations/managed/cert-update.md
@@ -65,7 +65,7 @@ items:
         href: concepts/managed-certificate.md
       - name: Custom certificate
         href: concepts/imported-certificate.md
-      - name: Domain rights check
+      - name: Domain ownership verification
         href: concepts/challenges.md
       - name: Integration with the {{ yandex-cloud }} services
         href: concepts/services.md
@@ -518,7 +518,7 @@ items:
     href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md
-  - name: Audit log reference
+  - name: Event reference
     items:
       - name: CreateCaUsageRestriction
         href: events-ref/CreateCaUsageRestriction.md

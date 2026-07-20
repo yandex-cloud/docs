@@ -1,14 +1,15 @@
 ---
-title: Backups in {{ compute-full-name }}
+title: Backing up to {{ compute-full-name }}
 description: Backups of data in images, snapshots, and disks that are not attached to instances are stored securely and replicated within the {{ yandex-cloud }} infrastructure. To back up the data from disks attached to an instance, create snapshots of the disks on a regular basis.
 keywords:
-  - backup
+  - backups
   - back up
+  - backup
   - backing up
   - data backups
 ---
 
-# Backups in {{ compute-name }}
+# Backing up to {{ compute-name }}
 
 
 Data contained in images, snapshots, and disks that are not attached to VMs is stored securely and replicated within the {{ yandex-cloud }} infrastructure.
@@ -20,6 +21,12 @@ To restore a VM from a disk snapshot, you can:
 * Create a new VM [from a set of snapshots](../operations/vm-create/create-from-snapshots.md). In the operation parameters, you can specify both boot and regular disk snapshots.
 
 {% include [boot-disk-recover](../../_includes/compute/boot-disk-recover.md) %}
+
+{% note warning %}
+
+Backing up large disks places a significant load on the VM's disk subsystem, which can lead to network issues such as latency or packet loss. For more information, see [{#T}](storage-read-write.md#disk-load-network-impact).
+
+{% endnote %}
 
 
 ## Comparison with backups in {{ backup-name }} {#backup-comparison}

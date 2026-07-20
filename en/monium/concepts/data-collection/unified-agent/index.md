@@ -61,7 +61,7 @@ See also the [list of available inputs](inputs.md).
 
 Outputs are used by the agent to send messages to third-party systems. The currently supported outputs are `yc_metrics`, which writes metrics to the {{ monitoring-full-name }} API, and a number of debug outputs.
 
-See also the [list of available outputs](outputs.md).
+See also [the list of available outputs](outputs.md).
 
 ## Filters {#filters}
 

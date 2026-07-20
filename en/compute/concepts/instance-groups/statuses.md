@@ -36,12 +36,12 @@ Available actions with the group: [modify](../../operations/instance-groups/upda
 
 ## Statuses of instances in the group {#vm-statuses}
 
-Status | Description
+Stage | Description
 ----- | -----
 `CREATING_INSTANCE` | The instance is being created and started. {{ ig-name }} is waiting for the instance in {{ compute-name }} to get the `RUNNING` [status](../vm-statuses.md).
 `AWAITING_STARTUP_DURATION` | The instance has been created and is waiting for the user application to start up within the specified upload period. Network traffic is not being sent to the instance. For [automatic scaling](scale.md), instances with this status are not taken into account.
-`CHECKING_HEALTH` | {{ ig-name }} is waiting for the results of its own [health checks](autohealing.md) of the instance. You can limit the time in this status (see [{#T}](autohealing.md#settings)).
-`OPENING_TRAFFIC` | If an instance group is [integrated with the load balancing service](balancers.md), {{ ig-name }} waits until the instance passes a health check from the load balancer and is ready to accept traffic from it. You can limit the time in this status (see [{#T}](balancers.md#principles-health-checks)).<br/>If the integration is disabled, the status is skipped.
+`CHECKING_HEALTH` | {{ ig-name }} is waiting for the results of its own [health checks](autohealing.md) of the instance. You can limit the time in this status (for more information, see [{#T}](autohealing.md#settings)).
+`OPENING_TRAFFIC` | If an instance group is [integrated with the load balancing service](balancers.md), {{ ig-name }} waits until the instance passes a health check from the load balancer and is ready to accept traffic from it. You can limit the time in this status (for more information, see [{#T}](balancers.md#principles-health-checks)).<br/>If the integration is disabled, the status is skipped.
 `AWAITING_WARMUP_DURATION` | The instance is receiving traffic, but no [autoscaling](scale.md) metrics are read from it during the specified time interval.
 `RUNNING_ACTUAL` | The instance is running and receiving network traffic. User applications are running.
 `RUNNING_OUTDATED` | The instance is running but will soon be updated or deleted.

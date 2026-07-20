@@ -30,7 +30,7 @@ To start using your migrated CDN resources and origin groups:
 
   {% note info %}
 
-  It may take up to 15 minutes for the new CDN server settings to take effect.
+  It may take up to 15 minutes for the new CDN server settings to take effect. 
 
   {% endnote %}
 
@@ -110,7 +110,7 @@ To check whether your resource works properly:
 
 {% endlist %}
 
-### Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./resources/copy-resource.md)
 * [{#T}](./resources/get-stats.md)

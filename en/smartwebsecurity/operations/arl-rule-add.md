@@ -84,7 +84,7 @@ You can only add ARL rules to an [ARL](../concepts/arl.md) profile. Basic [rules
   
         {% include [arl-profile-parameters](../../_includes/smartwebsecurity/arl-profile-parameters.md) %}
   
-        For more information about `yandex_sws_advanced_rate_limiter_profile` properties, see [this provider guide]({{ tf-provider-resources-link }}/sws_advanced_rate_limiter_profile).
+        For more on the properties of the `yandex_sws_advanced_rate_limiter_profile` resource, see [this provider guide]({{ tf-provider-resources-link }}/sws_advanced_rate_limiter_profile).
   
     1. Apply the changes:
   
@@ -98,7 +98,7 @@ You can only add ARL rules to an [ARL](../concepts/arl.md) profile. Basic [rules
 
 {% endlist %}
 
-### Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](rule-update.md)
 * [{#T}](rule-delete.md)

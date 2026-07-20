@@ -76,9 +76,9 @@ description: In this tutorial, you will learn how to get {{ captcha-full-name }}
       * `output "ref_description"`: Output variable with the [client key](../concepts/keys.md) (`client_key`) details:
          * `value`: Return value.
 
-     You can replace `client_key` with another variable to get the information you need. To learn more about the `yandex_smartcaptcha_captcha` data source properties, see [this {{ TF }} provider guide]({{ tf-provider-datasources-link }}/smartcaptcha_captcha).
+     You can replace `client_key` with another variable to get the information you need. For more on the properties of the `yandex_smartcaptcha_captcha` data source, see [this provider guide]({{ tf-provider-datasources-link }}/smartcaptcha_captcha).
 
-  1. Create the required resources:
+  1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 

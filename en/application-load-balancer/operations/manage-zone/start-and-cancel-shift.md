@@ -172,7 +172,7 @@ Previously, the `start-zonal-shift` and `cancel-zonal-shift` CLI commands and th
 
 {% endnote %}
 
-### Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [Disabling and enabling availability zones for a {{ compute-full-name }} instance group](../../../compute/operations/instance-groups/disable-enable-zone.md)
 * [Disabling and enabling availability zones in {{ network-load-balancer-full-name }}](../../../network-load-balancer/operations/manage-zone/disable-enable-zone.md)

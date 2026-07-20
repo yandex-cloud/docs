@@ -11,11 +11,11 @@ A domain is a unique domain name you can use in [{{ yandex-cloud }} services](se
 
 ## Domain ownership verification {#confirmation}
 
-To verify domain ownership, associate the domain with a valid [Let's Encrypt certificate](../managed-certificate.md). Once your ownership is confirmed, no other user can claim rights to a domain with the same domain name.
+To verify domain ownership, associate the domain with a valid [Let's Encrypt certificate](../managed-certificate.md). Once you confirm your rights, no other user will be able to confirm their rights to a domain with the same domain name.
 
 {% note warning %}
 
-* You cannot add a domain if a different user confirmed its ownership.
+* You cannot add a domain confirmed by another user.
 * The period of domain ownership after its confirmation is one year.
  
     After this period expires, you need to confirm the domain ownership again.
@@ -32,5 +32,5 @@ Domains can have the following statuses:
 
 #### Useful links {#see-also}
 
-- [Services integrated with the domain management system](services.md)
-- [Domain rights check](../challenges.md)
+* [Services integrated with the domain management system](services.md)
+* [Domain ownership verification](../challenges.md)

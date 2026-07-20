@@ -60,4 +60,4 @@ Where:
 
     {% endnote %}
 
-For more information about the `yandex_cdn_resource` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/cdn_resource).
+For more on the properties of `yandex_cdn_resource` in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/cdn_resource).

@@ -111,7 +111,7 @@ To move an [L7 load balancer](../concepts/application-load-balancer.md) backend 
          * `zone_id`: Availability zones where the load balancer will receive traffic.
          * `subnet_id`: IDs of the subnets in these availability zones.
 
-         For more information about resource properties in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/alb_load_balancer).
+         For more on the properties of resources, see [this provider guide]({{ tf-provider-resources-link }}/alb_load_balancer).
 
       1. Apply the changes:
 

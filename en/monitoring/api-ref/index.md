@@ -3,7 +3,8 @@ editable: false
 ---
 
 # {{ yandex-cloud }} Monitoring API
-This API reference is organized by resource. To perform an operation on a resource, send an HTTP-request to the appropriate URL. For more information about API architecture, see [{{ yandex-cloud }} API Concepts](../../api-design-guide/index.yaml).
+
+This API reference is organized by resource. To perform an operation on a resource, send an HTTP-request to the appropriate URL. Learn more about the {{ yandex-cloud }} API architecture in [{{ yandex-cloud }} API Concepts](../../api-design-guide/index.yaml).
 
 Resource | Description
 --- | ---

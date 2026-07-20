@@ -259,7 +259,7 @@ When creating a CAPTCHA, you can:
        * `override_variant_uuid`: ID of the challenge option that will appear if the request matches the rule. If this argument is not specified, the system will display the default challenge.
        * `condition`: One or more [conditions for the incoming traffic](../concepts/captcha-variants.md#traffic-conditions). This is an optional setting.
 
-     To learn more about `yandex_smartcaptcha_captcha` properties, see [this provider guide]({{ tf-provider-resources-link }}/smartcaptcha_captcha).
+     For more on the properties of the `yandex_smartcaptcha_captcha` resource, see [this provider guide]({{ tf-provider-resources-link }}/smartcaptcha_captcha).
 
   1. Create the resources:
 
@@ -319,7 +319,7 @@ Create a CAPTCHA named `simple-captcha` that does not use any incoming traffic r
      }
      ```
 
-     To learn more about `yandex_smartcaptcha_captcha` resource properties, see [this provider guide]({{ tf-provider-resources-link }}/smartcaptcha_captcha).
+     For more on the properties of the `yandex_smartcaptcha_captcha` resource, see [this provider guide]({{ tf-provider-resources-link }}/smartcaptcha_captcha).
 
   1. Create a CAPTCHA:
 
@@ -543,7 +543,7 @@ Create a CAPTCHA with incoming traffic rules using the following test specificat
      }
      ```
 
-     To learn more about `yandex_smartcaptcha_captcha` resource properties, see [this provider guide]({{ tf-provider-resources-link }}/smartcaptcha_captcha).
+     For more on the properties of the `yandex_smartcaptcha_captcha` resource, see [this provider guide]({{ tf-provider-resources-link }}/smartcaptcha_captcha).
 
   1. Create a CAPTCHA:
 

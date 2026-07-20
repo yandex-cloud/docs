@@ -96,4 +96,4 @@ description: This page provides a list of {{ objstorage-name }} tutorials.
 
 #### Useful links {#see-also}
 
-* [Webinar: How to use Cloud CDN to offload a high-traffic infrastructure](https://yandex.cloud/ru/events/1489?utm_source=docs&utm_medium=yandex&utm_campaign=infra&utm_content=vebinar&utm_term=cdns3)
+* [Webinar: How to take load off a high-load infrastructure using {{ cdn-name }} and {{ objstorage-name }}](https://yandex.cloud/ru/events/1489?utm_source=docs&utm_medium=yandex&utm_campaign=infra&utm_content=vebinar&utm_term=cdns3)

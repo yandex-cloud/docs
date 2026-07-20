@@ -30,7 +30,8 @@ Catalog for Managed Trino cluster.
       - `aws_secret_key` (**Required**)(String). AWS secret access key for S3 authentication.
     - `s3` [Block]. Describes YandexCloud native S3 file system.
   - `metastore` [Block]. Metastore configuration.
-    - `uri` (**Required**)(String). The resource description.
+    - `managed_cluster_id` (String). ID of the Managed Hive Metastore cluster.
+    - `uri` (String). URI of the Hive Metastore.
 - `description` (String). The resource description.
 - `greenplum` [Block]. Configuration for Greenplum/Cloudberry connector.
   - `additional_properties` (Map Of String). Additional properties.
@@ -52,7 +53,8 @@ Catalog for Managed Trino cluster.
       - `aws_secret_key` (**Required**)(String). AWS secret access key for S3 authentication.
     - `s3` [Block]. Describes YandexCloud native S3 file system.
   - `metastore` [Block]. Metastore configuration.
-    - `uri` (**Required**)(String). The resource description.
+    - `managed_cluster_id` (String). ID of the Managed Hive Metastore cluster.
+    - `uri` (String). URI of the Hive Metastore.
 - `hudi` [Block]. Configuration for Hudi connector.
   - `additional_properties` (Map Of String). Additional properties.
   - `file_system` [Block]. File system configuration.
@@ -63,7 +65,8 @@ Catalog for Managed Trino cluster.
       - `aws_secret_key` (**Required**)(String). AWS secret access key for S3 authentication.
     - `s3` [Block]. Describes YandexCloud native S3 file system.
   - `metastore` [Block]. Metastore configuration.
-    - `uri` (**Required**)(String). The resource description.
+    - `managed_cluster_id` (String). ID of the Managed Hive Metastore cluster.
+    - `uri` (String). URI of the Hive Metastore.
 - `iceberg` [Block]. Configuration for Iceberg connector.
   - `additional_properties` (Map Of String). Additional properties.
   - `file_system` [Block]. File system configuration.
@@ -74,7 +77,10 @@ Catalog for Managed Trino cluster.
       - `aws_secret_key` (**Required**)(String). AWS secret access key for S3 authentication.
     - `s3` [Block]. Describes YandexCloud native S3 file system.
   - `metastore` [Block]. Metastore configuration.
-    - `uri` (**Required**)(String). The resource description.
+    - `managed_cluster_id` (String). ID of the Managed Hive Metastore cluster.
+    - `protocol` (String). Protocol for connecting to the Hive Metastore: thrift or rest (Iceberg REST).
+    - `rest_uri` (String). URI of the Iceberg REST Catalog metastore.
+    - `uri` (String). URI of the Hive Metastore.
 - `id` (*Read-Only*) (String). The resource identifier.
 - `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
 - `mysql` [Block]. Configuration for MySQL connector.

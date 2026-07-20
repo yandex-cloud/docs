@@ -41,7 +41,7 @@ To ensure access to the {{ k8s }} application:
 
 {% cut "How to ensure access to an application via HTTPS" %}
 
-See these guides:
+See the following guides:
 
 * [{#T}](../tutorials/new-kubernetes-project.md)
 * [{#T}](../tutorials/alb-ingress-controller.md)
@@ -88,7 +88,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
           * [Folder ID](../../resource-manager/operations/folder/get-id.md).
           * [{{ k8s }} version](../concepts/release-channels-and-updates.md) for the {{ managed-k8s-name }} cluster and node groups.
           * Name of the {{ managed-k8s-name }} cluster service account.
-      1. Validate your {{ TF }} configuration files using this command:
+      1. Make sure the {{ TF }} configuration files are correct using this command:
 
           ```bash
           terraform validate

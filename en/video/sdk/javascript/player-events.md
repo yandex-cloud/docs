@@ -216,6 +216,34 @@ player.on('TextTracksChange', ({ textTracks }) => {
 });
 ```
 
+#### VideoTracksChange {#videotrackschange}
+
+Updating the list of available video tracks.
+
+The handler receives the `{ videoTracks }` object containing the new array of [available tracks](./player-state.md#state-videoTracks).
+
+Here is an example:
+
+```javascript
+player.on('VideoTracksChange', ({ videoTracks }) => {
+    console.log(videoTracks);
+});
+```
+
+#### VideoTrackChange {#videotrackchange}
+
+Updating the current video track.
+
+The handler receives a new [current track](./player-state.md#state-videoTrack) value in the `{ videoTrack }` object.
+
+Here is an example:
+
+```javascript
+player.on('VideoTrackChange', ({ videoTrack }) => {
+    console.log(videoTrack);
+});
+```
+
 #### Useful links {#see-also}
 
-* [Interface: PlayerSdkEventHandlers](../../api-ref/javascript/interfaces/PlayerSdkEventHandlers.md) in the API reference
+[Interface: PlayerSdkEventHandlers](../../api-ref/javascript/interfaces/PlayerSdkEventHandlers.md), description of player event handlers in the API reference

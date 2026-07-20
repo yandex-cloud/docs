@@ -18,7 +18,7 @@ To get started with {{ certificate-manager-name }}, you need:
 
          {% note info %}
 
-         To verify domain ownership, you must be its manager.
+         To pass the ownership verification procedure, the domain must be under your control.
 
          {% endnote %}
 
@@ -65,12 +65,12 @@ To get started with {{ certificate-manager-name }}, you need:
     1. In the window that opens, enter a name for the certificate.
     1. Optionally, add a description for the certificate.
     1. In the **{{ ui-key.yacloud.certificate-manager.request.field_domains }}** field, specify the domains you want to issue the certificate for.
-    1. Select the [domain rights check type](../concepts/challenges.md): `{{ ui-key.yacloud.certificate-manager.request.challenge-type_label_http }}`. 
+    1. Select [domain ownership verification type](../concepts/challenges.md): `{{ ui-key.yacloud.certificate-manager.request.challenge-type_label_http }}`. 
     1. Click **{{ ui-key.yacloud.certificate-manager.request.button_request }}**.
 
 {% endlist %}
 
-## Passing a domain rights check {#validate}
+## Passing domain ownership verification {#validate}
 
 ### Creating a file for the check {#create-file}
 
@@ -157,6 +157,6 @@ Certificates are not renewed automatically. Keep track of the lifecycle of your 
 
 #### Useful links {#see-also}
 
-- [{#T}](../concepts/managed-certificate.md)
-- [{#T}](../concepts/challenges.md)
-- [Configuring HTTPS in a bucket](../../storage/operations/hosting/certificate.md)
+* [{#T}](../concepts/managed-certificate.md)
+* [{#T}](../concepts/challenges.md)
+* [Configuring HTTPS in a bucket](../../storage/operations/hosting/certificate.md)

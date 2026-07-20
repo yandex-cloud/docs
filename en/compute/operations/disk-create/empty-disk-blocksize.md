@@ -29,16 +29,24 @@ description: Follow this guide to create an empty disk with a large block.
         ```bash
         yc compute disk create \
           --name big-disk \
+          --zone <availability_zone> \
           --block-size 8K \
           --size 40G \
           --description "my 8k blocksize disk via yc"
         ```
 
+       Where:
+       * `--name`: Disk name. The disk naming requirements are as follows:
+
+         {% include [name-format](../../../_includes/name-format.md) %}
+
+       * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) of the new disk. If the availability zone is not set in the [CLI profile](../../../cli/concepts/core-properties.md) by default, the parameter is required.
+       * `--block-size`: Disk block size.
+       * `--size`: Disk size.
+       * `--description`: Disk description.
+
        This command will create a 40 GB disk with 8 KB block size, named `big-disk` and described as `my 8k blocksize disk via yc`.
 
-       The disk naming requirements are as follows:
-
-       {% include [name-format](../../../_includes/name-format.md) %}
 
     1. Get a list of disks in the default folder:
 

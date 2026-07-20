@@ -50,6 +50,7 @@ The [disk](../../concepts/disk.md) size must be a multiple of 93 GB.
      ```bash
      yc compute disk create \
        --name nr-disk \
+       --zone <availability_zone> \
        --type network-ssd-nonreplicated \
        --size 93 \
        --kms-key-id <key_ID>
@@ -57,6 +58,7 @@ The [disk](../../concepts/disk.md) size must be a multiple of 93 GB.
 
        Where:
        * `--name`: Disk name.
+       * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) of the new disk. If the availability zone is not set in the [CLI profile](../../../cli/concepts/core-properties.md) by default, the parameter is required.
        * `--type`: Disk type.
        * `--size`: Disk size.
        * `--kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create an encrypted disk. This is an optional setting.
@@ -121,7 +123,7 @@ The [disk](../../concepts/disk.md) size must be a multiple of 93 GB.
 
         {% include [encryption-keys-note](../../../_includes/compute/encryption-keys-note.md) %}
 
-     For more information about `yandex_compute_disk` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/compute_disk#example-usage---non-replicated-disk).
+     For more information about the `yandex_compute_disk` resource properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/compute_disk#example-usage---non-replicated-disk).
   1. Make sure the configuration files are correct.
      1. In the terminal, navigate to the directory where you created your configuration file.
      1. Run a check using this command:
@@ -200,6 +202,7 @@ You can only create a disk in an existing disk placement group.
        ```bash
        yc compute disk create \
          --name <disk_name> \
+         --zone <availability_zone> \
          --type network-ssd-nonreplicated \
          --size <disk_size> \
          --disk-placement-group-name <placement_group_name> \
@@ -208,6 +211,7 @@ You can only create a disk in an existing disk placement group.
 
        Where:
        * `--name`: Disk name.
+       * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) of the new disk. The disk availability zone must match the placement group zone. If the availability zone is not set in the [CLI profile](../../../cli/concepts/core-properties.md) by default, the parameter is required.
        * `--type`: Disk type.
        * `--size`: Disk size.
        * `--disk-placement-group-name`: Placement group name.
@@ -242,6 +246,7 @@ You can only create a disk in an existing disk placement group.
        ```bash
        yc compute disk create \
          --name <disk_name> \
+         --zone <availability_zone> \
          --type network-ssd-nonreplicated \
          --size <disk_size> \
          --disk-placement-group-name <placement_group_name> \
@@ -250,6 +255,7 @@ You can only create a disk in an existing disk placement group.
 
        Where:
        * `--name`: Disk name.
+       * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) of the new disk. The disk availability zone must match the placement group zone. If the availability zone is not set in the [CLI profile](../../../cli/concepts/core-properties.md) by default, the parameter is required.
        * `--type`: Disk type.
        * `--size`: Disk size.
        * `--disk-placement-group-name`: Placement group name.

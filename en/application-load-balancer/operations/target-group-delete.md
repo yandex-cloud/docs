@@ -81,7 +81,7 @@ To delete a [target group](../concepts/target-group.md):
      }
      ```
 
-     For more information about `yandex_alb_target_group` properties, see [this {{ TF }} provider guide]({{ tf-provider-alb-targetgroup }}).
+     For more on the properties of the `yandex_alb_target_group` resource, see [this provider guide]({{ tf-provider-alb-targetgroup }}).
   1. Apply the changes:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

@@ -125,15 +125,15 @@ Here is an example:
 
 #### play_on_visible {#play-on-visible}
 
-Stopping playback if the player leaves the visible area and starting playback if the player is in it.
+Stopping playback if the player leaves the visibility area and starting playback if the player is in it.
 
 The parameter affects both video content and ads. It can take the following values:
 
 * `false`: Video is played back if the player leaves the visible area (default).
 * `true`: Video is not played back if the player leaves the visible area.
-* Player visibility ratio sufficient for playback. Specify this value as a decimal fraction with a period (`.`) for a delimiter.
+* Player visibility threshold sufficient for playback. Specify as a decimal fraction with a dot (`.`) for separator.
 
-The default value is `false`. When set to `true`, the visibility ratio is `0.5`.
+If the parameter is not provided, the visibility threshold is ≈ 0; only when `muted`, without forced autoplay. When set to `true`, the visibility ratio is `0.5`.
 
 {% note info %}
 

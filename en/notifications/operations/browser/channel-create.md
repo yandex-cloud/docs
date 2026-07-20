@@ -34,7 +34,7 @@ description: Follow this guide to create an in-browser push notification channel
 
      Where `--name` is a user-defined name for the notification channel.
 
-     For more information about the `aws sns create-platform-application` command, see the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/create-platform-application.html).
+     Learn more about the `aws sns create-platform-application` command in [this AWS guide](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/create-platform-application.html).
 
 - AWS SDK for Python {#python}
 

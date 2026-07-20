@@ -406,7 +406,7 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
 
             You can add multiple rules.
 
-      For more information about `yandex_alb_load_balancer` properties in {{ TF }}, see [this {{ TF }} article]({{ tf-provider-resources-link }}/alb_load_balancer).
+      For more on the properties of the `yandex_alb_load_balancer` resource, see [this provider guide]({{ tf-provider-resources-link }}/alb_load_balancer).
 
   1. Make sure the configuration files are correct.
 
