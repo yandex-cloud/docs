@@ -43,7 +43,7 @@ description: Из статьи вы узнаете, как настроить д
     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Выберите вкладку **{{ ui-key.yacloud.storage.buckets.label_title }}**.
     1. Настройте [ACL бакета](../../storage/operations/buckets/edit-acl.md):
-        1. В выпадающем списке **{{ ui-key.yacloud.component.acl-dialog.label_select-placeholder }}** укажите сервисный аккаунт, [подключенный к кластеру](#connect-service-account).
+        1. В выпадающем списке **{{ ui-key.yacloud_components.acl.label.search-subject-placeholder_6nqFf }}** укажите сервисный аккаунт, [подключенный к кластеру](#connect-service-account).
         1. Задайте разрешения `READ и WRITE` для выбранного сервисного аккаунта.
         1. Нажмите кнопки **{{ ui-key.yacloud.common.add }}** и **{{ ui-key.yacloud.common.save }}**.
 

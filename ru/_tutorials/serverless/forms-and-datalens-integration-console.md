@@ -71,7 +71,7 @@
   1. В открывшемся окне **{{ ui-key.yacloud.component.acl-dialog.label_title }}**:
 
       1. Начните вводить имя сервисного аккаунта `forms-integration` и выберите его из выпадающего списка.
-      1. Выберите права доступа {{ ui-key.yacloud.storage.permissions-dialog.label_role-write }}.
+      1. Выберите права доступа {{ ui-key.yacloud.storage.dialog.StorageAclDialog.label_role-write_sGmJW }}.
       1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 

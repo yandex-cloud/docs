@@ -53,7 +53,7 @@ The cost of infrastructure support includes a fee for using a {{ objstorage-full
       1. In the **{{ ui-key.yacloud.component.acl-dialog.label_title }}** window that opens:
 
          1. Start typing the service account name [you created earlier](#before-you-begin) and select it from the drop-down list.
-         1. Select the {{ ui-key.yacloud.storage.permissions-dialog.label_role-write }} access permissions.
+         1. Select the {{ ui-key.yacloud.storage.dialog.StorageAclDialog.label_role-write_sGmJW }} access permissions.
          1. Click **{{ ui-key.yacloud.common.add }}**.
          1. Click **{{ ui-key.yacloud.common.save }}**.
 

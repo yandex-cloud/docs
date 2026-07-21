@@ -74,12 +74,12 @@
   
 Для корректной работы OpenVPN Access Server и кластера Managed Service for PostgreSQL [добавьте](../../vpc/operations/security-group-add-rule.md) дополнительные правила в группу безопасности по умолчанию облачной сети `my-1c-network`:
 
-Направление<br>трафика | Описание | Диапазон портов | Протокол | Источник | CIDR блоки
+Направление<br>трафика | Описание | Диапазон портов | Протокол | Источник | IPv4 CIDR
 --- | --- | --- | --- | --- | ---
-Входящий | `VPN Server 443` | `443` | `TCP` | `CIDR` | `0.0.0.0/0`
-Входящий | `VPN Server 1194` | `1194` | `UDP` | `CIDR` | `0.0.0.0/0`
-Входящий | `Admin Web UI,`</br>`Client Web UI` | `943` | `TCP` | `CIDR` | `0.0.0.0/0`
-Входящий | `Managed Service for PostgreSQL` | `6432` | `TCP` | `CIDR` | `0.0.0.0/0`
+Входящий | `VPN Server 443` | `443` | `TCP` | `Диапазон адресов` | `0.0.0.0/0`
+Входящий | `VPN Server 1194` | `1194` | `UDP` | `Диапазон адресов` | `0.0.0.0/0`
+Входящий | `Admin Web UI,`</br>`Client Web UI` | `943` | `TCP` | `Диапазон адресов` | `0.0.0.0/0`
+Входящий | `Managed Service for PostgreSQL` | `6432` | `TCP` | `Диапазон адресов` | `0.0.0.0/0`
 
 ### Запустите VPN-сервер {#create-vpn-server}
 

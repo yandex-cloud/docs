@@ -3453,6 +3453,7 @@ default:
         button:
           add-role: Добавить роль
         label:
+          search-subject-placeholder_6nqFf: Имя или e-mail пользователя
           service-accounts: Сервисные аккаунты
           subject: Кому выдать доступ
           title: Выдача доступа
@@ -4792,6 +4793,8 @@ default:
           workload-labels-checkbox_Wl4Cb: Метки подов
           workload-names-checkbox_Wn4Cb: Имена рабочих нагрузок
           workload-types-checkbox_Wt4Cb: Типы рабочих нагрузок
+          WorkspaceActionsMenu:
+            stop_wvkkb: Деактивировать
           WorkspaceEditPageLayout:
             tabGeneralParams_xc2v2: Основные параметры
             tabResources_vJuSN: Ресурсы
@@ -4801,6 +4804,8 @@ default:
             billing_account_title_sU1Tj: Оплата ресурсов
             folder_title_px1re: Каталог для хранения ресурсов
             workspace_title_365xt: Имя окружения
+          WorkspaceInactiveAlert:
+            activate_Y5mCr: Активировать
           WorkspaceKspmResourcesForm:
             section-title_iYCNY: Область действия контроля
           WorkspaceModuleErrorsTable:
@@ -5857,7 +5862,6 @@ default:
       component:
         acl-dialog:
           button_remove-new: Отменить
-          label_select-placeholder: Выберите пользователя
           label_title: Редактирование ACL
         acl:
           update-dialog:
@@ -8571,6 +8575,9 @@ default:
           value_private-bucket: Ограниченный
           value_public-bucket: Публичный
         button_upload: Загрузить
+        dialog:
+          StorageAclDialog:
+            label_role-write_sGmJW: 'READ и WRITE '
         field_perm-object-lock-enabled: Бессрочная блокировка
         field_temp-object-lock-enabled: Временная блокировка
         file:
@@ -8597,8 +8604,6 @@ default:
             label_versioning-disabled_ngMWc: Хранить историю изменений объектов
           Service_onnectionsField:
             field_lable-service-connections_iGyHa: Сервисные подключения VPC
-        permissions-dialog:
-          label_role-write: 'READ и WRITE '
         switch_buckets: Бакеты
         title_object-lock: Блокировка версии объекта
         value_cold: Холодное
@@ -8752,33 +8757,32 @@ default:
             button_add-rule: Добавить правило
             button_create: Создать группу безопасности
             column_sg-rules-description: Описание
-            column_sg-rules-ports: Диапазон портов
+            column_sg-rules-ports: Порты
             column_sg-rules-protocol: Протокол
-            column_sg-rules-source-target: Источник
-            column_sg-rules-source-type: Тип источника
+            column_sg-rules-source: Источник
             forms:
-              button_select-all-port-range: Выбрать весь диапазон
+              button_select-all-port-range: Выбрать все
               field_sg-name: Имя
               field_sg-network: Сеть
-              field_sg-rule-cidr-blocks: CIDR блоки
+              field_sg-rule-cidr-blocks: IPv4 CIDR
               field_sg-rule-description: Описание
               field_sg-rule-destination: Назначение
               field_sg-rule-port-range: Диапазон портов
               field_sg-rule-protocol: Протокол
               field_sg-rule-sg-type: Группа безопасности
               field_sg-rule-source: Источник
-              label_section-rules: Правила
               value_any: Любой
               value_ipv6-icmp: ICMPv6
-              value_sg-rule-destination-cidr: CIDR
+              value_sg-rule-destination-cidr: Диапазон адресов
               value_sg-rule-destination-sg: Группа безопасности
               value_sg-rule-sg-type-balancer: Проверки состояния балансировщика
               value_sg-rule-sg-type-list: Из списка
               value_sg-rule-sg-type-self: Текущая
-            label_destination-type-cidr: CIDR
+            label_destination-type-cidr: Префикс
             label_destination-type-security-group: Группа безопасности
             label_egress: Исходящий трафик
             label_ingress: Входящий трафик
+            label_section-rules: Правила
             label_title: Группы безопасности
           switch_overview: Обзор
           switch_route-table: Таблицы маршрутизации

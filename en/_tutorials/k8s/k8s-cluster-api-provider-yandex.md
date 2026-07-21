@@ -68,7 +68,7 @@ The infrastructure support cost includes:
 
 1. The new cluster infrastructure will automatically be assigned the default [security group](../../vpc/concepts/security-groups.md) which is created along with the network. [Add](../../vpc/operations/security-group-add-rule.md) the following rules for _incoming_ traffic to this group:
 
-    {{ ui-key.yacloud.vpc.network.security-groups.column_sg-rules-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.column_sg-rules-ports }} | {{ ui-key.yacloud.vpc.network.security-groups.column_sg-rules-source-type }} | {{ ui-key.yacloud.vpc.network.security-groups.column_sg-rules-source-target }} | {{ ui-key.yacloud.vpc.network.security-groups.column_sg-rules-description }}
+    {{ ui-key.yacloud.vpc.network.security-groups.column_sg-rules-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.column_sg-rules-ports }} | Source type | {{ ui-key.yacloud.vpc.network.security-groups.column_sg-rules-source }} | {{ ui-key.yacloud.vpc.network.security-groups.column_sg-rules-description }}
     --- | --- | --- | --- | ---
     `{{ ui-key.yacloud.common.label_tcp }}` | `{{ port-any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.label_destination-type-security-group }}` | `Balancer` | `Health checks by an L7 load balancer`
     `Any` | `8443` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | `Access to the {{ k8s }} API`

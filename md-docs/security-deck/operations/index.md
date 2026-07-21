@@ -8,6 +8,7 @@
 * [Посмотреть дашборд и операции с окружением Security Deck](workspaces/view-dashboard.md)
 * [Изменить окружение Security Deck и его компоненты](workspaces/update.md)
 * [Настроить права доступа к окружению Security Deck](workspaces/manage-access.md)
+* [Деактивировать и активировать окружение](workspaces/deactivate-activate.md)
 * [Удалить окружение Security Deck](workspaces/delete.md)
 
 ## Алерты {#alerts}

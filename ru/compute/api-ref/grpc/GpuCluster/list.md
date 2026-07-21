@@ -73,7 +73,8 @@ The length must be less than or equal to 100. ||
       "labels": "map<string, string>",
       "status": "Status",
       "zone_id": "string",
-      "interconnect_type": "GpuInterconnectType"
+      "interconnect_type": "GpuInterconnectType",
+      "subnets": "int64"
     }
   ],
   "next_page_token": "string"
@@ -134,4 +135,7 @@ ID of the availability zone where the GPU cluster resides. ||
 Type of interconnect used for this GPU cluster.
 
 - `INFINIBAND`: InfiniBand interconnect. ||
+|| subnets | **int64**
+
+Number of subnets in the GPU cluster. ||
 |#

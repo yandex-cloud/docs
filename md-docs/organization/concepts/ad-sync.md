@@ -131,6 +131,8 @@ flowchart TB
 1. Если попытка изменить пароль в Active Directory завершилась успехом, пароль пользователя изменяется также и на стороне Yandex Identity Hub.
 1. Если попытка изменить пароль в Active Directory завершилась неудачей, пароль пользователя на стороне Yandex Identity Hub также остается неизменным.
 
+Для работы обратной записи паролей пользователю домена, от имени которого агент выполняет синхронизацию, дополнительно нужны разрешения `Change Password`, `Reset Password` и `Write pwdLastSet`. Назначьте их на весь домен или на те Organization Units (OU), которые попадают под выбранные в конфигурации агента фильтры `sync_settings.filter`.
+
 ## Настройка синхронизации {#sync-setup}
 
 Чтобы реализовать синхронизацию пользователей и групп Yandex Identity Hub с Active Directory, необходимо выполнить предварительные настройки, как на стороне вашего [контроллера домена](https://ru.wikipedia.org/wiki/Контроллер_домена) с развернутыми службами Active Directory, так и на стороне Yandex Cloud.
@@ -144,6 +146,14 @@ flowchart TB
 
     * `Replicating Directory Changes`;
     * `Replicating Directory Changes All`.
+
+    Если вы используете обратную запись паролей, дополнительно выдайте следующие разрешения:
+
+    * `Change Password`;
+    * `Reset Password`;
+    * `Write pwdLastSet`.
+
+    Назначьте эти разрешения на весь домен или на те Organization Units (OU), которые попадают под выбранные в конфигурации агента фильтры `sync_settings.filter`.
 1. На контроллере домена откройте сетевые порты для входящего трафика, поступающего с IP-адреса сервера, на котором установлен агент Identity Hub AD Sync Agent:
 
     * `389 (TCP)` — для [LDAP](https://learn.microsoft.com/en-us/windows/win32/api/_ldap/);

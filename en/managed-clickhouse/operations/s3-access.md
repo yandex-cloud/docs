@@ -61,7 +61,7 @@ To connect {{ mch-name }} clusters to {{ objstorage-name }}, we recommend using 
 
       1. In the list of buckets or objects, select the item in question and click ![image](../../_assets/console-icons/ellipsis.svg).
       1. Click **{{ ui-key.yacloud.storage.buckets.button_permissions }}** or **{{ ui-key.yacloud.storage.bucket.button_action-permissions }}**.
-      1. In the **{{ ui-key.yacloud.component.acl-dialog.label_select-placeholder }}** drop-down list, specify the service account [attached to the cluster](#connect-service-account).
+      1. In the **{{ ui-key.yacloud_components.acl.label.search-subject-placeholder_6nqFf }}** drop-down list, specify the service account [attached to the cluster](#connect-service-account).
       1. Set the required permissions for the service account from the drop-down list.
       1. Click **{{ ui-key.yacloud.common.add }}** and **{{ ui-key.yacloud.common.save }}**.
 

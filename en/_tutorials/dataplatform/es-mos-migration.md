@@ -106,7 +106,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
 1. [Set up the bucket ACL](../../storage/operations/buckets/edit-acl.md):
 
-    1. In the **{{ ui-key.yacloud.component.acl-dialog.label_select-placeholder }}** drop-down list, specify the service account you created.
+    1. In the **{{ ui-key.yacloud_components.acl.label.search-subject-placeholder_6nqFf }}** drop-down list, specify the service account you created.
     1. Set the `READ and WRITE` permissions for this service account.
     1. Click **{{ ui-key.yacloud.common.add }}**.
     1. Click **{{ ui-key.yacloud.common.save }}**.

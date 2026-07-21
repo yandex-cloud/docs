@@ -133,7 +133,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
    1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
    1. Введите имя группы безопасности `my-rdgw-sg`.
    1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** выберите сеть, которой будет назначена группа безопасности — `rdgw-network`.
-   1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}** создайте следующие правила для управления трафиком по инструкции под таблицей:
+   1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.label_section-rules }}** создайте следующие правила для управления трафиком по инструкции под таблицей:
       
         | Направление</br>трафика | Описание | Диапазон</br>портов | Протокол | Тип</br>источника | Источник/Назначение | 
         |---|---|---|---|---|---|

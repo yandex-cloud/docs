@@ -71,7 +71,7 @@ The {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) will store 
   1. In the **{{ ui-key.yacloud.component.acl-dialog.label_title }}** window that opens:
 
       1. Start typing the service account name, `forms-integration`, and select it from the drop-down list.
-      1. Select the {{ ui-key.yacloud.storage.permissions-dialog.label_role-write }} access permissions.
+      1. Select the {{ ui-key.yacloud.storage.dialog.StorageAclDialog.label_role-write_sGmJW }} access permissions.
       1. Click **{{ ui-key.yacloud.common.add }}**.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 

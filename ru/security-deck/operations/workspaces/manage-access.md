@@ -40,4 +40,5 @@ description: Из этой инструкции вы узнаете, как на
 * [{#T}](./create.md)
 * [{#T}](./view-dashboard.md)
 * [{#T}](./update.md)
+* [{#T}](./deactivate-activate.md)
 * [{#T}](./delete.md)

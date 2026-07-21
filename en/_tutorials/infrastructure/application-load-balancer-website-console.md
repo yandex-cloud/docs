@@ -55,7 +55,7 @@ To create security groups for the load balancer and an [instance group](../../co
      1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
      1. Name the group, e.g., `alb-sg`.
      1. Select the network to assign the security group to.
-     1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, create the following rules using the instructions below the table:
+     1. Under **{{ ui-key.yacloud.vpc.network.security-groups.label_section-rules }}**, create the following rules using the instructions below the table:
 
         Traffic<br>direction | Description | Port<br>range | Protocol | Source type /<br>destination type | Source /<br>destination
         --- | --- | --- | --- | --- | ---

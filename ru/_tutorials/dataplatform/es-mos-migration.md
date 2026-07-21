@@ -106,7 +106,7 @@
 
 1. [Настройте ACL](../../storage/operations/buckets/edit-acl.md) для бакета:
 
-    1. В выпадающем списке **{{ ui-key.yacloud.component.acl-dialog.label_select-placeholder }}** укажите созданный ранее сервисный аккаунт.
+    1. В выпадающем списке **{{ ui-key.yacloud_components.acl.label.search-subject-placeholder_6nqFf }}** укажите созданный ранее сервисный аккаунт.
     1. Задайте разрешения `READ и WRITE` для выбранного сервисного аккаунта.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.

@@ -265,7 +265,7 @@ The maximum string length in characters is 128. ||
 
 these labels will be assigned to compute nodes (instances), created by the nodegroup
 
-No more than 32 per resource. The maximum string length in characters for each value is 128. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
+The maximum string length in characters for each value is 128. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. No more than 32 per resource. ||
 || platform_id | **string**
 
 ID of the hardware platform configuration for the node. ||
@@ -281,10 +281,9 @@ ID of the reserved instance pool. ||
 || metadata | **object** (map<**string**, **string**>)
 
 The metadata as `key:value` pairs assigned to this instance template. Only SSH keys are supported as metadata.
-
 For more information, see [Connecting to a node over SSH](../../../../operations/node-connect-ssh.md).
 
-No more than 64 per resource. The maximum string length in characters for each value is 131072. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
+The maximum string length in characters for each value is 131072. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. No more than 64 per resource. ||
 || v4_address_spec | **[NodeAddressSpec](#yandex.cloud.k8s.v1.NodeAddressSpec)**
 
 Specification for the create network interfaces for the node group compute instances.
@@ -349,7 +348,7 @@ The minimum value is 0. ||
 
 ID of the disk type.
 
-Value must match the regular expression ``` |network-ssd|network-hdd|network-ssd-nonreplicated|network-ssd-io-m3 ```. ||
+Value must match the regular expression ``` |network-ssd|network-nvme|network-hdd|network-ssd-nonreplicated|network-ssd-io-m3 ```. ||
 || disk_size | **int64**
 
 Size of the disk, specified in bytes.
@@ -1099,7 +1098,7 @@ The maximum string length in characters is 128. ||
 
 these labels will be assigned to compute nodes (instances), created by the nodegroup
 
-No more than 32 per resource. The maximum string length in characters for each value is 128. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
+The maximum string length in characters for each value is 128. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. No more than 32 per resource. ||
 || platform_id | **string**
 
 ID of the hardware platform configuration for the node. ||
@@ -1115,10 +1114,9 @@ ID of the reserved instance pool. ||
 || metadata | **object** (map<**string**, **string**>)
 
 The metadata as `key:value` pairs assigned to this instance template. Only SSH keys are supported as metadata.
-
 For more information, see [Connecting to a node over SSH](../../../../operations/node-connect-ssh.md).
 
-No more than 64 per resource. The maximum string length in characters for each value is 131072. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
+The maximum string length in characters for each value is 131072. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. No more than 64 per resource. ||
 || v4_address_spec | **[NodeAddressSpec](#yandex.cloud.k8s.v1.NodeAddressSpec2)**
 
 Specification for the create network interfaces for the node group compute instances.
@@ -1183,7 +1181,7 @@ The minimum value is 0. ||
 
 ID of the disk type.
 
-Value must match the regular expression ``` |network-ssd|network-hdd|network-ssd-nonreplicated|network-ssd-io-m3 ```. ||
+Value must match the regular expression ``` |network-ssd|network-nvme|network-hdd|network-ssd-nonreplicated|network-ssd-io-m3 ```. ||
 || disk_size | **int64**
 
 Size of the disk, specified in bytes.

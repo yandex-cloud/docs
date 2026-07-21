@@ -462,14 +462,14 @@ A list of messages that carry the error details. ||
 The maximum string length in characters is 128. ||
 || labels | **object** (map<**string**, **string**>)
 
-No more than 32 per resource. The maximum string length in characters for each value is 128. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
+The maximum string length in characters for each value is 128. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. No more than 32 per resource. ||
 || platformId | **string** ||
 || resourcesSpec | **[ResourcesSpec](#yandex.cloud.k8s.v1.ResourcesSpec)** ||
 || bootDiskSpec | **[DiskSpec](#yandex.cloud.k8s.v1.DiskSpec)** ||
 || reservedInstancePoolId | **string** ||
 || metadata | **object** (map<**string**, **string**>)
 
-No more than 64 per resource. The maximum string length in characters for each value is 131072. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
+The maximum string length in characters for each value is 131072. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. No more than 64 per resource. ||
 || v4AddressSpec | **[NodeAddressSpec](#yandex.cloud.k8s.v1.NodeAddressSpec)** ||
 || schedulingPolicy | **[SchedulingPolicy](#yandex.cloud.k8s.v1.SchedulingPolicy)** ||
 || networkInterfaceSpecs[] | **[NetworkInterfaceSpec](#yandex.cloud.k8s.v1.NetworkInterfaceSpec)** ||
@@ -504,7 +504,7 @@ The minimum value is 0. ||
 ||Field | Description ||
 || diskTypeId | **string**
 
-Value must match the regular expression ``` |network-ssd|network-hdd|network-ssd-nonreplicated|network-ssd-io-m3 ```. ||
+Value must match the regular expression ``` |network-ssd|network-nvme|network-hdd|network-ssd-nonreplicated|network-ssd-io-m3 ```. ||
 || diskSize | **string** (int64)
 
 Acceptable values are 0 to 4398046511104, inclusive. ||
