@@ -1,6 +1,6 @@
 При необходимости создайте новый коннектор:
 
-1. Нажмите кнопку ![plug-connection](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud_org.security.workspaces.ConnectorAddField.addNewConnector }}** и в открывшемся окне:
+1. Нажмите кнопку **{{ ui-key.yacloud_org.security.workspaces.ConnectorAddField.addNewConnector }}** и в открывшемся окне:
 
     1. В поле **{{ ui-key.yacloud_org.security.workspaces.ConnectorDialog.labelNameField }}** укажите имя коннектора.
     1. (Опционально) В поле **{{ ui-key.yacloud_org.security.workspaces.ConnectorDialog.labelDescriptionField }}** задайте произвольное описание коннектора.

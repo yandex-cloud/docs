@@ -9,7 +9,7 @@ editable: false
 {% note warning %}
 
 
-Starting July 1, 2026, a new pricing model for {{ cdn-name }} is in effect.
+Starting July 1, 2026, a new {{ cdn-name }} pricing model has come into effect.
 
 
 
@@ -59,15 +59,15 @@ blocks:
 {% include [vat](../_includes/vat.md) %}
 
 The cost of using {{ cdn-name }} is based on:
-* The number of [CDN resources](./concepts/resource.md).
-* The volume of outgoing traffic exceeding the 150 GB of free traffic per month for each resource, charged per 1 GB.
+* Total [CDN resources](./concepts/resource.md).
+* Outgoing traffic over the 150 GB free monthly quota per resource, charged per 1 GB. 
 
-    When a resource is deleted, the remaining free traffic is reset to zero. Transferring traffic between resources is not possible.
+    Deleting a resource forfeits any remaining free traffic. You cannot transfer traffic from one resource to another.
 
-    Outgoing traffic from CDN servers is taken into account, including traffic requested from user resources of {{ yandex-cloud }} services, for example, from {{ compute-full-name }} [virtual machines](../compute/concepts/vm.md). Incoming traffic to CDN servers from {{ yandex-cloud }} services and resources and from the internet is not charged.
+    You pay for outgoing traffic from CDN servers, including traffic requested from user resources of {{ yandex-cloud }} services, e.g., {{ compute-full-name }} [VM instances](../compute/concepts/vm.md). Inbound traffic to the CDN servers from {{ yandex-cloud }} services and resources or from the internet is free of charge.
 
-* The number of requests to CDN resources exceeding the free threshold of 100,000,000 requests per month, charged per 100,000 requests.
-* Paid features enabled for resources: [origin shielding](concepts/origins-shielding.md), [log export](./concepts/logs.md), and [dedicated IP addressing](./concepts/dedicated-ip-addressing.md).
+* Number of requests to CDN resources in excess of the 100,000,000 free monthly threshold, charged per 100,000 requests.
+* Paid features enabled for your resources, such as [origin shielding](concepts/origins-shielding.md), [log export](./concepts/logs.md), and [dedicated IP addressing](./concepts/dedicated-ip-addressing.md).
 
 
 ## Prices for the Russia region {#prices}

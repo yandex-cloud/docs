@@ -22,6 +22,8 @@
 
  - [Настроить права доступа к окружению](operations/workspaces/manage-access.md)
 
+ - [Деактивировать и активировать окружение](operations/workspaces/deactivate-activate.md)
+
  - [Удалить окружение](operations/workspaces/delete.md)
 
 ### Алерты
@@ -109,6 +111,8 @@
  - [Базовые правила безопасности облачной платформы Yandex Cloud](concepts/standard-compliance/yc-security-baseline.md)
 
  - [Стандарт по защите облачной инфраструктуры Yandex Cloud](concepts/standard-compliance/yc-cloud-security-standard.md)
+
+ - [Стандарт предотвращения атак программ-шифровальщиков](concepts/standard-compliance/ransomware-prevention.md)
 
  - [Требования стандарта CIS Benchmark™ для Kubernetes](concepts/standard-compliance/cis-kubernetes-benchmark.md)
 

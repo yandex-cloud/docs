@@ -2970,6 +2970,7 @@ default:
         button:
           add-role: Add role
         label:
+          search-subject-placeholder_6nqFf: "User name or\_e-mail"
           service-accounts: Service accounts
           subject: "Who to\_grant access to"
           title: Granting access
@@ -5272,7 +5273,6 @@ default:
       component:
         acl-dialog:
           button_remove-new: Cancel
-          label_select-placeholder: Select a user
           label_title: ACL editing
         acl:
           update-dialog:
@@ -7936,6 +7936,9 @@ default:
           value_private-bucket: Restricted
           value_public-bucket: Public
         button_upload: Upload
+        dialog:
+          StorageAclDialog:
+            label_role-write_sGmJW: 'READ and WRITE '
         field_perm-object-lock-enabled: Legal hold
         field_temp-object-lock-enabled: Retention
         file:
@@ -7962,8 +7965,6 @@ default:
             label_versioning-disabled_ngMWc: Store object change history
           Service_onnectionsField:
             field_lable-service-connections_iGyHa: VPC service connections
-        permissions-dialog:
-          label_role-write: 'READ and WRITE '
         switch_buckets: Buckets
         title_object-lock: Object version lock
         value_cold: Cold
@@ -8117,33 +8118,32 @@ default:
             button_add-rule: Add
             button_create: Create security group
             column_sg-rules-description: Description
-            column_sg-rules-ports: Port range
+            column_sg-rules-ports: Ports
             column_sg-rules-protocol: Protocol
-            column_sg-rules-source-target: Source
-            column_sg-rules-source-type: Source type
+            column_sg-rules-source: Source
             forms:
-              button_select-all-port-range: Select entire range
+              button_select-all-port-range: Select all
               field_sg-name: Name
               field_sg-network: Network
-              field_sg-rule-cidr-blocks: CIDR blocks
+              field_sg-rule-cidr-blocks: IPv4 CIDR
               field_sg-rule-description: Description
               field_sg-rule-destination: Destination name
               field_sg-rule-port-range: Port range
               field_sg-rule-protocol: Protocol
               field_sg-rule-sg-type: Security group
               field_sg-rule-source: Source
-              label_section-rules: Rules
               value_any: Any
               value_ipv6-icmp: ICMPv6
-              value_sg-rule-destination-cidr: CIDR
+              value_sg-rule-destination-cidr: Address range
               value_sg-rule-destination-sg: Security group
               value_sg-rule-sg-type-balancer: Load balancer healthchecks
               value_sg-rule-sg-type-list: From list
               value_sg-rule-sg-type-self: Current
-            label_destination-type-cidr: CIDR
+            label_destination-type-cidr: Prefix
             label_destination-type-security-group: Security group
             label_egress: Egress
             label_ingress: Ingress
+            label_section-rules: Rules
             label_title: Security groups
           switch_overview: Overview
           switch_route-table: Routing tables

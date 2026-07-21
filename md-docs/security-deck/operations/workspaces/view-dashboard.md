@@ -70,4 +70,5 @@
 * [Создать окружение Security Deck](create.md)
 * [Изменить окружение Security Deck и его компоненты](update.md)
 * [Настроить права доступа к окружению Security Deck](manage-access.md)
+* [Деактивировать и активировать окружение](deactivate-activate.md)
 * [Удалить окружение Security Deck](delete.md)

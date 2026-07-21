@@ -41,6 +41,14 @@
 
     * `Replicating Directory Changes`;
     * `Replicating Directory Changes All`.
+
+    Если вы используете обратную запись паролей, дополнительно выдайте следующие разрешения:
+
+    * `Change Password`;
+    * `Reset Password`;
+    * `Write pwdLastSet`.
+
+    Назначьте эти разрешения на весь домен или на те Organization Units (OU), которые попадают под выбранные в конфигурации агента фильтры `sync_settings.filter`.
 1. На контроллере домена откройте сетевые порты для входящего трафика, поступающего с IP-адреса сервера, на котором установлен агент Identity Hub AD Sync Agent:
 
     * `389 (TCP)` — для [LDAP](https://learn.microsoft.com/en-us/windows/win32/api/_ldap/);

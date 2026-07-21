@@ -5,6 +5,12 @@ description: Из этой инструкции вы узнаете, как из
 
 # Изменить окружение {{ sd-name }} и его компоненты
 
+{% note info %}
+
+ Для внесения изменений, [активируйте](./deactivate-activate.md#acticate) окружение.
+
+{% endnote %}
+
 ## Изменить окружение {#update-workspace}
 
 Чтобы изменить [окружение](../../concepts/workspace.md) {{ sd-name }}:
@@ -128,6 +134,7 @@ description: Из этой инструкции вы узнаете, как из
 
 * [{#T}](../../concepts/workspace.md)
 * [{#T}](./create.md)
+* [{#T}](./deactivate-activate.md)
 * [{#T}](./view-dashboard.md)
 * [{#T}](./manage-access.md)
 * [{#T}](./delete.md)

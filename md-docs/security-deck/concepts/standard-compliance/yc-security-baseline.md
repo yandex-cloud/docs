@@ -11,6 +11,7 @@
 || **Аутентификация и управление доступом** (IAM) {align="center"} | > | > ||
 || IAM1 | [Настроена федерация удостоверений (Single Sign-On, SSO)](../../../security/standard/all.md#saml-federation) | [cspm.access.idp](../../rules-reference/cspm.md#idp) ||
 || IAM5 | [Только необходимые администраторы управляют членством в IAM-группах](../../../security/standard/all.md#iam-admins) | [cspm.access.user-groups-access](../../rules-reference/cspm.md#user-groups-access) ||
+|| IAM17 | [Настроена двухфакторная аутентификация для привилегированных аккаунтов](../../../security/standard/all.md#mfa) | [cspm.access.userpool-mfa](../../rules-reference/cspm.md#userpool-mfa) ||
 || IAM22 | [Для ресурсов в организации отсутствует публичный доступ](../../../security/standard/all.md#public-access) | [cspm.access.public-access](../../rules-reference/cspm.md#public-access) ||
 || **Сетевая безопасность** (NET) {align="center"} | > | > ||
 || NET3 | [В группах безопасности отсутствует слишком широкое правило доступа](../../../security/standard/all.md#access-rule) | [cspm.network.network-firewall-scope](../../rules-reference/cspm.md#network-firewall-scope) ||
@@ -21,7 +22,7 @@
 || CRYPT13 | [В организации используется Yandex Lockbox для безопасного хранения секретов](../../../security/standard/all.md#secrets-lockbox) | [cspm.crypto.secrets-lockbox](../../rules-reference/cspm.md#secrets-lockbox) ||
 || CRYPT14 | [Для Yandex Serverless Containers и Yandex Cloud Functions используются секреты Yandex Lockbox](../../../security/standard/all.md#secrets-serverless-functions) | [cspm.crypto.secrets-serverless](../../rules-reference/cspm.md#secrets-serverless) ||
 || **Сбор, мониторинг и анализ аудитных логов** (AUDIT) {align="center"} | > | > ||
-|| AUDIT1 | [Включен сервис Yandex Audit Trails на уровне организации](../../../security/standard/all.md#audit-trails) | [cspm.o11y.audit-trails-no-errors](../../rules-reference/cspm.md#o11y-audit-trails-no-errors) ||
+|| AUDIT1 | [Включен сервис Yandex Audit Trails на уровне организации](../../../security/standard/all.md#audit-trails) | [cspm.o11y.audit-trails](../../rules-reference/cspm.md#audit-trails) ||
 || AUDIT8 | [Отслеживаются события уровня сервисов](../../../security/standard/all.md#data-plane-events) | [cspm.o11y.data-plane-events](../../rules-reference/cspm.md#data-plane-events) ||
 || **Защита приложений** (APPSEC) {align="center"} | > | > ||
 || APPSEC1 | [Используется Yandex SmartCaptcha](../../../security/standard/all.md#use-smartcaptcha) | [cspm.appsec.use-smartcaptcha](../../rules-reference/cspm.md#use-smartcaptcha) ||

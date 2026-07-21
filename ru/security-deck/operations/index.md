@@ -11,6 +11,7 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](./workspaces/view-dashboard.md)
 * [{#T}](./workspaces/update.md)
 * [{#T}](./workspaces/manage-access.md)
+* [{#T}](./workspaces/deactivate-activate.md)
 * [{#T}](./workspaces/delete.md)
 
 ## Алерты {#alerts}

@@ -51,13 +51,13 @@
      * В [группу безопасности кластера](../../managed-kubernetes/operations/connect/security-groups.md#rules-master) добавьте правило для исходящего трафика, которое разрешает проверку сертификатов через веб-хук cert-manager:
        * **Диапазон портов** — `10250`.
        * **Протокол** — `TCP`.
-       * **Назначение** — `CIDR`.
-       * **CIDR блоки** — `0.0.0.0/0`.
+       * **Назначение** — `Диапазон адресов`.
+       * **IPv4 CIDR** — `0.0.0.0/0`.
      * В [группу безопасности группы узлов](../../managed-kubernetes/operations/connect/security-groups.md#rules-internal-nodegroup) добавьте правило для исходящего трафика, которое разрешает подключение к серверам Let's Encrypt® для выпуска сертификатов:
        * **Диапазон портов** — `443`.
        * **Протокол** — `TCP`.
-       * **Назначение** — `CIDR`.
-       * **CIDR блоки** — `0.0.0.0/0`.
+       * **Назначение** — `Диапазон адресов`.
+       * **IPv4 CIDR** — `0.0.0.0/0`.
 1. [Создайте кластер Managed Service for Kubernetes](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md) любой подходящей конфигурации. При создании укажите группы безопасности, подготовленные ранее.
 
 1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).

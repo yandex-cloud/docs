@@ -7,6 +7,46 @@ description: This page presents CLI releases and their updates.
 
 ## Current version {#latest-release}
 
+### Version 1.15.0 (30/06/26) {#v-1-15-0}
+
+#### {{ mch-name }} {#v-1-15-0-mch-name}
+
+* Added the `yc managed-clickhouse connect` command for connecting to {{ mch-name }} clusters as an IAM user.
+* Added a parameter for creating users with IAM authentication to the `yc managed-clickhouse user create` command.
+* Added the `ssd_cache` and `complex_key_ssd_cache` layout types for external dictionaries to the following commands:
+  * `yc managed-clickhouse cluster add-external-dictionary`
+  * `yc managed-clickhouse cluster update-external-dictionary`
+* Fixed creating a single-host cluster without a coordination service in the `yc managed-clickhouse cluster create` command.
+
+#### {{ mmy-name }} {#v-1-15-0-mmy-name}
+
+Added the `yc managed-mysql backup-retention-policy` command group for LTR policy management:
+* `yc managed-mysql backup-retention-policy create`
+* `yc managed-mysql backup-retention-policy list`
+* `yc managed-mysql backup-retention-policy list-by-folder`
+* `yc managed-mysql backup-retention-policy delete`
+
+#### {{ cloud-registry-name }} {#v-1-15-0-cloud-registry-name}
+
+Added the `yc cloud-registry v1` command branch with the new syntax.
+
+#### {{ sws-name }} {#v-1-15-0-sws-name}
+
+Added the following commands for managing address lists, ARL profiles, WAF profiles, and WAF rule sets:
+* `yc smartwebsecurity match-list`
+* `yc smartwebsecurity advanced-rate-limiter`
+* `yc smartwebsecurity waf`
+
+#### {{ objstorage-name }} {#v-1-15-0-objstorage-name}
+
+Fixed content type detection in the `yc storage s3 cp` command.
+
+#### {{ load-testing-name }} {#v-1-15-0-load-testing-name}
+
+Removed the `yc loadtesting` command group since {{ load-testing-name }} is being discontinued.
+
+## Previous releases {#previous-release}
+
 ### Version 1.14.0 (18/06/26) {#v-1-14-0}
 
 #### {{ mrd-name }} {#v-1-14-0-mrd-name}
@@ -40,8 +80,6 @@ Added the `--retry-policy-exchange-manager-s3-bucket` parameter to the commands 
 #### {{ mgp-name }} {#v-1-14-0-mgp-name}
 
 Added support for Apache Cloudberry to the `yc managed-greenplum cluster update-config` command that updates DBMS configuration.
-
-## Previous releases {#previous-release}
 
 ### Version 1.13.0 (09/06/26) {#v-1-13-0}
 
@@ -2497,7 +2535,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 ##### {{ container-registry-name }} {#container-registry}
 
-* Fixed a regression in Docker credential helper making it impossible to select a non-default profile.
+* Fixed a regression in the Docker credential helper that prevented selecting a non-default profile.
 
 ##### {{ compute-name }} {#compute}
 
@@ -3451,7 +3489,7 @@ Fixed the `yc compute instance-group update` command issue where the instance gr
 
 ##### {{ compute-name }} {#compute}
 
-* Added the `--strategy` parameter to the `yc compute disk-placement-group create` command to specify a placement strategy. It can either be `SPREAD` or `PARTITION`.
+* Added the `--strategy` parameter to the `yc compute disk-placement-group create` command to specify a placement strategy. It can be either `SPREAD` or `PARTITION`.
 * Added the `--partition-count` parameter to the `yc compute disk-placement-group create` command. The flag sets the number of partitions for a group with the `PARTITION` strategy.
 * Added the `--disk-placement-group-partition` parameter to the `yc compute disk create` command to specify the partition number in a placement group.
 * Added the `PLACEMENT GROUP` column to the table with a list of disks you get using the `yc compute disk list` command.
@@ -4064,7 +4102,7 @@ Added the following parameters to the `yc serverless container revision deploy` 
 
 **{{ mrd-full-name }}**
 
-* Added the `--client-output-buffer-limit-normal` and `--client-output-buffer-limit-pubsub` flags to the `yc managed-redis cluster` command group for `create`, `restore`, `update` (see redis.conf for a description). 
+* Added the `--client-output-buffer-limit-normal` and `--client-output-buffer-limit-pubsub` flags to the `yc managed-redis cluster` command group for `create`, `restore`, and `update` (see redis.conf for a description). 
 
 **{{ mgp-name }}**
 
@@ -4975,7 +5013,7 @@ Added primary support for {{ mms-full-name }}:
 
 * `yc container registry configure-docker` command.
 
-  Added the `--disable` flag, which allows you to disable integration with the Docker credential helper.
+  Added the `--disable` flag to disable integration with the Docker credential helper.
 
 
 #### Changes in {{ yandex-cloud }} services
@@ -5388,7 +5426,7 @@ Added support for {{ api-gw-full-name }}.
 
 **Fixed**
 
-* Fixed usage of a Docker credential helper with HTTPS addresses. You can now get authentication data for `https://{{ registry }}` type addresses.
+* Fixed Docker credential helper support for HTTPS addresses. You can now get authentication data for `https://{{ registry }}` type addresses.
 
 
 #### Changes to {{ yandex-cloud }} services {#services}
@@ -5993,7 +6031,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 **Improved**
 
 * Added Windows support for the Docker credential helper.
-* Added a detailed error when using `docker login` in parallel with the Docker credential helper.
+* Added a detailed error message when using `docker login` together with the Docker credential helper.
 
 #### {{ ig-name }} {#instance-groups}
 

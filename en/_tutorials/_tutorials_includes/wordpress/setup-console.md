@@ -31,7 +31,7 @@ To create a [security group](../../../vpc/concepts/security-groups.md):
   1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. Specify the group **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}**: `wordpress`.
   1. Select **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}**.
-  1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, create the following rules using the instructions below the table:
+  1. Under **{{ ui-key.yacloud.vpc.network.security-groups.label_section-rules }}**, create the following rules using the instructions below the table:
 
      Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}
      --- | --- | --- | --- | --- | ---

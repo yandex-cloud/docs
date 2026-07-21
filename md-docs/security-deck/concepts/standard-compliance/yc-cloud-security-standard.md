@@ -13,6 +13,7 @@
 || **Аутентификация и управление доступом** {align="center"} | > | > ||
 || `IAM1` | [Настроена федерация удостоверений (Single Sign-On, SSO)](../../../security/standard/all.md#saml-federation) | [cspm.access.idp](../../rules-reference/cspm.md#idp) ||
 || `IAM2` | [Настроено сопоставление групп пользователей в федерации удостоверений](../../../security/standard/all.md#group-mapping) | [cspm.access.user-groups-mapping](../../rules-reference/cspm.md#access-user-groups-mapping) ||
+|| `IAM3` | [Учетные записи Яндекс ID используются только в исключительных случаях](../../../security/standard/all.md#yandex-id-accounts) | [cspm.yid.organization](../../rules-reference/cspm.md#yid-organization) ||
 || `IAM4` | [Таймаут жизни cookie в федерации меньше 6 часов](../../../security/standard/all.md#cookie-timeout) | [cspm.cookie-timeout.organization](../../rules-reference/cspm.md#cookie-timeout-organization) ||
 || `IAM5` | [Только необходимые администраторы управляют членством в IAM-группах](../../../security/standard/all.md#iam-admins) | [cspm.access.user-groups-access](../../rules-reference/cspm.md#user-groups-access) ||
 || `IAM6` | [Используются сервисные роли вместо примитивных: admin, editor, viewer, auditor](../../../security/standard/all.md#min-privileges) | [cspm.access.min-privileges](../../rules-reference/cspm.md#min-privileges) ||
@@ -24,9 +25,14 @@
 || `IAM11` | [Выполняется периодическая ротация ключей сервисных аккаунтов](../../../security/standard/all.md#sa-key-rotation) | [cspm.iam.sa-key-rotation](../../rules-reference/cspm.md#sa-key-rotation) ||
 || `IAM12` | [Для API-ключей сервисных аккаунтов задана область действия](../../../security/standard/all.md#api-key-scopes) | [cspm.access.defined-key-scopes](../../rules-reference/cspm.md#defined-key-scopes) ||
 || `IAM16` | [На ВМ отключено получение токена через AWS IMDSv1](../../../security/standard/all.md#aws-token) | [cspm.aws-token](../../rules-reference/cspm.md#aws-token) ||
+|| `IAM17` | [Настроена двухфакторная аутентификация для привилегированных аккаунтов](../../../security/standard/all.md#mfa) | [cspm.access.userpool-mfa](../../rules-reference/cspm.md#userpool-mfa) ||
 || `IAM18` | [Привилегированные роли назначены только доверенным администраторам](../../../security/standard/all.md#privileged-users) | [cspm.access.check-privileged-roles](../../rules-reference/cspm.md#check-privileged-roles) ||
 || `IAM22` | [Для ресурсов в организации отсутствует публичный доступ](../../../security/standard/all.md#public-access) | [cspm.access.public-access](../../rules-reference/cspm.md#public-access) ||
 || `IAM24` | [На ресурсах используются метки](../../../security/standard/all.md#labels) | [cspm.o11y.labeled-resources](../../rules-reference/cspm.md#labeled-resources) ||
+|| `IAM26` | [Отслеживается дата последней аутентификации сервисного аккаунта и последнего использования ключей доступа в Identity and Access Management](../../../security/standard/all.md#track-sa-authentication) |
+[cspm.iam.unused-service-account](../../rules-reference/cspm.md#unused-service-account)
+[cspm.iam.unused-key](../../rules-reference/cspm.md#unused-key)
+||
 || **Сетевая безопасность** {align="center"} | > | > ||
 || `NET1` | [Для объектов облака используется межсетевой экран или группы безопасности](../../../security/standard/all.md#firewall) | [cspm.network.firewall](../../rules-reference/cspm.md#firewall) ||
 || `NET2` | [В Yandex Virtual Private Cloud существует как минимум одна группа безопасности](../../../security/standard/all.md#vpc-sg) | [cspm.network.network-firewall](../../rules-reference/cspm.md#network-firewall) ||
@@ -56,11 +62,9 @@
 || `ENV26` | [Публичный доступ отсутствует для YDB](../../../security/standard/all.md#ydb-public) | [cspm.network.ydb-public](../../rules-reference/cspm.md#ydb-public) ||
 || `ENV28` | [Настроен ACL по IP-адресам для Yandex Container Registry](../../../security/standard/all.md#acl-container-registry) | [cspm.access.acl-container-registry](../../rules-reference/cspm.md#acl-container-registry) ||
 || `ENV29` | [Срок действия сертификата Yandex Certificate Manager составляет как минимум 30 дней](../../../security/standard/all.md#certificate-validity) | [cspm.crypto.certificate-validity](../../rules-reference/cspm.md#certificate-validity) ||
+|| `ENV30` | [Выполнены требования к защите приложений в Yandex Managed Service for GitLab](../../../security/standard/all.md#gitlab-security) | [cspm.o11y.gitlab-audited](../../rules-reference/cspm.md#gitlab-audited) ||
 || `ENV33` | [Для подключения к виртуальной машине или узлу Kubernetes используется OS Login](../../../security/standard/all.md#os-login-onto-hosts) | [cspm.access.os-login-onto-hosts.vm](../../rules-reference/cspm.md#vm) ||
-|| `ENV37` | [Используется Cloud Backup или механизм snapshot по расписанию](../../../security/standard/all.md#snapshot) |
-[cspm.backup.compute-disks](../../rules-reference/cspm.md#compute-disks)
-[cspm.backup.compute-disks](../../rules-reference/cspm.md#compute-disks)
-||
+|| `ENV37` | [Используется Cloud Backup или механизм snapshot по расписанию](../../../security/standard/all.md#snapshot) | [cspm.backup.compute-disks](../../rules-reference/cspm.md#compute-disks) ||
 || **Шифрование данных и управление ключами** {align="center"} | > | > ||
 || `CRYPT1` | [В Yandex Object Storage включено шифрование данных at rest с ключом KMS](../../../security/standard/all.md#storage-kms) | [cspm.data.object-storage-encryption](../../rules-reference/cspm.md#object-storage-encryption) ||
 || `CRYPT2` | [В Yandex Object Storage включено HTTPS для хостинга статического сайта](../../../security/standard/all.md#storage-https) | [cspm.data.storage-https](../../rules-reference/cspm.md#storage-https) ||
@@ -78,6 +82,7 @@
 || `AUDIT1` | [Включен сервис Yandex Audit Trails на уровне организации](../../../security/standard/all.md#audit-trails) |
 [cspm.o11y.audit-trails](../../rules-reference/cspm.md#audit-trails)
 [cspm.o11y.audit-trails-no-errors](../../rules-reference/cspm.md#o11y-audit-trails-no-errors)
+[cspm.o11y.gitlab-audited](../../rules-reference/cspm.md#gitlab-audited)
 ||
 || `AUDIT8` | [Отслеживаются события уровня сервисов](../../../security/standard/all.md#data-plane-events) | [cspm.o11y.data-plane-events](../../rules-reference/cspm.md#data-plane-events) ||
 || **Защита приложений** {align="center"} | > | > ||

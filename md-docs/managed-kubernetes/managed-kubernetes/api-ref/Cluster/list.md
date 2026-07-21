@@ -662,18 +662,15 @@ ID of computing resources preset to be used as lower boundary for scaling. ||
 || clusterIpv4CidrBlock | **string**
 
 CIDR block. IP range for allocating pod addresses.
-
 It should not overlap with any subnet in the network the Kubernetes cluster located in. Static routes will be
 set up for this CIDR blocks in node subnets. ||
 || nodeIpv4CidrMaskSize | **string** (int64)
 
 Size of the masks that are assigned for each node in the cluster.
-
 If not specified, 24 is used. ||
 || serviceIpv4CidrBlock | **string**
 
 CIDR block. IP range Kubernetes service Kubernetes cluster IP addresses will be allocated from.
-
 It should not overlap with any subnet in the network the Kubernetes cluster located in. ||
 || clusterIpv6CidrBlock | **string**
 

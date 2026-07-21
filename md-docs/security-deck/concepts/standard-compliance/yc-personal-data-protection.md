@@ -9,6 +9,7 @@
 #|
 || Идентификатор требования | Требование стандарта безопасности | Идентификаторы проверки в [модуле CSPM](../cspm.md) ||
 || **Идентификация и аутентификация субъектов доступа и объектов доступа** (ИАФ) {align="center"} | > | > ||
+|| ИАФ.1 | Идентификация и аутентификация пользователей, являющихся работниками оператора | [cspm.access.userpool-mfa](../../rules-reference/cspm.md#userpool-mfa) ||
 || ИАФ.4 | Управление средствами аутентификации, в том числе хранение, выдача, инициализация, блокирование средств аутентификации и принятие мер в случае утраты и (или) компрометации средств аутентификации |
 [cspm.crypto.secrets-lockbox](../../rules-reference/cspm.md#secrets-lockbox)
 [cspm.crypto.secrets-serverless](../../rules-reference/cspm.md#secrets-serverless)
@@ -18,7 +19,6 @@
 || **Управление доступом субъектов доступа к объектам доступа** (УПД) {align="center"} | > | > ||
 || УПД.2 | Реализация необходимых методов управления доступом (дискреционный, мандатный, ролевой или иной метод), типов (чтение, запись, выполнение или иной тип) и правил разграничения доступа |
 [cspm.access.min-privileges](../../rules-reference/cspm.md#min-privileges)
-[cspm.access.sa-privileges](../../rules-reference/cspm.md#sa-privileges)
 [cspm.access.defined-key-scopes](../../rules-reference/cspm.md#defined-key-scopes)
 [cspm.access.db-datalens-access](../../rules-reference/cspm.md#db-datalens-access)
 [cspm.access.db-console-access](../../rules-reference/cspm.md#db-console-access)
@@ -35,13 +35,11 @@
 ||
 || УПД.4 | Разделение полномочий (ролей) пользователей, администраторов и лиц, обеспечивающих функционирование информационной системы |
 [cspm.access.min-privileges](../../rules-reference/cspm.md#min-privileges)
-[cspm.access.sa-privileges](../../rules-reference/cspm.md#sa-privileges)
 [cspm.access.sa-privileges-org-roles](../../rules-reference/cspm.md#sa-privileges-org-roles)
 [cspm.access.sa-privileges-service-roles](../../rules-reference/cspm.md#sa-privileges-service-roles)
 ||
 || УПД.5 | Назначение минимально необходимых прав и привилегий пользователям, администраторам и лицам, обеспечивающим функционирование информационной системы |
 [cspm.access.min-privileges](../../rules-reference/cspm.md#min-privileges)
-[cspm.access.sa-privileges](../../rules-reference/cspm.md#sa-privileges)
 [cspm.access.sa-privileges-org-roles](../../rules-reference/cspm.md#sa-privileges-org-roles)
 [cspm.access.sa-privileges-service-roles](../../rules-reference/cspm.md#sa-privileges-service-roles)
 [cspm.access.kms-keys-access](../../rules-reference/cspm.md#kms-keys-access)
@@ -53,10 +51,10 @@
 || УПД.17 | Обеспечение доверенной загрузки средств вычислительной техники | [cspm.crypto.managed-vm-kms](../../rules-reference/cspm.md#managed-vm-kms) ||
 || **Ограничение программной среды** (ОПС) {align="center"} | > | > ||
 || ОПС.1 | Управление запуском (обращениями) компонентов программного обеспечения, в том числе определение запускаемых компонентов, настройка параметров запуска компонентов, контроль за запуском компонентов программного обеспечения |
+[cspm.k8s.secure-configuration](../../rules-reference/cspm.md#secure-configuration)
 [cspm.k8s.kspm](../../rules-reference/cspm.md#k8s-kspm)
 ||
 || ОПС.2 | Управление установкой (инсталляцией) компонентов программного обеспечения, в том числе определение компонентов, подлежащих установке, настройка параметров установки компонентов, контроль за установкой компонентов программного обеспечения |
-[cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry)
 [cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry)
 ||
 || ОПС.3 | Установка (инсталляция) только разрешенного к использованию программного обеспечения и (или) его компонентов |
@@ -67,6 +65,8 @@
 || РСБ.1 | Определение событий безопасности, подлежащих регистрации, и сроков их хранения |
 [cspm.o11y.audit-trails](../../rules-reference/cspm.md#audit-trails)
 [cspm.o11y.audit-trails-no-errors](../../rules-reference/cspm.md#o11y-audit-trails-no-errors)
+[cspm.o11y.gitlab-audited](../../rules-reference/cspm.md#gitlab-audited)
+[cspm.o11y.unused-key](../../rules-reference/cspm.md#unused-key)
 ||
 || РСБ.2 | Определение состава и содержания информации о событиях безопасности, подлежащих регистрации |
 [cspm.o11y.data-plane-events](../../rules-reference/cspm.md#data-plane-events)
@@ -74,8 +74,12 @@
 || РСБ.3 | Сбор, запись и хранение информации о событиях безопасности в течение установленного времени хранения |
 [cspm.o11y.audit-trails](../../rules-reference/cspm.md#audit-trails)
 [cspm.o11y.audit-trails-no-errors](../../rules-reference/cspm.md#o11y-audit-trails-no-errors)
+[cspm.o11y.gitlab-audited](../../rules-reference/cspm.md#gitlab-audited)
 ||
-|| РСБ.4 | Реагирование на сбои при регистрации событий безопасности, в том числе аппаратные и программные ошибки, сбои в механизмах сбора информации и достижение предела или переполнения объема (емкости) памяти | [cspm.o11y.audit-trails](../../rules-reference/cspm.md#audit-trails) ||
+|| РСБ.4 | Реагирование на сбои при регистрации событий безопасности, в том числе аппаратные и программные ошибки, сбои в механизмах сбора информации и достижение предела или переполнения объема (емкости) памяти | 
+[cspm.o11y.audit-trails](../../rules-reference/cspm.md#audit-trails)
+[cspm.o11y.gitlab-audited](../../rules-reference/cspm.md#gitlab-audited)
+||
 || РСБ.7 | Защита информации о событиях безопасности |
 [cspm.s3.used-object-lock](../../rules-reference/cspm.md#used-object-lock)
 [cspm.data.object-storage-encryption](../../rules-reference/cspm.md#object-storage-encryption)
@@ -98,6 +102,7 @@
 [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan)
 ||
 || АНЗ.3 | Контроль работоспособности, параметров настройки и правильности функционирования программного обеспечения и средств защиты информации |
+[cspm.k8s.secure-configuration](../../rules-reference/cspm.md#secure-configuration)
 [cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry)
 ||
 || АНЗ.4 | Контроль состава технических средств, программного обеспечения и средств защиты информации | [cspm.o11y.labeled-resources](../../rules-reference/cspm.md#labeled-resources) ||
@@ -111,17 +116,15 @@
 ||
 || ОЦЛ.3 | Обеспечение возможности восстановления программного обеспечения, включая программное обеспечение средств защиты информации, при возникновении нештатных ситуаций |
 [cspm.backup.compute-disks](../../rules-reference/cspm.md#compute-disks)
-[cspm.backup.compute-disks](../../rules-reference/cspm.md#compute-disks)
 ||
 || ОЦЛ.4 | Обнаружение и реагирование на поступление в информационную систему незапрашиваемых электронных сообщений (писем, документов) и иной информации, не относящихся к функционированию информационной системы (защита от спама) |
 [cspm.appsec.use-smartcaptcha](../../rules-reference/cspm.md#use-smartcaptcha)
 [cspm.appsec.use-waf](../../rules-reference/cspm.md#use-waf)
 [cspm.appsec.use-arl](../../rules-reference/cspm.md#use-arl)
 ||
+|| ОЦЛ.5 | Контроль содержания информации, передаваемой из информационной системы (контейнерный, основанный на свойствах объекта доступа, и контентный, основанный на поиске запрещенной к передаче информации с использованием сигнатур, масок и иных методов), и исключение неправомерной передачи информации из информационной системы | [cspm.access.bucket-public-access](../../rules-reference/cspm.md#bucket-public-access) ||
 || ОЦЛ.6 | Ограничение прав пользователей по вводу информации в информационную систему |
-[cspm.access.min-privileges](../../rules-reference/cspm.md#min-privileges)
-[cspm.access.sa-privileges](../../rules-reference/cspm.md#sa-privileges)
-||
+[cspm.access.min-privileges](../../rules-reference/cspm.md#min-privileges) ||
 || **Обеспечение доступности персональных данных** (ОДТ) {align="center"} | > | > ||
 || ОДТ.4 | Периодическое резервное копирование информации на резервные машинные носители информации |
 [cspm.backup.compute-disks](../../rules-reference/cspm.md#compute-disks)
@@ -131,18 +134,23 @@
 ||
 || **Защита технических средств** (ЗТС) / **Защита среды виртуализации** (ЗСВ) {align="center"} | > | > ||
 || ЗСВ.1 | Идентификация и аутентификация субъектов доступа и объектов доступа в виртуальной инфраструктуре, в том числе администраторов управления средствами виртуализации |
+[cspm.k8s.secure-configuration](../../rules-reference/cspm.md#secure-configuration)
 [cspm.k8s.access](../../rules-reference/cspm.md#access)
 ||
 || ЗСВ.2 | Управление доступом субъектов доступа к объектам доступа в виртуальной инфраструктуре, в том числе внутри виртуальных машин |
+[cspm.k8s.secure-configuration](../../rules-reference/cspm.md#secure-configuration)
 [cspm.k8s.access](../../rules-reference/cspm.md#access)
 ||
 || ЗСВ.4 | Управление (фильтрация, маршрутизация, контроль соединения, однонаправленная передача) потоками информации между компонентами виртуальной инфраструктуры, а также по периметру виртуальной инфраструктуры | [cspm.network.firewall](../../rules-reference/cspm.md#firewall) ||
+|| ЗСВ.6 | Управление перемещением виртуальных машин (контейнеров) и обрабатываемых на них данных | [cspm.k8s.secure-configuration](../../rules-reference/cspm.md#secure-configuration) ||
+|| ЗСВ.7 | Контроль целостности виртуальной инфраструктуры и ее конфигураций | [cspm.k8s.secure-configuration](../../rules-reference/cspm.md#secure-configuration) ||
 || ЗСВ.9 | Реализация антивирусной защиты в виртуальной инфраструктуре |
 [cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry)
 [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan)
 [cspm.appsec.registry-recently-scan](../../rules-reference/cspm.md#registry-recently-scan)
 ||
 || ЗСВ.10 | Разбиение виртуальной инфраструктуры на сегменты (сегментирование виртуальной инфраструктуры) для обработки информации отдельным пользователем и (или) группой пользователей |
+[cspm.k8s.secure-configuration](../../rules-reference/cspm.md#secure-configuration)
 [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan)
 ||
 || **Защита информационной системы, ее средств и систем связи и передачи данных** (ЗИС) {align="center"} | > | > ||
@@ -169,9 +177,11 @@
 || **Выявление инцидентов и реагирование на них** (ИНЦ) {align="center"} | > | > ||
 || ИНЦ.2 | Обнаружение, идентификация и регистрация инцидентов |
 [cspm.o11y.audit-trails](../../rules-reference/cspm.md#audit-trails)
+[cspm.o11y.gitlab-audited](../../rules-reference/cspm.md#gitlab-audited)
 ||
 || ИНЦ.6 | Планирование и принятие мер по предотвращению повторного возникновения инцидентов |
 [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan)
 ||
 || **Управление конфигурацией информационной системы и системы защиты персональных данных** (УКФ) {align="center"} | > | > ||
+|| УКФ.1-УКФ.4 | Управление конфигурацией информационной системы и системы защиты персональных данных | [cspm.k8s.secure-configuration](../../rules-reference/cspm.md#secure-configuration) ||
 |#

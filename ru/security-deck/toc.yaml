@@ -22,6 +22,8 @@ items:
             href: operations/workspaces/update.md
           - name: Настроить права доступа к окружению
             href: operations/workspaces/manage-access.md
+          - name: Деактивировать и активировать окружение
+            href: operations/workspaces/deactivate-activate.md
           - name: Удалить окружение
             href: operations/workspaces/delete.md
       - name: Алерты
@@ -112,6 +114,8 @@ items:
             href: concepts/standard-compliance/yc-security-baseline.md
           - name: Стандарт по защите облачной инфраструктуры {{ yandex-cloud }}
             href: concepts/standard-compliance/yc-cloud-security-standard.md
+          - name: Стандарт предотвращения атак программ-шифровальщиков
+            href: concepts/standard-compliance/ransomware-prevention.md
           - name: Требования стандарта CIS Benchmark™ для {{ k8s }}
             href: concepts/standard-compliance/cis-kubernetes-benchmark.md
           - name: >-

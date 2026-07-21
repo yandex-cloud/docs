@@ -33,6 +33,7 @@ description: В этом разделе приведен набор правил
 || 2.2 | Безопасная конфигурация и управление системными компонентами |
 [cspm.data.storage-https](../../rules-reference/cspm.md#storage-https)
 [cspm.appsec.cdn-https](../../rules-reference/cspm.md#cdn-https)
+[cspm.k8s.secure-configuration](../../rules-reference/cspm.md#secure-configuration)
 ||
 || **3. Защита хранимых данных учетных записей** {align="center"} | > | > ||
 || 3.2, 3.3, 3.4 | Минимизация хранения, запрет хранения SAD, ограничение отображения PAN | [cspm.db.db-deletion-protection](../../rules-reference/cspm.md#db-deletion-protection) ||
@@ -47,6 +48,7 @@ description: В этом разделе приведен набор правил
 [cspm.crypto.keys-deletion-protection](../../rules-reference/cspm.md#keys-deletion-protection)
 [cspm.crypto.secrets-lockbox](../../rules-reference/cspm.md#secrets-lockbox)
 [cspm.crypto.secrets-serverless](../../rules-reference/cspm.md#secrets-serverless)
+[cspm.vm-metadata](../../rules-reference/cspm.md#vm-metadata)
 ||
 || **4. Защита данных держателей карт с использованием надежной криптографии при передаче по открытым, общедоступным сетям** {align="center"} | > | > ||
 || 4.2 | Защита PAN надежной криптографией при передаче |
@@ -59,7 +61,6 @@ description: В этом разделе приведен набор правил
 || 5.4 | Защита пользователей от фишинговых атак | [cspm.appsec.use-smartcaptcha](../../rules-reference/cspm.md#use-smartcaptcha) ||
 || **6. Разработка и поддержка безопасных систем и программного обеспечения** {align="center"} | > | > ||
 || 6.3 | Выявление и устранение уязвимостей безопасности |
-[cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry)
 [cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry)
 [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan)
 ||
@@ -85,6 +86,7 @@ description: В этом разделе приведен набор правил
 [cspm.access.serial-console](../../rules-reference/cspm.md#serial-console)
 [cspm.iam.sa-key-rotation](../../rules-reference/cspm.md#sa-key-rotation)
 ||
+|| 8.4 | Использование многофакторной аутентификации (MFA) для защиты доступа | [cspm.access.userpool-mfa](../../rules-reference/cspm.md#userpool-mfa) ||
 || 8.6 | Управление использованием учетных записей приложений/систем |
 [cspm.iam.sa-key-rotation](../../rules-reference/cspm.md#sa-key-rotation)
 [cspm.access.defined-key-scopes](../../rules-reference/cspm.md#defined-key-scopes)

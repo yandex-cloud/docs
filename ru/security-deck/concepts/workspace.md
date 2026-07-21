@@ -50,7 +50,7 @@ _Окружение {{ sd-name }}_ — это контейнер, который
 
 ## Доступ к окружению {#access}
 
-По умолчанию доступ к окружению предоставляется пользователю, создавшему это окружение. 
+По умолчанию доступ к окружению предоставляется пользователю, создавшему это окружение.
 
 Чтобы другие пользователи могли работать с определенным окружением, вы можете [предоставить](../operations/workspaces/manage-access.md) им доступ к этому окружению. При этом пользователь, которому предоставляется доступ к окружению, должен также иметь доступ к каталогу, в котором сохраняются ресурсы окружения, а также к облаку, в котором находится этот каталог.
 
@@ -62,10 +62,28 @@ _Окружение {{ sd-name }}_ — это контейнер, который
 
 {% include [dashboard-contents](../../_includes/security-deck/dashboard-contents.md) %}
 
+## Статус окружения {#status}
+
+Окружение {{ sd-name }} может находиться в одном из двух статусов:
+
+* `Active` — окружение выполняет проверки безопасности и доступно для редактирования.
+* `Inactive` — окружение приостановлено, проверки безопасности не выполняются. Чтобы перевести окружение в этот статус, [деактивируйте](../operations/workspaces/deactivate-activate.md#deactivate) его.
+
+После перехода в статус `Inactive`:
+
+{% include [workspace-after-deactivation](../../_includes/security-deck/workspace-after-deactivation.md) %}
+
+Для внесения изменений в конфигурацию и возобновления проверок безопасности, [активируйте](../operations/workspaces/deactivate-activate.md#deactivate) окружение.  
+
+Чтобы посмотреть статус всех окружений, перейдите на страницу ![sliders](../../_assets/console-icons/sliders.svg) **{{ ui-key.yacloud_org.security-center.label_settings }}** и откройте вкладку **{{ ui-key.yacloud_org.security.settings.SettingsPageLayout.workspacesLabel_kZyU1 }}**.
+
+
+
 #### Полезные ссылки {#see-also}
 
 * [{#T}](../operations/workspaces/create.md)
 * [{#T}](../operations/workspaces/view-dashboard.md)
 * [{#T}](../operations/workspaces/update.md)
 * [{#T}](../operations/workspaces/manage-access.md)
+* [{#T}](../operations/workspaces/deactivate-activate.md)
 * [{#T}](../operations/workspaces/delete.md)
