@@ -602,9 +602,9 @@
 
  - [ListNodeGroups](managed-kubernetes/api-ref/grpc/Cluster/listNodeGroups.md)
 
- - [ListOperations](managed-kubernetes/api-ref/grpc/Cluster/listOperations.md)
-
  - [ListNodes](managed-kubernetes/api-ref/grpc/Cluster/listNodes.md)
+
+ - [ListOperations](managed-kubernetes/api-ref/grpc/Cluster/listOperations.md)
 
  - [ListAccessBindings](managed-kubernetes/api-ref/grpc/Cluster/listAccessBindings.md)
 
@@ -678,9 +678,9 @@
 
  - [ListNodeGroups](managed-kubernetes/api-ref/Cluster/listNodeGroups.md)
 
- - [ListOperations](managed-kubernetes/api-ref/Cluster/listOperations.md)
-
  - [ListNodes](managed-kubernetes/api-ref/Cluster/listNodes.md)
+
+ - [ListOperations](managed-kubernetes/api-ref/Cluster/listOperations.md)
 
  - [ListAccessBindings](managed-kubernetes/api-ref/Cluster/listAccessBindings.md)
 
@@ -796,13 +796,11 @@
 
 #### Конфигурация ресурсов (англ.)
 
+ - [BackendTLSPolicy](gwin-ref/backendtlspolicy.md)
+
  - [DirectResponse](gwin-ref/directresponse.md)
 
  - [Gateway](gwin-ref/gateway.md)
-
- - [BackendTLSPolicy](gwin-ref/backendtlspolicy.md)
-
- - [GatewayPolicy](gwin-ref/gatewaypolicy.md)
 
  - [GRPCRoute](gwin-ref/grpcroute.md)
 
@@ -814,13 +812,13 @@
 
  - [IngressPolicy](gwin-ref/ingresspolicy.md)
 
+ - [ListenerSet](gwin-ref/listenerset.md)
+
  - [ListenerSetPolicy](gwin-ref/listenersetpolicy.md)
 
  - [RoutePolicy](gwin-ref/routepolicy.md)
 
  - [Service](gwin-ref/service.md)
-
- - [ListenerSet](gwin-ref/listenerset.md)
 
  - [ServicePolicy](gwin-ref/servicepolicy.md)
 
@@ -829,6 +827,8 @@
  - [TLSRoute](gwin-ref/tlsroute.md)
 
  - [YCStorageBucket](gwin-ref/ycstoragebucket.md)
+
+ - [GatewayPolicy](gwin-ref/gatewaypolicy.md)
 
 ### Ingress-контроллер
 

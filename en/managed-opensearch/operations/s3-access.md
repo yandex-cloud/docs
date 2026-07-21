@@ -43,7 +43,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [iam.service
     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Select the **{{ ui-key.yacloud.storage.buckets.label_title }}** tab.
     1. Set up the [bucket ACL](../../storage/operations/buckets/edit-acl.md):
-        1. In the **{{ ui-key.yacloud.component.acl-dialog.label_select-placeholder }}** drop-down list, specify the service account [attached to the cluster](#connect-service-account).
+        1. In the **{{ ui-key.yacloud_components.acl.label.search-subject-placeholder_6nqFf }}** drop-down list, specify the service account [attached to the cluster](#connect-service-account).
         1. Set the `READ and WRITE` permissions for this service account.
         1. Click **{{ ui-key.yacloud.common.add }}** and **{{ ui-key.yacloud.common.save }}**.
 

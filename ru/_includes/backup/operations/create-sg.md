@@ -8,7 +8,7 @@
   1. Нажмите **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. Введите имя [группы безопасности](../../../vpc/concepts/security-groups.md), например `backup-sg`.
   1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** выберите [сеть](../../../vpc/concepts/network.md), в которой находится ВМ.
-  1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}** перейдите на вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** и нажмите **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
+  1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.label_section-rules }}** перейдите на вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** и нажмите **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
   1. Последовательно добавьте следующие правила для исходящего трафика:
 
       {% include [outgoing traffic](../outgoing-rules.md) %}

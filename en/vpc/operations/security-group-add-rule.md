@@ -21,7 +21,7 @@ You do not need to restart a VM when adding or deleting [rules](../concepts/secu
 
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the security group you need to add a rule to. Select **{{ ui-key.yacloud.common.edit }}**.
 
-  1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, create traffic management rules:
+  1. Under **{{ ui-key.yacloud.vpc.network.security-groups.label_section-rules }}**, create traffic management rules:
 
      1. Select the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab.
 

@@ -55,4 +55,5 @@ description: Из этой инструкции вы узнаете, как по
 * [{#T}](./create.md)
 * [{#T}](./update.md)
 * [{#T}](./manage-access.md)
+* [{#T}](./deactivate-activate.md)
 * [{#T}](./delete.md)

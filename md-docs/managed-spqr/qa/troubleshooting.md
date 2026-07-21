@@ -68,8 +68,8 @@ failed to get connection to any shard host within: host {rc1d-cofs7cre********.m
 
     * **Диапазон портов** — `6432`.
     * **Протокол** — `TCP`.
-    * **Назначение** — `CIDR`.
-    * **CIDR блоки** — укажите CIDR кластера, например `10.96.0.0/16`.
+    * **Назначение** — `Диапазон адресов`.
+    * **IPv4 CIDR** — укажите CIDR кластера, например `10.96.0.0/16`.
 
 #### Ошибка error processing query ... : syntax error при выполнении запроса {#error-processing-query}
 

@@ -21,7 +21,7 @@ description: Добавлять правила можно через консо�
 
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке группы, в которой требуется добавить правило, и выберите **{{ ui-key.yacloud.common.edit }}**.
 
-  1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}** создайте правила для управления трафиком:
+  1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.label_section-rules }}** создайте правила для управления трафиком:
 
      1. Выберите вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** или **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}**.
 

@@ -35,7 +35,8 @@ To get a GPU cluster ID, make a [GpuClusterService.List](list.md#List) request. 
   "labels": "object",
   "status": "string",
   "zoneId": "string",
-  "interconnectType": "string"
+  "interconnectType": "string",
+  "subnets": "string"
 }
 ```
 
@@ -85,4 +86,7 @@ ID of the availability zone where the GPU cluster resides. ||
 Type of interconnect used for this GPU cluster.
 
 - `INFINIBAND`: InfiniBand interconnect. ||
+|| subnets | **string** (int64)
+
+Number of subnets in the GPU cluster. ||
 |#

@@ -40,7 +40,7 @@ The cost of the proposed solution includes:
       1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
       1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, enter `nextcloud-sg` for name.
       1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select `nextcloud-network` you created earlier.
-      1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, [create](../../../vpc/operations/security-group-add-rule.md) the following traffic management rules:
+      1. Under **{{ ui-key.yacloud.vpc.network.security-groups.label_section-rules }}**, [create](../../../vpc/operations/security-group-add-rule.md) the following traffic management rules:
 
           | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
           | --- | --- | --- | --- | --- | --- |

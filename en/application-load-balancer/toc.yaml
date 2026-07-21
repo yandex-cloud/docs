@@ -253,14 +253,12 @@ items:
             href: tools/gwin/gwin-alb-attachment.md
           - name: Resource configuration
             items:
+              - name: BackendTLSPolicy
+                href: gwin-ref/backendtlspolicy.md
               - name: DirectResponse
                 href: gwin-ref/directresponse.md
               - name: Gateway
                 href: gwin-ref/gateway.md
-              - name: BackendTLSPolicy
-                href: gwin-ref/backendtlspolicy.md
-              - name: GatewayPolicy
-                href: gwin-ref/gatewaypolicy.md
               - name: GRPCRoute
                 href: gwin-ref/grpcroute.md
               - name: HTTPRoute
@@ -271,14 +269,14 @@ items:
                 href: gwin-ref/ingressbackendgroup.md
               - name: IngressPolicy
                 href: gwin-ref/ingresspolicy.md
+              - name: ListenerSet
+                href: gwin-ref/listenerset.md
               - name: ListenerSetPolicy
                 href: gwin-ref/listenersetpolicy.md
               - name: RoutePolicy
                 href: gwin-ref/routepolicy.md
               - name: Service
                 href: gwin-ref/service.md
-              - name: ListenerSet
-                href: gwin-ref/listenerset.md
               - name: ServicePolicy
                 href: gwin-ref/servicepolicy.md
               - name: YCCertificate
@@ -287,6 +285,8 @@ items:
                 href: gwin-ref/tlsroute.md
               - name: YCStorageBucket
                 href: gwin-ref/ycstoragebucket.md
+              - name: GatewayPolicy
+                href: gwin-ref/gatewaypolicy.md
       - name: Ingress controller
         items:
           - name: Overview

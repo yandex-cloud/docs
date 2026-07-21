@@ -5,7 +5,6 @@ editable: false
 # Managed Services for Kubernetes API, gRPC: ClusterService.Get
 
 Returns the specified Kubernetes cluster.
-
 To get the list of available Kubernetes cluster, make a [List](/docs/managed-kubernetes/managed-kubernetes/api-ref/grpc/Cluster/list#List) request.
 
 ## gRPC request
@@ -587,18 +586,15 @@ ID of computing resources preset to be used as lower boundary for scaling. ||
 || cluster_ipv4_cidr_block | **string**
 
 CIDR block. IP range for allocating pod addresses.
-
 It should not overlap with any subnet in the network the Kubernetes cluster located in. Static routes will be
 set up for this CIDR blocks in node subnets. ||
 || node_ipv4_cidr_mask_size | **int64**
 
 Size of the masks that are assigned for each node in the cluster.
-
 If not specified, 24 is used. ||
 || service_ipv4_cidr_block | **string**
 
 CIDR block. IP range Kubernetes service Kubernetes cluster IP addresses will be allocated from.
-
 It should not overlap with any subnet in the network the Kubernetes cluster located in. ||
 || cluster_ipv6_cidr_block | **string**
 

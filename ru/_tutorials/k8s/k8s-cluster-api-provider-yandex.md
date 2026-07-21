@@ -68,7 +68,7 @@
 
 1. Инфраструктуре создаваемого кластера будет автоматически назначена [группа безопасности](../../vpc/concepts/security-groups.md) по умолчанию, которая создается вместе с сетью. [Добавьте](../../vpc/operations/security-group-add-rule.md) в эту группу следующие правила для _входящего_ трафика:
 
-    {{ ui-key.yacloud.vpc.network.security-groups.column_sg-rules-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.column_sg-rules-ports }} | {{ ui-key.yacloud.vpc.network.security-groups.column_sg-rules-source-type }} | {{ ui-key.yacloud.vpc.network.security-groups.column_sg-rules-source-target }} | {{ ui-key.yacloud.vpc.network.security-groups.column_sg-rules-description }}
+    {{ ui-key.yacloud.vpc.network.security-groups.column_sg-rules-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.column_sg-rules-ports }} | Тип источника | {{ ui-key.yacloud.vpc.network.security-groups.column_sg-rules-source }} | {{ ui-key.yacloud.vpc.network.security-groups.column_sg-rules-description }}
     --- | --- | --- | --- | ---
     `{{ ui-key.yacloud.common.label_tcp }}` | `{{ port-any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.label_destination-type-security-group }}` | `Balancer` | `Проверки состояния L7-балансировщиком`
     `Any` | `8443` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | `Доступ к {{ k8s }} API`

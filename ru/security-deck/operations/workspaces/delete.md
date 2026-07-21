@@ -34,3 +34,4 @@ description: Из этой инструкции вы узнаете, как уд
 * [{#T}](./view-dashboard.md)
 * [{#T}](./update.md)
 * [{#T}](./manage-access.md)
+* [{#T}](./deactivate-activate.md)

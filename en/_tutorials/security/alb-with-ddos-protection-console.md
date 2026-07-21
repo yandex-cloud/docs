@@ -115,7 +115,7 @@ To create security groups:
      1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
      1. Specify the security group **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}**: `ddos-sg-balancer`.
      1. Select **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** `ddos-network`.
-     1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, create the following rules using the instructions below the table:
+     1. Under **{{ ui-key.yacloud.vpc.network.security-groups.label_section-rules }}**, create the following rules using the instructions below the table:
 
         Traffic<br>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Source /<br>destination | {{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}
         --- | --- | --- | --- | --- | ---

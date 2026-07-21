@@ -9,4 +9,5 @@ description: В этом разделе собраны пошаговые инс
 * [{#T}](view-dashboard.md).
 * [{#T}](update.md).
 * [{#T}](manage-access.md).
+* [{#T}](deactivate-activate.md).
 * [{#T}](delete.md).

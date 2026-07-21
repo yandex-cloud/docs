@@ -37,3 +37,5 @@
 * [Почему установка нескольких расширений в CLI заканчивается ошибкой?](#cli-extensions-errors)
 
 * [Почему возникает ошибка `could not open extension control file "<путь_к_расширению>/vector.control": No such file or directory` при обращении к расширению `vector`?](#vector-error)
+
+* [Почему при обновлении кластера {{ PG }} до версии `18` возникает ошибка `collation version mismatch`?](#collation-version-mismatch)

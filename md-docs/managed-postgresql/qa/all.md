@@ -235,6 +235,8 @@
 
 * [Почему возникает ошибка `could not open extension control file "<путь_к_расширению>/vector.control": No such file or directory` при обращении к расширению `vector`?](#vector-error)
 
+* [Почему при обновлении кластера PostgreSQL до версии `18` возникает ошибка `collation version mismatch`?](#collation-version-mismatch)
+
 ## Общие вопросы {#general}
 
 #### Что такое Managed Service for PostgreSQL? {#what-is}
@@ -1171,3 +1173,25 @@ ERROR: cannot execute INSERT in a read-only transaction
 Ошибка возникает из-за того, что в Managed Service for PostgreSQL расширение `vector` называется `pgvector`.
 
 Решение: при обращении к расширению используйте `pgvector` вместо `vector`.
+
+#### Почему при обновлении кластера PostgreSQL до версии `18` возникает ошибка `collation version mismatch`? {#collation-version-mismatch}
+
+Текст ошибки:
+
+```text
+database "<название_БД>" has a collation version mismatch
+```
+
+Ошибка возникает из-за того, что в PostgreSQL `18` изменились правила сортировки (collation), а база данных использует старые правила.
+
+Решение: от имени владельца БД для каждой базы выполните команду:
+
+```bash
+ALTER DATABASE <название_БД> REFRESH COLLATION VERSION;
+```
+
+Если в вашей БД есть индексы, которые зависят от упорядочивания (например, B-Tree индексы), то после выполнения команды перестройте их. Так они будут учитывать новые правила сортировки:
+
+```bash
+REINDEX DATABASE <название_БД>;
+```

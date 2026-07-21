@@ -224,9 +224,25 @@ For more information, see [{#T}](../audit-trails/security/index.md).
 
 {% include [baremetal-editor](../_roles/baremetal/editor.md) %}
 
+{% note warning %}
+
+Starting August 1, 2026, the `baremetal.editor` role gets new permissions from the [backup.user](../backup/security/index.md#backup-user) role allowing it to connect servers to [{{ backup-full-name }}](../backup/index.yaml), link and unlink them from [backup policies](../backup/concepts/policy.md).
+
+{% include [denyActivation-iam-policy-pre-notice](../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
+
+{% endnote %}
+
 #### baremetal.admin {#baremetal-admin}
 
 {% include [baremetal-admin](../_roles/baremetal/admin.md) %}
+
+{% note warning %}
+
+Starting August 1, 2026, the `baremetal.admin` role gets new permissions from the [backup.user](../backup/security/index.md#backup-user) role allowing it to connect servers to [{{ backup-full-name }}](../backup/index.yaml), link and unlink them from [backup policies](../backup/concepts/policy.md).
+
+{% include [denyActivation-iam-policy-pre-notice](../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
+
+{% endnote %}
 
 For more information, see [{#T}](../baremetal/security/index.md).
 
@@ -849,9 +865,25 @@ For more information, see [{#T}](../cloud-router/security/index.md).
 
 {% include [compute.editor](../_roles/compute/editor.md) %}
 
+{% note warning %}
+
+Starting August 1, 2026, the `compute.editor` role gets new permissions from the [backup.user](../backup/security/index.md#backup-user) role allowing it to connect VM instances to [{{ backup-full-name }}](../backup/index.yaml), link and unlink them from [backup policies](../backup/concepts/policy.md).
+
+{% include [denyActivation-iam-policy-pre-notice](../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
+
+{% endnote %}
+
 #### compute.admin {#compute-admin}
 
 {% include [compute.admin](../_roles/compute/admin.md) %}
+
+{% note warning %}
+
+Starting August 1, 2026, the `compute.admin` role gets new permissions from the [backup.user](../backup/security/index.md#backup-user) role allowing it to connect VM instances to [{{ backup-full-name }}](../backup/index.yaml), link and unlink them from [backup policies](../backup/concepts/policy.md).
+
+{% include [denyActivation-iam-policy-pre-notice](../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
+
+{% endnote %}
 
 #### compute.osLogin {#compute-oslogin}
 

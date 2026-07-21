@@ -133,7 +133,7 @@ Create and configure a [security group](../../vpc/concepts/security-groups.md).
    1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
    1. Specify the security group name: `my-rdgw-sg`.
    1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select the network to assign the security group to: `rdgw-network`.
-   1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, create the following network traffic rules using the instructions below the table:
+   1. Under **{{ ui-key.yacloud.vpc.network.security-groups.label_section-rules }}**, create the following network traffic rules using the instructions below the table:
       
         | Traffic</br>direction | Description | Port</br>range | Protocol | Type</br>of source | Source/Destination | 
         |---|---|---|---|---|---|
