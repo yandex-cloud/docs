@@ -33,7 +33,7 @@
 
     1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать триггер.
 
-    1. Перейдите в сервис **Serverless Containers**.
+    1. [Перейдите](https://console.yandex.cloud/link/serverless-containers) в сервис **Serverless Containers**.
 
     1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **Триггеры**.
 
@@ -125,7 +125,7 @@
 
 Проверьте, что триггер работает корректно. Для этого посмотрите [логи контейнера](../concepts/logs.md), в них отображается информация о вызовах.
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Создать триггер для бюджетов, который вызывает функцию Cloud Functions](../../functions/operations/trigger/budget-trigger-create.md)
 * [Создать триггер для бюджетов, который отправляет сообщения в WebSocket-соединения](../../api-gateway/operations/trigger/budget-trigger-create.md)

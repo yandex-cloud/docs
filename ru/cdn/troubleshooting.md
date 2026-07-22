@@ -10,6 +10,7 @@ description: На странице представлены вопросы и о
 * [На запросы файлов CDN отвечает кодами 3xx (перенаправление)](#responses-3xx)
 * [На запросы файлов CDN отвечает кодами 4xx (ошибка клиента)](#responses-4xx)
 * [На запросы файлов CDN отвечает кодами 5xx (ошибка сервера)](#responses-5xx)
+* [Почему растут нагрузка на источник и расходы на его работу](#origin-load-growth)
 * [Запросы с методами POST, PUT, PATCH, DELETE недоступны пользователям](#post-responses)
 * [Изменения настроек не применились к ресурсу](#changes-not-applied)
 * [У CDN-ресурса статус Not active, и контент недоступен пользователям](#resource-not-active)
@@ -52,6 +53,10 @@ description: На странице представлены вопросы и о
   * с указанным значением HTTP-заголовка `Host` и другими заголовками. 
   
 Также проверьте статус {{ cdn-name }} на [специальной странице {{ yandex-cloud }}](https://status.cloud.yandex.ru/dashboard?service=cloud%20cdn).
+
+## Почему растут нагрузка на источник и расходы на его работу {#origin-load-growth}
+
+{% include [origin-cdn-traffic](../_includes/cdn/origin-cdn-traffic.md) %}
 
 ## Запросы с методами POST, PUT, PATCH, DELETE недоступны пользователям {#post-responses}
 

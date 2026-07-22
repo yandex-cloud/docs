@@ -319,7 +319,7 @@ A scheduled maintenance job will be canceled automatically if it falls outside t
         {{ yc-mdb-kf }} cluster update <cluster_name_or_ID> \
           --maintenance-window type=<maintenance_type>,`
                               `day=<day_of_week>,`
-                              `hour=<hour>
+                              `hour=<time_interval_ordinal_number>
         ```
 
         Where `type` is the maintenance type:
@@ -331,9 +331,9 @@ A scheduled maintenance job will be canceled automatically if it falls outside t
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For information about creating this file, see [{#T}](cluster-create.md).
+        For information on how to create this file, see [{#T}](cluster-create.md).
 
         For a complete list of configurable {{ mkf-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mkf }}).
 
@@ -372,7 +372,7 @@ A scheduled maintenance job will be canceled automatically if it falls outside t
             "maintenanceWindow": {
               "weeklyMaintenanceWindow": {
                 "day": "<day_of_week>",
-                "hour": "<hour>"
+                "hour": "<sequence_number_of_hour_interval>"
               }
             }
           }'
@@ -387,10 +387,12 @@ A scheduled maintenance job will be canceled automatically if it falls outside t
         * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, including for stopped clusters. The possible values are:
 
             * `anytime`: Any time.
-            * `weeklyMaintenanceWindow`: Once a week on the specified day and time:
+            * `weeklyMaintenanceWindow`: Once a week on the specified day and hour interval:
 
                 * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-                * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
+                * `hour`: UTC hour interval, from `1` to `24`.
+
+                  > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -424,7 +426,7 @@ A scheduled maintenance job will be canceled automatically if it falls outside t
             "maintenance_window": {
               "weekly_maintenance_window": {
                 "day": "<day_of_week>",
-                "hour": "<hour>"
+                "hour": "<sequence_number_of_hour_interval>"
               }
             }
           }' \
@@ -441,10 +443,12 @@ A scheduled maintenance job will be canceled automatically if it falls outside t
         * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, including for stopped clusters. The possible values are:
 
             * `anytime`: Any time.
-            * `weekly_maintenance_window`: Once a week on the specified day and time:
+            * `weekly_maintenance_window`: Once a week on the specified day and hour interval:
 
                 * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-                * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
+                * `hour`: UTC hour interval, from `1` to `24`.
+
+                  > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 

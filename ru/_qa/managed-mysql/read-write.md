@@ -1,7 +1,8 @@
 #### Почему не работает запись в кластер? {#write-failure}
 
 1. Если хранилище баз данных заполнится на 95%, кластер перейдет в режим **Только чтение**. Проверьте свободное место в хранилище и при необходимости увеличьте его размер. Чтобы проверить свободное место:
-   1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+   1. [Перейдите]({{ link-console-main }}/link/managed-mysql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mysql.cluster.switch_monitoring }}**.
    1. Проверьте график **Disk usage**.
 1. Убедитесь, что запись производится в хост, который является мастером, а не [репликой](../../managed-mysql/qa/mysql.md#read-only-instance).
@@ -21,11 +22,13 @@
 #### Что делать при возникновении любой ошибки приложения? {#application-error}
 
 1. Проверьте, есть ли свободное место на диске, где располагается кластер:
-   1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+   1. [Перейдите]({{ link-console-main }}/link/managed-mysql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mysql.cluster.switch_monitoring }}**.
    1. Проверьте график **Disk usage**.
 1. Проверьте графики мониторинга хостов:
-   1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+   1. [Перейдите]({{ link-console-main }}/link/managed-mysql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}**.
    1. Перейдите на страницу **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}**.
    1. Найдите проблемный ресурс: график будет приближаться к границе или выйдет за нее.

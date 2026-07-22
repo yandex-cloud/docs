@@ -6,4 +6,4 @@
 
 #### Полезные ссылки {#see-also}
 
-* [{#T}](authentication.md)
+[{#T}](authentication.md)

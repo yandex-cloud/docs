@@ -32,7 +32,7 @@
 
     1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать триггер.
 
-    1. Перейдите в сервис **API Gateway**.
+    1. [Перейдите](https://console.yandex.cloud/link/api-gateway) в сервис **API Gateway**.
 
     1. На панели слева выберите ![image](../../../_assets/console-icons/gear-play.svg) **Триггеры**.
 
@@ -112,7 +112,7 @@
 
 Проверьте, что триггер работает корректно. Для этого посмотрите [логи API-шлюза](../api-gw-logs.md), в них отображается информация об обращениях к нему.
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Таймер, который вызывает функцию Cloud Functions](../../../functions/operations/trigger/timer-create.md)
 * [Таймер, который вызывает контейнер Serverless Containers](../../../serverless-containers/operations/timer-create.md)

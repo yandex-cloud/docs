@@ -7,7 +7,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится функция.
-    1. Перейдите в сервис **Cloud Functions**.
+    1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
     1. На панели слева выберите ![image](../../../_assets/console-icons/curly-brackets-function.svg) **Функции**.
     1. Выберите функцию.
     1. На странице **Обзор** отобразится подробная информация о функции.

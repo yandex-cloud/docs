@@ -17,7 +17,7 @@ description: Вы можете отслеживать состояние кла�
 
 Чтобы посмотреть детальную информацию о состоянии кластера {{ mspqr-name }}:
 
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+1. [Перейдите]({{ link-console-main }}/link/managed-spqr) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
 
 1. Нажмите на имя нужного кластера и выберите вкладку **Мониторинг**.
 
@@ -51,7 +51,7 @@ description: Вы можете отслеживать состояние кла�
 
 Чтобы посмотреть детальную информацию о состоянии отдельных хостов {{ mspqr-name }}:
 
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+1. [Перейдите]({{ link-console-main }}/link/managed-spqr) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
 1. Нажмите на имя нужного кластера и выберите вкладку **Мониторинг** → **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}**.
 1. Нажмите на строку нужного хоста в списке.
 
@@ -75,7 +75,7 @@ description: Вы можете отслеживать состояние кла�
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог с кластером, для которого нужно настроить алерты.
-    1. Перейдите в сервис ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+    1. [Перейдите]({{ link-monitoring }}) в сервис ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
     1. В блоке **{{ ui-key.yacloud_monitoring.homepage.title_service-dashboards }}** выберите:
         * **{{ mspqr-name }} — Cluster Overview** для настройки алертов кластера;
         * **{{ mspqr-name }} — Host Overview** для настройки алертов хостов.

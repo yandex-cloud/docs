@@ -9,7 +9,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [контейнер](../../serverless-containers/concepts/container.md).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. [Перейдите]({{ link-console-main }}/link/serverless-containers) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Выберите контейнер.
   1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-containers.label_editor }}**.
   1. Разверните блок **Параметры сервиса метаданных**.
@@ -29,6 +29,7 @@
     ```
 
     Где:
+
     * `--container-id` — идентификатор контейнера. Чтобы узнать идентификатор, [получите](list.md) список контейнеров.
     * `--image` — URL Docker-образа из {{ container-registry-full-name }}.
     * `--service-account-id` — [идентификатор сервисного аккаунта](../../iam/operations/sa/get-id.md), у которого есть права на скачивание Docker-образа.
@@ -68,6 +69,7 @@
         Где:
 
         * `metadata_options` — настройки параметров сервиса метаданных, например `metadata_options.0.gce_http_endpoint = "1"`. Укажите:
+            
             * `0` — если хотите оставить значение по молчанию.
             * `1` — чтобы включить параметр.
             * `2` — чтобы выключить параметр.

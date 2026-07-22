@@ -7,7 +7,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится функция.
-    1. Перейдите в сервис **Cloud Functions**.
+    1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
     1. Выберите функцию.
     1. Перейдите на вкладку **Редактор**.
     1. В блоке **Дополнительные настройки**, в разделе **Память**, включите опцию **Выделять память для директории /tmp**.
@@ -113,6 +113,6 @@
 
 {% endlist %}
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Пользовательские файлы](../../concepts/runtime/environment-variables.md#files)
+[Пользовательские файлы](../../concepts/runtime/environment-variables.md#files)

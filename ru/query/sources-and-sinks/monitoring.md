@@ -1,12 +1,17 @@
+---
+title: Чтение данных из {{ monitoring-full-name }} с помощью соединений в {{ yq-full-name }}
+description: Из статьи вы узнаете, как настроить соединение и читать метрики из {{ monitoring-name }} с помощью {{ yq-full-name }}.
+---
+
 # Чтение данных из {{ monitoring-name }} с помощью соединений в {{ yq-name }}
 
 {% include [public-preview](../../_includes/preview-pp.md) %}
 
-[{{ monitoring-name }}](../../monitoring/concepts/index.md) — это сервис, позволяющий собирать и хранить метрики, а также отображать их в виде графиков на дашбордах. Отправляемые в {{ monitoring-name }} данные представляют из себя значения измеряемых величин (`метрики`) и метки (`labels`), их описывающие. 
+[{{ monitoring-name }}](../../monitoring/concepts/index.md) — сервис для сбора и хранения метрик, а также их отображения на дашбордах. Данные в {{ monitoring-name }} содержат значения измеряемых величин — метрики — и описывающие их метки.
 
-Например, чтобы следить за количеством сбоев приложения, в качестве метрики можно использовать число сбоев за интервал времени. Данные, описывающие это падение: название хоста, версия приложения — являются метками. В интерфейсе {{ monitoring-name }} можно проводить различные агрегации метрик по меткам.
+Например, чтобы отслеживать количество сбоев приложения, в качестве метрики можно использовать число сбоев за интервал времени. Название хоста и версия приложения при сбое являются метками. В интерфейсе {{ monitoring-name }} можно выполнять агрегацию метрик по меткам.
 
-Пример чтения метрик из {{ monitoring-name }}.
+Пример чтения метрик из {{ monitoring-name }}:
 
 ```sql
 SELECT
@@ -23,15 +28,18 @@ WITH (
 
 ## Настройка соединения {#setup-connection}
 
-Для чтения метрик из {{ monitoring-name }} необходимо:
-1. [Перейти](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}** в раздел **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** и нажать кнопку **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
-1. В открывшемся окне в поле **{{ ui-key.yql.yq-connection-form.connection-name.input-label }}** указать название соединения с {{ monitoring-name }}.
-1. В выпадающем поле **{{ ui-key.yql.yq-connection-form.connection-type.input-label }}** выбрать `{{ ui-key.yql.yq-connection.action_monitoring }}`.
-1. В поле **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** выбрать сервисный аккаунт, который будет использоваться для чтения метрик, или создать новый, выдав ему роль [`monitoring.viewer`](../../monitoring/security/index.md#monitoring-viewer) на облако.
+Чтобы настроить чтение метрик из {{ monitoring-name }}:
+
+1. [Перейдите]({{ link-console-yq }}) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. На панели слева выберите **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
+1. Нажмите **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
+1. В открывшемся окне в поле **{{ ui-key.yql.yq-connection-form.connection-name.input-label }}** укажите название соединения с {{ monitoring-name }}.
+1. В поле **{{ ui-key.yql.yq-connection-form.connection-type.input-label }}** выберите `{{ ui-key.yql.yq-connection.action_monitoring }}`.
+1. В поле **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** выберите сервисный аккаунт для чтения метрик или создайте новый и назначьте ему на облако роль [`monitoring.viewer`](../../monitoring/security/index.md#monitoring-viewer).
 
    {% include [service accounts role](../../_includes/query/service-accounts-role.md) %}
 
-1. Создать соединение, нажав кнопку **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
+1. Нажмите **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
 
 ## Модель данных {#data-model}
 
@@ -82,7 +90,7 @@ WITH (
 
 {% endnote %}
 
-### Формат параметров запроса {#parameters_format}
+### Формат параметров запроса {#parameters-format}
 
 | Имя параметра | Формат | Пример |
 | --- | --- | --- |
@@ -91,7 +99,7 @@ WITH (
 | `labels` | `"label1 [as alias1], label2 [as alias2], ..."` | `"database.dedicated as db, database_path, api_service as api"` |
 | `from / to` | Время в формате ISO 8601 | `"2025-05-20T12:00:00Z"` |
 
-### Параметры прореживания {#downsampling_parameters}
+### Параметры прореживания {#downsampling-parameters}
 
 В {{ yq-full-name }} поддерживаются следующие [параметры прореживания](../../monitoring/concepts/decimation.md#decimation-methods):
 

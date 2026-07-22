@@ -119,7 +119,7 @@ sudo apt update && sudo apt install --yes postgresql-client
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
 
   1. Нажмите на имя нужного кластера.
 

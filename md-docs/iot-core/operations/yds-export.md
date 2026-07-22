@@ -21,7 +21,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится реестр.
-  1. Перейдите в сервис **IoT Core**.
+  1. [Перейдите](https://console.yandex.cloud/link/iot-core) в сервис **IoT Core**.
   1. Выберите в списке нужный реестр.
   1. Перейдите на вкладку **Экспорт в Data Streams**.
   1. В правом верхнем углу нажмите кнопку **Добавить экспорт**.
@@ -97,6 +97,6 @@
 
 {% endlist %}
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Экспорт в Data Streams](../concepts/topic/usage.md#yds-export)
+[Экспорт в Data Streams](../concepts/topic/usage.md#yds-export)

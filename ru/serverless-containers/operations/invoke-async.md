@@ -14,7 +14,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [контейнер](../concepts/container.md).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. [Перейдите]({{ link-console-main }}/link/serverless-containers) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Выберите контейнер, [ревизию](../concepts/container.md#revision) которого хотите создать.
   1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-containers.label_editor }}**.
   1. В блоке **Асинхронный вызов**:
@@ -129,6 +129,6 @@ description: Следуя данной инструкции, вы сможете
 [Вызовите](invoke.md) контейнер по HTTP, указав при вызове заголовок `X-Ycf-Container-Integration-Type: async`.
 
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [{#T}](../concepts/invoke-async.md)
+[{#T}](../concepts/invoke-async.md)

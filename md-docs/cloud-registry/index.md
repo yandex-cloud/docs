@@ -182,21 +182,9 @@ Yandex Cloud Registry — сервис для безопасного хране�
 
  - [remove-access-binding](cli-ref/artifact/remove-access-binding.md)
 
-#### scanner
-
- - [Overview](cli-ref/artifact/scanner/index.md)
-
- - [get-last-scan-result](cli-ref/artifact/scanner/get-last-scan-result.md)
-
- - [get-scan-result](cli-ref/artifact/scanner/get-scan-result.md)
-
- - [list-scan-results](cli-ref/artifact/scanner/list-scan-results.md)
-
- - [list-vulnerabilities](cli-ref/artifact/scanner/list-vulnerabilities.md)
-
- - [scan](cli-ref/artifact/scanner/scan.md)
-
  - [set-access-bindings](cli-ref/artifact/set-access-bindings.md)
+
+ - [update-access-bindings](cli-ref/artifact/update-access-bindings.md)
 
  - [upsert](cli-ref/artifact/upsert.md)
 
@@ -247,20 +235,6 @@ Yandex Cloud Registry — сервис для безопасного хране�
  - [remove-access-binding](cli-ref/registry/remove-access-binding.md)
 
  - [remove-ip-permissions](cli-ref/registry/remove-ip-permissions.md)
-
-#### scan-policy
-
- - [Overview](cli-ref/registry/scan-policy/index.md)
-
- - [create](cli-ref/registry/scan-policy/create.md)
-
- - [delete](cli-ref/registry/scan-policy/delete.md)
-
- - [get](cli-ref/registry/scan-policy/get.md)
-
- - [get-by-registry](cli-ref/registry/scan-policy/get-by-registry.md)
-
- - [update](cli-ref/registry/scan-policy/update.md)
 
  - [set-access-bindings](cli-ref/registry/set-access-bindings.md)
 

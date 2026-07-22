@@ -21,7 +21,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы хотите посмотреть журнал подключений реестра.
-    1. Перейдите в сервис **IoT Core**.
+    1. [Перейдите](https://console.yandex.cloud/link/iot-core) в сервис **IoT Core**.
     1. Выберите в списке реестр с нужным устройством.
     1. В левой части окна выберите раздел **Логи**.
    
@@ -56,6 +56,7 @@
         ```
 
         Результат:
+
         ```text
         2019-09-19 18:51:02     connected, cert: "94ea0421199ec70f1f3d359a1c167a81********", address: "77.88.**.***:53171", clientID: "YCCmdLine"
         2019-09-19 18:51:02     some of subscriptions failed: not allowed to subscribe: ["$device/areqjd6un3af********/events"]
@@ -78,7 +79,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы хотите посмотреть журнал подключений устройства.
-    1. Перейдите в сервис **IoT Core**.
+    1. [Перейдите](https://console.yandex.cloud/link/iot-core) в сервис **IoT Core**.
     1. Выберите в списке реестр с нужным устройством.
     1. В левой части окна выберите раздел **Устройства**.
     1. Выберите в списке нужное устройство.
@@ -115,6 +116,7 @@
         ```
 
         Результат:
+
         ```text
         2019-09-19 18:52:03     connected, cert: "ea7bd563e2352ad87e2aca529cfe3d0c********", address: "77.88.**.***:53189", clientID: "YCCmdLine"
         2019-09-19 18:52:03     disconnected: publish to topic "$device/areqjd6un3af********/events" not allowed

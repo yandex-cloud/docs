@@ -2,7 +2,7 @@
 
 # yc baremetal v2 extend
 
-
+Manage Stackland and virtualization clusters for Baremetal Extend.
 
 #### Command Usage
 

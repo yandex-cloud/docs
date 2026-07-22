@@ -47,6 +47,6 @@ description: В этой инструкции вы создадите свой �
    {{ cloud-registry }}/<идентификатор_реестра>/ubuntu:hello
    ```
 
-#### Смотрите также {#see-also}
+#### Полезные ссылки {#see-also}
 
 [Поддерживаемые типы артефактов](../concepts/artifacts/index.md#artifacts)

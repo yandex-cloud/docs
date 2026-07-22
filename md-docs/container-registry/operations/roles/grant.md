@@ -9,7 +9,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно назначить роль на ресурс.
-  1. Перейдите в сервис **Container Registry**.
+  1. [Перейдите](https://console.yandex.cloud/link/container-registry) в сервис **Container Registry**.
   1. Выберите [реестр](../../concepts/registry.md) или [репозиторий](../../concepts/repository.md) в нем.
   1. Перейдите на вкладку **Права доступа**.
   1. Нажмите кнопку **Назначить роли**.

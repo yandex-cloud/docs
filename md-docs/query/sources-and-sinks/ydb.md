@@ -2,30 +2,32 @@
 
 # Работа с базами данных Managed Service for YDB
 
-В этом разделе описана основная информация про работу с [Managed Service for YDB](https://yandex.cloud/ru/services/ydb).
+В этом разделе приведена основная информация о работе с [Managed Service for YDB](https://yandex.cloud/ru/services/ydb).
 
-Для работы с базой данных Managed Service for YDB из Yandex Query необходимо выполнить следующие шаги:
-1. Создать [соединение](../concepts/glossary.md#connection), содержащее реквизиты для подключения к базе данных.
-1. [Выполнить запрос](#query) к базе данных.
+Для работы с базой данных Managed Service for YDB из Yandex Query выполните следующие шаги:
 
-Пример запроса, выполняющего чтение данных из Managed Service for YDB:
+1. Создайте [соединение](../concepts/glossary.md#connection), содержащее реквизиты для подключения к базе данных.
+1. [Выполните запрос](#query) к базе данных.
+
+Пример запроса для чтения данных из Managed Service for YDB:
 
 ```sql
 SELECT * FROM ydb_connection.my_table
 ```
 
-где:
+Где:
+
 * `ydb_connection` — название созданного соединения с базой данных.
 * `my_table` — имя таблицы в базе данных.
 
 
-## Настройка соединения {#create_connection}
+## Настройка соединения {#create-connection}
 
 Чтобы создать соединение с Managed Service for YDB:
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать соединение.
-1. Перейдите в сервис **Yandex Query**.
-1. На панели слева перейдите на вкладку **Соединения**.
+1. [Перейдите](https://yq.yandex.cloud) в сервис **Yandex Query**.
+1. На панели слева выберите **Соединения**.
 1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg) **Создать**.
 1. Укажите параметры соединения:
 
@@ -35,7 +37,7 @@ SELECT * FROM ydb_connection.my_table
       * **Тип** — `Managed Service for YDB`.
    1. В блоке **Параметры типа соединения**:
       * **Кластер** — выберите существующую базу данных Managed Service for YDB или создайте новую.
-      * **Сервисный аккаунт** — выберите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) Managed Service for YDB, от имени которого будет выполняться подключение к кластерам `Managed Service for YDB` и аутентификация в базе данных. Если сервисного аккаунта нет, создайте его и назначьте ему [роль](../../ydb/security/index.md#ydb-viewer) `ydb.viewer`.
+      * **Сервисный аккаунт** — выберите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) Managed Service for YDB, от имени которого будет выполняться подключение и аутентификация в базе данных. Если сервисного аккаунта нет, создайте его и назначьте ему роль [`ydb.viewer`](../../ydb/security/index.md#ydb-viewer).
 
         Чтобы использовать сервисный аккаунт, пользователю нужна [роль](../../iam/security/index.md#iam-serviceAccounts-user) `iam.serviceAccounts.user`.
 
@@ -50,7 +52,7 @@ SELECT * FROM ydb_connection.my_table
 SELECT * FROM <соединение>.<имя_таблицы>
 ```
 
-где:
+Где:
 * `<соединение>` — название созданного соединения с базой данных.
 * `<имя_таблицы>` — имя таблицы в базе данных.
 
@@ -58,7 +60,7 @@ SELECT * FROM <соединение>.<имя_таблицы>
 
 Внешние источники доступны только для чтения данных через запросы `SELECT`. Запросы, модифицирующие таблицы во внешних источниках, сервисом Yandex Query в настоящее время не поддерживаются.
 
-## Пушдаун фильтров {#predicate_pushdown}
+## Пушдаун фильтров {#predicate-pushdown}
 
 Yandex Query умеет передавать обработку частей запросов в систему-источник данных. Это означает, что фильтрующие выражения передаются сквозь Yandex Query непосредственно в базу данных для обработки, обычно это условия запросов, указанных в `WHERE`. Такой способ обработки называется `пушдаун фильтров`.
 
@@ -92,11 +94,11 @@ Yandex Query умеет передавать обработку частей з�
 |`String`|
 |`Utf8`|
 
-## Поддерживаемые типы данных {#supported_types}
+## Поддерживаемые типы данных {#supported-types}
 
 Ниже приведены таблицы соответствия типов данных в Managed Service for YDB и Yandex Query. Типы данных, не указанные в таблицах, не поддерживаются.
 
-### Примитивные типы данных {#supported_types_default}
+### Примитивные типы данных {#supported-types-default}
 
 | Тип данных Managed Service for YDB | Тип данных Yandex Query |
 | :---: | :----: |
@@ -119,7 +121,7 @@ Yandex Query умеет передавать обработку частей з�
 | `Json` | `Json` |
 | `JsonDocument` | `Json` |
 
-### Опциональные типы данных {#supported_types_nullable}
+### Опциональные типы данных {#supported-types-nullable}
 
 | Тип данных Managed Service for YDB | Тип данных Yandex Query |
 | :---: | :----: |

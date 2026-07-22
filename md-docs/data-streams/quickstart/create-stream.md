@@ -7,7 +7,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать [поток данных](../concepts/glossary.md#stream-concepts).
-  1. Перейдите в сервис **Data Streams**.
+  1. [Перейдите](https://console.yandex.cloud/link/data-streams) в сервис **Data Streams**.
   1. Нажмите **Создать поток**.
   1. Укажите базу данных Yandex Managed Service for YDB или [создайте](../../ydb/quickstart.md#create-db) новую. Если вы создали новую БД, после ее создания нажмите ![refresh-button](../../_assets/console-icons/arrow-rotate-right.svg) для обновления списка БД.
   1. Введите имя потока данных. Требования к имени:

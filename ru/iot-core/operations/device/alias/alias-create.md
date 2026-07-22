@@ -13,7 +13,7 @@
    Чтобы создать алиас:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать алиас.
-   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Выберите в списке нужный реестр.
    1. В левой части окна выберите раздел **{{ ui-key.yacloud.iot.label_devices }}**.
    1. Нажмите значок ![image](../../../../_assets/console-icons/ellipsis.svg) справа от имени нужного устройства, в выпадающем списке выберите **{{ ui-key.yacloud.common.edit }}**.
@@ -67,6 +67,7 @@
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
      * `yandex_iot_core_device` — параметры устройства:
+     
        * `registry_id` — [идентификатор реестра](../../registry/registry-list.md#registry-list), в котором создано устройство.
        * `name` — [имя устройства](../device-list.md#device-list).
        * `description` — описание устройства.

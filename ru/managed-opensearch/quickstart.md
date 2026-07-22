@@ -46,7 +46,7 @@ description: В этой инструкции вы научитесь созда
 ## Создайте кластер {#create-cluster}
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+1. [Перейдите]({{ link-console-main }}/link/managed-opensearch) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**. Процесс подробно рассмотрен в разделе [Создание кластера](operations/cluster-create.md).
 1. Задайте параметры кластера.
 

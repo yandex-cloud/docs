@@ -9,7 +9,7 @@
 - Консоль управления {#console}
   
   1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится контейнер.
-  1. Перейдите в сервис **Serverless Containers**.
+  1. [Перейдите](https://console.yandex.cloud/link/serverless-containers) в сервис **Serverless Containers**.
   1. Выберите контейнер.
   1. В строке с нужной ревизией нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и в выпадающем списке выберите **Сделать активной**.
   1. В открывшемся окне нажмите кнопку **Подтвердить**. Статус ревизии изменится с `Obsolete` на `Active`.

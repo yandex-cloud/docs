@@ -176,7 +176,13 @@ Possible property names:
 
 - `log-index-maintenance`: Enables indices maintenance requests logging, such as indices refreshes, flushes and merges.
 
-- `log-backup-operations`: Enables snapshots and repositories requests logging. ||
+- `log-backup-operations`: Enables snapshots and repositories requests logging.
+
+- `log-authenticated-requests`: Enables logging of successfully authenticated REST requests.
+
+- `log-index-events`: Enables logging of index-level events, such as creating or deleting an index.
+
+- `log-bad-headers`: Enables logging of REST requests containing bad or spoofed security headers. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
 

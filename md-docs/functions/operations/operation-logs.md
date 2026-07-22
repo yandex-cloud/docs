@@ -13,7 +13,7 @@
   Можно получить список операций для конкретного ресурса. Ниже показано, как это сделать для функции. Для других ресурсов сервиса последовательность действий такая же.
 
   1. В [консоли управления](https://console.yandex.cloud) откройте каталог, в котором находится функция.
-  1. Перейдите в сервис **Cloud Functions**.
+  1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
   1. На панели слева выберите ![image](../../_assets/console-icons/curly-brackets-function.svg) **Функции**.
   1. Выберите нужную функцию.
   1. Перейдите на панель ![image](../../_assets/console-icons/list-check.svg) **Операции** для выбранной функции.
@@ -133,4 +133,4 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Работа с операциями](../../api-design-guide/concepts/about-async.md)
+[Работа с операциями](../../api-design-guide/concepts/about-async.md)

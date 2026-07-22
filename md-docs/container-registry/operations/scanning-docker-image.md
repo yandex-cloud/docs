@@ -4,6 +4,7 @@
 
 
 Вы можете [сканировать](../concepts/vulnerability-scanner.md) загруженные в [реестр](../concepts/registry.md) [Docker-образы](../concepts/docker-image.md) на наличие уязвимостей. Это можно делать:
+
 * [Вручную](#manual).
 * [При загрузке](#automatically).
 * [По расписанию](#scheduled).
@@ -24,7 +25,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит [реестр](../concepts/registry.md), содержащий Docker-образ.
-  1. Перейдите в сервис **Container Registry**.
+  1. [Перейдите](https://console.yandex.cloud/link/container-registry) в сервис **Container Registry**.
   1. Выберите реестр, в который загружен Docker-образ, или [создайте](registry/registry-create.md) новый и [загрузите](docker-image/docker-image-push.md) в него образ.
   1. Откройте [репозиторий](../concepts/repository.md), в котором находится Docker-образ.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного Docker-образа и выберите **Сканировать**.
@@ -125,7 +126,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, которому принадлежит реестр с Docker-образами.
-  1. Перейдите в сервис **Container Registry**.
+  1. [Перейдите](https://console.yandex.cloud/link/container-registry) в сервис **Container Registry**.
   1. Выберите реестр или [создайте](registry/registry-create.md) новый.
   1. Перейдите на вкладку **Сканер уязвимостей**.
   1. Нажмите кнопку **Изменить настройки**.
@@ -154,7 +155,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, которому принадлежит реестр с Docker-образами.
-  1. Перейдите в сервис **Container Registry**.
+  1. [Перейдите](https://console.yandex.cloud/link/container-registry) в сервис **Container Registry**.
   1. Выберите реестр или [создайте](registry/registry-create.md) новый.
   1. Перейдите на вкладку **Сканер уязвимостей**.
   1. Нажмите кнопку **Изменить настройки**.

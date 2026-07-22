@@ -13,7 +13,7 @@
 - Консоль управления {#console}
 
     1. Перейдите [на страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
     1. Выберите кластер и откройте вкладку ![hosts-edit](../../_assets/console-icons/cube.svg) **Хосты**.
     1. Нажмите кнопку **Расширить кластер** в правом верхнем углу.
     1. Укажите настройки расширения кластера:

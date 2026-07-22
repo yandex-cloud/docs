@@ -1,28 +1,35 @@
+---
+title: Работа с базами данных {{ mgp-full-name }}
+description: Из статьи вы узнаете, как подключиться к базе данных {{ mgp-name }} и выполнять запросы к ней из {{ yq-full-name }}.
+---
+
 # Работа с базами данных {{ mgp-name }}
 
-В этом разделе описана основная информация про работу с [{{ mgp-name }}](https://yandex.cloud/ru/services/managed-greenplum).
+В этом разделе приведена основная информация о работе с [{{ mgp-name }}](https://yandex.cloud/ru/services/managed-greenplum).
 
-Для работы с базой данных {{ mgp-name }} необходимо выполнить следующие шаги:
-1. Создать [соединение](../concepts/glossary.md#connection), содержащее реквизиты для подключения к базе данных.
-1. [Выполнить запрос](#query) к базе данных.
+Для работы с базой данных {{ mgp-name }} выполните следующие шаги:
 
-Пример запроса, выполняющего чтение данных из {{ mgp-name }}:
+1. Создайте [соединение](../concepts/glossary.md#connection), содержащее реквизиты для подключения к базе данных.
+1. [Выполните запрос](#query) к базе данных.
+
+Пример запроса для чтения данных из {{ mgp-name }}:
 
 ```sql
 SELECT * FROM greenplum_mdb_connection.my_table
 ```
 
-где:
+Где:
+
 * `greenplum_mdb_connection` — название созданного соединения с базой данных.
 * `my_table` — имя таблицы в базе данных.
 
-
-## Настройка соединения {#create_connection}
+## Настройка соединения {#create-connection}
 
 Чтобы создать соединение с {{ mgp-name }}:
+
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать соединение.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
-1. На панели слева перейдите на вкладку **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
+1. [Перейдите]({{ link-console-yq }}) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. На панели слева выберите **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
 1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
 1. Укажите параметры соединения:
 
@@ -34,48 +41,48 @@ SELECT * FROM greenplum_mdb_connection.my_table
    1. В блоке **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**:
 
       * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}** — выберите существующий кластер {{ mgp-name }} или создайте новый.
-      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** — выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) {{ mgp-name }} или создайте новый с ролью [`{{ roles.mgp.viewer }}`](../../managed-greenplum/security/index.md#mgp-viewer), от имени которого будет выполняться подключение к кластерам `{{ mgp-name }}`.
+      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** — выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) {{ mgp-name }} или создайте новый с ролью [`{{ roles.mgp.viewer }}`](../../managed-greenplum/security/index.md#mgp-viewer), от имени которого будет выполняться подключение к кластерам {{ mgp-name }}.
 
         {% include [service accounts role](../../_includes/query/service-accounts-role.md) %}
 
-      * **{{ ui-key.yql.yq-connection-form.database.input-label }}**  — выберите базу данных, которая будет использоваться при работе с кластером {{ GP }}.
-      * **{{ ui-key.yql.yq-connection-form.schema.input-label }}**  — укажите [пространство имен](https://docs.vmware.com/en/VMware-Greenplum/7/greenplum-database/admin_guide-ddl-ddl-schema.html), которое будет использоваться при работе с базой данных {{ GP }}.
-      * **{{ ui-key.yql.yq-connection-form.login.input-label }}**  — имя пользователя, которое будет использоваться для подключения к базам данных {{ GP }}.
-      * **{{ ui-key.yql.yq-connection-form.password.input-label }}**  — пароль пользователя, который будет использоваться для подключения к базам данных {{ GP }}.
-
+      * **{{ ui-key.yql.yq-connection-form.database.input-label }}** — выберите базу данных, которая будет использоваться при работе с кластером {{ GP }}.
+      * **{{ ui-key.yql.yq-connection-form.schema.input-label }}** — укажите [пространство имен](https://docs.vmware.com/en/VMware-Greenplum/7/greenplum-database/admin_guide-ddl-ddl-schema.html), которое будет использоваться при работе с базой данных {{ GP }}.
+      * **{{ ui-key.yql.yq-connection-form.login.input-label }}** — имя пользователя для подключения к базе данных {{ GP }}.
+      * **{{ ui-key.yql.yq-connection-form.password.input-label }}** — пароль пользователя для подключения к базе данных {{ GP }}.
 
 1. Нажмите кнопку **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
 
-Сервисный аккаунт необходим для обнаружения точек подключения к кластерам {{ mgp-name }} внутри {{ yandex-cloud }}, для работы с данными логин и пароль пользователя задаются отдельно.
+Сервисный аккаунт необходим для обнаружения точек подключения к кластерам {{ mgp-name }} внутри {{ yandex-cloud }}. Для работы с данными отдельно задайте имя пользователя и пароль.
 
 {% note warning %}
 
-Необходимо предварительно разрешить сетевой доступ от {{ yq-full-name }} до кластеров {{ mgp-name }}. Для этого в настройках базы данных, к которой осуществляется подключение, установите пункт "Доступ из {{ yq-full-name }}".
+Разрешите сетевой доступ от {{ yq-full-name }} до кластеров {{ mgp-name }}. Для этого в настройках базы данных, к которой выполняется подключение, включите опцию «Доступ из {{ yq-full-name }}».
 
 {% endnote %}
 
 ## Синтаксис запросов {#query}
+
 Для работы с {{ GP }} используется следующая форма SQL-запроса:
 
 ```sql
 SELECT * FROM <соединение>.<имя_таблицы>
 ```
 
-где:
+Где:
+
 * `<соединение>` — название созданного соединения с базой данных.
 * `<имя_таблицы>` — имя таблицы в базе данных.
 
 ## Ограничения {#limits}
 
-При работе с кластерами {{ GP }} существует ряд ограничений.
+При работе с кластерами {{ GP }} действуют следующие ограничения:
 
-Ограничения:
 1. {% include [!](_includes/supported_requests.md) %}
 1. Чтение данных выполняется в один поток через мастер-хост, также известный как [хост-координатор](https://docs.vmware.com/en/VMware-Greenplum/7/greenplum-database/admin_guide-intro-arch_overview.html) кластера {{ GP }}. Массивно-параллельное чтение в настоящее время не поддерживается.
 1. В {{ yq-short-name }} используется [система типов]({{ ydb.docs }}/yql/reference/types/primitive) {{ ydb-full-name }}. Однако диапазоны допустимых значений для типов, использующихся в {{ ydb-short-name }} при работе с датой и временем (`Date`, `Datetime`, `Timestamp`), зачастую оказываются недостаточно широкими для того, чтобы вместить значения соответствующих типов {{ GP }} (`date`, `timestamp`). 
 В связи с этим значения даты и времени, прочитанные из {{ GP }}, возвращаются {{ yq-short-name }} как обычные строки (тип `Optional<Utf8>`) в формате [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html).
 
-## Пушдаун фильтров {#predicate_pushdown}
+## Пушдаун фильтров {#predicate-pushdown}
 
 {% include [!](_includes/predicate_pushdown_preamble.md) %}
 
@@ -93,7 +100,7 @@ SELECT * FROM <соединение>.<имя_таблицы>
 |`Float`|
 |`Double`|
 
-## Поддерживаемые типы данных {#supported_types}
+## Поддерживаемые типы данных {#supported-types}
 
 В базе данных {{ GP }} признак опциональности значений колонки (разрешено или запрещено колонке содержать значения `NULL`) не является частью системы типов. Ограничение (constraint) `NOT NULL` для каждой колонки реализуется в виде атрибута `attnotnull` в системном каталоге [pg_attribute](https://docs.vmware.com/en/VMware-Greenplum/7/greenplum-database/ref_guide-system_catalogs-pg_attribute.html), то есть на уровне метаданных таблицы. Следовательно, все базовые типы {{ GP }} по умолчанию могут содержать значения `NULL`, и в системе типов {{ yq-short-name }} они должны отображаться в [опциональные]({{ ydb.docs }}/yql/reference/types/optional) типы. 
 

@@ -14,7 +14,7 @@
 
     {% endnote %}
 
-* `disk_size_limit` — максимальный размер хранилища в гибибайтах после увеличения.
+* `disk_size_limit` — максимальный размер хранилища в гигабайтах после увеличения.
 
 
 {% include [warn-storage-resize](../warn-storage-resize.md) %}

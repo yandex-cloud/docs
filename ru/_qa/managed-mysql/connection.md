@@ -8,8 +8,9 @@
 
 #### Почему не получается подключиться из интернета? {#from-internet}
 
-Проверьте, имеет ли хост публичный доступ. Для этого в [консоли управления]({{ link-console-main }}):
-1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+Проверьте, имеет ли хост публичный доступ:
+1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+1. [Перейдите]({{ link-console-main }}/link/managed-mysql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
 1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}**.
 1. Посмотрите значение в столбце **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_public-ip }}** у нужного хоста.
 
@@ -24,9 +25,10 @@
 
 Проверьте, что вы подключаетесь с виртуальной машины {{ yandex-cloud }}, расположенной в той же виртуальной сети, что и кластер {{ MY }}.
 
-Для этого в консоли управления:
-1. Перейдите на страницу каталога, выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}** и нажмите на имя нужного кластера.
-1. Проверьте значение параметра **{{ ui-key.yacloud.mdb.cluster.overview.label_network }}** и перейдите по ссылке названия сети, чтобы посмотреть ее подсети.
+Для этого:
+1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+1. [Перейдите]({{ link-console-main }}/link/managed-mysql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+1. Нажмите на имя нужного кластера. Проверьте значение параметра **{{ ui-key.yacloud.mdb.cluster.overview.label_network }}** и перейдите по ссылке названия сети, чтобы посмотреть ее подсети.
 1. Убедитесь, что виртуальная машина расположена в одной из подсетей той же сети.
 
 Дополнительно:
@@ -38,8 +40,9 @@
 
 Если публичный доступ в вашем кластере настроен только для некоторых хостов, автоматическая смена мастера может привести к тому, что вы не сможете подключиться к мастеру из интернета.
 
-Проверьте, имеет ли хост публичный доступ. Для этого в [консоли управления]({{ link-console-main }}):
-1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+Проверьте, имеет ли хост публичный доступ:
+1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+1. [Перейдите]({{ link-console-main }}/link/managed-mysql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
 1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}**.
 1. Посмотрите значение в столбце **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_public-ip }}** у нужного хоста.
 

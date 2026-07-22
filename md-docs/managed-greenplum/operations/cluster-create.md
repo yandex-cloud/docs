@@ -28,7 +28,7 @@
     Чтобы создать кластер Yandex MPP Analytics for PostgreSQL:
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать кластер баз данных.
-    1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
     1. Нажмите кнопку **Создать кластер**.
     1. Введите имя кластера. Оно должно быть уникальным в рамках каталога.
     1. (Опционально) Введите описание кластера.

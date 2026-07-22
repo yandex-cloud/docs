@@ -22,7 +22,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [контейнер](../concepts/container.md).
-  1. Перейдите в сервис **Serverless Containers**.
+  1. [Перейдите](https://console.yandex.cloud/link/serverless-containers) в сервис **Serverless Containers**.
   1. Выберите контейнер, [ревизию](../concepts/container.md#revision) которого хотите создать.
   1. Перейдите на вкладку **Редактор**.
   1. В разделе **Параметры образа**:
@@ -55,6 +55,7 @@
 
 
   Где:
+
   * `--cores` — количество ядер, которые доступны контейнеру.
   * `--memory` — требуемая память. По умолчанию — 128 МБ.
   * `--execution-timeout` — таймаут. По умолчанию — 3 секунды.
@@ -95,6 +96,7 @@
   В Terraform [ревизия](../concepts/container.md#revision) создается при каждом обновлении параметров работы ресурса.
 
   Чтобы создать ревизию:
+
   1. Обновите в конфигурационном файле параметры ресурса `yandex_serverless_container`:
 
      ```hcl

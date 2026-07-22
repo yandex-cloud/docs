@@ -13,7 +13,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите посмотреть список реестров.
-     1. Выберите сервис **Container Registry**.
+     1. [Перейдите](https://console.yandex.cloud/link/container-registry) в сервис **Container Registry**.
      1. На вкладке **Реестры** отображен список реестров.
 
    - CLI {#cli}
@@ -49,7 +49,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите посмотреть информацию о Docker-образах.
-     1. Выберите сервис **Container Registry**.
+     1. [Перейдите](https://console.yandex.cloud/link/container-registry) в сервис **Container Registry**.
      1. На вкладке **Реестры** нажмите на имя нужного реестра.
      1. На странице **Репозитории** нажмите на имя нужного репозитория.
      1. На странице **Docker-образы** отображены Docker-образы.

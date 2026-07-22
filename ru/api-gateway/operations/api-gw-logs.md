@@ -12,7 +12,7 @@ description: Вы можете просмотреть журнал выполн�
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится API-шлюз.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. [Перейдите]({{ link-console-main }}/link/api-gateway) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
     1. Выберите API-шлюз, журнал выполнения которого вы хотите посмотреть.
     1. Перейдите на вкладку **{{ ui-key.yacloud.common.logs }}** и укажите период. По умолчанию задан период за 1 час.
 
@@ -21,4 +21,3 @@ description: Вы можете просмотреть журнал выполн�
 Каждое событие в журнале содержит параметр `release` со значением `canary`, если запрос был обработан канареечным релизом, и `stable` — текущим.
 
 Подробнее о работе с логами в [документации {{ cloud-logging-full-name }}](../../logging/).
-

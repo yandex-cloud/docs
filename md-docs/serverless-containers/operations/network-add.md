@@ -19,7 +19,7 @@
 - Консоль управления {#console}
     
     1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится контейнер.
-    1. Перейдите в сервис **Serverless Containers**.
+    1. [Перейдите](https://console.yandex.cloud/link/serverless-containers) в сервис **Serverless Containers**.
     1. Выберите контейнер.
     1. Перейдите на вкладку **Редактор**.
     1. В блоке **Настройки**, в поле **Сеть**, укажите облачную сеть, в которой будет исполняться контейнер.
@@ -31,6 +31,6 @@
 
 {% endlist %}
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Сетевое взаимодействие в Serverless Containers](../concepts/networking.md).
+[Сетевое взаимодействие в Serverless Containers](../concepts/networking.md)

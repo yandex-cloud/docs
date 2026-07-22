@@ -29,7 +29,7 @@ keywords:
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер {{ SPQR }}.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+    1. [Перейдите]({{ link-console-main }}/link/managed-spqr) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 

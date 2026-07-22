@@ -47,7 +47,7 @@
 
     1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать триггер.
 
-    1. Перейдите в сервис **Cloud Functions**.
+    1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
 
     1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **Триггеры**.
 
@@ -158,7 +158,7 @@
 
 Проверьте, что триггер работает корректно. Для этого посмотрите [логи функции](../../functions/operations/function/function-logs.md), в них отображается информация о вызовах.
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Создать триггер, который передает сообщения в контейнер Serverless Containers из топика брокера Yandex IoT Core](../../serverless-containers/operations/iot-core-trigger-broker-create.md)
 * [Создать триггер, который отправляет сообщения в WebSocket-соединения из топика брокера Yandex IoT Core](../../api-gateway/operations/trigger/iot-core-trigger-broker-create.md)

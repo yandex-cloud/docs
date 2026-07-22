@@ -2,7 +2,7 @@
 
 |Формат данных|Название в {{ yq-name }}|
 |--|--|
-|[CSV](https://ru.wikipedia.org/wiki/CSV)|[csv_with_names](../sources-and-sinks/formats.md#csv_with_names)|
+|[CSV](https://ru.wikipedia.org/wiki/CSV)|[csv_with_names](../sources-and-sinks/formats.md#csv-with-names)|
 |[Parquet](https://en.wikipedia.org/wiki/Apache_Parquet)|[parquet](../sources-and-sinks/formats.md#parquet)|
 
 В {{ yq-name }} поддерживаются следующие алгоритмы сжатия данных для записи:

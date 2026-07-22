@@ -7,7 +7,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится триггер.
-    1. Перейдите в сервис **Serverless Containers**.
+    1. [Перейдите](https://console.yandex.cloud/link/serverless-containers) в сервис **Serverless Containers**.
     1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **Триггеры**.
     1. Выберите триггер, который хотите удалить.
     1. В правом верхнем углу страницы нажмите **Удалить**.

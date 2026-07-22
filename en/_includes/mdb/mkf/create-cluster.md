@@ -58,7 +58,7 @@ To set up a [maintenance window](../../../managed-kafka/concepts/maintenance.md)
 ...
 --maintenance-window type=<maintenance_type>,`
                     `day=<day_of_week>,`
-                    `hour=<hour> \
+                    `hour=<sequence_number_of_hour_interval> \
 ...
 ```
 

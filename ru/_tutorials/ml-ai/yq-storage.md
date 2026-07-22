@@ -165,7 +165,7 @@
   1. В блоке **{{ ui-key.yql.yq-binding-form.binding-parameters.title }}**:
   
      1. Введите имя привязки, например `yq_binding`.
-     1. В поле **{{ ui-key.yql.yq-binding-form.binding-path-pattern.title }}** укажите [путь к данным](../../query/sources-and-sinks/object-storage.md#path_format) — `nyc_taxi_sample/data/`.
+     1. В поле **{{ ui-key.yql.yq-binding-form.binding-path-pattern.title }}** укажите [путь к данным](../../query/sources-and-sinks/object-storage.md#path-format) — `nyc_taxi_sample/data/`.
      1. Выберите тип сжатия — `gzip`.
   
   1. В блоке **{{ ui-key.yql.yq-binding-form.binding-format-settings.title }}** в поле **{{ ui-key.yql.yq-binding-form.binding-format.title }}** выберите `csv_with_names`.

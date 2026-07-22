@@ -316,19 +316,19 @@
 
 #|
 || Вид ограничения | Значение ||
-|| Максимальное количество рабочих столов в одном облаке
+|| Количество рабочих столов
    `vdi.desktops.count` | 10 ||
-|| Максимальное количество образов рабочих столов в одном облаке
+|| Количество образов рабочих столов
    `vdi.desktopImages.count` | 8 ||
-|| Максимальный суммарный размер образов рабочих столов в одном облаке
+|| Суммарный размер образов рабочих столов
    `vdi.desktopImages.size` | 1 ТБ ||
-|| Максимальное суммарное количество vCPU в одном облаке
+|| Количество vCPU рабочих столов
    `vdi.desktopCores.count` | 40 ||
-|| Максимальный суммарный объем RAM в одном облаке
+|| Общий объём RAM рабочих столов
    `vdi.desktopMemory.size` | 80 ГБ ||
-|| Максимальный суммарный объем HDD-дисков в одном облаке 
+|| Общий объём HDD-дисков 
    `vdi.hddDisks.size` | 600 ГБ ||
-|| Максимальный суммарный объем SSD-дисков в одном облаке 
+|| Общий объём SSD-дисков 
    `vdi.ssdDisks.size` | 600 ГБ ||
 |#
 
@@ -578,19 +578,17 @@ ZIP-архив через S3 бакет | 128 МБ
 
 #|
 || Вид ограничения | Значение ||
-|| Максимальное количество [каналов](../../video/concepts/index.md#channels) в одной [организации](../../organization/quickstart.md)
+|| Максимальное количество [каналов](../../video/concepts/index.md#channels) в одной организации
 `video.channels.count` | 25 ||
 || Общее количество [видео](../../video/concepts/videos.md) во всех каналах
 `video.videos.count` | 5 000 ||
 || Количество [плейлистов](../../video/concepts/playlists.md) во всех каналах
 `video.playlists.count` | 500 ||
-|| Количество одновременных процессов по транскодированию видео с нейросетевыми функциями: [суммаризация](../../video/concepts/videos.md#summarization), [нейроперевод](../../video/concepts/videos.md#stranslation) и [генерация субтитров](../../video/concepts/videos.md#subtitles)
+|| Количество одновременных процессов по транскодированию видео с нейросетевыми функциями: [суммаризация](../../video/concepts/videos.md#summarization), [нейроперевод](../../video/concepts/videos.md#stranslation) и генерация [субтитров](../../video/concepts/videos.md#subtitles)
 `video.transcodingsWithNeuroFeatures.rate` | 1 ||
-|| Количество [линий](../../video/concepts/streams.md#lines) потоковой передачи в одной организации
-`video.streamLines.count` | 50 ||
 || Количество [трансляций](../../video/concepts/streams.md) в одной организации
 `video.streams.count` | 500 ||
-|| Количество одновременных трансляций в одной организации
+|| Количество одновременных [трансляций](../../video/concepts/streams.md#streams) в одной организации
 `video.parallelStreams.count` | 1 ||
 || Количество [эпизодов](../../video/concepts/streams.md#episodes) во всех трансляциях
 `video.episodes.count` | 500 ||

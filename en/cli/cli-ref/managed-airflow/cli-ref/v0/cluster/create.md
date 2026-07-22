@@ -101,6 +101,7 @@ Version of Apache Airflow. ||
 
 Version of Python that Airflow will run on ||
 || `--lockbox-secrets-backend` | Whether the Lockbox Secret Backend will be allowed for the cluster. ||
+|| `--datacatalog-enabled` | Whether sending data to Datacatalog will be allowed for the cluster. ||
 || `--subnet-ids` | `value[,value]`
 
 List of IDs of VPC network subnets where instances of the cluster are attached. ||

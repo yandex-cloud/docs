@@ -14,7 +14,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
     
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится контейнер.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. [Перейдите]({{ link-console-main }}/link/serverless-containers) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. Выберите контейнер.
     1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-containers.label_editor }}**.
     1. В блоке **{{ ui-key.yacloud.serverless-containers.section_parameters }}**, в поле **{{ ui-key.yacloud.vpc.label_network }}**, укажите облачную сеть, в которой будет исполняться контейнер.
@@ -26,6 +26,6 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Сетевое взаимодействие в {{ serverless-containers-name }}](../concepts/networking.md).
+[Сетевое взаимодействие в {{ serverless-containers-name }}](../concepts/networking.md)

@@ -60,6 +60,6 @@
    registry.yandexcloud.net/<идентификатор_реестра>/ubuntu:hello
    ```
 
-#### Смотрите также {#see-also}
+#### Полезные ссылки {#see-also}
 
 [Поддерживаемые типы артефактов](../concepts/artifacts/index.md#artifacts)

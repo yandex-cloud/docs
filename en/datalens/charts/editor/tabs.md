@@ -408,7 +408,7 @@ Available for the following visualization types: [Chart (Gravity UI Charts)](./w
 
 ## Controls {#controls}
 
-The declarative style describes the possible controls, i.e., the chart's control elements. Unlike [dashboard](../../concepts/dashboard.md) selectors and [report](../../reports/index.md) selectors, these control the current chart alone and are not saved after you refresh the page.
+The declarative style describes the possible controls, i.e., the chart's control elements. Unlike [dashboard](../../concepts/dashboard.md) selectors and [report](../../reports/index.md) selectors, controls have an effect only on the current chart and are not saved after you refresh the page.
 
 This tab is available for all [visualization types](./widgets/index.md).
 

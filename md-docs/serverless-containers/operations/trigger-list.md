@@ -7,7 +7,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите посмотреть список триггеров.
-    1. Перейдите в сервис **Serverless Containers**.
+    1. [Перейдите](https://console.yandex.cloud/link/serverless-containers) в сервис **Serverless Containers**.
     1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **Триггеры**.
 
 - CLI {#cli}

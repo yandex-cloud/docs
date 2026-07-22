@@ -11,7 +11,7 @@
 - Консоль управления {#console}
 
     1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
 
 - CLI {#cli}
 
@@ -96,7 +96,7 @@
 - Консоль управления {#console}
 
     1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
     1. Нажмите на имя нужного кластера.
 
 - CLI {#cli}
@@ -179,7 +179,7 @@
 - Консоль управления {#console}
 
     1. Перейдите [на страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
     1. Нажмите на имя нужного кластера, затем выберите вкладку ![hosts.svg](../../_assets/console-icons/cube.svg) **Хосты**.
 
     В списке хостов в колонке **Роль** указывается роль каждого хоста:

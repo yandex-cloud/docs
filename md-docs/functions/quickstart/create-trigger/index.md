@@ -38,7 +38,7 @@
 
     Создайте [триггер для почты](../../concepts/trigger/mail-trigger.md), который будет вызывать функцию, когда на электронную почту приходит письмо.
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Пошаговые инструкции по созданию триггеров](../../operations/index.md#trigger-create)
 * [Обзор триггеров в Cloud Functions](../../concepts/trigger/index.md)

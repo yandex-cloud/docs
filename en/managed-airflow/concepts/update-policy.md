@@ -74,7 +74,7 @@ Available Python versions: 3.10, 3.12.
 |:---|:---|:---|
 | 2.8 | Unavailable for creating new clusters | February 2026 |
 | 2.10 | Available | February 2026 |
-| 2.11 (LTS) | Scheduled (February 2026) | Q4 2026 |
+| 2.11 (LTS) | Available | Q4 2026 |
 
 All versions 2.8 and 2.10 will be updated to the official open-source community-supported LTS version 2.11 no earlier than in February 2026.
 

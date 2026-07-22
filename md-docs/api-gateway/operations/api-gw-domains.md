@@ -28,8 +28,8 @@
 
         Чтобы узнать служебный домен API-шлюза:
 
-       1. Перейдите в [консоль управления](https://console.yandex.cloud).
-       1. Выберите каталог, в котором находится API-шлюз, и Перейдите в сервис **API Gateway**.
+       1. Перейдите в [консоль управления](https://console.yandex.cloud) и выберите каталог, в котором находится API-шлюз.
+       1. [Перейдите](https://console.yandex.cloud/link/api-gateway) в сервис **API Gateway**.
        1. Выберите API-шлюз.
        1. Служебный домен будет в поле **Служебный домен**.
 
@@ -39,7 +39,7 @@
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится API-шлюз.
 
-    1. Перейдите в сервис **Certificate Manager** и в нем:
+    1. [Перейдите](https://console.yandex.cloud/link/certificate-manager) в сервис **Certificate Manager** и в нем:
 
         1. Добавьте [сертификат от Let's Encrypt<sup>®</sup>](../../certificate-manager/operations/managed/cert-create.md) или [пользовательский сертификат](../../certificate-manager/operations/import/cert-create.md) для подключаемого домена.
 
@@ -53,7 +53,7 @@
     
     1. Вернитесь на страницу каталога.
 
-    1. Перейдите в сервис **API Gateway** и в нем:
+    1. [Перейдите](https://console.yandex.cloud/link/api-gateway) в сервис **API Gateway** и в нем:
 
         1. Выберите API-шлюз.
         1. Перейдите на вкладку **Домены**.

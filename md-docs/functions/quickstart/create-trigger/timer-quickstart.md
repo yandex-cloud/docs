@@ -23,7 +23,7 @@
 
     1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать таймер.
 
-    1. Перейдите в сервис **Cloud Functions**.
+    1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
 
     1. На панели слева выберите ![image](../../../_assets/console-icons/gear-play.svg) **Триггеры**.
 
@@ -100,7 +100,7 @@
 
     1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится функция.
 
-    1. Перейдите в сервис **Cloud Functions**.
+    1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
 
     1. Нажмите на функцию, журнал выполнения которой хотите посмотреть.
 

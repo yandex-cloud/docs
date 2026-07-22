@@ -18,7 +18,7 @@
 - Консоль управления {#console}
   
   1. Откройте [страницу каталога](https://console.yandex.cloud) в консоли управления.
-  1. Перейдите в сервис **Managed Service for&nbsp;MySQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) для нужного кластера и выберите пункт **Удалить**.
 
 - CLI {#cli}

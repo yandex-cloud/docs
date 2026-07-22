@@ -18,7 +18,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите посмотреть список контейнеров.
-    1. Перейдите в сервис **Serverless Containers**.
+    1. [Перейдите](https://console.yandex.cloud/link/serverless-containers) в сервис **Serverless Containers**.
 
 - CLI {#cli}
 
@@ -55,7 +55,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится контейнер.
-    1. Перейдите в сервис **Serverless Containers**.
+    1. [Перейдите](https://console.yandex.cloud/link/serverless-containers) в сервис **Serverless Containers**.
     1. Выберите контейнер, для которого хотите получить список ревизий.
     1. В разделе **Ревизии** будет показан список ревизий контейнера и подробная информация о них.
 
@@ -97,7 +97,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится контейнер.
-    1. Перейдите в сервис **Serverless Containers**.
+    1. [Перейдите](https://console.yandex.cloud/link/serverless-containers) в сервис **Serverless Containers**.
     1. Выберите контейнер, информацию о ревизии которого хотите получить.
     1. В разделе **Ревизии** будет показан список ревизий контейнера и подробная информация о них.
 
@@ -145,7 +145,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите посмотреть список триггеров.
-    1. Перейдите в сервис **Serverless Containers**.
+    1. [Перейдите](https://console.yandex.cloud/link/serverless-containers) в сервис **Serverless Containers**.
     1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **Триггеры**.
 
 - CLI {#cli}
@@ -183,7 +183,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится триггер.
-  1. Перейдите в сервис **Serverless Containers**.
+  1. [Перейдите](https://console.yandex.cloud/link/serverless-containers) в сервис **Serverless Containers**.
   1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **Триггеры**.
   1. Выберите триггер, о котором хотите получить подробную информацию.
 

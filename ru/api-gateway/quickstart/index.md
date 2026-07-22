@@ -21,7 +21,7 @@ description: В этой инструкции вы создадите и про�
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором необходимо создать API-шлюз.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. [Перейдите]({{ link-console-main }}/link/api-gateway) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** введите `numbers`.
   1. (Опционально) В поле **{{ ui-key.yacloud.common.description }}** введите описание.
@@ -77,7 +77,7 @@ description: В этой инструкции вы создадите и про�
 ## Обратитесь к API-шлюзу {#api-gw-test}
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится API-шлюз.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}** и нажмите на созданный API-шлюз.
+1. [Перейдите]({{ link-console-main }}/link/api-gateway) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}** и нажмите на созданный API-шлюз.
 1. Сохраните значение поля **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}**.
 1. Установите утилиту [curl](https://curl.haxx.se).
 1. Обратитесь к API-шлюзу с помощью curl, используя одну из команд:
@@ -235,7 +235,7 @@ description: В этой инструкции вы создадите и про�
 
   Чтобы обновить спецификацию API-шлюза:
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором необходимо обновить API-шлюз.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. [Перейдите]({{ link-console-main }}/link/api-gateway) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. В строке с API-шлюзом нажмите кнопку ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. В блок **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** добавьте расширенную версию спецификации.
 
@@ -417,5 +417,5 @@ curl https://{{ api-host-apigw }}/numbers
 
 #### Полезные ссылки {#see-also}
 
-* [Концепции работы с сервисом](../concepts/index.md).
-* [Пошаговые инструкции для управления API-шлюзом](../operations/index.md).
+* [Концепции работы с сервисом](../concepts/index.md)
+* [Пошаговые инструкции для управления API-шлюзом](../operations/index.md)

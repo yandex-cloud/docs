@@ -7,8 +7,9 @@
 - Консоль управления {#console}
 
   Чтобы удалить [API-шлюз](../concepts/index.md):
+  
   1. В [консоли управления](https://console.yandex.cloud) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором необходимо удалить API-шлюз.
-  1. Перейдите в сервис **API Gateway**.
+  1. [Перейдите](https://console.yandex.cloud/link/api-gateway) в сервис **API Gateway**.
   1. В строке с API-шлюзом нажмите кнопку ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../_assets/console-icons/trash-bin.svg) **Удалить**.
   1. В открывшемся окне нажмите кнопку **Удалить**.
 

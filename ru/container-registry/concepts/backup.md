@@ -16,7 +16,7 @@ description: Данные в {{ container-registry-name }} надежно хра
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите посмотреть список реестров.
-     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+     1. [Перейдите]({{ link-console-main }}/link/container-registry) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
      1. На вкладке **{{ ui-key.yacloud.cr.switch_registry }}** отображен список реестров.
 
    - CLI {#cli}
@@ -52,7 +52,7 @@ description: Данные в {{ container-registry-name }} надежно хра
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите посмотреть информацию о Docker-образах.
-     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+     1. [Перейдите]({{ link-console-main }}/link/container-registry) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
      1. На вкладке **{{ ui-key.yacloud.cr.switch_registry }}** нажмите на имя нужного реестра.
      1. На странице **{{ ui-key.yacloud.cr.registry.overview.section_repositories }}** нажмите на имя нужного репозитория.
      1. На странице **{{ ui-key.yacloud.cr.registry.overview.section_images }}** отображены Docker-образы.

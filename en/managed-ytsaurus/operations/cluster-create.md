@@ -7,7 +7,7 @@ keywords:
   - '{{ ytsaurus-name }}'
 ---
 
-# Creating a {{ ytsaurus-name }} cluster
+# Creating a cluster {{ ytsaurus-name }}
 
 Each {{ myt-name }} cluster consists of a number of {{ ytsaurus-name }} components.
 
@@ -23,10 +23,11 @@ Non-configurable service components:
 
 ## Roles for creating a cluster {#roles}
 
-To create a {{ myt-name }} cluster, your {{ yandex-cloud }} account needs the following roles:
+To create and use a {{ myt-name }} cluster, your {{ yandex-cloud }} account needs the following roles:
 
-* [managed-ytsaurus.editor](../security/index.md#managed-ytsaurus-editor): To create a cluster.
-* [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user): To use the cluster [network](../../vpc/concepts/network.md#network).
+* {% include [roles-ytsaurus-editor](../../_includes/managed-ytsaurus/roles-ytsaurus-editor.md) %}
+* {% include [roles-vpc-user](../../_includes/mdb/roles-vpc-user.md) %}
+* {% include [roles-mdb-viewer](../../_includes/mdb/roles-mdb-viewer-create-cluster.md) %}
 
 For more information about assigning roles, see [this {{ iam-full-name }} guide](../../iam/operations/roles/grant.md).
 
@@ -341,7 +342,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -722,7 +723,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
             * `odin.checks_ttl`: Frequency of checks by Odin, an internal monitoring tool. Provide with units of measurement: `h` (hours), `m` (minutes), `s` (seconds). Here is an example: `336h0m0s` (2 weeks).
 
-        For detailed information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-ytsaurus }}).
+        For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-ytsaurus }}).
 
     1. Make sure the settings are correct.
 
@@ -877,7 +878,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
                 * `http.count`: Number of HTTP proxies.
                 * `rpc.count`: Number of RPC proxies.
 
-            * `odin.checksTtl`: Frequency of checks by Odin, an internal monitoring tool. Specify it in seconds (`s`), For example: `1209600s` (2 weeks).
+            * `odin.checksTtl`: Frequency of checks by Odin, an internal monitoring tool. Specify it in seconds (`s`), e.g., `1209600s` (2 weeks).
 
     1. Call the [Cluster.Create](../api-ref/Cluster/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
@@ -893,7 +894,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

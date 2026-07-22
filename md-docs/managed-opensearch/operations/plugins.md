@@ -10,8 +10,8 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога.
-    1. Перейдите в сервис **Managed Service for&nbsp;OpenSearch**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-opensearch) в сервис **Managed Service for&nbsp;OpenSearch**.
     1. Нажмите на имя нужного кластера.
 
 - CLI {#cli}
@@ -98,8 +98,8 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога.
-    1. Перейдите в сервис **Managed Service for&nbsp;OpenSearch**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-opensearch) в сервис **Managed Service for&nbsp;OpenSearch**.
     1. Выберите кластер и нажмите кнопку ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать** на панели сверху.
     1. В блоке **Базовые параметры** укажите плагины, которые должны быть установлены.
     1. Нажмите кнопку **Сохранить**.

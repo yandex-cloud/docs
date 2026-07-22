@@ -20,6 +20,10 @@ Yes. Any {{ datalens-name }} user requires a seat, regardless of their role.
 
 No. Once a seat is purchased, the full monthly fee will be charged, even if this seat’s user does not log in on some days. However, administrators can reassign seats among users during their inactive periods.
 
+### How long is the trial period? {#trial}
+
+The trial period in {{ datalens-name }} is 15 days. However, if you link a billing account within these 15 days before the trial period ends, the trial period will be extended by another 15 days. Therefore, you can extend the trial period to 30 days.
+
 ## Managing seats {#manage-seats}
 
 ### Where do I configure seats? {#seats-settings}
@@ -42,7 +46,7 @@ Your administrators can manually reassign seats as needed.
 
 ### Do I need to purchase {{ datalens-name }} seats for viewers of embedded private objects? {#seats-for-external-clients}
 
-Viewers of [embedded private objects](../../datalens/security/private-embedded-objects.md) do not authenticate in {{ datalens-name }} and, therefore, do not need a seat. However, when viewing embedded private objects, users initiate data queries to render charts, and such queries are billable.
+If users only view [embedded private objects](../../datalens/security/private-embedded-objects.md), then they do not require authorization in {{ datalens-name }}, and therefore do not need to be assigned workspaces. However, when viewing embedded private objects, users initiate queries to get data when rendering charts, and such queries are charged.
 
 The system counts the [number of queries against data sources from embedded private charts](../../datalens/settings/seats.md#embedded-queries-count), i.e., those in the wizard and Editor as well as QL charts, that are executed when rendering these objects. Only successfully completed queries for chart rendering data are counted. If multiple queries are required to render a single chart, this is counted as one query. For embedded private dashboards, queries from the added charts are summed up.
 

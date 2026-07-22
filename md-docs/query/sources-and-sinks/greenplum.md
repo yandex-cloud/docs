@@ -2,29 +2,31 @@
 
 # Работа с базами данных Yandex MPP Analytics for PostgreSQL
 
-В этом разделе описана основная информация про работу с [Yandex MPP Analytics for PostgreSQL](https://yandex.cloud/ru/services/managed-greenplum).
+В этом разделе приведена основная информация о работе с [Yandex MPP Analytics for PostgreSQL](https://yandex.cloud/ru/services/managed-greenplum).
 
-Для работы с базой данных Yandex MPP Analytics for PostgreSQL необходимо выполнить следующие шаги:
-1. Создать [соединение](../concepts/glossary.md#connection), содержащее реквизиты для подключения к базе данных.
-1. [Выполнить запрос](#query) к базе данных.
+Для работы с базой данных Yandex MPP Analytics for PostgreSQL выполните следующие шаги:
 
-Пример запроса, выполняющего чтение данных из Yandex MPP Analytics for PostgreSQL:
+1. Создайте [соединение](../concepts/glossary.md#connection), содержащее реквизиты для подключения к базе данных.
+1. [Выполните запрос](#query) к базе данных.
+
+Пример запроса для чтения данных из Yandex MPP Analytics for PostgreSQL:
 
 ```sql
 SELECT * FROM greenplum_mdb_connection.my_table
 ```
 
-где:
+Где:
+
 * `greenplum_mdb_connection` — название созданного соединения с базой данных.
 * `my_table` — имя таблицы в базе данных.
 
-
-## Настройка соединения {#create_connection}
+## Настройка соединения {#create-connection}
 
 Чтобы создать соединение с Yandex MPP Analytics for PostgreSQL:
+
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать соединение.
-1. Перейдите в сервис **Yandex Query**.
-1. На панели слева перейдите на вкладку **Соединения**.
+1. [Перейдите](https://yq.yandex.cloud) в сервис **Yandex Query**.
+1. На панели слева выберите **Соединения**.
 1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg) **Создать**.
 1. Укажите параметры соединения:
 
@@ -36,48 +38,48 @@ SELECT * FROM greenplum_mdb_connection.my_table
    1. В блоке **Параметры типа соединения**:
 
       * **Кластер** — выберите существующий кластер Yandex MPP Analytics for PostgreSQL или создайте новый.
-      * **Сервисный аккаунт** — выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) Yandex MPP Analytics for PostgreSQL или создайте новый с ролью [`managed-greenplum.viewer`](../../managed-greenplum/security/index.md#mgp-viewer), от имени которого будет выполняться подключение к кластерам `Yandex MPP Analytics for PostgreSQL`.
+      * **Сервисный аккаунт** — выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) Yandex MPP Analytics for PostgreSQL или создайте новый с ролью [`managed-greenplum.viewer`](../../managed-greenplum/security/index.md#mgp-viewer), от имени которого будет выполняться подключение к кластерам Yandex MPP Analytics for PostgreSQL.
 
         Чтобы использовать сервисный аккаунт, пользователю нужна [роль](../../iam/security/index.md#iam-serviceAccounts-user) `iam.serviceAccounts.user`.
 
-      * **База данных**  — выберите базу данных, которая будет использоваться при работе с кластером Greenplum®.
-      * **Схема**  — укажите [пространство имен](https://docs.vmware.com/en/VMware-Greenplum/7/greenplum-database/admin_guide-ddl-ddl-schema.html), которое будет использоваться при работе с базой данных Greenplum®.
-      * **Логин**  — имя пользователя, которое будет использоваться для подключения к базам данных Greenplum®.
-      * **Пароль**  — пароль пользователя, который будет использоваться для подключения к базам данных Greenplum®.
-
+      * **База данных** — выберите базу данных, которая будет использоваться при работе с кластером Greenplum®.
+      * **Схема** — укажите [пространство имен](https://docs.vmware.com/en/VMware-Greenplum/7/greenplum-database/admin_guide-ddl-ddl-schema.html), которое будет использоваться при работе с базой данных Greenplum®.
+      * **Логин** — имя пользователя для подключения к базе данных Greenplum®.
+      * **Пароль** — пароль пользователя для подключения к базе данных Greenplum®.
 
 1. Нажмите кнопку **Создать**.
 
-Сервисный аккаунт необходим для обнаружения точек подключения к кластерам Yandex MPP Analytics for PostgreSQL внутри Yandex Cloud, для работы с данными логин и пароль пользователя задаются отдельно.
+Сервисный аккаунт необходим для обнаружения точек подключения к кластерам Yandex MPP Analytics for PostgreSQL внутри Yandex Cloud. Для работы с данными отдельно задайте имя пользователя и пароль.
 
 {% note warning %}
 
-Необходимо предварительно разрешить сетевой доступ от Yandex Query до кластеров Yandex MPP Analytics for PostgreSQL. Для этого в настройках базы данных, к которой осуществляется подключение, установите пункт "Доступ из Yandex Query".
+Разрешите сетевой доступ от Yandex Query до кластеров Yandex MPP Analytics for PostgreSQL. Для этого в настройках базы данных, к которой выполняется подключение, включите опцию «Доступ из Yandex Query».
 
 {% endnote %}
 
 ## Синтаксис запросов {#query}
+
 Для работы с Greenplum® используется следующая форма SQL-запроса:
 
 ```sql
 SELECT * FROM <соединение>.<имя_таблицы>
 ```
 
-где:
+Где:
+
 * `<соединение>` — название созданного соединения с базой данных.
 * `<имя_таблицы>` — имя таблицы в базе данных.
 
 ## Ограничения {#limits}
 
-При работе с кластерами Greenplum® существует ряд ограничений.
+При работе с кластерами Greenplum® действуют следующие ограничения:
 
-Ограничения:
 1. Внешние источники доступны только для чтения данных через запросы `SELECT`. Запросы, модифицирующие таблицы во внешних источниках, сервисом Yandex Query в настоящее время не поддерживаются.
 1. Чтение данных выполняется в один поток через мастер-хост, также известный как [хост-координатор](https://docs.vmware.com/en/VMware-Greenplum/7/greenplum-database/admin_guide-intro-arch_overview.html) кластера Greenplum®. Массивно-параллельное чтение в настоящее время не поддерживается.
 1. В YQ используется [система типов](https://ydb.tech/docs/ru//yql/reference/types/primitive) Yandex Managed Service for YDB. Однако диапазоны допустимых значений для типов, использующихся в YDB при работе с датой и временем (`Date`, `Datetime`, `Timestamp`), зачастую оказываются недостаточно широкими для того, чтобы вместить значения соответствующих типов Greenplum® (`date`, `timestamp`). 
 В связи с этим значения даты и времени, прочитанные из Greenplum®, возвращаются YQ как обычные строки (тип `Optional<Utf8>`) в формате [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html).
 
-## Пушдаун фильтров {#predicate_pushdown}
+## Пушдаун фильтров {#predicate-pushdown}
 
 Yandex Query умеет передавать обработку частей запросов в систему-источник данных. Это означает, что фильтрующие выражения передаются сквозь Yandex Query непосредственно в базу данных для обработки, обычно это условия запросов, указанных в `WHERE`. Такой способ обработки называется `пушдаун фильтров`.
 
@@ -103,7 +105,7 @@ Yandex Query умеет передавать обработку частей з�
 |`Float`|
 |`Double`|
 
-## Поддерживаемые типы данных {#supported_types}
+## Поддерживаемые типы данных {#supported-types}
 
 В базе данных Greenplum® признак опциональности значений колонки (разрешено или запрещено колонке содержать значения `NULL`) не является частью системы типов. Ограничение (constraint) `NOT NULL` для каждой колонки реализуется в виде атрибута `attnotnull` в системном каталоге [pg_attribute](https://docs.vmware.com/en/VMware-Greenplum/7/greenplum-database/ref_guide-system_catalogs-pg_attribute.html), то есть на уровне метаданных таблицы. Следовательно, все базовые типы Greenplum® по умолчанию могут содержать значения `NULL`, и в системе типов YQ они должны отображаться в [опциональные](https://ydb.tech/docs/ru//yql/reference/types/optional) типы. 
 

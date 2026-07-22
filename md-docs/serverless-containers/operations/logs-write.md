@@ -13,7 +13,7 @@
 - Консоль управления {#console}
     
     1. В [консоли управления](https://console.yandex.cloud) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится контейнер.
-    1. Перейдите в сервис **Serverless Containers**.
+    1. [Перейдите](https://console.yandex.cloud/link/serverless-containers) в сервис **Serverless Containers**.
     1. Выберите контейнер, для которого хотите настроить логирование.
     1. Перейдите на вкладку **Редактор**.
     1. В блоке **Логирование**:
@@ -70,6 +70,7 @@
     ```
 
     Где:
+
     * `--container-id` — идентификатор контейнера. Чтобы узнать идентификатор, [получите](list.md) список контейнеров.
     * `--image` — URL [Docker-образа](../../container-registry/concepts/docker-image.md).
     * `--service-account-id` — [идентификатор сервисного аккаунта](../../iam/operations/sa/get-id.md), у которого есть права на скачивание Docker-образа.
@@ -153,6 +154,7 @@
         ```
 
         Где:
+
         * `name` — имя контейнера.
         * `service_account_id` — [идентификатор сервисного аккаунта](../../iam/operations/sa/get-id.md), у которого есть права на скачивание Docker-образа.
         * `memory` — требуемая память. По умолчанию — 128 МБ.

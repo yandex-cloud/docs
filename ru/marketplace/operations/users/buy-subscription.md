@@ -19,7 +19,7 @@ description: Из этой инструкции вы узнаете нескол
 - {{ compute-name }} {#compute}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать ВМ.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Справа сверху нажмите **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и выберите продукт, который доступен по [подписке](../../concepts/users/subscription.md).
   1. Если нужного продукта нет в списке, нажмите **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**.
@@ -36,7 +36,7 @@ description: Из этой инструкции вы узнаете нескол
 - {{ managed-k8s-name }} {#managed-k8s}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится кластер {{ managed-k8s-name }}.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Выберите кластер.
   1. Перейдите на вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
   1. Выберите продукт. Чтобы найти продукты, доступные по [подписке](../../concepts/users/subscription.md), используйте фильтр **{{ ui-key.yacloud.marketplace-v2.label_tariff-type }}** → **{{ ui-key.yacloud_components.marketplace.product-pricing-type_license }}**.

@@ -16,7 +16,7 @@
 
   Чтобы удалить Docker-образ:
   1. Перейдите в репозиторий, из которого надо удалить образ:
-     1. Перейдите в сервис **Container Registry**.
+     1. [Перейдите](https://console.yandex.cloud/link/container-registry) в сервис **Container Registry**.
      1. Откройте нужный реестр.
      1. Откройте нужный репозиторий.
   1. Нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке Docker-образа, который требуется удалить.

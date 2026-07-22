@@ -3,7 +3,7 @@
 - Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится брокер.
-   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. На панели слева выберите **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. Выберите брокер. Подробная информация о брокере отобразится на странице **{{ ui-key.yacloud.common.overview }}**.
 
@@ -41,6 +41,7 @@
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   Чтобы получить информацию о брокере с помощью {{ TF }}:
+  
   1. Добавьте в конфигурационный файл {{ TF }} блоки `data` и `output`:
 
       ```hcl
@@ -54,9 +55,12 @@
       ```
 
       Где:
+
       * `data "yandex_iot_core_broker"` — описание брокера в качестве источника данных:
+
         * `broker_id` — идентификатор брокера.
       * `output "broker_params"` — выходная переменная, которая содержит информацию о временной метке создания брокера:
+
         * `value` — возвращаемое значение.
 
       Вместо `created_at` вы можете выбрать любой другой параметр для получения информации. Подробнее о параметрах источника данных `yandex_iot_core_broker` в [документации провайдера]({{ tf-provider-datasources-link }}/iot_core_broker).

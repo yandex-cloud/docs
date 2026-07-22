@@ -38,10 +38,13 @@ To add a mailing list for your dashboard:
 
      * Screenshot size. Valid values:
        
-       * Width: `360` to `1920` px.
-       * Height: `400` to `6000` px. Use the `Auto` option for automatic height adjustment so that all charts from the dashboard tab fit in the screenshot.
+       
+       * Width: `360` to `1920` pixels
 
-     * Dashboard state. By default, the state of the first dashboard tab is already included in the mailing list content. Correct it if necessary. You can send multiple dashboard states in a single mailing list. To add another state, click **Add**.
+       
+       * Height: `400` to `6000` pixels Use the `Auto` option for automatic height adjustment so that all charts from the dashboard tab fit in the screenshot.
+
+     * Dashboard state. By default, the state of the first dashboard tab is already included in the mailing list content. Correct it if required. You can send multiple dashboard states in a single mailing list. To add another state, click **Add**.
 
        * Specify the tab and filters for the screenshot:
          
@@ -103,12 +106,14 @@ To add a mailing list for your dashboard:
 
    * Under **Email to**, specify the recipients.
 
+     
      {% note info %}
 
      * To receive the emails, a user must have an active seat.
      * If there are no recipients with an active seat, no emails will be sent.
 
      {% endnote %}
+
 
      After saving the mailing list, you can edit the recipients in the **Recipients** tab.
 
@@ -137,8 +142,8 @@ After you add a mailing list, it becomes `Active`, and the system starts sending
 Each recipient will receive the mailing list email:
 
 * The subject displays the mailing list name.
-* Attachment: Dashboard screenshots in `<mailing_list_name> - <tab_name> - <send_date_and_time>.png` format.
-* This email content displays:
+* Attachment: Dashboard screenshots in this format: `<mailing_list_name> - <tab_name> - <send_date_and_time>.png`.
+* The email contents display:
   
   * State title.
   * Dashboard screenshots.
@@ -146,7 +151,7 @@ Each recipient will receive the mailing list email:
   * Link to unsubscribe from the mailing list.
   * Links to {{ datalens-short-name }} guides and {{ yandex-cloud }} services.
 
-  {% cut "Mailing list email content" %}
+  {% cut "Mailing list email contents" %}
 
   ![maillist-attachment](../../../_assets/datalens/dashboard/maillist-attachment.png =450x1378)
 
@@ -163,7 +168,7 @@ You can rename or delete a mailing list, change its settings, pause or resume de
 
    * Update settings. Go to the relevant tab and update the settings as follows:
      
-     * Content: Specify which tabs and with which filters should be included in the screenshots sent in the mailing list.
+     * Contents: Specify which tabs with which filters should be included in the screenshots sent in the mailing list.
      * Sending: Specify the delivery settings.
      * Recipients: Specify the recipients.
      * History: View the mailing list history including dates, times, and delivery status.

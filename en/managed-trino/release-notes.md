@@ -5,6 +5,16 @@ description: This section contains the {{ mtr-name }} release notes.
 
 # {{ mtr-full-name }} release notes
 
+
+## May 2026 {#may-2026}
+
+* [A new connector is now available](concepts/greenplum-connector.md): {{ GP }}/Cloudberry.
+
+## April 2026 {#april-2026}
+
+* Added support for private access to the cluster via a [service connection](concepts/network.md#private-endpoint).
+* Added the ability to [configure security groups](operations/connect.md#configuring-security-groups) for connecting to a cluster, including when using a {{ GP }} connector.
+
 ## March 2026 {#march-2026}
 
 * Added separate roles to view and edit maintenance tasks: [managed-trino.maintenanceTask.viewer](security.md#managed-trino-maintenanceTask-viewer), [managed-trino.maintenanceTask.editor](security.md#managed-trino-maintenanceTask-editor).

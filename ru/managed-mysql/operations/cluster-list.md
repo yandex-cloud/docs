@@ -1,6 +1,6 @@
 ---
 title: Информация о кластерах в {{ mmy-short-name }}
-description: Вы можете запросить детальную информацию о каждом созданном вами кластере {{ mmy-short-name }}. Чтобы получить список кластеров БД в каталоге, перейдите на страницу каталога и перейдите в сервис {{ mmy-name }}.
+description: Вы можете запросить детальную информацию о каждом созданном вами кластере {{ mmy-short-name }}. Чтобы получить список кластеров БД в каталоге, перейдите на страницу каталога и выберите сервис {{ mmy-name }}.
 ---
 
 # Информация об имеющихся кластерах {{ MY }}
@@ -13,7 +13,7 @@ description: Вы можете запросить детальную инфор�
 
 - Консоль управления {#console}
 
-  Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  [Перейдите]({{ link-console-main }}/link/managed-mysql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
 
 - CLI {#cli}
 
@@ -97,7 +97,7 @@ description: Вы можете запросить детальную инфор�
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. [Перейдите]({{ link-console-main }}/link/managed-mysql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Нажмите на имя нужного кластера.
 
 - CLI {#cli}
@@ -177,7 +177,7 @@ description: Вы можете запросить детальную инфор�
   Можно получить список операций для кластера:
 
   1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится кластер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. [Перейдите]({{ link-console-main }}/link/managed-mysql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.mysql.switch_list }}**.
   1. Выберите нужный кластер и перейдите на вкладку ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.mysql.switch_operations }}**.
 

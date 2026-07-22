@@ -22,7 +22,7 @@
    * Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать кластер.
-      1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+      1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
       1. Нажмите кнопку **Создать кластер**.
       1. Введите имя кластера.
       1. Выберите версию СУБД (Greenplum® или Apache Cloudberry™). Подробнее о [доступных версиях СУБД](../concepts/overview.md).
@@ -301,7 +301,7 @@
    * Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать кластер.
-      1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+      1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
       1. Нажмите кнопку **Создать кластер**.
       1. Введите имя кластера.
       1. Выберите версию СУБД (Greenplum® или Apache Cloudberry™). Подробнее о [доступных версиях СУБД](../concepts/overview.md).
@@ -521,7 +521,7 @@
    * Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-      1. Перейдите в сервис **Cloud Logging**.
+      1. [Перейдите](https://console.yandex.cloud/link/logging) в сервис **Cloud Logging**.
       1. Нажмите на строку с лог-группой `my-log-group`.
 
       На открывшейся странице отобразятся записи.

@@ -1,0 +1,2 @@
+1. On the [navigation page]({{ link-datalens-main }}/navigation), find the object and open it.
+1. At the top of the object, click ![image](../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../_assets/console-icons/link.svg) **Copy link** or copy it from your browser address bar. You can distribute this link to users with [access](../../../datalens/security/index.md) to the object.

@@ -17,8 +17,8 @@ description: В разделе описано, как с использован�
 
    {% cut "Как узнать Document API эндпоинт базы данных" %}
 
-   1. Перейдите в [консоль управления]({{ link-console-main }}).
-   1. Выберите нужный каталог и перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+   1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
+   1. [Перейдите]({{ link-console-main }}/link/ydb) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
    1. Выберите БД, к которой планируете сделать запрос.
    1. В меню слева перейдите в раздел **{{ ui-key.yacloud.common.overview }}**.
    1. Значение эндпоинта указано в строке **{{ ui-key.yacloud.ydb.overview.label_document-endpoint }}**.

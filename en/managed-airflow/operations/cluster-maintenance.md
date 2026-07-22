@@ -77,13 +77,7 @@ To run a scheduled cluster maintenance job immediately:
 
 ## Configuring a maintenance window {#set-maintenance-window}
 
-By default, maintenance can be scheduled for any time. You can choose a specific day of the week and hour to schedule maintenance. For example, you can choose the time when the cluster is least busy.
-
-{% note warning %}
-
-A scheduled maintenance job will be canceled automatically if it falls outside the specified interval.
-
-{% endnote %}
+By default, [maintenance](../concepts/maintenance.md) can be scheduled for any time. You can choose a specific day of the week and time interval to schedule maintenance. For example, you can choose the time when the cluster is least busy.
 
 {% list tabs group=instructions %}
 
@@ -96,7 +90,7 @@ A scheduled maintenance job will be canceled automatically if it falls outside t
   1. In the window that opens:
   
      * To allow maintenance at any time, select **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-anytime }}**, which is also the default option.
-     * To allow weekly maintenance at a specific time, select **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}** and specify the weekday and hour in UTC.
+     * To allow weekly maintenance at a specific time, select **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}** and specify the day of the week and UTC time interval.
 
 - CLI {#cli}
 
@@ -116,7 +110,7 @@ A scheduled maintenance job will be canceled automatically if it falls outside t
       {{ yc-mdb-af }} cluster update <cluster_name_or_ID> \
           --maintenance-window type=<maintenance_type>,`
                               `day=<day_of_week>,`
-                              `hour=<hour>
+                              `hour=<time_interval_ordinal_number>
       ```
 
       Where `type` is the maintenance type:
@@ -129,7 +123,7 @@ A scheduled maintenance job will be canceled automatically if it falls outside t
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
+      Learn how to create the file in [Creating a cluster](cluster-create.md).
 
   1. To set up a maintenance window, add the `maintenance_window` section to the cluster description:
   
@@ -139,7 +133,7 @@ A scheduled maintenance job will be canceled automatically if it falls outside t
         maintenance_window = {
           type = "<maintenance_type>"
           day  = "<day_of_week>"
-          hour = <hour>
+          hour = <sequence_number_of_hour_interval>
         }
         ...
       }
@@ -176,7 +170,7 @@ A scheduled maintenance job will be canceled automatically if it falls outside t
                  "maintenanceWindow": {
                    "weeklyMaintenanceWindow": {
                      "day": "<day_of_week>",
-                     "hour": "<hour>"
+                     "hour": "<sequence_number_of_hour_interval>"
                    }
                  }
                }'
@@ -221,7 +215,7 @@ A scheduled maintenance job will be canceled automatically if it falls outside t
              "maintenance_window": {
                "weekly_maintenance_window": {
                  "day": "<day_of_week>",
-                 "hour": "<hour>"
+                 "hour": "<sequence_number_of_hour_interval>"
                }
              }
            }' \

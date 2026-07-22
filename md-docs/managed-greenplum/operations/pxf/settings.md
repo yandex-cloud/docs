@@ -11,7 +11,7 @@
     Чтобы изменить настройки PXF:
 
     1. Перейдите [на страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
     1. Нажмите на имя нужного кластера и выберите на панели слева ![image](../../../_assets/console-icons/arrow-right-arrow-left.svg) **PXF**.
     1. Нажмите кнопку ![image](../../../_assets/console-icons/pencil.svg) **Изменить настройки PXF** в верхней части страницы.
     1. Измените настройки:

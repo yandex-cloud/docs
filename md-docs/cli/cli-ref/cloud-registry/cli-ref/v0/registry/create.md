@@ -32,6 +32,12 @@ List of label KEY=VALUE pairs to add. ||
 || `--properties` | `key=value[,key=value...]`
 
 List of property KEY=VALUE pairs to add. ||
+|| `--include-patterns` | `value[,value]`
+
+A comma separated list of patterns for artifacts to include in the registry. ||
+|| `--exclude-patterns` | `value[,value]`
+
+A comma separated list of patterns for artifacts to exclude from the registry. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
 

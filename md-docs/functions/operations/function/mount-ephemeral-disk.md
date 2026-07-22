@@ -13,7 +13,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится функция.
-  1. Перейдите в сервис **Cloud Functions**.
+  1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
   1. Выберите функцию.
   1. В меню слева выберите ![image](../../../_assets/console-icons/pencil-to-square.svg)**Редактор**.
   1. В блоке **Смонтированный эфемерный диск**:
@@ -148,7 +148,7 @@
 
 {% endlist %}
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Монтирование внешних ресурсов на файловую систему функции](../../concepts/mounting.md)
 * [Монтирование внешних ресурсов на файловую систему контейнера](../../../serverless-containers/concepts/mounting.md)

@@ -49,5 +49,4 @@ A `Stopped` cluster is not charged.
 </MDX>
 
 
-
 {% include [metastore-trademark](../_includes/metadata-hub/metastore-trademark.md) %}

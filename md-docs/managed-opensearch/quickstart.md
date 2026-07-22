@@ -63,7 +63,7 @@
 ## Создайте кластер {#create-cluster}
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать кластер.
-1. Перейдите в сервис **Managed Service for&nbsp;OpenSearch**.
+1. [Перейдите](https://console.yandex.cloud/link/managed-opensearch) в сервис **Managed Service for&nbsp;OpenSearch**.
 1. Нажмите кнопку **Создать кластер**. Процесс подробно рассмотрен в разделе [Создание кластера](operations/cluster-create.md).
 1. Задайте параметры кластера.
 

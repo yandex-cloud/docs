@@ -39,7 +39,7 @@
 
     1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать триггер.
 
-    1. Перейдите в сервис **Cloud Functions**.
+    1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
 
     1. На панели слева выберите ![image](../../../_assets/console-icons/gear-play.svg) **Триггеры**.
 
@@ -263,7 +263,7 @@ Cloud Functions автоматически сгенерирует адрес э�
 
 Проверьте, что триггер работает корректно. Для этого посмотрите [логи функции](../function/function-logs.md), в них отображается информация о вызовах.
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Создать триггер для почты, который вызывает контейнер Serverless Containers](../../../serverless-containers/operations/mail-trigger-create.md)
 * [Создать триггер для почты, который отправляет сообщения в WebSocket-соединения](../../../api-gateway/operations/trigger/mail-trigger-create.md)

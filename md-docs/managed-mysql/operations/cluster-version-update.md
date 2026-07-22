@@ -184,7 +184,7 @@
 
 - Консоль управления {#console}
 
-   1. Перейдите в сервис **Managed Service for&nbsp;MySQL**.
+   1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL**.
    1. Выберите нужный кластер в списке и нажмите кнопку ![image](../../_assets/pencil.svg) **Редактировать**.
    1. В поле **Версия** выберите номер новой версии.
    1. Нажмите кнопку **Сохранить изменения**.

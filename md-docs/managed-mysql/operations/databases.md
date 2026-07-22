@@ -16,7 +16,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Managed Service for&nbsp;MySQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL**.
   1. Нажмите на имя нужного кластера, затем выберите вкладку **Базы данных**.
 
 - CLI {#cli}
@@ -137,7 +137,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Managed Service for&nbsp;MySQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL**.
   1. Нажмите на имя нужного кластера.
   1. Если владельцем новой базы данных должен стать еще не существующий пользователь, [создайте его](cluster-users.md#adduser).
   1. Выберите вкладку **Базы данных**.
@@ -301,7 +301,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Managed Service for&nbsp;MySQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Базы данных**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной БД и выберите пункт **Удалить**.
 
@@ -433,7 +433,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Managed Service for&nbsp;MySQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL**.
   1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
   1. В блоке **Настройки СУБД** нажмите кнопку **Настроить**.
   1. В списке настроек найдите параметр **sql_mode**.

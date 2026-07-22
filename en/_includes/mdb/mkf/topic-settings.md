@@ -72,12 +72,14 @@
 
 * **Minimum number of in-sync replicas** {{ tag-all }} {#settings-topic-min-insync-replicas}
 
-    Minimum number of replicas that have to acknowledge a write to consider a message successfully written to a topic. Use this setting if the producer waits too long for write acknowledgments from all broker hosts in the cluster.
+    Minimum number of in-sync replicas that have to acknowledge a write to consider a message successfully written to a topic.
 
-    The minimum value depends on the number of [broker hosts](../../../managed-kafka/concepts/brokers.md):
+    Using the `min.insync.replicas` and `acks` (`acks=all` or `acks=-1`) parameters together provides higher guarantees of data durability.
+
+    The recommended value depends on the number of [broker hosts](../../../managed-kafka/concepts/brokers.md):
 
     * For clusters with one broker host: `1`.
-    * For clusters with two or more broker hosts: `2`.
+    * For clusters with two or more broker hosts: `2`. This value is used to ensure high cluster availability. For more information, see [{#T}](../../../managed-kafka/concepts/ha-cluster.md#three-or-more-hosts).
 
     In the management console, this setting appears as **{{ ui-key.yacloud.kafka.label_min-insync-replicas }}**.
 

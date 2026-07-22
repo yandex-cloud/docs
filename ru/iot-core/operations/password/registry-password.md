@@ -25,7 +25,7 @@
    Чтобы добавить пароль уже созданному реестру:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите добавить пароль уже созданному реестру.
-   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Выберите в списке нужный реестр.
    1. В блоке **{{ ui-key.yacloud.iot.label_passwords }}** нажмите кнопку **{{ ui-key.yacloud.iot.button_add-password }}**.
    1. В поле **{{ ui-key.yacloud.common.password }}** введите пароль, который вы будете использовать для доступа к реестру.<br/>Для создания пароля можно воспользоваться [генератором паролей](https://passwordsgenerator.net/).<br/>Не забудьте сохранить пароль, он вам понадобится.
@@ -35,7 +35,8 @@
   
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    Чтобы добавить пароль: 
+    Чтобы добавить пароль:
+
     1. Получите список реестров в каталоге: 
     
         ```
@@ -49,7 +50,8 @@
         +----------------------+-------------------+
         | arenou2oj4ct******** | my-registry       |
         +----------------------+-------------------+
-        ```    
+        ```
+
     1. Добавьте пароль реестру:
     
         ```
@@ -57,6 +59,7 @@
         ```
 		
 		Результат:
+
 		```
 		registry_id: arenou2oj4ct********
         id: areuu2hgsv6k********
@@ -74,6 +77,7 @@
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
      * `yandex_iot_core_registry` — параметры реестра:
+
        * `name` — имя реестра.
        * `description` — описание реестра.
        * `passwords` — список паролей реестра для аутентификации с помощью [логина и пароля](../../concepts/authorization.md#log-pass).
@@ -155,6 +159,7 @@
     ```
 	
 	Результат:
+
 	```
 	done (1s)
     id: areg96c8loru********
@@ -184,7 +189,7 @@
    Чтобы просмотреть список паролей реестра:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите получить список паролей реестра.
-   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Выберите в списке нужный реестр.
    1. На странице **{{ ui-key.yacloud.common.overview }}** перейдите к разделу **{{ ui-key.yacloud.iot.label_passwords }}**.
 
@@ -194,14 +199,16 @@
     
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
     
-    Чтобы получить список паролей:  
-    1. Получите список реестров в каталоге: 
+    Чтобы получить список паролей:
+
+    1. Получите список реестров в каталоге:
     
         ```
         yc iot registry list
 		```
 		
 		Результат:
+        
 		```
         +----------------------+--------------------+
         |          ID          |        NAME        |
@@ -210,6 +217,7 @@
         | arenou2oj4ct******** | my-registry        |
         +----------------------+--------------------+
         ```
+
     1. Получите список паролей реестра: 
     
         ```
@@ -217,6 +225,7 @@
         ```
 		
 		Результат:
+
 		```
 		+----------------------+---------------------+
         |          ID          |     CREATED AT      |
@@ -240,7 +249,7 @@
    Чтобы удалить пароль реестра:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите удалить пароль реестра.
-   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Выберите в списке нужный реестр.
    1. В строке с нужным паролем нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg), в выпадающем списке выберите **{{ ui-key.yacloud.common.delete }}**.
    1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
@@ -251,14 +260,16 @@
     
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
     
-    Чтобы удалить пароль:  
-    1. Получите список паролей реестра: 
+    Чтобы удалить пароль:
+
+    1. Получите список паролей реестра:
     
         ```
         yc iot registry password list --registry-name registry-with-pass
         ```
 		
 		Результат:
+        
 		```
 		+----------------------+---------------------+
         |          ID          |     CREATED AT      |
@@ -266,11 +277,13 @@
         | are0gffs957e******** | 2019-12-16 15:34:25 |
         +----------------------+---------------------+
         ```
-    1. Удалите пароль: 
+
+    1. Удалите пароль:
     
         ```
         yc iot registry password delete --registry-name registry-with-pass --password-id are0gffs957e********
         ```
+
     1. Убедитесь, что пароль действительно удален: 
         
         ```
@@ -278,6 +291,7 @@
         ```
 		
 		Результат:
+
 		```
 		+----+------------+
         | ID | CREATED AT |
@@ -349,4 +363,4 @@
 
   Чтобы удалить пароль реестра, воспользуйтесь методом REST API [deletePassword](../../api-ref/Registry/deletePassword.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/DeletePassword](../../api-ref/grpc/Registry/deletePassword.md).
 
-{% endlist %}       
+{% endlist %}

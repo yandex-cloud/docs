@@ -9,7 +9,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан реестр.
-  1. Перейдите в сервис **Container Registry**.
+  1. [Перейдите](https://console.yandex.cloud/link/container-registry) в сервис **Container Registry**.
   1. Выберите реестр, доступ к которому нужно настроить.
   1. На панели слева нажмите ![IP-access](../../../_assets/console-icons/shield.svg) **Доступ  для IP-адресов**.
   1. Нажмите **Настроить**.

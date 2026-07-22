@@ -10,7 +10,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Managed Service for&nbsp;MySQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL**.
   1. Нажмите на имя нужного кластера, затем выберите вкладку **Хосты**.
 
 - CLI {#cli}
@@ -106,7 +106,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Managed Service for&nbsp;MySQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL**.
   1. Нажмите на имя нужного кластера и перейдите на вкладку **Хосты**.
   1. Нажмите кнопку **Создать хост**.
   1. Укажите параметры хоста:
@@ -415,7 +415,7 @@
 - Консоль управления {#console}
 
   Чтобы изменить параметры хоста в кластере:
-  1. Перейдите в сервис **Managed Service for&nbsp;MySQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Хосты**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста и выберите пункт **Редактировать**.
   1. Задайте новые настройки для хоста:
@@ -682,7 +682,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Managed Service for&nbsp;MySQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Хосты**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста и выберите пункт **Удалить**.
 

@@ -46,7 +46,7 @@ paths:
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором необходимо изменить API-шлюз.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. [Перейдите]({{ link-console-main }}/link/api-gateway) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. В строке с API-шлюзом нажмите кнопку ![image](../../_assets/options.svg) и выберите ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. В блоке **{{ ui-key.yacloud.serverless-functions.gateways.form.label_section-variables }}** перечислите все объявленные в спецификации переменные и их значения.
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_update-gateway }}**.
@@ -143,7 +143,7 @@ paths:
 
 {% endlist %}
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Как работает параметризация спецификации](../concepts/extensions/parametrization.md).
-* [Как изменить спецификацию API-шлюза](../operations/api-gw-update.md).
+* [Как работает параметризация спецификации](../concepts/extensions/parametrization.md)
+* [Как изменить спецификацию API-шлюза](../operations/api-gw-update.md)

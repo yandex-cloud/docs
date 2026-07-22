@@ -12,7 +12,7 @@ description: Вы можете посмотреть график монитор�
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Перейдите]({{ link-console-main }}/link/functions) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Нажмите на функцию, журнал выполнения которой хотите посмотреть.
     1. В открывшемся окне перейдите в раздел **{{ ui-key.yacloud.serverless-functions.item.switch_logs }}** и укажите период, за который хотите посмотреть логи. По умолчанию задан период 1 час.
     

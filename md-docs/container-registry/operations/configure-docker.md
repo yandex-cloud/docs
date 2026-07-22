@@ -51,4 +51,4 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Аутентифицироваться в Container Registry](authentication.md)
+[Аутентифицироваться в Container Registry](authentication.md)

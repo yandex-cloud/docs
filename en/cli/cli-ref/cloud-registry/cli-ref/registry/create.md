@@ -5,37 +5,99 @@ canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloud-registry/cli-ref/regis
 
 # yc cloud-registry registry create
 
-Creates a registry in the specified folder
+Creates a registry in the specified folder.
 
 #### Command Usage
 
 Syntax:
 
-`yc cloud-registry registry create <REGISTRY_NAME> [Flags...] [Global Flags...]`
+`yc cloud-registry registry create <FOLDER-ID>`
 
 #### Flags
 
 #|
 ||Flag | Description ||
+|| `--folder-id` | `string`
+
+ID of the folder to create a registry in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List] request. ||
 || `--name` | `string`
 
-Name of the registry ||
+Name of the registry. There may be only one registry per folder. ||
+|| `--labels` | `map<string><string>`
+
+Resource labels as 'key:value' pairs. ||
+|| `--registry-kind` | `enum`
+
+Kind of the registry. Possible Values: 'maven', 'npm', 'docker', 'nuget', 'debian', 'pypi', 'binary', 'go' ||
+|| `--registry-type` | `enum`
+
+Type of the registry. Possible Values: 'local', 'remote', 'virtual', 'transitional' ||
 || `--description` | `string`
 
-Registry description ||
-|| `--registry-kind` | `string`
+Description of the registry. 0-1024 characters long. ||
+|| `--properties` | `map<string><string>`
 
-Registry kind Values: 'maven', 'npm', 'docker', 'nuget', 'debian', 'pypi', 'binary', 'go' ||
-|| `--registry-type` | `string`
+Property names and values. ||
+|| `--pattern-filter` | `shorthand/json`
 
-Registry type Values: 'local', 'remote', 'virtual', 'transitional' ||
-|| `--labels` | `key=value[,key=value...]`
+Pattern filter for artifacts in the registry.
 
-List of label KEY=VALUE pairs to add. ||
-|| `--properties` | `key=value[,key=value...]`
+{% cut "Description" %}
 
-List of property KEY=VALUE pairs to add. ||
+> - include-patterns ([]string)\
+List of patterns for artifacts to include.
+> - exclude-patterns ([]string)\
+List of patterns for artifacts to exclude.
+
+{% endcut %}
+
+{% cut "Shorthand Syntax" %}
+
+```hcl
+{
+  exclude-patterns = string,...,
+  include-patterns = string,...
+}
+```
+
+{% endcut %}
+
+{% cut "JSON Syntax" %}
+
+```json
+{
+  "exclude-patterns": [
+    "string", ...
+  ],
+  "include-patterns": [
+    "string", ...
+  ]
+}
+```
+
+{% endcut %} ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|| `-r`, `--request-file` | `string`
+
+Path to a request file. ||
+|| `--example-json` | Generates a JSON template of the request. ||
+|| `-e`, `--example-yaml` | Generates a YAML template of the request.
+
+The template can be customized and used as input for the command.
+
+Usage example:
+
+1. Generate template:
+yc cloud-registry registry create --example-json > request.json
+or
+yc cloud-registry registry create --example-yaml > request.yaml
+
+2. Edit the template file
+
+3. Run with template:
+yc cloud-registry registry create -r request.json
+or
+yc cloud-registry registry create -r request.yaml ||
 |#
 
 #### Global Flags
@@ -44,39 +106,45 @@ List of property KEY=VALUE pairs to add. ||
 ||Flag | Description ||
 || `--profile` | `string`
 
-Set the custom configuration file. ||
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
 || `--debug` | Debug logging. ||
 || `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
 || `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--no-pager` | Do not pipe help output through a pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--cloud-id` | `string`
+|| `--timeout` | `string`
 
-Set the ID of the cloud to use. ||
-|| `--folder-id` | `string`
-
-Set the ID of the folder to use. ||
-|| `--folder-name` | `string`
-
-Set the name of the folder to use (will be resolved to id). ||
-|| `--endpoint` | `string`
-
-Set the Cloud API endpoint (host:port). ||
+Set the timeout. ||
 || `--token` | `string`
 
-Set the OAuth token to use. ||
+Set the IAM token to use. ||
 || `--impersonate-service-account-id` | `string`
 
 Set the ID of the service account to impersonate. ||
 || `--no-browser` | Disable opening browser for authentication. ||
-|| `--format` | `string`
-
-Set the output format: text (default), yaml, json, json-rest. ||
-|| `--jq` | `string`
+|| `--query` | `string`
 
 Query to select values from the response using jq syntax ||
+|| `--print-metadata` | Print operation metadata along with result. ||
+|| `--syntax` | `string`
+
+Choose syntax option. ||
+|| `--cli-auto-prompt` | `string[="on"]`
+
+Enable interactive auto-prompt mode. Values: on, partial, off. Bare --cli-auto-prompt is equivalent to --cli-auto-prompt=on. ||
+|| `--no-cli-auto-prompt` | Disable interactive auto-prompt mode (overrides --cli-auto-prompt, env and profile). ||
 || `-h`, `--help` | Display help for the command. ||
 |#

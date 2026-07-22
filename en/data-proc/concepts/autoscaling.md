@@ -24,7 +24,7 @@ You can choose the scaling method that best suits your needs:
 
 * **{{ ui-key.yacloud.compute.groups.create.field_default-utilization-target }}**: Scaling based on the `yarn.cluster.containersPending` metric.
 
-    This is an internal YARN metric that shows the number of resource allocation units that pending jobs in the queue expect to get assigned. It is suitable for clusters that have lots of relatively small jobs managed by Apache Hadoop® YARN. This scaling method does not require any additional configuration.
+    This internal YARN metric tracks the number of resource allocation units expected by jobs waiting in the queue. It is suitable for clusters with multiple jobs managed by Apache Hadoop® YARN. This scaling method does not require any additional configuration.
 
 * **{{ ui-key.yacloud.compute.groups.create.field_utilization-target }}**: Scaling based on the vCPU usage metric. You can learn more about this type of scaling in the [{{ ig-name }} documentation](../../compute/concepts/instance-groups/scale.md#cpu-utilization).
 

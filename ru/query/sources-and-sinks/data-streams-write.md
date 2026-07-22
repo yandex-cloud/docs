@@ -1,8 +1,13 @@
-# Запись данных в {{ yds-full-name }}
+---
+title: Запись данных из {{ yq-full-name }} в потоки {{ yds-full-name }}
+description: Из статьи вы узнаете, как записывать данные из {{ yq-full-name }} в потоки {{ yds-full-name }}.
+---
 
-[{{ yds-full-name }}](../../data-streams/concepts/index.md) это сервис, позволяющий передавать потоки данных сразу нескольким приложениям для обработки, при этом каждое приложение обрабатывает такие данные независимо от другого.
+# Запись данных из {{ yq-full-name }} в потоки {{ yds-full-name }}
 
-Пример записи данных в формате `JSON` в {{ yds-full-name }}.
+[{{ yds-full-name }}](../../data-streams/concepts/index.md) — сервис для передачи потоков данных нескольким приложениям. Каждое приложение обрабатывает данные независимо от других.
+
+Пример записи данных в формате JSON в {{ yds-full-name }}:
 
 ```sql
 INSERT INTO yds.`output_stream`
@@ -17,62 +22,66 @@ SELECT
             <|
                 "tag": tag
             |>
-        |>)))) 
-FROM 
+        |>))))
+FROM
     $data;
 ```
 
 ## Настройка соединения {#connect}
 
-Для чтения данных из {{ yds-full-name }} необходимо:
-1. [Перейти](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}** в раздел **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** и нажать кнопку **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
-1. В открывшемся окне в поле **{{ ui-key.yql.yq-connection-form.connection-name.input-label }}** указать название соединения с {{ yds-full-name }}.
-1. В выпадающем поле **{{ ui-key.yql.yq-connection-form.connection-type.input-label }}** выбрать `{{ ui-key.yql.yq-connection.action_datastreams }}`.
-1. В выпадающем поле **{{ ui-key.yql.yq-connection-form.database.input-label }}** выбрать базу данных {{ ydb-full-name }}, где ранее был создан поток {{ yds-full-name }}.
-1. В поле **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** выбрать сервисный аккаунт, который будет использоваться для чтения данных, или создать новый, выдав ему права [`yds.writer`](../../data-streams/security/index.md).
-1. Создать соединение, нажав кнопку **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
+Чтобы настроить запись данных в {{ yds-full-name }}:
 
-## Модель данных
+1. [Перейдите]({{ link-console-yq }}) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. На панели слева выберите **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
+1. Нажмите **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
+1. В открывшемся окне в поле **{{ ui-key.yql.yq-connection-form.connection-name.input-label }}** укажите название соединения с {{ yds-full-name }}.
+1. В поле **{{ ui-key.yql.yq-connection-form.connection-type.input-label }}** выберите `{{ ui-key.yql.yq-connection.action_datastreams }}`.
+1. В поле **{{ ui-key.yql.yq-connection-form.database.input-label }}** выберите базу данных {{ ydb-full-name }}, где ранее был создан поток {{ yds-full-name }}.
+1. В поле **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** выберите сервисный аккаунт, который будет использоваться для записи данных, или создайте новый и назначьте ему роль [`yds.writer`](../../data-streams/security/index.md#yds-writer).
+1. Нажмите **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
+
+## Модель данных {#data-model}
 
 Данные через {{ yds-full-name }} передаются в бинарном виде. Запись данных выполняется с помощью SQL-выражений и в общем случае выглядит следующим образом:
 
 ```sql
 INSERT INTO <соединение>.<имя_потока>
-    <выражение> 
-FROM 
-   <запрос>
+    <выражение>
+FROM
+    <запрос>
 ```
 
 Где:
 
-- `<соединение>` — название соединения с потоком данных {{ yds-short-name }}, созданного в предыдущем пункте.
-- `<имя_потока>` — название потока данных в {{ yds-short-name }}.
-- `<запрос>` — запрос-источник данных {{ yq-full-name }}.
+* `<соединение>` — название соединения с потоком данных {{ yds-short-name }}, созданного в предыдущем разделе.
+* `<имя_потока>` — название потока данных в {{ yds-short-name }}.
+* `<выражение>` — выражение, определяющее записываемые данные.
+* `<запрос>` — запрос-источник данных {{ yq-full-name }}.
 
-## Пример записи данных
+## Пример записи данных {#example}
 
-Пример запроса для чтения данных из {{ yds-full-name }} и записи результатов в {{ yds-full-name }}.
+Пример запроса для чтения данных из {{ yds-full-name }} и записи результатов в {{ yds-full-name }}:
 
 ```sql
-$data = 
-SELECT 
+$data =
+SELECT
     JSON_VALUE(Data, "$.host") AS host,
     CAST(JSON_VALUE(Data, "$.count") AS Int) AS count,
-    JSON_VALUE(Data, "$.tag") AS tag,    
-FROM 
+    JSON_VALUE(Data, "$.tag") AS tag,
+FROM
 (
     SELECT
         CAST(Data AS Json) AS Data
     FROM yds.`input_stream`
     WITH(
         format=raw,
-        SCHEMA 
+        SCHEMA
         (
             Data String
         )
     )
 )
-WHERE 
+WHERE
     JSON_VALUE(Data, "$.tag") = "my_tag";
 
 INSERT INTO yds.`output_stream`
@@ -87,23 +96,24 @@ SELECT
             <|
                 "tag": tag
             |>
-        |>)))) 
-FROM 
+        |>))))
+FROM
     $data;
 ```
 
 Где:
 
-|Поле|Тип|Описание|
-|--|---|---|
-|`yds`| |Название соединения с {{ yds-full-name }}|
-|`input_stream`| |Название потока-источника данных в SQL-запросе|
-|`output_stream`| |Название потока-приемника данных в SQL-запросе|
-|`host`|Строка|Строковый параметр запроса|
-|`count`|Целое|Численный параметр запроса|
-|`raw`|Строка|Формат данных. На данный поддерживается только формат `raw` - сырые данные|
+#|
+|| **Поле** | **Тип** | **Описание** ||
+|| `yds` |  | Название соединения с {{ yds-full-name }}. ||
+|| `input_stream` |  | Название потока — источника данных в SQL-запросе. ||
+|| `output_stream` |  | Название потока — приемника данных в SQL-запросе. ||
+|| `host` | Строка | Строковый параметр запроса. ||
+|| `count` | Целое число | Числовой параметр запроса. ||
+|| `raw` | Строка | Формат данных. На данный момент поддерживается только формат `raw` — необработанные данные. ||
+|#
 
-Результаты обработки записываются в выходной поток {{ yds-full-name }}. Для удобства обработки этих данных, данные преобразовываются в формат `JSON`, это выполняется с помощью конструкции:
+Результаты обработки записываются в выходной поток {{ yds-full-name }}. Чтобы упростить обработку, результаты преобразуются в формат JSON с помощью следующей конструкции:
 
 ```sql
     ToBytes(Unwrap(Json::SerializeJson(Yson::From(
@@ -114,8 +124,8 @@ FROM
     ))))
 ```
 
-В документации языка YQL доступно детальное описание модулей [Yson]({{ ydb.docs }}/yql/reference/udf/list/yson), [Json]({{ ydb.docs }}/yql/reference/types/json) и [его функций]({{ ydb.docs }}/yql/reference/builtins/json), [<|"key": value|>]({{ ydb.docs }}/yql/reference/builtins/struct).
+В документации YQL приведено подробное описание модулей [Yson]({{ ydb.docs }}/yql/reference/udf/list/yson) и [Json]({{ ydb.docs }}/yql/reference/types/json), [функций для работы с JSON]({{ ydb.docs }}/yql/reference/builtins/json) и [структур]({{ ydb.docs }}/yql/reference/builtins/struct).
 
-## Поддерживаемые форматы записи
+## Поддерживаемые форматы записи {#supported-formats}
 
 {% include [!](../_includes/supported-yds-write-formats.md) %}

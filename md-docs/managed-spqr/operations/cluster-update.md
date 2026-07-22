@@ -9,7 +9,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно изменить кластер Sharded PostgreSQL.
-    1. Перейдите в сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-spqr) в сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
     1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
     1. В блоке **Базовые параметры**:
 

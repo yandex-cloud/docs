@@ -22,7 +22,7 @@
 - Консоль управления {#console}
 
     1. Перейдите [на страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
     1. Выберите кластер и нажмите кнопку **Редактировать** в верхней части страницы.
     1. В блоке **Базовые параметры** задайте новые имя и описание кластера.
     1. Нажмите кнопку **Сохранить**.
@@ -246,7 +246,7 @@
 - Консоль управления {#console}
 
     1. Перейдите [на страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
     1. Выберите кластер и нажмите кнопку **Редактировать** в верхней части страницы.
     1. В блоке **Сетевые настройки** установите или отключите опцию **Публичный доступ**.
     1. Нажмите кнопку **Сохранить**.
@@ -406,7 +406,7 @@
 - Консоль управления {#console}
 
     1. Перейдите [на страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
     1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
     1. Измените дополнительные настройки кластера:
 
@@ -971,7 +971,7 @@
 - Консоль управления {#console}
 
     1. Перейдите [на страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
     1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
     1. В блоке **Управление фоновыми процессами** измените параметры:
 
@@ -1152,7 +1152,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
 - Консоль управления {#console}
 
   1. Перейдите [на страницу каталога](https://console.yandex.cloud).
-  1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
   1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
   1. Измените [настройки СУБД](../concepts/settings-list.md), нажав кнопку **Настроить** в блоке **Настройки СУБД**.
   1. Нажмите кнопку **Сохранить**.
@@ -1417,7 +1417,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
 - Консоль управления {#console}
 
   1. Перейдите [на страницу каталога](https://console.yandex.cloud).
-  1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
   1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **Редактировать** на панели сверху.
   1. В блоке **Класс хоста** выберите нужный класс для хостов-мастеров или хостов-сегментов Yandex MPP Analytics for PostgreSQL.
   1. Нажмите кнопку **Сохранить изменения**.
@@ -1694,7 +1694,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
   Чтобы изменить тип диска и увеличить размер хранилища для кластера:
 
   1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог с нужным кластером.
-  1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
   1. Выберите нужный кластер.
   1. В верхней части страницы нажмите кнопку **Редактировать**.
   1. В блоке **Хранилище**:
@@ -1960,7 +1960,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог с нужным кластером.
-    1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
     1. Выберите нужный кластер.
     1. В верхней части страницы нажмите кнопку **Редактировать**.
     1. В поле **Сервисный аккаунт** выберите сервисный аккаунт из списка или [создайте новый](../../iam/operations/sa/create.md).
@@ -2180,7 +2180,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог с нужным кластером.
-    1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
     1. Выберите нужный кластер.
     1. В верхней части страницы нажмите кнопку **Редактировать**.
     1. В блоке **Дополнительные настройки** включите или выключите логирование с помощью опции **Запись логов**. Если вы включили логирование, настройте его параметры:

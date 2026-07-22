@@ -1,3 +1,3 @@
-## Полезные ссылки
+#### Полезные ссылки {#see-also}
 
-* [Масштабирование функции](../../functions/concepts/function.md#scaling)
+[Масштабирование функции](../../functions/concepts/function.md#scaling)

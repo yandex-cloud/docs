@@ -17,7 +17,7 @@ description: Вы можете посмотреть график монитор�
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится триггер.
 
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. [Перейдите]({{ link-console-main }}/link/api-gateway) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
 
     1. Выберите триггер, графики мониторинга которого хотите посмотреть.
 

@@ -17,7 +17,7 @@ description: Вы можете посмотреть график монитор�
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится триггер.
 
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. [Перейдите]({{ link-console-main }}/link/serverless-containers) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
     1. Выберите триггер, графики мониторинга которого хотите посмотреть.
 

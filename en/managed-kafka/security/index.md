@@ -1,12 +1,12 @@
 ---
 title: Access management in {{ mkf-full-name }}
-description: Access management in Apache Kafka, a database creation and management service. This section describes the resources you can assign a role for, the roles this service has, and the roles required for specific actions.
+description: Access management in Apache Kafka, a database creation and management service. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
 ---
 
 # Access management in {{ mkf-name }}
 
 
-In this section, you will learn about the following:
+In this section, you will learn about:
 
 * [Resources you can assign a role for](#resources).
 * [Roles this service has](#roles-list).
@@ -103,6 +103,8 @@ The diagram below shows available service roles and their permission inheritance
 As a user, you need the [{{ roles.mkf.editor }} role or higher](../../iam/concepts/access-control/roles.md) for the folder that will contain the new cluster. The `{{ roles.mkf.viewer }}` role only allows you to view the list of clusters.
 
 To create a {{ mkf-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.mkf.editor }}` role or higher.
+
+{% include [roles-mdb-viewer](../../_includes/mdb/roles-mdb-viewer-access-control.md) %}
 
 You can always assign a role with more permissions, e.g., `{{ roles.mkf.admin }}` instead of `{{ roles.mkf.editor }}`.
 

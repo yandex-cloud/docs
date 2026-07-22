@@ -87,11 +87,11 @@ description: В этой инструкции вы создадите свой �
    {{ registry }}/<идентификатор_реестра>/ubuntu:hello
    ```
 
-#### Смотрите также {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Создание реестра](../operations/registry/registry-create.md).
-* [Аутентификация в {{ container-registry-name }}](../operations/authentication.md).
-* [Создание Docker-образа](../operations/docker-image/docker-image-create.md).
-* [Загрузка Docker-образа](../operations/docker-image/docker-image-push.md).
-* [Скачивание Docker-образа](../operations/docker-image/docker-image-pull.md).
-* [Запуск Docker-образа на виртуальной машине](../tutorials/index.md).
+* [Создание реестра](../operations/registry/registry-create.md)
+* [Аутентификация в {{ container-registry-name }}](../operations/authentication.md)
+* [Создание Docker-образа](../operations/docker-image/docker-image-create.md)
+* [Загрузка Docker-образа](../operations/docker-image/docker-image-push.md)
+* [Скачивание Docker-образа](../operations/docker-image/docker-image-pull.md)
+* [Запуск Docker-образа на виртуальной машине](../tutorials/index.md)

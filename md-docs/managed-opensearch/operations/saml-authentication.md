@@ -62,7 +62,7 @@ Managed Service for OpenSearch поддерживает все SAML 2.0-совм
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога.
-    1. Перейдите в сервис **Managed Service for&nbsp;OpenSearch**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-opensearch) в сервис **Managed Service for&nbsp;OpenSearch**.
     1. Нажмите на имя нужного кластера и выберите вкладку **Источники аутентификации**.
     1. Нажмите кнопку **Настроить**.
     1. Укажите параметры внешнего источника аутентификации:

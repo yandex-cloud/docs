@@ -9,7 +9,7 @@ WebSQL — это сервис Yandex Cloud, который позволяет �
 Чтобы подключаться из WebSQL к кластеру Yandex MPP Analytics for PostgreSQL, необходимо создать подключение:
 
 1. Перейдите [на страницу каталога](https://console.yandex.cloud).
-1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
 1. Нажмите на имя нужного кластера.
 1. [Включите опцию](update.md#change-additional-settings) **Доступ из WebSQL** в настройках кластера, если она еще не включена.
 1. Выберите вкладку **WebSQL**.

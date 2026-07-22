@@ -35,7 +35,7 @@
 - Консоль управления {#console}
 
   1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-  1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
   1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **Изменить** на панели сверху.
   1. В блоке **Класс хоста** на вкладках **Master** и **Segment** выберите:
 
@@ -327,7 +327,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог с нужным кластером.
-  1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
   1. Выберите нужный кластер.
   1. В верхней части страницы нажмите кнопку **Изменить**.
   1. В блоке **Хранилище**:

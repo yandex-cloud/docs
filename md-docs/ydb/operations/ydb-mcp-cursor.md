@@ -70,7 +70,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог для создания базы.
-     1. Перейдите в сервис **Managed Service for&nbsp;YDB**.
+     1. [Перейдите](https://console.yandex.cloud/link/ydb) в сервис **Managed Service for&nbsp;YDB**.
      1. Нажмите кнопку **Создать базу данных**.
      1. Введите **Имя** базы. Требования к имени:
 
@@ -106,7 +106,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, которому принадлежит сервисный аккаунт.
-  1. Перейдите в сервис **Identity and Access Management**.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
   1. В открывшемся списке выберите созданный сервисный аккаунт.
   1. Нажмите кнопку **Создать новый ключ** на верхней панели.
@@ -221,7 +221,7 @@ LLM могут помогать не только в написании кода
 
 Чтобы смоделировать ошибку, переименуйте таблицу:
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится БД.
-1. Перейдите в сервис **Managed Service for&nbsp;YDB** и откройте свою базу.
+1. [Перейдите](https://console.yandex.cloud/link/ydb) в сервис **Managed Service for&nbsp;YDB** и откройте свою базу.
 1. Нажмите кнопку **Навигация**, а потом **Новый SQL-запрос** и выполните запрос для [переименования таблицы](https://ydb.tech/docs/ru/yql/reference/syntax/alter_table/rename):
 
 ```

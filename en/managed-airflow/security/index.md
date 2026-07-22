@@ -1,12 +1,12 @@
 ---
 title: Access management in {{ maf-full-name }}
-description: Access management in {{ AF }}, a database creation and management service. This section describes the resources you can assign a role for, the roles this service has, and the roles required for specific actions.
+description: Access management in {{ AF }}, a database creation and management service. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
 ---
 
 # Access management in {{ maf-name }}
 
 
-In this section, you will learn about the following:
+In this section, you will learn about:
 
 * [Resources you can assign a role for](#resources).
 * [Roles this service has](#roles-list).
@@ -25,7 +25,7 @@ To allow access to {{ maf-name }} resources, assign the user the appropriate rol
 
 You can also assign a role for an individual cluster in the [management console]({{ link-console-main }}), via the [CLI](../../cli), or [API](../api-ref/authentication.md).
 
-## Roles existing in this service {#roles-list}
+## Roles available in the service {#roles-list}
 
 {% include [roles-managed-airflow](../../_mermaid/roles/managed-airflow.md) %}
 
@@ -88,6 +88,8 @@ This role includes the `{{ roles-editor }}` role.
 As a user, you need the [{{ roles.maf.editor }} role or higher](../../iam/concepts/access-control/roles.md) for the folder that will contain the new cluster. The `{{ roles.maf.viewer }}` role only allows you to view the list of clusters.
 
 To create a {{ maf-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.maf.editor }}` role or higher.
+
+{% include [roles-mdb-viewer](../../_includes/mdb/roles-mdb-viewer-access-control.md) %}
 
 You can always assign a role with more permissions, e.g., `{{ roles.maf.admin }}` instead of `{{ roles.maf.editor }}`.
 

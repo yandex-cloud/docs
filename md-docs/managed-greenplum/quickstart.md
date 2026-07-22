@@ -61,7 +61,7 @@
 Чтобы создать кластер:
 
 1. В консоли управления выберите каталог, в котором нужно создать кластер БД.
-1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
 1. Нажмите кнопку **Создать кластер**.
 
 
@@ -112,7 +112,7 @@
 Получите идентификатор кластера, который потребуется при [подключении](#connect):
 
 1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога.
-1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
 1. Нажмите на имя нужного кластера и выберите вкладку ![image](../_assets/console-icons/flag.svg) **Обзор**.
 1. Скопируйте идентификатор кластера из блока **Общая информация**.
 

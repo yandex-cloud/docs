@@ -25,18 +25,18 @@
    Чтобы добавить сертификат реестра:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в который вы хотите добавить сертификат реестра.
-   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Выберите в списке нужный реестр.
    1. На странице **{{ ui-key.yacloud.common.overview }}** перейдите к разделу **{{ ui-key.yacloud.iot.label_certificates }}** и нажмите кнопку **{{ ui-key.yacloud.component.certificates.button_empty-add }}**.
 
-      - Чтобы добавить файл:
+      * Чтобы добавить файл:
 
          1. Выберите способ `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}`.
          1. Нажмите **Прикрепить файл**.
          1. Укажите файл сертификата на вашем компьютере, нажмите **Открыть**.
          1. Нажмите **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
-      - Чтобы добавить текст:
+      * Чтобы добавить текст:
 
          1. Выберите способ `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}`.
          1. Вставьте тело сертификата в поле **{{ ui-key.yacloud.component.file-content-dialog.field_content }}**.
@@ -55,6 +55,7 @@
   ```
   
   Результат:
+
   ```
   registry_id: b91ki3851hab********
   fingerprint: 589ce1605...
@@ -76,6 +77,7 @@
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
      * `yandex_iot_core_registry` — параметры реестра:
+
        * `name` — имя реестра.
        * `description` — описание реестра.
        * `certificates` — список сертификатов реестра для аутентификации с помощью [сертификатов](../../concepts/authorization.md#certs).
@@ -145,7 +147,7 @@
    Чтобы удалить сертификат реестра:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, из которого вы хотите удалить сертификат реестра.
-   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Выберите в списке нужный реестр.
    1. На странице **{{ ui-key.yacloud.common.overview }}** перейдите к разделу **{{ ui-key.yacloud.iot.label_certificates }}**.
    1. В строке с нужным сертификатом нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg), в выпадающем списке выберите **{{ ui-key.yacloud.common.delete }}**.

@@ -210,6 +210,12 @@
 
     For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_socket.send.buffer.bytes).
 
+* **Transactional id expiration ms** {{ tag-all }} {#settings-transactional-id-expiration-ms}
+
+    Time, in milliseconds, to retain a transaction ID before deletion.
+
+    For more information, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_transactional.id.expiration.ms).
+
 * **Ssl cipher suites** {{ tag-all }} {#settings-ssl-cipher-suites}
 
     List of cluster encryption algorithms.

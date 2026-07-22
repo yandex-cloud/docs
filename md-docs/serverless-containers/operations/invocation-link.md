@@ -7,7 +7,7 @@
 - Консоль управления {#console}
 
 	1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится контейнер.
-	1. Перейдите в сервис **Serverless Containers**.
+	1. [Перейдите](https://console.yandex.cloud/link/serverless-containers) в сервис **Serverless Containers**.
 	1. Выберите контейнер. Ссылка для вызова будет в поле **Ссылка для вызова**.
 
 - CLI {#cli}

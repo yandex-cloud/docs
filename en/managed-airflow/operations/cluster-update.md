@@ -23,7 +23,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
 
-    1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, edit the cluster name and description, delete labels, or add new ones.
+    1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, edit the cluster name and description, delete labels or add new ones, and select the {{ AF }} and Python versions.
 
     1. Under **{{ ui-key.yacloud.airflow.section_accesses }}**, select a service account or [create a new one](../../iam/operations/sa/create.md#create-sa) with the `{{ roles.maf.integrationProvider }}` role. The cluster will thus get the permissions it needs to work with user resources. For more information, see [Impersonation](../concepts/impersonation.md).
 
@@ -92,6 +92,8 @@ After creating a cluster, you can edit its basic and advanced settings.
            --new-name <new_cluster_name> \
            --description <cluster_description> \
            --labels <label_list> \
+           --airflow-version <{{ AF }}_version> \
+           --python-version <Python_version> \
            --service-account-id <service_account_ID> \
            --security-group-ids <security_group_IDs> \
            --webserver count=<number_of_instances>,`
@@ -115,7 +117,7 @@ After creating a cluster, you can edit its basic and advanced settings.
                      `ssh-key-path=<path_to_private_SSH_key_file> \
            --maintenance-window type=<maintenance_type>,`
                                 `day=<day_of_week>,`
-                                `hour=<hour> \
+                                `hour=<sequence_number_of_hour_interval> \
            --deletion-protection \
            --lockbox-secrets-backend \
            --log-enabled \
@@ -135,7 +137,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
+        Learn how to create the file in [Creating a cluster](cluster-create.md).
 
     1. To change cluster settings, change the required field values in the configuration file.
 
@@ -184,6 +186,8 @@ After creating a cluster, you can edit its basic and advanced settings.
           "description": "<cluster_description>",
           "labels": { <label_list> },
           "configSpec": {
+            "airflowVersion": "<{{ AF }}_version>",
+            "pythonVersion": "<Python_version>",
             "airflow": {
               "config": { <list_of_properties> }
             },
@@ -243,7 +247,7 @@ After creating a cluster, you can edit its basic and advanced settings.
           "maintenanceWindow": {
             "weeklyMaintenanceWindow": {
               "day": "<day_of_week>",
-              "hour": "<hour>"
+              "hour": "<sequence_number_of_hour_interval>"
             }
           },
           "deletionProtection": <deletion_protection>,
@@ -271,6 +275,8 @@ After creating a cluster, you can edit its basic and advanced settings.
         * `labels`: List of labels provided in `"<key>": "<value>"` format.
         * `config`: Cluster configuration:
 
+            * `airflowVersion`: {{ AF }} version.
+            * `pythonVersion`: Python version.
             * `airflow.config`: [Advanced {{ AF }} properties](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html) provided in `"<configuration_section>.<key>": "<value>"` format, e.g.:
 
                 ```json
@@ -391,6 +397,8 @@ After creating a cluster, you can edit its basic and advanced settings.
           "description": "<cluster_description>",
           "labels": { <label_list> },
           "config_spec": {
+            "airflow_version": "<{{ AF }}_version>",
+            "python_version": "<Python_version>",
             "airflow": {
               "config": { <list_of_properties> }
             },
@@ -450,7 +458,7 @@ After creating a cluster, you can edit its basic and advanced settings.
           "maintenance_window": {
             "weekly_maintenance_window": {
               "day": "<day_of_week>",
-              "hour": "<hour>"
+              "hour": "<sequence_number_of_hour_interval>"
             }
           },
           "deletion_protection": <deletion_protection>,
@@ -494,6 +502,8 @@ After creating a cluster, you can edit its basic and advanced settings.
         * `labels`: List of labels provided in `"<key>": "<value>"` format.
         * `config_spec`: Cluster configuration:
 
+            * `airflow_version`: {{ AF }} version.
+            * `python_version`: Python version.
             * `airflow.config`: [Advanced {{ AF }} properties](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html) provided in `"<configuration_section>.<key>": "<value>"` format, e.g.:
 
                 ```json
