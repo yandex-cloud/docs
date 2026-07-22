@@ -12,11 +12,12 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится адрес.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
+    1. [Перейдите]({{ link-console-main }}/link/postbox) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
     1. На панели слева выберите ![image](../../_assets/console-icons/list-ul.svg) **{{ ui-key.yacloud.postbox.label_configuration-sets }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.postbox.button_create-configuration-set }}**.
     1. Введите имя и (опционально) описание конфигурации.
     1. Чтобы получать уведомления об операциях с письмами, в блоке **{{ ui-key.yacloud.postbox.label_event-destinations }}** нажмите **{{ ui-key.yacloud.common.add }}**:
+        
         1. Введите название [подписки](../concepts/glossary.md#subscription).
         1. Выберите [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-full-name }}, в который будут отправляться уведомления об операциях с письмами. Если у вас нет потока данных, [создайте его](../../data-streams/operations/manage-streams.md#create-data-stream).
         1. Выберите типы уведомлений, которые хотите получать.

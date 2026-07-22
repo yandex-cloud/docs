@@ -1746,21 +1746,9 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [remove-access-binding](cli-ref/cloud-registry/cli-ref/artifact/remove-access-binding.md)
 
-##### scanner
-
- - [Overview](cli-ref/cloud-registry/cli-ref/artifact/scanner/index.md)
-
- - [get-last-scan-result](cli-ref/cloud-registry/cli-ref/artifact/scanner/get-last-scan-result.md)
-
- - [get-scan-result](cli-ref/cloud-registry/cli-ref/artifact/scanner/get-scan-result.md)
-
- - [list-scan-results](cli-ref/cloud-registry/cli-ref/artifact/scanner/list-scan-results.md)
-
- - [list-vulnerabilities](cli-ref/cloud-registry/cli-ref/artifact/scanner/list-vulnerabilities.md)
-
- - [scan](cli-ref/cloud-registry/cli-ref/artifact/scanner/scan.md)
-
  - [set-access-bindings](cli-ref/cloud-registry/cli-ref/artifact/set-access-bindings.md)
+
+ - [update-access-bindings](cli-ref/cloud-registry/cli-ref/artifact/update-access-bindings.md)
 
  - [upsert](cli-ref/cloud-registry/cli-ref/artifact/upsert.md)
 
@@ -1811,20 +1799,6 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [remove-access-binding](cli-ref/cloud-registry/cli-ref/registry/remove-access-binding.md)
 
  - [remove-ip-permissions](cli-ref/cloud-registry/cli-ref/registry/remove-ip-permissions.md)
-
-##### scan-policy
-
- - [Overview](cli-ref/cloud-registry/cli-ref/registry/scan-policy/index.md)
-
- - [create](cli-ref/cloud-registry/cli-ref/registry/scan-policy/create.md)
-
- - [delete](cli-ref/cloud-registry/cli-ref/registry/scan-policy/delete.md)
-
- - [get](cli-ref/cloud-registry/cli-ref/registry/scan-policy/get.md)
-
- - [get-by-registry](cli-ref/cloud-registry/cli-ref/registry/scan-policy/get-by-registry.md)
-
- - [update](cli-ref/cloud-registry/cli-ref/registry/scan-policy/update.md)
 
  - [set-access-bindings](cli-ref/cloud-registry/cli-ref/registry/set-access-bindings.md)
 
@@ -7220,6 +7194,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [stop](cli-ref/managed-mysql/cli-ref/cluster/stop.md)
 
+ - [stream-logs](cli-ref/managed-mysql/cli-ref/cluster/stream-logs.md)
+
  - [update](cli-ref/managed-mysql/cli-ref/cluster/update.md)
 
  - [update-config](cli-ref/managed-mysql/cli-ref/cluster/update-config.md)
@@ -7345,6 +7321,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [start-failover](cli-ref/managed-mysql/cli-ref/v0/cluster/start-failover.md)
 
  - [stop](cli-ref/managed-mysql/cli-ref/v0/cluster/stop.md)
+
+ - [stream-logs](cli-ref/managed-mysql/cli-ref/v0/cluster/stream-logs.md)
 
  - [update](cli-ref/managed-mysql/cli-ref/v0/cluster/update.md)
 
@@ -7648,6 +7626,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [stop](cli-ref/managed-postgresql/cli-ref/cluster/stop.md)
 
+ - [stream-logs](cli-ref/managed-postgresql/cli-ref/cluster/stream-logs.md)
+
  - [update](cli-ref/managed-postgresql/cli-ref/cluster/update.md)
 
  - [update-config](cli-ref/managed-postgresql/cli-ref/cluster/update-config.md)
@@ -7785,6 +7765,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [start-failover](cli-ref/managed-postgresql/cli-ref/v0/cluster/start-failover.md)
 
  - [stop](cli-ref/managed-postgresql/cli-ref/v0/cluster/stop.md)
+
+ - [stream-logs](cli-ref/managed-postgresql/cli-ref/v0/cluster/stream-logs.md)
 
  - [update](cli-ref/managed-postgresql/cli-ref/v0/cluster/update.md)
 
@@ -10702,6 +10684,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [get](cli-ref/smartcaptcha/cli-ref/captcha/get.md)
 
+ - [get-keys](cli-ref/smartcaptcha/cli-ref/captcha/get-keys.md)
+
  - [get-secret-key](cli-ref/smartcaptcha/cli-ref/captcha/get-secret-key.md)
 
  - [list](cli-ref/smartcaptcha/cli-ref/captcha/list.md)
@@ -10739,6 +10723,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [delete](cli-ref/smartcaptcha/cli-ref/v1/captcha/delete.md)
 
  - [get](cli-ref/smartcaptcha/cli-ref/v1/captcha/get.md)
+
+ - [get-keys](cli-ref/smartcaptcha/cli-ref/v1/captcha/get-keys.md)
 
  - [get-secret-key](cli-ref/smartcaptcha/cli-ref/v1/captcha/get-secret-key.md)
 

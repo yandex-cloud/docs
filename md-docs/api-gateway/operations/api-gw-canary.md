@@ -9,7 +9,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [API-шлюз](../concepts/index.md).
-  1. Перейдите в сервис **API Gateway**.
+  1. [Перейдите](https://console.yandex.cloud/link/api-gateway) в сервис **API Gateway**.
   1. В строке с API-шлюзом нажмите кнопку ![image](../../_assets/options.svg) и выберите ![image](../../_assets/console-icons/pencil.svg) **Редактировать**.
   1. В блоке **Управление переменными** включите [канареечный релиз](../concepts/extensions/canary.md).
   1. В поле **Доля запросов в канареечном релизе** укажите процент запросов, который будет обрабатываться канареечным релизом.
@@ -114,7 +114,7 @@
 
 {% endlist %}
 
-## Полезные ссылки
+#### Полезные ссылки {#see-also}
 
-* [Что такое канареечный релиз](../concepts/extensions/canary.md).
-* [Канареечный релиз функции Cloud Functions](../tutorials/canary-release.md).
+* [Что такое канареечный релиз](../concepts/extensions/canary.md)
+* [Канареечный релиз функции Cloud Functions](../tutorials/canary-release.md)

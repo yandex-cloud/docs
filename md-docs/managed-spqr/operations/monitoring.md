@@ -23,7 +23,7 @@
 
 Чтобы посмотреть детальную информацию о состоянии кластера Managed Service for Sharded PostgreSQL:
 
-1. Перейдите в сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
+1. [Перейдите](https://console.yandex.cloud/link/managed-spqr) в сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
 
 1. Нажмите на имя нужного кластера и выберите вкладку **Мониторинг**.
 
@@ -57,7 +57,7 @@
 
 Чтобы посмотреть детальную информацию о состоянии отдельных хостов Managed Service for Sharded PostgreSQL:
 
-1. Перейдите в сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
+1. [Перейдите](https://console.yandex.cloud/link/managed-spqr) в сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
 1. Нажмите на имя нужного кластера и выберите вкладку **Мониторинг** → **Хосты**.
 1. Нажмите на строку нужного хоста в списке.
 
@@ -81,7 +81,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог с кластером, для которого нужно настроить алерты.
-    1. Перейдите в сервис ![image](../../_assets/console-icons/display-pulse.svg) **Monitoring**.
+    1. [Перейдите](https://monitoring.yandex.cloud) в сервис ![image](../../_assets/console-icons/display-pulse.svg) **Monitoring**.
     1. В блоке **Сервисные дашборды** выберите:
         * **Managed Service for Sharded PostgreSQL — Cluster Overview** для настройки алертов кластера;
         * **Managed Service for Sharded PostgreSQL — Host Overview** для настройки алертов хостов.

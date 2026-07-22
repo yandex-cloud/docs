@@ -75,6 +75,7 @@ Indicates the algorithm used to create the checksum for the object. ||
 
 Determines which properties are copied from the source S3 object. This parameter only applies for S3 to S3 copies. Valid values are: none, metadata-directive, default. ||
 || `--no-guess-mime-type` | Do not try to guess the mime type for uploaded files. By default the mime type of a file is guessed when it is uploaded. ||
+|| `--validate-same-s3-paths` | Verifies that the source and destination S3 paths are different before moving. If they refer to the same object, an error is raised and the object is left in place instead of being deleted. ||
 |#
 
 #### Global Flags

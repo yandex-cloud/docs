@@ -1907,6 +1907,7 @@ default:
   roles-logging-reader: logging.reader
   roles-logging-writer: logging.writer
   roles-mdb-admin: mdb.admin
+  roles-mdb-viewer: mdb.viewer
   roles-monitoring-editor: monitoring.editor
   roles-monitoring-viewer: monitoring.viewer
   roles-organization-admin: organization-manager.admin
@@ -8949,16 +8950,10 @@ default:
                     OBJECT_STORAGE_UNPARSED_RETRY:
                       title: Retry
                     ObjectStorageAdvancedSettings:
-                      bucket_layout_column:
-                        title: Row time column name
                       bucket_layout_timezone:
                         title: Time zone
                       bucket_layout:
                         title: Folder name
-                      buffer_interval:
-                        title: Flush interval
-                      buffer_size:
-                        title: Buffer size
                       scan_interval:
                         title: Scan interval
                     ObjectStorageCodecUI:
@@ -8978,6 +8973,11 @@ default:
                         title: Automatically
                     ObjectStorageEndpoint:
                       title: Endpoint settings
+                    ObjectStorageParquetCompressionCodecUI:
+                      SNAPPY:
+                        title: Snappy
+                      ZSTD:
+                        title: Zstd
                     ObjectStorageResultTable:
                       add_system_cols:
                         title: Add system columns
@@ -8986,8 +8986,13 @@ default:
                         title: CSV
                       OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON:
                         title: JSON
+                      OBJECT_STORAGE_SERIALIZATION_FORMAT_PARQUET:
+                        title: Parquet
                       OBJECT_STORAGE_SERIALIZATION_FORMAT_RAW:
                         title: Raw data
+                      Parquet:
+                        row_group:
+                          title: Row group size
                     ObjectStorageSource:
                       ObjectStorageEventSource:
                         SQS:
@@ -9057,6 +9062,23 @@ default:
                         title: Encoding format
                       output_format:
                         title: Serialization format
+                    ObjectStorageV1AdvancedWriterSettings:
+                      title: Advanced writer settings
+                    ObjectStorageV1Endpoint:
+                      path_prefix:
+                        title: Path prefix
+                    ObjectStorageV1SerializerConfig:
+                      compression_codec:
+                        title: Compression codec
+                      Parquet:
+                        column_compression_codec:
+                          title: Compression codec for columns
+                      title: Data format
+                    ObjectStorageV1WriterSettings:
+                      ReplicationWriter:
+                        title: Replication writer
+                      SnapshotWriter:
+                        title: Snapshot writer
             opensearch:
               console:
                 form:

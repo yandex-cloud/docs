@@ -70,9 +70,9 @@ Learn more about other cluster updates:
 
     To update the cluster description:
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For information about creating this file, see [{#T}](./cluster-create.md).
+        For information on how to create this file, see [{#T}](./cluster-create.md).
 
     1. Update the `description` value in the {{ mkf-name }} cluster description:
 
@@ -88,7 +88,7 @@ Learn more about other cluster updates:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -251,9 +251,9 @@ We recommend changing broker host class only when your cluster has no active wor
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For information about creating this file, see [{#T}](cluster-create.md).
+        For information on how to create this file, see [{#T}](cluster-create.md).
 
     1. In the {{ mkf-name }} cluster description, edit the `brokers_count` parameter value to increase the number of broker hosts:
 
@@ -285,7 +285,7 @@ We recommend changing broker host class only when your cluster has no active wor
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -469,9 +469,9 @@ We recommend changing broker host class only when your cluster has no active wor
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For information about creating this file, see [{#T}](cluster-create.md).
+        For information on how to create this file, see [{#T}](cluster-create.md).
 
     1. In the {{ mkf-name }} cluster description, edit the `resource_preset_id` parameter value in the `zookeeper.resources` section to specify a new {{ ZK }} [host class](../concepts/instance-types.md):
 
@@ -491,7 +491,7 @@ We recommend changing broker host class only when your cluster has no active wor
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -675,9 +675,9 @@ The {{ kraft-short-name }} host class is only used in clusters with {{ KF }} 3.6
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For information about creating this file, see [{#T}](cluster-create.md).
+        For information on how to create this file, see [{#T}](cluster-create.md).
 
     1. In the {{ mkf-name }} cluster description, edit the `resource_preset_id` parameter value in the `kraft.resources` section to specify a new {{ kraft-short-name }} [host class](../concepts/instance-types.md):
 
@@ -697,7 +697,7 @@ The {{ kraft-short-name }} host class is only used in clusters with {{ KF }} 3.6
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -875,9 +875,9 @@ The {{ kraft-short-name }} host class is only used in clusters with {{ KF }} 3.6
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For information about creating this file, see [{#T}](cluster-create.md).
+        For information on how to create this file, see [{#T}](cluster-create.md).
 
     1. Change the values of the `security_group_ids` and `assign_public_ip` parameters in the cluster description:
 
@@ -901,7 +901,7 @@ The {{ kraft-short-name }} host class is only used in clusters with {{ KF }} 3.6
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -1063,7 +1063,7 @@ You may need to additionally [configure security groups](connect/index.md#config
         {{ yc-mdb-kf }} cluster update <cluster_name_or_ID> \
            --maintenance-window type=<maintenance_type>,`
                                `day=<day_of_week>,`
-                               `hour=<hour> \
+                               `hour=<sequence_number_of_hour_interval> \
            --datatransfer-access=<allow_access_from_Data_Transfer> \
            --deletion-protection \
            --schema-registry=<data_schema_management>
@@ -1089,9 +1089,9 @@ You may need to additionally [configure security groups](connect/index.md#config
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For information about creating this file, see [{#T}](cluster-create.md).
+        For information on how to create this file, see [{#T}](cluster-create.md).
 
     1. {% include [Maintenance window](../../_includes/mdb/mkf/terraform/maintenance-window.md) %}
 
@@ -1124,7 +1124,7 @@ You may need to additionally [configure security groups](connect/index.md#config
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -1161,7 +1161,7 @@ You may need to additionally [configure security groups](connect/index.md#config
                         "anytime": {},
                         "weeklyMaintenanceWindow": {
                           "day": "<day_of_week>",
-                          "hour": "<hour_UTC>"
+                          "hour": "<sequence_number_of_hour_interval>"
                         }
                       },
                       "deletionProtection": <protect_cluster_from_deletion>
@@ -1192,7 +1192,9 @@ You may need to additionally [configure security groups](connect/index.md#config
             * `anytime`: At any time (default).
             * `weeklyMaintenanceWindow`: On schedule:
                 * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-                * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
+                * `hour`: UTC hour interval, from `1` to `24`.
+
+                  > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
         * `deletionProtection`: To enable (`true`) or disable (`false`) cluster protection from accidental deletion.
 
@@ -1242,7 +1244,7 @@ You may need to additionally [configure security groups](connect/index.md#config
                     "anytime": {},
                     "weekly_maintenance_window": {
                       "day": "<day_of_week>",
-                      "hour": "<hour_UTC>"
+                      "hour": "<sequence_number_of_hour_interval>"
                     }
                   },
                   "deletion_protection": <protect_cluster_from_deletion>
@@ -1272,7 +1274,9 @@ You may need to additionally [configure security groups](connect/index.md#config
             * `anytime`: Any time.
             * `weekly_maintenance_window`: On schedule:
                 * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-                * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
+                * `hour`: UTC hour interval, from `1` to `24`.
+
+                  > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
         * `deletion_protection`: To enable (`true`) or disable (`false`) cluster protection from accidental deletion.
 
@@ -1331,9 +1335,9 @@ You may need to additionally [configure security groups](connect/index.md#config
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For information about creating this file, see [{#T}](cluster-create.md).
+        For information on how to create this file, see [{#T}](cluster-create.md).
 
     1. In the {{ mkf-name }} cluster description, edit the values of the parameters in the `kafka.kafka_config` section (the example below does not list all possible [settings](../concepts/settings-list.md#cluster-settings)):
 
@@ -1357,7 +1361,7 @@ You may need to additionally [configure security groups](connect/index.md#config
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -1514,9 +1518,9 @@ You may need to additionally [configure security groups](connect/index.md#config
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For information about creating this file, see [{#T}](./cluster-create.md).
+        For information on how to create this file, see [{#T}](./cluster-create.md).
 
     1. In the {{ mkf-name }} cluster description, add or update the `folder_id` argument:
 
@@ -1531,7 +1535,7 @@ You may need to additionally [configure security groups](connect/index.md#config
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

@@ -2,25 +2,23 @@
 
 #|
 || Вид ограничения | Значение ||
-|| Максимальное количество [каналов](../video/concepts/index.md#channels) в одной [организации](../organization/quickstart.md)
+|| {{ ui-key.yacloud_quotas.quotas.video.channels.count }}
 `video.channels.count` | 25 ||
-|| Общее количество [видео](../video/concepts/videos.md) во всех каналах
+|| {{ ui-key.yacloud_quotas.quotas.video.videos.count }}
 `video.videos.count` | 5 000 ||
-|| Количество [плейлистов](../video/concepts/playlists.md) во всех каналах
+|| {{ ui-key.yacloud_quotas.quotas.video.playlists.count }}
 `video.playlists.count` | 500 ||
-|| Количество одновременных процессов по транскодированию видео с нейросетевыми функциями: [суммаризация](../video/concepts/videos.md#summarization), [нейроперевод](../video/concepts/videos.md#stranslation) и [генерация субтитров](../video/concepts/videos.md#subtitles)
+|| {{ ui-key.yacloud_quotas.quotas.video.transcodingsWithNeuroFeatures.rate }}
 `video.transcodingsWithNeuroFeatures.rate` | 1 ||
-|| Количество [линий](../video/concepts/streams.md#lines) потоковой передачи в одной организации
-`video.streamLines.count` | 50 ||
-|| Количество [трансляций](../video/concepts/streams.md) в одной организации
+|| {{ ui-key.yacloud_quotas.quotas.video.streams.count }}
 `video.streams.count` | 500 ||
-|| Количество одновременных трансляций в одной организации
+|| {{ ui-key.yacloud_quotas.quotas.video.parallelStreams.count }}
 `video.parallelStreams.count` | 1 ||
-|| Количество [эпизодов](../video/concepts/streams.md#episodes) во всех трансляциях
+|| {{ ui-key.yacloud_quotas.quotas.video.episodes.count }}
 `video.episodes.count` | 500 ||
-|| Общее количество [обложек](../video/operations/video/add-thumbnail.md) к видео во всех каналах
+|| {{ ui-key.yacloud_quotas.quotas.video.thumbnails.count }}
 `video.thumbnails.count` | 20 000 ||
-|| Количество [шаблонов плеера](../video/concepts/presets.md) во всех каналах
+|| {{ ui-key.yacloud_quotas.quotas.video.stylePresets.count }}
 `video.stylePresets.count` | 100 ||
 |#
 

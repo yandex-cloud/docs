@@ -4,6 +4,7 @@ You can track data changes in a {{ mpg-name }} _source cluster_ and send them to
 
 To set up CDC using {{ data-transfer-name }}:
 
+1. [Set up your infrastructure](#infra).
 1. [Prepare the source cluster](#prepare-source).
 1. [Set up the target cluster](#prepare-target).
 1. [Prepare and activate your transfer](#prepare-transfer).
@@ -12,7 +13,12 @@ To set up CDC using {{ data-transfer-name }}:
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
-## Required paid resources {#paid-resources}
+## Getting started {#before-you-begin}
+
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+
+### Required paid resources {#paid-resources}
 
 * {{ mpg-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
 * {{ mkf-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
@@ -20,36 +26,97 @@ If you no longer need the resources you created, [delete them](#clear-out).
 * Each transfer: use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
-## Getting started {#before-you-begin}
+## Set up your infrastructure {#infra}
+
 
 {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
-1. [Create a {{ mpg-name }} source cluster](../../managed-postgresql/operations/cluster-create.md) with any suitable configuration, using the following settings:
 
-    * Database: `db1`
-    * User: `pg-user`
-    * Hosts: Publicly available
+{% list tabs group=instructions %}
 
-1. [Create a {{ mkf-name }} target cluster](../../managed-kafka/operations/cluster-create.md) using any suitable configuration with publicly accessible hosts.
+- Manually {#manual}
+
+  1. [Create a {{ mpg-name }} source cluster](../../managed-postgresql/operations/cluster-create.md) with any suitable configuration, using the following settings:
+
+      * Database: `db1`.
+    
+      
+      * User: `pg-user`.
+      * Hosts: Publicly available.
 
 
-1. If using security groups, configure them to allow internet access to your clusters:
+  
+  1. [Create a {{ mkf-name }} target cluster](../../managed-kafka/operations/cluster-create.md) in any suitable configuration with publicly accessible hosts.
 
-    * [Guide for {{ mpg-name }}](../../managed-postgresql/operations/connect/index.md#configuring-security-groups)
-    * [Guide for {{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups)
+  1. If using security groups, configure them to allow internet access to your clusters:
+
+      * [Guide for {{ mpg-name }}](../../managed-postgresql/operations/connect/index.md#configuring-security-groups).
+      * [Guide for {{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
 
 
-1. Install the `kcat` (`kafkacat`) [utility](https://github.com/edenhill/kcat) and the [PostgreSQL command-line client](https://www.postgresql.org/download/) on your local machine. For example, on Ubuntu 20.04, use this command:
 
-    ```bash
-    sudo apt update && sudo apt install kafkacat postgresql-client --yes
-    ```
+- {{ TF }} {#tf}
 
-    Check that you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
+  1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+  1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+  1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+  1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+
+  1. Download the [cdc-mpg-mkf.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-postgresql-to-kafka/blob/main/cdc-mpg-mkf.tf) configuration file to the same working directory.
+
+      This file describes:
+
+      * [Network](../../vpc/concepts/network.md#network).
+      * [Subnet](../../vpc/concepts/network.md#subnet) in the `ru-central1-a` [availability zone](../../overview/concepts/geo-scope.md).
+      * [Security group](../../vpc/concepts/security-groups.md) for the {{ mpg-name }} cluster and rules for access to the cluster from the internet.
+      * Security group for the {{ mkf-name }} cluster and rules for access to the cluster from the internet.
+      * {{ mpg-name }} cluster with public internet access.
+      * Database and user with the [mdb_replication](../../managed-postgresql/concepts/roles.md#mdb-replication) role in the {{ mpg-name }} cluster.
+      * {{ mkf-name }} cluster with public internet access.
+      * Topic and user with the [ACCESS_ROLE_CONSUMER](../../managed-kafka/concepts/account-roles.md#access-role-consumer) and [ACCESS_ROLE_PRODUCER](../../managed-kafka/concepts/account-roles.md#access-role-producer) roles for this topic in the {{ mkf-name }} cluster.
+      * Source and target endpoints.
+      * Transfer.
+
+  1. Specify the following in the configuration file:
+        
+      * `network_name`: Network name.
+      * `subnet_name`: Subnet name.
+      * `pg_sg_name`: Name of security group for the {{ mpg-name }} cluster.
+      * `kf_sg_name`: Name of security group for the {{ mkf-name }} cluster.
+      * `pg_cluster_version`: {{ mpg-name }} cluster version.
+      * `pg_cluster_name`: {{ mpg-name }} cluster name.
+      * `pg_password`: User password in the {{ mpg-name }} cluster.
+      * `kf_cluster_version`: {{ mkf-name }} cluster version.
+      * `kf_cluster_name`: {{ mkf-name }} cluster name.
+      * `kf_password`: User password in the {{ mkf-name }} cluster.
+      * `source_endpoint_name`: Source endpoint name.
+      * `target_endpoint_name`: Target endpoint name.
+      * `transfer_name`: Transfer name.
+      * `transfer_enabled = 0`: Disables the creation of endpoints and transfers. They will be created during the [preparation of the transfer](#prepare-transfer).
+
+  1. Make sure the {{ TF }} configuration files are correct using this command:
+
+      ```bash
+      terraform validate
+      ```
+
+      {{ TF }} will display any configuration errors detected in your files.
+
+  1. Create the required infrastructure:
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+
+
+{% endlist %}
+
 
 ## Prepare the source cluster {#prepare-source}
 
-1. For {{ data-transfer-name }} to receive data change notifications from a {{ mpg-name }} cluster, you must create a publication on the source cluster. [Assign](../../managed-postgresql/operations/grant.md) `pg-user` the `mdb_replication` role to allow publication creation.
+
+1. If you created the infrastructure manually, [assign](../../managed-postgresql/operations/grant.md#grant-role) the [mdb_replication](../../managed-postgresql/concepts/roles.md#mdb-replication) role to `pg-user`. The user needs this role to be able to create a publication through which {{ data-transfer-name }} will receive information about changes in the source cluster data.
+
 
 1. [Connect](../../managed-postgresql/operations/connect/index.md) to the `db1` database as `pg-user`.
 
@@ -80,25 +147,29 @@ If you no longer need the resources you created, [delete them](#clear-out).
         ('iv9a94th678t********', '2020-06-07 15:00:10', 55.70985913, 37.62141918,  417.0, 15.7, 10.3, 17, NULL);
     ```
 
-## Set up the target cluster {#prepare-target}
+## Prepare the target cluster {#prepare-target}
 
-The settings vary depending on the [topic management method](../../managed-kafka/concepts/topics.md#management) in use. Topic names follow the same convention as [Debezium](https://debezium.io/documentation/reference/connectors/postgresql.html#postgresql-topic-names): `<topic_prefix>.<schema_name>.<table_name>`. In this tutorial, we will use the `cdc` example prefix.
+
+If you created the infrastructure using {{ TF }}, skip this step and proceed to [transfer preparation and activation](#prepare-transfer).
+
+
+The target cluster's setup will vary depending on the [topic management method](../../managed-kafka/concepts/topics.md#management) you are using. Topic names follow the same convention as [Debezium](https://debezium.io/documentation/reference/connectors/postgresql.html#postgresql-topic-names): `<topic_prefix>.<schema_name>.<table_name>`. In this tutorial, we will use the `cdc` example prefix.
 
 {% list tabs group=topic_management %}
 
 - {{ yandex-cloud }} interfaces {#yc}
 
-    When managing topics using native {{ yandex-cloud }} interfaces (management console, CLI, {{ TF }}, or API):
+    If you manage topics using the {{ yandex-cloud }} interfaces (management console, CLI, API):
 
     1. [Create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `cdc.public.measurements`.
 
         If you need to track data changes in multiple tables, create a separate topic for each one.
 
-    1. [Create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) named `kafka-user` with `ACCESS_ROLE_CONSUMER` and `ACCESS_ROLE_PRODUCER` roles applying to the created topics.
+    1. [Create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) named `kafka-user` with the `ACCESS_ROLE_CONSUMER` and `ACCESS_ROLE_PRODUCER` roles for the new topic.
 
 - Admin API {#api}
 
-    When managing topics via the Kafka Admin API:
+    If you manage topics using the Kafka Admin API:
 
     1. Create an [admin user](../../managed-kafka/operations/cluster-accounts.md) named `kafka-user`.
 
@@ -111,9 +182,13 @@ The settings vary depending on the [topic management method](../../managed-kafka
 
 ## Prepare and activate a transfer {#prepare-transfer}
 
-1. [Create endpoints](../../data-transfer/operations/endpoint/index.md#create).
+{% list tabs group=instructions %}
 
-    * Source endpoint:
+- Manually {#manual}
+
+  1. [Create endpoints](../../data-transfer/operations/endpoint/index.md#create).
+
+      * Source endpoint:
 
         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `PostgreSQL`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.title }}**:
@@ -124,7 +199,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}**: `pg-user` password.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTableFilter.include_tables.title }}**: `public.measurements`.
 
-    * Target endpoint:
+      * Target endpoint:
 
         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Kafka`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTarget.title }}**:
@@ -140,16 +215,51 @@ The settings vary depending on the [topic management method](../../managed-kafka
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic_prefix.title }}`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic_prefix.title }}**: Enter the `cdc` prefix you used to generate topic names.
 
-1. [Create a transfer](../../data-transfer/operations/transfer.md#create) with the following settings:
+  1. [Create a transfer](../../data-transfer/operations/transfer.md#create) with the following settings:
 
-    * **{{ ui-key.yacloud.data-transfer.label_endpoints }}**:
+      * **{{ ui-key.yacloud.data-transfer.label_endpoints }}**:
         * **{{ ui-key.yacloud.data-transfer.forms.label_source-type }}**: Source endpoint you created earlier.
         * **{{ ui-key.yacloud.data-transfer.forms.label_target-type }}**: Target endpoint you created earlier.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.type.title }}**: **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}**.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.type.title }}**: **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}**.
 
-1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+  1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+
+
+- {{ TF }} {#tf}
+
+  1. Specify `transfer_enabled = 1` in the `cdc-mpg-mkf.tf` file.
+
+  1. Make sure the {{ TF }} configuration files are correct using this command:
+
+      ```bash
+      terraform validate
+      ```
+
+      {{ TF }} will display any configuration errors detected in your files.
+
+  1. Create the required infrastructure:
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      Endpoints and a transfer will be created. The transfer will be activated automatically as soon as it is created.
+  
+  1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+      
+      You can check the transfer status in the [management console]({{ link-console-main }}).
+
+
+{% endlist %}
+
 
 ## Test the transfer {#verify-transfer}
+
+1. Install the `kcat` (`kafkacat`) [utility](https://github.com/edenhill/kcat) and the [PostgreSQL command-line client](https://www.postgresql.org/download/) on your local machine. For example, on Ubuntu 20.04, use this command:
+
+    ```bash
+    sudo apt update && sudo apt install kafkacat postgresql-client --yes
+    ```
+
+    Check that you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
 1. In a separate terminal, run `kafkacat` in consumer mode:
 
@@ -227,16 +337,31 @@ The settings vary depending on the [topic management method](../../managed-kafka
 
 ## Delete the resources you created {#clear-out}
 
-To minimize resource consumption, delete the resources you no longer need:
 
-1. [Deactivate](../../data-transfer/operations/transfer.md#deactivate) and [delete](../../data-transfer/operations/transfer.md#delete) the transfer.
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
-1. [Delete the endpoints](../../data-transfer/operations/endpoint/index.md#delete).
 
-1. Delete the clusters:
+{% list tabs group=instructions %}
 
-    * [{{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
-    * [{{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md).
+- Manually {#manual}
 
-1. If you used static public IP addresses to access the cluster hosts, release and [delete](../../vpc/operations/address-delete.md) them.
+  1. [Deactivate](../../data-transfer/operations/transfer.md#deactivate) and [delete](../../data-transfer/operations/transfer.md#delete) the transfer.
+  1. [Delete the endpoints](../../data-transfer/operations/endpoint/index.md#delete).
+  1. Delete the clusters:
+
+      * [{{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
+      * [{{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md).
+
+  
+  1. If static public IP addresses were used for accessing the cluster hosts, release and [delete](../../vpc/operations/address-delete.md) them.
+
+
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
+
+
+{% endlist %}
+
 

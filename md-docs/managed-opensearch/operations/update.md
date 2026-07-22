@@ -38,7 +38,7 @@
     Чтобы изменить сервисный аккаунт, привязанный к кластеру Managed Service for OpenSearch:
 
     1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога.
-    1. Перейдите в сервис **Managed Service for&nbsp;OpenSearch**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-opensearch) в сервис **Managed Service for&nbsp;OpenSearch**.
     1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **Редактировать** на панели сверху.
     1. В поле **Сервисный аккаунт** выберите аккаунт из списка или [создайте новый](../../iam/operations/sa/create.md). Подробнее о настройке сервисного аккаунта в разделе [Настройка доступа к Object Storage](s3-access.md).
     1. Нажмите кнопку **Сохранить**.
@@ -230,7 +230,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога.
-    1. Перейдите в сервис **Managed Service for&nbsp;OpenSearch**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-opensearch) в сервис **Managed Service for&nbsp;OpenSearch**.
     1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **Редактировать** на панели сверху.
     1. В поле **Пароль пользователя admin** укажите новый пароль.
 
@@ -642,7 +642,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога.
-    1. Перейдите в сервис **Managed Service for&nbsp;OpenSearch**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-opensearch) в сервис **Managed Service for&nbsp;OpenSearch**.
     1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **Редактировать** на панели сверху.
     1. Измените дополнительные настройки кластера:
 
@@ -967,7 +967,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога.
-    1. Перейдите в сервис **Managed Service for&nbsp;OpenSearch**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-opensearch) в сервис **Managed Service for&nbsp;OpenSearch**.
     1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **Редактировать** на панели сверху.
     1. В блоке **Сетевые настройки** выберите группы безопасности для сетевого трафика кластера.
     1. Нажмите кнопку **Сохранить**.

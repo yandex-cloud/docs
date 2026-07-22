@@ -10,7 +10,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится контейнер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. [Перейдите]({{ link-console-main }}/link/serverless-containers) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Выберите контейнер.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.
   1. Измените имя контейнера. Формат имени:
@@ -71,9 +71,10 @@ description: Следуя данной инструкции, вы сможете
      ...
      ```
 
-   Подробнее о параметрах ресурса `yandex_serverless_container` в [документации провайдера]({{ tf-provider-resources-link }}/serverless_container).
+     Подробнее о параметрах ресурса `yandex_serverless_container` в [документации провайдера]({{ tf-provider-resources-link }}/serverless_container).
 
   1. Проверьте конфигурацию командой:
+     
      ```
      terraform validate
      ```
@@ -85,6 +86,7 @@ description: Следуя данной инструкции, вы сможете
      ```
 
   1. Выполните команду:
+     
      ```
      terraform plan
      ```
@@ -92,6 +94,7 @@ description: Следуя данной инструкции, вы сможете
      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Примените изменения конфигурации:
+     
      ```
      terraform apply
      ```

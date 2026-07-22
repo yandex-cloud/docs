@@ -43,7 +43,7 @@ paths:
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором необходимо изменить API-шлюз.
-  1. Перейдите в сервис **API Gateway**.
+  1. [Перейдите](https://console.yandex.cloud/link/api-gateway) в сервис **API Gateway**.
   1. В строке с API-шлюзом нажмите кнопку ![image](../../_assets/options.svg) и выберите ![image](../../_assets/console-icons/pencil.svg) **Редактировать**.
   1. В блоке **Управление переменными** перечислите все объявленные в спецификации переменные и их значения.
   1. Нажмите кнопку **Сохранить**.
@@ -147,7 +147,7 @@ paths:
 
 {% endlist %}
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Как работает параметризация спецификации](../concepts/extensions/parametrization.md).
-* [Как изменить спецификацию API-шлюза](api-gw-update.md).
+* [Как работает параметризация спецификации](../concepts/extensions/parametrization.md)
+* [Как изменить спецификацию API-шлюза](api-gw-update.md)

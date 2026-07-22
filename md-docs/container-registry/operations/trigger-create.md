@@ -33,7 +33,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать триггер.
-  1. Перейдите в сервис **Cloud Functions**.
+  1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
   1. На панели слева выберите ![image](../../_assets/functions/triggers.svg) **Триггеры**.
   1. Нажмите кнопку **Создать триггер**.
   1. В блоке **Базовые параметры**:
@@ -268,7 +268,7 @@
 
 Проверьте, что триггер работает корректно. Для этого посмотрите [логи функции](../../functions/operations/function/function-logs.md), в них отображается информация о вызовах.
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Создать триггер для Container Registry, который вызывает контейнер Serverless Containers](../../serverless-containers/operations/cr-trigger-create.md)
 * [Создать триггер для Container Registry, который отправляет сообщения в WebSocket-соединения](../../api-gateway/operations/trigger/cr-trigger-create.md)

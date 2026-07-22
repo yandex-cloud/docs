@@ -1,9 +1,9 @@
 ---
-title: Embedding private objects
+title: Embedding via JWT
 description: In this article, you will learn how to securely embed private charts and dashboards into a website or app.
 ---
 
-# Embedding private objects
+# Embedding via JWT
 
 You can securely embed private [charts](../concepts/chart/index.md) or [dashboards](../concepts/dashboard.md) into a website or app using special [JWT token](https://en.wikipedia.org/wiki/JSON_Web_Token) links.
 
@@ -473,7 +473,7 @@ When embedding private objects, follow these guidelines:
 
 When embedding dashboards, consider the following:
 
-* Embedded dashboards can only be opened in view mode. Their navigation bar and, by default, the ![image](../../_assets/console-icons/ellipsis.svg) menu for charts are hidden. Enable **Allow data export** in embedding settings for your charts to display the ![image](../../_assets/console-icons/ellipsis.svg) menu, which allows exporting the chart data.
+* Embedded dashboards can be opened only in view mode. Their navigation bar and, by default, the ![image](../../_assets/console-icons/ellipsis.svg) menu for charts are hidden. Enable **Allow data export** in embedding settings for your charts to display the ![image](../../_assets/console-icons/ellipsis.svg) menu, which allows exporting the chart data.
 * When you open a dashboard, its [settings](../dashboard/settings.md) apply.
 * For unsigned parameters to work correctly, [specify them](../operations/dashboard/add-parameters.md) in the dashboard settings.
 * Unsigned parameters work in the same way as regular [parameters in a dashboard link](../dashboard/dashboard_parameters.md#params-in-url).

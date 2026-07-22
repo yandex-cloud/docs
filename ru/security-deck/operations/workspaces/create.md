@@ -5,10 +5,13 @@ description: Из этой инструкции вы узнаете, как в {
 
 # Создать окружение {{ sd-name }}
 
-Перед созданием [окружения](../../concepts/workspace.md) убедитесь, что у вас есть необходимые [права](../../security/index.md) для работы с модулями {{ sd-name }}. Оптимальные роли для работы:
+Перед созданием [окружения](../../concepts/workspace.md):
 
-* `security-deck.admin` на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будут храниться ресурсы {{ sd-name }} и его модули.
-* `auditor` на [организацию](../../../organization/concepts/organization.md), [облако](../../../resource-manager/concepts/resources-hierarchy.md#cloud) или каталог, безопасность в которых будет контролироваться окружением.
+1. Убедитесь, что у вас есть необходимые [права](../../security/index.md) для работы с модулями {{ sd-name }}. Оптимальные роли для работы:
+
+   * `security-deck.admin` на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будут храниться ресурсы {{ sd-name }} и его модули.
+   * `auditor` на [организацию](../../../organization/concepts/organization.md), [облако](../../../resource-manager/concepts/resources-hierarchy.md#cloud) или каталог, безопасность в которых будет контролироваться окружением.
+1. [Создайте](../../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) ему [роль](../../security/index.md#security-deck-worker) `security-deck.worker` на организацию, облако или каталог, безопасность в которых будет контролироваться окружением.
 
 Чтобы создать окружение {{ sd-name }}:
 

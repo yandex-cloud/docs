@@ -20,7 +20,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите изменить имя брокера.
-   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. На панели слева выберите **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. Справа от имени нужного брокера нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и в выпадающем списке выберите **{{ ui-key.yacloud.common.edit }}**.
    1. Измените поле **{{ ui-key.yacloud.common.name }}**.
@@ -39,6 +39,7 @@ description: Следуя данной инструкции, вы сможете
   ```
 
   Результат:
+
   ```text
   id: b91ki3851h**********
   folder_id: aoek49ghmk**********
@@ -117,7 +118,7 @@ description: Следуя данной инструкции, вы сможете
    Чтобы изменить описание брокера:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите изменить описание брокера.
-   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. На панели слева выберите **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. Справа от имени нужного брокера нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg), в выпадающем списке выберите **{{ ui-key.yacloud.common.edit }}**.
    1. Измените поле **{{ ui-key.yacloud.common.description }}**.
@@ -134,6 +135,7 @@ description: Следуя данной инструкции, вы сможете
   ```
 
   Результат:
+
   ```text
   id: b91ki3851h**********
   folder_id: aoek49ghmk**********
@@ -221,7 +223,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите добавить метку брокера.
-   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. На панели слева выберите **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. Справа от имени нужного брокера нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и в выпадающем списке выберите **{{ ui-key.yacloud.common.edit }}**.
    1. Заполните поля **{{ ui-key.yacloud.component.key-values-input.label_key }}**, **{{ ui-key.yacloud.component.key-values-input.label_value }}** и нажмите кнопку **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
@@ -240,6 +242,7 @@ description: Следуя данной инструкции, вы сможете
   ```
 
   Результат:
+
   ```text
   id: b91ki3851h**********
   folder_id: aoek49ghmk**********
@@ -260,6 +263,7 @@ description: Следуя данной инструкции, вы сможете
   1. Опишите в конфигурационном файле параметры ресурса, который необходимо создать:
 
      * `yandex_iot_core_broker` — параметры брокера:
+
        * `name` — имя брокера.
        * `description` — описание брокера.
        * `labels` — метки брокера в формате `ключ:значение`.
@@ -325,7 +329,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите изменить метку брокера.
-   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. На панели слева выберите **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. Справа от имени нужного брокера нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и в выпадающем списке выберите **{{ ui-key.yacloud.common.edit }}**.
    1. Измените поля **{{ ui-key.yacloud.component.key-values-input.label_key }}** и **{{ ui-key.yacloud.component.key-values-input.label_value }}**.
@@ -346,6 +350,7 @@ description: Следуя данной инструкции, вы сможете
   ```
 
   Результат:
+
   ```text
   id: b91ki3851h**********
   folder_id: aoek49ghmk**********
@@ -426,7 +431,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите удалить метку брокера.
-   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. На панели слева выберите **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. Справа от имени нужного брокера нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и в выпадающем списке выберите **{{ ui-key.yacloud.common.edit }}**.
    1. Справа от удаляемой метки нажмите значок ![image](../../../_assets/console-icons/xmark.svg).
@@ -445,6 +450,7 @@ description: Следуя данной инструкции, вы сможете
   ```
 
   Результат:
+  
   ```text
   id: b91ki3851h**********
   folder_id: aoek49ghmk**********

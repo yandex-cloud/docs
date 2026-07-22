@@ -16,7 +16,7 @@
 - Compute Cloud {#compute}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать ВМ.
-  1. В списке сервисов выберите **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. Справа сверху нажмите **Создать виртуальную машину**.
   1. В блоке **Образ загрузочного диска** перейдите на вкладку **Marketplace** и выберите продукт, который доступен по [подписке](../../concepts/users/subscription.md).
   1. Если нужного продукта нет в списке, нажмите **Показать все продукты Marketplace**.
@@ -33,7 +33,7 @@
 - Managed Service for Kubernetes {#managed-k8s}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится кластер Managed Service for Kubernetes.
-  1. В списке сервисов выберите **Managed Service for&nbsp;Kubernetes**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Выберите кластер.
   1. Перейдите на вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **Marketplace**.
   1. Выберите продукт. Чтобы найти продукты, доступные по [подписке](../../concepts/users/subscription.md), используйте фильтр **Тип тарификации** → **Subscription**.

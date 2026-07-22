@@ -24,7 +24,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать триггер.
   
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Перейдите]({{ link-console-main }}/link/functions) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   
   1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
   
@@ -80,6 +80,7 @@
   ```
 
   Где:
+
   * `--name` — имя триггера.
   * `--registry-id` — [идентификатор реестра](../../iot-core/operations/registry/registry-list.md).
   * `--device-id` — [идентификатор устройства](../../iot-core/operations/device/device-list.md). Если вы создаете триггер для топика реестра, этот параметр можно не указывать.
@@ -184,7 +185,7 @@
 
 {% include [check-result](check-result.md) %}
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../serverless-containers/operations/iot-core-trigger-create.md)
 * [{#T}](../../api-gateway/operations/trigger/iot-core-trigger-create.md)

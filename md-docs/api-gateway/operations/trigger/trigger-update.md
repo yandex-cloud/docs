@@ -15,7 +15,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится триггер.
-  1. Перейдите в сервис **API Gateway**.
+  1. [Перейдите](https://console.yandex.cloud/link/api-gateway) в сервис **API Gateway**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/gear-play.svg) **Триггеры**.
   1. Выберите триггер, параметры которого хотите изменить.
   1. Нажмите ![image](../../../_assets/console-icons/pencil.svg) **Редактировать**.

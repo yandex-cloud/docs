@@ -103,7 +103,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-  1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
   1. В строке с нужным кластером нажмите ![image](../../_assets/console-icons/ellipsis.svg), затем выберите **Редактировать**.
   1. В поле **Версия** выберите номер новой версии.
   1. Нажмите **Сохранить**.

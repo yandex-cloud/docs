@@ -924,11 +924,11 @@ items:
                 href: operations/dashboard/edit-alias.md
           - name: Appearance customization options
             items:
-              - name: Configuring the dashboard background
+              - name: Configuring dashboard background
                 href: operations/dashboard/add-dashboard-background.md
-              - name: Configuring the background and opacity of dashnboard widgets
+              - name: Configuring the background and opacity of dashboard widgets
                 href: operations/dashboard/add-widget-background.md
-              - name: Configuring roundings on the dashboard
+              - name: Configuring corner rounding on a dashboard
                 href: operations/dashboard/add-rounding.md
               - name: Configuring offsets on the dashboard
                 href: operations/dashboard/add-margins.md
@@ -962,11 +962,17 @@ items:
         href: reports/versioning.md
       - name: Neuroanalyst in reports
         href: reports/insights.md
-  - name: Embedding objects
+  - name: Publishing and embedding
     items:
+      - name: Overview
+        href: concepts/publishing-and-embedding.md
+      - name: Publishing objects
+        href: concepts/datalens-public.md
       - name: Public embedding
         href: security/embedded-objects.md
-      - name: Private embedding
+      - name: Sharing an object within an organization
+        href: concepts/datalens-sharing.md
+      - name: Embedding via JWT
         href: security/private-embedded-objects.md
   - name: Access management
     items:
@@ -1000,8 +1006,6 @@ items:
             href: operations/permission/request.md
       - name: Access to data rows
         href: security/row-level-security.md
-      - name: Public access
-        href: concepts/datalens-public.md
   - name: Service settings
     items:
       - name: Overview

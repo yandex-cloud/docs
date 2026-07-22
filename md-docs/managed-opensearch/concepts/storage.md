@@ -71,7 +71,8 @@ Managed Service for OpenSearch позволяет использовать се�
 
 Чтобы отслеживать степень заполнения хранилища кластера, настройте алерты в Yandex Monitoring:
 
-1. Перейдите на страницу каталога и выберите сервис **Monitoring**.
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+1. [Перейдите](https://monitoring.yandex.cloud) в сервис **Monitoring**.
 1. [Создайте канал уведомлений](../../monitoring/operations/alert/create-channel.md).
 1. [Создайте алерт](../../monitoring/operations/alert/create-alert.md) со следующими параметрами:
 

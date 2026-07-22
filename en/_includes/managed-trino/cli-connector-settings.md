@@ -6,6 +6,9 @@
   {% include [metastore version](metastore-version-catalog-create.md) %}
 
 * `--filesystem-native-s3`: [{{ objstorage-full-name }}](../../storage/quickstart/overview.md).
+
+  {% include [objstorage-sa-roles](objstorage-sa-roles.md) %}
+
 * `--filesystem-external-s3-aws-access-key`: ID of AWS-compatible static access key.
 * `--filesystem-external-s3-aws-secret-key`: Secret key of AWS-compatible static access key.
 * `--filesystem-external-s3-aws-endpoint`: File storage endpoint, e.g., `storage.yandexcloud.net`.

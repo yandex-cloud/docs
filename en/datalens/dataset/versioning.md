@@ -77,9 +77,30 @@ Below are dataset configuration changes that create a new version once they are 
 You can edit any version of a dataset.
 
 
+### Editing a current version {#actual-version-edit}
+
+If a dataset has a draft, as soon as you open its current version for editing, you will see a message in the top panel informing you that there is a draft in the change history.
+
+![image](../../_assets/datalens/concepts/dataset-with-draft-version.png)
+
+Click:
+
+* **Open draft**: To navigate to the draft.
+* **Show in history**: To display the list of versions.
+
+### Editing a draft {#irrelevant-version-edit}
+
+To edit a draft, select it in the version list. To save your draft edits, at the top right, click:
+
+* **Save as draft**: New draft will be created. The current draft will become the outdated version.
+* ![image](../../_assets/console-icons/chevron-down.svg) → **Save and make actual** to create a new current version and make all other versions outdated.
+
 ### Editing an outdated version {#current-version-edit}
 
-To edit an outdated version, select it from the list of versions. To save your changes to an outdated version, click **Save** at the top right. This will create a new current version, and all others will become outdated.
+To edit an outdated version, select it from the list of versions. To save edits to an outdated version, at the top right, click:
+
+* **Save as draft**: Draft will be created from the edited version. If there is a current draft, it will become the outdated version.
+* ![image](../../_assets/console-icons/chevron-down.svg) → **Save and make actual** to create a new current version and make all other versions, including the draft, outdated.
 
 
 ## Limits {#restrictions}

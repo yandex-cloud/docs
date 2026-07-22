@@ -72,6 +72,8 @@ Syntax:
 
   - [yc managed-postgresql v0 cluster stop](cluster/stop.md) — Stop the specified PostgreSQL cluster
 
+  - [yc managed-postgresql v0 cluster stream-logs](cluster/stream-logs.md) — Stream logs for the specified PostgreSQL cluster
+
   - [yc managed-postgresql v0 cluster update](cluster/update.md) — Update the specified PostgreSQL cluster
 
   - [yc managed-postgresql v0 cluster update-config](cluster/update-config.md) — Update the specified PostgreSQL cluster config

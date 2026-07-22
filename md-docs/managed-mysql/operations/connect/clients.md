@@ -114,7 +114,7 @@ sudo apt update && sudo apt install --yes mysql-client
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Managed Service for&nbsp;MySQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL**.
   1. Нажмите на имя нужного кластера.
   1. Включите публичный доступ для хостов кластера:
      1. Выберите вкладку **Хосты**.
@@ -214,7 +214,7 @@ yc managed-mysql connect <имя_или_идентификатор_класте�
 
 1. Назначьте роль `managed-mysql.clusters.connector` аккаунту пользователя, который будет подключаться к БД:
 
-    1. Перейдите в сервис **Managed Service for&nbsp;MySQL**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL**.
     1. Нажмите на имя нужного кластера.
     1. Выберите вкладку **Права доступа** и нажмите кнопку **Назначить роли**.
     1. Введите электронную почту пользователя, к которой привязан аккаунт.
@@ -298,8 +298,8 @@ WebSQL — это сервис Yandex Cloud, который позволяет �
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог с нужным кластером.
-  1. Перейдите в сервис **Managed Service for&nbsp;MySQL**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите в каталог с нужным кластером.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL**.
   1. Нажмите на имя нужного кластера и перейдите на вкладку **WebSQL**.
   1. Выберите нужное подключение.
 

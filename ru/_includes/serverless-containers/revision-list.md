@@ -3,7 +3,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится контейнер.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. [Перейдите]({{ link-console-main }}/link/serverless-containers) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. Выберите контейнер, для которого хотите получить список ревизий.
     1. В разделе **{{ ui-key.yacloud.serverless-containers.section-revisions }}** будет показан список ревизий контейнера и подробная информация о них.
 

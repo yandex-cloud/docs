@@ -59,7 +59,7 @@ Set up your infrastructure:
         * `source_db_name`: {{ ydb-name }} database name.
         * `bucket_name`: {{ objstorage-name }} bucket name.
 
-    1. Validate your {{ TF }} configuration files using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -81,19 +81,20 @@ Set up your infrastructure:
 
 1. [Send test data to this stream](../../data-streams/operations/aws-cli/send.md). Use the car sensor data in JSON format as the message:
 
-```json
-{
-    "device_id":"iv9a94th6rzt********",
-    "datetime":"2020-06-05T17:27:00",
-    "latitude":"55.70329032",
-    "longitude":"37.65472196",
-    "altitude":"427.5",
-    "speed":"0",
-    "battery_voltage":"23.5",
-    "cabin_temperature":"17",
-    "fuel_level":null
-}
-```
+    ```json
+    {
+        "device_id":"iv9a94th6rzt********",
+        "datetime":"2020-06-05T17:27:00",
+        "latitude":"55.70329032",
+        "longitude":"37.65472196",
+        "altitude":"427.5",
+        "speed":"0",
+        "battery_voltage":"23.5",
+        "cabin_temperature":"17",
+        "fuel_level":null
+    }
+    ```
+1. Wait 5-10 seconds and send the second message to the stream.
 
 ## Prepare and activate a transfer {#prepare-transfer}
 
@@ -171,6 +172,8 @@ Set up your infrastructure:
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.service_account_id.title }}**: Select an existing service account or create a new one with the `storage.uploader` role.
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}**: Select `JSON` or `CSV` if you have enabled **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}** in the advanced settings for the source endpoint.
+      
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageV1AdvancedWriterSettings.title }}**: Select **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageV1WriterSettings.ReplicationWriter.title }}** and set the **Rotation interval** to 1.
 
 1. Create a transfer:
 
@@ -192,7 +195,7 @@ Set up your infrastructure:
 
             * `yandex_datatransfer_transfer` resource.
 
-        1. Validate your {{ TF }} configuration files using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -217,7 +220,7 @@ Set up your infrastructure:
     1. In the [management console]({{ link-console-main }}), select the folder with the bucket.
     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Select the bucket from the list.
-    1. Make sure the bucket contains the `<stream_name>_0.raw` file (`.json` or `.csv`, depending on the selected output format) with the test data.
+    1. Make sure the bucket contains a file named `<stream_name>/partition=0/<stream_name>+0+0.raw` (`.json` or `.csv`, depending on the selected output format) with the first message.
 
 1. [Send a new message to your stream in {{ yds-name }}](../../data-streams/operations/aws-cli/send.md):
 
@@ -240,7 +243,7 @@ Set up your infrastructure:
     1. In the [management console]({{ link-console-main }}), select the folder with the bucket.
     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Select the bucket from the list.
-    1. Make sure the bucket now contains the `<stream_name>_0-1_1.raw` file (`.json` or `.csv`, depending on the selected output format) with the new data.
+    1. Make sure the bucket contains a file named `<stream_name>/partition=0/<stream_name>+0+1.raw` (`.json` or `.csv`, depending on the selected output format) with the first message.
 
 ## Delete the resources you created {#clear-out}
 

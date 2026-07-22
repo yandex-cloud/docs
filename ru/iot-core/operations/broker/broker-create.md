@@ -14,7 +14,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать брокер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+  1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
   1. На панели слева выберите **{{ ui-key.yacloud.iot.label_brokers }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.iot.button_create-broker }}**.
   1. В блоке **{{ ui-key.yacloud.common.section-base }}** укажите:
@@ -135,6 +135,7 @@ description: Следуя данной инструкции, вы сможете
   1. Опишите в конфигурационном файле параметры ресурса, который необходимо создать:
 
      * `yandex_iot_core_broker` — параметры брокера:
+     
        * `name` — имя брокера;
        * `description` — описание брокера;
        * `labels` — метки брокера в формате `ключ:значение`;

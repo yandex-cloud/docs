@@ -19,8 +19,9 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   Чтобы изменить имя [реестра](../../concepts/registry.md):
+
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится реестр.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. [Перейдите]({{ link-console-main }}/link/container-registry) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Нажмите значок ![image](../../../_assets/console-icons/ellipsis-vertical.svg) в строке реестра, который требуется изменить.
   1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.
   1. В открывшемся окне укажите нужное имя реестра.
@@ -90,8 +91,9 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   Чтобы добавить или удалить [IP-адрес](../../../vpc/concepts/address.md) и настроить доступ к реестру:
+
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится реестр.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. [Перейдите]({{ link-console-main }}/link/container-registry) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Нажмите на имя нужного реестра, затем выберите вкладку ![ip-address.svg](../../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.cr.registry.label_ip-permissions }}** и нажмите кнопку **{{ ui-key.yacloud.cr.registry.button_update-ip-permissions }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}** и укажите IP-адрес и право на действие с реестром — `PULL` (позволяет скачивать Docker-образы из реестра) или `PUSH` (позволяет загружать Docker-образы в реестр).
   1. Нажмите значок ![image](../../../_assets/console-icons/xmark.svg) в строке IP-адреса, права доступа с которого требуется удалить.

@@ -10,7 +10,7 @@
 
 Способ настройки зависит от того, включено ли в кластере [шардирование](../../concepts/sharding.md).
 
-### redis-cli {#redis-cli}
+### valkey-cli (redis-cli) {#valkey-cli}
 
 Для кластеров Valkey™ поддерживается шифрованное соединение через порт `6380` и нешифрованное через порт `6379`.
 
@@ -50,65 +50,90 @@
                -a <пароль>
            ```
 
-- Подключение с SSL {#with-ssl}
+- Подключение с SSL через valkey-cli {#with-ssl}
+
+    1. **Перед подключением установите зависимости:**
+
+        1. Перейдите в директорию, куда хотите скачать дистрибутив Valkey™.
+
+        1. Скачайте нужную [версию](https://github.com/valkey-io/valkey/releases) Valkey™ и выполните сборку и установку с поддержкой TLS:
+
+            ```bash
+            wget https://github.com/valkey-io/valkey/archive/refs/tags/<версия>.tar.gz && \
+            tar -xzvf <версия>.tar.gz && \
+            cd valkey-<версия> && \
+            make BUILD_TLS=yes && \
+            sudo make install && \
+            sudo cp ./src/valkey-cli /usr/bin/
+            ```
+
+    1. **Подключитесь напрямую к мастеру:**
+
+        * нешардированного кластера:
+
+            ```bash
+            valkey-cli \
+                -h c-<идентификатор_кластера>.rw.mdb.yandexcloud.net \
+                -a <пароль> \
+                -p 6380 \
+                --tls \
+                --cacert ~/.redis/YandexInternalRootCA.crt
+            ```
+
+        * шардированного кластера:
+
+            ```bash
+            valkey-cli \
+                -c \
+                -h <FQDN_хоста-мастера_в_нужном_шарде> \
+                -a <пароль> \
+                -p 6380 \
+                --tls \
+                --cacert ~/.redis/YandexInternalRootCA.crt \
+            ```
+
+- Подключение с SSL через redis-cli {#with-ssl-2}
 
     1. **Перед подключением установите зависимости:**
        
-       Соберите утилиту `redis-tools` с поддержкой TLS одним из двух способов:
-       
-       * **Из репозитория**
-       
-           1. Подключите репозиторий:
-       
-               ```bash
-               sudo apt-add-repository ppa:redislabs/redis
-               ```
-       
-               Пакеты в этом репозитории уже собраны с флагом `BUILD_TLS=yes`.
-       
-           1. Установите утилиту:
-       
-               ```bash
-               sudo apt update && sudo apt install -y redis-tools
-               ```
-       
-       * **Вручную**
-       
-           Перейдите в директорию, куда хотите скачать дистрибутив. Скачайте стабильную версию утилиты и выполните сборку и установку:
+       1. Подключите репозиторий, в котором находится утилита `redis-tools` с поддержкой TLS:
        
            ```bash
-           wget https://download.redis.io/redis-stable.tar.gz && \
-           tar -xzvf redis-stable.tar.gz && \
-           cd redis-stable && \
-           make BUILD_TLS=yes && \
-           sudo make install && \
-           sudo cp ./src/redis-cli /usr/bin/
+           sudo apt-add-repository ppa:redislabs/redis
+           ```
+       
+           Пакеты в этом репозитории уже собраны с флагом `BUILD_TLS=yes`.
+       
+       1. Установите утилиту:
+       
+           ```bash
+           sudo apt update && sudo apt install -y redis-tools
            ```
 
     1. **Подключитесь напрямую к мастеру:**
 
-       * нешардированного кластера:
+        * нешардированного кластера:
 
-         ```bash
-         redis-cli \
-             -h c-<идентификатор_кластера>.rw.mdb.yandexcloud.net \
-             -a <пароль> \
-             -p 6380 \
-             --tls \
-             --cacert ~/.redis/YandexInternalRootCA.crt
-         ```
+            ```bash
+            redis-cli \
+                -h c-<идентификатор_кластера>.rw.mdb.yandexcloud.net \
+                -a <пароль> \
+                -p 6380 \
+                --tls \
+                --cacert ~/.redis/YandexInternalRootCA.crt
+            ```
 
-       * шардированного кластера:
+        * шардированного кластера:
 
-          ```bash
-          redis-cli \
-              -c \
-              -h <FQDN_хоста-мастера_в_нужном_шарде> \
-              -a <пароль> \
-              -p 6380 \
-              --tls \
-              --cacert ~/.redis/YandexInternalRootCA.crt \
-          ```
+            ```bash
+            redis-cli \
+                -c \
+                -h <FQDN_хоста-мастера_в_нужном_шарде> \
+                -a <пароль> \
+                -p 6380 \
+                --tls \
+                --cacert ~/.redis/YandexInternalRootCA.crt \
+            ```
 
 {% endlist %}
 
@@ -230,29 +255,29 @@ GET foo
 - Подключение без SSL {#without-ssl}
 
     ```bash
-    # Собрать вручную утилиту redis-tools с поддержкой TLS.
+    # Собрать вручную утилиту valkey-tools с поддержкой TLS.
     RUN apt-get update && \
-        apt-get install make gcc libssl-dev --yes && \
-        wget https://download.redis.io/redis-stable.tar.gz && \
-        tar -xzvf redis-stable.tar.gz && \
-        cd redis-stable && \
+        apt-get install wget make gcc libssl-dev --yes && \
+        wget https://github.com/valkey-io/valkey/archive/refs/tags/<версия_Valkey™>.tar.gz && \
+        tar -xzvf <версия_Valkey™>.tar.gz && \
+        cd valkey-<версия_Valkey™> && \
         make BUILD_TLS=yes MALLOC=libc && \
         make install && \
-        cp ./src/redis-cli /usr/bin/
+        cp ./src/valkey-cli /usr/bin/
     ```
 
 - Подключение с SSL {#with-ssl}
 
     ```bash
-    # Собрать вручную утилиту redis-tools с поддержкой TLS.
+    # Собрать вручную утилиту valkey-tools с поддержкой TLS.
     RUN apt-get update && \
         apt-get install wget make gcc libssl-dev --yes && \
-        wget https://download.redis.io/redis-stable.tar.gz && \
-        tar -xzvf redis-stable.tar.gz && \
-        cd redis-stable && \
+        wget https://github.com/valkey-io/valkey/archive/refs/tags/<версия_Valkey™>.tar.gz && \
+        tar -xzvf <версия_Valkey™>.tar.gz && \
+        cd valkey-<версия_Valkey™> && \
         make BUILD_TLS=yes MALLOC=libc && \
         make install && \
-        cp ./src/redis-cli /usr/bin/ && \
+        cp ./src/valkey-cli /usr/bin/ && \
         # Получить SSL-сертификат.
         mkdir --parents ~/.redis && \
         wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
@@ -261,3 +286,5 @@ GET foo
     ```
 
 {% endlist %}
+
+Версию можно посмотреть на [странице релизов Valkey™](https://github.com/valkey-io/valkey/releases).

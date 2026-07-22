@@ -10,7 +10,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-spqr) в сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
   1. Нажмите на имя нужного кластера, затем выберите вкладку **Пользователи**.
 
 - REST API {#api}
@@ -140,7 +140,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-spqr) в сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
   1. Нажмите на имя нужного кластера, затем выберите вкладку **Пользователи**.
   1. Нажмите кнопку **Создать пользователя**.
   1. Введите имя пользователя базы данных.
@@ -334,7 +334,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-spqr) в сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
   1. Нажмите на имя нужного кластера, затем выберите вкладку **Пользователи**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **Настроить**.
   1. Измените максимальное количество подключений пользователя к БД.
@@ -539,7 +539,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-spqr) в сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
   1. Нажмите на имя нужного кластера, затем выберите вкладку **Пользователи**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **Изменить пароль**.
   1. Введите новый пароль. Длина пароля — от 8 до 128 символов.
@@ -661,7 +661,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-spqr) в сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
   1. Нажмите на имя нужного кластера, затем выберите вкладку **Пользователи**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **Настроить**.
   1. Измените тип защиты от удаления в поле **Защита от удаления**.
@@ -787,7 +787,7 @@
 
   Чтобы удалить пользователя:
 
-  1. Перейдите в сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-spqr) в сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
   1. Нажмите на имя нужного кластера, затем выберите вкладку **Пользователи**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **Удалить**.
   1. Подтвердите удаление.

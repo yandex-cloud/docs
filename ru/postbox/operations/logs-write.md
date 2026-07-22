@@ -14,11 +14,12 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится адрес.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
+    1. [Перейдите]({{ link-console-main }}/link/postbox) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
     1. Выберите адрес, для которого вы хотите настроить логирование.
     1. В блоке **{{ ui-key.yacloud.logging.label_title }}** нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.  
     1. Включите опцию **{{ ui-key.yacloud.logging.field_logging }}**.
     1. В поле **{{ ui-key.yacloud.logging.label_destination }}** выберите:
+        
         * `{{ ui-key.yacloud.common.folder }}` — чтобы записывать логи в [лог-группу](../../logging/concepts/log-group.md) по умолчанию для каталога, в котором находится адрес.
         * `{{ ui-key.yacloud.logging.label_loggroup }}` — чтобы записывать логи в пользовательскую лог-группу. В поле **{{ ui-key.yacloud.logging.label_loggroup }}** выберите лог-группу, в которую будут записываться логи. Если у вас нет лог-группы, [создайте ее](../../logging/operations/create-group.md).
     1. (Опционально) Чтобы записывать логи о переходе писем в различные статусы, включите опцию **{{ ui-key.yacloud.postbox.label_mail-statuses }}**.
@@ -34,6 +35,6 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Создать конфигурацию](create-configuration.md)
+[Создать конфигурацию](create-configuration.md)

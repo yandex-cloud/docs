@@ -21,7 +21,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) перейдите в [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [функция](../../concepts/function.md).
-  1. Перейдите в сервис **Cloud Functions**.
+  1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
   1. Выберите функцию.
   1. Перейдите на вкладку **Редактор**.
   1. Разверните блок **Дополнительные настройки**.

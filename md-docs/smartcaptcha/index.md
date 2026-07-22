@@ -94,6 +94,8 @@ Yandex SmartCaptcha позволяет определить, кем являет
 
  - [get](cli-ref/captcha/get.md)
 
+ - [get-keys](cli-ref/captcha/get-keys.md)
+
  - [get-secret-key](cli-ref/captcha/get-secret-key.md)
 
  - [list](cli-ref/captcha/list.md)
@@ -131,6 +133,8 @@ Yandex SmartCaptcha позволяет определить, кем являет
  - [delete](cli-ref/v1/captcha/delete.md)
 
  - [get](cli-ref/v1/captcha/get.md)
+
+ - [get-keys](cli-ref/v1/captcha/get-keys.md)
 
  - [get-secret-key](cli-ref/v1/captcha/get-secret-key.md)
 

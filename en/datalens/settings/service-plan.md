@@ -28,6 +28,12 @@ This tab provides seat cost info, a link to support service plans, and allows yo
 
 To pay for the services, you need a billing account. When registering a new {{ datalens-full-name }} instance, you do not need a billing account because your [trial period](../pricing.md#trial) is active. As soon as your trial period ends, you either reduce your consumption to one seat or add a billing account to pay for your seats. If you do not add a billing account, all the seats in your instance will go inactive except for one.
 
+{% note tip %}
+
+If you link a billing account before the trial period ends, the latter will be extended by another 15 days, for a total of 30 days.
+
+{% endnote %}
+
 ### Adding or changing a billing account {#add-billing-account}
 
 {% note info %}

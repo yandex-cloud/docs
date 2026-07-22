@@ -7,7 +7,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится API-шлюз.
-  1. Перейдите в сервис **API Gateway**.
+  1. [Перейдите](https://console.yandex.cloud/link/api-gateway) в сервис **API Gateway**.
   1. Нажмите на имя нужного API-шлюза.
   1. Перейдите на вкладку **Домены**.
   1. В строке с доменом нажмите кнопку ![image](../../_assets/options.svg) и выберите **Отключить**.
@@ -16,7 +16,7 @@
       
       * Если ваш домен делегирован Cloud DNS:
 
-        1. Перейдите в сервис **Cloud DNS**.
+        1. [Перейдите](https://console.yandex.cloud/link/dns) в сервис **Cloud DNS**.
         1. Выберите зону, в которой находится домен.
         1. Нажмите ![image](../../_assets/options.svg) в строке записи со значком ![image](../../_assets/api-gateway/service-icon.svg) и выберите ![image](../../_assets/console-icons/trash-bin.svg) **Удалить**.
         1. Подтвердите удаление.

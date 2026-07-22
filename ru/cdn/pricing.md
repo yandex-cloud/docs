@@ -77,6 +77,10 @@ blocks:
 * Количество запросов к CDN-ресурсам, превышающее бесплатный порог в 100 000 000 запросов в месяц, за каждые 100 000 запросов.
 * Платные функции, включенные для ресурсов: [экранирование источников](concepts/origins-shielding.md), [выгрузка логов](./concepts/logs.md) и [выделенная IP-адресация](./concepts/dedicated-ip-addressing.md).
 
+## Трафик между источником и CDN-серверами {#origin-cdn-traffic}
+
+{% include [origin-cdn-traffic](../_includes/cdn/origin-cdn-traffic.md) %}
+
 
 ## Цены для региона Россия {#prices}
 

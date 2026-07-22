@@ -101,7 +101,7 @@ The support cost for this solution includes:
             * `vm_image_id`: ID of the public VM [image](../../compute/operations/images-with-pre-installed-software/get-list.md).
             * `vm_username` and `vm_ssh_key`: Username and absolute path to the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys), for access to the VM.
 
-        1. Validate your {{ TF }} configuration files using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate

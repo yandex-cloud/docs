@@ -32,7 +32,7 @@ description: Создайте триггер для топика устройс�
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать триггер.
 
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. [Перейдите]({{ link-console-main }}/link/api-gateway) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
 
     1. На панели слева выберите ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -121,7 +121,7 @@ description: Создайте триггер для топика устройс�
 
 {% include [check-result](../../../_includes/api-gateway/check-result.md) %}
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Триггер для {{ iot-name }}, который передает сообщения из топиков реестров и устройств в функцию {{ sf-name }}](../../../functions/operations/trigger/iot-core-trigger-create.md)
 * [Триггер для {{ iot-name }}, который передает сообщения из топиков реестров и устройств в контейнер {{ serverless-containers-name }}](../../../serverless-containers/operations/iot-core-trigger-create.md)

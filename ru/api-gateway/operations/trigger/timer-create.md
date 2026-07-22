@@ -16,7 +16,7 @@
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать триггер.
 
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. [Перейдите]({{ link-console-main }}/link/api-gateway) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
 
     1. На панели слева выберите ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -91,7 +91,7 @@
 
 {% include [check-result](../../../_includes/api-gateway/check-result.md) %}
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Таймер, который вызывает функцию {{ sf-name }}](../../../functions/operations/trigger/timer-create.md)
 * [Таймер, который вызывает контейнер {{ serverless-containers-name }}](../../../serverless-containers/operations/timer-create.md)

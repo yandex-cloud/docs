@@ -1,5 +1,5 @@
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создан реестр.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+1. [Перейдите]({{ link-console-main }}/link/container-registry) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.cr.overview.button_create }}**.
 1. Задайте имя реестра. Требования к имени:
 

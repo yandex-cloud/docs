@@ -14,7 +14,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
     
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Перейдите]({{ link-console-main }}/link/functions) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Выберите функцию.
     1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}**.
     1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, в поле **{{ ui-key.yacloud.vpc.label_network }}**, выберите сеть, в которой будет исполняться функция.
@@ -38,6 +38,7 @@ description: Следуя данной инструкции, вы сможете
       --source-version-id <идентификатор_версии> \
       --network-id <идентификатор_сети>
     ```
+
     Где:
 
     * `--function-name` — имя функции.
@@ -54,6 +55,6 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Сетевое взаимодействие в {{ sf-name }}](../../concepts/networking.md).
+[Сетевое взаимодействие в {{ sf-name }}](../../concepts/networking.md)

@@ -30,7 +30,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+  1. [Перейдите]({{ link-console-main }}/link/managed-greenplum) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
   1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}** на вкладках **Master** и **Segment** выберите:
 
@@ -235,7 +235,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+  1. [Перейдите]({{ link-console-main }}/link/managed-greenplum) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
   1. Выберите нужный кластер.
   1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}**:

@@ -6,6 +6,18 @@
 
 _Интерфейс командной строки Yandex Cloud (CLI)_ — скачиваемое программное обеспечение для управления вашими облачными ресурсами через командную строку.
 
+CLI удобно использовать для автоматизации процессов, в том числе в bash-скриптах или сценариях CI/CD. Также с помощью CLI вы можете управлять ресурсами Yandex Cloud из окружений без графического интерфейса, например изнутри [виртуальной машины](../compute/concepts/vm.md) Yandex Compute Cloud.
+
+В CLI поддерживается большинство сервисов Yandex Cloud. Информация о доступности интерфейсов для каждого сервиса приведена в разделе [Обзор интерфейсов для работы с сервисами](../overview/concepts/interfaces.md).
+
+{% note info %}
+
+В некоторых сервисах, например [Yandex Message Queue](../message-queue/concepts/index.md), [Yandex Cloud Postbox](../postbox/concepts/index.md) и [Yandex Cloud Notification Service](../notifications/concepts/index.md), для поддержки различных сторонних инструментов и SDK реализован HTTP API, совместимый с API Amazon. Эти сервисы не поддерживаются в Yandex Cloud CLI. Для работы с ними используйте сторонние инструменты, например [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
+
+[Yandex Object Storage](../storage/concepts/index.md) поддерживает работу как через Yandex Cloud CLI, так и через AWS CLI.
+
+{% endnote %}
+
 
 ## Установка {#install}
 

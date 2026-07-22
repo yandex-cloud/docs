@@ -318,6 +318,7 @@ default:
   link-console-quotas: https://console.yandex.cloud/cloud?section=quotas
   link-console-settings: https://console.yandex.cloud/settings
   link-console-support: https://center.yandex.cloud/support
+  link-console-yq: https://yq.yandex.cloud
   link-datalens-main: https://datalens.ru
   link-datalens-main-promo: https://datalens.ru/promo
   link-datalens-main-skip-promo: https://datalens.ru/?skipPromo=true
@@ -4938,6 +4939,71 @@ default:
         products: Продукты
         publisher-users: Управление доступом
         support: Поддержка
+    yacloud_quotas:
+      quotas:
+        vdi:
+          desktopCores:
+            count: Количество vCPU рабочих столов
+          desktopImages:
+            count: Количество образов рабочих столов
+            size: Суммарный размер образов рабочих столов
+          desktopMemory:
+            size: Общий объём RAM рабочих столов
+          desktops:
+            count: Количество рабочих столов
+          hddDisks:
+            size: Общий объём HDD-дисков
+          ssdDisks:
+            size: Общий объём SSD-дисков
+        video:
+          channels:
+            count: >-
+              Максимальное количество
+              [каналов](https://yandex.cloud/ru/docs/video/concepts/#channels) в
+              одной организации
+          episodes:
+            count: >-
+              Количество
+              [эпизодов](https://yandex.cloud/ru/docs/video/concepts/streams#episodes)
+              во всех трансляциях
+          parallelStreams:
+            count: >-
+              Количество одновременных
+              [трансляций](https://yandex.cloud/ru/docs/video/concepts/streams#streams)
+              в одной организации
+          playlists:
+            count: >-
+              Количество
+              [плейлистов](https://yandex.cloud/ru/docs/video/concepts/playlists)
+              во всех каналах
+          streams:
+            count: >-
+              Количество
+              [трансляций](https://yandex.cloud/ru/docs/video/concepts/streams)
+              в одной организации
+          stylePresets:
+            count: >-
+              Количество [шаблонов
+              плеера](https://yandex.cloud/ru/docs/video/concepts/presets) во
+              всех каналах
+          thumbnails:
+            count: >-
+              Общее количество
+              [обложек](https://yandex.cloud/ru/docs/video/operations/video/add-thumbnail)
+              к видео во всех каналах
+          transcodingsWithNeuroFeatures:
+            rate: >-
+              Количество одновременных процессов по транскодированию видео с
+              нейросетевыми функциями:
+              [суммаризация](https://yandex.cloud/ru/docs/video/concepts/videos#summarization),
+              [нейроперевод](https://yandex.cloud/ru/docs/video/concepts/videos#stranslation)
+              и генерация
+              [субтитров](https://yandex.cloud/ru/docs/video/concepts/videos#subtitles)
+          videos:
+            count: >-
+              Общее количество
+              [видео](https://yandex.cloud/ru/docs/video/concepts/videos) во
+              всех каналах
     yacloud_video:
       channels:
         action_add-domain: Добавить домен

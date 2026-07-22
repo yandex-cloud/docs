@@ -319,6 +319,8 @@ items:
             href: cli-ref/cluster/start-failover.md
           - name: stop
             href: cli-ref/cluster/stop.md
+          - name: stream-logs
+            href: cli-ref/cluster/stream-logs.md
           - name: update
             href: cli-ref/cluster/update.md
           - name: update-config
@@ -457,6 +459,8 @@ items:
                 href: cli-ref/v0/cluster/start-failover.md
               - name: stop
                 href: cli-ref/v0/cluster/stop.md
+              - name: stream-logs
+                href: cli-ref/v0/cluster/stream-logs.md
               - name: update
                 href: cli-ref/v0/cluster/update.md
               - name: update-config

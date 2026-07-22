@@ -11,9 +11,59 @@ Starting March 1, 2025, support for {{ KF }} 2.8, 3.0, 3.1, 3.2, and 3.3 is disc
 
 {% endnote %}
 
-You can find the list of supported versions in the [{{ KF }} versioning policy](../concepts/update-policy.md) section. We recommend upgrading {{ KF }} step by step, without skipping any versions. For example, upgrade from version 3.1 to 3.5 in the following sequence: 3.1 → 3.2 → 3.3 → 3.4 → 3.5.
+You can find the list of supported versions in the [{{ KF }} versioning policy section](../concepts/update-policy.md).
 
-To learn about updates within the same version and host maintenance, see [this section](../concepts/maintenance.md).
+To learn about updates within the same version and host maintenance, see [{#T}](../concepts/maintenance.md).
+
+## Viewing a list of available versions {#version-list}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+    In the [management console]({{ link-console-main }}), open the {{ mkf-name }} cluster [create](cluster-create.md) or [update](cluster-update.md) page. You can view the list in the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field.
+
+- REST API {#api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Call the [Versions.List](../api-ref/Versions/list.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-kafka/v1/versions'
+        ```
+
+    1. Check the [server response](../api-ref/Versions/list.md#responses) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Call the [VersionsService.List](../api-ref/grpc/Versions/list.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/versions_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.kafka.v1.VersionsService.List
+        ```
+
+    1. Check the [server response](../api-ref/grpc/Versions/list.md#yandex.cloud.mdb.kafka.v1.ListVersionsResponse) to make sure your request was successful.
+
+{% endlist %}
 
 ## Before a version upgrade {#before-update}
 
@@ -66,9 +116,9 @@ During an upgrade, topics may be unavailable if their [replication factor](../co
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For information about creating this file, see [{#T}](cluster-create.md).
+        For information on how to create this file, see [{#T}](cluster-create.md).
 
     1. In the `config` section of the {{ mkf-name }} cluster, add the `version` field (the {{ KF }} version) or update its value if it already exists:
 
@@ -85,7 +135,7 @@ During an upgrade, topics may be unavailable if their [replication factor](../co
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

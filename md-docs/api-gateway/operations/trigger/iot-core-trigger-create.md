@@ -43,7 +43,7 @@
 
     1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать триггер.
 
-    1. Перейдите в сервис **API Gateway**.
+    1. [Перейдите](https://console.yandex.cloud/link/api-gateway) в сервис **API Gateway**.
 
     1. На панели слева выберите ![image](../../../_assets/console-icons/gear-play.svg) **Триггеры**.
 
@@ -138,7 +138,7 @@
 
 Проверьте, что триггер работает корректно. Для этого посмотрите [логи API-шлюза](../api-gw-logs.md), в них отображается информация об обращениях к нему.
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Триггер для Yandex IoT Core, который передает сообщения из топиков реестров и устройств в функцию Cloud Functions](../../../functions/operations/trigger/iot-core-trigger-create.md)
 * [Триггер для Yandex IoT Core, который передает сообщения из топиков реестров и устройств в контейнер Serverless Containers](../../../serverless-containers/operations/iot-core-trigger-create.md)

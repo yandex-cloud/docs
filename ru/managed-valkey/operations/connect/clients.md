@@ -13,7 +13,7 @@ description: Следуя данной инструкции, вы сможете
 
 Способ настройки зависит от того, включено ли в кластере [шардирование](../../concepts/sharding.md).
 
-### redis-cli {#redis-cli}
+### valkey-cli (redis-cli) {#valkey-cli}
 
 Для кластеров {{ VLK }} поддерживается шифрованное соединение через порт `{{ port-mrd-tls }}` и нешифрованное через порт `{{ port-mrd }}`.
 
@@ -45,27 +45,69 @@ description: Следуя данной инструкции, вы сможете
                -a <пароль>
            ```
 
-- Подключение с SSL {#with-ssl}
+- Подключение с SSL через valkey-cli {#with-ssl}
+
+    1. **Перед подключением установите зависимости:**
+
+        1. Перейдите в директорию, куда хотите скачать дистрибутив {{ VLK }}.
+
+        1. Скачайте нужную [версию](https://github.com/valkey-io/valkey/releases) {{ VLK }} и выполните сборку и установку с поддержкой TLS:
+
+            ```bash
+            wget https://github.com/valkey-io/valkey/archive/refs/tags/<версия>.tar.gz && \
+            tar -xzvf <версия>.tar.gz && \
+            cd valkey-<версия> && \
+            make BUILD_TLS=yes && \
+            sudo make install && \
+            sudo cp ./src/valkey-cli /usr/bin/
+            ```
+
+    1. **Подключитесь напрямую к мастеру:**
+
+        * нешардированного кластера:
+
+            ```bash
+            valkey-cli \
+                -h c-<идентификатор_кластера>.rw.{{ dns-zone }} \
+                -a <пароль> \
+                -p {{ port-mrd-tls }} \
+                --tls \
+                --cacert ~/.redis/{{ crt-local-file }}
+            ```
+
+        * шардированного кластера:
+
+            ```bash
+            valkey-cli \
+                -c \
+                -h <FQDN_хоста-мастера_в_нужном_шарде> \
+                -a <пароль> \
+                -p {{ port-mrd-tls }} \
+                --tls \
+                --cacert ~/.redis/{{ crt-local-file }} \
+            ```
+
+- Подключение с SSL через redis-cli {#with-ssl-2}
 
     1. {% include [Install requirements SSL](../../../_includes/mdb/mvk/connect/bash/install-requirements-ssl.md) %}
 
     1. **Подключитесь напрямую к мастеру:**
 
-       * нешардированного кластера:
+        * нешардированного кластера:
 
-         {% include [default-connstring](../../../_includes/mdb/mvk/default-connstring.md) %}
+            {% include [default-connstring](../../../_includes/mdb/mvk/default-connstring.md) %}
 
-       * шардированного кластера:
+        * шардированного кластера:
 
-          ```bash
-          redis-cli \
-              -c \
-              -h <FQDN_хоста-мастера_в_нужном_шарде> \
-              -a <пароль> \
-              -p {{ port-mrd-tls }} \
-              --tls \
-              --cacert ~/.redis/{{ crt-local-file }} \
-          ```
+            ```bash
+            redis-cli \
+                -c \
+                -h <FQDN_хоста-мастера_в_нужном_шарде> \
+                -a <пароль> \
+                -p {{ port-mrd-tls }} \
+                --tls \
+                --cacert ~/.redis/{{ crt-local-file }} \
+            ```
 
 {% endlist %}
 

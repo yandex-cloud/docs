@@ -1,0 +1,3 @@
+After the end of the trial period, the resources will be retained but discontinued. To resume working with {{ yandex-cloud }}, you will need to fully upgrade to the paid version.
+
+Before granting access to the paid version, Yandex may request additional documents and information to verify the registration data you provided. If you fail to provide the requested documents, Yandex reserves the right to terminate your access to the services.

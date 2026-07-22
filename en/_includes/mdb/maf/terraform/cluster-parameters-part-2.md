@@ -45,13 +45,15 @@
 
     * `type`: Maintenance type. The possible values include:
         * `ANYTIME`: Any time.
-        * `WEEKLY`: On schedule.
+        * `WEEKLY`: On a schedule.
     * `day`: Day of week for the `WEEKLY` type, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-    * `hour`: Time of day (UTC) for the `WEEKLY` type, from `1` to `24`.
+    * `hour`: UTC hour interval for the `WEEKLY` type, from `1` to `24`.
+
+      > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
 * `deletion_protection`: Enables cluster protection against accidental deletion. The possible values are `true` or `false`.
 
-    Even if it is enabled, one can still connect to the cluster manually and delete it.
+    Even with deletion protection on, one can still connect to the cluster manually and delete it.
 
 * `lockbox_secrets_backend.enabled`: Enables using secrets in [{{ lockbox-full-name }}](../../../../lockbox/concepts/index.md) to [store {{ AF }} configuration data, variables, and connection parameters](../../../../managed-airflow/concepts/impersonation.md#lockbox-integration). The possible values are `true` or `false`.
 * `airflow_config`: [{{ AF }}](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html) additional properties, e.g., `core` for configuration section, `load_examples` for key, and `False` for value.

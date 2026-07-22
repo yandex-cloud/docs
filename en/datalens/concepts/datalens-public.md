@@ -1,6 +1,6 @@
-# Public access
+# Publishing objects
 
-You can make the charts and dashboards you create public, so any user can follow a link and view the object you published without logging in. However, the user will not be able to view chart settings, connections, or the dataset, or run an SQL query.
+If you make your new charts and dashboards publicly accessible, any user can follow the link and view the newly published object without authorization. However, no user can view the chart's settings, connections, dataset, or run an SQL query.
 
 {% include [share-note](../../_includes/datalens/datalens-share-note.md) %}
 
@@ -32,15 +32,28 @@ To secure your published data:
 
 ## Publishing an object {#how-to-publish}
 
-{% list tabs group=datalens_public %}
+The method you use to make an object publicly accessible depends on its [location](./publishing-and-embedding.md#object-location), i.e., in a [workbook](../workbooks-collections/index.md#enable-workbooks) or folder:
 
-- Publishing a dashboard {#dashboard}
 
-  {% include [datalens-public-dashboard](../../_includes/datalens/operations/datalens-public-dashboard.md) %}
+{% list tabs %}
 
-- Publishing a chart {#chart}
+- In a workbook
 
-  {% include [datalens-public-chart](../../_includes/datalens/operations/datalens-public-chart.md) %}
+  {% include [datalens-public-wb](../../_includes/datalens/operations/datalens-public-wb.md) %}
+
+- In a folder
+
+  {% list tabs group=datalens_public %}
+
+  - Publishing a dashboard {#dashboard}
+
+    {% include [datalens-public-dashboard](../../_includes/datalens/operations/datalens-public-dashboard.md) %}
+
+  - Publishing a chart {#chart}
+
+    {% include [datalens-public-chart](../../_includes/datalens/operations/datalens-public-chart.md) %}
+
+  {% endlist %}
 
 {% endlist %}
 

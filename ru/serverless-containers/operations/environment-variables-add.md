@@ -7,7 +7,7 @@
 - Консоль управления {#console}
     
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится контейнер.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. [Перейдите]({{ link-console-main }}/link/serverless-containers) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. Выберите контейнер, для ревизии которого хотите добавить переменную окружения.
     1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-containers.label_editor }}**.
     1. В открывшемся окне в блоке **{{ ui-key.yacloud.serverless-containers.section_image }}** укажите переменную окружения и нажмите **{{ ui-key.yacloud.common.add }}**. Можно добавить несколько переменных окружения.
@@ -74,6 +74,7 @@
 	 Подробнее о параметрах ресурса `yandex_serverless_container` в [документации провайдера]({{ tf-provider-resources-link }}/serverless_container).
 
   1. Проверьте конфигурацию командой:
+
      ```
      terraform validate
      ```
@@ -85,6 +86,7 @@
      ```
 
   1. Выполните команду:
+
      ```
      terraform plan
      ```
@@ -92,6 +94,7 @@
      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Примените изменения конфигурации:
+
      ```
      terraform apply
      ```
@@ -110,6 +113,6 @@
 
 {% endlist %}
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Переменные окружения](../concepts/runtime.md#environment-variables).
+[Переменные окружения](../concepts/runtime.md#environment-variables)

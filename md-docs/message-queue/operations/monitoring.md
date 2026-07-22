@@ -11,7 +11,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, которому принадлежит очередь с сообщениями.
-  1. Перейдите в сервис **Message Queue**.
+  1. [Перейдите](https://console.yandex.cloud/link/message-queue) в сервис **Message Queue**.
   1. На панели слева выберите ![image](../../_assets/console-icons/display-pulse.svg) **Мониторинг**.
 
   На странице появятся секции с графиками.

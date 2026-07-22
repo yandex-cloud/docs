@@ -62,6 +62,9 @@ Max snapshot age in days. 7 days minimum. ||
 || `--log-monitoring-checks` | Enables monitoring data requests logging. ||
 || `--log-index-maintenance` | Enables indices maintenance requests logging, such as indices refreshes, flushes and merges. ||
 || `--log-backup-operations` | Enables snapshots and repositories requests logging. ||
+|| `--log-authenticated-requests` | Enables logging of successfully authenticated REST requests. ||
+|| `--log-index-events` | Enables logging of index-level events, such as creating or deleting an index. ||
+|| `--log-bad-headers` | Enables logging of REST requests containing bad or spoofed security headers. ||
 || `--new-name` | `string`
 
 Name of the cluster. ||
@@ -108,7 +111,8 @@ Network name. ||
 OpenSearch version. ||
 || `--admin-password` | `string`
 
-New password for entity. It is not secure to specify password in command line. To avoid it you can omit this flag and enter password when prompted. ||
+Password for entity. Usage of --read-admin-password is more secure ||
+|| `--read-admin-password` | Read password for entity from input ||
 || `--generate-admin-password` | Generate random password ||
 || `--data-transfer-access` | `string`
 

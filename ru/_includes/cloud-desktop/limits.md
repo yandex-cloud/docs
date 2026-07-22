@@ -2,18 +2,18 @@
 
 #|
 || Вид ограничения | Значение ||
-|| Максимальное количество рабочих столов в одном облаке
+|| {{ ui-key.yacloud_quotas.quotas.vdi.desktops.count }}
    `vdi.desktops.count` | 10 ||
-|| Максимальное количество образов рабочих столов в одном облаке
+|| {{ ui-key.yacloud_quotas.quotas.vdi.desktopImages.count }}
    `vdi.desktopImages.count` | 8 ||
-|| Максимальный суммарный размер образов рабочих столов в одном облаке
+|| {{ ui-key.yacloud_quotas.quotas.vdi.desktopImages.size }}
    `vdi.desktopImages.size` | 1 ТБ ||
-|| Максимальное суммарное количество vCPU в одном облаке
+|| {{ ui-key.yacloud_quotas.quotas.vdi.desktopCores.count }}
    `vdi.desktopCores.count` | 40 ||
-|| Максимальный суммарный объем RAM в одном облаке
+|| {{ ui-key.yacloud_quotas.quotas.vdi.desktopMemory.size }}
    `vdi.desktopMemory.size` | 80 ГБ ||
-|| Максимальный суммарный объем HDD-дисков в одном облаке 
+|| {{ ui-key.yacloud_quotas.quotas.vdi.hddDisks.size }} 
    `vdi.hddDisks.size` | 600 ГБ ||
-|| Максимальный суммарный объем SSD-дисков в одном облаке 
+|| {{ ui-key.yacloud_quotas.quotas.vdi.ssdDisks.size }} 
    `vdi.ssdDisks.size` | 600 ГБ ||
 |#

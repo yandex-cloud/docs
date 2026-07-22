@@ -24,9 +24,11 @@ The available disk types [depend](../concepts/storage.md) on the selected [host 
 
 1. Calculate the [minimum storage size](../concepts/storage.md#minimal-storage-size) for topics.
 1. [Assign](../../iam/operations/roles/grant.md) the following roles to your {{ yandex-cloud }} account:
-   * [{{ roles.mkf.editor }} or higher](../security/index.md#roles-list): To create a cluster.
-   * [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user): To use the cluster [network](../../vpc/concepts/network.md#network).
-   * [kms.keys.user](../../kms/security/index.md#kms-keys-user): To manage [disk encryption](../concepts/storage.md#disk-encryption).
+
+    * {% include [roles-mkf-editor](../../_includes/mdb/mkf/roles-mkf-editor.md) %}
+    * {% include [roles-vpc-user](../../_includes/mdb/roles-vpc-user.md) %}
+    * [kms.keys.user](../../kms/security/index.md#kms-keys-user): To manage [disk encryption](../concepts/storage.md#disk-encryption).
+    * {% include [roles-mdb-viewer](../../_includes/mdb/roles-mdb-viewer-create-cluster.md) %}
 
 If you specify security group IDs when creating a {{ mkf-name }} cluster, you may also need to [configure security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 
@@ -406,7 +408,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
                 "anytime": {},
                 "weeklyMaintenanceWindow": {
                   "day": "<day_of_week>",
-                  "hour": "<hour_UTC>"
+                  "hour": "<sequence_number_of_hour_interval>"
                 }
               },
               "deletionProtection": <protect_cluster_from_deletion>,
@@ -470,9 +472,11 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
                 * `anytime`: Any time (default).
                 * `weeklyMaintenanceWindow`: On schedule:
                     * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-                    * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
+                    * `hour`: UTC hour interval, from `1` to `24`.
 
-            * `deletionProtection`: Cluster protection against accidental deletion, `true` or `false`. The default value is `false`.
+                      > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
+
+            * `deletionProtection`: Cluster deletion protection, `true` or `false`. The default value is `false`.
 
                 {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
             
@@ -601,7 +605,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
                 "anytime": {},
                 "weekly_maintenance_window": {
                   "day": "<day_of_week>",
-                  "hour": "<hour_UTC>"
+                  "hour": "<sequence_number_of_hour_interval>"
                 }
               },
               "deletion_protection": <protect_cluster_from_deletion>,
@@ -666,9 +670,11 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
                 * `anytime`: Any time (default).
                 * `weekly_maintenance_window`: On schedule:
                     * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-                    * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
+                    * `hour`: UTC hour interval, from `1` to `24`.
+                    
+                      > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
-            * `deletion_protection`: Cluster protection against accidental deletion, `true` or `false`. The default value is `false`.
+            * `deletion_protection`: Cluster deletion protection, `true` or `false`. The default value is `false`.
 
                 {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
             
@@ -1010,7 +1016,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-     This will create all the resources you need in the specified folder, and the terminal will display the [FQDNs of the {{ mkf-name }} cluster hosts](../concepts/network.md#hostname). You can check the new resources and their settings in the [management console]({{ link-console-main }}).
+     This will create all the resources you need in the specified folder, and the terminal will display the [FQDNs of the {{ mkf-name }} cluster hosts](../concepts/network.md#hostname). You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
   For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
@@ -1106,7 +1112,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
                 "anytime": {},
                 "weeklyMaintenanceWindow": {
                   "day": "<day_of_week>",
-                  "hour": "<hour_UTC>"
+                  "hour": "<sequence_number_of_hour_interval>"
                 }
               },
               "deletionProtection": <protect_cluster_from_deletion>,
@@ -1181,9 +1187,11 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
                 * `anytime`: At any time (default).
                 * `weeklyMaintenanceWindow`: On schedule:
                     * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-                    * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
+                    * `hour`: UTC hour interval, from `1` to `24`.
 
-            * `deletionProtection`: Cluster protection against accidental deletion, `true` or `false`. The default value is `false`.
+                      > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
+
+            * `deletionProtection`: Cluster deletion protection, `true` or `false`. The default value is `false`.
 
                 {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
             
@@ -1312,7 +1320,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
                 "anytime": {},
                 "weekly_maintenance_window": {
                   "day": "<day_of_week>",
-                  "hour": "<hour_UTC>"
+                  "hour": "<sequence_number_of_hour_interval>"
                 }
               },
               "deletion_protection": <protect_cluster_from_deletion>,
@@ -1387,9 +1395,11 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
                 * `anytime`: At any time (default).
                 * `weekly_maintenance_window`: On schedule:
                     * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-                    * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
+                    * `hour`: UTC hour interval, from `1` to `24`.
 
-            * `deletion_protection`: Cluster protection against accidental deletion, `true` or `false`. The default value is `false`.
+                      > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
+
+            * `deletion_protection`: Cluster deletion protection, `true` or `false`. The default value is `false`.
 
                 {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
             

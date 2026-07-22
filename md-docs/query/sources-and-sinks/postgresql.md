@@ -2,29 +2,31 @@
 
 # Работа с базами данных Managed Service for PostgreSQL
 
-В этом разделе описана основная информация про работу с [Managed Service for PostgreSQL](https://yandex.cloud/ru/services/managed-postgresql).
+В этом разделе приведена основная информация о работе с [Managed Service for PostgreSQL](https://yandex.cloud/ru/services/managed-postgresql).
 
-Для работы с базой данных Managed Service for PostgreSQL необходимо выполнить следующие шаги:
-1. Создать [соединение](../concepts/glossary.md#connection), содержащее реквизиты для подключения к базе данных.
-1. [Выполнить запрос](#query) к базе данных.
+Для работы с базой данных Managed Service for PostgreSQL выполните следующие шаги:
 
-Пример запроса, выполняющего чтение данных из Managed Service for PostgreSQL:
+1. Создайте [соединение](../concepts/glossary.md#connection), содержащее реквизиты для подключения к базе данных.
+1. [Выполните запрос](#query) к базе данных.
+
+Пример запроса для чтения данных из Managed Service for PostgreSQL:
 
 ```sql
 SELECT * FROM postgresql_mdb_connection.my_table
 ```
 
-где:
+Где:
+
 * `postgresql_mdb_connection` — название созданного соединения с базой данных.
 * `my_table` — имя таблицы в базе данных.
 
-
-## Настройка соединения {#create_connection}
+## Настройка соединения {#create-connection}
 
 Чтобы создать соединение с Managed Service for PostgreSQL:
+
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать соединение.
-1. Перейдите в сервис **Yandex Query**.
-1. На панели слева перейдите на вкладку **Соединения**.
+1. [Перейдите](https://yq.yandex.cloud) в сервис **Yandex Query**.
+1. На панели слева выберите **Соединения**.
 1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg) **Создать**.
 1. Укажите параметры соединения:
 
@@ -36,47 +38,47 @@ SELECT * FROM postgresql_mdb_connection.my_table
    1. В блоке **Параметры типа соединения**:
 
       * **Кластер** — выберите существующий кластер Managed Service for PostgreSQL или создайте новый.
-      * **Сервисный аккаунт** — выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) Managed Service for PostgreSQL или создайте новый с ролью [`managed-postgresql.viewer`](../../managed-postgresql/security/index.md#mpg-viewer), от имени которого будет выполняться подключение к кластерам `Managed Service for PostgreSQL`.
+      * **Сервисный аккаунт** — выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) Managed Service for PostgreSQL или создайте новый с ролью [`managed-postgresql.viewer`](../../managed-postgresql/security/index.md#mpg-viewer), от имени которого будет выполняться подключение к кластерам Managed Service for PostgreSQL.
 
         Чтобы использовать сервисный аккаунт, пользователю нужна [роль](../../iam/security/index.md#iam-serviceAccounts-user) `iam.serviceAccounts.user`.
 
-      * **База данных**  — выберите базу данных, которая будет использоваться при работе с кластером PostgreSQL.
-      * **Схема**  — укажите [пространство имен](https://www.postgresql.org/docs/current/catalog-pg-namespace.html), которое будет использоваться при работе с базой данных PostgreSQL.
-      * **Логин**  — имя пользователя, которое будет использоваться для подключения к базам данных PostgreSQL.
-      * **Пароль**  — пароль пользователя, который будет использоваться для подключения к базам данных PostgreSQL.
-
+      * **База данных** — выберите базу данных, которая будет использоваться при работе с кластером PostgreSQL.
+      * **Схема** — укажите [пространство имен](https://www.postgresql.org/docs/current/catalog-pg-namespace.html), которое будет использоваться при работе с базой данных PostgreSQL.
+      * **Логин** — имя пользователя для подключения к базе данных PostgreSQL.
+      * **Пароль** — пароль пользователя для подключения к базе данных PostgreSQL.
 
 1. Нажмите кнопку **Создать**.
 
-Сервисный аккаунт необходим для обнаружения точек подключения к кластерам Managed Service for PostgreSQL внутри Yandex Cloud, для работы с данными логин и пароль пользователя задаются отдельно.
+Сервисный аккаунт необходим для обнаружения точек подключения к кластерам Managed Service for PostgreSQL внутри Yandex Cloud. Для работы с данными отдельно задайте имя пользователя и пароль.
 
 {% note warning %}
 
-Необходимо предварительно разрешить сетевой доступ от Yandex Query до кластеров Managed Service for PostgreSQL. Для этого в настройках базы данных, к которой осуществляется подключение, установите пункт "Доступ из Yandex Query".
+Разрешите сетевой доступ от Yandex Query до кластеров Managed Service for PostgreSQL. Для этого в настройках базы данных, к которой выполняется подключение, включите опцию «Доступ из Yandex Query».
 
 {% endnote %}
 
 ## Синтаксис запросов {#query}
+
 Для работы с PostgreSQL используется следующая форма SQL-запроса:
 
 ```sql
 SELECT * FROM <соединение>.<имя_таблицы>
 ```
 
-где:
+Где:
+
 * `<соединение>` — название созданного соединения с базой данных.
 * `<имя_таблицы>` — имя таблицы в базе данных.
 
 ## Ограничения {#limits}
 
-При работе с кластерами PostgreSQL существует ряд ограничений.
+При работе с кластерами PostgreSQL действуют следующие ограничения:
 
-Ограничения:
 1. Внешние источники доступны только для чтения данных через запросы `SELECT`. Запросы, модифицирующие таблицы во внешних источниках, сервисом Yandex Query в настоящее время не поддерживаются.
 1. В YQ используется [система типов](https://ydb.tech/docs/ru//yql/reference/types/primitive) Yandex Managed Service for YDB. Однако диапазоны допустимых значений для типов, использующихся в YDB при работе с датой и временем (`Date`, `Datetime`, `Timestamp`), зачастую оказываются недостаточно широкими для того, чтобы вместить значения соответствующих типов PostgreSQL (`date`, `timestamp`). 
 В связи с этим значения даты и времени, прочитанные из PostgreSQL, возвращаются YQ как обычные строки (тип `Optional<Utf8>`) в формате [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html).
 
-## Пушдаун фильтров {#predicate_pushdown}
+## Пушдаун фильтров {#predicate-pushdown}
 
 Yandex Query умеет передавать обработку частей запросов в систему-источник данных. Это означает, что фильтрующие выражения передаются сквозь Yandex Query непосредственно в базу данных для обработки, обычно это условия запросов, указанных в `WHERE`. Такой способ обработки называется `пушдаун фильтров`.
 
@@ -103,7 +105,7 @@ Yandex Query умеет передавать обработку частей з�
 |`Double`|
 |`Decimal`|
 
-## Поддерживаемые типы данных {#supported_types}
+## Поддерживаемые типы данных {#supported-types}
 
 В базе данных PostgreSQL признак опциональности значений колонки (разрешено или запрещено колонке содержать значения `NULL`) не является частью системы типов. Ограничение (constraint) `NOT NULL` для каждой колонки реализуется в виде атрибута `attnotnull` в системном каталоге [pg_attribute](https://www.postgresql.org/docs/current/catalog-pg-attribute.html), то есть на уровне метаданных таблицы. Следовательно, все базовые типы PostgreSQL по умолчанию могут содержать значения `NULL`, и в системе типов YQ они должны отображаться в [опциональные](https://ydb.tech/docs/ru//yql/reference/types/optional) типы. 
 

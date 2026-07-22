@@ -14,7 +14,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Перейдите]({{ link-console-main }}/link/functions) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Выберите функцию.
   1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}**.
   1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** выберите или создайте новый [сервисный аккаунт](../../../iam/concepts/users/service-accounts) с ролью:
@@ -125,7 +125,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../concepts/mounting.md)
 * [{#T}](../../../serverless-containers/concepts/mounting.md)

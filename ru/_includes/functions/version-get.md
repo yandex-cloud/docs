@@ -3,7 +3,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Перейдите]({{ link-console-main }}/link/functions) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. На панели слева выберите ![image](../../_assets/console-icons/curly-brackets-function.svg) **{{ ui-key.yacloud.serverless-functions.switch_list }}**.
     1. Выберите функцию, для которой хотите получить список версий.
     1. В разделе **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-history }}** будет показан список версий функции и подробная информация о них.
@@ -19,9 +19,11 @@
     Чтобы получить подробную информацию о версии функции:
 
     * по `ID`, выполните команду:
+
         ```
         yc serverless function version get <идентификатор_версии>
         ```
+
         Результат:
       
         ```
@@ -41,9 +43,11 @@
         ```
 
     * по `TAGS`, выполните команду:
+
         ```
         yc serverless function version get-by-tag --function-name <имя_функции> --tag <тег>
         ```
+        
         Результат:
       
         ```

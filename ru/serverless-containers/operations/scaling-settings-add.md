@@ -19,7 +19,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится контейнер.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. [Перейдите]({{ link-console-main }}/link/serverless-containers) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. Выберите контейнер.
     1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-containers.label_editor }}**.
     1. В блоке **{{ ui-key.yacloud.serverless-containers.section_parameters }}** задайте настройки масштабирования.
@@ -44,6 +44,7 @@
     ```
 
     Где:
+    
     * `--container-id` — идентификатор контейнера. Чтобы узнать идентификатор, [получите](list.md) список контейнеров.
     * `--image` — URL [Docker-образа](../../container-registry/concepts/docker-image.md).
     * `--min-instances` — количество подготовленных экземпляров.
@@ -110,6 +111,7 @@
         ```
 
         Где:
+        
         * `name` — имя контейнера.
         * `service_account_id` — [идентификатор сервисного аккаунта](../../iam/operations/sa/get-id.md), у которого есть права на скачивание Docker-образа.
         * `memory` — требуемая память. По умолчанию — 128 МБ.

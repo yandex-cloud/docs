@@ -72,7 +72,13 @@ Possible property names:
 
 - `hot-standby`: Hot standby (required)
 
-- `user-account-id`: User account ids ||
+- `user-account-id`: User account ids
+
+- `time-zone`: Time zone for lifetime control. For example "Europe/Moscow".
+
+- `cron-start`: Cron expression for automatic start desktops in group. For example "0 0 * * *".
+
+- `cron-stop`: Cron expression for automatic stop desktops in group. For example "0 0 * * *". ||
 || `--update-policy` | `string`
 
 New desktop group update policy. ||

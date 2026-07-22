@@ -7,7 +7,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан [реестр](../../concepts/registry.md).
-  1. Перейдите в сервис **Container Registry**.
+  1. [Перейдите](https://console.yandex.cloud/link/container-registry) в сервис **Container Registry**.
   1. Выберите реестр и нажмите на строку с его именем.
   1. Выберите репозиторий и нажмите на строку с его именем.
   1. На панели слева нажмите ![lifecycle](../../../_assets/console-icons/arrows-rotate-right.svg) **Жизненный цикл**.

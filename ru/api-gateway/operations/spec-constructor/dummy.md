@@ -10,7 +10,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления
 
     1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создали или хотите создать [API-шлюз](../../concepts/index.md).
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. [Перейдите]({{ link-console-main }}/link/api-gateway) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
     1. Выберите API-шлюз или нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**, чтобы создать новый.
     1. Нажмите кнопку ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
     1. В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** нажмите значок ![image](../../../_assets/api-gateway/spec-constructor/dummy.svg).
@@ -27,6 +27,6 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [constructor-result](../../../_includes/api-gateway/constructor-result.md) %}
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Расширение x-yc-apigateway-integration:dummy](../../concepts/extensions/dummy.md)
+[Расширение x-yc-apigateway-integration:dummy](../../concepts/extensions/dummy.md)

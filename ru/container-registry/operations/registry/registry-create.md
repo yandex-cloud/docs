@@ -36,6 +36,7 @@
      ```
 
      Где:
+     
      * `name` — имя реестра.
      * `folder_id` — идентификатор каталога.
      * `labels` — набор [меток](../../../resource-manager/concepts/labels.md).

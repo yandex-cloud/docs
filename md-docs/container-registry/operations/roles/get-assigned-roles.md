@@ -7,7 +7,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно просмотреть [роли](../../../iam/concepts/access-control/roles.md), назначенные на ресурс.
-  1. Перейдите в сервис **Container Registry**.
+  1. [Перейдите](https://console.yandex.cloud/link/container-registry) в сервис **Container Registry**.
   1. Выберите [реестр](../../concepts/registry.md) или [репозиторий](../../concepts/repository.md) в нем.
   1. Перейдите на вкладку **Права доступа**.
   1. Найдите в списке нужного пользователя, группу или [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md). Назначенные роли указаны в столбце **Роли**.

@@ -18,7 +18,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Managed Service for&nbsp;MySQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL**.
 
   1. Нажмите на имя нужного кластера и выберите вкладку ![image-users](../../_assets/console-icons/persons.svg) **Пользователи**.
 

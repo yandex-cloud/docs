@@ -60,8 +60,8 @@ sourcePath: overlay/quickstart/document-api/aws-setup.md
 
     - Консоль управления {#console}
 
-      1. Перейдите в каталог, которому принадлежит сервисный аккаунт.
-      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит сервисный аккаунт.
+      1. [Перейдите]({{ link-console-main }}/link/iam) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** и выберите нужный сервисный аккаунт.
       1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** на верхней панели.
       1. Выберите пункт **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.

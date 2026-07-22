@@ -4,6 +4,91 @@
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.19.0 (21.07.26) {#v-1-19-0}
+
+#### BareMetal {#v-1-19-0-baremetal-name}
+
+* Добавлено описание для команды `yc baremetal v2 extend`.
+
+#### SmartCaptcha {#v-1-19-0-captcha-name}
+
+* Добавлена команда `yc smartcaptcha captcha get-keys` для получения ключей.
+
+#### Cloud Desktop {#v-1-19-0-cloud-desktop-name}
+
+* Добавлены параметры `time-zone`, `cron-start`, `cron-stop` для атрибута `group-config`:
+  * `yc desktops group create`;
+  * `yc desktops group update`.
+
+#### Cloud Registry {#v-1-19-0-cloud-registry-name}
+
+* Добавлены параметры `--include-patterns`, `--exclude-patterns` для управления паттернами фильтрации в команды:
+  * `yc cloud-registry registry create`;
+  * `yc cloud-registry registry update`.
+* Версия команд v1 для сервиса `cloud-registry` используется по умолчанию.
+
+#### Identity and Access Management {#v-1-19-0-iam-name}
+
+* Добавлен параметр `expires-at` в команды:
+  * `yc iam service-account create`;
+  * `yc iam service-account update`.
+
+#### Compute Cloud {#v-1-19-0-compute-name}
+
+* Добавлен параметр `--subnets` в команду `yc compute gpu-cluster create` создания пользовательски GPU кластеров.
+
+#### Managed Service for Apache Airflow™ {#v-1-19-0-maf-name}
+
+* Добавлен параметр `--datacatalog-enabled` для включения интеграции с Data Catalog:
+  * `yc managed-airflow cluster create`;
+  * `yc managed-airflow cluster update`.
+
+#### Managed Service for MySQL® {#v-1-19-0-mmy-name}
+
+* Добавлена команда `yc managed-mysql cluster stream-logs`, полный аналог текущей `yc managed-mysql cluster list-logs`.
+* Команда `yc managed-mysql cluster list-logs` устарела, используйте новую команду `yc managed-mysql cluster stream-logs`.
+
+#### Managed Service for OpenSearch {#v-1-19-0-mos-name}
+
+* Добавлен параметр `--read-admin-password` в команду `yc managed-opensearch cluster update` для получения сгенерированного пароля.
+* Добавлены флаги `--log-authenticated-requests`, `--log-index-events`, `--log-bad-headers` для гранулярного управления дополнительными событиями, которые отображаются в аудитных логах, в команды:
+  * `yc managed-opensearch cluster create`;
+  * `yc managed-opensearch cluster update`.
+* Исправлено задание нового случайного пароля в команде `yc managed-opensearch cluster update --generate-admin-password`.
+
+#### Managed Service for PostgreSQL {#v-1-19-0-mpg-name}
+
+* Добавлена команда `yc managed-postgresql cluster stream-logs`, полный аналог текущей `yc managed-postgresql cluster list-logs`.
+* Команда `yc managed-postgresql cluster list-logs` устарела, используйте новую команду `yc managed-postgresql cluster stream-logs`.
+
+#### Managed Service for Trino {#v-1-19-0-mtr-name}
+
+* Добавлен параметр `--metastore-hive-cluster-id` в команды для подключения Apache Hive™ Metastore по идентификатору кластера Apache Hive™ Metastore:
+  * `yc managed-trino catalog create hive`;
+  * `yc managed-trino catalog create iceberg`;
+  * `yc managed-trino catalog create delta-lake`;
+  * `yc managed-trino catalog create hudi`;
+  * `yc managed-trino catalog update hive`;
+  * `yc managed-trino catalog update iceberg`;
+  * `yc managed-trino catalog update delta-lake`;
+  * `yc managed-trino catalog update hudi`.
+* Добавлен параметр `--metastore-rest-uri` в команды для подключения Iceberg-каталога к Apache Hive™ Metastore REST Catalog:
+  * `yc managed-trino catalog create iceberg`;
+  * `yc managed-trino catalog update iceberg`.
+* Добавлен параметр `--metastore-hive-protocol` в команды для выбора протокола подключения к Apache Hive™ Metastore (thrift или Iceberg REST) в Iceberg-каталоге:
+  * `yc managed-trino catalog create iceberg`;
+  * `yc managed-trino catalog update iceberg`.
+
+#### Object Storage {#v-1-19-0-objstorage-name}
+
+* Добавлен флаг `--validate-same-s3-paths` для команды `yc storage s3 mv`, который проверяет, что источник и назначение не указывают на один и тот же объект, и не дает случайно удалить объект при перемещении его в самого себя.
+
+#### Изменения в системных командах CLI {#v-1-19-0-yc}
+
+* Исправлено появление служебных escape-последовательностей в выводе терминала при запуске команд в `screen`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.18.0 (09.07.26) {#v-1-18-0}
 
 #### Cloud Interconnect {#v-1-18-0-cic}
@@ -48,8 +133,6 @@
 #### Cloud Registry {#v-1-18-0-cloud-registry}
 
 * Добавлены параметры фильтрации по имени, виду, типу и статусу реестра в команду: `yc cloud-registry registry list`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.17.0 (06.07.26) {#v-1-17-0}
 

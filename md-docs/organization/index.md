@@ -2,14 +2,6 @@
 
 # Yandex Identity Hub
 
-Yandex Identity Hub — облачный сервис для централизованного управления учетными записями пользователей и доступом к корпоративным приложениям по протоколам SAML и OpenID Connect (Identity Provider).
-
-Инфраструктура Yandex Cloud <a href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a> в соответствии с Федеральным законом Российской Федерации «О персональных данных» № 152-ФЗ.
-
-Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение об уровне обслуживания</a>.  Уровень обслуживания сервиса определен в документе <a href="https://yandex.ru/legal/cloud_sla_identity_hub">Уровень обслуживания Yandex Identity Hub</a>.
-
-# Yandex Identity Hub
-
 ## Начало работы
 
  - [Создать первую организацию](quickstart.md)

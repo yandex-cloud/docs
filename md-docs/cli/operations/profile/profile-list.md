@@ -10,6 +10,11 @@
 
 ```bash
 yc config profile list
+```
+
+Результат:
+
+```text
 prod ACTIVE
 test
 ```
@@ -22,6 +27,11 @@ test
 
 ```bash
 yc config profile get prod
+```
+
+Результат:
+
+```text
 subject-id: ajea53egl28l********
 cloud-id: b15jlj22h4ct********
 folder-id: b1grb2jo7g7o********

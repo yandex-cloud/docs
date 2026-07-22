@@ -13,7 +13,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать виртуальный реестр.
-    1. Перейдите в сервис **Cloud Registry**.
+    1. [Перейдите](https://console.yandex.cloud/link/cloud-registry) в сервис **Cloud Registry**.
     1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Реестры**.
     1. В правом верхнем углу нажмите кнопку **Создать реестр**.
     1. Выберите формат реестра.

@@ -19,11 +19,11 @@ FQDN хоста {{ mgp-name }} можно получить нескольким�
 
 * Посмотрите FQDN в консоли управления:
 
-    1. Перейдите на страницу кластера.
+    1. [Перейдите]({{ link-console-main }}/link/managed-greenplum) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** и выберите кластер.
     1. Перейдите в раздел **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
     1. Скопируйте значение в столбце **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}**.
 
-* Скопируйте команду для подключения к кластеру в [консоли управления]({{ link-console-main }}). Команда содержит заполненный FQDN хоста. Чтобы получить команду, перейдите на страницу кластера и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
+* Скопируйте команду для подключения к кластеру в [консоли управления]({{ link-console-main }}). Команда содержит заполненный FQDN хоста. Чтобы получить команду, [перейдите]({{ link-console-main }}/link/managed-greenplum) на страницу кластера и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
 
 * [Запросите список хостов в кластере](../cluster-list.md#get-hosts) с помощью CLI или API.
 

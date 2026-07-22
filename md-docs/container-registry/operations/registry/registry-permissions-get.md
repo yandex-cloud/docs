@@ -7,7 +7,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится реестр.
-  1. Перейдите в сервис **Container Registry**.
+  1. [Перейдите](https://console.yandex.cloud/link/container-registry) в сервис **Container Registry**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/tray.svg) **Реестры**.
   1. Выберите реестр.
   1. На странице **Доступ  для IP-адресов** отобразится подробная информация о политике доступа к реестру.

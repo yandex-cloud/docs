@@ -13,7 +13,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится API-шлюз. 
-    1. Перейдите в сервис **API Gateway**.
+    1. [Перейдите](https://console.yandex.cloud/link/api-gateway) в сервис **API Gateway**.
     1. Выберите API-шлюз, графики мониторинга которого хотите посмотреть.
     1. Перейдите на вкладку **Мониторинг**.
     1. На странице появятся следующие графики:

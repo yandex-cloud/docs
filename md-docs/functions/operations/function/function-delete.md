@@ -7,7 +7,7 @@
 - Консоль управления {#console}
   
     1. В [консоли управления](https://console.yandex.cloud) откройте каталог, в котором хотите удалить функцию.
-    1. Перейдите в сервис **Cloud Functions**.
+    1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
     1. В строке с функцией нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
     1. В открывшемся окне нажмите кнопку **Удалить**.
   

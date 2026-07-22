@@ -7,7 +7,7 @@ description: In this article, you will learn what service and primitive roles ar
 
 {% include [referral-program-closure](../../_includes/partner/referral-program-closure.md) %}
 
-## Roles this service has {#roles-list}
+## Roles available in the service {#roles-list}
 
 ### Service roles {#service-roles}
 

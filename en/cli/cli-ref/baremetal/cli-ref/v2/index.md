@@ -17,7 +17,7 @@ Syntax:
 
 - [yc baremetal v2 configuration](configuration.md) — A set of methods to retrieve information about Configuration resources.
 
-- [yc baremetal v2 extend](extend/index.md) — 
+- [yc baremetal v2 extend](extend/index.md) — Manage Baremetal Extend resources
 
 
 

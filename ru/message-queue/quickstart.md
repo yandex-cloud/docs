@@ -41,10 +41,10 @@ description: В этой инструкции вы научитесь выпол
 
      Сохраните полученный URL очереди, он понадобится позднее.
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать очередь.
-     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+     1. [Перейдите]({{ link-console-main }}/link/message-queue) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.ymq.queues.button_create }}**.
      1. Укажите имя очереди: `sample-queue`.
 
@@ -171,10 +171,10 @@ description: В этой инструкции вы научитесь выпол
      * `--endpoint` — эндпоинт в значении `https://message-queue.{{ api-host }}/`.
      * `--queue-url` — URL очереди, которую нужно удалить.
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит очередь.
-     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+     1. [Перейдите]({{ link-console-main }}/link/message-queue) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
      1. Нажмите значок ![image](../_assets/console-icons/ellipsis.svg) напротив нужной очереди и выберите **{{ ui-key.yacloud.common.delete }}**.
      1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 

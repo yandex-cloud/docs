@@ -17,7 +17,7 @@
 - Консоль управления {#console}
 
     1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
     1. Найдите нужный кластер в списке, нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Остановить**.
     1. Подтвердите остановку кластера и нажмите кнопку **Остановить**.
 
@@ -102,7 +102,7 @@
 - Консоль управления {#console}
 
     1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
     1. Найдите нужный остановленный кластер в списке, нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Запустить**.
     1. Подтвердите запуск кластера и нажмите кнопку **Запустить**.
 

@@ -17,7 +17,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором будет создан реестр.
-  1. Перейдите в сервис **Container Registry**.
+  1. [Перейдите](https://console.yandex.cloud/link/container-registry) в сервис **Container Registry**.
   1. Нажмите кнопку **Создать реестр**.
   1. Задайте имя реестра. Требования к имени:
   
@@ -137,6 +137,7 @@
      ```
 
      Где:
+     
      * `name` — имя реестра.
      * `folder_id` — идентификатор каталога.
      * `labels` — набор [меток](../../../resource-manager/concepts/labels.md).

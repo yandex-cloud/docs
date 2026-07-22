@@ -25,7 +25,7 @@
 - Консоль управления {#console}
 
     1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
     1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/persons.svg) **Аутентификация пользователей**.
 
 - CLI {#cli}
@@ -125,7 +125,7 @@
 - Консоль управления {#console}
 
     1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
     1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/persons.svg) **Аутентификация пользователей**.
     1. Нажмите кнопку **Редактировать правила**.
     1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Добавить правило** и задайте его параметры:
@@ -280,7 +280,7 @@
 - Консоль управления {#console}
 
     1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
     1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/persons.svg) **Аутентификация пользователей**.
     1. Нажмите кнопку **Редактировать правила** и измените параметры правил:
 
@@ -433,7 +433,7 @@
 - Консоль управления {#console}
 
     1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
     1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/persons.svg) **Аутентификация пользователей**.
     1. Нажмите кнопку **Редактировать правила**.
     1. Нажмите на значок ![image](../../_assets/console-icons/grip.svg) для нужного правила и переместите его выше или ниже.
@@ -448,7 +448,7 @@
 - Консоль управления {#console}
 
     1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
     1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/persons.svg) **Аутентификация пользователей**.
     1. Нажмите кнопку **Редактировать правила**.
     1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужного правила и выберите пункт **Удалить**.

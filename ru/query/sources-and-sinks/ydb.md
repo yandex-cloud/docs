@@ -1,29 +1,36 @@
+---
+title: Работа с базами данных {{ ydb-full-name }}
+description: Из статьи вы узнаете, как подключиться к базе данных {{ ydb-name }} и выполнять запросы к ней из {{ yq-full-name }}.
+---
+
 # Работа с базами данных {{ ydb-name }}
 
-В этом разделе описана основная информация про работу с [{{ ydb-name }}](https://yandex.cloud/ru/services/ydb).
+В этом разделе приведена основная информация о работе с [{{ ydb-name }}](https://yandex.cloud/ru/services/ydb).
 
-Для работы с базой данных {{ ydb-name }} из {{ yq-full-name }} необходимо выполнить следующие шаги:
-1. Создать [соединение](../concepts/glossary.md#connection), содержащее реквизиты для подключения к базе данных.
-1. [Выполнить запрос](#query) к базе данных.
+Для работы с базой данных {{ ydb-name }} из {{ yq-full-name }} выполните следующие шаги:
 
-Пример запроса, выполняющего чтение данных из {{ ydb-name }}:
+1. Создайте [соединение](../concepts/glossary.md#connection), содержащее реквизиты для подключения к базе данных.
+1. [Выполните запрос](#query) к базе данных.
+
+Пример запроса для чтения данных из {{ ydb-name }}:
 
 ```sql
 SELECT * FROM ydb_connection.my_table
 ```
 
-где:
+Где:
+
 * `ydb_connection` — название созданного соединения с базой данных.
 * `my_table` — имя таблицы в базе данных.
 
 
-## Настройка соединения {#create_connection}
+## Настройка соединения {#create-connection}
 
 Чтобы создать соединение с {{ ydb-name }}:
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать соединение.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
-1. На панели слева перейдите на вкладку **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
+1. [Перейдите]({{ link-console-yq }}) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. На панели слева выберите **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
 1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
 1. Укажите параметры соединения:
 
@@ -33,7 +40,7 @@ SELECT * FROM ydb_connection.my_table
       * **{{ ui-key.yql.yq-connection-form.connection-type.input-label }}** — `{{ ui-key.yql.yq-connection.action_ydb }}`.
    1. В блоке **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**:
       * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}** — выберите существующую базу данных {{ ydb-name }} или создайте новую.
-      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** — выберите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) {{ ydb-name }}, от имени которого будет выполняться подключение к кластерам `{{ ydb-name }}` и аутентификация в базе данных. Если сервисного аккаунта нет, создайте его и назначьте ему [роль](../../ydb/security/index.md#ydb-viewer) `ydb.viewer`.
+      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** — выберите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) {{ ydb-name }}, от имени которого будет выполняться подключение и аутентификация в базе данных. Если сервисного аккаунта нет, создайте его и назначьте ему роль [`ydb.viewer`](../../ydb/security/index.md#ydb-viewer).
 
         {% include [service accounts role](../../_includes/query/service-accounts-role.md) %}
 
@@ -48,7 +55,7 @@ SELECT * FROM ydb_connection.my_table
 SELECT * FROM <соединение>.<имя_таблицы>
 ```
 
-где:
+Где:
 * `<соединение>` — название созданного соединения с базой данных.
 * `<имя_таблицы>` — имя таблицы в базе данных.
 
@@ -56,7 +63,7 @@ SELECT * FROM <соединение>.<имя_таблицы>
 
 {% include [!](_includes/supported_requests.md) %}
 
-## Пушдаун фильтров {#predicate_pushdown}
+## Пушдаун фильтров {#predicate-pushdown}
 
 {% include [!](_includes/predicate_pushdown_preamble.md) %}
 
@@ -88,11 +95,11 @@ SELECT * FROM <соединение>.<имя_таблицы>
 |`String`|
 |`Utf8`|
 
-## Поддерживаемые типы данных {#supported_types}
+## Поддерживаемые типы данных {#supported-types}
 
 Ниже приведены таблицы соответствия типов данных в {{ ydb-name }} и {{ yq-full-name }}. Типы данных, не указанные в таблицах, не поддерживаются.
 
-### Примитивные типы данных {#supported_types_default}
+### Примитивные типы данных {#supported-types-default}
 
 | Тип данных {{ ydb-name }} | Тип данных {{ yq-full-name }} |
 | :---: | :----: |
@@ -115,7 +122,7 @@ SELECT * FROM <соединение>.<имя_таблицы>
 | `Json` | `Json` |
 | `JsonDocument` | `Json` |
 
-### Опциональные типы данных {#supported_types_nullable}
+### Опциональные типы данных {#supported-types-nullable}
 
 | Тип данных {{ ydb-name }} | Тип данных {{ yq-full-name }} |
 | :---: | :----: |

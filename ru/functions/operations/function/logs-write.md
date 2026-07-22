@@ -12,7 +12,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
     
     1. В [консоли управления]({{ link-console-main }}) перейдите в [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится функция.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Перейдите]({{ link-console-main }}/link/functions) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Выберите функцию, для которой хотите настроить логирование.
     1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}**.
     1. В блоке **{{ ui-key.yacloud.logging.label_title }}**:
@@ -70,6 +70,7 @@ description: Следуя данной инструкции, вы сможете
     ```
 
     Где:
+
     * `--function-id` — идентификатор функции.
     * `--runtime` — среда выполнения.
     * `--entrypoint` — точка входа, указывается в формате `<имя_файла_без_расширения>.<имя_обработчика>`.
@@ -79,6 +80,7 @@ description: Следуя данной инструкции, вы сможете
     * `--min-log-level` — минимальный уровень логирования. Необязательный параметр.
 
     Результат:
+
     ```
     done (4s)
     id: d4ech7qdki6r********
@@ -148,6 +150,7 @@ description: Следуя данной инструкции, вы сможете
         ```
 
         Где:
+        
         * `name` — имя функции.
         * `user_hash` — произвольная строка, определяющая версию функции. При изменениях функции необходимо менять и эту строку. Функция обновится при изменении этой строки.
         * `runtime` — [среда выполнения](../../concepts/runtime/index.md) функции.

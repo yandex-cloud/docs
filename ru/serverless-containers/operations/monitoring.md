@@ -16,7 +16,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится контейнер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. [Перейдите]({{ link-console-main }}/link/serverless-containers) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Выберите контейнер, графики мониторинга которого хотите посмотреть.
   1. Перейдите на вкладку **{{ ui-key.yacloud.common.monitoring }}**.
   1. На странице появятся следующие графики:

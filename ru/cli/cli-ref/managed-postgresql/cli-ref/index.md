@@ -81,6 +81,8 @@ Aliases:
 
   - [yc managed-postgresql cluster stop](cluster/stop.md) — Stop the specified PostgreSQL cluster
 
+  - [yc managed-postgresql cluster stream-logs](cluster/stream-logs.md) — Stream logs for the specified PostgreSQL cluster
+
   - [yc managed-postgresql cluster update](cluster/update.md) — Update the specified PostgreSQL cluster
 
   - [yc managed-postgresql cluster update-config](cluster/update-config.md) — Update the specified PostgreSQL cluster config

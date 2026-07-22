@@ -34,7 +34,7 @@ NYC Taxi and Limousine Commission (TLC):
 ## Подключитесь к данным {#create-binding}
 
  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать соединение.
- 1. Перейдите в сервис **Yandex Query**.
+ 1. [Перейдите](https://yq.yandex.cloud) в сервис **Yandex Query**.
  1. На панели слева выберите ![study](../../_assets/console-icons/graduation-cap.svg) **Учебник**.
  1. В блоке **Создать инфраструктуру для обучения** нажмите кнопку **Создать соединение**.
  

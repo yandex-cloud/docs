@@ -16,7 +16,7 @@ description: Вы можете посмотреть графики монито�
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится API-шлюз. 
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. [Перейдите]({{ link-console-main }}/link/api-gateway) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
     1. Выберите API-шлюз, графики мониторинга которого хотите посмотреть.
     1. Перейдите на вкладку **{{ ui-key.yacloud.common.monitoring }}**.
     1. На странице появятся следующие графики:
@@ -50,3 +50,4 @@ description: Вы можете посмотреть графики монито�
 ## Пользовательские метрики {#metrics}
 
 {% include [users-metrics](../../_includes/api-gateway/users-metrics.md) %}
+

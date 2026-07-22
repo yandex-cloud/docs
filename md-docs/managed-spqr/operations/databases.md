@@ -10,7 +10,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-spqr) в сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Базы данных**.
 
 - REST API {#api}
@@ -140,7 +140,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-spqr) в сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Базы данных**.
   1. Нажмите кнопку **Создать базу данных**.
   1. Укажите параметры базы данных:
@@ -251,7 +251,7 @@
 - Консоль управления {#console}
 
   Чтобы удалить базу данных:
-  1. Перейдите в сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-spqr) в сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Базы данных**.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной БД, выберите пункт **Удалить** и подтвердите удаление.
 

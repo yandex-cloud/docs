@@ -41,7 +41,7 @@ NYC Taxi and Limousine Commission (TLC):
 ### Подключитесь к данным для аналитической обработки {#batch-create-binding}
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать соединение.
-1. Перейдите в сервис **Yandex Query**.
+1. [Перейдите](https://yq.yandex.cloud) в сервис **Yandex Query**.
 1. На панели слева выберите ![study](../../_assets/console-icons/graduation-cap.svg) **Учебник**.
 1. В блоке **Создать инфраструктуру для обучения** нажмите кнопку **Создать соединение**.
 
@@ -117,7 +117,7 @@ NYC Taxi and Limousine Commission (TLC):
 ### Создайте поток данных {#stream-create-datastream}
 
 1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать [поток данных](../../data-streams/concepts/glossary.md).
-  1. Перейдите в сервис **Data Streams**.
+  1. [Перейдите](https://console.yandex.cloud/link/data-streams) в сервис **Data Streams**.
   1. Нажмите кнопку **Создать поток**.
   1. Укажите базу данных Yandex Managed Service for YDB, созданную ранее.
   1. Введите имя потока данных: `yellow-taxi`.
@@ -128,7 +128,7 @@ NYC Taxi and Limousine Commission (TLC):
 1. Создайте соединение:
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать соединение.
-    1. Перейдите в сервис **Yandex Query**.
+    1. [Перейдите](https://yq.yandex.cloud) в сервис **Yandex Query**.
     1. На панели слева выберите ![study](../../_assets/console-icons/graduation-cap.svg) **Учебник**.
     1. Перейдите в **Потоковый** раздел.
     1. В блоке **Создать инфраструктуру для обучения** нажмите кнопку **Создать соединение**.

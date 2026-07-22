@@ -20,6 +20,8 @@ Syntax:
 
   - [yc smartcaptcha v1 captcha get](captcha/get.md) — Returns the specified Captcha resource.
 
+  - [yc smartcaptcha v1 captcha get-keys](captcha/get-keys.md) — Returns the keys of specified Captcha resource.
+
   - [yc smartcaptcha v1 captcha get-secret-key](captcha/get-secret-key.md) — Returns the secret data of specified Captcha resource.
 
   - [yc smartcaptcha v1 captcha list](captcha/list.md) — Retrieves the list of Captcha resources in the specified folder.

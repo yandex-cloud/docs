@@ -7,7 +7,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать [контейнер](../concepts/container.md).
-  1. Перейдите в сервис **Serverless Containers**.
+  1. [Перейдите](https://console.yandex.cloud/link/serverless-containers) в сервис **Serverless Containers**.
   1. Нажмите кнопку **Создать контейнер**.
   1. Введите имя и описание контейнера. Формат имени:
 
@@ -64,6 +64,7 @@
   {% endnote %}
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
+     
      * `name` — имя контейнера. Обязательный параметр. Требования к имени:
 
        * длина — от 3 до 63 символов;

@@ -47,7 +47,7 @@ paths:
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором необходимо создать [API-шлюз](../concepts/index.md).
-  1. Перейдите в сервис **API Gateway**.
+  1. [Перейдите](https://console.yandex.cloud/link/api-gateway) в сервис **API Gateway**.
   1. Нажмите кнопку **Создать API-шлюз**.
   1. В поле **Имя** введите название API-шлюза.
   1. (Опционально) В поле **Описание** введите описание API-шлюза.

@@ -1958,26 +1958,11 @@ items:
               - name: remove-access-binding
                 href: >-
                   cli-ref/cloud-registry/cli-ref/artifact/remove-access-binding.md
-              - name: scanner
-                items:
-                  - name: Overview
-                    href: cli-ref/cloud-registry/cli-ref/artifact/scanner/index.md
-                  - name: get-last-scan-result
-                    href: >-
-                      cli-ref/cloud-registry/cli-ref/artifact/scanner/get-last-scan-result.md
-                  - name: get-scan-result
-                    href: >-
-                      cli-ref/cloud-registry/cli-ref/artifact/scanner/get-scan-result.md
-                  - name: list-scan-results
-                    href: >-
-                      cli-ref/cloud-registry/cli-ref/artifact/scanner/list-scan-results.md
-                  - name: list-vulnerabilities
-                    href: >-
-                      cli-ref/cloud-registry/cli-ref/artifact/scanner/list-vulnerabilities.md
-                  - name: scan
-                    href: cli-ref/cloud-registry/cli-ref/artifact/scanner/scan.md
               - name: set-access-bindings
                 href: cli-ref/cloud-registry/cli-ref/artifact/set-access-bindings.md
+              - name: update-access-bindings
+                href: >-
+                  cli-ref/cloud-registry/cli-ref/artifact/update-access-bindings.md
               - name: upsert
                 href: cli-ref/cloud-registry/cli-ref/artifact/upsert.md
           - name: configure-docker
@@ -2039,25 +2024,6 @@ items:
               - name: remove-ip-permissions
                 href: >-
                   cli-ref/cloud-registry/cli-ref/registry/remove-ip-permissions.md
-              - name: scan-policy
-                items:
-                  - name: Overview
-                    href: >-
-                      cli-ref/cloud-registry/cli-ref/registry/scan-policy/index.md
-                  - name: create
-                    href: >-
-                      cli-ref/cloud-registry/cli-ref/registry/scan-policy/create.md
-                  - name: delete
-                    href: >-
-                      cli-ref/cloud-registry/cli-ref/registry/scan-policy/delete.md
-                  - name: get
-                    href: cli-ref/cloud-registry/cli-ref/registry/scan-policy/get.md
-                  - name: get-by-registry
-                    href: >-
-                      cli-ref/cloud-registry/cli-ref/registry/scan-policy/get-by-registry.md
-                  - name: update
-                    href: >-
-                      cli-ref/cloud-registry/cli-ref/registry/scan-policy/update.md
               - name: set-access-bindings
                 href: cli-ref/cloud-registry/cli-ref/registry/set-access-bindings.md
               - name: set-ip-permissions
@@ -8023,6 +7989,8 @@ items:
                 href: cli-ref/managed-mysql/cli-ref/cluster/start-failover.md
               - name: stop
                 href: cli-ref/managed-mysql/cli-ref/cluster/stop.md
+              - name: stream-logs
+                href: cli-ref/managed-mysql/cli-ref/cluster/stream-logs.md
               - name: update
                 href: cli-ref/managed-mysql/cli-ref/cluster/update.md
               - name: update-config
@@ -8160,6 +8128,8 @@ items:
                     href: cli-ref/managed-mysql/cli-ref/v0/cluster/start-failover.md
                   - name: stop
                     href: cli-ref/managed-mysql/cli-ref/v0/cluster/stop.md
+                  - name: stream-logs
+                    href: cli-ref/managed-mysql/cli-ref/v0/cluster/stream-logs.md
                   - name: update
                     href: cli-ref/managed-mysql/cli-ref/v0/cluster/update.md
                   - name: update-config
@@ -8485,6 +8455,8 @@ items:
                 href: cli-ref/managed-postgresql/cli-ref/cluster/start-failover.md
               - name: stop
                 href: cli-ref/managed-postgresql/cli-ref/cluster/stop.md
+              - name: stream-logs
+                href: cli-ref/managed-postgresql/cli-ref/cluster/stream-logs.md
               - name: update
                 href: cli-ref/managed-postgresql/cli-ref/cluster/update.md
               - name: update-config
@@ -8637,6 +8609,9 @@ items:
                       cli-ref/managed-postgresql/cli-ref/v0/cluster/start-failover.md
                   - name: stop
                     href: cli-ref/managed-postgresql/cli-ref/v0/cluster/stop.md
+                  - name: stream-logs
+                    href: >-
+                      cli-ref/managed-postgresql/cli-ref/v0/cluster/stream-logs.md
                   - name: update
                     href: cli-ref/managed-postgresql/cli-ref/v0/cluster/update.md
                   - name: update-config
@@ -12192,6 +12167,8 @@ items:
                 href: cli-ref/smartcaptcha/cli-ref/captcha/delete.md
               - name: get
                 href: cli-ref/smartcaptcha/cli-ref/captcha/get.md
+              - name: get-keys
+                href: cli-ref/smartcaptcha/cli-ref/captcha/get-keys.md
               - name: get-secret-key
                 href: cli-ref/smartcaptcha/cli-ref/captcha/get-secret-key.md
               - name: list
@@ -12230,6 +12207,8 @@ items:
                     href: cli-ref/smartcaptcha/cli-ref/v1/captcha/delete.md
                   - name: get
                     href: cli-ref/smartcaptcha/cli-ref/v1/captcha/get.md
+                  - name: get-keys
+                    href: cli-ref/smartcaptcha/cli-ref/v1/captcha/get-keys.md
                   - name: get-secret-key
                     href: cli-ref/smartcaptcha/cli-ref/v1/captcha/get-secret-key.md
                   - name: list

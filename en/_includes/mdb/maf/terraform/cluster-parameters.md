@@ -1,9 +1,11 @@
-Here is the configuration file example:
+Here is an example of the configuration file structure:
 
 ```hcl
 resource "yandex_airflow_cluster" "<cluster_name>" {
   name        = "<cluster_name>"
   description = "<cluster_description>"
+  airflow_version = "<{{ AF }}_version>"
+  python_version = "<Python_version>"
 
   labels = { <label_list> }
 
@@ -49,7 +51,7 @@ resource "yandex_airflow_cluster" "<cluster_name>" {
   maintenance_window = {
     type = "<maintenance_type>"
     day  = "<day_of_week>"
-    hour = <hour>
+    hour = <sequence_number_of_hour_interval>
   }
 
   deletion_protection = <deletion_protection>
@@ -85,6 +87,8 @@ Where:
 
 * `name`: Cluster name.
 * `description`: Cluster description.
+* `airflow_version`: [{{ AF }} version](../../../../managed-airflow/concepts/versions.md).
+* `python_version`: Python version.
 * `labels`: List of labels. Provide labels in `<key> = "<value>"` format.
 * `admin_password`: Admin user password. The password must be not less than 8 characters long and contain at least:
 

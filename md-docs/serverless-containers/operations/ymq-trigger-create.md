@@ -44,7 +44,7 @@
 
     1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать триггер.
 
-    1. Перейдите в сервис **Serverless Containers**.
+    1. [Перейдите](https://console.yandex.cloud/link/serverless-containers) в сервис **Serverless Containers**.
 
     1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **Триггеры**.
 
@@ -96,7 +96,7 @@
         Чтобы узнать идентификатор очереди:
         
         1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится очередь.
-        1. Выберите сервис **Message Queue**.
+        1. [Перейдите](https://console.yandex.cloud/link/message-queue) в сервис **Message Queue**.
         1. Выберите очередь.
         1. Идентификатор очереди будет в блоке **Общая информация**, в поле **ARN**.
 
@@ -179,7 +179,7 @@
              Чтобы узнать идентификатор очереди:
              
              1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится очередь.
-             1. Выберите сервис **Message Queue**.
+             1. [Перейдите](https://console.yandex.cloud/link/message-queue) в сервис **Message Queue**.
              1. Выберите очередь.
              1. Идентификатор очереди будет в блоке **Общая информация**, в поле **ARN**.
 
@@ -245,14 +245,14 @@
     Проверьте, что количество сообщений в очереди уменьшается. Для этого посмотрите статистику очереди:
 
    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором создали триггер.
-   1. Перейдите в сервис **Message Queue**.
+   1. [Перейдите](https://console.yandex.cloud/link/message-queue) в сервис **Message Queue**.
    1. Выберите очередь, для которой создали триггер.
    1. Перейдите в раздел **Мониторинг**. Посмотрите график **Сообщений в очереди**.
 
 {% endlist %}
 
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Создать триггер для Message Queue, который передает сообщения в функцию Cloud Functions](../../functions/operations/trigger/ymq-trigger-create.md)
 * [Создать триггер для Message Queue, который отправляет сообщения в WebSocket-соединения](../../api-gateway/operations/trigger/ymq-trigger-create.md)

@@ -20,8 +20,9 @@ To get started with {{ myt-name }}:
 
 1. [Assign](../iam/operations/roles/grant.md) the following roles to your {{ yandex-cloud }} account:
 
-    * [managed-ytsaurus.editor](security/index.md#managed-ytsaurus-editor): To create a cluster.
-    * [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user): Required to access the cluster [network](../vpc/concepts/network.md#network).
+    * {% include [roles-ytsaurus-editor](../_includes/managed-ytsaurus/roles-ytsaurus-editor.md) %}
+    * {% include [roles-vpc-user](../_includes/mdb/roles-vpc-user.md) %}
+    * {% include [roles-mdb-viewer](../_includes/mdb/roles-mdb-viewer-create-cluster.md) %}
 
     {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
