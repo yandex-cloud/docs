@@ -66,7 +66,7 @@
 ## Создайте кластер {#cluster-create}
 
 1. В консоли управления выберите каталог, в котором нужно создать кластер БД.
-1. Перейдите в сервис **Managed Service for&nbsp;MySQL**.
+1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL**.
 1. Нажмите кнопку **Создать кластер**.
 1. Задайте параметры кластера Managed Service for MySQL® и нажмите кнопку **Создать кластер**. Процесс подробно рассмотрен в разделе [Создание кластера](operations/cluster-create.md).
 1. Дождитесь, когда кластер Managed Service for MySQL® будет готов к работе: его статус на панели Managed Service for MySQL® сменится на **Running**, а состояние — на **Alive**. Это может занять некоторое время.

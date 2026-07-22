@@ -13,7 +13,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан [реестр](../../concepts/registry.md).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. [Перейдите]({{ link-console-main }}/link/container-registry) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Выберите реестр и нажмите на строку с его именем.
   1. Выберите репозиторий и нажмите на строку с его именем.
   1. На панели слева нажмите ![lifecycle](../../../_assets/console-icons/arrows-rotate-right.svg) **{{ ui-key.yacloud.cr.registry.label_lifecycle }}**.
@@ -26,6 +26,7 @@
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
   Чтобы протестировать политику удаления:
+
   1. Сделайте тестовый запуск политики:
 
      ```bash
@@ -92,6 +93,7 @@
 - API {#api}
 
   Чтобы протестировать политику удаления:
+  
   1. Сделайте тестовый запуск политики с помощью метода [DryRun](../../api-ref/grpc/LifecyclePolicy/dryRun.md) для ресурса [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md). В параметре `lifecycle_policy_id` укажите идентификатор политики. Получить список политик удаления можно с помощью метода [List](../../api-ref/grpc/LifecyclePolicy/list.md) для ресурса [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md).
   1. Получите список тестовых запусков политики с помощью метода [ListDryRunResults](../../api-ref/grpc/LifecyclePolicy/listDryRunResults.md) для ресурса [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md). В параметре `lifecycle_policy_id` укажите идентификатор политики.
   1. Получите информацию о результате тестового запуска политики с помощью метода [GetDryRunResult](../../api-ref/grpc/LifecyclePolicy/getDryRunResult.md) для ресурса [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md). В параметре `dry_run_lifecycle_policy_result_id` укажите идентификатор результата тестового запуска политики из предыдущего пункта.

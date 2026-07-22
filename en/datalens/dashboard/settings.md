@@ -32,13 +32,13 @@ If you modify any appearance settings, a ![image](../../_assets/console-icons/ar
 
 This setting allows you to [select the dashboard background color](../operations/dashboard/add-dashboard-background.md) from a list of preset options or specify it in hexadecimal format. Some of the preset colors are inherited from your global [service appearance settings](../settings/appearance.md).
 
-You can set up a dashboard background for the light and dark theme individually. 
+This setting is configured separately for the light and dark theme. 
 
 ### Widget background {#widget-background}
 
 This setting allows you to [set the default background color and opacity](../operations/dashboard/add-widget-background.md) for all dashboard widgets. You can select a color from preset options or specify it in hexadecimal format. Some of the preset colors are inherited from your global [service appearance settings](../settings/appearance.md).
 
-You can set up a dashboard background for the light and dark theme individually. 
+This setting is configured separately for the light and dark theme. 
 
 ### Rounding {#rounding}
 

@@ -6,13 +6,13 @@ description: Перед началом работы с {{ container-registry-nam
 # Аутентифицироваться в {{ container-registry-name }}
 
 Перед началом работы с {{ container-registry-name }} необходимо [настроить Docker](./configure-docker.md) и аутентифицироваться для соответствующего интерфейса:
+
 * Для **Консоли управления** минимально необходимая [роль](../../iam/concepts/access-control/roles.md) на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) — `viewer`.
 * Для **Docker CLI** или **{{ managed-k8s-full-name }}** минимально необходимая роль на [реестр](../concepts/registry.md) или [репозиторий](../concepts/repository.md) — `container-registry.images.puller`.
 
 Назначьте нужную роль пользователю {{ yandex-cloud }}. Ознакомьтесь со [способами аутентификации](#method) и выберите подходящий.
 
 Подробнее про роли читайте в разделе [{#T}](../security/index.md).
-
 
 ## Способы аутентификации {#method}
 

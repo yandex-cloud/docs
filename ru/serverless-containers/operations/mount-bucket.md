@@ -14,10 +14,11 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
     
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится контейнер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. [Перейдите]({{ link-console-main }}/link/serverless-containers) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Выберите контейнер.
   1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-containers.label_editor }}**.
   1. В блоке **{{ ui-key.yacloud.serverless-containers.section_parameters }}** выберите или создайте новый [сервисный аккаунт](../../iam/concepts/users/service-accounts) с ролью:
+      
       * [`storage.viewer`](../../storage/security/index.md#storage-viewer), чтобы только читать данные из смонтированного [бакета](../../storage/concepts/bucket.md).
       * [`storage.uploader`](../../storage/security/index.md#storage-uploader), чтобы читать данные из смонтированного бакета и записывать их в него.
   1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.title_mount-files }}**:
@@ -65,6 +66,7 @@ description: Следуя данной инструкции, вы сможете
   * `--command` — команды, которые контейнер выполнит при запуске. Указываются через запятую. Соответствует инструкции `ENTRYPOINT` в Dockerfile.
   * `--args` — аргументы, соответствует инструкции `CMD` в Dockerfile. Указываются в формате `ключ = значение` через запятую. Если не указано, будет использоваться значение `CMD` по умолчанию из Docker-образа.
   * `--mount` — параметры монтирования [бакета](../../storage/concepts/bucket.md) {{ objstorage-name }}:
+      
       * `type` — тип монтируемого хранилища. Для бакета значение всегда `object-storage`.
       * `mount-point` — абсолютный путь монтирования. Директория, к которой смонтируется бакет, будет доступна по заданному пути.
       * `bucket` — [имя](../../storage/concepts/bucket.md#naming) бакета.
@@ -99,9 +101,11 @@ description: Следуя данной инструкции, вы сможете
       Где:
 
       * `mounts` — параметры монтирования [бакета](../../storage/concepts/bucket.md) {{ objstorage-name }}:
+          
           * `mount_point_path` — абсолютный путь монтирования. Директория, к которой смонтируется [бакет](../../storage/concepts/bucket.md), будет доступна по указанному пути.
           * `mode` — режим монтирования бакета: `ro` — только чтение, `rw` — чтение и запись.
           * `object_storage` — параметры бакета:
+              
               * `bucket` — [имя](../../storage/concepts/bucket.md#naming) бакета.
               * `prefix` — [папка](../../storage/concepts/object.md#folder) в бакете, которая будет смонтирована в контейнер. Если поле пустое, смонтируется весь бакет.
 
@@ -125,7 +129,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../concepts/mounting.md)
 * [{#T}](../../functions/concepts/mounting.md)

@@ -13,7 +13,7 @@ description: Из статьи вы узнаете, как добавлять, �
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+  1. [Перейдите]({{ link-console-main }}/link/managed-spqr) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.spqr.cluster.switch_databases }}**.
 
 - REST API {#api}
@@ -123,7 +123,7 @@ description: Из статьи вы узнаете, как добавлять, �
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+  1. [Перейдите]({{ link-console-main }}/link/managed-spqr) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.spqr.cluster.switch_databases }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.databases.action_add-database }}**.
   1. Укажите параметры базы данных:
@@ -224,7 +224,7 @@ description: Из статьи вы узнаете, как добавлять, �
 - Консоль управления {#console}
 
   Чтобы удалить базу данных:
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+  1. [Перейдите]({{ link-console-main }}/link/managed-spqr) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.spqr.cluster.switch_databases }}**.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной БД, выберите пункт **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}** и подтвердите удаление.
 

@@ -7,7 +7,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится API-шлюз.
-    1. Перейдите в сервис **API Gateway**.
+    1. [Перейдите](https://console.yandex.cloud/link/api-gateway) в сервис **API Gateway**.
     1. В строке с API-шлюзом нажмите кнопку ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../_assets/console-icons/pencil.svg) **Редактировать**.
     1. В поле **Метки** выберите нужную метку и нажмите ![cross](../../_assets/console-icons/xmark.svg) справа от ее имени.
     1. Нажмите кнопку **Сохранить**.

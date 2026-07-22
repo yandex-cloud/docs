@@ -90,6 +90,8 @@ items:
             href: cli-ref/captcha/delete.md
           - name: get
             href: cli-ref/captcha/get.md
+          - name: get-keys
+            href: cli-ref/captcha/get-keys.md
           - name: get-secret-key
             href: cli-ref/captcha/get-secret-key.md
           - name: list
@@ -128,6 +130,8 @@ items:
                 href: cli-ref/v1/captcha/delete.md
               - name: get
                 href: cli-ref/v1/captcha/get.md
+              - name: get-keys
+                href: cli-ref/v1/captcha/get-keys.md
               - name: get-secret-key
                 href: cli-ref/v1/captcha/get-secret-key.md
               - name: list

@@ -15,8 +15,9 @@
 - Консоль управления {#console}
 
   Чтобы удалить реестр:
+  
   1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится реестр.
-  1. Перейдите в сервис **Container Registry**.
+  1. [Перейдите](https://console.yandex.cloud/link/container-registry) в сервис **Container Registry**.
   1. Нажмите значок ![image](../../../_assets/console-icons/ellipsis-vertical.svg) в строке реестра, который требуется удалить.
   1. В открывшемся меню нажмите кнопку **Удалить**.
   1. В открывшемся окне нажмите кнопку **Удалить**.

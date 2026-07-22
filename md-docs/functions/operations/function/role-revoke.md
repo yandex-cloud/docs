@@ -13,35 +13,46 @@
     Выполните команду, чтобы отозвать [роль](../../security/index.md#roles-list) на функцию:
 
     * у пользователя:
+
         ```
         yc serverless function remove-access-binding \
           --id <идентификатор_функции> \
           --user-account-id <идентификатор_пользователя> \
           --role <роль>
         ```
+
         Результат:
+
         ```
         done (1s)
         ```
+
     * у [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md):
+
         ```
         yc serverless function remove-access-binding \
           --id <идентификатор_функции> \
           --service-account-id <идентификатор_сервисного_аккаунта> \
           --role <роль>
         ```
+
         Результат:
+
         ```
         done (1s)
         ```
+
     * у всех авторизованных пользователей ([публичная группа](../../../iam/concepts/access-control/public-group.md) `All authenticated users`):
+
         ```
         yc serverless function remove-access-binding \
           --id <идентификатор_функции> \
           --all-authenticated-users \
           --role <роль>
         ```
+
         Результат:
+
         ```
         done (1s)
         ```

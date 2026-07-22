@@ -11,14 +11,16 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится контейнер.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. [Перейдите]({{ link-console-main }}/link/serverless-containers) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. Выберите контейнер, в который хотите передать секрет.
     1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-containers.label_editor }}**.
     1. В открывшемся окне, в блоке **{{ ui-key.yacloud.serverless-containers.section_image }}**, в поле **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}**, укажите:
+        
         * имя переменной окружения, в которой будет храниться секрет;
         * идентификатор секрета;
         * идентификатор версии секрета;
         * ключ одной из пар ключ-значение в версии секрета.
+    
     1. Нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_add-environment-variable }}**.
 
         В контейнер можно передать несколько секретов. Для этого еще раз нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_add-environment-variable }}**.
@@ -57,6 +59,7 @@
     * `--memory` — требуемая память. По умолчанию — 128 МБ.
     * `--service-account-id` — идентификатор сервисного аккаунта, у которого есть роль `lockbox.payloadViewer`.
     * `--secret`:
+        
         * `environment-variable` — имя переменной окружения, в которой будет храниться секрет;
         * `id` — идентификатор секрета;
         * `version-id` — идентификатор версии секрета;
@@ -94,7 +97,9 @@
         ```
 
         Где:
+          
           * `secrets` — блок с настройками секрета. Содержит параметры:
+            
             * `id` — идентификатор секрета. Обязательный параметр.
             * `version_id` — идентификатор версии секрета. Обязательный параметр.
             * `key` — ключ одной из пар ключ-значение в версии секрета, который будет храниться в переменной окружения. Обязательный параметр.

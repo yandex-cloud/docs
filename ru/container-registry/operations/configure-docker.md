@@ -11,4 +11,4 @@ description: Перед началом работы с {{ container-registry-nam
 
 #### Полезные ссылки {#see-also}
 
-* [{#T}](./authentication.md)
+[{#T}](./authentication.md)

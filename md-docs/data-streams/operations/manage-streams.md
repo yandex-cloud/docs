@@ -11,7 +11,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать [поток данных](../concepts/glossary.md#stream-concepts).
-  1. Перейдите в сервис **Data Streams**.
+  1. [Перейдите](https://console.yandex.cloud/link/data-streams) в сервис **Data Streams**.
   1. Нажмите **Создать поток**.
   1. Укажите базу данных Yandex Managed Service for YDB или [создайте](../../ydb/quickstart.md#create-db) новую. Если вы создали новую БД, после ее создания нажмите ![refresh-button](../../_assets/console-icons/arrow-rotate-right.svg) для обновления списка БД.
   1. Введите имя потока данных. Требования к имени:
@@ -67,7 +67,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), для которого хотите получить список потоков данных.
-  1. Перейдите в сервис **Data Streams**. Откроется список потоков.
+  1. [Перейдите](https://console.yandex.cloud/link/data-streams) в сервис **Data Streams**. Откроется список потоков.
 
 {% endlist %}
 
@@ -78,7 +78,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите изменить настройки потока данных.
-  1. Перейдите в сервис **Data Streams**.
+  1. [Перейдите](https://console.yandex.cloud/link/data-streams) в сервис **Data Streams**.
   1. Нажмите ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) в строке нужного потока данных и выберите **Редактировать**.
   1. Настройте параметры потока данных:
 
@@ -127,7 +127,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите удалить поток данных.
-  1. Перейдите в сервис **Data Streams**.
+  1. [Перейдите](https://console.yandex.cloud/link/data-streams) в сервис **Data Streams**.
   1. Нажмите ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) в строке нужного потока данных и выберите пункт **Удалить**.
   1. Подтвердите удаление.
 

@@ -30,7 +30,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
-        1. [Create a {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) source cluster with your preferred configuration. For connections to the cluster from the user's local machine, rather than the {{ yandex-cloud }} network, enable public access to the cluster when creating it.
+        1. [Create a {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) source cluster of any suitable configuration. For connections to the cluster from the user's local machine, rather than the {{ yandex-cloud }} network, enable public access to the cluster when creating it.
 
         1. [In the source cluster, create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `sensors`.
 
@@ -49,6 +49,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * [{{ mos-name }}](../../managed-opensearch/operations/connect/index.md#security-groups).
 
 
+    
     - {{ TF }} {#tf}
 
         1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
@@ -66,6 +67,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * {{ KF }} topic named `sensors`.
             * {{ KF }} user named `mkf-user` with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` access permissions to the `sensors` topic.
             * {{ mos-name }} target cluster.
+            * {{ KF }} endpoint.
             * Transfer.
 
         1. In the `data-transfer-mkf-mos.tf` file, specify these variables:
@@ -74,9 +76,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * `kf_user_password`: `mkf-user` user password.
             * `os_version`: {{ OS }} version in the source cluster.
             * `os_user_password`: `admin` user password.
-            * `transfer_enabled`: Set to `0` to ensure that no transfer is created until you [create endpoints manually](#prepare-transfer).
+            * `transfer_enabled`: `0` not to create a transfer until [an {{ OS }} endpoint is created manually](#prepare-transfer).
 
-        1. Validate your {{ TF }} configuration files using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -89,6 +91,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
             {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+
 
     {% endlist %}
 
@@ -168,77 +171,7 @@ You can deliver data to the {{ mos-name }} cluster as `admin` with the `superuse
 
 ## Prepare and activate a transfer {#prepare-transfer}
 
-1. [Create](../../data-transfer/operations/endpoint/index.md#create) an [`{{ KF }}` source endpoint](../../data-transfer/operations/endpoint/source/kafka.md):
-
-    **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.title }}**:
-
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.connection.title }}**:
-
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
-
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}**: Select the source cluster from the list.
-
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}**: **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaAuth.sasl.title }}**.
-
-                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaSASLAuth.user.title }}**: `mkf-user`.
-                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaSASLAuth.password.title }}**: Enter the user password.
-
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic.title }}**: `sensors`.
-
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**:
-
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**: `json`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`.
-
-                Paste the data schema in JSON format:
-
-                {% cut "json" %}
-
-                ```json
-                [
-                    {
-                        "name": "device_id",
-                        "type": "utf8",
-                        "key": true
-                    },
-                    {
-                        "name": "datetime",
-                        "type": "utf8"
-                    },
-                    {
-                        "name": "latitude",
-                        "type": "double"
-                    },
-                    {
-                        "name": "longitude",
-                        "type": "double"
-                    },
-                    {
-                        "name": "altitude",
-                        "type": "double"
-                    },
-                    {
-                        "name": "speed",
-                        "type": "double"
-                    },
-                    {
-                        "name": "battery_voltage",
-                        "type": "double"
-                    },
-                    {
-                        "name": "cabin_temperature",
-                        "type": "uint16"
-                    },
-                    {
-                        "name": "fuel_level",
-                        "type": "uint16"
-                    }
-                ]
-                ```
-
-                {% endcut %}
-
-1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the [`{{ OS }}`](../../data-transfer/operations/endpoint/target/opensearch.md) target:
+1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the [{{ OS }}](../../data-transfer/operations/endpoint/target/opensearch.md) target:
 
     **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchTarget.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchTarget.connection.title }}**:
 
@@ -250,21 +183,91 @@ You can deliver data to the {{ mos-name }} cluster as `admin` with the `superuse
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}**: Enter the user password.
 
-1. Create a transfer:
+1. Create a {{ KF }} source endpoint and transfer:
 
     {% list tabs group=instructions %}
 
     - Manually {#manual}
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**-type that will use the endpoints you created.
+        1. [Create](../../data-transfer/operations/endpoint/index.md#create) an [{{ KF }} source endpoint](../../data-transfer/operations/endpoint/source/kafka.md):
+
+            **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.title }}**:
+
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.connection.title }}**:
+
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
+
+                    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}**: Select the source cluster from the list.
+
+                    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}**: **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaAuth.sasl.title }}**.
+
+                        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaSASLAuth.user.title }}**: `mkf-user`.
+                        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaSASLAuth.password.title }}**: Enter the user password.
+
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic.title }}**: `sensors`.
+
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**:
+
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**: `json`.
+                    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`.
+
+                        Paste the data schema in JSON format:
+
+                        {% cut "json" %}
+
+                        ```json
+                        [
+                            {
+                                "name": "device_id",
+                                "type": "utf8",
+                                "key": true
+                            },
+                            {
+                                "name": "datetime",
+                                "type": "utf8"
+                            },
+                            {
+                                "name": "latitude",
+                                "type": "double"
+                            },
+                            {
+                                "name": "longitude",
+                                "type": "double"
+                            },
+                            {
+                                "name": "altitude",
+                                "type": "double"
+                            },
+                            {
+                                "name": "speed",
+                                "type": "double"
+                            },
+                            {
+                                "name": "battery_voltage",
+                                "type": "double"
+                            },
+                            {
+                                "name": "cabin_temperature",
+                                "type": "uint16"
+                            },
+                            {
+                                "name": "fuel_level",
+                                "type": "uint16"
+                            }
+                        ]
+                        ```
+
+                        {% endcut %}
+
+        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the endpoints you created.
         1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
+    
     - {{ TF }} {#tf}
 
-        1. In the `data-transfer-mkf-mos.tf` file, specify these variables:
+        1. In the `data-transfer-mkf-mos.tf` file, specify the following variables:
 
-            * `source_endpoint_id`: Source endpoint ID.
-            * `target_endpoint_id`: Target endpoint ID.
+            * `target_endpoint_id`: {{ OS }} target endpoint ID.
             * `transfer_enabled`: Set to `1` to create a transfer.
 
         1. Validate your {{ TF }} configuration files using this command:
@@ -280,6 +283,7 @@ You can deliver data to the {{ mos-name }} cluster as `admin` with the `superuse
             {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
         1. The transfer will be activated automatically. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+
 
     {% endlist %}
 
@@ -340,13 +344,15 @@ Before deleting any resources, [deactivate the transfer](../../data-transfer/ope
 To minimize resource consumption, delete the resources you no longer need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
-1. [Delete the source and target endpoints](../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete other resources, applying the same method used for their creation:
+
+
+1. Delete the resources depending on how you created them:
 
    {% list tabs group=instructions %}
 
    - Manually {#manual}
 
+       1. [Delete](../../data-transfer/operations/endpoint/index.md#delete) the source endpoint.
        1. [Delete the {{ mos-name }} cluster](../../managed-opensearch/operations/cluster-delete.md).
        1. [Delete the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
 
@@ -355,3 +361,6 @@ To minimize resource consumption, delete the resources you no longer need:
        {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
    {% endlist %}
+
+1. [Delete](../../data-transfer/operations/endpoint/index.md#delete) the target endpoint.
+

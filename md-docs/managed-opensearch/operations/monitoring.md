@@ -24,8 +24,8 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога.
-    1. Перейдите в сервис **Managed Service for&nbsp;OpenSearch**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-opensearch) в сервис **Managed Service for&nbsp;OpenSearch**.
     1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/display-pulse.svg) **Мониторинг**.
 
         На странице отображаются следующие графики:
@@ -82,8 +82,8 @@
 
 Для просмотра детальной информации о состоянии отдельных хостов Managed Service for OpenSearch:
 
-1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога.
-1. Перейдите в сервис **Managed Service for&nbsp;OpenSearch**.
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+1. [Перейдите](https://console.yandex.cloud/link/managed-opensearch) в сервис **Managed Service for&nbsp;OpenSearch**.
 1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/cube.svg) **Хосты**.
 1. Выберите вкладку **Мониторинги**.
 1. Выберите нужный хост из выпадающего списка.
@@ -162,8 +162,8 @@
 
 Для просмотра детальной информации о состоянии группы хостов Managed Service for OpenSearch:
 
-1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога.
-1. Перейдите в сервис **Managed Service for&nbsp;OpenSearch**.
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+1. [Перейдите](https://console.yandex.cloud/link/managed-opensearch) в сервис **Managed Service for&nbsp;OpenSearch**.
 1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/copy-transparent.svg) **Группы хостов**.
 1. Выберите вкладку **Мониторинги**.
 1. Выберите нужную группу хостов из выпадающего списка.
@@ -178,7 +178,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог с кластером, для которого нужно настроить алерты.
-  1. Перейдите в сервис ![image](../../_assets/console-icons/display-pulse.svg) **Monitoring**.
+  1. [Перейдите](https://monitoring.yandex.cloud) в сервис ![image](../../_assets/console-icons/display-pulse.svg) **Monitoring**.
   1. В блоке **Сервисные дашборды** выберите:
 
       * **Managed Service for OpenSearch** для настройки алертов кластера;
@@ -238,7 +238,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога.
-    1. Перейдите в сервис **Managed Service for&nbsp;OpenSearch**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-opensearch) в сервис **Managed Service for&nbsp;OpenSearch**.
     1. Наведите курсор на индикатор в столбце **Доступность** в строке нужного кластера.
 
 - CLI {#cli}

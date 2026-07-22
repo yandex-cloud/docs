@@ -7,7 +7,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится контейнер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. [Перейдите]({{ link-console-main }}/link/serverless-containers) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Выберите контейнер, который хотите сделать публичным.
   1. На вкладке **{{ ui-key.yacloud.common.overview }}** включите опцию **{{ ui-key.yacloud.serverless-containers.label_public-container }}**.
 
@@ -54,6 +54,7 @@
       ```
 
       Где:
+      
       * `roleId` — роль, которую нужно назначить. Вызывать контейнер позволяет роль `serverless-containers.containerInvoker`.
       * `id` — субъект, которому нужно назначить роль. `allUsers` — любой пользователь, прохождение аутентификации не требуется.
       * `type` — тип субъекта, которому назначается роль. `system` — [публичная группа](../../iam/concepts/access-control/public-group.md).

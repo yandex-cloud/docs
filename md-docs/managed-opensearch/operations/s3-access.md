@@ -37,7 +37,7 @@ Managed Service for OpenSearch поддерживает работу с Yandex O
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хранится нужный бакет. Если бакета не существует — [создайте](../../storage/operations/buckets/create.md) его.
 
 
-    1. Перейдите в сервис **Object Storage**.
+    1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
     1. Выберите вкладку **Бакеты**.
     1. Настройте [ACL бакета](../../storage/operations/buckets/edit-acl.md):
         1. В выпадающем списке **Имя или e-mail пользователя** укажите сервисный аккаунт, [подключенный к кластеру](#connect-service-account).

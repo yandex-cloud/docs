@@ -13,19 +13,17 @@
 
 #|
 || Вид ограничения | Значение ||
-|| Максимальное количество [каналов](index.md#channels) в одной [организации](../../organization/quickstart.md)
+|| Максимальное количество [каналов](index.md#channels) в одной организации
 `video.channels.count` | 25 ||
 || Общее количество [видео](videos.md) во всех каналах
 `video.videos.count` | 5 000 ||
 || Количество [плейлистов](playlists.md) во всех каналах
 `video.playlists.count` | 500 ||
-|| Количество одновременных процессов по транскодированию видео с нейросетевыми функциями: [суммаризация](videos.md#summarization), [нейроперевод](videos.md#stranslation) и [генерация субтитров](videos.md#subtitles)
+|| Количество одновременных процессов по транскодированию видео с нейросетевыми функциями: [суммаризация](videos.md#summarization), [нейроперевод](videos.md#stranslation) и генерация [субтитров](videos.md#subtitles)
 `video.transcodingsWithNeuroFeatures.rate` | 1 ||
-|| Количество [линий](streams.md#lines) потоковой передачи в одной организации
-`video.streamLines.count` | 50 ||
 || Количество [трансляций](streams.md) в одной организации
 `video.streams.count` | 500 ||
-|| Количество одновременных трансляций в одной организации
+|| Количество одновременных [трансляций](streams.md#streams) в одной организации
 `video.parallelStreams.count` | 1 ||
 || Количество [эпизодов](streams.md#episodes) во всех трансляциях
 `video.episodes.count` | 500 ||

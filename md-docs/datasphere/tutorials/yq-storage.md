@@ -221,7 +221,7 @@ NYC Taxi and Limousine Commission (TLC):
   1. В блоке **Параметры привязки к данным**:
   
      1. Введите имя привязки, например `yq_binding`.
-     1. В поле **Путь** укажите [путь к данным](../../query/sources-and-sinks/object-storage.md#path_format) — `nyc_taxi_sample/data/`.
+     1. В поле **Путь** укажите [путь к данным](../../query/sources-and-sinks/object-storage.md#path-format) — `nyc_taxi_sample/data/`.
      1. Выберите тип сжатия — `gzip`.
   
   1. В блоке **Настройки формата** в поле **Формат** выберите `csv_with_names`.

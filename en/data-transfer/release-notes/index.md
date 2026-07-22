@@ -8,6 +8,20 @@ description: This section contains the {{ data-transfer-name }} release notes.
 
 {% changelog %}
 ```
+date: 2025-06
+index: 3
+```
+
+### New options for delivering data to storages
+
+* Meet the updated {{ objstorage-name }} data sink, now accessible to all users for data delivery. You can now write data to a bucket in JSON, CSV, and Parquet formats.
+
+* Added new options for data replication from {{ KF }} and {{ DS }} queues to the {{ IBRG }} data sink. For details about supported data source-target pairs, see the [transfer matrix](../transfer-matrix.md).
+
+{% endchangelog %}
+
+{% changelog %}
+```
 date: 2025-12
 index: 2
 ```
@@ -42,6 +56,14 @@ Use a new combination of endpoints to transfer data from {{ ydb-name }} to {{ PG
 # {{ data-transfer-name }} release notes
 
 ## 2026 {#2026}
+
+### June {#june2026}
+
+
+* Supported replication of data from [{{ KF }}](../operations/endpoint/source/kafka.md) and [{{ DS }}](../operations/endpoint/source/data-streams.md) queues to the [{{ IBRG }}](../operations/endpoint/target/iceberg.md) data sink.
+
+
+* The [{{ objstorage-name }}](../operations/endpoint/target/object-storage.md) data sink has been updated and is now available to all users.
 
 ### May {#may26}
 

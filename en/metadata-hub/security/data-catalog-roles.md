@@ -15,7 +15,7 @@ description: '{{ data-catalog-name }} service roles allow you to manage access t
 
 
 
-To view information about metadata catalogs and manage their resources, you can use {{ data-catalog-full-name }} service roles at the following levels:
+You can use {{ data-catalog-full-name }} service roles to view information about metadata catalogs and manage their resources at the following levels:
 
 * [Service](#service-level-roles)
 * [Catalog](#catalogs-roles)

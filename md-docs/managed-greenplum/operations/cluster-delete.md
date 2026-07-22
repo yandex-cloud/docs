@@ -18,7 +18,7 @@
 - Консоль управления {#console}
 
   1. Перейдите [на страницу каталога](https://console.yandex.cloud).
-  1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужного кластера, выберите пункт **Удалить** и подтвердите удаление.
 
 - CLI {#cli}

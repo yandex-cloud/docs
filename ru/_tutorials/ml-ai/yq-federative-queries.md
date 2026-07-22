@@ -199,7 +199,7 @@
   1. В блоке **{{ ui-key.yql.yq-binding-form.binding-parameters.title }}**:
   
      1. Введите имя привязки, например `visits`.
-     1. В поле **{{ ui-key.yql.yq-binding-form.binding-path-pattern.title }}** укажите [путь к таблице](../../query/sources-and-sinks/object-storage.md#path_format) в бакете — `/visits.csv`.
+     1. В поле **{{ ui-key.yql.yq-binding-form.binding-path-pattern.title }}** укажите [путь к таблице](../../query/sources-and-sinks/object-storage.md#path-format) в бакете — `/visits.csv`.
   
   1. В блоке **{{ ui-key.yql.yq-binding-form.binding-format-settings.title }}**:
      

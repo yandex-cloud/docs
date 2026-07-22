@@ -65,4 +65,4 @@
 
 #### Смотрите также {#see-also}
 
-* [Решение проблем в {{ container-registry-name }}](../../error/index.md).
+[Решение проблем в {{ container-registry-name }}](../../error/index.md)

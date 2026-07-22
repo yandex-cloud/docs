@@ -16,7 +16,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите посмотреть список функций.
-  1. Перейдите в сервис **Cloud Functions**.
+  1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
   1. На панели слева выберите ![image](../../_assets/console-icons/curly-brackets-function.svg) **Функции**.
 
 - CLI {#cli}
@@ -55,7 +55,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится функция.
-    1. Перейдите в сервис **Cloud Functions**.
+    1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
     1. На панели слева выберите ![image](../../_assets/console-icons/curly-brackets-function.svg) **Функции**.
     1. Выберите функцию, для которой хотите получить список версий.
     1. В разделе **История версий** будет показан список версий функции и подробная информация о них.
@@ -105,7 +105,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится функция.
-    1. Перейдите в сервис **Cloud Functions**.
+    1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
     1. На панели слева выберите ![image](../../_assets/console-icons/curly-brackets-function.svg) **Функции**.
     1. Выберите функцию, для которой хотите получить список версий.
     1. В разделе **История версий** будет показан список версий функции и подробная информация о них.
@@ -121,9 +121,11 @@
     Чтобы получить подробную информацию о версии функции:
 
     * по `ID`, выполните команду:
+
         ```
         yc serverless function version get <идентификатор_версии>
         ```
+
         Результат:
       
         ```
@@ -143,9 +145,11 @@
         ```
 
     * по `TAGS`, выполните команду:
+
         ```
         yc serverless function version get-by-tag --function-name <имя_функции> --tag <тег>
         ```
+        
         Результат:
       
         ```
@@ -178,7 +182,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите посмотреть список триггеров.
-    1. Перейдите в сервис **Cloud Functions**.
+    1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
     1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **Триггеры**.
 
 - CLI {#cli}
@@ -216,7 +220,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится триггер.
-  1. Перейдите в сервис **Cloud Functions**.
+  1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
   1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **Триггеры**.
   1. Выберите триггер, о котором хотите получить подробную информацию.
 

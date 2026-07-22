@@ -3,7 +3,7 @@
 - Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится реестр.
-   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Выберите реестр.
    1. На странице **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация о реестре.
 
@@ -41,6 +41,7 @@
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   Чтобы получить подробную информацию о реестре с помощью {{ TF }}:
+
   1. Добавьте в конфигурационный файл {{ TF }} блоки `data` и `output`:
 
      ```hcl
@@ -54,9 +55,12 @@
      ```
 
      Где:
+
      * `data "yandex_iot_core_registry"` — описание реестра в качестве источника данных:
+
        * `registry_id` — идентификатор реестра.
      * `output "registry_params"` — выходная переменная, которая содержит информацию о временной метке создания реестра:
+
        * `value` — возвращаемое значение.
 
      Вместо `created_at` вы можете выбрать любой другой параметр для получения информации. Подробнее о параметрах источника данных `yandex_iot_core_registry` в [документации провайдера]({{ tf-provider-datasources-link }}/iot_core_registry).

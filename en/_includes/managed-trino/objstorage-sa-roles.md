@@ -1,0 +1,1 @@
+To enable operations with {{ objstorage-name }}, assign the `storage.editor` [role](../../storage/security/index.md#storage-editor) to the service accounts of your {{ mtr-name }} and {{ metastore-full-name }} clusters.

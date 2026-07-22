@@ -5,6 +5,22 @@ description: This section contains the {{ mkf-name }} release notes.
 
 # {{ mkf-full-name }} release notes
 
+## June 2026 {#june-2026}
+
+* Now you can [change the disk type](operations/storage-space.md#change-disk-size) of broker hosts in a [highly available cluster](concepts/ha-cluster.md).
+* Added support for {{ KF }} 4.1 and 4.2. These versions are available in the `PRODUCTION` environment. For more information about the updates, see [this {{ KF }} guide](https://kafka.apache.org/community/downloads/#420).
+
+## May 2026 {#may-2026}
+
+[Disk encryption](concepts/storage.md#disk-encryption) with a customer KMS key is now supported for hosts with local SSDs.
+
+## April 2026 {#april-2026}
+
+* Added support for the [Iceberg Sink](operations/cluster-connector.md#settings-iceberg) connector.
+* Updated the cluster monitoring page: added the [Disk Metrics Details and Problematic partitions](operations/monitoring.md) metric groups.
+* Added support for local SSD storage for the AMD Zen 4 platform.
+* Now you can manage the `transactional.id.expiration.ms` broker setting. For more information, see [{#T}](concepts/settings-list.md#cluster-settings).
+
 
 ## March 2026 {#march-2026}
 

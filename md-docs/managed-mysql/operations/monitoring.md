@@ -27,7 +27,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Managed Service for&nbsp;MySQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Мониторинг**.
       
       На открывшейся странице будут отображены графики, отражающие состояние кластера.
@@ -95,7 +95,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Managed Service for&nbsp;MySQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Мониторинг**.
   1. Перейдите на вкладку **Хосты** и выберите хост.
 
@@ -196,7 +196,7 @@
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог с кластером, для которого нужно настроить алерты.
 
-    1. Перейдите в сервис ![image](../../_assets/console-icons/display-pulse.svg) **Monitoring**.
+    1. [Перейдите](https://monitoring.yandex.cloud) в сервис ![image](../../_assets/console-icons/display-pulse.svg) **Monitoring**.
 
     1. В блоке **Сервисные дашборды** выберите:
 
@@ -249,7 +249,7 @@
 
 Для просмотра состояния и статуса кластера:
 
-1. Перейдите в сервис **Managed Service for&nbsp;MySQL**.
+1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL**.
 1. Наведите курсор на индикатор в столбце **Доступность** в строке нужного кластера.
 
 ### Состояния кластера {#cluster-health}

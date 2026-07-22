@@ -20,7 +20,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором будет создана БД.
-  1. Перейдите в сервис **Managed Service for&nbsp;YDB**.
+  1. [Перейдите](https://console.yandex.cloud/link/ydb) в сервис **Managed Service for&nbsp;YDB**.
   1. Нажмите кнопку **Создать базу данных**.
   1. Введите **Имя** БД. Требования к имени:
 
@@ -196,7 +196,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно изменить настройки БД.
-  1. Перейдите в сервис **Managed Service for&nbsp;YDB**.
+  1. [Перейдите](https://console.yandex.cloud/link/ydb) в сервис **Managed Service for&nbsp;YDB**.
   1. Нажмите значок ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) в строке нужной БД и выберите пункт **Изменить**.
   1. Настройте параметры БД:
       1. При необходимости измените имя БД.
@@ -349,7 +349,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором будет создана БД.
-  1. Перейдите в сервис **Managed Service for&nbsp;YDB**.
+  1. [Перейдите](https://console.yandex.cloud/link/ydb) в сервис **Managed Service for&nbsp;YDB**.
   1. Нажмите кнопку **Создать базу данных**.
   1. Введите **Имя** базы. Требования к имени:
 
@@ -585,7 +585,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно изменить настройки БД.
-  1. Перейдите в сервис **Managed Service for&nbsp;YDB**.
+  1. [Перейдите](https://console.yandex.cloud/link/ydb) в сервис **Managed Service for&nbsp;YDB**.
   1. Нажмите значок ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) в строке нужной БД и выберите пункт **Изменить**.
   1. Настройте параметры БД:
       1. При необходимости измените имя БД.
@@ -701,7 +701,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, для которого нужно получить список БД.
-  1. Перейдите в сервис **Managed Service for&nbsp;YDB**.
+  1. [Перейдите](https://console.yandex.cloud/link/ydb) в сервис **Managed Service for&nbsp;YDB**.
 
 - Yandex Cloud CLI {#cli}
 
@@ -730,7 +730,7 @@
 * Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится БД.
-  1. Перейдите в сервис **Managed Service for&nbsp;YDB**.
+  1. [Перейдите](https://console.yandex.cloud/link/ydb) в сервис **Managed Service for&nbsp;YDB**.
   1. Нажмите на имя нужной БД.
   1. Перейдите в раздел ![image](../../_assets/console-icons/persons.svg) **Права доступа** и нажмите кнопку **Назначить роли**.
   1. Выберите группу, пользователя или сервисный аккаунт, которым нужно предоставить доступ к БД.
@@ -814,7 +814,7 @@
 * Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится БД.
-  1. Перейдите в сервис **Managed Service for&nbsp;YDB**.
+  1. [Перейдите](https://console.yandex.cloud/link/ydb) в сервис **Managed Service for&nbsp;YDB**.
   1. Нажмите на имя нужной БД.
   1. Перейдите в раздел ![image](../../_assets/console-icons/persons.svg) **Права доступа** и нажмите кнопку **Назначить роли**.
   1. Выберите группу, пользователя или сервисный аккаунт, которым нужно предоставить доступ к БД.
@@ -922,7 +922,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно удалить БД.
-  1. Перейдите в сервис **Managed Service for&nbsp;YDB**.
+  1. [Перейдите](https://console.yandex.cloud/link/ydb) в сервис **Managed Service for&nbsp;YDB**.
   1. Нажмите значок ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) в строке нужной БД и выберите пункт **Удалить**.
   1. Подтвердите удаление.
 

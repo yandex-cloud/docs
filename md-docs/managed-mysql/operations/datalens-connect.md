@@ -40,7 +40,7 @@
 - Консоль управления {#console}
 
   1. Убедитесь, что сервис DataLens [активирован](#activate-datalens) в нужном каталоге и доступ к кластеру из него [разрешен](#allow-access).
-  1. Перейдите в сервис **Managed Service for&nbsp;MySQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL**.
   1. Нажмите на имя нужного кластера и выберите вкладку **DataLens**.
   1. Нажмите кнопку **Создать подключение**.
 
@@ -72,7 +72,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Managed Service for&nbsp;MySQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL**.
   1. Нажмите на имя нужного кластера и выберите вкладку **DataLens**.
 
 {% endlist %}
@@ -83,7 +83,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Managed Service for&nbsp;MySQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL**.
   1. Нажмите на имя нужного кластера и выберите вкладку **DataLens**.
   1. Выберите подключение из списка.
   1. Измените [настройки](#connector-settings) и область видимости подключения.
@@ -98,7 +98,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Managed Service for MySQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL**.
   1. Нажмите на имя нужного кластера и выберите вкладку **DataLens**.
   1. Выберите подключение из списка.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) вверху страницы и выберите **Удалить**.

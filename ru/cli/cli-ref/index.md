@@ -27,7 +27,7 @@ Syntax:
 
 - [yc cic](cic/cli-ref/index.md) — Manage Interconnect resources
 
-- [yc cloud-registry](cloud-registry/cli-ref/index.md) — Manage CloudRegistry resources
+- [yc cloud-registry](cloud-registry/cli-ref/index.md) — Manage Cloud Registry resources
 
 - [yc cloudrouter](cloudrouter/cli-ref/index.md) — Manage Cloud Router resources
 

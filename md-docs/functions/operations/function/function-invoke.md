@@ -14,7 +14,7 @@
     
     1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится функция.
 
-    1. Перейдите в сервис **Cloud Functions**.
+    1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
 
     1. Выберите функцию.
 
@@ -46,7 +46,7 @@
     {% endnote %}
 
     Вы можете найти ссылку для вызова функции:
-    * в поле **Ссылка для вызова**. Для этого в [консоли управления](https://console.yandex.cloud) Перейдите в сервис **Cloud Functions** и нажмите на строку с нужной функцией.
+    * в поле **Ссылка для вызова**. Для этого [перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions** и нажмите на строку с нужной функцией.
     * в параметре `http_invoke_url`. Для этого выполните команду:
         ```
         yc serverless function get <имя_функции>

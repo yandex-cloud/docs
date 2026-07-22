@@ -22,7 +22,7 @@
    {% endnote %}
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится поток данных.
-1. Перейдите в сервис **Data Streams**.
+1. [Перейдите](https://console.yandex.cloud/link/data-streams) в сервис **Data Streams**.
 1. Выберите поток данных.
 1. Нажмите **Подключиться** и перейдите на вкладку **Logstash**.
 1. Скопируйте пример файла конфигурации и вставьте его в файл `/usr/share/logstash/bin/mypipeline.conf`.

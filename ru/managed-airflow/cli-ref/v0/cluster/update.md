@@ -108,6 +108,7 @@ Version of Apache Airflow. ||
 
 Version of Python that Airflow will run on ||
 || `--lockbox-secrets-backend` | Whether the Lockbox Secret Backend will be allowed for the cluster. ||
+|| `--datacatalog-enabled` | Whether sending data to Datacatalog will be allowed for the cluster. ||
 || `--security-group-ids` | `value[,value]`
 
 A list of security groups for the Airflow cluster. ||

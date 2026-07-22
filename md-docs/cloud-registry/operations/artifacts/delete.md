@@ -11,7 +11,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится реестр.
-    1. Перейдите в сервис **Cloud Registry**.
+    1. [Перейдите](https://console.yandex.cloud/link/cloud-registry) в сервис **Cloud Registry**.
     1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Реестры**.
     1. Выберите реестр, из которого хотите удалить артефакт.
     1. На панели слева выберите ![cube](../../../_assets/console-icons/cubes-3.svg) **Артефакты**.

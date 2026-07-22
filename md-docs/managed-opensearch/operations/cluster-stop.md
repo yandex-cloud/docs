@@ -20,8 +20,8 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога.
-    1. Перейдите в сервис **Managed Service for&nbsp;OpenSearch**.
+    1. В [консоли управления](https://console.yandex.cloud) откройте страницу каталога.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-opensearch) в сервис **Managed Service for&nbsp;OpenSearch**.
     1. Найдите нужный кластер в списке, нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Остановить**.
     1. В открывшемся диалоге подтвердите остановку кластера и нажмите кнопку **Остановить**.
 
@@ -91,8 +91,8 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога.
-    1. Перейдите в сервис **Managed Service for&nbsp;OpenSearch**.
+    1. В [консоли управления](https://console.yandex.cloud) откройте страницу каталога.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-opensearch) в сервис **Managed Service for&nbsp;OpenSearch**.
     1. Найдите нужный остановленный кластер в списке, нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Запустить**.
     1. В открывшемся диалоге подтвердите запуск кластера нажатием на кнопку **Запустить**.
 

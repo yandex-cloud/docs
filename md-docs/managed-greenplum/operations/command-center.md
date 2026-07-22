@@ -30,7 +30,7 @@
 - Консоль управления {#console}
 
     1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
     1. Нажмите на имя нужного кластера и перейдите на вкладку ![image](../../_assets/console-icons/pulse.svg) **Командный центр**.
     1. Выберите, что вы хотите посмотреть, и перейдите на нужную вкладку:
 
@@ -59,7 +59,7 @@
 - Консоль управления {#console}
 
     1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
     1. Нажмите на имя нужного кластера и перейдите на вкладку ![image](../../_assets/console-icons/pulse.svg) **Командный центр** → **История потребления**.
     1. Выберите нужный показатель потребления:
 
@@ -114,7 +114,7 @@
 - Консоль управления {#console}
 
     1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
     1. Нажмите на имя нужного кластера и перейдите на вкладку ![image](../../_assets/console-icons/pulse.svg) **Командный центр**.
     1. В разделе **Текущее состояние** → **Сессии** нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в нужной строке и выберите пункт **Прервать сессию**.
 
@@ -133,7 +133,7 @@
 - Консоль управления {#console}
 
     1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
     1. Нажмите на имя нужного кластера и перейдите на вкладку ![image](../../_assets/console-icons/pulse.svg) **Командный центр**.
     1. В разделе **Текущее состояние** → **Запросы** нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в нужной строке и выберите пункт **Прервать запрос**.
     1. Подтвердите остановку запроса.
@@ -154,7 +154,7 @@
 - Консоль управления {#console}
 
     1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
     1. Нажмите на имя нужного кластера и перейдите на вкладку ![image](../../_assets/console-icons/pulse.svg) **Командный центр** → **Текущее состояние**.
     1. Отсортируйте сессии по одному из столбцов: **CPU time**, **Peak memory**, **Spill**, **Disk W**, **Disk R**, **Net recv** или **Net sent**. 
     1. Найдите сессии, которые потребляют наибольшее количество выбранного ресурса.
@@ -181,7 +181,7 @@
 - Консоль управления {#console}
 
     1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
     1. Нажмите на имя нужного кластера и перейдите на вкладку ![image](../../_assets/console-icons/pulse.svg) **Командный центр** → **Текущее состояние**.
     1. Перейдите на вкладку **Сессии**.
     1. Включите отображение только активных сессий. Для этого выключите все кнопки-статусы, кроме **Active**.
@@ -225,7 +225,7 @@
 - Консоль управления {#console}
 
     1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
     1. Нажмите на имя нужного кластера и перейдите на вкладку ![image](../../_assets/console-icons/pulse.svg) **Командный центр** → **Текущее состояние**.
     1. Отсортируйте сессии по столбцу **Время старта**.
     1. Найдите сессию в статусе `Idle`, которая длится наибольшее количество времени. Нажмите на номер этой сессии. Откроется страница с информацией о ней.
@@ -243,7 +243,7 @@
 - Консоль управления {#console}
 
     1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
     1. Нажмите на имя нужного кластера и перейдите на вкладку ![image](../../_assets/console-icons/pulse.svg) **Командный центр** → **Текущее состояние**.
     1. Перейдите на вкладку **Сессии**.
     1. Для отображения дерева блокировок нажмите кнопку ![image](../../_assets/console-icons/branches-down.svg).
@@ -289,7 +289,7 @@
     1. Узнайте, когда было зафиксировано высокое потребление CPU:
 
         1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-        1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+        1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
         1. Нажмите на имя нужного кластера и перейдите в ![image](../../_assets/console-icons/pulse.svg) **Командный центр** → **История состояний**.
         1. Задайте фильтр **CPU usage**.
         1. Определите по графику, когда потребление CPU стало аномально высоким.
@@ -331,7 +331,7 @@
     1. Определите причину появления ошибок:
 
         1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-        1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+        1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
         1. Нажмите на имя нужного кластера и перейдите в ![image](../../_assets/console-icons/pulse.svg) **Командный центр** → **История состояний**.
         1. Задайте диапазон времени, в который наблюдались ошибки.
         1. В выпадающем списке над графиком последовательно выберите **Connections**, а затем **Net usage**. Сравните графики.
@@ -380,7 +380,7 @@
 - Консоль управления {#console}
 
     1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
     1. Нажмите на имя нужного кластера и перейдите в ![image](../../_assets/console-icons/pulse.svg) **Командный центр** → **История состояний**.
     1. Перейдите на вкладку **Запросы**.
     1. Выберите момент времени, когда наблюдались проблемы по данным мониторинга. Используйте блок **На момент времени:** и стрелки **<** **>** для точного задания момента времени.

@@ -10,7 +10,7 @@
 
 - Консоль управления {#console}
 
-  Перейдите в сервис **Managed Service for&nbsp;MySQL**.
+  [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL**.
 
 - CLI {#cli}
 
@@ -104,7 +104,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Managed Service for&nbsp;MySQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL**.
   1. Нажмите на имя нужного кластера.
 
 - CLI {#cli}
@@ -194,7 +194,7 @@
   Можно получить список операций для кластера:
 
   1. В [консоли управления](https://console.yandex.cloud) откройте каталог, в котором находится кластер.
-  1. Перейдите в сервис **Managed Service for&nbsp;MySQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL**.
   1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3.svg) **Кластеры**.
   1. Выберите нужный кластер и перейдите на вкладку ![image](../../_assets/console-icons/list-check.svg) **Операции**.
 

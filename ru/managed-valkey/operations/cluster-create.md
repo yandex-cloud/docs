@@ -322,7 +322,7 @@ description: Следуя данной инструкции, вы сможете
          disk_size_autoscaling = {
            planned_usage_threshold   = "<процент_для_планового_увеличения>"
            emergency_usage_threshold = "<процент_для_незамедлительного_увеличения>"
-           disk_size_limit           = "<максимальный_размер_хранилища_в_гибибайтах>"
+           disk_size_limit           = "<максимальный_размер_хранилища_в_гигабайтах>"
          }
 
          config = {

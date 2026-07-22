@@ -20,7 +20,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, из которого нужно удалить кластер.
-  1. Перейдите в сервис **Managed Service for&nbsp;OpenSearch**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-opensearch) в сервис **Managed Service for&nbsp;OpenSearch**.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужного кластера и выберите пункт **Удалить**.
   1. Подтвердите удаление кластера и нажмите кнопку **Удалить**.
 

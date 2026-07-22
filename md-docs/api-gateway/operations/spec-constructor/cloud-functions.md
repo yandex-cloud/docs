@@ -7,7 +7,7 @@
 - Консоль управления
 
     1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создали или хотите создать [API-шлюз](../../concepts/index.md).
-    1. Перейдите в сервис **API Gateway**.
+    1. [Перейдите](https://console.yandex.cloud/link/api-gateway) в сервис **API Gateway**.
     1. Выберите API-шлюз или нажмите кнопку **Создать API-шлюз**, чтобы создать новый.
     1. Нажмите кнопку ![image](../../../_assets/console-icons/pencil.svg) **Редактировать**.
     1. В поле **Спецификация** нажмите значок ![image](../../../_assets/api-gateway/spec-constructor/cloud-functions.svg).
@@ -26,6 +26,6 @@
 
 В поле **Спецификация** отобразится OpenAPI-спецификация с указанными значениями параметров.
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Расширение x-yc-apigateway-integration:cloud_functions](../../concepts/extensions/cloud-functions.md)
+[Расширение x-yc-apigateway-integration:cloud_functions](../../concepts/extensions/cloud-functions.md)

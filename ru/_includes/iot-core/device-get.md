@@ -3,7 +3,7 @@
 - Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится устройство.
-   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Выберите реестр, в котором находится устройство.
    1. Перейдите на вкладку **{{ ui-key.yacloud.iot.label_devices }}**.
    1. Выберите устройство.
@@ -14,6 +14,7 @@
   {% include [cli-install](../cli-install.md) %}
   
   {% include [default-catalogue](../default-catalogue.md) %}
+
   1. Посмотрите описание команды CLI для получения информации об устройстве:
 	
       ```bash
@@ -42,6 +43,7 @@
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   Чтобы получить подробную информацию об устройстве с помощью {{ TF }}:
+
   1. Добавьте в конфигурационный файл {{ TF }} блоки `data` и `output`:
 
      ```hcl
@@ -55,9 +57,12 @@
      ```
 
      Где:
+
      * `data "yandex_iot_core_device"` — описание устройства в качестве источника данных:
+
        * `device_id` — идентификатор устройства.
      * `output "device_params"` — выходная переменная, которая содержит информацию о реестре, которому принадлежит устройство:
+     
        * `value` — возвращаемое значение.
 
      Вместо `registry_id` вы можете выбрать любой другой параметр для получения информации. Подробнее о параметрах источника данных `yandex_iot_core_device` в [документации провайдера]({{ tf-provider-datasources-link }}/iot_core_device).

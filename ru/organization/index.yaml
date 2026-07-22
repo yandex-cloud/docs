@@ -1,19 +1,3 @@
-title: Yandex Identity Hub
-description:
-  - >-
-    Yandex Identity Hub — облачный сервис для централизованного управления
-    учетными записями пользователей и доступом к корпоративным приложениям по
-    протоколам SAML и OpenID Connect (Identity Provider).
-  - >-
-    Инфраструктура Yandex Cloud <a
-    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
-    в соответствии с Федеральным законом Российской Федерации «О персональных
-    данных» № 152-ФЗ.
-  - >-
-    Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
-    об уровне обслуживания</a>.  Уровень обслуживания сервиса определен в
-    документе <a href="https://yandex.ru/legal/cloud_sla_identity_hub">Уровень
-    обслуживания Yandex Identity Hub</a>.
 meta:
   title: Yandex Identity Hub
   description: >-
@@ -30,26 +14,174 @@ meta:
     - keyword: корпоративное облако
     - keyword: облако для корпоративных клиентов
     - keyword: как управлять доступом сотрудников
-links:
-  - title: Зарегистрируйте организацию
-    description: Чтобы начать работу, зарегистрируйте организацию
-    href: operations/enable-org
-  - title: Добавьте пользователей
-    description: >-
-      Подключите к организации сотрудников с помощью аккаунтов на Яндексе —
-      тогда они получат доступ к сервисам организации
-    href: operations/add-account
-  - title: Настройте федерацию удостоверений
-    description: >-
-      Настройте федерацию удостоверений, чтобы сотрудники использовали свои
-      рабочие аккаунты для доступа к сервисам
-    href: concepts/add-federation
-  - title: Подключите сервисы
-    description: Подключите сервисы, которыми смогут пользоваться сотрудники организации
-    href: ../resource-manager/concepts/resources-hierarchy
-  - title: Квоты и лимиты
-    description: Технические и организационные ограничения сервиса
-    href: concepts/limits
-  - title: Обучающие курсы
-    description: Информация о доступных программах обучения
-    href: training
+blocks:
+  - type: card-layout-block
+    title: Yandex Identity Hub
+    description: "Yandex Identity Hub — облачный сервис для централизованного управления учетными записями пользователей и доступом к корпоративным приложениям по протоколам SAML и OpenID Connect (Identity Provider).\n\nИнфраструктура Yandex Cloud [защищена](https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf) в соответствии с Федеральным законом Российской Федерации «О персональных данных» №\_152-ФЗ.\n\nДля сервиса действует [соглашение об уровне обслуживания](https://yandex.ru/legal/cloud_sla/ru/). Уровень обслуживания сервиса определен в документе [Уровень обслуживания Yandex Identity Hub](https://yandex.ru/legal/cloud_sla_identity_hub/ru/)."
+    colSizes:
+      all: 12
+      lg: 4
+      sm: 4
+    children:
+      - type: basic-card
+        title: Начало работы
+        text: Создайте первую организацию
+        urlTitle: Как создать первую организацию
+        url: quickstart
+        centered: true
+        animated: false
+        size: s
+        icon: ../_assets/console-icons/rocket.svg
+      - type: basic-card
+        title: Пошаговые инструкции
+        text: Следуйте инструкциям для выполнения рутинных операций
+        urlTitle: "Инструкции по работе с Yandex\_Identity\_Hub"
+        url: operations/index
+        centered: true
+        animated: false
+        size: s
+        icon: ../_assets/console-icons/list-ol.svg
+      - type: basic-card
+        title: Организация
+        text: Изучите основные термины и понятия
+        urlTitle: "Организация в Yandex\_Cloud"
+        url: concepts/organization
+        centered: true
+        animated: false
+        size: s
+        icon: ../_assets/console-icons/briefcase.svg
+      - type: basic-card
+        title: Справочник API (англ.)
+        text: "Используйте методы HTTP\_API для управления организацией"
+        urlTitle: "Описание методов HTTP\_API"
+        url: api-ref/
+        animated: false
+        centered: true
+        size: s
+        icon: ../_assets/console-icons/code.svg
+      - type: basic-card
+        title: История изменений
+        text: Перечень обновлений сервиса
+        urlTitle: "История изменений в Yandex\_Identity\_Hub"
+        url: release-notes
+        centered: true
+        animated: false
+        size: s
+        icon: ../_assets/console-icons/timeline.svg
+      - type: basic-card
+        title: "Синхронизация с Active\_Directory"
+        text: "Синхронизация пользователей и групп с Microsoft\_Active\_Directory"
+        urlTitle: "Синхронизация пользователей и групп с Microsoft\_Active\_Directory"
+        url: concepts/ad-sync
+        centered: true
+        animated: false
+        size: s
+        icon: ../_assets/console-icons/logo-windows.svg
+  - type: card-layout-block
+    title: "Управление\_пользователями\_организации"
+    size: s
+    colSizes:
+      all: 12
+      lg: 4
+      sm: 4
+    children:
+      - type: basic-card
+        title: Начало работы
+        text: Пригласите нового пользователя и назначьте ему роль
+        url: add-account-and-assign-roles
+        centered: true
+        animated: false
+        size: s
+        icon: ../_assets/console-icons/person-plus.svg
+      - type: basic-card
+        title: Пулы пользователей
+        text: Централизованное управление пользователями и настройками доступа
+        url: concepts/user-pools
+        centered: true
+        animated: false
+        size: s
+        icon: ../_assets/console-icons/userpool.svg
+      - type: basic-card
+        title: Федерация удостоверений
+        text: >-
+          Настройте федерацию удостоверений, чтобы сотрудники использовали свои
+          рабочие аккаунты для доступа к сервисам
+        urlTitle: SAML-совместимые федерации удостоверений
+        url: concepts/add-federation
+        centered: true
+        animated: false
+        size: s
+        icon: ../_assets/console-icons/vector-square.svg
+  - type: card-layout-block
+    title: Единый вход (SSO)
+    size: s
+    colSizes:
+      all: 12
+      sm: 6
+      md: 6
+    children:
+      - type: basic-card
+        title: SAML-приложения
+        text: Настройте единый вход по стандарту SAML
+        url: concepts/applications/saml
+        centered: true
+        animated: false
+        size: s
+        icon: ../_assets/console-icons/saml.svg
+      - type: basic-card
+        title: OIDC-приложения
+        text: "Настройте единый вход по стандарту OpenID\_Connect\_(OIDC)"
+        url: concepts/applications/oidc
+        centered: true
+        animated: false
+        size: s
+        icon: ../_assets/console-icons/arrows-rotate-right.svg
+      - type: basic-card
+        title: Практические руководства по настройке SSO
+        text: Настройте единый вход в приложения (SSO)
+        url: tutorials/single-sign-on/index
+        centered: true
+        animated: false
+        size: s
+        icon: ../_assets/console-icons/cloud-gear.svg
+      - type: basic-card
+        title: Сессии
+        text: "Данные о сеансе работы пользователя с Yandex\_Identity\_Hub"
+        url: concepts/sessions
+        centered: true
+        animated: false
+        size: s
+        icon: ../_assets/console-icons/shield.svg
+  - type: card-layout-block
+    title: Аутентификация
+    size: s
+    colSizes:
+      all: 12
+      lg: 4
+      sm: 4
+    children:
+      - type: basic-card
+        title: MFA
+        text: "Настройте многофакторную аутентификация в Yandex\_Identity\_Hub"
+        url: concepts/mfa
+        centered: true
+        animated: false
+        size: s
+        icon: ../_assets/console-icons/key.svg
+      - type: basic-card
+        title: Политики аутентификации
+        text: "Настройте доступ пользователей к приложениям Yandex\_Identity\_Hub"
+        url: concepts/authentication-policy
+        centered: true
+        animated: false
+        size: s
+        icon: ../_assets/console-icons/persons-lock.svg
+      - type: basic-card
+        title: OS Login
+        text: Управление доступом к виртуальным машинам
+        url: tutorials/single-sign-on/index
+        centered: true
+        animated: false
+        size: s
+        icon: ../_assets/console-icons/arrow-right-to-square.svg
+links: []

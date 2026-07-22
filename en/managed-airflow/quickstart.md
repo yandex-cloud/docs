@@ -37,9 +37,10 @@ To get started with {{ maf-name }}:
 
 1. [Assign](../iam/operations/roles/grant.md) the following roles to your {{ yandex-cloud }} account:
 
-    * [{{ roles.maf.editor }}](security/index.md#managed-airflow-editor) to create a cluster.
-    * [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) to use the cluster [network](../vpc/concepts/network.md#network).
-    * [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user) to attach a service account to a cluster.
+    * {% include [roles-maf-editor](../_includes/mdb/maf/roles-maf-editor.md) %}
+    * {% include [roles-vpc-user](../_includes/mdb/roles-vpc-user.md) %}
+    * {% include [roles-sa-user](../_includes/mdb/roles-sa-user.md) %}
+    * {% include [roles-mdb-viewer](../_includes/mdb/roles-mdb-viewer-create-cluster.md) %}
 
     {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 

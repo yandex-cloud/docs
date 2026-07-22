@@ -21,7 +21,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [контейнер](../concepts/container.md).
-  1. Перейдите в сервис **Serverless Containers**.
+  1. [Перейдите](https://console.yandex.cloud/link/serverless-containers) в сервис **Serverless Containers**.
   1. Выберите контейнер.
   1. Перейдите на вкладку **Редактор**.
   1. Разверните блок **Параметры сервиса метаданных**.
@@ -41,6 +41,7 @@
     ```
 
     Где:
+
     * `--container-id` — идентификатор контейнера. Чтобы узнать идентификатор, [получите](list.md) список контейнеров.
     * `--image` — URL Docker-образа из Yandex Container Registry.
     * `--service-account-id` — [идентификатор сервисного аккаунта](../../iam/operations/sa/get-id.md), у которого есть права на скачивание Docker-образа.
@@ -87,6 +88,7 @@
         Где:
 
         * `metadata_options` — настройки параметров сервиса метаданных, например `metadata_options.0.gce_http_endpoint = "1"`. Укажите:
+            
             * `0` — если хотите оставить значение по молчанию.
             * `1` — чтобы включить параметр.
             * `2` — чтобы выключить параметр.

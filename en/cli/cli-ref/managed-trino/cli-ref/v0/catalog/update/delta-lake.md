@@ -41,6 +41,9 @@ A list of Trino catalog labels as key-value pairs. ||
 || `--metastore-hive-uri` | `string`
 
 An URL of Hive Metastore. ||
+|| `--metastore-hive-cluster-id` | `string`
+
+ID of the managed Hive Metastore cluster. ||
 || `--filesystem-native-s3` | Native S3 filesystem. ||
 || `--filesystem-external-s3-aws-access-key` | `string`
 

@@ -32,6 +32,9 @@ A list of Trino catalog labels as key-value pairs. ||
 || `--metastore-hive-uri` | `string`
 
 An URL of Hive Metastore. ||
+|| `--metastore-hive-cluster-id` | `string`
+
+ID of the managed Hive Metastore cluster. ||
 || `--filesystem-native-s3` | Native S3 filesystem. ||
 || `--filesystem-external-s3-aws-access-key` | `string`
 
@@ -45,6 +48,12 @@ External S3 filesystem AWS Endpoint. ||
 || `--filesystem-external-s3-aws-region` | `string`
 
 External S3 filesystem AWS Region. ||
+|| `--metastore-rest-uri` | `string`
+
+An URL of the Iceberg REST Catalog metastore. ||
+|| `--metastore-hive-protocol` | `string`
+
+Protocol for connecting to the Hive Metastore: thrift or rest (Iceberg REST). ||
 || `--additional-properties` | `key=value[,key=value...]`
 
 A list of Trino catalog additional properties as key-value pairs. ||

@@ -81,7 +81,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога.
-    1. Перейдите в сервис **Managed Service for&nbsp;OpenSearch**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-opensearch) в сервис **Managed Service for&nbsp;OpenSearch**.
     1. Выберите кластер и нажмите кнопку **Редактировать**.
     1. В поле **Версия** выберите нужную версию OpenSearch.
     1. Нажмите кнопку **Сохранить**.

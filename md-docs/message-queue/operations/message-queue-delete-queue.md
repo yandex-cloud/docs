@@ -9,7 +9,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, которому принадлежит очередь.
-  1. Перейдите в сервис **Message Queue**.
+  1. [Перейдите](https://console.yandex.cloud/link/message-queue) в сервис **Message Queue**.
   1. В строке нужной очереди нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
   1. В открывшемся окне нажмите кнопку **Удалить**.
   

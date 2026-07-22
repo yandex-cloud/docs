@@ -43,7 +43,7 @@
 - Консоль управления {#console}
 
     1. Перейдите [на страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
     1. Нажмите на имя нужного кластера и выберите вкладку ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **Мониторинг**.
       
         На открывшейся странице будет отображен дашборд с графиками и сигналами работы кластера Yandex MPP Analytics for PostgreSQL.
@@ -147,7 +147,7 @@
 - Консоль управления {#console}
 
     1. Перейдите [на страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
     1. Нажмите на имя нужного кластера и выберите вкладку ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **Мониторинг** → **Хосты**.
     1. Выберите нужный хост.
 
@@ -214,7 +214,7 @@
 - Консоль управления {#console}
 
     1. Перейдите [на страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
     1. Нажмите на имя нужного кластера и выберите вкладку ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **Мониторинг** → **PXF**.
 
         На открывшейся странице будут отображены графики состояния PXF.
@@ -290,7 +290,7 @@
 - Консоль управления {#console}
 
     1. Перейдите [на страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
     1. Нажмите на имя нужного кластера и выберите вкладку ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **Мониторинг** → **Ресурсные группы**.
       
         На открывшейся странице будут отображены графики работы ресурсных групп.
@@ -316,7 +316,7 @@
 - Консоль управления {#console}
 
     1. Перейдите [на страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
     1. Нажмите на имя нужного кластера и выберите вкладку ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **Мониторинг** → **Ресурсные группы по хостам**.
       
         На открывшейся странице будут отображены графики работы ресурсных групп по хостам.
@@ -339,7 +339,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог с кластером, для которого нужно настроить алерты.
-  1. Перейдите в сервис ![image](../../_assets/console-icons/display-pulse.svg) **Monitoring**.
+  1. [Перейдите](https://console.yandex.cloud/link/monitoring) в сервис ![image](../../_assets/console-icons/display-pulse.svg) **Monitoring**.
   1. В блоке **Сервисные дашборды** выберите:
       * **Yandex MPP Analytics for PostgreSQL — Cluster Overview** для настройки алертов кластера;
       * **Yandex MPP Analytics for PostgreSQL — Host Overview** для настройки алертов хостов.
@@ -373,7 +373,7 @@
 Для просмотра состояния и статуса кластера:
 
 1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
 1. Наведите курсор на индикатор в столбце **Доступность** в строке нужного кластера.
 
 ### Состояния кластера {#cluster-health}

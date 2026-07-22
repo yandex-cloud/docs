@@ -163,4 +163,4 @@ Hello!
 
 ## Что дальше {#whats-next}
 
-* Изучите [концепции сервиса](../concepts/invoke.md).
+Изучите [концепции сервиса](../concepts/invoke.md)

@@ -67,4 +67,4 @@
 
 #### Смотрите также {#see-also}
 
-* [Решение проблем в Container Registry](../../error/index.md).
+[Решение проблем в Container Registry](../../error/index.md)

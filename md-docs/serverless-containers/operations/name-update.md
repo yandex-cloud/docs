@@ -7,7 +7,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится контейнер.
-  1. Перейдите в сервис **Serverless Containers**.
+  1. [Перейдите](https://console.yandex.cloud/link/serverless-containers) в сервис **Serverless Containers**.
   1. Выберите контейнер.
   1. Нажмите кнопку **Редактировать**.
   1. Измените имя контейнера. Формат имени:
@@ -77,9 +77,10 @@
      ...
      ```
 
-   Подробнее о параметрах ресурса `yandex_serverless_container` в [документации провайдера](../../terraform/resources/serverless_container.md).
+     Подробнее о параметрах ресурса `yandex_serverless_container` в [документации провайдера](../../terraform/resources/serverless_container.md).
 
   1. Проверьте конфигурацию командой:
+     
      ```
      terraform validate
      ```
@@ -91,6 +92,7 @@
      ```
 
   1. Выполните команду:
+     
      ```
      terraform plan
      ```
@@ -98,6 +100,7 @@
      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
 
   1. Примените изменения конфигурации:
+     
      ```
      terraform apply
      ```

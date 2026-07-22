@@ -3,13 +3,13 @@
 # Аутентифицироваться в Container Registry
 
 Перед началом работы с Container Registry необходимо [настроить Docker](configure-docker.md) и аутентифицироваться для соответствующего интерфейса:
+
 * Для **Консоли управления** минимально необходимая [роль](../../iam/concepts/access-control/roles.md) на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) — `viewer`.
 * Для **Docker CLI** или **Yandex Managed Service for Kubernetes** минимально необходимая роль на [реестр](../concepts/registry.md) или [репозиторий](../concepts/repository.md) — `container-registry.images.puller`.
 
 Назначьте нужную роль пользователю Yandex Cloud. Ознакомьтесь со [способами аутентификации](#method) и выберите подходящий.
 
 Подробнее про роли читайте в разделе [Управление доступом в Container Registry](../security/index.md).
-
 
 ## Способы аутентификации {#method}
 

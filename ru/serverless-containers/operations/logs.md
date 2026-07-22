@@ -12,7 +12,7 @@ description: Вы можете посмотреть график монитор�
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится контейнер.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. [Перейдите]({{ link-console-main }}/link/serverless-containers) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. Нажмите на контейнер, журнал выполнения которого хотите посмотреть.
     1. Перейдите на вкладку **{{ ui-key.yacloud.common.logs }}** и укажите период, за который хотите посмотреть логи. По умолчанию задан период 1 час.
     

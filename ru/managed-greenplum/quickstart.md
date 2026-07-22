@@ -44,7 +44,7 @@ description: Следуя данной инструкции, вы сможете
 Чтобы создать кластер:
 
 1. В консоли управления выберите каталог, в котором нужно создать кластер БД.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+1. [Перейдите]({{ link-console-main }}/link/managed-greenplum) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 
 
@@ -91,7 +91,7 @@ description: Следуя данной инструкции, вы сможете
 Получите идентификатор кластера, который потребуется при [подключении](#connect):
 
 1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+1. [Перейдите]({{ link-console-main }}/link/managed-greenplum) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
 1. Нажмите на имя нужного кластера и выберите вкладку ![image](../_assets/console-icons/flag.svg) **{{ ui-key.yacloud.common.overview }}**.
 1. Скопируйте идентификатор кластера из блока **{{ ui-key.yacloud.common.section-base }}**.
 

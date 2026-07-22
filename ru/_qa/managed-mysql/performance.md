@@ -8,7 +8,8 @@
 #### Как выяснить причину общего снижения производительности? {#general-degradation}
 
 Проверьте графики мониторинга хостов:
-1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+1. [Перейдите]({{ link-console-main }}/link/managed-mysql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
 1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}**.
 1. Перейдите на страницу **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}**:
    * Рекомендуется увеличить класс хостов:
@@ -21,7 +22,8 @@
 #### Как выяснить причину долгой загрузки ресурсов? {#long-load}
 
 Проверьте графики мониторинга хостов:
-1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+1. [Перейдите]({{ link-console-main }}/link/managed-mysql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
 1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}**.
 1. Перейдите на страницу **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}**.
 1. Найдите проблемный ресурс: график будет приближаться к границе или выйдет за нее.

@@ -14,11 +14,12 @@ Every {{ maf-name }} cluster consists of a set of {{ AF }} components, each of w
 
 ## Roles for creating a cluster {#roles}
 
-To create a {{ maf-name }} cluster, your {{ yandex-cloud }} account needs the following roles:
+To create and use a {{ maf-name }} cluster, your {{ yandex-cloud }} account needs the following roles:
 
-* [{{ roles.maf.editor }}](../security/index.md#managed-airflow-editor) to create a cluster.
-* [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) to use the cluster [network](../../vpc/concepts/network.md#network).
-* [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) to attach a service account to a cluster.
+* {% include [roles-maf-editor](../../_includes/mdb/maf/roles-maf-editor.md) %}
+* {% include [roles-vpc-user](../../_includes/mdb/roles-vpc-user.md) %}
+* {% include [roles-sa-user](../../_includes/mdb/roles-sa-user.md) %}
+* {% include [roles-mdb-viewer](../../_includes/mdb/roles-mdb-viewer-create-cluster.md) %}
 
 Make sure to grant the `managed-airflow.integrationProvider` role to the cluster service account. The cluster will thus get the permissions it needs to work with user resources. For more information, see [Impersonation](../concepts/impersonation.md).
 
@@ -39,6 +40,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         1. Enter a name for the cluster. The name must be unique within the folder.
         1. Optionally, enter a description for the cluster.
+        1. Select the [{{ AF }} and Python versions](../concepts/versions.md).
         1. Optionally, create [labels](../../resource-manager/concepts/labels.md):
             1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
             1. Enter a label in `key: value` format.
@@ -92,16 +94,12 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
       * Triggerer services (optional)
 
-  1. Optionally, under **{{ ui-key.yacloud.mdb.forms.section_dependencies }}**, specify pip and deb package names to install additional libraries and applications in the cluster to run DAG files.
-
-      To specify multiples packages, click **{{ ui-key.yacloud.common.add }}**.
+  1. Optionally, under **{{ ui-key.yacloud.mdb.forms.section_dependencies }}**, specify space-separated pip and deb package names to install additional libraries and applications in the cluster to run DAG files.
 
       You can set version restrictions for the installed packages, e.g.:
 
       ```text
-      pandas==2.0.2
-      scikit-learn>=1.0.0
-      clickhouse-driver~=0.2.0
+      pandas==2.0.2 scikit-learn>=1.0.0 clickhouse-driver~=0.2.0
       ```
 
       The package name format and version are defined by the install command: `pip install` for pip packages and `apt install` for deb packages.
@@ -170,7 +168,9 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
            --name <cluster_name> \
            --description <cluster_description> \
            --labels <label_list> \
-           --admin-password <admin_password> \
+           --airflow-version <Apache_Airflow™_version> \
+           --python-version <Python_version> \
+           --admin-password <administrator_password> \
            --service-account-id <service_account_ID> \
            --subnet-ids <subnet_IDs> \
            --security-group-ids <security_group_IDs> \
@@ -195,7 +195,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                      `ssh-key-path=<path_to_private_SSH_key_file> \
            --maintenance-window type=<maintenance_type>,`
                                 `day=<day_of_week>,`
-                                `hour=<hour> \
+                                `hour=<sequence_number_of_hour_interval> \
            --deletion-protection \                   
            --lockbox-secrets-backend \
            --airflow-config <list_of_properties> \
@@ -263,7 +263,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
           "description": "<cluster_description>",
           "labels": { <label_list> },
           "config": {
-            "versionId": "<{{ AF }}_version>",
+            "airflowVersion": "<{{ AF }}_version>",
+            "pythonVersion": "<Python_version>",
             "airflow": {
               "config": { <list_of_properties> }
             },
@@ -324,7 +325,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
           "maintenanceWindow": {
             "weeklyMaintenanceWindow": {
               "day": "<day_of_week>",
-              "hour": "<hour>"
+              "hour": "<sequence_number_of_hour_interval>"
             }
           },
           "deletionProtection": <deletion_protection>,
@@ -346,7 +347,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         * `labels`: List of labels provided in `"<key>": "<value>"` format.
         * `config`: Cluster configuration:
 
-            * `versionId`: {{ AF }} version.
+            * `airflowVersion`: [{{ AF }} version](../concepts/versions.md).
+            * `pythonVersion`: Python version.
             * `airflow.config`: [Advanced {{ AF }} properties](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html) provided in `"<configuration_section>.<key>": "<value>"` format, e.g.:
 
                 ```json
@@ -477,7 +479,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
           "description": "<cluster_description>",
           "labels": { <label_list> },
           "config": {
-            "version_id": "<{{ AF }}_version>",
+            "version_airflow": "<{{ AF }}_version>",
+            "python_version": "<Python_version>",
             "airflow": {
               "config": { <list_of_properties> }
             },
@@ -538,7 +541,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
           "maintenance_window": {
             "weekly_maintenance_window": {
               "day": "<day_of_week>",
-              "hour": "<hour>"
+              "hour": "<sequence_number_of_hour_interval>"
             }
           },
           "deletion_protection": <deletion_protection>,
@@ -560,7 +563,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         * `labels`: List of labels provided in `"<key>": "<value>"` format.
         * `config`: Cluster configuration:
 
-            * `version_id`: {{ AF }} version.
+            * `version_airflow`: [{{ AF }} version](../concepts/versions.md).
+            * `python_version`: Python version.
             * `airflow.config`: [Advanced {{ AF }} properties](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html) provided in `"<configuration_section>.<key>": "<value>"` format, e.g.:
 
                 ```json
@@ -691,6 +695,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
     * Name: `myaf`.
     * {{ AF }} version: `3.0`.
+    * Python version: `3.12`.
     * Admin password: `Password*1`.
     * Service account ID: `aje8r2rp7fkl********`.
     * Subnet IDs:
@@ -711,6 +716,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
     {{ yc-mdb-af }} cluster create \
       --name myaf \
       --airflow-version 3.0 \
+      --python-version 3.12 \
       --admin-password Password*1 \
       --service-account-id aje8r2rp7fkl******** \
       --subnet-ids e9bhbia2scnk********,e2lfqbm5nt9r********,fl8beqmjckv8******** \
@@ -729,6 +735,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
     * Folder ID: `b1g4unjqq856********`.
     * Name: `myaf`.
     * {{ AF }} version: `3.0`.
+    * Python version: `3.12`.
     * Admin password: `Password*1`.
     * New service account, `af-sa`, with the following roles:
       
@@ -760,6 +767,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
     resource "yandex_airflow_cluster" "myaf" {
       name               = "myaf"
       airflow_version    = "3.0"
+      python_version     = "3.12"
       admin_password     = "Password*1"
       service_account_id = yandex_iam_service_account.af-sa.id
       subnet_ids         = [yandex_vpc_subnet.af-subnet-a.id,yandex_vpc_subnet.af-subnet-b.id,yandex_vpc_subnet.af-subnet-d.id]

@@ -20,14 +20,14 @@ Managed Service for OpenSearch позволяет создавать резер�
 
     Чтобы получить список резервных копий кластера:
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-    1. Перейдите в сервис **Managed Service for&nbsp;OpenSearch**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-opensearch) в сервис **Managed Service for&nbsp;OpenSearch**.
     1. Нажмите на имя нужного кластера и выберите вкладку ![backups](../../_assets/console-icons/archive.svg) **Резервные копии**.
 
     Чтобы получить список всех резервных копий в каталоге:
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-    1. Перейдите в сервис **Managed Service for&nbsp;OpenSearch**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-opensearch) в сервис **Managed Service for&nbsp;OpenSearch**.
     1. Выберите вкладку ![backups](../../_assets/console-icons/archive.svg) **Резервные копии**.
 
 - CLI {#cli}
@@ -167,14 +167,14 @@ Managed Service for OpenSearch позволяет создавать резер�
 
     Чтобы получить информацию о резервной копии существующего кластера:
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-    1. Перейдите в сервис **Managed Service for&nbsp;OpenSearch**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-opensearch) в сервис **Managed Service for&nbsp;OpenSearch**.
     1. Нажмите на имя нужного кластера и выберите вкладку ![backups](../../_assets/console-icons/archive.svg) **Резервные копии**.
 
     Чтобы получить информацию о резервной копии удаленного ранее кластера:
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-    1. Перейдите в сервис **Managed Service for&nbsp;OpenSearch**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-opensearch) в сервис **Managed Service for&nbsp;OpenSearch**.
     1. Выберите вкладку ![backups](../../_assets/console-icons/archive.svg) **Резервные копии**.
 
 - CLI {#cli}
@@ -282,8 +282,8 @@ Managed Service for OpenSearch позволяет создавать резер�
 
 - Консоль управления {#console}
   
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-    1. Перейдите в сервис **Managed Service for&nbsp;OpenSearch**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-opensearch) в сервис **Managed Service for&nbsp;OpenSearch**.
     1. Нажмите на имя нужного кластера и выберите вкладку ![backups](../../_assets/console-icons/archive.svg) **Резервные копии**.
     1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Создать резервную копию**.
 
@@ -385,8 +385,8 @@ Managed Service for OpenSearch позволяет создавать резер�
 
     Чтобы восстановить из резервной копии существующий кластер:
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-    1. Перейдите в сервис **Managed Service for&nbsp;OpenSearch**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-opensearch) в сервис **Managed Service for&nbsp;OpenSearch**.
     1. Нажмите на имя нужного кластера и выберите вкладку ![backups](../../_assets/console-icons/archive.svg) **Резервные копии**.
     1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной резервной копии, затем нажмите **Восстановить кластер**.
     1. Задайте настройки нового кластера.
@@ -394,8 +394,8 @@ Managed Service for OpenSearch позволяет создавать резер�
 
     Чтобы восстановить из резервной копии удаленный ранее кластер:
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-    1. Перейдите в сервис **Managed Service for&nbsp;OpenSearch**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-opensearch) в сервис **Managed Service for&nbsp;OpenSearch**.
     1. Выберите вкладку ![backups](../../_assets/console-icons/archive.svg) **Резервные копии**.
     1. Найдите нужную резервную копию по времени создания и идентификатору кластера. В колонке **Идентификатор** содержатся идентификаторы в формате `<идентификатор_кластера>:<идентификатор_резервной_копии>`.
     1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной резервной копии, затем нажмите **Восстановить кластер**.
@@ -700,7 +700,8 @@ Managed Service for OpenSearch позволяет создавать резер�
 
 - Консоль управления {#console}
 
-    1. Перейдите на страницу каталога и выберите сервис **Managed Service for&nbsp;OpenSearch**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-opensearch) в сервис **Managed Service for&nbsp;OpenSearch**.
     1. Нажмите на имя нужного кластера и выберите вкладку ![backups](../../_assets/console-icons/archive.svg) **Резервные копии**.
     1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной резервной копии, затем нажмите **Удалить резервную копию**.
 

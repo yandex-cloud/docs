@@ -33,6 +33,12 @@ New set of labels for the registry as key-value pairs. Existing set of labels wi
 || `--properties` | `key=value[,key=value...]`
 
 New set of properties for the registry as key-value pairs. Existing set of labels will be completely overwritten. ||
+|| `--include-patterns` | `value[,value]`
+
+New list of patterns for artifacts to include in the registry. Existing patterns will be completely overwritten. ||
+|| `--exclude-patterns` | `value[,value]`
+
+New list of patterns for artifacts to exclude from the registry. Existing patterns will be completely overwritten. ||
 |#
 
 #### Global Flags

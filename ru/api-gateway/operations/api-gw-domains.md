@@ -26,8 +26,8 @@
 
         Чтобы узнать служебный домен API-шлюза:
 
-       1. Перейдите в [консоль управления]({{ link-console-main }}).
-       1. Выберите каталог, в котором находится API-шлюз, и Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+       1. Перейдите в [консоль управления]({{ link-console-main }}) и выберите каталог, в котором находится API-шлюз.
+       1. [Перейдите]({{ link-console-main }}/link/api-gateway) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
        1. Выберите API-шлюз.
        1. Служебный домен будет в поле **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}**.
 
@@ -37,7 +37,7 @@
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится API-шлюз.
 
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}** и в нем:
+    1. [Перейдите]({{ link-console-main }}/link/certificate-manager) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}** и в нем:
 
         1. Добавьте [сертификат от Let's Encrypt<sup>®</sup>](../../certificate-manager/operations/managed/cert-create.md) или [пользовательский сертификат](../../certificate-manager/operations/import/cert-create.md) для подключаемого домена.
 
@@ -51,7 +51,7 @@
     
     1. Вернитесь на страницу каталога.
 
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}** и в нем:
+    1. [Перейдите]({{ link-console-main }}/link/api-gateway) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}** и в нем:
 
         1. Выберите API-шлюз.
         1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.gateways.item.switch_domains }}**.

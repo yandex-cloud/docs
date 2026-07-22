@@ -13,7 +13,7 @@
   Можно получить список операций для конкретного ресурса. Ниже показано, как это сделать для контейнера. Для других ресурсов сервиса последовательность действий такая же.
 
   1. В [консоли управления](https://console.yandex.cloud) откройте каталог, в котором находится контейнер.
-  1. Перейдите в сервис **Serverless Containers**.
+  1. [Перейдите](https://console.yandex.cloud/link/serverless-containers) в сервис **Serverless Containers**.
   1. На панели слева выберите ![image](../../_assets/console-icons/boxes-3.svg) **Контейнеры**.
   1. Выберите нужный контейнер.
   1. Перейдите на панель ![image](../../_assets/console-icons/list-check.svg) **Операции** для выбранного контейнера.
@@ -133,4 +133,4 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Работа с операциями](../../api-design-guide/concepts/about-async.md)
+[Работа с операциями](../../api-design-guide/concepts/about-async.md)

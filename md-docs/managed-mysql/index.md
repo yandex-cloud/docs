@@ -260,6 +260,8 @@ Managed Service for MySQL<sup>®</sup> помогает разворачиват
 
  - [stop](cli-ref/cluster/stop.md)
 
+ - [stream-logs](cli-ref/cluster/stream-logs.md)
+
  - [update](cli-ref/cluster/update.md)
 
  - [update-config](cli-ref/cluster/update-config.md)
@@ -385,6 +387,8 @@ Managed Service for MySQL<sup>®</sup> помогает разворачиват
  - [start-failover](cli-ref/v0/cluster/start-failover.md)
 
  - [stop](cli-ref/v0/cluster/stop.md)
+
+ - [stream-logs](cli-ref/v0/cluster/stream-logs.md)
 
  - [update](cli-ref/v0/cluster/update.md)
 

@@ -18,7 +18,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится реестр.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+  1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
   1. Выберите в списке нужный реестр.
   1. Перейдите на вкладку **{{ ui-key.yacloud.iot.label_yds-exports }}**.
   1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.iot.button_add-yds-export }}**.
@@ -94,6 +94,6 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [{#T}](../concepts/topic/usage.md#yds-export)
+[{#T}](../concepts/topic/usage.md#yds-export)

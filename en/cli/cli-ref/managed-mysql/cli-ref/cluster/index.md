@@ -59,6 +59,8 @@ Aliases:
 
 - [yc managed-mysql cluster stop](stop.md) — Stop the specified MySQL cluster
 
+- [yc managed-mysql cluster stream-logs](stream-logs.md) — Stream logs for the specified MySQL cluster
+
 - [yc managed-mysql cluster update](update.md) — Update the specified MySQL cluster
 
 - [yc managed-mysql cluster update-config](update-config.md) — Update the specified MySQL cluster config

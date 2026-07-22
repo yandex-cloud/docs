@@ -19,8 +19,8 @@ FQDN хоста {{ OS }} можно получить несколькими сп
 
 * Посмотрите FQDN в консоли управления:
 
-    1. Перейдите на страницу кластера.
-    1. Перейдите в раздел **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+    1. [Перейдите]({{ link-console-main}}/link/managed-opensearch/clusters) на страницу кластера.
+    1. Откройте раздел **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
     1. Скопируйте значение в столбце **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}**.
 
 * Скопируйте команду для подключения к кластеру в [консоли управления]({{ link-console-main }}). Команда содержит заполненный FQDN хоста. Чтобы получить команду, перейдите на страницу кластера и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.

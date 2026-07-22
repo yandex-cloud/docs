@@ -5,7 +5,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [контейнер](../../serverless-containers/concepts/container.md).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. [Перейдите]({{ link-console-main }}/link/serverless-containers) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Выберите контейнер, [ревизию](../../serverless-containers/concepts/container.md#revision) которого хотите создать.
   1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-containers.label_editor }}**.
   1. В разделе **{{ ui-key.yacloud.serverless-containers.section_image }}**:
@@ -38,6 +38,7 @@
 
 
   Где:
+
   * `--cores` — количество ядер, которые доступны контейнеру.
   * `--memory` — требуемая память. По умолчанию — 128 МБ.
   * `--execution-timeout` — таймаут. По умолчанию — 3 секунды.
@@ -71,6 +72,7 @@
   В {{ TF }} [ревизия](../../serverless-containers/concepts/container.md#revision) создается при каждом обновлении параметров работы ресурса.
 
   Чтобы создать ревизию:
+
   1. Обновите в конфигурационном файле параметры ресурса `yandex_serverless_container`:
 
      ```hcl

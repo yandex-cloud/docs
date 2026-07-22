@@ -5,7 +5,7 @@ canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/v2/extend/
 
 # yc baremetal v2 extend
 
-
+Manage Stackland and virtualization clusters for Baremetal Extend.
 
 #### Command Usage
 

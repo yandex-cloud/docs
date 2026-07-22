@@ -19,7 +19,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать шард.
-    1. Перейдите в сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-spqr) в сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
     1. Нажмите на имя нужного кластера и выберите вкладку **Шарды**.
     1. Нажмите кнопку **Создать шард**.
     1. Укажите имя шарда и выберите кластер PostgreSQL, хосты которого будут использоваться в качестве хостов с данными в кластере Sharded PostgreSQL.
@@ -111,8 +111,8 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно удалить шард. 
-    1. Перейдите в сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно удалить шард.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-spqr) в сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
     1. Нажмите на имя нужного кластера и выберите вкладку **Шарды**.
     1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного шарда и выберите пункт **Удалить**.
     1. В открывшемся окне нажмите кнопку **Удалить**.

@@ -26,6 +26,9 @@ Specifies a textual description of the service account. ||
 || `--labels` | `key=value[,key=value...]`
 
 A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'. ||
+|| `--expires-at` | `timestamp`
+
+The date/time after which the service account is considered expired. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
 
