@@ -7,7 +7,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором расположена группа рабочих столов.
-  1. Перейдите в сервис **Cloud Desktop**.
+  1. [Перейдите](https://console.yandex.cloud/link/cloud-desktop) в сервис **Cloud Desktop**.
   1. Справа от группы рабочих столов, которую вы хотите удалить, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
   
       {% note tip %}

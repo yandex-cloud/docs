@@ -118,6 +118,8 @@ To use the service, you need the [{{ roles.mmg.editor }} role or higher](../../i
 
 To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.mmg.editor }}` role or higher.
 
+{% include [roles-mdb-viewer](../../_includes/mdb/roles-mdb-viewer-access-control.md) %}
+
 You can also assign a role with broader permissions, e.g., `{{ roles.mmg.admin }}` instead of `{{ roles.mmg.editor }}`.
 
 ## What's next {#whats-next}

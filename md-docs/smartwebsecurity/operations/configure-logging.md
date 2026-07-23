@@ -43,8 +43,8 @@
 
 Для управления [логированием](../concepts/logging.md) в профиле безопасности нужны роли:
 
-- [smart-web-security.editor](../security/index.md#smart-web-security-editor) на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится профиль безопасности;
-- [logging.writer](../../logging/security/index.md#logging-writer) на [лог-группу](../../logging/concepts/log-group.md), в которую передаются логи.
+* [smart-web-security.editor](../security/index.md#smart-web-security-editor) на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится профиль безопасности;
+* [logging.writer](../../logging/security/index.md#logging-writer) на [лог-группу](../../logging/concepts/log-group.md), в которую передаются логи.
 
 Для просмотра логов нужна роль [logging.viewer](../../logging/security/index.md#logging-viewer) на лог-группу.
 
@@ -55,13 +55,14 @@
 - Cloud Logging {#logging}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится профиль Smart Web Security.
-  1. Перейдите в сервис **Smart Web Security**.
+  1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
   1. На панели слева выберите ![image](../../_assets/smartwebsecurity/profiles.svg) **Профили безопасности**.
   1. В строке с нужным профилем безопасности нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать**.
   1. Включите **Запись логов**.
   1. В поле **Записывать логи в** выберите **Cloud Logging**.
   1. Выберите или создайте [лог-группу](../../logging/concepts/log-group.md) Cloud Logging, в которую будут записываться логи.
   1. Для записи в логи можно выбрать только те запросы, для которых сработали:
+     
      * **Базовые правила**.
      * Правила **Smart Protection**.
      * Правила **Web Application Firewall**.
@@ -78,7 +79,7 @@
   События Audit Trails можно записывать в бакет Object Storage, лог-группу Cloud Logging, поток данных Data Streams или шину EventRouter. В этой инструкции настроим запись аудитных событий в лог-группу.
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится профиль Smart Web Security.
-  1. Перейдите в сервис **Audit Trails**.
+  1. [Перейдите](https://console.yandex.cloud/link/audit-trails) в сервис **Audit Trails**.
   1. Нажмите кнопку **Создать трейл**.
   1. Введите имя трейла, например `trail-sws`.
   1. В блоке **Назначение** выберите объект назначения — **Cloud Logging**.
@@ -95,18 +96,20 @@
   Чтобы Yandex Smart Web Security передавал события в Audit Trails:
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится профиль Smart Web Security.
-  1. Перейдите в сервис **Smart Web Security**.
+  1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
   1. На панели слева выберите ![image](../../_assets/smartwebsecurity/profiles.svg) **Профили безопасности**.
   1. В строке с нужным профилем безопасности нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать**.
   1. Включите **Запись логов**.
   1. В поле **Записывать логи в** выберите **Audit Trails**.
   1. (Опционально) Выберите, по каким правилам или вердиктам передавать события:
+     
      * **Базовые правила**.
      * **Smart Protection**.
      * **Web Application Firewall**.
      * **Advanced Rate Limiter**.
      * **DENY и CAPTCHA**.
      * **ALLOW**.
+  
   1. Нажмите **Создать**.
 
   Таким образом можно настроить передачу только событий из отдельных профилей безопасности или только по отдельным правилам и вердиктам.
@@ -120,14 +123,16 @@
 - Cloud Logging {#logging}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится профиль Smart Web Security.
-  1. Перейдите в сервис **Smart Web Security**.
+  1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
   1. Выберите раздел **Логи**.
   1. Выберите лог-группу, если их несколько.
   
   1. Выберите период показа логов одним из способов:
      
      * Нажмите кнопку с обозначением интервала, например **Последний час**, и выберите один из вариантов: **Последние 5 минут**, **Последние 30 минут**... **Последний день**.
+        
         Также в полях **От** и **До** можно выбрать нужные даты в календаре и указать время.
+     
      * Выберите предустановленный период: **Сейчас**, **5m**, **30m**, **1h**, **1d**, **2d** или укажите свой.
      * На временной шкале переместите индикаторы начала и конца периода.
   
@@ -158,23 +163,31 @@
   ### Фильтры для активных правил {#active-rule-filters}
 
   * Показать запросы, заблокированные базовыми правилами с определенными [условиями](../concepts/conditions.md). Например, по списку или региону IP:
+    
     ```
     module_type = "RULE_CONDITION", meta.matched_rule_verdict = "DENY"
     ```
+  
   * Показать запросы, для которых сработали правила [Smart Protection](../concepts/rules.md##smart-protection-rules) с отправкой на капчу:
+    
     ```
     module_type = "SMART_PROTECTION", meta.matched_rule_verdict = "CAPTCHA"
     ```
+  
   * Показать запросы, заблокированные по профилю [WAF](../concepts/waf.md) — правилами WAF из профиля безопасности:
+    
     ```
     module_type = "WAF", meta.matched_rule_verdict = "DENY"
     ```
+  
   * Показать запросы, заблокированные правилами профиля [ARL](../concepts/arl.md):
+    
     ```
     meta.arl_verdict = "DENY"
     ```
 
   * Показать запросы, для которых сработало конкретное правило ARL — `arl-rule-1`:
+    
     ```
     meta.arl_verdict = "DENY", meta.arl_applied_quota_name = "arl-rule-1"
     ```
@@ -182,11 +195,13 @@
   ### Фильтры для правил в режиме логирования {#dry-run-filters}
 
   * Показать запросы, для которых сработали правила [Smart Protection](../concepts/rules.md#smart-protection-rules) с отправкой на капчу:
+    
     ```
     module_type = "SMART_PROTECTION", meta.dry_run_matched_rule_verdict = "CAPTCHA"
     ```
 
   * Показать запросы, для которых было превышение по конкретному правилу ARL — `arl-rule-1`:
+    
     ```
     meta.arl_verdict = "DENY", meta.arl_dry_run_exceeded_quota_names = "arl-rule-1"
     ```
@@ -196,7 +211,7 @@
 - Audit Trails {#at}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится профиль Smart Web Security.
-  1. Перейдите в сервис **Cloud Logging**.
+  1. [Перейдите](https://console.yandex.cloud/link/logging) в сервис **Cloud Logging**.
   1. Выберите лог-группу, в которую передаются события Audit Trails.
   1. Выберите количество сообщений на одной странице и период: 1 час, 3 часа, 1 день, 1 неделя, 2 недели.
   1. В строке **Запрос** укажите запрос на [языке фильтрующих выражений](../../logging/concepts/filter.md) и нажмите кнопку **Выполнить**.

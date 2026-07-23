@@ -11,7 +11,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, которому принадлежит секрет.
-    1. Перейдите в сервис **Lockbox**.
+    1. [Перейдите](https://console.yandex.cloud/link/lockbox) в сервис **Lockbox**.
     1. Напротив нужного секрета нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../_assets/console-icons/toggle-off.svg) **Деактивировать**.
     1. Подтвердите деактивацию.
 
@@ -61,7 +61,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, которому принадлежит секрет.
-    1. Перейдите в сервис **Lockbox**.
+    1. [Перейдите](https://console.yandex.cloud/link/lockbox) в сервис **Lockbox**.
     1. Напротив нужного секрета нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../_assets/console-icons/toggle-on.svg) **Активировать секрет**.
 
 - CLI {#cli}

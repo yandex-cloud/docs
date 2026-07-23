@@ -123,7 +123,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
                                 `mongod-emergency-usage-threshold=<immediate_expansion_percentage> \
          --maintenance-window type=<maintenance_type>,`
                              `day=<day_of_week>,`
-                             `hour=<hour> \
+                             `hour=<sequence_number_of_hour_interval> \
          --performance-diagnostics=<enable_diagnostics>
       ```
 
@@ -163,7 +163,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
                                 `<host_type>-emergency-usage-threshold=<immediate_expansion_percentage> \
          --maintenance-window type=<maintenance_type>,`
                              `day=<day_of_week>,`
-                             `hour=<hour> \
+                             `hour=<sequence_number_of_hour_interval> \
          --performance-diagnostics=<enable_diagnostics>
       ```
 
@@ -236,7 +236,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
           "maintenanceWindow": {
             "weeklyMaintenanceWindow": {
               "day": "<day_of_week>",
-              "hour": "<hour>"
+              "hour": "<sequence_number_of_hour_interval>"
             }
           }
         }
@@ -324,7 +324,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
           "maintenance_window": {
             "weekly_maintenance_window": {
               "day": "<day_of_week>",
-              "hour": "<hour>"
+              "hour": "<sequence_number_of_hour_interval>"
             }
           }
         }
@@ -384,7 +384,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
 
       {% include [partial-recovery](../../_includes/storedoc/partial-recovery.md) %}
 
-  1. For clusters with autoscaling, set the [maintenance window](../../storedoc/concepts/maintenance.md) under **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}** (day and hour in UTC).
+  1. If the cluster has autoscaling on, set [maintenance time](../../storedoc/concepts/maintenance.md) under **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}** (day of week and UTC hour interval).
 
   1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
@@ -414,7 +414,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
 
       {% include [partial-recovery](../../_includes/storedoc/partial-recovery.md) %}
 
-  1. For clusters with autoscaling, set the [maintenance window](../../storedoc/concepts/maintenance.md) under **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}** (day and hour in UTC).
+  1. If the cluster has autoscaling on, set [maintenance time](../../storedoc/concepts/maintenance.md) under **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}** (day of week and UTC hour interval).
 
   1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
@@ -476,7 +476,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
                                 `mongod-emergency-usage-threshold=<immediate_expansion_percentage> \
          --maintenance-window type=<maintenance_type>,`
                              `day=<day_of_week>,`
-                             `hour=<hour> \
+                             `hour=<sequence_number_of_hour_interval> \
          --performance-diagnostics=<enable_diagnostics> \
          --whitelist <list_of_databases_and_collections_to_restore> \
          --blacklist <list_of_databases_and_collections_to_exclude_from_restoring>
@@ -518,7 +518,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
                                 `<host_type>-emergency-usage-threshold=<immediate_expansion_percentage> \
          --maintenance-window type=<maintenance_type>,`
                              `day=<day_of_week>,`
-                             `hour=<hour> \
+                             `hour=<sequence_number_of_hour_interval> \
          --performance-diagnostics=<enable_diagnostics>
          --whitelist <list_of_databases_and_collections_to_restore> \
          --blacklist <list_of_databases_and_collections_to_exclude_from_restoring>
@@ -601,7 +601,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
           "maintenanceWindow": {
             "weeklyMaintenanceWindow": {
               "day": "<day_of_week>",
-              "hour": "<hour>"
+              "hour": "<sequence_number_of_hour_interval>"
             }
           },
           "partialRestoreSpec": {
@@ -701,7 +701,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
           "maintenance_window": {
             "weekly_maintenance_window": {
               "day": "<day_of_week>",
-              "hour": "<hour>"
+              "hour": "<sequence_number_of_hour_interval>"
             }
           },
           "partial_restore_spec": {

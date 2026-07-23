@@ -11,7 +11,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится секрет.
-  1. Перейдите в сервис **Key Management Service**.
+  1. [Перейдите](https://console.yandex.cloud/link/kms) в сервис **Key Management Service**.
   1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **Симметричные ключи**.
   1. Нажмите на имя нужного ключа.
   1. Перейдите в раздел ![image](../../_assets/console-icons/persons.svg) **Права доступа** и нажмите кнопку **Назначить роли**.
@@ -166,7 +166,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится секрет.
-  1. Перейдите в сервис **Key Management Service**.
+  1. [Перейдите](https://console.yandex.cloud/link/kms) в сервис **Key Management Service**.
   1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **Симметричные ключи**.
   1. Нажмите на имя нужного ключа.
   1. Перейдите в раздел ![image](../../_assets/console-icons/persons.svg) **Права доступа** и нажмите кнопку **Назначить роли**.

@@ -35,7 +35,7 @@ To work with {{ container-registry-name }} and Docker images, [install the {{ ya
    ```
 
    You will use the received `ID` to access the created registry later.
-1. Authenticate in {{ container-registry-name }} using [Docker Credential helper](../operations/authentication.md#cred-helper):
+1. Authenticate to {{ container-registry-name }} via a [Docker Credential helper](../operations/authentication.md#cred-helper):
    1. Configure Docker to use `docker-credential-yc`:
 
       ```bash
@@ -49,9 +49,12 @@ To work with {{ container-registry-name }} and Docker images, [install the {{ ya
       ```
 
       During setup, information about the current user profile is saved.
-   1. Make sure that Docker is configured.
 
-      The following line must appear in the `/home/<user>/.docker/config.json` configuration file:
+      {% include [credential-helper](../../_includes/credential-helper.md) %}
+
+   1. Make sure Docker is configured.
+
+      The `/home/<user>/.docker/config.json` configuration file should now contain this line:
 
       ```json
       "{{ registry }}": "yc"

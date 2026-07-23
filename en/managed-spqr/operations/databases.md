@@ -31,6 +31,8 @@ You can add and delete databases, and view their info.
        --url 'https://{{ api-host-mdb }}/managed-spqr/v1/clusters/<cluster_ID>/databases'
      ```
 
+     {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
+
   1. View the [server response](../api-ref/Database/list.md#yandex.cloud.mdb.spqr.v1.ListDatabasesResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
@@ -56,6 +58,8 @@ You can add and delete databases, and view their info.
        yandex.cloud.mdb.spqr.v1.DatabaseService.List
      ```
 
+     {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
+
   1. Check the [server response](../api-ref/grpc/Database/list.md#yandex.cloud.mdb.spqr.v1.ListDatabasesResponse) to make sure your request was successful.
 
 {% endlist %}
@@ -78,6 +82,8 @@ You can add and delete databases, and view their info.
        --header "Authorization: Bearer $IAM_TOKEN" \
        --url 'https://{{ api-host-mdb }}/managed-spqr/v1/clusters/<cluster_ID>/databases/<DB_name>'
      ```
+
+     {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
 
   1. Check the [server response](../api-ref/Database/get.md#yandex.cloud.mdb.spqr.v1.Database) to make sure your request was successful.
 
@@ -104,6 +110,8 @@ You can add and delete databases, and view their info.
        {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.spqr.v1.DatabaseService.Get
      ```
+
+     {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
 
   1. Check the [server response](../api-ref/grpc/Database/get.md#yandex.cloud.mdb.spqr.v1.Database) to make sure your request was successful.
 
@@ -154,13 +162,16 @@ You can add and delete databases, and view their info.
                }'
      ```
 
-     Where `databaseSpec` are the new database settings:
+     Where: 
 
-     * `name`: Database name.
+     * {% include [cluster-id](../../_includes/managed-spqr/cluster-id.md) %}
+     * `databaseSpec`: New database settings:
 
-       {% include [db-name-limits](../../_includes/mdb/mspqr/console/db-name-limits.md) %}
+       * `name`: Database name.
 
-     * `deletionProtection`: Database deletion protection, `true` or `false`.
+         {% include [db-name-limits](../../_includes/mdb/mspqr/console/db-name-limits.md) %}
+
+       * `deletionProtection`: Database deletion protection, `true` or `false`.
 
   1. Check the [server response](../api-ref/Database/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -191,13 +202,16 @@ You can add and delete databases, and view their info.
        yandex.cloud.mdb.spqr.v1.DatabaseService.Create
      ```
 
-     Where `database_spec` are the new database settings:
+     Where:
 
-     * `name`: Database name.
+     * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
+     * `database_spec`: New database settings:
 
-       {% include [db-name-limits](../../_includes/mdb/mspqr/console/db-name-limits.md) %}
+       * `name`: Database name.
 
-     * `deletion_protection`: Database deletion protection, `true` or `false`.
+         {% include [db-name-limits](../../_includes/mdb/mspqr/console/db-name-limits.md) %}
+
+       * `deletion_protection`: Database deletion protection, `true` or `false`.
 
   1. Check the [server response](../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -229,6 +243,8 @@ You can add and delete databases, and view their info.
        --url 'https://{{ api-host-mdb }}/managed-spqr/v1/clusters/<cluster_ID>/databases/<DB_name>'
      ```
 
+     {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
+
   1. Check the [server response](../api-ref/Database/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
@@ -254,6 +270,8 @@ You can add and delete databases, and view their info.
        {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.spqr.v1.DatabaseService.Delete
      ```
+
+     {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
 
   1. Check the [server response](../api-ref/grpc/Database/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

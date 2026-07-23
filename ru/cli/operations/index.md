@@ -8,6 +8,7 @@ description: Из статьи вы узнаете как работать с и
 - [{#T}](install-cli.md) 
 - [{#T}](update-cli.md)
 - [{#T}](remove-cli.md)
+- [{#T}](command-versioning.md)
 
 ## Управление профилем {#profile}
 

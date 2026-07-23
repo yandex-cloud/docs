@@ -31,7 +31,11 @@ Your data (lists of devices, device aliases, brokers, as well as device and brok
 
 ## Migration {#migration}
 
-Stay tuned for information on migrating to alternative solutions.
+Alternatively, migrate your scenarios to open source tools.
+
+We have prepared a guide to help you with migration: [{#T}](tutorials/iot-core-migration.md).
+
+{% include [migration-note](../_includes/iot-core/migration-note.md) %}
 
 ## Further questions {#support}
 

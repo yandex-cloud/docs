@@ -49,6 +49,5 @@ If multiple [Docker images](concepts/artifacts/docker.md) in the same registry u
 </MDX>
 
 
-
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
 

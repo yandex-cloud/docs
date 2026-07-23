@@ -6,8 +6,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится [L7-балансировщик](../concepts/application-load-balancer.md).
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится [L7-балансировщик](../concepts/application-load-balancer.md).
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. Выберите L7-балансировщик.
   1. На странице **Обзор** отобразится подробная информация о балансировщике.
 
@@ -78,8 +78,11 @@
       Где:
 
       * `data "yandex_alb_load_balancer"` — описание L7-балансировщика в качестве источника данных:
+         
          * `load_balancer_id` — идентификатор L7-балансировщика.
+      
       * `output "allocation_policy"` — выходная переменная, которая содержит информацию о политике размещения L7-балансировщика:
+         
          * `value` — возвращаемое значение.
 
      Вместо `allocation_policy` вы можете выбрать любой другой параметр для получения информации. Подробнее о параметрах источника данных `yandex_alb_load_balancer` в [документации провайдера](../../terraform/data-sources/alb_load_balancer.md).

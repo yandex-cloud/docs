@@ -69,6 +69,8 @@ Maintenance jobs with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-
          --delayed-until <timestamp>
       ```
 
+      {% include [cluster-name-id](../../_includes/managed-spqr/cluster-name-id.md) %}
+
       The timestamp must be in one of the following formats:
         * [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt)
         * HH:MM:SS
@@ -98,12 +100,15 @@ Maintenance jobs with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-
                 }'
         ```
 
-        Where `rescheduleType` is the reschedule type that can be one of the following values:
+        Where: 
 
-          * `NEXT_AVAILABLE_WINDOW`: Rescheduling maintenance to the next available window (only in clusters with a scheduled [maintenance window](#set-maintenance-window)).
-          * `SPECIFIC_TIME`: Reschedule maintenance to a specific date and time.
+          * {% include [cluster-id](../../_includes/managed-spqr/cluster-id.md) %}
+          * `rescheduleType`: Reschedule type, takes one of these two values:
 
-        The timestamp must be in [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) format, e.g., `2006-01-02T15:04:05Z`. With the `NEXT_AVAILABLE_WINDOW` reschedule type, you do not need to specify `delayedUntil`.
+            * `NEXT_AVAILABLE_WINDOW`: Rescheduling maintenance to the next available window (only in clusters with a scheduled [maintenance window](#set-maintenance-window)).
+            * `SPECIFIC_TIME`: Reschedule maintenance to a specific date and time.
+
+          The timestamp must be in [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) format, e.g., `2006-01-02T15:04:05Z`. With the `NEXT_AVAILABLE_WINDOW` reschedule type, you do not need to specify `delayedUntil`.
 
     1. Check the [server response](../api-ref/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -132,12 +137,15 @@ Maintenance jobs with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-
        yandex.cloud.mdb.spqr.v1.ClusterService.RescheduleMaintenance
      ```
 
-     Where `reschedule_type` is the reschedule type that can be one of the following values:
+     Where: 
 
-       * `NEXT_AVAILABLE_WINDOW`: Rescheduling maintenance to the next available window (only in clusters with a scheduled [maintenance window](#set-maintenance-window)).
-       * `SPECIFIC_TIME`: Reschedule maintenance to a specific date and time.
+       * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
+       * `reschedule_type`: Reschedule type, takes one of these two values:
 
-     The timestamp must be in [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) format, e.g., `2006-01-02T15:04:05Z`. With the `NEXT_AVAILABLE_WINDOW` reschedule type, you do not need to specify `delayed_until`.
+         * `NEXT_AVAILABLE_WINDOW`: Rescheduling maintenance to the next available window (only in clusters with a scheduled [maintenance window](#set-maintenance-window)).
+         * `SPECIFIC_TIME`: Reschedule maintenance to a specific date and time.
+
+       The timestamp must be in [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) format, e.g., `2006-01-02T15:04:05Z`. With the `NEXT_AVAILABLE_WINDOW` reschedule type, you do not need to specify `delayed_until`.
 
   1. Check the [server response](../api-ref/grpc/Cluster/rescheduleMaintenance.md#yandex.cloud.mdb.spqr.v1.Cluster) to make sure your request was successful.
 
@@ -179,6 +187,8 @@ If you need to, you can perform a maintenance with the **{{ ui-key.yacloud.mdb.m
          --reschedule-type immediate
       ```
 
+      {% include [cluster-name-id](../../_includes/managed-spqr/cluster-name-id.md) %}
+
 - REST API {#api}
 
   To run a scheduled cluster maintenance job immediately:
@@ -199,6 +209,8 @@ If you need to, you can perform a maintenance with the **{{ ui-key.yacloud.mdb.m
                     "rescheduleType": "IMMEDIATE"
                 }'
         ```
+
+        {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
 
     1. Check the [server response](../api-ref/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -225,6 +237,8 @@ If you need to, you can perform a maintenance with the **{{ ui-key.yacloud.mdb.m
        {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.spqr.v1.ClusterService.RescheduleMaintenance
      ```
+
+     {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
 
   1. Check the [server response](../api-ref/grpc/Cluster/rescheduleMaintenance.md#yandex.cloud.mdb.spqr.v1.Cluster) to make sure your request was successful.
 
@@ -276,6 +290,8 @@ Selecting a new maintenance interval will automatically cancel any scheduled mai
 
       {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
+      {% include [cluster-name-id](../../_includes/managed-spqr/cluster-name-id.md) %}
+
 - {{ TF }} {#tf}
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
@@ -323,6 +339,7 @@ Selecting a new maintenance interval will automatically cancel any scheduled mai
 
      Where:
 
+     * {% include [cluster-id](../../_includes/managed-spqr/cluster-id.md) %}
      * `updateMask`: Comma-separated string of settings to update.
 
        Here, we provide only one setting.
@@ -373,6 +390,7 @@ Selecting a new maintenance interval will automatically cancel any scheduled mai
 
      Where:
 
+     * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
      * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
        Here, we provide only one setting.

@@ -36,9 +36,9 @@ API представлен набором REST-ресурсов, которые 
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Интерфейс Monium {#console}
 
-   1. На главной странице [Monium](https://monium.yandex.cloud) слева выберите раздел **Prometheus**.
+   1. На главной странице [Monium](https://monium.yandex.cloud) слева выберите ![alt](../../../_assets/console-icons/box.svg) **Поставка и хранение** → ![alt](../../../_assets/console-icons/flame.svg) **Prometheus**.
    1. Выберите или создайте воркспейс.
    1. Перейдите на вкладку **Правила**.
    1. Если у вас еще нет загруженных файлов, нажмите **Добавить файл** и выберите файл `.yml` с правилами.
@@ -97,9 +97,9 @@ API представлен набором REST-ресурсов, которые 
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Интерфейс Monium {#console}
 
-   1. На главной странице [Monium](https://monium.yandex.cloud) слева выберите раздел **Prometheus**.
+   1. На главной странице [Monium](https://monium.yandex.cloud) слева выберите ![alt](../../../_assets/console-icons/box.svg) **Поставка и хранение** → ![alt](../../../_assets/console-icons/flame.svg) **Prometheus**.
    1. Выберите воркспейс.
    1. Перейдите на вкладку **Recording rules**. 
 
@@ -132,9 +132,9 @@ API представлен набором REST-ресурсов, которые 
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Интерфейс Monium {#console}
 
-   1. На главной странице [Monium](https://monium.yandex.cloud) слева выберите раздел **Prometheus**.
+   1. На главной странице [Monium](https://monium.yandex.cloud) слева выберите ![alt](../../../_assets/console-icons/box.svg) **Поставка и хранение** → ![alt](../../../_assets/console-icons/flame.svg) **Prometheus**.
    1. Выберите воркспейс.
    1. Прейдите на вкладку **Recording rules**. 
    1. Справа от файла нажмите **![options](../../../_assets/horizontal-ellipsis.svg)** > **Код файла**.
@@ -167,9 +167,9 @@ API представлен набором REST-ресурсов, которые 
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Интерфейс Monium {#console}
 
-   1. На главной странице [Monium](https://monium.yandex.cloud) слева выберите раздел **Prometheus**.
+   1. На главной странице [Monium](https://monium.yandex.cloud) слева выберите ![alt](../../../_assets/console-icons/box.svg) **Поставка и хранение** → ![alt](../../../_assets/console-icons/flame.svg) **Prometheus**.
    1. Выберите воркспейс.
    1. Прейдите на вкладку **Recording rules**. 
    1. Выберите файл с правилами. На открывшейся странице будет отражено состояние последних вычислений по данному правилу.
@@ -221,9 +221,9 @@ API представлен набором REST-ресурсов, которые 
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Интерфейс Monium {#console}
 
-   1. На главной странице [Monium](https://monium.yandex.cloud) слева выберите раздел **Prometheus**.
+   1. На главной странице [Monium](https://monium.yandex.cloud) слева выберите ![alt](../../../_assets/console-icons/box.svg) **Поставка и хранение** → ![alt](../../../_assets/console-icons/flame.svg) **Prometheus**.
    1. Выберите воркспейс.
    1. Прейдите на вкладку **Recording rules**. 
    1. Справа от файла нажмите **![options](../../../_assets/horizontal-ellipsis.svg)** > **Удалить**.
@@ -247,9 +247,9 @@ API представлен набором REST-ресурсов, которые 
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Интерфейс Monium {#console}
 
-   1. На главной странице [Monium](https://monium.yandex.cloud) слева выберите раздел **Prometheus**.
+   1. На главной странице [Monium](https://monium.yandex.cloud) слева выберите ![alt](../../../_assets/console-icons/box.svg) **Поставка и хранение** → ![alt](../../../_assets/console-icons/flame.svg) **Prometheus**.
    1. Выберите воркспейс.
    1. Прейдите на вкладку **Recording rules**. 
    1. Слева от файла нажмите **![options](../../../_assets/horizontal-ellipsis.svg)** > **Скачать файл**.

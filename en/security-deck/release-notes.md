@@ -5,12 +5,20 @@ description: This section contains the {{ sd-name }} release notes.
 
 # {{ sd-full-name }} release notes
 
+## April 2026 {#april-2026}
+
+* [{{ td-full-name }}](./concepts/threat-detector.md) (TD) kicked off. This module is in [Preview](../overview/concepts/launch-stages.md) and available only upon request.
+* Added new rules for infrastructure security compliance verification in [{{ cspm-name }}](./concepts/cspm.md). The new rules regulate {{ mgl-name }} instance [security event monitoring](./rules-reference/cspm.md#gitlab-audited) and user credential management.
+* You can now manually [initiate](./operations/cspm/check-environment.md) an infrastructure security compliance verification procedure in [{{ cspm-name }}](./concepts/cspm.md).
+* You can also [view and download](./operations/dspm/discovery-mode.md) the results of preliminary analysis in [{{ dspm-name }}](./concepts/dspm.md).
+* On the [{{ cspm-name }}](./concepts/cspm.md) and [{{ kspm-name }}](./concepts/kspm.md) alerts page, you can now [exclude a resource](./operations/alerts/work.md#create-exception) from the compliance check.
+
 ## March 2026 {#march-2026}
 * Released [Vulnerability Management (VM)](./concepts/vulnerability-management.md). This module is in [Preview](../overview/concepts/launch-stages.md) and available only upon request.
 * [DSPM](./concepts/dspm.md) now supports preliminary [analysis of data](./concepts/dspm.md#discovery-mode) stored in {{ objstorage-name }} buckets within a workspace.
 * You can now [group](./operations/alerts/view.md#search) alerts by type and filter them by new attributes.
 * In [KSPM](./concepts/kspm.md), you can now specify objects in [exceptions](./operations/kspm/manage-exceptions.md) using search by namespace.
-* In [CSPM](./concepts/cspm.md), added new rules for checking infrastructure for compliance with security standards. The new rules control the [assignment](./rules-reference/cspm.md#check-privileged-roles) of privileged roles, DDoS [protection](./rules-reference/cspm.md#appsec-ddos-protection-l3) at the network level, service account [access](./rules-reference/cspm.md#access) to {{ k8s }}® clusters, and redundant service account roles at the [organization](./rules-reference/cspm.md#sa-privileges-org-roles) and [service](./rules-reference/cspm.md#sa-privileges-service-roles) levels. 
+* Added new rules for infrastructure security compliance verification in [CSPM](./concepts/cspm.md). The new rules control the [assignment](./rules-reference/cspm.md#check-privileged-roles) of privileged roles, DDoS [protection](./rules-reference/cspm.md#appsec-ddos-protection-l3) at the network level, service account [access](./rules-reference/cspm.md#access) to {{ k8s }}® clusters, and redundant service account roles at the [organization](./rules-reference/cspm.md#sa-privileges-org-roles) and [service](./rules-reference/cspm.md#sa-privileges-service-roles) levels. 
 
 ## February 2026 {#february-2026}
 

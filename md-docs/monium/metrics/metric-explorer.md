@@ -14,7 +14,7 @@
 
 - Интерфейс Monium {#console}
 
-  1. На главной странице [Monium](https://monium.yandex.cloud) слева выберите раздел **Метрики**.
+  1. На главной странице [Monium](https://monium.yandex.cloud) слева выберите ![alt](../../_assets/console-icons/compass.svg) **Обзор** → ![alt](../../_assets/console-icons/rectangle-pulse.svg) **Метрики**.
   1. Вверху на шкале времени задайте промежуток поиска данных.
   1. Для поиска метрик приложений в строке запроса укажите:
        

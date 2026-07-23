@@ -24,7 +24,7 @@
 
 * **Asynchronous insert log retention time**{#setting-asynchronous-insert-log-retention-time} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
-    Time interval, in milliseconds, between adding a record to the `system.asynchronous_insert_log` table and deleting the record. This value must be a multiple of 1,000.
+    Time interval, in milliseconds, between adding a record to the `system.asynchronous_insert_log` table and deleting the record. This value must be a multiple of `86400000` (1 day).
 
     The default value is `2592000000` (30 days). If `0`, the records will be stored indefinitely.
 
@@ -44,7 +44,7 @@
 
 * **Asynchronous metric log retention time**{#setting-asynchronous-metric-log-retention-time} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
-    Time interval, in milliseconds, between adding a record to the `system.asynchronous_metric_log` table and deleting the record. This value must be a multiple of 1,000.
+    Time interval, in milliseconds, between adding a record to the `system.asynchronous_metric_log` table and deleting the record. This value must be a multiple of `86400000` (1 day).
 
     The default value is `2592000000` (30 days). If `0`, the records will be stored indefinitely.
 
@@ -181,7 +181,7 @@
     * **Value column name**: Column with the metric value. The default value is `Value`.
     * **Version column name**: Column with the metric version. The default value is `Timestamp`.
 
-    To learn more about Graphite support, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/graphitemergetree).
+    For more about Graphite support, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/graphitemergetree).
 
 * **Jdbc bridge**{#setting-jdbc-bridge} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
@@ -502,7 +502,7 @@
 
 * **Metric log retention time**{#setting-metric-log-retention-time} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
-    Time interval, in milliseconds, between adding a record to the `system.metric_log` table and deleting the record. This value must be a multiple of 1,000.
+    Time interval, in milliseconds, between adding a record to the `system.metric_log` table and deleting the record. This value must be a multiple of `86400000` (1 day).
 
     The default value is `2592000000` (30 days). If `0`, the records will be stored indefinitely.
 
@@ -522,7 +522,7 @@
 
 * **Opentelemetry span log retention time**{#setting-opentelemetry-span-log-retention-time} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
-    Time interval, in milliseconds, between adding a record to the `system.opentelemetry_span_log` table and deleting the record. This value must be a multiple of 1,000.
+    Time interval, in milliseconds, between adding a record to the `system.opentelemetry_span_log` table and deleting the record. This value must be a multiple of `86400000` (1 day).
 
     The default value is `2592000000` (30 days). If `0`, the records will be stored indefinitely.
 
@@ -534,7 +534,7 @@
 
 * **Part log retention time**{#setting-part-log-retention-time} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
-    Time interval, in milliseconds, between adding a record to the `system.part_log` table and deleting the record. This value must be a multiple of 1,000.
+    Time interval, in milliseconds, between adding a record to the `system.part_log` table and deleting the record. This value must be a multiple of `86400000` (1 day).
 
     The default value is `2592000000` (30 days). If `0`, the records will be stored indefinitely.
 
@@ -557,7 +557,7 @@
 
 * **Processors profile log retention time**{#setting-processors-profile-log-retention-time} {{ tag-con }} {{ tag-cli }}
 
-    Time interval, in milliseconds, between adding a record to the `system.processors_profile_log` table and deleting the record. This value must be a multiple of 1,000.
+    Time interval, in milliseconds, between adding a record to the `system.processors_profile_log` table and deleting the record. This value must be a multiple of `86400000` (1 day).
 
     The default value is `2592000000` (30 days). If `0`, the records will be stored indefinitely.
 
@@ -582,7 +582,7 @@
 
 * **Query log retention time**{#setting-query-log-retention-time} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
-    Time interval, in milliseconds, between adding a record to the `system.query_log` table and deleting the record. This value must be a multiple of 1,000.
+    Time interval, in milliseconds, between adding a record to the `system.query_log` table and deleting the record. This value must be a multiple of `86400000` (1 day).
 
     The default value is `2592000000` (30 days). If `0`, the records will be stored indefinitely.
 
@@ -612,7 +612,7 @@
 
 * **Query thread log retention time**{#setting-query-thread-log-retention-time} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
-    Time interval, in milliseconds, between adding a record to the `system.query_thread_log` table and deleting the record. This value must be a multiple of 1,000.
+    Time interval, in milliseconds, between adding a record to the `system.query_thread_log` table and deleting the record. This value must be a multiple of `86400000` (1 day).
 
     The default value is `2592000000` (30 days). If `0`, the records will be stored indefinitely.
 
@@ -632,7 +632,7 @@
 
 * **Query views log retention time**{#setting-query-views-log-retention-time} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
-    Time interval, in milliseconds, between adding a record to the `system.query_views_log` table and deleting the record. This value must be a multiple of 1,000.
+    Time interval, in milliseconds, between adding a record to the `system.query_views_log` table and deleting the record. This value must be a multiple of `86400000` (1 day).
 
     The default value is `2592000000` (30 days). If `0`, the records will be stored indefinitely.
 
@@ -662,7 +662,7 @@
 
 * **Session log retention time**{#setting-session-log-retention-time} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
-    Time interval, in milliseconds, between adding a record to the `system.session_log` table and deleting the record. This value must be a multiple of 1,000.
+    Time interval, in milliseconds, between adding a record to the `system.session_log` table and deleting the record. This value must be a multiple of `86400000` (1 day).
 
     The default value is `2592000000` (30 days). If `0`, the records will be stored indefinitely.
 
@@ -692,7 +692,7 @@
 
 * **Text log retention time**{#setting-text-log-retention-time} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
-    Time interval, in milliseconds, between adding a record to the `system.text_log` table and deleting the record. This value must be a multiple of 1,000.
+    Time interval, in milliseconds, between adding a record to the `system.text_log` table and deleting the record. This value must be a multiple of `86400000` (1 day).
 
     The default value is `2592000000` (30 days). If `0`, the records will be stored indefinitely.
 
@@ -734,7 +734,7 @@
 
 * **Trace log retention time**{#setting-trace-log-retention-time} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
-    Time interval, in milliseconds, between adding a record to the `system.trace_log` table and deleting the record. This value must be a multiple of 1,000.
+    Time interval, in milliseconds, between adding a record to the `system.trace_log` table and deleting the record. This value must be a multiple of `86400000` (1 day).
 
     The default value is `2592000000` (30 days). If `0`, the records will be stored indefinitely.
 
@@ -760,6 +760,6 @@
 
 * **Zookeeper log retention time**{#setting-zookeeper-log-retention-time} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
-    Time interval, in milliseconds, between adding a record to the `system.zookeeper_log` table and deleting the record. This value must be a multiple of 1,000.
+    Time interval, in milliseconds, between adding a record to the `system.zookeeper_log` table and deleting the record. This value must be a multiple of `86400000` (1 day).
 
     The default value is `2592000000` (30 days). If `0`, the records will be stored indefinitely.

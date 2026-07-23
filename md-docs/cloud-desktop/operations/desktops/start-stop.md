@@ -9,7 +9,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором расположен рабочий стол.
-  1. Перейдите в сервис **Cloud Desktop**.
+  1. [Перейдите](https://console.yandex.cloud/link/cloud-desktop) в сервис **Cloud Desktop**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/display.svg) **Рабочие столы**.
   1. Напротив рабочего стола, который нужно запустить, нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **Запустить**.
   1. Подтвердите запуск.
@@ -84,7 +84,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором расположен рабочий стол.
-  1. Перейдите в сервис **Cloud Desktop**.
+  1. [Перейдите](https://console.yandex.cloud/link/cloud-desktop) в сервис **Cloud Desktop**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/display.svg) **Рабочие столы**.
   1. Напротив рабочего стола, который нужно перезапустить, нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **Перезапустить**.
   1. Подтвердите перезапуск.
@@ -157,7 +157,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором расположен рабочий стол.
-  1. Перейдите в сервис **Cloud Desktop**.
+  1. [Перейдите](https://console.yandex.cloud/link/cloud-desktop) в сервис **Cloud Desktop**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/display.svg) **Рабочие столы**.
   1. Напротив рабочего стола, который нужно остановить, нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **Остановить**.
   1. Подтвердите остановку.

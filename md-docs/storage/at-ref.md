@@ -17,6 +17,8 @@ yandex.cloud.audit.storage.<имя_события>
 `BucketAccessBindingsUpdate` | Изменение механизма привязки доступа к бакету
 `BucketAclUpdate` | Изменение ACL бакета
 `BucketCorsUpdate` | Изменение конфигурации CORS бакета
+`BucketInventoryConfigurationDelete` | Удаление конфигурации S3 Inventory бакета
+`BucketInventoryConfigurationUpdate` | Изменение конфигурации S3 Inventory бакета
 `BucketCreate` | Создание бакета
 `BucketDelete` | Удаление бакета
 `BucketEncryptionUpdate` | Обновление настроек шифрования бакета

@@ -6,11 +6,12 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [профиль WAF](../concepts/waf.md).
-  1. Перейдите в сервис **Smart Web Security**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [профиль WAF](../concepts/waf.md).
+  1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
   1. На панели слева выберите ![image](../../_assets/smartwebsecurity/waf.svg) **Профили WAF**.
   1. Выберите нужный профиль.
   1. На странице **Обзор** отобразится подробная информация о профиле:
+     
      * Основные параметры профиля.
      * Профили безопасности, к которым подключен профиль WAF.
      * Наборы правил, включенные в профиль, количество активных правил в каждом наборе, уровень аномальности и паранойи для набора OWASP.
@@ -43,9 +44,13 @@
      ```
 
      Где:
+     
      * `data "yandex_sws_waf_profile"` — описание WAF профиля в качестве источника данных:
+       
        * `name` — имя WAF профиля.
+     
      * `output "profile-created"` — выходная переменная, которая содержит информацию о временной метке создания WAF профиля:
+       
        * `value` — возвращаемое значение.
 
      Вместо `created_at` вы можете выбрать любой другой параметр для получения информации. Подробнее о параметрах источника данных `yandex_sws_waf_profile` в [документации провайдера](../../terraform/data-sources/sws_waf_profile.md).

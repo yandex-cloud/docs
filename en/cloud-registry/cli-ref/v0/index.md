@@ -17,8 +17,6 @@ Syntax:
 
 - [yc cloud-registry v0 configure-docker](configure-docker.md) — 
 
-- [yc cloud-registry v0 tools](tools.md) — Tools for specific artifact kinds
-
 - [yc cloud-registry v0 artifact](artifact/index.md) — Manage artifacts
 
   - [yc cloud-registry v0 artifact add-access-binding](artifact/add-access-binding.md) — Add access binding for the specified artifact
@@ -70,6 +68,10 @@ Syntax:
   - [yc cloud-registry v0 registry set-ip-permissions](registry/set-ip-permissions.md) — Set ip permissions for the specified registry and delete all existing ip permission if there were any
 
   - [yc cloud-registry v0 registry update](registry/update.md) — Updates the specified registry
+
+- [yc cloud-registry v0 tools](tools/index.md) — Tools for specific artifact kinds
+
+
 
 #### Global Flags
 

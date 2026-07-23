@@ -11,11 +11,12 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором будет создаваться целевая группа.
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. На панели слева выберите ![image](../../_assets/console-icons/target.svg) **Целевые группы**.
   1. Нажмите кнопку **Создать целевую группу**.
   1. Введите имя и описание целевой группы.
   1. В блоке **Целевые ресурсы** выберите ВМ из списка или добавьте целевой ресурс вручную:
+     
      1. В поле **IP-адрес** укажите адрес ресурса и выберите [подсеть](../../vpc/concepts/network.md#subnet).
      1. (Опционально) Если [IP-адрес](../../vpc/concepts/address.md) ресурса находится вне [Yandex Virtual Private Cloud](../../vpc/index.md), выберите опцию **Не из VPC**.
 
@@ -23,6 +24,7 @@
 
 
      1. Нажмите **Добавить целевой ресурс**.
+  
   1. Нажмите кнопку **Создать**.
 
 - CLI {#cli}
@@ -129,8 +131,10 @@
      ```
 
      Где `yandex_alb_target_group` — параметры целевой группы:
+     
      * `name` — имя целевой группы.
      * `target` — параметры целевого ресурса:
+       
        * `subnet_id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet), в которой размещена ВМ. Получить список доступных подсетей можно с помощью команды [CLI](../../cli/index.md): `yc vpc subnet list`.
        * `ip_address` — внутренний IP-адрес ВМ. Получить список [внутренних IP-адресов](../../vpc/concepts/address.md#internal-addresses) можно с помощью команды CLI: `yc vpc subnet list-used-addresses --id <идентификатор_подсети>`.
 
@@ -159,12 +163,15 @@
 
 
      Где `yandex_alb_target_group` — параметры целевой группы:
+     
      * `name` — имя целевой группы.
      * `target` — параметры целевого ресурса:
+       
        * `private_ipv4_address` — параметр, который означает, что IP-адрес находится вне Virtual Private Cloud.
        * `ip_address` — частный IPv4-адрес ресурса. Адреса должны входить в [частные диапазоны из RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3). Подробнее в разделе [Подсети](../../vpc/concepts/network.md#subnet).
 
      Подробнее о параметрах ресурса `yandex_alb_target_group` в [документации провайдера](../../terraform/resources/alb_target_group.md).
+  
   1. Создайте ресурсы:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.

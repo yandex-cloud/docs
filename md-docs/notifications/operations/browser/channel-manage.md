@@ -9,7 +9,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится канал уведомлений.
-  1. Перейдите в сервис **Cloud Notification Service**.
+  1. [Перейдите](https://console.yandex.cloud/link/cns) в сервис **Cloud Notification Service**.
   1. Напротив нужного канала нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
   1. Измените описание канала.
   1. Нажмите **Сохранить**.
@@ -46,8 +46,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится канал уведомлений.
-  1. Перейдите в сервис **Cloud Notification Service**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится канал уведомлений.
+  1. [Перейдите](https://console.yandex.cloud/link/cns) в сервис **Cloud Notification Service**.
   1. Напротив нужного канала уведомлений нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
   1. В открывшемся окне нажмите **Удалить**.
 

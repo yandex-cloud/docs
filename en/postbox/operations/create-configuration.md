@@ -1,6 +1,11 @@
 # Creating a configuration
 
-Create a [configuration](../concepts/glossary.md#configuration) to receive [email operation notifications](../concepts/notification.md).
+Create a [configuration](../concepts/configuration.md) to set up email processing rules:
+
+* [Email operation notifications](../concepts/notification.md).
+* Mandatory TLS encryption.
+* Engagement statistics collection.
+* [Statistics](../concepts/statistics.md#configuration-filter) breakdown by sending scenarios.
 
 {% list tabs group=instructions %}
 
@@ -18,7 +23,7 @@ Create a [configuration](../concepts/glossary.md#configuration) to receive [emai
         1. Select the **{{ ui-key.yacloud.common.enabled }}** option to activate the subscription.
 
         You can add multiple subscriptions.
-    1. Under **{{ ui-key.yacloud.postbox.label_delivery-options }}**, enable **{{ ui-key.yacloud.postbox.field_secure-connection }}** and specify the minimum TLS version to send TLS-only encrypted emails from {{ postbox-name }} to the recipient's servers.
+    1. To send emails from {{ postbox-name }} to recipient servers using only TLS encryption, enable **{{ ui-key.yacloud.postbox.label_delivery-options }}** under **{{ ui-key.yacloud.postbox.field_secure-connection }}** and specify the minimum TLS version.
 
         {% note warning %}
 
@@ -26,7 +31,7 @@ Create a [configuration](../concepts/glossary.md#configuration) to receive [emai
 
         {% endnote %}
 
-    1. Under **Statistics collection settings**, enable the **Engagement statistics** option to collect statistics on email opens and clicks. All other [statistics](../concepts/statistics.md), other than email opens and clicks, are collected by default.
+    1. To collect statistics on email opens and clicks, enable **Engagement statistics** under **Statistics collection settings**. All other [statistics](../concepts/statistics.md), other than email opens and clicks, are collected by default.
 
         {% note info %}
 
@@ -62,7 +67,7 @@ Create a [configuration](../concepts/glossary.md#configuration) to receive [emai
            --configuration-set-name $CONFIGSET_NAME
         ```
 
-    1. Add a [subscription](../concepts/glossary.md#subscription) to the configuration:
+    1. To receive email operation notifications, add a [subscription](../concepts/glossary.md#subscription) to the configuration:
 
         ```bash
         aws sesv2 create-configuration-set-event-destination \
@@ -78,4 +83,4 @@ Create a [configuration](../concepts/glossary.md#configuration) to receive [emai
 
 {% endlist %}
 
-To get notifications, [link](bind-configuration.md) the configuration to an address.
+To apply your configuration to all emails sent from a specific address, [associate](bind-configuration.md) the configuration with that address.

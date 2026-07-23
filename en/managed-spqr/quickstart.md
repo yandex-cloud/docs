@@ -31,7 +31,11 @@ To get started:
    {% include [create-folder](../_includes/create-folder.md) %}
 
 
-1. [Assign](../iam/operations/roles/grant.md) the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) and `managed-spqr.editor` roles for the folder to your {{ yandex-cloud }} account. These roles allow you to create a cluster.
+1. [Assign](../iam/operations/roles/grant.md) the following roles to your {{ yandex-cloud }} account:
+
+    * {% include [roles-mspqr-editor](../_includes/mdb/mspqr/roles-mspqr-editor.md) %}
+    * {% include [roles-vpc-user](../_includes/mdb/roles-vpc-user.md) %}
+    * {% include [roles-mdb-viewer](../_includes/mdb/roles-mdb-viewer-create-cluster.md) %}
 
 
    {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}

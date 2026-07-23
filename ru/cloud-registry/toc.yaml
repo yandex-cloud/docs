@@ -213,8 +213,14 @@ items:
                 href: cli-ref/registry/lifecycle-policy/dry-run.md
               - name: get
                 href: cli-ref/registry/lifecycle-policy/get.md
+              - name: get-dry-run-result
+                href: cli-ref/registry/lifecycle-policy/get-dry-run-result.md
               - name: list
                 href: cli-ref/registry/lifecycle-policy/list.md
+              - name: list-dry-run-artifacts
+                href: cli-ref/registry/lifecycle-policy/list-dry-run-artifacts.md
+              - name: list-dry-run-results
+                href: cli-ref/registry/lifecycle-policy/list-dry-run-results.md
               - name: update
                 href: cli-ref/registry/lifecycle-policy/update.md
           - name: list
@@ -346,7 +352,15 @@ items:
               - name: update
                 href: cli-ref/v0/registry/update.md
           - name: tools
-            href: cli-ref/v0/tools.md
+            items:
+              - name: Overview
+                href: cli-ref/v0/tools/index.md
+              - name: debian
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/tools/debian/index.md
+                  - name: reindex-packages
+                    href: cli-ref/v0/tools/debian/reindex-packages.md
       - name: v1
         items:
           - name: Overview
@@ -407,8 +421,16 @@ items:
                     href: cli-ref/v1/registry/lifecycle-policy/dry-run.md
                   - name: get
                     href: cli-ref/v1/registry/lifecycle-policy/get.md
+                  - name: get-dry-run-result
+                    href: cli-ref/v1/registry/lifecycle-policy/get-dry-run-result.md
                   - name: list
                     href: cli-ref/v1/registry/lifecycle-policy/list.md
+                  - name: list-dry-run-artifacts
+                    href: >-
+                      cli-ref/v1/registry/lifecycle-policy/list-dry-run-artifacts.md
+                  - name: list-dry-run-results
+                    href: >-
+                      cli-ref/v1/registry/lifecycle-policy/list-dry-run-results.md
                   - name: update
                     href: cli-ref/v1/registry/lifecycle-policy/update.md
               - name: list

@@ -166,6 +166,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Votes of host for the election in replSet
+              Acceptable values are 0 to 1, inclusive.
             type: string
             format: int64
       MongoInfra:
@@ -353,7 +354,9 @@ Priority of host for the election in replSet ||
 Host tags ||
 || votes | **string** (int64)
 
-Votes of host for the election in replSet ||
+Votes of host for the election in replSet
+
+Acceptable values are 0 to 1, inclusive. ||
 |#
 
 ## MongoInfra {#yandex.cloud.mdb.mongodb.v1.EnableClusterShardingRequest.MongoInfra}

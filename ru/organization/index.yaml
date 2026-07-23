@@ -127,7 +127,7 @@ blocks:
         centered: true
         animated: false
         size: s
-        icon: ../_assets/console-icons/saml.svg
+        icon: ../_assets/console-icons/persons-lock.svg
       - type: basic-card
         title: OIDC-приложения
         text: "Настройте единый вход по стандарту OpenID\_Connect\_(OIDC)"

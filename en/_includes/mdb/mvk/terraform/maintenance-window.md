@@ -4,9 +4,9 @@ To set up the [maintenance window](../../../../managed-valkey/concepts/maintenan
 resource "yandex_mdb_redis_cluster_v2" "<cluster_name>" {
   ...
   maintenance_window = {
-    type = <maintenance_type>
+    type = "<maintenance_type>"
     day  = "<day_of_week>"
-    hour = <hour>
+    hour = <sequence_number_of_hour_interval>
   }
   ...
 }

@@ -12,8 +12,6 @@ Recognition requests per hour | 500
 Operation status check requests via API v2 per hour | 2,500
 Operation status check requests via API v3 per second | 5
 Billable hours of audio per day^1^ | 10,000
-**Requests querying LLMs** |
-Concurrent requests querying generative text models | 2
 **Speech synthesis** |
 Requests per second | 40
 

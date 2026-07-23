@@ -5,6 +5,7 @@
 Creates a new shard.
 
 
+
 ## gRPC request
 
 **rpc AddShard ([AddClusterShardRequest](#yandex.cloud.mdb.redis.v1.AddClusterShardRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**

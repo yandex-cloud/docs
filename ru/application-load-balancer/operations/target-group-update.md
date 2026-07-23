@@ -11,11 +11,12 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создана целевая группа.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.alb.label_target-groups }}**.
   1. Нажмите на имя нужной целевой группы.
   1. Нажмите **{{ ui-key.yacloud.alb.button_add-targets }}**.
   1. Выберите ВМ из списка или добавьте целевой ресурс вручную:
+     
      1. В поле **{{ ui-key.yacloud.alb.column_target }}** укажите [IP-адрес](../../vpc/concepts/address.md) ресурса и выберите [подсеть](../../vpc/concepts/network.md#subnet).
      1. (Опционально) Если IP-адрес ресурса находится вне [{{ vpc-full-name }}](../../vpc/), выберите опцию **{{ ui-key.yacloud.alb.label_target-private-ip }}**.
 
@@ -23,6 +24,7 @@
 
 
      1. Нажмите **{{ ui-key.yacloud.alb.button_add-target }}**.
+  
   1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
 - CLI {#cli}
@@ -117,8 +119,10 @@
      ```
 
      Где `yandex_alb_target_group` — параметры целевой группы:
+     
      * `name` — имя целевой группы.
      * `target` — параметры целевого ресурса:
+       
        * `subnet_id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet), в которой размещена ВМ. Получить список доступных подсетей можно с помощью команды [CLI](../../cli/): `yc vpc subnet list`.
        * `ip_address` — [внутренний IP-адрес](../../vpc/concepts/address.md#internal-addresses) ВМ. Получить список внутренних IP-адресов можно с помощью команды CLI: `yc vpc subnet list-used-addresses --id <идентификатор_подсети>`.
 
@@ -147,8 +151,10 @@
 
 
      Где `yandex_alb_target_group` — параметры целевой группы:
+     
      * `name` — имя целевой группы.
      * `target` — параметры целевого ресурса:
+       
        * `private_ipv4_address` — параметр, который означает, что IP-адрес находится вне {{ vpc-name }}.
        * `ip_address` — частный IPv4-адрес ресурса. IP-адреса должны входить в [частные диапазоны из RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3). Подробнее в разделе [Подсети](../../vpc/concepts/network.md#subnet).
 
@@ -180,7 +186,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создана целевая группа.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.alb.label_target-groups }}**.
   1. Нажмите на имя нужной целевой группы.
   1. Справа от нужной ВМ нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
@@ -264,6 +270,7 @@
      ```
 
      Подробнее о параметрах ресурса `yandex_alb_target_group` в [документации провайдера]({{ tf-provider-alb-targetgroup }}).
+  
   1. Примените изменения:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

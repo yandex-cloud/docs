@@ -20,7 +20,11 @@ To get started:
 
     {% include [create-folder](../_includes/create-folder.md) %}
 
-1. [Assign](../iam/operations/roles/grant.md) the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.mos.editor }} role (or higher)](security/index.md#roles-list) to your {{ yandex-cloud }} account. These roles allow you to create a cluster.
+1. [Assign](../iam/operations/roles/grant.md) the following roles to your {{ yandex-cloud }} account:
+
+    * {% include [roles-mos-editor](../_includes/mdb/mos/roles-mos-editor.md) %}
+    * {% include [roles-vpc-user](../_includes/mdb/roles-vpc-user.md) %}
+    * {% include [roles-mdb-viewer](../_includes/mdb/roles-mdb-viewer-create-cluster.md) %}
 
     To attach the service account to a cluster, e.g., to [use {{ objstorage-full-name }}](operations/s3-access.md), your account also needs the [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user) role or higher.
 

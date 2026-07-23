@@ -221,6 +221,6 @@ To diagnose virtual and physical network interface issues, as well as map networ
 
 In {{ yandex-cloud }}, it is the network team that handles the virtual and physical network interface issues using their own operational network diagnostic tools.
 
-To identify issues in {{ yandex-cloud }} overlay (cloud) networks, there is a tool called [Cloud Network Map](../../../vpc/concepts/network.md#map). In enables you to quickly verify the configuration of virtual network connectivity between cloud objects (cloud wiring).
+To identify issues in {{ yandex-cloud }} overlay (cloud) networks, there is a tool called [Infrastructure Map](../../../console/concepts/infrastructure-map.md). In enables you to quickly verify the configuration of virtual network connectivity between cloud objects (cloud wiring).
 
 ![network-map](../../../_assets/vpc/network-map.png)

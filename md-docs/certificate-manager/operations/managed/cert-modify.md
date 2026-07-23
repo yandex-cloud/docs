@@ -9,7 +9,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в который был добавлен сертификат.
-  1. Перейдите в сервис **Certificate Manager**.
+  1. [Перейдите](https://console.yandex.cloud/link/certificate-manager) в сервис **Certificate Manager**.
   1. Выберите сертификат, который необходимо изменить.
   1. Нажмите кнопку ![pencil](../../../_assets/console-icons/pencil.svg) **Изменить**.
   1. Измените название или описание сертификата.
@@ -53,6 +53,7 @@
      ```
 
      Где:
+     
      * `--id` — идентификатор сертификата.
      * `--new-name` — новое имя сертификата.
      * `--description` — описание сертификата.

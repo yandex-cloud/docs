@@ -61,9 +61,9 @@ groups:
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Интерфейс Monium {#console}
 
-   1. На главной странице [Monium](https://monium.yandex.cloud) слева выберите раздел **Prometheus**.
+   1. На главной странице [Monium](https://monium.yandex.cloud) слева выберите ![alt](../../../_assets/console-icons/box.svg) **Поставка и хранение** → ![alt](../../../_assets/console-icons/flame.svg) **Prometheus**.
    1. Выберите или создайте воркспейс.
    1. Перейдите на вкладку **Правила**.
    1. Если у вас еще нет загруженных файлов, нажмите **Добавить файл** и выберите файл `.yml` с правилами.
@@ -177,9 +177,9 @@ receivers:
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Интерфейс Monium {#console}
 
-   1. На главной странице [Monium](https://monium.yandex.cloud) слева выберите раздел **Prometheus**.
+   1. На главной странице [Monium](https://monium.yandex.cloud) слева выберите ![alt](../../../_assets/console-icons/box.svg) **Поставка и хранение** → ![alt](../../../_assets/console-icons/flame.svg) **Prometheus**.
    1. Выберите или создайте воркспейс.
    1. Перейдите на вкладку **Конфигурация Alert manager**.
    1. Если у вас еще нет загруженного файла конфигурации, нажмите кнопку **Загрузить файл конфигурации** и выберите файл `.yml`.
@@ -256,9 +256,9 @@ receivers:
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Интерфейс Monium {#console}
 
-   1. На главной странице [Monium](https://monium.yandex.cloud) слева выберите раздел **Prometheus**.
+   1. На главной странице [Monium](https://monium.yandex.cloud) слева выберите ![alt](../../../_assets/console-icons/box.svg) **Поставка и хранение** → ![alt](../../../_assets/console-icons/flame.svg) **Prometheus**.
    1. Выберите или [создайте воркспейс](index.md#access).
    1. Перейдите на вкладку **Алерты** и посмотрите списки правил с алертами.
    1. (Опционально) Настройте фильтрацию алертов по имени и статусу.

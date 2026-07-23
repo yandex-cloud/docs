@@ -32,7 +32,7 @@ To attach a service account to a {{ mos-name }} cluster, [assign](../../iam/oper
 
 {% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
 
-For more information about setting up a service account, see [Configuring access to {{ objstorage-name }}](s3-access.md).
+For more on setting up a service account, see [Configuring access to {{ objstorage-name }}](s3-access.md).
 
 {% list tabs group=instructions %}
 
@@ -492,7 +492,7 @@ For more information about setting up a service account, see [Configuring access
     {{ yc-mdb-os }} cluster update <cluster_name_or_ID> \
        --maintenance schedule=<maintenance_type>,`
                     `weekday=<day_of_week>,`
-                    `hour=<hour> \
+                    `hour=<sequence_number_of_hour_interval> \
        --delete-protection \
        --data-transfer-access=<allow_access_from_Data_Transfer> \
        --serverless-access=<allow_access_from_Serverless_Containers>
@@ -502,12 +502,15 @@ For more information about setting up a service account, see [Configuring access
 
     The settings in the command include:
 
-    * `--maintenance`: [Maintenance window](../concepts/maintenance.md) settings, including for stopped clusters:
+    * `--maintenance`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters):
 
-        * To allow maintenance at any time, set `--maintenance schedule=anytime`.
-        * To specify the preferred maintenance start time, set `--maintenance schedule=weekly,weekday=<day_of_week>,hour=<hour_in_UTC>`. In this case, maintenance will take place every week on a specified day at a specified time.
+        * `anytime`: Any time. 
+        * `weekly`: On a schedule. For this value, also specify the following: 
 
-            The valid `weekday` values include `mon`, `tue`, `wed`, `thu`, `fry`, `sat`, `sun`. In the `hour` parameter, specify the maintenance completion time. For example, if you set `14`, maintenance will take place from 13:00 until 14:00 UTC.
+            * `weekday`: Day of week (`mon`, `tue`, `wed`, `thu`, `fry`, `sat`, `sun`). 
+            * `hour`: UTC hour interval, from `1` to `24`.
+
+                > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
     * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
@@ -529,17 +532,24 @@ For more information about setting up a service account, see [Configuring access
             ...
             maintenance_window {
                 type = "<maintenance_frequency>"
-                hour = <hour>
+                hour = <sequence_number_of_hour_interval>
                 day  = "<day_of_week>"
             }
         }
         ```
 
-        Specify the following in the parameters:
+        Where:
 
-        * `type`: `ANYTIME` to allow maintenance at any time, or `WEEKLY` to perform maintenance every week.
-        * `hour`: Maintenance completion hour, UTC. For example, if you set `14`, maintenance will take place from 13:00 until 14:00 UTC.
-        * `day`: Day of week for maintenance. The valid values include `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`.
+        * `type`: Maintenance type. The possible values include: 
+
+            * `ANYTIME`: Any time.
+            * `WEEKLY`: Every week.
+
+        * `hour`: UTC hour interval, from `1` to `24`.
+
+          > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
+
+        * `day`: Day of week (`MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`).
 
     1. To activate cluster protection against accidental deletion by a user of your cloud, add the `deletion_protection` field set to `true` to the cluster description:
 
@@ -591,7 +601,7 @@ For more information about setting up a service account, see [Configuring access
                         "maintenanceWindow": {
                             "weeklyMaintenanceWindow": {
                                 "day": "<day_of_week>",
-                                "hour": "<hour>"
+                                "hour": "<sequence_number_of_hour_interval>"
                             }
                         }
                     }'
@@ -615,10 +625,15 @@ For more information about setting up a service account, see [Configuring access
 
             Even with cluster deletion protection enabled, it is still possible to delete a user or connect to the cluster manually and delete the data.
 
-        * `maintenanceWindow.weeklyMaintenanceWindow`: Maintenance window schedule:
+        * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) schedule (including for disabled clusters). Provide one of these two properties:
 
-            * `day`: Day of the week, in `DDD` format, for scheduled maintenance.
-            * `hour`: Hour, in `HH` format, for scheduled maintenance. The possible values range from `1` to `24`. Use the UTC time zone.
+            * `anytime`: Any time. 
+            * `weeklyMaintenanceWindow`: On a schedule. For this value, also specify the following:
+
+                * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+                * `hour`: UTC hour interval, from `1` to `24`.
+              
+                  > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -662,7 +677,7 @@ For more information about setting up a service account, see [Configuring access
                     "maintenance_window": {
                         "weekly_maintenance_window": {
                             "day": "<day_of_week>",
-                            "hour": "<hour>"
+                            "hour": "<sequence_number_of_hour_interval>"
                         }
                     }
                 }' \
@@ -690,10 +705,15 @@ For more information about setting up a service account, see [Configuring access
 
             Even with cluster deletion protection enabled, it is still possible to delete a user or connect to the cluster manually and delete the data.
 
-        * `maintenance_window.weekly_maintenance_window`: Maintenance window schedule:
+        * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) schedule (including for disabled clusters). Provide one of these two properties:
 
-            * `day`: Day of the week, in `DDD` format, for scheduled maintenance.
-            * `hour`: Hour, in `HH` format, for scheduled maintenance. The possible values range from `1` to `24`. Use the UTC time zone.
+            * `anytime`: Any time. 
+            * `weekly_maintenance_window`: On a schedule. For this value, also specify the following:
+
+                * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+                * `hour`: UTC hour interval, from `1` to `24`.
+
+                  > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 

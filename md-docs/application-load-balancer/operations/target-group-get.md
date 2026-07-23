@@ -7,7 +7,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится [целевая группа](../concepts/target-group.md).
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. На панели слева выберите ![image](../../_assets/console-icons/target.svg) **Целевые группы**.
   1. Выберите целевую группу.
   1. На странице **Обзор** отобразится подробная информация о группе.
@@ -76,8 +76,11 @@
       Где:
 
       * `data "yandex_alb_target_group"` — описание целевой группы в качестве источника данных:
+        
         * `target_group_id` — идентификатор целевой группы.
+      
       * `output "target_group"` — выходная переменная, которая содержит информацию о подключенных ресурсах целевой группы:
+        
         * `value` — возвращаемое значение.
 
       Вместо `target` вы можете выбрать любой другой параметр для получения информации. Подробнее о параметрах источника данных `yandex_alb_target_group` в [документации провайдера](../../terraform/data-sources/alb_target_group.md).

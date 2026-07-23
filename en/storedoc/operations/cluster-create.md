@@ -23,11 +23,18 @@ A {{ SD }} cluster consists of one or multiple database hosts, with the option t
 
 
 
+## Roles for creating a cluster {#roles}
+
+To create and use a {{ mmg-name }} cluster, your {{ yandex-cloud }} account needs the following roles:
+
+* {% include [roles-mmg-editor](../../_includes/mdb/mmg/roles-mmg-editor.md) %}
+* {% include [roles-vpc-user](../../_includes/mdb/roles-vpc-user.md) %}
+* {% include [roles-mdb-viewer](../../_includes/mdb/roles-mdb-viewer-create-cluster.md) %}
+
+For more information about assigning roles, see [this {{ iam-full-name }} guide](../../iam/operations/roles/grant.md).
+
+
 ## Creating a cluster {#create-cluster}
-
-
-To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role along with the [{{ roles.mmg.editor }} role or higher](../security/index.md#roles-list). For information on how to assign roles, see [this {{ iam-name }} guide](../../iam/operations/roles/grant.md).
-
 
 {% list tabs group=instructions %}
 
@@ -104,7 +111,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
              * Storage usage percentage to trigger its expansion during the next [maintenance window](../concepts/maintenance.md#maintenance-window).
              * Storage usage percentage to trigger its immediate expansion.
 
-             If both conditions are set, the percentage for maintenance window expansion must be lower than the threshold for immediate expansion.
+             If both conditions are set, the percentage in the first condition must be less than the percentage in the second.
 
              Learn more about the storage expansion criteria [here](../concepts/storage.md#auto-rescale).
 
@@ -334,6 +341,21 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
         {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
+      To set up a [maintenance](../concepts/maintenance.md) window (including for disabled clusters), provide a value in the `--maintenance-window` parameter when creating your cluster:
+
+      ```bash
+      {{ yc-mdb-mg }} cluster create \
+         ...
+         --maintenance-window type=<maintenance_type>,`
+                             `day=<day_of_week>,`
+                             `hour=<sequence_number_of_hour_interval> \
+         ...
+      ```
+
+      Where `type` is the maintenance type:
+
+      {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
+
       To set up [automatic storage expansion](../concepts/storage.md#auto-rescale), specify the `--disk-size-autoscaling` parameter:
 
       ```bash
@@ -347,13 +369,13 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
       Where:
 
-      * `<host_type>`: [Host type](../concepts/host-roles.md) to configure a storage for. The possible values are `mongod`, `mongocfg`, `mongos`, and `mongoinfra`.
+      * `<host_type>`: [Host type](../concepts/host-roles.md) whose storage you want to configure. The possible values are `mongod`, `mongocfg`, `mongos`, and `mongoinfra`.
 
       * `<host_type>-planned-usage-threshold`: Storage usage percentage to trigger a storage expansion during the next [maintenance window](../concepts/maintenance.md#maintenance-window).
 
         Use a value between `0` and `100`%. The default value is `0`, i.e., automatic expansion is disabled.
 
-        If you set this option, configure the maintenance time.
+        If you set this option, configure the maintenance time settings.
 
       * `<host_type>-emergency-usage-threshold`: Storage usage percentage to trigger an immediate storage expansion.
 
@@ -366,12 +388,6 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         {% endnote %}
 
       * `<host_type>-disk-size-limit`: Maximum storage size after expansion, in GB.
-
-      {% note info %}
-
-      The default [maintenance](../concepts/maintenance.md) mode for new clusters is `anytime`. You can set a specific maintenance period when [updating the cluster settings](update.md#change-additional-settings).
-
-      {% endnote %}
 
 
 - {{ TF }} {#tf}
@@ -701,7 +717,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
          Use a value between `0` and `100`%. The default value is `0`, i.e., automatic expansion is disabled.
 
-         If you set this option, configure the maintenance time.
+         If you set this option, configure the maintenance time settings.
 
        * `emergency_usage_threshold` (optional): Storage usage percentage to trigger an immediate storage expansion.
 
@@ -757,7 +773,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
           "maintenanceWindow": {
             "weeklyMaintenanceWindow": {
               "day": "<day_of_week>",
-              "hour": "<hour>"
+              "hour": "<sequence_number_of_hour_interval>"
             }
           },
           "configSpec": {
@@ -852,7 +868,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
           "maintenanceWindow": {
             "weeklyMaintenanceWindow": {
               "day": "<day_of_week>",
-              "hour": "<hour>"
+              "hour": "<sequence_number_of_hour_interval>"
             }
           },
           "configSpec": {
@@ -966,7 +982,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
           "maintenanceWindow": {
             "weeklyMaintenanceWindow": {
               "day": "<day_of_week>",
-              "hour": "<hour>"
+              "hour": "<sequence_number_of_hour_interval>"
             }
           },
           "configSpec": {
@@ -1099,8 +1115,10 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
           * `anytime`: Maintenance takes place at any time.
           * `weeklyMaintenanceWindow`: Maintenance takes place once a week at the specified time:
 
-            * `day`: Day of the week, in `DDD` format.
-            * `hour`: Hour of the day, in `HH` format. Allowed values range from `1` to `24` hours.
+            * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+            * `hour`: UTC hour interval, from `1` to `24`.
+
+              > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
         * `configSpec`: Cluster settings:
 
@@ -1113,7 +1131,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
                 * `diskSize`: Disk size in bytes.
                 * `diskTypeId`: [Disk type](../concepts/storage.md).
 
-              * `diskSizeAutoscaling`: Settings for automatic storage [expansion](../concepts/storage.md#auto-rescale).
+              * `diskSizeAutoscaling`: Parameters for automatic storage size [expansion](../concepts/storage.md#auto-rescale).
 
                 * `plannedUsageThreshold`: Storage usage percentage to trigger a storage expansion during the next [maintenance window](../concepts/maintenance.md#maintenance-window).
 
@@ -1223,7 +1241,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
           "maintenance_window": {
             "weekly_maintenance_window": {
               "day": "<day_of_week>",
-              "hour": "<hour>"
+              "hour": "<sequence_number_of_hour_interval>"
             }
           },
           "config_spec": {
@@ -1318,7 +1336,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
           "maintenance_window": {
             "weekly_maintenance_window": {
               "day": "<day_of_week>",
-              "hour": "<hour>"
+              "hour": "<sequence_number_of_hour_interval>"
             }
           },
           "config_spec": {
@@ -1432,7 +1450,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
           "maintenance_window": {
             "weekly_maintenance_window": {
               "day": "<day_of_week>",
-              "hour": "<hour>"
+              "hour": "<sequence_number_of_hour_interval>"
             }
           },
           "config_spec": {
@@ -1565,8 +1583,10 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
           * `anytime`: Maintenance takes place at any time.
           * `weekly_maintenance_window`: Maintenance takes place once a week at the specified time:
 
-            * `day`: Day of the week, in `DDD` format.
-            * `hour`: Hour of the day, in `HH` format. Allowed values range from `1` to `24` hours.
+            * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+            * `hour`: UTC hour interval, from `1` to `24`.
+
+              > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
         * `config_spec`: Cluster settings:
 
@@ -1579,7 +1599,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
                 * `disk_size`: Disk size, in bytes.
                 * `disk_type_id`: [Disk type](../concepts/storage.md).
 
-              * `disk_size_autoscaling`: Settings for automatic storage [expansion](../concepts/storage.md#auto-rescale).
+              * `disk_size_autoscaling`: Parameters for automatic storage size [expansion](../concepts/storage.md#auto-rescale).
 
                 * `planned_usage_threshold`: Storage usage percentage to trigger a storage expansion during the next [maintenance window](../concepts/maintenance.md#maintenance-window).
 

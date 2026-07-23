@@ -141,7 +141,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
         {% endnote %}
 
-     * `name`: Cluster name.
+     * `name`: New cluster name.
 
      
      * `securityGroupIds`: [Security group](../../vpc/concepts/security-groups.md) IDs.
@@ -222,6 +222,8 @@ After creating a cluster, you can edit its basic and advanced settings.
        --data "@body.json"
      ```
 
+     {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
+
   1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
@@ -236,6 +238,7 @@ After creating a cluster, you can edit its basic and advanced settings.
      
      ```json
      {
+       "cluster_id": "<cluster_ID>",
        "update_mask": {
          "paths": [
            <list_of_settings_to_update>
@@ -320,6 +323,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
      Where:
 
+     * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
      * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
         {% cut "Format for listing settings" %}
@@ -343,7 +347,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
         {% endnote %}
 
-     * `name`: Cluster name.
+     * `name`: New cluster name.
 
      
      * `security_group_ids`: [Security group](../../vpc/concepts/security-groups.md) IDs.

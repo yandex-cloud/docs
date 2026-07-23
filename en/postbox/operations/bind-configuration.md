@@ -1,8 +1,8 @@
 # Linking a configuration to an address
 
-Create a [configuration](../concepts/glossary.md#configuration) and associate it with your address to get [email event notifications](../concepts/notification.md).
+Associate your pre-created [configuration](../concepts/configuration.md) with an address to apply it to all outgoing emails sent from this address.
 
-The configuration will apply to all emails sent from this address. To apply your configuration to an individual email, provide the configuration name in the `X-Ses-Configuration-Set` header.
+To apply your configuration to an individual email, provide the configuration name in the `X-Ses-Configuration-Set` header.
 
 {% list tabs group=instructions %}
 

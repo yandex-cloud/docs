@@ -91,7 +91,10 @@
     "description": "string",
     "status": "string",
     "groupClaimsSettings": {
-      "groupDistributionType": "string"
+      "groupDistributionType": "string",
+      // Includes only one of the fields `groupClaimValue`
+      "groupClaimValue": "string"
+      // end of the list of possible fields
     },
     "clientGrant": {
       "clientId": "string",
@@ -293,6 +296,13 @@ A list of messages that carry the error details. ||
 - `NONE`
 - `ASSIGNED_GROUPS`
 - `ALL_GROUPS` ||
+|| groupClaimValue | **enum** (GroupClaimValue)
+
+Includes only one of the fields `groupClaimValue`.
+
+- `NAME`
+- `ID`
+- `EXTERNAL_ID` ||
 |#
 
 ## ClientGrantDetails {#yandex.cloud.audit.organizationmanager.application.oauth.ClientGrantDetails}
@@ -305,15 +315,7 @@ The maximum string length in characters is 50. ||
 || authorizedScopes[] | **string**
 
 The number of elements must be in the range 1-1000. The maximum string length in characters for each value is 255. ||
-|#ource}
-
-#|
-||Field | Description ||
-|| resourceType | **string** ||
-|| resourceId | **string** ||
-|| resourceName | **string**
-
-Includes only one of the fields `resourceName`. ||
+|#Includes only one of the fields `resourceName`. ||
 |#
 
 ## RequestMetadata {#yandex.cloud.audit.RequestMetadata}
@@ -428,6 +430,13 @@ A list of messages that carry the error details. ||
 - `ASSIGNED_GROUPS`
 - `ALL_GROUPS` ||
 || groupAttributeName | **string** ||
+|| groupAttributeValue | **enum** (GroupAttributeValue)
+
+Includes only one of the fields `groupAttributeValue`.
+
+- `NAME`
+- `ID`
+- `EXTERNAL_ID` ||
 |#
 
 ## AttributeMappingDetails {#yandex.cloud.audit.organizationmanager.application.saml.AttributeMappingDetails}

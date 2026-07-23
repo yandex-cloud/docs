@@ -72,7 +72,7 @@ When attempting to sign in as a local user, you get this error: `Incorrect usern
 
 1. Make sure you are entering the username and password correctly. Pay attention to character case.
 1. Verify that you are using the correct [organization](../../concepts/organization.md) ID or [user pool](../../concepts/user-pools.md) domain.
-1. Make sure your account is active. The administrator may have [deactivated](../user-pools/deactivate-user.md) your account. Contact the administrator to check your account status.
+1. Make sure your account is active. The administrator may have [deactivated](../user-pools/deactivate-user.md) your account, or the specified account deactivation date may have been reached. Contact the administrator to check your account status.
 1. If you have forgotten your password, contact your [organization administrator](../../security/index.md#organization-manager-admin) to reset it.
 
 ## Unable to sign in as a federated user {#federated-user-login-issue}

@@ -4,6 +4,7 @@
 
 Resetups hosts.
 
+
 ## gRPC request
 
 **rpc ResetupHosts ([ResetupHostsRequest](#yandex.cloud.mdb.mongodb.v1.ResetupHostsRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**

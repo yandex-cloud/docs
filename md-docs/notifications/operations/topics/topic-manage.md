@@ -9,7 +9,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится топик.
-  1. Перейдите в сервис **Cloud Notification Service**.
+  1. [Перейдите](https://console.yandex.cloud/link/cns) в сервис **Cloud Notification Service**.
   1. Слева выберите раздел **Топики**.
   1. Выберите топик.
   1. Справа вверху нажмите кнопку ![image](../../../_assets/edit.svg) **Редактировать**.
@@ -61,7 +61,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится топик.
-  1. Перейдите в сервис **Cloud Notification Service**.
+  1. [Перейдите](https://console.yandex.cloud/link/cns) в сервис **Cloud Notification Service**.
   1. Слева выберите раздел **Топики**.
   1. Напротив нужного топика нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
   1. Подтвердите удаление.

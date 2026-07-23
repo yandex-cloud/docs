@@ -79,7 +79,7 @@ items:
         href: tutorials/storedoc-versions.md
       - name: Migrating collections from a third-party {{ SD }} cluster
         href: tutorials/storedoc-migration-with-data-transfer.md
-      - name: '{{ SD }} performance analysis and tuning'
+      - name: '{{ SD }} performance analysis and optimization'
         href: tutorials/profiling.md
       - name: >-
           Delivering data from {{ mkf-full-name }} using {{
@@ -125,6 +125,8 @@ items:
         href: concepts/supported-clients.md
       - name: '{{ SD }} settings'
         href: concepts/settings-list.md
+      - name: '{{ SD }} versioning policy'
+        href: concepts/update-policy.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

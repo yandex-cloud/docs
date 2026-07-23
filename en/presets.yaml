@@ -2281,12 +2281,6 @@ default:
           50|number: 0.491666588
           50|string: $0.491666588
   sku|USD|security_deck:
-    access_transparency:
-      subscription:
-        v1|number: 583.33597224
-        v1|string: $583.33597224
-    cspm:
-      resources|string: $4.8360648
     dspm:
       scanned:
         files:
@@ -2295,25 +2289,6 @@ default:
         text:
           v1|number: 3.8399993856
           v1|string: $3.8399993856
-      t1_5:
-        subscription:
-          monthly_usage:
-            v1|string: $983.6064
-      t11:
-        subscription:
-          monthly_usage:
-            v1|string: $6885.2448
-      t3:
-        subscription:
-          monthly_usage:
-            v1|string: $1475.4096
-      t5_5:
-        subscription:
-          monthly_usage:
-            v1|string: $2950.8192
-    kspm:
-      nodes|pricingRate:
-        2|string: $66.66392376
   sku|USD|serverless:
     containers:
       compute:
@@ -2695,6 +2670,7 @@ default:
         field_text_commit-directly-to-the-branch_mBfk8: 'Commit directly to the branch:'
         option_just-commit_to5sC: Just commit
         title_navigation-code_8bgjg: Code
+        title_navigation-repository-settings_35xCK: Repository settings
       repoCreate:
         button_browse-templates_bP3xB: Browse templates
         button_create-repo_nMrwv: Create repository
@@ -2753,6 +2729,7 @@ default:
       billing-account-detail:
         filter_label-labels-all: All labels
         filter_label-products-all: All products
+        filter_label-services-all: All services
         label_credit-cudCredit: Committed use discount
         label_credit-monetaryGrantCredit: Grant
         label_credit-volumeIncentiveCredit: Volume incentive credit
@@ -2853,8 +2830,6 @@ default:
             filter_label_label-key: 'Label key:'
             filter_label-services: 'Services:'
             label_from: From
-            label_product: Products
-            label_service: Services
             label_title: Usage details
             label_title-usage-short: Consumption for
             label_to: To
@@ -2863,7 +2838,6 @@ default:
             tab_product: By product
             tab_service: By service
             value_cost: Consumption
-            value_folders: Folders
           exports:
             button_create-periodic-export: Create periodic export
             button_open-yandex-query: Process in YQ
@@ -2919,7 +2893,6 @@ default:
             button_remove-user: Remove user
         accounts:
           button_bind: Bind
-          column_cloud: Clouds
           column_status: Status
         cud:
           purchase:
@@ -3033,8 +3006,10 @@ default:
           action_button_apply: Download file
           action_button_export_without_validation: Export without validation
           action_export_with_validation: Validate and export
+          card_field_title: Data for search
           card_title_image: "On\_images"
           card_title_text: "In\_text"
+          column_name: Name
           dialog_select-service-account_create-new-action: "Create a\_new one"
           header_scan_result_sensitive_data: Display sensitive data
       services:
@@ -3541,6 +3516,8 @@ default:
         save: Save
         section-base: General information
       component:
+        filters:
+          label_select-all: All
         form-file-upload:
           field:
             method: Method
@@ -3589,7 +3566,9 @@ default:
           label_include_in_scan: Include in scan
           public_buckets: Public buckets
           title_all_buckets: All buckets
+          title_public_buckets: Public buckets
         scan:
+          action_create-scan: New scan
           action_download-results: Download results
           action_export-results: Export results
           label_data-type: Data type
@@ -4104,6 +4083,7 @@ default:
             field_type_exclude_cigcD: No check required
             field_type_manual_mbKxp: Manually scanned
         discovery:
+          action_include-in-scan_2wT6B: Add to the scan
           AnalyticsDashboard:
             details_button_1ZfAk: Details
           header_resource_kDJFW: Resource
@@ -4118,6 +4098,7 @@ default:
             public_2C56E: Public
             scannable_jWMD6: Scannable
             searchResource_cGkdQ: Search by resource name
+          button_file_filter_jXXxv: File filter
           data-sources:
             bXXxQ: Resources selected
           dataSourceTypes:
@@ -4125,9 +4106,18 @@ default:
             yandex_360_1TUsr: Yandex 360
           DiscoveryPageLayout:
             header_button_text_hefvE: Configure DSPM
+          DiscoveryScanCreatePage:
+            label_scan-scopes_1wnUU: Scan scopes
+          DiscoveryScanSelectorCard:
+            title_resources_2FDpG: Resource group
+          DiscoveryScansPage:
+            action_new-scan-scope_puKvy: New scan scope
           DspmPageLayout:
             settings_wHmWK: Settings
             title_analytics_vaYT5: Data analytics
+            title_discovery_kkTCM: v2.0
+            title_dspm_xm8pa: v1.0
+            title_prefix_iWUEX: 'Interface: '
           field_bucket-path_5qRqM: Path to bucket
           field_file-name_kWRPK: File name
           field_service-account_rTeXv: Service account
@@ -4138,9 +4128,14 @@ default:
             value_personal-data_w5gVm: Personal data
             value_secrets_4CdGy: Secrets
           label_field-bucket_3mM6u: Bucket
+          label_include_in_scan_discovery_4wwj7: Buckets
+          label_resources_9BVEB: Resources
           ScanForm:
             action_create-scan_dvakP: Create scan without validation
             table_action_assign_roles_bw4am: Assign roles
+          search-categories_section_title_cPyLn: Data categories for search
+          section_settings_title_igA6u: Scope parameters
+          selected_resources_fbUsF: Selected
           tab_issues_title_hLQN2: Parameter validation
           Yandex360DataSourceForm:
             action_add_resources_2qrRH: Add resources
@@ -5094,6 +5089,7 @@ default:
       cloud-apps:
         button_empty-install-application: Choose application
         button_install: Install
+        button_install-application: Install application
         label_marketplace: Marketplace
       cloud-registry:
         action_registry-create: Create registry
@@ -5838,8 +5834,14 @@ default:
             folder-id_6KQJv: Folder ID
           FolderInfoTooltip:
             title_folder-info-dialog_c4F7i: Folder information
+        InfrastructureMapPage:
+          networks_d8mWN: Cloud networks
+          NodeSelect:
+            label_search-by-name-or-id_9Hd59: Search by name or ID
+          subnetworks_mBZgS: Subnets
         label_access_2bch9: Access rights
         label_create-resource_4KN3M: Create resource
+        label_infrastructure-map_1jB82: Infrastructure map
         label_notifications_uWDue: Notifications
         label_quotas_gAtoT: Quotas
         TogglCloudTreeButton:
@@ -6030,6 +6032,7 @@ default:
             label_field-query-text: Query text
             label_field-read-bytes: Disk R
             label_field-running-query-key: Key of running query
+            label_field-running-query-slices: Number of slices
             label_field-session-backend-xmin: Transaction horizon
             label_field-session-client-addr: Client address
             label_field-session-client-hostname: Client host
@@ -6104,6 +6107,7 @@ default:
             label_query-field-end-time: End time
             label_query-field-firsttuple: First tuple time
             label_query-field-generator: Optimizer
+            label_query-field-interconnect-retransmit: Interconnect retransmits
             label_query-field-kernel-time-seconds: CPU kernel time
             label_query-field-local_blks_dirtied: Local blocks dirtied
             label_query-field-local_blks_hit: Local buffer hits

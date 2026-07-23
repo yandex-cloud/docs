@@ -2850,7 +2850,7 @@ Learn more in [Access management in {{ sw-name }}](../serverless-integrations/se
 
 {% include [ycem.executor](../_roles/ycem/executor.md) %}
 
-For more information, see [{#T}](../yandex-siem/security/index.md).
+For more information, see [{#T}](../siem/security/index.md).
 
 
 ## {{ captcha-full-name }} {#captcha-roles}

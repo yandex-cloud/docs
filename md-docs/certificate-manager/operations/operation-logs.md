@@ -11,7 +11,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) откройте каталог, в котором находится сертификат.
-  1. Перейдите в сервис **Certificate Manager**.
+  1. [Перейдите](https://console.yandex.cloud/link/certificate-manager) в сервис **Certificate Manager**.
   1. Выберите нужный сертификат.
   1. Перейдите на вкладку **Операции**.
 

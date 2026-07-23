@@ -20,11 +20,17 @@ description: '{{ managed-prometheus-full-name }} — система монито
 
 ## Начало работы {#access}
 
-1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}**.
-1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.prometheus.action_create }}**.
-1. На открывшейся странице появятся ссылки на эндпоинты.
-   
-   Используйте эти эндпоинты, чтобы настроить [запись](ingestion/index.md) и [чтение](querying/index.md) метрик из воркспейса в формате {{ prometheus-name }}.
+{% list tabs group=instructions %}
+
+- Интерфейс {{ monium-name }} {#console}
+
+  1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите ![alt](../../../_assets/console-icons/box.svg) **Поставка и хранение** → ![alt](../../../_assets/console-icons/flame.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.prometheus.action_create }}**.
+  1. На открывшейся странице появятся ссылки на эндпоинты.
+     
+     Используйте эти эндпоинты, чтобы настроить [запись](ingestion/index.md) и [чтение](querying/index.md) метрик из воркспейса в формате {{ prometheus-name }}.
+
+{% endlist %}
 
 ## Сравнение возможностей {#features}
 

@@ -1291,7 +1291,9 @@ in bytes. ||
 || backendFlushAfter | **string** (int64)
 
 Acceptable values are 0 to 2048, inclusive. ||
-|| oldSnapshotThreshold | **string** (int64) ||
+|| oldSnapshotThreshold | **string** (int64)
+
+in milliseconds. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
@@ -1484,7 +1486,9 @@ in bytes. ||
 || backendFlushAfter | **string** (int64)
 
 Acceptable values are 0 to 2048, inclusive. ||
-|| oldSnapshotThreshold | **string** (int64) ||
+|| oldSnapshotThreshold | **string** (int64)
+
+in milliseconds. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
@@ -1677,7 +1681,9 @@ in bytes. ||
 || backendFlushAfter | **string** (int64)
 
 Acceptable values are 0 to 2048, inclusive. ||
-|| oldSnapshotThreshold | **string** (int64) ||
+|| oldSnapshotThreshold | **string** (int64)
+
+in milliseconds. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
@@ -1870,7 +1876,9 @@ in bytes. ||
 || backendFlushAfter | **string** (int64)
 
 Acceptable values are 0 to 2048, inclusive. ||
-|| oldSnapshotThreshold | **string** (int64) ||
+|| oldSnapshotThreshold | **string** (int64)
+
+in milliseconds. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
@@ -2063,7 +2071,9 @@ in bytes. ||
 || backendFlushAfter | **string** (int64)
 
 Acceptable values are 0 to 2048, inclusive. ||
-|| oldSnapshotThreshold | **string** (int64) ||
+|| oldSnapshotThreshold | **string** (int64)
+
+in milliseconds. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
@@ -2260,7 +2270,9 @@ in bytes. ||
 || backendFlushAfter | **string** (int64)
 
 Acceptable values are 0 to 2048, inclusive. ||
-|| oldSnapshotThreshold | **string** (int64) ||
+|| oldSnapshotThreshold | **string** (int64)
+
+in milliseconds. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
@@ -2457,7 +2469,9 @@ in bytes. ||
 || backendFlushAfter | **string** (int64)
 
 Acceptable values are 0 to 2048, inclusive. ||
-|| oldSnapshotThreshold | **string** (int64) ||
+|| oldSnapshotThreshold | **string** (int64)
+
+in milliseconds. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
@@ -2654,7 +2668,9 @@ in bytes. ||
 || backendFlushAfter | **string** (int64)
 
 Acceptable values are 0 to 2048, inclusive. ||
-|| oldSnapshotThreshold | **string** (int64) ||
+|| oldSnapshotThreshold | **string** (int64)
+
+in milliseconds. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
@@ -2851,7 +2867,9 @@ in bytes. ||
 || backendFlushAfter | **string** (int64)
 
 Acceptable values are 0 to 2048, inclusive. ||
-|| oldSnapshotThreshold | **string** (int64) ||
+|| oldSnapshotThreshold | **string** (int64)
+
+in milliseconds. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
@@ -3051,7 +3069,9 @@ in bytes. ||
 || backendFlushAfter | **string** (int64)
 
 Acceptable values are 0 to 2048, inclusive. ||
-|| oldSnapshotThreshold | **string** (int64) ||
+|| oldSnapshotThreshold | **string** (int64)
+
+in milliseconds. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||

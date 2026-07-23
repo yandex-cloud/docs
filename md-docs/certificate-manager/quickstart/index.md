@@ -43,7 +43,7 @@
     1. Публичный бакет в Object Storage с точно таким же именем, что и домен. Если бакета еще нет, создайте его:
 
         1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать [бакет](../../storage/concepts/bucket.md).
-        1. Перейдите в сервис **Object Storage**.
+        1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
         1. Нажмите кнопку **Создать бакет**.
         1. Введите имя бакета в точности совпадающее с именем домена.
         1. Выберите тип [доступа](../../storage/concepts/bucket.md#bucket-access) `Для всех`.
@@ -53,7 +53,7 @@
     1. Настройте [хостинг](../../storage/operations/hosting/setup.md) в бакете:
 
         1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится бакет.
-        1. Перейдите в сервис **Object Storage**.
+        1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
         1. На вкладке ![box](../../_assets/console-icons/box.svg) **Бакеты** нажмите на бакет с именем домена.
         1. На панели слева выберите ![wrench](../../_assets/console-icons/wrench.svg) **Настройки**.
         1. Откройте вкладку **Веб-сайт**.
@@ -76,8 +76,8 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите в [консоль управления](https://console.yandex.cloud).
-    1. Перейдите в сервис **Certificate Manager**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/certificate-manager) в сервис **Certificate Manager**.
     1. Нажмите кнопку **Добавить сертификат**.
     1. В открывшемся меню выберите **Сертификат от Let's Encrypt**.
     1. В открывшемся окне задайте имя сертификата.
@@ -96,13 +96,16 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Certificate Manager**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/certificate-manager) в сервис **Certificate Manager**.
   1. Выберите в списке нужный сертификат со статусом `Validating` и нажмите на него.
   1. В блоке **Проверка прав на домены**:
+      
       1. Скопируйте ссылку из поля **Ссылка для размещения файла**:
+          
           * Часть ссылки вида `http://example.com/.well-known/acme-challenge/` — это путь для размещения файла.
           * Вторая часть ссылки `rG1Mm1bJ...` — это имя файла, которое вам необходимо использовать.
+      
       1. Скопируйте поле **Содержимое** в файл.
 
 {% endlist %}
@@ -113,8 +116,8 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Object Storage**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
   1. На вкладке ![box](../../_assets/console-icons/box.svg) **Бакеты** нажмите на бакет с именем домена.
   1. Справа сверху нажмите ![folder](../../_assets/console-icons/folder.svg) **Создать папку** и создайте папку `.well-known`.
   1. В `.well-known` создайте папку `acme-challenge`.
@@ -124,6 +127,7 @@
   1. Дождитесь изменения статуса сертификата на `Issued`.
      
      Подробнее о статусе можно посмотреть на странице сертификата. Для этого напротив поля **ui-key.yacloud.certificate-manager.overview.general_label_validation** нажмите ![receipt](../../_assets/console-icons/receipt.svg) **ui-key.yacloud.certificate-manager.overview.button_validation_show-logs**. 
+  
   1. Перейдите в папку `acme-challenge`.
   1. Нажмите ![image](../../_assets/options.svg) справа от файла и выберите ![trash](../../_assets/console-icons/trash-bin.svg) **Удалить**.
   1. Подтвердите удаление.
@@ -160,8 +164,8 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите в [консоль управления](https://console.yandex.cloud).
-    1. Перейдите в сервис **Object Storage**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
     1. На вкладке ![box](../../_assets/console-icons/box.svg) **Бакеты** нажмите на бакет с именем домена.
     1. На панели слева выберите ![persons-lock](../../_assets/console-icons/persons-lock.svg) **Безопасность**.
     1. Перейдите на вкладку **HTTPS**.

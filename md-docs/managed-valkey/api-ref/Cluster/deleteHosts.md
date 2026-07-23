@@ -4,6 +4,8 @@
 
 Deletes the specified hosts for a cluster.
 
+
+
 ## HTTP request
 
 ```

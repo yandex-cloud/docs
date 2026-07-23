@@ -11,7 +11,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы хотите создать канал уведомлений.
-  1. Перейдите в сервис **Cloud Notification Service**.
+  1. [Перейдите](https://console.yandex.cloud/link/cns) в сервис **Cloud Notification Service**.
   1. Выберите нужный канал SMS-уведомлений c [индивидуальным отправителем](../../concepts/sms.md#individual-sender).
   1. Нажмите **Выйти из песочницы**.
 

@@ -9,8 +9,8 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [профиль безопасности](../concepts/profiles.md).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [профиль безопасности](../concepts/profiles.md).
+  1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. Выберите нужный профиль безопасности.
   1. На странице **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация о профиле.
@@ -81,9 +81,13 @@ description: Следуя данной инструкции, вы сможете
      ```
 
      Где:
+     
      * `data "yandex_sws_security_profile"` — описание профиля безопасности в качестве источника данных:
+       
        * `security_profile_id` — идентификатор профиля безопасности.
+     
      * `output "profile-created"` — выходная переменная, которая содержит информацию о временной метке создания профиля безопасности:
+       
        * `value` — возвращаемое значение.
 
      Вместо `created_at` вы можете выбрать любой другой параметр для получения информации. Подробнее о параметрах источника данных `yandex_sws_security_profile` в [документации провайдера]({{ tf-provider-datasources-link }}/sws_security_profile).

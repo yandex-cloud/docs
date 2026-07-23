@@ -6,21 +6,43 @@ editable: false
 
 # {{ mmg-name }} pricing policy
 
+::: page-constructor
+blocks:
+  - type: card-layout-block
+    animated: false
+    colSizes:
+      all: 6
+    children:
+      - type: basic-card
+        title: Price calculator
+        text: Calculate the cost of the service based on your needs
+        icon: _assets/icons/calculator.svg
+        urlTitle: Price calculator
+        url: https://yandex.cloud/en/prices?state=d9aecb854510#calculator
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+      - type: basic-card
+        title: Price list
+        text: Current prices of all our services
+        icon: _assets/icons/circle-ruble.svg
+        urlTitle: Price list
+        url: https://yandex.cloud/en/price-list?installationCode=ru&currency=USD&services=dn2b0fi02sdmf46ijdl5
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+:::
+
+
 
 
 This section describes the {{ mmg-name }} pricing [policy](#rules) and [current prices](#prices) for its resources.
-
-{% note tip %}
-
-
-
-
-To estimate your service costs, use [our calculator](https://yandex.cloud/en/prices?state=a147d66e1d1e#calculator) or check out the pricing below.
-
-
-{% endnote %}
-
-{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
@@ -60,11 +82,13 @@ You are billed for the following:
 
 * Database backup storage exceeding the cluster’s allocated space.
 
-    * You are not charged for storing backups as long as the combined size of the database and all its backups remains below the selected storage quota.
+    {% include [pricing-backup](../_includes/mdb/pricing-backup.md) %} 
 
-    * During automatic backups, {{ mmg-short-name }} does not create a full copy; instead, it saves the changes made to the database since the previous backup. As a result, the storage used by automatic backups grows only in proportion to the amount of changes.
+    * Backup storage is not billable until the total volume of backups exceeds that of the cluster storage. This calculation does not count in the data volume of the database itself.
 
     * The number of hosts in a cluster does not affect the storage size and, consequently, the free backup quota.
+
+    * When performing automatic backups, {{ mmg-short-name }} does not create a new backup but saves the database changes introduced since the previous one. As a result, the storage used by automatic backups grows only in proportion to the amount of changes.
 
 The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes is billed as 2 minutes.
 

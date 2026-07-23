@@ -15,7 +15,7 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. На панели слева нажмите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}** и выберите нужный профиль.
+  1. На панели слева нажмите ![image](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}** и выберите нужный профиль.
   1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
   1. Введите имя правила, например `block-by-list`.
   1. Задайте **{{ ui-key.yacloud.smart-web-security.overview.column_priority }}** выше, чем у правил Smart Protection. Например, `9100`.
@@ -34,6 +34,7 @@ description: Следуя данной инструкции, вы сможете
      Рекомендуем сразу добавить предустановленные списки: `is_ddoser`, `is_tor` и `is_anonimous`.
 
      {% endnote %}
+  
   1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
 {% endlist %}

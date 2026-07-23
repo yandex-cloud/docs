@@ -42,15 +42,21 @@
 
 ## Просмотр трейсов {#view-traces}
 
-1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.traces.title }}**.
-1. Вверху укажите промежуток поиска с помощью временной шкалы, предустановленного промежутка или введите нужное значение времени.
-1. Выберите режим: **{{ ui-key.yacloud_monitoring.traces.traces-search.mode.traces }}** или **{{ ui-key.yacloud_monitoring.traces.traces-search.mode.spans }}**.
-1. Введите [запрос](../concepts/querying.md) для поиска данных.
+{% list tabs group=instructions %}
 
-   По умолчанию поиск выполняется в текущем проекте — `folder__<идентификатор_каталога>`, вы можете выбрать другой.
+- Интерфейс {{ monium-name }} {#console}
 
-1. Нажмите **Выполнить**.
+  1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите ![alt](../../_assets/console-icons/compass.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.all-panel.menu.category.explore }}** → ![alt](../../_assets/console-icons/hierarchy.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.traces.title }}**.
+  1. Вверху укажите промежуток поиска с помощью временной шкалы, предустановленного промежутка или введите нужное значение времени.
+  1. Выберите режим: **{{ ui-key.yacloud_monitoring.traces.traces-search.mode.traces }}** или **{{ ui-key.yacloud_monitoring.traces.traces-search.mode.spans }}**.
+  1. Введите [запрос](../concepts/querying.md) для поиска данных.
 
-1. Чтобы открыть отдельную трассировку, вверху справа в поле **{{ ui-key.yacloud_monitoring.traces.trace-id-input.placeholder }}** укажите ее идентификатор.
+     По умолчанию поиск выполняется в текущем проекте — `folder__<идентификатор_каталога>`, вы можете выбрать другой.
+
+  1. Нажмите **Выполнить**.
+
+  1. Чтобы открыть отдельную трассировку, вверху справа в поле **{{ ui-key.yacloud_monitoring.traces.trace-id-input.placeholder }}** укажите ее идентификатор.
+
+{% endlist %}
 
 Дополнительные возможности поиска и просмотра трейсов описаны в разделе [{#T}](operations/traces-explorer.md).

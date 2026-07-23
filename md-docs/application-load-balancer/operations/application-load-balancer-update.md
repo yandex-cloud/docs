@@ -9,7 +9,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором создан балансировщик.
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. Нажмите на имя нужного балансировщика.
   1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
   1. Измените необходимые параметры балансировщика:
@@ -119,6 +119,7 @@
 
           * `--log-group-id` — идентификатор [лог-группы](../../logging/concepts/log-group.md).
           * `--discard` — [правило отбрасывания логов](../concepts/application-load-balancer.md#discard-logs-rules). Параметры правила:
+            
             * `codes` — HTTP-коды, классы HTTP-кодов или gRPC-коды.
             * `percent` — доля отбрасываемых логов в процентах.
 
@@ -406,7 +407,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором создан балансировщик.
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. Напротив имени нужного балансировщика нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
   1. В блоке **Обработчики** напротив имени нужного обработчика нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
   1. Нажмите **Сохранить**.

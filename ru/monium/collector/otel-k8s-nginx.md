@@ -26,6 +26,7 @@ description: Инструкция по установке веб-сервера 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость ресурсов для работы с {{ monium-name }} входит:
+
 * Плата за использование [мастера {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master) — [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md).
 * Плата за [вычислительные ресурсы](../../compute/concepts/vm-platforms.md) и [диски](../../compute/concepts/disk.md) [группы узлов {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#node-group) — [тарифы {{ compute-full-name }}](../../compute/pricing.md).
 * Плата за использование {{ monium-name }} — [тарифы {{ monium-name }}](../pricing.md).
@@ -52,13 +53,15 @@ description: Инструкция по установке веб-сервера 
 - Консоль управления {#console}
 
   1. Создайте [сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `monium.telemetry.writer`:
-     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+     
+     1. [Перейдите]({{ link-console-main }}/link/iam) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
      1. Введите имя сервисного аккаунта, например, `monium-ca`.
      1. Нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите `monium.telemetry.writer`.
      1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
   
   1. Создайте [API-ключ](../../iam/operations/authentication/manage-api-keys.md) с областью действия `yc.monium.telemetry.write`:
+     
      1. Выберите в списке созданный сервисный аккаунт.
      1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
      1. В поле **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-scope }}** выберите `yc.monium.telemetry.write`.
@@ -133,6 +136,7 @@ description: Инструкция по установке веб-сервера 
     ```
 
     Результат:
+    
     ```bash
     NAME        TYPE           CLUSTER-IP      EXTERNAL-IP     PORT(S)        AGE
     nginx-web   LoadBalancer   10.96.238.139   158.260.329.4   80:32761/TCP   104s
@@ -173,6 +177,7 @@ description: Инструкция по установке веб-сервера 
     ```
 
     Результат:
+    
     ```bash
     NAME                              READY   STATUS    RESTARTS   AGE
     nginx-server-949d9f98b-kzlrd      2/2     Running   0          2d2h
@@ -187,9 +192,9 @@ description: Инструкция по установке веб-сервера 
 
 - Интерфейс {{ monium-name }} {#console}
 
-  1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.
-       
+  1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите ![alt](../../_assets/console-icons/compass.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.all-panel.menu.category.explore }}** → ![alt](../../_assets/console-icons/rectangle-pulse.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.       
   1. В строке запроса последовательно выберите:
+     
      * `project=folder__<идентификатор_каталога>`; 
      * `cluster=default`;
      * `service=nginx`;
@@ -216,6 +221,7 @@ description: Инструкция по установке веб-сервера 
 ### Количество активных соединений {#active-connections}
 
 Чтобы оценить количество активных соединений, для метрики `name` укажите значение:
+
 * `nginx_connections_accepted` — количество принятых соединений с момента запуска Nginx. Используется для отслеживания общей нагрузки.
 * `nginx_connections_reading` — количество соединений, из которых Nginx читает запросы клиентов. Показывает активность входящих запросов.
 * `nginx_connections_writing` — количество соединений, в которые Nginx отправляет ответы клиентам. Показывает активность исходящих ответов.
@@ -223,6 +229,7 @@ description: Инструкция по установке веб-сервера 
 ### Количество необработанных соединений {#unprocessed-connections}
 
 Чтобы оценить количество соединений, которые Nginx не обрабатывает, используются метрики:
+
 * `nginx_connections_accepted` — количество принятых соединений.
 * `nginx_connections_handled` — количество обработанных соединений.
 
@@ -231,11 +238,13 @@ description: Инструкция по установке веб-сервера 
 Создайте три запроса: `Запрос A` — для метрики `nginx_connections_accepted`, `Запрос B` — для метрики `nginx_connections_handled`, `Запрос C` — для вычисления разницы между метриками. Чтобы создать дополнительный запрос, нажмите кнопку **{{ ui-key.yacloud_monitoring.querystring.action.add-query }}**.
 
 * Запрос A:
+  
   ```text
   `project=folder__<идентификатор_каталога>; cluster=default; service=nginx; name=nginx_connections_accepted`.
   ```
 
 * Запрос B:
+  
   ```text
   `project=folder__<идентификатор_каталога>; cluster=default; service=nginx; name=nginx_connections_handled`.
   ```
@@ -287,9 +296,10 @@ description: Инструкция по установке веб-сервера 
 
 - Интерфейс {{ monium-name }} {#console}
 
-  1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.logs.title }}**.
+  1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите ![alt](../../_assets/console-icons/compass.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.all-panel.menu.category.explore }}** → **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.logs.title }}**.
        
   1. В строке запроса выберите:
+     
      * `project=folder__<идентификатор_каталога>`; 
      * `service=nginx`.
 
@@ -388,6 +398,7 @@ description: Инструкция по установке веб-сервера 
    ```
 
 После применения конфигурации в {{ monium-name }} будут доступны новые метрики:
+
 * `nginx_http_2xx_total` — количество успешных ответов.
 * `nginx_http_4xx_total` — количество клиентских ошибок.
 * `nginx_http_5xx_total` — количество серверных ошибок.

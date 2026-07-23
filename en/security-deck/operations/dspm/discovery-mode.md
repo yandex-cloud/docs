@@ -7,24 +7,26 @@ description: Follow this guide to learn about data analysis in {{ sd-full-name }
 
 {% include [analysis-preview-mode](../../../_includes/security-deck/analysis-preview-mode.md) %}
 
-[Data analysis](../../concepts/dspm.md#discovery-mode) is the first stage of {{ dspm-name }} [Data management](../../concepts/dspm.md). It is intended to automatically detect, identify, and catalog resources that may contain sensitive data within a selected [environment](../../concepts/workspace.md).
+[Data analysis](../../concepts/dspm.md#discovery-mode) is the first stage of {{ dspm-name }} [Data management](../../concepts/dspm.md). The module finds, identifies, and catalogs all {{ objstorage-short-name }} buckets within a selected [workspace](../../concepts/workspace.md).
 
-You can [save](#save-results) the data analysis results to a local file or to a {{ objstorage-full-name }} [bucket](../../../storage/concepts/bucket.md).
+The analysis starts automatically after you enable {{ dspm-full-name }}.
+
 
 ## Getting started {#before-begin}
 
 {% include [dspm-before-begin-section](../../../_includes/security-deck/dspm-before-begin-section.md) %}
 
+
 ## Viewing analysis results {#view-results}
 
-The summary for preliminary analysis of resources in the environment is available in the **{{ ui-key.yacloud_org.security.dspm.DspmPageLayout.title_analytics_vaYT5 }}** section of the {{ dspm-name }} module. To see it, do the following:
+The summary for preliminary analysis of resources in the environment is available in Interface 2.0 in the **{{ ui-key.yacloud_org.security.dspm.DspmPageLayout.title_analytics_vaYT5 }}** section of the {{ dspm-name }} module. To see it, do the following:
 
 {% list tabs group=instructions %}
 
-- {{ sd-name }} UI {#console}
+- Interface v2.0 {#cloud-sd-v2}
 
-  1. Go to [{{ sd-full-name }}]({{ link-sd-main }}).
-  1. In the left-hand panel, select ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud_org.security-center.label_dspm }}** and go to the **{{ ui-key.yacloud_org.security.dspm.DspmPageLayout.title_analytics_vaYT5 }}** tab.
+  1. In the left-hand panel, select ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud_org.security-center.label_dspm }}**.
+  1. On the **{{ ui-key.yacloud_org.security-center.dspm.label_dspm }}** page, select `{{ ui-key.yacloud_org.security.dspm.DspmPageLayout.title_prefix_iWUEX }}{{ ui-key.yacloud_org.security.dspm.DspmPageLayout.title_discovery_kkTCM }}` and navigate to the **{{ ui-key.yacloud_org.security.dspm.DspmPageLayout.title_analytics_vaYT5 }}** tab.
 
       The page displays information about the number and total size of files found in the environment's resources that may potentially contain sensitive data:
 
@@ -43,16 +45,47 @@ The summary for preliminary analysis of resources in the environment is availabl
       * Optionally, under **{{ ui-key.yacloud_org.security.dspm.AnalyticsPage.mediaTypes_r8ro5 }}**, select the [MIME types](https://en.wikipedia.org/wiki/Media_type) of files you want analyzed:
 
           * `{{ ui-key.yacloud_org.security.dspm.AnalyticsPage.scannable_jWMD6 }}`: Files of all supported MIME types.
-          * `Office documents`: Text files of MIME types such as `Text files`, `text/plain`, etc.
-          * `Office documents`: Document, table, and presentation files of MIME types such as `application/msword`, `application/vnd.ms-excel`, etc.
-          * `PDF documents`: Document files of MIME type `application/pdf`.
-          * `Images`: Image files of MIME types such as `image/bmp`, `image/gif`, etc.
-          * `Email and messages`: Message files of MIME type `message/rfc822`.
-          * `Specialized formats`: Files in specialized formats such as `application/x-x509-cert; format=pem`, etc.
+          * `Documents`:
+              * `Text documents`: Text files of MIME types such as `text/plain`, `application/rtf`, etc.
+              * `Text processor documents`: Text files of MIME types such as `application/macwriteii`, `application/msword`, etc.
+              * `PDF and other documents for printing`: Files of MIME types such as `application/pdf`, `image/vnd.djvu`, etc.
+              * `Presentations`: Presentation files of MIME types such as `application/vnd.apple.keynote`, `application/vnd.ms-powerpoint`, etc.
+              * `E-books`: Text files of MIME types such as `application/epub+zip`, `application/hwp+zip`, etc.
+          * `Graphics and design`:
+              * `Raster graphics`: Image files of MIME types such as `image/bmp`, `image/gif`, etc.
+              * `Vector graphics`: Image files of MIME types such as `application/coreldraw`, `image/cgm`, etc.
+              * `3D models`: Image files of MIME types such as `image/x-3ds`, `model/e57`, etc.
+          * `Multimedia`:
+              * `Audio files`: Audio files of MIME types such as `audio/32kadpcm`, `audio/3gpp`, etc.
+              * `Video files`: Video files of MIME types such as `application/mp4`, `application/mpeg4-generic`, etc.
+          * `Code and service files`:
+              * `Source code`: Code files of types such as `application/sieve`, `application/x-bat`, etc.
+              * `Configuration files`: Configuration files of MIME types such as `text/x-config`, `text/x-ini`, etc.
+              * `Certificates and keys`: Secret files of MIME types such as `application/pgp-encrypted`, `application/pgp-keys`, etc.
+              * `Executables and binaries`: Service files of MIME types such as `application/applefile`, `application/java-vm`, etc.
+          * `Datasets`:
+              * `Structured data`: Data files of MIME types such as `application/cbor`, `application/json`, etc.
+              * `Table formats`: Table files of MIME types such as `application/vnd.apple.numbers`, `application/vnd.ms-excel`, etc.
+              * `Database files`: Database files of MIME types such as `application/vnd.lotus-approach`, `application/vnd.oasis.opendocument.base`, etc.
+              * `GIS`: Files of MIME types such as `application/vnd.google-earth.kml+xml`, `application/vnd.google-earth.kmz`, etc.
+          * `Archives and containers`: 
+              * `Archives`: Archive files of MIME types such as `application/gzip`, `application/java-archive`, etc.
+              * `Disk images`: Image files of MIME types such as `application/vnd.msa-disk-image`, `application/x-apple-diskimage`, etc.
+          * `Digital communications`:
+              * `Web`: Web files of MIME types such as `application/ecmascript`, `text/html`, etc.
+              * `Mail and messages`: Files of MIME types such as `application/activemessage`, `message/cpim`, etc.
+              * `Fonts`: Font files of MIME types such as `application/font-tdpfr`, `application/x-font-bdf`, etc.
+          * `Niche formats`:
+              * `Scientific data`: Scientific data files of MIME types such as `application/cellml+xml`, `chemical/x-cdx`, etc.
+          * `Medical images`: Files of MIME types such as `application/dicom`.
+          * `Miscellaneous`: Other MIME type files. 
 
       To reset the applied filters, click ![arrow-rotate-left](../../../_assets/console-icons/arrow-rotate-left.svg) **{{ ui-key.yacloud.common.reset }}**.
 
 {% endlist %}
+
+After data analysis detects potentially dangerous resources, click **{{ ui-key.yacloud_org.security.discovery.action_include-in-scan_2wT6B }}** to [create](create-scan.md#cloud-sd-v2) a continuous update scan for them.
+
 
 ## Saving analysis results {#save-results}
 
@@ -60,10 +93,10 @@ To save a summary for preliminary analysis of environment resources to a file or
 
 {% list tabs group=instructions %}
 
-- {{ sd-name }} UI {#console}
+- Interface v2.0 {#cloud-sd-v2}
 
-  1. Go to [{{ sd-full-name }}]({{ link-sd-main }}).
-  1. In the left-hand panel, select ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud_org.security-center.label_dspm }}** and go to the **{{ ui-key.yacloud_org.security.dspm.DspmPageLayout.title_analytics_vaYT5 }}** tab.
+  1. In the left-hand panel, select ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud_org.security-center.label_dspm }}**.
+  1. On the **{{ ui-key.yacloud_org.security-center.dspm.label_dspm }}** page, select `{{ ui-key.yacloud_org.security.dspm.DspmPageLayout.title_prefix_iWUEX }}{{ ui-key.yacloud_org.security.dspm.DspmPageLayout.title_discovery_kkTCM }}` and navigate to the **{{ ui-key.yacloud_org.security.dspm.DspmPageLayout.title_analytics_vaYT5 }}** tab.
   1. Click ![arrow-down-to-line](../../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud_org.security.dspm.AnalyticsPage.label_export_s4obE }}** and select:
 
       * ![arrow-down-to-line](../../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud_org.security.dspm.AnalyticsPage.label_download-analytics_8mgG8 }}** to save the analysis results to a local file.

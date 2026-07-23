@@ -19,6 +19,10 @@ You can set the maintenance window when [creating a cluster](../operations/clust
 
 {% include [Maintenance window](../../_includes/mdb/maintenance-window.md) %}
 
+In the management console, you select the maintenance start time as an hour interval. In other interfaces, you specify this interval by its sequence number, from `1` to `24`.
+
+> For example, to start maintenance in the interval from `00:00` to `01:00`, put `1`; from `04:00` to `05:00`, `5`.
+
 {% note info %}
 
 To view maintenance task information, you need the `managed-clickhouse.maintenanceTask.viewer` [role](../security.md#managed-clickhouse-maintenanceTask-viewer) or higher.
@@ -33,7 +37,7 @@ The maintenance workflow for {{ mch-name }} clusters depends on the number of [s
 
 * In single-host clusters, maintenance is performed on a single {{ CH }} host. This means, if you restart such a cluster during maintenance, it will become unavailable.
 * If a cluster consists of multiple {{ CH }} hosts in a single shard, [replica hosts](replication.md) undergo maintenance one by one. Such hosts are queued randomly. If you restart a host during maintenance, it will become unavailable for this time period. If you access a cluster using the [FQDN of the {{ CH }} host](network.md#hostname), the cluster may become unavailable. To make your application continuously available, access the cluster using a [special FQDN](../operations/connect/fqdn.md#auto) always pointing to the available host.
-* If a cluster consists of multiple shards, maintenance is performed shard by shard in ascending order by shard number. Maintenance is first performed on hosts of one shard, then four shards, and further on, batches of 16 shards. Host maintenance is the same as in single-shard clusters. If you access a cluster shard using the FQDN of the {{ CH }} host, the shard may become unavailable. To make your application continuously available, access the shard using a [special FQDN](../operations/connect/fqdn.md#auto), always pointing to the available host in the shard.
+* If a cluster consists of multiple shards, maintenance is performed shard by shard in ascending order by shard number. Maintenance is first performed on the hosts of one shard, then four shards, and further on, in batches of 16 shards. Host maintenance is the same as in single-shard clusters. If you access a cluster shard using the FQDN of the {{ CH }} host, the shard may become unavailable. To make your application continuously available, access the shard using a [special FQDN](../operations/connect/fqdn.md#auto), always pointing to the available host in the shard.
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}
 

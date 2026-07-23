@@ -8,8 +8,8 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите]({{ link-console-main }}/link/storedoc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Нажмите на имя нужного кластера {{ mmg-name }}.
   1. Выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}**.
 
@@ -105,11 +105,13 @@
 - Консоль управления {#console}
 
   Чтобы добавить хост в кластере {{ mmg-name }}:
-  1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-  1. Нажмите на имя нужного кластера {{ mmg-name }} и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}**.
+  
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите]({{ link-console-main }}/link/storedoc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Нажмите на имя нужного кластера {{ mmg-name }} и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
   1. Укажите параметры хоста:
+     
      * [Зону доступности](../../overview/concepts/geo-scope.md).
 
      
@@ -182,6 +184,7 @@
 
       * `--cluster-name` — имя кластера. Его можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
       * `--host` — параметры хоста:
+          
           * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
 
           
@@ -203,9 +206,12 @@
 
      Инструкция по созданию такого файла приведена в разделе [Создание кластера](cluster-create.md).
   1. Добавьте к описанию кластера {{ mmg-name }}:
+     
      * Ресурсы, соответствующие типу шардирования, если вы добавляете хост в шардированный кластер:
+       
        * `resources_mongoinfra` — для стандартного шардирования.
        * `resources_mongos` и `resources_mongocfg` — для расширенного шардирования.
+     
      * Блок `host`.
 
      ```hcl
@@ -255,6 +261,7 @@
      Где:
 
      * `host` — параметры хоста:
+       
        * `role` — тип реплики: `PRIMARY` или `SECONDARY`.
        * `zone_id` — зона доступности.
        * `subnet_id` — идентификатор подсети в выбранной зоне доступности.
@@ -262,6 +269,7 @@
        * `shard_name` — имя шарда в шардированном кластере.
        * `type` — тип хоста в шардированном кластере: `MONGOD`, `MONGOINFRA`, `MONGOS` или `MONGOCFG`.
        * `host_parameters` — дополнительные параметры хоста:
+           
            * `hidden` — скрытие хоста: `true` или `false`. Если хост скрыт, он будет доступен для чтения только для прямых подключений (например, чтобы делать с него резервные копии без дополнительной нагрузки на кластер).
            * `secondary_delay_secs` — отставание реплики от мастера в секундах. Может быть полезно для восстановления данных в случае ошибочных операций.
            * `priority` — [приоритет назначения хоста мастером](../concepts/replication.md#master-failover).
@@ -410,8 +418,8 @@
 
     Чтобы изменить параметры хоста в кластере: 
 
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-    1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mongodb.cluster.switch_hosts }}**.
+    1. [Перейдите]({{ link-console-main }}/link/storedoc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mongodb.cluster.switch_hosts }}**.
     1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Задайте новые настройки для хоста: 
 
@@ -447,6 +455,7 @@
 
     * `--cluster-name` — имя кластера. Его можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
     * `--host` — параметры хоста:
+        
         * `hostname` — имя изменяемого хоста. Его можно запросить со [списком хостов в кластере](#list).
 
         
@@ -488,6 +497,7 @@
 
     * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
     * `host_parameters` — дополнительные параметры хоста:
+        
         * `hidden` — скрытие хоста: `true` или `false`. Если хост скрыт, он будет доступен для чтения только для прямых подключений (например, чтобы делать с него резервные копии без дополнительной нагрузки на кластер).
         * `secondary_delay_secs` — отставание реплики от мастера в секундах. Может быть полезно для восстановления данных в случае ошибочных операций.
         * `priority` — [приоритет назначения хоста мастером](../concepts/replication.md#master-failover).
@@ -637,8 +647,9 @@
 - Консоль управления {#console}
 
   Чтобы удалить хост из кластера {{ mmg-name }}:
-  1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите]({{ link-console-main }}/link/storedoc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Нажмите на имя нужного кластера {{ mmg-name }} и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста и выберите пункт **{{ ui-key.yacloud.common.delete }}**.
   1. В открывшемся окне отметьте опцию **Я удаляю хост** и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.popup-confirm_button }}**.
@@ -661,9 +672,11 @@
 - {{ TF }} {#tf}
 
   Чтобы удалить хост из кластера {{ mmg-name }}:
+  
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
      Инструкция по созданию такого файла приведена в разделе [Создание кластера](cluster-create.md).
+  
   1. Удалите из описания кластера {{ mmg-name }} блок `host`, соответствующий удаляемому хосту.
   1. Проверьте корректность настроек.
 
@@ -743,6 +756,7 @@
 Чтобы повторно синхронизировать хост с остальными репликами в кластере или шарде {{ mmg-name }}, выполните операцию принудительной синхронизации. Операция применяется только к одному хосту `MONGOD` за раз и только для кластеров {{ mmg-name }} с более чем двумя репликами, независимо от класса и типа хостов. Ресинхронизация также позволяет освободить хранилище хоста от коллекций и документов, которые помечены как удаленные.
 
 При выполнении этой операции:
+
 1. Хост перестает принимать запросы на запись. Если хост был первичной репликой (`PRIMARY`), {{ mmg-name }} попытается сделать его вторичной репликой (`SECONDARY`). В случае неудачи операция прерывается.
 1. Инстанс {{ SD }} на хосте останавливается, и все данные удаляются.
 1. Инстанс {{ SD }} снова запускается и заново скачивает данные с хостов-реплик.
@@ -760,8 +774,9 @@
 - Консоль управления {#console}
 
   Чтобы запустить принудительную ресинхронизацию хоста:
-  1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите]({{ link-console-main }}/link/storedoc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Нажмите на имя нужного кластера {{ mmg-name }} и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-resetup }}**.
 
@@ -846,6 +861,7 @@
 Вы можете вручную перезагрузить хост кластера {{ mmg-name }}.
 
 Перезагрузка может привести к временной недоступности кластера или [шарда](../concepts/sharding.md) {{ mmg-name }}:
+
 * Если в кластере только один хост.
 * Если хост является [первичной репликой](../concepts/replication.md).
 
@@ -862,8 +878,9 @@
 - Консоль управления {#console}
 
   Чтобы перезагрузить хост:
-  1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите]({{ link-console-main }}/link/storedoc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Нажмите на имя нужного кластера {{ mmg-name }} и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста и выберите пункт **{{ ui-key.yacloud.mdb.cluster.hosts.action_restart-host }}**.
   1. Подтвердите перезагрузку хоста.

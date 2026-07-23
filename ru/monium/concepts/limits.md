@@ -16,7 +16,7 @@ editable: false
 
 - Интерфейс {{ monium-name }} {#console}
   
-  1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите **Квоты**.
+  1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите ![alt](../../_assets/console-icons/sliders.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.all-panel.menu.category.configure }}** → ![alt](../../_assets/console-icons/chart-pie.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.quotas.title }}**.
   1. Слева вверху выберите нужный проект или оставьте текущий.
   1. На вкладке **Квоты проекта** посмотрите значения установленных квот по группам ресурсов.
   1. Чтобы посмотреть квоты по отдельным шардам, на странице **Квоты** перейдите на вкладку **Распределение по шардам**.
@@ -34,7 +34,7 @@ editable: false
 - Интерфейс {{ monium-name }} {#console}
   
   1. Убедитесь, что ваш аккаунт имеет роль [monium.admin](../security/index.md#monium-admin) или [monium.editor](../security/index.md#monium-editor).
-  1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите **Квоты**.
+  1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите ![alt](../../_assets/console-icons/sliders.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.all-panel.menu.category.configure }}** → ![alt](../../_assets/console-icons/chart-pie.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.quotas.title }}**.
   1. Слева вверху выберите нужный проект или оставьте текущий.
   1. На вкладке **Квоты проекта** в нужной группе квот нажмите ![image](../../_assets/console-icons/pencil.svg) **Изменить объём квот**.
   1. В открывшемся окне введите новые значения для квот этой группы.

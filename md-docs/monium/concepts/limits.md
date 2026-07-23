@@ -13,7 +13,7 @@
 
 - Интерфейс Monium {#console}
   
-  1. На главной странице [Monium](https://monium.yandex.cloud) слева выберите **Квоты**.
+  1. На главной странице [Monium](https://monium.yandex.cloud) слева выберите ![alt](../../_assets/console-icons/sliders.svg) **Настройки** → ![alt](../../_assets/console-icons/chart-pie.svg) **Квоты**.
   1. Слева вверху выберите нужный проект или оставьте текущий.
   1. На вкладке **Квоты проекта** посмотрите значения установленных квот по группам ресурсов.
   1. Чтобы посмотреть квоты по отдельным шардам, на странице **Квоты** перейдите на вкладку **Распределение по шардам**.
@@ -31,7 +31,7 @@
 - Интерфейс Monium {#console}
   
   1. Убедитесь, что ваш аккаунт имеет роль [monium.admin](../security/index.md#monium-admin) или [monium.editor](../security/index.md#monium-editor).
-  1. На главной странице [Monium](https://monium.yandex.cloud) слева выберите **Квоты**.
+  1. На главной странице [Monium](https://monium.yandex.cloud) слева выберите ![alt](../../_assets/console-icons/sliders.svg) **Настройки** → ![alt](../../_assets/console-icons/chart-pie.svg) **Квоты**.
   1. Слева вверху выберите нужный проект или оставьте текущий.
   1. На вкладке **Квоты проекта** в нужной группе квот нажмите ![image](../../_assets/console-icons/pencil.svg) **Изменить объём квот**.
   1. В открывшемся окне введите новые значения для квот этой группы.

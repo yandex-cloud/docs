@@ -21,7 +21,11 @@ To get started:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
-1. [Assign](../iam/operations/roles/grant.md) the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.mmg.editor }} role (or higher)](security/index.md#roles-list) to your {{ yandex-cloud }} account. These roles provide the permissions needed to create a cluster.
+1. [Assign](../iam/operations/roles/grant.md) the following roles to your {{ yandex-cloud }} account:
+
+    * {% include [roles-mmg-editor](../_includes/mdb/mmg/roles-mmg-editor.md) %}
+    * {% include [roles-vpc-user](../_includes/mdb/roles-vpc-user.md) %}
+    * {% include [roles-mdb-viewer](../_includes/mdb/roles-mdb-viewer-create-cluster.md) %}
 
     {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
@@ -69,7 +73,7 @@ To get started:
 
    {% include [default-connstring-old](../_includes/mdb/mmg/default-connstring-old.md) %}
 
-    To learn how to get a host’s FQDN, see [this guide](operations/connect/index.md#get-fqdn).
+    For how to get a host FQDN, see [this guide](operations/connect/index.md#get-fqdn).
 
 
 ## What's next {#whats-next}

@@ -13,7 +13,7 @@ description: You can monitor the state of a {{ mmy-name }} cluster and its indiv
 
 {% include [alerts](../../_includes/mdb/alerts.md) %}
 
-## Cluster state monitoring {#monitoring-cluster}
+## Monitoring the cluster state {#monitoring-cluster}
 
 To view detailed information on the health state of a {{ mmy-name }} cluster:
 
@@ -197,7 +197,7 @@ To view detailed information on the state of individual {{ mmy-name }} hosts:
         * **{{ mmy-name }} — Cluster Overview** to set up cluster alerts.
         * **{{ mmy-name }} — Host Overview** to set up host alerts.
 
-    1. On the chart of interest, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+    1. In the chart you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
     1. If the chart displays multiple metrics, select the data query for the relevant metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. For more on the query language, see [this {{ monitoring-full-name }} guide](../../monitoring/concepts/querying.md).
 

@@ -12,8 +12,8 @@
 
 - Консоль управления {#console}
 
-  1. Войдите в [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Key Management Service**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/kms) в сервис **Key Management Service**.
   1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **Симметричные ключи**.
   1. Нажмите кнопку **Создать ключ** и задайте атрибуты ключа:
 
@@ -149,8 +149,8 @@
 
 - Консоль управления {#console}
 
-  1. Войдите в [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Key Management Service**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/kms) в сервис **Key Management Service**.
   1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **Симметричные ключи**.
   1. В строке с нужным ключом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
   1. Изменив атрибуты ключа, нажмите кнопку **Сохранить**.
@@ -251,8 +251,8 @@
 
 - Консоль управления {#console}
 
-  1. Войдите в [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Key Management Service**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/kms) в сервис **Key Management Service**.
   1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **Симметричные ключи**.
   1. Чтобы деактивировать ключ, в строке с нужным ключом в статусе `Active` нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Деактивировать**.
   1. Чтобы активировать ключ, в строке с нужным ключом в статусе `Inactive` нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Активировать**.
@@ -346,8 +346,8 @@
 
 - Консоль управления {#console}
 
-  1. Войдите в [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Key Management Service**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/kms) в сервис **Key Management Service**.
   1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **Симметричные ключи**.
   1. В строке с нужным ключом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Ротировать**.
   1. Подтвердите ротацию (убедитесь, что смена версии по умолчанию не повредит вашей работе).
@@ -384,8 +384,8 @@
 
 - Консоль управления {#console}
 
-  1. Войдите в [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Key Management Service**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/kms) в сервис **Key Management Service**.
   1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **Симметричные ключи**.
   1. В строке с нужным ключом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
   1. В открывшемся окне нажмите кнопку **Удалить**.

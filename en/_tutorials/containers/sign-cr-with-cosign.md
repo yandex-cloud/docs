@@ -18,7 +18,7 @@ The support cost for this solution includes:
 * Fee for a {{ managed-k8s-name }} cluster: using the master and outbound traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 * Fee for cluster nodes (VMs): using computing resources, OS, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for public IP addresses if assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* Fee for {{ container-registry-name }} [storage](../../container-registry/pricing).
+* Fee for {{ container-registry-name }} [storage](../../container-registry/pricing.md).
 
 
 ## Getting started {#before-begin}
@@ -143,7 +143,7 @@ The support cost for this solution includes:
 
      {% note info %}
 
-     To avoid using a credential helper for authentication, edit the `${HOME}/.docker/config.json` configuration file to delete the `{{ registry }}` domain line from the `credHelpers` section.
+     To stop using a credential helper for authentication, remove the `{{ registry }}` domain line from `credHelpers` in the `${HOME}/.docker/config.json` configuration file.
 
      {% endnote %}
 

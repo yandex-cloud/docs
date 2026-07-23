@@ -9,11 +9,12 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [профиль WAF](../concepts/waf.md).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [профиль WAF](../concepts/waf.md).
+  1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. На панели слева выберите ![image](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}**.
   1. Выберите нужный профиль.
   1. На странице **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация о профиле:
+     
      * Основные параметры профиля.
      * Профили безопасности, к которым подключен профиль WAF.
      * Наборы правил, включенные в профиль, количество активных правил в каждом наборе, уровень аномальности и паранойи для набора OWASP.
@@ -39,9 +40,13 @@ description: Следуя данной инструкции, вы сможете
      ```
 
      Где:
+     
      * `data "yandex_sws_waf_profile"` — описание WAF профиля в качестве источника данных:
+       
        * `name` — имя WAF профиля.
+     
      * `output "profile-created"` — выходная переменная, которая содержит информацию о временной метке создания WAF профиля:
+       
        * `value` — возвращаемое значение.
 
      Вместо `created_at` вы можете выбрать любой другой параметр для получения информации. Подробнее о параметрах источника данных `yandex_sws_waf_profile` в [документации провайдера]({{ tf-provider-datasources-link }}/sws_waf_profile).

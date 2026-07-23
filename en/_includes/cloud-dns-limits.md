@@ -6,8 +6,6 @@
 `dns.zones.count` | 100 ||
 || Number of record sets per cloud
 `dns.recordSets.count` | 1,000 ||
-|| Number of record sets per zone
-`dns.recordSetsPerZone.count`| 100 ||
 |#
 
 #### Limits {#cloud-dns-limits}

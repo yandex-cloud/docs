@@ -9,10 +9,16 @@ description: Автоматическое сохранение просмотр�
 
 ## Как работает архивация {#how-it-works}
 
-1. Вы открываете трейс в интерфейсе {{ monium-name }}.
-2. Система автоматически сохраняет этот трейс в архив.
-3. Архивный трейс хранится с расширенным сроком хранения.
-4. Вы можете обращаться к архивному трейсу в любой момент.
+{% list tabs group=instructions %}
+
+- Интерфейс {{ monium-name }} {#console}
+
+  1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите ![alt](../../../_assets/console-icons/compass.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.all-panel.menu.category.explore }}** → ![alt](../../../_assets/console-icons/hierarchy.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.traces.title }}**.
+  1. Выберите трейс. Система автоматически сохраняет этот трейс в архив.
+  1. Архивный трейс хранится с расширенным сроком хранения.
+  1. Вы можете обращаться к архивному трейсу в любой момент.
+
+{% endlist %}
 
 Архивация происходит автоматически — никаких дополнительных действий не требуется.
 
@@ -20,8 +26,14 @@ description: Автоматическое сохранение просмотр�
 
 Архивные трейсы доступны в интерфейсе {{ monium-name }}:
 
-1. Перейдите в **{{ monium-name }}** → **Трейсы**.
-2. Используйте поиск по `trace_id`.
-3. Если трейс был ранее просмотрен и сохранен в архив, он будет доступен в результатах поиска.
+{% list tabs group=instructions %}
+
+- Интерфейс {{ monium-name }} {#console}
+
+  1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите ![alt](../../../_assets/console-icons/compass.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.all-panel.menu.category.explore }}** → ![alt](../../../_assets/console-icons/hierarchy.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.traces.title }}**.
+  1. Используйте поиск по `trace_id`.
+  1. Если трейс был ранее просмотрен и сохранен в архив, он будет доступен в результатах поиска.
+
+{% endlist %}
 
 Также архивные трейсы доступны по прямой ссылке.

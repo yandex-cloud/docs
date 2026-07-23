@@ -12,12 +12,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Get your cloud ready {#before-begin}
 
-{% include [before-you-begin](../../../_tutorials/_tutorials_includes/before-you-begin.md) %}
+{% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
 
 
 ### Required paid resources {#paid-resources}
 
-{% include [paid-resources](../../../_tutorials/_tutorials_includes/telegram-bot-serverless/paid-resources.md) %}
+{% include [paid-resources](../../_tutorials_includes/telegram-bot-serverless/paid-resources.md) %}
 
 
 ## Set up resources {#create-resources}
@@ -28,7 +28,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Create a Telegram bot {#create-bot}
 
-{% include [create-bot](../../../_tutorials/_tutorials_includes/telegram-bot-serverless/create-bot.md) %}
+{% include [create-bot](../../_tutorials_includes/telegram-bot-serverless/create-bot.md) %}
 
 
 ## Publish an image for the bot {#image-publish}
@@ -152,8 +152,8 @@ If you want your Telegram bot to respond to the `/start` and `/help` commands an
       const { Telegraf } = require('telegraf');
 
       const bot = new Telegraf(process.env.BOT_TOKEN);
-      bot.start((ctx) => ctx.reply(`Hello. \nMy name Serverless Hello Telegram Bot \nI'm working on Cloud Function in the Yandex Cloud.`))
-      bot.help((ctx) => ctx.reply(`Hello, ${ctx.message.from.username}.\nI can say Hello and nothing more`))
+      bot.start((ctx) => ctx.reply(`Hello. \nMy name Serverless Hello Telegram Bot \nI'm working on Cloud Function in the Yandex Cloud.`));
+      bot.help((ctx) => ctx.reply(`Hello, ${ctx.message.from.username}.\nI can say Hello and nothing more`));
       bot.on('text', (ctx) => {
           ctx.replyWithPhoto({url: '<API_gateway_domain>/sayhello.png'});
           ctx.reply(`Hello, ${ctx.message.from.username}`);
@@ -172,7 +172,7 @@ If you want your Telegram bot to respond to the `/start` and `/help` commands an
 
   1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}**, create a file named `package.json` and paste the following code into it:
 
-      {% include [telegram-bot-package-json](../../../_tutorials/_tutorials_includes/telegram-bot-serverless/telegram-bot-package-json.md) %}
+      {% include [telegram-bot-package-json](../../_tutorials_includes/telegram-bot-serverless/telegram-bot-package-json.md) %}
 
   1. Specify the following settings:
 
@@ -201,29 +201,18 @@ If you want your Telegram bot to respond to the `/start` and `/help` commands an
       1. Select the `for-serverless-hello-telegram-bot` API gateway.
       1. Update the API gateway specification by adding the `fshtb-function` section at the end of the code:
 
-         {% include [telegram-bot-function-bind](../../../_tutorials/_tutorials_includes/telegram-bot-serverless/telegram-bot-function-bind.md) %}
+         {% include [telegram-bot-function-bind](../../_tutorials_includes/telegram-bot-serverless/telegram-bot-function-bind.md) %}
 
       1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_update-gateway }}**.
 
     {% endlist %}
 
-1. {% include [telegram-bot-setwebhook](../../../_tutorials/_tutorials_includes/telegram-bot-serverless/telegram-bot-setwebhook.md) %}
-
-    Where:
-
-    * `<bot_token>`: Telegram bot token.
-    * `<API_gateway_domain>`: API gateway service domain.
-
-    Result:
-
-    ```bash
-    {"ok":true,"result":true,"description":"Webhook was set"}
-    ```
+1. {% include [telegram-bot-setwebhook](../../_tutorials_includes/telegram-bot-serverless/telegram-bot-setwebhook.md) %}
 
 
 ## Test your Telegram bot {#test-bot}
 
-{% include [test-bot](../../../_tutorials/_tutorials_includes/telegram-bot-serverless/test-bot.md) %}
+{% include [test-bot](../../_tutorials_includes/telegram-bot-serverless/test-bot.md) %}
 
 
 ## How to delete the resources you created {#clear-out}

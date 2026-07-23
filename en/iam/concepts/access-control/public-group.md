@@ -5,7 +5,6 @@ description: In this tutorial, you will learn about public groups and their type
 
 # Public groups
 
-
 A _public group_ is a group of users (subjects) to which you can assign [roles](./roles.md). In {{ yandex-cloud }}, there are two types of public groups: `All authenticated users` and `All users`. These groups allow you to grant public access to your resources, but only for operations that are allowed by the assigned role.
 
 It is unsafe to assign roles with extensive permissions, such as `editor` or `admin`, to public groups.

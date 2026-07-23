@@ -32,7 +32,7 @@ description: Узнайте, как использовать карту серв
 
 - Интерфейс {{ monium-name }} {#console}
 
-  1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.services-map.title }}**.
+  1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите ![alt](../../../_assets/console-icons/compass.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.all-panel.menu.category.explore }}** → ![alt](../../../_assets/console-icons/hierarchy.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.traces.title }}**.
   1. Вверху на шкале времени задайте промежуток поиска данных.
   1. В строке поиска введите запрос:
           

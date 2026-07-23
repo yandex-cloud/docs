@@ -10,11 +10,12 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится лог-группа.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится лог-группа.
+  1. [Перейдите]({{ link-console-main }}/link/logging) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
   1. Выберите лог-группу, графики мониторинга которой хотите посмотреть.
   1. Перейдите на вкладку **{{ ui-key.yacloud.common.monitoring }}**.
   1. На странице появятся следующие графики:
+      
       * **Records successfully ingested** — количество записей, доставленных в систему логирования {{ cloud-logging-name }}. Учитываются только пользовательские логи.
       * **Records saved** — количество записей, сохраненных в систему логирования {{ cloud-logging-name }}. Учитываются логи сервисов и пользовательские логи.
       * **Records read** — количество прочитанных записей.

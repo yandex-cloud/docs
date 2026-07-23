@@ -40,7 +40,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создаваться целевая группа.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. В меню слева выберите **{{ ui-key.yacloud.alb.label_target-groups }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_target-group-create }}**.
   1. Введите имя целевой группы: `test-target-group`.
@@ -72,12 +72,17 @@ description: Следуя данной инструкции, вы сможете
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
   1. Введите имя группы бэкендов: `test-backend-group`.
   1. В блоке **{{ ui-key.yacloud.alb.label_backends }}** нажмите кнопку **{{ ui-key.yacloud.common.add }}**. Задайте настройки бэкенда:
+
       1. Введите имя бэкенда: `backend-1`.
       1. В списке **{{ ui-key.yacloud.alb.label_target-group }}** выберите `test-target-group`.
       1. Укажите порт: `8080`.
+
   1. Разверните поле **{{ ui-key.yacloud.alb.label_protocol-settings }}** и задайте их параметры:
+
       1. Выберите тип `{{ ui-key.yacloud.alb.label_proto-http-plain }}`.
+
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_add-healthcheck }}** и задайте настройки проверки:
+
       1. **{{ ui-key.yacloud.alb.label_timeout }}**: `1`.
       1. **{{ ui-key.yacloud.alb.label_interval }}**: `3`.
       1. **{{ ui-key.yacloud.alb.label_healthy }}**: `2`.
@@ -85,6 +90,7 @@ description: Следуя данной инструкции, вы сможете
       1. **{{ ui-key.yacloud.alb.label_port }}**: `8080`.
       1. **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.alb.label_hc-type-http }}`.
       1. **{{ ui-key.yacloud.alb.label_path }}**: `/`.
+
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -174,10 +180,12 @@ description: Следуя данной инструкции, вы сможете
       Остальные зоны доступности удалите, нажав ![xmark](../_assets/console-icons/xmark.svg) в соответствующей строке.
 
   1. В блоке **{{ ui-key.yacloud.alb.label_listeners }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_add-listener }}**. Задайте настройки обработчика:
+
       1. Введите имя обработчика: `test-listener`.
       1. В блоке **{{ ui-key.yacloud.alb.section_external-address-specs }}** включите передачу трафика.
       1. Укажите порт `80`.
       1. Выберите тип **{{ ui-key.yacloud.alb.label_address-auto }}**.
+      
   1. В поле **{{ ui-key.yacloud.alb.label_http-router }}** выберите `test-http-router`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 

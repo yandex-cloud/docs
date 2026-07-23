@@ -17,11 +17,17 @@ Yandex Managed Service for Prometheus® построена на основе с�
 
 ## Начало работы {#access}
 
-1. На главной странице [Monium](https://monium.yandex.cloud) слева выберите раздел **Prometheus**.
-1. Нажмите кнопку **Создать воркспейс**.
-1. На открывшейся странице появятся ссылки на эндпоинты.
-   
-   Используйте эти эндпоинты, чтобы настроить [запись](ingestion/index.md) и [чтение](querying/index.md) метрик из воркспейса в формате Prometheus.
+{% list tabs group=instructions %}
+
+- Интерфейс Monium {#console}
+
+  1. На главной странице [Monium](https://monium.yandex.cloud) слева выберите ![alt](../../../_assets/console-icons/box.svg) **Поставка и хранение** → ![alt](../../../_assets/console-icons/flame.svg) **Prometheus**.
+  1. Нажмите кнопку **Создать воркспейс**.
+  1. На открывшейся странице появятся ссылки на эндпоинты.
+     
+     Используйте эти эндпоинты, чтобы настроить [запись](ingestion/index.md) и [чтение](querying/index.md) метрик из воркспейса в формате Prometheus.
+
+{% endlist %}
 
 ## Сравнение возможностей {#features}
 

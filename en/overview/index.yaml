@@ -38,7 +38,6 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-        size: s
         icon:
           light: assets/icons/rocket.svg
           dark: assets/icons/rocket.svg
@@ -50,7 +49,6 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-        size: s
         icon:
           light: assets/icons/map-pin.svg
           dark: assets/icons/map-pin.svg
@@ -62,7 +60,6 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-        size: s
         icon:
           light: assets/icons/book.svg
           dark: assets/icons/book.svg
@@ -81,7 +78,6 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-        size: s
         icon:
           light: assets/icons/layers-3-diagonal.svg
           dark: assets/icons/layers-3-diagonal.svg
@@ -92,7 +88,6 @@ blocks:
         url: concepts/launch-stages
         border: shadow
         controlPosition: content
-        size: s
         animated: false
         icon:
           light: assets/icons/circle-info.svg
@@ -105,7 +100,6 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-        size: s
         icon:
           light: assets/icons/sliders.svg
           dark: assets/icons/sliders.svg
@@ -117,7 +111,6 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-        size: s
         icon:
           light: assets/icons/circle-question.svg
           dark: assets/icons/circle-question.svg
@@ -137,7 +130,6 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-        size: s
         icon: assets/icons/code.svg
         iconPosition: left
       - type: basic-card
@@ -147,7 +139,6 @@ blocks:
         url: sdk/overview/
         border: shadow
         controlPosition: content
-        size: s
         animated: false
         icon: assets/icons/folder-tree.svg
         iconPosition: left
@@ -158,7 +149,6 @@ blocks:
         url: mobile-app/
         border: shadow
         controlPosition: content
-        size: s
         animated: false
         icon: assets/icons/smartphone.svg
         iconPosition: left

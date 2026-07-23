@@ -42,7 +42,18 @@ POST /v2/email/outbound-bulk-emails HTTP/2
         "Subject": "<subject_template>",
         "Text": "<text_template>"
       },
-      "TemplateData": "<data_to_populate_template>"
+      "TemplateData": "<data_to_populate_template>",
+      "Attachments": [
+        {
+          "FileName": "<file_name>",
+          "RawContent": "<content_in_Base64>",
+          "ContentType": "<MIME_type>",
+          "ContentDescription": "<attachment_description>",
+          "ContentDisposition": "<display_mode>",
+          "ContentId": "<attachment_ID>",
+          "ContentTransferEncoding": "base64"
+        }
+      ]
     }
   },
   "BulkEmailEntries": [
@@ -125,6 +136,11 @@ Make sure to specify at least one of the following parameters: either `Html` or 
 || `TemplateData` | **Type**: String.
 
 Default data used to populate the template. A JSON object serialized to a string. ||
+|| `Attachments` | **Type**: Array.
+
+Attachment list. Specified only in the `DefaultContent.Template` shared content and applies to all emails in the request. You cannot override or add attachments for an individual `BulkEmailEntries` element. Each attachment is defined by an object with the following fields:
+
+{% include [attachments-fields](../../../_includes/postbox/attachments-fields.md) %} ||
 || `BulkEmailEntries` | **Type**: Array.
 
 List of emails to send. The request must contain at least one element. ||

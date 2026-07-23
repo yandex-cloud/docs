@@ -9,8 +9,8 @@ description: Из статьи вы узнаете, как создать при
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать приемник логов.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать приемник логов.
+    1. [Перейдите]({{ link-console-main }}/link/logging) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
     1. Перейдите на вкладку **{{ ui-key.yacloud.logging.label_sinks }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.logging.button_create-sink }}**.
     1. (Опционально) Введите имя и описание приемника логов. Формат имени:
@@ -27,6 +27,7 @@ description: Из статьи вы узнаете, как создать при
 - CLI {#cli}
 
     Чтобы создать приемник логов, выполните команду:
+    
     ```
     yc logging sink create \
       --name <имя_приемника> \
@@ -35,11 +36,13 @@ description: Из статьи вы узнаете, как создать при
     ```
 
     Где:
+    
     * `--name` — имя приемника логов. Необязательный параметр.
     * `--service-account-id` — идентификатор сервисного аккаунта, у которого есть права на загрузку объектов в бакет.
     * `bucket` — имя бакета, в который будут выгружаться логи.
 
     Результат:
+    
     ```
     id: e23s5s2jsr78********
     folder_id: b1gc1t4cb638********

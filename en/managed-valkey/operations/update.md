@@ -1223,7 +1223,7 @@ You can change the DBMS settings for your cluster hosts. You can find all the su
             --backup-window-start <time> \
             --maintenance-window type=<maintenance_type>,`
                                 `day=<day_of_week>,`
-                                `hour=<hour> \
+                                `hour=<sequence_number_of_hour_interval> \
             --websql-access=<true_or_false> \
             --deletion-protection
         ```
@@ -1272,25 +1272,7 @@ You can change the DBMS settings for your cluster hosts. You can find all the su
             * `hours`: Backup start hour (UTC) in `HH` format, from `0` to `23`.
             * `minutes`: Backup start minute (UTC) in `mm` format, from `0` to `59`.
 
-        * To set the [maintenance window](../concepts/maintenance.md) that will also apply to stopped clusters, add the `maintenance_window` section to the cluster description:
-
-            ```hcl
-            resource "yandex_mdb_redis_cluster_v2" "<cluster_name>" {
-              ...
-              maintenance_window = {
-                day  = "<day_of_week>"
-                hour = <start_hour>
-                type = "ANYTIME"
-              }
-            }
-            ```
-
-            Where `type` is the maintenance type, which can be:
-
-            * `ANYTIME`: At any time.
-            * `WEEKLY`: On a schedule. When specifying this value, you also need to set the following:
-                * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-                * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
+        * {% include [Maintenance window](../../_includes/mdb/mvk/terraform/maintenance-window.md) %}
 
         * To activate cluster protection against accidental deletion by a user of your cloud, add the `deletion_protection` field set to `true` to the cluster description:
 
@@ -1344,7 +1326,7 @@ You can change the DBMS settings for your cluster hosts. You can find all the su
                       "maintenanceWindow": {
                         "weeklyMaintenanceWindow": {
                           "day": "<day_of_week>",
-                          "hour": "<hour>"
+                          "hour": "<sequence_number_of_hour_interval>"
                         }
                       },
                       "deletionProtection": <cluster_deletion_protection>
@@ -1369,10 +1351,12 @@ You can change the DBMS settings for your cluster hosts. You can find all the su
             * `anytime`: Maintenance takes place at any time.
             * `weeklyMaintenanceWindow`: Maintenance takes place once a week at the specified time:
 
-                * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-                * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
+                * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+                * `hour`: UTC hour interval, from `1` to `24`.
 
-        * `deletionProtection`: Cluster protection against accidental deletion, `true` or `false`.
+                > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
+
+        * `deletionProtection`: Cluster deletion protection, `true` or `false`.
 
             {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
@@ -1419,7 +1403,7 @@ You can change the DBMS settings for your cluster hosts. You can find all the su
                   "maintenance_window": {
                     "weekly_maintenance_window": {
                       "day": "<day_of_week>",
-                      "hour": "<hour>"
+                      "hour": "<sequence_number_of_hour_interval>"
                     }
                   },
                   "deletion_protection": <cluster_deletion_protection>
@@ -1441,15 +1425,17 @@ You can change the DBMS settings for your cluster hosts. You can find all the su
             * `seconds`: Between `0` and `59` seconds.
             * `nanos`: Between `0` and `999999999` nanoseconds.
 
-        * `maintenance_window`: [Maintenance](../concepts/maintenance.md) window settings, including for stopped clusters. Provide one of these two parameters:
+        * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, including for stopped clusters. Provide one of these two parameters:
 
             * `anytime`: Maintenance takes place at any time.
             * `weekly_maintenance_window`: Maintenance takes place once a week at the specified time:
 
-                * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-                * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
+                * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+                * `hour`: UTC hour interval, from `1` to `24`.
 
-        * `deletion_protection`: Cluster protection against accidental deletion, `true` or `false`.
+                > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
+
+        * `deletion_protection`: Cluster deletion protection, `true` or `false`.
 
             {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 

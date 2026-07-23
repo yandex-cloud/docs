@@ -12,7 +12,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан балансировщик.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Напротив имени нужного балансировщика нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
 
      Чтобы выполнить это действие с несколькими балансировщиками, выделите нужные в списке и нажмите кнопку **{{ ui-key.yacloud.common.delete }}** в нижней части экрана.
@@ -47,6 +47,7 @@ description: Следуя данной инструкции, вы сможете
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   Чтобы удалить L7-балансировщик, созданный с помощью {{ TF }}:
+  
   1. Откройте файл конфигурации {{ TF }} и удалите фрагмент с описанием L7-балансировщика.
 
      {% cut "Пример описания L7-балансировщика в конфигурации {{ TF }}" %}

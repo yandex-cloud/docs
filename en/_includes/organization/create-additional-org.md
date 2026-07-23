@@ -1,6 +1,6 @@
 {% list tabs group=instructions %}
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
   1. Log in to [{{ cloud-center }}]({{ cloud-center-link }}) account you are going to use to create a new organization.
 

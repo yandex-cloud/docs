@@ -13,6 +13,7 @@ This API reference is organized by resource. Actions are performed by sending HT
 || [BackupRetentionPolicy](BackupRetentionPolicy/index.md) | A set of methods for managing Redis Cluster backup retention policies. ||
 || [Backup](Backup/index.md) | A set of methods for managing Redis backups. ||
 || [Cluster](Cluster/index.md) | A set of methods for managing Redis clusters. ||
+|| [Maintenance](Maintenance/index.md) |  ||
 || [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
 || [ResourcePreset](ResourcePreset/index.md) | A set of methods for working with resource presets. ||
 || [User](User/index.md) | A set of methods for managing Redis User resources. ||

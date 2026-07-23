@@ -18,6 +18,10 @@ You can set the maintenance window when [creating a cluster](../operations/clust
 
 {% include [Maintenance window](../../_includes/mdb/maintenance-window.md) %}
 
+In the management console, you select the maintenance start time as an hour interval. In other interfaces, you specify this interval by its sequence number, from `1` to `24`.
+
+> For example, to start maintenance in the interval from `00:00` to `01:00`, put `1`; from `04:00` to `05:00`, `5`.
+
 {% note info %}
 
 To view maintenance task information, you need the `managed-mysql.maintenanceTask.viewer` [role](../security/index.md#managed-mysql-maintenanceTask-viewer) or higher.

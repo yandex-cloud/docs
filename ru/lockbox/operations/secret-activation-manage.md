@@ -14,7 +14,7 @@ description: Из статьи вы узнаете, как деактивиро�
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит секрет.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Перейдите]({{ link-console-main }}/link/lockbox) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. Напротив нужного секрета нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../_assets/console-icons/toggle-off.svg) **{{ ui-key.yacloud.lockbox.SecretActions.button_deactivate-secret }}**.
     1. Подтвердите деактивацию.
 
@@ -64,7 +64,7 @@ description: Из статьи вы узнаете, как деактивиро�
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит секрет.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Перейдите]({{ link-console-main }}/link/lockbox) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. Напротив нужного секрета нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../_assets/console-icons/toggle-on.svg) **{{ ui-key.yacloud.lockbox.SecretActions.button_activate-secret }}**.
 
 - CLI {#cli}

@@ -17,7 +17,7 @@ editable: false
 ## What goes into the cost of using {{ container-registry-name }} {#rules}
 
 The {{ container-registry-name }} usage cost includes:
-* Amount of storage used by your data.
+* Storage space occupied by data.
 * Amount of outgoing traffic.
 * Number of Docket image scans for vulnerabilities.
 
@@ -57,6 +57,5 @@ Here is an example of proportional calculation. Let's assume a user stores 15 GB
 ```text
 Storage_cost = Price_per_GB_per_month * 15 * 12 / 24 / 30
 ```
-
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

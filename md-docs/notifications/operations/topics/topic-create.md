@@ -7,7 +7,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. Перейдите в сервис **Cloud Notification Service**.
+  1. [Перейдите](https://console.yandex.cloud/link/cns) в сервис **Cloud Notification Service**.
   1. Слева выберите раздел **Топики**.
   1. Нажмите кнопку **Создать топик**.
   1. Введите имя топика. Имя топика должно быть уникальным в Cloud Notification Service.

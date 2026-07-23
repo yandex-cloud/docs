@@ -31,6 +31,8 @@ You can add and remove users, as well as manage their individual settings.
        --url 'https://{{ api-host-mdb }}/managed-spqr/v1/clusters/<cluster_ID>/users'
      ```
 
+     {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
+
   1. View the [server response](../api-ref/User/list.md#yandex.cloud.mdb.spqr.v1.ListUsersResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
@@ -56,6 +58,8 @@ You can add and remove users, as well as manage their individual settings.
        yandex.cloud.mdb.spqr.v1.UserService.List
      ```
 
+     {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
+
   1. Check the [server response](../api-ref/grpc/User/list.md#yandex.cloud.mdb.spqr.v1.ListUsersResponse) to make sure your request was successful.
 
 {% endlist %}
@@ -78,6 +82,8 @@ You can add and remove users, as well as manage their individual settings.
        --header "Authorization: Bearer $IAM_TOKEN" \
        --url 'https://{{ api-host-mdb }}/managed-spqr/v1/clusters/<cluster_ID>/users/<username>'
      ```
+
+     {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
 
   1. Check the [server response](../api-ref/User/get.md#yandex.cloud.mdb.spqr.v1.User) to make sure your request was successful.
 
@@ -104,6 +110,8 @@ You can add and remove users, as well as manage their individual settings.
        {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.spqr.v1.UserService.Get
      ```
+
+     {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
 
   1. Check the [server response](../api-ref/grpc/User/get.md#yandex.cloud.mdb.spqr.v1.User) to make sure your request was successful.
 
@@ -185,30 +193,33 @@ You can add and remove users, as well as manage their individual settings.
                }'
      ```
 
-     Where `userSpec` are the settings for the new database user:
+     Where: 
 
-     * `name`: Username.
+     * {% include [cluster-id](../../_includes/managed-spqr/cluster-id.md) %}
+     * `userSpec` are the new database user settings:
 
-       {% include [user-name-limits](../../_includes/mdb/mspqr/console/user-name-limits.md) %}
+       * `name`: Username.
 
-     * `password`: User password. The password must be from 8 to 128 characters long.
+         {% include [user-name-limits](../../_includes/mdb/mspqr/console/user-name-limits.md) %}
 
-     * `permissions`: List of databases the user needs access to. Each element in the list contains the `databaseName` parameter: The database name.
+       * `password`: User password. The password must be from 8 to 128 characters long.
 
-     * `settings`: Connection settings:
+       * `permissions`: List of databases the user needs access to. Each element in the list contains the `databaseName` parameter: The database name.
 
-       * `connLimit`: Maximum number of user connections to the database.
-       * `connectionRetries`: Number of reconnect attempts between the [router](../concepts/index.md#router) and the [shards](../concepts/index.md#shard).
+       * `settings`: Connection settings:
 
-     * `grants`: List of grants to be assigned to the user.
+         * `connLimit`: Maximum number of user connections to the database.
+         * `connectionRetries`: Number of reconnect attempts between the [router](../concepts/index.md#router) and the [shards](../concepts/index.md#shard).
 
-       The possible values are:
-       - `reader`
-       - `writer`
-       - `admin`
-       - `transfer`
+       * `grants`: List of grants to be assigned to the user.
 
-     * `deletionProtection`: User deletion protection, `true` or `false`.
+         The possible values are:
+         - `reader`
+         - `writer`
+         - `admin`
+         - `transfer`
+
+       * `deletionProtection`: User deletion protection, `true` or `false`.
 
   1. Check the [server response](../api-ref/User/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -252,30 +263,33 @@ You can add and remove users, as well as manage their individual settings.
        yandex.cloud.mdb.spqr.v1.UserService.Create
      ```
 
-     Where `user_spec` are the new database user settings:
+     Where:
 
-     * `name`: Username.
+     * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
+     * `user_spec` are the new database user settings:
 
-       {% include [user-name-limits](../../_includes/mdb/mspqr/console/user-name-limits.md) %}
+       * `name`: Username.
 
-     * `password`: User password. The password must be from 8 to 128 characters long.
+         {% include [user-name-limits](../../_includes/mdb/mspqr/console/user-name-limits.md) %}
 
-     * `permissions`: List of databases the user needs access to. Each element in the list contains the `database_name` parameter: The database name.
+       * `password`: User password. The password must be from 8 to 128 characters long.
 
-     * `settings`: Connection settings:
+       * `permissions`: List of databases the user needs access to. Each element in the list contains the `database_name` parameter: The database name.
 
-       * `connection_limit`: Maximum number of user connections to the database.
-       * `connection_retries`: Number of reconnect attempts between the [router](../concepts/index.md#router) and the [shards](../concepts/index.md#shard).
+       * `settings`: Connection settings:
 
-     * `grants`: List of grants to be assigned to the user.
+         * `connection_limit`: Maximum number of user connections to the database.
+         * `connection_retries`: Number of reconnect attempts between the [router](../concepts/index.md#router) and the [shards](../concepts/index.md#shard).
 
-       The possible values are:
-       - `reader`
-       - `writer`
-       - `admin`
-       - `transfer`
+       * `grants`: List of grants to be assigned to the user.
 
-     * `deletion_protection`: User deletion protection, `true` or `false`.
+         The possible values are:
+         - `reader`
+         - `writer`
+         - `admin`
+         - `transfer`
+
+       * `deletion_protection`: User deletion protection, `true` or `false`.
 
   1. Check the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -354,6 +368,8 @@ You can add and remove users, as well as manage their individual settings.
 
      Where:
 
+     * {% include [cluster-id](../../_includes/managed-spqr/cluster-id.md) %}
+
      * `updateMask`: Comma-separated string of settings you want to update.
 
      * `password`: New password. It must be from 8 to 128 characters long.
@@ -424,6 +440,8 @@ You can add and remove users, as well as manage their individual settings.
 
      Where:
 
+     * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
+
      * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
      * `password`: Password. The password must be from 8 to 128 characters long.
@@ -484,6 +502,7 @@ You can add and remove users, as well as manage their individual settings.
 
      Where:
 
+     * {% include [cluster-id](../../_includes/managed-spqr/cluster-id.md) %}
      * `updateMask`: Comma-separated string of settings to update.
 
        Here, we provide only one setting.
@@ -526,6 +545,7 @@ You can add and remove users, as well as manage their individual settings.
 
      Where:
 
+     * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
      * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
        Here, we provide only one setting.
@@ -571,6 +591,7 @@ You can add and remove users, as well as manage their individual settings.
 
      Where:
 
+     * {% include [cluster-id](../../_includes/managed-spqr/cluster-id.md) %}
      * `updateMask`: Comma-separated string of settings to update.
 
        Here, we provide only one setting.
@@ -613,6 +634,7 @@ You can add and remove users, as well as manage their individual settings.
 
      Where:
 
+     * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
      * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
        Here, we provide only one setting.
@@ -653,6 +675,8 @@ A user account can have deletion protection enabled. To delete such a user, [dis
        --url 'https://{{ api-host-mdb }}/managed-spqr/v1/clusters/<cluster_ID>/users/<username>'
      ```
 
+     {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
+
   1. Check the [server response](../api-ref/User/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
@@ -678,6 +702,8 @@ A user account can have deletion protection enabled. To delete such a user, [dis
        {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.spqr.v1.UserService.Delete
      ```
+
+     {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
 
   1. Check the [server response](../api-ref/grpc/User/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

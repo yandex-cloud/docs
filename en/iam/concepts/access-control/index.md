@@ -56,55 +56,27 @@ For information about available roles and permissions they offer, see [{#T}](rol
 
 Roles are assigned to subjects. There are the following subject types:
 
-* `userAccount`: [Yandex account](../users/accounts.md#passport) added to {{ yandex-cloud }} or an account from a [user pool](../../../organization/concepts/user-pools.md):
+* `userAccount`: [Yandex account](../users/accounts.md#passport) added to {{ yandex-cloud }} or an account from a [user pool](../../../organization/concepts/user-pools.md).
 
-    Subject ID: `userAccount:<user_ID>`.
-
-    Where `<user_ID>` is the unique [ID](../../../api-design-guide/concepts/resources-identification.md) [assigned](../../../organization/operations/users-get.md) to the user, e.g., `userAccount:ajecpdmpr4pr********`.
-
-* `serviceAccount`: [Service account](../users/service-accounts.md) created in {{ yandex-cloud }}:
-
-    Subject ID: `serviceAccount:<service_account_ID>`.
-
-    Where `<service_account_ID>` is the unique ID [assigned](../../operations/sa/get-id.md) to the service account, e.g., `serviceAccount:ajevnu4u2q3m********`.
+* `serviceAccount`: [Service account](../users/service-accounts.md) created in {{ yandex-cloud }}.
 
     {% include [include](../../../_includes/sa-assign-role-note.md) %}
 
 * `federatedUser`: User account in an [identity federation](../../../organization/concepts/add-federation.md), e.g., Active Directory.
 
-    Subject ID: `federatedUser:<user_ID>`.
+* `group`: [{{ org-full-name }}](../../../organization/) [user group](../../../organization/concepts/groups.md) created by the organization administrator.
 
-    Where `<user_ID>` is the unique ID [assigned](../../../organization/operations/users-get.md) to the federated user, e.g., `federatedUser:aje7b4u65nb6********`.
+* `system`: [System user group](./system-group.md) or [public user group](./public-group.md):
 
-* `group`: [{{ org-full-name }}](../../../organization/) user group:
+    * `All authenticated users`: [Public group](./public-group.md#allAuthenticatedUsers) that includes all authenticated users.
 
-    * [User group](../../../organization/concepts/groups.md) created by the organization administrator:
+    * `All users`: [Public group](./public-group.md#allUsers) that includes all users.
 
-        Subject ID: `group:<user_group_ID>`.
+    * `All users in organization X`: [System group](./system-group.md#allOrganizationUsers) that includes all users in organization `X`.
 
-        Where `<user_group_ID>` is the unique ID assigned to the user group created by the organization administrator, e.g., `group:ajeser8mnc4c********`.
+    * `All users in federation N`: [System group](./system-group.md#allFederationUsers) that includes all users in federation `N`.
 
-    * `All users in organization X` [system group](./system-group.md#allOrganizationUsers):
-
-        Subject ID: `group:organization:<organization_ID>:users`.
-
-        Where `<organization_ID>` is the unique [ID](../../../organization/operations/organization-get-id.md) assigned to the `X` [organization](../../../organization/quickstart.md), e.g., `group:organization:bpfaidqca8vd********:users`.
-
-    * `All users in federation N` [system group](./system-group.md#allFederationUsers):
-
-        Subject ID: `group:federation:<federation_ID>:users`.
-
-        Where `<federation_ID>` is the unique ID assigned to the `N` [identity federation](../../../organization/concepts/add-federation.md), e.g., `group:federation:bpf8tpgggfoi********:users`.
-
-* `system`: [Public group](./public-group.md) of users:
-
-    * `All authenticated users` [public group](./public-group.md#allAuthenticatedUsers) of users:
-
-        Subject ID: `system:allAuthenticatedUsers`.
-
-    * `All users` [public group](./public-group.md#allUsers):
-
-        Subject ID: `system:allUsers`.
+    * `All users in userpool P`: [System group](./system-group.md#allUserpoolUsers) that includes all users in pool `P`.
 
 ### Assigning access permissions {#access-bindings}
 

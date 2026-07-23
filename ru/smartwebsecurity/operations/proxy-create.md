@@ -16,7 +16,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. На панели слева выберите ![domain-protection-icon](../../_assets/smartwebsecurity/domain-protection-icon.svg) **{{ ui-key.yacloud.smart-web-security.label_domain-protection }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.ProxyServers.createProxyServer_jatYQ }}**.
   1. Введите произвольное имя прокси-сервера.
@@ -32,6 +32,7 @@ description: Следуя данной инструкции, вы сможете
           1. Выберите **HTTP-коды** и (опционально) **Классы HTTP-кодов**, для которых будут отбрасываться логи.
           1. Укажите в процентах, какую часть логов нужно отбрасывать.
           1. Если для разных HTTP-кодов требуется отбрасывать разные доли логов, добавьте дополнительные правила.
+  
   1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.ProxyServerFormCreate.createServer_sycVk }}**.
 
 {% include [after-proxy-create](../../_includes/smartwebsecurity/after-proxy-create.md) %}
@@ -44,6 +45,6 @@ description: Следуя данной инструкции, вы сможете
 
 {% endnote %}
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 [{#T}](domain-create.md)

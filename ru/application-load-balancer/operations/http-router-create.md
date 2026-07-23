@@ -12,7 +12,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создаваться HTTP-роутер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_http-router-create }}**.
   1. Введите имя HTTP-роутера.
@@ -21,6 +21,7 @@ description: Следуя данной инструкции, вы сможете
   1. (Опционально) В поле **{{ ui-key.yacloud.alb.label_authority }}** укажите значение заголовка `Host` для HTTP/1.1 или псевдо-заголовка `:authority` для HTTP/2, по которому будет выбираться виртуальный хост.
 
       {% include [console-no-authority-notice](../../_includes/application-load-balancer/instruction-steps/console-no-authority-notice.md) %}
+  
   1. {% include [console-vh-form-sws-step](../../_includes/application-load-balancer/instruction-steps/console-vh-form-sws-step.md) %}
   1. {% include [console-vh-form-albnative-rl-step](../../_includes/application-load-balancer/instruction-steps/console-vh-form-albnative-rl-step.md) %}
   1. {% include [console-vh-form-header-mods-step](../../_includes/application-load-balancer/instruction-steps/console-vh-form-header-mods-step.md) %}
@@ -31,6 +32,7 @@ description: Следуя данной инструкции, вы сможете
       1. {% include [console-update-http-route-ss2](../../_includes/application-load-balancer/instruction-steps/console-update-http-route-ss2.md) %}
       1. {% include [console-update-http-route-ss3](../../_includes/application-load-balancer/instruction-steps/console-update-http-route-ss3.md) %}
       1. {% include [console-update-http-route-ss4](../../_includes/application-load-balancer/instruction-steps/console-update-http-route-ss4.md) %}
+  
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -44,6 +46,7 @@ description: Следуя данной инструкции, вы сможете
       ```bash
       yc alb http-router create --help
       ```
+  
   1. Выполните команду:
 
       ```bash
@@ -58,6 +61,7 @@ description: Следуя данной инструкции, вы сможете
       folder_id: aoerb349v3h4********
       created_at: "2021-02-11T21:04:59.438292069Z"
       ```
+  
   1. {% include [cli-vh-create-help](../../_includes/application-load-balancer/instruction-steps/cli-vh-create-help.md) %}
   1. {% include [cli-vh-create](../../_includes/application-load-balancer/instruction-steps/cli-vh-create.md) %}
   1. {% include [cli-vh-append-http-route-help](../../_includes/application-load-balancer/instruction-steps/cli-vh-append-http-route-help.md) %}
@@ -160,11 +164,13 @@ description: Следуя данной инструкции, вы сможете
       Где:
 
       * `yandex_alb_http_router` — описание HTTP-роутера:
+          
           * `name` — имя HTTP-роутера. Формат имени:
 
               {% include [name-format](../../_includes/name-format.md) %}
 
           * `labels` — [метки](../../resource-manager/concepts/labels.md) для HTTP-роутера. Укажите пару ключ-значение.
+      
       * `yandex_alb_virtual_host` — описание виртуального хоста:
 
           {% include [tf-vh-create-legend-part1](../../_includes/application-load-balancer/instruction-steps/tf-vh-create-legend-part1.md) %}
@@ -178,8 +184,10 @@ description: Следуя данной инструкции, вы сможете
           {% include [tf-vh-create-legend-last-part](../../_includes/application-load-balancer/instruction-steps/tf-vh-create-legend-last-part.md) %}
 
       Параметры используемых ресурсов приведены в документации провайдера {{ TF }}:
+      
       * [yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router)
       * [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host)
+  
   1. Создайте ресурсы:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

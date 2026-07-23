@@ -7,13 +7,11 @@ description: The trial period is a one-time introductory offer for businesses. Y
 
 {% include [free-trial-conditions](../../_includes/free-trial-conditions.md) %}
 
-You can enable the trial period only when [creating your first billing account](../quickstart/index.md) for a legal entity in {{ billing-name }}.
+{% include [free-trial-first-section](../../_includes/free-trial-first-section.md) %}
 
-During the trial period, you can use {{ yandex-cloud }} resources for free with some limitations. Resource usage costs are charged against your [initial grant](bonus-account.md#start). After the end of the trial period, the resources will be retained but discontinued. Your trial period will end automatically depending on the payment method you selected when [creating your billing account for businesses](../quickstart/index.md). For more information, see [{#T}](../../getting-started/free-trial/concepts/trial-ending.md).
+Your trial period will end automatically depending on the payment method you selected when [creating your billing account for businesses](../quickstart/index.md). For more information, see [{#T}](../../getting-started/free-trial/concepts/trial-ending.md).
 
-To restore full access to {{ yandex-cloud }} after your trial period ends, you will need to upgrade to the paid version.
-
-You can check your remaining initial grant amount and trial days on the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page in your billing account. During the trial period, you can also [view statistics](../operations/check-charges.md) on resource usage and charges based on the usage rate.
+{% include [free-trial-second-section](../../_includes/free-trial-second-section.md) %}
 
 Useful links:
 * [What restrictions apply during the trial period](../../getting-started/free-trial/concepts/limits.md)

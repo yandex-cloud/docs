@@ -200,7 +200,7 @@ After you spend the free amount of services, you will be charged at the applicab
 
 ## {{ yq-full-name }} {#yq}
 
-[{{ yq-full-name }}](../../query/quickstart/index.md) is an interactive, fully managed service for data engineers and analysts. The service enables real-time analytical and streaming queries to structured and partially structured data using a common SQL dialect.
+[{{ yq-full-name }}](../../query/quickstart/index.md) is an interactive, fully managed service for data engineers and analysts. It allows you to run both analytical and real-time streaming queries on structured or semi-structured data using a single SQL dialect.
 
 {% include [not-charged-query.md](../../_includes/pricing/price-formula/not-charged-query.md) %}
 

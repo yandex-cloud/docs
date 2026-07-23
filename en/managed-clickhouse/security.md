@@ -26,7 +26,7 @@ To assign a role for a resource, you need the `mdb.admin` role, `managed-clickho
 
 You can also assign a role for an individual cluster in the [management console]({{ link-console-main }}), via the [CLI](../cli), or [API](./api-ref/authentication.md).
 
-## Roles this service has {#roles-list}
+## Roles available in the service {#roles-list}
 
 The diagram below shows available service roles and their permission inheritance hierarchy. For example, `{{ roles-editor }}` inherits all `{{ roles-viewer }}` permissions. You can find role descriptions below the diagram.
 
@@ -105,6 +105,8 @@ The diagram below shows available service roles and their permission inheritance
 As a user, you need the [{{ roles.mch.editor }} role or higher](../iam/concepts/access-control/roles.md) for the folder that will contain the new cluster. The `{{ roles.mch.viewer }}` role only allows you to view the list of clusters.
 
 To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the `{{ roles.mch.editor }}` role or higher.
+
+{% include [roles-mdb-viewer](../_includes/mdb/roles-mdb-viewer-access-control.md) %}
 
 You can always assign a role with more permissions, e.g., `{{ roles.mch.admin }}` instead of `{{ roles.mch.editor }}`.
 

@@ -11,7 +11,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. Перейдите в сервис **Yandex SmartCaptcha**.
+  1. [Перейдите](https://console.yandex.cloud/link/smartcaptcha) в сервис **Yandex SmartCaptcha**.
   1. На панели слева выберите ![image](../../_assets/console-icons/list-check.svg) **Операции**. В открывшемся списке также отображаются операции для ресурсов, которые были удалены.
 
 {% endlist %}

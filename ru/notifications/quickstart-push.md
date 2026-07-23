@@ -12,12 +12,14 @@ description: 'С помощью {{ cns-name }} вы можете отправл�
 {% include [about-service](../_includes/notifications/about-service.md) %}
 
 С помощью {{ cns-name }} вы можете отправлять push-уведомления в приложения, зарегистрированные в следующих сервисах:
+
 * [Apple Push Notification service](https://developer.apple.com/notifications/) (APNs).
 * [Firebase Cloud Messaging](https://firebase.google.com/) (FCM).
 * [Huawei Mobile Services](https://developer.huawei.com/consumer/) (HMS).
 * [RuStore](https://www.rustore.ru/help/sdk/push-notifications/).
 
 Чтобы начать работу с push-уведомлениями:
+
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте канал push-уведомлений](#create-channel).
 1. [Создайте эндпоинт](#create-endpoint).

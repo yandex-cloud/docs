@@ -15,12 +15,13 @@ description: Из статьи вы узнаете, как выгружать л
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находятся лог-группа и приемник логов.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находятся лог-группа и приемник логов.
+    1. [Перейдите]({{ link-console-main }}/link/logging) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
     1. Выберите лог-группу, из которой хотите выгрузить логи.
     1. Перейдите на вкладку **{{ ui-key.yacloud.common.logs }}**.
     1. Справа от кнопки **{{ ui-key.yacloud.logging.button_execute }}** нажмите значок ![image](../../_assets/console-icons/chevron-down.svg) → **{{ ui-key.yacloud.logging.label_export }}**.
     1. В открывшемся окне:
+        
         1. Укажите период выгрузки.
         1. Выберите приемник логов.
         1. Укажите имя файла выгрузки.

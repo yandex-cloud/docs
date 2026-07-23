@@ -23,8 +23,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится [L7-балансировщик](../../concepts/application-load-balancer.md).
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится [L7-балансировщик](../../concepts/application-load-balancer.md).
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. Выберите L7-балансировщик.
   1. На странице **Обзор** в блоке **Размещение** нажмите кнопку **Настроить блокировку зон**.
   1. Включите блокировку для одной или нескольких зон.
@@ -102,7 +102,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится балансировщик.
-  1. Перейдите в сервис **Application Load Balancer** и выберите нужный балансировщик.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer** и выберите нужный балансировщик.
   1. В блоке **Размещение** напротив зоны доступности посмотрите ее статус.
 
       Если была задана длительность блокировки, рядом с зоной будет указано время, до которого она заблокирована.
@@ -121,8 +121,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится [L7-балансировщик](../../concepts/application-load-balancer.md).
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится [L7-балансировщик](../../concepts/application-load-balancer.md).
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. Выберите L7-балансировщик.
   1. На странице **Обзор** в блоке **Размещение** нажмите кнопку **Настроить блокировку зон**.
   1. Отключите блокировку зон доступности.

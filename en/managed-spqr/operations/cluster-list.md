@@ -110,7 +110,7 @@ You can get detailed information about each {{ mspqr-short-name }} cluster you c
   yc managed-sharded-postgresql cluster get <cluster_name_or_ID>
   ```
 
-  You can get the cluster ID and name with the [list of clusters in the folder](#list-clusters).
+  {% include [cluster-name-id](../../_includes/managed-spqr/cluster-name-id.md) %}
 
 - REST API {#api}
 
@@ -127,9 +127,9 @@ You can get detailed information about each {{ mspqr-short-name }} cluster you c
        --url 'https://{{ api-host-mdb }}/managed-spqr/v1/clusters/<cluster_ID>'
      ```
 
-     You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
+     {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
 
-  1. Check the [server response](../api-ref/Cluster/get.md#yandex.cloud.mdb.spqr.v1.Cluster) to make sure your request was successful.
+  1. View the [server response](../api-ref/Cluster/get.md#yandex.cloud.mdb.spqr.v1.Cluster) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -154,7 +154,7 @@ You can get detailed information about each {{ mspqr-short-name }} cluster you c
        yandex.cloud.mdb.spqr.v1.ClusterService.Get
      ```
 
-     You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
+     {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
 
   1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.spqr.v1.Cluster) to make sure your request was successful.
 
@@ -205,7 +205,7 @@ All actions with {{ mspqr-name }} clusters are logged as a list of operations. E
   +----------------------+---------------------+----------------------+---------------------+---- ---+--------------------------------+
   ```
 
-  You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
+  {% include [cluster-name-id](../../_includes/managed-spqr/cluster-name-id.md) %}
 
   By default, information about operations is output as text. To get more details, use `--format` to specify the `yaml` or `json` output format:
 
@@ -248,9 +248,9 @@ All actions with {{ mspqr-name }} clusters are logged as a list of operations. E
        --url 'https://{{ api-host-mdb }}/managed-spqr/v1/clusters/<cluster_ID>/operations'
      ```
 
-     You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
+     {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
 
-  1. Check the [server response](../api-ref/Cluster/listOperations.md#yandex.cloud.mdb.spqr.v1.ListClusterOperationsResponse) to make sure your request was successful.
+  1. View the [server response](../api-ref/Cluster/listOperations.md#yandex.cloud.mdb.spqr.v1.ListClusterOperationsResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -275,7 +275,7 @@ All actions with {{ mspqr-name }} clusters are logged as a list of operations. E
        yandex.cloud.mdb.spqr.v1.ClusterService.ListOperations
      ```
 
-     You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
+     {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
 
   1. Check the [server response](../api-ref/grpc/Cluster/listOperations.md#yandex.cloud.mdb.spqr.v1.ListClusterOperationsResponse) to make sure your request was successful.
 
@@ -297,7 +297,7 @@ All actions with {{ mspqr-name }} clusters are logged as a list of operations. E
     yc operation get <operation_ID>
     ```
 
-    You can get the operation ID with the [list of operations](#get-operations) for the cluster.
+    {% include [cluster-operations](../../_includes/managed-spqr/cluster-operations.md) %}
 
     Here is an example of an output for the completed cluster creation operation:
 
@@ -331,7 +331,7 @@ All actions with {{ mspqr-name }} clusters are logged as a list of operations. E
             --url 'https://{{ api-host-operation }}/operations/<operation_ID>'
         ```
 
-        You can get the operation ID with the [list of operations](#get-operations) for the cluster.
+        {% include [cluster-operations](../../_includes/managed-spqr/cluster-operations.md) %}
 
     1. Check the [server response](../api-ref/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -358,7 +358,7 @@ All actions with {{ mspqr-name }} clusters are logged as a list of operations. E
             yandex.cloud.operation.OperationService.Get
         ```
 
-        You can get the operation ID with the [list of operations](#get-operations) for the cluster.
+        {% include [cluster-operations](../../_includes/managed-spqr/cluster-operations.md) %}
 
     1. Check the [server response](../api-ref/grpc/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

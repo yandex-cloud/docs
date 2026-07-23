@@ -57,7 +57,13 @@ Syntax:
 
   - [yc cloud-registry registry lifecycle-policy get](lifecycle-policy/get.md) — Returns the specified lifecycle policy.
 
+  - [yc cloud-registry registry lifecycle-policy get-dry-run-result](lifecycle-policy/get-dry-run-result.md) — Returns one dry run result by its ID.
+
   - [yc cloud-registry registry lifecycle-policy list](lifecycle-policy/list.md) — Retrieves the list of lifecycle policies in the specified registry.
+
+  - [yc cloud-registry registry lifecycle-policy list-dry-run-artifacts](lifecycle-policy/list-dry-run-artifacts.md) — Returns the list of artifacts that the dry run would delete.
+
+  - [yc cloud-registry registry lifecycle-policy list-dry-run-results](lifecycle-policy/list-dry-run-results.md) — Returns the list of dry run results of one lifecycle policy.
 
   - [yc cloud-registry registry lifecycle-policy update](lifecycle-policy/update.md) — Update the specified lifecycle policy.
 

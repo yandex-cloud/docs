@@ -1,11 +1,11 @@
 ---
-title: Managing scan results in {{ dspm-name }}
+title: Managing regular scan results in {{ dspm-name }}
 description: Follow this guide to learn about the operations you can perform with scan results in {{ sd-full-name }}'s {{ dspm-name }} module.
 ---
 
-# Managing scan results in {{ dspm-name }}
+# Managing regular scan results in {{ dspm-name }}
 
-Once the [scan](../../concepts/dspm.md#scanning) is complete, you can do the following with the results:
+Once a [regular scan](../../concepts/dspm.md#scanning) is complete, you can perform the following operations with its results using Interface v1.0:
 
 * [View](#view)
 * [Download](#download)
@@ -17,10 +17,10 @@ Once the [scan](../../concepts/dspm.md#scanning) is complete, you can do the fol
 
 {% list tabs group=instructions %}
 
-- {{ sd-name }} UI {#cloud-sd}
+- Interface v1.0 {#cloud-sd-v1}
 
   1. Go to [{{ sd-full-name }}]({{ link-sd-main }}).
-  1. In the left-hand panel, select ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud_org.security-center.label_dspm }}** and go to the **{{ ui-key.yacloud_org.security-center.dspm.title_scans }}** tab.
+  1. On the **{{ ui-key.yacloud_org.security-center.dspm.label_dspm }}** page, select `{{ ui-key.yacloud_org.security.dspm.DspmPageLayout.title_prefix_iWUEX }}{{ ui-key.yacloud_org.security.dspm.DspmPageLayout.title_dspm_xm8pa }}` and navigate to the **{{ ui-key.yacloud_org.security-center.dspm.title_scans }}** tab.
   1. Select a scan.
   1. Sensitive data found during the scan, if any, will be displayed on the **{{ ui-key.yacloud_org.security-center.dspm.scan_results-title }}** tab. The information about each detected object is presented in the following columns:
 
@@ -46,10 +46,10 @@ The file can contain a maximum of 10,000 sensitive data records. To export a lar
 
 {% list tabs group=instructions %}
 
-- {{ sd-name }} UI {#cloud-sd}
+- Interface v1.0 {#cloud-sd-v1}
 
   1. Go to [{{ sd-full-name }}]({{ link-sd-main }}).
-  1. In the left-hand panel, select ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud_org.security-center.label_dspm }}** and go to the **{{ ui-key.yacloud_org.security-center.dspm.title_scans }}** tab.
+  1. On the **{{ ui-key.yacloud_org.security-center.dspm.label_dspm }}** page, select `{{ ui-key.yacloud_org.security.dspm.DspmPageLayout.title_prefix_iWUEX }}{{ ui-key.yacloud_org.security.dspm.DspmPageLayout.title_dspm_xm8pa }}` and navigate to the **{{ ui-key.yacloud_org.security-center.dspm.title_scans }}** tab.
   1. To the right of the scan, click ![image](../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../_assets/console-icons/arrow-shape-down-to-line.svg) **{{ ui-key.yacloud_org.dspm.scan.action_download-results }}**.
 
      Alternatively, go to the scan page, click **{{ ui-key.yacloud_org.common.more }}** ![image](../../../_assets/console-icons/chevron-down.svg), and select ![image](../../../_assets/console-icons/arrow-shape-down-to-line.svg) **{{ ui-key.yacloud_org.dspm.scan.action_download-results }}**.
@@ -65,11 +65,11 @@ When exporting, the file with scan results is saved to the bucket you select.
 
 {% list tabs group=instructions %}
 
-- {{ sd-name }} UI {#cloud-sd}
+- Interface v1.0 {#cloud-sd-v1}
 
   1. Go to [{{ sd-full-name }}]({{ link-sd-main }}).
-  1. In the left-hand panel, select ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud_org.security-center.label_dspm }}** and go to the **{{ ui-key.yacloud_org.security-center.dspm.title_scans }}** tab.
-  1. Click ![image](../../../_assets/console-icons/ellipsis.svg) to the right of the scan and select ![image](../../../_assets/console-icons/folder-arrow-up-in.svg) **{{ ui-key.yacloud_org.dspm.scan.action_export-results }}**.
+  1. On the **{{ ui-key.yacloud_org.security-center.dspm.label_dspm }}** page, select `{{ ui-key.yacloud_org.security.dspm.DspmPageLayout.title_prefix_iWUEX }}{{ ui-key.yacloud_org.security.dspm.DspmPageLayout.title_dspm_xm8pa }}` and navigate to the **{{ ui-key.yacloud_org.security-center.dspm.title_scans }}** tab.
+  1. To the right of the scan, click ![image](../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../_assets/console-icons/folder-arrow-up-in.svg) **{{ ui-key.yacloud_org.dspm.scan.action_export-results }}**.
 
      Alternatively, go to the scan page, click **{{ ui-key.yacloud_org.common.more }}** ![image](../../../_assets/console-icons/chevron-down.svg), and select ![image](../../../_assets/console-icons/folder-arrow-up-in.svg) **{{ ui-key.yacloud_org.dspm.scan.action_export-results }}**.
 
@@ -93,10 +93,10 @@ When exporting, the file with scan results is saved to the bucket you select.
 
 {% list tabs group=instructions %}
 
-- {{ sd-name }} UI {#cloud-sd}
+- Interface v1.0 {#cloud-sd-v1}
 
   1. Go to [{{ sd-full-name }}]({{ link-sd-main }}).
-  1. In the left-hand panel, select ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud_org.security-center.label_dspm }}** and go to the **{{ ui-key.yacloud_org.security-center.dspm.title_scans }}** tab.
+  1. On the **{{ ui-key.yacloud_org.security-center.dspm.label_dspm }}** page, select `{{ ui-key.yacloud_org.security.dspm.DspmPageLayout.title_prefix_iWUEX }}{{ ui-key.yacloud_org.security.dspm.DspmPageLayout.title_dspm_xm8pa }}` and navigate to the **{{ ui-key.yacloud_org.security-center.dspm.title_scans }}** tab.
   1. Select the scan and navigate to the **{{ ui-key.yacloud_org.security-center.dspm.scan-issues-title }}** tab.
 
      You can also view information about scan errors by selecting ![alerts](../../../_assets/security-deck/alerts.svg) **{{ ui-key.yacloud_org.security-center.label_alerts }}** in the left-hand panel.
@@ -109,10 +109,10 @@ When exporting, the file with scan results is saved to the bucket you select.
 
 {% list tabs group=instructions %}
 
-- {{ sd-name }} UI {#cloud-sd}
+- Interface v1.0 {#cloud-sd-v1}
 
   1. Go to [{{ sd-full-name }}]({{ link-sd-main }}).
-  1. In the left-hand panel, select ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud_org.security-center.label_dspm }}** and go to the **{{ ui-key.yacloud_org.security-center.dspm.title_scans }}** tab.
+  1. On the **{{ ui-key.yacloud_org.security-center.dspm.label_dspm }}** page, select `{{ ui-key.yacloud_org.security.dspm.DspmPageLayout.title_prefix_iWUEX }}{{ ui-key.yacloud_org.security.dspm.DspmPageLayout.title_dspm_xm8pa }}` and navigate to the **{{ ui-key.yacloud_org.security-center.dspm.title_scans }}** tab.
   1. To the right of the scan, click ![image](../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
 
      Alternatively, go to the scan page, click **{{ ui-key.yacloud_org.common.more }}** ![image](../../../_assets/console-icons/chevron-down.svg), and select ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.

@@ -7,15 +7,51 @@ description: '{{ dspm-full-name }}, or {{ dspm-name }}, is a {{ sd-name }} modul
 
 [{{ dspm-full-name }}]({{ link-sd-main }}dspm/), or {{ dspm-name }}, is a tool that helps you quickly detect sensitive information stored in {{ objstorage-full-name }} [buckets](../../storage/concepts/bucket.md) and {{ yandex-360 }} disks for timely action to protect it through [access policies](../../storage/concepts/policy.md), anonymization, etc.
 
+{{ dspm-name }} has two operating modes: [continuous update scanning](#change-scaning) based on [data analysis](#discovery-mode) and [regular scanning](#scanning). The management console provides a separate interface to manage each mode.
+
+
 ## Data analysis {#discovery-mode}
 
-{% include [analysis-preview-mode](../../_includes/security-deck/analysis-preview-mode.md) %}
+{% include [note-interface-v2](../../_includes/security-deck/note-interface-v2.md) %}
 
-{% include [about-discovery](../../_includes/security-deck/about-discovery.md) %}
+The first stage of {{ dspm-name }} is *data analysis*. This step automatically detects, identifies, and catalogs resources that may contain sensitive data within a selected [environment](workspace.md). 
 
-## Scanning for sensitive information {#scanning}
+The analysis starts automatically once you enable DSPM when creating or modifying an environment.
 
-{{ dspm-name }} scans _data sources_ for sensitive information in buckets. You can run a scan once or on a schedule.
+The analysis results provide a complete view of data locations across your cloud. Using this information, you can accurately define and add key *scan scopes* for continuous monitoring.
+
+You can [save](../operations/dspm/discovery-mode.md#save-results) the data analysis results to a local file or to a {{ objstorage-full-name }} [bucket](../../storage/concepts/bucket.md).
+
+
+## Continuous scanning of changes {#change-scaning}
+
+{% include [note-interface-v2](../../_includes/security-deck/note-interface-v2.md) %}
+
+To start scanning, you need to create a scan scope. A scan scope may include multiple resource groups. For each group, you can choose to scan either all environment resources or select specific targets:
+* [Clouds](../../resource-manager/concepts/resources-hierarchy.md#cloud) in {{ yandex-cloud }}.
+* {{ yandex-cloud }} folders.
+* {{ objstorage-name }} buckets.
+
+Optionally, you can configure filters for files within each group:
+
+* Select formats.
+* Set minimum and maximum size limits.
+* Define a regular expression to target a specific path. 
+
+Additionally, you can select [data categories](#data-categories) for separate searches in text and images.
+
+Once a scan scope is created, {{ dspm-name }} continuously monitors it for new or modified sensitive data, providing ongoing protection.
+
+When you run DSPM for the first time, it performs a full scan of all data stored inside the environment buckets. This may take a while since the scan targets all your data.
+
+Following this initial scan, the module scans only modified or new files. This reduces scanning times and resource usage.
+
+
+## Regular scanning {#scanning}
+
+{% include [note-interface-v1](../../_includes/security-deck/note-interface-v1.md) %}
+
+{{ dspm-name }} detects sensitive information in buckets and disks by scanning _data sources_. You can run a scan once or on a schedule.
 
 To run scans for sensitive information, use a [service account](../../iam/concepts/users/service-accounts.md).
 
@@ -43,7 +79,7 @@ You can set the following scan scopes for a data source:
 
 You can add multiple buckets, folders, and/or clouds as well as create multiple resource groups with different scan scope settings in a single data source at once. You can also add a bucket to multiple data sources with different scan scope settings at the same time.
 
-### Data categories {#data-categories}
+## Data categories {#data-categories}
 
 When creating a new scan, you can select data categories separately for text and images.
 

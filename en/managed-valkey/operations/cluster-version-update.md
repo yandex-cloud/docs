@@ -14,19 +14,51 @@ All {{ VLK }} versions supported in {{ mrd-name }} remain available as long as t
 
 - Management console {#console}
 
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-    1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
-    1. Open the list in the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field.
+    In the [management console]({{ link-console-main }}), open the {{ mrd-name }} cluster [create](cluster-create.md) or [update](update.md) page. You can view the list in the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field.
 
-    {% note info %}
+- REST API {#api}
 
-    To specify a version number in the CLI, {{ TF }}, and the API, add the `-valkey` suffix to it, e.g., `{{ versions.cli.previous }}`.
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
-    {% endnote %}
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Call the [Versions.List](../api-ref/Versions/list.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-redis/v1/versions'
+        ```
+
+    1. Check the [server response](../api-ref/Versions/list.md#responses) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Call the [VersionsService.List](../api-ref/grpc/Versions/list.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/redis/v1/versions_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.redis.v1.VersionsService.List
+        ```
+
+    1. Check the [server response](../api-ref/grpc/Versions/list.md#yandex.cloud.mdb.redis.v1.ListVersionsResponse) to make sure your request was successful.
 
 {% endlist %}
 
-## Before upgrading a version {#before-update}
+## Before a version upgrade {#before-update}
 
 Make sure the upgrade will not disrupt your applications:
 
@@ -40,6 +72,12 @@ Make sure the upgrade will not disrupt your applications:
 
 * After the DBMS upgrade, you cannot revert the cluster to the previous version.
 * Whether a {{ VLK }} version upgrade succeeds depends on multiple factors, including your cluster’s configuration and the nature of the stored data. We recommend that you start with [upgrading a test cluster](#before-update) with the same data and configuration.
+
+{% endnote %}
+
+{% note info %}
+
+To specify a version number in the CLI, {{ TF }}, and the API, add the `-valkey` suffix to it, e.g., `{{ versions.cli.previous }}`.
 
 {% endnote %}
 

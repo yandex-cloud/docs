@@ -27,6 +27,8 @@ items:
             href: operations/host-migration.md
           - name: Управление резервными копиями
             href: operations/cluster-backups.md
+          - name: Управление политиками резервного копирования
+            href: operations/backup-retention-policies.md
           - name: Управление доступом к кластеру
             href: operations/cluster-access.md
           - name: Удаление кластера
@@ -465,6 +467,16 @@ items:
                 href: api-ref/grpc/Cluster/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/grpc/Cluster/updateAccessBindings.md
+          - name: Maintenance
+            items:
+              - name: Overview
+                href: api-ref/grpc/Maintenance/index.md
+              - name: List
+                href: api-ref/grpc/Maintenance/list.md
+              - name: Get
+                href: api-ref/grpc/Maintenance/get.md
+              - name: Reschedule
+                href: api-ref/grpc/Maintenance/reschedule.md
           - name: Operation
             items:
               - name: Overview
@@ -591,6 +603,16 @@ items:
                 href: api-ref/Cluster/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/Cluster/updateAccessBindings.md
+          - name: Maintenance
+            items:
+              - name: Overview
+                href: api-ref/Maintenance/index.md
+              - name: List
+                href: api-ref/Maintenance/list.md
+              - name: Get
+                href: api-ref/Maintenance/get.md
+              - name: Reschedule
+                href: api-ref/Maintenance/reschedule.md
           - name: Operation
             items:
               - name: Overview

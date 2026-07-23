@@ -480,12 +480,12 @@ For more information about storage and autoscaling, see the [relevant section](.
 
       * In the **{{ ui-key.yacloud.mdb.resources.DiskAutoscalingFieldGroup.field_autoscaling_fsAon }}** field, set the conditions for automatic storage expansion:
 
-          * Storage usage percentage to trigger storage expansion during the next [maintenance window](../concepts/maintenance.md#maintenance-window).
+          * Storage usage percentage to trigger its expansion during the next [maintenance window](../concepts/maintenance.md#maintenance-window).
           * Storage usage percentage to trigger its immediate expansion.
 
-          If both conditions are set, the percentage in the first condition must be lower than in the second one.
+          If both conditions are set, the percentage in the first condition must be lower than the percentage in the second.
 
-          For more information on the storage expansion criteria, see [this section](../concepts/storage.md#auto-rescale).
+          Learn more about the storage expansion criteria [here](../concepts/storage.md#auto-rescale).
 
       * In the **{{ ui-key.yacloud.mdb.resources.DiskAutoscalingFieldGroup.field_disk-size-limit_bK9Ng }}** field, specify the maximum storage size that can be set during autoscaling.
 
@@ -524,7 +524,7 @@ For more information about storage and autoscaling, see the [relevant section](.
 
       Where:
 
-      * `<host_type>`: [Host type](../concepts/host-roles.md) to configure a storage for. The possible values are `mongod`, `mongocfg`, `mongos`, and `mongoinfra`.
+      * `<host_type>`: [Host type](../concepts/host-roles.md) whose storage you want to configure. The possible values are `mongod`, `mongocfg`, `mongos`, and `mongoinfra`.
 
       * `<host_type>-planned-usage-threshold`: Storage usage percentage to trigger a storage expansion during the next [maintenance window](../concepts/maintenance.md#maintenance-window).
 
@@ -553,7 +553,7 @@ For more information about storage and autoscaling, see the [relevant section](.
 
       To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-  1. Add or modify the section with settings for the relevant host type in the {{ mmg-name }} cluster description.
+  1. Add or modify the section with settings for the required host type in the description of the {{ mmg-name }} cluster.
 
      Type of host | Section name
      --- | ---
@@ -583,7 +583,7 @@ For more information about storage and autoscaling, see the [relevant section](.
 
         Use a value between `0` and `100`%. The default value is `0`, i.e., automatic expansion is disabled.
 
-        If you set this condition, [configure](#change-additional-settings) the maintenance schedule.
+        If you have set this condition, [configure](#change-additional-settings) the maintenance schedule.
 
       * `emergency_usage_threshold` (optional): Storage usage percentage to trigger an immediate storage expansion.
 
@@ -646,15 +646,15 @@ For more information about storage and autoscaling, see the [relevant section](.
 
       * `updateMask`: Comma-separated string of settings to update.
 
-      * `<host_type>`: [Host type](../concepts/host-roles.md) to configure a storage for. The possible values are `mongod`, `mongocfg`, `mongos`, and `mongoinfra`.
+      * `<host_type>`: [Host type](../concepts/host-roles.md) whose storage you want to configure. The possible values are `mongod`, `mongocfg`, `mongos`, and `mongoinfra`.
       
-      * `configSpec.mongodb.<host_type>.diskSizeAutoscaling`: Settings for automatic storage expansion.
+      * `configSpec.mongodb.<host_type>.diskSizeAutoscaling`: Parameters for automatic storage size expansion.
 
         * `plannedUsageThreshold`: Storage usage percentage to trigger a storage expansion during the next [maintenance window](../concepts/maintenance.md#maintenance-window).
 
           Use a value between `0` and `100`%. The default value is `0`, i.e., automatic expansion is disabled.
 
-          If you set this condition, [configure](#change-additional-settings) the maintenance schedule.
+          If you have set this condition, [configure](#change-additional-settings) the maintenance schedule.
 
         * `emergencyUsageThreshold`: Storage usage percentage to trigger an immediate storage expansion.
 
@@ -717,15 +717,15 @@ For more information about storage and autoscaling, see the [relevant section](.
 
       * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
-      * `<host_type>`: [Host type](../concepts/host-roles.md) to configure a storage for. The possible values are `mongod`, `mongocfg`, `mongos`, and `mongoinfra`.
+      * `<host_type>`: [Host type](../concepts/host-roles.md) whose storage you want to configure. The possible values are `mongod`, `mongocfg`, `mongos`, and `mongoinfra`.
 
-      * `config_spec.mongodb.<host_type>.disk_size_autoscaling`: Settings for automatic storage expansion.
+      * `config_spec.mongodb.<host_type>.disk_size_autoscaling`: Parameters for automatic storage size expansion.
 
         * `planned_usage_threshold`: Storage usage percentage to trigger a storage expansion during the next [maintenance window](../concepts/maintenance.md#maintenance-window).
 
           Use a value between `0` and `100`%. The default value is `0`, i.e., automatic expansion is disabled.
 
-          If you set this condition, [configure](#change-additional-settings) the maintenance schedule.
+          If you have set this condition, [configure](#change-additional-settings) the maintenance schedule.
 
         * `emergency_usage_threshold`: Storage usage percentage to trigger an immediate storage expansion.
 
@@ -923,7 +923,7 @@ You can change the DBMS settings for your cluster hosts.
           --backup-window-start <backup_start_time> \
           --maintenance-window type=<maintenance_type>,`
                                `day=<day_of_week>,`
-                               `hour=<hour> \
+                               `hour=<sequence_number_of_hour_interval> \
           --performance-diagnostics=<enable_diagnostics> \
           --deletion-protection
         ```
@@ -1035,7 +1035,7 @@ You can change the DBMS settings for your cluster hosts.
         "maintenanceWindow": {
           "weeklyMaintenanceWindow": {
             "day": "<day_of_week>",
-            "hour": "<hour>"
+            "hour": "<sequence_number_of_hour_interval>"
           }
         },    
         "deletionProtection": <protect_cluster_from_deletion>
@@ -1067,8 +1067,10 @@ You can change the DBMS settings for your cluster hosts.
         * `anytime`: Maintenance takes place at any time.
         * `weeklyMaintenanceWindow`: Maintenance takes place once a week at the specified time:
 
-          * `day`: Day of the week, in `DDD` format.
-          * `hour`: Hour of the day, in `HH` format. Allowed values range from `1` to `24` hours.
+          * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+          * `hour`: UTC hour interval, from `1` to `24`.
+
+            > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
       * `deletionProtection`: Cluster deletion protection, `true` or `false`.
 
@@ -1128,7 +1130,7 @@ You can change the DBMS settings for your cluster hosts.
         "maintenance_window": {
           "weekly_maintenance_window": {
             "day": "<day_of_week>",
-            "hour": "<hour>"
+            "hour": "<sequence_number_of_hour_interval>"
           }
         },
         "deletion_protection": <protect_cluster_from_deletion>
@@ -1161,8 +1163,10 @@ You can change the DBMS settings for your cluster hosts.
         * `anytime`: Maintenance takes place at any time.
         * `weekly_maintenance_window`: Maintenance takes place once a week at the specified time:
 
-          * `day`: Day of the week, in `DDD` format.
-          * `hour`: Hour of the day, in `HH` format. Allowed values range from `1` to `24` hours.
+          * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+          * `hour`: UTC hour interval, from `1` to `24`.
+
+            > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
       * `deletion_protection`: Cluster deletion protection, `true` or `false`.
 

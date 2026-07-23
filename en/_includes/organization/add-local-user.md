@@ -14,6 +14,7 @@
   
       The user must change this password on their first login to {{ yandex-cloud }}.
   1. Enable **{{ ui-key.yacloud_org.organization.userpools.field_active }}** if you need to activate the user immediately upon adding them. Activated users gain access to the organization resources.
+  1. Optionally, in the **Deactivation date** field, specify the date for the account to be automatically blocked. If no date is set, the account will be valid indefinitely. You can update or remove this date later.
   1. Optionally, expand the **{{ ui-key.yacloud_org.organization.userpools.title_personal-info }}** section and specify the user's first name, last name, and phone number.
   1. Optionally, expand the **Organizational information** section, and specify the user’s company name, department, job title, and employee ID.
   1. Click **{{ ui-key.yacloud_org.organization.userpools.action_create-user }}**.
@@ -41,7 +42,8 @@
        --family-name <last_name> \
        --email <email_address> \
        --phone-number <phone_number> \
-       --password <password>
+       --password <password> \
+       --is-active <user_activation>
      ```
 
      Where:
@@ -54,6 +56,7 @@
      * `--email`: User email. This is an optional setting.
      * `--phone-number`: User phone number. This is an optional setting.
      * `--password`: Password. This is an optional setting. If no password is set, it will be generated automatically. The user must change this password on their first login to {{ yandex-cloud }}.
+     * `--is-active`: User activation. This is an optional setting. Activated users gain access to the organization resources.
 
 - {{ TF }} {#tf}
 

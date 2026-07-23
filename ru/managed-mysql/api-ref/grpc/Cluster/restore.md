@@ -371,7 +371,8 @@ See [the documentation](/docs/managed-mysql/concepts/backup) for details.
     }
     // end of the list of possible fields
   },
-  "disk_encryption_key_id": "google.protobuf.StringValue"
+  "disk_encryption_key_id": "google.protobuf.StringValue",
+  "source_cluster_id": "string"
 }
 ```
 
@@ -439,6 +440,13 @@ Window of maintenance operations. ||
 || disk_encryption_key_id | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
 
 ID of the key to encrypt cluster disks. ||
+|| source_cluster_id | **string**
+
+ID of the source cluster to restore from.
+The latest backup suitable for `time` will be used for restore.
+`time` is required. Cannot be used together with `backup_id`.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## ConfigSpec {#yandex.cloud.mdb.mysql.v1.ConfigSpec}

@@ -547,6 +547,8 @@ Create a [registry](../../container-registry/concepts/registry.md) in {{ contain
 
           The current user’s profile stores the settings.
 
+          {% include [credential-helper](../../_includes/credential-helper.md) %}
+
       1. Check that the `${HOME}/.docker/config.json` file includes the following line:
 
           ```json
@@ -659,7 +661,7 @@ To run your application in {{ yandex-cloud }}, create a [container](../../server
         --environment ME_CONFIG_MONGODB_SERVER=<VM_public_address> \
         --secret environment-variable=ME_CONFIG_MONGODB_AUTH_USERNAME,key=login,id=<secret_ID> \
         --secret environment-variable=ME_CONFIG_MONGODB_AUTH_PASSWORD,key=password,id=<secret_ID> \
-        --service-account-id <mongo_express_service_account_ID> \
+        --service-account-id <mongo-express_service_account_ID> \
         --network-id <network_ID> \
         --execution-timeout 15s \
         --concurrency 1

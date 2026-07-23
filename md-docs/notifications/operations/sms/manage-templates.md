@@ -13,7 +13,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы хотите создать шаблон.
-  1. Перейдите в сервис **Cloud Notification Service**.
+  1. [Перейдите](https://console.yandex.cloud/link/cns) в сервис **Cloud Notification Service**.
   1. На панели слева выберите ![route](../../../_assets/console-icons/route.svg) **Каналы уведомлений** и выберите канал с [индивидуальным отправителем](../../concepts/sms.md#individual-sender), в котором вы хотите создать шаблон.
   1. В меню слева выберите ![square-chart-bar](../../../_assets/console-icons/square-chart-bar.svg) **Шаблоны** и нажмите кнопку **Создать шаблон**. В открывшемся окне:
 
@@ -53,7 +53,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится шаблон.
-  1. Перейдите в сервис **Cloud Notification Service**.
+  1. [Перейдите](https://console.yandex.cloud/link/cns) в сервис **Cloud Notification Service**.
   1. На панели слева выберите ![route](../../../_assets/console-icons/route.svg) **Каналы уведомлений** и выберите канал с [индивидуальным отправителем](../../concepts/sms.md#individual-sender), в котором вы хотите удалить шаблон.
   1. В меню слева выберите ![square-chart-bar](../../../_assets/console-icons/square-chart-bar.svg) **Шаблоны**.
   1. В строке с нужным шаблоном нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите **Дерегистрировать**.
@@ -72,7 +72,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится шаблон.
-  1. Перейдите в сервис **Cloud Notification Service**.
+  1. [Перейдите](https://console.yandex.cloud/link/cns) в сервис **Cloud Notification Service**.
   1. На панели слева выберите ![route](../../../_assets/console-icons/route.svg) **Каналы уведомлений** и выберите канал с [индивидуальным отправителем](../../concepts/sms.md#individual-sender), в котором вы хотите удалить шаблон.
   1. В меню слева выберите ![square-chart-bar](../../../_assets/console-icons/square-chart-bar.svg) **Шаблоны**.
   1. В строке с нужным шаблоном нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.

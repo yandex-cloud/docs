@@ -1,6 +1,6 @@
 # Viewing {{ SPQR }} cluster logs
 
-{{ mspqr-name }} allows you to [get a cluster log snippet](#get-log) for the selected time period and [view logs in real time](#get-log-stream).
+{{ mspqr-name }} allows you to [get a cluster log snippet](#get-log) for a selected time period and [view logs in real time](#get-log-stream).
 
 {% include [log-duration](../../_includes/mdb/log-duration.md) %}
 
@@ -12,7 +12,7 @@
 
     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
     1. Click the name of your cluster and select the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.postgresql.cluster.switch_logs }}** tab.
-    1. Specify a time period for the log entries you want to view: enter it manually or select in the calendar using the date input field.
+    1. Specify a time period for the log entries you want to view by entering it manually or selecting it in the calendar using the date input field.
     1. Optionally, add log filters in the row with the date input field:
        1. Select the `INFRA`, `ROUTER`, or `COORDINATOR` service type.
        1. Specify the hosts.
@@ -53,12 +53,14 @@
         * `--columns`: List of output columns:
             * `hostname`: Host name.
             * `severity`: Logging level, e.g., `info`.
-            * `message`: Component’s log message.
+            * `message`: Message output by the component.
             * `contextual_data`: Additional information.
 
         * {% include [logs filter](../../_includes/cli/logs/filter.md) %}
         * {% include [logs since time](../../_includes/cli/logs/since.md) %}
         * {% include [logs until time](../../_includes/cli/logs/until.md) %}
+
+        {% include [cluster-name-id](../../_includes/managed-spqr/cluster-name-id.md) %}
 
 - REST API {#api}
 
@@ -84,6 +86,7 @@
 
      Where:
 
+     * {% include [cluster-id](../../_includes/managed-spqr/cluster-id.md) %}
      * `serviceType`: Target service type for log retrieval:
 
        * `INFRA`: `INFRA` host operations, which acts as both the router and coordinator.
@@ -94,7 +97,7 @@
 
        * `hostname`: Host name.
        * `severity`: Logging level, e.g., `info`.
-       * `message`: Component’s log message.
+       * `message`: Message output by the component.
        * `contextual_data`: Additional information.
 
        {% include [column-filter-rest](../../_includes/mdb/api/column-filter-rest.md) %}
@@ -135,6 +138,7 @@
 
      Where:
 
+     * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
      * `service_type`: Target service type for log retrieval:
 
        * `INFRA`: `INFRA` host operations, which acts as both the router and coordinator.
@@ -145,7 +149,7 @@
 
        * `hostname`: Host name.
        * `severity`: Logging level, e.g., `info`.
-       * `message`: Component’s log message.
+       * `message`: Message output by the component.
        * `contextual_data`: Additional information.
 
        {% include [column-filter-grpc](../../_includes/mdb/api/column-filter-grpc.md) %}
@@ -179,6 +183,8 @@ This method allows you to stream cluster logs in real time.
 
     Where `--service-type` is the target service type for log retrieval (`infra`, `router`, or `coordinator`).
 
+    {% include [cluster-name-id](../../_includes/managed-spqr/cluster-name-id.md) %}
+
 - REST API {#api}
 
   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
@@ -201,6 +207,7 @@ This method allows you to stream cluster logs in real time.
 
      Where:
 
+     * {% include [cluster-id](../../_includes/managed-spqr/cluster-id.md) %}
      * `serviceType`: Target service type for log retrieval:
 
        * `INFRA`: `INFRA` host operations, which acts as both the router and coordinator.
@@ -211,7 +218,7 @@ This method allows you to stream cluster logs in real time.
 
        * `hostname`: Host name.
        * `severity`: Logging level, e.g., `info`.
-       * `message`: Component’s log message.
+       * `message`: Message output by the component.
        * `contextual_data`: Additional information.
 
        {% include [column-filter-rest](../../_includes/mdb/api/column-filter-rest.md) %}
@@ -249,6 +256,7 @@ This method allows you to stream cluster logs in real time.
 
      Where:
 
+     * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
      * `service_type`: Target service type for log retrieval:
 
        * `INFRA`: `INFRA` host operations, which acts as both the router and coordinator.
@@ -259,7 +267,7 @@ This method allows you to stream cluster logs in real time.
 
        * `hostname`: Host name.
        * `severity`: Logging level, e.g., `info`.
-       * `message`: Component’s log message.
+       * `message`: Message output by the component.
        * `contextual_data`: Additional information.
 
        {% include [column-filter-grpc](../../_includes/mdb/api/column-filter-grpc.md) %}

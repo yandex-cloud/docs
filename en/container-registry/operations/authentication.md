@@ -9,18 +9,18 @@ Before you start using {{ container-registry-name }}, you need to [configure Doc
 * In the **management console**, the minimum required [role](../../iam/concepts/access-control/roles.md) for a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) is `viewer`.
 * In the **Docker CLI** or **{{ managed-k8s-full-name }}**, the minimum required role for a [registry](../concepts/registry.md) or [repository](../concepts/repository.md) is `container-registry.images.puller`.
 
-Assign the required role to the {{ yandex-cloud }} user. Read about [authentication methods](#method) and choose the appropriate one.
+Assign the required role to the {{ yandex-cloud }} user. Read about [authentication methods](#method) and select the one that works best for you.
 
 For more information about roles, see [{#T}](../security/index.md).
 
 
 ## Authentication methods {#method}
 
-You can authenticate:
+You can get authenticated:
 
 * [As a user](#user):
   * Using an OAuth token (with a 12-month lifetime).
-  * Using an IAM token (with a {{ iam-token-lifetime }} lifetime or less).
+  * Using an IAM token (with a lifetime of {{ iam-token-lifetime }} or less).
 
 * [Using a Docker credential helper](#cred-helper).
 
@@ -52,7 +52,7 @@ You can authenticate:
       Where:
       * `<OAuth_token>`: Body of the previously obtained OAuth token.
       * `--username`: Token type. `oauth` means that an OAuth token is used for authentication.
-      * `{{ registry }}`: The endpoint that Docker will access when working with the image registry. If it not specified, the request will be sent to [Docker Hub](https://hub.docker.com) as the default service.
+      * `{{ registry }}`: Endpoint that Docker will access when working with the image registry. If it not specified, the request will be sent to the default service, [Docker Hub](https://hub.docker.com).
 
 - Using an IAM token {#iam-token}
 
@@ -76,19 +76,19 @@ You can authenticate:
       Where:
       * `<IAM_token>`: Body of the previously obtained IAM token.
       * `--username`: Token type. `iam` means that an IAM token is used for authentication.
-      * `{{ registry }}`: The endpoint that Docker will access when working with the image registry. If it not specified, the request will be sent to [Docker Hub](https://hub.docker.com) as the default service.
+      * `{{ registry }}`: Endpoint that Docker will access when working with the image registry. If it not specified, the request will be sent to the default service, [Docker Hub](https://hub.docker.com).
 
 {% endlist %}
 
 When running the command, you may get this error message: `docker login is not supported with yc credential helper`.
 
-In such a case, [disable Docker credential helper](#ch-not-use). For more information, see [Troubleshooting in {{ container-registry-name }}](../error/index.md).
+If this occurs, [disable the Docker credential helper](#ch-not-use). For more information, see [Troubleshooting in {{ container-registry-name }}](../error/index.md).
 
-## Authenticate using a Docker credential helper {#cred-helper}
+## Authenticating with a Docker credential helper {#cred-helper}
 
-The Docker Engine can keep user credentials in an external credentials store. This is more secure than storing credentials in the Docker configuration file. To use a credential store, you need external [Docker credential helper](https://docs.docker.com/engine/reference/commandline/login/#credential-helpers) software.
+Docker Engine can keep user credentials in an external credential store. This is more secure than storing credentials in the Docker configuration file. To use a credential store, you need an external program, [Docker credential helper](https://docs.docker.com/engine/reference/commandline/login/#credential-helpers).
 
-[{{ yandex-cloud }} CLI](../../cli/quickstart.md) uses `docker-credential-yc` as a Docker credential helper for {{ yandex-cloud }}. It stores user credentials and allows you to use private {{ yandex-cloud }} registries without running the `docker login` command.
+The [{{ yandex-cloud }} CLI](../../cli/quickstart.md) provides `docker-credential-yc` as a Docker credential helper for {{ yandex-cloud }}. It stores user credentials and enables you to use private {{ yandex-cloud }} registries without running the `docker login` command.
 
 ### Configuring a credential helper {#ch-setting}
 
@@ -110,25 +110,21 @@ The Docker Engine can keep user credentials in an external credentials store. Th
 
    The current user’s profile stores the settings.
 
-   {% note warning %}
+   {% include [credential-helper](../../_includes/credential-helper.md) %}
 
-   The credential helper only works if you use Docker without `sudo`. To learn how to configure Docker to run under the current user without `sudo`, see the [official documentation](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
+1. Make sure Docker is configured.
 
-   {% endnote %}
-
-1. Make sure that Docker is configured.
-
-   The following line must appear in the `${HOME}/.docker/config.json` configuration file:
+   The `${HOME}/.docker/config.json` configuration file should now contain this line:
 
    ```json
    "{{ registry }}": "yc"
    ```
 
-1. You can now use Docker, for example, to [push Docker images](../operations/docker-image/docker-image-push.md).
+1. You can now use Docker, e.g., to [push Docker images](../operations/docker-image/docker-image-push.md).
 
 ### Additional credential helper features {#ch-feature}
 
-#### Using a credential helper for a different {{ yandex-cloud }} CLI profile {#ch-profile}
+#### Using the credential helper for a different {{ yandex-cloud }} CLI profile {#ch-profile}
 
 You can use the credential helper for another profile, without switching from the current one, by running the following command:
 
@@ -136,8 +132,8 @@ You can use the credential helper for another profile, without switching from th
 yc container registry configure-docker --profile <profile_name>
 ```
 
-For more information about {{ yandex-cloud }} CLI profile management, see the [step-by-step instructions](../../cli/operations/index.md#profile).
+For more information about profile management, see [these {{ yandex-cloud }} CLI step-by-step guides](../../cli/operations/index.md#profile).
 
 #### Disabling a credential helper {#ch-not-use}
 
-To avoid using a credential helper for authentication, edit the `${HOME}/.docker/config.json` configuration file to delete the `{{ registry }}` domain line from the `credHelpers` section.
+To stop using a credential helper for authentication, remove the `{{ registry }}` domain line from `credHelpers` in the `${HOME}/.docker/config.json` configuration file.

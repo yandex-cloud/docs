@@ -15,9 +15,13 @@ A major DBMS version update is not part of maintenance. For more information abo
 
 ## Maintenance window {#maintenance-window}
 
-You can set the maintenance window when [creating a cluster](../operations/cluster-create.md) or [updating its settings](../operations/update.md):
+You can set your preferred maintenance start time using the {{ yandex-cloud }} interfaces ([management console]({{ link-console-main }}), [CLI](../../cli/index.yaml), {{ TF }}, and API) when [creating](../operations/cluster-create.md) or [updating a cluster](../operations/update.md#change-additional-settings):
 
 {% include [Maintenance window](../../_includes/mdb/maintenance-window.md) %}
+
+In the management console, you select the maintenance start time as an hour interval. In other interfaces, you specify this interval by its sequence number, from `1` to `24`.
+
+> For example, to start maintenance in the interval from `00:00` to `01:00`, put `1`; from `04:00` to `05:00`, `5`.
 
 {% note info %}
 

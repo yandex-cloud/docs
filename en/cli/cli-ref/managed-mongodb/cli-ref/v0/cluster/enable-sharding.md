@@ -46,7 +46,9 @@ Possible property names:
 
 - `priority`: Set priority parameter to the host being added
 
-- `tags`: Set tags parameter to the host being added ||
+- `tags`: Set tags parameter to the host being added
+
+- `votes`: Set votes parameter to the host being added ||
 || `--mongocfg` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
 
 Configurations for Mongocfg hosts.

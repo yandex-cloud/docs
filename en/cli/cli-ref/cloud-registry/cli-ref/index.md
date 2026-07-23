@@ -85,8 +85,6 @@ Aliases:
 
   - [yc cloud-registry v0 configure-docker](v0/configure-docker.md) — 
 
-  - [yc cloud-registry v0 tools](v0/tools.md) — Tools for specific artifact kinds
-
 - [yc cloud-registry v1](v1/index.md) — Manage Cloud Registry resources
 
   - [yc cloud-registry v1 configure-docker](v1/configure-docker.md) — Configure the Docker credential helper for Cloud Registry.

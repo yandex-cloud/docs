@@ -1413,7 +1413,11 @@ Updates the specified MongoDB cluster.
           "audit_log": {
             "filter": "string"
           },
-          "chunk_size": "google.protobuf.Int64Value"
+          "chunk_size": "google.protobuf.Int64Value",
+          "operation_profiling": {
+            "slow_op_threshold": "google.protobuf.Int64Value",
+            "slow_op_sample_rate": "google.protobuf.DoubleValue"
+          }
         },
         "resources": {
           "resource_preset_id": "string",
@@ -1455,7 +1459,11 @@ Updates the specified MongoDB cluster.
           "audit_log": {
             "filter": "string"
           },
-          "chunk_size": "google.protobuf.Int64Value"
+          "chunk_size": "google.protobuf.Int64Value",
+          "operation_profiling": {
+            "slow_op_threshold": "google.protobuf.Int64Value",
+            "slow_op_sample_rate": "google.protobuf.DoubleValue"
+          }
         },
         "config_mongocfg": {
           "storage": {
@@ -5532,6 +5540,9 @@ Network settings for mongos. ||
 || chunk_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 `ChunkSize` parameter of mongos configuration. ||
+|| operation_profiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.OperationProfiling)**
+
+`OperationProfiling` section of mongos configuration. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.Network}
@@ -5627,6 +5638,26 @@ https://mongo-db.ru/reference/configuration-options/index.html#mongodb-setting-s
 || filter | **string**
 
 Audit filter, should be valid JSON object string ||
+|#
+
+## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.OperationProfiling}
+
+#|
+||Field | Description ||
+|| slow_op_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The slow operation time threshold, in milliseconds. Operations that run
+for longer than this threshold are considered slow, and are written to the
+diagnostic (slow query) log. mongos has no profiler, so only the diagnostic
+log is affected.
+
+Value must be greater than 0. ||
+|| slow_op_sample_rate | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+
+The fraction of slow operations that should be logged.
+operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+
+Acceptable values are 0 to 1, inclusive. ||
 |#
 
 ## MongoInfra {#yandex.cloud.mdb.mongodb.v1.MongodbSpec.MongoInfra}

@@ -1,6 +1,5 @@
 # Ephemeral access keys compatible with AWS APIs
 
-
 Ephemeral access keys are temporary credentials for authenticating [Yandex accounts](../../iam/concepts/users/accounts.md#passport), [federated accounts](../../iam/concepts/users/accounts.md#saml-federation), [local users](../../iam/concepts/users/accounts.md#local), and [service accounts](../../iam/concepts/users/service-accounts.md).
 
 {% include [access-control-sa-ephemeralkey-notice](./access-control-sa-ephemeralkey-notice.md) %}
