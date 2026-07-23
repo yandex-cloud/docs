@@ -71,7 +71,9 @@ Possible property names:
 
 - `priority`: Set priority parameter to the host being added
 
-- `tags`: Set tags parameter to the host being added ||
+- `tags`: Set tags parameter to the host being added
+
+- `votes`: Set votes parameter to the host being added ||
 || `--labels` | `key=value[,key=value...]`
 
 A list of labels as key-value pairs to add for the cluster being restored. ||

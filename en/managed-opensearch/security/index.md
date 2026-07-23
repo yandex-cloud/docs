@@ -1,12 +1,12 @@
 ---
 title: Access management in {{ mos-full-name }}
-description: Access management in the {{ OS }} database creation and management service. This section describes the resources you can assign a role for, the roles this service has, and the roles required for specific actions.
+description: Access management in the {{ OS }} database creation and management service. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
 ---
 
 # Managing access to {{ mos-name }}
 
 
-In this section, you will learn about the following:
+In this section, you will learn about:
 
 * [Resources you can assign a role for](#resources).
 * [Roles this service has](#roles-list).
@@ -108,6 +108,8 @@ The diagram below shows available service roles and their permission inheritance
 As a user, you need the [{{ roles.mos.editor }} role or higher](../../iam/concepts/access-control/roles.md) for the folder that will contain the new cluster. The `{{ roles.mos.viewer }}` role only allows you to view the list of clusters.
 
 To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.mos.editor }}` role or higher.
+
+{% include [roles-mdb-viewer](../../_includes/mdb/roles-mdb-viewer-access-control.md) %}
 
 You can always assign a role with more permissions, e.g., `{{ roles.mos.admin }}` instead of `{{ roles.mos.editor }}`.
 

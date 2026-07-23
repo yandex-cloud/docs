@@ -5,6 +5,8 @@
 Retrieves a log stream for a cluster.
 This method is similar to [ListLogs](listLogs.md#ListLogs), but uses server-side streaming, which allows for the `tail -f` command semantics.
 
+
+
 ## gRPC request
 
 **rpc StreamLogs ([StreamClusterLogsRequest](#yandex.cloud.mdb.mysql.v1.StreamClusterLogsRequest)) returns (stream [StreamLogRecord](#yandex.cloud.mdb.mysql.v1.StreamLogRecord))**

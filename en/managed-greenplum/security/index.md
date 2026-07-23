@@ -27,7 +27,7 @@ To assign a role for a resource, you need the `mdb.admin` role, `managed-greenpl
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
-## Resources supporting role assignment {#resources}
+## Resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
@@ -121,6 +121,8 @@ When you create a {{ mgp-name }} cluster, an admin user with the `mdb_admin` rol
 As a user, you need the [{{ roles.mgp.editor }} role or higher](../../iam/concepts/access-control/roles.md) for the folder that will contain the new cluster. The `{{ roles.mgp.viewer }}` role only allows you to view the list of clusters.
 
 To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.mgp.editor }}` role or higher.
+
+{% include [roles-mdb-viewer](../../_includes/mdb/roles-mdb-viewer-access-control.md) %}
 
 You can always assign a role with more permissions, e.g., `{{ roles.mgp.admin }}` instead of `{{ roles.mgp.editor }}`.
 

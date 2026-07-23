@@ -13,11 +13,11 @@ description: Из статьи вы узнаете, как установить 
 
 Работа {{ unified-agent-short-name }} поддерживается на следующих операционных системах:
 
-- Ubuntu 16.04 или выше (возможна [установка любым из способов](#setup));
-- Debian 9 или выше (Docker-образ, deb-пакет или бинарный файл);
-- CentOS 7 или выше (Docker-образ);
-- Fedora 32 или выше (Docker-образ);
-- Fedora CoreOS (Docker-образ).
+* Ubuntu 16.04 или выше (возможна [установка любым из способов](#setup));
+* Debian 9 или выше (Docker-образ, deb-пакет или бинарный файл);
+* CentOS 7 или выше (Docker-образ);
+* Fedora 32 или выше (Docker-образ);
+* Fedora CoreOS (Docker-образ).
 
 ## Подготовка к установке {#before-you-begin}
 
@@ -26,14 +26,16 @@ description: Из статьи вы узнаете, как установить 
 1. Создайте виртуальную машину в {{ yandex-cloud }} или хост вне {{ yandex-cloud }} на одной из [поддерживаемых операционных систем](#supported-os), например Ubuntu 16.04 или выше.
 
 1. (Опционально) [Установите Docker](https://docs.docker.com/install/), если через него вы хотите запускать {{ unified-agent-short-name }}. Docker уже предустановлен в Fedora CoreOS.
-   - Настройте публичный IPv4-адрес (рекомендуется).
-   - [Настройте Docker для работы с IPv6](https://docs.docker.com/config/daemon/ipv6) и [включите сетевую трансляцию адресов](https://medium.com/@skleeschulte/how-to-enable-ipv6-for-docker-containers-on-ubuntu-18-04-c68394a219a2), если вы не можете использовать публичный IPv4-адрес.
+   
+   * Настройте публичный IPv4-адрес (рекомендуется).
+   * [Настройте Docker для работы с IPv6](https://docs.docker.com/config/daemon/ipv6) и [включите сетевую трансляцию адресов](https://medium.com/@skleeschulte/how-to-enable-ipv6-for-docker-containers-on-ubuntu-18-04-c68394a219a2), если вы не можете использовать публичный IPv4-адрес.
 
 1. [Создайте сервисный аккаунт](../../../../iam/operations/sa/create.md) в каталоге, куда будут записываться метрики, и [назначьте ему роль](../../../../iam/operations/sa/assign-role-for-sa.md) `{{ roles-monitoring-editor }}`.
 
 1. Настройте авторизацию агента в {{ monium-name }} API:
-   - Если агент установлен на виртуальную машину в {{ yandex-cloud }}, [привяжите созданный сервисный аккаунт](../../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) к виртуальной машине. В этом случае агент будет автоматически получать IAM-токен сервисного аккаунта из сервиса метаданных.
-   - Если агент установлен на хосте вне {{ yandex-cloud }}, [создайте авторизованный ключ](../../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) для сервисного аккаунта. Подробнее про поставку метрик с хостов вне {{ yandex-cloud }} читайте в разделе [{#T}](../../../operations/unified-agent/non-yc.md).
+   
+   * Если агент установлен на виртуальную машину в {{ yandex-cloud }}, [привяжите созданный сервисный аккаунт](../../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) к виртуальной машине. В этом случае агент будет автоматически получать IAM-токен сервисного аккаунта из сервиса метаданных.
+   * Если агент установлен на хосте вне {{ yandex-cloud }}, [создайте авторизованный ключ](../../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) для сервисного аккаунта. Подробнее про поставку метрик с хостов вне {{ yandex-cloud }} читайте в разделе [{#T}](../../../operations/unified-agent/non-yc.md).
 
 ## Установка {#setup}
 
@@ -259,16 +261,16 @@ description: Из статьи вы узнаете, как установить 
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Интерфейс {{ monium-name }} {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в который собираются метрики.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monium }}**.
-  1. На панели слева выберите ![image](../../../../_assets/console-icons/rectangle-pulse.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.
+  1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите ![alt](../../../../_assets/console-icons/compass.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.all-panel.menu.category.explore }}** → ![alt](../../../../_assets/console-icons/rectangle-pulse.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.
   1. В редакторе запроса в строке ![image](../../../../_assets/monitoring/chart.svg) с именем нужного облака и каталога выберите:
+     
      * `service` = `custom`;
      * `cluster` = `default`;
      * `name` = `memory.Active`;
      * `host` = `<имя_ВМ>`.
+  
   1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}**.
      На появившемся графике отобразятся метрики, которые собирает {{ unified-agent-short-name }}.
 
@@ -276,7 +278,7 @@ description: Из статьи вы узнаете, как установить 
 
 #### Что дальше {#what-is-next}
 
-- [Узнайте, как запустить и остановить {{ unified-agent-short-name }}](./run-and-stop.md)
-- [Изучите концепции {{ unified-agent-short-name }}](./index.md)
-- [Узнайте подробнее о конфигурировании {{ unified-agent-short-name }}](./configuration.md)
-- [Ознакомьтесь с рекомендациями по эксплуатации {{ unified-agent-short-name }}](./best-practices.md)
+* [Узнайте, как запустить и остановить {{ unified-agent-short-name }}](./run-and-stop.md)
+* [Изучите концепции {{ unified-agent-short-name }}](./index.md)
+* [Узнайте подробнее о конфигурировании {{ unified-agent-short-name }}](./configuration.md)
+* [Ознакомьтесь с рекомендациями по эксплуатации {{ unified-agent-short-name }}](./best-practices.md)

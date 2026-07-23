@@ -9,8 +9,8 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится [трейл](../concepts/trail.md).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится [трейл](../concepts/trail.md).
+  1. [Перейдите]({{ link-console-main }}/link/audit-trails) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. Выберите трейл. На странице **{{ ui-key.yacloud.audit-trails.label_trail }}** отобразится подробная информация о трейле.
 
 - CLI {#cli}
@@ -99,8 +99,11 @@ description: Следуя данной инструкции, вы сможете
       Где:
 
       * `data "yandex_audit_trails_trail"` — описание трейла в качестве источника данных:
+         
          * `resource_id` — идентификатор ресурса.
+      
       * `output "my-trail-status"` — выходная переменная, которая содержит информацию о текущем статусе трейла (`status`):
+         
          * `value` — возвращаемое значение.
 
      Вместо `status` вы можете выбрать любой другой параметр для получения информации. Подробнее о параметрах источника данных `yandex_audit_trails_trail` в [документации провайдера]({{ tf-provider-datasources-link }}/audit_trails_trail).

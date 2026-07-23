@@ -343,8 +343,6 @@
 `dns.zones.count` | 100 ||
 || Количество наборов записей в одном облаке
 `dns.recordSets.count` | 1 000 ||
-|| Количество наборов записей в одной зоне
-`dns.recordSetsPerZone.count`| 100 ||
 |#
 
 #### Лимиты {#cloud-dns-limits}
@@ -1187,6 +1185,7 @@ ZIP-архив через S3 бакет | 128 МБ
 Объем [хранилища](../../datasphere/concepts/project.md#storage) проекта (можно [увеличить в проекте](../../datasphere/operations/projects/storage-resize.md)) | 10 ГБ
 Количество сообществ, привязанных к одному [платежному аккаунту](../../billing/concepts/billing-account.md) | 100
 Количество сообществ в одной [организации](../../organization/index.md) | 10
+Количество активных [заданий](../../datasphere/concepts/jobs/index.md) | 10
 **Ограничения на использование ВМ** |
 c1.32 ^1^ | 0
 c1.80 ^2^ | 0

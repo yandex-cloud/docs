@@ -22,14 +22,21 @@ By default, {{ mpg-name }} sets the maximum possible number of connections for e
 {% include [note-pg-user-connections.md](../../_includes/mdb/note-pg-user-connections.md) %}
 
 
+## Roles for creating a cluster {#roles}
+
+To create a {{ mpg-name }} cluster and use it, your {{ yandex-cloud }} account needs the following roles:
+
+* {% include [roles-mpg-editor](../../_includes/mdb/mpg/roles-mpg-editor.md) %}
+* {% include [roles-vpc-user](../../_includes/mdb/roles-vpc-user.md) %}
+* {% include [roles-mdb-viewer](../../_includes/mdb/roles-mdb-viewer-create-cluster.md) %}
+
+For more information about assigning roles, see [this {{ iam-full-name }} guide](../../iam/operations/roles/grant.md).
+
+
 ## Creating a cluster {#create-cluster}
 
 
-To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role along with the [{{ roles.mpg.editor }} role or higher](../security/index.md#roles-list). For information on assigning roles, see [this {{ iam-name }} guide](../../iam/operations/roles/grant.md).
-
-
 {% include [Connection Manager](../../_includes/mdb/connman-cluster-create.md) %}
-
 
 
 {% list tabs group=instructions %}
@@ -627,7 +634,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
        * `weeklyMaintenanceWindow`: Maintenance takes place once a week at the specified time:
 
          * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-         * `hour`: Sequence number of a UTC hour interval, from `1` to `24`.
+         * `hour`: UTC hour interval, from `1` to `24`.
 
            > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 

@@ -44,7 +44,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер БД.
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. [Перейдите]({{ link-console-main }}/link/storedoc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 
@@ -59,6 +59,7 @@ description: Следуя данной инструкции, вы сможете
 
       * Укажите версию СУБД.
       * Выберите тип шардирования:
+          
           * **{{ ui-key.yacloud.mongodb.ClusterForm.sections.option_sharding-type-disabled_3ErMk }}** — кластер будет состоять только из хостов `MONGOD`.
           * **{{ ui-key.yacloud.mongodb.ClusterForm.sections.option_sharding-type-standard_afrPq }}** — кластер будет состоять из хостов `MONGOD` и `MONGOINFRA`.
           * **{{ ui-key.yacloud.mongodb.ClusterForm.sections.option_sharding-type-extended_9NHmb }}** — кластер будет состоять из хостов `MONGOD`, `MONGOS` и `MONGOCFG`.
@@ -312,6 +313,7 @@ description: Следуя данной инструкции, вы сможете
         {% endnote %}
 
       * `--host` — параметры хоста:
+        
         * `type` — тип хоста: `mongod`, `mongoinfra`, `mongos` или `mongocfg`. По умолчанию хост имеет тип `mongod`.
         * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
         * `subnet-id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet). Указывается, если в выбранной зоне доступности создано больше одной подсети.
@@ -650,10 +652,12 @@ description: Следуя данной инструкции, вы сможете
 
      * `environment` — окружение: `PRESTABLE` или `PRODUCTION`.
      * `host` — параметры хоста:
+       
        * `zone_id` — зона доступности.
        * `subnet_id` — идентификатор подсети в выбранной зоне доступности.
        * `assign_public_ip` — публичный доступ к хосту: `true` или `false`. В шардированном кластере используется только для хостов `MONGOS` и `MONGOINFRA`.
        * `host_parameters` — дополнительные параметры хоста:
+         
          * `hidden` — скрытие хоста: `true` или `false`. Если хост скрыт, он будет доступен для чтения только для прямых подключений (например, чтобы делать с него резервные копии, не добавляя нагрузку на кластер).
          * `secondary_delay_secs` — отставание реплики от мастера в секундах. Может быть полезно для восстановления данных в случае ошибочных операций.
          * `priority` — [приоритет назначения хоста мастером](../concepts/replication.md#master-failover).
@@ -1163,6 +1167,7 @@ description: Следуя данной инструкции, вы сможете
             * `backupRetainPeriodDays` — время хранения резервных копий в днях.
 
             * `performanceDiagnostics` — настройки для [сбора статистики](performance-diagnostics.md#activate-stats-collector):
+              
               * `profilingEnabled` — включение [профилировщика](tools.md#explore-profiler): `true` или `false`.
 
         * `databaseSpecs` — настройки баз данных в виде массива элементов. Каждый элемент соответствует отдельной БД и содержит параметр `name` — имя БД.
@@ -1591,6 +1596,7 @@ description: Следуя данной инструкции, вы сможете
         * `config_spec` — настройки кластера:
 
           * `version` — версия {{ SD }}: 5.0, 6.0 или 7.0.
+            
             * `mongod`, `mongoinfra`, `mongos`, `mongocfg` — [типы хостов](../concepts/host-roles.md).
 
               * `resources` — ресурсы кластера:
@@ -1631,6 +1637,7 @@ description: Следуя данной инструкции, вы сможете
             * `backup_retain_period_days` — время хранения резервных копий в днях.
 
             * `performance_diagnostics` — настройки для [сбора статистики](performance-diagnostics.md#activate-stats-collector):
+              
               * `profiling_enabled` — включение [профилировщика](tools.md#explore-profiler): `true` или `false`.
 
         * `database_specs` — настройки баз данных в виде массива элементов. Каждый элемент соответствует отдельной БД и содержит параметр `name` — имя БД.

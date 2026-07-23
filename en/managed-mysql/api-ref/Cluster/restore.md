@@ -121,6 +121,14 @@ apiPlayground:
             **string**
             ID of the key to encrypt cluster disks.
           type: string
+        sourceClusterId:
+          description: |-
+            **string**
+            ID of the source cluster to restore from.
+            The latest backup suitable for `time` will be used for restore.
+            `time` is required. Cannot be used together with `backupId`.
+            The maximum string length in characters is 50.
+          type: string
       required:
         - name
       additionalProperties: false
@@ -3271,7 +3279,8 @@ POST https://{{ api-host-mdb }}/managed-mysql/v1/clusters:restore
     }
     // end of the list of possible fields
   },
-  "diskEncryptionKeyId": "string"
+  "diskEncryptionKeyId": "string",
+  "sourceClusterId": "string"
 }
 ```
 
@@ -3346,6 +3355,13 @@ Window of maintenance operations. ||
 || diskEncryptionKeyId | **string**
 
 ID of the key to encrypt cluster disks. ||
+|| sourceClusterId | **string**
+
+ID of the source cluster to restore from.
+The latest backup suitable for `time` will be used for restore.
+`time` is required. Cannot be used together with `backupId`.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## ConfigSpec {#yandex.cloud.mdb.mysql.v1.ConfigSpec}

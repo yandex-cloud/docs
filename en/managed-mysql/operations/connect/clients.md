@@ -5,7 +5,7 @@ description: Follow this guide to connect to a {{ MY }} cluster database with th
 
 # Connecting to a {{ MY }} cluster from applications
 
-This section provides settings for connection to {{ mmy-name }} cluster hosts with the help of [command line tools](#command-line-tools), [graphical IDEs](#connection-ide), [{{ websql-full-name }}](#websql), or a [Docker container](#connection-docker). To learn how to connect from your application code, see [Code examples](./code-examples.md).
+This section provides settings for connection to {{ mmy-name }} cluster hosts with the help of [command line tools](#command-line-tools), [graphical IDEs](#connection-ide), [{{ websql-full-name }}](#websql), or a [Docker container](#connection-docker). To learn how to connect from the code of your application, see [Code examples](./code-examples.md).
 
 ## Command line tools {#command-line-tools}
 
@@ -89,7 +89,7 @@ Once connected to the DBMS, run the `SELECT version();` command.
 
 ### Connecting with IAM authentication {#iam}
 
-You can connect to a {{ mmy-name }} database via the [{{ yandex-cloud }} CLI](../../../cli/quickstart.md#install) using IAM authentication. This method is available to [Yandex accounts](../../../iam/concepts/users/accounts.md#passport), [federated accounts](../../../iam/concepts/users/accounts.md#saml-federation), and [local users](../../../iam/concepts/users/accounts.md#local). When connecting with IAM authentication, you do not need to obtain an SSL certificate or specify the cluster hosts’ FQDNs.
+You can connect to a {{ mmy-name }} database via the [{{ yandex-cloud }} CLI](../../../cli/quickstart.md#install) using IAM authentication. This method is available to [Yandex accounts](../../../iam/concepts/users/accounts.md#passport), [federated accounts](../../../iam/concepts/users/accounts.md#saml-federation), [local users](../../../iam/concepts/users/accounts.md#local), and [service accounts](../../../iam/concepts/users/accounts.md#sa) (referred to below as _accounts_). When connecting with IAM authentication, you do not need to obtain an SSL certificate or specify the cluster hosts’ FQDNs.
 
 Before connecting:
 
@@ -116,9 +116,9 @@ Set up your {{ mmy-name }} cluster for connection:
      1. Click ![image](../../../_assets/console-icons/ellipsis.svg) in the first host's row and select **{{ ui-key.yacloud.common.edit }}**.
      1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
      1. Repeat the same for the remaining hosts in the cluster.
-  1. Assign the `managed-mysql.clusters.connector` role to the user account that will connect to the database:
+  1. Assign the `managed-mysql.clusters.connector` role to the account that will connect to the database:
      1. Select the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
-     1. Enter the user account’s email.
+     1. If assigning the role to a Yandex account, federated account, or local user, enter the username or email address associated with the account. If assigning the role to a service account, enter its name or ID. Select the matching account from the search results.
      1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the `managed-mysql.clusters.connector` role.
      1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
   1. Create a user named {{ MY }}:

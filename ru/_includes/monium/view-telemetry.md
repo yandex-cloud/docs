@@ -2,7 +2,7 @@
 
 - Интерфейс {{ monium-name }} {#console}
 
-  1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите раздел с нужным типом данных:
+  1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева наведите указатель на ![alt](../../_assets/console-icons/compass.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.all-panel.menu.category.explore }}** и выберите раздел с нужным типом данных:
 
       {% list tabs group=monium_telemetry_type %}
 

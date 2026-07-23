@@ -5,7 +5,6 @@ description: In this article, you will learn what authorized keys are, why we ne
 
 # Authorized keys
 
-
 {% include [access-control-sa-authkey-notice](../../../_includes/iam/access-control-sa-authkey-notice.md) %}
 
 _Authorized keys_ are keys with the RSA-2048 or RSA-4096 encryption algorithm and unlimited validity. These keys are used when [requesting](../../operations/iam-token/create-for-sa.md#via-cli) an [IAM token](./iam-token.md) for a service account. At the same time, you cannot use authorized keys directly for authentication in the [{{ yandex-cloud }} API](../../../api-design-guide/index.yaml).

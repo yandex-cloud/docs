@@ -7,20 +7,41 @@ editable: false
 
 # {{ mch-short-name }} pricing policy
 
-In this section, you can find the {{ mch-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources.
+::: page-constructor
+blocks:
+  - type: card-layout-block
+    animated: false
+    colSizes:
+      all: 6
+    children:
+      - type: basic-card
+        title: Price calculator
+        text: Calculate the cost of the service based on your needs
+        icon: _assets/icons/calculator.svg
+        urlTitle: Price calculator
+        url: https://yandex.cloud/en/prices?state=3ea7efa48808#calculator
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+      - type: basic-card
+        title: Price list
+        text: Current prices of all our services
+        icon: _assets/icons/circle-ruble.svg
+        urlTitle: Price list
+        url: https://yandex.cloud/en/price-list?services=dn2220hr46dtogekm57v
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+:::
 
-{% note tip %}
 
-
-
-
-
-For cost estimation, use [this calculator](https://yandex.cloud/en/prices?state=2febafd8c375#calculator) on our website or check out the pricing below.
-
-
-{% endnote %}
-
-{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+This section describes the {{ mch-name }} pricing [policy](#rules) and [current prices](#prices) for its resources.
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
@@ -65,28 +86,28 @@ The minimum billing unit is one minute, e.g., 1.5 minutes of host usage is bille
 
 ### Disk space usage {#rules-storage}
 
-You are billed for the following:
+You pay for the following:
 
-* Storage allocated for database clusters.
+* Storage allocated for DB clusters.
 
-   * You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts:
-        * For **Intel Broadwell** and **Intel Cascade Lake**: In increments of 100 GB.
+   * You can order local SSD storage (`local-ssd`) only for clusters with three or more hosts:
+        * For **Intel Broadwell** and **Intel Cascade Lake**: In increments of 100 GB.
         * For **Intel Ice Lake** and **AMD Zen 4**: In {{ local-ssd-v3-step }} increments.
    * You can order non-replicated SSD storage (`network-ssd-nonreplicated`) only for clusters with three or more hosts, and it must be allocated in 93 GB increments.
 
-* Size of data backups in [local](concepts/storage.md#local-storage-features) and [network](concepts/storage.md) storage:
+* Database backup storage exceeding the cluster’s allocated space.
+ 
+   {% include [pricing-backup](../_includes/mdb/pricing-backup.md) %} 
 
-    * Backups are stored free of charge as long as the combined size of the database and all its backups is smaller than the selected storage size.
+   * Backup storage is not billable until the total volume of backups exceeds that of the cluster storage. This calculation does not count in the data volume of the database itself.
+  
+   * The number of hosts in a cluster does not affect the storage size and, consequently, the free backup quota.
 
-    * If the combined size of the database and all its backups exceeds the cluster storage size, you only pay for the portion in excess of the storage size.
+   * If the combined size of the database and all its backups exceeds the cluster storage size, you only pay for the portion in excess of the storage size.
 
-   * When performing automatic backups, {{ mch-short-name }} does not create a new backup but saves the database changes introduced since the previous one. It means the storage space used by automatic backups only increases in proportion to the amount of changed data.
+   * When performing automatic backups, {{ mch-short-name }} does not create a new backup but saves the database changes introduced since the previous one. As a result, the storage used by automatic backups grows only in proportion to the amount of changes.
 
-   * The number of hosts in a cluster does not affect the storage size and, consequently, the amount of free backups.
-
-    For example, if there are N free GB of space in the cluster, the first N GB of backups are stored free of charge.
-
-* Size of cold data backups in a [hybrid storage](concepts/storage.md#hybrid-storage-features):
+* The storage size used by cold data backups of [hybrid storage](concepts/storage.md#hybrid-storage-features):
 
    * Cold data backups are stored in the same {{ objstorage-name }} bucket as the data itself.
 
@@ -95,7 +116,6 @@ You are billed for the following:
    * When performing automatic backups, {{ mch-short-name }} does not create a new backup but saves the database changes introduced since the previous one. As a result, the storage used by automatic backups grows only in proportion to the amount of changes.
 
 The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes is billed as 2 minutes.
-
 
 ### Cluster cost calculation example {#example}
 

@@ -26,6 +26,9 @@ Description of the routing-instance. ||
 || `--labels` | `key=value[,key=value...]`
 
 A list of routing-instance labels as key-value pairs. ||
+|| `--folder-id` | `string`
+
+ID of the folder to create the RoutingInstance in. ||
 || `--cic-prc` | `value[,value]`
 
 CIC private connection ids of the routing-instance. ||
@@ -53,9 +56,6 @@ Even infinite retries are capped with 2 minutes timeout. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
-|| `--folder-id` | `string`
-
-Set the ID of the folder to use. ||
 || `--folder-name` | `string`
 
 Set the name of the folder to use (will be resolved to id). ||

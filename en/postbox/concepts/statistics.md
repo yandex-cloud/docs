@@ -39,6 +39,14 @@ When viewing detailed statistics by time, all email events are grouped into the 
 
 You can view your sent email statistics on the **{{ ui-key.yacloud.postbox.label_statistics }}** page in the [management console]({{ link-console-postbox-statistics }}).
 
+## Filtering by configuration {#configuration-filter}
+
+The way data is grouped depends on the selected statistics level. In general folder statistics, the chart groups data by sender address. In statistics for a specific address, the chart groups data by [configurations](configuration.md) used to send messages from that address.
+
+For example, if you send both transactional emails, such as email verification or password reset messages, and marketing campaigns from the same domain, create separate configurations named `transactional` and `marketing`. These configurations can have the same settings. {{ postbox-name }} will use these configurations as labels to separate statistics. [Use](configuration.md#usage) the `transactional` configuration when sending transactional emails and the `marketing` configuration when sending marketing emails. On the **{{ ui-key.yacloud.postbox.label_statistics }}** page, select one or more configurations to view metrics only for that traffic.
+
+You can select up to 10 configurations in the statistics filter at a time.
+
 ## Breakdown by provider {#isp}
 
 In your sent email statistics, you can look up data on the main email providers (ISPs):

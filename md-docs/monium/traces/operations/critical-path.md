@@ -24,8 +24,14 @@
 
 ## Посмотреть критический путь {#critical-path-view}
 
-1. Перейдите в [Monium](https://monium.yandex.cloud) → **Трейсы**.
-1. Введите запрос и выберите трейс.
-1. Вверху нажмите **Критический путь**.
+{% list tabs group=instructions %}
 
-![traces-critical-path](../../../_assets/monium/traces-critical-path.png)
+- Интерфейс Monium {#console}
+
+  1. На главной странице [Monium](https://monium.yandex.cloud) слева выберите ![alt](../../../_assets/console-icons/compass.svg) **Обзор** → ![alt](../../../_assets/console-icons/hierarchy.svg) **Трейсы**.
+  1. Введите запрос и выберите трейс.
+  1. Вверху нажмите **Критический путь**.
+
+     ![traces-critical-path](../../../_assets/monium/traces-critical-path.png)
+
+{% endlist %}

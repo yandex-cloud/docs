@@ -9,7 +9,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится сертификат.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+  1. [Перейдите]({{ link-console-main }}/link/certificate-manager) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
   1. Выберите нужный сертификат.
   1. Перейдите на вкладку **{{ ui-key.yacloud.common.operations-key-value }}**.
 

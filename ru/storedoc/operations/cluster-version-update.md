@@ -75,8 +75,8 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите]({{ link-console-main }}/link/storedoc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Выберите нужный кластер в списке и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_version }}** выберите номер новой версии.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -236,6 +236,7 @@
 ## Обновить версию совместимости {#compatibility-update}
 
 Обновление версии совместимости кластера требуется, если вам нужно:
+
 * обновить кластер до новой версии, при этом версия совместимости не соответствует текущей версии кластера;
 * сделать доступными новые возможности {{ SD }} после обновления кластера.
 
@@ -251,8 +252,8 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите]({{ link-console-main }}/link/storedoc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Выберите нужный кластер в списке и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_fcv }}** выберите номер нужной версии.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.

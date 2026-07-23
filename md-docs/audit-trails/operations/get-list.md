@@ -6,8 +6,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите посмотреть список [трейлов](../concepts/trail.md).
-  1. Перейдите в сервис **Audit Trails**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите посмотреть список [трейлов](../concepts/trail.md).
+  1. [Перейдите](https://console.yandex.cloud/link/audit-trails) в сервис **Audit Trails**.
   1. На странице **Трейлы** отобразится список трейлов.
 
 - CLI {#cli}

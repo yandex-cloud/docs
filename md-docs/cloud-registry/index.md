@@ -220,7 +220,13 @@ Yandex Cloud Registry — сервис для безопасного хране�
 
  - [get](cli-ref/registry/lifecycle-policy/get.md)
 
+ - [get-dry-run-result](cli-ref/registry/lifecycle-policy/get-dry-run-result.md)
+
  - [list](cli-ref/registry/lifecycle-policy/list.md)
+
+ - [list-dry-run-artifacts](cli-ref/registry/lifecycle-policy/list-dry-run-artifacts.md)
+
+ - [list-dry-run-results](cli-ref/registry/lifecycle-policy/list-dry-run-results.md)
 
  - [update](cli-ref/registry/lifecycle-policy/update.md)
 
@@ -352,7 +358,15 @@ Yandex Cloud Registry — сервис для безопасного хране�
 
  - [update](cli-ref/v0/registry/update.md)
 
- - [tools](cli-ref/v0/tools.md)
+#### tools
+
+ - [Overview](cli-ref/v0/tools/index.md)
+
+##### debian
+
+ - [Overview](cli-ref/v0/tools/debian/index.md)
+
+ - [reindex-packages](cli-ref/v0/tools/debian/reindex-packages.md)
 
 ### v1
 
@@ -414,7 +428,13 @@ Yandex Cloud Registry — сервис для безопасного хране�
 
  - [get](cli-ref/v1/registry/lifecycle-policy/get.md)
 
+ - [get-dry-run-result](cli-ref/v1/registry/lifecycle-policy/get-dry-run-result.md)
+
  - [list](cli-ref/v1/registry/lifecycle-policy/list.md)
+
+ - [list-dry-run-artifacts](cli-ref/v1/registry/lifecycle-policy/list-dry-run-artifacts.md)
+
+ - [list-dry-run-results](cli-ref/v1/registry/lifecycle-policy/list-dry-run-results.md)
 
  - [update](cli-ref/v1/registry/lifecycle-policy/update.md)
 

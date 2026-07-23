@@ -16,6 +16,7 @@ description: На этой странице приведен справочни�
 | [yandex_mdb_redis_cluster_v2]({{ tf-provider-resources-link }}/mdb_redis_cluster_v2) | [Кластер](./concepts/index.md) |
 | [yandex_mdb_redis_cluster_iam_binding]({{ tf-provider-resources-link }}/mdb_redis_cluster_iam_binding) | [Настройка](../iam/concepts/access-control/index.md#access-bindings) прав доступа к кластеру |
 | [yandex_mdb_redis_user]({{ tf-provider-resources-link }}/mdb_redis_user) | Пользователь {{ VLK }} |
+| [yandex_mdb_redis_backup_retention_policy]({{ tf-provider-resources-link }}/mdb_redis_backup_retention_policy) | Политика резервного копирования |
 
 ## Источники данных {#data-sources}
 
@@ -25,3 +26,4 @@ description: На этой странице приведен справочни�
 | --- | --- |
 | [yandex_mdb_redis_cluster_v2]({{ tf-provider-datasources-link }}/mdb_redis_cluster_v2) | Информация о [кластере](./concepts/index.md) |
 | [yandex_mdb_redis_user]({{ tf-provider-datasources-link }}/mdb_redis_user) | Информация о пользователе {{ VLK }} |
+| [yandex_mdb_redis_backup_retention_policy]({{ tf-provider-datasources-link }}/mdb_redis_backup_retention_policy) | Информация о политике резервного копирования |

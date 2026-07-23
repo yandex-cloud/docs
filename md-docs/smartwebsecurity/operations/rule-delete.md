@@ -9,7 +9,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужный профиль безопасности.
-  1. Перейдите в сервис **Smart Web Security**.
+  1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
   1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **Профили безопасности**.
   1. Выберите профиль, в котором вы хотите удалить [правило](../concepts/rules.md).
   1. На вкладке **Правила безопасности** в строке с нужным правилом нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.

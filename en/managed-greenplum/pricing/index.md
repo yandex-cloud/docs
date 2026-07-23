@@ -79,15 +79,17 @@ You pay for the following:
 
   To pay less for storage, export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to a cold storage in {{ objstorage-full-name }}. The data will be stored in a service bucket in compressed and encrypted form, which is more cost-efficient. The cost of such storage is calculated based on the [{{ objstorage-name }} pricing policy](../../storage/pricing.md).
 
-* Space occupied by DB backups beyond the storage size specified for the cluster.
+* Database backup storage exceeding the cluster’s allocated space.
 
-  * Backups are stored free of charge as long as the combined size of the DB and all backups is smaller than the selected storage size.
+  {% include [pricing-backup](../../_includes/mdb/pricing-backup.md) %} 
 
-  * When performing automatic backups, {{ mgp-name }} does not create a new backup but saves the database changes introduced since the previous one. It means the storage space used by automatic backups only increases in proportion to the amount of changed data.
+  * Backup storage is not billable until the total volume of backups exceeds that of the cluster storage. This calculation does not count in the data volume of the database itself.
 
   * The number of hosts in a cluster does not affect the storage size and, consequently, the amount of free backups.
 
-The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes is billed as 2 minutes.
+  * When performing automatic backups, {{ mgp-name }} does not create a new backup but saves the database changes introduced since the previous one. As a result, the storage used by automatic backups grows only in proportion to the amount of changes.
+
+The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes is billed as 2 minutes.
 
 ### Cluster cost calculation example {#example}
 

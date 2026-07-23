@@ -5,6 +5,16 @@ description: This article covers the {{ org-full-name }} pricing policy.
 
 # {{ org-full-name }} pricing policy
 
+::: page-constructor
+blocks:
+  - type: card-layout-block
+    animated: false
+    colSizes:
+      all: 6
+    children: []
+:::
+
+
 
 
 The fee for {{ org-full-name }} is included in the charge for paid services. Only fees for connections to external apps are charged separately.
@@ -32,7 +42,6 @@ You can [manage](#pricing-management) {{ org-full-name }} billing through the [{
     sortOrder="desc"
   />
 </MDX>
-
 
 
 ## {{ org-full-name }} billing management {#pricing-management}

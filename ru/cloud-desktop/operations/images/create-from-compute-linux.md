@@ -14,11 +14,13 @@ description: Следуя данной инструкции, вы сможете
 Чтобы добавить в {{ cloud-desktop-name }} пользовательский образ Linux:
 
 1. [Создайте](../../../compute/operations/vm-create/create-linux-vm.md) или выберите уже созданную ВМ со следующими параметрами:
+   
    * Доступ — по **SSH-ключу**. Доступ по {{ oslogin }} в {{ cloud-desktop-name }} не поддерживается.
    * Подключение к интернету для установки дополнительного ПО.
 
 1. Настройте виртуальную машину для создания нужного образа.
 1. Настройте возможность удаленного доступа по [протоколу RDP](https://ru.wikipedia.org/wiki/Remote_Desktop_Protocol):
+   
    1. Установите пакеты `xrdp` и `xorgxrdp` или другие подходящие программы.
    
         {% note info %}
@@ -39,6 +41,7 @@ description: Следуя данной инструкции, вы сможете
     ```
 
 1. Настройте входящие соединения на всех сетевых интерфейсах для работы:
+   
    * RDP — на порт TCP `3389`.
    * Для {{ yandex-cloud }} Desktop Agent — на порт TCP `5050`.
 
@@ -99,8 +102,8 @@ description: Следуя данной инструкции, вы сможете
 
     - Консоль управления {#console}
 
-      1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится ВМ.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится ВМ.
+      1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. Напротив вашей ВМ нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.common.stop }}**.
       1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
       1. В строке с загрузочным диском ВМ нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.compute.disks.button_action-image }}**.
@@ -116,7 +119,7 @@ description: Следуя данной инструкции, вы сможете
     - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится ВМ и будет создан рабочий стол. 
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
+      1. [Перейдите]({{ link-console-main }}/link/cloud-desktop) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
       1. На панели слева выберите ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.vdi.label_desktop-images }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.vdi.button_add-image }}**.
       1. В поле **{{ ui-key.yacloud.vdi.label_image-source }}** выберите `{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}`.

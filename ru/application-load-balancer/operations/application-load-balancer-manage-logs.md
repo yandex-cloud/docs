@@ -9,12 +9,14 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится балансировщик.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. В списке выберите нужный балансировщик, нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. В блоке **{{ ui-key.yacloud.alb.section_logs-settings }}**:
+     
      1. Включите опцию **{{ ui-key.yacloud.alb.label_log-requests }}**.
      1. Выберите [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-name }}, в которую будут записываться логи балансировщика.
      1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_add-discard-rule }}** и настройте его [параметры](../concepts/application-load-balancer.md#discard-logs-rules):
+        
         * **{{ ui-key.yacloud.alb.label_discard-http-codes }}** — добавьте HTTP-коды.
         * **{{ ui-key.yacloud.alb.label_discard-http-code-intervals }}** — добавьте классы HTTP-кодов.
         * **{{ ui-key.yacloud.alb.label_discard-grpc-codes }}** — добавьте gRPC-коды.
@@ -45,9 +47,11 @@
      ```
 
      Где:
+     
      * `--enable` — параметр для включения логирования.
      * `--log-group-id` — идентификатор [лог-группы](../../logging/concepts/log-group.md), в которую будут записываться логи балансировщика.
      * `--discard` — [правило отбрасывания логов](../concepts/application-load-balancer.md#discard-logs-rules). Параметры правила:
+       
        * `codes` — HTTP-коды, классы HTTP-кодов или gRPC-коды.
        * `percent` — доля отбрасываемых логов в процентах.
 
@@ -91,14 +95,17 @@
      ```
 
      Где `log_options` — параметры записи [логов](../logs-ref.md) в {{ cloud-logging-name }}:
+     
      * `log_group_id` — идентификатор [лог-группы](../../logging/concepts/log-group.md), в которую будут записываться логи балансировщика.
      * `discard_rule` — [правило отбрасывания логов](../concepts/application-load-balancer.md#discard-logs-rules):
+       
        * `http_codes` — HTTP-коды.
        * `http_code_intervals` — классы HTTP-кодов.
        * `grpc_codes` — gRPC-коды.
        * `discard_percent` — доля отбрасываемых логов в процентах.
 
        Вы можете задать больше одного правила.
+  
   1. Примените изменения:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -124,11 +131,13 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится балансировщик.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. В списке выберите нужный балансировщик, нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. В блоке **{{ ui-key.yacloud.alb.section_logs-settings }}**:
+     
      1. Измените лог-группу {{ cloud-logging-name }}, в которую будут записываться логи балансировщика.
      1. Измените [правила отбрасывания логов](../concepts/application-load-balancer.md#discard-logs-rules):
+        
         * **{{ ui-key.yacloud.alb.label_discard-http-codes }}** — измените HTTP-коды.
         * **{{ ui-key.yacloud.alb.label_discard-http-code-intervals }}** — измените классы HTTP-кодов.
         * **{{ ui-key.yacloud.alb.label_discard-grpc-codes }}** — измените gRPC-коды.
@@ -158,8 +167,10 @@
      ```
 
      Где:
+     
      * `--log-group-id` — идентификатор [лог-группы](../../logging/concepts/log-group.md), в которую будут записываться логи балансировщика.
      * `--discard` — [правило отбрасывания логов](../concepts/application-load-balancer.md#discard-logs-rules). Параметры правила:
+       
        * `codes` — HTTP-коды, классы HTTP-кодов или gRPC-коды.
        * `percent` — доля отбрасываемых логов в процентах.
 
@@ -203,8 +214,10 @@
      ```
 
      Где `log_options` — параметры записи [логов](../logs-ref.md) в {{ cloud-logging-name }}:
+     
      * `log_group_id` — идентификатор [лог-группы](../../logging/concepts/log-group.md), в которую будут записываться логи балансировщика.
      * `discard_rule` — [правило отбрасывания логов](../concepts/application-load-balancer.md#discard-logs-rules):
+       
        * `http_codes` — HTTP-коды.
        * `http_code_intervals` — классы HTTP-кодов.
        * `grpc_codes` — gRPC-коды.
@@ -236,7 +249,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится балансировщик.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. В списке выберите нужный балансировщик, нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. В блоке **{{ ui-key.yacloud.alb.section_logs-settings }}** выключите опцию **{{ ui-key.yacloud.alb.label_log-requests }}**.
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.

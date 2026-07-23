@@ -19,11 +19,18 @@ For more information on the {{ mmy-name }} cluster structure, see [Resource rela
 {% endnote %}
 
 
+## Roles for creating a cluster {#roles}
+
+To create a {{ mmy-name }} cluster and use it, your {{ yandex-cloud }} account needs the following roles:
+
+* {% include [roles-mmy-editor](../../_includes/mdb/mmy/roles-mmy-editor.md) %}
+* {% include [roles-vpc-user](../../_includes/mdb/roles-vpc-user.md) %}
+* {% include [roles-mdb-viewer](../../_includes/mdb/roles-mdb-viewer-create-cluster.md) %}
+
+For more information about assigning roles, see [this {{ iam-full-name }} guide](../../iam/operations/roles/grant.md).
+
+
 ## Creating a cluster {#create-cluster}
-
-
-To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role along with the [{{ roles.mmy.editor }} role or higher](../security/index.md#roles-list). For information on assigning roles, see [this {{ iam-name }} guide](../../iam/operations/roles/grant.md).
-
 
 
 {% include [Connection Manager](../../_includes/mdb/connman-cluster-create.md) %}
@@ -241,7 +248,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
                               `emergency-usage-threshold=<immediate_expansion_threshold_in_percent> \
        --maintenance-window type=<maintenance_type>,`
                            `day=<day_of_week>,`
-                           `hour=<hour>
+                           `hour=<sequence_number_of_hour_interval>
      ```
 
 
@@ -539,7 +546,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
           "maintenanceWindow": {
               "weeklyMaintenanceWindow": {
                   "day": "<day_of_week>",
-                  "hour": "<hour>"
+                  "hour": "<sequence_number_of_hour_interval>"
               }
           }
       }
@@ -712,7 +719,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
           "maintenance_window": {
             "weekly_maintenance_window": {
               "day": "<day_of_week>",
-              "hour": "<hour>"
+              "hour": "<sequence_number_of_hour_interval>"
             }
           }
       }

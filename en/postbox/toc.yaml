@@ -35,6 +35,8 @@ items:
         href: concepts/index.md
       - name: DNS records
         href: concepts/dns-records.md
+      - name: Configurations
+        href: concepts/configuration.md
       - name: Email event notifications
         href: concepts/notification.md
       - name: Tracking email openings

@@ -114,7 +114,8 @@ apiPlayground:
         retentionPolicies:
           description: |-
             **[BackupRetentionPolicySpec](#yandex.cloud.mdb.v1.BackupRetentionPolicySpec)**
-            Backup long-term retention policies setting.
+            Deprecated. Use yandex.cloud.mdb.postgresql.v1.BackupRetentionPolicyService.Create to create retention policies instead.
+          deprecated: true
           type: array
           items:
             $ref: '#/definitions/BackupRetentionPolicySpec'
@@ -14621,7 +14622,9 @@ apiPlayground:
             type: string
             format: int64
           oldSnapshotThreshold:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              in milliseconds.
             type: string
             format: int64
           maxStandbyStreamingDelay:
@@ -15049,7 +15052,9 @@ apiPlayground:
             type: string
             format: int64
           oldSnapshotThreshold:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              in milliseconds.
             type: string
             format: int64
           maxStandbyStreamingDelay:
@@ -15477,7 +15482,9 @@ apiPlayground:
             type: string
             format: int64
           oldSnapshotThreshold:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              in milliseconds.
             type: string
             format: int64
           maxStandbyStreamingDelay:
@@ -15905,7 +15912,9 @@ apiPlayground:
             type: string
             format: int64
           oldSnapshotThreshold:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              in milliseconds.
             type: string
             format: int64
           maxStandbyStreamingDelay:
@@ -16333,7 +16342,9 @@ apiPlayground:
             type: string
             format: int64
           oldSnapshotThreshold:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              in milliseconds.
             type: string
             format: int64
           maxStandbyStreamingDelay:
@@ -16765,7 +16776,9 @@ apiPlayground:
             type: string
             format: int64
           oldSnapshotThreshold:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              in milliseconds.
             type: string
             format: int64
           maxStandbyStreamingDelay:
@@ -17197,7 +17210,9 @@ apiPlayground:
             type: string
             format: int64
           oldSnapshotThreshold:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              in milliseconds.
             type: string
             format: int64
           maxStandbyStreamingDelay:
@@ -17629,7 +17644,9 @@ apiPlayground:
             type: string
             format: int64
           oldSnapshotThreshold:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              in milliseconds.
             type: string
             format: int64
           maxStandbyStreamingDelay:
@@ -18061,7 +18078,9 @@ apiPlayground:
             type: string
             format: int64
           oldSnapshotThreshold:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              in milliseconds.
             type: string
             format: int64
           maxStandbyStreamingDelay:
@@ -18493,7 +18512,9 @@ apiPlayground:
             type: string
             format: int64
           oldSnapshotThreshold:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              in milliseconds.
             type: string
             format: int64
           maxStandbyStreamingDelay:
@@ -24390,7 +24411,7 @@ Host groups hosting VMs of the cluster. ||
 Window of maintenance operations. ||
 || retentionPolicies[] | **[BackupRetentionPolicySpec](#yandex.cloud.mdb.v1.BackupRetentionPolicySpec)**
 
-Backup long-term retention policies setting. ||
+Deprecated. Use yandex.cloud.mdb.postgresql.v1.BackupRetentionPolicyService.Create to create retention policies instead. ||
 || diskEncryptionKeyId | **string**
 
 ID of the key to encrypt cluster disks. ||
@@ -31520,7 +31541,9 @@ in bytes. ||
 || backendFlushAfter | **string** (int64)
 
 Acceptable values are 0 to 2048, inclusive. ||
-|| oldSnapshotThreshold | **string** (int64) ||
+|| oldSnapshotThreshold | **string** (int64)
+
+in milliseconds. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
@@ -31713,7 +31736,9 @@ in bytes. ||
 || backendFlushAfter | **string** (int64)
 
 Acceptable values are 0 to 2048, inclusive. ||
-|| oldSnapshotThreshold | **string** (int64) ||
+|| oldSnapshotThreshold | **string** (int64)
+
+in milliseconds. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
@@ -31906,7 +31931,9 @@ in bytes. ||
 || backendFlushAfter | **string** (int64)
 
 Acceptable values are 0 to 2048, inclusive. ||
-|| oldSnapshotThreshold | **string** (int64) ||
+|| oldSnapshotThreshold | **string** (int64)
+
+in milliseconds. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
@@ -32099,7 +32126,9 @@ in bytes. ||
 || backendFlushAfter | **string** (int64)
 
 Acceptable values are 0 to 2048, inclusive. ||
-|| oldSnapshotThreshold | **string** (int64) ||
+|| oldSnapshotThreshold | **string** (int64)
+
+in milliseconds. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
@@ -32292,7 +32321,9 @@ in bytes. ||
 || backendFlushAfter | **string** (int64)
 
 Acceptable values are 0 to 2048, inclusive. ||
-|| oldSnapshotThreshold | **string** (int64) ||
+|| oldSnapshotThreshold | **string** (int64)
+
+in milliseconds. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
@@ -32489,7 +32520,9 @@ in bytes. ||
 || backendFlushAfter | **string** (int64)
 
 Acceptable values are 0 to 2048, inclusive. ||
-|| oldSnapshotThreshold | **string** (int64) ||
+|| oldSnapshotThreshold | **string** (int64)
+
+in milliseconds. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
@@ -32686,7 +32719,9 @@ in bytes. ||
 || backendFlushAfter | **string** (int64)
 
 Acceptable values are 0 to 2048, inclusive. ||
-|| oldSnapshotThreshold | **string** (int64) ||
+|| oldSnapshotThreshold | **string** (int64)
+
+in milliseconds. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
@@ -32883,7 +32918,9 @@ in bytes. ||
 || backendFlushAfter | **string** (int64)
 
 Acceptable values are 0 to 2048, inclusive. ||
-|| oldSnapshotThreshold | **string** (int64) ||
+|| oldSnapshotThreshold | **string** (int64)
+
+in milliseconds. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
@@ -33080,7 +33117,9 @@ in bytes. ||
 || backendFlushAfter | **string** (int64)
 
 Acceptable values are 0 to 2048, inclusive. ||
-|| oldSnapshotThreshold | **string** (int64) ||
+|| oldSnapshotThreshold | **string** (int64)
+
+in milliseconds. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
@@ -33280,7 +33319,9 @@ in bytes. ||
 || backendFlushAfter | **string** (int64)
 
 Acceptable values are 0 to 2048, inclusive. ||
-|| oldSnapshotThreshold | **string** (int64) ||
+|| oldSnapshotThreshold | **string** (int64)
+
+in milliseconds. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||

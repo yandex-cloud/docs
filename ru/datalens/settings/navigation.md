@@ -5,10 +5,7 @@ description: Настройки навигации в {{ datalens-full-name }} �
 
 # Настройки навигации в {{ datalens-full-name }}
 
-Настройки навигации позволяют управлять организацией объектов в {{ datalens-full-name }}. Администратор может отключить навигацию по папкам и перейти на воркбуки и коллекции.
-
-* [Отключить навигацию по папкам](#disable-folder-navigation)
-* [Включить воркбуки и коллекции](#enable-workbooks)
+Настройки навигации позволяют управлять организацией объектов в {{ datalens-full-name }}. Администратор может отключить навигацию по папкам.
 
 Чтобы перейти к настройкам навигации:
 
@@ -22,7 +19,3 @@ description: Настройки навигации в {{ datalens-full-name }} �
 
 {% include [disable-folder-navigation](../../_includes/datalens/settings/disable-folder-navigation.md) %}
 
-
-## Включить воркбуки и коллекции {#enable-workbooks}
-
-{% include [enable-workbooks](../../_includes/datalens/settings/enable-workbooks.md) %}

@@ -6,3 +6,9 @@
 1. In the window that opens, confirm deactivation.
 
     You can also give a reason for account deactivation.
+
+{% note info %}
+
+Local users can also be automatically deactivated if the specified deactivation date is reached.
+
+{% endnote %}

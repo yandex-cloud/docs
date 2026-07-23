@@ -25,6 +25,8 @@ items:
             href: operations/cluster-backups.md
           - name: Managing cluster access
             href: operations/cluster-access.md
+          - name: '{{ mgp-full-name }} version upgrade'
+            href: operations/cluster-version-update.md
           - name: Maintenance
             href: operations/cluster-maintenance.md
           - name: Deleting a cluster

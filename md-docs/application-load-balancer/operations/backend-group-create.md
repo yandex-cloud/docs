@@ -9,15 +9,18 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создаваться группа бэкендов.
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **Группы бэкендов**.
   1. Нажмите кнопку **Создать группу бэкендов**.
   1. Введите имя группы бэкендов.
   1. Выберите [тип группы бэкендов](../concepts/backend-group.md#group-types):
+     
      * `HTTP` — для HTTP- или HTTPS-трафика.
      * `gRPC` — для HTTP- или HTTPS-трафика с вызовами [gRPC](https://ru.wikipedia.org/wiki/GRPC)-процедур.
      * `Stream` — для TCP-трафика без шифрования или с TLS-шифрованием.
+  
   1. (Опционально) Включите [привязку сессий](../concepts/backend-group.md#session-affinity). Для группы бэкендов типа `HTTP` или `gRPC` доступны следующие режимы привязки:
+     
      * `По IP-адресу`.
      * `По HTTP-заголовку`.
      * `По cookie`.
@@ -385,7 +388,9 @@
      ```
 
      Где:
+     
      * `yandex_alb_backend_group` — параметры группы бэкендов:
+       
        * `name` — имя группы бэкендов.
        * `session_affinity` — настройки [привязки сессий](../concepts/backend-group.md#session-affinity) (необязательный параметр).
 
@@ -431,6 +436,7 @@
        {% endnote %}
 
      Подробнее о параметрах ресурса `yandex_alb_backend_group` в [документации провайдера](../../terraform/resources/alb_backend_group.md).
+  
   1. Создайте ресурсы:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.

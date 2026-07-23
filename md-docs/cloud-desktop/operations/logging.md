@@ -9,7 +9,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится группа рабочих столов.
-  1. Перейдите в сервис **Cloud Desktop**.
+  1. [Перейдите](https://console.yandex.cloud/link/cloud-desktop) в сервис **Cloud Desktop**.
   1. Выберите группу, логи которой нужно посмотреть.
   1. Перейдите на вкладку ![logs](../../_assets/console-icons/receipt.svg) **Логи**.
 
@@ -22,7 +22,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором расположен рабочий стол.
-  1. Перейдите в сервис **Cloud Desktop**.
+  1. [Перейдите](https://console.yandex.cloud/link/cloud-desktop) в сервис **Cloud Desktop**.
   1. На панели слева выберите ![image](../../_assets/console-icons/display.svg) **Рабочие столы**.
   1. Выберите рабочий стол, логи которого нужно посмотреть.
   1. Перейдите на вкладку ![logs](../../_assets/console-icons/receipt.svg) **Логи**.

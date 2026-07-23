@@ -14,11 +14,12 @@ description: Для создания целевой группы {{ alb-full-nam
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создаваться целевая группа.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.alb.label_target-groups }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_target-group-create }}**.
   1. Введите имя и описание целевой группы.
   1. В блоке **{{ ui-key.yacloud.alb.label_targets }}** выберите ВМ из списка или добавьте целевой ресурс вручную:
+     
      1. В поле **{{ ui-key.yacloud.alb.column_target }}** укажите адрес ресурса и выберите [подсеть](../../vpc/concepts/network.md#subnet).
      1. (Опционально) Если [IP-адрес](../../vpc/concepts/address.md) ресурса находится вне [{{ vpc-full-name }}](../../vpc/), выберите опцию **{{ ui-key.yacloud.alb.label_target-private-ip }}**.
 
@@ -26,6 +27,7 @@ description: Для создания целевой группы {{ alb-full-nam
 
 
      1. Нажмите **{{ ui-key.yacloud.alb.button_add-target }}**.
+  
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -125,8 +127,10 @@ description: Для создания целевой группы {{ alb-full-nam
      ```
 
      Где `yandex_alb_target_group` — параметры целевой группы:
+     
      * `name` — имя целевой группы.
      * `target` — параметры целевого ресурса:
+       
        * `subnet_id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet), в которой размещена ВМ. Получить список доступных подсетей можно с помощью команды [CLI](../../cli/): `yc vpc subnet list`.
        * `ip_address` — внутренний IP-адрес ВМ. Получить список [внутренних IP-адресов](../../vpc/concepts/address.md#internal-addresses) можно с помощью команды CLI: `yc vpc subnet list-used-addresses --id <идентификатор_подсети>`.
 
@@ -155,12 +159,15 @@ description: Для создания целевой группы {{ alb-full-nam
 
 
      Где `yandex_alb_target_group` — параметры целевой группы:
+     
      * `name` — имя целевой группы.
      * `target` — параметры целевого ресурса:
+       
        * `private_ipv4_address` — параметр, который означает, что IP-адрес находится вне {{ vpc-name }}.
        * `ip_address` — частный IPv4-адрес ресурса. Адреса должны входить в [частные диапазоны из RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3). Подробнее в разделе [Подсети](../../vpc/concepts/network.md#subnet).
 
      Подробнее о параметрах ресурса `yandex_alb_target_group` в [документации провайдера]({{ tf-provider-alb-targetgroup }}).
+  
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

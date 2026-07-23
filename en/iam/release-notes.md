@@ -5,6 +5,40 @@ description: This section contains the {{ iam-name }} release notes.
 
 # {{ iam-full-name }} release notes
 
+## June 2026 {#june-2026}
+
+### {{ iam-name }} updates {#iam-june-2026}
+
+* Added the `resourceManager.denyCloudRemoval` [authorization policy](concepts/access-control/access-policies.md#resourceManager-denyCloudRemoval) template that allows you to prohibit cloud deletion.
+
+### New roles {#roles-june-2026}
+
+{% cut "{{ metastore-full-name }}" %}
+
+   Role | Description
+   --- | ---
+   `managed-metastore.maintenanceTask.editor` | Allows the user to view information about maintenance tasks for {{ metastore-name }} clusters and modify such tasks, view information about clusters and access permissions issued for them, and about quotas of {{ yandex-cloud }} managed DB services.
+   `managed-metastore.maintenanceTask.viewer` | Allows the user to view information about {{ metastore-name }} clusters, access permissions issued for them, their maintenance tasks, and about quotas of {{ yandex-cloud }} managed DB services.
+
+{% endcut %}
+
+{% cut "{{ datalens-full-name }}" %}
+
+   Role | Description
+   --- | ---
+   `datalens.collections.creator` | Allows the user to view the collection and create objects inside it without access to other objects existing inside the collection.
+   `datalens.collections.entryBindingCreator` | Allows the user to re-use shared objects from this collection either with or without delegating access permissions.
+   `datalens.collections.limitedEntryBindingCreator` | Allows the user to re-use shared objects from this collection without delegating access permissions.
+   `datalens.collections.visitor` | Allows the user to view information about the current collection without accessing its nested objects.
+   `datalens.sharedEntries.admin` | Allows the user to view the shared object and fully manage it, i.e., edit, move, delete it, and configure access permissions for it.
+   `datalens.sharedEntries.editor` | Allows the user to edit the shared object, view the object itself and access permissions assigned for it.
+   `datalens.sharedEntries.entryBindingCreator` | Allows the user to re-use the shared object in workbooks either with or without delegating access permissions.
+   `datalens.sharedEntries.limitedEntryBindingCreator` | Allows the user to re-use the shared object in workbooks without delegating access permissions.
+   `datalens.sharedEntries.limitedViewer` | Allows the user to view [charts](../datalens/concepts/chart/index.md) and [dashboards](../datalens/concepts/dashboard.md) that use the shared object without directly accessing the object itself.
+   `datalens.sharedEntries.viewer` | Allows the user to view the shared object and access permissions assigned for it.
+
+{% endcut %}
+
 ## May 2026 {#may-2026}
 
 ### {{ iam-name }} updates {#iam-may-2026}

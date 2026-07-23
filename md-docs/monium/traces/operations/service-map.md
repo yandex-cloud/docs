@@ -29,7 +29,7 @@
 
 - Интерфейс Monium {#console}
 
-  1. На главной странице [Monium](https://monium.yandex.cloud) слева выберите **Карта сервисов**.
+  1. На главной странице [Monium](https://monium.yandex.cloud) слева выберите ![alt](../../../_assets/console-icons/compass.svg) **Обзор** → ![alt](../../../_assets/console-icons/hierarchy.svg) **Трейсы**.
   1. Вверху на шкале времени задайте промежуток поиска данных.
   1. В строке поиска введите запрос:
           

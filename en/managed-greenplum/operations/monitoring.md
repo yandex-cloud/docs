@@ -222,8 +222,8 @@ To view detailed information about the [PXF](external-tables.md) state:
 
     * **Signals**:
         * **Availability**: PXF service availability over the last five minutes.
-        * **Memory Utilization**: Indicates RAM usage by the PXF service.
-        * **CPU Utilization**: Indicates CPU usage by the PXF service.
+        * **Memory Utilization**: RAM usage by the PXF service.
+        * **CPU Utilization**: CPU usage by the PXF service.
 
     * **Overview**: General metrics of the PXF service:
         * **Unavailable instances**: Unavailable PXF instances.
@@ -340,7 +340,7 @@ To configure state indicator alerts for a [cluster](#monitoring-cluster) and [ho
   1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select:
       * **{{ mgp-name }} — Cluster Overview** to configure cluster alerts.
       * **{{ mgp-name }} — Host Overview** to configure host alerts.
-  1. On the indicator chart of interest, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+  1. In the indicator chart, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
   1. If the chart shows multiple metrics, select the data query to generate the metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. For more on the query language, see [this {{ monitoring-full-name }} guide](../../monitoring/concepts/querying.md).
   1. Set the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` thresholds for notifications.
   1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.

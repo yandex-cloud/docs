@@ -6,9 +6,41 @@ editable: false
 
 # Правила тарификации для {{ metadata-hub-full-name }}
 
-Использование {{ connection-manager-name }}, {{ schema-registry-name }} и {{ data-catalog-name }} не тарифицируется. За потребление других ресурсов {{ yandex-cloud }}, которые вы используете в процессе работы с этими сервисами (например, сервисов управляемых баз данных или [{{ lockbox-name }}](../lockbox/pricing.md)), взимается плата в соответствии с их [тарифами]({{ link-cloud-calculator }}).
+::: page-constructor
+blocks:
+  - type: card-layout-block
+    animated: false
+    colSizes:
+      all: 6
+    children:
+      - type: basic-card
+        title: Калькулятор цен
+        text: Рассчитайте стоимость использования сервиса, исходя из ваших потребностей
+        icon: ../_assets/console-icons/calculator.svg
+        urlTitle: Калькулятор цен
+        url: https://yandex.cloud/ru/prices?state=e093287099a9#calculator
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+      - type: basic-card
+        title: Прайс-лист
+        text: Актуальные тарифы на все наши услуги
+        icon: ../_assets/console-icons/circle-ruble.svg
+        urlTitle: Прайс-лист
+        url: https://yandex.cloud/ru/price-list?services=dn2rnt6lkfbauucwnfby
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+:::
 
-{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
+Использование {{ connection-manager-name }}, {{ schema-registry-name }} и {{ data-catalog-name }} не тарифицируется. За потребление других ресурсов {{ yandex-cloud }}, которые вы используете в процессе работы с этими сервисами (например, сервисов управляемых баз данных или [{{ lockbox-name }}](../lockbox/pricing.md)), взимается плата в соответствии с их [тарифами]({{ link-cloud-calculator }}).
 
 
 {% include [vat](../_includes/vat.md) %}

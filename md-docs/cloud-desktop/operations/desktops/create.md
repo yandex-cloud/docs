@@ -7,7 +7,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором будет создан [рабочий стол](../../concepts/desktops-and-groups.md).
-  1. Перейдите в сервис **Cloud Desktop**.
+  1. [Перейдите](https://console.yandex.cloud/link/cloud-desktop) в сервис **Cloud Desktop**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/display.svg) **Рабочие столы**.
   1. Нажмите кнопку **Создать рабочий стол**.
   1. Выберите группу рабочих столов, в которой будет создан рабочий стол.

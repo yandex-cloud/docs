@@ -416,7 +416,7 @@
   Чтобы подключить виртуальный хост:
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужный [профиль безопасности](../../smartwebsecurity/concepts/profiles.md).
-    1. Перейдите в сервис **Smart Web Security**.
+    1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
     1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **Профили безопасности**.
     1. Выберите профиль безопасности, который вы хотите подключить к [виртуальному хосту](../../application-load-balancer/concepts/http-router.md#virtual-host) сервиса [Yandex Application Load Balancer](../../application-load-balancer/index.md).
     1. Нажмите кнопку ![plug](../../_assets/console-icons/plug-connection.svg) **Подключить к хосту**.

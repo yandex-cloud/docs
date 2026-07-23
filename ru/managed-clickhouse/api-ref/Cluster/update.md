@@ -93,7 +93,7 @@ apiPlayground:
           description: |-
             **string**
             ID of the network to move the cluster to.
-            The maximum string length in characters is 50.
+            The maximum string length in characters is 100.
           type: string
         allowHostRecreation:
           description: |-
@@ -4955,7 +4955,7 @@ Deletion Protection inhibits deletion of the cluster ||
 
 ID of the network to move the cluster to.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 100. ||
 || allowHostRecreation | **boolean**
 
 Allows or denies re-creation of replicas during update of cluster configuration. The option must be enabled for

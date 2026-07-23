@@ -9,6 +9,7 @@
     Чтобы добавить записи в лог-группу, выполните команду:
 
     * Linux, MacOS:
+        
         ```bash
         yc logging write \
           --group-name=default \
@@ -16,7 +17,9 @@
           --level=INFO \
           --json-payload='{"request_id": "1234"}'
         ```
+    
     * Windows (cmd):
+        
         ```cmd
         yc logging write ^
           --group-name=default ^
@@ -24,7 +27,9 @@
           --level=INFO ^
           --json-payload="{"request_id": "1234"}"
         ```
+    
     * Windows (PowerShell):
+        
         ```powershell
         yc logging write `
           --group-name=default `

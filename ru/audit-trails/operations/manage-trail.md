@@ -17,7 +17,7 @@ description: Следуя данной инструкции, вы сможете
   Чтобы изменить трейл:
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится трейл.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. [Перейдите]({{ link-console-main }}/link/audit-trails) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. В строке с нужным трейлом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Измените параметры трейла. Список настроек трейла, которые можно изменить, приведен в разделе [{#T}](../concepts/trail.md#trail-settings).
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
@@ -86,6 +86,7 @@ description: Следуя данной инструкции, вы сможете
     ```
 
     Где:
+    
     * `--name` — имя трейла, который требуется изменить. Вместо имени можно передать идентификатор трейла в параметре `--id`.
     * `--new-name` — новое имя трейла. Имя должно быть уникальным в рамках каталога. Необязательный параметр.
 
@@ -140,7 +141,7 @@ description: Следуя данной инструкции, вы сможете
   Чтобы удалить трейл:
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится трейл.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. [Перейдите]({{ link-console-main }}/link/audit-trails) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. В строке с нужным трейлом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. В открывшемся окне подтвердите удаление.
 
@@ -183,6 +184,7 @@ description: Следуя данной инструкции, вы сможете
      ```
 
      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+  
   1. Примените изменения конфигурации:
 
      ```bash

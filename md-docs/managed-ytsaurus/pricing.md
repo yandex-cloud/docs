@@ -2,19 +2,43 @@
 
 # Правила тарификации для Yandex Managed Service for YTsaurus
 
+::: page-constructor
+blocks:
+  - type: card-layout-block
+    animated: false
+    colSizes:
+      all: 6
+    children:
+      - type: basic-card
+        title: Калькулятор цен
+        text: Рассчитайте стоимость использования сервиса, исходя из ваших потребностей
+        icon: ../_assets/console-icons/calculator.svg
+        urlTitle: Калькулятор цен
+        url: https://yandex.cloud/ru/prices?state=4e1603c77d18#calculator
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+      - type: basic-card
+        title: Прайс-лист
+        text: Актуальные тарифы на все наши услуги
+        icon: ../_assets/console-icons/circle-ruble.svg
+        urlTitle: Прайс-лист
+        url: https://yandex.cloud/ru/price-list?services=dn2thrwhzxl2ygay7nvq
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+:::
+
+
 
 
 В этом разделе описаны [правила](#rules), по которым тарифицируется использование сервиса Managed Service for YTsaurus, и представлены [актуальные цены](#prices) на предоставляемые им ресурсы. За потребление других ресурсов Yandex Cloud, которые вы используете в процессе работы с сервисом, взимается плата в соответствии с их тарифами.
-
-
-{% note tip %}
-
-Чтобы рассчитать стоимость использования сервиса, воспользуйтесь [калькулятором](https://yandex.cloud/ru/prices?state=9845e5c24dd9#calculator) на сайте Yandex Cloud или ознакомьтесь с тарифами в этом разделе.
-
-{% endnote %}
-
-
-Цены на продукты сервиса также доступны в [Прайс-листе](https://yandex.cloud/ru/price-list).
 
 
 Все цены в рублях и тенге указаны с НДС, все цены в долларах — без НДС.

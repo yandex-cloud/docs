@@ -13,8 +13,10 @@ yandex.cloud.audit.cloudregistry.<имя_события>
 Имя события | Описание
 --- | ---
 `CreateArtifact` | Создание [артефакта](concepts/artifacts/index.md)
+`CreateLifecyclePolicy` | Создание [политики жизненного цикла](concepts/lifecycle-policy.md)
 `CreateRegistry` | Создание реестра
 `DeleteArtifact` | Удаление артефактов
+`DeleteLifecyclePolicy` | Удаление политики жизненного цикла
 `DeleteRegistry` | Удаление реестра
 `RevokeDelegation` | Отзыв прав делегирования у сервисного аккаунта для доступа к ресурсам облака
 `SetArtifactAccessBindings` | Назначение прав доступа для артефакта
@@ -25,6 +27,7 @@ yandex.cloud.audit.cloudregistry.<имя_события>
 `UpdateArtifact` | Изменение артефакта
 `UpdateArtifactAccessBindings` | Изменение прав доступа для артефакта
 `UpdateIpPermissions` | Изменение доступа для IP-адресов
+`UpdateLifecyclePolicy` | Изменение политики жизненного цикла
 `UpdateRegistry` | Изменение реестра
 `UpdateRegistryAccessBindings` | Изменение прав доступа на реестр
 `UpdateRegistryFolderAccessBindings` | Изменение прав доступа к каталогу реестра

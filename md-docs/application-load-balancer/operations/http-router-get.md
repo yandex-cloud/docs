@@ -10,8 +10,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится роутер.
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится роутер.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **HTTP-роутеры**.
   1. Выберите HTTP-роутер.
   1. На странице **Обзор** отобразится подробная информация об  HTTP-роутере.
@@ -88,8 +88,11 @@
       Где:
 
       * `data "yandex_alb_http_router"` — описание HTTP-роутера в качестве источника данных:
+         
          * `http_router_id` — идентификатор HTTP-роутера.
+      
       * `output "tf-router-name"` — выходная переменная, которая содержит имя HTTP-роутера:
+         
          * `value` — возвращаемое значение.
 
      Вместо `name` вы можете выбрать любой другой параметр для получения информации. Подробнее о параметрах источника данных `yandex_alb_http_router` в [документации провайдера](../../terraform/data-sources/alb_http_router.md).

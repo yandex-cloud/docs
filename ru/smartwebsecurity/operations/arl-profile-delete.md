@@ -12,13 +12,14 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [профиль ARL](../concepts/arl.md).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. На панели слева выберите ![image](../../_assets/smartwebsecurity/arl.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_profiles }}**.
   1. В строке с нужным профилем ARL в поле **{{ ui-key.yacloud.smart-web-security.arl.label_connected-security-profiles }}** выберите профиль безопасности, в котором используется данный профиль ARL.
   1. Справа сверху нажмите **{{ ui-key.yacloud.smart-web-security.overview.action_edit-profile }}**. В открывшемся окне:
 
       1. В списке **{{ ui-key.yacloud.smart-web-security.form.label_arl-profile }}** выберите другой профиль ARL или нажмите **{{ ui-key.yacloud.common.clear }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  
   1. Таким же способом удалите профиль ARL из всех других связанных профилей безопасности.
   1. Вернитесь на страницу профиля ARL, который вы хотите удалить.
   1. Справа сверху нажмите ![recycle-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}** и подтвердите удаление.

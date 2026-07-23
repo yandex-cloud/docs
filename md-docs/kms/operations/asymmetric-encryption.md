@@ -39,7 +39,7 @@
     - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужная ключевая пара.
-      1. Перейдите в сервис **Key Management Service**.
+      1. [Перейдите](https://console.yandex.cloud/link/kms) в сервис **Key Management Service**.
       1. На панели слева выберите ![image](../../_assets/kms/asymmetric-key.svg) **Асимметричные ключи**.
       1. Перейдите на вкладку **Шифрование**.
       1. В строке с нужной ключевой парой нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Публичный ключ**.

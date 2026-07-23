@@ -191,8 +191,6 @@
 `dns.zones.count` | 100 ||
 || Количество наборов записей в одном облаке
 `dns.recordSets.count` | 1 000 ||
-|| Количество наборов записей в одной зоне
-`dns.recordSetsPerZone.count`| 100 ||
 |#
 
 #### Лимиты {#cloud-dns-limits}

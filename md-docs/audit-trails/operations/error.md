@@ -12,6 +12,7 @@
 {% endnote %}
 
 Объекты назначения:
+
 * [Бакет Object Storage](#storage).
 * [Поток данных Data Streams](#data-streams).
 * [Лог-группа Cloud Logging](#cloud-logging).
@@ -36,9 +37,11 @@
 ### BUCKET_NOT_FOUND {#bucket-not-found}
 
 Проверьте бакет, который указан в [настройках трейла](../concepts/trail.md#trail-settings). Если бакет был удален:
+
 1. [Создайте](../../storage/operations/buckets/create.md) новый бакет с тем же именем, которое было указано в настройках трейла.
 
     Также вы можете изменить настройки трейла, указав в блоке **Назначение** другой бакет.
+
 1. Если бакет [зашифрован](../../storage/tutorials/server-side-encryption.md) ключом Yandex Key Management Service, выдайте сервисному аккаунту, от имени которого трейл загружает аудитные логи в бакет, [роль](../../kms/security/index.md#kms-keys-decrypter) `kms.keys.decrypter` на ключ.
 
 
@@ -60,13 +63,15 @@
 ### STREAM_NOT_FOUND {#stream-not-found}
 
 Проверьте поток данных, который указан в [настройках трейла](../concepts/trail.md#trail-settings). Если поток данных или его база данных YDB были удалены:
+
 1. [Создайте](../../data-streams/operations/manage-streams.md#create-data-stream) новый поток данных.
 1. Измените настройки трейла, указав в блоке **Назначение** новый поток данных.
 
 ###  DATABASE_INACTIVE {#database-inactive}
 
 [Убедитесь](../../ydb/operations/manage-databases.md#list-db), что база данных YDB находится в статусе `Running`. При необходимости запустите БД, например, с помощью [консоли управления](https://console.yandex.cloud):
-1. В списке сервисов выберите **Managed Service for&nbsp;YDB**.
+
+1. [Перейдите](https://console.yandex.cloud/link/ydb) **Managed Service for&nbsp;YDB**.
 1. Справа от имени нужной БД нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Запустить**.
 
 ###  DATABASE_NOT_FOUND {#database-not-found}
@@ -90,6 +95,7 @@
 ### LOG_GROUP_NOT_FOUND {#log-group-not-found}
 
 Проверьте лог-группу, которая указана в [настройках трейла](../concepts/trail.md#trail-settings). Если лог-группа была удалена:
+
 1. [Создайте](../../logging/operations/create-group.md) новую лог-группу.
 1. Измените настройки трейла, указав в блоке **Назначение** новую лог-группу.
 

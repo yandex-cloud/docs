@@ -67,6 +67,10 @@ To ensure data integrity and acceptable cluster recovery time:
 
   {% endnote %}
 
+* We do not recommend to change the value of the `writeConcern` parameter when executing a query.
+  
+  By default, `writeConcern: { w: "majority" }` is used for all write operations: the operation is considered successful once it has been confirmed by the majority of replicas. With queries using `writeConcern: 1`, data on secondary replicas may fall behind. Until the replicas have synchronized with the master, new write operations with `writeConcern: { w: "majority" }` or without specifying the `writeConcern` setting will time out. Write operations with `writeConcern: 1` will run in asynchronous mode, but each operation will increase the data lag on the secondary replicas. If the master fails, data that has not been saved on the replicas will be lost. Therefore, neither SLAs nor high availability are guaranteed for such clusters.
+
 ## Available storage space {#storage-settings}
 
 {{ mmg-name }} monitors how much disk space is used and automatically activates **Read only** mode for those cluster hosts that have:
@@ -82,11 +86,11 @@ Cluster availability depends on the type of VMs you use to deploy your hosts. A 
 ## Maintaining a cluster and modifying its parameters {#maintenance}
 
 The following operations may lead to interrupted database connections and temporary performance degradation:
-* [Maintenance](../concepts/maintenance.md) start (you set the start time when you select the [maintenance window](../concepts/maintenance.md#maintenance-window)).
-* [Host class change](../operations/update.md#change-resource-preset).
-* Automatic and manual database [backups](../concepts/backup.md).
+* Starting [maintenance](../concepts/maintenance.md) (you can set your preferred start time by setting up the [maintenance window](../concepts/maintenance.md#maintenance-window)).
+* [Changing host class](../operations/update.md#change-resource-preset).
+* Automatic and manual database [backus](../concepts/backup.md).
 
-Run these operations when the cluster load is minimal.
+Run these operations when the cluster load is minimal. Select [maintenance day and time](maintenance.md#maintenance-window) based on estimated cluster load.
 
 {% note warning %}
 

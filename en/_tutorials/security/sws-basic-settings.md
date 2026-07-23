@@ -478,7 +478,7 @@ To set a request limitation, estimate your standard service load first. If you u
 
 You normally need to test your ARL rules only once; then the security system can enter its regular operation mode. However, in certain cases, rules might require more testing and adjustment.
 
-Use an appropriate load testing tool with HTTP support to test the ARL rules.
+To test ARL rules, use a suitable load testing tool with HTTP support.
 
 {% list tabs group=instructions %}
 

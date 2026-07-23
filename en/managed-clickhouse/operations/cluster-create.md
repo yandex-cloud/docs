@@ -28,7 +28,11 @@ The connection and secret will be created for each new database user. To view al
 
 ## Roles for creating a cluster {#roles}
 
-To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mch.editor }}](../security.md#managed-clickhouse-editor) role or higher.
+To create a {{ mch-name }} cluster and use it, your {{ yandex-cloud }} account needs the following roles:
+
+* {% include [roles-mch-editor](../../_includes/mdb/mch/roles-mch-editor.md) %}
+* {% include [roles-vpc-user](../../_includes/mdb/roles-vpc-user.md) %}
+* {% include [roles-mdb-viewer](../../_includes/mdb/roles-mdb-viewer-create-cluster.md) %}
 
 To attach your service account to a cluster, e.g., to [use {{ objstorage-full-name }}](s3-access.md), make sure your {{ yandex-cloud }} account has the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher.
 
@@ -411,8 +415,9 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
          {{ yc-mdb-ch }} cluster create \
            ...
            --maintenance-window type=<maintenance_type>,`
-                               `hour=<hour>,`
-                               `day=<day_of_week>
+                               `day=<day_of_week>,`
+                               `hour=<sequence_number_of_hour_interval>
+                               
            ...
          ```
 
@@ -423,8 +428,10 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
            * `anytime`: Any time (default).
            * `weekly`: On schedule. To use this value, you need to provide `hour` and `day`.
 
-         * `hour`: Time of day (UTC). The valid values range from `1` to `24`.
-         * `day`: Day of week. The valid values are `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, and `SUN`.
+         * `day`: Day of week for the `weekly` type. The valid values are `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, and `SUN`.
+         * `hour`: UTC hour interval, from `1` to `24`.
+
+           > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.         
 
 
 - {{ TF }} {#tf}
@@ -582,7 +589,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
           {% endnote %}
 
 
-       * `permission`: List of databases the user should have access to.
+       * `permission`: List of databases the user must have access to.
 
        1. {% include [Maintenance window](../../_includes/mdb/mch/terraform/maintenance-window.md) %}
 
@@ -769,7 +776,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
               "maintenanceWindow": {
                 "weeklyMaintenanceWindow": {
                   "day": "<day_of_week>",
-                  "hour": "<hour>"
+                  "hour": "<sequence_number_of_hour_interval>"
                 }
               }
             }
@@ -861,10 +868,14 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                 {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-            * `maintenanceWindow`: Maintenance window settings:
+            * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, including for stopped clusters. Select one of these options:
 
-                * `weeklyMaintenanceWindow.day`: Day of week. The valid values are `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, and `SUN`.
-                * `weeklyMaintenanceWindow.hour`: Time of day (UTC). The valid values range from `1` to `24`.
+                * `anytime`: Any time (default).
+                * `weeklyMaintenanceWindow`: On schedule:
+                    * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+                    * `hour`: UTC hour interval. The valid values range from `1` to `24`.
+
+                      > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
             
             You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
@@ -1009,7 +1020,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
               "maintenance_window": {
                 "weekly_maintenance_window": {
                   "day": "<day_of_week>",
-                  "hour": "<hour>"
+                  "hour": "<sequence_number_of_hour_interval>"
                 }
               }
             ```
@@ -1103,10 +1114,14 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                 {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-            * `maintenance_window`: Maintenance window settings:
+            * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, including for stopped clusters. Select one of these options:
 
-              * `weekly_maintenance_window.day`: Day of week. The valid values are `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, and `SUN`.
-              * `weekly_maintenance_window.hour`: Time of day (UTC). The valid values range from `1` to `24`.
+              * `anytime`: Any time (default).
+              * `weekly_maintenance_window`: On schedule:
+                  * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+                  * `hour`: UTC hour interval. The valid values range from `1` to `24`.
+
+                    > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
             
             You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
@@ -1491,8 +1506,9 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
          {{ yc-mdb-ch }} cluster create \
            ...
            --maintenance-window type=<maintenance_type>,`
-                               `hour=<hour>,`
-                               `day=<day_of_week>
+                               `day=<day_of_week>,`
+                               `hour=<sequence_number_of_hour_interval>
+                               
            ...
          ```
 
@@ -1501,10 +1517,12 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
          * `type`: Maintenance window type. Valid values:
 
            * `anytime`: Any time (default).
-           * `weekly`: On schedule. To use this value, you need to provide `hour` and `day`.
+           * `weekly`: On a schedule. To use this value, you need to provide `hour` and `day`.
 
-         * `hour`: Time of day (UTC). The valid values range from `1` to `24`.
-         * `day`: Day of week. The valid values are `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, and `SUN`.
+         * `day`: Day of week for the `weekly` type. The valid values are `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, and `SUN`.
+         * `hour`: UTC hour interval. The valid values range from `1` to `24`.
+
+            > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.         
 
 
 - {{ TF }} {#tf}
@@ -1675,7 +1693,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
           {% endnote %}
 
 
-       * `permission`: List of databases the user should have access to.
+       * `permission`: List of databases the user must have access to.
 
        1. {% include [Maintenance window](../../_includes/mdb/mch/terraform/maintenance-window.md) %}
 
@@ -1873,7 +1891,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
               "maintenanceWindow": {
                 "weeklyMaintenanceWindow": {
                   "day": "<day_of_week>",
-                  "hour": "<hour>"
+                  "hour": "<sequence_number_of_hour_interval>"
                 }
               }
             }
@@ -1972,10 +1990,14 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                 {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-            * `maintenanceWindow`: Maintenance window settings:
+            * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. Select one of these options:
 
-                * `weeklyMaintenanceWindow.day`: Day of week. The valid values are `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, and `SUN`.
-                * `weeklyMaintenanceWindow.hour`: Time of day (UTC). The valid values range from `1` to `24`.
+                * `anytime`: Any time (default).
+                * `weeklyMaintenanceWindow`: On schedule:
+                    * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+                    * `hour`: UTC hour interval. The valid values range from `1` to `24`.
+
+                      > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
             
             You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
@@ -2131,7 +2153,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
               "maintenance_window": {
                 "weekly_maintenance_window": {
                   "day": "<day_of_week>",
-                  "hour": "<hour>"
+                  "hour": "<sequence_number_of_hour_interval>"
                 }
               }
             ```
@@ -2231,10 +2253,14 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                 {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-            * `maintenance_window`: Maintenance window settings:
+            `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. Select one of these options:
 
-              * `weekly_maintenance_window.day`: Day of week. The valid values are `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, and `SUN`.
-              * `weekly_maintenance_window.hour`: Time of day (UTC). The valid values range from `1` to `24`.
+              * `anytime`: Any time (default).
+              * `weekly_maintenance_window`: On schedule:
+                  * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+                  * `hour`: UTC hour interval. The valid values range from `1` to `24`.
+
+                    > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
             
             You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).

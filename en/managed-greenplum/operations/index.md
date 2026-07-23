@@ -15,6 +15,7 @@ description: This page features step-by-step guides for {{ mgp-name }}.
 * [{#T}](cluster-expand.md)
 * [Managing backups](cluster-backups.md)
 * [Managing cluster access](cluster-access.md)
+* [{{ GP }} version upgrade](cluster-version-update.md)
 * [Maintenance](cluster-maintenance.md)
 * [Deleting a cluster](cluster-delete.md)
 

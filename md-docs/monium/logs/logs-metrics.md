@@ -18,7 +18,7 @@ Monium Logs публикует для каждого проекта набор �
 
 - Интерфейс Monium {#console}
 
-  1. На главной странице [Monium](https://monium.yandex.cloud) слева выберите **Дашборды**.
+  1. На главной странице [Monium](https://monium.yandex.cloud) слева выберите ![alt](../../_assets/console-icons/layout-cells-large.svg) **Дашборды**.
   1. Перейдите на вкладку **Сервисные дашборды**.
   1. Найдите в списке и выберите **Logs overview**.
 

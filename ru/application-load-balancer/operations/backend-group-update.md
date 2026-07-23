@@ -18,17 +18,19 @@ description: Пошаговая инструкция по изменению г�
   {% endnote %}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создана [группа бэкендов](../concepts/backend-group.md).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. Нажмите на имя нужной группы.
   1. Нажмите ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Измените параметры группы:
+     
      * **{{ ui-key.yacloud.common.name }}** и **{{ ui-key.yc-ui-datasphere.common.description }}** группы бэкендов.
      * **{{ ui-key.yacloud.alb.label_session-affinity }}** — опция, при которой запросы в рамках одной пользовательской сессии обрабатывает один и тот же эндпоинт.
 
        {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
        Для группы бэкендов типа `{{ ui-key.yacloud.alb.label_proto-http }}` или `{{ ui-key.yacloud.alb.label_proto-grpc }}` доступны режимы:
+       
        * `{{ ui-key.yacloud.alb.label_affinity-connection }}`.
        * `{{ ui-key.yacloud.alb.label_affinity-header }}`.
        * `{{ ui-key.yacloud.alb.label_affinity-cookie }}`.
@@ -36,6 +38,7 @@ description: Пошаговая инструкция по изменению г�
        Для типа `{{ ui-key.yacloud.alb.label_proto-stream }}` привязка сессий всегда работает по [IP-адресу](../../vpc/concepts/address.md).
 
        Привязка сессий и ее режимы описаны в [разделе](../concepts/backend-group.md#session-affinity).
+  
   1. Внизу страницы нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -62,6 +65,7 @@ description: Пошаговая инструкция по изменению г�
      ```
 
      Где:
+     
      * `--name` — имя группы бэкендов.
      * `--new-name` — новое имя группы бэкендов. Требования к имени:
 
@@ -70,10 +74,13 @@ description: Пошаговая инструкция по изменению г�
      * `--description` — описание группы бэкендов. Необязательный параметр.
      * `--labels key=value` — список меток в формате `ключ=значение`. Необязательный параметр.
      * `--connection-affinity` — режим [привязки сессий](../../application-load-balancer/concepts/backend-group.md#session-affinity) по [IP-адресу](../../vpc/concepts/address.md) (`source-ip`). Может принимать значения `true` или `false`. Необязательный параметр. Также доступны режимы:
+       
        * `--cookie-affinity` — привязка по cookie. Доступные параметры:
+         
          * `name` — имя cookie. Обязательный параметр.
          * `path` — путь к разделу сайта, на котором будет действовать cookie. Если путь не указан, запросы от одного пользователя могут попадать в разные бэкенды.
          * `ttl` — время жизни cookie.
+       
        * `--header-affinity` (по HTTP-заголовку). В параметре `name` укажите имя заголовка запроса, который будет использоваться для привязки.
 
        Может быть указан только один из режимов. Если группа бэкендов [типа Stream](../concepts/backend-group#group-types), режим привязки может быть только `--connection-affinity`.
@@ -139,6 +146,7 @@ description: Пошаговая инструкция по изменению г�
      ```
 
      Где `yandex_alb_backend_group` — параметры группы бэкендов:
+     
      * `name` — имя группы бэкендов.
      * `description` — описание группы бэкендов. Необязательный параметр.
      * `labels` — список меток в формате `ключ=значение`. Необязательный параметр.
@@ -146,9 +154,11 @@ description: Пошаговая инструкция по изменению г�
 
        * `connection` — режим привязки сессий по [IP-адресу](../../vpc/concepts/address.md) (`source_ip`). Может принимать значения `true` или `false`.
        * `cookie` — режим привязки сессий по cookie. Укажите следующие параметры в формате `<параметр_1>=<значение>,<параметр_2>=<значение>`:
+         
          * `name` — имя cookie. Обязательный параметр.
          * `path` — путь к разделу сайта, на котором будет действовать cookie. Если путь не указан, запросы от одного пользователя могут попадать в разные бэкенды.
          * `ttl` — время жизни cookie в секундах.
+       
        * `header` — режим привязки сессий по заголовку. В параметре `header_name` укажите имя заголовка запроса, который будет использоваться для привязки.
 
        Если группа бэкендов имеет тип `Stream` (состоит из ресурсов `stream_backend`), то привязка сессий может иметь только режим `connection`.
@@ -156,6 +166,7 @@ description: Пошаговая инструкция по изменению г�
        {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
      Подробнее о параметрах ресурса `yandex_alb_backend_group` в [документации провайдера]({{ tf-provider-alb-backendgroup }}).
+  
   1. Примените изменения:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -181,7 +192,7 @@ description: Пошаговая инструкция по изменению г�
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан бэкенд.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. Нажмите на имя нужной группы.
   1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.alb.button_add-backend }}**.
@@ -283,12 +294,14 @@ description: Пошаговая инструкция по изменению г�
      {% include [TF-update-code](../../_includes/application-load-balancer/TF-update-code.md) %}
 
      Где `yandex_alb_backend_group` — параметры группы бэкендов:
+     
      * `name` — имя группы бэкендов.
      * `http_backend`, `grpc_backend` и `stream_backend` — [тип бэкенда](../concepts/backend-group.md#group-types). Внутри группы все бэкенды должны быть одного типа — `HTTP`, `gRPC` или `Stream`.
 
      {% include [TF-backend-settings](../../_includes/application-load-balancer/TF-backend-settings.md) %}
 
      Подробнее о параметрах ресурса `yandex_alb_backend_group` в [документации провайдера]({{ tf-provider-alb-backendgroup }}).
+  
   1. Примените изменения:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -314,7 +327,7 @@ description: Пошаговая инструкция по изменению г�
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан бэкенд.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. Нажмите на имя нужной группы.
   1. Напротив имени бэкенда нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
@@ -449,12 +462,14 @@ description: Пошаговая инструкция по изменению г�
      {% include [TF-update-code](../../_includes/application-load-balancer/TF-update-code.md) %}
 
      Где `yandex_alb_backend_group` — параметры группы бэкендов:
+     
      * `name` — имя группы бэкендов.
      * `http_backend`, `grpc_backend` и `stream_backend` — [тип бэкенда](../concepts/backend-group.md#group-types). Внутри группы все бэкенды должны быть одного типа — `HTTP`, `gRPC` или `Stream`.
 
      {% include [TF-backend-settings](../../_includes/application-load-balancer/TF-backend-settings.md) %}
 
      Подробнее о параметрах ресурса `yandex_alb_backend_group` в [документации провайдера]({{ tf-provider-alb-backendgroup }}).
+  
   1. Примените изменения:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -482,7 +497,7 @@ description: Пошаговая инструкция по изменению г�
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан бэкенд.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. Нажмите на имя нужной группы.
   1. Напротив имени бэкенда нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
@@ -501,6 +516,7 @@ description: Пошаговая инструкция по изменению г�
      ```
 
   1. В зависимости от типа бэкенда выполните команду для удаления:
+     
      * HTTP-бэкенд:
 
        ```bash
@@ -570,6 +586,7 @@ description: Пошаговая инструкция по изменению г�
      ```
 
      Подробнее о параметрах ресурса `yandex_alb_backend_group` в [документации провайдера]({{ tf-provider-alb-backendgroup }}).
+  
   1. Примените изменения:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

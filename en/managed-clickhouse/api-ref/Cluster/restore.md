@@ -82,7 +82,7 @@ apiPlayground:
           description: |-
             **string**
             ID of the network to create the ClickHouse cluster in.
-            The maximum string length in characters is 50.
+            The maximum string length in characters is 100.
           type: string
         folderId:
           description: |-
@@ -5466,7 +5466,7 @@ the cluster that is being created from the backup. ||
 
 ID of the network to create the ClickHouse cluster in.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 100. ||
 || folderId | **string**
 
 ID of the folder to create the ClickHouse cluster in.

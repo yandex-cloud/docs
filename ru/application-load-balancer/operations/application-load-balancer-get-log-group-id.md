@@ -12,7 +12,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан балансировщик.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Нажмите на имя нужного балансировщика.
   1. В блоке **{{ ui-key.yacloud.alb.section_logs-settings }}** в поле **{{ ui-key.yacloud.alb.label_log-group }}** нажмите на имя лог-группы.
 
@@ -69,8 +69,8 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором создан балансировщик.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан балансировщик.
+  1. [Перейдите]({{ link-console-main }}/link/logging) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
   1. Сохраните идентификатор лог-группы с именем `default`.
 
 - CLI {#cli}
@@ -88,6 +88,7 @@ description: Следуя данной инструкции, вы сможете
   ```
 
   Где:
+  
   * `--name` — имя лог-группы по умолчанию — `default`.
   * `--folder-id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором создан балансировщик.
 

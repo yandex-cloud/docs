@@ -49,6 +49,8 @@ Yandex Managed Service for Valkey™ часто используется, что
 
  - [Управление резервными копиями](operations/cluster-backups.md)
 
+ - [Управление политиками резервного копирования](operations/backup-retention-policies.md)
+
  - [Управление доступом к кластеру](operations/cluster-access.md)
 
  - [Удаление кластера](operations/cluster-delete.md)
@@ -487,6 +489,16 @@ Yandex Managed Service for Valkey™ часто используется, что
 
  - [UpdateAccessBindings](api-ref/grpc/Cluster/updateAccessBindings.md)
 
+#### Maintenance
+
+ - [Overview](api-ref/grpc/Maintenance/index.md)
+
+ - [List](api-ref/grpc/Maintenance/list.md)
+
+ - [Get](api-ref/grpc/Maintenance/get.md)
+
+ - [Reschedule](api-ref/grpc/Maintenance/reschedule.md)
+
 #### Operation
 
  - [Overview](api-ref/grpc/Operation/index.md)
@@ -612,6 +624,16 @@ Yandex Managed Service for Valkey™ часто используется, что
  - [SetAccessBindings](api-ref/Cluster/setAccessBindings.md)
 
  - [UpdateAccessBindings](api-ref/Cluster/updateAccessBindings.md)
+
+#### Maintenance
+
+ - [Overview](api-ref/Maintenance/index.md)
+
+ - [List](api-ref/Maintenance/list.md)
+
+ - [Get](api-ref/Maintenance/get.md)
+
+ - [Reschedule](api-ref/Maintenance/reschedule.md)
 
 #### Operation
 

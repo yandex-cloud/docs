@@ -4,6 +4,7 @@ items:
   - name: Начало работы с CLI
     href: quickstart.md
   - name: Пошаговые инструкции
+    expanded: true
     items:
       - name: Все инструкции
         href: operations/index.md
@@ -13,6 +14,8 @@ items:
         href: operations/update-cli.md
       - name: Удаление CLI
         href: operations/remove-cli.md
+      - name: Работа с версиями команд CLI
+        href: operations/command-versioning.md
       - name: Управление профилем
         items:
           - name: Создание профиля
@@ -2003,9 +2006,18 @@ items:
                   - name: get
                     href: >-
                       cli-ref/cloud-registry/cli-ref/registry/lifecycle-policy/get.md
+                  - name: get-dry-run-result
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/registry/lifecycle-policy/get-dry-run-result.md
                   - name: list
                     href: >-
                       cli-ref/cloud-registry/cli-ref/registry/lifecycle-policy/list.md
+                  - name: list-dry-run-artifacts
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/registry/lifecycle-policy/list-dry-run-artifacts.md
+                  - name: list-dry-run-results
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/registry/lifecycle-policy/list-dry-run-results.md
                   - name: update
                     href: >-
                       cli-ref/cloud-registry/cli-ref/registry/lifecycle-policy/update.md
@@ -2174,7 +2186,17 @@ items:
                   - name: update
                     href: cli-ref/cloud-registry/cli-ref/v0/registry/update.md
               - name: tools
-                href: cli-ref/cloud-registry/cli-ref/v0/tools.md
+                items:
+                  - name: Overview
+                    href: cli-ref/cloud-registry/cli-ref/v0/tools/index.md
+                  - name: debian
+                    items:
+                      - name: Overview
+                        href: >-
+                          cli-ref/cloud-registry/cli-ref/v0/tools/debian/index.md
+                      - name: reindex-packages
+                        href: >-
+                          cli-ref/cloud-registry/cli-ref/v0/tools/debian/reindex-packages.md
           - name: v1
             items:
               - name: Overview
@@ -2248,9 +2270,18 @@ items:
                       - name: get
                         href: >-
                           cli-ref/cloud-registry/cli-ref/v1/registry/lifecycle-policy/get.md
+                      - name: get-dry-run-result
+                        href: >-
+                          cli-ref/cloud-registry/cli-ref/v1/registry/lifecycle-policy/get-dry-run-result.md
                       - name: list
                         href: >-
                           cli-ref/cloud-registry/cli-ref/v1/registry/lifecycle-policy/list.md
+                      - name: list-dry-run-artifacts
+                        href: >-
+                          cli-ref/cloud-registry/cli-ref/v1/registry/lifecycle-policy/list-dry-run-artifacts.md
+                      - name: list-dry-run-results
+                        href: >-
+                          cli-ref/cloud-registry/cli-ref/v1/registry/lifecycle-policy/list-dry-run-results.md
                       - name: update
                         href: >-
                           cli-ref/cloud-registry/cli-ref/v1/registry/lifecycle-policy/update.md

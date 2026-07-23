@@ -27,7 +27,7 @@ Fluent Bit отрезает поле `startTimestampNanos` у метрик. Не
 
 1. Создайте файл конфигурации (например, `fluent-bit.yaml`).
 
-    Ниже приведён минимальный пример конфигурации для отправки логов, метрик, трейсов в Monium. Настройте вход (inputs) под ваш источник данных.
+    Ниже приведен минимальный пример конфигурации для отправки логов, метрик, трейсов в Monium. Настройте вход (inputs) под ваш источник данных.
 
     **По gRPC**
     
@@ -81,7 +81,9 @@ Fluent Bit отрезает поле `startTimestampNanos` у метрик. Не
 
 1. Запустите Fluent Bit с указанием конфигурации.
 
-1. Проверьте поступление логов в [Monium](https://monium.yandex.cloud).
+1. Проверьте поступление данных в [Monium](https://monium.yandex.cloud).
+
+   Подробнее о просмотре данных читайте в разделах [Посмотреть метрики в Monium Metrics](../metrics/metric-explorer.md), [Поиск и анализ логов](../logs/logs-explorer.md) и [Поиск трейсов и спанов](../traces/operations/traces-explorer.md).
 
 Простейший вариант использования Fluent Bit для отправки всех видов телеметрии из Java-приложения в Monium описан в разделе [Пример для демо-приложения Java с Fluent Bit](otel-clinic-fluentbit-example.md).
 

@@ -37,9 +37,11 @@ description: Следуя данной инструкции, вы сможете
 
     * Для macOS в качестве ускорителя QEMU можно использовать `hvf`.
     * Для Windows, чтобы работать с QEMU:
+        
         * Включите поддержку виртуализации в BIOS/UEFI.
         * Активируйте поддержку Hyper-V. Для серверных ОС установите компонент Virtual Machine Platform.
         * Используйте ускоритель `whpx`.
+
 * Установочный образ Windows в формате [ISO](https://ru.wikipedia.org/wiki/ISO-образ).
 * Набор драйверов [Virtio для Windows](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso).
 
@@ -58,6 +60,7 @@ description: Следуя данной инструкции, вы сможете
     ```
 
     Где:
+    
     * `image.qcow2` — имя файла образа загрузочного диска.
     * `20480M` — размер загрузочного диска ОС в образе в мегабайтах.
 
@@ -128,6 +131,7 @@ description: Следуя данной инструкции, вы сможете
     bcdedit /ems "{current}" on
     bcdedit /emssettings EMSPORT:2 EMSBAUDRATE:115200
     ```
+
 1. Отключите функции энергосбережения:
 
     ```cmd
@@ -136,6 +140,7 @@ description: Следуя данной инструкции, вы сможете
     powercfg -change -standby-timeout-ac 0
     powercfg -change -hibernate-timeout-ac 0
     ```
+
 1. Запустите терминал `PowerShell` от имени администратора.
 1. Для виртуализованных аппаратных часов установите формат времени UTC:
 
@@ -143,36 +148,42 @@ description: Следуя данной инструкции, вы сможете
     #ps1
     Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\TimeZoneInformation" -Name "RealTimeIsUniversal" -Value 1 -Type DWord -Force
     ```
+
 1. Отключите автоматическое назначение локальных IPv4-адресов для сетевых интерфейсов, которым не удалось назначить IP-адрес (APIPA):
 
     ```powershell
     #ps1
     Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters" -Name "IPAutoconfigurationEnabled" -Value 0 -Type DWord -Force
     ```
+
 1. Разрешите выключение ОС без активных пользовательских сессий:
 
     ```powershell
     #ps1
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "ShutdownWithoutLogon" -Value 1
     ```
+
 1. Установите минимальное время показа сообщения о выключении ОС при наличии активных пользовательских процессов:
 
     ```powershell
     #ps1
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows" -Name "ShutdownWarningDialogTimeout" -Value 1
     ```
+
 1. Отключите автоматическую оптимизацию дисков (дефрагментация/TRIM):
 
     ```powershell
     #ps1
     Get-ScheduledTask -TaskName "ScheduledDefrag" | Disable-ScheduledTask
     ```
+
 1. Разрешите трафик ICMPv4 (если Windows Firewall не отключен):
 
     ```powershell
     #ps1
     Get-NetFirewallRule -Name "vm-monitoring-icmpv4" | Enable-NetFirewallRule
     ```
+
 1. (Опционально) Разрешите подключение по RDP с обязательной аутентификацией пользователей при подключении:
 
     {% note info %}
@@ -236,12 +247,14 @@ description: Следуя данной инструкции, вы сможете
         -Protocol "TCP" `
         -Program "$ServicePath"
     ```
+
 1. Создайте задачу для корректной работы ВМ после первого запуска в сервисе:
 
     ```powershell
     & mkdir "C:\Scripts"
     & schtasks /Create /TN "SetNetSettings" /RU System /SC ONSTART /RL HIGHEST /TR "Powershell -NoProfile -ExecutionPolicy Bypass -File \`"C:\Scripts\StartupSettings.ps1`"" | Out-Null
     ```
+
 1. В папке `C:\Scripts` создайте файл `StartupSettings.ps1` со следующим содержимым:
   
     ```powershell
@@ -380,7 +393,6 @@ description: Следуя данной инструкции, вы сможете
 
     {% endnote %}
 
-
 ## Установка Cloudbase-Init {#cloudbase-init}
 
 В подготовленный образ вы можете установить [Cloudbase-Init](https://cloudbase.it/cloudbase-init/). При использовании образа в {{ cloud-desktop-name }} эта программа автоматически расширяет файловую систему и загрузочный раздел ОС до фактического размера загрузочного диска.
@@ -486,8 +498,8 @@ Stop-Computer -Force
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором будет создан образ. 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создан образ. 
+  1. [Перейдите]({{ link-console-main }}/link/cloud-desktop) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.vdi.label_desktop-images }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.vdi.button_add-image }}**.
   1. В поле **{{ ui-key.yacloud.vdi.label_image-source }}** выберите `{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}`.

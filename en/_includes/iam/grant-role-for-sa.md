@@ -55,7 +55,7 @@ To assign a role for a resource:
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, specify the properties of the resources you want to create:
 
      Here is an example of the configuration file structure:
 
@@ -217,7 +217,7 @@ To grant a service account permissions to access an organization, you need the `
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, specify the properties of the resources you want to create:
 
      Here is an example of the configuration file structure:
 

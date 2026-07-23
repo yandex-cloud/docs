@@ -730,9 +730,13 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [CreateArtifact](audit/cloudregistry/events-ref/CreateArtifact.md)
 
+ - [CreateLifecyclePolicy](audit/cloudregistry/events-ref/CreateLifecyclePolicy.md)
+
  - [CreateRegistry](audit/cloudregistry/events-ref/CreateRegistry.md)
 
  - [DeleteArtifact](audit/cloudregistry/events-ref/DeleteArtifact.md)
+
+ - [DeleteLifecyclePolicy](audit/cloudregistry/events-ref/DeleteLifecyclePolicy.md)
 
  - [DeleteRegistry](audit/cloudregistry/events-ref/DeleteRegistry.md)
 
@@ -753,6 +757,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [UpdateArtifactAccessBindings](audit/cloudregistry/events-ref/UpdateArtifactAccessBindings.md)
 
  - [UpdateIpPermissions](audit/cloudregistry/events-ref/UpdateIpPermissions.md)
+
+ - [UpdateLifecyclePolicy](audit/cloudregistry/events-ref/UpdateLifecyclePolicy.md)
 
  - [UpdateRegistry](audit/cloudregistry/events-ref/UpdateRegistry.md)
 
@@ -3021,6 +3027,10 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [BucketEncryptionUpdate](audit/storage/events-ref/BucketEncryptionUpdate.md)
 
  - [BucketHttpsUpdate](audit/storage/events-ref/BucketHttpsUpdate.md)
+
+ - [BucketInventoryConfigurationDelete](audit/storage/events-ref/BucketInventoryConfigurationDelete.md)
+
+ - [BucketInventoryConfigurationUpdate](audit/storage/events-ref/BucketInventoryConfigurationUpdate.md)
 
  - [BucketLifecycleUpdate](audit/storage/events-ref/BucketLifecycleUpdate.md)
 

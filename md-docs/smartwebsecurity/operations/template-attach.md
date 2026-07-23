@@ -13,7 +13,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится профиль безопасности или ARL.
-  1. Перейдите в сервис **Smart Web Security**.
+  1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
   1. На панели слева выберите **Профили безопасности** или **Профили ARL**.
   1. В строке с нужным профилем нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
   1. В списке **Шаблон страницы ответа** выберите существующий шаблон или [создайте новый](template-create.md).
@@ -38,7 +38,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится профиль безопасности или ARL.
-  1. Перейдите в сервис **Smart Web Security**.
+  1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
   1. На панели слева выберите **Профили безопасности** или **Профили ARL**.
   1. Выберите профиль, в котором находится нужное правило.
   1. В строке с правилом нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.

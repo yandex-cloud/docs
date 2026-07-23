@@ -9,7 +9,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-    1. Перейдите в сервис **Yandex SmartCaptcha**.
+    1. [Перейдите](https://console.yandex.cloud/link/smartcaptcha) в сервис **Yandex SmartCaptcha**.
     1. Нажмите на имя капчи или [создайте](../quickstart.md#creat-captcha) новую капчу.
     1. На вкладке **Обзор** скопируйте значения полей **Ключ клиента** и **Ключ сервера**.
 

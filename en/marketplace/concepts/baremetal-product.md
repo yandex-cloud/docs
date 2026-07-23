@@ -16,16 +16,16 @@ Supported formats: `tar.bz2` and `tar.gz`.
 
 Create an image in one of the following ways:
 
-* In a chroot environment using utilities provided by the operating system; e.g., for the Debian family, it is `debootstrap`.
+* Take an image from a pre-deployed system. For example, you can use a [ready-made script](https://github.com/yandex-cloud/marketplace/blob/master/products-prepare/baremetal/baremetal-image.sh) from {{ yandex-cloud }}.
+* Use the chroot environment utilities provided by the operating system. For example, for the Debian family it is going to be `debootstrap`.
 * Use the virtual machine disk image and extract the files from it.
-* Take an image from a pre-deployed system.
 
 ## Image requirements {#requirements}
 
 ### System setup {#system-setup}
 
 * The `tty0` terminal is configured as the serial console. To do this, set the vCPU parameter: `console=tty0`.
-* The `cloud-init` package was installed and data from previous `cloud-init` runs, if any, was cleared; e.g., in Ubuntu, using the `cloud-init clean --logs --seed` command.
+* The `cloud-init` package was installed and data from previous `cloud-init` runs was cleared, if any. For example, in Ubuntu using this command: `cloud-init clean --logs --seed`.
 * There are no network interface settings except `lo`. The network configuration will be created when you order the server through `cloud-init`.
 * If your image requires special settings for [generating a network configuration via `cloud-init`](https://docs.cloud-init.io/en/latest/reference/network-config.html#network-configuration-outputs), add them to the`/etc/cloud/cloud.cfg.d/99_override_network.cfg` file. The following settings are used by default:
 
@@ -89,8 +89,8 @@ Make sure that:
 ### System setup {#system-configuration}
 
 * The `Europe/Moscow` (+03:00) time zone is set.
-* Time synchronization with `NTP` public servers is set up, e.g., as described in [this tutorial](../../tutorials/infrastructure-management/ntp.md).
-* `systemd` goals responsible for energy saving are prohibited, e.g., using the `systemctl mask` command:
+* Configured time synchronization with `NTP` public servers. For example, as described in [this tutorial](../../tutorials/infrastructure-management/ntp.md).
+* `systemd` goals responsible for energy saving are prohibited. For example, using the `systemctl mask` command:
 
    * `sleep.target`
    * `suspend.target`

@@ -12,7 +12,7 @@ description: Следуя этой инструкции, вы сможете и�
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится топик.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. [Перейдите]({{ link-console-main }}/link/cns) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Слева выберите раздел **{{ ui-key.yacloud.cns.local.label_topics_vhBR3 }}**.
   1. Выберите топик, в котором находится подписка.
   1. Слева выберите **{{ ui-key.yacloud.cns.shared.CnsTopicLayout.subscriptions_cp53u }}**.
@@ -22,16 +22,21 @@ description: Следуя этой инструкции, вы сможете и�
 - AWS CLI {#aws-cli}
 
   1. Посмотрите список подписок для топика:
+     
      ```bash
      aws sns set-subscription-attributes \
       --subscription-arn <ARN_подписки> <атрибуты>
      ```
+  
   1. Измените подписку:
+     
      ```bash
      aws sns set-subscription-attributes \
       --subscription-arn <ARN_подписки> <атрибуты>
      ```
+  
   1. Посмотрите новые параметры подписки:
+     
      ```bash
      aws sns get-subscription-attributes \
       --subscription-arn <ARN_подписки>
@@ -61,7 +66,7 @@ description: Следуя этой инструкции, вы сможете и�
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится топик.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. [Перейдите]({{ link-console-main }}/link/cns) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Слева выберите раздел **{{ ui-key.yacloud.cns.local.label_topics_vhBR3 }}**.
   1. Выберите топик, в котором находится подписка.
   1. Слева выберите **{{ ui-key.yacloud.cns.shared.CnsTopicLayout.subscriptions_cp53u }}**.

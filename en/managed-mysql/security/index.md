@@ -119,6 +119,8 @@ As a user, you need the [{{ roles.mmy.editor }} role or higher](../../iam/concep
 
 To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.mmy.editor }}` role or higher.
 
+{% include [roles-mdb-viewer](../../_includes/mdb/roles-mdb-viewer-access-control.md) %}
+
 You can always assign a role with more permissions, e.g., `{{ roles.mmy.admin }}` instead of `{{ roles.mmy.editor }}`.
 
 ## What's next {#whats-next}

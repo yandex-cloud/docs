@@ -7,12 +7,15 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится сертификат.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+    1. [Перейдите]({{ link-console-main }}/link/certificate-manager) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
     1. В строке с нужным сертификатом нажмите кнопку ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![arrow](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_export }}**.
 
        Экспортировать можно только сертификаты в статусе `Issued`.
+    
     1. Выберите один из вариантов экспорта. В файле `certificate.pem` в текстовом формате в кодировке Base64 будут сохранены:
+       
        * **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_full }}** — цепочка сертификатов (конечный и промежуточный сертификат) и приватный ключ со стандартным обрамлением:
+          
           ```text
           -----BEGIN CERTIFICATE-----
           MIIE5zCCA8+gAwI...
@@ -26,6 +29,7 @@
           ```
 
        * **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_no_private_key }}** — цепочка сертификатов (конечный и промежуточный сертификат):
+         
          ```text
           -----BEGIN CERTIFICATE-----
           MIIE5zCCA8+gAwI...
@@ -36,12 +40,15 @@
           ```
 
        * **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_leaf_only }}**:
-           ```text
+          
+          ```text
           -----BEGIN CERTIFICATE-----
           MIIFFjCCAv6gAwIBAg...
           -----END CERTIFICATE-----`
           ```
+       
        * **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_private_key_only }}**:
+          
           ```text
           -----BEGIN PRIVATE KEY-----
           MIIEvgIBADANBgk...
@@ -53,6 +60,7 @@
 - CLI {#cli}
 
   Команда отобразит цепочку сертификатов и приватный ключ и сохранит содержимое в файлы `--chain` и `--key` соответственно.
+  
   * `--id` – идентификатор сертификата, должен быть указан один из флагов: `--id` или `--name`.
   * `--name` – название сертификата, должен быть указан один из флагов: `--id` или `--name`.
   * `--chain` – (опционально) файл, куда будет сохранена цепочка сертификатов в формате PEM.
@@ -72,6 +80,7 @@
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   Чтобы получить содержимое пользовательского сертификата с помощью {{ TF }}:
+  
   1. Опишите в конфигурационном файле {{ TF }} параметры ресурсов, которые необходимо создать:
 
      ```hcl
@@ -90,18 +99,24 @@
      ```
 
      Где:
+     
      * `data "yandex_cm_certificate_content"` — описание источника данных для содержимого сертификата:
+       
        * `certificate_id` — идентификатор сертификата.
+     
      * Блоки `output` — выходные переменные `certificate_chain` с цепочкой сертификатов и приватным ключом `certificate_key`:
+       
        * `value` — возвращаемое значение.
        * `sensitive` — пометить как конфиденциальные данные.
 
      Более подробную информацию о параметрах источника данных `yandex_cm_certificate_content` смотрите в [документации провайдера]({{ tf-provider-datasources-link }}/cm_certificate_content).
+  
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
      {{ TF }} создаст все требуемые ресурсы. Чтобы проверить результат, выполните команды:
+     
      * Получить цепочку сертификата:
 
        ```bash

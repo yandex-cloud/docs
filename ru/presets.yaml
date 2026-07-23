@@ -3621,6 +3621,7 @@ default:
         all-panel:
           menu:
             category:
+              configure: Настройки
               explore: Обзор
         menu-item:
           alerts:
@@ -3643,10 +3644,12 @@ default:
             title: Лента уведомлений
           notification-methods:
             title: Способы уведомления
+          project:
+            title: Настройки проекта
           prometheus:
             title: Prometheus
-          services-map:
-            title: Карта сервисов
+          quotas:
+            title: Квоты
           shards:
             title: Шарды
           slo:
@@ -7010,7 +7013,6 @@ default:
             label_message-queue: Message Queue
             label_metadata-hub: Yandex MetaData Hub
             label_monitoring: Monitoring
-            label_monium: Monium
             label_postbox: Cloud Postbox
             label_schema-registry: Schema Registry
             label_serverless-containers: Serverless Containers
@@ -7534,6 +7536,13 @@ default:
         AuthMethodColumn:
           value_iam_boWet: IAM
           value_password_gbuZC: Пароль
+        BackupPolicy:
+          button_create-policy_3Mpxn: Создать политику
+          label_backup-policies_s4xXC: Политики резервного копирования
+          title_backups_8fQgh: Резервное копирование
+          value_type-daily_fZXQ9: Каждый день
+          value_type-monthly_8xt6g: По месяцам
+          value_type-weekly_69MML: По дням недели
         cluster:
           backups:
             action_delete-backup: Удалить

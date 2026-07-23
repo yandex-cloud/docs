@@ -64,7 +64,7 @@
 
  - [Yandex Cloud Detection and Response](ycdr/index.md)
 
- - [Yandex SIEM](yandex-siem/index.md)
+ - [Yandex SIEM](siem/index.md)
 
  - [Cloud DNS](dns/index.md)
 

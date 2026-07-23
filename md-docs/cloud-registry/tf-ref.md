@@ -18,6 +18,9 @@ Terraform распространяется под лицензией [Business S
 | [yandex_cloudregistry_registry](../terraform/resources/cloudregistry_registry.md) | [Реестр](concepts/registry.md) |
 | [yandex_cloudregistry_registry_iam_binding](../terraform/resources/cloudregistry_registry_iam_binding.md) | [Назначение](../iam/concepts/access-control/index.md#access-bindings) прав доступа к реестру |
 | [yandex_cloudregistry_registry_ip_permission](../terraform/resources/cloudregistry_registry_ip_permission.md) | Политика доступа для IP-адресов |
+| [yandex_cloudregistry_lifecycle_policy](../terraform/resources/cloudregistry_lifecycle_policy.md) | [Политика жизненного цикла](concepts/lifecycle-policy.md) |
+| [yandex_cloudregistry_folder](../terraform/resources/cloudregistry_folder.md) | Папка для хранения артефактов |
+| [yandex_cloudregistry_folder_iam_binding](../terraform/resources/cloudregistry_folder_iam_binding.md) | [Назначение](../iam/concepts/access-control/index.md#access-bindings) прав доступа к папке |
 
 ## Источники данных {#data-sources}
 
@@ -27,3 +30,5 @@ Terraform распространяется под лицензией [Business S
 | --- | --- |
 | [yandex_cloudregistry_registry](../terraform/data-sources/cloudregistry_registry.md) | Информация о [реестре](concepts/registry.md) |
 | [yandex_cloudregistry_registry_ip_permission](../terraform/data-sources/cloudregistry_registry_ip_permission.md) | Информация о политике доступа для IP-адресов |
+| [yandex_cloudregistry_lifecycle_policy](../terraform/data-sources/cloudregistry_lifecycle_policy.md) | Информация о [политике жизненного цикла](concepts/lifecycle-policy.md) |
+| [yandex_cloudregistry_folder](../terraform/data-sources/cloudregistry_folder.md) | Информация о папке |

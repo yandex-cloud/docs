@@ -62,7 +62,7 @@ items:
   - name: Yandex Cloud Detection and Response
     href: ycdr/index.yaml
   - name: Yandex SIEM
-    href: yandex-siem/index.yaml
+    href: siem/index.yaml
   - name: Cloud DNS
     href: dns/index.yaml
   - name: Начало работы

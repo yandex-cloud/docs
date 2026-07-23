@@ -9,8 +9,8 @@ description: Из статьи вы узнаете, как выгрузить л
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится лог-группа.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится лог-группа.
+    1. [Перейдите]({{ link-console-main }}/link/logging) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
     1. В строке с лог-группой нажмите значок ![image](../../_assets/console-icons/ellipsis.svg).
     1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.
     1. В поле **{{ ui-key.yacloud.logging.label_stream }}** выберите имеющийся [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) или [создайте](../../data-streams/operations/manage-streams.md#create-data-stream) новый.
@@ -27,6 +27,7 @@ description: Из статьи вы узнаете, как выгрузить л
     ```
 
     Где:
+    
     * `--name` — имя лог-группы.
     * `--data-stream` — идентификатор потока данных [{{ yds-full-name }}](../../data-streams/index.yaml), который состоит из [зоны доступности](../../overview/concepts/geo-scope.md), [идентификатора облака](../../resource-manager/operations/cloud/get-id.md), идентификатора [базы данных](../../ydb/concepts/resources.md#database) и имени [потока данных](../../data-streams/concepts/glossary.md#stream-concepts).
 

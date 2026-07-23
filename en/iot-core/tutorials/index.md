@@ -34,3 +34,4 @@ Examples of how to use {{ iot-full-name }} on Android devices in different progr
 
 * [{#T}](message-delivery-check.md)
 * [{#T}](iot-emulation.md)
+* [{#T}](iot-core-migration.md)

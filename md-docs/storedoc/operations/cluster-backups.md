@@ -24,8 +24,8 @@
 
   Чтобы восстановить из резервной копии существующий кластер:
 
-  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-  1. Перейдите в сервис **Yandex StoreDoc**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/storedoc) в сервис **Yandex StoreDoc**.
 
   1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/archive.svg) **Резервные копии**.
 
@@ -43,8 +43,8 @@
 
   Чтобы восстановить из резервной копии удаленный ранее кластер:
 
-  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-  1. Перейдите в сервис **Yandex StoreDoc**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/storedoc) в сервис **Yandex StoreDoc**.
 
   1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **Резервные копии**.
 
@@ -531,8 +531,8 @@
 
   Чтобы восстановить из резервной копии базы данных и коллекции существующего кластера:
 
-  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-  1. Перейдите в сервис **Yandex StoreDoc**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/storedoc) в сервис **Yandex StoreDoc**.
 
   1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/archive.svg) **Резервные копии**.
 
@@ -563,8 +563,8 @@
 
   Чтобы восстановить из резервной копии базы данных и коллекции удаленного ранее кластера:
 
-  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-  1. Перейдите в сервис **Yandex StoreDoc**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/storedoc) в сервис **Yandex StoreDoc**.
 
   1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **Резервные копии**.
 
@@ -1097,8 +1097,8 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-  1. Перейдите в сервис **Yandex StoreDoc**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/storedoc) в сервис **Yandex StoreDoc**.
   1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/archive.svg) **Резервные копии**.
   1. Нажмите кнопку **Создать резервную копию**.
 
@@ -1195,14 +1195,14 @@
 
   Чтобы получить список резервных копий кластера:
 
-  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-  1. Перейдите в сервис **Yandex StoreDoc**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/storedoc) в сервис **Yandex StoreDoc**.
   1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/archive.svg) **Резервные копии**.
 
   Чтобы получить список всех резервных копий в каталоге:
 
-  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-  1. Перейдите в сервис **Yandex StoreDoc**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/storedoc) в сервис **Yandex StoreDoc**.
   1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **Резервные копии**.
 
   В этих списках содержится следующая информация:
@@ -1238,6 +1238,7 @@
   ```
 
   В выведенной таблице содержится следующая информация:
+  
   * Идентификатор резервной копии.
   * Время окончания создания резервной копии по UTC (Coordinated Universal Time).
   * Идентификатор кластера, для которого создавалась эта резервная копия.
@@ -1357,13 +1358,15 @@
 - Консоль управления {#console}
 
   Чтобы получить информацию о резервной копии существующего кластера:
-  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-  1. Перейдите в сервис **Yandex StoreDoc**.
+  
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/storedoc) в сервис **Yandex StoreDoc**.
   1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/archive.svg) **Резервные копии**.
 
   Чтобы получить информацию о резервной копии удаленного ранее кластера:
-  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-  1. Перейдите в сервис **Yandex StoreDoc**.
+  
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/storedoc) в сервис **Yandex StoreDoc**.
   1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **Резервные копии**.
 
 - CLI {#cli}

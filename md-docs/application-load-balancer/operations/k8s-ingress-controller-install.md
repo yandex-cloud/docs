@@ -35,11 +35,13 @@
     {% endnote %}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md), необходимый для работы Ingress-контроллера, и [назначьте ему роли](../../iam/operations/sa/assign-role-for-sa.md) на каталог:
+   
    * [alb.editor](../security/index.md#alb-editor) — для создания необходимых ресурсов Application Load Balancer.
    * [vpc.publicAdmin](../../vpc/security/index.md#vpc-public-admin) — для управления внешней сетевой связностью.
    * [certificate-manager.certificates.downloader](../../certificate-manager/security/index.md#certificate-manager-certificates-downloader) — для работы с сертификатами, зарегистрированными в сервисе [Yandex Certificate Manager](../../certificate-manager/index.md).
    * [compute.viewer](../../compute/security/index.md#compute-viewer) — для использования узлов кластера Managed Service for Kubernetes в [целевых группах](../concepts/target-group.md) L7-балансировщика.
    * [smart-web-security.editor](../../smartwebsecurity/security/index.md#smart-web-security-editor) — (опционально) для подключения к виртуальному хосту L7-балансировщика [профиля безопасности](../../smartwebsecurity/concepts/profiles.md) Yandex Smart Web Security.
+
 1. [Создайте авторизованный ключ доступа](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) для сервисного аккаунта в формате JSON и сохраните его в файл `sa-key.json`:
 
    ```bash

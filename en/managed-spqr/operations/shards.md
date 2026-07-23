@@ -52,7 +52,10 @@ keywords:
                }'
      ```
 
-     Where `mdbPostgresql.clusterId` is the {{ mpg-name }} cluster ID within the shard.
+     Where:
+
+     * {% include [cluster-id](../../_includes/managed-spqr/cluster-id.md) %}
+     * `mdbPostgresql.clusterId`: {{ mpg-name }} cluster ID within the shard.
 
   1. Check the [server response](../api-ref/Cluster/addShard.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -86,7 +89,10 @@ keywords:
        yandex.cloud.mdb.spqr.v1.ClusterService.AddShard
      ```
 
-     Where `mdb_postgresql.cluster_id` is the {{ mpg-name }} cluster ID within the shard.
+     Where:
+
+     * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
+     * `mdb_postgresql.cluster_id`: {{ mpg-name }} cluster ID within the shard.
 
 {% endlist %}
 
@@ -120,6 +126,8 @@ Deleting a {{ SPQR }} shard does not affect the {{ mpg-name }} cluster.
        --url 'https://{{ api-host-mdb }}/managed-spqr/v1/clusters/<cluster_ID>/shards/<shard_name>'
      ```
 
+     {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
+
   1. Check the [server response](../api-ref/Cluster/deleteShard.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
@@ -146,6 +154,8 @@ Deleting a {{ SPQR }} shard does not affect the {{ mpg-name }} cluster.
        {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.spqr.v1.ClusterService.DeleteShard
      ```
+
+     {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
 
   1. Check the [server response](../api-ref/grpc/Cluster/deleteShard.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

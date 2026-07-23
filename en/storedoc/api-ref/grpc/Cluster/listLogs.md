@@ -23,7 +23,10 @@ See the [Logs](/yandex-mdb-guide/concepts/logs.html) section in the developers g
   "from_time": "google.protobuf.Timestamp",
   "to_time": "google.protobuf.Timestamp",
   "page_size": "int64",
-  "page_token": "string"
+  "page_token": "string",
+  "always_next_page_token": "bool",
+  "filter": "string",
+  "order_by": "string"
 }
 ```
 
@@ -67,6 +70,24 @@ Page token. To get the next page of results, set `page_token` to the
 [ListClusterLogsResponse.next_page_token](#yandex.cloud.mdb.mongodb.v1.ListClusterLogsResponse) returned by the previous list request.
 
 The maximum string length in characters is 100. ||
+|| always_next_page_token | **bool**
+
+Always return `next_page_token`, even if current page is empty. ||
+|| filter | **string**
+
+A filter expression that filters resources listed in the response.
+The expression must specify:
+1. The field name. Currently filtering can be applied to the [LogRecord.logs.message.hostname], [LogRecord.logs.message.severity] fields.
+2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+3. The value. Must be 1-63 characters long and match the regular expression `^[a-z0-9.-]{1,61}$`.
+Examples of a filter: `message.hostname='node1.db.cloud.yandex.net'`, `message.severity IN ('E', 'F')`
+
+The maximum string length in characters is 1000. ||
+|| order_by | **string**
+
+Order by specification as a JSON array of {field, order} objects.
+Supported fields: TIMESTAMP. Supported orders: ASC, DESC.
+Example: [{"field": "TIMESTAMP", "order": "DESC"}] ||
 |#
 
 ## ListClusterLogsResponse {#yandex.cloud.mdb.mongodb.v1.ListClusterLogsResponse}

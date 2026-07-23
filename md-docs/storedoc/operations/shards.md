@@ -9,6 +9,7 @@
 {% note alert %}
 
 После того как [шардирование кластера](../concepts/sharding.md) включено:
+
 * Выключить шардирование невозможно. В кластере всегда будет поддерживаться минимальное количество хостов `MONGOS`, `MONGOCFG` или `MONGOINFRA` в зависимости от [типа шардирования](../concepts/sharding.md#shard-management).
 * Обращаться к базам данных следует только через хосты `MONGOS` или `MONGOINFRA`, которые маршрутизируют запросы к шардам. Измените адреса хостов в коде ваших приложений соответствующим образом.
 
@@ -21,6 +22,7 @@
 О том, как непосредственно шардировать базу и коллекции Yandex StoreDoc, читайте в разделе [Шардирование коллекций](../tutorials/sharding.md).
 
 Для включения шардирования необходимо:
+
 * Не менее трех хостов `MONGOINFRA` при стандартном шардировании.
 * Не менее двух хостов `MONGOS` и не менее трех хостов `MONGOCFG` при расширенном шардировании.
 
@@ -34,11 +36,12 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-  1. Перейдите в сервис **Yandex StoreDoc**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/storedoc) в сервис **Yandex StoreDoc**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Шарды**.
   1. Нажмите кнопку **Включить**.
   1. Выберите один из типов шардирования:
+     
      * **Стандартное** — с использованием хостов `MONGOINFRA`.
      * **Расширенное** — с использованием хостов `MONGOS` и `MONGOCFG`.
 
@@ -81,12 +84,16 @@
     ```
 
     Где:
+    
     * `--cluster-name` — имя кластера, которое можно получить со [списком кластеров в каталоге](cluster-list.md#list).
     * `--host` — параметры хоста:
+      
       * `type` — тип (`MONGOINFRA`).
       * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
       * `subnet-name` — [имя подсети](../../vpc/concepts/network.md#subnet).
+    
     * `--mongoinfra` — параметры хостов `MONGOINFRA`:
+      
       * `resource-preset` — [класс хоста](../concepts/instance-types.md).
       * `disk-size` — размер хранилища в гигабайтах.
       * `disk-type` — [тип диска](../concepts/storage.md).
@@ -120,16 +127,22 @@
     ```
 
     Где:
+    
     * `--cluster-name` — имя кластера, которое можно получить со [списком кластеров в каталоге](cluster-list.md#list).
     * `--host` — параметры хоста:
+      
       * `type` — тип (`MONGOS` или `MONGOCFG`).
       * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
       * `subnet-name` — [имя подсети](../../vpc/concepts/network.md#subnet).
+    
     * `--mongos` — параметры хостов `MONGOS`:
+      
       * `resource-preset` — [класс хоста](../concepts/instance-types.md).
       * `disk-size` — размер хранилища в гигабайтах.
       * `disk-type` — [тип диска](../concepts/storage.md).
+    
     * `--mongocfg` — параметры хостов `MONGOCFG`:
+      
       * `resource-preset` — [класс хоста](../concepts/instance-types.md).
       * `disk-size` — размер хранилища в гигабайтах.
       * `disk-type` — [тип диска](../concepts/storage.md).
@@ -432,8 +445,8 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-  1. Перейдите в сервис **Yandex StoreDoc**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/storedoc) в сервис **Yandex StoreDoc**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Шарды**.
 
 - CLI {#cli}
@@ -528,8 +541,8 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-  1. Перейдите в сервис **Yandex StoreDoc**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/storedoc) в сервис **Yandex StoreDoc**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Шарды**.
   1. Нажмите кнопку **Создать шард**.
   1. Укажите имя шарда и добавьте нужное количество хостов.
@@ -551,8 +564,10 @@
   ```
 
   Где:
+  
   * `--cluster-name` — имя кластера, которое можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
   * `--host` — параметры хоста:
+    
     * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
     * `subnet-name` — [имя подсети](../../vpc/concepts/network.md#subnet).
 
@@ -784,8 +799,8 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-  1. Перейдите в сервис **Yandex StoreDoc**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/storedoc) в сервис **Yandex StoreDoc**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Шарды**.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного шарда и выберите пункт **Удалить**.
   1. В открывшемся окне нажмите кнопку **Удалить**.

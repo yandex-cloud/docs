@@ -9,7 +9,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в который был добавлен сертификат.
-  1. Перейдите в сервис **Certificate Manager**.
+  1. [Перейдите](https://console.yandex.cloud/link/certificate-manager) в сервис **Certificate Manager**.
   1. В строке с нужным сертификатом нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash](../../../_assets/console-icons/trash-bin.svg) **Удалить**.
   1. В открывшемся окне нажмите кнопку **Удалить**.
 

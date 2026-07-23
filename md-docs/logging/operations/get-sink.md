@@ -6,8 +6,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится приемник логов.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud Logging**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится приемник логов.
+  1. [Перейдите](https://console.yandex.cloud/link/logging) в сервис **Cloud Logging**.
   1. На панели слева выберите ![image](../../_assets/console-icons/folder-arrow-down.svg) **Приёмники логов**.
   1. Выберите приемник.
   1. На странице **Обзор** отобразится подробная информация о приемнике.

@@ -115,7 +115,10 @@ editable: false
     },
     "groupClaimsSettings": {
       "groupDistributionType": "string",
-      "groupAttributeName": "string"
+      "groupAttributeName": "string",
+      // Includes only one of the fields `groupAttributeValue`
+      "groupAttributeValue": "string"
+      // end of the list of possible fields
     },
     "attributeMapping": {
       "nameId": {
@@ -422,6 +425,13 @@ A list of messages that carry the error details. ||
 - `ASSIGNED_GROUPS`
 - `ALL_GROUPS` ||
 || groupAttributeName | **string** ||
+|| groupAttributeValue | **enum** (GroupAttributeValue)
+
+Includes only one of the fields `groupAttributeValue`.
+
+- `NAME`
+- `ID`
+- `EXTERNAL_ID` ||
 |#
 
 ## AttributeMappingDetails {#yandex.cloud.audit.organizationmanager.application.saml.AttributeMappingDetails}

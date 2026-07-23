@@ -1,4 +1,4 @@
-- **Catchup timeout**{#setting-catchup-timeout} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
+- **Catchup timeout**{#setting-catchup-timeout} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
     Maximum allowed replica lag behind the master (in seconds).
 
@@ -10,9 +10,9 @@
     remote server read/write error: failed to wait replica for catchup
     ```
 
-    The minimum and default value is `0` (allows connecting to any replica regardless of its lag behind the master).
+    The minimum and default value is `0`, which permits connections to any replica, no matter how far it lags behind the master.
 
-- **Conn limit**{#setting-conn-limit} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
+- **Conn limit**{#setting-conn-limit} {{ tag-all }}
 
   In transaction pooling mode, this setting limits the number of concurrent active connections per user. This pooling mode allows a user to open thousands of connections, meanwhile, limiting the number of concurrently active connections to the configured value `N`.
 
@@ -29,19 +29,27 @@
 
   The value of this setting is determined by the [selected host class](#settings-instance-dependent).
 
-- **Default transaction isolation**{#setting-user-default-transaction-isolation} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
+- **Default transaction isolation**{#setting-user-default-transaction-isolation} {{ tag-all }}
 
   [Default transaction isolation](#setting-default-transaction-isolation) cluster-level setting description.
 
-- **Grants**{#setting-user-grants} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
+- **Grants**{#setting-user-grants} {{ tag-all }}
 
   [Roles](../../managed-postgresql/concepts/roles.md) granted to the user.
 
-- **Lock timeout**{#setting-user-lock-timeout} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
+- **Idle in transaction session timeout**{#setting-user-idle-transaction-timeout} {{ tag-all }}
+
+  Description of the [Idle in transaction session timeout](#setting-idle-transaction-timeout) cluster-level setting.
+
+- **Idle session timeout**{#setting-user-idle-session-timeout} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
+
+  Description of the [Idle session timeout](#setting-idle-session-timeout) cluster-level setting.
+
+- **Lock timeout**{#setting-user-lock-timeout} {{ tag-all }}
 
   [Lock timeout](#setting-lock-timeout) cluster-level setting description.
 
-- **Log min duration statement**{#setting-user-log-min-duration-statement} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
+- **Log min duration statement**{#setting-user-log-min-duration-statement} {{ tag-all }}
 
   [Log min duration statement](#setting-log-min-duration-statement) cluster-level setting description.
 
@@ -49,17 +57,17 @@
 
   For more information, see [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-logging.html).
 
-- **Log statement**{#setting-user-log-statement} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
+- **Log statement**{#setting-user-log-statement} {{ tag-all }}
 
   [Log statement](#setting-log-statement) cluster-level setting description.
 
-- **Login**{#setting-user-login} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
+- **Login**{#setting-user-login} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
   Defines whether the user is permitted to connect to the {{ PG }} cluster.
 
   Default value is `true`, meaning that the user can connect to the cluster.
 
-- **Pg audit log**{#setting-pg-audit-log} {{ tag-con }}
+- **Pg audit log**{#setting-pg-audit-log} {{ tag-all }}
 
   Defines which user queries will be included in the audit log.
 
@@ -70,26 +78,45 @@
 
   The possible values are:
 
-  * `read`: System logs `SELECT` and `COPY` queries if the data source is a relation or a query.
-  * `write`: System logs `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY` queries when the destination is a relation.
-  * `function`: Function invocations and `DO` sections are logged.
-  * `role`: Statements related to role and privilege management, such as `GRANT`, `REVOKE`, or `CREATE/ALTER/DROP ROLE`, are logged.
-  * `ddl`: All `DDL` statements not belonging to the `ROLE` class are logged.
-  * `misc`: Auxiliary commands, such as `DISCARD`, `FETCH`, `CHECKPOINT`, `VACUUM`, and `SET`, are logged.
-  * `misc_set`: The `SET` auxiliary commands, such as `SET ROLE`, are logged.
+  {% list tabs group=instructions %}
+
+  - Management console/CLI {#console}
+
+    - `read`: System logs `SELECT` and `COPY` queries if the data source is a relation or a query.
+    - `write`: System logs `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY` queries when the destination is a relation.
+    - `function`: Function invocations and `DO` sections are logged.
+    - `role`: Statements related to role and privilege management, such as `GRANT`, `REVOKE`, or `CREATE/ALTER/DROP ROLE`, are logged.
+    - `ddl`: All `DDL` statements not belonging to the `ROLE` class are logged.
+    - `misc`: Auxiliary commands, such as `DISCARD`, `FETCH`, `CHECKPOINT`, `VACUUM`, and `SET`, are logged.
+    - `misc_set`: System logs miscellaneous `SET`  commands, e.g., `SET ROLE`.
+
+  - {{ TF }} {#tf}
+
+    - `READ`: System logs `SELECT` and `COPY` queries if the data source is a relation or a query.
+    - `WRITE`: System logs `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY` queries when the destination is a relation.
+    - `FUNCTION`: System logs function calls and `DO` blocks.
+    - `ROLE`: Statements related to role and privilege management, such as `GRANT`, `REVOKE`, or `CREATE/ALTER/DROP ROLE`, are logged.
+    - `DDL`: System logs all `DDL` statements not included in the `ROLE` class.
+    - `MISC`: Auxiliary commands, such as `DISCARD`, `FETCH`, `CHECKPOINT`, `VACUUM`, and `SET`, are logged.
+    - `MISC_SET`: System logs miscellaneous `SET` commands, e.g., `SET ROLE`.
+
+  - API {#api}
+
+    - `PG_AUDIT_SETTINGS_LOG_READ`: System logs `SELECT` and `COPY` queries if the data source is a relation or a query.
+    - `PG_AUDIT_SETTINGS_LOG_WRITE`: System logs `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY` queries when the destination is a relation.
+    - `PG_AUDIT_SETTINGS_LOG_FUNCTION`: System logs function calls and `DO` blocks.
+    - `PG_AUDIT_SETTINGS_LOG_ROLE`: Statements related to role and privilege management, such as `GRANT`, `REVOKE`, or `CREATE/ALTER/DROP ROLE`, are logged.
+    - `PG_AUDIT_SETTINGS_LOG_DDL`: System logs all `DDL` statements not included in the `ROLE` class.
+    - `PG_AUDIT_SETTINGS_LOG_MISC`: Auxiliary commands, such as `DISCARD`, `FETCH`, `CHECKPOINT`, `VACUUM`, and `SET`, are logged.
+    - `PG_AUDIT_SETTINGS_LOG_MISC_SET`: System logs miscellaneous `SET`  commands, e.g., `SET ROLE`.
+
+  {% endlist %}
 
   You can specify multiple values. By default, user audit logs are disabled.
 
   To learn more about configuring audit logs, see [Using pgaudit](../../managed-postgresql/operations/extensions/pgaudit.md).
 
-- **Pooling mode**{#setting-pooling-mode} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
-
-    {% note info %}
-
-    * In {{ TF }} and the gRPC API, this setting is called `pool_mode`.
-    * In the REST API, this setting is called `poolMode`.
-
-    {% endnote %}
+- **Pool mode**{#setting-pool-mode} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
     [Connection pooling mode](../../managed-postgresql/concepts/pooling.md) used by the Odyssey connection pooler.
 
@@ -103,19 +130,25 @@
     The default value is `SESSION`.
 
 
-- **Prepared statements pooling**{#setting-prepared-statements-pooling} {{ tag-con }}
+- **Prepared statements pooling**{#setting-prepared-statements-pooling} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-  Allows using prepared statements with transaction pooling.
+  Enables using [prepared statements](https://www.postgresql.org/docs/current/sql-prepare.html) for the [connection pooler](../../managed-postgresql/concepts/pooling.md) transaction mode.
 
-- **Synchronous commit**{#setting-user-synchronous-commit} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
+  This setting is available only if **Pool mode** is set to `TRANSACTION`.
+
+- **Statement timeout**{#setting-user-statement-timeout} {{ tag-all }}
+
+  Description of the [Statement timeout](#setting-statement-timeout) cluster-level setting.
+
+- **Synchronous commit**{#setting-user-synchronous-commit} {{ tag-all }}
 
   [Synchronous commit](#setting-synchronous-commit) cluster-level setting description.
 
-- **Temp file limit**{#setting-temp-file-limit} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
+- **Temp file limit**{#setting-temp-file-limit} {{ tag-all }}
 
   [Temp file limit](#setting-temp-file-limit) cluster-level setting description.
 
-- **Wal sender timeout**{#setting-wal-sender-timeout} {{ tag-con }}
+- **Wal sender timeout**{#setting-wal-sender-timeout} {{ tag-all }}
 
   Time (in ms) after which inactive replication connections are terminated.
 

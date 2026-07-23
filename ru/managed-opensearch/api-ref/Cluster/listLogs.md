@@ -94,6 +94,13 @@ apiPlayground:
             - SERVICE_TYPE_UNSPECIFIED
             - OPENSEARCH
             - DASHBOARDS
+        orderBy:
+          description: |-
+            **string**
+            Order by specification as a JSON array of {field, order} objects.
+            Supported fields: TIMESTAMP. Supported orders: ASC, DESC.
+            Example: [{"field": "TIMESTAMP", "order": "DESC"}]
+          type: string
       additionalProperties: false
     body: null
     definitions: null
@@ -184,6 +191,11 @@ Type of the service to request logs about.
 
 - `OPENSEARCH`: OpenSearch logs.
 - `DASHBOARDS`: Dashboards logs. ||
+|| orderBy | **string**
+
+Order by specification as a JSON array of {field, order} objects.
+Supported fields: TIMESTAMP. Supported orders: ASC, DESC.
+Example: [{"field": "TIMESTAMP", "order": "DESC"}] ||
 |#
 
 ## Response {#yandex.cloud.mdb.opensearch.v1.ListClusterLogsResponse}

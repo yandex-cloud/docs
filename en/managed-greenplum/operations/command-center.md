@@ -72,12 +72,41 @@ To view the resource consumption history for completed queries:
         * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-write-bytes }}**: Memory used for data writes to the DB, in bytes.
         * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-spill-total-bytes }}**: Additional disk memory used for query execution.
         * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-total-time }}**: Total request processing time.
+        * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-net-sent-chunks }}**: Number of packets sent via `interconnect`.
+        * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-net-recv-chunks }}**: Number of packets received via `interconnect`.
+        * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-interconnect-retransmit }}**: Number of retransmitted packets.
+        * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-running-query-slices }}**: Number of query slices.
 
         Once you select the consumption metric, you will see a chart with details and a list of queries. The chart will show the metric value, the user who ran the query, and the query execution time.
 
-    1. To filter the results, click ![image](../../_assets/console-icons/funnel.svg) **{{ ui-key.yacloud.common.label_filters }}** and select the relevant parameters.
+    1. To filter the results, click ![image](../../_assets/console-icons/funnel.svg) **{{ ui-key.yacloud.common.label_filters }}** and set the parameters you need:
+        
+        * User
+        * Database
+        * Resource group
+        * Query status
+        * Query ID
+        * Query text
 
 {% endlist %}
+
+
+### Searching by query text {#query-search}
+
+To find a query, click ![image](../../_assets/console-icons/funnel.svg) **{{ ui-key.yacloud.common.label_filters }}** and fill out the **Query text** field. The search is performed by substring and is case-insensitive.
+
+> For example, to find queries containing a data insert into the `customers` table, enter `INSERT INTO customers`.
+
+The query text may include special characters:
+
+* `%`: Represents any sequence of characters, including an empty one.
+* `_`: Represents a single character.
+* `\`: Escapes special characters, such as `%`, `_`, and `\`.
+
+> For example, to find the `DELETE FROM orders WHERE order_id IN (SELECT order_id FROM orders WHERE order_id = 1 LIMIT 1);` query, enter `DELETE FROM orders%order_id = 1`.
+
+Multi-line query and positional parameter (e.g., `$1`) search is not supported. To perform such a search, [export logs via {{ cloud-logging-full-name }}](../../logging/operations/export-logs.md) and find the queries you need manually.
+
 
 ## Aborting the current session {#terminate-session}
 
@@ -100,7 +129,7 @@ To free up resources for sessions, you can abort a session with the `{{ ui-key.y
 
 ## Terminating the current query {#terminate-query}
 
-To free up resources for queries, you can terminate a query with the `{{ ui-key.yacloud.greenplum.perf-diag.label_session-status-idle }}` status within an idle session. Follow these steps:
+To free up resources for queries, you can terminate a query with the `{{ ui-key.yacloud.greenplum.perf-diag.label_session-status-idle }}` status within an idle session. Proceed as follows:
 
 {% list tabs group=instructions %}
 

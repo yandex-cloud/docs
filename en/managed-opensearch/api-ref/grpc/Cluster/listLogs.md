@@ -25,7 +25,8 @@ For detailed description, see the [Logs](/yandex-mdb-guide/concepts/logs.html) s
   "page_token": "string",
   "always_next_page_token": "bool",
   "filter": "string",
-  "service_type": "ServiceType"
+  "service_type": "ServiceType",
+  "order_by": "string"
 }
 ```
 
@@ -81,6 +82,11 @@ Type of the service to request logs about.
 
 - `OPENSEARCH`: OpenSearch logs.
 - `DASHBOARDS`: Dashboards logs. ||
+|| order_by | **string**
+
+Order by specification as a JSON array of {field, order} objects.
+Supported fields: TIMESTAMP. Supported orders: ASC, DESC.
+Example: [{"field": "TIMESTAMP", "order": "DESC"}] ||
 |#
 
 ## ListClusterLogsResponse {#yandex.cloud.mdb.opensearch.v1.ListClusterLogsResponse}

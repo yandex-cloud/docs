@@ -15,7 +15,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Перейдите в сервис **Smart Web Security**.
+  1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
   1. На панели слева нажмите ![image](../../_assets/console-icons/shield.svg) **Профили безопасности** и выберите нужный профиль.
   1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Добавить правило** и в открывшемся окне:
      

@@ -104,7 +104,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите разместить трейл.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. [Перейдите]({{ link-console-main }}/link/audit-trails) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
   1. Введите имя трейла. Оно должно быть уникальным в рамках каталога.
   1. (Опционально) Введите описание трейла.
@@ -118,6 +118,7 @@ description: Следуя данной инструкции, вы сможете
               {% include [note-bucket-prefix](../../_includes/audit-trails/note-bucket-prefix.md) %}
 
           * **{{ ui-key.yacloud.audit-trails.title_kms-key }}** — ключ шифрования для бакета. Выбирать его необходимо, только если для бакета было включено шифрование.
+      
       * **{{ ui-key.yacloud.audit-trails.label_cloudLogging }}** — лог-группа, которая [была создана ранее](#before-you-begin). В нее будут загружаться аудитные логи. Рекомендуется для быстрого сбора и анализа логов.
       * **{{ ui-key.yacloud.audit-trails.label_dataStream }}** — поток данных, который [был создан ранее](#before-you-begin). В этот поток будут загружаться аудитные логи. Рекомендуется для потоковой передачи логов в другие сервисы или системы.
       * **{{ ui-key.yacloud.audit-trails.label_eventRouter }}** — коннектор шины {{ er-name }}. Рекомендуется для подробного анализа логов и дальнейшей отправки их в различные обработчики и системы в зависимости от заданных в шине условий.
@@ -215,6 +216,7 @@ description: Следуя данной инструкции, вы сможете
                   ```bash
                   yc storage bucket list
                   ```
+              
               * `object_prefix` — [префикс](../../storage/concepts/object.md#folder), который будет присвоен объектам с аудитными логами в бакете. Необязательный параметр, участвует в [полном имени](../../audit-trails/concepts/format.md#log-file-name) файла аудитного лога.
 
                   {% include [note-bucket-prefix](../../_includes/audit-trails/note-bucket-prefix.md) %}
@@ -222,14 +224,17 @@ description: Следуя данной инструкции, вы сможете
           * `cloud_logging` — загружать логи в [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-full-name }}.
 
               В параметре `log_group_id` укажите идентификатор [созданной ранее](#before-you-begin) лог-группы. Идентификатор можно запросить со [списком лог-групп в каталоге](../../logging/operations/list.md).
+          
           * `data_stream` — загружать логи в [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-full-name }}:
 
               * `stream_name` — имя [созданного ранее](#before-you-begin) потока данных. Имя можно запросить со [списком потоков данных в каталоге](../../data-streams/operations/manage-streams.md#list-data-streams).
               * `database_id` — идентификатор базы данных {{ ydb-short-name }}, которая используется потоком данных {{ yds-name }}. Идентификатор можно запросить со [списком баз данных {{ ydb-short-name }} в каталоге](../../ydb/operations/manage-databases.md#list-db).
               * `codec` — метод сжатия событий при записи в поток данных {{ yds-name }}. Возможные значения: `RAW` (без сжатия, по умолчанию), `GZIP`, `ZSTD`. Включайте сжатие, если ожидается поток событий более 1 МБ/с.
+          
           * `eventrouter` — загружать логи в [шину](../../serverless-integrations/concepts/eventrouter/bus.md) {{ er-full-name }}:
 
               * `eventrouter_connector_id` — идентификатор [коннектора](../../serverless-integrations/concepts/eventrouter/connector.md) шины {{ er-name }} с типом источника `{{ at-name }}`.
+      
       * `service_account_id` — [идентификатор](../../iam/operations/sa/get-id.md) созданного [ранее](#before-you-begin) сервисного аккаунта.
 
       {% include [trail-create-cli-yaml-desc-filtering](../../_includes/audit-trails/trail-create-cli-yaml-desc-filtering.md) %}
@@ -277,6 +282,7 @@ description: Следуя данной инструкции, вы сможете
     ```
 
     Где:
+    
     * `--name` — имя создаваемого трейла.
 
     {% include [trail-cli-flag-desc](../../_includes/audit-trails/trail-cli-flag-desc.md) %}
@@ -589,6 +595,7 @@ description: Следуя данной инструкции, вы сможете
       ```
 
       Где:
+      
       * `<файл_с_телом_запроса>` — путь к созданному ранее файлу с телом запроса `body.json`.
 
       Результат:

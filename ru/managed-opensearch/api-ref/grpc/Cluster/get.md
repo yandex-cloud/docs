@@ -165,7 +165,10 @@ The maximum string length in characters is 50. ||
       "log_index_metadata_access": "google.protobuf.BoolValue",
       "log_monitoring_checks": "google.protobuf.BoolValue",
       "log_index_maintenance": "google.protobuf.BoolValue",
-      "log_backup_operations": "google.protobuf.BoolValue"
+      "log_backup_operations": "google.protobuf.BoolValue",
+      "log_authenticated_requests": "google.protobuf.BoolValue",
+      "log_index_events": "google.protobuf.BoolValue",
+      "log_bad_headers": "google.protobuf.BoolValue"
     },
     "cloud_storage": {
       "enabled": "google.protobuf.BoolValue"
@@ -628,13 +631,13 @@ Weekly based snapshot schedule
 
 Day of the week
 
-- `MON`
-- `TUE`
-- `WED`
-- `THU`
-- `FRI`
-- `SAT`
-- `SUN` ||
+- `MON`: Monday.
+- `TUE`: Tuesday.
+- `WED`: Wednesday.
+- `THU`: Thursday.
+- `FRI`: Friday.
+- `SAT`: Saturday.
+- `SUN`: Sunday. ||
 || hour | **int64**
 
 The hour of the day in UTC timezone at which the backup should be created.
@@ -681,6 +684,15 @@ Enables indices maintenance requests logging, such as indices refreshes, flushes
 || log_backup_operations | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables snapshots and repositories requests logging. ||
+|| log_authenticated_requests | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables logging of successfully authenticated REST requests. ||
+|| log_index_events | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables logging of index-level events, such as creating or deleting an index. ||
+|| log_bad_headers | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables logging of REST requests containing bad or spoofed security headers. ||
 |#
 
 ## CloudStorage {#yandex.cloud.mdb.opensearch.v1.CloudStorage}

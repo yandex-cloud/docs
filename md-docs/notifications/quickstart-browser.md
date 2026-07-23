@@ -10,6 +10,7 @@ Cloud Notification Service (CNS) — сервис для мультиканал�
 С помощью Cloud Notification Service вы можете отправлять push-уведомления в браузеры пользователей.
 
 Чтобы начать работу с push-уведомлениями:
+
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте канал push-уведомлений в браузере](#create-channel).
 1. [Получите данные для отправки уведомлений пользователю](#subscribe-notifications).
@@ -37,7 +38,7 @@ Cloud Notification Service (CNS) — сервис для мультиканал�
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы хотите создать канал уведомлений.
-  1. Перейдите в сервис **Cloud Notification Service**.
+  1. [Перейдите](https://console.yandex.cloud/link/cns) в сервис **Cloud Notification Service**.
   1. Нажмите **Создать канал уведомлений**.
   1. Выберите вкладку **Push-уведомления в браузере**.
   1. Введите имя канала уведомления. Имя канала должно быть уникальным в Cloud Notification Service.

@@ -6,6 +6,18 @@ editable: false
 
 # {{ serverless-containers-name }} pricing policy
 
+::: page-constructor
+blocks:
+  - type: card-layout-block
+    animated: false
+    colSizes:
+      all: 12
+      sm: 4
+    children: []
+:::
+
+
+
 
 
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
@@ -13,6 +25,7 @@ editable: false
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
 
 {% include [vat](../_includes/vat.md) %}
 
@@ -83,7 +96,6 @@ Example of calculating the cost of a container with the following properties:
     currency="USD"
   />
 </MDX>
-
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

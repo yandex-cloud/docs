@@ -6,8 +6,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится [капча](../concepts/validation.md).
-  1. Перейдите в сервис **Yandex SmartCaptcha**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится [капча](../concepts/validation.md).
+  1. [Перейдите](https://console.yandex.cloud/link/smartcaptcha) в сервис **Yandex SmartCaptcha**.
   1. Выберите капчу. На странице **Обзор** отобразится подробная информация о капче.
 
 - CLI {#cli}
@@ -92,8 +92,11 @@
       Где:
 
       * `data "yandex_smartcaptcha_captcha"` — описание капчи в качестве источника данных:
+         
          * `resource_id` — идентификатор ресурса.
+      
       * `output "ref_description"` — выходная переменная, которая содержит информацию о [клиентском ключе](../concepts/keys.md) (`client_key`):
+         
          * `value` — возвращаемое значение.
 
      Вместо `client_key` вы можете выбрать любой другой параметр для получения информации. Подробнее о параметрах источника данных `yandex_smartcaptcha_captcha` в [документации провайдера](../../terraform/data-sources/smartcaptcha_captcha.md).

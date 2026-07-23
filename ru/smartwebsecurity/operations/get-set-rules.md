@@ -10,10 +10,11 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [профиль WAF](../concepts/waf.md).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. На панели слева выберите ![image](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}**.
   1. Выберите профиль, в котором находится нужный набор правил.
   1. В разделе **{{ ui-key.yacloud.smart-web-security.advanced_waf.sets_priority_section.section_title }}** отобразится информация о наборах правил:
+     
      * Версия набора правил.
      * Количество активных правил.
      * Порог аномальности и уровень паранойи (для набора OWASP).
@@ -41,10 +42,14 @@ description: Следуя данной инструкции, вы сможете
 
       Где:
 
+      
       * `data "yandex_sws_waf_rule_set_descriptor"` — описание набора правил WAF в качестве источника данных:
+        
         * `name` — имя набора правил WAF.
         * `version` — версия набора правил.
+      
       * `output "waf_rules"` — выходная переменная, которая содержит информацию о наборе правил WAF:
+        
         * `value` — возвращаемое значение.
 
       Вместо `rules` вы можете выбрать любой другой параметр для получения информации. Подробнее о параметрах источника данных `yandex_sws_waf_rule_set_descriptor` в [документации провайдера]({{ tf-provider-datasources-link }}/sws_waf_rule_set_descriptor).

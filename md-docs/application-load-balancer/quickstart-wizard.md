@@ -47,7 +47,7 @@ Yandex Application Load Balancer служит для распределения 
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создан балансировщик.
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. Нажмите кнопку **Создать L7-балансировщик** и выберите **Визард**.
 
 {% endlist %}
@@ -85,6 +85,7 @@ Yandex Application Load Balancer служит для распределения 
   1. Укажите порт: `8080`.
 
   1. Задайте настройки проверки состояния:
+      
       1. **Интервал**: `3`.
       1. **Порог работоспособности**: `2`.
       1. **Порт**: `8080`.
@@ -104,8 +105,10 @@ Yandex Application Load Balancer служит для распределения 
   1. Введите имя роутера: `test-http-router`.
   1. Включите переключатель **Расширенные настройки**.
   1. В блоке **Виртуальные хосты** введите:
+     
      1. Имя хоста: `test-virtual-host`.
      1. Имя маршрута: `test-route`.
+  
   1. Остальные настройки оставьте без изменений и нажмите кнопку **Создать и продолжить**.
 
 {% endlist %}

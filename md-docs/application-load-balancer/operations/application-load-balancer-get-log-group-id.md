@@ -9,7 +9,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором создан балансировщик.
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. Нажмите на имя нужного балансировщика.
   1. В блоке **Настройки логов** в поле **Лог-группа Cloud Logging** нажмите на имя лог-группы.
 
@@ -66,8 +66,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором создан балансировщик.
-  1. Перейдите в сервис **Cloud Logging**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором создан балансировщик.
+  1. [Перейдите](https://console.yandex.cloud/link/logging) в сервис **Cloud Logging**.
   1. Сохраните идентификатор лог-группы с именем `default`.
 
 - CLI {#cli}
@@ -85,6 +85,7 @@
   ```
 
   Где:
+  
   * `--name` — имя лог-группы по умолчанию — `default`.
   * `--folder-id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором создан балансировщик.
 

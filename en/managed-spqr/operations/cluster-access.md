@@ -41,6 +41,8 @@ To manage user view permissions for cluster lists, we recommend using different 
         --url 'https://{{ api-host-mdb }}/managed-spqr/v1/clusters/<cluster_ID>:listAccessBindings'
       ```
 
+     {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
+
   1. View the [server response](../api-ref/Cluster/listAccessBindings.md#yandex.cloud.access.ListAccessBindingsResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
@@ -65,6 +67,8 @@ To manage user view permissions for cluster lists, we recommend using different 
         {{ api-host-mdb }}:{{ port-https }} \
         yandex.cloud.mdb.spqr.v1.ClusterService.ListAccessBindings
       ```
+
+      {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
 
   1. Check the [server response](../api-ref/grpc/Cluster/listAccessBindings.md#yandex.cloud.access.ListAccessBindingsResponse) to make sure your request was successful.
 
@@ -95,7 +99,7 @@ To manage user view permissions for cluster lists, we recommend using different 
             
       Where:
 
-      * `cluster_id`: Cluster ID.
+      * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
       * `role`: [Role](../security.md#roles-list), e.g., `managed-spqr.editor`.
       * `members`: List of [subjects](../../iam/concepts/access-control/index.md#subject) the role is assigned to in `<subject_type>:<subject_ID>` format.
 
@@ -151,12 +155,12 @@ To manage user view permissions for cluster lists, we recommend using different 
       
       Where:
 
+      * {% include [cluster-id](../../_includes/managed-spqr/cluster-id.md) %}
       * `access_binding_deltas.roleId`: [Role](../security.md#roles-list), e.g., `managed-spqr.editor`.
       * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
       * `access_binding_deltas.subject.type`: Type of subject the role is assigned to.
 
           {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
-
 
 
   1. Check the [server response](../api-ref/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation) to make sure your request was successful.
@@ -198,7 +202,7 @@ To manage user view permissions for cluster lists, we recommend using different 
       
       Where:
 
-      * `resource_id`: Cluster ID.
+      * {% include [cluster-id-resource](../../_includes/managed-spqr/cluster-id-resource.md) %}
       * `access_binding_deltas.roleId`: [Role](../security.md#roles-list), e.g., `managed-spqr.editor`.
       * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
       * `access_binding_deltas.subject.type`: Type of subject the role is assigned to.
@@ -245,7 +249,7 @@ To manage user view permissions for cluster lists, we recommend using different 
       
       Where:
 
-      * `cluster_id`: Cluster ID.
+      * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
       * `role`: [Role](../security.md#roles-list), e.g., `managed-spqr.editor`.
       * `members`: List of [subjects](../../iam/concepts/access-control/index.md#subject) the role is assigned to in `<subject_type>:<subject_ID>` format.
 
@@ -319,12 +323,12 @@ To manage user view permissions for cluster lists, we recommend using different 
       
       Where:
 
+      * {% include [cluster-id](../../_includes/managed-spqr/cluster-id.md) %}
       * `accessBindings.roleId`: [Role](../security.md#roles-list), e.g., `managed-spqr.editor`.
       * `accessBindings.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
       * `accessBindings.subject.type`: Type of subject the role is assigned to.
 
           {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
-
 
 
   1. Check the [server response](../api-ref/Cluster/setAccessBindings.md#yandex.cloud.operation.Operation) to make sure your request was successful.
@@ -385,7 +389,7 @@ To manage user view permissions for cluster lists, we recommend using different 
       
       Where:
 
-      * `resource_id`: Cluster ID.
+      * {% include [cluster-id-resource](../../_includes/managed-spqr/cluster-id-resource.md) %}
       * `accessBindings.roleId`: [Role](../security.md#roles-list), e.g., `managed-spqr.editor`.
       * `accessBindings.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
       * `accessBindings.subject.type`: Type of subject the role is assigned to.
@@ -463,6 +467,7 @@ To manage user view permissions for cluster lists, we recommend using different 
       
       Where:
 
+      * {% include [cluster-id](../../_includes/managed-spqr/cluster-id.md) %}
       * `access_binding_deltas.roleId`: [Role](../security.md#roles-list), e.g., `managed-spqr.editor`.
       * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
       * `access_binding_deltas.subject.type`: Type of subject the role is assigned to.
@@ -510,7 +515,7 @@ To manage user view permissions for cluster lists, we recommend using different 
       
       Where:
 
-      * `resource_id`: Cluster ID.
+      * {% include [cluster-id-resource](../../_includes/managed-spqr/cluster-id-resource.md) %}
       * `access_binding_deltas.roleId`: [Role](../security.md#roles-list), e.g., `managed-spqr.editor`.
       * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
       * `access_binding_deltas.subject.type`: Type of subject the role is assigned to.

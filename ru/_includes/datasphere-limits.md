@@ -10,6 +10,7 @@
 Объем [хранилища](../datasphere/concepts/project.md#storage) проекта (можно [увеличить в проекте](../datasphere/operations/projects/storage-resize.md)) | 10 ГБ
 Количество сообществ, привязанных к одному [платежному аккаунту](../billing/concepts/billing-account.md) | 100
 Количество сообществ в одной [организации](../organization/) | 10
+Количество активных [заданий](../datasphere/concepts/jobs/index.md) | 10
 **Ограничения на использование ВМ** |
 c1.32 ^1^ | 0
 c1.80 ^2^ | 0

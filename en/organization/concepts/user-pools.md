@@ -15,16 +15,18 @@ All pool users form a new [group](groups.md) for the purpose of [access settings
 When [creating](../operations/user-pools/create-userpool.md) a user pool, you specify a default domain which can be used if no other domains are linked to the pool.
 
 The pool administrator can indicate which data users will be able modify on the [My Account](../concepts/my-account.md) portal. They can manage edit permissions of the following:
+
 * Personal data
 * Contact details
 * Login
 * Password (allowed by default)
 * Organization details
 
+A pool administrator can specify the user account deactivation date when [creating](../operations/add-account.md#add-local-user) or [updating](../operations/user-pools/edit-user.md) the account. On this date, the account will be automatically blocked. If no date is set, the account will be valid indefinitely.
+
 #### Useful links {#see-also}
 
 * [{#T}](../operations/user-pools/create-userpool.md)
-* [Creating a local user](../operations/add-account.md#add-local-user)
 * [{#T}](../operations/user-pools/add-domain.md)
 * [{#T}](../operations/user-pools/user-get-logs.md)
 * [{#T}](../../security/domains/iam-checklist.md)

@@ -2,9 +2,41 @@
 
 # Правила тарификации для Yandex MetaData Hub
 
-Использование Connection Manager, Schema Registry и Data Catalog не тарифицируется. За потребление других ресурсов Yandex Cloud, которые вы используете в процессе работы с этими сервисами (например, сервисов управляемых баз данных или [Yandex Lockbox](../lockbox/pricing.md)), взимается плата в соответствии с их [тарифами](https://yandex.cloud/ru/prices#calculator).
+::: page-constructor
+blocks:
+  - type: card-layout-block
+    animated: false
+    colSizes:
+      all: 6
+    children:
+      - type: basic-card
+        title: Калькулятор цен
+        text: Рассчитайте стоимость использования сервиса, исходя из ваших потребностей
+        icon: ../_assets/console-icons/calculator.svg
+        urlTitle: Калькулятор цен
+        url: https://yandex.cloud/ru/prices?state=e093287099a9#calculator
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+      - type: basic-card
+        title: Прайс-лист
+        text: Актуальные тарифы на все наши услуги
+        icon: ../_assets/console-icons/circle-ruble.svg
+        urlTitle: Прайс-лист
+        url: https://yandex.cloud/ru/price-list?services=dn2rnt6lkfbauucwnfby
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+:::
 
-Цены на продукты сервиса также доступны в [Прайс-листе](https://yandex.cloud/ru/price-list).
+
+Использование Connection Manager, Schema Registry и Data Catalog не тарифицируется. За потребление других ресурсов Yandex Cloud, которые вы используете в процессе работы с этими сервисами (например, сервисов управляемых баз данных или [Yandex Lockbox](../lockbox/pricing.md)), взимается плата в соответствии с их [тарифами](https://yandex.cloud/ru/prices#calculator).
 
 
 Все цены в рублях и тенге указаны с НДС, все цены в долларах — без НДС.

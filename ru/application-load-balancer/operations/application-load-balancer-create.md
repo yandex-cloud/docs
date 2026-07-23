@@ -12,10 +12,11 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создан балансировщик.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_load-balancer-create }}** и выберите **{{ ui-key.yacloud.alb.label_alb-create-form }}**.
   1. Введите имя балансировщика.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите:
+
      1. [Сеть](../../vpc/concepts/network.md#network), в [подсетях](../../vpc/concepts/network.md#subnet) которой будут размещаться узлы балансировщика.
      1. Подходящие [группы безопасности](../concepts/application-load-balancer.md#security-groups):
 
@@ -45,20 +46,26 @@ description: Следуя данной инструкции, вы сможете
         Вы можете задать больше одного правила.
 
   1. В блоке **{{ ui-key.yacloud.alb.label_listeners }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_add-listener }}**. Задайте настройки обработчика:
+  
      1. Введите имя обработчика.
      1. (Опционально) Включите опцию **{{ ui-key.yacloud.alb.section_external-address-specs }}**. Укажите **{{ ui-key.yacloud.alb.label_port }}**: `80` и выберите **{{ ui-key.yacloud.common.type }}**:
+        
         * `{{ ui-key.yacloud.alb.label_address-auto }}`.
         * `{{ ui-key.yacloud.alb.label_address-list }}` — в появившемся поле справа выберите адрес в выпадающем списке.
+     
      1. (Опционально) Включите опцию **{{ ui-key.yacloud.alb.section_internal-address-specs }}**. Укажите **{{ ui-key.yacloud.alb.label_port }}** и выберите **{{ ui-key.yacloud.common.label_subnet }}** в выпадающем списке.
      1. В блоке **{{ ui-key.yacloud.alb.section_common-address-specs }}** выберите тип обработчика: `{{ ui-key.yacloud.alb.label_listener-type-http }}` или `{{ ui-key.yacloud.alb.label_listener-type-stream }}`.
 
         Для `{{ ui-key.yacloud.alb.label_listener-type-http }}` выберите:
+        
         * Протокол: `{{ ui-key.yacloud.alb.label_proto-http-plain }}`,`{{ ui-key.yacloud.alb.label_proto-http-tls }}` или `{{ ui-key.yacloud.alb.label_redirect-to-https }}`.
         * [HTTP-роутер](http-router-create.md) в выпадающем списке.
 
         Для `{{ ui-key.yacloud.alb.label_listener-type-stream }}` выберите протокол:
+        
         * `{{ ui-key.yacloud.alb.label_proto-stream-plain }}`: выберите **{{ ui-key.yacloud.alb.label_backend-groups }}** в выпадающем списке.
         * `{{ ui-key.yacloud.alb.label_proto-stream-tls }}`: в блоке **{{ ui-key.yacloud.alb.section_default-sni-match }}** выберите **{{ ui-key.yacloud.alb.label_certificate }}** и **{{ ui-key.yacloud.alb.label_backend-groups }}** в выпадающих списках.
+  
   1. При необходимости добавьте дополнительные обработчики.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
@@ -84,6 +91,7 @@ description: Следуя данной инструкции, вы сможете
      ```
 
      Где:
+     
      * `<имя_балансировщика>` — имя создаваемого балансировщика.
      * `--network-name` — имя сети, в которой создается балансировщик.
      * `--security-group-id` (опционально) — список от одного до пяти разделенных запятыми идентификаторов [групп безопасности](../concepts/application-load-balancer.md#security-groups). Если не указать этот параметр, то для балансировщика будет разрешен любой трафик.
@@ -131,8 +139,10 @@ description: Следуя данной инструкции, вы сможете
         ```
 
         Где:
+        
         * `--log-group-id` — идентификатор [лог-группы](../../logging/concepts/log-group.md).
         * `--discard` — правило отбрасывания логов. Параметры правила:
+          
           * `codes` — HTTP-коды, классы HTTP-кодов или gRPC-коды.
           * `percent` — доля отбрасываемых логов в процентах.
 
@@ -158,7 +168,9 @@ description: Следуя данной инструкции, вы сможете
         ```
 
   1. Добавьте обработчик для L7-балансировщика:
+     
      * HTTP-обработчик.
+       
        1. Посмотрите описание команды CLI для добавления HTTP-обработчика L7-балансировщика:
 
           ```bash
@@ -175,6 +187,7 @@ description: Следуя данной инструкции, вы сможете
           ```
 
      * Stream-обработчик.
+       
        1. Посмотрите описание команды CLI для добавления Stream-обработчика L7-балансировщика:
 
           ```bash

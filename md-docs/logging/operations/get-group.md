@@ -6,8 +6,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится лог-группа.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud Logging**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится лог-группа.
+  1. [Перейдите](https://console.yandex.cloud/link/logging) в сервис **Cloud Logging**.
   1. На панели слева выберите ![image](../../_assets/console-icons/tray.svg) **Группы**.
   1. Выберите лог-группу.
   1. На странице **Обзор** отобразится подробная информация о лог-группе.

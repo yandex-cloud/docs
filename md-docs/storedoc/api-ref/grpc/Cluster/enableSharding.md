@@ -166,7 +166,9 @@ Priority of host for the election in replSet ||
 Host tags ||
 || votes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Votes of host for the election in replSet ||
+Votes of host for the election in replSet
+
+Acceptable values are 0 to 1, inclusive. ||
 |#
 
 ## MongoInfra {#yandex.cloud.mdb.mongodb.v1.EnableClusterShardingRequest.MongoInfra}

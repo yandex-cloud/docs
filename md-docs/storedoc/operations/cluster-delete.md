@@ -17,8 +17,8 @@
 
 - Консоль управления {#console}
   
-  1. Откройте [страницу каталога](https://console.yandex.cloud) в консоли управления.
-  1. Перейдите в сервис **Yandex StoreDoc**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/storedoc) в сервис **Yandex StoreDoc**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) для нужного кластера и выберите пункт **Удалить**.
   
 - CLI {#cli}

@@ -13,7 +13,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором расположен рабочий стол.
-  1. Перейдите в сервис **Cloud Desktop**.
+  1. [Перейдите](https://console.yandex.cloud/link/cloud-desktop) в сервис **Cloud Desktop**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/display.svg) **Рабочие столы**.
   1. Напротив рабочего стола, который нужно обновить, нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **Обновить**.
   1. Подтвердите обновление.

@@ -6,10 +6,10 @@ resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
   maintenance_window {
     type = "<maintenance_type>"
     day  = "<day_of_week>"
-    hour = <hour>
+    hour = <sequence_number_of_hour_interval>
   }
   ...
 }
 ```
 
-{% include [maintenance-window-description](../../terraform/maintenance-window-description.md) %}
+{% include [Maintenance window description](../../terraform/maintenance-window-description.md) %}

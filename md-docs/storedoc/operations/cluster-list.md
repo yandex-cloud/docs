@@ -10,8 +10,8 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-  1. Перейдите в сервис **Yandex StoreDoc**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/storedoc) в сервис **Yandex StoreDoc**.
 
 - CLI {#cli}
 
@@ -106,8 +106,8 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-  1. Перейдите в сервис **Yandex StoreDoc**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/storedoc) в сервис **Yandex StoreDoc**.
   1. Нажмите на имя нужного кластера.
 
 - CLI {#cli}
@@ -198,7 +198,7 @@
   Можно получить список операций для кластера:
 
   1. В [консоли управления](https://console.yandex.cloud) откройте каталог, в котором находится кластер.
-  1. Перейдите в сервис **Yandex StoreDoc**.
+  1. [Перейдите](https://console.yandex.cloud/link/storedoc) в сервис **Yandex StoreDoc**.
   1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3.svg) **Кластеры**.
   1. Выберите нужный кластер и перейдите на вкладку ![image](../../_assets/console-icons/list-check.svg) **Операции**.
 
@@ -480,4 +480,4 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Работа с операциями](../../api-design-guide/concepts/about-async.md)
+[Работа с операциями](../../api-design-guide/concepts/about-async.md)

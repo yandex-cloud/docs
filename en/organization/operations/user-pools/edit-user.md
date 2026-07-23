@@ -24,6 +24,7 @@ To update local user data:
 
       1. Update the username, [domain](../../concepts/domains.md), and full name.
       1. Add or update the email address.
+      1. Optionally, in the **Deactivation date** field, clear or edit the date when the account will be automatically blocked. If no date is set, the account will be valid indefinitely.
       1. Expand the **{{ ui-key.yacloud_org.organization.userpools.title_personal-info }}** section and update the user's first name, last name, and phone number.
       1. Expand the **Organizational information** section, and specify the company name, department, job title, and employee ID of the user.
       1. Click **{{ ui-key.yacloud_org.organization.userpools.action_update-user }}**.

@@ -17,10 +17,16 @@ items:
         href: operations/cloud-shell-options.md
       - name: Using search in the management console
         href: operations/search.md
+      - name: Infrastructure map analysis
+        href: operations/view-infrastructure-map.md
       - name: Managing {{ yandex-cloud }} resources using an AI assistant
         href: operations/ai-assistant.md
-  - name: Limits in {{ cloud-shell-name }}
-    href: concepts/cloud-shell/limits.md
+  - name: Concepts
+    items:
+      - name: Infrastructure map
+        href: concepts/infrastructure-map.md
+      - name: Limits in {{ cloud-shell-name }}
+        href: concepts/cloud-shell/limits.md
   - name: Pricing policy
     href: pricing.md
 path: en/console/toc.yaml

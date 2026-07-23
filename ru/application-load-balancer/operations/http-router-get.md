@@ -12,8 +12,8 @@ title: Как получить информацию об HTTP-роутере в 
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится роутер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится роутер.
+  1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
   1. Выберите HTTP-роутер.
   1. На странице **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация об  HTTP-роутере.
@@ -83,8 +83,11 @@ title: Как получить информацию об HTTP-роутере в 
       Где:
 
       * `data "yandex_alb_http_router"` — описание HTTP-роутера в качестве источника данных:
+         
          * `http_router_id` — идентификатор HTTP-роутера.
+      
       * `output "tf-router-name"` — выходная переменная, которая содержит имя HTTP-роутера:
+         
          * `value` — возвращаемое значение.
 
      Вместо `name` вы можете выбрать любой другой параметр для получения информации. Подробнее о параметрах источника данных `yandex_alb_http_router` в [документации провайдера]({{ tf-provider-datasources-link }}/alb_http_router).

@@ -34,13 +34,14 @@ description: Быстрая интеграция капчи на ваш сайт
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-    1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha_ru }}**.
+    1. [Перейдите]({{ link-console-main }}/link/smartcaptcha) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha_ru }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.smartcaptcha.button_captcha-settings-create }}**.
 
     1. Введите имя капчи, например `sm-captcha`.
     1. Укажите список сайтов, на которых будет размещаться капча. Например, `my-shop.com`.
     1. **{{ ui-key.yacloud.smartcaptcha.label_section-style }}** оставьте без изменений.
     1. Выберите параметры капчи по умолчанию (или оставьте текущие):
+       
        1. [Основное задание](./concepts/tasks.md#main-task) — будет показано пользователю первым.
        1. [Дополнительное задание](./concepts/tasks.md#additional-task) — будет показано, если результат выполнения основного задания кажется сервису подозрительным или если выбран максимальный уровень сложности.
        1. Выберите [сложность](./concepts/tasks.md#task-difficulty) — `{{ ui-key.yacloud.smartcaptcha.value_complexity-medium }}`.
@@ -61,6 +62,7 @@ description: Быстрая интеграция капчи на ваш сайт
 - Консоль управления {#console}
     
     После создания капчи выберите ее в списке и скопируйте два ключа:
+    
     * **{{ ui-key.yacloud.smartcaptcha.label_client-key }}** — для добавления виджета {{ captcha-name }} на ваш сайт или страницу.
     * **{{ ui-key.yacloud.smartcaptcha.label_server-key }}** — для [проверки ответа](#check-answer) пользователя.
 
@@ -302,7 +304,7 @@ secret=<ключ_сервера>&token=<токен>&ip=<IP-адрес_польз
 
 Проверьте, что домен добавлен в список разрешенных сайтов в настройках капчи.
 
-## Полезные ссылки {#links}
+#### Полезные ссылки {#see-also}
 
 * [Методы подключения виджета](./concepts/widget-methods.md)
 * [Настройка внешнего вида](./concepts/captcha-variants.md)

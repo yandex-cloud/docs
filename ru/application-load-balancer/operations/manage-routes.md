@@ -22,7 +22,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете изменять маршрут виртуального хоста.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. На панели слева выберите ![route](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}** и выберите [HTTP-роутер](../concepts/http-router.md), в котором находится нужный маршрут.
   1. На открывшейся странице в секции **{{ ui-key.yacloud.alb.label_virtual-hosts }}** в блоке с виртуальным хостом, в котором находится нужный маршрут, в строке с именем нужного маршрута нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. В открывшемся окне, в зависимости от [типа](../concepts/http-router.md#routes-types) маршрута:
 
@@ -62,6 +62,7 @@ description: Следуя данной инструкции, вы сможете
         ```bash
         yc alb virtual-host update-http-route --help
         ```
+    
     1. {% include [cli-vh-list-http-routers](../../_includes/application-load-balancer/instruction-steps/cli-vh-list-http-routers.md) %}
     1. {% include [cli-vh-list-vhs](../../_includes/application-load-balancer/instruction-steps/cli-vh-list-vhs.md) %}
     1. Чтобы получить список маршрутов в виртуальном хосте, выполните команду, указав в ней имя виртуального хоста и имя или идентификатор HTTP-роутера соответственно в параметре `--http-router-name` или `--http-router-id`:
@@ -131,6 +132,7 @@ description: Следуя данной инструкции, вы сможете
         * `--match-http-method` — список HTTP-[методов](https://ru.wikipedia.org/wiki/HTTP#Методы), запросы с которыми необходимо маршрутизировать. Например: `--match-http-method GET,POST,OPTIONS`.
 
             Чтобы очистить заданный для маршрута список HTTP-методов, передайте в команде параметр `--clear-method-match`.
+        
         * Параметры с условиями маршрутизации на основе пути:
 
             * `--exact-path-match` — маршрутизировать запросы, путь в которых идентичен заданному пути. Например, чтобы маршрутизировать все запросы, укажите путь `/`.
@@ -148,15 +150,19 @@ description: Следуя данной инструкции, вы сможете
         * `--backend-group-name` — имя [группы бэкендов](../concepts/backend-group.md), расположенной в том же каталоге, в котором находятся [HTTP-роутер](../concepts/http-router.md), виртуальный хост и маршрут.
         
             Вместо имени группы бэкендов вы можете указать ее идентификатор в параметре `--backend-group-id`.
+        
         * `--request-timeout` — максимальное время в секундах, на которое может быть установлено соединение по запросу.
 
             Чтобы очистить заданное для маршрута максимальное время соединения, передайте в команде параметр `--clear-request-timeout`.
+        
         * `--request-idle-timeout` — максимальное время в секундах, в течение которого соединение может простаивать без передачи данных.
 
             Чтобы очистить заданное для маршрута максимальное время простоя, передайте в команде параметр `--clear-idle-timeout`.
+        
         * {% include [cli-route-creation-rate-limit](../../_includes/application-load-balancer/instruction-steps/cli-route-creation-rate-limit.md) %}
 
             Чтобы очистить заданные для маршрута настройки частоты запросов, передайте в команде параметр `--clear-rate-limit`.
+        
         * {% include [cli-route-creation-disable-security-profile](../../_includes/application-load-balancer/instruction-steps/cli-route-creation-disable-security-profile.md) %}
 
             Чтобы включить для маршрута профиль безопасности, который был отключен ранее, передайте в команде параметр `--disable-security-profile=false`.
@@ -212,6 +218,7 @@ description: Следуя данной инструкции, вы сможете
         ```bash
         yc alb virtual-host update-grpc-route --help
         ```
+    
     1. {% include [cli-vh-list-http-routers](../../_includes/application-load-balancer/instruction-steps/cli-vh-list-http-routers.md) %}
     1. {% include [cli-vh-list-vhs](../../_includes/application-load-balancer/instruction-steps/cli-vh-list-vhs.md) %}
     1. Чтобы получить список маршрутов в виртуальном хосте, выполните команду, указав в ней имя виртуального хоста и имя или идентификатор HTTP-роутера соответственно в параметре `--http-router-name` или `--http-router-id`:
@@ -282,6 +289,7 @@ description: Следуя данной инструкции, вы сможете
         * `--http-router-name` — имя HTTP-роутера, в котором находится маршрут.
 
             Вместо имени HTTP-роутера вы можете указать его идентификатор в параметре `--http-router-id`.
+        
         * `--virtual-host-name` — имя виртуального хоста, в котором находится маршрут.
         * Параметры с условиями маршрутизации на основе FQMN:
 
@@ -298,18 +306,23 @@ description: Следуя данной инструкции, вы сможете
             {% endnote %}
 
             Чтобы очистить заданные для маршрута условия маршрутизации на основе FQMN, передайте в команде параметр `--clear-fqmn-match`.
+        
         * `--backend-group-name` — имя [группы бэкендов](../concepts/backend-group.md), расположенной в том же каталоге, в котором находятся [HTTP-роутер](../concepts/http-router.md), виртуальный хост и маршрут.
         
             Вместо имени группы бэкендов вы можете указать ее идентификатор в параметре `--backend-group-id`.
+        
         * `--request-max-timeout` — максимальное время, на которое может быть установлено соединение. Клиент может указать в запросе HTTP-заголовок `grpc-timeout` с меньшим значением таймаута.
 
             Чтобы очистить заданное для маршрута значение таймаута соединения, передайте в команде параметр `--clear-max-timeout`.
+        
         * `--request-idle-timeout` — максимальное время в секундах, в течение которого соединение может простаивать без передачи данных.
 
             Чтобы очистить заданное для маршрута значение максимального времени простоя, передайте в команде параметр `--clear-idle-timeout`.
+        
         * {% include [cli-route-creation-rate-limit](../../_includes/application-load-balancer/instruction-steps/cli-route-creation-rate-limit.md) %}
 
             Чтобы очистить заданные для маршрута настройки частоты запросов, передайте в команде параметр `--clear-rate-limit`.
+        
         * {% include [cli-route-creation-disable-security-profile](../../_includes/application-load-balancer/instruction-steps/cli-route-creation-disable-security-profile.md) %}
 
             Чтобы включить для маршрута профиль безопасности, который был отключен ранее, передайте в команде параметр `--disable-security-profile=false`.
@@ -396,6 +409,7 @@ description: Следуя данной инструкции, вы сможете
       {% endlist %}
 
       Параметры используемых ресурсов приведены в документации провайдера {{ TF }}: [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host).
+  
   1. Обновите ресурсы:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -539,6 +553,7 @@ description: Следуя данной инструкции, вы сможете
               * `path` — параметр для фильтрации пути входящего запроса:
 
                   * `prefix` — фильтр с указанием префикса пути, по которому будут отбираться запросы, поступающие в создаваемый маршрут.
+          
           * `http_route_action` — параметр для указания действия с HTTP-трафиком:
 
               * `backend_group_id` — идентификатор группы бэкендов, в которой доступен старый API-интерфейс.
@@ -586,7 +601,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете удалять маршрут виртуального хоста.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. На панели слева выберите ![route](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}** и выберите [HTTP-роутер](../concepts/http-router.md), в котором находится нужный маршрут.
   1. На открывшейся странице в секции **{{ ui-key.yacloud.alb.label_virtual-hosts }}** в блоке с виртуальным хостом, в котором находится нужный маршрут, в строке с именем нужного маршрута нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. В открывшемся окне подтвердите удаление.
@@ -608,6 +623,7 @@ description: Следуя данной инструкции, вы сможете
         ```bash
         yc alb virtual-host remove-http-route --help
         ```
+    
     1. {% include [cli-vh-list-http-routers](../../_includes/application-load-balancer/instruction-steps/cli-vh-list-http-routers.md) %}
     1. {% include [cli-vh-list-vhs](../../_includes/application-load-balancer/instruction-steps/cli-vh-list-vhs.md) %}
     1. Чтобы получить список маршрутов в виртуальном хосте, выполните команду, указав в ней имя виртуального хоста и имя или идентификатор HTTP-роутера соответственно в параметре `--http-router-name` или `--http-router-id`:
@@ -633,6 +649,7 @@ description: Следуя данной инструкции, вы сможете
         * `--http-router-name` — имя HTTP-роутера, в котором находится маршрут.
 
             Вместо имени HTTP-роутера вы можете указать его идентификатор в параметре `--http-router-id`.
+        
         * `--virtual-host-name` — имя виртуального хоста, в котором находится маршрут.
 
         {% cut "Результат:" %}
@@ -683,6 +700,7 @@ description: Следуя данной инструкции, вы сможете
         ```bash
         yc alb virtual-host remove-grpc-route --help
         ```
+    
     1. {% include [cli-vh-list-http-routers](../../_includes/application-load-balancer/instruction-steps/cli-vh-list-http-routers.md) %}
     1. {% include [cli-vh-list-vhs](../../_includes/application-load-balancer/instruction-steps/cli-vh-list-vhs.md) %}
     1. Чтобы получить список маршрутов в виртуальном хосте, выполните команду, указав в ней имя виртуального хоста и имя или идентификатор HTTP-роутера соответственно в параметре `--http-router-name` или `--http-router-id`:
@@ -708,6 +726,7 @@ description: Следуя данной инструкции, вы сможете
         * `--http-router-name` — имя HTTP-роутера, в котором находится маршрут.
 
             Вместо имени HTTP-роутера вы можете указать его идентификатор в параметре `--http-router-id`.
+        
         * `--virtual-host-name` — имя виртуального хоста, в котором находится маршрут.
 
         {% cut "Результат:" %}
@@ -768,6 +787,7 @@ description: Следуя данной инструкции, вы сможете
       {% include [tf-route-reorder-delete-route](../../_includes/application-load-balancer/instruction-steps/tf-route-reorder-delete-route.md) %}
 
       Информация о параметрах используемых ресурсов приведена в документации провайдера {{ TF }}: [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host).
+  
   1. Обновите ресурсы:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

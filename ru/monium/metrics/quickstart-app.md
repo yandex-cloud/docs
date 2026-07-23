@@ -22,13 +22,19 @@
 
 ## Просмотр метрик {#view-metrics}
 
-1. На главной странице сервиса [{{ monium-name }}]({{ link-monium }}) слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.
-1. Вверху укажите промежуток поиска с помощью временной шкалы, предустановленного промежутка или введите нужное значение времени.
-1. В строке поиска введите запрос для поиска метрик приложения:
-   1. Выберите нужный проект `folder__<идентификатор_каталога>`. По умолчанию выбран проект в текущем каталоге.
-   1. Последовательно выберите `cluster`, `service` и нужные метрики.
-   1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}**.
-1. Чтобы посмотреть детали метрики, наведите курсор на график.
+{% list tabs group=instructions %}
+
+- Интерфейс {{ monium-name }} {#console}
+
+  1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите ![alt](../../_assets/console-icons/compass.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.all-panel.menu.category.explore }}** → ![alt](../../_assets/console-icons/rectangle-pulse.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.
+  1. Вверху укажите промежуток поиска с помощью временной шкалы, предустановленного промежутка или введите нужное значение времени.
+  1. В строке поиска введите запрос для поиска метрик приложения:
+     1. Выберите нужный проект `folder__<идентификатор_каталога>`. По умолчанию выбран проект в текущем каталоге.
+     1. Последовательно выберите `cluster`, `service` и нужные метрики.
+     1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}**.
+  1. Чтобы посмотреть детали метрики, наведите курсор на график.
+
+{% endlist %}
 
 Дополнительные возможности работы с метриками описаны в разделе [{#T}](../metrics/metric-explorer.md).
 

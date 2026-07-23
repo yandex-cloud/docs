@@ -34,19 +34,21 @@ Monium — платформа для сбора [метрик](metrics/overview.
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором будет храниться телеметрия.
-  1. Перейдите в сервис **Identity and Access Management**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором будет храниться телеметрия.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. Нажмите кнопку **Создать сервисный аккаунт**.
   1. Введите имя сервисного аккаунта, например `monium-sa`.
   1. Нажмите кнопку ![image](../_assets/console-icons/plus.svg) **Добавить роль** и добавьте [роль](security/index.md#monium-telemetry-writer) `monium.telemetry.writer`.
   
       Если вы планируете передавать только некоторые типы данных, вместо `monium.telemetry.writer` выберите одну или несколько ролей с более узкими наборами разрешений: `monium.metrics.writer`, `monium.logs.writer`, `monium.traces.writer`.
+  
   1. Нажмите кнопку **Создать**.
   1. В открывшемся списке выберите созданный сервисный аккаунт.
   1. На панели сверху нажмите кнопку ![image](../_assets/console-icons/plus.svg) **Создать новый ключ** и выберите пункт **Создать API-ключ**.
   1. Выберите **Область действия** — `yc.monium.telemetry.write`.
   
       Если вы планируете передавать только некоторые типы данных, вместо `yc.monium.telemetry.write` выберите одну или несколько более узких [областей действия](../iam/concepts/authorization/api-key.md#scoped-api-keys): `yc.monium.metrics.write`, `yc.monium.logs.write`, `yc.monium.traces.write`.
+  
   1. (Опционально) Укажите **Срок действия** создаваемого API-ключа.
   1. Нажмите кнопку **Создать**.
   1. Сохраните полученный секретный ключ — он понадобится на следующем шаге.
@@ -318,7 +320,7 @@ Monium — платформа для сбора [метрик](metrics/overview.
 
 - Интерфейс Monium {#console}
 
-  1. На главной странице [Monium](https://monium.yandex.cloud) слева выберите раздел с нужным типом данных:
+  1. На главной странице [Monium](https://monium.yandex.cloud) слева наведите указатель на ![alt](../_assets/console-icons/compass.svg) **Обзор** и выберите раздел с нужным типом данных:
 
       {% list tabs group=monium_telemetry_type %}
 

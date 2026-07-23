@@ -118,6 +118,8 @@ As a user, you need the [{{ roles.mpg.editor }} role or higher](../../iam/concep
 
 To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.mpg.editor }}` role or higher.
 
+{% include [roles-mdb-viewer](../../_includes/mdb/roles-mdb-viewer-access-control.md) %}
+
 You can always assign a role with more permissions, e.g., `{{ roles.mpg.admin }}` instead of `{{ roles.mpg.editor }}`.
 
 ## What's next {#whats-next}

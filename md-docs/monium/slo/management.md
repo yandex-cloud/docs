@@ -2,7 +2,15 @@
 
 # Управление SLO в Monium
 
-Для работы со SLO на главной странице сервиса [Monium](https://monium.yandex.cloud) слева выберите **SLO**.
+Для работы со SLO:
+
+{% list tabs group=instructions %}
+
+- Интерфейс Monium {#console}
+
+  На главной странице сервиса [Monium](https://monium.yandex.cloud) слева выберите ![alt](../../_assets/console-icons/shield-exclamation.svg) **Алерты и SLO** → ![alt](../../_assets/console-icons/calculator.svg) **SLO**.
+
+{% endlist %}
 
 ## Статусы SLO {#status}
 

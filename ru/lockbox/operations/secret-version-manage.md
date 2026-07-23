@@ -22,10 +22,11 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит секрет.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Перейдите]({{ link-console-main }}/link/lockbox) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. Нажмите на имя нужного секрета.
     1. В разделе **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-versions-section }}** нажмите **{{ ui-key.yacloud.lockbox.SecretOverviewPage.button_add-version }}**.
     1. Добавьте следующие параметры:
+        
         * (Опционально) **{{ ui-key.yacloud.common.description }}** — описание версии.
         * **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** — несекретное название для значения, по которому вы будете его идентифицировать.
         * **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** — секретные данные в явном виде.
@@ -87,16 +88,18 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит секрет.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Перейдите]({{ link-console-main }}/link/lockbox) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. Нажмите на имя нужного секрета.
     1. В разделе **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-versions-section }}** нажмите **{{ ui-key.yacloud.lockbox.SecretOverviewPage.button_add-version }}**.
     1. (Опционально) Добавьте **{{ ui-key.yacloud.common.description }}** версии.
     1. (Опционально) Чтобы изменить другие параметры, нажмите **{{ ui-key.yacloud.common.edit }}** и укажите:
+       
        * **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** — вы можете оставить генерируемый тип или выбрать пользовательский.
        * **{{ ui-key.yacloud.lockbox.SecretGeneratedVersion.label_key }}** и **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_auto-generation_params_section }}** — для генерируемого типа секрета.
        * **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** и **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** — для пользовательского типа секрета.
 
           Вы можете создать несколько пар ключей и значений в одной версии.
+    
     1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.VersionAddDialog.button_add-version }}** или **{{ ui-key.yacloud.common.save }}**.
 
 
@@ -132,7 +135,9 @@ description: Следуя данной инструкции, вы сможете
        ```
   
        Где:
+       
        * `password_payload_specification` — параметры генерации секрета:
+         
          * `password_key` — ключ секрета. Несекретное название для значения, по которому вы будете его идентифицировать.
          * `length` — длина генерируемого значения секрета. Обязательный параметр.
          * `include_uppercase ` — использовать заглавные буквы латинского алфавита (A...Z). Значение по умолчанию `true`.
@@ -193,6 +198,7 @@ description: Следуя данной инструкции, вы сможете
        ```
 
        Где:
+       
        * `secret_id` — идентификатор секрета, для которого создается версия.
        * `key` — ключ секрета. Несекретное название для значения, по которому вы будете его идентифицировать.
        * `path` — путь к скрипту для генерации значения секрета.
@@ -218,7 +224,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит секрет.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Перейдите]({{ link-console-main }}/link/lockbox) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. Нажмите на имя нужного секрета.
     1. В разделе **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-versions-section }}** будет показан список всех версий секрета и информация о них.
     1. Нажмите на нужную версию, чтобы получить информацию о ее парах ключ — значение.
@@ -234,6 +240,7 @@ description: Следуя данной инструкции, вы сможете
       ```bash
       yc lockbox secret list-version --help
       ```
+  
   1. Выполните команду:
       
       ```bash
@@ -255,16 +262,18 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит секрет.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Перейдите]({{ link-console-main }}/link/lockbox) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. Нажмите на имя нужного секрета.
     1. В разделе **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-versions-section }}**, напротив нужной версии нажмите ![image](../../_assets/console-icons/ellipsis.svg).
     1. Выберите пункт **{{ ui-key.yacloud.lockbox.VersionsTable.button_action-open-version-add-dialog }}**.
     1. Измените или добавьте следующие параметры:
+        
         * (Опционально) **{{ ui-key.yacloud.common.description }}** — описание версии.
         * **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** — несекретное название для значения, по которому вы будете его идентифицировать.
         * Для пользовательского секрета **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** — секретные данные в явном виде.
         Вы можете создать несколько пар ключей и значений в одной версии.
         * Для генерируемого секрета вы можете изменить ключ и параметры значения. Для этого нажмите **Редактировать секрет** и [укажите новые параметры](secret-update.md).
+    
     1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.VersionAddDialog.button_add-version }}**.
 
 - CLI {#cli}
@@ -278,6 +287,7 @@ description: Следуя данной инструкции, вы сможете
       ```bash
       yc lockbox secret add-version --help
       ```
+  
   1. Выполните команду:
       
       ```bash
@@ -288,10 +298,11 @@ description: Следуя данной инструкции, вы сможете
       ```
 
       Где:
-     * `<имя_секрета>` — имя секрета, для которого создается версия.
-     * `--description` — описание новой версии секрета (необязательно).
-     * `--payload` — содержимое новой версии секрета в виде массива формата YAML или JSON.
-     * `--base-version-id` — идентификатор версии секрета, на основе которой требуется создать новый секрет. Если параметр не указан, новая версия будет создана на основе текущей версии.
+     
+      * `<имя_секрета>` — имя секрета, для которого создается версия.
+      * `--description` — описание новой версии секрета (необязательно).
+      * `--payload` — содержимое новой версии секрета в виде массива формата YAML или JSON.
+      * `--base-version-id` — идентификатор версии секрета, на основе которой требуется создать новый секрет. Если параметр не указан, новая версия будет создана на основе текущей версии.
 
       Результат:
 
@@ -318,7 +329,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит секрет.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Перейдите]({{ link-console-main }}/link/lockbox) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. Нажмите на имя нужного секрета.
     1. В разделе **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-versions-section }}**, напротив нужной версии нажмите ![image](../../_assets/console-icons/ellipsis.svg).
     1. Выберите пункт ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud.lockbox.VersionsTable.button_action-make-version-current }}**.
@@ -336,7 +347,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит секрет.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Перейдите]({{ link-console-main }}/link/lockbox) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. Нажмите на имя нужного секрета.
     1. В разделе **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-versions-section }}**, напротив нужной версии нажмите ![image](../../_assets/console-icons/ellipsis.svg).
     1. Выберите пункт ![image](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.lockbox.VersionsTable.button_action-schedule-for-destruction }}**.
@@ -354,6 +365,7 @@ description: Следуя данной инструкции, вы сможете
       ```bash
       yc lockbox secret schedule-version-destruction --help
       ```
+  
   1. Запланируйте удаление версии, указав имя секрета, идентификатор версии и время до удаления. Например 1 неделя — `168h`:
 
       ```bash
@@ -361,6 +373,7 @@ description: Следуя данной инструкции, вы сможете
         --version-id <идентификатор_версии> \
         --pending-period 168h
       ```
+      
       Результат:
 
       ```text

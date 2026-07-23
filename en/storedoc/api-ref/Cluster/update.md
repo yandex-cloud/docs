@@ -2290,7 +2290,11 @@ The maximum string length in characters is 50. ||
           "auditLog": {
             "filter": "string"
           },
-          "chunkSize": "string"
+          "chunkSize": "string",
+          "operationProfiling": {
+            "slowOpThreshold": "string",
+            "slowOpSampleRate": "number"
+          }
         },
         "resources": {
           "resourcePresetId": "string",
@@ -2332,7 +2336,11 @@ The maximum string length in characters is 50. ||
           "auditLog": {
             "filter": "string"
           },
-          "chunkSize": "string"
+          "chunkSize": "string",
+          "operationProfiling": {
+            "slowOpThreshold": "string",
+            "slowOpSampleRate": "number"
+          }
         },
         "configMongocfg": {
           "storage": {
@@ -6434,6 +6442,9 @@ Network settings for mongos. ||
 || chunkSize | **string** (int64)
 
 `ChunkSize` parameter of mongos configuration. ||
+|| operationProfiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.OperationProfiling)**
+
+`OperationProfiling` section of mongos configuration. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.Network}
@@ -6529,6 +6540,26 @@ https://mongo-db.ru/reference/configuration-options/index.html#mongodb-setting-s
 || filter | **string**
 
 Audit filter, should be valid JSON object string ||
+|#
+
+## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.OperationProfiling}
+
+#|
+||Field | Description ||
+|| slowOpThreshold | **string** (int64)
+
+The slow operation time threshold, in milliseconds. Operations that run
+for longer than this threshold are considered slow, and are written to the
+diagnostic (slow query) log. mongos has no profiler, so only the diagnostic
+log is affected.
+
+Value must be greater than 0. ||
+|| slowOpSampleRate | **number** (double)
+
+The fraction of slow operations that should be logged.
+operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+
+Acceptable values are 0 to 1, inclusive. ||
 |#
 
 ## MongoInfra {#yandex.cloud.mdb.mongodb.v1.MongodbSpec.MongoInfra}

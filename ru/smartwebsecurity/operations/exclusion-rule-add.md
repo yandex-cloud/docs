@@ -10,7 +10,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [профиль WAF](../concepts/waf.md).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. На панели слева выберите ![image](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}**.
   1. Выберите профиль, в который вы хотите добавить [правило-исключение](../concepts/waf.md#exclusion-rules).
   1. В меню слева выберите ![image](../../_assets/console-icons/file-xmark.svg) **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rules }}** и нажмите кнопку **{{ ui-key.yacloud.smart-web-security.waf.label_create-exclusion-rule }}**.
@@ -87,12 +87,16 @@ description: Следуя данной инструкции, вы сможете
       ```
 
       Где:
+      
       * `exclusion_rule` — правило-исключение:
+         
          * `name` — имя правила-исключения.
          * `condition` — [условия](../concepts/conditions.md), при которых будет срабатывать правило-исключение. В приведенном примере применяется условие по IP-адресу источника трафика.
 
             В блоке `condition` вы можете использовать одновременно несколько разных типов условий.
+         
          * `exclude_rules` — параметры правила-исключения:
+            
             * `exclude_all` — исключение будет срабатывать для всех правил. Возможные значения `false` или `true`.
             * `rule_ids` — список идентификаторов правил из базового набора, для которых будет срабатывать исключение. Чтобы указать отдельные правила, для параметра `exclude_all` установите значение `false`.
 

@@ -100,7 +100,7 @@
 
 - Интерфейс Monium {#console}
 
-  1. На главной странице [Monium](https://monium.yandex.cloud) слева выберите раздел с нужным типом данных:
+  1. На главной странице [Monium](https://monium.yandex.cloud) слева наведите указатель на ![alt](../../_assets/console-icons/compass.svg) **Обзор** и выберите раздел с нужным типом данных:
 
       {% list tabs group=monium_telemetry_type %}
 

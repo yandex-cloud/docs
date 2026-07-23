@@ -9,8 +9,8 @@ description: Следуя этой инструкции, вы сможете и�
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится канал уведомлений.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится канал уведомлений.
+  1. [Перейдите]({{ link-console-main }}/link/cns) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Напротив нужного канала push-уведомлений нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. На вкладке **{{ ui-key.yacloud.cns.type_mobile }}** в зависимости от платформы измените параметры аутентификации:
 

@@ -18,7 +18,7 @@ To assign a role for a resource, you need the `mdb.admin` role, `managed-redis.a
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
-## Resources supporting role assignment {#resources}
+## Resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
@@ -118,6 +118,8 @@ The diagram below shows available service roles and their permission inheritance
 As a user, you need the [{{ roles.mrd.editor }} role or higher](../../iam/concepts/access-control/roles.md) for the folder that will contain the new cluster. The `{{ roles.mrd.viewer }}` role only allows you to view the list of clusters.
 
 To create a {{ mrd-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.mrd.editor }}` role or higher.
+
+{% include [roles-mdb-viewer](../../_includes/mdb/roles-mdb-viewer-access-control.md) %}
 
 You can always assign a role with more permissions, e.g., `{{ roles.mrd.admin }}` instead of `{{ roles.mrd.editor }}`.
 

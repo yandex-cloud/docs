@@ -13,8 +13,8 @@ description: Следуя этой инструкции, вы сможете с�
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится эндпоинт.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится эндпоинт.
+  1. [Перейдите]({{ link-console-main }}/link/cns) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Выберите канал push-уведомлений.
   1. Перейдите на вкладку ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.cns.label_endpoints }}**.
   1. Нажмите **{{ ui-key.yacloud.cns.action_create-endpoint }}**.

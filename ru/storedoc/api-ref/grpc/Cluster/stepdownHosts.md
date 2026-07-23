@@ -6,6 +6,7 @@ editable: false
 
 Stepdown hosts.
 
+
 ## gRPC request
 
 **rpc StepdownHosts ([StepdownHostsRequest](#yandex.cloud.mdb.mongodb.v1.StepdownHostsRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**

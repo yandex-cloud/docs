@@ -6,8 +6,8 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится лог-группа.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud Logging**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится лог-группа.
+    1. [Перейдите](https://console.yandex.cloud/link/logging) в сервис **Cloud Logging**.
     1. В строке с лог-группой нажмите значок ![image](../../_assets/console-icons/ellipsis.svg).
     1. В открывшемся меню нажмите кнопку **Редактировать**.
     1. В поле **Поток данных** выберите имеющийся [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) или [создайте](../../data-streams/operations/manage-streams.md#create-data-stream) новый.
@@ -24,6 +24,7 @@
     ```
 
     Где:
+    
     * `--name` — имя лог-группы.
     * `--data-stream` — идентификатор потока данных [Yandex Data Streams](../../data-streams/index.md), который состоит из [зоны доступности](../../overview/concepts/geo-scope.md), [идентификатора облака](../../resource-manager/operations/cloud/get-id.md), идентификатора [базы данных](../../ydb/concepts/resources.md#database) и имени [потока данных](../../data-streams/concepts/glossary.md#stream-concepts).
 

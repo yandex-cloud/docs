@@ -12,6 +12,7 @@
 
 
 Чтобы контейнер получил доступ к [секрету](../../concepts/secret.md), в настройках контейнера нужно указать [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), у которого есть роли:
+
 * `lockbox.payloadViewer` на секрет ([как назначить права доступа к секрету](../secret-access.md));
 * `kms.keys.encrypterDecrypter` на ключ шифрования, если секрет создан с использованием ключа Yandex Key Management Service ([как назначить права доступа к ключу шифрования](../../../kms/operations/key-access.md)).
 
@@ -23,7 +24,7 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится контейнер.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится контейнер.
     1. [Перейдите](https://console.yandex.cloud/link/serverless-containers) в сервис **Serverless Containers**.
     1. Выберите контейнер, в который хотите передать секрет.
     1. Перейдите на вкладку **Редактор**.

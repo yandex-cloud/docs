@@ -5,6 +5,18 @@ description: This section contains the {{ postbox-name }} release notes.
 
 # {{ postbox-full-name }} release notes
 
+## June 2026 {#june-2026}
+
+### Updates {#updates}
+
+* Supported [bulk emails](aws-compatible-api/api-ref/send-bulk-email.md) via the AWS-compatible HTTP API. The `SendBulkEmail` method now allows you to send multiple templated emails in a single request, with a common template and individual substitution data, recipients, headers, and labels for each email.
+* Added support for attachments in emails sent via the AWS-compatible HTTP API. Files are provided in the `Attachments` parameter:
+
+    * In the [SendEmail](aws-compatible-api/api-ref/send-email.md) method, via the `Simple` or `Template` content type.
+    * In the [SendBulkEmail](aws-compatible-api/api-ref/send-bulk-email.md) method, via the shared `DefaultContent.Template` content.
+
+    Both regular attachments and inline attachments (e.g., images in HTML) are supported. Read more on [attachment limitations](concepts/restrictions.md).
+
 ## April 2026 {#april-2026}
 
 ### Updates {#updates}

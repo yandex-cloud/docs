@@ -8,7 +8,7 @@ In multi-host clusters, upgrades proceed in this sequence:
 
 1. Replicas are taken offline for an upgrade and stopped, one by one. The replicas are queued randomly. Following the upgrade, the replicas get back online. Read performance may temporarily degrade at this stage, as some replicas will be unavailable.
 
-1. The master host turns off for the upgrade. During the master upgrade, one of the replicas takes over its role and becomes available for writing. Once the upgrade is complete, the host with the highest [failover priority](../concepts/replication.md#master-failover) becomes the new master. In a cluster with several hosts of maximum priority, the one with the least lag behind the master will be selected.
+1. The master host turns off for the upgrade. During the master upgrade, one of the replicas takes over its role and becomes available for writing. Once the upgrade is complete, the host with the highest [failover priority](../concepts/replication.md#master-failover) becomes the new master. If the cluster has several hosts with maximum priority, the one with the least lag behind the master will be selected.
 
     {% include [note-role-master](../../_includes/mdb/mmy/note-role-master.md) %}
 
@@ -37,7 +37,57 @@ To learn about upgrades within the same version and host maintenance, see [Maint
 
 {% endnote %}
 
-## Before upgrading a version {#before-update}
+## Viewing a list of available versions {#version-list}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+    In the [management console]({{ link-console-main }}), open the {{ mmy-name }} cluster [create](cluster-create.md) or [update](update.md) page. You can view the list in the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field.
+
+- REST API {#api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Call the [Versions.List](../api-ref/Versions/list.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-mysql/v1/versions'
+        ```
+
+    1. Check the [server response](../api-ref/Versions/list.md#responses) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Call the [VersionsService.List](../api-ref/grpc/Versions/list.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/versions_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.mysql.v1.VersionsService.List
+        ```
+
+    1. Check the [server response](../api-ref/grpc/Versions/list.md#yandex.cloud.mdb.mysql.v1.ListVersionsResponse) to make sure your request was successful.
+
+{% endlist %}
+
+## Before a version upgrade {#before-update}
 
 When getting ready for an upgrade, a comprehensive approach to testing and compatibility analysis is of particular importance. Our experience shows that most upgrade issues can be prevented in advance:
 
