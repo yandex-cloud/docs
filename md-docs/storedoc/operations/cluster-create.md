@@ -51,7 +51,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать кластер БД.
 
-  1. Перейдите в сервис **Yandex StoreDoc**.
+  1. [Перейдите](https://console.yandex.cloud/link/storedoc) в сервис **Yandex StoreDoc**.
 
   1. Нажмите кнопку **Создать кластер**.
 
@@ -66,6 +66,7 @@
 
       * Укажите версию СУБД.
       * Выберите тип шардирования:
+          
           * **Выключено** — кластер будет состоять только из хостов `MONGOD`.
           * **Стандартное** — кластер будет состоять из хостов `MONGOD` и `MONGOINFRA`.
           * **Расширенное** — кластер будет состоять из хостов `MONGOD`, `MONGOS` и `MONGOCFG`.
@@ -356,6 +357,7 @@
         {% endnote %}
 
       * `--host` — параметры хоста:
+        
         * `type` — тип хоста: `mongod`, `mongoinfra`, `mongos` или `mongocfg`. По умолчанию хост имеет тип `mongod`.
         * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
         * `subnet-id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet). Указывается, если в выбранной зоне доступности создано больше одной подсети.
@@ -706,10 +708,12 @@
 
      * `environment` — окружение: `PRESTABLE` или `PRODUCTION`.
      * `host` — параметры хоста:
+       
        * `zone_id` — зона доступности.
        * `subnet_id` — идентификатор подсети в выбранной зоне доступности.
        * `assign_public_ip` — публичный доступ к хосту: `true` или `false`. В шардированном кластере используется только для хостов `MONGOS` и `MONGOINFRA`.
        * `host_parameters` — дополнительные параметры хоста:
+         
          * `hidden` — скрытие хоста: `true` или `false`. Если хост скрыт, он будет доступен для чтения только для прямых подключений (например, чтобы делать с него резервные копии, не добавляя нагрузку на кластер).
          * `secondary_delay_secs` — отставание реплики от мастера в секундах. Может быть полезно для восстановления данных в случае ошибочных операций.
          * `priority` — [приоритет назначения хоста мастером](../concepts/replication.md#master-failover).
@@ -1291,6 +1295,7 @@
             * `backupRetainPeriodDays` — время хранения резервных копий в днях.
 
             * `performanceDiagnostics` — настройки для [сбора статистики](performance-diagnostics.md#activate-stats-collector):
+              
               * `profilingEnabled` — включение [профилировщика](tools.md#explore-profiler): `true` или `false`.
 
         * `databaseSpecs` — настройки баз данных в виде массива элементов. Каждый элемент соответствует отдельной БД и содержит параметр `name` — имя БД.
@@ -1727,6 +1732,7 @@
         * `config_spec` — настройки кластера:
 
           * `version` — версия Yandex StoreDoc: 5.0, 6.0 или 7.0.
+            
             * `mongod`, `mongoinfra`, `mongos`, `mongocfg` — [типы хостов](../concepts/host-roles.md).
 
               * `resources` — ресурсы кластера:
@@ -1767,6 +1773,7 @@
             * `backup_retain_period_days` — время хранения резервных копий в днях.
 
             * `performance_diagnostics` — настройки для [сбора статистики](performance-diagnostics.md#activate-stats-collector):
+              
               * `profiling_enabled` — включение [профилировщика](tools.md#explore-profiler): `true` или `false`.
 
         * `database_specs` — настройки баз данных в виде массива элементов. Каждый элемент соответствует отдельной БД и содержит параметр `name` — имя БД.

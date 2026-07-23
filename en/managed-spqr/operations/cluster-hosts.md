@@ -34,6 +34,8 @@ You can manage the {{ mspqr-name }} cluster hosts, including the following opera
     --cluster-name <cluster_name>
   ```
 
+  {% include [cluster-name](../../_includes/managed-spqr/cluster-name.md) %}
+
   Result:
 
   
@@ -62,6 +64,8 @@ You can manage the {{ mspqr-name }} cluster hosts, including the following opera
        --url 'https://{{ api-host-mdb }}/managed-spqr/v1/clusters/<cluster_ID>/hosts'
      ```
 
+     {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
+
   1. View the [server response](../api-ref/Cluster/listHosts.md#yandex.cloud.mdb.spqr.v1.ListClusterHostsResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
@@ -86,6 +90,8 @@ You can manage the {{ mspqr-name }} cluster hosts, including the following opera
        {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.spqr.v1.ClusterService.ListHosts
      ```
+
+     {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
 
   1. Check the [server response](../api-ref/grpc/Cluster/listHosts.md#yandex.cloud.mdb.spqr.v1.ListClusterHostsResponse) to make sure your request was successful.
 
@@ -158,6 +164,8 @@ The number of `INFRA`, `ROUTER`, and `COORDINATOR` hosts in the {{ mspqr-short-n
      ```
 
 
+     {% include [cluster-name](../../_includes/managed-spqr/cluster-name.md) %}
+
      
      You should specify the subnet ID if the availability zone contains more than one subnet; otherwise, {{ mspqr-short-name }} will automatically select the only subnet.
 
@@ -197,12 +205,15 @@ The number of `INFRA`, `ROUTER`, and `COORDINATOR` hosts in the {{ mspqr-short-n
                }'
      ```
 
-     Where `hostSpecs` is the array of new hosts. Each array element contains the configuration for a single host and has the following structure:
+     Where:
 
-     * `zoneId`: Availability zone.
-     * `subnetId`: Subnet ID.
-     * `assignPublicIp`: Host accessibility from the internet via a public IP address, `true` or `false`.
-     * `type`: [Host type](../concepts/index.md#router), `infra` (for a cluster with standard sharding), `router`, or `coordinator` (for a cluster with advanced sharding).
+     * {% include [cluster-id](../../_includes/managed-spqr/cluster-id.md) %}
+     * `hostSpecs` is an array of new hosts. Each array element contains the configuration for a single host and has the following structure:
+
+       * `zoneId`: Availability zone.
+       * `subnetId`: Subnet ID.
+       * `assignPublicIp`: Host accessibility from the internet via a public IP address, `true` or `false`.
+       * `type`: [Host type](../concepts/index.md#router), `infra` (for a cluster with standard sharding), `router`, or `coordinator` (for a cluster with advanced sharding).
 
   1. Check the [server response](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -240,12 +251,17 @@ The number of `INFRA`, `ROUTER`, and `COORDINATOR` hosts in the {{ mspqr-short-n
        yandex.cloud.mdb.spqr.v1.ClusterService.AddHosts
      ```
 
-     Where `host_specs` is an array of new hosts, Each array element contains the configuration for a single host and has the following structure:
+     Where:
 
-     * `zone_id`: Availability zone.
-     * `subnet_id`: Subnet ID.
-     * `assign_public_ip`: Host accessibility from the internet via a public IP address, `true` or `false`.
-     * `type`: [Host type](../concepts/index.md#router), `infra` (for a cluster with standard sharding), `router`, or `coordinator` (for a cluster with advanced sharding).
+     * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
+     * `host_specs` is an array of new hosts. Each array element contains the configuration for a single host and has the following structure:
+
+       * `zone_id`: Availability zone.
+       * `subnet_id`: Subnet ID.
+       * `assign_public_ip`: Host accessibility from the internet via a public IP address, `true` or `false`.
+       * `type`: [Host type](../concepts/index.md#router), `infra` (for a cluster with standard sharding), `router`, or `coordinator` (for a cluster with advanced sharding).
+
+
 
   1. Check the [server response](../api-ref/grpc/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -275,6 +291,9 @@ You can change public access settings for any host in a {{ mspqr-short-name }} c
   Where:
 
   * `cluster-name`: Cluster name.
+
+    {% include [cluster-name](../../_includes/managed-spqr/cluster-name.md) %}
+
   * `assign-public-ip`: Public access to the host, `true` or `false`.
 
   You can get the host name with the [list of hosts in the cluster](#list).
@@ -309,11 +328,14 @@ You can change public access settings for any host in a {{ mspqr-short-name }} c
                }'
      ```
 
-     Where `updateHostSpecs` is the array of hosts you are updating. Each array element contains the configuration for a single host and has the following structure:
+     Where: 
 
-     * `updateMask`: Comma-separated string of settings to update.
-     * `hostName`: Target host name.
-     * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
+     * {% include [cluster-id](../../_includes/managed-spqr/cluster-id.md) %}
+     * `updateHostSpecs`: Array of hosts you are updating. Each array element contains the configuration for a single host and has the following structure:
+
+       * `updateMask`: Comma-separated string of settings to update.
+       * `hostName`: Target host name.
+       * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
 
      You can get the host name with the [list of hosts in the cluster](#list).
 
@@ -358,11 +380,14 @@ You can change public access settings for any host in a {{ mspqr-short-name }} c
        yandex.cloud.mdb.postgresql.v1.ClusterService.UpdateHosts
      ```
 
-     Where `update_host_specs` is an array of hosts you want to update. Each array element contains the configuration for a single host and has the following structure:
+     Where:
 
-     * `update_mask`: List of settings to update as an array of strings (`paths[]`).
-     * `host_name`: Target host name.
-     * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
+     * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
+     * `update_host_specs`: Array of hosts you are updating. Each array element contains the configuration for a single host and has the following structure:
+
+       * `update_mask`: List of settings to update as an array of strings (`paths[]`).
+       * `host_name`: Target host name.
+       * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
 
      You can get the host name with the [list of hosts in the cluster](#list).
 
@@ -399,6 +424,8 @@ You can remove an `INFRA`, `ROUTER`, or `COORDINATOR` type host from a {{ SPQR }
 
   You can get the host name with the [list of hosts in the cluster](#list).
 
+  {% include [cluster-name](../../_includes/managed-spqr/cluster-name.md) %}
+
 - REST API {#api}
 
   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
@@ -420,7 +447,10 @@ You can remove an `INFRA`, `ROUTER`, or `COORDINATOR` type host from a {{ SPQR }
                }'
      ```
 
-     Where `hostNames` is an array of strings consisting of a single element with the host name. You can get the host name with the [list of hosts in the cluster](#list).
+     Where:
+
+     * {% include [cluster-id](../../_includes/managed-spqr/cluster-id.md) %}
+     * `hostNames`: Array of strings consisting of a single element with the host name. You can get the host name with the [list of hosts in the cluster](#list).
 
   1. Check the [server response](../api-ref/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -450,7 +480,10 @@ You can remove an `INFRA`, `ROUTER`, or `COORDINATOR` type host from a {{ SPQR }
        yandex.cloud.mdb.spqr.v1.ClusterService.DeleteHosts
      ```
 
-     Where `host_names` is an array of strings consisting of a single element with the host name. You can get the host name with the [list of hosts in the cluster](#list).
+     Where: 
+
+     * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
+     * `host_names`: Array of strings consisting of a single element with the host name. You can get the host name with the [list of hosts in the cluster](#list).
 
   1. Check the [server response](../api-ref/grpc/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

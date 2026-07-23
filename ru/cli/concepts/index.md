@@ -117,3 +117,9 @@ CLI может отправлять запросы к {{ yandex-cloud }} чер�
     ```
 
 {% endlist %}
+
+## Версионирование команд {#versioning}
+
+{% include [command-ver-intro](../../_includes/cli/command-ver-intro.md) %}
+
+Подробнее на странице [{#T}](../operations/command-versioning.md).

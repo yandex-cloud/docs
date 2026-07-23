@@ -35,6 +35,7 @@ apiPlayground:
 
 Resetups hosts.
 
+
 ## HTTP request
 
 ```

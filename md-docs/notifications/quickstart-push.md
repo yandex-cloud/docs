@@ -8,12 +8,14 @@
 Cloud Notification Service (CNS) — сервис для мультиканальной отправки уведомлений пользователям. HTTP API сервиса совместим с [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/welcome.html).
 
 С помощью Cloud Notification Service вы можете отправлять push-уведомления в приложения, зарегистрированные в следующих сервисах:
+
 * [Apple Push Notification service](https://developer.apple.com/notifications/) (APNs).
 * [Firebase Cloud Messaging](https://firebase.google.com/) (FCM).
 * [Huawei Mobile Services](https://developer.huawei.com/consumer/) (HMS).
 * [RuStore](https://www.rustore.ru/help/sdk/push-notifications/).
 
 Чтобы начать работу с push-уведомлениями:
+
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте канал push-уведомлений](#create-channel).
 1. [Создайте эндпоинт](#create-endpoint).
@@ -40,7 +42,7 @@ Cloud Notification Service (CNS) — сервис для мультиканал�
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы хотите создать канал уведомлений.
-  1. Перейдите в сервис **Cloud Notification Service**.
+  1. [Перейдите](https://console.yandex.cloud/link/cns) в сервис **Cloud Notification Service**.
   1. Нажмите **Создать канал уведомлений**.
   1. На вкладке **Мобильные Push-уведомления** выберите платформу для отправки:
   

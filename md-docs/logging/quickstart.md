@@ -13,6 +13,7 @@
 ## Перед началом работы {#before-you-begin}
 
 Чтобы начать работать в Yandex Cloud:
+
 1. Войдите в [консоль управления](https://console.yandex.cloud). Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
 1. На странице [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
 1. Если у вас еще нет каталога, [создайте его](../resource-manager/operations/folder/create.md).
@@ -30,6 +31,7 @@
     Чтобы добавить записи в лог-группу, выполните команду:
 
     * Linux, MacOS:
+        
         ```bash
         yc logging write \
           --group-name=default \
@@ -37,7 +39,9 @@
           --level=INFO \
           --json-payload='{"request_id": "1234"}'
         ```
+    
     * Windows (cmd):
+        
         ```cmd
         yc logging write ^
           --group-name=default ^
@@ -45,7 +49,9 @@
           --level=INFO ^
           --json-payload="{"request_id": "1234"}"
         ```
+    
     * Windows (PowerShell):
+        
         ```powershell
         yc logging write `
           --group-name=default `
@@ -83,8 +89,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится лог-группа.
-  1. Перейдите в сервис **Cloud Logging**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится лог-группа.
+  1. [Перейдите](https://console.yandex.cloud/link/logging) в сервис **Cloud Logging**.
   1. Нажмите на строку с лог-группой, записи в которой хотите посмотреть.
   1. На открывшейся странице отобразятся записи.
 

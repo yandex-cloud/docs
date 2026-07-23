@@ -143,6 +143,8 @@ items:
         href: tutorials/message-delivery-check.md
       - name: Emulating multiple IoT devices
         href: tutorials/iot-emulation.md
+      - name: Migrating from {{ iot-full-name }} to open-source MQTT solutions
+        href: tutorials/iot-core-migration.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

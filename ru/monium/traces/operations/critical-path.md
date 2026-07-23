@@ -27,8 +27,14 @@ description: Критический путь в трейсе — это посл
 
 ## Посмотреть критический путь {#critical-path-view}
 
-1. Перейдите в [{{ monium-name }}]({{ link-monium }}) → **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.traces.title }}**.
-1. Введите запрос и выберите трейс.
-1. Вверху нажмите **{{ ui-key.yacloud_monitoring.traces.trace-tabs.crit-path }}**.
+{% list tabs group=instructions %}
 
-![traces-critical-path](../../../_assets/monium/traces-critical-path.png)
+- Интерфейс {{ monium-name }} {#console}
+
+  1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите ![alt](../../../_assets/console-icons/compass.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.all-panel.menu.category.explore }}** → ![alt](../../../_assets/console-icons/hierarchy.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.traces.title }}**.
+  1. Введите запрос и выберите трейс.
+  1. Вверху нажмите **{{ ui-key.yacloud_monitoring.traces.trace-tabs.crit-path }}**.
+
+     ![traces-critical-path](../../../_assets/monium/traces-critical-path.png)
+
+{% endlist %}

@@ -14,6 +14,7 @@ description: С помощью {{ cns-name }} вы можете отправля
 С помощью {{ cns-name }} вы можете отправлять push-уведомления в браузеры пользователей.
 
 Чтобы начать работу с push-уведомлениями:
+
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте канал push-уведомлений в браузере](#create-channel).
 1. [Получите данные для отправки уведомлений пользователю](#subscribe-notifications).
@@ -35,7 +36,7 @@ description: С помощью {{ cns-name }} вы можете отправля
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать канал уведомлений.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. [Перейдите]({{ link-console-main }}/link/cns) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Нажмите **{{ ui-key.yacloud.cns.action_create-channel }}**.
   1. Выберите вкладку **{{ ui-key.yacloud.cns.type_web }}**.
   1. Введите имя канала уведомления. Имя канала должно быть уникальным в {{ cns-name }}.

@@ -17,7 +17,7 @@ Application Load Balancer автоматически отправляет мет
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором создан балансировщик.
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. Нажмите на имя нужного балансировщика.
   1. Перейдите на вкладку **Мониторинг**.
   1. Выберите дашборд — **HTTP статистика** или **Статистика масштабирования**.
@@ -36,7 +36,7 @@ Monitoring предоставляет статистику работы бала
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором создан балансировщик.
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. Нажмите на имя нужного балансировщика.
   1. Перейдите на вкладку **Мониторинг**.
   1. Выберите дашборд — **HTTP статистика** или **Статистика масштабирования**.

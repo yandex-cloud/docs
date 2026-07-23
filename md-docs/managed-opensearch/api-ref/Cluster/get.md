@@ -161,7 +161,10 @@ The maximum string length in characters is 50. ||
       "logIndexMetadataAccess": "boolean",
       "logMonitoringChecks": "boolean",
       "logIndexMaintenance": "boolean",
-      "logBackupOperations": "boolean"
+      "logBackupOperations": "boolean",
+      "logAuthenticatedRequests": "boolean",
+      "logIndexEvents": "boolean",
+      "logBadHeaders": "boolean"
     },
     "cloudStorage": {
       "enabled": "boolean"
@@ -631,13 +634,13 @@ Weekly based snapshot schedule
 
 Day of the week
 
-- `MON`
-- `TUE`
-- `WED`
-- `THU`
-- `FRI`
-- `SAT`
-- `SUN` ||
+- `MON`: Monday.
+- `TUE`: Tuesday.
+- `WED`: Wednesday.
+- `THU`: Thursday.
+- `FRI`: Friday.
+- `SAT`: Saturday.
+- `SUN`: Sunday. ||
 || hour | **string** (int64)
 
 The hour of the day in UTC timezone at which the backup should be created.
@@ -684,6 +687,15 @@ Enables indices maintenance requests logging, such as indices refreshes, flushes
 || logBackupOperations | **boolean**
 
 Enables snapshots and repositories requests logging. ||
+|| logAuthenticatedRequests | **boolean**
+
+Enables logging of successfully authenticated REST requests. ||
+|| logIndexEvents | **boolean**
+
+Enables logging of index-level events, such as creating or deleting an index. ||
+|| logBadHeaders | **boolean**
+
+Enables logging of REST requests containing bad or spoofed security headers. ||
 |#
 
 ## CloudStorage {#yandex.cloud.mdb.opensearch.v1.CloudStorage}

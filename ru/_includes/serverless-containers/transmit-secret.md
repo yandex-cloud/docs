@@ -1,4 +1,5 @@
 Чтобы контейнер получил доступ к [секрету](../../lockbox/concepts/secret.md), в настройках контейнера нужно указать [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), у которого есть роли:
+
 * `lockbox.payloadViewer` на секрет ([как назначить права доступа к секрету](../../lockbox/operations/secret-access.md));
 * `kms.keys.encrypterDecrypter` на ключ шифрования, если секрет создан с использованием ключа {{ kms-full-name }} ([как назначить права доступа к ключу шифрования](../../kms/operations/key-access.md)).
 
@@ -10,7 +11,7 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится контейнер.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится контейнер.
     1. [Перейдите]({{ link-console-main }}/link/serverless-containers) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. Выберите контейнер, в который хотите передать секрет.
     1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-containers.label_editor }}**.

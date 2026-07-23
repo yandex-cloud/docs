@@ -34,6 +34,9 @@ The maximum string length in characters for each value is 63.
 Each value must match the regular expression '[-_0-9a-z]*'.
 The string length in characters for each key must be 1-63.
 Each key must match the regular expression '[a-z][-_0-9a-z]*'. ||
+|| `--folder-id` | `string`
+
+ID of the folder to create the RoutingInstance in. ||
 || `--cic-prc` | `[]string`
 
 CIC private connection ids of the routing-instance. ||

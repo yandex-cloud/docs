@@ -13,7 +13,7 @@ title: Как получить информацию о секрете в {{ lock
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит [секрет](../concepts/secret.md).
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Перейдите]({{ link-console-main }}/link/lockbox) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. В меню слева выберите **{{ ui-key.yacloud.lockbox.routes.label_section-secrets }}**.
     1. Нажмите на имя нужного секрета.
 
@@ -60,6 +60,7 @@ title: Как получить информацию о секрете в {{ lock
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   Чтобы получить информацию о [секрете](../concepts/secret.md) с помощью {{ TF }}:
+  
   1. Добавьте в конфигурационный файл {{ TF }} блоки `data` и `output`:
 
      ```hcl
@@ -73,12 +74,17 @@ title: Как получить информацию о секрете в {{ lock
      ```
 
      Где:
+     
      * `data "yandex_lockbox_secret"` — описание секрета в качестве источника данных:
+       
        * `secret_id` — идентификатор секрета.
+     
      * `output "current_version"` — выходная переменная, которая содержит информацию о текущей версии секрета:
+       
        * `value` — возвращаемое значение.
 
      Вместо `current_version` вы можете выбрать любой другой параметр для получения информации. Подробнее о параметрах источника данных `yandex_lockbox_secret` в [документации провайдера]({{ tf-provider-datasources-link }}/lockbox_secret).
+  
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -120,7 +126,7 @@ title: Как получить информацию о секрете в {{ lock
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит секрет.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Перейдите]({{ link-console-main }}/link/lockbox) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. В меню слева выберите **{{ ui-key.yacloud.lockbox.routes.label_section-secrets }}**.
     1. Нажмите на имя нужного секрета.
     1. В разделе **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-versions-section }}** нажмите на нужную версию секрета.
@@ -176,10 +182,14 @@ title: Как получить информацию о секрете в {{ lock
      ```
 
      Где:
+     
      * `data "yandex_lockbox_secret_version"` — описание секрета в качестве источника данных:
+       
        * `secret_id` — идентификатор секрета.
        * `version_id` — идентификатор версии секрета. Необязательный параметр. По умолчанию используется текущая версия секрета.
+     
      * `output "my_secret_entries"` — выходная переменная, которая хранит содержимое секрета:
+       
        * `value` — возвращаемое значение.
 
      Подробнее о параметрах источника данных `yandex_lockbox_secret_version` в [документации провайдера]({{ tf-provider-datasources-link }}/lockbox_secret_version).
@@ -224,7 +234,7 @@ title: Как получить информацию о секрете в {{ lock
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит секрет.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Перейдите]({{ link-console-main }}/link/lockbox) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. В меню слева выберите **{{ ui-key.yacloud.lockbox.routes.label_section-secrets }}**.
     1. Нажмите на имя нужного секрета.
     1. На панели слева выберите раздел ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.

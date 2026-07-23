@@ -12,7 +12,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в который был добавлен [сертификат](../../concepts/managed-certificate.md).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+  1. [Перейдите]({{ link-console-main }}/link/certificate-manager) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
   1. Выберите сертификат, для которого необходимо пройти процедуру проверки и нажмите на него.
   1. В блоке **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}** будет указана информация для прохождения процедуры проверки прав.
   1. После успешного прохождения проверки прав на домен, статус проверки домена в блоке **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}** изменится на `Valid`.
@@ -39,6 +39,7 @@ description: Следуя данной инструкции, вы сможете
      ```
 
      Где:
+     
      * `--id` — идентификатор [сертификата](../../concepts/managed-certificate.md).
      * `--full` — показать список активных процедур проверки прав на домены.
 
@@ -110,6 +111,7 @@ description: Следуя данной инструкции, вы сможете
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   С помощью {{ TF }} можно создать [DNS-запись](../../../dns/concepts/resource-record.md), необходимую для прохождения проверки прав на домен. Для этого:
+  
   1. Опишите в конфигурационном файле {{ TF }} параметры ресурсов, которые необходимо создать:
 
      ```hcl
@@ -145,24 +147,32 @@ description: Следуя данной инструкции, вы сможете
      ```
 
      Где:
+     
      * Параметры ресурса `yandex_cm_certificate`:
+       
        * `domains` — домен, для которого нужно создать сертификат.
        * `challenge_type` — способ проверки владельца домена. Возможные значения:
+         
          * `DNS_CNAME` — необходимо создать DNS-запись в формате [CNAME](../../../dns/concepts/resource-record.md#cname-cname) с указанным значением. Рекомендуемый способ для автоматического продления сертификата.
          * `DNS_TXT` — необходимо создать DNS-запись в формате [TXT](../../../dns/concepts/resource-record.md#txt) с указанным значением.
+     
      * Параметры ресурса `yandex_dns_recordset`:
+       
        * `zone_id` — идентификатор DNS-зоны, в которой будет находиться запись для проверки владельца.
        * `name` — имя записи.
        * `type` — тип DNS-записи.
        * `data` — значение записи.
        * `ttl` — время жизни записи (TTL, Time to live) в секундах до актуализации информации о значении записи.
        * `description` — описание набора записей. Необязательный параметр.
+     
      * Параметры источника данных `yandex_cm_certificate`:
+       
        * `depends_on` — указывает зависимость от другого ресурса {{ TF }}.
        * `certificate_id` — идентификатор сертификата.
        * `wait_validation` — флаг ожидания валидации сертификата. Если значение `true`, операция не будет завершена, пока сертификат находится в статусе `VALIDATING`. Значение по умолчанию `false`.
 
      Подробнее о параметрах ресурсов в [документации провайдера {{ TF }}]({{ tf-provider-link }}).
+  
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

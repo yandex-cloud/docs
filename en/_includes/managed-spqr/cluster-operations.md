@@ -1,0 +1,1 @@
+You can get the operation ID with the [list of operations](../../managed-spqr/operations/cluster-list.md#get-operations) for the cluster.

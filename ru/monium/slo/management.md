@@ -1,6 +1,14 @@
 # Управление SLO в {{ monium-name }}
 
-Для работы со SLO на главной странице сервиса [{{ monium-name }}]({{ link-monium }}) слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.slo.title }}**.
+Для работы со SLO:
+
+{% list tabs group=instructions %}
+
+- Интерфейс {{ monium-name }} {#console}
+
+  На главной странице сервиса [{{ monium-name }}]({{ link-monium }}) слева выберите ![alt](../../_assets/console-icons/shield-exclamation.svg) **Алерты и SLO** → ![alt](../../_assets/console-icons/calculator.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.slo.title }}**.
+
+{% endlist %}
 
 ## Статусы SLO {#status}
 

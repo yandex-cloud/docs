@@ -15,6 +15,7 @@ description: Из статьи вы узнаете про известные о�
 {% endnote %}
 
 Объекты назначения:
+
 * [Бакет {{ objstorage-name }}](#storage).
 * [Поток данных {{ yds-name }}](#data-streams).
 * [Лог-группа {{ cloud-logging-name }}](#cloud-logging).
@@ -39,9 +40,11 @@ description: Из статьи вы узнаете про известные о�
 ### BUCKET_NOT_FOUND {#bucket-not-found}
 
 Проверьте бакет, который указан в [настройках трейла](../concepts/trail.md#trail-settings). Если бакет был удален:
+
 1. [Создайте](../../storage/operations/buckets/create.md) новый бакет с тем же именем, которое было указано в настройках трейла.
 
     Также вы можете изменить настройки трейла, указав в блоке **{{ ui-key.yacloud.audit-trails.label_destination }}** другой бакет.
+
 1. Если бакет [зашифрован](../../storage/tutorials/server-side-encryption.md) ключом {{ kms-full-name }}, выдайте сервисному аккаунту, от имени которого трейл загружает аудитные логи в бакет, [роль](../../kms/security/index.md#kms-keys-decrypter) `kms.keys.decrypter` на ключ.
 
 
@@ -63,13 +66,15 @@ description: Из статьи вы узнаете про известные о�
 ### STREAM_NOT_FOUND {#stream-not-found}
 
 Проверьте поток данных, который указан в [настройках трейла](../concepts/trail.md#trail-settings). Если поток данных или его база данных {{ ydb-short-name }} были удалены:
+
 1. [Создайте](../../data-streams/operations/manage-streams.md#create-data-stream) новый поток данных.
 1. Измените настройки трейла, указав в блоке **{{ ui-key.yacloud.audit-trails.label_destination }}** новый поток данных.
 
 ###  DATABASE_INACTIVE {#database-inactive}
 
 [Убедитесь](../../ydb/operations/manage-databases.md#list-db), что база данных {{ ydb-short-name }} находится в статусе `Running`. При необходимости запустите БД, например, с помощью [консоли управления]({{ link-console-main }}):
-1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+
+1. [Перейдите]({{ link-console-main }}/link/ydb) **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
 1. Справа от имени нужной БД нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.start }}**.
 
 ###  DATABASE_NOT_FOUND {#database-not-found}
@@ -93,6 +98,7 @@ description: Из статьи вы узнаете про известные о�
 ### LOG_GROUP_NOT_FOUND {#log-group-not-found}
 
 Проверьте лог-группу, которая указана в [настройках трейла](../concepts/trail.md#trail-settings). Если лог-группа была удалена:
+
 1. [Создайте](../../logging/operations/create-group.md) новую лог-группу.
 1. Измените настройки трейла, указав в блоке **{{ ui-key.yacloud.audit-trails.label_destination }}** новую лог-группу.
 

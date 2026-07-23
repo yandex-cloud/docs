@@ -9,7 +9,7 @@ title: Как получить информацию о целевой групп
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится [целевая группа](../concepts/target-group.md).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.alb.label_target-groups }}**.
   1. Выберите целевую группу.
   1. На странице **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация о группе.
@@ -71,8 +71,11 @@ title: Как получить информацию о целевой групп
       Где:
 
       * `data "yandex_alb_target_group"` — описание целевой группы в качестве источника данных:
+        
         * `target_group_id` — идентификатор целевой группы.
+      
       * `output "target_group"` — выходная переменная, которая содержит информацию о подключенных ресурсах целевой группы:
+        
         * `value` — возвращаемое значение.
 
       Вместо `target` вы можете выбрать любой другой параметр для получения информации. Подробнее о параметрах источника данных `yandex_alb_target_group` в [документации провайдера]({{ tf-provider-datasources-link }}/alb_target_group).

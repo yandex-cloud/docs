@@ -7,6 +7,32 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.20.0 (23.07.26) {#v-1-20-0}
+
+#### {{ cloud-registry-name }} {#v-1-20-0-cloud-registry-name}
+
+* Добавлена группа команд `yc cloud-registry registry lifecycle-policy` для проверки правил политик жизненного цикла: получение результата по идентификатору, список результатов политики и список артефактов, попадающих под удаление:
+  * `yc cloud-registry registry lifecycle-policy get-dry-run-result`;
+  * `yc cloud-registry registry lifecycle-policy list-dry-run-results`;
+  * `yc cloud-registry registry lifecycle-policy list-dry-run-artifacts`.
+* Исправлено отсутствие команды `yc cloud-registry tools debian reindex-packages` в дереве команд.
+
+#### {{ cr-name }} {#v-1-20-0-cr-name}
+
+* Добавлен параметр `--folder-id` в команду `yc cloudrouter routing-instance create`.
+
+#### {{ mmg-name }} {#v-1-20-0-mmg-name}
+
+* Добавлен параметр `--votes` в командах:
+  * `yc managed-mongodb hosts add`;
+  * `yc managed-mongodb hosts update`.
+
+#### Изменения в системных командах CLI {#v-1-20-0-yc}
+
+* Добавлена подпись macOS-бинарных файлов с entitlement `com.apple.security.smartcard`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.19.0 (21.07.26) {#v-1-19-0}
 
 #### {{ baremetal-name }} {#v-1-19-0-baremetal-name}
@@ -89,8 +115,6 @@ description: На странице представлены релизы CLI, а
 #### Изменения в системных командах CLI {#v-1-19-0-yc}
 
 * Исправлено появление служебных escape-последовательностей в выводе терминала при запуске команд в `screen`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.18.0 (09.07.26) {#v-1-18-0}
 

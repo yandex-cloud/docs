@@ -9,7 +9,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится эндпоинт.
-  1. Перейдите в сервис **Cloud Notification Service**.
+  1. [Перейдите](https://console.yandex.cloud/link/cns) в сервис **Cloud Notification Service**.
   1. Выберите канал push-уведомлений в браузере.
   1. Перейдите на вкладку ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Эндпоинты**.
   1. Напротив нужного эндпоинта нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
@@ -31,6 +31,7 @@
 
       * `--endpoint-arn` — идентификатор (ARN) эндпоинта.
       * `--attributes` — параметры эндпоинта, которые вы хотите изменить, через запятую:
+        
         * `Token` — объект [PushSubscription](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription) в формате [JSON](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription/toJSON), который получен в браузере пользователя.
         * `CustomUserData` – дополнительная информация.
 
@@ -53,6 +54,7 @@
 
       * `EndpointArn` — идентификатор (ARN) эндпоинта.
       * `Attributes` — параметры, которые вы хотите изменить, через запятую:
+        
         * `Token` — объект [PushSubscription](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription) в формате [JSON](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription/toJSON), который получен в браузере пользователя.
         * `CustomUserData` – дополнительная информация.
 
@@ -72,6 +74,7 @@
 
       * `EndpointArn` — идентификатор (ARN) эндпоинта.
       * `Attributes` — параметры, которые вы хотите изменить, через запятую:
+        
         * `Token` — объект [PushSubscription](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription) в формате [JSON](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription/toJSON), который получен в браузере пользователя.
         * `CustomUserData` – дополнительная информация.
 
@@ -89,8 +92,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится эндпоинт.
-  1. Перейдите в сервис **Cloud Notification Service**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится эндпоинт.
+  1. [Перейдите](https://console.yandex.cloud/link/cns) в сервис **Cloud Notification Service**.
   1. Выберите канал push-уведомлений в браузере.
   1. Перейдите на вкладку ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Эндпоинты**.
   1. Напротив нужного эндпоинта нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.

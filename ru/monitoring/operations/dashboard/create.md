@@ -70,5 +70,5 @@ description: Для создания дашборда в {{ monitoring-full-name
 1. В поле **{{ ui-key.yacloud_monitoring.component.entities-list.common-filter-placeholder }}** введите ключ или значение лейбла, заголовок, имя или описание.
 
 #### Что дальше {#what-is-next}
-- [{#T}](add-widget.md)
-- [Концепции дашбордов](../../concepts/visualization/dashboard.md)
+* [{#T}](add-widget.md)
+* [Концепции дашбордов](../../concepts/visualization/dashboard.md)

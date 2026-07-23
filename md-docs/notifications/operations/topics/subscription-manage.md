@@ -9,7 +9,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится топик.
-  1. Перейдите в сервис **Cloud Notification Service**.
+  1. [Перейдите](https://console.yandex.cloud/link/cns) в сервис **Cloud Notification Service**.
   1. Слева выберите раздел **Топики**.
   1. Выберите топик, в котором находится подписка.
   1. Слева выберите **Подписки**.
@@ -19,16 +19,21 @@
 - AWS CLI {#aws-cli}
 
   1. Посмотрите список подписок для топика:
+     
      ```bash
      aws sns set-subscription-attributes \
       --subscription-arn <ARN_подписки> <атрибуты>
      ```
+  
   1. Измените подписку:
+     
      ```bash
      aws sns set-subscription-attributes \
       --subscription-arn <ARN_подписки> <атрибуты>
      ```
+  
   1. Посмотрите новые параметры подписки:
+     
      ```bash
      aws sns get-subscription-attributes \
       --subscription-arn <ARN_подписки>
@@ -58,7 +63,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится топик.
-  1. Перейдите в сервис **Cloud Notification Service**.
+  1. [Перейдите](https://console.yandex.cloud/link/cns) в сервис **Cloud Notification Service**.
   1. Слева выберите раздел **Топики**.
   1. Выберите топик, в котором находится подписка.
   1. Слева выберите **Подписки**.

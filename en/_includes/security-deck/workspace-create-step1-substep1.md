@@ -1,3 +1,10 @@
 Under **{{ ui-key.yacloud_org.security.workspaces.WorkspaceGeneralParamsForm.alert_sink_title_pvDBG }}**, select the [alert sink](../../security-deck/concepts/workspace.md#alert-sinks) to receive all [alerts](../../security-deck/concepts/alerts.md) generated in the workspace.
 
+{% note tip %}
+
+You can skip creating an alert sink. To do this, click **{{ ui-key.yacloud_org.security.workspaces.WorkspaceOnboardingForm.createAndContinue_1yfFr }}**.
+A sink named `default` will be created automatically.
+
+{% endnote %}
+
 Create a new alert sink if needed. Do it by clicking **{{ ui-key.yacloud_org.security-center.alerts.sink.action_create }}**. In the window that opens, enter enter a name for the sink **{{ ui-key.yacloud_org.common.create }}**.

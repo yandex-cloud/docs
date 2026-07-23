@@ -34,12 +34,12 @@ items:
         items:
           - name: Overview
             href: operations/dspm/index.md
-          - name: Creating a data source
+          - name: Managing data analysis
+            href: operations/dspm/discovery-mode.md
+          - name: Preparing data for scanning
             href: operations/dspm/create-data-source.md
           - name: Creating a scan
             href: operations/dspm/create-scan.md
-          - name: Managing data analysis
-            href: operations/dspm/discovery-mode.md
           - name: Managing scan results
             href: operations/dspm/work-with-results.md
       - name: '{{ kspm-full-name }} ({{ kspm-name }})'

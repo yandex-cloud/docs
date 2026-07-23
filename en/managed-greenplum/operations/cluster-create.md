@@ -11,11 +11,18 @@ A {{ mgp-name }} cluster consists of master hosts that get client queries and se
 For more information, see [{#T}](../concepts/index.md).
 
 
+## Roles for creating a cluster {#roles}
+
+To create and use a {{ mgp-name }} cluster, your {{ yandex-cloud }} account needs the following roles:
+
+* {% include [roles-mgp-editor](../../_includes/mdb/mgp/roles-mgp-editor.md) %}
+* {% include [roles-vpc-user](../../_includes/mdb/roles-vpc-user.md) %}
+* {% include [roles-mdb-viewer](../../_includes/mdb/roles-mdb-viewer-create-cluster.md) %}
+
+For more information about assigning roles, see [this {{ iam-full-name }} guide](../../iam/operations/roles/grant.md).
+
+
 ## Creating a cluster {#create-cluster}
-
-
-To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role along with the [{{ roles.mgp.editor }} role or higher](../security/index.md#roles-list). For information on assigning roles, see [this {{ iam-name }} guide](../../iam/operations/roles/grant.md).
-
 
 {% list tabs group=instructions %}
 

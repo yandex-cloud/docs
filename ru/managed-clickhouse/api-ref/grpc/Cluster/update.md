@@ -670,7 +670,7 @@ Deletion Protection inhibits deletion of the cluster ||
 
 ID of the network to move the cluster to.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 100. ||
 || allow_host_recreation | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Allows or denies re-creation of replicas during update of cluster configuration. The option must be enabled for

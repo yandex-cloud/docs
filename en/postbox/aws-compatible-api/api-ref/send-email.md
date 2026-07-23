@@ -53,7 +53,18 @@ POST /v2/email/outbound-emails HTTP/2
           "Data": "<email_text>",
           "Charset": "<encoding>"
         }
-      }
+      },
+      "Attachments": [
+        {
+          "FileName": "<file_name>",
+          "RawContent": "<content_in_Base64>",
+          "ContentType": "<MIME_type>",
+          "ContentDescription": "<attachment_description>",
+          "ContentDisposition": "<display_mode>",
+          "ContentId": "<attachment_ID>",
+          "ContentTransferEncoding": "base64"
+        }
+      ]
     },
     "Template": {
       "Headers": [
@@ -67,7 +78,18 @@ POST /v2/email/outbound-emails HTTP/2
         "Subject": "<subject_template>",
         "Text": "<text_template>"
       },
-      "TemplateData": "<data_to_insert_in_templates>"
+      "TemplateData": "<data_to_insert_in_templates>",
+      "Attachments": [
+        {
+          "FileName": "<file_name>",
+          "RawContent": "<content_in_Base64>",
+          "ContentType": "<MIME_type>",
+          "ContentDescription": "<attachment_description>",
+          "ContentDisposition": "<display_mode>",
+          "ContentId": "<attachment_ID>",
+          "ContentTransferEncoding": "base64"
+        }
+      ]
     },
     "Raw": {
       "Data": "<whole_email_content>"
@@ -130,6 +152,11 @@ Describes the content:
 * `Html`: Object responsible for displaying the email in clients with HTML support. Type: Object.
   * `Data`: Email text. Type: String.
   * `Charset`: Encoding. Type: String. The possible value is `UTF-8`. ||
+|| `Attachments` | **Type**: Array.
+
+The list of email attachments. Available in the content of the `Simple` and `Template` types. Each attachment is defined by an object with the following fields:
+
+{% include [attachments-fields](../../../_includes/postbox/attachments-fields.md) %} ||
 || `Template` | **Type**: Object.
 
 Template type. You cannot use it together with `Simple` or `Raw`. Suitable if you need to send an email based on a template. Only the templates provided in the request are supported.||
@@ -151,7 +178,7 @@ Raw type. You cannot use it together with `Simple` or `Template`. Suitable if yo
 * All the required header fields must be present.
 * For a MIME email, all fragments must be properly formatted.
 * Attachments must be in a format supported by {{ postbox-name }}.
-* Encoding: `Base64`.
+* The email must use Base64 encoding.
 * Any content outside the 7-bit ASCII table must be encoded to be correctly displayed in the recipient’s email client.
 * Maximum line length: 1,000 characters.
 

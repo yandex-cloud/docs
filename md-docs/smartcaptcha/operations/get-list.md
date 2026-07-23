@@ -6,8 +6,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите посмотреть список [капч](../concepts/validation.md).
-  1. Перейдите в сервис **Yandex SmartCaptcha**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите посмотреть список [капч](../concepts/validation.md).
+  1. [Перейдите](https://console.yandex.cloud/link/smartcaptcha) в сервис **Yandex SmartCaptcha**.
   1. На странице **Список капч** отобразится список доступных капч.
 
 - CLI {#cli}

@@ -12,13 +12,14 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит секрет.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Перейдите]({{ link-console-main }}/link/lockbox) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. В меню слева выберите **{{ ui-key.yacloud.lockbox.routes.label_section-secrets }}**.
     1. Напротив секрета нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
     1. Скорректируйте имя и описание секрета, отметьте опцию **{{ ui-key.yacloud.lockbox.BaseInfoSection.field_deletion-protection }}** при необходимости.
     1. Измените тип секрета и укажите ключ и значение, либо параметры генерации значения.
         
         При изменении типа секрета, ключа или параметров генерации будет создана новая версия.
+    
     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -28,11 +29,13 @@ description: Следуя данной инструкции, вы сможете
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   1. Посмотрите описание команды CLI для добавления ресурсов в секрет:
+     
      ```bash
      yc lockbox secret update --help
      ```
 
   1. Выполните команду, указав имя или идентификатор секрета:
+     
      ```bash
      yc lockbox secret update \
        --id <идентификатор_секрета> \
@@ -41,6 +44,7 @@ description: Следуя данной инструкции, вы сможете
      ```
 
      Результат:
+     
      ```
      id: e6q2ig0u9b97********
      folder_id: b1gyggt2th59********

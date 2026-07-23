@@ -6,8 +6,8 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать [лог-группу](../concepts/log-group.md).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud Logging**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать [лог-группу](../concepts/log-group.md).
+    1. [Перейдите](https://console.yandex.cloud/link/logging) в сервис **Cloud Logging**.
     1. Нажмите кнопку **Создать группу**.
     1. (Опционально) Введите имя и описание лог-группы. Формат имени:
 
@@ -38,6 +38,7 @@
     ```
 
     Где:
+    
     * `--name` — имя лог-группы.
     * `--retention-period` — срок хранения записей в лог-группе. Необязательный параметр.
 

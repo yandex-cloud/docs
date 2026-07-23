@@ -4,7 +4,7 @@ description: Follow this guide to view service usage details.
 ---
 # Viewing service usage details
 
-You can view {{ yandex-cloud }} service usage as charts and tables in {{ billing-name }}, or check 30-day consumption in the management console.
+You can view usage details for {{ yandex-cloud }} services as charts and tables in {{ billing-name }}, or check 30-day consumption in the management console.
 
 {% note info %}
 
@@ -27,13 +27,13 @@ To view usage details:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder you want to check consumption for.
-  1. In the top-right corner, click ![credit-card](../../_assets/console-icons/credit-card.svg).
-  1. The widget that opens will display consumption over the last 30 days for both the cloud and the selected folder.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder you want to check consumption for.
+    1. In the top-right corner, click ![credit-card](../../_assets/console-icons/credit-card.svg).
+    1. The widget that opens will display consumption over the last 30 days for both the cloud and the selected folder.
 
-      {% include [hide-private-data](../_includes/billing-widget-hide-private-data.md) %}
-  1. To view usage details as charts and tables in {{ billing-name }}, click **{{ ui-key.yacloud_billing_account.billing-widget.details }}**.
-  1. Select the detail depth.
+        {% include [hide-private-data](../_includes/billing-widget-hide-private-data.md) %}
+    1. To view usage details as charts and tables in {{ billing-name }}, click **{{ ui-key.yacloud_billing_account.billing-widget.details }}**.
+    1. Select the detail depth.
 
 {% endlist %}
 
@@ -67,46 +67,43 @@ By default, usage details show the cost of consumed resources. Details in consum
 
 - Cloud folders {#folders}
 
-  You can view usage details for one or more folders. The selected folders have a mark next to their name. By default, all the folders of the selected cloud are marked. To only view usage details for some of them, in the **{{ ui-key.yacloud_billing.billing.account.detail.value_folders }}** list, deselect the folders you need no information about. To get details for selected folders by specific product or label, click **{{ ui-key.yacloud_billing.billing.account.detail.filter_label_all-filters }}** and specify the products and labels to include in the report.
+  You can view usage details for one or more folders, including those in different clouds. To do this, select the relevant folders from the **{{ ui-key.yacloud_billing_account.billing-account-detail.value_empty_clouds_folders }}** list.
+
+  To get usage details for selected folders filtered by specific products or labels, click **{{ ui-key.yacloud_billing_account.billing-account-detail.filter_label-products-all }}** or **{{ ui-key.yacloud_billing_account.billing-account-detail.filter_label-labels-all }}**, select the values.
 
   {% include [usage-details-change-period](../../billing/_includes/usage-details-change-period.md) %}
 
 - Services {#services}
 
-  You can view usage details for one or more services in different clouds. You can also view usage details for one or more services in different folders of the selected cloud. By default, all services in all clouds are selected. The selected elements have a mark next to their name. To only view usage details for some of them, in the **{{ ui-key.yacloud_billing.billing.account.detail.label_service }}**, **{{ ui-key.yacloud_billing.billing.account.detail.value_folders }}**, or **{{ ui-key.yacloud_billing.billing.accounts.column_cloud }}** list, deselect the elements you need no information about. To get details for selected services by specific cloud, folder, or label, click **{{ ui-key.yacloud_billing.billing.account.detail.filter_label_all-filters }}** and specify the objects to include in the report.
+  You can view usage details for one or more services in different clouds and folders. To do this, select the relevant services from the **{{ ui-key.yacloud_billing_account.billing-account-detail.filter_label-services-all }}** list.
+
+  To get usage details for specified services filtered by specific clouds and folders, select the spaces from the **{{ ui-key.yacloud_billing_account.billing-account-detail.value_empty_clouds_folders }}** list. To filter the data by products or labels, click **{{ ui-key.yacloud_billing_account.billing-account-detail.filter_label-products-all }}** or **{{ ui-key.yacloud_billing_account.billing-account-detail.filter_label-labels-all }}**, enter the values, and click **{{ ui-key.yacloud_billing.billing.account.overview.button_bind-card-apply }}**.
 
   {% include [usage-details-change-period](../../billing/_includes/usage-details-change-period.md) %}
 
 - Products {#products}
 
-  You can view usage details for one or more products in different clouds. You can also view usage details for one or more products in different folders of the selected cloud. By default, all products in all clouds are selected. The selected elements have a mark next to their name. To only view usage details for some of them, click **{{ ui-key.yacloud_billing.billing.account.detail.label_product }}** and deselect the products and services you need no information about. Click **{{ ui-key.yacloud_billing.billing.account.overview.button_bind-card-apply }}**. To get details for selected products by specific cloud, folder, or label, click **{{ ui-key.yacloud_billing.billing.account.detail.filter_label_all-filters }}** and specify the objects to include in the report.
+  You can view usage details for one or more products in different clouds and folders. To do this, click **{{ ui-key.yacloud_billing_account.billing-account-detail.filter_label-products-all }}** and select the products and services you want to display data for. Click **{{ ui-key.yacloud_billing.billing.account.overview.button_bind-card-apply }}**.
+  
+  To get usage details for specified products filtered by clouds and folders, select the spaces from the **{{ ui-key.yacloud_billing_account.billing-account-detail.value_empty_clouds_folders }}** list. To filter the data by labels, click **{{ ui-key.yacloud_billing_account.billing-account-detail.filter_label-labels-all }}**, enter the values, and click **{{ ui-key.yacloud_billing.billing.account.overview.button_bind-card-apply }}**.
 
   {% include [usage-details-change-period](../../billing/_includes/usage-details-change-period.md) %}
 
 - Labels {#labels}
 
-  You can view usage details by [service resource labels](../../resource-manager/concepts/labels.md). You can [add a label](../../resource-manager/operations/manage-labels.md) to a resource and then specify the label name in the **Label key** list. If there are usage details available for the selected label, the chart will display information starting from the date the label was created. Below the chart, the table will show all values corresponding to the selected label.
-  You can also view details by a specific value of the label you select for one or more products in different folders of the selected cloud:
-  1. Click **{{ ui-key.yacloud_billing.billing.account.detail.filter_label_all-filters }}** (by default, all products in all clouds and available folders are selected). The selected elements have a mark next to their name. 
-  1. Specify the criteria for details: 
-      * Click **{{ ui-key.yacloud_billing.billing.account.detail.label_product }}** and deselect the products and services you need no information about. Click **{{ ui-key.yacloud_billing.billing.account.overview.button_bind-card-apply }}**.
-      * In the **{{ ui-key.yacloud_billing.billing.account.detail.value_folders }}** or **{{ ui-key.yacloud_billing.billing.accounts.column_cloud }}** list, deselect the elements you need no information about.
-      * In the **{{ ui-key.yacloud.common.labels }}** list, set a specific label value to view details for it. This filter value applies to the label selected in the **Label key** field.
+  You can view usage details by [service resource labels](../../resource-manager/concepts/labels.md). For a label to appear in the list of label keys, [add the label](../../resource-manager/operations/manage-labels.md) to a resource. By default, the information is displayed for one label at a time. To change the label, select a new value from the **Label key** list. If there are usage details available for the selected label, the chart will display information starting from the date the label was created. Below the chart, the table will show all values corresponding to the selected label.
   
+  To get usage details for the specified label, filtered by certain clouds and folders, specify the relevant spaces in the **{{ ui-key.yacloud_billing_account.billing-account-detail.value_empty_clouds_folders }}** list. To filter by products, click **{{ ui-key.yacloud_billing_account.billing-account-detail.filter_label-products-all }}**, select the values, and click **{{ ui-key.yacloud_billing.billing.account.overview.button_bind-card-apply }}**. To display results for multiple labels, click **{{ ui-key.yacloud_billing_account.billing-account-detail.filter_label-labels-all }}**, enter the values, and click **{{ ui-key.yacloud_billing.billing.account.overview.button_bind-card-apply }}**. The system will display information for the specified **Label key**.
+
   {% include [usage-details-change-period](../../billing/_includes/usage-details-change-period.md) %}
 
 - Periods {#periods}
   
   {% include [usage-details-change-period](../../billing/_includes/usage-details-change-period.md) %}
 
-  To get usage details over a specific period, for certain clouds and folders, select the required spaces from the **{{ ui-key.yacloud_billing_account.billing-account-detail.value_empty_clouds_folders }}** list; for specific products and labels, click **{{ ui-key.yacloud_billing_account.billing-account-detail.filter_label-products-all }}** or **{{ ui-key.yacloud_billing_account.billing-account-detail.filter_label-labels-all }}**, set the necessary values, and click **{{ ui-key.yacloud_billing.billing.account.overview.button_bind-card-apply }}**.
+  To get usage details over a specific period for certain clouds and folders, select the required spaces from the **{{ ui-key.yacloud_billing_account.billing-account-detail.value_empty_clouds_folders }}** list. To filter the data by products or labels, click **{{ ui-key.yacloud_billing_account.billing-account-detail.filter_label-products-all }}** or **{{ ui-key.yacloud_billing_account.billing-account-detail.filter_label-labels-all }}**, enter the values, and click **{{ ui-key.yacloud_billing.billing.account.overview.button_bind-card-apply }}**.
 
 {% endlist %}
-
-You can configure the charts to display the following:
-
-* `{{ ui-key.yacloud_billing.billing.account.detail.value_cost }}`: Amount before discount representing the resources consumed.
-* `{{ ui-key.yacloud_billing.billing.account.detail.column_expense }}`: Total amount after discount representing the resources consumed.
 
 {% include [currency](../_includes/currency.md) %}
 
@@ -131,21 +128,26 @@ You can configure the charts to display the following:
 ## Interpreting the chart {#graph}
 
 The chart shows how data changed over time.
-The number of details and their values depend on the selected detail depth, chart type, and filters:
+The number of details and their values depend on the selected detail depth, chart type, and filters.
+
+You can choose how to display costs:
 
 * **{{ ui-key.yacloud_billing.billing.account.detail.value_cost }}**: Shows the cost of consumed services before discounts. For resources within a committed volume, this value reflects the base cost.
 * **{{ ui-key.yacloud_billing.billing.account.detail.label_top-total }}**: Shows the cost of consumed services after discounts. The discount for committed volume of services is applied as soon as you start consuming the resources.
 
-Hover over a chart line to bring up the tooltip. Each cloud, service, and product has its own color. See a description of measures below.
+There are two types of charts:
 
-Chart | Measures
-:-----: | -----
-![image](../../_assets/billing/graph-icon.svg) |- Date for which the current point's value is valid.<br/>- Cost of services consumed within cloud/service/product. <br/>- Name of cloud/service/product.<br/>- Total cost of consumed services.
-![image](../../_assets/billing/gistogram-icon.svg) |- Date for which the current point's value is valid.<br/>- Cost of services consumed within cloud/service/product.<br/>- Name of cloud/service/product.<br/>- Total cost of consumed services.
-![image](../../_assets/billing/norm-gistogram-icon.svg) |- Date for which the current point's value is valid.<br/>- Percentage (%) of services consumed within cloud/service/product versus total consumption.<br/>- Cost of services consumed within cloud/service/product. <br/>- Name of cloud/service/product.<br/>- Total cost of consumed services.<br/>- View type: chart.
-![image](../../_assets/billing/diagram-icon.svg) |- Date for which the current point's value is valid.<br/>- Cost of services consumed within cloud/service/product.<br/>- Name of cloud/service/product.<br/>- Total cost of consumed services.
-![image](../../_assets/billing/norm-diagram-icon.svg) |- Date for which the current point's value is valid.<br/>- Percentage (%) of services consumed within cloud/service/product versus total consumption.<br/>- Cost of services consumed within cloud/service/product.<br/>- Name of cloud/service/product.<br/>- Total cost of consumed services.<br/>- View type: diagram.
+* ![image](../../_assets/billing/graph-icon.svg): Line chart
+* ![image](../../_assets/billing/gistogram-icon.svg): Column chart
 
+Hover over a line or column on the chart to bring up a tooltip with the following information:
+
+* Date for which the current point's value is valid.
+* Cost of services consumed within the space, service, or product.
+* Names of the spaces, services, products, or labels.
+* Total cost of consumed services.
+
+Each space, service, product, or label is mapped to a unique color.
 
 ## Interpreting the table {#tab}
 

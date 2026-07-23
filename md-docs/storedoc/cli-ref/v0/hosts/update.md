@@ -37,7 +37,9 @@ Possible property names:
 
 - `priority`: Set priority parameter to the host being updated
 
-- `tags`: Set tags parameter to the host being updated ||
+- `tags`: Set tags parameter to the host being updated
+
+- `votes`: Set votes parameter to the host being updated ||
 |#
 
 #### Global Flags

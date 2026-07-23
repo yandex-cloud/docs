@@ -7,7 +7,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится [группа бэкендов](../concepts/backend-group.md).
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **Группы бэкендов**.
   1. Выберите группу бэкендов.
   1. На странице **Обзор** отобразится подробная информация о группе.
@@ -81,9 +81,13 @@
       ```
 
       Где:
+      
       * `data "yandex_alb_backend_group"` — описание группы бэкендов в качестве источника данных:
+        
         * `backend_group_id` — идентификатор группы бэкендов.
+      
       * `output "backend_group"` — выходная переменная, которая содержит информацию о подключенном HTTP бэкенде:
+        
         * `value` — возвращаемое значение.
 
       Вместо `http_backend` вы можете выбрать любой другой параметр для получения информации. Подробнее о параметрах источника данных `yandex_alb_backend_group` в [документации провайдера](../../terraform/data-sources/alb_backend_group.md).

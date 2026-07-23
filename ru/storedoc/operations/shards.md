@@ -7,6 +7,7 @@
 {% note alert %}
 
 После того как [шардирование кластера](../concepts/sharding.md) включено:
+
 * Выключить шардирование невозможно. В кластере всегда будет поддерживаться минимальное количество хостов `MONGOS`, `MONGOCFG` или `MONGOINFRA` в зависимости от [типа шардирования](../concepts/sharding.md#shard-management).
 * Обращаться к базам данных следует только через хосты `MONGOS` или `MONGOINFRA`, которые маршрутизируют запросы к шардам. Измените адреса хостов в коде ваших приложений соответствующим образом.
 
@@ -19,6 +20,7 @@
 О том, как непосредственно шардировать базу и коллекции {{ SD }}, читайте в разделе [Шардирование коллекций](../tutorials/sharding.md).
 
 Для включения шардирования необходимо:
+
 * Не менее трех хостов `MONGOINFRA` при стандартном шардировании.
 * Не менее двух хостов `MONGOS` и не менее трех хостов `MONGOCFG` при расширенном шардировании.
 
@@ -32,11 +34,12 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите]({{ link-console-main }}/link/storedoc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.shards.button_sharding-enable }}**.
   1. Выберите один из типов шардирования:
+     
      * **{{ ui-key.yacloud.mongodb.EnableShardingForm.option_sharding-type-standard_ezqnu }}** — с использованием хостов `MONGOINFRA`.
      * **{{ ui-key.yacloud.mongodb.EnableShardingForm.option_sharding-type-extended_8Vip4 }}** — с использованием хостов `MONGOS` и `MONGOCFG`.
 
@@ -79,12 +82,16 @@
     ```
 
     Где:
+    
     * `--cluster-name` — имя кластера, которое можно получить со [списком кластеров в каталоге](cluster-list.md#list).
     * `--host` — параметры хоста:
+      
       * `type` — тип (`MONGOINFRA`).
       * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
       * `subnet-name` — [имя подсети](../../vpc/concepts/network.md#subnet).
+    
     * `--mongoinfra` — параметры хостов `MONGOINFRA`:
+      
       * `resource-preset` — [класс хоста](../concepts/instance-types.md).
       * `disk-size` — размер хранилища в гигабайтах.
       * `disk-type` — [тип диска](../concepts/storage.md).
@@ -118,16 +125,22 @@
     ```
 
     Где:
+    
     * `--cluster-name` — имя кластера, которое можно получить со [списком кластеров в каталоге](cluster-list.md#list).
     * `--host` — параметры хоста:
+      
       * `type` — тип (`MONGOS` или `MONGOCFG`).
       * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
       * `subnet-name` — [имя подсети](../../vpc/concepts/network.md#subnet).
+    
     * `--mongos` — параметры хостов `MONGOS`:
+      
       * `resource-preset` — [класс хоста](../concepts/instance-types.md).
       * `disk-size` — размер хранилища в гигабайтах.
       * `disk-type` — [тип диска](../concepts/storage.md).
+    
     * `--mongocfg` — параметры хостов `MONGOCFG`:
+      
       * `resource-preset` — [класс хоста](../concepts/instance-types.md).
       * `disk-size` — размер хранилища в гигабайтах.
       * `disk-type` — [тип диска](../concepts/storage.md).
@@ -365,8 +378,8 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите]({{ link-console-main }}/link/storedoc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}**.
 
 - CLI {#cli}
@@ -451,8 +464,8 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите]({{ link-console-main }}/link/storedoc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.shards.action_add-shard }}**.
   1. Укажите имя шарда и добавьте нужное количество хостов.
@@ -474,8 +487,10 @@
   ```
 
   Где:
+  
   * `--cluster-name` — имя кластера, которое можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
   * `--host` — параметры хоста:
+    
     * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
     * `subnet-name` — [имя подсети](../../vpc/concepts/network.md#subnet).
 
@@ -642,8 +657,8 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите]({{ link-console-main }}/link/storedoc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}**.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного шарда и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.shards.popup-confirm_button_delete }}**.

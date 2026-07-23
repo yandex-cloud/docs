@@ -75,14 +75,15 @@ You are billed for the following:
 
     * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more hosts.
 
-* Amount of storage used by database backups that exceeds the allocated cluster storage.
+* Database backup storage exceeding the cluster’s allocated space.
 
-    * Backups are stored free of charge as long as the combined size of the database and all backups is smaller than the selected storage size.
+    {% include [pricing-backup](../_includes/mdb/pricing-backup.md) %} 
+
+    * Backup storage is not billable until the total volume of backups exceeds that of the cluster storage. This calculation does not count in the data volume of the database itself.
 
     * The number of hosts in a cluster does not affect the storage size and, consequently, the free backup quota.
-
+    
 The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes is billed as 2 minutes.
-
 
 ### Cluster cost calculation example {#example}
 

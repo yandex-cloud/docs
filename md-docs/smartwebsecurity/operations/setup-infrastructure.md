@@ -13,10 +13,11 @@
   1. Узнайте публичный IPv4-адрес прокси-сервера:
 
       1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится ваш прокси-сервер.
-      1. Перейдите в сервис **Smart Web Security**.
+      1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
       1. На панели слева выберите ![domain-protection-icon](../../_assets/smartwebsecurity/domain-protection-icon.svg) **Защита доменов** и выберите нужный прокси-сервер.
 
           Сохраните IPv4-адрес прокси-сервера, указанный в блоке **Обзор** в поле **Публичный IP** — он понадобится для создания ресурсной DNS-записи.
+  
   1. Добавьте ресурсную [А-запись](../../dns/concepts/resource-record.md#a) в публичную DNS-зону вашего домена, указав в ней значения:
      
      * `Имя записи` — адрес вашего домена, заканчивающийся на точку. Например: `example.com.` или `my.first.example.com.`.

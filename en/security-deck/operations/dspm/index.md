@@ -5,7 +5,7 @@ description: This section contains step-by-step guides on how to use {{ dspm-nam
 
 # {{ dspm-full-name }} ({{ dspm-name }})
 
-* [{#T}](create-data-source.md).
-* [{#T}](create-scan.md).
-* [{#T}](discovery-mode.md).
-* [{#T}](work-with-results.md).
+* [{#T}](discovery-mode.md)
+* [{#T}](create-data-source.md)
+* [{#T}](create-scan.md)
+* [{#T}](work-with-results.md)

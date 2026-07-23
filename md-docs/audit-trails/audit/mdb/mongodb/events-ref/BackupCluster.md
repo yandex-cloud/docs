@@ -3355,7 +3355,11 @@
                 "auditLog": {
                   "filter": "string"
                 },
-                "chunkSize": "string"
+                "chunkSize": "string",
+                "operationProfiling": {
+                  "slowOpThreshold": "string",
+                  "slowOpSampleRate": "number"
+                }
               },
               "userConfig": {
                 "net": {
@@ -3385,7 +3389,11 @@
                 "auditLog": {
                   "filter": "string"
                 },
-                "chunkSize": "string"
+                "chunkSize": "string",
+                "operationProfiling": {
+                  "slowOpThreshold": "string",
+                  "slowOpSampleRate": "number"
+                }
               },
               "defaultConfig": {
                 "net": {
@@ -3415,7 +3423,11 @@
                 "auditLog": {
                   "filter": "string"
                 },
-                "chunkSize": "string"
+                "chunkSize": "string",
+                "operationProfiling": {
+                  "slowOpThreshold": "string",
+                  "slowOpSampleRate": "number"
+                }
               }
             },
             "resources": {
@@ -3459,7 +3471,11 @@
                 "auditLog": {
                   "filter": "string"
                 },
-                "chunkSize": "string"
+                "chunkSize": "string",
+                "operationProfiling": {
+                  "slowOpThreshold": "string",
+                  "slowOpSampleRate": "number"
+                }
               },
               "userConfig": {
                 "net": {
@@ -3489,7 +3505,11 @@
                 "auditLog": {
                   "filter": "string"
                 },
-                "chunkSize": "string"
+                "chunkSize": "string",
+                "operationProfiling": {
+                  "slowOpThreshold": "string",
+                  "slowOpSampleRate": "number"
+                }
               },
               "defaultConfig": {
                 "net": {
@@ -3519,7 +3539,11 @@
                 "auditLog": {
                   "filter": "string"
                 },
-                "chunkSize": "string"
+                "chunkSize": "string",
+                "operationProfiling": {
+                  "slowOpThreshold": "string",
+                  "slowOpSampleRate": "number"
+                }
               }
             },
             "configMongocfg": {
@@ -6746,6 +6770,7 @@ Acceptable values are 10 to 32768, inclusive. ||
 || setParameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.SetParameter)** ||
 || auditLog | **[AuditLog](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.AuditLog)** ||
 || chunkSize | **string** (int64) ||
+|| operationProfiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.OperationProfiling)** ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.Network}
@@ -6797,6 +6822,18 @@ The number of elements must be in the range 1-3.
 #|
 ||Field | Description ||
 || filter | **string** ||
+|#
+
+## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.OperationProfiling}
+
+#|
+||Field | Description ||
+|| slowOpThreshold | **string** (int64)
+
+Value must be greater than 0. ||
+|| slowOpSampleRate | **number** (double)
+
+Acceptable values are 0 to 1, inclusive. ||
 |#
 
 ## MongoInfra {#yandex.cloud.mdb.mongodb.v1.Mongodb.MongoInfra}

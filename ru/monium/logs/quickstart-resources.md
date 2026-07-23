@@ -16,7 +16,7 @@
    
    Список сервисов, которые поддерживают передачу логов в {{ monium-name }}, приведен в разделе [{#T}](../../overview/concepts/monitoring-logging-tools.md).
 
-1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.logs.title }}**.
+1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите ![alt](../../_assets/console-icons/compass.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.all-panel.menu.category.explore }}** → **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.logs.title }}**.
 1. Вверху на шкале времени задайте промежуток поиска данных.
 1. В строке поиска выберите метки запроса:
 

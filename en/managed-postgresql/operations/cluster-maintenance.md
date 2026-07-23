@@ -238,7 +238,7 @@ If necessary, you can run a maintenance job with the **{{ ui-key.yacloud.mdb.mai
 
 ## Configuring a maintenance window {#set-maintenance-window}
 
-By default, maintenance can be scheduled for any time. You can choose a specific day of the week and hour to schedule maintenance. For example, you can choose the time when the cluster is least busy.
+By default, maintenance can be scheduled for any time. You can choose a specific day of week and hour interval for the start of the maintenance. For example, you can specify the least busy time interval for the cluster.
 
 {% note warning %}
 
@@ -255,7 +255,7 @@ When you select a new maintenance window, any scheduled maintenance that does no
   1. Click ![image](../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.mdb.maintenance.action_maintenance-window-setup }}**.
   1. In the window that opens:
      * To allow maintenance at any time, select **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-anytime }}**, which is also the default option.
-     * To allow weekly maintenance at a specific time, select **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}** and specify the weekday and hour in UTC.
+     * To allow weekly maintenance at a specific time, select **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}** and specify the day of the week and UTC time interval.
 
 - CLI {#cli}
 
@@ -343,7 +343,7 @@ When you select a new maintenance window, any scheduled maintenance that does no
        * `weeklyMaintenanceWindow`: Maintenance can only be scheduled for a specific day of week and a sequence number of an hour interval:
 
          * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-         * `hour`: Sequence number of a UTC hour interval in `HH` format, from `1` to `24`.
+         * `hour`: UTC hour interval in `HH` format, from `1` to `24`.
 
      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 

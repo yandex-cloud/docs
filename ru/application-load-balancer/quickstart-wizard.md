@@ -29,7 +29,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создан балансировщик.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_load-balancer-create }}** и выберите **{{ ui-key.yacloud.alb.label_alb-create-wizard }}**.
 
 {% endlist %}
@@ -67,6 +67,7 @@ description: Следуя данной инструкции, вы сможете
   1. Укажите порт: `8080`.
 
   1. Задайте настройки проверки состояния:
+      
       1. **{{ ui-key.yacloud.alb.label_interval }}**: `3`.
       1. **{{ ui-key.yacloud.alb.label_healthy }}**: `2`.
       1. **{{ ui-key.yacloud.alb.label_port }}**: `8080`.
@@ -86,8 +87,10 @@ description: Следуя данной инструкции, вы сможете
   1. Введите имя роутера: `test-http-router`.
   1. Включите переключатель **{{ ui-key.yacloud.alb.label_detailed-settings }}**.
   1. В блоке **{{ ui-key.yacloud.alb.label_virtual-hosts }}** введите:
+     
      1. Имя хоста: `test-virtual-host`.
      1. Имя маршрута: `test-route`.
+  
   1. Остальные настройки оставьте без изменений и нажмите кнопку **{{ ui-key.yacloud.alb.button_wizard-create-tg }}**.
 
 {% endlist %}

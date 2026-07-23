@@ -24,8 +24,8 @@
 
 ### Создание канала уведомления {#create-channel}
 
-1. В [консоли управления]({{ link-console-main }}) слева выберите каталог.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+1. [Перейдите]({{ link-monitoring }}) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
 1. Выберите раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.channels.title }}**.
 1. Нажмите **{{ ui-key.yacloud_monitoring.channel.button_new-channel }}**.
 1. Укажите имя канала, метод отправки и получателей.
@@ -49,29 +49,37 @@
 1. На странице сервиса **{{ monitoring-short-name }}** нажмите **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}**.
 1. Введите название алерта, например, `unavailable_service`.
 1. В блоке **{{ ui-key.yacloud_monitoring.alert.title_alerts-config }}** опишите запрос для получения `A`:
+   
    1. Напротив значка ![image](../../_assets/monitoring/chart.svg) добавьте параметры:
+      
       * `service` = `Application Load Balancer`;
       * `name` = `load_balancer.requests_count_per_second`;
       * `load_balancer` = `<имя_балансировщика_нагрузки>`.
+   
    1. Напротив значка ![image](../../_assets/monitoring/function.svg) задайте функцию для обработки данных `replace_nan(0)` — замена пропусков данных на значение `0`, чтобы график был непрерывным.
 
 1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.action.add-query }}**.
 
 1. Опишите запрос для получения `B`:
+   
    1. Укажите данные для сбора:
+      
       * `service` = `Application Load Balancer`;
       * `name` = `load_balancer.requests_count_per_second`;
       * `code` = `503`;
       * `load_balancer` = `<имя_балансировщика_нагрузки>`.
+   
    1. Задайте функцию `replace_nan(0)`.
 
 1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.action.add-query }}**.
    
 1. Опишите запрос `C` для получения доли `B` от `A` в процентах:
+   
    1. Нажмите ![image](../../_assets/monitoring/raw.svg), чтобы переключиться в текстовый режим редактирования запроса.
    1. В строке запроса введите `100 * B / A`.
 
 1. В блоке **{{ ui-key.yacloud_monitoring.alert.title_conditions }}** укажите:
+     
      * `Запрос для проверки` — `C`.
      * `Функция агрегации` — `Все значения`.
      * `Warning` — `30` (предупреждение).

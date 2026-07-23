@@ -8,8 +8,8 @@ title: Как получить информацию об L7-балансиров
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится [L7-балансировщик](../concepts/application-load-balancer.md).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится [L7-балансировщик](../concepts/application-load-balancer.md).
+  1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Выберите L7-балансировщик.
   1. На странице **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация о балансировщике.
 
@@ -73,8 +73,11 @@ title: Как получить информацию об L7-балансиров
       Где:
 
       * `data "yandex_alb_load_balancer"` — описание L7-балансировщика в качестве источника данных:
+         
          * `load_balancer_id` — идентификатор L7-балансировщика.
+      
       * `output "allocation_policy"` — выходная переменная, которая содержит информацию о политике размещения L7-балансировщика:
+         
          * `value` — возвращаемое значение.
 
      Вместо `allocation_policy` вы можете выбрать любой другой параметр для получения информации. Подробнее о параметрах источника данных `yandex_alb_load_balancer` в [документации провайдера]({{ tf-provider-datasources-link }}/alb_load_balancer).

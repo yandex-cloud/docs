@@ -13,9 +13,10 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ключевая пара.
-  1. Перейдите в сервис **Key Management Service**.
+  1. [Перейдите](https://console.yandex.cloud/link/kms) в сервис **Key Management Service**.
   1. На панели слева выберите ![image](../../_assets/kms/asymmetric-key.svg) **Асимметричные ключи**.
   1. В правом верхнем углу нажмите кнопку **Создать ключ**. В открывшемся окне:
+      
       1. Укажите имя и при необходимости описание в свободной форме.
       1. В поле **Тип** выберите `Подпись`.
       1. В поле **Алгоритм** выберите нужный алгоритм подписи.
@@ -46,6 +47,7 @@
       ```
 
       Где:
+      
       * `--name` — имя ключевой пары электронной подписи.
       * `--folder-id` — идентификатор каталога, в котором будет создана ключевая пара.
       * `--signature-algorithm` — алгоритм электронной подписи. Доступны следующие алгоритмы [ECDSA](https://ru.wikipedia.org/wiki/ECDSA) и [RSA](https://ru.wikipedia.org/wiki/RSA):
@@ -88,10 +90,11 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужная ключевая пара.
-  1. Перейдите в сервис **Key Management Service**.
+  1. [Перейдите](https://console.yandex.cloud/link/kms) в сервис **Key Management Service**.
   1. На панели слева выберите ![image](../../_assets/kms/asymmetric-key.svg) **Асимметричные ключи**.
   1. Перейдите на вкладку **Подпись**.
   1. В строке с нужной ключевой парой нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**. В открывшемся окне:
+      
       1. Измените необходимые атрибуты ключевой пары.
       1. Нажмите кнопку **Сохранить**.
 
@@ -136,6 +139,7 @@
       ```
 
       Где:
+      
       * `--id` — идентификатор ключевой пары электронной подписи.
       * `--new-name` — новое имя ключевой пары.
       * `--deletion-protection` — флаг включения защиты от удаления. Чтобы отключить защиту ключевой пары от удаления, используйте флаг `--no-deletion-protection`.
@@ -165,7 +169,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужная ключевая пара.
-  1. Перейдите в сервис **Key Management Service**.
+  1. [Перейдите](https://console.yandex.cloud/link/kms) в сервис **Key Management Service**.
   1. На панели слева выберите ![image](../../_assets/kms/asymmetric-key.svg) **Асимметричные ключи**.
   1. Перейдите на вкладку **Подпись**.
   1. В строке с нужной ключевой парой нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.

@@ -16,7 +16,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. На панели слева выберите ![domain-protection-icon](../../_assets/smartwebsecurity/domain-protection-icon.svg) **{{ ui-key.yacloud.smart-web-security.label_domain-protection }}** и выберите прокси-сервер, для которого нужно добавить домен.
   1. В меню слева перейдите на вкладку ![globe](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.smart-web-security.label_domain-protection-domains }}** и нажмите кнопку **{{ ui-key.yacloud.smart-web-security.ProxyServer.Domains.createDomain_49MGX }}**.
   1. Введите адрес домена, на котором находится ваше веб-приложение.
@@ -34,16 +34,19 @@ description: Следуя данной инструкции, вы сможете
          * (Опционально) Разверните блок **{{ ui-key.yacloud.smart-web-security.DomainForm.ConnectionSection.connectionSettings_7Q85M }}** и измените номера используемых портов и версию HTTPS.
 
              По умолчанию используется версия HTTP/2, HTTP-порт `80` и HTTPS-порт `443`.
+      
       * **{{ ui-key.yacloud.smart-web-security.DomainForm.ConnectionSection.https_qWPJb }}** — зашифрованное соединение HTTPS.
 
          * (Опционально) Разверните блок **{{ ui-key.yacloud.smart-web-security.DomainForm.ConnectionSection.connectionSettings_7Q85M }}** и измените номер используемого порта и версию HTTPS.
 
              По умолчанию используется версия HTTP/2 и HTTPS-порт `443`.
+      
       * **{{ ui-key.yacloud.smart-web-security.DomainForm.ConnectionSection.http_4Dbmc }}** — незашифрованное соединение. Рекомендуем использовать только в тестовых целях. Для этого варианта не нужен сертификат, но трафик между пользователем и вашим приложением будет передаваться в открытом виде.
 
          * (Опционально) Разверните блок **{{ ui-key.yacloud.smart-web-security.DomainForm.ConnectionSection.connectionSettings_7Q85M }}** и измените номер используемого порта.
 
              По умолчанию используется HTTP-порт `80`.
+  
   1. При использовании HTTPS выберите выпущенный на указанный домен сертификат из [{{ certificate-manager-name }}](../../certificate-manager/index.yaml) или нажмите кнопку **{{ ui-key.yacloud.common.create }}** и выберите:
 
        * **{{ ui-key.yacloud.certificate-manager.CertificateField.userCertificate_bChXn }}** — если у вашего веб-приложения уже есть TLS-сертификат.
@@ -66,9 +69,11 @@ description: Следуя данной инструкции, вы сможете
               {% endnote %}
           
              Дождитесь подтверждения прав на домен. Обычно проверка занимает несколько минут.
+          
           1. Чтобы посмотреть статус проверки, нажмите **{{ ui-key.yacloud.certificate-manager.overview.button_validation_show-logs }}**.
 
              После того как статус проверки прав изменится на `Valid`, сертификат будет выпущен и перейдет в статус `Issued`. Пока сертификат не будет выпущен, вы не сможете продолжить добавление домена.
+  
   1. Нажмите кнопку **{{ ui-key.yacloud.common.continue }}**.
   1. В блоке **{{ ui-key.yacloud.smart-web-security.DomainForm.TargetResourcesSection.targetResources_hqBQm }}** задайте настройки целевых ресурсов:
 
@@ -81,6 +86,7 @@ description: Следуя данной инструкции, вы сможете
           * (Опционально) Если вы выбрали протокол `HTTPS` и используете несколько доменных имен и сертификатов, в поле **{{ ui-key.yacloud.smart-web-security.DomainForm.TargetResourcesSection.sni_mHMUX }}** добавьте [SNI](https://ru.wikipedia.org/wiki/Server_Name_Indication)-обработчик для маршрутизации трафика на основе имени домена.
           * Если вы выбрали протокол `HTTPS`, загрузите файл TLS-сертификата.
           * Выберите версию протокола — `HTTP/2` или `HTTP/1.1`.
+  
   1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.CreateDomain.createDomain_b2Ykj }}**.
 
 {% endlist %}

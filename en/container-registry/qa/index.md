@@ -1,15 +1,15 @@
 ---
-title: Questions and answers about {{ container-registry-full-name }}
-description: This page presents questions and answers about {{ container-registry-name }}.
+title: FAQ about {{ container-registry-full-name }}
+description: This page covers questions and answers about {{ container-registry-name }}.
 ---
 
 # FAQ about {{ container-registry-name }}
 
 #### Why is the latest tag missing or applied to a Docker image that is not the last one pushed? {#latest}
 
-The reason is that you specified a different [tag](../concepts/docker-image.md#version) when pushing the [Docker image](../concepts/docker-image.md).
+This is because you specified a different [tag](../concepts/docker-image.md#version) when pushing the [Docker image](../concepts/docker-image.md).
 
-The Docker client assigns the `latest` tag automatically if the Docker image is created and pushed without a tag. You can also specify the `latest` tag explicitly.
+The Docker client supplies the `latest` tag automatically if the Docker image is created and uploaded without a tag. You can also specify the `latest` tag explicitly.
 
 {% include [latest-info](../../_includes/container-registry/info-about-latest.md) %}
 
@@ -21,13 +21,13 @@ You can grant the [container-registry.images.puller](../security/index.md#contai
 
 This makes all Docker images in the registry available without [authentication](../operations/authentication.md).
 
-Do not assign the `container-registry.images.pusher`, `editor`, or `admin` roles for the registry to the public group. This will enable anyone with your registry ID to use the registry.
+Do not assign the `container-registry.images.pusher`, `editor`, or `admin` roles for the registry to a public group. This will enable anyone with your registry ID to use the registry.
 
 {% endnote %}
 
-#### I encountered an error. What should I do? {#error}
+#### I got an error. What should I do? {#error}
 
-See [{#T}](../error/index.md). It lists common errors and ways to solve them.
+See [{#T}](../error/index.md) for a list of common errors and fixes.
 
 {% include [logs](../../_qa/logs.md) %}
 
@@ -39,18 +39,18 @@ You can use `sudo` or configure [non-root access](https://docs.docker.com/engine
 
 #### How do I diagnose Credential Helper performance? {#cred-helper}
 
-* Check under which OS user and on which host the [CLI](../../cli/) commands are run. This must be the user that the [Credential Helper](../operations/authentication.md#cred-helper) is configured for and on whose behalf the `yc container registry configure-docker` command was run. The corresponding line must appear in the file `/home/<user>/.docker/config.json`. If you are working on a [virtual machine](../../compute/concepts/vm.md), make sure you have the Credential helper configured there as well.
-* Check if the Credential Helper is displayed in `PATH` when running commands. During authentication in {{ container-registry-name }} using the Credential Helper, Docker accesses the `docker-credential-yc` binary file. Make sure this binary file is available in `PATH` for the user working with Docker. For example, if Docker is used with `sudo`, then `configure-docker` must be run with `sudo`, too. You can check this with either `echo {{ registry }} | docker-credential-yc get` or `echo {{ registry }} | sudo docker-credential-yc get` command, if using `sudo` to run commands. If everything works fine, you will get a response in `{"Username":"iam","Secret":"***<IAM token>***"}` format.
-* If the commands run in interactive mode but fail in non-interactive mode, check the `.bashrc` file. The `yc` and `docker-credential-yc` programs are installed in a directory that is not usually available in the default `PATH`. In this case, the following lines are added to the `.bashrc` file:
+* Check under which OS user and on which host the [CLI](../../cli/) commands are run. This must be a user with a [Credential Helper](../operations/authentication.md#cred-helper) configured on whose behalf the `yc container registry configure-docker` command was run. The relevant entry should appear in the `/home/<user>/.docker/config.json` file. If using a [virtual machine](../../compute/concepts/vm.md), make sure a credential helper is configured there as well.
+* Check if there is a credential helper in `PATH` when calling commands. During authentication to {{ container-registry-name }} via a credential helper, Docker accesses the `docker-credential-yc` binary file. Make sure this binary file is available in `PATH` for the user working with Docker. For example, if you are using Docker with `sudo`, then `configure-docker` should also be called with `sudo`. You can check it using the following command: `echo {{ registry }} | docker-credential-yc get` or `echo {{ registry }} | sudo docker-credential-yc get`, if the commands are called using `sudo`. If everything works, the output will look as follows: `{"Username":"iam","Secret":"***<IAM_token>***"}`.
+* If the commands work in interactive mode but fail in non-interactive mode, check the `.bashrc` file. The `yc` and `docker-credential-yc` programs are installed into a directory that is not normally accessible in the default `PATH`. The following lines get written into the `.bashrc` file:
 
-   ```text
-   # The next line updates PATH for {{ yandex-cloud }} CLI
-   if [ -f '/home/<user>/yandex-cloud/path.bash.inc' ]; then source '/home/<user>/yandex-cloud/path.bash.inc'; fi
-   ```
+  ```text
+  # The next line updates PATH for {{ yandex-cloud }} CLI
+  if [ -f '/home/<user>/yandex-cloud/path.bash.inc' ]; then source '/home/<user>/yandex-cloud/path.bash.inc'; fi
+  ```
 
-   The top section of the `.bashrc` file contains a condition preventing its commands from running non-interactively. That is why the commands can run when connecting to the VM manually, but fail to run when doing so via SSH.
+  The top section of the `.bashrc` file contains a condition stating that the commands listed there must not run non-interactively. Due to this condition, the commands can run when you access the VM manually but fail to run over SSH.
 
-#### What does "Error response from daemon: pull access denied for <{{ registry }}/registry_ID/Docker_image_name>, repository does not exist or may require 'docker login': denied: Permission denied ; requestId = <request_ID>" mean? {#permission-denied-ip}
+#### What is the meaning of the following error: Error response from daemon: pull access denied for <{{ registry }}/registry_ID/Docker_image_name>, repository does not exist or may require 'docker login': denied: Permission denied ; requestId = <request_ID>"? {#permission-denied-ip}
 
 The [IP address](../../vpc/concepts/address.md) that the pull Docker image request is received from has no PULL permission.
 

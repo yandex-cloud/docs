@@ -20,7 +20,7 @@ Access can only be granted to a user whose billing account has a cloud linked in
 
 {% endnote %}
 
-## Roles this service has {#roles-list}
+## Roles available in the service {#roles-list}
 
 {% include [billing](../../_mermaid/roles/billing.md) %}
 
@@ -128,7 +128,7 @@ The steps for adding a new billing account user depend on whether the billing ac
   1. Select the user from the drop-down list. The list shows users whose clouds are linked to your billing account.
   1. Click **{{ ui-key.yacloud_billing.billing.account.user-dialog.button_submit }}**.
 
-  The user or service account will get the `billing.accounts.member` role and included in the **Users** list. To grant billing account access, assign them the required role.
+  The user or service account will get the `billing.accounts.member` role and be added to the **Users** list. To grant billing account access, assign them the required role.
 
 {% endlist %}
 

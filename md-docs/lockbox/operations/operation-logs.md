@@ -11,7 +11,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, которому принадлежит секрет.
-    1. Перейдите в сервис **Lockbox**.
+    1. [Перейдите](https://console.yandex.cloud/link/lockbox) в сервис **Lockbox**.
     1. В меню слева выберите **Секреты**.
     1. Нажмите на имя нужного секрета.
     1. На панели слева выберите раздел ![image](../../_assets/operations.svg) **Операции**.
@@ -139,4 +139,4 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Работа с операциями](../../api-design-guide/concepts/about-async.md)
+[Работа с операциями](../../api-design-guide/concepts/about-async.md)

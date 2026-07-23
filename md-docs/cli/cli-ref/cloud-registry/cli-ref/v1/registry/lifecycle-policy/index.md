@@ -28,7 +28,13 @@ Aliases:
 
 - [yc cloud-registry v1 registry lifecycle-policy get](get.md) — Returns the specified lifecycle policy.
 
+- [yc cloud-registry v1 registry lifecycle-policy get-dry-run-result](get-dry-run-result.md) — Returns one dry run result by its ID.
+
 - [yc cloud-registry v1 registry lifecycle-policy list](list.md) — Retrieves the list of lifecycle policies in the specified registry.
+
+- [yc cloud-registry v1 registry lifecycle-policy list-dry-run-artifacts](list-dry-run-artifacts.md) — Returns the list of artifacts that the dry run would delete.
+
+- [yc cloud-registry v1 registry lifecycle-policy list-dry-run-results](list-dry-run-results.md) — Returns the list of dry run results of one lifecycle policy.
 
 - [yc cloud-registry v1 registry lifecycle-policy update](update.md) — Update the specified lifecycle policy.
 

@@ -10,12 +10,12 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находятся ресурсы, наблюдаемые в Monitoring.
-  1. Перейдите в сервис **Cloud Functions**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находятся ресурсы, наблюдаемые в Monitoring.
+  1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
   1. [Создайте функцию](../../../functions/operations/function/function-create.md) и [версию функции](../../../functions/operations/function/version-manage.md).
   1. Включите в настройках функции [возможность асинхронного вызова](../../../functions/operations/function/function-invoke-async.md).
   1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с ролями `functions.functionInvoker` и `functions.viewer`, он потребуется для вызова функции.
-  1. Перейдите в сервис **Monitoring**.
+  1. [Перейдите](https://monitoring.yandex.cloud) в сервис **Monitoring**.
   1. Нажмите кнопку **Создать канал**.
   1. Введите имя канала уведомлений.
   1. В списке **Метод** выберите **Cloud Functions**.

@@ -20,7 +20,11 @@ For more information, see [Resource relationships](../concepts/index.md).
 
 ## Roles for creating a cluster {#roles}
 
-To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mos.editor }}](../security/index.md#managed-opensearch-editor) role or higher.
+To create and use a {{ mos-name }} cluster, your {{ yandex-cloud }} account needs the following roles:
+
+* {% include [roles-mos-editor](../../_includes/mdb/mos/roles-mos-editor.md) %}
+* {% include [roles-vpc-user](../../_includes/mdb/roles-vpc-user.md) %}
+* {% include [roles-mdb-viewer](../../_includes/mdb/roles-mdb-viewer-create-cluster.md) %}
 
 To attach your service account to a cluster, e.g., to [use {{ objstorage-full-name }}](s3-access.md), make sure your {{ yandex-cloud }} account has the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher.
 
@@ -152,7 +156,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
          --delete-protection \
          --maintenance schedule=<maintenance_type>,`
                       `weekday=<day_of_week>,`
-                      `hour=<hour> \
+                      `hour=<sequence_number_of_hour_interval> \
          --disk-encryption-key-id <KMS_key_ID> \
          --version <{{ OS }}_version> \
          --read-admin-password \
@@ -195,12 +199,15 @@ When creating a cluster, you need to specify individual parameters for each [hos
       
         Even with cluster deletion protection enabled, it is still possible to delete a user or connect to the cluster manually and delete the data.
 
-      * `--maintenance`: Maintenance window settings:
+      * `--maintenance`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. Provide one of these two properties:
 
-          * To allow maintenance at any time, do not specify the `--maintenance` parameter in the command (the default configuration) or specify `--maintenance schedule=anytime`.
-          * To specify the preferred start time for maintenance, specify this parameter in the command: `--maintenance schedule=weekly,weekday=<day_of_week>,hour=<hour_in_UTC>`. In this case, maintenance will take place every week on a specified day at a specified time.
+          * `anytime`: Any time. 
+          * `weekly`: On a schedule. For this value, also specify the following: 
 
-          Both active and stopped clusters undergo maintenance. Maintenance may involve such operations as applying patches or updating DBMS's.
+              * `weekday`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+              * `hour`: UTC hour interval, from `1` to `24`.
+
+                > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
       
       * `--disk-encryption-key-id`: Disk encryption using a [custom KMS key](../../kms/concepts/key.md).
@@ -297,7 +304,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
         maintenance_window {
           type = "<maintenance_type>"
           day  = "<day_of_week>"
-          hour = <hour>
+          hour = <sequence_number_of_hour_interval>
         }
       }
 
@@ -336,9 +343,11 @@ When creating a cluster, you need to specify individual parameters for each [hos
           * `type`: Maintenance type. The possible values include:
               * `ANYTIME`: Any time.
               * `WEEKLY`: On a schedule.
-          * `day`: Day of week in `DDD` format for the `WEEKLY` type, e.g., `MON`.
-          * `hour`: Time of day (UTC) in `HH` format for the `WEEKLY` type, e.g., `21`.
-
+          * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+          * `hour`: UTC hour interval, from `1` to `24`.
+            
+            > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
+            
       For a complete list of configurable {{ mos-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mos }}).
 
   1. Make sure the settings are correct.
@@ -444,7 +453,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
           "maintenanceWindow": {
               "weeklyMaintenanceWindow": {
                   "day": "<day_of_week>",
-                  "hour": "<hour>"
+                  "hour": "<sequence_number_of_hour_interval>"
               }
           }
       }
@@ -531,10 +540,15 @@ When creating a cluster, you need to specify individual parameters for each [hos
               The possible setting values are `true` or `false`.
 
 
-      * `maintenance_window.weeklyMaintenanceWindow`: Maintenance window schedule:
+      * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) schedule (including for disabled clusters). Provide one of these two properties:
 
-          * `day`: Day of the week, in `DDD` format, for scheduled maintenance.
-          * `hour`: Hour, in `HH` format, for scheduled maintenance. The possible values range from `1` to `24`. Use the UTC time zone.
+          * `anytime`: Maintenance takes place at any time.
+          * `weeklyMaintenanceWindow`: Maintenance takes place once a week at the specified time: 
+
+              * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+              * `hour`: UTC hour interval, from `1` to `24`.
+            
+                > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
   1. Call the [Cluster.Create](../api-ref/Cluster/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
@@ -641,7 +655,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
           "maintenance_window": {
               "weekly_maintenance_window": {
                   "day": "<day_of_week>",
-                  "hour": "<hour>"
+                  "hour": "<sequence_number_of_hour_interval>"
               }
           }
       }
@@ -728,10 +742,15 @@ When creating a cluster, you need to specify individual parameters for each [hos
               The possible values are `true` or `false`.
 
 
-      * `maintenance_window.weekly_maintenance_window`: Maintenance window schedule:
+      * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) schedule (including for disabled clusters). Provide one of these two properties:
 
-          * `day`: Day of the week, in `DDD` format, for scheduled maintenance.
-          * `hour`: Hour, in `HH` format, for scheduled maintenance. The possible values range from `1` to `24`. Use the UTC time zone.
+          * `anytime`: Maintenance takes place at any time.
+          * `weekly_maintenance_window`: Maintenance takes place once a week at the specified time:
+
+              * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+              * `hour`: UTC hour interval, from `1` to `24`.
+
+                > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
   1. Call the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 

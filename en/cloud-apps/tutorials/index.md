@@ -8,3 +8,5 @@ description: Various use cases for {{ cloud-apps-name }} products in {{ yandex-c
 * [{#T}](wordpress-ha-cloudapp.md)
 * [{#T}](wordpress-cloudapp.md)
 * [{#T}](ghost-cms-cloudapp.md)
+* [{#T}](gatsby-static-site-cloudapp.md)
+* [{#T}](hugo-static-site-cloudapp.md)

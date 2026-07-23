@@ -136,7 +136,7 @@ sudo apt update && sudo apt install --yes postgresql-client
 
 ### Подключение с аутентификацией через IAM {#iam}
 
-К базе данных {{ PG }} можно подключиться с помощью [интерфейса командной строки {{ yandex-cloud }} (CLI)](../../../cli/quickstart.md#install), используя аутентификацию через IAM. Этот метод доступен для [аккаунтов на Яндексе](../../../iam/concepts/users/accounts.md#passport), [федеративных аккаунтов](../../../iam/concepts/users/accounts.md#saml-federation) и [локальных пользователей](../../../iam/concepts/users/accounts.md#local). Подключение с аутентификацией через IAM не требует получения SSL-сертификата или указания FQDN хостов кластера.
+К базе данных {{ PG }} можно подключиться с помощью [интерфейса командной строки {{ yandex-cloud }} (CLI)](../../../cli/quickstart.md#install), используя аутентификацию через IAM. Этот метод доступен для [аккаунтов на Яндексе](../../../iam/concepts/users/accounts.md#passport), [федеративных аккаунтов](../../../iam/concepts/users/accounts.md#saml-federation) и [локальных пользователей](../../../iam/concepts/users/accounts.md#local). Подключение с аутентификацией через IAM не требует получения SSL-сертификата или указания FQDN хостов кластера. Публичный доступ к хостам не требуется.
 
 Перед подключением установите клиент {{ PG }}:
 
@@ -152,11 +152,6 @@ sudo apt update && sudo apt install --yes postgresql-client
 
   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите на имя нужного кластера.
-  1. Включите публичный доступ для хостов кластера:
-     1. Выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}**.
-     1. Нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке первого хоста и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
-     1. Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
-     1. Повторите операцию для остальных хостов кластера.
   1. Назначьте роль аккаунту пользователя, который будет подключаться к БД:
      1. Выберите вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
      1. Введите электронную почту пользователя, к которой привязан аккаунт.
@@ -170,6 +165,234 @@ sudo apt update && sudo apt install --yes postgresql-client
      1. В поле **{{ ui-key.yacloud.mdb.dialogs.popup_field_permissions }}** нажмите значок ![image](../../../_assets/console-icons/plus.svg).
      1. Выберите базу данных из выпадающего списка.
      1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Назначьте роль аккаунту пользователя, который будет подключаться к БД:
+
+      * Пользователю с аккаунтом на Яндексе или локальному пользователю:
+
+         ```bash
+         {{ yc-mdb-pg }} cluster add-access-binding \
+            --id <идентификатор_кластера> \
+            --role managed-postgresql.clusters.connector \
+            --user-account-id <идентификатор_пользователя>
+         ```
+
+      * Федеративному пользователю:
+
+         ```bash
+         {{ yc-mdb-pg }} cluster add-access-binding \
+            --id <идентификатор_кластера> \
+            --role managed-postgresql.clusters.connector \
+            --subject federatedUser:<идентификатор_пользователя>
+         ```
+
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](../cluster-list.md#list-clusters).
+
+  1. Создайте пользователя {{ PG }}:
+
+     ```bash
+     {{ yc-mdb-pg }} user create <идентификатор_пользователя> \
+       --cluster-id <идентификатор_кластера> \
+       --auth-method auth-method-iam \
+       --permissions <имя_БД>
+     ```
+
+- REST API {#api}
+
+  1. [Получите IAM-токен для аутентификации в API](../../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
+
+  1. Назначьте роль аккаунту пользователя, который будет подключаться к БД:
+
+      1. Воспользуйтесь методом [Cluster.UpdateAccessBindings](../../api-ref/Cluster/updateAccessBindings.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+
+          * Для пользователя с аккаунтом на Яндексе или локального пользователя:
+
+            ```bash
+            curl \
+              --request PATCH \
+              --header "Authorization: Bearer $IAM_TOKEN" \
+              --header "Content-Type: application/json" \
+              --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>:updateAccessBindings' \
+              --data '{
+                        "accessBindingDeltas": [
+                          { 
+                            "action": "ADD",
+                            "accessBinding": {
+                              "roleId": "managed-postgresql.clusters.connector",
+                              "subject": {
+                                "id": "<идентификатор_пользователя>",
+                                "type": "userAccount"
+                              }
+                            }
+                          }
+                        ]
+                      }'
+            ```
+
+          * Для федеративного пользователя:
+
+            ```bash
+            curl \
+              --request PATCH \
+              --header "Authorization: Bearer $IAM_TOKEN" \
+              --header "Content-Type: application/json" \
+              --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>:updateAccessBindings' \
+              --data '{
+                        "accessBindingDeltas": [
+                          { 
+                            "action": "ADD",
+                            "accessBinding": {
+                              "roleId": "managed-postgresql.clusters.connector",
+                              "subject": {
+                                "id": "<идентификатор_пользователя>",
+                                "type": "federatedUser"
+                              }
+                            }
+                          }
+                        ]
+                      }'
+            ```
+
+         Идентификатор кластера можно запросить со [списком кластеров в каталоге](../cluster-list.md#list-clusters).
+
+      1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../api-ref/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation).
+
+  1. Создайте пользователя {{ PG }}:
+
+      1. Воспользуйтесь методом [User.Create](../../api-ref/User/create.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+
+         ```bash
+         curl \
+           --request POST \
+           --header "Authorization: Bearer $IAM_TOKEN" \
+           --header "Content-Type: application/json" \
+           --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>/users' \
+           --data '{
+                     "userSpec": {
+                       "name": "<идентификатор_пользователя>",
+                       "permissions": [
+                         {
+                           "databaseName": "<имя_БД>"
+                         }
+                       ],
+                       "authMethod": "AUTH_METHOD_IAM"
+                     }
+                   }'
+         ```
+
+         Идентификатор кластера можно запросить со [списком кластеров в каталоге](../cluster-list.md#list-clusters).
+
+      1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../api-ref/User/create.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+  1. Назначьте роль аккаунту пользователя, который будет подключаться к БД:
+
+      1. Воспользуйтесь вызовом [ClusterService.UpdateAccessBindings](../../api-ref/grpc/Cluster/updateAccessBindings.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+          * Для пользователя с аккаунтом на Яндексе или локального пользователя:
+
+            ```bash
+            grpcurl \
+              -format json \
+              -import-path ~/cloudapi/ \
+              -import-path ~/cloudapi/third_party/googleapis/ \
+              -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
+              -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+              -d '{
+                    "resource_id": "<идентификатор_кластера>",
+                    "access_binding_deltas": [
+                       { 
+                        "action": "ADD",
+                        "access_binding": {
+                            "role_id": "managed-postgresql.clusters.connector",
+                            "subject": {
+                                "id": "<идентификатор_пользователя>",
+                                "type": "userAccount"
+                            }
+                        }
+                       }
+                    ]
+                  }' \
+              {{ api-host-mdb }}:{{ port-https }} \
+              yandex.cloud.mdb.postgresql.v1.ClusterService.UpdateAccessBindings
+            ```
+
+          * Для федеративного пользователя:
+
+            ```bash
+            grpcurl \
+              -format json \
+              -import-path ~/cloudapi/ \
+              -import-path ~/cloudapi/third_party/googleapis/ \
+              -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
+              -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+              -d '{
+                    "resource_id": "<идентификатор_кластера>",
+                    "access_binding_deltas": [
+                       { 
+                        "action": "ADD",
+                        "access_binding": {
+                            "role_id": "managed-postgresql.clusters.connector",
+                            "subject": {
+                                "id": "<идентификатор_пользователя>",
+                                "type": "federatedUser"
+                            }
+                        }
+                       }
+                    ]
+                  }' \
+              {{ api-host-mdb }}:{{ port-https }} \
+              yandex.cloud.mdb.postgresql.v1.ClusterService.UpdateAccessBindings
+            ```
+
+         Идентификатор кластера можно запросить со [списком кластеров в каталоге](../cluster-list.md#list-clusters).
+
+      1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../api-ref/grpc/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation).
+
+  1. Создайте пользователя {{ PG }}:
+
+      1. Воспользуйтесь вызовом [UserService.Create](../../api-ref/grpc/User/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+
+         ```bash
+         grpcurl \
+           -format json \
+           -import-path ~/cloudapi/ \
+           -import-path ~/cloudapi/third_party/googleapis/ \
+           -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/user_service.proto \
+           -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+           -d '{
+                 "cluster_id": "<идентификатор_кластера>",
+                 "user_spec": {
+                   "name": "<идентификатор_пользователя>",
+                   "permissions": [
+                     {
+                       "database_name": "<имя_БД>"
+                     }
+                   ],
+                   "auth_method": "AUTH_METHOD_IAM"
+                 }
+               }' \
+           {{ api-host-mdb }}:{{ port-https }} \
+           yandex.cloud.mdb.postgresql.v1.UserService.Create
+         ```
+
+         Идентификатор кластера можно запросить со [списком кластеров в каталоге](../cluster-list.md#list-clusters).
+
+      1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 

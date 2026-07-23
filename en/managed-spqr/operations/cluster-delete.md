@@ -40,6 +40,8 @@ Before deleting a cluster, disable its deletion protection if it is enabled.
        --url 'https://{{ api-host-mdb }}/managed-spqr/v1/clusters/<cluster_ID>'
      ```
 
+     {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
+
   1. View the [server response](../api-ref/Cluster/deleteShard.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
@@ -65,6 +67,8 @@ Before deleting a cluster, disable its deletion protection if it is enabled.
        {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.spqr.v1.ClusterService.Delete
      ```
+
+     {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
 
   1. Check the [server response](../api-ref/grpc/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

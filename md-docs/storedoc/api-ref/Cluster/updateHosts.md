@@ -89,7 +89,9 @@ The rest of the fields will be reset to the default. ||
 Host tag list that contains key-value pairs for the given replica set member. For more information about how to specify the tags and what values to choose, see the [MongoDB documentation](https://www.mongodb.com/docs/manual/reference/replica-configuration/#mongodb-rsconf-rsconf.members-n-.tags). ||
 || votes | **string** (int64)
 
-The replica set member votes determine whether a member participate in an election. ||
+The replica set member votes determine whether a member participate in an election.
+
+Acceptable values are 0 to 1, inclusive. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

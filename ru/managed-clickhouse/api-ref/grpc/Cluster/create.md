@@ -1265,7 +1265,7 @@ The number of elements must be greater than 0. ||
 
 ID of the network to create the cluster in.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 100. ||
 || shard_name | **string**
 
 Name of the first shard in cluster. If not set, defaults to the value 'shard1'.

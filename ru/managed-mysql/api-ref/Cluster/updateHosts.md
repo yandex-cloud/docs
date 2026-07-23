@@ -84,6 +84,7 @@ apiPlayground:
 
 Updates the specified hosts.
 
+
 ## HTTP request
 
 ```

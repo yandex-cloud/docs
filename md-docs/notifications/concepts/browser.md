@@ -64,6 +64,7 @@ curl \
 ```
 
 Где:
+
 * `IAM_TOKEN` — [IAM-токен](../../iam/concepts/authorization/iam-token.md).
 * `Action` — тип операции.
 * `ResponseFormat` — формат ответа: JSON или XML.
@@ -90,6 +91,7 @@ curl \
 ```
 
 Где:
+
 * `IAM_TOKEN` — [IAM-токен](../../iam/concepts/authorization/iam-token.md).
 * `PlatformApplicationArn` — идентификатор (ARN) канала уведомлений.
 * `Action` — тип операции.
@@ -121,7 +123,7 @@ curl \
 Также вы можете узнать VAPID-ключ с помощью консоли управления. Для этого:
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится канал уведомлений.
-1. В списке сервисов выберите **Cloud Notification Service**.
+1. [Перейдите](https://console.yandex.cloud/link/cns) в сервис **Cloud Notification Service**.
 1. Выберите нужный канал.
 1. Значение VAPID-ключа будет указано в поле **Публичный VAPID-ключ** секции **Обзор**.
 
@@ -143,6 +145,7 @@ curl \
     }
    }
    ```
+
 {% endcut %}
 
 Пример создания эндпоинта для HTTP API:
@@ -161,6 +164,7 @@ curl \
 ```
 
 Где:
+
 * `IAM_TOKEN` — [IAM-токен](../../iam/concepts/authorization/iam-token.md).
 * `PlatformApplicationArn` — идентификатор (ARN) канала уведомлений.
 * `Action` — тип операции.
@@ -179,6 +183,7 @@ curl \
 * Отправить текст уведомления в параметре `Message` без передачи текста для конкретной платформы.
 
     Пример отправки уведомления в виде простого текста для HTTP API:
+    
     ```bash
     export IAM_TOKEN=<IAM_token>
     curl \
@@ -192,6 +197,7 @@ curl \
     ```
 
     Где:
+    
     * `IAM_TOKEN` — [IAM-токен](../../iam/concepts/authorization/iam-token.md).
     * `TargetArn` — идентификатор (ARN) эндпоинта.
     * `Action` — тип операции.
@@ -201,6 +207,7 @@ curl \
 * Передать текст по умолчанию и текст для конкретной платформы. При этом уведомление так же передается через параметр `Message`, но в формате JSON. Дополнительно надо задать параметр `MessageStructure=json`. Ключом для платформы при отправке уведомления в браузер будет строка `WEB`.
 
     Пример отправки уведомления в формате JSON для HTTP API:
+    
     ```bash
     export IAM_TOKEN=<IAM_token>
     curl \
@@ -215,6 +222,7 @@ curl \
     ```
 
     Где:
+    
     * `IAM_TOKEN` — [IAM-токен](../../iam/concepts/authorization/iam-token.md).
     * `TargetArn` — идентификатор (ARN) мобильного эндпоинта.
     * `Action` — тип операции.

@@ -86,22 +86,17 @@ You are billed for the following:
 
     * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more hosts.
 
-* Space occupied by DB backups beyond the storage size specified for the cluster.
+* Database backup storage exceeding the cluster’s allocated space.
 
-    {% note info %}
+    {% include [pricing-backup](../_includes/mdb/pricing-backup.md) %}  
 
-    The cluster's storage size is equal to the total storage size of all of its hosts.
+    * Backup storage is not billable until the total volume of backups exceeds that of the cluster storage. This calculation does not count in the data volume of the database itself.
 
-    {% endnote %}
-
-    * Backups are stored free of charge as long as the combined size of the DB and all backups is smaller than the selected storage size.
-
-    * When performing automatic backups, {{ mpg-short-name }} does not create a new backup but saves the database changes introduced since the previous one. This means the storage space used by automatic backups increases only in proportion to the size of updates.
-
-    * Adding hosts increases the cluster's total storage size and, consequently, the free amount of backups.
+    * The number of hosts in a cluster does not affect the storage size and, consequently, the free backup quota.
+  
+    * When performing automatic backups, {{ mpg-short-name }} does not create a new backup but saves the database changes introduced since the previous one. As a result, the storage used by automatic backups grows only in proportion to the amount of changes.
 
 The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes is billed as 2 minutes.
-
 
 ### Cluster cost calculation example {#example}
 
@@ -158,7 +153,7 @@ A CVoS discount is only available for certain resource types. For unsupported re
 
 Pricing for backup storage has the following specifics:
 
-* Backups are stored free of charge as long as the combined size of the database and all backups is smaller than the total storage size.
+* Backup storage is not billable until the total volume of backups exceeds that of the cluster storage. This calculation does not count in the data volume of the database itself.
 
 * [Adding a host](./operations/hosts#add) increases the total cost per cluster. However, expenses for storing backups beyond the storage size will be lower due to the increased total storage size.
 

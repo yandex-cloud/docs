@@ -153,7 +153,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of cor
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -338,8 +338,8 @@ You can also [change the disk type and storage size for an individual shard](sha
   1. To change the disk type and increase the storage size for your {{ CK }} or {{ ZK }} hosts, select the appropriate values under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-disk }}** or **{{ ui-key.yacloud.clickhouse.cluster.section_clickhouse-keeper-disk }}**, respectively.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
   1. If you have changed the disk type for {{ CH }} hosts:
-      1. In the window that opens, view the number of non-replicated tables in the **Non-replicated MergeTree tables** chart and their size in **Size of non-replicated MergeTree tables**. The data in non-replicated tables will be lost. If you need to keep it, [convert]({{ ch.docs }}{{ lang }}/sql-reference/statements/attach#attach-mergetree-table-as-replicatedmergetree) your non-replicated tables to replicated ones before changing the disk type.
-      1. Confirm resource changes.
+      1. In the window that opens, view the number of non-replicated tables in the **Non-replicated MergeTree tables** chart and their size in **Size of non-replicated MergeTree tables**. The data in the non-replicated tables will be lost. If you need to keep it, [convert]({{ ch.docs }}{{ lang }}/sql-reference/statements/attach#attach-mergetree-table-as-replicatedmergetree) the non-replicated tables to replicated ones before you change the disk type.
+      1. Confirm updating the resources.
 
 - CLI {#cli}
 
@@ -413,7 +413,7 @@ You can also [change the disk type and storage size for an individual shard](sha
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -713,7 +713,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -886,7 +886,7 @@ You cannot disable settings for user or database management via SQL once they ar
                                   `zookeeper-emergency-usage-threshold=<immediate_expansion_threshold_in_percent> \
            --maintenance-window type=<maintenance_type>,`
                                `day=<day_of_week>,`
-                               `hour=<hour>
+                               `hour=<sequence_number_of_hour_interval>
         ```
 
 
@@ -984,7 +984,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -1043,7 +1043,7 @@ You cannot disable settings for user or database management via SQL once they ar
                 "anytime": {},
                 "weeklyMaintenanceWindow": {
                   "day": "<day_of_week>",
-                  "hour": "<hour_UTC>"
+                  "hour": "<sequence_number_of_hour_interval>"
                 }
               },
               "deletionProtection": <cluster_deletion_protection>
@@ -1071,12 +1071,14 @@ You cannot disable settings for user or database management via SQL once they ar
             
             * `maintenanceWindow`: [Maintenance](../concepts/maintenance.md) window settings, including for stopped clusters. Select one of these options:
 
-                * `anytime`: At any time (default).
+                * `anytime`: Any time (default).
                 * `weeklyMaintenanceWindow`: On schedule:
                     * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-                    * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
+                    * `hour`: UTC hour interval. The valid values range from `1` to `24`.
 
-            * `deletionProtection`: Cluster protection against accidental deletion, `true` or `false`. The default value is `false`.
+                      > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
+
+            * `deletionProtection`: Cluster deletion protection, `true` or `false`. The default value is `false`.
 
                 {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -1152,7 +1154,7 @@ You cannot disable settings for user or database management via SQL once they ar
                 "anytime": {},
                 "weekly_maintenance_window": {
                   "day": "<day_of_week>",
-                  "hour": "<hour_UTC>"
+                  "hour": "<sequence_number_of_hour_interval>"
                 }
               },
               "deletion_protection": <cluster_deletion_protection>
@@ -1180,12 +1182,14 @@ You cannot disable settings for user or database management via SQL once they ar
 
             * `maintenance_window`: [Maintenance](../concepts/maintenance.md) window settings, applying to both running and stopped clusters. Select one of these options:
 
-                * `anytime`: At any time (default).
+                * `anytime`: Any time (default).
                 * `weekly_maintenance_window`: On schedule:
                     * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-                    * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
+                    * `hour`: UTC hour interval. The valid values range from `1` to `24`.
 
-            * `deletion_protection`: Cluster protection against accidental deletion, `true` or `false`. The default value is `false`.
+                      > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
+
+            * `deletion_protection`: Cluster deletion protection, `true` or `false`. The default value is `false`.
 
                 {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -1288,7 +1292,7 @@ The following resources will be created for each database user:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -1407,7 +1411,7 @@ The following resources will be created for each database user:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

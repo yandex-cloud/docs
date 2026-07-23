@@ -163,7 +163,7 @@ The infrastructure support cost includes:
 
     - {{ TF }} {#tf}
 
-      1. In the configuration file, describe the resources you want to create:
+      1. In the configuration file, specify the properties of the resources you want to create:
 
           ```
           resource "yandex_resourcemanager_cloud_iam_member" "{{ roles-admin }}" {

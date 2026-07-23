@@ -5,12 +5,13 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создан секрет.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. [Перейдите]({{ link-console-main }}/link/lockbox) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета.
   1. (Опционально) Для разделения ресурсов на логические группы добавьте [метку](../../resource-manager/concepts/labels.md).
   1. (Опционально) Включите опцию **{{ ui-key.yacloud.lockbox.BaseInfoSection.field_deletion-protection }}**. Пока опция включена, удалить секрет невозможно. Не защищает содержимое секрета от изменения.
   1. Выберите **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}**:
+      
       * **{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-generated }}** — значение формируется автоматически:
   
         * В поле **{{ ui-key.yacloud.lockbox.SecretGeneratedVersion.label_key }}** введите неконфиденциальный идентификатор.
@@ -22,6 +23,7 @@
         * В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** введите конфиденциальные данные для хранения.
 
           Чтобы добавить больше данных, нажмите кнопку **{{ ui-key.yacloud.lockbox.SecretVersionsList.button_add-pair }}** и повторите шаги.
+  
   1. (Опционально) В поле **{{ ui-key.yacloud.lockbox.EncryptionInfoSection.title_kms-key }}** укажите существующий [ключ](../../kms/concepts/key.md) или [создайте новый](../../kms/operations/key.md#create).
 
      Указанный ключ [{{ kms-full-name }}](../../kms/) используется для шифрования секрета. Если вы не будете указывать ключ, секрет будет зашифрован специальным системным ключом.
@@ -59,6 +61,7 @@
      ```
 
      Где:
+     
      * `--name` — имя секрета. Обязательный параметр.
      * `--description` — описание секрета. Необязательный параметр.
      * `--payload` — содержимое секрета в виде массива формата YAML или JSON.
@@ -68,6 +71,7 @@
        >Например, для сохранения ключа `username` с текстовым значением `myusername` и ключа `avatar` с загруженным из файла `avatar.jpg` значением в бинарном формате можно указать:
        >
        >`[{'key': 'username', 'text_value': 'myusername'},{'key': 'avatar', 'binary_value': $(base64 -w 0 ./avatar.jpg)}]`
+     
      * `--cloud-id` — [идентификатор облака](../../resource-manager/operations/cloud/get-id.md), в котором будет создан секрет.
      * `--folder-id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором будет создан секрет.
      * `--deletion-protection` — защита от удаления секрета. Пока опция включена, удалить секрет невозможно. Не защищает содержимое секрета. Необязательный параметр.
@@ -121,6 +125,7 @@
      ```
 
      Где:
+     
      * `name` — имя секрета. Обязательный параметр.
      * `description` — описание секрета. Необязательный параметр.
      * `folder_id` — [идентификатор](../../resource-manager/operations/folder/get-id.md) [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в котором будет создан секрет. Необязательный параметр.
@@ -129,6 +134,7 @@
      * `labels` — [метка](../../overview/concepts/services.md#labels) ресурса в формате `<ключ>:"<значение>"`. Необязательный параметр.
 
      Более подробную информацию о параметрах ресурса `yandex_lockbox_secret` в {{ TF }}, смотрите в [документации провайдера]({{ tf-provider-resources-link }}/lockbox_secret).
+  
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

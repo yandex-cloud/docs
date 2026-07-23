@@ -17,7 +17,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Перейдите в сервис **Smart Web Security**.
+  1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
   1. На панели слева выберите ![domain-protection-icon](../../_assets/smartwebsecurity/domain-protection-icon.svg) **Защита доменов**.
   1. Нажмите кнопку **Создать прокси-сервер**.
   1. Введите произвольное имя прокси-сервера.
@@ -33,6 +33,7 @@
           1. Выберите **HTTP-коды** и (опционально) **Классы HTTP-кодов**, для которых будут отбрасываться логи.
           1. Укажите в процентах, какую часть логов нужно отбрасывать.
           1. Если для разных HTTP-кодов требуется отбрасывать разные доли логов, добавьте дополнительные правила.
+  
   1. Нажмите кнопку **Создать сервер**.
 
 Для работы с прокси-сервером будет создан сервисный аккаунт с ролями `monitoring.editor`, `smart-web-security.admin`, `certificate-manager.admin`, `logging.writer`.
@@ -47,6 +48,6 @@
 
 {% endnote %}
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 [Добавить домен](domain-create.md)

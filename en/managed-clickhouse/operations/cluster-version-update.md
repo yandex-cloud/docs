@@ -9,7 +9,7 @@ You can change the {{ CH }} version used by your cluster to any of the [versions
 
 To learn about upgrades within the same version and host maintenance, see [Maintenance](../concepts/maintenance.md).
 
-## List of available versions
+## Viewing a list of available versions {#versions-list}
 
 {% list tabs group=instructions %}
 
@@ -127,7 +127,7 @@ Make sure the upgrade will not disrupt your applications:
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create such a file, see the [Creating a cluster](cluster-create.md) section.
+        To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
 
     1. Add or update the `version` field in the {{ mch-name }} cluster description:
 
@@ -144,7 +144,7 @@ Make sure the upgrade will not disrupt your applications:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

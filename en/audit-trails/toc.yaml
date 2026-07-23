@@ -732,10 +732,14 @@ items:
         items:
           - name: CreateArtifact
             href: audit/cloudregistry/events-ref/CreateArtifact.md
+          - name: CreateLifecyclePolicy
+            href: audit/cloudregistry/events-ref/CreateLifecyclePolicy.md
           - name: CreateRegistry
             href: audit/cloudregistry/events-ref/CreateRegistry.md
           - name: DeleteArtifact
             href: audit/cloudregistry/events-ref/DeleteArtifact.md
+          - name: DeleteLifecyclePolicy
+            href: audit/cloudregistry/events-ref/DeleteLifecyclePolicy.md
           - name: DeleteRegistry
             href: audit/cloudregistry/events-ref/DeleteRegistry.md
           - name: RevokeDelegation
@@ -756,6 +760,8 @@ items:
             href: audit/cloudregistry/events-ref/UpdateArtifactAccessBindings.md
           - name: UpdateIpPermissions
             href: audit/cloudregistry/events-ref/UpdateIpPermissions.md
+          - name: UpdateLifecyclePolicy
+            href: audit/cloudregistry/events-ref/UpdateLifecyclePolicy.md
           - name: UpdateRegistry
             href: audit/cloudregistry/events-ref/UpdateRegistry.md
           - name: UpdateRegistryAccessBindings
@@ -3069,6 +3075,10 @@ items:
             href: audit/storage/events-ref/BucketEncryptionUpdate.md
           - name: BucketHttpsUpdate
             href: audit/storage/events-ref/BucketHttpsUpdate.md
+          - name: BucketInventoryConfigurationDelete
+            href: audit/storage/events-ref/BucketInventoryConfigurationDelete.md
+          - name: BucketInventoryConfigurationUpdate
+            href: audit/storage/events-ref/BucketInventoryConfigurationUpdate.md
           - name: BucketLifecycleUpdate
             href: audit/storage/events-ref/BucketLifecycleUpdate.md
           - name: BucketLoggingUpdate

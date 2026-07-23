@@ -5,6 +5,7 @@
 - [Установка CLI](install-cli.md) 
 - [Обновление CLI](update-cli.md)
 - [Удаление CLI](remove-cli.md)
+- [Работа с версиями команд CLI](command-versioning.md)
 
 ## Управление профилем {#profile}
 

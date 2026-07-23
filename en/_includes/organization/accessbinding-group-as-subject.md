@@ -74,7 +74,7 @@
          * `system:group:organization:<organization_ID>:users`: To assign a role to the `All users in organization X` system group.
          * `system:group:federation:<federation_ID>:users`: To assign a role to the `All users in federation N` system group.
 
-     For more on the properties of the `yandex_resourcemanager_cloud_iam_member` resource, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account_iam_member).
+     For more on `yandex_resourcemanager_cloud_iam_member` properties, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account_iam_member).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

@@ -29,6 +29,7 @@ description: Следуя данной инструкции, вы сможете
 1. На странице [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
 1. Если у вас еще нет каталога, [создайте его](../resource-manager/operations/folder/create.md).
 1. [Назначьте](../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} _минимальные_ роли:
+    
     * [organization-manager.admin](../organization/security/index.md#organization-manager-admin) на [облако](../resource-manager/concepts/resources-hierarchy.md#cloud) — для создания группы пользователей.
     * [vdi.admin](./security/index.md#vdi-admin) на [каталог](../resource-manager/concepts/resources-hierarchy.md#folder) — для создания группы рабочих столов и назначения ей [ACL](./concepts/acl.md).
 
@@ -78,24 +79,30 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана группа рабочих столов.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
+  1. [Перейдите]({{ link-console-main }}/link/cloud-desktop) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.vdi.button_empty-create-desktop-group }}**.
   1. Введите имя группы рабочих столов.
   1. Выберите **{{ ui-key.yacloud.vdi.section_type }}** — **{{ ui-key.yacloud.vdi.value_type-personal }}**. Рабочие столы назначаются пользователям при их первом подключении и остаются зарезервированными за ними.
   1. В блоке **{{ ui-key.yacloud.vdi.section_desktop }}** задайте:
+     
      1. **{{ ui-key.yacloud.vdi.field_max-desktops-amount }}** — `2`, максимальное количество рабочих столов в группе.
      1. **{{ ui-key.yacloud.vdi.field_min-ready-desktops }}** — `1`, количество рабочих столов, которые будут всегда загружены для быстрого подключения пользователей.
+  
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** на вкладке **{{ ui-key.yacloud.component.compute.resources.label_tab-standard }}** выберите **Базовая**.
   1. Выберите [образ](./concepts/images.md) операционной системы — `Ubuntu 20.04 LTS`.
   1. В блоке **{{ ui-key.yacloud.vdi.section_disks }}**:
+      
       * Выберите [типы](../compute/concepts/disk.md#disks-types) загрузочного и рабочего [дисков](./concepts/disks.md) — `SSD`.
       * Укажите размер загрузочного диска — `60 ГБ`.
       * Укажите размер рабочего диска — `4 ГБ`.
+  
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** выберите [облачную сеть](../vpc/concepts/network.md#network) и [подсети](../vpc/concepts/network.md#subnet), в которых будут размещаться рабочие столы.
   1. В блоке **Пользователи рабочих столов** нажмите **Добавить пользователей** и укажите, кому будут доступны рабочие столы:
+     
      * [Группы пользователей](../iam/concepts/access-control/public-group.md).
      * [Отдельные пользователи](../iam/concepts/users/accounts.md).
      * Почтовый адрес любого пользователя — ему будет отправлено приглашение в вашу организацию и назначена роль для доступа к рабочим столам.
+  
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}

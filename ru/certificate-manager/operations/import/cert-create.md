@@ -31,6 +31,7 @@
 {% endlist %}
 
 Где:
+
 * `-x509` — результатом работы команды будет файл сертификата.
 * `-newkey` — будет создан новый файл приватного ключа.
 * `rsa:4096` — алгоритм и длина ключа.
@@ -51,21 +52,29 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в который будет добавлен пользовательский сертификат.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+  1. [Перейдите]({{ link-console-main }}/link/certificate-manager) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.certificate-manager.button_empty-action }}**.
   1. В открывшемся меню выберите **{{ ui-key.yacloud.certificate-manager.action_import }}**.
   1. В открывшемся окне в поле **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** введите имя пользовательского сертификата.
   1. (Опционально) В поле **Описание** введите описание пользовательского сертификата.
   1. В поле **{{ ui-key.yacloud.certificate-manager.import.field_certificate }}** нажмите кнопку **{{ ui-key.yacloud.certificate-manager.import.button_add-certificate }}**.
+     
      1. Выберите способ добавления `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}`.
      1. Нажмите кнопку **Прикрепить файл**.
+        
         1. В открывшемся окне выберите файл самоподписанного сертификата `cert.pem`.
+     
      1. Нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
+  
   1. В поле **{{ ui-key.yacloud.certificate-manager.import.field_privateKey }}** нажмите кнопку **{{ ui-key.yacloud.certificate-manager.import.button_add-privateKey }}**.
+     
      1. Выберите способ добавления `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}`.
      1. Нажмите кнопку **Прикрепить файл**.
+        
         1. В открывшемся окне выберите файл приватного ключа `key.pem`.
+     
      1. Нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
+  
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -90,6 +99,7 @@
      ```
 
      Где:
+     
      * `--name` — имя сертификата.
      * `--chain` — путь к файлу цепочки сертификатов.
      * `--key` — путь к файлу приватного ключа сертификата.
@@ -132,11 +142,13 @@
      ```
 
      Где:
+     
      * `name` — имя сертификата.
      * `certificate` — содержимое файла с [сертификатом](../../concepts/imported-certificate.md).
      * `private_key` — содержимое файла с приватным ключом.
 
      Подробнее о параметрах ресурса `yandex_cm_certificate` в [документации провайдера]({{ tf-provider-resources-link }}/cm_certificate).
+  
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -187,12 +199,14 @@
      ```
 
      Где:
+     
      * `name` — имя [секрета](../../../lockbox/concepts/secret.md) {{ lockbox-name }}.
      * `certificate` — содержимое файла с сертификатом.
      * `id` — идентификатор секрета {{ lockbox-name }}, в котором находится приватный ключ.
      * `key` — ключ секрета {{ lockbox-name }}, в котором находится приватный ключ.
 
      Подробнее о параметрах ресурса `yandex_cm_certificate` в [документации провайдера]({{ tf-provider-resources-link }}/cm_certificate).
+  
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

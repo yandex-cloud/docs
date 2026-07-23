@@ -96,6 +96,9 @@ You can [create](#create-backup) backups and use existing backups to [restore](#
 
       * `--time`: Point in time to restore the cluster to, in `yyyy-mm-ddThh:mm:ssZ` format.
       * `--name`: Cluster name.
+
+        {% include [cluster-name](../../_includes/managed-spqr/cluster-name.md) %}
+
       * `--description`: Cluster description.
       * `--environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
       * `--network-id`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be deployed in.
@@ -220,6 +223,9 @@ You can [create](#create-backup) backups and use existing backups to [restore](#
         You can get the backup ID with the [list of backups](#list-backups).
 
       * `name`: Cluster name.
+
+        {% include [cluster-name](../../_includes/managed-spqr/cluster-name.md) %}
+
       * `description`: Cluster description.
       * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
       * `configSpec.spqrSpec.router.resources`: Parameters of router host resources:
@@ -389,6 +395,9 @@ You can [create](#create-backup) backups and use existing backups to [restore](#
         You can get the backup ID with the [list of backups](#list-backups).
 
       * `name`: Cluster name.
+
+        {% include [cluster-name](../../_includes/managed-spqr/cluster-name.md) %}
+
       * `description`: Cluster description.
       * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
       * `config_spec.spqr_spec.router.resources`: Parameters of router host resources:
@@ -508,6 +517,8 @@ You can [create](#create-backup) backups and use existing backups to [restore](#
       yc managed-sharded-postgresql cluster backup <cluster_name_or_ID>
       ```
 
+      {% include [cluster-name-id](../../_includes/managed-spqr/cluster-name-id.md) %}
+
 - REST API {#api}
 
   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
@@ -523,6 +534,8 @@ You can [create](#create-backup) backups and use existing backups to [restore](#
         --header "Content-Type: application/json" \
         --url 'https://{{ api-host-mdb }}/managed-spqr/v1/clusters/<cluster_ID>:backup'
       ```
+
+      {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
 
   1. View the [server response](../api-ref/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -549,6 +562,8 @@ You can [create](#create-backup) backups and use existing backups to [restore](#
         {{ api-host-mdb }}:{{ port-https }} \
         yandex.cloud.mdb.spqr.v1.ClusterService.Backup
       ```
+
+      {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
 
   1. Check the [server response](../api-ref/grpc/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -588,7 +603,9 @@ You can [create](#create-backup) backups and use existing backups to [restore](#
 
       ```bash
       yc managed-sharded-postgresql cluster list-backups <cluster_name_or_ID>
-      ```    
+      ```
+
+      {% include [cluster-name-id](../../_includes/managed-spqr/cluster-name-id.md) %}
 
   To get a list of backups for all {{ mspqr-name }} clusters in a folder:
 
@@ -620,6 +637,8 @@ You can [create](#create-backup) backups and use existing backups to [restore](#
             --header "Authorization: Bearer $IAM_TOKEN" \
             --url 'https://{{ api-host-mdb }}/managed-spqr/v1/clusters/<cluster_ID>/backups'
           ```
+
+          {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
 
       1. Check the [server response](../api-ref/Cluster/listBackups.md#yandex.cloud.mdb.spqr.v1.ListClusterBackupsResponse) to make sure your request was successful.
 
@@ -666,6 +685,8 @@ You can [create](#create-backup) backups and use existing backups to [restore](#
             {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.spqr.v1.ClusterService.ListBackups
           ```
+
+          {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
 
       1. Check the [server response](../api-ref/grpc/Cluster/listBackups.md#yandex.cloud.mdb.spqr.v1.ListClusterBackupsResponse) to make sure your request was successful.
 
@@ -813,6 +834,8 @@ You can [create](#create-backup) backups and use existing backups to [restore](#
 
       Where `--backup-window-start` is the daily backup start time (UTC) in `HH:MM:SS` format.
 
+      {% include [cluster-name-id](../../_includes/managed-spqr/cluster-name-id.md) %}
+
 - REST API {#api}
 
   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
@@ -867,6 +890,8 @@ You can [create](#create-backup) backups and use existing backups to [restore](#
         --data "@body.json"
       ```
 
+      {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
+
   1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
@@ -880,6 +905,7 @@ You can [create](#create-backup) backups and use existing backups to [restore](#
 
       ```json
       {
+        "cluster_id": "<cluster_ID>",
         "update_mask": {
           "paths": [
             "config_spec.backup_window_start"
@@ -898,6 +924,7 @@ You can [create](#create-backup) backups and use existing backups to [restore](#
 
       Where:
 
+      * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
       * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
         {% cut "Format for listing settings" %}
@@ -982,6 +1009,8 @@ You can [create](#create-backup) backups and use existing backups to [restore](#
 
       Where `--backup-retain-period-days` is the retention period of automatic cluster backups. Possible values: between `7` and `60` days. The default value is `7`.
 
+      {% include [cluster-name-id](../../_includes/managed-spqr/cluster-name-id.md) %}
+
 - REST API {#api}
 
   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
@@ -1024,6 +1053,8 @@ You can [create](#create-backup) backups and use existing backups to [restore](#
         --data "@body.json"
       ```
 
+      {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
+
   1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
@@ -1037,6 +1068,7 @@ You can [create](#create-backup) backups and use existing backups to [restore](#
 
       ```json
       {
+        "cluster_id": "<cluster_ID>",
         "update_mask": {
           "paths": [
             "config_spec.backup_retain_period_days"
@@ -1050,6 +1082,7 @@ You can [create](#create-backup) backups and use existing backups to [restore](#
 
       Where:
 
+      * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
       * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
         {% cut "Format for listing settings" %}

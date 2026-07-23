@@ -6,7 +6,7 @@ resource "yandex_mdb_clickhouse_cluster_v2" "<cluster_name>" {
   maintenance_window {
     type = "<maintenance_type>"
     day  = "<day_of_week>"
-    hour = <hour>
+    hour = <sequence_number_of_hour_interval>
   }
   ...
 }

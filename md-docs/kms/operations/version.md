@@ -18,8 +18,8 @@
 
 - Консоль управления {#console}
 
-  1. Войдите в [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Key Management Service**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/kms) в сервис **Key Management Service**.
   1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **Симметричные ключи**.
   1. Нажмите на нужный ключ в списке, чтобы открыть страницу с его атрибутами.
   1. В строке нужной версии нажмите значок ![menu](../../_assets/console-icons/ellipsis.svg) и выберите **Сделать основной**.
@@ -76,8 +76,8 @@
 
   Чтобы удалить версию:
 
-  1. Войдите в [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Key Management Service**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/kms) в сервис **Key Management Service**.
   1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **Симметричные ключи**.
   1. Нажмите на нужный ключ в списке, чтобы открыть страницу с его атрибутами.
   1. В строке нужной версии нажмите значок ![menu](../../_assets/console-icons/ellipsis.svg) и выберите **Запланировать удаление**.
@@ -136,8 +136,8 @@
 
 - Консоль управления {#console}
 
-  1. Войдите в [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Key Management Service**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/kms) в сервис **Key Management Service**.
   1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **Симметричные ключи**.
   1. Нажмите на нужный ключ в списке, чтобы открыть страницу с его атрибутами.
   1. В строке нужной версии нажмите значок ![menu](../../_assets/console-icons/ellipsis.svg) и выберите **Отменить удаление**.

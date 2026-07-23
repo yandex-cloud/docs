@@ -16,9 +16,10 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ключевая пара.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. [Перейдите]({{ link-console-main }}/link/kms) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. На панели слева выберите ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
   1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.kms.asymmetric-keys.title_create }}**. В открывшемся окне:
+      
       1. Укажите имя и при необходимости описание в свободной форме.
       1. В поле **{{ ui-key.yacloud.kms.asymmetric-key.form.title_type }}** выберите `{{ ui-key.yacloud.kms.asymmetric-key.form.label_signature }}`.
       1. В поле **{{ ui-key.yacloud.kms.asymmetric-key.form.title_algorithm }}** выберите нужный алгоритм подписи.
@@ -49,6 +50,7 @@ description: Следуя данной инструкции, вы сможете
       ```
 
       Где:
+      
       * `--name` — имя ключевой пары электронной подписи.
       * `--folder-id` — идентификатор каталога, в котором будет создана ключевая пара.
       * `--signature-algorithm` — алгоритм электронной подписи. Доступны следующие алгоритмы [ECDSA](https://ru.wikipedia.org/wiki/ECDSA) и [RSA](https://ru.wikipedia.org/wiki/RSA):
@@ -91,10 +93,11 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужная ключевая пара.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. [Перейдите]({{ link-console-main }}/link/kms) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. На панели слева выберите ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
   1. Перейдите на вкладку **{{ ui-key.yacloud.kms.asymmetric-key.form.label_signature }}**.
   1. В строке с нужной ключевой парой нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**. В открывшемся окне:
+      
       1. Измените необходимые атрибуты ключевой пары.
       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
@@ -124,6 +127,7 @@ description: Следуя данной инструкции, вы сможете
       ```
 
       Где:
+      
       * `--id` — идентификатор ключевой пары электронной подписи.
       * `--new-name` — новое имя ключевой пары.
       * `--deletion-protection` — флаг включения защиты от удаления. Чтобы отключить защиту ключевой пары от удаления, используйте флаг `--no-deletion-protection`.
@@ -153,7 +157,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужная ключевая пара.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. [Перейдите]({{ link-console-main }}/link/kms) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. На панели слева выберите ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
   1. Перейдите на вкладку **{{ ui-key.yacloud.kms.asymmetric-key.form.label_signature }}**.
   1. В строке с нужной ключевой парой нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.

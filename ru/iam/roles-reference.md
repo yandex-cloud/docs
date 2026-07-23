@@ -2920,7 +2920,7 @@ description: В статье приведен полный справочник 
 
 {% include [ycem.executor](../_roles/ycem/executor.md) %}
 
-Подробнее в [{#T}](../yandex-siem/security/index.md).
+Подробнее в [{#T}](../siem/security/index.md).
 
 
 ## {{ captcha-full-name }} {#captcha-roles}

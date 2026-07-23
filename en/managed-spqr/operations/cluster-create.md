@@ -10,6 +10,18 @@ keywords:
 # Creating a {{ SPQR }} cluster
 
 
+
+## Roles for creating a cluster {#roles}
+
+To create and use a {{ mspqr-name }} cluster, your {{ yandex-cloud }} account needs the following roles:
+
+* {% include [roles-mspqr-editor](../../_includes/mdb/mspqr/roles-mspqr-editor.md) %}
+* {% include [roles-vpc-user](../../_includes/mdb/roles-vpc-user.md) %}
+* {% include [roles-mdb-viewer](../../_includes/mdb/roles-mdb-viewer-create-cluster.md) %}
+
+For more information about assigning roles, see [this {{ iam-full-name }} guide](../../iam/operations/roles/grant.md).
+
+
 ## Creating a cluster {#create-cluster}
 
 {% list tabs group=instructions %}

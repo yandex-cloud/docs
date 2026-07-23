@@ -23,7 +23,9 @@ Retrieves logs for the specified PostgreSQL cluster.
   "to_time": "google.protobuf.Timestamp",
   "page_size": "int64",
   "page_token": "string",
-  "always_next_page_token": "bool"
+  "always_next_page_token": "bool",
+  "filter": "string",
+  "order_by": "string"
 }
 ```
 
@@ -68,6 +70,24 @@ The maximum string length in characters is 100. ||
 || always_next_page_token | **bool**
 
 Always return `next_page_token`, even if current page is empty. ||
+|| filter | **string**
+
+A filter expression that filters resources listed in the response.
+The expression must specify:
+1. The field name. Currently filtering can be applied to the [LogRecord.logs.message.hostname],
+[LogRecord.logs.message.error_severity] (for POSTGRESQL service), [LogRecord.logs.message.level] (for POOLER service) fields.
+2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+3. The value. Must be 1-63 characters long and match the regular expression `^[a-z0-9.-]{1,61}$`.
+Examples of a filter:
+`message.hostname='node1.db.cloud.yandex.net'`
+`message.error_severity IN ("ERROR", "FATAL", "PANIC") AND message.hostname = "node1.db.cloud.yandex.net"`
+
+The maximum string length in characters is 1000. ||
+|| order_by | **string**
+
+Order by specification as a JSON array of {field, order} objects.
+Supported fields: TIMESTAMP. Supported orders: ASC, DESC.
+Example: [{"field": "TIMESTAMP", "order": "DESC"}] ||
 |#
 
 ## ListClusterLogsResponse {#yandex.cloud.mdb.postgresql.v1.ListClusterLogsResponse}

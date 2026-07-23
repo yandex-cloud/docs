@@ -24,11 +24,19 @@ For more information on the {{ mrd-name }} cluster structure, see [Resource rela
 
 
 
+
+## Roles for creating a cluster {#roles}
+
+To create a {{ mrd-name }} cluster and use it, your {{ yandex-cloud }} account needs the following roles:
+
+* {% include [roles-mrd-editor](../../_includes/mdb/mvk/roles-mrd-editor.md) %}
+* {% include [roles-vpc-user](../../_includes/mdb/roles-vpc-user.md) %}
+* {% include [roles-mdb-viewer](../../_includes/mdb/roles-mdb-viewer-create-cluster.md) %}
+
+For more information about assigning roles, see [this {{ iam-full-name }} guide](../../iam/operations/roles/grant.md).
+
+
 ## Creating a cluster {#create-cluster}
-
-
-To create a {{ mrd-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role along with the [{{ roles.mrd.editor }} role or higher](../security/index.md#roles-list). To learn how to assign a role, see [this {{ iam-name }} guide](../../iam/operations/roles/grant.md).
-
 
 {% note info %}
 
@@ -268,6 +276,10 @@ There are no restrictions for non-sharded clusters.
 
          {% include [modules-warn](../../_includes/mdb/mvk/enable-modules-note.md) %}
 
+      To set up a [maintenance window](../concepts/maintenance.md) (including for disabled clusters), provide `--maintenance-window type=<maintenance_window_type>`, where `type` takes the following values:
+
+      {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
+
       
       You must specify the `subnet-id` if the selected availability zone has more than one subnet.
 
@@ -275,12 +287,6 @@ There are no restrictions for non-sharded clusters.
       {% include [requirements-to-password](../../_includes/mdb/mvk/requirements-to-password.md) %}
 
       If you are creating a sharded cluster with the **local-ssd** disk type, specify at least two hosts per shard in the command.
-
-      {% note info %}
-
-      The default [maintenance](../concepts/maintenance.md) mode for new clusters is `anytime`. You can set a specific maintenance period when [updating the cluster settings](update.md#change-additional-settings).
-
-      {% endnote %}
 
 
 - {{ TF }} {#tf}
@@ -505,7 +511,13 @@ There are no restrictions for non-sharded clusters.
           "tlsEnabled": <encrypted_TLS_connection_support>,
           "deletionProtection": <cluster_deletion_protection>,
           "announceHostnames": <using_FQDNs_instead_of_IP_addresses>,
-          "persistenceMode": "<persistence_mode>"
+          "persistenceMode": "<persistence_mode>",
+          "maintenanceWindow": {
+            "weeklyMaintenanceWindow": {
+              "day": "<day_of_week>",
+              "hour": "<sequence_number_of_hour_interval>"
+            }
+          }
         }
         ```
 
@@ -587,6 +599,16 @@ There are no restrictions for non-sharded clusters.
         * `persistenceMode`: [Data persistence mode](../concepts/replication.md#persistence).
 
             {% include [persistence-modes](../../_includes/mdb/mvk/persistence-modes.md) %}
+
+        * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. Provide one of these two parameters:
+
+            * `anytime`: Maintenance takes place at any time.
+            * `weeklyMaintenanceWindow`: Maintenance takes place once a week at the specified time:
+
+                * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+                * `hour`: UTC hour interval, from `1` to `24`.
+
+                > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
     1. Call the [Cluster.Create](../api-ref/Cluster/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
@@ -672,7 +694,13 @@ There are no restrictions for non-sharded clusters.
           "tls_enabled": <encrypted_TLS_connection_support>,
           "deletion_protection": <cluster_deletion_protection>,
           "announce_hostnames": <using_FQDNs_instead_of_IP_addresses>,
-          "persistence_mode": "<persistence_mode>"
+          "persistence_mode": "<persistence_mode>",
+          "maintenance_window": {
+            "weekly_maintenance_window": {
+              "day": "<day_of_week>",
+              "hour": "<sequence_number_of_hour_interval>"
+            }
+          }
         }
         ```
 
@@ -754,6 +782,16 @@ There are no restrictions for non-sharded clusters.
         * `persistence_mode`: [Data persistence mode](../concepts/replication.md#persistence).
 
             {% include [persistence-modes](../../_includes/mdb/mvk/persistence-modes.md) %}
+
+        * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. Provide one of these two properties:
+
+            * `anytime`: Maintenance takes place at any time.
+            * `weekly_maintenance_window`: Maintenance takes place once a week at the specified time:
+
+                * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+                * `hour`: UTC hour interval, from `1` to `24`.
+
+                > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
     1. Call the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 

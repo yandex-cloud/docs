@@ -583,8 +583,10 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 Имя события | Описание
 --- | ---
 `CreateArtifact` | Создание [артефакта](../../cloud-registry/concepts/artifacts/index.md)
+`CreateLifecyclePolicy` | Создание [политики жизненного цикла](../../cloud-registry/concepts/lifecycle-policy.md)
 `CreateRegistry` | Создание реестра
 `DeleteArtifact` | Удаление артефактов
+`DeleteLifecyclePolicy` | Удаление политики жизненного цикла
 `DeleteRegistry` | Удаление реестра
 `RevokeDelegation` | Отзыв прав делегирования у сервисного аккаунта для доступа к ресурсам облака
 `SetArtifactAccessBindings` | Назначение прав доступа для артефакта
@@ -595,6 +597,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `UpdateArtifact` | Изменение артефакта
 `UpdateArtifactAccessBindings` | Изменение прав доступа для артефакта
 `UpdateIpPermissions` | Изменение доступа для IP-адресов
+`UpdateLifecyclePolicy` | Изменение политики жизненного цикла
 `UpdateRegistry` | Изменение реестра
 `UpdateRegistryAccessBindings` | Изменение прав доступа на реестр
 `UpdateRegistryFolderAccessBindings` | Изменение прав доступа к каталогу реестра
@@ -1460,6 +1463,8 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `BucketAccessBindingsUpdate` | Изменение механизма привязки доступа к бакету
 `BucketAclUpdate` | Изменение ACL бакета
 `BucketCorsUpdate` | Изменение конфигурации CORS бакета
+`BucketInventoryConfigurationDelete` | Удаление конфигурации S3 Inventory бакета
+`BucketInventoryConfigurationUpdate` | Изменение конфигурации S3 Inventory бакета
 `BucketCreate` | Создание бакета
 `BucketDelete` | Удаление бакета
 `BucketEncryptionUpdate` | Обновление настроек шифрования бакета

@@ -11,7 +11,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) откройте каталог, в котором находится трейл.
-  1. Перейдите в сервис **Audit Trails**.
+  1. [Перейдите](https://console.yandex.cloud/link/audit-trails) в сервис **Audit Trails**.
   1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **Трейлы**.
   1. Выберите нужный трейл.
   1. Перейдите на панель ![image](../../_assets/console-icons/list-check.svg) **Операции** для выбранного трейла.

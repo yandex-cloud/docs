@@ -22,13 +22,15 @@
     
     Создайте ключ симметричного шифрования: 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать ключ.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+    1. [Перейдите]({{ link-console-main }}/link/kms) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
     1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** и задайте параметры ключа:
+       
        * В поле **{{ ui-key.yacloud.common.name }}** укажите `my-first-key`.
        * В поле **{{ ui-key.yacloud.kms.symmetric-key.form.field_algorithm }}** укажите `AES-256`.
        * В поле **{{ ui-key.yacloud.kms.symmetric-key.form.field_rotation }}** оставьте значение `{{ ui-key.yacloud.kms.symmetric-key.form.value_no-rotation }}`.
        * Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+    
     1. Нажмите на строку с именем ключа и убедитесь, что в блоке **{{ ui-key.yacloud.kms.symmetric-key.overview.label_title-versions }}** есть первая версия ключа.
 
 {% endlist %}
@@ -45,9 +47,11 @@
     
     1. Запишите секретный текст в файл `plaintext.txt`.
     1. Из консоли управления скопируйте идентификатор ключа, созданного ранее.
-        1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором был создан ключ.
-        1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+        
+        1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором был создан ключ.
+        1. [Перейдите]({{ link-console-main }}/link/kms) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
         1. В открывшемся окне скопируйте ключ из поля **{{ ui-key.yacloud.common.id }}**.
+    
     1. Зашифруйте текст:
     
        ```

@@ -9,7 +9,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-    1. Перейдите в сервис **Yandex SmartCaptcha**.
+    1. [Перейдите](https://console.yandex.cloud/link/smartcaptcha) в сервис **Yandex SmartCaptcha**.
     1. Выберите капчу и нажмите ![image](../../_assets/console-icons/ellipsis.svg) → **Удалить**.
     1. Подтвердите удаление.
 

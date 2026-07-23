@@ -59,12 +59,15 @@ You are billed for the following:
 
         * For **Intel Ice Lake** and **AMD Zen 4**: In {{ local-ssd-v3-step }} increments.
 
-    For more information about platform-specific storage limitations, see [Disk types](./concepts/storage.md).
+    For information about platform-specific storage limitations, see [Disk types](./concepts/storage.md).
 
-* Size of database backups in excess of the storage requested for the cluster.
+* Database backup storage exceeding the cluster’s allocated space.
 
-    * Backups are stored free of charge as long as the total size of the database and all its backups is smaller than the selected storage size.
-    * The requested storage size is allocated for each host, so the number of hosts in the cluster does not affect the free backup size.
+    {% include [pricing-backup](../_includes/mdb/pricing-backup.md) %} 
+
+    * Backup storage is not billable until the total volume of backups exceeds that of the cluster storage. This calculation does not count in the data volume of the database itself.
+
+    * The number of hosts in a cluster does not affect the storage size and, consequently, the free backup quota.
 
 The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes is billed as 2 minutes.
 

@@ -10,11 +10,63 @@ For more information about version upgrades, see [Updating the {{ PG }} major ve
 
 To learn about upgrades within the same version and host maintenance, see [Maintenance](../concepts/maintenance.md).
 
+
+## Viewing a list of available versions {#versions-list}
+
 {% note info %}
 
 Upgrade from a standard version to a _1C:Enterprise_ version (e.g., `14` to `14-1c`) is not supported.
 
 {% endnote %}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+    In the [management console]({{ link-console-main }}), open the {{ mpg-name }} cluster [create](cluster-create.md) or [update](update.md) page. You can view the list in the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field.
+
+- REST API {#api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Call the [Versions.List](../api-ref/Versions/list.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/versions'
+        ```
+
+    1. Check the [server response](../api-ref/Versions/list.md#responses) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Call the [VersionsService.List](../api-ref/grpc/Versions/list.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/versions_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.postgresql.v1.VersionsService.List
+        ```
+
+    1. Check the [server response](../api-ref/grpc/Versions/list.md#yandex.cloud.mdb.postgresql.v1.ListVersionsResponse) to make sure your request was successful.
+
+{% endlist %}
+
 
 ## Before a version upgrade {#before-update}
 

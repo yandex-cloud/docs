@@ -9,11 +9,13 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится профиль ARL.
-  1. Перейдите в сервис **Smart Web Security**.
+  1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
   1. На панели слева выберите ![image](../../_assets/smartwebsecurity/arl.svg) **Профили ARL**.
   1. Выберите профиль, в котором вы хотите изменить правило.
   1. В строке с нужным правилом нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**. В открывшемся окне:
+      
       1. Измените основные параметры правила:
+          
           * **Имя**.
           * **Описание**.
           * **Приоритет** правила. Чем меньше значение параметра, тем больший приоритет у правила.

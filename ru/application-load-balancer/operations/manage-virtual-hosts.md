@@ -16,10 +16,11 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете создавать виртуальный хост.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. На панели слева выберите ![route](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}** и выберите [HTTP-роутер](../concepts/http-router.md), в котором вы будете создавать виртуальный хост.
   
       При необходимости [создайте](./http-router-create.md) новый HTTP-роутер.
+  
   1. На панели сверху нажмите ![cube](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.alb.button_virtual-host-create }}** и в открывшемся окне:
 
       1. {% include [console-name-vh](../../_includes/application-load-balancer/instruction-steps/console-name-vh.md) %}
@@ -128,7 +129,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужный виртуальный хост.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. На панели слева выберите ![route](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}** и выберите [HTTP-роутер](../concepts/http-router.md), в котором находится нужный виртуальный хост.
   1. На открывшейся странице в секции **{{ ui-key.yacloud.alb.label_virtual-hosts }}** в блоке с нужным виртуальным хостом нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. В открывшемся окне:
 
@@ -140,6 +141,7 @@ description: Следуя данной инструкции, вы сможете
           При необходимости воспользуйтесь кнопкой **{{ ui-key.yacloud.alb.button_add-host-id }}**, чтобы задать для виртуального хоста дополнительные значения **{{ ui-key.yacloud.alb.label_authority }}**.
 
           {% include [console-no-authority-notice](../../_includes/application-load-balancer/instruction-steps/console-no-authority-notice.md) %}
+      
       1. {% include [console-vh-form-sws-step](../../_includes/application-load-balancer/instruction-steps/console-vh-form-sws-step.md) %}
       1. {% include [console-vh-form-albnative-rl-step](../../_includes/application-load-balancer/instruction-steps/console-vh-form-albnative-rl-step.md) %}
       1. (Опционально) Разверните блок **{{ ui-key.yacloud.alb.label_modifications }}** и настройте модификацию [HTTP-заголовков](https://ru.wikipedia.org/wiki/Список_заголовков_HTTP). Если настроек в блоке еще нет, нажмите кнопку **{{ ui-key.yacloud.alb.button_add-modification }}**, чтобы добавить новую модификацию заголовка:
@@ -160,6 +162,7 @@ description: Следуя данной инструкции, вы сможете
       ```bash
       yc alb virtual-host update --help
       ```
+  
   1. {% include [cli-vh-list-http-routers](../../_includes/application-load-balancer/instruction-steps/cli-vh-list-http-routers.md) %}
   1. {% include [cli-vh-list-vhs](../../_includes/application-load-balancer/instruction-steps/cli-vh-list-vhs.md) %}
   1. Чтобы изменить виртуальный хост, выполните команду, указав его имя:
@@ -176,14 +179,17 @@ description: Следуя данной инструкции, вы сможете
       ```
 
       Где:
+      
       * `--http-router-name` — имя HTTP-роутера.
 
           Вместо имени HTTP-роутера вы можете передать его идентификатор в параметре `--http-router-id`.
+      
       * `--authority` — список доменов для заголовков `Host` для HTTP/1.1 или `authority` для HTTP/2, которые будут связаны с этим виртуальным хостом. Несколько значений указываются через запятую. Поддерживаются символы подстановки, например `*.foo.com` или `*-bar.foo.com`. Для gRPC-трафика вы можете указать IP-адрес балансировщика.
 
           Необязательный параметр. Если значение не задано, на виртуальный хост будет направляться весь трафик.
 
           Чтобы удалить заданный для виртуального хоста список доменов, передайте в команде параметр `--clear-authorities`.
+      
       * `--modify-request-header` — настройки модификации HTTP-заголовка запроса в формате `<свойство>=<значение>`. Возможные свойства:
 
           {% include [cli-vh-modify-header-options](../../_includes/application-load-balancer/instruction-steps/cli-vh-modify-header-options.md) %}
@@ -193,6 +199,7 @@ description: Следуя данной инструкции, вы сможете
           Необязательный параметр: если не задан, заголовки запроса передаются в бэкенд в неизменном виде.
 
           Чтобы очистить все настройки модификации HTTP-заголовка запроса для виртуального хоста, передайте в команде параметр `--clear-request-header-modifications`.
+      
       * `--modify-response-header` — настройки модификации HTTP-заголовка ответа в формате `<свойство>=<значение>`. Возможные свойства: 
 
           {% include [cli-vh-modify-header-options](../../_includes/application-load-balancer/instruction-steps/cli-vh-modify-header-options.md) %}
@@ -202,7 +209,9 @@ description: Следуя данной инструкции, вы сможете
           Необязательный параметр: если не задан, заголовки ответа передаются клиенту в неизменном виде.
 
           Чтобы очистить все настройки модификации HTTP-заголовка ответа для виртуального хоста, передайте в команде параметр `--clear-response-header-modifications`.
+      
       * `--rate-limit` — ограничение на частоту запросов. Возможные свойства:
+          
           * `rps` или `rpm` — количество запросов, которые можно принять в секунду или в минуту.
           * `all-requests` — ограничение на все входящие запросы.
           * `requests-per-ip` — ограничение на количество запросов для каждого IP-адреса клиента в отдельности.
@@ -212,10 +221,12 @@ description: Следуя данной инструкции, вы сможете
           Необязательный параметр: если не задан, ограничение на частоту запросов не применяется.
 
           Чтобы очистить все заданные для виртуального хоста ограничения на количество запросов, передайте в команде параметр `--clear-rate-limit`.
+      
       * `--security-profile-id` — идентификатор [профиля безопасности](../../smartwebsecurity/concepts/profiles.md) сервиса [{{ sws-full-name }}](../../smartwebsecurity/index.yaml). Профиль безопасности позволяет настроить фильтрацию входящих запросов, подключить [WAF](../../smartwebsecurity/concepts/waf.md) и установить лимиты на количество запросов для защиты от вредоносной активности. Подробнее в разделе [{#T}](../../smartwebsecurity/concepts/profiles.md). Необязательный параметр.
 
           Чтобы отвязать профиль безопасности от виртуального хоста, передайте в параметре пустое значение: `--security-profile-id ""`
 
+      
       * `--clear-routes` — параметр, который удаляет все маршруты из виртуального хоста. Необязательный параметр.
 
       Результат:
@@ -288,6 +299,7 @@ description: Следуя данной инструкции, вы сможете
       {% endlist %}
 
       Параметры используемых ресурсов приведены в документации провайдера {{ TF }}: [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host).
+  
   1. Обновите ресурсы:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -316,7 +328,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужный виртуальный хост.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. На панели слева выберите ![route](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}** и выберите [HTTP-роутер](../concepts/http-router.md), в котором находится нужный виртуальный хост.
   1. На открывшейся странице в секции **{{ ui-key.yacloud.alb.label_virtual-hosts }}** в блоке с нужным виртуальным хостом нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. В открывшемся окне подтвердите удаление.
@@ -332,6 +344,7 @@ description: Следуя данной инструкции, вы сможете
       ```bash
       yc alb virtual-host delete --help
       ```
+  
   1. {% include [cli-vh-list-http-routers](../../_includes/application-load-balancer/instruction-steps/cli-vh-list-http-routers.md) %}
   1. {% include [cli-vh-list-vhs](../../_includes/application-load-balancer/instruction-steps/cli-vh-list-vhs.md) %}
   1. Чтобы удалить виртуальный хост, выполните команду, указав его имя:

@@ -18,6 +18,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [Удаление CLI](operations/remove-cli.md)
 
+ - [Работа с версиями команд CLI](operations/command-versioning.md)
+
 ### Управление профилем
 
  - [Создание профиля](operations/profile/profile-create.md)
@@ -1784,7 +1786,13 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [get](cli-ref/cloud-registry/cli-ref/registry/lifecycle-policy/get.md)
 
+ - [get-dry-run-result](cli-ref/cloud-registry/cli-ref/registry/lifecycle-policy/get-dry-run-result.md)
+
  - [list](cli-ref/cloud-registry/cli-ref/registry/lifecycle-policy/list.md)
+
+ - [list-dry-run-artifacts](cli-ref/cloud-registry/cli-ref/registry/lifecycle-policy/list-dry-run-artifacts.md)
+
+ - [list-dry-run-results](cli-ref/cloud-registry/cli-ref/registry/lifecycle-policy/list-dry-run-results.md)
 
  - [update](cli-ref/cloud-registry/cli-ref/registry/lifecycle-policy/update.md)
 
@@ -1916,7 +1924,15 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [update](cli-ref/cloud-registry/cli-ref/v0/registry/update.md)
 
- - [tools](cli-ref/cloud-registry/cli-ref/v0/tools.md)
+##### tools
+
+ - [Overview](cli-ref/cloud-registry/cli-ref/v0/tools/index.md)
+
+###### debian
+
+ - [Overview](cli-ref/cloud-registry/cli-ref/v0/tools/debian/index.md)
+
+ - [reindex-packages](cli-ref/cloud-registry/cli-ref/v0/tools/debian/reindex-packages.md)
 
 #### v1
 
@@ -1978,7 +1994,13 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [get](cli-ref/cloud-registry/cli-ref/v1/registry/lifecycle-policy/get.md)
 
+ - [get-dry-run-result](cli-ref/cloud-registry/cli-ref/v1/registry/lifecycle-policy/get-dry-run-result.md)
+
  - [list](cli-ref/cloud-registry/cli-ref/v1/registry/lifecycle-policy/list.md)
+
+ - [list-dry-run-artifacts](cli-ref/cloud-registry/cli-ref/v1/registry/lifecycle-policy/list-dry-run-artifacts.md)
+
+ - [list-dry-run-results](cli-ref/cloud-registry/cli-ref/v1/registry/lifecycle-policy/list-dry-run-results.md)
 
  - [update](cli-ref/cloud-registry/cli-ref/v1/registry/lifecycle-policy/update.md)
 

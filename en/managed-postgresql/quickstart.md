@@ -24,7 +24,11 @@ To get started:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
-1. [Assign](../iam/operations/roles/grant.md) the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) and [{{ roles.mpg.editor }}](security/index.md#managed-postgresql-editor) roles for the folder to your {{ yandex-cloud }} account. These roles enable you to create a cluster.
+1. [Assign](../iam/operations/roles/grant.md) the following roles to your {{ yandex-cloud }} account:
+
+    * {% include [roles-mpg-editor](../_includes/mdb/mpg/roles-mpg-editor.md) %}
+    * {% include [roles-vpc-user](../_includes/mdb/roles-vpc-user.md) %}
+    * {% include [roles-mdb-viewer](../_includes/mdb/roles-mdb-viewer-create-cluster.md) %}
 
     {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 

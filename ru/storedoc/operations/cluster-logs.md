@@ -14,8 +14,8 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}), в котором находится кластер.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+    1. [Перейдите]({{ link-console-main }}/link/storedoc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_logs }}**.
     1. Укажите период времени, за который нужно отобразить логи: введите его вручную или выберите в календаре, нажав на поле ввода дат.
     1. При необходимости укажите хосты и уровень логирования в строке с полем ввода дат.
@@ -53,6 +53,7 @@
         * {% include [logs output limit](../../_includes/cli/logs/limit.md) %}
         * `--service-type` — тип сервиса, для которого требуется вывести записи (`mongod`, `mongos`, `mongocfg` или `audit`).
         * `--columns` — список колонок для вывода информации:
+            
             * `component` — тип компонента, который попадет в лог. Например, `CONTROL`.
             * `context` — имя исполняемого модуля, например, `signalProcessingThread`.
             * `hostname` — [имя хоста](hosts.md#list-hosts).

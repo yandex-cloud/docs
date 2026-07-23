@@ -6,8 +6,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [профиль безопасности](../concepts/profiles.md).
-  1. Перейдите в сервис **Smart Web Security**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [профиль безопасности](../concepts/profiles.md).
+  1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
   1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **Профили безопасности**.
   1. Выберите нужный профиль безопасности.
   1. На странице **Обзор** отобразится подробная информация о профиле.
@@ -85,9 +85,13 @@
      ```
 
      Где:
+     
      * `data "yandex_sws_security_profile"` — описание профиля безопасности в качестве источника данных:
+       
        * `security_profile_id` — идентификатор профиля безопасности.
+     
      * `output "profile-created"` — выходная переменная, которая содержит информацию о временной метке создания профиля безопасности:
+       
        * `value` — возвращаемое значение.
 
      Вместо `created_at` вы можете выбрать любой другой параметр для получения информации. Подробнее о параметрах источника данных `yandex_sws_security_profile` в [документации провайдера](../../terraform/data-sources/sws_security_profile.md).

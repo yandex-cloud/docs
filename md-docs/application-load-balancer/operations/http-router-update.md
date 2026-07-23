@@ -9,7 +9,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором создан HTTP-роутер.
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **HTTP-роутеры**.
   1. Нажмите на имя нужного роутера.
   1. Нажмите **Редактировать**.
@@ -182,7 +182,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете создавать маршрут для виртуального хоста.
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. На панели слева выберите ![route](../../_assets/console-icons/route.svg) **HTTP-роутеры** и выберите [HTTP-роутер](../concepts/http-router.md), в котором находится виртуальный хост, для которого требуется создать маршрут.
   1. На открывшейся странице в секции **Виртуальные хосты** в блоке с нужным виртуальным хостом нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать**.
   
@@ -1634,13 +1634,14 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете изменять порядок маршрутов виртуального хоста.
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. На панели слева выберите ![route](../../_assets/console-icons/route.svg) **HTTP-роутеры** и выберите [HTTP-роутер](../concepts/http-router.md), в котором находится нужный виртуальный хост.
   1. На открывшейся странице в секции **Виртуальные хосты** в блоке с нужным виртуальным хостом нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать**.
   1. Чтобы изменить порядок маршрутов, нажмите кнопку **Сортировать** и в открывшемся окне:
   
       1. С помощью мышки методом перетаскивания выстройте нужный порядок маршрутов.
       1. Нажмите кнопку **Сохранить**.
+  
   1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
@@ -1648,6 +1649,7 @@
   В Yandex Cloud CLI в настоящий момент нет отдельной команды, позволяющей изменять порядок маршрутов в виртуальном хосте.
   
   Чтобы изменить порядок маршрутов с помощью CLI, воспользуйтесь следующим порядком действий:
+  
   1. [Удалите](manage-routes.md#delete-route) нужный маршрут из виртуального хоста.
   1. Заново [добавьте](manage-routes.md#create-route) маршрут в нужное место в списке маршрутов.
 
@@ -1769,6 +1771,7 @@
       {% endcut %}
 
       Параметры используемых ресурсов описаны в документации провайдера Terraform: [yandex_alb_virtual_host](../../terraform/resources/alb_virtual_host.md).
+  
   1. Обновите ресурсы:
 
       1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -1856,7 +1859,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором создан HTTP-роутер.
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **HTTP-роутеры**.
   1. Нажмите на имя нужного роутера.
   1. Нажмите **Редактировать**.

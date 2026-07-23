@@ -22,7 +22,7 @@ After creating a cluster, you can:
 * [Move the cluster](#move-cluster) to another folder.
 * [Edit security groups](#change-sg-set).
 
-When configuration changes in clusters with two or more hosts require a host restart, during the master upgrade, one of the replicas takes over its role. Once the upgrade is complete, the host with the highest [failover priority](../concepts/replication.md#master-failover) becomes a new master. In a cluster with several hosts of maximum priority, the one with the least lag behind the master will be selected.
+When configuration changes in clusters with two or more hosts require a host restart, during the master upgrade, one of the replicas takes over its role. Once the upgrade is complete, the host with the highest [failover priority](../concepts/replication.md#master-failover) becomes a new master. In a cluster with multiple hosts of maximum priority, the one with the least lag behind the master will be selected.
 
 {% note tip %}
 
@@ -107,7 +107,7 @@ We recommend changing the host class only when the cluster is idle.
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      For information on how to create this file, see [Creating a cluster](./cluster-create.md).
+      For information on how to create such a file, see [Creating a cluster](./cluster-create.md).
 
   1. In the {{ mmy-name }} cluster description, change the `resource_preset_id` parameter value under `resources`:
 
@@ -601,7 +601,7 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
                                  `emergency-usage-threshold=<immediate_expansion_threshold_in_percent> \
           --maintenance-window type=<maintenance_type>,`
                               `day=<day_of_week>,`
-                              `hour=<hour> \
+                              `hour=<sequence_number_of_hour_interval> \
           --deletion-protection \
           --performance-diagnostics enabled=true,`
                                    `sessions-sampling-interval=<session_sampling_interval>,`
@@ -640,7 +640,7 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      For information on how to create this file, see [Creating a cluster](cluster-create.md).
+      For information on how to create such a file, see [Creating a cluster](cluster-create.md).
 
   1. To change the backup start time, add the `backup_window_start` section to the {{ mmy-name }} cluster description:
 
@@ -760,7 +760,7 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
           "maintenanceWindow": {
               "weeklyMaintenanceWindow": {
                   "day": "<day_of_week>",
-                  "hour": "<hour>"
+                  "hour": "<sequence_number_of_hour_interval>"
               }
           },
           "deletionProtection": <protect_cluster_from_deletion>
@@ -874,7 +874,7 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
           "maintenance_window": {
               "weekly_maintenance_window": {
                   "day": "<day_of_week>",
-                  "hour": "<hour>"
+                  "hour": "<sequence_number_of_hour_interval>"
               }
           },
           "deletion_protection": <protect_cluster_from_deletion>

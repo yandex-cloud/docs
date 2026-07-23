@@ -18,6 +18,7 @@ Terraform распространяется под лицензией [Business S
 | [yandex_mdb_redis_cluster_v2](../terraform/resources/mdb_redis_cluster_v2.md) | [Кластер](concepts/index.md) |
 | [yandex_mdb_redis_cluster_iam_binding](../terraform/resources/mdb_redis_cluster_iam_binding.md) | [Настройка](../iam/concepts/access-control/index.md#access-bindings) прав доступа к кластеру |
 | [yandex_mdb_redis_user](../terraform/resources/mdb_redis_user.md) | Пользователь Valkey™ |
+| [yandex_mdb_redis_backup_retention_policy](../terraform/resources/mdb_redis_backup_retention_policy.md) | Политика резервного копирования |
 
 ## Источники данных {#data-sources}
 
@@ -27,3 +28,4 @@ Terraform распространяется под лицензией [Business S
 | --- | --- |
 | [yandex_mdb_redis_cluster_v2](../terraform/data-sources/mdb_redis_cluster_v2.md) | Информация о [кластере](concepts/index.md) |
 | [yandex_mdb_redis_user](../terraform/data-sources/mdb_redis_user.md) | Информация о пользователе Valkey™ |
+| [yandex_mdb_redis_backup_retention_policy](../terraform/data-sources/mdb_redis_backup_retention_policy.md) | Информация о политике резервного копирования |

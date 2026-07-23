@@ -6,6 +6,7 @@ editable: false
 
 Deletes the specified hosts for a cluster.
 
+
 ## gRPC request
 
 **rpc DeleteHosts ([DeleteClusterHostsRequest](#yandex.cloud.mdb.mysql.v1.DeleteClusterHostsRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**

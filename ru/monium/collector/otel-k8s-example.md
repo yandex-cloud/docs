@@ -154,12 +154,12 @@ description: Инструкция по настройке демо-прилож�
 
 - Интерфейс {{ monium-name }} {#console}
 
-  1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.shards.title }}**.
+  1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите ![alt](../../_assets/console-icons/box.svg) **Поставка и хранение** → ![alt](../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.shards.title }}**.
   1. В списке выберите шард с названием сервиса, который работает внутри интернет-магазина. Например, `cart` или `product-catalog`.
 
      Имя шарда формируется как `<имя_проекта>_<имя_кластера>_<имя_сервиса>`, например `folder__{{ folder-id-example }}_default_cart`.
   
-  1. Чтобы посмотреть отдельный тип данных, слева выберите:
+  1. Чтобы посмотреть отдельный тип данных, слева наведите указатель на ![alt](../../_assets/console-icons/compass.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.all-panel.menu.category.explore }}** и выберите раздел с нужным типом данных:
 
      * **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.
        

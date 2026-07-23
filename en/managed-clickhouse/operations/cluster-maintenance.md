@@ -238,7 +238,7 @@ If necessary, you can run a maintenance job with the **{{ ui-key.yacloud.mdb.mai
 
 ## Configuring a maintenance window {#set-maintenance-window}
 
-By default, maintenance can be scheduled for any time. You can choose a specific day of the week and hour to schedule maintenance. For example, you can choose the time when the cluster is least busy.
+By default, maintenance can be scheduled for any time. You can choose a specific day of week and hour interval for the start of the maintenance. For example, you can specify the least busy time interval for the cluster.
 
 {% note warning %}
 
@@ -255,7 +255,7 @@ If a scheduled maintenance does not fall within the new interval, it will be aut
     1. Click ![image](../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.mdb.maintenance.action_maintenance-window-setup }}**.
     1. In the window that opens:
         * To allow maintenance at any time, select **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-anytime }}**, which is also the default option.
-        * To allow weekly maintenance at a specific time, select **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}** and specify the weekday and hour in UTC.
+        * To allow weekly maintenance at a specific time, select **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}** and specify the day of the week and UTC time interval.
 
 - CLI {#cli}
 
@@ -275,7 +275,7 @@ If a scheduled maintenance does not fall within the new interval, it will be aut
         {{ yc-mdb-ch }} cluster update <cluster_name_or_ID> \
            --maintenance-window type=<maintenance_type>,`
                                `day=<day_of_week>,`
-                               `hour=<hour>
+                               `hour=<time_interval_ordinal_number>
         ```
 
         Where `type` is the maintenance type:
@@ -289,7 +289,7 @@ If a scheduled maintenance does not fall within the new interval, it will be aut
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](cluster-create.md).
+        For information on how to create this file, see [Creating a cluster](cluster-create.md).
 
         For a complete list of configurable {{ mch-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mch }}).
 
@@ -327,7 +327,7 @@ If a scheduled maintenance does not fall within the new interval, it will be aut
                     "maintenanceWindow": {
                       "weeklyMaintenanceWindow": {
                         "day": "<day_of_week>",
-                        "hour": "<hour>"
+                        "hour": "<sequence_number_of_hour_interval>"
                       }
                     }
                   }'
@@ -342,10 +342,12 @@ If a scheduled maintenance does not fall within the new interval, it will be aut
         * `maintenanceWindow`: [Maintenance](../concepts/maintenance.md) window settings, including for stopped clusters. In `maintenanceWindow`, provide one of these two parameters:
 
             * `anytime`: Maintenance can be scheduled for any time.
-            * `weeklyMaintenanceWindow`: Maintenance can only be scheduled for a specific day of week and hour:
+            * `weeklyMaintenanceWindow`: Maintenance can only be scheduled for a specific day of week and hour interval:
 
                 * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-                * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
+                * `hour`: UTC hour interval. The valid values range from `1` to `24`.
+
+                   > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -377,7 +379,7 @@ If a scheduled maintenance does not fall within the new interval, it will be aut
                 "maintenance_window": {
                   "weekly_maintenance_window": {
                     "day": "<day_of_week>",
-                    "hour": "<hour>"
+                    "hour": "<sequence_number_of_hour_interval>"
                   }
                 }
               }' \
@@ -394,10 +396,12 @@ If a scheduled maintenance does not fall within the new interval, it will be aut
         * `maintenance_window`: [Maintenance](../concepts/maintenance.md) window settings, including for stopped clusters. In `maintenance_window`, provide one of these two parameters:
 
             * `anytime`: Maintenance can be scheduled for any time.
-            * `weekly_maintenance_window`: Maintenance can only be scheduled for a specific day of week and hour:
+            * `weekly_maintenance_window`: Maintenance can only be scheduled for a specific day of week and hour interval:
 
                 * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-                * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
+                * `hour`: UTC hour interval. The valid values range from `1` to `24`.
+
+                  > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 

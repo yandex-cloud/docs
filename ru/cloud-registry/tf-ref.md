@@ -16,6 +16,9 @@ description: На этой странице приведен справочни�
 | [yandex_cloudregistry_registry]({{ tf-provider-resources-link }}/cloudregistry_registry) | [Реестр](./concepts/registry.md) |
 | [yandex_cloudregistry_registry_iam_binding]({{ tf-provider-resources-link }}/cloudregistry_registry_iam_binding) | [Назначение](../iam/concepts/access-control/index.md#access-bindings) прав доступа к реестру |
 | [yandex_cloudregistry_registry_ip_permission]({{ tf-provider-resources-link }}/cloudregistry_registry_ip_permission) | Политика доступа для IP-адресов |
+| [yandex_cloudregistry_lifecycle_policy]({{ tf-provider-resources-link }}/cloudregistry_lifecycle_policy) | [Политика жизненного цикла](./concepts/lifecycle-policy.md) |
+| [yandex_cloudregistry_folder]({{ tf-provider-resources-link }}/cloudregistry_folder) | Папка для хранения артефактов |
+| [yandex_cloudregistry_folder_iam_binding]({{ tf-provider-resources-link }}/cloudregistry_folder_iam_binding) | [Назначение](../iam/concepts/access-control/index.md#access-bindings) прав доступа к папке |
 
 ## Источники данных {#data-sources}
 
@@ -25,3 +28,5 @@ description: На этой странице приведен справочни�
 | --- | --- |
 | [yandex_cloudregistry_registry]({{ tf-provider-datasources-link }}/cloudregistry_registry) | Информация о [реестре](./concepts/registry.md) |
 | [yandex_cloudregistry_registry_ip_permission]({{ tf-provider-datasources-link }}/cloudregistry_registry_ip_permission) | Информация о политике доступа для IP-адресов |
+| [yandex_cloudregistry_lifecycle_policy]({{ tf-provider-datasources-link }}/cloudregistry_lifecycle_policy) | Информация о [политике жизненного цикла](./concepts/lifecycle-policy.md) |
+| [yandex_cloudregistry_folder]({{ tf-provider-datasources-link }}/cloudregistry_folder) | Информация о папке |

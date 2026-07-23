@@ -11,12 +11,14 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится балансировщик.
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. В списке выберите нужный балансировщик, нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
   1. В блоке **Настройки логов**:
+     
      1. Включите опцию **Запись логов**.
      1. Выберите [лог-группу](../../logging/concepts/log-group.md) Cloud Logging, в которую будут записываться логи балансировщика.
      1. Нажмите кнопку **Добавить правило отбрасывания логов** и настройте его [параметры](../concepts/application-load-balancer.md#discard-logs-rules):
+        
         * **HTTP-коды** — добавьте HTTP-коды.
         * **Классы HTTP-кодов** — добавьте классы HTTP-кодов.
         * **gRPC-коды** — добавьте gRPC-коды.
@@ -47,9 +49,11 @@
      ```
 
      Где:
+     
      * `--enable` — параметр для включения логирования.
      * `--log-group-id` — идентификатор [лог-группы](../../logging/concepts/log-group.md), в которую будут записываться логи балансировщика.
      * `--discard` — [правило отбрасывания логов](../concepts/application-load-balancer.md#discard-logs-rules). Параметры правила:
+       
        * `codes` — HTTP-коды, классы HTTP-кодов или gRPC-коды.
        * `percent` — доля отбрасываемых логов в процентах.
 
@@ -96,14 +100,17 @@
      ```
 
      Где `log_options` — параметры записи [логов](../logs-ref.md) в Cloud Logging:
+     
      * `log_group_id` — идентификатор [лог-группы](../../logging/concepts/log-group.md), в которую будут записываться логи балансировщика.
      * `discard_rule` — [правило отбрасывания логов](../concepts/application-load-balancer.md#discard-logs-rules):
+       
        * `http_codes` — HTTP-коды.
        * `http_code_intervals` — классы HTTP-кодов.
        * `grpc_codes` — gRPC-коды.
        * `discard_percent` — доля отбрасываемых логов в процентах.
 
        Вы можете задать больше одного правила.
+  
   1. Примените изменения:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -178,11 +185,13 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится балансировщик.
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. В списке выберите нужный балансировщик, нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
   1. В блоке **Настройки логов**:
+     
      1. Измените лог-группу Cloud Logging, в которую будут записываться логи балансировщика.
      1. Измените [правила отбрасывания логов](../concepts/application-load-balancer.md#discard-logs-rules):
+        
         * **HTTP-коды** — измените HTTP-коды.
         * **Классы HTTP-кодов** — измените классы HTTP-кодов.
         * **gRPC-коды** — измените gRPC-коды.
@@ -212,8 +221,10 @@
      ```
 
      Где:
+     
      * `--log-group-id` — идентификатор [лог-группы](../../logging/concepts/log-group.md), в которую будут записываться логи балансировщика.
      * `--discard` — [правило отбрасывания логов](../concepts/application-load-balancer.md#discard-logs-rules). Параметры правила:
+       
        * `codes` — HTTP-коды, классы HTTP-кодов или gRPC-коды.
        * `percent` — доля отбрасываемых логов в процентах.
 
@@ -260,8 +271,10 @@
      ```
 
      Где `log_options` — параметры записи [логов](../logs-ref.md) в Cloud Logging:
+     
      * `log_group_id` — идентификатор [лог-группы](../../logging/concepts/log-group.md), в которую будут записываться логи балансировщика.
      * `discard_rule` — [правило отбрасывания логов](../concepts/application-load-balancer.md#discard-logs-rules):
+       
        * `http_codes` — HTTP-коды.
        * `http_code_intervals` — классы HTTP-кодов.
        * `grpc_codes` — gRPC-коды.
@@ -342,7 +355,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится балансировщик.
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. В списке выберите нужный балансировщик, нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
   1. В блоке **Настройки логов** выключите опцию **Запись логов**.
   1. Нажмите **Сохранить**.

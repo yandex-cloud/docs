@@ -6,8 +6,8 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится [лог-группа](../concepts/log-group.md).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud Logging**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится [лог-группа](../concepts/log-group.md).
+    1. [Перейдите](https://console.yandex.cloud/link/logging) в сервис **Cloud Logging**.
     1. В строке с лог-группой нажмите значок ![image](../../_assets/console-icons/ellipsis.svg).
     1. В открывшемся меню нажмите кнопку **Редактировать**.
     1. Измените параметры лог-группы.

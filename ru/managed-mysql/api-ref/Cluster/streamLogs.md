@@ -94,6 +94,8 @@ apiPlayground:
 Retrieves a log stream for a cluster.
 This method is similar to [ListLogs](/docs/managed-mysql/api-ref/Cluster/listLogs#ListLogs), but uses server-side streaming, which allows for the `tail -f` command semantics.
 
+
+
 ## HTTP request
 
 ```
