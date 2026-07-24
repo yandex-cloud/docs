@@ -252,7 +252,7 @@
 
 ## Проверьте работоспособность Debezium {#verify-debezium}
 
-{% include kafkacat-info %}
+{% include [kafkacat-info](../../_includes/mdb/mkf/kafkacat-info.md) %}
 
 1. В отдельном терминале запустите утилиту `kafkacat` в режиме потребителя:
 
