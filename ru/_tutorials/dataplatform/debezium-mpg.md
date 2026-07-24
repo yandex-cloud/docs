@@ -148,11 +148,15 @@
     database.user=user1
     database.password=<пароль_пользователя_user1>
     database.dbname=db1
+    
+    # Для Debezium 2.0+ используйте topic.prefix вместо database.server.name
     database.server.name=mpg
     table.include.list=public.measurements
     publication.name=mpg_publication
     slot.name=debezium_slot
     heartbeat.interval.ms=15000
+    
+    # Для Debezium 2.0+ используйте topic.heartbeat.prefix вместо heartbeat.topics.prefix
     heartbeat.topics.prefix=debezium-heartbeat
     snapshot.mode=always
     ```
@@ -172,7 +176,7 @@
     * `slot.name` — имя слота репликации, который будет создан Debezium при работе с публикацией.
     * `heartbeat.interval.ms` и `heartbeat.topics.prefix` — настройки heartbeat, [необходимые для работы](https://debezium.io/documentation/reference/connectors/postgresql.html#postgresql-wal-disk-space) Debezium.
     * `snapshot.mode` — [тип создания снапшота](https://debezium.io/documentation/reference/stable/connectors/postgresql.html#postgresql-connector-snapshot-mode-options) при запуске коннектора. Для корректной работы коннектора рекомендуется использовать значение параметра `always`.
-
+      
 ## Подготовьте кластер-приемник {#prepare-target}
 
 1. [Создайте топик](../../managed-kafka/operations/cluster-topics.md#create-topic), в который будут помещаться данные, поступающие от кластера-источника:
@@ -247,6 +251,8 @@
     ```
 
 ## Проверьте работоспособность Debezium {#verify-debezium}
+
+{% include [kafkacat-info](../../_includes/mdb/mkf/kafkacat-info.md) %}
 
 1. В отдельном терминале запустите утилиту `kafkacat` в режиме потребителя:
 
