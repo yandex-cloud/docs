@@ -56,12 +56,18 @@ description: Следуя данной инструкции, вы сможете
         name = "<имя_WAF_профиля>"
 
         # Базовый набор правил
-        core_rule_set {
-          inbound_anomaly_score = 2
-          paranoia_level        = local.waf_paranoia_level
-          rule_set {
-            name    = "OWASP Core Ruleset"
-            version = "4.0.0"
+        rule_set {
+          action     = "DENY"
+          is_enabled = true
+          priority   = 1
+          core_rule_set {
+            inbound_anomaly_score = 2
+            paranoia_level        = local.waf_paranoia_level
+            rule_set {
+              name    = "OWASP Core Ruleset"
+              version = "4.0.0"
+              type    = "CORE"
+            }
           }
         }
 
@@ -96,6 +102,6 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [delete](../waf/api-ref/WafProfile/delete.md) для ресурса [WafProfile](../waf/api-ref/WafProfile/) или вызовом gRPC API [WafProfile/Delete](../waf/api-ref/grpc/WafProfile/delete.md).
+  Воспользуйтесь методом REST API [delete](../waf/api-ref/WafProfile/delete.md) для ресурса [WafProfile](../waf/api-ref/WafProfile/index.md) или вызовом gRPC API [WafProfile/Delete](../waf/api-ref/grpc/WafProfile/delete.md).
 
 {% endlist %}
