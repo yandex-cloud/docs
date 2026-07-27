@@ -77,7 +77,7 @@ description: Follow this guide to delete a service connection (private endpoint)
 
   {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  You can check the updates in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
+  You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
   ```bash
   yc vpc private-endpoint list

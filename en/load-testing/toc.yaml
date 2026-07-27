@@ -1,7 +1,7 @@
 title: Yandex Load Testing
 href: sunset.md
 items:
-  - name: Service shutdown
+  - name: Service closure
     href: sunset.md
   - name: Load testing migration to k6
     href: tutorials/loadtesting-migration-to-k6.md

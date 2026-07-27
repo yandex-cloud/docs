@@ -21,6 +21,7 @@ GET / HTTP/2
 ```
 
 ### Заголовки {#request-headers}
+
 Используйте в запросе только [общие заголовки](../common-request-headers.md).
 
 ## Ответ {#response}
@@ -49,13 +50,24 @@ GET / HTTP/2
 </ListAllMyBucketsResult>
 ```
 
-Элемент | Описание
------ | -----
-`Bucket` | Содержит описание бакета.<br/><br/>Путь: `/ListAllMyBucketsResult/Buckets/Bucket`.
-`Buckets` | Содержит перечень бакетов.<br/><br/>Путь: `/ListAllMyBucketsResult/Buckets`.
-`CreationDate` | Время создания бакета в формате `yyyy-mm-ddThh:mm:ss.timezone`.<br/><br/>Путь: `/ListAllMyBucketsResult/Buckets/Bucket/CreationDate`.
-`ListAllMyBucketsResult` | Корневой элемент ответа.<br/><br/>Путь: `/ListAllMyBucketsResult`.
-`Name` | Имя бакета.<br/><br/>Путь: `/ListAllMyBucketsResult/Buckets/Bucket/Name`.
+#|
+|| **Элемент** | **Описание** ||
+|| `Bucket` | Содержит описание бакета.
+
+Путь: `/ListAllMyBucketsResult/Buckets/Bucket`. ||
+|| `Buckets` | Содержит перечень бакетов.
+
+Путь: `/ListAllMyBucketsResult/Buckets`. ||
+|| `CreationDate` | Время создания бакета в формате `yyyy-mm-ddThh:mm:ss.timezone`.
+
+Путь: `/ListAllMyBucketsResult/Buckets/Bucket/CreationDate`. ||
+|| `ListAllMyBucketsResult` | Корневой элемент ответа.
+
+Путь: `/ListAllMyBucketsResult`. ||
+|| `Name` | Имя бакета.
+
+Путь: `/ListAllMyBucketsResult/Buckets/Bucket/Name`. ||
+|#
 
 #### Связанные статьи {#related-articles}
 

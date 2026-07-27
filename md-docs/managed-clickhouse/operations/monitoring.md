@@ -28,7 +28,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
 
   1. Нажмите на имя нужного кластера и выберите вкладку **Мониторинг**. 
 
@@ -203,7 +203,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
 
   1. Нажмите на имя нужного кластера и выберите вкладку **Мониторинг**.
 
@@ -308,7 +308,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог с кластером, для которого нужно настроить алерты.
-  1. Перейдите в сервис ![image](../../_assets/console-icons/display-pulse.svg) **Monitoring**.
+  1. [Перейдите](https://console.yandex.cloud/link/monitoring) в сервис ![image](../../_assets/console-icons/display-pulse.svg) **Monitoring**.
   1. В блоке **Сервисные дашборды** выберите:
       * **Managed Service for ClickHouse® — Cluster Overview** для настройки алертов кластера;
       * **Managed Service for ClickHouse® — ZooKeeper** для настройки алертов хостов ZooKeeper.
@@ -362,7 +362,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
   1. Наведите курсор на индикатор в столбце **Доступность** в строке нужного кластера.
 
 {% endlist %}

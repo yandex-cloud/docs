@@ -7,8 +7,6 @@ editable: false
 
 # Правила тарификации для {{ managed-k8s-name }}
 
-{% include [master-pricing-note](../_includes/managed-kubernetes/master-pricing-note.md) %}
-
 {% note tip %}
 
 

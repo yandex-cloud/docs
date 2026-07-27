@@ -27,19 +27,19 @@ To filter out large volumes of unsolicited network traffic, use [{{ ddos-protect
 
 ## Default security group {#default-security-group}
 
-A *default security group* (DSG) is created automatically while creating a [new cloud network](./network.md#network) and applies to network traffic of objects that do not have any explicitly associated custom security group.
+The *default security group* (DSG) is created automatically when you create a [new cloud network](./network.md#network), and its rules apply to network traffic of objects that have no explicitly assigned custom security group.
 
-A default security group allows:
+The default security group allows:
 
-* Any outgoing (`egress`) network traffic.
-* Ani incoming (`ingress`) network traffic from objects to which the same security group applies ([self](#self-rule) rule).
-* Any incoming network traffic over `ICMP`.
-* Incoming network traffic over `TCP` and `UDP` to port `22` (`SSH`).
-* Incoming network traffic over `TCP` and `UDP` to port `3389` (`RDP`).
+* All outgoing (`egress`) network traffic.
+* All incoming (`ingress`) network traffic from objects within the same security group ([self](#self-rule) rule).
+* All incoming network traffic over `ICMP`.
+* Incoming network traffic over `TCP` and `UDP` on port `22` (`SSH`).
+* Incoming network traffic over `TCP` and `UDP` on port `3389` (`RDP`).
 
 All other traffic in the security group is denied by default.
 
-You cannot delete a default security group; it is automatically deleted when its corresponding network is deleted.
+You cannot manually delete a default security group. It is deleted automatically when you delete the respective network.
 
 ## Scope of use for security groups {#security-groups-apply}
 
@@ -60,7 +60,7 @@ Security groups can be used in the following {{ yandex-cloud }} service objects:
 | [{{ mos-name }}](../../managed-opensearch/)         | [Cluster](../../managed-opensearch/concepts/network.md#security-groups)                                                                         |
 | [{{ mtr-name }}](../../managed-trino/)              | [Cluster](../../managed-trino/concepts/network.md#security-groups)                                                                              |
 | [{{ dataproc-name }}](../../data-proc/)             | [Cluster](../../data-proc/concepts/network.md#security-groups)                                                                                  |
-| [{{ data-transfer-name }}](../../data-transfer/)    | [Endpoint](../../data-transfer/concepts/network.md#security-groups)                                                                             |                                                                                   |
+| [{{ data-transfer-name }}](../../data-transfer/)    | [Endpoint](../../data-transfer/concepts/network.md#security-groups)                                                                             |
 | [{{ mgl-name }}](../../managed-gitlab/)             | [Instance](../../managed-gitlab/operations/configure-security-group.md)                                                                          |
 
 {% note info %}
@@ -230,7 +230,7 @@ To avoid network connectivity issues when deploying and using {{ managed-k8s-nam
 
 #### Security groups and {{ alb-name }} tools for {{ managed-k8s-name }} {#security-groups-and-alb-for-k8s}
 
-For proper operation of the [ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) or [Gateway API](https://github.com/kubernetes-sigs/gateway-api), configure security groups for the {{ managed-k8s-name }} [cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and [node groups](../../managed-kubernetes/concepts/index.md#node-group), and for the {{ alb-name }} [L7 load balancer](../../application-load-balancer/concepts/application-load-balancer.md). For more information, see [this guide](../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md).
+For your [ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) or [Gateway API](https://github.com/kubernetes-sigs/gateway-api) to operate correctly, configure security groups for the {{ managed-k8s-name }} [cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and [node groups](../../managed-kubernetes/concepts/index.md#node-group), and for the L7 {{ alb-name }}. For more information, see [this guide](../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md).
 
 {% note alert %}
 

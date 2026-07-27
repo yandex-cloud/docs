@@ -55,7 +55,7 @@ description: Следуя данной инструкции, вы сможете
   Чтобы создать кластер {{ mch-name }} с сервисом координации {{ CK }}:
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер БД.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Введите имя кластера в поле **{{ ui-key.yacloud.mdb.forms.base_field_name }}**. Имя кластера должно быть уникальным в рамках каталога.
   1. Выберите окружение, в котором нужно создать кластер (после создания кластера окружение изменить невозможно):
@@ -1160,7 +1160,7 @@ description: Следуя данной инструкции, вы сможете
   Чтобы создать кластер {{ mch-name }} с сервисом координации {{ ZK }}:
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер БД.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Введите имя кластера в поле **{{ ui-key.yacloud.mdb.forms.base_field_name }}**. Имя кластера должно быть уникальным в рамках каталога.
   1. Выберите окружение, в котором нужно создать кластер (после создания кластера окружение изменить невозможно):

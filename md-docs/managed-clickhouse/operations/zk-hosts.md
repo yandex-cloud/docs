@@ -29,7 +29,7 @@ ZooKeeper — это сервис, который обеспечивает ко�
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
   1. Нажмите на имя нужного кластера, затем выберите вкладку **Хосты**.
 
 - CLI {#cli}
@@ -129,7 +129,7 @@ ZooKeeper — это сервис, который обеспечивает ко�
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Хосты**.
   1. Справа сверху нажмите **Настроить сервис координации**.
   1. Укажите [класс хостов](../concepts/instance-types.md).
@@ -487,7 +487,7 @@ ZooKeeper — это сервис, который обеспечивает ко�
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
   1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
   1. В блоке **Класс хоста ZooKeeper** выберите платформу, тип виртуальной машины и нужный класс хоста ZooKeeper.
   1. В блоке **Размер хранилища ZooKeeper** задайте размер хранилища и тип диска для хостов ZooKeeper.
@@ -823,7 +823,7 @@ ZooKeeper — это сервис, который обеспечивает ко�
   Чтобы перезагрузить один хост:
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-    1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
     1. Нажмите на имя нужного кластера и перейдите на вкладку **Хосты**.
     1. В строке нужного хоста нажмите на значок ![icon](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Перезагрузить**.
     1. В открывшемся окне включите опцию **Я перезагружаю хост** и нажмите кнопку **Подтвердить**.
@@ -831,7 +831,7 @@ ZooKeeper — это сервис, который обеспечивает ко�
   Чтобы перезагрузить несколько хостов сразу:
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-    1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
     1. Нажмите на имя нужного кластера и перейдите на вкладку **Хосты**.
     1. Выберите хосты, которые хотите перезагрузить, и нажмите **Перезагрузить** в нижней части экрана.
     1. В открывшемся окне нажмите кнопку **Подтвердить**.
@@ -977,7 +977,7 @@ ZooKeeper — это сервис, который обеспечивает ко�
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
   1. Нажмите на имя нужного кластера, затем выберите вкладку **Хосты**.
   1. Наведите курсор на строку нужного хоста и нажмите на значок ![image](../../_assets/console-icons/xmark.svg).
   1. В открывшемся окне нажмите кнопку **Удалить**.

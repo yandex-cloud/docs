@@ -28,7 +28,7 @@
    Чтобы задать настройки ClickHouse®:
 
    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-   1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+   1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
    1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
    1. В блоке **Настройки СУБД** нажмите кнопку **Настроить**.
    1. Задайте [настройки ClickHouse®](../concepts/settings-list.md#server-level-settings).

@@ -704,6 +704,16 @@
 
     Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/server-configuration-parameters/settings#server_configuration_parameters-timezone).
 
+* **TLS**{#setting-tls} {{ tag-con }} {{ tag-api }}
+
+    Позволяет загружать [пользовательские сертификаты](../../certificate-manager/concepts/imported-certificate.md) для интеграций с внешними системами.
+
+    Инструменты, с которыми можно использовать сертификаты:
+
+    * Внешние словари.
+    * Интеграционные движки: {{ KF }}, {{ RD }} (совместим с {{ VLK }}), {{ PG }}, {{ MY }}, {{ MG }} (совместим с {{ SD }}), {{ ytsaurus-name }}, S3, NATS, {{ RMQ }}, ArrowFlight.
+    * Табличные функции: `remote`, `remoteSecure`, `url`, `urlCluster`, `s3`, `s3Cluster`.
+
 * **Total memory profiler step**{#setting-total-memory-profiler-step} {{ tag-con }} {{ tag-api }}
 
     Объем памяти (в байтах) для стектрейса (stack trace) на каждом шаге выделения памяти. Данные хранятся в системной таблице `system.trace_log`, при этом значение `query_id` является пустой строкой.

@@ -19,7 +19,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
   1. Нажмите на имя нужного кластера и перейдите на вкладку **Шарды**.
   1. Нажмите кнопку **Создать шарды**.
   1. Нажмите на значок ![pencil](../../_assets/console-icons/pencil.svg) в строке нового шарда, чтобы изменить его параметры:
@@ -405,7 +405,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
   1. Нажмите на имя нужного кластера, затем выберите вкладку **Шарды**.
 
 - CLI {#cli}
@@ -495,7 +495,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
   1. Нажмите на имя нужного кластера, затем выберите вкладку **Шарды**.
   1. Нажмите ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Редактировать**.
   1. Внесите необходимые изменения и нажмите кнопку **Сохранить изменения**.
@@ -725,7 +725,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-    1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
     1. Нажмите на имя нужного кластера и выберите вкладку **Шарды**.
     1. Удалите один или несколько шардов:
         * Чтобы удалить один шард, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного шарда и выберите пункт **Удалить**.

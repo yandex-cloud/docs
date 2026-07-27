@@ -12,22 +12,15 @@ GET /{bucket}?website HTTP/2
 
 ### Path параметры {#path-parameters}
 
-Параметр | Описание
------ | -----
-`bucket` | Имя бакета.
-
+{% include [path-parameters](../../../_includes_service/storage-path-parameters.md) %}
 
 ### Query параметры {#request-params}
 
-Параметр | Описание
------ | -----
-`website` | Обязательный параметр для обозначения типа операции.
-
+{% include [query-parameters](../../../_includes_service/storage-hosting-query-parameters.md) %}
 
 ### Заголовки {#request-headers}
 
 Используйте в запросе необходимые [общие заголовки](../common-request-headers.md).
-
 
 ## Ответ {#response}
 
@@ -45,6 +38,6 @@ GET /{bucket}?website HTTP/2
 
 #### Связанные статьи {#related-articles}
 
-* [{#T}](../../../operations/hosting/setup.md)
+[{#T}](../../../operations/hosting/setup.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

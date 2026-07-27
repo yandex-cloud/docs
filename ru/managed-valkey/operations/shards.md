@@ -16,8 +16,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог с нужным кластером.
+  1. [Перейдите]({{ link-console-main }}/link/managed-valkey) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.redis.cluster.switch_shards }}**.
 
 - CLI {#cli}
@@ -171,14 +171,16 @@
 
   Чтобы добавить шард:
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.redis.cluster.switch_shards }}**.
+  1. [Перейдите]({{ link-console-main }}/link/managed-valkey) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.redis.cluster.switch_shards }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.shards.action_add-shard }}**.
   1. Укажите **{{ ui-key.yacloud.mdb.forms.base_field_shard-name }}**.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}**:
+     
      * (Опционально) Отредактируйте настройки хоста.
      * Нажмите **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
      * В поле **{{ ui-key.yacloud.mdb.forms.host_column_zone }}** выберите зону доступности, выберите **{{ ui-key.yacloud.mdb.forms.host_column_subnetwork }}** и включите опцию **{{ ui-key.yacloud.mdb.forms.host_column_assign_public_ip }}**.
+  
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create-shard }}**.
 
 - CLI {#cli}
@@ -213,6 +215,7 @@
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
      Как создать такой файл, описано в разделе [Создание кластера](cluster-create.md).
+  
   1. Добавьте к описанию кластера {{ mrd-name }} нужное количество хостов в блоке `hosts` с указанием имени шарда в параметре `shard_name`:
 
      ```hcl
@@ -368,8 +371,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с кластером, из которого нужно удалить шард.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог с кластером, из которого нужно удалить шард.
+  1. [Перейдите]({{ link-console-main }}/link/managed-valkey) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.redis.cluster.switch_shards }}**.
   1. В строке нужного шарда нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.shards.popup-confirm_button_delete }}**.
@@ -394,6 +397,7 @@
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
      Как создать такой файл, описано в разделе [Создание кластера](cluster-create.md).
+  
   1. Удалите из описания кластера {{ mrd-name }} все хосты в блоке `hosts`, которые относятся к удаляемому шарду.
   1. Проверьте корректность настроек.
 
@@ -468,8 +472,8 @@
 - Консоль управления {#console}
 
   Чтобы ребалансировать кластер:
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог с нужным кластером.
+  1. [Перейдите]({{ link-console-main }}/link/managed-valkey) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Нажмите на имя нужного кластера.
   1. На вкладке **{{ ui-key.yacloud.common.overview }}** нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.button_rebalance-cluster-short }}**.
 

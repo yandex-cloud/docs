@@ -29,7 +29,7 @@ description: Из статьи вы узнаете, как подключить�
 - Консоль управления {#console}
 
   1. Убедитесь, что сервис {{ datalens-name }} [активирован](#activate-datalens) в нужном каталоге и доступ к кластеру из него [разрешен](#allow-access).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Перейдите]({{ link-console-main }}/link/managed-postgresql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
 
      ![screen02](../../_assets/managed-postgresql/operations/datalens-connect/screen02.png)
 
@@ -64,7 +64,7 @@ description: Из статьи вы узнаете, как подключить�
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Перейдите]({{ link-console-main }}/link/managed-postgresql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_datalens }}**.
 
      ![screen11](../../_assets/managed-postgresql/operations/datalens-connect/screen11.png)
@@ -77,7 +77,7 @@ description: Из статьи вы узнаете, как подключить�
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Перейдите]({{ link-console-main }}/link/managed-postgresql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_datalens }}**.
   1. Выберите подключение из списка.
 
@@ -97,7 +97,7 @@ description: Из статьи вы узнаете, как подключить�
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Перейдите]({{ link-console-main }}/link/managed-postgresql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_datalens }}**.
   1. Выберите подключение из списка.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) вверху страницы и выберите **Удалить**.

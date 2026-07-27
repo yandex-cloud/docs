@@ -10,7 +10,7 @@
 * Support for NVLink to create GPU clusters
 * GPU health monitoring and metric collection
 
-{{ gpu-operator }} requires {{ nvidia }} GPU nodes to operate.
+{{ gpu-operator }} requires {{ nvidia }} GPU nodes.
 
 ## Main components {#components}
 
@@ -104,7 +104,7 @@ To view all available MIG profiles, run the following command:
 kubectl -n stackland-nvidia-gpu get cm default-mig-parted-config -o jsonpath='{.data.config\.yaml}'
 ```
 
-## Useful links {#see-also}
+## See also {#see-also}
 
 * [Cluster and component monitoring](monitoring.md)
 * [GPU Operator guides](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/overview.html)

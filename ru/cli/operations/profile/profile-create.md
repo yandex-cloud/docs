@@ -28,6 +28,8 @@ description: Следуя данной инструкции, вы сможете
 
 Если вы еще не подключены к консоли управления, войдите в [консоль]({{ link-console-main }}) и примите пользовательское соглашение (нажмите **Войти**).
 
+{% include [note-auth-without-gui](../../../_includes/cli/note-auth-without-gui.md) %}
+
 {% list tabs group=authentication %}
 
 - Аккаунт на Яндексе {#yandex-account}

@@ -356,7 +356,7 @@ Module name: `securitydeck.cspm`.
 
 {% include [sd-cspm-events](../../_includes/audit-trails/events/sd-cspm-events.md) %}
 
-### {{ alerts-name }} module {#sd-alerts}
+### {{ alerts-name }} {#sd-alerts}
 
 Module name: `securitydeck.alerts`.
 

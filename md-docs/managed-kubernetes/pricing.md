@@ -2,12 +2,6 @@
 
 # Правила тарификации для Managed Service for Kubernetes
 
-{% note warning %}
-
-С 18 июня 2026 года тарификация мастеров изменилась — плата взимается за количество vCPU и объем RAM мастера, выбранные при [создании](operations/kubernetes-cluster/kubernetes-cluster-create.md) или [изменении](operations/kubernetes-cluster/kubernetes-cluster-update.md#manage-resources) кластера. Чтобы рассчитать необходимое количество ресурсов мастера для своего кластера, воспользуйтесь таблицей [Рекомендуемые конфигурации мастера](concepts/master-configuration.md).
-
-{% endnote %}
-
 {% note tip %}
 
 

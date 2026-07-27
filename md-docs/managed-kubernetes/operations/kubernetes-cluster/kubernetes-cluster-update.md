@@ -371,12 +371,6 @@ yc managed-kubernetes cluster list
 
 ## Изменить конфигурацию ресурсов мастера {#manage-resources}
 
-{% note warning %}
-
-С 18 июня 2026 года тарификация мастеров изменилась — плата взимается за количество vCPU и объем RAM мастера, выбранные при [создании](kubernetes-cluster-create.md) или [изменении](kubernetes-cluster-update.md#manage-resources) кластера. Чтобы рассчитать необходимое количество ресурсов мастера для своего кластера, воспользуйтесь таблицей [Рекомендуемые конфигурации мастера](../../concepts/master-configuration.md).
-
-{% endnote %}
-
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

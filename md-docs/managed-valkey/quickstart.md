@@ -71,8 +71,8 @@
 
 Чтобы создать кластер:
 
-1. В консоли управления выберите каталог, в котором нужно создать кластер Valkey™.
-1. Перейдите в сервис **Yandex Managed Service for&nbsp;Valkey™**.
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать кластер Valkey™.
+1. [Перейдите](https://console.yandex.cloud/link/managed-valkey) в сервис **Yandex Managed Service for&nbsp;Valkey™**.
 1. Нажмите кнопку **Создать кластер**.
 1. Укажите следующие параметры кластера:
 

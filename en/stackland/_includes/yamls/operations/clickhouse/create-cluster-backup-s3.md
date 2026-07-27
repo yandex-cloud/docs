@@ -46,7 +46,7 @@ spec:
             memory: "2Gi"
       - id: "shard-2"
         weight: 2
-        service: None # For this shard, no endpoint is created
+        service: None # No endpoint is created for this shard.
         settings:
         instances: 1
         storage:
@@ -62,6 +62,12 @@ spec:
     storage:
 #      storageClass: "your-storage-class"
       size: 2Gi
+    autoScaling:
+      enabled: false # enabling autoscaling
+      maxSize: 300Gi # maximum storage size
+      standardIncreasePercent: 20 # storage expansion percentage
+      resizeTriggerPercent: 80 # usage percentage threshold that triggers storage expansion
+    readOnlyTriggerPercent: 95 # disk usage percentage to switch to read-only mode (the default value is 95)
     resources:
       requests:
         cpu: "500m"
@@ -86,10 +92,10 @@ spec:
         memory: "2Gi"
   backup:
     storage:
+      type: s3
       s3:
         bucket: on-prem-quantum
         endpointUrl: "https://storage.yandexcloud.net"
-        backupsToKeepRemote: 14
         region: "ru-central1"
         forcePathStyle: false
 #        storageClass: "STANDARD"
@@ -99,4 +105,8 @@ spec:
           secretAccessKeyPath: secret
     # schedule: "0 0 * * * *"
     deltaMaxSteps: 5
+    retention:
+      ignoreForManualBackups: true
+      minBackupsToKeep: 5
+      deleteBackupsAfter: 7d
 ```

@@ -2,7 +2,7 @@
 
 # On-Prem без резервирования и несколько VPC
 
-Нерезервируемое подключение On-Prem через одно [приватное соединение](../../interconnect/concepts/priv-con.md) Cloud Interconnect к одному `RI` с двумя (и более) [облачными сетями](../../vpc/concepts/network.md) без сетевой связности между ними.
+Нерезервируемое подключение On-Prem через одно [приватное соединение](../../interconnect/concepts/priv-con.md) Cloud Interconnect к одному виртуальному маршрутизатору с двумя (и более) [облачными сетями](../../vpc/concepts/network.md) без сетевой связности между ними.
 
 ![ri-topology-2](../../_assets/cloud-router/ri-topology-2.svg)
 
@@ -10,8 +10,8 @@
 
 * `On-Prem` клиента с двумя локальными подсетями — `subnet-c1` и `subnet-c2`.
 * Сетевое оборудование On-Prem подключается через сервис [Cloud Interconnect](../../interconnect/concepts/index.md) к сетевому оборудованию Yandex Cloud.
-* [Приватное соединение](../../interconnect/concepts/priv-con.md) `prc-m9`, организованное через [точку присутствия](../../interconnect/concepts/pops.md) `M9`, подключается к `RI` в Yandex Cloud.
-* Со стороны Yandex Cloud к `RI` подключаются две виртуальные сети:
+* [Приватное соединение](../../interconnect/concepts/priv-con.md) `prc-m9`, организованное через [точку присутствия](../../interconnect/concepts/pops.md) `M9`, подключается к виртуальному маршрутизатору в Yandex Cloud.
+* Со стороны Yandex Cloud к виртуальному маршрутизатору подключаются две виртуальные сети:
   * виртуальная сеть `Net-1` в составе трех подсетей — `subnet-a1`, `subnet-b1` и `subnet-d1`.
   * виртуальная сеть `Net-2` в составе трех подсетей — `subnet-a2`, `subnet-b2` и `subnet-d2`.
 

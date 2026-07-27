@@ -14,9 +14,10 @@ DELETE /{bucket}?encryption HTTP/2
 
 ### Path параметры {#path-parameters}
 
-Параметр | Описание
------ | -----
-`bucket` | Имя бакета.
+#|
+|| **Параметр** | **Описание** ||
+|| `bucket` | Имя бакета ||
+|#
 
 ### Заголовки {#request-headers}
 

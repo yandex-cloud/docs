@@ -28,7 +28,7 @@ Managed Service for ClickHouse® работает только с моделям
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-    1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
     1. Нажмите на имя нужного кластера и выберите вкладку **Машинное обучение** на панели слева.
 
 - CLI {#cli}
@@ -110,7 +110,7 @@ Managed Service for ClickHouse® работает только с моделям
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-    1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
     1. Нажмите на имя нужного кластера и выберите вкладку **Машинное обучение** на панели слева.
 
 - CLI {#cli}
@@ -202,7 +202,7 @@ Managed Service for ClickHouse® работает только с моделям
     1. Выберите кластер:
 
         1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-        1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+        1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
         1. Нажмите на имя нужного кластера и выберите вкладку **Машинное обучение** на панели слева.
         1. Нажмите **Создать модель**.
 
@@ -434,7 +434,7 @@ Managed Service for ClickHouse® не отслеживает изменения 
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-    1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
     1. Нажмите на имя нужного кластера и выберите вкладку **Машинное обучение** на панели слева.
     1. Выберите нужную модель, нажмите на значок ![image](../../_assets/console-icons/ellipsis-vertical.svg) и выберите пункт **Изменить**.
 
@@ -664,7 +664,7 @@ Managed Service for ClickHouse® не отслеживает изменения 
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-    1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
     1. Нажмите на имя нужного кластера и выберите вкладку **Машинное обучение** на панели слева.
     1. Выберите нужную модель, нажмите на значок ![image](../../_assets/console-icons/ellipsis-vertical.svg) и выберите пункт **Удалить**.
 

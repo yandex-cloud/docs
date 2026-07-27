@@ -40,6 +40,8 @@ CLI удобно использовать для автоматизации пр
 
 ## Создание профиля {#initialize}
 
+{% include [note-auth-without-gui](../_includes/cli/note-auth-without-gui.md) %}
+
 {% list tabs group=authentication %}
 
 - Аккаунт на Яндексе {#yandex-account}

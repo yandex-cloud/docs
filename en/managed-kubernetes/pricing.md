@@ -7,8 +7,6 @@ editable: false
 
 # {{ managed-k8s-name }} pricing policy
 
-{% include [master-pricing-note](../_includes/managed-kubernetes/master-pricing-note.md) %}
-
 {% note tip %}
 
 

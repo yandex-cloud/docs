@@ -64,7 +64,7 @@ Managed Service for PostgreSQL резервирует 15 подключений 
   Чтобы создать кластер Managed Service for PostgreSQL:
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать кластер БД.
-  1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
   1. Нажмите кнопку **Создать кластер**.
   1. Введите имя кластера в поле **Имя кластера**. Имя кластера должно быть уникальным в рамках каталога.
   1. Выберите окружение, в котором нужно создать кластер (после создания кластера окружение изменить невозможно):

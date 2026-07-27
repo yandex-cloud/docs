@@ -5,10 +5,6 @@ description: Из статьи вы узнаете, какие методы S3 A
 
 # Все методы Static Website Hosting
 
-Метод | Описание
------ | -----
-[PutBucketWebsite](hosting/upload.md) | Загружает конфигурацию бакета для хостинга статических сайтов в {{ objstorage-name }}.
-[GetBucketWebsite](hosting/get.md) | Возвращает конфигурацию бакета для хостинга статических сайтов из {{ objstorage-name }}.
-[DeleteBucketWebsite](hosting/delete.md) | Удаляет конфигурацию бакета для хостинга статических сайтов.
+{% include [hosting-methods-table](../../../_includes/storage/s3-api-ref/hosting-methods-table.md) %}
 
 {% include [the-s3-api-see-also-include](../../../_includes/storage/the-s3-api-see-also-include.md) %}

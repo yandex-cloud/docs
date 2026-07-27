@@ -130,7 +130,6 @@
         # This is a template - please update with your actual values
         
         userpool_id: "<идентификатор_пула_пользователей>"
-        replication_tokens_path: "<путь_к_директории_с_токенами_процессов>"
         working_directory: "<путь_к_рабочей_директории_агента>"
         
         # Yandex Cloud authentication settings
@@ -157,15 +156,15 @@
         # Active Directory replication API client settings
         drsr:
           host: "<адрес_контроллера_домена>"
-          username: "username"
+          username: "<sAMAccountName_пользователя_Active_Directory>"
           password: "password"
         
         # LDAP client settings
         ldap:
           host: "ldaps://<адрес_контроллера_домена>:636"
-          username: "<имя_пользователя_Active_Directory>"
+          username: "<DN_пользователя_Active_Directory>"
           password: "<пароль_пользователя_Active_Directory>"
-          certificate_path: "<путь_к_сертификату>"
+          certificate_path: "<путь_к_CA_сертификату>"
           insecure_skip_verify: false|true
         
         # Logger configuration
@@ -224,10 +223,7 @@
         Где:
 
         * `userpool_id` — идентификатор [пула пользователей](../concepts/user-pools.md) в Yandex Identity Hub.
-        * `replication_tokens_path` — путь к директории, в которой сохраняются токены с информацией о текущем прогрессе процессов [полной синхронизации](../concepts/ad-sync.md#full-sync). Необязательный параметр.
-        
-            Если параметр не задан, токены сохраняются в рабочей директории агента, указанной в параметре `working_directory`, или, если рабочая директория не задана, — в директории, в которой расположен исполняемый файл агента.
-        * `working_directory` — путь к директории, в которой сохраняются другие файлы, необходимые агенту для работы. Необязательный параметр.
+        * `working_directory` — путь к директории, в которой сохраняются файлы, необходимые агенту для работы. Необязательный параметр.
         
             Если параметр не задан, в качестве рабочей директории используется директория, в которой расположен исполняемый файл агента. По умолчанию исполняемый файл агента располагается в следующих директориях:
         
@@ -245,7 +241,7 @@
         
             {% note info %}
         
-            Если в параметрах `cloud_credentials_file_path`, `replication_tokens_path` и/или `logger.file.filename` заданы пути, отличные от пути, заданного в параметре `working_directory`, для выбранных сущностей будут использоваться пути, указанные в параметрах `cloud_credentials_file_path`, `replication_tokens_path` и/или `logger.file.filename`.
+            Если в параметрах `cloud_credentials_file_path` и/или `logger.file.filename` заданы пути, отличные от пути, заданного в параметре `working_directory`, для выбранных сущностей будут использоваться пути, указанные в параметрах `cloud_credentials_file_path` и/или `logger.file.filename`.
         
             {% endnote %}
         
@@ -274,7 +270,11 @@
             * `enabled: true` — активирован режим dry run. Агент не вносит изменения в данные пользователей и групп Yandex Identity Hub. Вместо этого он тестирует выполнение всех предусмотренных конфигурацией агента операций и сохраняет результаты этих тестов в [логах](../concepts/ad-sync.md#logging) его работы.
             * `enabled: false` — агент функционирует в рабочем режиме, необходимые изменения вносятся в данные пользователей и групп Yandex Identity Hub.
 
-        * `drsr` — настройки протокола [DRSR](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-drsr/) для аутентификации на стороне Active Directory [пользователя](#dc-setup) с назначенными правами на выполнение репликации данных в каталоге.
+        * `drsr` — настройки протокола [DRSR](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-drsr/) для аутентификации на стороне Active Directory [пользователя](#dc-setup) с назначенными правами на выполнение репликации данных в каталоге:
+        
+            * `host` — домен или IP-адрес контроллера домена Active Directory.
+            * `username` — `sAMAccountName` пользователя домена Active Directory, которому [назначены](#dc-setup) права на выполнение репликации данных.
+            * `password` — пароль пользователя домена Active Directory.
         * `ldap` — настройки протокола [LDAPS](https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/enable-ldap-over-ssl-3rd-certification-authority)/[LDAP](https://learn.microsoft.com/en-us/windows/win32/api/_ldap/) для аутентификации на стороне Active Directory:
         
             {% note warning %}
@@ -287,9 +287,11 @@
         
                 * при использовании `LDAPS` — схема `ldaps://` и порт `636`;
                 * при использовании `LDAP` — схема `ldap://` и порт `389`.
-            * `username` — имя пользователя домена Active Directory, которому [назначены](#dc-setup) права на выполнение репликации данных.
+            * `username` — [DN](https://learn.microsoft.com/en-us/previous-versions/windows/desktop/ldap/distinguished-names) пользователя домена Active Directory, которому [назначены](#dc-setup) права на выполнение репликации данных.
             * `password` — пароль пользователя домена Active Directory.
-            * `certificate_path` — путь к файлу с сертификатом открытого ключа, необходимым для расшифрования трафика от контроллера домена. Обязательный параметр при использовании протокола `LDAPS`.
+            * `certificate_path` — путь к файлу с корневым сертификатом удостоверяющего центра (CA), которым подписан сертификат контроллера домена. Необязательный параметр.
+        
+                Укажите этот параметр, если вы используете протокол `LDAPS` и корневой сертификат отсутствует в системном хранилище доверенных сертификатов.
         
                 Если в параметре `working_directory` задан путь к рабочей директории, вместо пути к файлу сертификата достаточно указать имя этого файла.
             * `insecure_skip_verify` — параметр, позволяющий игнорировать ошибки валидации сертификата открытого ключа при подключении к контроллеру домена. Необязательный параметр. Возможные значения:
@@ -420,7 +422,6 @@
         # This is a template - please update with your actual values
         
         userpool_id: "<идентификатор_пула_пользователей>"
-        replication_tokens_path: "<путь_к_директории_с_токенами_процессов>"
         working_directory: "<путь_к_рабочей_директории_агента>"
         
         # Yandex Cloud authentication settings
@@ -452,7 +453,7 @@
         # LDAP client settings
         ldap:
           host: "ldaps://<адрес_контроллера_домена>:636"
-          certificate_path: "<путь_к_сертификату>"
+          certificate_path: "<путь_к_CA_сертификату>"
           insecure_skip_verify: false|true
           use_kerberos: true
         
@@ -519,10 +520,7 @@
         Где:
 
         * `userpool_id` — идентификатор [пула пользователей](../concepts/user-pools.md) в Yandex Identity Hub.
-        * `replication_tokens_path` — путь к директории, в которой сохраняются токены с информацией о текущем прогрессе процессов [полной синхронизации](../concepts/ad-sync.md#full-sync). Необязательный параметр.
-        
-            Если параметр не задан, токены сохраняются в рабочей директории агента, указанной в параметре `working_directory`, или, если рабочая директория не задана, — в директории, в которой расположен исполняемый файл агента.
-        * `working_directory` — путь к директории, в которой сохраняются другие файлы, необходимые агенту для работы. Необязательный параметр.
+        * `working_directory` — путь к директории, в которой сохраняются файлы, необходимые агенту для работы. Необязательный параметр.
         
             Если параметр не задан, в качестве рабочей директории используется директория, в которой расположен исполняемый файл агента. По умолчанию исполняемый файл агента располагается в следующих директориях:
         
@@ -540,7 +538,7 @@
         
             {% note info %}
         
-            Если в параметрах `cloud_credentials_file_path`, `replication_tokens_path` и/или `logger.file.filename` заданы пути, отличные от пути, заданного в параметре `working_directory`, для выбранных сущностей будут использоваться пути, указанные в параметрах `cloud_credentials_file_path`, `replication_tokens_path` и/или `logger.file.filename`.
+            Если в параметрах `cloud_credentials_file_path` и/или `logger.file.filename` заданы пути, отличные от пути, заданного в параметре `working_directory`, для выбранных сущностей будут использоваться пути, указанные в параметрах `cloud_credentials_file_path` и/или `logger.file.filename`.
         
             {% endnote %}
         
@@ -582,7 +580,9 @@
         
                 * при использовании `LDAPS` — схема `ldaps://` и порт `636`;
                 * при использовании `LDAP` — схема `ldap://` и порт `389`.
-            * `certificate_path` — путь к файлу с сертификатом открытого ключа, необходимым для расшифрования трафика от контроллера домена. Обязательный параметр при использовании протокола `LDAPS`.
+            * `certificate_path` — путь к файлу с корневым сертификатом удостоверяющего центра (CA), которым подписан сертификат контроллера домена. Необязательный параметр.
+        
+                Укажите этот параметр, если вы используете протокол `LDAPS` и корневой сертификат отсутствует в системном хранилище доверенных сертификатов.
         
                 Если в параметре `working_directory` задан путь к рабочей директории, вместо пути к файлу сертификата достаточно указать имя этого файла.
             * `insecure_skip_verify` — параметр, позволяющий игнорировать ошибки валидации сертификата открытого ключа при подключении к контроллеру домена. Необязательный параметр. Возможные значения:
@@ -762,7 +762,6 @@
       # This is a template - please update with your actual values
       
       userpool_id: "<идентификатор_пула_пользователей>"
-      replication_tokens_path: "<путь_к_директории_с_токенами_процессов>"
       working_directory: "<путь_к_рабочей_директории_агента>"
       
       # Yandex Cloud authentication settings
@@ -789,15 +788,15 @@
       # Active Directory replication API client settings
       drsr:
         host: "<адрес_контроллера_домена>"
-        username: "username"
+        username: "<sAMAccountName_пользователя_Active_Directory>"
         password: "password"
       
       # LDAP client settings
       ldap:
         host: "ldaps://<адрес_контроллера_домена>:636"
-        username: "<имя_пользователя_Active_Directory>"
+        username: "<DN_пользователя_Active_Directory>"
         password: "<пароль_пользователя_Active_Directory>"
-        certificate_path: "<путь_к_сертификату>"
+        certificate_path: "<путь_к_CA_сертификату>"
         insecure_skip_verify: false|true
       
       # Logger configuration
@@ -856,10 +855,7 @@
       Где:
 
       * `userpool_id` — идентификатор [пула пользователей](../concepts/user-pools.md) в Yandex Identity Hub.
-      * `replication_tokens_path` — путь к директории, в которой сохраняются токены с информацией о текущем прогрессе процессов [полной синхронизации](../concepts/ad-sync.md#full-sync). Необязательный параметр.
-      
-          Если параметр не задан, токены сохраняются в рабочей директории агента, указанной в параметре `working_directory`, или, если рабочая директория не задана, — в директории, в которой расположен исполняемый файл агента.
-      * `working_directory` — путь к директории, в которой сохраняются другие файлы, необходимые агенту для работы. Необязательный параметр.
+      * `working_directory` — путь к директории, в которой сохраняются файлы, необходимые агенту для работы. Необязательный параметр.
       
           Если параметр не задан, в качестве рабочей директории используется директория, в которой расположен исполняемый файл агента. По умолчанию исполняемый файл агента располагается в следующих директориях:
       
@@ -877,7 +873,7 @@
       
           {% note info %}
       
-          Если в параметрах `cloud_credentials_file_path`, `replication_tokens_path` и/или `logger.file.filename` заданы пути, отличные от пути, заданного в параметре `working_directory`, для выбранных сущностей будут использоваться пути, указанные в параметрах `cloud_credentials_file_path`, `replication_tokens_path` и/или `logger.file.filename`.
+          Если в параметрах `cloud_credentials_file_path` и/или `logger.file.filename` заданы пути, отличные от пути, заданного в параметре `working_directory`, для выбранных сущностей будут использоваться пути, указанные в параметрах `cloud_credentials_file_path` и/или `logger.file.filename`.
       
           {% endnote %}
       
@@ -906,7 +902,11 @@
           * `enabled: true` — активирован режим dry run. Агент не вносит изменения в данные пользователей и групп Yandex Identity Hub. Вместо этого он тестирует выполнение всех предусмотренных конфигурацией агента операций и сохраняет результаты этих тестов в [логах](../concepts/ad-sync.md#logging) его работы.
           * `enabled: false` — агент функционирует в рабочем режиме, необходимые изменения вносятся в данные пользователей и групп Yandex Identity Hub.
 
-      * `drsr` — настройки протокола [DRSR](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-drsr/) для аутентификации на стороне Active Directory [пользователя](#dc-setup) с назначенными правами на выполнение репликации данных в каталоге.
+      * `drsr` — настройки протокола [DRSR](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-drsr/) для аутентификации на стороне Active Directory [пользователя](#dc-setup) с назначенными правами на выполнение репликации данных в каталоге:
+      
+          * `host` — домен или IP-адрес контроллера домена Active Directory.
+          * `username` — `sAMAccountName` пользователя домена Active Directory, которому [назначены](#dc-setup) права на выполнение репликации данных.
+          * `password` — пароль пользователя домена Active Directory.
       * `ldap` — настройки протокола [LDAPS](https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/enable-ldap-over-ssl-3rd-certification-authority)/[LDAP](https://learn.microsoft.com/en-us/windows/win32/api/_ldap/) для аутентификации на стороне Active Directory:
       
           {% note warning %}
@@ -919,9 +919,11 @@
       
               * при использовании `LDAPS` — схема `ldaps://` и порт `636`;
               * при использовании `LDAP` — схема `ldap://` и порт `389`.
-          * `username` — имя пользователя домена Active Directory, которому [назначены](#dc-setup) права на выполнение репликации данных.
+          * `username` — [DN](https://learn.microsoft.com/en-us/previous-versions/windows/desktop/ldap/distinguished-names) пользователя домена Active Directory, которому [назначены](#dc-setup) права на выполнение репликации данных.
           * `password` — пароль пользователя домена Active Directory.
-          * `certificate_path` — путь к файлу с сертификатом открытого ключа, необходимым для расшифрования трафика от контроллера домена. Обязательный параметр при использовании протокола `LDAPS`.
+          * `certificate_path` — путь к файлу с корневым сертификатом удостоверяющего центра (CA), которым подписан сертификат контроллера домена. Необязательный параметр.
+      
+              Укажите этот параметр, если вы используете протокол `LDAPS` и корневой сертификат отсутствует в системном хранилище доверенных сертификатов.
       
               Если в параметре `working_directory` задан путь к рабочей директории, вместо пути к файлу сертификата достаточно указать имя этого файла.
           * `insecure_skip_verify` — параметр, позволяющий игнорировать ошибки валидации сертификата открытого ключа при подключении к контроллеру домена. Необязательный параметр. Возможные значения:

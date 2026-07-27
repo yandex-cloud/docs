@@ -1,28 +1,36 @@
 ---
-title: Как управлять сетями и IP-префиксами в Routing Instance {{ cr-name }}
-description: Следуя этой инструкции, вы сможете изменить список сетей и IP-префиксов в Routing Instance в {{ cr-name }}.
+title: Как управлять сетями и IP-префиксами в виртуальном маршрутизаторе {{ cr-name }}
+description: Следуя этой инструкции, вы сможете изменить список сетей и IP-префиксов в виртуальном маршрутизаторе в {{ cr-name }}.
 ---
 
-# Управлять сетями и IP-префиксами в Routing Instance
+# Управлять сетями и IP-префиксами в виртуальном маршрутизаторе
 
-## Изменить сети и IP-префиксы в Routing Instance {#update-networks}
-
-[Команда](../cli-ref/routing-instance/update-networks.md) {{ yandex-cloud }} CLI `yc cloudrouter routing-instance update-networks` позволяет одновременно управлять набором [анонсированных IP-префиксов](../concepts/announces.md) облачных [сетей](../../vpc/concepts/network.md#network) {{ vpc-full-name }}, добавленных в [Routing Instance](../concepts/routing-instance.md), а также добавлять новые сети в Routing Instance и удалять имеющиеся. 
+## Изменить сети и IP-префиксы в виртуальном маршрутизаторе {#update-networks}
 
 {% include [ri-roles-necessary](../../_includes/cloud-router/ri-roles-necessary.md) %}
 
-### Добавить новую облачную сеть в Routing Instance {#add-network}
+### Добавить новую облачную сеть в виртуальный маршрутизатор {#add-network}
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [виртуальный маршрутизатор](../concepts/routing-instance.md).
+  1. [Перейдите]({{ link-console-main }}/link/cloud-router) в сервис **{{ ui-key.yacloud.ui.constants.label_cloud-router_kBGNL }}**.
+  1. В строке с виртуальным маршрутизатором нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. В блоке **{{ ui-key.yacloud.cloud-router.router.routing-networks_42RL1 }}** раскройте выпадающий список и выберите сеть, которую нужно добавить. При необходимости воспользуйтесь поиском.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+
 - CLI {#cli}
+
+  [Команда](../cli-ref/routing-instance/update-networks.md) {{ yandex-cloud }} CLI `yc cloudrouter routing-instance update-networks` позволяет одновременно управлять набором [анонсированных IP-префиксов](../concepts/announces.md) облачных [сетей](../../vpc/concepts/network.md#network) {{ vpc-full-name }}, добавленных в [виртуальный маршрутизатор](../concepts/routing-instance.md), а также добавлять новые сети в виртуальный маршрутизатор и удалять имеющиеся.
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
   1. {% include [ri-update-networks-help](../../_includes/cloud-router/ri-update-networks-help.md) %}
   1. {% include [ri-list-cli](../../_includes/cloud-router/ri-list-cli.md) %}
   1. {% include [ri-update-networks-get](../../_includes/cloud-router/ri-update-networks-get.md) %}
-  1. Добавьте в Routing Instance новую сеть с анонсированным IP-префиксом, указав [идентификатор](../../vpc/operations/network-get-info.md) этой сети в поле `id` параметра `--add-vpc-net`:
+  1. Добавьте в виртуальный маршрутизатор новую сеть с анонсированным IP-префиксом, указав [идентификатор](../../vpc/operations/network-get-info.md) этой сети в поле `id` параметра `--add-vpc-net`:
 
       ```bash
       yc cloudrouter routing-instance update-networks \
@@ -47,7 +55,7 @@ description: Следуя этой инструкции, вы сможете и�
 
       {% include [ri-async-output-legend](../../_includes/cloud-router/ri-async-output-legend.md) %}
 
-  1. Дождитесь [завершения](../../cli/cli-ref/operation/cli-ref/get.md) операции и убедитесь в том, что конфигурация Routing Instance изменилась:
+  1. Дождитесь [завершения](../../cli/cli-ref/operation/cli-ref/get.md) операции и убедитесь в том, что конфигурация виртуального маршрутизатора изменилась:
 
       ```bash
       yc cloudrouter routing-instance get c3lgk007olse******** \
@@ -104,9 +112,17 @@ description: Следуя этой инструкции, вы сможете и�
 
 {% endlist %}
 
-### Удалить имеющуюся облачную сеть из Routing Instance {#remove-network}
+### Удалить имеющуюся облачную сеть из виртуального маршрутизатора {#remove-network}
 
 {% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится виртуальный маршрутизатор.
+  1. [Перейдите]({{ link-console-main }}/link/cloud-router) в сервис **{{ ui-key.yacloud.ui.constants.label_cloud-router_kBGNL }}**.
+  1. Выберите виртуальный маршрутизатор.
+  1. В блоке **{{ ui-key.yacloud.cloud-router.router.routing-networks_42RL1 }}** рядом с облачной сетью нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
+  1. В открывшемся окне подтвердите удаление.
 
 - CLI {#cli}
 
@@ -115,7 +131,7 @@ description: Следуя этой инструкции, вы сможете и�
   1. {% include [ri-update-networks-help](../../_includes/cloud-router/ri-update-networks-help.md) %}
   1. {% include [ri-list-cli](../../_includes/cloud-router/ri-list-cli.md) %}
   1. {% include [ri-update-networks-get](../../_includes/cloud-router/ri-update-networks-get.md) %}
-  1. Удалите из Routing Instance имеющуюся сеть:
+  1. Удалите из виртуального маршрутизатора имеющуюся сеть:
 
       ```bash
       yc cloudrouter routing-instance update-networks \
@@ -140,7 +156,7 @@ description: Следуя этой инструкции, вы сможете и�
 
       {% include [ri-async-output-legend](../../_includes/cloud-router/ri-async-output-legend.md) %}
 
-  1. Дождитесь [завершения](../../cli/cli-ref/operation/cli-ref/get.md) операции и убедитесь в том, что конфигурация Routing Instance изменилась:
+  1. Дождитесь [завершения](../../cli/cli-ref/operation/cli-ref/get.md) операции и убедитесь в том, что конфигурация виртуального маршрутизатора изменилась:
 
       ```bash
       yc cloudrouter routing-instance get c3lgk007olse******** \
@@ -183,9 +199,20 @@ description: Следуя этой инструкции, вы сможете и�
 
 {% endlist %}
 
-### Обновить IP-префиксы имеющихся облачных сетей в Routing Instance {#update-prefixes}
+### Обновить IP-префиксы имеющихся облачных сетей в виртуальном маршрутизаторе {#update-prefixes}
 
 {% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится виртуальный маршрутизатор.
+  1. [Перейдите]({{ link-console-main }}/link/cloud-router) в сервис **{{ ui-key.yacloud.ui.constants.label_cloud-router_kBGNL }}**.
+  1. Выберите виртуальный маршрутизатор.
+  1. В блоке **{{ ui-key.yacloud.cloud-router.router.routing-networks_42RL1 }}** рядом с облачной сетью нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. В открывшемся окне:
+
+     1. Отметьте подсети, в которых вы хотите изменить IP-префиксы.
+     1. Измените необходимые IP-префиксы.
+     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -194,7 +221,7 @@ description: Следуя этой инструкции, вы сможете и�
   1. {% include [ri-update-networks-help](../../_includes/cloud-router/ri-update-networks-help.md) %}
   1. {% include [ri-list-cli](../../_includes/cloud-router/ri-list-cli.md) %}
   1. {% include [ri-update-networks-get](../../_includes/cloud-router/ri-update-networks-get.md) %}
-  1. Обновите анонсированные IP-префиксы в Routing Instance:
+  1. Обновите анонсированные IP-префиксы в виртуальном маршрутизаторе:
 
       
       ```bash
@@ -224,7 +251,7 @@ description: Следуя этой инструкции, вы сможете и�
 
       {% include [ri-async-output-legend](../../_includes/cloud-router/ri-async-output-legend.md) %}
 
-  1. Дождитесь [завершения](../../cli/cli-ref/operation/cli-ref/get.md) операции и убедитесь в том, что конфигурация Routing Instance изменилась:
+  1. Дождитесь [завершения](../../cli/cli-ref/operation/cli-ref/get.md) операции и убедитесь в том, что конфигурация виртуального маршрутизатора изменилась:
 
       ```bash
       yc cloudrouter routing-instance get c3lgk007olse******** \
@@ -273,36 +300,47 @@ description: Следуя этой инструкции, вы сможете и�
 
 {% endlist %}
 
-## Добавить IP-префиксы в Routing Instance {#upsert-prefixes}
-
-[Команда](../cli-ref/routing-instance/upsert-prefixes.md) {{ yandex-cloud }} CLI `yc cloudrouter routing-instance upsert-prefixes` позволяет [анонсировать новые IP-префиксы](../concepts/announces.md) в Routing Instance.
-
-{% note tip %}
-
-Если вам необходимо добавить в Routing Instance новые IP-префиксы с одновременным удалением всех или части имеющихся в нем префиксов, [воспользуйтесь](#update-networks) командой `yc cloudrouter routing-instance update-networks`.
-
-{% endnote %}
+## Добавить IP-префиксы в виртуальный маршрутизатор {#upsert-prefixes}
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится виртуальный маршрутизатор.
+  1. [Перейдите]({{ link-console-main }}/link/cloud-router) в сервис **{{ ui-key.yacloud.ui.constants.label_cloud-router_kBGNL }}**.
+  1. Выберите виртуальный маршрутизатор.
+  1. В блоке **{{ ui-key.yacloud.cloud-router.router.routing-networks_42RL1 }}** рядом с облачной сетью нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. В открывшемся окне:
+
+     1. Отметьте блоки с подсетями, в которых вы хотите добавить IP-префиксы.
+     1. Введите необходимые IP-префиксы.
+     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+
 - CLI {#cli}
+
+  [Команда](../cli-ref/routing-instance/upsert-prefixes.md) {{ yandex-cloud }} CLI `yc cloudrouter routing-instance upsert-prefixes` позволяет [анонсировать новые IP-префиксы](../concepts/announces.md) в виртуальном маршрутизаторе.
+  
+  {% note tip %}
+  
+  Если вам необходимо добавить в виртуальный маршрутизатор новые IP-префиксы с одновременным удалением всех или части имеющихся в нем префиксов, [воспользуйтесь](#update-networks) командой `yc cloudrouter routing-instance update-networks`.
+  
+  {% endnote %}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
-  1. Посмотрите описание команды CLI для изменения списка IP-префиксов в [Routing Instance](../concepts/routing-instance.md):
+  1. Посмотрите описание команды CLI для изменения списка IP-префиксов в [виртуальном маршрутизаторе](../concepts/routing-instance.md):
 
       ```bash
       yc cloudrouter routing-instance upsert-prefixes --help
       ```
 
-  1. Посмотрите конфигурацию Routing Instance и состав IP-префиксов:
+  1. Посмотрите конфигурацию виртуального маршрутизатора и состав IP-префиксов:
 
       ```bash
       yc cloudrouter routing-instance get c3l871dpin4f******** \
         --folder-id <идентификатор_каталога>
       ```
 
-      Где `--folder-id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором находится нужный Routing Instance.
+      Где `--folder-id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором находится нужный виртуальный маршрутизатор.
 
       Результат:
 
@@ -324,7 +362,7 @@ description: Следуя этой инструкции, вы сможете и�
       status: ACTIVE
       created_at: "2025-03-19T13:35:56Z"
       ```
-  1. Добавьте дополнительные префиксы в список IP-префиксов Routing Instance:
+  1. Добавьте дополнительные префиксы в список IP-префиксов виртуального маршрутизатора:
 
       {% include [ri-roles-necessary](../../_includes/cloud-router/ri-roles-necessary.md) %}
 
@@ -353,7 +391,7 @@ description: Следуя этой инструкции, вы сможете и�
 
       {% include [ri-async-output-legend](../../_includes/cloud-router/ri-async-output-legend.md) %}
 
-  1. Дождитесь [завершения](../../cli/cli-ref/operation/cli-ref/get.md) операции и убедитесь в том, что конфигурация Routing Instance изменилась:
+  1. Дождитесь [завершения](../../cli/cli-ref/operation/cli-ref/get.md) операции и убедитесь в том, что конфигурация виртуального маршрутизатора изменилась:
 
       ```bash
       yc cloudrouter routing-instance get c3l871dpin4f******** \
@@ -397,36 +435,47 @@ description: Следуя этой инструкции, вы сможете и�
 
 {% endlist %}
 
-## Удалить IP-префиксы из Routing Instance {#remove-prefixes}
-
-[Команда](../cli-ref/routing-instance/remove-prefixes.md) {{ yandex-cloud }} CLI `yc cloudrouter routing-instance remove-prefixes` позволяет удалить [анонсированные IP-префиксы](../concepts/announces.md) из Routing Instance.
-
-{% note tip %}
-
-Если вам необходимо удалить имеющиеся IP-префиксы из Routing Instance с одновременным добавлением в него новых префиксов, [воспользуйтесь](#update-networks) командой `yc cloudrouter routing-instance update-networks`.
-
-{% endnote %}
+## Удалить IP-префиксы из виртуального маршрутизатора {#remove-prefixes}
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится виртуальный маршрутизатор.
+  1. [Перейдите]({{ link-console-main }}/link/cloud-router) в сервис **{{ ui-key.yacloud.ui.constants.label_cloud-router_kBGNL }}**.
+  1. Выберите виртуальный маршрутизатор.
+  1. В блоке **{{ ui-key.yacloud.cloud-router.router.routing-networks_42RL1 }}** рядом с облачной сетью нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. В открывшемся окне:
+
+     1. Отметьте блоки с подсетями, из которых вы хотите удалить IP-префиксы.
+     1. Нажмите значок ![xmark](../../_assets/console-icons/xmark.svg) рядом с префиксами, которые вы хотите удалить.
+     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+
 - CLI {#cli}
+
+  [Команда](../cli-ref/routing-instance/remove-prefixes.md) {{ yandex-cloud }} CLI `yc cloudrouter routing-instance remove-prefixes` позволяет удалить [анонсированные IP-префиксы](../concepts/announces.md) из виртуального маршрутизатора.
+  
+  {% note tip %}
+  
+  Если вам необходимо удалить имеющиеся IP-префиксы из виртуального маршрутизатора с одновременным добавлением в него новых префиксов, [воспользуйтесь](#update-networks) командой `yc cloudrouter routing-instance update-networks`.
+  
+  {% endnote %}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
-  1. Посмотрите описание команды CLI для удаления IP-префиксов из [Routing Instance](../concepts/routing-instance.md):
+  1. Посмотрите описание команды CLI для удаления IP-префиксов из [виртуального маршрутизатора](../concepts/routing-instance.md):
 
       ```bash
       yc cloudrouter routing-instance remove-prefixes --help
       ```
 
-  1. Посмотрите конфигурацию Routing Instance и состав IP-префиксов:
+  1. Посмотрите конфигурацию виртуального маршрутизатора и состав IP-префиксов:
 
       ```bash
       yc cloudrouter routing-instance get c3l871dpin4f******** \
         --folder-id <идентификатор_каталога>
       ```
 
-      Где `--folder-id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором находится нужный Routing Instance.
+      Где `--folder-id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором находится нужный виртуальный маршрутизатор.
 
       Результат:
 
@@ -459,7 +508,7 @@ description: Следуя этой инструкции, вы сможете и�
       ```
 
 
-  1. Удалите IP-префиксы из Routing Instance:
+  1. Удалите IP-префиксы из виртуального маршрутизатора:
 
       {% include [ri-roles-necessary](../../_includes/cloud-router/ri-roles-necessary.md) %}
 
@@ -488,7 +537,7 @@ description: Следуя этой инструкции, вы сможете и�
 
       {% include [ri-async-output-legend](../../_includes/cloud-router/ri-async-output-legend.md) %}
 
-  1. Дождитесь [завершения](../../cli/cli-ref/operation/cli-ref/get.md) операции и убедитесь в том, что конфигурация Routing Instance изменилась:
+  1. Дождитесь [завершения](../../cli/cli-ref/operation/cli-ref/get.md) операции и убедитесь в том, что конфигурация виртуального маршрутизатора изменилась:
 
       ```bash
       yc cloudrouter routing-instance get c3l871dpin4f******** \

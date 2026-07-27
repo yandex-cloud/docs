@@ -5,9 +5,13 @@ description: In {{ monium-name }}, you can search for data by metrics, logs, and
 
 # Query language in {{ monium-name }}
 
+{{ monium-name }} uses a unified query language to search and filter telemetry data, such as metrics, logs, and traces. With this language, you can build selector expressions, apply functions to transform metrics, and reference results of other queries as variables.
+
+For a data model description, including required attributes, labels, and metadata, see [{#T}](data-model.md). For configuration objects (project, cluster, and service) used in queries, see [{#T}](configuration-model.md).
+
 ## Queries {#queries}
 
-A _query_ is any valid expression in the [query language](querying.md). The query result depends on the data type:
+A _query_ is any valid expression in the query language. The query result depends on the data type:
 
 * Metrics: Line or a set of lines.
 * Logs: Log entry or a set of log entries.
@@ -95,7 +99,7 @@ For the `>` `>=` `<`, and `<=` operators:
 - Logs and metrics: RHS must be a numeric literal; the label value is converted to a number. The `level` label is an exception.
 - Traces: Comparison works only for labels of the `duration` type. RHS must be a duration literal with units, e.g.,`500ms`, `2s`, and `150us`. If the label value cannot be converted to the required type, the result of this part of the expression is considered false.
 
-To search through labels stored in the `meta` metadata, use the fully qualified name: `meta.label_name`. Supported operators are the same as for the top-level labels in all telemetry types.
+To search through labels stored in the `meta` metadata, use the fully qualified name: `meta.label_name`. Supported operators are the same as for the top-level labels in all telemetry types. For more on labels and metadata, see [{#T}](data-model.md).
 
 The `message` field is there in logs only.
 
@@ -110,9 +114,13 @@ When searching for traces or spans, you can use additional keys:
 * `span.critical_path`: Specifies whether the span is on the critical path, `PRESENT` or `ABSENT`; supports the `=` operator.
 * `trace.id`: Trace ID (to search for logs by trace).
 
-The search for traces is described in [{#T}](../traces/operations/traces-explorer.md).
+In the query language, you can omit any number of leading zeros in a `trace.id` value. The following selectors are equivalent:
 
-The {{ monium-name }} query language is used for conversion of metrics when configuring [dashboards](./visualization/dashboard.md) and [alerts](./alerting.md), as well as in the [MetricsData.read](../api-ref/MetricsData/read.md) API method.
+* `{trace.id="000000000000000036a91077c9806b4c"}`
+* `{trace.id="000036a91077c9806b4c"}`
+* `{trace.id="36a91077c9806b4c"}`
+
+For information on searching traces, see [{#T}](../traces/operations/traces-explorer.md).
 
 ## Using query names as variables {#query-name-as-variable}
 
@@ -127,3 +135,30 @@ B: `{project="folder__my_folder_id", cluster="default", service="custom", room="
 C: `(A + B) / 2`
 
 These links can only refer by name in text mode, and only to higher-level queries in the same alert or chart. You can apply any supported arithmetic operations and query language [functions](querying-functions.md) to variables.
+
+## Selector optimization {#selector-performance-tuning}
+
+On sparse data, the system uses optimizations to narrow the search scope to specific parts of your storage. The more precisely a selector narrows the search scope, the faster the query runs.
+
+Here are some examples:
+
+* `{project = "...", service = "...", meta.order.id = "*abc*123*"}`: The query does not specify exact attribute values, forcing the system to search across the entire storage.
+
+* `{project, service, meta.order.id = "bf090941d4f44867"}`: Providing an exact value makes search faster if the `id` is rare.
+
+* `{project, service, meta.order.id = "*abc*123*", meta.request.id = "c7438471-fc0f46b9bc68"}`: Search by `order.id` with a glob pattern is slow, but using an exact `request.id` value improves query performance.
+
+* `{project, service, geo.city = "very_small_city"}`: Optimization also works for `labels`.
+
+* `{project, service, geo.city = "very_small_city", meta.purchase_token = "f97b68f2450e43e4"}`: This query runs faster than the previous one, as it first filters results by `geo.city` and then by `purchase_token`.
+
+* `{project, service, trace.id="00008dsf7d8df7d"}`: Optimization works for `trace.id` and `span.id`.
+
+We recommend storing high-cardinality labels, including IDs, in `meta` (metadata). For more on the difference between labels and metadata, see [{#T}](data-model.md).
+
+#### See also {#see-also}
+
+* [{#T}](data-model.md)
+* [{#T}](configuration-model.md)
+* [{#T}](visualization/query-string.md)
+* [{#T}](querying-functions.md)

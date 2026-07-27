@@ -6,7 +6,6 @@ description: With {{ cns-name }}, you can send push notifications to users' brow
 
 # How to get started with browser push notifications in {{ cns-full-name }}
 
-{% include [preview-stage](../_includes/notifications/preview-stage.md) %}
 
 {% include [ask-for-turning-on](../_includes/notifications/ask-for-turning-on.md) %}
 

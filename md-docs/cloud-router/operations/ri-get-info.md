@@ -1,6 +1,6 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Router](../index.md) > [Пошаговые инструкции](index.md) > Получить информацию о Routing Instance
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Router](../index.md) > [Пошаговые инструкции](index.md) > Получить информацию о виртуальном маршрутизаторе
 
-# Получить информацию о Routing Instance
+# Получить информацию о виртуальном маршрутизаторе
 
 {% note info %}
 
@@ -10,22 +10,29 @@
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [виртуальный маршрутизатор](../concepts/routing-instance.md).
+  1. [Перейдите](https://console.yandex.cloud/link/cloud-router) в сервис **Cloud Router**.
+  1. Выберите виртуальный маршрутизатор.
+  1. На вкладке **Обзор** отобразится информация о виртуальном маршрутизаторе, а также маршрутизируемые сети и префиксы.
+
 - CLI {#cli}
 
-  Вы можете посмотреть информацию о Routing Instance с помощью следующих команд:
-  * [yc cloudrouter routing-instance get](../../cli/cli-ref/cloudrouter/cli-ref/routing-instance/get.md) — позволяет получить информацию о Routing Instance по его имени или идентификатору.
-  * [yc cloudrouter routing-instance get-by-cic-private-connection-id](../../cli/cli-ref/cloudrouter/cli-ref/routing-instance/get-by-cic-private-connection-id.md) — позволяет получить информацию о Routing Instance по идентификатору [приватного соединения](../../interconnect/concepts/priv-con.md) Yandex Cloud Interconnect, которое подключено к Routing Instance.
-  * [yc cloudrouter routing-instance get-by-vpc-network-id](../../cli/cli-ref/cloudrouter/cli-ref/routing-instance/get-by-vpc-network-id.md) — позволяет получить информацию о Routing Instance по идентификатору [облачной сети](../../vpc/concepts/network.md#network), с которой Routing Instance обеспечивает сетевую связность.
+  Вы можете посмотреть информацию о виртуальном маршрутизаторе с помощью следующих команд:
+  * [yc cloudrouter routing-instance get](../../cli/cli-ref/cloudrouter/cli-ref/routing-instance/get.md) — позволяет получить информацию о виртуальном маршрутизаторе по его имени или идентификатору.
+  * [yc cloudrouter routing-instance get-by-cic-private-connection-id](../../cli/cli-ref/cloudrouter/cli-ref/routing-instance/get-by-cic-private-connection-id.md) — позволяет получить информацию о виртуальном маршрутизаторе по идентификатору [приватного соединения](../../interconnect/concepts/priv-con.md) Yandex Cloud Interconnect, которое подключено к виртуальному маршрутизатору.
+  * [yc cloudrouter routing-instance get-by-vpc-network-id](../../cli/cli-ref/cloudrouter/cli-ref/routing-instance/get-by-vpc-network-id.md) — позволяет получить информацию о виртуальном маршрутизаторе по идентификатору [облачной сети](../../vpc/concepts/network.md#network), с которой виртуальный маршрутизатор обеспечивает сетевую связность.
 
   **yc cloudrouter routing-instance get**
 
-  1. Посмотрите описание команды CLI для получения информации о Routing Instance:
+  1. Посмотрите описание команды CLI для получения информации о виртуальном маршрутизаторе:
 
       ```bash
       yc cloudrouter routing-instance get --help
       ```
 
-  1. Получите список Routing Instance в заданном [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder):
+  1. Получите список виртуальных маршрутизаторов в заданном [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder):
 
       ```bash
       yc cloudrouter routing-instance list \
@@ -43,7 +50,7 @@
       +----------------------+--------------------+--------+-----------------------+
       ```
 
-  1. Получите информацию о Routing Instance, указав его идентификатор, полученный на предыдущем шаге:
+  1. Получите информацию о виртуальном маршрутизаторе, указав его идентификатор, полученный на предыдущем шаге:
 
       ```bash
       yc cloudrouter routing-instance get cf3jqdc4gjpx********
@@ -125,7 +132,7 @@
 
   **yc cloudrouter routing-instance get-by-cic-private-connection-id**
 
-  1. Посмотрите описание команды CLI для получения информации о Routing Instance:
+  1. Посмотрите описание команды CLI для получения информации о виртуальном маршрутизаторе:
 
       ```bash
       yc cloudrouter routing-instance get-by-cic-private-connection-id --help
@@ -147,7 +154,7 @@
       | cf3r3mfr4bm5******** |      | cf3dcodot14p******** |
       +----------------------+------+----------------------+
       ```
-  1. Получите информацию о Routing Instance, указав идентификатор подключенного к нему приватного соединения:
+  1. Получите информацию о виртуальном маршрутизаторе, указав идентификатор подключенного к нему приватного соединения:
 
       ```bash
       yc cloudrouter routing-instance get-by-cic-private-connection-id \
@@ -230,7 +237,7 @@
 
   **yc cloudrouter routing-instance get-by-vpc-network-id**
 
-  1. Посмотрите описание команды CLI для получения информации о Routing Instance:
+  1. Посмотрите описание команды CLI для получения информации о виртуальном маршрутизаторе:
 
       ```bash
       yc cloudrouter routing-instance get-by-vpc-network-id --help
@@ -252,7 +259,7 @@
       | enpcuntrql7d******** | my-network2 |
       +----------------------+-------------+
       ```
-  1. Получите информацию о Routing Instance, указав идентификатор облачной сети, с которой он обеспечивает сетевую связность:
+  1. Получите информацию о виртуальном маршрутизаторе, указав идентификатор облачной сети, с которой он обеспечивает сетевую связность:
 
       ```bash
       yc cloudrouter routing-instance get-by-vpc-network-id \

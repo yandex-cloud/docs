@@ -273,8 +273,6 @@ You can perform the following actions with [{{ managed-k8s-name }} cluster cloud
 
 ## Updating the master resource configuration {#manage-resources}
 
-{% include [master-pricing-note](../../../_includes/managed-kubernetes/master-pricing-note.md) %}
-
 {% list tabs group=instructions %}
 
 - Management console {#console}

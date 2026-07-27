@@ -12,8 +12,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог с кластером, который нужно остановить.
-  1. Перейдите в сервис **Yandex Managed Service for&nbsp;Valkey™**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог с кластером, который нужно остановить.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-valkey) в сервис **Yandex Managed Service for&nbsp;Valkey™**.
   1. В строке с нужным кластером нажмите значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Остановить**.
   1. Подтвердите остановку кластера — нажмите кнопку **Остановить**.
 
@@ -99,8 +99,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог с кластером, который нужно запустить.
-  1. Перейдите в сервис **Yandex Managed Service for&nbsp;Valkey™**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог с кластером, который нужно запустить.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-valkey) в сервис **Yandex Managed Service for&nbsp;Valkey™**.
   1. В строке с нужным кластером нажмите значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Запустить**.
   1. Подтвердите запуск кластера — нажмите кнопку **Запустить** в открывшемся диалоге.
 

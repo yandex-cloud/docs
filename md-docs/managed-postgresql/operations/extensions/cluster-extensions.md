@@ -40,7 +40,7 @@ Managed Service for PostgreSQL поддерживает подключение �
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
   1. Нажмите на имя нужного кластера и выберите блок **Базы данных**.
   1. В колонке **Расширения PostgreSQL** будет отображаться список расширений, подключенных к каждой базе данных.
 
@@ -128,7 +128,7 @@ Managed Service for PostgreSQL поддерживает подключение �
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Базы данных**.
   1. В строке с нужной базой данных нажмите значок ![options](../../../_assets/console-icons/ellipsis.svg) и выберите пункт **Настроить**.
   1. Выберите необходимые расширения и нажмите кнопку **Изменить**.

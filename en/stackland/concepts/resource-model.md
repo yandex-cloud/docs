@@ -8,11 +8,13 @@
 
 A cluster is a root {{ stackland-name }} entity. At the cluster level, you can manage the following:
 
-* Cluster nodes.
+* Cluster nodes (`StacklandHostConfig`).
 * Platform configuration (`PlatformConfig`).
 * Components (`ComponentInstallation`).
 * Cluster roles and role bindings (`ClusterRole`, `ClusterRoleBinding`).
 * Federations with external IdPs.
+
+For more information about changing the cluster node composition, see [Scaling a cluster](cluster-scaling.md).
 
 ### Project {#project}
 
@@ -44,7 +46,7 @@ Some services have a resource model of their own, different from the {{ stacklan
 You can grant access at any hierarchy level:
 
 * At the cluster level, via `ClusterRoleBinding` or `ClusterAccessBinding`. Access to all resources of the cluster.
-* At the project level, via `ProjectRoleBinding` or `ProjectAccessBinding`. Access to all namespaces of the project.
+* At the project level, via `ProjectRoleBinding` or `ProjectAccessBinding`. Access to all namespaces within a project.
 * At the namespace level, via `RoleBinding` or `AccessBinding`. Access limited to a particular namespace.
 
 To learn more, see [Access management](../access-management.md).
@@ -54,6 +56,6 @@ To learn more, see [Access management](../access-management.md).
 You can set quotas at these two levels:
 
 * At the project level, which limits the total consumption of resources for all the project's namespaces. This quota is set by a cluster administrator.
-* At the namespace level, which is the standard Kubernetes mechanism called `ResourceQuota`. This quota is set by a project administrator.
+* At the namespace level, which is the standard Kubernetes mechanism called `ResourceQuota`. A project administrator sets this quota.
 
 For more information, see [Setting project quotas](../operations/projects/namespace-quotas.md).

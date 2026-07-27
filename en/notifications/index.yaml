@@ -1,16 +1,17 @@
 title: Yandex Cloud Notification Service
 description:
   - >-
-    <i>Yandex Cloud Notification Service is at the <a
-    href="/docs/overview/concepts/launch-stages">Preview stage</a>.</i>
-  - >-
     Yandex Cloud Notification Service is a service for sending multichannel
-    notifications to users. The service's HTTP API is compatible with the <a
+    notifications to users. Its HTTP API is compatible with the <a
     href="https://docs.aws.amazon.com/sns/latest/api/welcome.html">Amazon SNS
     API</a>.
   - >-
-    At the Preview stage, you can send personalized push notifications to iOS
-    and Android devices, browsers, and via SMS.
+    The service can send push notifications to iOS and Android devices,
+    browsers, and via SMS.
+  - >-
+    The service is subject to a <a
+    href="https://yandex.ru/legal/cloud_terms_cns/ru/">service level agreement
+    (SLA)</a>.
   - Moving forward, we will add notifications to messengers.
 meta:
   title: Yandex Cloud Notification Service
@@ -45,8 +46,11 @@ links:
     description: Learn how to get started with the AWS CLI
     href: tools/aws-cli
   - title: API reference
-    description: HTTP API methods
+    description: HTTP API method description
     href: api-ref/
   - title: Pricing policy
-    description: Service pricing and cost calculations
+    description: Prices and cost calculation rules
     href: pricing
+  - title: SLA
+    description: Service level agreement
+    href: https://yandex.ru/legal/cloud_terms_cns/ru/

@@ -1,10 +1,3 @@
-
-{% note warning %}
-
-To use the [YC CLI](../../cli/quickstart.md) or [API](../../overview/api.md) calls for resource create and update operations in [Cloud Interconnect](../../interconnect/concepts/index.md) and [Cloud Router](../../cloud-router/concepts/index.md), contact support.
-
-{% endnote %}
-
 ## Steps to follow {#order}
 
 Follow these steps when using [Cloud Interconnect](../../interconnect/concepts/index.md) and [Cloud Router](../../cloud-router/concepts/index.md) resources to create hybrid cloud network topologies:
@@ -13,11 +6,11 @@ Follow these steps when using [Cloud Interconnect](../../interconnect/concepts/i
 1. Create a [routing instance](../../cloud-router/concepts/routing-instance.md) in the specified folder to build the required network topology, which typically includes [virtual networks (VPCs)](../../vpc/concepts/network.md) and private connections.
 1. Add a private connection to the routing instance.
 1. Add a list of specified subnet IP prefixes from virtual networks (VPCs) to the routing instance.
-1. Optionally, add a list of specified static routes to the private connection to form a `VPC Stitching` network topology. 
+1. *Optional*. Add a list of specified static routes to the private connection to form a `VPC Stitching` network topology. 
 
 Currently, to manage [Cloud Interconnect](../../interconnect/concepts/index.md) and [Cloud Router](../../cloud-router/concepts/index.md) resources, you can do one of the following:
-* Contact support.
-* Use the [YC CLI](../../cli/quickstart.md) or [API calls](../../overview/api.md). At the moment, these tools have limited availability.
+* Contact [support]({{ link-console-support }}).
+* Use the [management console]({{ link-console-main }}/link/interconnect/trunk-connections), [YC CLI](../../interconnect/cli-ref/index.md) or [API calls](../../interconnect/api-ref/authentication.md). At the moment, these tools have limited availability.
 
 Below, we provide a list of operations you can perform on [Cloud Interconnect](../../interconnect/concepts/index.md) and [Cloud Router](../../cloud-router/concepts/index.md) resources with links to relevant guides. You can also find the guides in `Step-by-step guides` and `Tutorials` for Cloud Interconnect or Cloud Router.
 
@@ -50,7 +43,7 @@ Deleting a private connection | [Description](../../interconnect/tutorials/priv-
 **Removing static routes from a private connection** (VPC stitching) | **Yes** | [Description](../../interconnect/operations/priv-con-update.md)
 
 
-## Routing instance {#ri}
+## Routing Instance {#ri}
 
 Action | Support | YC CLI
 --- | --- | ---

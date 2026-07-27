@@ -13,7 +13,7 @@ description: Вы можете запросить детальную инфор�
 
 - Консоль управления {#console}
 
-  Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  [Перейдите]({{ link-console-main }}/link/managed-postgresql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
 
 - CLI {#cli}
 
@@ -95,7 +95,7 @@ description: Вы можете запросить детальную инфор�
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Перейдите]({{ link-console-main }}/link/managed-postgresql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите на имя нужного кластера.
 
 - CLI {#cli}
@@ -175,7 +175,7 @@ description: Вы можете запросить детальную инфор�
   Можно получить список операций для кластера:
 
   1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится кластер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Перейдите]({{ link-console-main }}/link/managed-postgresql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.postgresql.switch_list_9AfbP }}**.
   1. Выберите нужный кластер и перейдите на вкладку ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.postgresql.switch_operations_9JzwJ }}**.
 

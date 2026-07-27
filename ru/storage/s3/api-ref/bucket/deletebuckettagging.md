@@ -14,15 +14,14 @@ DELETE /{bucket}?tagging HTTP/2
 
 ### Path-параметры {#path-parameters}
 
-Параметр | Описание
---- | ---
-`bucket` | Имя бакета.
+{% include [path-parameters](../../../_includes_service/storage-path-parameters.md) %}
 
 ### Query-параметры {#request-params}
 
-Параметр | Описание
---- | ---
-`tagging` | Обязательный параметр для обозначения типа операции.
+#|
+|| **Параметр** | **Описание** ||
+|| `tagging` | Обязательный параметр для обозначения типа операции ||
+|#
 
 ### Заголовки {#request-headers}
 

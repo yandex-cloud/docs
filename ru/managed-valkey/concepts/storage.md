@@ -32,7 +32,8 @@ description: Из статьи вы узнаете, какие типы диск
 
 Чтобы отслеживать степень заполнения хранилища кластера, настройте алерты в {{ monitoring-full-name }}:
 
-1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+1. [Перейдите]({{ link-monitoring }}) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
 1. [Создайте канал уведомлений](../../monitoring/operations/alert/create-channel.md).
 1. [Создайте алерт](../../monitoring/operations/alert/create-alert.md) со следующими параметрами:
 

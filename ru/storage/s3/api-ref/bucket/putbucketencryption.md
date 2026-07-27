@@ -12,12 +12,10 @@ PUT /{bucket}?encryption HTTP/2
 
 ### Path параметры {#path-parameters}
 
-Параметр | Описание
------ | -----
-`bucket` | Имя бакета.
-
+{% include [path-parameters](../../../_includes_service/storage-path-parameters.md) %}
 
 ### Заголовки {#request-headers}
+
 Используйте в запросе только [общие заголовки](../common-request-headers.md).
 
 ## Ответ {#response}
@@ -46,13 +44,26 @@ PUT /{bucket}?encryption HTTP/2
 </ServerSideEncryptionConfiguration>
 ```
 
-Элемент | Описание
------ | -----
-`ApplyServerSideEncryptionByDefault` | Указание применить к объекту шифрование по умолчанию, если в запросе не указаны другие параметры шифрования.<br/><br/>Путь: `ServerSideEncryptionConfiguration\Rule\ApplyServerSideEncryptionByDefault`.
-`KMSMasterKeyID` | Идентификатор [ключа {{ kms-short-name }}](../../../../kms/concepts/key.md).<br/><br/>Путь: `ServerSideEncryptionConfiguration\Rule\ApplyServerSideEncryptionByDefault\KMSMasterKeyID`.
-`Rule` | Правило шифрования на стороне сервера. <br/><br/>Шифрование определяется элементами `KMSMasterKeyID` и `SSEAlgorithm`.<br/><br/>Путь: `ServerSideEncryptionConfiguration\Rule`.
-`ServerSideEncryptionConfiguration` | Конфигурация шифрования, по умолчанию применяемая к новым объектам в бакете.<br/><br/>Путь: `ServerSideEncryptionConfiguration`.
-`SSEAlgorithm` | Алгоритм шифрования. Доступные значения: `aws:kms`.<br/><br/>Путь: `ServerSideEncryptionConfiguration\Rule\ApplyServerSideEncryptionByDefault\SSEAlgorithm`.
+#|
+|| **Элемент** | **Описание** ||
+|| `ApplyServerSideEncryptionByDefault` | Указание применить к объекту шифрование по умолчанию, если в запросе не указаны другие параметры шифрования.
+
+Путь: `ServerSideEncryptionConfiguration\Rule\ApplyServerSideEncryptionByDefault`. ||
+|| `KMSMasterKeyID` | Идентификатор [ключа {{ kms-short-name }}](../../../../kms/concepts/key.md).
+
+Путь: `ServerSideEncryptionConfiguration\Rule\ApplyServerSideEncryptionByDefault\KMSMasterKeyID`. ||
+|| `Rule` | Правило шифрования на стороне сервера. 
+
+Шифрование определяется элементами `KMSMasterKeyID` и `SSEAlgorithm`.
+
+Путь: `ServerSideEncryptionConfiguration\Rule`. ||
+|| `ServerSideEncryptionConfiguration` | Конфигурация шифрования, по умолчанию применяемая к новым объектам в бакете.
+
+Путь: `ServerSideEncryptionConfiguration`. ||
+|| `SSEAlgorithm` | Алгоритм шифрования. Доступные значения: `aws:kms`.
+
+Путь: `ServerSideEncryptionConfiguration\Rule\ApplyServerSideEncryptionByDefault\SSEAlgorithm`. ||
+|#
 
 #### Связанные статьи {#related-articles}
 

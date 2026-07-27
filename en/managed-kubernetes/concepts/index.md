@@ -66,8 +66,6 @@ For more on master settings, see [{#T}](../operations/kubernetes-cluster/kuberne
 
 ### Master computing resources {#master-resources}
 
-{% include [master-pricing-note](../../_includes/managed-kubernetes/master-pricing-note.md) %}
-
 {% include [master-default-config](../../_includes/managed-kubernetes/master-default-config.md) %}
 
 When [creating](../operations/kubernetes-cluster/kubernetes-cluster-create.md) or [updating](../operations/kubernetes-cluster/kubernetes-cluster-update.md#manage-resources) a cluster, you can select a master configuration suitable for your tasks.

@@ -1,6 +1,6 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Router](../index.md) > [Пошаговые инструкции](index.md) > Добавить приватное соединение в Routing Instance
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Router](../index.md) > [Пошаговые инструкции](index.md) > Добавить приватное соединение в виртуальный маршрутизатор
 
-# Добавить приватное соединение в Routing Instance
+# Добавить приватное соединение в виртуальный маршрутизатор
 
 {% note info %}
 
@@ -10,15 +10,23 @@
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [виртуальный маршрутизатор](../concepts/routing-instance.md).
+  1. [Перейдите](https://console.yandex.cloud/link/cloud-router) в сервис **Cloud Router**.
+  1. В строке с виртуальным маршрутизатором нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать**.
+  1. В поле **Приватные соединения** выберите [приватные соединения](../../interconnect/concepts/priv-con.md), которые необходимо добавить, или укажите их идентификаторы.
+  1. Нажмите кнопку **Сохранить**.
+
 - CLI {#cli}
 
-  1. Посмотрите описание команды CLI для добавления [приватного соединения](../../interconnect/concepts/priv-con.md) в [Routing Instance](../concepts/routing-instance.md):
+  1. Посмотрите описание команды CLI для добавления [приватного соединения](../../interconnect/concepts/priv-con.md) в [виртуальный маршрутизатор](../concepts/routing-instance.md):
 
       ```bash
       yc cloudrouter routing-instance add-private-connection --help
       ```
 
-  1. Добавить нужное приватное соединение в Routing Instance:
+  1. Добавить нужное приватное соединение в виртуальный маршрутизатор:
 
      ```bash
      yc cloudrouter routing-instance add-private-connection c3l87**********1dpin \
@@ -40,11 +48,11 @@
       ```
 
      где,
-      * `id` — идентификатор операции, выполняемой с Routing Instance.
+      * `id` — идентификатор операции, выполняемой с виртуальным маршрутизатором.
       * `created_by` — идентификатор субъекта, который выполняет операцию.
 
 
-  1. Проверить изменения в конфигурации Routing Instance:
+  1. Проверить изменения в конфигурации виртуального маршрутизатора:
 
      ```bash
      yc cloudrouter routing-instance get c3l87**********1dpin
@@ -65,12 +73,12 @@
      ```
 
      где,
-      * `id` — идентификатор Routing Instance.
-      * `name` — название Routing Instance.
-      * `description` — описание Routing Instance.
-      * `folder_id` — идентификатор облачного каталога, в котором был создан Routing Instance.
-      * `region_id` — регион облака, в котором был создан Routing Instance.
-      * `cic_private_connection_info` — список приватных соединений в данном Routing Instance.
+      * `id` — идентификатор виртуального маршрутизатора.
+      * `name` — название виртуального маршрутизатора.
+      * `description` — описание виртуального маршрутизатора.
+      * `folder_id` — идентификатор облачного каталога, в котором был создан виртуальный маршрутизатор.
+      * `region_id` — регион облака, в котором был создан виртуальный маршрутизатор.
+      * `cic_private_connection_info` — список приватных соединений в данном виртуальном маршрутизаторе.
       * `status` — состояние ресурса. Целевое состояние — `ACTIVE`. При изменении может находиться в состоянии `UPDATING`.
       * `created_at` — дата и время создания ресурса.
       * `async` — выполнение операции в асинхронном режиме. Рекомендуется все операции с изменением ресурсов выполнять в этом режиме.

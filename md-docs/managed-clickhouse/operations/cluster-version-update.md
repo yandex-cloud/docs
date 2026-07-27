@@ -93,7 +93,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, где нужно обновить версию ClickHouse®.
-    1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse** 
+    1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse** 
     1. В списке кластеров выберите тот, который нужно изменить.
     1. Нажмите кнопку **Редактировать**.
     1. В блоке **Базовые параметры** в поле **Версия** выберите нужную версию.

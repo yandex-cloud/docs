@@ -226,6 +226,9 @@
          ```
      
          Или [запускайте команды](../../../cli/concepts/index.md#manage-properties) с параметром `--cloud-id`.
+     
+         Подробнее на странице [Получение идентификатора облака](../../../resource-manager/operations/cloud/get-id.md).
+     
      1. Укажите каталог в профиле:
      
          ```bash
@@ -233,6 +236,8 @@
          ```
      
          Или [запускайте команды](../../../cli/concepts/index.md#manage-properties) с параметром `--folder-id`.
+     
+         Подробнее на странице [Получение идентификатора каталога](../../../resource-manager/operations/folder/get-id.md).
      
      Все операции в этом профиле будут выполняться от имени привязанного сервисного аккаунта. Вы можете [изменить параметры профиля](../../../cli/operations/profile/manage-properties.md) или [сменить его](../../../cli/operations/profile/profile-activate.md).
 

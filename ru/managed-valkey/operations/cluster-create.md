@@ -60,16 +60,18 @@ description: Следуя данной инструкции, вы сможете
 
   Чтобы создать кластер {{ mrd-name }}:
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором нужно создать кластер БД.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер БД.
+  1. [Перейдите]({{ link-console-main }}/link/managed-valkey) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
      * Введите имя кластера в поле **{{ ui-key.yacloud.mdb.forms.base_field_name }}**. Имя кластера должно быть уникальным в рамках каталога.
      * (Опционально) Добавьте описание кластера.
      * Выберите окружение, в котором нужно создать кластер (после создания кластера окружение изменить невозможно):
+       
        * `PRODUCTION` — для стабильных версий ваших приложений.
        * `PRESTABLE` — для тестирования. Prestable-окружение аналогично Production-окружению и на него также распространяется SLA, но при этом на нем раньше появляются новые функциональные возможности, улучшения и исправления ошибок. В Prestable-окружении вы можете протестировать совместимость новых версий с вашим приложением.
+     
      * Выберите версию СУБД.
      * (Опционально) Добавьте метки.
      * Если требуется, включите [шардирование кластера](../concepts/sharding.md).
@@ -102,6 +104,7 @@ description: Следуя данной инструкции, вы сможете
 
      
      * Выберите [тип диска](../concepts/storage.md):
+       
        * либо более гибкое хранилище — на сетевых SSD-дисках (`network-ssd`) или на нереплицируемых SSD-дисках (`network-ssd-nonreplicated`);
        * либо более быстрое хранилище — на локальных SSD-дисках (`local-ssd`).
 
@@ -124,6 +127,7 @@ description: Следуя данной инструкции, вы сможете
 
   
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите:
+       
        * [Облачную сеть](../../vpc/concepts/network.md#network) для размещения кластера.
        * Группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
 
@@ -232,9 +236,11 @@ description: Следуя данной инструкции, вы сможете
 
 
       Где:
+      
       * `--environment` — окружение: `prestable` или `production`.
       * `--redis-version` — версия {{ VLK }}: {{ versions.cli.str }}.
       * `--host` — параметры хоста:
+         
          * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
 
          
@@ -243,6 +249,7 @@ description: Следуя данной инструкции, вы сможете
 
 
          * `replica-priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover).
+      
       * `--disk-type-id` — тип диска.
 
       * `--websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}. Значение по умолчанию — `false`.
@@ -271,6 +278,7 @@ description: Следуя данной инструкции, вы сможете
         {% include [fqdn-option-compatibility-note](../../_includes/mdb/mvk/connect/fqdn-option-compatibility-note.md) %}
 
       * `--valkey-modules` — параметры [модулей {{ VLK }}](../concepts/modules.md):
+         
          * `enable-valkey-search` — подключить модуль `Valkey-Search`: `true` или `false`.
          * `valkey-search-reader-threads` — количество потоков обработки запросов в модуле `Valkey-Search`.
          * `valkey-search-writer-threads` — количество потоков индексации в модуле `Valkey-Search`.
@@ -357,6 +365,7 @@ description: Следуя данной инструкции, вы сможете
        ```
 
        Где:
+       
        * `environment` — окружение: `PRESTABLE` или `PRODUCTION`.
        * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
@@ -552,8 +561,10 @@ description: Следуя данной инструкции, вы сможете
             * `modules` — параметры [модулей {{ VLK }}](../concepts/modules.md):
 
                * `valkeySearch.enabled` — подключить модуль `Valkey-Search`: `true` или `false`. Для модуля доступна настройка параметров:
+                   
                    * `valkeySearch.readerThreads` — количество потоков обработки запросов.
                    * `valkeySearch.writerThreads` — количество потоков индексации.
+               
                * `valkeyJson.enabled` — подключить модуль `Valkey-JSON`: `true` или `false`.
                * `valkeyBloom.enabled` — подключить модуль `Valkey-Bloom`: `true` или `false`.
 
@@ -735,8 +746,10 @@ description: Следуя данной инструкции, вы сможете
             * `modules` — параметры [модулей {{ VLK }}](../concepts/modules.md):
 
                * `valkey_search.enabled` — подключить модуль `Valkey-Search`: `true` или `false`. Для модуля доступна настройка параметров:
+                   
                    * `valkey_search.reader_threads` — количество потоков обработки запросов.
                    * `valkey_search.writer_threads` — количество потоков индексации.
+               
                * `valkey_json.enabled` — подключить модуль `Valkey-JSON`: `true` или `false`.
                * `valkey_bloom.enabled` — подключить модуль `Valkey-Bloom`: `true` или `false`.
 
@@ -1157,9 +1170,11 @@ description: Следуя данной инструкции, вы сможете
     * Каталог с идентификатором `{{ tf-folder-id }}`.
     * Новая сеть `mynet`.
     * Три подсети в сети `mynet`, по одной в каждой зоне доступности:
+      
       * `subnet-a` с диапазоном `10.1.0.0/24`;
       * `subnet-b` с диапазоном `10.2.0.0/24`;
       * `subnet-d` с диапазоном `10.3.0.0/24`.
+    
     * Три хоста класса `{{ mrd-host-class }}`, по одному в каждой подсети.
     * Новая группа безопасности `redis-sg`, разрешающая подключения через порты `{{ port-mrd }}` и `{{ port-mrd-sentinel }}` ([{{ VLK }} Sentinel](./connect/index.md)) с любых адресов подсетей.
     * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) размером 16 ГБ.
@@ -1261,3 +1276,4 @@ description: Следуя данной инструкции, вы сможете
     ```
 
 {% endlist %}
+

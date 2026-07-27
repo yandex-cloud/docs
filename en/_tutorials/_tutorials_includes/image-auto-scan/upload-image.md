@@ -19,21 +19,17 @@
 
         The current user’s profile stores the settings.
 
-        {% note warning %}
+        {% include [credential-helper](../../../_includes/credential-helper.md) %}
 
-        The credential helper only works if you use Docker without `sudo`. To learn how to configure Docker to run under the current user without `sudo`, see the [official Docker documentation](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
+     1. Make sure Docker is configured.
 
-        {% endnote %}
-
-     1. Make sure that Docker is configured.
-
-        The following line must appear in the `/home/<user>/.docker/config.json` configuration file:
+        The `/home/<user>/.docker/config.json` configuration file should now contain this line:
 
         ```json
         "{{ registry }}": "yc"
         ```
 
-     1. You can now use Docker, for example, to [push Docker images](../../../container-registry/operations/docker-image/docker-image-push.md). You do not need to run the `docker login` command for that.
+     1. You can now use Docker, e.g., to [push Docker images](../../../container-registry/operations/docker-image/docker-image-push.md). You do not need to run the `docker login` command for that.
 
    - OAuth token {#oauth-token}
 

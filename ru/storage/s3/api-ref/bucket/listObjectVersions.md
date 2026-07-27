@@ -13,24 +13,46 @@ GET /{bucket}?versions&delimiter=Delimiter&encoding-type=EncodingType&key-marker
 
 ### Path параметры {#path-parameters}
 
-Параметр | Описание
------ | -----
-`bucket` | Имя бакета.
+{% include [path-parameters](../../../_includes_service/storage-path-parameters.md) %}
 
 ### Query параметры {#parameters}
 
 Все перечисленные в таблице параметры необязательные.
 
-Параметр | Описание
------ | -----
-`delimiter` | Символ-разделитель.<br/><br/>Если параметр указан, то {{ objstorage-name }} рассматривает ключ как путь к файлу, где каталоги разделяются символом `delimiter`. В ответе на запрос пользователь увидит перечень <q>файлов</q> и <q>каталогов</q> в бакете. <q>Файлы</q> будут выведены в элементах `Contents`, а <q>каталоги</q> в элементах `CommonPrefixes`.<br/><br/>Если в запросе указан еще и параметр `prefix`, то {{ objstorage-name }} вернет перечень <q>файлов</q> и <q>каталогов</q> в <q>каталоге</q> `prefix`.
-`encoding-type` | Кодировка ответа от сервера.<br/><br/>{{ objstorage-name }} по требованию клиента может закодировать ответ в требуемом виде.<br/><br/>Возможные значения: `url`.
-`key-marker` | Ключ, с которого начнется выдача.<br/><br/>В результирующей выдаче {{ objstorage-name }} оставит ключи, начиная со следующего за `key-marker`.
-`max-keys` | Максимальное количество элементов в ответе.<br/><br/>По умолчанию {{ objstorage-name }} выдает не более 1000 элементов `Contents` и `CommonPrefixes`. Параметр следует использовать, если вам нужно получать менее 1000 элементов в одном ответе.<br/><br/>Если под критерии отбора попадает больше ключей, чем поместилось в выдаче, то ответ содержит `<IsTruncated>true</IsTruncated>`.<br/><br/>Чтобы получить все элементы выдачи, если их больше `max-keys`, необходимо выполнить несколько последовательных запросов к {{ objstorage-name }} с параметром `key-marker`, где для каждого запроса `key-marker` и `version-id-marker` равны значениям элементов `NextKeyMarker` и `NextVersionIdMarker` из предыдущего ответа.
-`prefix` | Строка, с которой должен начинаться ключ.<br/><br/>{{ objstorage-name }} выберет только те ключи, которые начинаются с `prefix`.<br/><br/>Может использоваться одновременно с параметром `delimiter`. В этом случае логика выдачи становится той, что указана в описании параметра `delimiter`.
-`version-id-marker` | Версия объекта, с которой начинается выдача.<br/><br/>В результирующей выдаче {{ objstorage-name }} оставит версии, начиная со следующей за `version-id-marker`.
+#|
+|| **Параметр** | **Описание** ||
+|| `delimiter` | Символ-разделитель.
+
+Если параметр указан, то {{ objstorage-name }} рассматривает ключ как путь к файлу, где каталоги разделяются символом `delimiter`. В ответе на запрос пользователь увидит перечень <q>файлов</q> и <q>каталогов</q> в бакете. <q>Файлы</q> будут выведены в элементах `Contents`, а <q>каталоги</q> в элементах `CommonPrefixes`.
+
+Если в запросе указан еще и параметр `prefix`, то {{ objstorage-name }} вернет перечень <q>файлов</q> и <q>каталогов</q> в <q>каталоге</q> `prefix`. ||
+|| `encoding-type` | Кодировка ответа от сервера.
+
+{{ objstorage-name }} по требованию клиента может закодировать ответ в требуемом виде.
+
+Возможные значения: `url`. ||
+|| `key-marker` | Ключ, с которого начнется выдача.
+
+В результирующей выдаче {{ objstorage-name }} оставит ключи, начиная со следующего за `key-marker`. ||
+|| `max-keys` | Максимальное количество элементов в ответе.
+
+По умолчанию {{ objstorage-name }} выдает не более 1000 элементов `Contents` и `CommonPrefixes`. Параметр следует использовать, если вам нужно получать менее 1000 элементов в одном ответе.
+
+Если под критерии отбора попадает больше ключей, чем поместилось в выдаче, то ответ содержит `<IsTruncated>true</IsTruncated>`.
+
+Чтобы получить все элементы выдачи, если их больше `max-keys`, необходимо выполнить несколько последовательных запросов к {{ objstorage-name }} с параметром `key-marker`, где для каждого запроса `key-marker` и `version-id-marker` равны значениям элементов `NextKeyMarker` и `NextVersionIdMarker` из предыдущего ответа. ||
+|| `prefix` | Строка, с которой должен начинаться ключ.
+
+{{ objstorage-name }} выберет только те ключи, которые начинаются с `prefix`.
+
+Может использоваться одновременно с параметром `delimiter`. В этом случае логика выдачи становится той, что указана в описании параметра `delimiter`. ||
+|| `version-id-marker` | Версия объекта, с которой начинается выдача.
+
+В результирующей выдаче {{ objstorage-name }} оставит версии, начиная со следующей за `version-id-marker`. ||
+|#
 
 ### Заголовки {#request-headers}
+
 Используйте в запросе только [общие заголовки](../common-request-headers.md).
 
 ## Ответ {#response}
@@ -92,22 +114,53 @@ GET /{bucket}?versions&delimiter=Delimiter&encoding-type=EncodingType&key-marker
 </ListVersionsResult>
 ```
 
-Элемент | Описание
------ | -----
-`ListVersionsResult` | Корневой элемент
-`CommonPrefixes` | Часть имени ключа, которая определяется при обработке query параметров `delimiter` и `prefix`.<br/><br/>Путь: `/ListVersionsResult/CommonPrefixes`.
-`DeleteMarker` | Контейнер для объекта, который является маркером удаления.<br/><br/>Путь: `/ListVersionsResult/DeleteMarker`.
-`Delimiter` | Значение query параметра `delimiter`.<br/><br/>Путь: `/ListVersionsResult/Delimiter`.
-`EncodingType` | Кодировка, в которой {{ objstorage-name }} представляет ключ в XML-ответе.<br/><br/>Появляется, если клиент при запросе передал параметр `encoding-type`.<br/><br/>Путь: `/ListVersionsResult/EncodingType`.
-`IsTruncated` | Признак неполноты списка.<br/><br/>Если `IsTruncated` — `true`, то это означает, что {{ objstorage-name }} вернул не полный список частей.<br/><br/>Путь: `/ListVersionsResult/IsTruncated`.
-`KeyMarker` | Последний ключ, возвращенный в неполном ответе.<br/><br/>Путь: `/ListVersionsResult/KeyMarker`.
-`MaxKeys` | Значение query параметра `max-keys`.<br/><br/>Путь: `/ListBucketResult/MaxKeys`.
-`Name` | Название бакета.<br/><br/>Путь: `/ListBucketResult/Name`.
-`NextKeyMarker` | Значение, которое надо подставить в query параметр `key-marker` для получения следующей части списка, если весь список не поместился в текущий ответ.<br/><br/>Путь: `/ListBucketResult/NextMarker`.
-`NextVersionIdMarker` | Значение, которое надо подставить в query параметр `version-id-marker` для получения следующей части списка, если весь список не поместился в текущий ответ.<br/><br/>Путь: `/ListBucketResult/NextVersionIdMarker`.
-`Prefix` | Значение query параметра `prefix`.<br/><br/>Путь: `/ListBucketResult/Prefix`.
-`Version` | Версия объекта.<br/><br/>Путь: `/ListBucketResult/Version`.
-`VersionIdMarker` | Отмечает последнюю версию ключа, возвращенную в усеченном ответе. <br/><br/>Путь: `/ListBucketResult/VersionIdMarker`.
+#|
+|| **Элемент** | **Описание** ||
+|| `ListVersionsResult` | Корневой элемент. ||
+|| `CommonPrefixes` | Часть имени ключа, которая определяется при обработке query параметров `delimiter` и `prefix`.
+
+Путь: `/ListVersionsResult/CommonPrefixes`. ||
+|| `DeleteMarker` | Контейнер для объекта, который является маркером удаления.
+
+Путь: `/ListVersionsResult/DeleteMarker`. ||
+||`Delimiter` | Значение query параметра `delimiter`.
+
+Путь: `/ListVersionsResult/Delimiter`. ||
+|| `EncodingType` | Кодировка, в которой {{ objstorage-name }} представляет ключ в XML-ответе.
+
+Появляется, если клиент при запросе передал параметр `encoding-type`.
+
+Путь: `/ListVersionsResult/EncodingType`. ||
+|| `IsTruncated` | Признак неполноты списка.
+
+Если `IsTruncated` — `true`, то это означает, что {{ objstorage-name }} вернул не полный список частей.
+
+Путь: `/ListVersionsResult/IsTruncated`. ||
+|| `KeyMarker` | Последний ключ, возвращенный в неполном ответе.
+
+Путь: `/ListVersionsResult/KeyMarker`. ||
+|| `MaxKeys` | Значение query параметра `max-keys`.
+
+Путь: `/ListBucketResult/MaxKeys`. ||
+|| `Name` | Название бакета.
+
+Путь: `/ListBucketResult/Name`. ||
+|| `NextKeyMarker` | Значение, которое надо подставить в query параметр `key-marker` для получения следующей части списка, если весь список не поместился в текущий ответ.
+
+Путь: `/ListBucketResult/NextMarker`. ||
+|| `NextVersionIdMarker` | Значение, которое надо подставить в query параметр `version-id-marker` для получения следующей части списка, если весь список не поместился в текущий ответ.
+
+Путь: `/ListBucketResult/NextVersionIdMarker`. ||
+|| `Prefix` | Значение query параметра `prefix`.
+
+Путь: `/ListBucketResult/Prefix`. ||
+|| `Version` | Версия объекта.
+
+Путь: `/ListBucketResult/Version`. ||
+|| `VersionIdMarker` | Отмечает последнюю версию ключа, возвращенную в усеченном ответе. 
+
+Путь: `/ListBucketResult/VersionIdMarker`. ||
+|#
 
 #### Связанные статьи {#related-articles}
 

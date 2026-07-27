@@ -2150,6 +2150,10 @@ default:
       v1:
         active_secrets|number: 0.0002245901
         active_secrets|string: $0.0002245901
+  sku|USD|logging:
+    ingested:
+      traffic|pricingRate:
+        5|string: $0.2094299665
   sku|USD|mdb:
     cluster:
       clickhouse:
@@ -2264,6 +2268,10 @@ default:
         export|string: $0.0629999899
       write|number: 0.0026229504
       write|string: $0.0026229504
+  sku|USD|monium:
+    logs:
+      ingested:
+        traffic|string: $0.036065568
   sku|USD|network:
     public_fips:
       deallocated|number: 0.0027899996
@@ -3121,6 +3129,8 @@ default:
             title: Escalation policies
           explorer:
             title: Metrics
+          logs-analytics:
+            title: Errors
           logs:
             title: Logs
           notification-feed:

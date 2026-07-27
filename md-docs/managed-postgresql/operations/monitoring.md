@@ -27,7 +27,7 @@
 
 Для просмотра детальной информации о состоянии кластера Managed Service for PostgreSQL:
 
-1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
 
 1. Нажмите на имя нужного кластера и выберите вкладку **Мониторинг**.
 
@@ -105,7 +105,7 @@
 
 Для просмотра детальной информации о состоянии отдельных хостов Managed Service for PostgreSQL:
 
-1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
 1. Нажмите на имя нужного кластера и выберите вкладку **Хосты**.
 1. Нажмите на строку нужного хоста в списке.
 
@@ -142,7 +142,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог с кластером, для которого нужно настроить алерты.
-    1. Перейдите в сервис ![image](../../_assets/console-icons/display-pulse.svg) **Monitoring**.
+    1. [Перейдите](https://console.yandex.cloud/link/monitoring) в сервис ![image](../../_assets/console-icons/display-pulse.svg) **Monitoring**.
     1. В блоке **Сервисные дашборды** выберите:
         * **Managed Service for PostgreSQL — Cluster Overview** для настройки алертов кластера;
         * **Managed Service for PostgreSQL — Host Overview** для настройки алертов хостов.
@@ -188,7 +188,7 @@
 
 Для просмотра состояния и статуса кластера:
 
-1. Перейдите на страницу каталога и выберите **Managed Service for&nbsp;PostgreSQL**.
+1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
 1. Наведите курсор на индикатор в столбце **Доступность** в строке нужного кластера.
 
 ### Состояния кластера {#cluster-health}

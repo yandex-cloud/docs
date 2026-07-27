@@ -19,23 +19,35 @@ description: Следуя данной инструкции, вы сможете
 
 Узнайте как аутентифицироваться в {{ yandex-cloud }} CLI:
 
-* [От имени сервисного аккаунта с помощью имперсонации](#use-impersonation). Использование [имперсонации](../../../iam/concepts/access-control/impersonation.md) является рекомендованным и наиболее безопасным способом аутентифицироваться в {{ yandex-cloud }} CLI.
-* [От имени сервисного аккаунта с помощью авторизованного ключа](#auth-as-sa). Использование [авторизованного ключа](../../../iam/concepts/authorization/key.md) позволяет постоянно аутентифицироваться в {{ yandex-cloud }} CLI с помощью однажды созданного авторизованного ключа. Использование долгоживущего ключа менее безопасно, чем использование имперсонации.
-* [От имени сервисного аккаунта изнутри виртуальной машины](#vm-auth-as-sa). Использование привязанного к [виртуальной машине](../../../compute/concepts/vm.md) {{ compute-full-name }} [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md) является рекомендованным способом аутентификации в {{ yandex-cloud }} CLI при работе на ВМ.
+* [От имени сервисного аккаунта с помощью имперсонации](#use-impersonation)
 
-[Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) отличается от [аккаунта пользователя Яндекса](../../../iam/concepts/users/accounts.md#passport), [федеративного пользователя](../../../iam/concepts/federations.md) и [локального пользователя](../../../iam/concepts/users/accounts.md#local). Сервисный аккаунт нельзя использовать для входа в [консоль управления]({{ link-console-main }}), но можно использовать для управления ресурсами в {{ yandex-cloud }}.
+  {% include [cli-sa-impersonate-intro](../../../_includes/cli/cli-sa-impersonate-intro.md) %}
+
+* [От имени сервисного аккаунта с помощью авторизованного ключа](#auth-as-sa)
+
+  {% include [cli-sa-key-intro](../../../_includes/cli/cli-sa-key-intro.md) %}
+
+* [От имени сервисного аккаунта изнутри виртуальной машины](#vm-auth-as-sa)
+
+  {% include [cli-sa-vm-intro](../../../_includes/cli/cli-sa-vm-intro.md) %}
+
+
+[Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) отличается от [аккаунта пользователя Яндекса](../../../iam/concepts/users/accounts.md#passport), [федеративного пользователя](../../../iam/concepts/federations.md) и [локального пользователя](../../../iam/concepts/users/accounts.md#local). Сервисный аккаунт нельзя использовать для входа в [консоль управления]({{ link-console-main }}), но можно использовать для управления ресурсами в {{ yandex-cloud }} с помощью CLI, {{ TF }} и API.
+
 
 ## Перед началом работы {#before-begin}
 
-1. Аутентифицируйтесь в CLI как [пользователь Яндекса](user.md), как [федеративный пользователь](federated-user.md) или как [локальный пользователь](local-user.md).
-1. Если у вас еще нет сервисного аккаунта, [создайте его](../../../iam/operations/sa/create.md) и [настройте права доступа для него](../../../iam/operations/sa/assign-role-for-sa.md).
+Если у вас еще нет сервисного аккаунта, [создайте его](../../../iam/operations/sa/create.md) и [настройте права доступа для него](../../../iam/operations/sa/assign-role-for-sa.md).
 
 ## Выполняйте действия от имени сервисного аккаунта с помощью имперсонации {#use-impersonation}
+
+{% include [cli-sa-impersonate-intro](../../../_includes/cli/cli-sa-impersonate-intro.md) %}
 
 {% include [impersonation-role-notice](../../../_includes/cli/impersonation-role-notice.md) %}
 
 Чтобы выполнить действие от имени сервисного аккаунта:
-
+1. [Установите](../install-cli.md) CLI.
+1. Аутентифицируйтесь в CLI как [пользователь Яндекса](user.md), [федеративный пользователь](federated-user.md) или как [локальный пользователь](local-user.md).
 1. {% include [list-sas](../../../_includes/cli/list-sas.md) %}
 1. При выполнении команд {{ yandex-cloud }} CLI используйте [имперсонацию](../../../iam/concepts/access-control/impersonation.md) сервисного аккаунта, указывая его идентификатор в параметре `--impersonate-service-account-id`.
 
@@ -47,13 +59,32 @@ description: Следуя данной инструкции, вы сможете
       --impersonate-service-account-id <идентификатор_сервисного_аккаунта>
     ```
 
+    Где `--impersonate-service-account-id` — идентификатор сервисного аккаунта, полученный ранее.
+
 Для некоторых команд требуется указание уникального идентификатора облака и каталога. Вы можете запускать такие команды с параметрами `--cloud-id` и `--folder-id`.
 
 ## Аутентифицируйтесь от имени сервисного аккаунта с помощью авторизованного ключа {#auth-as-sa}
 
-{% include [auth-as-sa](../../../_includes/cli/auth-as-sa.md) %}
+{% include [cli-sa-key-intro](../../../_includes/cli/cli-sa-key-intro.md) %}
+
+1. [Установите](../install-cli.md) CLI.
+1. Аутентифицируйтесь в CLI как [пользователь Яндекса](user.md), [федеративный пользователь](federated-user.md) или [локальный пользователь](local-user.md).
+
+    {% note warning %}
+
+    Аутентификация в CLI аккаунтом Яндекса, федеративным аккаунтом и аккаунтом локального пользователя осуществляется с помощью браузера и графического интерфейса.
+
+    Если вы хотите использовать сервисный аккаунт для работы на сервере без графического интерфейса, выполните подготовительные действия на устройстве с графическим интерфейсом и браузером.
+
+    {% endnote %}
+
+1. Создайте авторизованный ключ и аутентифицируйтесь им в CLI:
+
+    {% include [auth-as-sa](../../../_includes/cli/auth-as-sa.md) %}
 
 ## Аутентифицируйтесь от имени сервисного аккаунта изнутри виртуальной машины {#vm-auth-as-sa}
+
+{% include [cli-sa-vm-intro](../../../_includes/cli/cli-sa-vm-intro.md) %}
 
 {% include [vm-auth-as-sa](../../../_includes/cli/vm-auth-as-sa.md) %}
 

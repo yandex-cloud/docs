@@ -29,7 +29,7 @@
    - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-      1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+      1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
       1. Нажмите на имя нужного кластера и перейдите на вкладку **Хосты**.
       1. Нажмите кнопку **Создать хост**.
       1. Укажите параметры хоста:
@@ -222,7 +222,7 @@
    - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-      1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+      1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
       1. Нажмите на имя нужного кластера и выберите вкладку **Хосты**.
       1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста, выберите пункт **Удалить** и подтвердите удаление.
 
@@ -322,7 +322,7 @@
 
    {% endlist %}
 
-1. Дождитесь, когда кластер перейдет в состояние **Alive**. В консоли управления Перейдите в сервис **Managed Service for&nbsp;ClickHouse**. Состояние кластера отображается в столбце **Доступность**.
+1. Дождитесь, когда кластер перейдет в состояние **Alive**. В консоли управления [перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**. Состояние кластера отображается в столбце **Доступность**.
 
 ## Перенести хосты ZooKeeper {#zookeeper-hosts}
 
@@ -334,7 +334,7 @@
    - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-      1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+      1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
       1. Нажмите на имя нужного кластера и перейдите на вкладку **Хосты**.
       1. Нажмите кнопку **Создать хост ZooKeeper**.
       1. Укажите новую подсеть и зону доступности, куда переносятся хосты.
@@ -509,7 +509,7 @@
    - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-      1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+      1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
       1. Нажмите на имя нужного кластера и выберите вкладку **Хосты**.
       1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста, выберите пункт **Удалить** и подтвердите удаление.
 
@@ -609,7 +609,7 @@
 
    {% endlist %}
 
-1. Дождитесь, когда кластер перейдет в состояние **Alive**. В консоли управления Перейдите в сервис **Managed Service for&nbsp;ClickHouse**. Состояние кластера отображается в столбце **Доступность**.
+1. Дождитесь, когда кластер перейдет в состояние **Alive**. В консоли управления [перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**. Состояние кластера отображается в столбце **Доступность**.
 
 ## Особенности миграции в сервисе Yandex Data Transfer {#data-transfer}
 

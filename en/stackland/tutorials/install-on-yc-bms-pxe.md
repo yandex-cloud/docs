@@ -12,7 +12,7 @@ For general requirements as to cluster resources, DNS, disks, and network ranges
 
 For PXE installation, you will need:
 
-* One bastion server running Ubuntu 22.04 or later, which will host `sladm`, a DHCP server, and a TFTP server for network boot.
+* One bastion server running Ubuntu 22.04 or later, which will host `sladm` with built-in DHCP and TFTP servers for network boot.
 * At least three servers for the future {{ stackland-name }} cluster, connected to the same private network as the bastion.
 * PXE file archive: `stackland-pxe-amd64-<version>.zip`.
 * `sladm` utility version supporting the `--dhcp-interface` and `--pxe-folder` installation parameters.
@@ -133,6 +133,8 @@ In the `pxe/` directory, you should see these files:
 * `ipxe.efi`: iPXE bootloader for UEFI
 * `vmlinuz`: Linux kernel
 * `initramfs.xz`: Initial ramdisk
+
+The `ipxe.pxe` and `ipxe.efi` bootloaders are distributed under the GPLv2 license. The iPXE source code is available in the [ipxe](https://launchpad.net/ubuntu/noble/+source/ipxe) package in Ubuntu 24.04 (Noble).
 
 Download and install `sladm` as described in [Downloading required files](../quickstart.md#download-files).
 
@@ -292,6 +294,14 @@ Learn more about preparing secrets [here](../quickstart.md#prepare-secrets).
 
 ## Start PXE installation {#start-installation}
 
+To start the installation with the `--dhcp-interface` parameter, `sladm` must have a permission to open privileged UDP port 67, which is used by the DHCP server. If you also include `--pxe-folder`, `sladm` opens UDP port 69 for the TFTP server as well. We recommend granting this permission to the `sladm` binary once:
+
+```bash
+sudo setcap 'cap_net_bind_service=+ep' ./sladm
+```
+
+If `sladm` is not in the current directory, specify the path to its binary. A less recommended alternative is to run the installation command via `sudo`.
+
 Start installation on the bastion:
 
 ```bash
@@ -305,8 +315,8 @@ sladm install \
 Command parameters:
 
 * `--config`: Path to the directory with configuration files.
-* `--dhcp-interface`: The bastion's network interface connected to the private subnet hosting the cluster servers.
-* `--pxe-folder`: Path to the directory with PXE files.
+* `--dhcp-interface`: The bastion's network interface connected to the private subnet hosting the cluster servers. You can use this parameter without `--pxe-folder`: in this mode, network boot is unavailable, but the system loaded from the ISO image will automatically set up the network using DHCP.
+* `--pxe-folder`: Path to the directory with PXE files. It is used together with the `--dhcp-interface` parameter for network boot.
 * `--installation-timeout`: Installation timeout. For PXE installations on {{ baremetal-name }} servers, consider increasing this value, as selecting a boot device via the KVM may take extra time.
 
 For example, if the bastion's private interface is named `eth1`, the command would be:
@@ -319,9 +329,21 @@ sladm install \
   --installation-timeout 3h
 ```
 
-Once started, `sladm` waits for nodes to boot over the network and connect to the installation process.
+{% note info %}
 
-If pre-checks fail because nodes have not yet booted into the installation environment, either resolve the reported issues or restart installation with the `--ignore-checks` flag, as described in [Installing a cluster](../quickstart.md#installation-online).
+Once started, `sladm` first downloads images from `cr.yandex`. This may take a while. The installation and network boot start only after the download completes.
+
+To make network boot available immediately after you start installation, download these images in advance:
+
+```bash
+sladm pull \
+  --config config/ \
+  --image-bundle full
+```
+
+{% endnote %}
+
+Once started, `sladm` waits for nodes to boot over the network and connect to the installation process.
 
 ## Boot servers over the network {#boot-servers}
 
@@ -332,7 +354,7 @@ For each cluster server, perform the following steps:
 1. Select network boot: **Network Boot**, **PXE Boot**, or **UEFI PXE IPv4** for the private interface whose MAC address is listed in `StacklandHostsList`.
 1. Wait for the {{ stackland-name }} installation environment to load.
 
-If the server opens UEFI Shell, select `exit`, return to the boot menu, and select network boot. Do not set UEFI Shell as the primary boot device. If both IPv4 and IPv6 are available, go for IPv4.
+If the server opens UEFI Shell, select `exit`, return to the boot menu, and select network boot. Do not set UEFI Shell as the primary boot option. If both IPv4 and IPv6 options are available, select IPv4.
 
 After network boot, the server receives an IP address from the built-in `sladm` DHCP server and loads the installation environment via TFTP. The rest of the installation proceeds automatically.
 
@@ -357,18 +379,15 @@ Expected stages in `sladm` logs:
 
 Installation is complete when `sladm` reports successful completion of the reconcile cycle and saves the administrator kubeconfig. If installation was interrupted after node boot or during platform component setup, re-run `sladm install` with the same configuration file. The installer will resume from the last completed stage.
 
-If nodes are already installed, booted from local disks, and accessible via the Talos API, PXE boot is no longer needed for the restart. In this case, you may omit `--pxe-folder` and disable the `sladm` DHCP server.
+If nodes are already installed, booted from local disks, and accessible via the Talos API, you do not need PXE boot to restart them. If this is the case, leave out both `--dhcp-interface` and `--pxe-folder` to ensure the DHCP and TFTP services do not start.
 
 ```bash
 sladm install \
   --config config/ \
-  --dhcp-interface none \
   --installation-timeout 3h
 ```
 
-If your `sladm` version does not support `none` for `--dhcp-interface`, re-run the original command with both `--dhcp-interface` and `--pxe-folder`. Before restarting, ensure UDP ports 67 and 69 are either free or exclusively used by the current `sladm` process.
-
-## Check the installation {#verification}
+## Verify the installation {#verification}
 
 Cluster verification is identical to the base use case. Perform the actions described in these sections:
 

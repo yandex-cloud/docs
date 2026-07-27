@@ -1,14 +1,13 @@
 # Deploying a Minecraft server in {{ yandex-cloud }}
 
-Follow this tutorial to deploy the current version of a [Minecraft](https://www.minecraft.net/) ([Java Edition](https://www.minecraft.net/en-us/store/minecraft-java-edition/)) server in {{ yandex-cloud }} on an Ubuntu 24.04 [VM](../../compute/concepts/vm.md).
+Follow this tutorial to deploy the current version of a [Minecraft](https://www.minecraft.net/) ([Java Edition](https://www.minecraft.net/en-us/download/server) or [Bedrock Edition](https://www.minecraft.net/en-us/download/server/bedrock)) server in {{ yandex-cloud }} on an Ubuntu 24.04 [VM](../../compute/concepts/vm.md).
 
 To deploy a Minecraft server in {{ yandex-cloud }}:
 
 1. [Get your cloud ready](#prepare-cloud).
 1. [Create a security group](#create-sg).
 1. [Create a VM for the Minecraft server](#vm-minecraft).
-1. [Install the required tools](#install-tools).
-1. [Download and run the Minecraft server](#get-and-launch-server).
+1. [Install the utilities and start the server](#install-and-launch-server).
 1. [Test the server](#test-functionality).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -22,11 +21,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The infrastructure support cost includes:
 * Fee for a continuously running [VM](../../compute/concepts/vm.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for using public IP address and outgoing traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for a public IP address and outgoing traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 ## Create a security group {#create-sg}
 
-Create a [security group](../../vpc/concepts/security-groups.md) with a rule allowing incoming traffic to port `25565`. This is the defalut port for client access in the Minecraft server configuration file. Also, rules allowing SSH access to the VM to configure the server and VM access to the internet to download software will be added to the security group.
+Create a [security group](../../vpc/concepts/security-groups.md) with a rule allowing incoming traffic on port `25565` for Java Edition or `19132` for Bedrock Edition. These are the default ports for client access in the Minecraft server configuration file. Also, rules allowing SSH access to the VM to configure the server and VM access to the internet to download software will be added to the security group.
 
 {% list tabs group=instructions %}
 
@@ -43,29 +42,26 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule all
       #|
       || **Traffic**
       **direction**
-      | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}** 
+      | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}**
       | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**
       | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**
       | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** /
       **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**
       | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** ||
       || Inbound
-      | `Client access to`
-      `Minecraft server`
-      | `25565`
+      | `Client access to the Minecraft server`
+      | `25565`/`19132`
       | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
       | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
       | `0.0.0.0/0` ||
       || Inbound
-      | `Access to VM over`
-      `SSH`
+      | `SSH access to the VM`
       | `22`
       | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
       | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
       | `0.0.0.0/0` ||
       || Outbound
-      | `VM access to`
-      `the internet`
+      | `VM internet access`
       | `0-65535`
       | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
       | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
@@ -106,8 +102,8 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule all
 
           * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
           * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
-          * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`
-          * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`
+          * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`.
+          * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `2 {{ ui-key.yacloud.common.units.label_gigabyte }}` for Java Edition or `4 {{ ui-key.yacloud.common.units.label_gigabyte }}` for Bedrock Edition.
 
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
@@ -140,7 +136,7 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule all
 
    {% endlist %}
 
-   Recommended virtual machine configuration:
+   Recommended virtual machine configuration for Java Edition:
 
    | Configuration     |   Number of players  |   vCPU  |   RAM  |   Disk size        |
    |------------------|-----------------------|---------|--------|----------------------|
@@ -155,128 +151,339 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule all
    {% endnote %}
 
 
-## Install the required tools {#install-tools}
+## Install the utilities and start the server {#install-and-launch-server}
 
-1. [Use SSH to connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM you created.
-1. Install the required Java packages from the repository and the `screen` utility to run the terminal session in background mode:
+{% list tabs group=edition %}
 
-   {% note info %}
+- Java Edition {#java}
 
-   The command below installs OpenJDK version `23`. To start the current Minecraft server version, you may need a newer OpenJDK version. Therefore, check the current OpenJDK version on the [project website](https://openjdk.org/) before you install this package.
+   1. [Use SSH to connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM you created.
 
-   {% endnote %}
+   1. Install the required Java packages from the repository and the `screen` utility to run the terminal session in background mode:
 
-   ```bash
-   sudo add-apt-repository -y ppa:openjdk-r/ppa \
-     && sudo apt update -y \
-     && sudo apt install -y openjdk-23-jre-headless screen
-   ```
+      {% note info %}
 
-## Download and run the Minecraft server {#get-and-launch-server}
+      The command below installs JRE version `25`. To start the current Minecraft server version, you may need a newer JRE version. Therefore, check the suitable JRE version on [Minecraft Wiki](https://minecraft.wiki/w/Tutorial:Setting_up_a_Java_Edition_server#Version_requirements) before you install this package.
 
-1. Create a separate directory and navigate to it:
-   ```bash
-   mkdir minecraft-server && cd minecraft-server
-   ```
+      {% endnote %}
 
-1. Follow [this link](https://www.minecraft.net/en-us/download/server/) and copy the URL to download the distribution of the current server version.
-1. Download the current distribution to the current directory using `wget`:
-   ```bash
-   wget -O minecraft_server.jar <download_link>
-   ```
+      ```bash
+      sudo apt update -y \
+         && sudo apt install -y openjdk-25-jre-headless screen
+      ```
 
-   Where `<download_link>` is the distribution download link you got in the previous step. For example: `https://piston-data.mojang.com/v1/objects/4707d00eb834b446575d89a61a11b5d548d8c001/server.jar`
+   1. Create a separate system user named `minecraft` to start the server:
 
-1. Create the `eula.txt` file to automatically accept the [EULA](https://aka.ms/MinecraftEULA) terms:
+      ```bash
+      sudo useradd -r -m -d /opt/minecraft-server -s /bin/bash minecraft
+      ```
 
-   ```bash
-   cat << EOF > eula.txt
-   eula=true
-   EOF
-   ```
+      Where:
+      * `-r`: Creating a system user.
+      * `-m -d /opt/minecraft-server`: Creating the user’s home directory at `/opt/minecraft-server`. It will contain the server files.
+      * `-s /bin/bash`: Assigning the `bash` shell for the user.
 
-1. Run the background `screen` session:
+   1. Follow [this link](https://www.minecraft.net/en-us/download/server/) and copy the URL to download the distribution of the current server version.
 
-   ```bash
-   screen
-   ```
+   1. Download the current distribution to the server directory using `wget`:
 
-1. In the background session, run the server:
+      ```bash
+      sudo wget -O /opt/minecraft-server/minecraft_server.jar <download_link>
+      ```
 
-   ```bash
-   java -Xms1024M -Xmx1024M -jar minecraft_server.jar nogui
-   ```
+      Where `<download_link>` is the distribution download link you got in the previous step. Here is an example: `https://piston-data.mojang.com/v1/objects/97ccd4c0ed3f81bbb7bfacddd1090b0c56f9bc51/server.jar`
 
-   Wait for the game world to be created.
+   1. Create the `eula.txt` file to automatically accept the [EULA](https://aka.ms/MinecraftEULA) terms:
 
-   ```text
-   [09:18:58] [Worker-Main-2/INFO]: Preparing spawn area: 81%
-   [09:18:59] [Worker-Main-2/INFO]: Preparing spawn area: 82%
-   [09:19:00] [Worker-Main-2/INFO]: Preparing spawn area: 83%
-   ...
-   [09:19:08] [Worker-Main-2/INFO]: Preparing spawn area: 97%
-   [09:19:09] [Server thread/INFO]: Time elapsed: 75917 ms
-   [09:19:09] [Server thread/INFO]: Done (92.666s)! For help, type "help"
-   ```
+      ```bash
+      echo "eula=true" | sudo tee /opt/minecraft-server/eula.txt
+      ```
 
-1. Optionally, you can leave the `screen` session running in the background by pressing **Ctrl + A + D** and return to the main VM terminal.
+   1. Grant the `minecraft` user the following permissions for the server directory and all its contents:
 
-   If there is only one such background session with the server running and you want to return to it, run the following command:
+      ```bash
+      sudo chown -R minecraft:minecraft /opt/minecraft-server
+      ```
 
-   ```bash
-   screen -r
-   ```
+   1. In the server directory, run the `screen` background session on behalf of the `minecraft` user:
 
-   If there are multiple background sessions, get their list by running the following command:
+      ```bash
+      sudo -u minecraft bash -c 'cd /opt/minecraft-server && screen -S minecraft'
+      ```
 
-   ```bash
-   screen -list
-   ```
+   1. In the background session, run the server:
 
-   Result:
+      ```bash
+      java -Xms1024M -Xmx1024M -jar minecraft_server.jar nogui
+      ```
 
-   ```text
-   There is a screen on:
-      24257.pts-0.mcft-test	(02/28/2024 09:17:15 AM)	(Detached)
-   1 Socket in /run/screen/S-username.
-   ```
+      Wait for the game world to be created.
 
-   Then, enter the session using its ID from the list:
-   
-   ```bash
-   screen -r 24257
-   ```
+      ```text
+      [14:16:47] [Server thread/INFO]: Preparing level "world"
+      [14:16:48] [Server thread/INFO]: Selecting global world spawn...
+      [14:17:05] [Server thread/INFO]: Loading 0 persistent chunks...
+      ...
+      [14:17:05] [Server thread/INFO]: Preparing spawn area: 100%
+      [14:17:05] [Server thread/INFO]: Time elapsed: 17317 ms
+      [14:17:05] [Server thread/INFO]: Done (17.788s)! For help, type "help"
+      ```
 
-1. After running the server, in the directory, you will see new directories and the files required for server operation and configuration, including the logs:
+   1. Optionally, you can leave the `screen` session running in the background by pressing **Ctrl + A + D** and return to the VM main terminal.
 
-   ```text
-       4096 Mar 16 09:50 .
-       4096 Mar 16 09:52 ..
-          2 Mar 16 09:16 banned-ips.json
-          2 Mar 16 09:16 banned-players.json
-         10 Mar 16 09:48 eula.txt
-       4096 Mar 16 09:50 libraries
-       4096 Mar 16 09:16 logs
-   49150256 Dec  7 09:04 minecraft_server_1.20.4.jar
-          2 Mar 16 09:16 ops.json
-       1303 Mar 16 09:16 server.properties
-          2 Mar 16 09:16 usercache.json
-       4096 Mar 16 09:50 versions
-          2 Mar 16 09:50 whitelist.json
-       4096 Mar 16 09:13 world
-   ```
+      If there is only one such background session with the server running and you want to return to it, run the following command:
 
+      ```bash
+      sudo -u minecraft screen -r
+      ```
+
+      If there are multiple background sessions, get their list by running the following command:
+
+      ```bash
+      sudo -u minecraft screen -list
+      ```
+
+      Result:
+
+      ```text
+      There is a screen on:
+         35154.minecraft (06/12/26 14:15:56)     (Detached)
+      1 Socket in /run/screen/S-minecraft.
+      ```
+
+      Then, enter the session using its ID from the list:
+
+      ```bash
+      sudo -u minecraft screen -r 35154
+      ```
+
+      {% note info %}
+
+      The `minecraft` user does not have a password or SSH key, so you cannot connect to the VM directly on their behalf. To perform operations under this user, connect to the VM over SSH with your credentials and switch to `minecraft` using the following command:
+
+      ```bash
+      sudo -iu minecraft
+      ```
+
+      This will start a login session, and `/opt/minecraft-server` will instantly become the current directory. To return to your session, run the `exit` command or press **Ctrl + D**.
+
+      {% endnote %}
+
+   1. After running the server, in the directory, you will see new directories and the files required for server operation and configuration, including the logs:
+
+      ```text
+          4096 Jun 12 14:16 .
+          4096 Jun 12 14:07 ..
+           220 Mar 31  2024 .bash_logout
+          3771 Mar 31  2024 .bashrc
+          4096 Jun 12 14:16 .cache
+           807 Mar 31  2024 .profile
+             2 Jun 12 14:16 banned-ips.json
+             2 Jun 12 14:16 banned-players.json
+            10 Jun 12 14:10 eula.txt
+          4096 Jun 12 14:16 libraries
+          4096 Jun 12 14:16 logs
+      60417480 Apr  9 10:20 minecraft_server.jar
+             2 Jun 12 14:16 ops.json
+          1676 Jun 12 14:16 server.properties
+             2 Jun 12 14:16 usercache.json
+          4096 Jun 12 14:16 versions
+             2 Jun 12 14:16 whitelist.json
+          4096 Jun 12 14:18 world
+      ```
+
+- Bedrock Edition {#bedrock}
+
+   1. [Use SSH to connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM you created.
+
+   1. Install the `screen` utility to run the terminal session in background mode and the `unzip` utility to unpack the distribution:
+
+      ```bash
+      sudo apt update -y \
+         && sudo apt install -y screen unzip
+      ```
+
+   1. Create a separate system user named `minecraft` to start the server:
+
+      ```bash
+      sudo useradd -r -m -d /opt/minecraft-server -s /bin/bash minecraft
+      ```
+
+      Where:
+      * `-r`: Creating a system user.
+      * `-m -d /opt/minecraft-server`: Creating the user’s home directory at `/opt/minecraft-server`. It will contain the server files.
+      * `-s /bin/bash`: Assigning the `bash` shell for the user.
+
+   1. Follow [this link](https://www.minecraft.net/en-us/download/server/bedrock) and copy the URL to download the distribution of the current server version.
+
+   1. Download the current distribution to the server directory using `wget`:
+
+      ```bash
+      sudo wget -O /opt/minecraft-server/bedrock-server.zip <download_link>
+      ```
+
+      Where `<download_link>` is the distribution download link you got in the previous step. Here is an example: `https://www.minecraft.net/bedrockdedicatedserver/bin-linux/bedrock-server-1.26.23.1.zip`
+
+   1. Unpack the distribution archive to the server directory, then delete the archive:
+
+      ```bash
+      sudo unzip /opt/minecraft-server/bedrock-server.zip -d /opt/minecraft-server \
+         && sudo rm /opt/minecraft-server/bedrock-server.zip
+      ```
+
+   1. Grant the `minecraft` user the following permissions for the unpacked files:
+
+      ```bash
+      sudo chown -R minecraft:minecraft /opt/minecraft-server
+      ```
+
+   1. In the server directory, run the `screen` background session on behalf of the `minecraft` user:
+
+      ```bash
+      sudo -u minecraft bash -c 'cd /opt/minecraft-server && screen -S minecraft'
+      ```
+
+   1. In the background session, run the server. The Bedrock Edition server requires libraries from the server directory, so make sure to specify it in the `LD_LIBRARY_PATH` variable:
+
+      ```bash
+      LD_LIBRARY_PATH=. ./bedrock_server
+      ```
+
+      Wait until you see the message confirming that the server is ready:
+
+      ```text
+      [2026-06-14 13:36:44:060 INFO] Starting Server
+      [2026-06-14 13:36:44:060 INFO] Version: 1.26.23.1
+      [2026-06-14 13:36:44:060 INFO] Session ID: 4a018b28-5121-4abe-a814-e4ee70455c37
+      [2026-06-14 13:36:44:060 INFO] Build ID: 45295249
+      [2026-06-14 13:36:44:060 INFO] Branch: r/26_u2
+      [2026-06-14 13:36:44:060 INFO] Commit ID: 49b09b8167bf5f877690429d12747f30342d1db6
+      [2026-06-14 13:36:44:060 INFO] Configuration: Publish
+      [2026-06-14 13:36:44:060 INFO] Level Name: Bedrock level
+      [2026-06-14 13:36:44:061 INFO] No CDN config file found at: cdn_config.json for dedicated server
+      [2026-06-14 13:36:44:061 INFO] Game mode: 0 Survival
+      [2026-06-14 13:36:44:061 INFO] Difficulty: 1 EASY
+      [2026-06-14 13:36:44:063 WARN] Content logging to console is disabled.  Enable it with content-log-console-output-enabled=true in server.properties
+      [2026-06-14 13:36:44:608 INFO] Opening level 'worlds/Bedrock level/db'
+      [2026-06-14 13:36:44:626 INFO] Pack Stack - None
+      [2026-06-14 13:36:45:565 INFO] IPv4 supported, port: 19132: Used for gameplay and LAN discovery
+      [2026-06-14 13:36:45:565 INFO] IPv6 supported, port: 19133: Used for gameplay
+      [2026-06-14 13:36:45:605 INFO] Waiting for Minecraft services...
+      [2026-06-14 13:36:45:806 INFO] Server started.
+      ```
+
+   1. Optionally, you can leave the `screen` session running in the background by pressing **Ctrl + A + D** and return to the VM main terminal.
+
+      If there is only one such background session with the server running and you want to return to it, run the following command:
+
+      ```bash
+      sudo -u minecraft screen -r
+      ```
+
+      If there are multiple background sessions, get their list by running the following command:
+
+      ```bash
+      sudo -u minecraft screen -list
+      ```
+
+      Result:
+
+      ```text
+      There is a screen on:
+         30989.minecraft (06/17/26 12:23:18)     (Detached)
+      1 Socket in /run/screen/S-minecraft.
+      ```
+
+      Then, enter the session using its ID from the list:
+
+      ```bash
+      sudo -u minecraft screen -r 30989
+      ```
+
+      {% note info %}
+
+      The `minecraft` user does not have a password or SSH key, so you cannot connect to the VM directly on their behalf. To perform operations under this user, connect to the VM over SSH with your credentials and switch to `minecraft` using the following command:
+
+      ```bash
+      sudo -iu minecraft
+      ```
+
+      This will start a login session, and `/opt/minecraft-server` will instantly become the current directory. To return to your session, run the `exit` command or press **Ctrl + D**.
+
+      {% endnote %}
+
+   1. After running the server, in the directory, you will see new directories and the files required for server operation and configuration:
+
+      ```text
+           4096 Jun 14 13:49 .
+           4096 Jun 14 12:43 ..
+             36 Jun 14 13:49 .bash_history
+            220 Mar 31  2024 .bash_logout
+           3771 Mar 31  2024 .bashrc
+            807 Mar 31  2024 .profile
+              0 Jun 15 12:56 Dedicated_Server.txt
+              3 May 20 23:35 allowlist.json
+      222788240 May 20 23:36 bedrock_server
+          31241 May 20 23:35 bedrock_server_how_to.html
+           4096 May 20 23:36 behavior_packs
+           4096 May 20 23:36 config
+           4096 May 20 23:36 data
+           4096 May 20 23:36 definitions
+           4096 Jun 14 13:36 development_behavior_packs
+           4096 Jun 14 13:36 development_resource_packs
+           4096 Jun 14 13:36 development_skin_packs
+           4096 Jun 14 13:36 minecraftpe
+            484 May 20 23:35 packetlimitconfig.json
+              3 May 20 23:35 permissions.json
+           4096 Jun 14 13:36 premium_cache
+           8548 May 20 23:17 profanity_filter.wlist
+            398 May 20 23:35 release-notes.txt
+           4096 May 20 23:36 resource_packs
+          11650 May 20 23:35 server.properties
+           4096 Jun 14 13:36 treatments
+           4096 Jun 14 13:36 world_templates
+           4096 Jun 14 13:36 worlds
+      ```
+
+{% endlist %}
 
 ## Test the server {#test-functionality}
 
-1. Add the server to the server list in the Minecraft client. Give the server a name of your choice. In the **Server address** field, specify the [public IP address](../../vpc/concepts/address.md#public-addresses) of your `minecraft-server` VM.
+{% list tabs group=edition %}
 
-   ![add-server-address](../../_assets/tutorials/infrastructure/minecraft-add-server-address.png =750x447)
+- Java Edition {#java}
 
-1. From the server list, select the server you added and click `Connect`.
+   1. Download and install the [Minecraft client](https://www.minecraft.net/en-us/download).
 
-   ![server-list](../../_assets/tutorials/infrastructure/minecraft-server-list.png =750x449)
+   1. Run Minecraft Java Edition.
 
+   1. Click **Multiplayer**.
+
+
+   1. Select **Direct Connection**.
+
+
+   1. In the **Server address** field, specify the [public IP address](../../vpc/concepts/address.md#public-addresses) of the `minecraft-server` VM and click **Join Server**.
+
+
+
+- Bedrock Edition {#bedrock}
+
+   1. Download and install the [Minecraft client](https://www.minecraft.net/en-us/download).
+
+   1. Run Minecraft Bedrock Edition.
+
+   1. Click **Start**.
+
+
+   1. Select **Server**, then click **+ Add server**.
+
+
+   1. Give the server a name of your choice. In the **Server address** field, specify the [public IP address](../../vpc/concepts/address.md#public-addresses) of your `minecraft-server` VM. Leave the default port. Click **Add and play**.
+
+
+
+{% endlist %}
 
 ## How to delete the resources you created {#clear-out}
 

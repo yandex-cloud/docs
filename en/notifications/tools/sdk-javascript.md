@@ -5,7 +5,6 @@ description: Follow this guide to learn how to use the AWS SDK for JavaScript in
 
 # How to get started with the AWS SDK for JavaScript in {{ cns-full-name }}
 
-{% include [preview-stage](../../_includes/notifications/preview-stage.md) %}
 
 To get started with the AWS SDK for JavaScript:
 

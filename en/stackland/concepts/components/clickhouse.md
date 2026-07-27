@@ -104,7 +104,53 @@ Response structure:
 
 Internal FQDNs have the `<resource_name>.<project_name>.svc.{{ cluster-domain }}` format and are only available within the Kubernetes cluster.
 
-External FQDNs are created automatically for `LoadBalancer` type services and are available from outside the cluster. For more about DNS, see [here](dns.md).
+External FQDNs are created automatically for `LoadBalancer` type services and are available from outside the cluster. Learn more about DNS [here](dns.md).
+
+## Managing users, roles and databases {#access-resources}
+
+In a {{ mch-name }} cluster, you can declaratively create databases, roles, and users using separate custom resources:
+
+* `ClickhouseDatabase`: Logical database in a {{ CH }} cluster.
+* `ClickhouseRole`: Role with permissions for objects and inheritance from other roles.
+* `ClickhouseUser`: User with assigned roles and a password.
+
+All three resources reside in the same namespace as the `ClickhouseCluster` cluster. Changes are applied to all hosts of the {{ CH }} cluster.
+
+### Resource naming convention {#name-convention}
+
+For a database, role, or user, the resource name in Kubernetes must follow this pattern:
+
+```text
+<spec.cluster>-<spec.name>
+```
+
+Where:
+
+* `spec.cluster`: `ClickhouseCluster` cluster name.
+* `spec.name`: Entity name in {{ CH }} (name of database, role, or user).
+
+A resource with a name which does not follow this pattern will not pass validation.
+
+### Resource creation order {#order}
+
+The recommended creation order is: first database, then roles, then user. Roles reference the database by its name in {{ CH }}; and the user references roles by the name of the `ClickhouseRole` resource.
+
+### User password storage {#password-storage}
+
+The user's password is stored in a Kubernetes Secret with the `password` key (UTF-8). The link to the Secret is specified in the `spec.authentication.secretName` field of the `ClickhouseUser` resource. If the field is not set, the Secret named `<cluster_name>-<user_name>` is used. In the management console, the Secret is created automatically when creating the user.
+
+### Permission sections in a role {#role-grants}
+
+Role permissions are described as a list of `spec.grants` sections. In each section, exactly one of the following fields should be filled: `database`, `table`, `namedCollection`, or `access`. The set of permitted privileges depends on the section type. For the full list of privileges, see [Creating a role](../../operations/clickhouse/create-role.md#privileges).
+
+### Resource status {#status}
+
+Resource application status in the cluster is displayed in the `status.phase` field. The possible values are:
+
+* `pending`: Changes are awaiting application.
+* `ready`: Resource successfully applied in {{ CH }}.
+* `failed`: Error during application. The error message is available in the `status.message` field.
+* `deleting`: Resource is being deleted.
 
 ## Deletion protection {#deletion-protection}
 

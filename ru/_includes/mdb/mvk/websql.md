@@ -12,9 +12,9 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.switch_explore-websql }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог с нужным кластером.
+  1. [Перейдите]({{ link-console-main }}/link/managed-valkey) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_explore-websql }}**.
   1. Выберите нужное подключение.
 
       Откроется подключение в сервисе {{ websql-name }}. Чтобы перейти в редактор запросов, выберите нужную БД.

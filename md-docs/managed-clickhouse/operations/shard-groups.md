@@ -11,7 +11,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Группы шардов**.
 
 - CLI {#cli}
@@ -94,7 +94,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Группы шардов**.
   1. Выберите группу шардов для просмотра детальной информации о ней.
 
@@ -180,7 +180,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Группы шардов**.
   1. Нажмите кнопку **Создать группу шардов**.
   1. Заполните поля формы и нажмите кнопку **Применить**.
@@ -384,7 +384,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Группы шардов**.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной группы шардов и выберите пункт **Редактировать**.
 
@@ -627,7 +627,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Группы шардов**.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной группы шардов и выберите пункт **Удалить**.
 

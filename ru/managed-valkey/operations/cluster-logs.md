@@ -10,7 +10,7 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+    1. [Перейдите]({{ link-console-main }}/link/managed-valkey) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.mdb.cluster.logs.label_title }}**.
     1. Укажите период времени, за который нужно отобразить логи: введите его вручную или выберите в календаре, нажав на поле ввода дат.
     1. При необходимости укажите хосты в строке с полем ввода дат.
@@ -46,10 +46,12 @@
 
         * {% include [logs output limit](../../_includes/cli/logs/limit.md) %}
         * `--columns` — список колонок для вывода информации:
+            
             * `hostname` — [имя хоста](hosts.md#list-hosts).
             * `message` — сообщение, которое выводит сервис.
             * `pid` — идентификатор серверного процесса текущей сессии.
             * `role` — роль компонента кластера, например, `X` или `M` (`Sentinel` и `Master` соответственно).
+        
         * {% include [logs filter](../../_includes/cli/logs/filter.md) %}
         * {% include [logs since time](../../_includes/cli/logs/since.md) %}
         * {% include [logs until time](../../_includes/cli/logs/until.md) %}

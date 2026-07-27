@@ -121,24 +121,6 @@
 1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_notifications }}** нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_add-channel }}** и выберите канал уведомления, [созданный ранее](#create-channel).
 1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
-#### Попытки неавторизованного доступа {#unauthorized-access}
-
-Алерт отправит уведомление о том, что к одному из ресурсов трейла был отправлен неавторизованный запрос.
-
-1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать алерт.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-1. На панели слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
-1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
-1. В поле **{{ ui-key.yacloud_monitoring.alert.title_name }}** укажите `unauthorized-access-alert`. 
-1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_metrics }}** справа от имени каталога нажмите ![image](../../_assets/console-icons/plus.svg) и укажите:
-    1. `service = Audit Trails`. 
-    1. `name = trail.unauthorized_events_count`.
-1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_alert-conditions }}** укажите:
-    1. **{{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}** — `{{ ui-key.yacloud_monitoring.alert.title_comparison-gt }}`.
-    1. **{{ ui-key.yacloud_monitoring.alert.label_alarm }}** — `0`.
-1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_notifications }}** нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_add-channel }}** и выберите канал уведомления, [созданный ранее](#create-channel).
-1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
-
 ## Настройте дашборд {#setup-dashboard}
 
 Готовые графики для наблюдения за состоянием трейлов находятся в [консоли управления]({{ link-console-main }}) → сервис **{{ at-name }}** → раздел ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}**.

@@ -279,7 +279,7 @@ Do not specify `ipPools` for the `yandex-nlb` load balancer. {{ network-load-bal
 Cluster configuration example:
 
 ```yaml
-apiVersion: v1alpha1
+apiVersion: stackland.yandex.cloud/v1alpha1
 kind: StacklandClusterConfig
 metadata:
   name: main
@@ -327,7 +327,7 @@ If you specify `stackland-ssd`, persistent volumes for system components may rem
 Host configuration example:
 
 ```yaml
-apiVersion: v1alpha1
+apiVersion: stackland.yandex.cloud/v1alpha1
 kind: StacklandHostsList
 metadata:
   name: main

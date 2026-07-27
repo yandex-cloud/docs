@@ -213,14 +213,20 @@ items:
         href: logs/quickstart.md
       - name: Getting started with {{ yandex-cloud }} resource logs
         href: logs/quickstart-resources.md
+      - name: Migrating from {{ cloud-logging-name }}
+        href: logs/logging-migration.md
       - name: Data delivery
         items:
           - name: Data conversions
             href: logs/write/converting-data.md
           - name: Fluent Bit
             href: logs/write/fluent-bit.md
-      - name: Monitoring and analysis of logs
-        href: logs/logs-explorer.md
+      - name: Working with logs
+        items:
+          - name: Log search and analysis
+            href: logs/logs-explorer.md
+          - name: Errors and statistics
+            href: logs/errors-and-stats.md
       - name: Concepts
         items:
           - name: Overview and basic concepts
@@ -289,7 +295,7 @@ items:
             href: traces/llm/traces.md
       - name: Limitations
         href: traces/limits.md
-  - name: Visualizing data
+  - name: Data visualization
     items:
       - name: Overview
         href: visualization/index.md

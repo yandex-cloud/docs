@@ -3,9 +3,9 @@ href: index.yaml
 items:
   - name: Getting started
     items:
-      - name: Leasing a stock configuration server
+      - name: Renting a stock configuration server
         href: quickstart.md
-      - name: Leasing a custom-configured server
+      - name: Renting a custom-configured server
         href: operations/servers/custom-server-lease.md
   - name: Step-by-step guides
     expanded: true
@@ -14,7 +14,7 @@ items:
         href: operations/index.md
       - name: Servers
         items:
-          - name: Leasing a stock configuration server
+          - name: Renting a stock configuration server
             href: operations/servers/server-lease.md
           - name: Renting a custom-configured server
             href: operations/servers/custom-server-lease.md
@@ -79,6 +79,8 @@ items:
     items:
       - name: Overview
         href: concepts/index.md
+      - name: Integrating with other {{ yandex-cloud }} services
+        href: concepts/integrations.md
       - name: Servers
         expanded: true
         items:
@@ -1263,6 +1265,10 @@ items:
           Establishing network connectivity in a {{ baremetal-name }} private
           subnet
         href: tutorials/bms-simple-subnet.md
+      - name: >-
+          Manually assigning a public IP address to a {{ baremetal-name }}
+          server
+        href: tutorials/bms-public-subnet.md
       - name: >-
           Establishing network connectivity between {{ baremetal-name }} and {{
           vpc-name }} private subnets

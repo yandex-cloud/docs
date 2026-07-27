@@ -57,7 +57,7 @@ Managed Service for ClickHouse® работает только с геобаза
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
   1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
   1. В блоке **Настройки СУБД** нажмите кнопку **Настроить**.
   1. В поле **Geobase uri** укажите ссылку на архив с геобазой в Yandex Object Storage.
@@ -302,7 +302,7 @@ Managed Service for ClickHouse® работает только с геобаза
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-    1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
     1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
     1. В блоке **Настройки СУБД** нажмите кнопку **Настроить**.
     1. В поле **Geobase uri** удалите значение.

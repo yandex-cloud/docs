@@ -7,6 +7,14 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.21.0 (27.07.26) {#v-1-21-0}
+
+#### {{ baremetal-name }} {#v-1-21-0-baremetal-name}
+
+* Добавлена команда `yc baremetal image resolve` для получения доступных опубликованных образов по каждому family.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.20.0 (23.07.26) {#v-1-20-0}
 
 #### {{ cloud-registry-name }} {#v-1-20-0-cloud-registry-name}
@@ -30,8 +38,6 @@ description: На странице представлены релизы CLI, а
 #### Изменения в системных командах CLI {#v-1-20-0-yc}
 
 * Добавлена подпись macOS-бинарных файлов с entitlement `com.apple.security.smartcard`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.19.0 (21.07.26) {#v-1-19-0}
 

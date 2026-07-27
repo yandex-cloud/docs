@@ -58,7 +58,7 @@
 Роль `cloud-router.auditor` позволяет просматривать информацию о ресурсах сервиса Cloud Router.
 
 Пользователи с этой ролью могут:
-* просматривать информацию о [Routing Instance](../concepts/routing-instance.md);
+* просматривать информацию о [виртуальных маршрутизаторах](../concepts/routing-instance.md);
 * просматривать информацию о квотах сервиса Cloud Router;
 * просматривать информацию об [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud);
 * просматривать информацию о [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder).
@@ -68,7 +68,7 @@
 Роль `cloud-router.viewer` позволяет просматривать информацию о ресурсах сервиса Cloud Router.
 
 "Пользователи с этой ролью могут:
-* просматривать информацию о [Routing Instance](../concepts/routing-instance.md);
+* просматривать информацию о [виртуальных маршрутизаторах](../concepts/routing-instance.md);
 * просматривать информацию о квотах сервиса Cloud Router;
 * просматривать информацию об [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud);
 * просматривать информацию о [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder).
@@ -77,11 +77,11 @@
 
 #### cloud-router.prefixEditor {#cloudrouter-prefixEditor}
 
-Роль `cloud-router.prefixEditor` позволяет управлять IP-префиксами облачных подсетей в Routing Instance, а также просматривать информацию о ресурсах сервиса Cloud Router.
+Роль `cloud-router.prefixEditor` позволяет управлять IP-префиксами облачных подсетей в виртуальных маршрутизаторах, а также просматривать информацию о ресурсах сервиса Cloud Router.
 
 "Пользователи с этой ролью могут:
-* просматривать информацию о [Routing Instance](../concepts/routing-instance.md);
-* добавлять, изменять и удалять [IP-префиксы](../concepts/announces.md) облачных [подсетей](../../vpc/concepts/network.md#subnet) в Routing Instance;
+* просматривать информацию о [виртуальных маршрутизаторах](../concepts/routing-instance.md);
+* добавлять, изменять и удалять [IP-префиксы](../concepts/announces.md) облачных [подсетей](../../vpc/concepts/network.md#subnet) в виртуальных маршрутизаторах;
 * просматривать информацию о квотах сервиса Cloud Router;
 * просматривать информацию об [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud);
 * просматривать информацию о [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder).
@@ -90,11 +90,11 @@
 
 #### cloud-router.editor {#cloudrouter-editor}
 
-Роль `cloud-router.editor` позволяет управлять Routing Instance, а также просматривать информацию о ресурсах сервиса Cloud Router.
+Роль `cloud-router.editor` позволяет управлять виртуальными маршрутизаторами, а также просматривать информацию о ресурсах сервиса Cloud Router.
 
 Пользователи с этой ролью могут:
-* просматривать информацию о [Routing Instance](../concepts/routing-instance.md), а также создавать, изменять и удалять их;
-* добавлять, изменять и удалять [IP-префиксы](../concepts/announces.md) облачных [подсетей](../../vpc/concepts/network.md#subnet) в Routing Instance;
+* просматривать информацию о [виртуальных маршрутизаторах](../concepts/routing-instance.md), а также создавать, изменять и удалять их;
+* добавлять, изменять и удалять [IP-префиксы](../concepts/announces.md) облачных [подсетей](../../vpc/concepts/network.md#subnet) в виртуальных маршрутизаторах;
 * просматривать информацию о квотах сервиса Cloud Router;
 * просматривать информацию об [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud);
 * просматривать информацию о [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder).
@@ -106,8 +106,8 @@
 Роль `cloud-router.admin` позволяет управлять ресурсами сервиса Cloud Router.
 
 Пользователи с этой ролью могут:
-* просматривать информацию о [Routing Instance](../concepts/routing-instance.md), а также создавать, изменять и удалять их;
-* добавлять, изменять и удалять [IP-префиксы](../concepts/announces.md) облачных [подсетей](../../vpc/concepts/network.md#subnet) в Routing Instance;
+* просматривать информацию о [виртуальных маршрутизаторах](../concepts/routing-instance.md), а также создавать, изменять и удалять их;
+* добавлять, изменять и удалять [IP-префиксы](../concepts/announces.md) облачных [подсетей](../../vpc/concepts/network.md#subnet) в виртуальных маршрутизаторах;
 * просматривать информацию о квотах сервиса Cloud Router;
 * просматривать информацию об [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud);
 * просматривать информацию о [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder).

@@ -46,8 +46,6 @@ description: Автоматическое масштабирование в {{ m
 
 {% include [master-autoscaler-note](../../_includes/managed-kubernetes/master-autoscaler-note.md) %}
 
-{% include [master-pricing-note](../../_includes/managed-kubernetes/master-pricing-note.md) %}
-
 {{ k8s-ma }} автоматически меняет конфигурацию мастера под текущую нагрузку. Такой подход позволяет поддерживать стабильную работу кластера без ручного подбора конфигурации.
 
 Для масштабирования {{ k8s-ma }} периодически собирает метрики утилизации мастера — количество vCPU и объем RAM. На основе метрик могут быть приняты следующие решения:

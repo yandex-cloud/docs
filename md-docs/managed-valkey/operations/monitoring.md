@@ -27,8 +27,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог с нужным кластером.
-  1. Перейдите в сервис **Yandex Managed Service for&nbsp;Valkey™**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог с нужным кластером.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-valkey) в сервис **Yandex Managed Service for&nbsp;Valkey™**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Мониторинг**.
       
       На открывшейся странице будут отображены графики, отражающие состояние кластера.
@@ -120,8 +120,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог с нужным кластером.
-  1. Перейдите в сервис **Yandex Managed Service for&nbsp;Valkey™**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог с нужным кластером.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-valkey) в сервис **Yandex Managed Service for&nbsp;Valkey™**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Хосты** → **Мониторинги**.
   1. Выберите нужный хост из выпадающего списка.
 
@@ -156,8 +156,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог с нужным кластером.
-  1. Перейдите в сервис **Yandex Managed Service for&nbsp;Valkey™**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог с нужным кластером.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-valkey) в сервис **Yandex Managed Service for&nbsp;Valkey™**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Мониторинг**.
   1. Перейдите на вкладку **Шарды** и выберите шард.
       
@@ -252,10 +252,12 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог с кластером, для которого нужно настроить алерты.
-  1. Перейдите в сервис ![image](../../_assets/console-icons/display-pulse.svg) **Monitoring**.
+  1. [Перейдите](https://monitoring.yandex.cloud) в сервис ![image](../../_assets/console-icons/display-pulse.svg) **Monitoring**.
   1. В блоке **Сервисные дашборды** выберите:
+      
       * **Yandex Managed Service for Valkey™ — Cluster Overview** для настройки алертов кластера;
       * **Yandex Managed Service for Valkey™ — Host Overview** для настройки алертов хостов.
+  
   1. На нужном графике нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Создать алерт**.
   1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **Продолжить**. Подробнее о языке запросов в [документации Yandex Monitoring](../../monitoring/concepts/querying.md).
   1. Задайте значения порогов `Alarm` и `Warning` для срабатывания алерта.
@@ -302,8 +304,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог с нужным кластером.
-  1. Перейдите в сервис **Yandex Managed Service for&nbsp;Valkey™**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог с нужным кластером.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-valkey) в сервис **Yandex Managed Service for&nbsp;Valkey™**.
   1. Наведите курсор на индикатор в столбце **Доступность** в строке нужного кластера.
 
 {% endlist %}
