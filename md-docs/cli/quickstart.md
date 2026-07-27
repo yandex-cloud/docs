@@ -339,6 +339,16 @@ CLI поддерживает автодополнение команд в ком
 
 ## Создание профиля {#initialize}
 
+{% note warning %}
+
+Аутентификация в CLI аккаунтом Яндекса, федеративным аккаунтом и аккаунтом локального пользователя осуществляется с помощью браузера и графического интерфейса.
+
+Предпочтительным способом работы с CLI на сервере без графического интерфейса является [использование сервисного аккаунта](operations/authentication/service-account.md).
+
+Если по какой-то причине вы не можете использовать сервисный аккаунт, выполните аутентификацию через [SSH-туннель](operations/authentication/auth-without-gui.md#linux-vm-auth) или с помощью [форвардинга X11](operations/authentication/auth-without-gui.md#auth-without-gui).
+
+{% endnote %}
+
 {% list tabs group=authentication %}
 
 - Аккаунт на Яндексе {#yandex-account}

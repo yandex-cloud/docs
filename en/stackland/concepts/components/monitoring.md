@@ -122,10 +122,11 @@ prometheus:
     requests:
       cpu: 100m
       memory: 400Mi
-  retention: 10d
+  storage:
+    size: 100Gi
 ```
 
 * `enabled`: Enables Prometheus.
 * `ingressEnabled`: Opens the Prometheus web UI via Ingress.
 * `resources`: Resource requirements.
-* `retention`: Data retention period before deletion.
+* `storage.size`: PVC size; local history depth is automatically limited to 80% of the PVC size.

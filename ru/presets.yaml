@@ -3659,6 +3659,7 @@ default:
       channel:
         button_create: Создать
         button_new-channel: Создать канал
+        button_save: Сохранить
         field_function_title: Облачная функция
         field_method: Метод
         field_name: Имя
@@ -3808,6 +3809,9 @@ default:
       navigation:
         dialogs:
           button_save: Сохранить
+      notification-methods:
+        create-button:
+          channel: Канал уведомления
       prometheus:
         action_create: Создать воркспейс
         alert-manager:
@@ -4044,6 +4048,7 @@ default:
         confirm: Подтвердить
         create: Создать
         more: Ещё
+        operations: Операции
         overview: Обзор
         resource-acl:
           label_invitee-accounts: Приглашенные аккаунты
@@ -5759,6 +5764,11 @@ default:
         title_ip-permissions: Доступ для IP-адресов
         title_registries: Реестры
         title_registry-artifacts: Артефакты
+      cloud-router:
+        router:
+          create-router_v4cPC: Создать виртуальный маршрутизатор
+          networks_fbzKL: Сети
+          routing-networks_42RL1: Маршрутизируемые сети и префиксы
       cloud-shell:
         label_service: Cloud Shell
       cloud-tree-list:
@@ -8748,6 +8758,7 @@ default:
         title_catalogs: Каталоги
       ui:
         constants:
+          label_cloud-router_kBGNL: Cloud Router
           label_interconnect_aUMcv: Cloud Interconnect
         metadata-hub:
           data-catalog:

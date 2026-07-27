@@ -23,7 +23,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) для нужного кластера, выберите пункт **Удалить** и подтвердите удаление.
 
 - CLI {#cli}

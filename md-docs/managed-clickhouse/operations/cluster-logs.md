@@ -17,7 +17,7 @@ Managed Service for ClickHouse® позволяет [получить фрагм
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-    1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
     1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/receipt.svg) **Логи**.
     1. Укажите период времени, за который нужно отобразить логи: введите его вручную или выберите в календаре, нажав на поле ввода дат.
     1. При необходимости укажите хосты и уровень логирования в строке с полем ввода дат.

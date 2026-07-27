@@ -30,8 +30,6 @@ _Образ_ — это полная копия структуры файлов�
 
 Образы Marketplace содержат все необходимые драйверы оборудования и настройки, обеспечивающие нормальную работу операционной системы на сервере BareMetal.
 
-При [установке](../operations/servers/reinstall-os-from-marketplace.md) из образа Marketplace операционная система сервера всегда устанавливается и загружается в Legacy-[режиме](server-advanced-settings.md#boot-mode).
-
 При установке операционной системы сервера из образа Marketplace вы можете выбрать нужный образ в интерфейсе [консоли управления](https://console.yandex.cloud) либо указать идентификатор или имя нужного образа, если используете Yandex Cloud [CLI](../../cli/cli-ref/baremetal/cli-ref/index.md) или [API](../api-ref/authentication.md).
 
 ## Пользовательские образы {#user-images}

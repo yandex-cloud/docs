@@ -2,11 +2,12 @@
 
 # Все методы CORS
 
-Метод | Описание
------ | -----
-[PutBucketCors](cors/upload.md) | Загружает конфигурацию бакета для [CORS](../../concepts/cors.md) в Object Storage.
-[GetBucketCors](cors/get.md) | Возвращает конфигурацию бакета для CORS из Object Storage.
-[DeleteBucketCors](cors/delete.md) | Удаляет конфигурацию бакета для CORS.
+#|
+|| **Метод** | **Описание** ||
+|| [PutBucketCors](cors/upload.md) | Загружает конфигурацию бакета для [CORS](../../concepts/cors.md) в Object Storage. ||
+|| [GetBucketCors](cors/get.md) | Возвращает конфигурацию бакета для CORS из Object Storage. ||
+|| [DeleteBucketCors](cors/delete.md) | Удаляет конфигурацию бакета для CORS. ||
+|#
 
 #### Полезные ссылки {#see-also}
 

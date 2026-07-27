@@ -36,10 +36,10 @@ If you need to, you can group multiple physical ports into a single bundle using
 
 {{ yandex-cloud }} equipment supports the following physical link options:
 
-* [Direct customer connection](#direct-link): Connection of your own equipment at the point of presence directly to the {{ yandex-cloud }} equipment.
+* [Direct client connection](#direct-link): Connection of your own equipment at the point of presence directly to the {{ yandex-cloud }} equipment.
 * [Connection via a telecom provider](#sp-link): You have no equipment of your own at the point of presence and use the services of a telecom provider to set up a connection to the {{ yandex-cloud }} equipment.
 
-### Direct customer connection {#direct-link}
+### Direct client connection {#direct-link}
 This is a connection of your own equipment at the [point of presence](./pops.md) directly to the {{ yandex-cloud }} equipment.
 
 In this configuration, the trunk will comprise the following components:
@@ -131,6 +131,7 @@ You can leverage the following multiplexing options:
 * [Direct connection at a point of presence](#mux-direct).
 * [Connection via a telecom provider (L2 transit)](#mux-sp-L2).
 * [Connection via a telecom provider (L3VPN)](#mux-sp-L3).
+* [Connection via a partner](#mux-partner).
 
 #### Direct connection at a point of presence {#mux-direct}
 
@@ -153,12 +154,27 @@ This option is used when the customer does not have their own equipment at the p
 
 ![trunk-over-sp-l3vpn](../../_assets/interconnect/interconnect-trn-3.svg)
 
-This option is used when the customer does not have their own equipment at the point of presence. For this operation, the following requirements apply:
+This option is used when the customer does not have their own equipment at the point of presence. In this case, the following applies:
 
 * An 802.1Q trunk is set up at the point of presence via a telecom provider.
 * An 802.1Q trunk is set up between the telecom provider equipment at the point of presence and the {{ yandex-cloud }} equipment.
 * Telecom provider enables L3VPN for the customer to establish connectivity between the telecom provider equipment at the point of presence and the customer equipment. This option is generally used when the customer lacks technical resources to ensure BGP peering to the {{ yandex-cloud }} equipment on their own and delegates this to a telecom provider that enables such peering through L3VPN.
 
+#### Connection via a partner {#mux-partner}
+
+A partner trunk is established using the **802.1ad (QinQ)** technology, which relies on a stack of two VLAN tags:
+
+* **Upper VLAN tag** (`C-VLAN`): Client ID within the [partner trunk](#partner-link). Determined by the VLAN-ID value from the pool specified by the partner when creating the trunk. The `C-VLAN` tag allows the {{ yandex-cloud }} network equipment to separate one client's traffic from another's within an individual partner trunk. This tag is assigned to the partner trunk the moment the trunk is created.
+* **Lower VLAN tag** (`PRC-VLAN`): Determined by the VLAN-ID value of the [private connection](./priv-con.md) in the trunk. This tag is set when creating the private connection.
+
+The `C-VLAN` and `PRC-VLAN` tags in the stack may have the same value. The partner and the client agree on the communication scheme directly, without involving {{ yandex-cloud }}.
+
+The partner's network equipment must do the following:
+
+* Remove the `C-VLAN` tag when receiving QinQ Ethernet frames from the {{ yandex-cloud }} equipment and send a regular 802.1q trunk towards the client's network equipment.
+* Add the appropriate `C-VLAN` tag when receiving an 802.1q Ethernet frame from the client, after which QinQ Ethernet frames can be transmitted towards the {{ yandex-cloud }} equipment.
+
+Whether is it a direct client connection or a partner trunk, the client must always get a _clean_ 802.1q trunk (without the `C-VLAN` tag) with a set of VLAN IDs matching the set of private connections configured by the client.
 
 ## Connection capacity {#policer}
 

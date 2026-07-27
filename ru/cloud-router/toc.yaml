@@ -8,21 +8,21 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Получить информацию о Routing Instance
+      - name: Получить информацию о виртуальном маршрутизаторе
         href: operations/ri-get-info.md
-      - name: Получить список операций Routing Instance
+      - name: Получить список операций виртуального маршрутизатора
         href: operations/ri-operations.md
-      - name: Создать Routing Instance
+      - name: Создать виртуальный маршрутизатор
         href: operations/ri-create.md
-      - name: Изменить параметры Routing Instance
+      - name: Изменить параметры виртуального маршрутизатора
         href: operations/ri-update.md
-      - name: Управлять сетями и IP-префиксами в Routing Instance
+      - name: Управлять сетями и IP-префиксами в виртуальном маршрутизаторе
         href: operations/ri-prefixes-upsert.md
-      - name: Добавить приватное соединение в Routing Instance
+      - name: Добавить приватное соединение в виртуальный маршрутизатор
         href: operations/ri-priv-con-add.md
-      - name: Удалить приватное соединение из Routing Instance
+      - name: Удалить приватное соединение из виртуального маршрутизатора
         href: operations/ri-priv-con-del.md
-      - name: Удалить Routing Instance
+      - name: Удалить виртуальный маршрутизатор
         href: operations/ri-delete.md
       - name: Инструкции Cloud Interconnect
         href: ../interconnect/operations/index.md
@@ -35,7 +35,7 @@ items:
         href: operations/cr-cic-ops.md
       - name: Терминология
         href: concepts/terms.md
-      - name: Routing Instance
+      - name: Виртуальный маршрутизатор
         href: concepts/routing-instance.md
       - name: Анонсы IP-префиксов
         href: concepts/announces.md
@@ -56,7 +56,9 @@ items:
         href: scenarios/ri-1_prc-2ha_vpc-1.md
       - name: On-premises с резервированием и несколько облачных сетей
         href: scenarios/ri-1_prc-2ha_vpc-few.md
-      - name: Два отдельных Route Instance без резервирования on-premises
+      - name: >-
+          Два отдельных виртуальных маршрутизатора без резервирования
+          on-premises
         href: scenarios/ri-2_prc-1noha_vpc-1.md
       - name: Равномерное распределение трафика из on-premises (Active-Active)
         href: scenarios/prc-ha-with-active-active.md
@@ -84,7 +86,7 @@ items:
           Организация сетевой связности между приватной подсетью {{
           baremetal-name }} и on-premise-ресурсами
         href: tutorials/bms-cic-onprem.md
-      - name: Изменение набора IP-префиксов VPC в Routing Instance
+      - name: Изменение набора IP-префиксов VPC в виртуальном маршрутизаторе
         href: tutorials/ri-prefixes-upsert.md
   - name: Управление доступом
     href: security/index.md

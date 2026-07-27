@@ -32,15 +32,16 @@
 
 Методы составной загрузки:
 
-Метод|Описание
------|--------
-[CreateMultipartUpload](multipart/startupload.md) | Инициализирует составную загрузку.
-[UploadPart](multipart/uploadpart.md) | Загружает часть объекта.
-[UploadPartCopy](multipart/copypart.md) | Копирует часть объекта.
-[ListParts](multipart/listparts.md) | Выдает список загруженных частей.
-[AbortMultipartUpload](multipart/abortupload.md) | Прерывает составную загрузку.
-[CompleteMultipartUpload](multipart/completeupload.md) | Завершает составную загрузку.
-[ListMultipartUploads](multipart/listuploads.md) | Выдает список незавершенных загрузок.
+#|
+|| **Метод** | **Описание** ||
+|| [CreateMultipartUpload](multipart/startupload.md) | Инициализирует составную загрузку. ||
+|| [UploadPart](multipart/uploadpart.md) | Загружает часть объекта. ||
+|| [UploadPartCopy](multipart/copypart.md) | Копирует часть объекта. ||
+|| [ListParts](multipart/listparts.md) | Выдает список загруженных частей. ||
+|| [AbortMultipartUpload](multipart/abortupload.md) | Прерывает составную загрузку. ||
+|| [CompleteMultipartUpload](multipart/completeupload.md) | Завершает составную загрузку. ||
+|| [ListMultipartUploads](multipart/listuploads.md) | Выдает список незавершенных загрузок. ||
+|#
 
 #### Полезные ссылки {#see-also}
 

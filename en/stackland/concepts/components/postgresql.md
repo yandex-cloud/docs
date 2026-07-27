@@ -17,7 +17,7 @@ Here is an example:
 
 Where:
 
-* `enabled`: Enables/disables the component.
+* `enabled`: Enables and disables the component.
 * `settings.stackland-postgres`: Operator pod settings:
   * `replicas`: Number of operator replicas.
   * `resources`: Resource requests and limits for the operator pod.
@@ -28,6 +28,44 @@ Where:
 * `settings.defaultPoolerResources`: Default resources for Pooler (PgBouncer) instances.
 
 All `settings` sections are optional; you can specify only those you need.
+
+## Users and databases {#users-and-databases}
+
+In Managed PostgreSQL, you can manage cluster users and databases in a declarative way using custom Kubernetes resources:
+
+* `PostgresqlRole`: PostgreSQL role and its permissions. For more information, see [{#T}](../../operations/postgresql/create-user.md), [{#T}](../../operations/postgresql/edit-user.md), and [{#T}](../../operations/postgresql/delete-user.md).
+* `PostgresqlDatabase`: Database and its schemas. For more information, see [{#T}](../../operations/postgresql/create-database.md), [{#T}](../../operations/postgresql/edit-database.md), and [{#T}](../../operations/postgresql/delete-database.md).
+
+Both resources belong to the `postgresql.stackland.yandex.cloud/v1alpha1` group and are associated with the cluster via the `spec.cluster` field.
+
+### User authentication {#authentication}
+
+The user's password is stored in a Kubernetes Secret. There are two possible options:
+
+* If the `spec.authentication` section in the `PostgresqlRole` resource is not set, the operator automatically creates a Secret of the same name as the `PostgresqlRole` resource and writes the generated password to that Secret.
+* If `spec.authentication.secretName` specifies a name of an existing Secret and the `password` authentication type, the operator uses credentials from that Secret. The Secret must contain the `username` key with the username and the `password` key with the password.
+
+To change the password, update the `password` key value in the associated Secret.
+
+### Immutable database fields {#immutable-database-fields}
+
+Once the database is created, you cannot change the following fields:
+
+* `name`: Name of the PostgreSQL database.
+* `template`: Template used to create the database.
+* `encoding`: Character encoding.
+* `localeProvider`, `locale`, `localeCollate`, `localeCType`, `icuLocale`, `icuRules`, `builtinLocale`: Locale provider and settings.
+* `collationVersion`: Collation version.
+
+### Schemas {#schemas}
+
+The `spec.schemas` list of the `PostgresqlDatabase` resource describes managed PostgreSQL schemas. Each element has a `state` field set to `present` to create or support, or `absent`, to delete. The operator writes the current state to `status.schemas`.
+
+### Resource status {#status}
+
+* `PostgresqlRole.status.ready`: `true` if the role was successfully applied in the cluster.
+* `PostgresqlDatabase.status.applied`: `true` if the database was successfully applied in the cluster.
+* `status.conditions`: Standard Kubernetes conditions (`type`, `status`, `reason`, `message`, and `lastTransitionTime`) describing the resource reconciliation progress.
 
 ## Performance diagnostics {#performance-diagnostics}
 

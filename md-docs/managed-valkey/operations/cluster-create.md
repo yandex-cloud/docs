@@ -67,16 +67,18 @@
 
   Чтобы создать кластер Yandex Managed Service for Valkey™:
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором нужно создать кластер БД.
-  1. Перейдите в сервис **Yandex Managed Service for&nbsp;Valkey™**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать кластер БД.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-valkey) в сервис **Yandex Managed Service for&nbsp;Valkey™**.
   1. Нажмите кнопку **Создать кластер**.
   1. В блоке **Базовые параметры**:
 
      * Введите имя кластера в поле **Имя кластера**. Имя кластера должно быть уникальным в рамках каталога.
      * (Опционально) Добавьте описание кластера.
      * Выберите окружение, в котором нужно создать кластер (после создания кластера окружение изменить невозможно):
+       
        * `PRODUCTION` — для стабильных версий ваших приложений.
        * `PRESTABLE` — для тестирования. Prestable-окружение аналогично Production-окружению и на него также распространяется SLA, но при этом на нем раньше появляются новые функциональные возможности, улучшения и исправления ошибок. В Prestable-окружении вы можете протестировать совместимость новых версий с вашим приложением.
+     
      * Выберите версию СУБД.
      * (Опционально) Добавьте метки.
      * Если требуется, включите [шардирование кластера](../concepts/sharding.md).
@@ -113,6 +115,7 @@
 
      
      * Выберите [тип диска](../concepts/storage.md):
+       
        * либо более гибкое хранилище — на сетевых SSD-дисках (`network-ssd`) или на нереплицируемых SSD-дисках (`network-ssd-nonreplicated`);
        * либо более быстрое хранилище — на локальных SSD-дисках (`local-ssd`).
 
@@ -161,6 +164,7 @@
 
   
     1. В блоке **Сетевые настройки** выберите:
+       
        * [Облачную сеть](../../vpc/concepts/network.md#network) для размещения кластера.
        * Группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
 
@@ -287,9 +291,11 @@
 
 
       Где:
+      
       * `--environment` — окружение: `prestable` или `production`.
       * `--redis-version` — версия Valkey™: `7.2-valkey`, `8.0-valkey`, `8.1-valkey` или `9.0-valkey`.
       * `--host` — параметры хоста:
+         
          * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
 
          
@@ -298,6 +304,7 @@
 
 
          * `replica-priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover).
+      
       * `--disk-type-id` — тип диска.
 
       * `--websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления Yandex Cloud с помощью сервиса Yandex WebSQL. Значение по умолчанию — `false`.
@@ -358,6 +365,7 @@
         {% endnote %}
 
       * `--valkey-modules` — параметры [модулей Valkey™](../concepts/modules.md):
+         
          * `enable-valkey-search` — подключить модуль `Valkey-Search`: `true` или `false`.
          * `valkey-search-reader-threads` — количество потоков обработки запросов в модуле `Valkey-Search`.
          * `valkey-search-writer-threads` — количество потоков индексации в модуле `Valkey-Search`.
@@ -460,6 +468,7 @@
        ```
 
        Где:
+       
        * `environment` — окружение: `PRESTABLE` или `PRODUCTION`.
        * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
@@ -787,8 +796,10 @@
             * `modules` — параметры [модулей Valkey™](../concepts/modules.md):
 
                * `valkeySearch.enabled` — подключить модуль `Valkey-Search`: `true` или `false`. Для модуля доступна настройка параметров:
+                   
                    * `valkeySearch.readerThreads` — количество потоков обработки запросов.
                    * `valkeySearch.writerThreads` — количество потоков индексации.
+               
                * `valkeyJson.enabled` — подключить модуль `Valkey-JSON`: `true` или `false`.
                * `valkeyBloom.enabled` — подключить модуль `Valkey-Bloom`: `true` или `false`.
 
@@ -1016,8 +1027,10 @@
             * `modules` — параметры [модулей Valkey™](../concepts/modules.md):
 
                * `valkey_search.enabled` — подключить модуль `Valkey-Search`: `true` или `false`. Для модуля доступна настройка параметров:
+                   
                    * `valkey_search.reader_threads` — количество потоков обработки запросов.
                    * `valkey_search.writer_threads` — количество потоков индексации.
+               
                * `valkey_json.enabled` — подключить модуль `Valkey-JSON`: `true` или `false`.
                * `valkey_bloom.enabled` — подключить модуль `Valkey-Bloom`: `true` или `false`.
 
@@ -1493,9 +1506,11 @@
     * Каталог с идентификатором `b1gia87mbaom********`.
     * Новая сеть `mynet`.
     * Три подсети в сети `mynet`, по одной в каждой зоне доступности:
+      
       * `subnet-a` с диапазоном `10.1.0.0/24`;
       * `subnet-b` с диапазоном `10.2.0.0/24`;
       * `subnet-d` с диапазоном `10.3.0.0/24`.
+    
     * Три хоста класса `hm2.nano`, по одному в каждой подсети.
     * Новая группа безопасности `redis-sg`, разрешающая подключения через порты `6379` и `26379` ([Valkey™ Sentinel](connect/index.md)) с любых адресов подсетей.
     * Хранилище на сетевых SSD-дисках (`network-ssd`) размером 16 ГБ.

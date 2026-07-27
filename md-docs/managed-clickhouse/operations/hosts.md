@@ -27,7 +27,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
   1. Нажмите на имя нужного кластера, затем выберите вкладку **Хосты**.
 
 - CLI {#cli}
@@ -126,7 +126,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
   1. Нажмите на имя нужного кластера и перейдите на вкладку **Хосты**.
   1. Нажмите кнопку **Создать хосты ClickHouse**.
 
@@ -427,7 +427,7 @@
 
   Чтобы изменить параметры хоста в кластере:
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
   1. Нажмите на имя нужного кластера и перейдите на вкладку **Хосты**.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста и выберите пункт **Редактировать**.
   1. В открывшемся окне включите опцию **Публичный доступ**, если хост должен быть доступен извне Yandex Cloud.
@@ -660,7 +660,7 @@
   Чтобы перезагрузить один хост:
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-    1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
     1. Нажмите на имя нужного кластера и перейдите на вкладку **Хосты**.
     1. В строке нужного хоста нажмите на значок ![icon](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Перезагрузить**.
     1. В открывшемся окне включите опцию **Я перезагружаю хост** и нажмите кнопку **Подтвердить**.
@@ -668,7 +668,7 @@
   Чтобы перезагрузить несколько хостов сразу:
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-    1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
     1. Нажмите на имя нужного кластера и перейдите на вкладку **Хосты**.
     1. Выберите хосты, которые хотите перезагрузить, и нажмите **Перезагрузить** в нижней части экрана.
     1. В открывшемся окне нажмите кнопку **Подтвердить**.
@@ -781,7 +781,7 @@
   Чтобы удалить один хост:
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-    1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
     1. Нажмите на имя нужного кластера и перейдите на вкладку **Хосты**.
     1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста и выберите пункт **Удалить**.
     1. В открывшемся окне включите опцию **Я удаляю хост** и нажмите кнопку **Подтвердить**.
@@ -789,7 +789,7 @@
   Чтобы удалить несколько хостов сразу:
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-    1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
     1. Нажмите на имя нужного кластера и перейдите на вкладку **Хосты**.
     1. Выберите хосты, которые хотите удалить, и нажмите **Удалить** в нижней части экрана.
     1. В открывшемся окне нажмите кнопку **Удалить**.

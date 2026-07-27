@@ -21,7 +21,7 @@ description: Вы можете отслеживать состояние кла�
 
 Для просмотра детальной информации о состоянии кластера {{ mpg-name }}:
 
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+1. [Перейдите]({{ link-console-main }}/link/managed-postgresql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
 
 1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_monitoring }}**.
 
@@ -99,7 +99,7 @@ description: Вы можете отслеживать состояние кла�
 
 Для просмотра детальной информации о состоянии отдельных хостов {{ mpg-name }}:
 
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+1. [Перейдите]({{ link-console-main }}/link/managed-postgresql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
 1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}**.
 1. Нажмите на строку нужного хоста в списке.
 
@@ -136,7 +136,7 @@ description: Вы можете отслеживать состояние кла�
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог с кластером, для которого нужно настроить алерты.
-    1. Перейдите в сервис ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+    1. [Перейдите]({{ link-console-main }}/link/monitoring) в сервис ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
     1. В блоке **{{ ui-key.yacloud_monitoring.homepage.title_service-dashboards }}** выберите:
         * **{{ mpg-name }} — Cluster Overview** для настройки алертов кластера;
         * **{{ mpg-name }} — Host Overview** для настройки алертов хостов.
@@ -172,7 +172,7 @@ description: Вы можете отслеживать состояние кла�
 
 Для просмотра состояния и статуса кластера:
 
-1. Перейдите на страницу каталога и выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+1. [Перейдите]({{ link-console-main }}/link/managed-postgresql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
 1. Наведите курсор на индикатор в столбце **{{ ui-key.yacloud.mdb.clusters.column_availability }}** в строке нужного кластера.
 
 ### Состояния кластера {#cluster-health}

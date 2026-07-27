@@ -27,14 +27,14 @@ PUT /{bucket}?object-lock HTTP/2
 
 ### Path параметры {#path-parameters}
 
-Параметр | Описание
------ | -----
-`bucket` | Имя бакета.
-
+#|
+|| **Параметр** | **Описание** ||
+|| `bucket` | Имя бакета ||
+|#
 
 ### Заголовки {#request-headers}
-Используйте в запросе только [общие заголовки](../common-request-headers.md).
 
+Используйте в запросе только [общие заголовки](../common-request-headers.md).
 
 ### Схема данных {#request-scheme}
 
@@ -51,15 +51,39 @@ PUT /{bucket}?object-lock HTTP/2
 </ObjectLockConfiguration>
 ```
 
-Элемент | Описание
------ | -----
-`ObjectLockConfiguration` | <p>Корневой элемент.</p><p>Чтобы выключить механизм блокировок, передайте этот параметр с пустым значением, например `<ObjectLockConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/" />`.</p><p>Путь: `ObjectLockConfiguration`.</p>
-`ObjectLockEnabled` | <p>Статус механизма блокировок:</p><ul><li>`Enabled` — механизм блокировок включен.</li></ul><p>Если элемент не указан, будет выведено сообщение об ошибке `InvalidRequest`, а механизм блокировок не включится.</p><p>Путь: `ObjectLockConfiguration\ObjectLockEnabled`.</p>
-`Rule` | <p>Настройки блокировок.</p><p>Путь: `ObjectLockConfiguration\Rule`.</p>
-`DefaultRetention` | <p>Настройки блокировок по умолчанию.</p><p>Путь: `ObjectLockConfiguration\Rule\DefaultRetention`.</p>
-`Mode` | <p>[Тип](../../../concepts/object-lock.md#types) блокировки по умолчанию:</p><ul><li>`GOVERNANCE` — временная управляемая блокировка.</li><li>`COMPLIANCE` — временная строгая блокировка.</li></ul><p>Путь: `ObjectLockConfiguration\Rule\DefaultRetention\Mode`.</p>
-`Days` | <p>Срок блокировки по умолчанию в днях от момента загрузки версии объекта. Должен быть положительным целым числом. Нельзя указывать вместе с `Years`.</p><p>Путь: `ObjectLockConfiguration\Rule\DefaultRetention\Days`.</p>
-`Years` | <p>Срок блокировки по умолчанию в годах от момента загрузки версии объекта. Должен быть положительным целым числом. Нельзя указывать вместе с `Days`.</p><p>Путь: `ObjectLockConfiguration\Rule\DefaultRetention\Years`.</p>
+#|
+|| **Элемент** | **Описание** ||
+|| `ObjectLockConfiguration` | Корневой элемент.
+
+Чтобы выключить механизм блокировок, передайте этот параметр с пустым значением, например `<ObjectLockConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/" />`.
+
+Путь: `ObjectLockConfiguration`. ||
+|| `ObjectLockEnabled` | Статус механизма блокировок:
+
+* `Enabled` — механизм блокировок включен.
+
+Если элемент не указан, будет выведено сообщение об ошибке `InvalidRequest`, а механизм блокировок не включится.
+
+Путь: `ObjectLockConfiguration\ObjectLockEnabled`. ||
+|| `Rule` | Настройки блокировок.
+
+Путь: `ObjectLockConfiguration\Rule`. ||
+|| `DefaultRetention` | Настройки блокировок по умолчанию.
+
+Путь: `ObjectLockConfiguration\Rule\DefaultRetention`. ||
+|| `Mode` | [Тип](../../../concepts/object-lock.md#types) блокировки по умолчанию:
+
+* `GOVERNANCE` — временная управляемая блокировка.
+* `COMPLIANCE` — временная строгая блокировка.
+
+Путь: `ObjectLockConfiguration\Rule\DefaultRetention\Mode`. ||
+|| `Days` | Срок блокировки по умолчанию в днях от момента загрузки версии объекта. Должен быть положительным целым числом. Нельзя указывать вместе с `Years`.
+
+Путь: `ObjectLockConfiguration\Rule\DefaultRetention\Days`. ||
+|| `Years` | Срок блокировки по умолчанию в годах от момента загрузки версии объекта. Должен быть положительным целым числом. Нельзя указывать вместе с `Days`.
+
+Путь: `ObjectLockConfiguration\Rule\DefaultRetention\Years`. ||
+|#
 
 ## Ответ {#response}
 

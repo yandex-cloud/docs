@@ -72,7 +72,7 @@ Access to {{ objstorage-name }} is managed via {{ iam-name }}. To use buckets, y
 
 1. Service account. Create ServiceAccount in your project.
 1. Role. Assign to your service account the `storage.editor` or `storage.viewer` role using the `AccessBinding` resource.
-1. A static key. Get an access key to work with the S3 API.
+1. Static key. Get an access key to work with the S3 API.
 
 Learn more about creating access keys in [this guide](../../operations/storage/create-accesskey.md).
 

@@ -16,7 +16,7 @@
 
 ## Настроить алерты в Yandex Monitoring {#set-alert}
 
-1. Перейдите в сервис **Monitoring**.
+1. [Перейдите](https://console.yandex.cloud/link/monitoring) в сервис **Monitoring**.
 1. Выберите сервисный дашборд **Managed Service for PostgreSQL**.
 1. [Создайте канал уведомлений](../../monitoring/operations/alert/create-channel.md).
 1. [Создайте алерт](../../monitoring/operations/alert/create-alert.md) со следующими параметрами:
@@ -99,7 +99,7 @@
 
     Чтобы изменить тип диска и увеличить размер хранилища для кластера:
 
-    1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
     1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **Редактировать** на панели сверху.
     1. В блоке **Размер хранилища**:
 
@@ -366,7 +366,7 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите в сервис **Managed Service for PostgreSQL**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for PostgreSQL**.
     1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
     1. В блоке **Автоматическое увеличение размера хранилища**:
 

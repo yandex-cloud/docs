@@ -31,7 +31,7 @@ description: Вы можете получать метрики производ�
 - Консоль управления {#console}
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/heart-pulse.svg) **Диагностика производительности**.
 
       Чтобы посмотреть историю или статистику запросов, выберите нужную вкладку. При этом данные отображаются за выбранный интервал времени.
@@ -61,7 +61,7 @@ description: Вы можете получать метрики производ�
 - Консоль управления {#console}
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/heart-pulse.svg) **Диагностика производительности**.
   1. Перейдите на вкладку **{{ ui-key.yacloud.clickhouse.PerformanceDiagnostics.ClusterDiagnosticsTabs.label_query-groups_w3anM }}**.
 

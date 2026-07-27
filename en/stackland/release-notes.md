@@ -1,6 +1,96 @@
+# What's new in {{ stackland-name }} 26.2.0
+
+{{ stackland-name }} version 26.2.0 introduces new components for data analytics: {{ yt-name }}, {{ mtr-name }}, and {{ rest-catalog-name }}. It also offers more options for declarative user and database management in {{ mpg-name }} and {{ mch-name }}.
+
+## Important updates
+
+* Added the {{ yt-name }} component, a distributed platform for big data storage and processing.
+* Added the {{ mtr-name }} component, a distributed SQL engine for analytical queries.
+* Added the {{ rest-catalog-name }} component, a REST metadata catalog for Apache Iceberg tables.
+
+## New features
+
+### {{ yt-name }}
+
+Added the {{ yt-name }} component, a platform for big data storage and distributed processing. It is configured via the custom `YTsaurusConfig` resource and offers the following features:
+
+* Deployment of a single YTsaurus cluster with automatic subcomponent management.
+* Web interface and HTTP proxy for cluster access.
+* User authentication via {{ iam-name }}.
+* Cluster state monitoring using {{ grafana-name }} dashboards.
+
+### {{ mtr-name }}
+
+Added the {{ mtr-name }} component, a distributed SQL engine for analytical queries to data from various sources. Main features:
+
+* Ability to create Trino clusters with coordinators and workers via the custom `TrinoCluster` resource.
+* Catalogs for data sources such as {{ PG }}, {{ CH }}, and Apache Iceberg.
+* Support for both external S3 storage and native {{ objstorage-name }} for Iceberg catalogs.
+* Ability to configure folder access rules.
+
+### {{ rest-catalog-name }}
+
+Added the {{ rest-catalog-name }} component, a REST metadata catalog for Apache Iceberg tables, compatible with the Iceberg REST Catalog API. Main features:
+
+* Catalog management via the custom `RestCatalog` resource.
+* Catalog user management via the custom `RestCatalogPrincipal` resource with OAuth2 credentials.
+* Access control through user groups and catalog roles.
+
+### {{ mpg-name }}: User and database management.
+
+Added declarative management of users and databases via custom Kubernetes resources:
+
+* `PostgresqlRole`: Managing users and their permissions. Supports generated passwords or passwords from secrets.
+* `PostgresqlDatabase`: Managing databases, schemas, and locale providers: `libc`, `ICU`, and `builtin`.
+
+### {{ mch-name }}: Managing users, roles, and databases.
+
+Added declarative management of users, roles, and databases via custom Kubernetes resources:
+
+* `ClickhouseDatabase`: Managing databases.
+* `ClickhouseRole`: Managing roles with multiple privileges; the guides provide examples for the `reader` and `writer` roles.
+* `ClickhouseUser`: Managing users with passwords stored in secrets.
+
+### {{ mch-name }}: Automatic storage expansion
+
+Added the ability to automatically increase disk space for {{ mch-name }} clusters when a specified usage threshold is reached. This is configured in the `autoScaling` section of the custom `ClickhouseCluster` resource:
+
+* `enabled`: Enabling autoscaling.
+* `maxSize`: Maximum storage size.
+* `standardIncreasePercent`: Increment size for storage expansion.
+* `resizeTriggerPercent`: Threshold to trigger expansion.
+* `readOnlyTriggerPercent`: Threshold to switch the cluster to read-only mode.
+
+### Installing {{ stackland-name }} on {{ baremetal-full-name }} via PXE
+
+Added guides for installing {{ stackland-name }} on {{ baremetal-full-name }} servers using PXE boot.
+
+### Installing {{ stackland-name }} on {{ yandex-cloud }} VMs
+
+Added guides for installing {{ stackland-name }} on {{ compute-full-name }} VMs.
+
+## Improvements
+
+### Cluster upgrade
+
+Updated the cluster upgrade form interface in the management console.
+
+### Guides
+
+* Added a guide for {{ yt-name }}.
+* Added a guide for {{ mtr-name }}.
+* Added a guide for {{ rest-catalog-name }}.
+* Added sections on user and database management in {{ mpg-name }}.
+* Added sections on user, role, and database management in {{ mch-name }}.
+* Added a description of automatic storage expansion for {{ mch-name }}.
+* Added new Secrets Store guides: described injection into ConfigMap, environment variables, and troubleshooting.
+* Added guides for PXE installation on {{ baremetal-full-name }}.
+* Added guides for installation on {{ yandex-cloud }} VMs.
+* Added a page on Secrets Store troubleshooting.
+
 # What's new in {{ stackland-name }} 26.1.5
 
-{{ stackland-name }} version 26.1.5 has fixed installation and cluster update issues related to Talos release images and OS version checks.
+{{ stackland-name }} version 26.1.5 has fixed cluster installation and upgrade issues related to Talos release images and OS version checks.
 
 ## Fixed issues
 
@@ -20,7 +110,7 @@ Uses Linux kernel `6.12.85‑lvc19` with a fix for vulnerability CVE‑2026‑31
 
 # What's new in {{ stackland-name }} 26.1.3
 
-{{ stackland-name }} version 26.1.3 features improved cluster installation and update stability, interface updates, and fixes in managed database services.
+{{ stackland-name }} version 26.1.3 features improved cluster installation and upgrade stability, interface updates, and fixes in managed database services.
 
 ## Improvements
 

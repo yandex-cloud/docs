@@ -8,7 +8,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Перейдите]({{ link-console-main }}/link/managed-postgresql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
   1. На странице **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_backup-policies }}**.
   1. Нажмите кнопку **Создать политику**.
@@ -142,7 +142,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Перейдите]({{ link-console-main }}/link/managed-postgresql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
   1. На странице **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_backup-policies }}**.
 
@@ -234,7 +234,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Перейдите]({{ link-console-main }}/link/managed-postgresql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
   1. На странице **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_backup-policies }}**.
 

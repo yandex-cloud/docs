@@ -17,7 +17,6 @@ items:
         href: tutorials/install-on-yc-bms.md
       - name: Installing {{ stackland-name }} on {{ baremetal-full-name }} via PXE
         href: tutorials/install-on-yc-bms-pxe.md
-        hidden: true
       - name: Installing {{ stackland-name }} on {{ yandex-cloud }} VMs
         href: tutorials/install-on-yc-vm.md
       - name: Setting up external access to a pod in a cluster
@@ -45,9 +44,21 @@ items:
                 href: operations/postgresql/create-cluster.md
               - name: Updating cluster settings
                 href: operations/postgresql/edit-cluster.md
+              - name: Creating a user
+                href: operations/postgresql/create-user.md
+              - name: Updating a user
+                href: operations/postgresql/edit-user.md
+              - name: Deleting a user
+                href: operations/postgresql/delete-user.md
+              - name: Create database
+                href: operations/postgresql/create-database.md
+              - name: Update database
+                href: operations/postgresql/edit-database.md
+              - name: Deleting a database
+                href: operations/postgresql/delete-database.md
               - name: Performance diagnostics
                 href: operations/postgresql/performance-diagnostics.md
-              - name: Creating backups
+              - name: Create a backup
                 href: operations/postgresql/new-copy.md
               - name: Recovering a cluster
                 href: operations/postgresql/recover-copy.md
@@ -59,12 +70,70 @@ items:
                 href: operations/clickhouse/create-cluster.md
               - name: Updating cluster settings
                 href: operations/clickhouse/edit-cluster.md
-              - name: Creating backups
+              - name: Create a backup
                 href: operations/clickhouse/new-copy.md
               - name: Recovering a cluster
                 href: operations/clickhouse/recover-copy.md
               - name: Deleting a cluster
                 href: operations/clickhouse/delete-cluster.md
+              - name: Create database
+                href: operations/clickhouse/create-database.md
+              - name: Update database
+                href: operations/clickhouse/edit-database.md
+              - name: Deleting a database
+                href: operations/clickhouse/delete-database.md
+              - name: Creating a role
+                href: operations/clickhouse/create-role.md
+              - name: Editing a role
+                href: operations/clickhouse/edit-role.md
+              - name: Deleting a role
+                href: operations/clickhouse/delete-role.md
+              - name: Creating a user
+                href: operations/clickhouse/create-user.md
+              - name: Updating a user
+                href: operations/clickhouse/edit-user.md
+              - name: Deleting a user
+                href: operations/clickhouse/delete-user.md
+          - name: '{{ rest-catalog-name }}'
+            items:
+              - name: Creating a catalog
+                href: operations/rest-catalog/create-catalog.md
+              - name: Update a folder
+                href: operations/rest-catalog/edit-catalog.md
+              - name: Creating a catalog user
+                href: operations/rest-catalog/create-principal.md
+              - name: Deleting a catalog user
+                href: operations/rest-catalog/delete-principal.md
+              - name: Deleting a folder.
+                href: operations/rest-catalog/delete-catalog.md
+          - name: Managed Service for Trino
+            items:
+              - name: Creating a {{ TR }} cluster
+                href: operations/trino/create-cluster.md
+              - name: Updating cluster settings
+                href: operations/trino/edit-cluster.md
+              - name: Deleting a cluster
+                href: operations/trino/delete-cluster.md
+              - name: Creating a catalog
+                href: operations/trino/create-catalog.md
+              - name: Updating catalog settings
+                href: operations/trino/edit-catalog.md
+              - name: Deleting a folder.
+                href: operations/trino/delete-catalog.md
+          - name: '{{ yt-name }}'
+            items:
+              - name: Activate {{ yt-name }}
+                href: operations/ytsaurus/enable.md
+              - name: Updating cluster settings
+                href: operations/ytsaurus/edit-cluster.md
+              - name: Getting an administrator password and token
+                href: operations/ytsaurus/get-admin-credentials.md
+              - name: Opening the web UI
+                href: operations/ytsaurus/connect-ui.md
+              - name: Connecting to the HTTP proxy
+                href: operations/ytsaurus/connect-api.md
+              - name: Disabling {{ yt-name }}
+                href: operations/ytsaurus/disable.md
       - name: Buckets
         items:
           - name: Creating a bucket
@@ -95,6 +164,8 @@ items:
         items:
           - name: Viewing logs
             href: operations/logging/logs-view.md
+          - name: Recovering Loki in standalone mode if PVC is full
+            href: operations/logging/loki-recovery.md
       - name: Monitoring
         items:
           - name: Creating a dashboard
@@ -103,7 +174,7 @@ items:
             href: operations/monitoring/dashboard-update.md
           - name: Deleting a dashboard
             href: operations/monitoring/dashboard-delete.md
-          - name: Managing dashboard access
+          - name: Managing access to dashboards
             href: operations/monitoring/dashboard-access.md
           - name: Creating a notification channel
             href: operations/monitoring/alerts-create-contact-point.md
@@ -133,7 +204,7 @@ items:
             href: operations/projects/create-project.md
           - name: Managing namespaces
             href: operations/projects/manage-namespaces.md
-          - name: Configuring project roles
+          - name: Configuring roles in a project
             href: operations/projects/project-roles.md
           - name: Setting quotas in namespaces
             href: operations/projects/namespace-quotas.md
@@ -164,7 +235,9 @@ items:
       - name: Managing a cluster
         items:
           - name: Upgrading a cluster
-            href: operations/cluster-upgrade.md
+            href: operations/cluster/upgrade-cluster.md
+          - name: Scaling a cluster
+            href: operations/cluster/scale-cluster.md
   - name: Concepts
     expanded: true
     items:
@@ -172,11 +245,13 @@ items:
         href: concepts/projects.md
       - name: Resource model
         href: concepts/resource-model.md
+      - name: Scaling a cluster
+        href: concepts/cluster-scaling.md
       - name: Components
         items:
           - name: Overview
             href: concepts/components/overview.md
-          - name: Certificate Manager
+          - name: '{{ certificate-manager-name }}'
             href: concepts/components/certificate-manager.md
           - name: DNS
             href: concepts/components/dns.md
@@ -190,9 +265,15 @@ items:
             href: concepts/components/postgresql.md
           - name: '{{ mch-short-name }}'
             href: concepts/components/clickhouse.md
+          - name: '{{ rest-catalog-name }}'
+            href: concepts/components/rest-catalog.md
+          - name: '{{ mtr-short-name }}'
+            href: concepts/components/trino.md
+          - name: '{{ yt-name }}'
+            href: concepts/components/ytsaurus.md
           - name: '{{ datalens-name }}'
             href: concepts/components/datalens.md
-          - name: Monitoring
+          - name: '{{ monitoring-short-name }}'
             href: concepts/components/monitoring.md
           - name: '{{ objstorage-name }}'
             href: concepts/components/storage.md

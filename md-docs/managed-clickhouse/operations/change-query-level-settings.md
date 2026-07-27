@@ -49,7 +49,7 @@
    Чтобы задать настройки ClickHouse®:
 
    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-   1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+   1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
    1. Нажмите на имя нужного кластера, затем перейдите в раздел **Пользователи**.
    1. В строке с именем нужного пользователя нажмите кнопку ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Настроить**.
    1. В списке **Дополнительные настройки** разверните **settings** и задайте [настройки ClickHouse®](../concepts/settings-list.md#user-level-settings).

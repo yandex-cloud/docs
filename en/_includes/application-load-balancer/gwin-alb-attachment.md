@@ -205,8 +205,8 @@ To attach a [Service]({{ configuration-gwin-local-link }}/service.md) resource t
         }
       }
       ```
-   
-   {% endlist %}
+
+    {% endlist %}
 
 1. Add the [gwin.yandex.cloud/attach.targetGroup.id annotation]({{ configuration-gwin-local-link }}/service.md#attach-configuration) to the Service resource:
 

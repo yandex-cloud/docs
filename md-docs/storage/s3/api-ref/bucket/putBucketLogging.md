@@ -15,15 +15,17 @@ PUT /{bucket}?logging HTTP/2
 
 ### Path-параметры {#path-parameters}
 
-Параметр | Описание
---- | ---
-`bucket` | Имя [бакета](../../../concepts/bucket.md).
+#|
+|| **Параметр** | **Описание** ||
+|| `bucket` | Имя бакета ||
+|#
 
 ### Query-параметры {#request-params}
 
-Параметр | Описание
---- | ---
-`logging` | Обязательный параметр для обозначения типа операции.
+#|
+|| **Параметр** | **Описание** ||
+|| `logging` | Обязательный параметр для обозначения типа операции ||
+|#
 
 ### Схема данных {#request-scheme}
 
@@ -39,11 +41,16 @@ PUT /{bucket}?logging HTTP/2
 </BucketLoggingStatus>
 ```
 
-Элемент | Описание
---- | ---
-`BucketLoggingStatus` | Корневой элемент.
-`TargetBucket` | Имя целевого бакета, в который сохраняются [объекты](../../../concepts/object.md) с логами.<br>Тип: String.
-`TargetPrefix` | [Префикс ключа объекта](../../../concepts/server-logs.md#key-prefix) с логами.<br>Тип: String.
+#|
+|| **Элемент** | **Описание** ||
+|| `BucketLoggingStatus` | Корневой элемент. ||
+|| `TargetBucket` | Имя целевого бакета, в который сохраняются [объекты](../../../concepts/object.md) с логами.
+
+Тип: String. ||
+|| `TargetPrefix` | [Префикс ключа объекта](../../../concepts/server-logs.md#key-prefix) с логами.
+
+Тип: String. ||
+|#
 
 **Чтобы выключить механизм логирования действий с бакетом**:
 

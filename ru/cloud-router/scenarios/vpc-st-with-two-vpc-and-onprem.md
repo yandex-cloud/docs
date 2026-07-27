@@ -2,7 +2,7 @@
 
 {% include [cic-only-warning](../../_includes/interconnect/cic-only-warning.md) %}
 
-Резервируемое подключение On-Prem через два приватных соединения Cloud Interconnect к одному RI с двумя *(и более)* облачными сетями и сетевой связностью облачных сетей между собой. Такая полносвязная топология называется `Full Mesh`.
+Резервируемое подключение On-Prem через два приватных соединения Cloud Interconnect к одному виртуальному маршрутизатору с двумя (и более) облачными сетями и сетевой связностью облачных сетей между собой. Такая полносвязная топология называется `Full Mesh`.
 
 ![ri-topology-7](../../_assets/cloud-router/ri-topology-7.svg)
 
@@ -12,9 +12,9 @@
 
 * Сетевое оборудование `On-Prem` подключается через сервис [Cloud Interconnect](../../interconnect/concepts/index.md) к сетевому оборудованию Yandex Cloud.
 
-* Два приватных соединения `prc-m9` и `prc-nord`, организованные через две [точки присутствия](../../interconnect/concepts/pops.md) `M9`и `NORD` подключается к `Routing Instance` в Yandex Cloud.
+* Два приватных соединения `prc-m9` и `prc-nord`, организованные через две [точки присутствия](../../interconnect/concepts/pops.md) `M9` и `NORD`, подключаются к виртуальному маршрутизатору в Yandex Cloud.
 
-* Со стороны Yandex Cloud к `Routing Instance` подключаются две виртуальных сети:
+* Со стороны Yandex Cloud к виртуальному маршрутизатору подключаются две виртуальные сети:
 
   * виртуальная сеть `Net-1` в составе трех подсетей - `subnet-a1`, `subnet-b1` и `subnet-d1`.
   * виртуальная сеть `Net-2` в составе трех подсетей - `subnet-a2`, `subnet-b2` и `subnet-d2`.

@@ -149,7 +149,7 @@ spec:
   # ...
 ```
 
-To learn more, see [Creating a cluster](../kafka/create-cluster.md).
+For more information on creating a cluster, see [this section](../kafka/create-cluster.md).
 
 ## Switching the storage class for system components {#system-components}
 

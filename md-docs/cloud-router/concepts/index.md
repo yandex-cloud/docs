@@ -4,7 +4,7 @@
 
 Yandex Cloud Router — это сервис для управления сетевыми топологиями гибридного облака в Yandex Cloud.
 
-Сетевые топологии реализуются в виде [сценариев использования](../scenarios/index.md) с помощью ресурса [Routing Instance](routing-instance.md).
+Сетевые топологии реализуются в виде [сценариев использования](../scenarios/index.md) с помощью ресурса [виртуальный маршрутизатор](routing-instance.md).
 
 При реализации сценариев (сетевых топологий) можно использовать ресурсы сервиса [Cloud Interconnect](../../interconnect/concepts/index.md).
 

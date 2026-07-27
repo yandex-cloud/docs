@@ -5,7 +5,6 @@ description: '{{ cns-name }} ({{ cns-short-name }}): Service for multichannel us
 
 # Getting started with {{ cns-full-name }}
 
-{% include [preview-stage](../_includes/notifications/preview-stage.md) %}
 
 {% include [ask-for-turning-on](../_includes/notifications/ask-for-turning-on.md) %}
 

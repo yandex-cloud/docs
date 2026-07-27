@@ -1,8 +1,9 @@
 title: Yandex Cloud Logging
 description:
   - >-
-    Yandex Cloud Logging allows you to read and write service and user
-    application logs by grouping messages into log groups.
+    Yandex Cloud Logging allows you to read and write the logs of services and
+    user applications by grouping messages into log groups.
+  - Cloud Logging will be shut down in Q2 2027 and replaced by Monium.
 meta:
   title: Cloud Logging
   description: >-
@@ -32,14 +33,14 @@ links:
     description: Learn more about Cloud Logging concepts
     href: concepts/log-group
   - title: Quotas and limits
-    description: Technical and management-related limitations
+    description: Technical and organizational limitations
     href: concepts/limits
   - title: Pricing policy
-    description: Service pricing and cost calculations
+    description: Prices and cost calculation rules
     href: pricing
   - title: Access management
     description: Permissions required to use the service
     href: security/
   - title: API reference
-    description: HTTP API method descriptions
+    description: HTTP API method description
     href: api-ref/grpc/

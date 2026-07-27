@@ -28,8 +28,8 @@
 
    - Консоль управления {#console}
 
-      1. Перейдите в сервис **Yandex Managed Service for&nbsp;Valkey™**.
-      1. Нажмите на имя нужного кластера и перейдите на вкладку **Хосты**.
+      1. [Перейдите](https://console.yandex.cloud/link/managed-valkey) в сервис **Yandex Managed Service for&nbsp;Valkey™**.
+      1. Нажмите на имя нужного кластера и выберите вкладку **Хосты**.
       1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Создать хост**.
       1. Укажите параметры хоста:
 
@@ -226,7 +226,7 @@
 
    - Консоль управления {#console}
 
-      1. Перейдите в сервис **Yandex Managed Service for&nbsp;Valkey™**.
+      1. [Перейдите](https://console.yandex.cloud/link/managed-valkey) в сервис **Yandex Managed Service for&nbsp;Valkey™**.
       1. Нажмите на имя нужного кластера и выберите вкладку **Хосты**.
       1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста, выберите пункт **Удалить** и подтвердите удаление.
 
@@ -340,4 +340,4 @@
 
    {% endlist %}
 
-1. Дождитесь, когда кластер перейдет в состояние **Alive**. В консоли управления перейдите на страницу каталога и выберите сервис **Yandex Managed Service for&nbsp;Valkey™**. Состояние кластера отображается в столбце **Доступность**.
+1. Дождитесь, когда кластер перейдет в состояние **Alive**. В [консоли управления](https://console.yandex.cloud) выберите каталог и [перейдите](https://console.yandex.cloud/link/managed-valkey) в сервис **Yandex Managed Service for&nbsp;Valkey™**. Состояние кластера отображается в столбце **Доступность**.

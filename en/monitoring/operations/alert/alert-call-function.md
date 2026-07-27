@@ -114,6 +114,13 @@ To send POST requests when an alert triggers:
   1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-additional-parameters }}**:
       1. Enable **{{ ui-key.yacloud.serverless-functions.item.editor.label_async }}**.
       1. Select **{{ ui-key.yacloud.forms.label_service-account-select }}** `sa-alert-webhook`.
+      
+      {% note info %}
+      
+      To call a function asynchronously, the selected service account must have the `{{ roles-functions-invoker }}` and `{{ roles-functions-viewer }}` roles. Without these roles, the call will be made as an anonymous user and will fail with an authorization error.
+      
+      {% endnote %}
+      
   1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 {% endlist %}

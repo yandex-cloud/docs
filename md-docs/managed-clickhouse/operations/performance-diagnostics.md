@@ -28,7 +28,7 @@ Managed Service for ClickHouse® позволяет собирать метри�
 - Консоль управления {#console}
   
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
   1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/heart-pulse.svg) **Диагностика производительности**.
 
       Чтобы посмотреть историю или статистику запросов, выберите нужную вкладку. При этом данные отображаются за выбранный интервал времени.
@@ -58,7 +58,7 @@ Managed Service for ClickHouse® позволяет собирать метри�
 - Консоль управления {#console}
   
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
   1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/heart-pulse.svg) **Диагностика производительности**.
   1. Перейдите на вкладку **Группы запросов**.
 

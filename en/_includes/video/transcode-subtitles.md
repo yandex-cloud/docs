@@ -1,0 +1,4 @@
+For subtitles to appear in the [{{ video-name }}]({{ link-video-main }}) UI and in the [player](../../video/concepts/player.md), run video transcoding after you upload the subtitle file. Use the [Transcode](../../video/api-ref/Video/transcode.md) REST API method for the [Video](../../video/api-ref/Video/) resource or the [VideoService.Transcode](../../video/api-ref/grpc/Video/transcode.md) gRPC API call and provide the following in the request:
+ 
+  * Subtitle IDs in the `subtitleIds` parameter for the REST API or `subtitle_ids` for the gRPC API.
+  * Name of the `subtitleIds` field in the `fieldMask` parameter for the REST API or `subtitle_ids` in the `field_mask` parameter for the gRPC API.  

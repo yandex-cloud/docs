@@ -12,8 +12,8 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог с нужным кластером.
+    1. [Перейдите]({{ link-console-main }}/link/managed-valkey) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
     1. Выберите нужный кластер.
     1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. В блоке **{{ ui-key.yacloud.redis.local.valkey_modules_aQacT }}** подключите необходимые модули {{ VLK }}.
@@ -49,8 +49,10 @@
      ```
 
      Где:
+     
      * `--cluster-name` — имя кластера {{ mrd-name }}. Его можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
      * `--valkey-modules` — параметры [модулей {{ VLK }}](../concepts/modules.md):
+        
         * `enable-valkey-search` — подключить модуль `Valkey-Search`: `true` или `false`.
         * `valkey-search-reader-threads` — количество потоков обработки запросов в модуле `Valkey-Search`.
         * `valkey-search-writer-threads` — количество потоков индексации в модуле `Valkey-Search`.
@@ -147,8 +149,10 @@
         * `configSpec.modules` — параметры модулей {{ VLK }}:
 
             * `valkeySearch.enabled` — подключить модуль `Valkey-Search`: `true` или `false`. Для модуля доступна настройка параметров:
+                
                 * `valkeySearch.readerThreads` — количество потоков обработки запросов.
                 * `valkeySearch.writerThreads` — количество потоков индексации.
+            
             * `valkeyJson.enabled` — подключить модуль `Valkey-JSON`: `true` или `false`.
             * `valkeyBloom.enabled` — подключить модуль `Valkey-Bloom`: `true` или `false`.
 
@@ -213,8 +217,10 @@
         * `config_spec.modules` — параметры модулей {{ VLK }}:
 
             * `valkey_search.enabled` — подключить модуль `Valkey-Search`: `true` или `false`. Для модуля доступна настройка параметров:
+                
                 * `valkey_search.reader_threads` — количество потоков обработки запросов.
                 * `valkey_search.writer_threads` — количество потоков индексации.
+            
             * `valkey_json.enabled` — подключить модуль `Valkey-JSON`: `true` или `false`.
             * `valkey_bloom.enabled` — подключить модуль `Valkey-Bloom`: `true` или `false`.
 
@@ -230,8 +236,8 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог с нужным кластером.
+    1. [Перейдите]({{ link-console-main }}/link/managed-valkey) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
     1. Выберите нужный кластер.
     1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. В блоке **{{ ui-key.yacloud.redis.local.valkey_modules_aQacT }}** измените необходимые настройки модулей {{ VLK }}.
@@ -267,8 +273,10 @@
      ```
 
      Где:
+     
      * `--cluster-name` — имя кластера {{ mrd-name }}. Его можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
      * `--valkey-modules` — параметры [модулей {{ VLK }}](../concepts/modules.md):
+        
         * `valkey-search-reader-threads` — количество потоков обработки запросов в модуле `Valkey-Search`.
         * `valkey-search-writer-threads` — количество потоков индексации в модуле `Valkey-Search`.
 

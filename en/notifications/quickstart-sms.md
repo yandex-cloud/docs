@@ -5,7 +5,6 @@ description: With {{ cns-name }}, you can send text messages (SMS) using SMS not
 
 # Getting started with SMS in {{ cns-full-name }}
 
-{% include [preview-stage](../_includes/notifications/preview-stage.md) %}
 
 {% include [ask-for-turning-on](../_includes/notifications/ask-for-turning-on.md) %}
 

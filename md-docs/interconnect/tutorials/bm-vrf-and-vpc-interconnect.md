@@ -24,7 +24,7 @@
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте облачную инфраструктуру](#setup-infrastructure).
-1. [Закажите Routing Instance](#request-ri).
+1. [Закажите виртуальный маршрутизатор](#request-ri).
 1. [Создайте приватное соединение](#create-prc).
 1. [Проверьте сетевую связность](#check-connectivity).
 
@@ -56,7 +56,7 @@
 
 Создайте необходимую инфраструктуру Yandex Cloud, в которой вы будете организовывать сетевую связность.
 
-Для настройки Cloud Interconnect в сервисе BareMetal понадобятся приватная маршрутизируемая [подсеть](../../baremetal/concepts/private-network.md#private-subnet) и [VRF](../../baremetal/concepts/private-network.md#vrf-segment) в BareMetal, [облачная сеть](../../vpc/concepts/network.md#network) с одной или более [подсетями](../../vpc/concepts/network.md#subnet) Virtual Private Cloud, а также Routing Instance, в составе которого будут [анонсированы](../concepts/priv-con.md#prc-announce) один или несколько префиксов приватных подсетей VPC.
+Для настройки Cloud Interconnect в сервисе BareMetal понадобятся приватная маршрутизируемая [подсеть](../../baremetal/concepts/private-network.md#private-subnet) и [VRF](../../baremetal/concepts/private-network.md#vrf-segment) в BareMetal, [облачная сеть](../../vpc/concepts/network.md#network) с одной или более [подсетями](../../vpc/concepts/network.md#subnet) Virtual Private Cloud, а также виртуальный маршрутизатор, в составе которого будут [анонсированы](../concepts/priv-con.md#prc-announce) один или несколько префиксов приватных подсетей VPC.
 
 Для проверки сетевой связности понадобятся сервер BareMetal и виртуальная машина Compute Cloud.
 
@@ -261,13 +261,13 @@
 {% endlist %}
 
 
-## Создайте Routing Instance {#request-ri}
+## Создайте виртуальный маршрутизатор {#request-ri}
 
-Для организации сетевой связности между подсетями BareMetal, подсетями Virtual Private Cloud и/или подсетями on-prem необходимо создать ресурс `Routing Instance`. `Routing Instance` можно создать через [обращение](https://center.yandex.cloud/support/tickets/create) в службу технической поддержки.
+Для организации сетевой связности между подсетями BareMetal, подсетями Virtual Private Cloud и/или подсетями on-prem необходимо [создать виртуальный маршрутизатор](../../cloud-router/operations/ri-create.md).
 
-Если в вашем каталоге уже есть настроенная сетевая связность с использованием [Cloud Interconnect](../index.md) (VPC-to-On-Prem), то вы можете как использовать уже существующий `Routing Instance`, так и запросить создание нового, дополнительного `Routing Instance` для организации обособленной сетевой связности.
+Если в вашем каталоге уже есть настроенная сетевая связность с использованием [Cloud Interconnect](../index.md) (VPC-to-On-Prem), то вы можете использовать уже существующий виртуальный маршрутизатор или создать новый, дополнительный виртуальный маршрутизатор для организации обособленной сетевой связности.
 
-### Проверьте наличие Routing Instance в вашем каталоге {#check-for-ri}
+### Проверьте наличие виртуального маршрутизатора в вашем каталоге {#check-for-ri}
 
 1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
@@ -297,48 +297,13 @@
    
    {% endlist %}
 
-1. Если у вас уже есть Routing Instance, вы можете пропустить следующий шаг и [переходить](#create-private-connection) к созданию приватного соединения.
+1. Если у вас уже есть виртуальный маршрутизатор, вы можете пропустить следующий шаг и [перейти](#create-private-connection) к созданию приватного соединения.
 
-    Если у вас нет Routing Instance или вы хотите построить дополнительную, обособленную сетевую связность, запросите создание нового Routing Instance.
-
-### Запросите создание Routing Instance {#request-ri}
-
-[Обратитесь](https://center.yandex.cloud/support/tickets/create) в службу технической поддержки для создания `Routing Instance` в вашем каталоге.
-
-Оформите ваше обращение следующим образом:
-
-```text
-Тема: [CIC для BareMetal] Создать Routing Instance.
-
-Текст обращения:
-Прошу Создать Routing Instance в указанном облачном каталоге со следующими параметрами:
-
-folder_id: <идентификатор_каталога>
-
-vpc:
-  vpc_net_id: <идентификатор_сети>
-    vpc_subnets: 
-      ru-central1-a: [CIDR_a1, CIDR_a2, ..., CIDR_an]
-      ru-central1-b: [CIDR_b1, CIDR_b2, ..., CIDR_bn]
-      ru-central1-d: [CIDR_d1, CIDR_d2, ..., CIDR_dn]
-```
-
-Где:
-* `folder_id` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога.
-* `vpc_net_id` — [идентификатор](../../vpc/operations/network-get-info.md) облачной сети.
-* `vpc_subnets` — список [анонсируемых](../concepts/priv-con.md#prc-announce) адресных префиксов для каждой из [зон доступности](../../overview/concepts/geo-scope.md). Например, для созданной ранее подсети VPC вы укажете `ru-central1-b: [192.168.11.0/24]`.
-
-    Допускается анонсирование адресных префиксов с [агрегированием](../concepts/priv-con.md#agg-subnets).
-
-{% note info %}
-
-Создание `Routing Instance` службой технической поддержки может занять до 24 часов. В результате вы сможете получить идентификатор созданного `Routing Instance`, выполнив команду [Yandex Cloud CLI](../../cli/index.md) `yc cloudrouter routing-instance list`.
-
-{% endnote %}
+    Если у вас нет виртуального маршрутизатора или вы хотите построить дополнительную обособленную сетевую связность, [создайте новый](../../cloud-router/operations/ri-create.md).
 
 ## Создайте приватное соединение {#create-prc}
 
-После того как в вашем каталоге будет создан необходимый Routing Instance, создайте [приватное соединение](../../baremetal/concepts/private-network.md#private-connection-to-vpc) Cloud Interconnect в сервисе BareMetal:
+После того как в вашем каталоге будет создан необходимый виртуальный маршрутизатор, создайте [приватное соединение](../../baremetal/concepts/private-network.md#private-connection-to-vpc) Cloud Interconnect в сервисе BareMetal:
 
 {% list tabs group=instructions %}
 

@@ -32,6 +32,6 @@ In the terminal, run the following command, with `<bot_token>` replaced with you
 
 Result:
 
-```text
+```json
 {"ok":true,"result":true,"description":"Webhook was set"}
 ```

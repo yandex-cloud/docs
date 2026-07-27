@@ -27,7 +27,7 @@ Managed Service for ClickHouse® поддерживает несколько т�
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-    1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
     1. Нажмите на имя нужного кластера и выберите вкладку **Словари**.
 
 - CLI {#cli}
@@ -136,7 +136,7 @@ Managed Service for ClickHouse® поддерживает несколько т�
     {% endnote %}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-    1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
     1. Нажмите на имя нужного кластера и выберите вкладку **Словари**.
     1. В правом верхнем углу экрана нажмите кнопку **Создать словарь**.
     1. Укажите [настройки словаря](#settings).
@@ -429,7 +429,7 @@ Managed Service for ClickHouse® поддерживает несколько т�
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-    1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
     1. Нажмите на имя нужного кластера и выберите вкладку **Словари**.
     1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного словаря и выберите пункт **Редактировать**.
     1. Измените [настройки словаря](#settings).
@@ -671,7 +671,7 @@ Managed Service for ClickHouse® поддерживает несколько т�
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-    1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
     1. Нажмите на имя нужного кластера и выберите вкладку **Словари**.
     1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного словаря и выберите пункт **Удалить словарь**.
 
@@ -850,7 +850,7 @@ Managed Service for ClickHouse® поддерживает несколько т�
 
     Подробнее об источниках словарей и параметрах их подключения читайте в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/create/dictionary/sources).
 
-  * **Размещение в памяти** — способ размещения словаря в памяти. Поддерживаются способы: `flat`, `hashed`, `complex_key_hashed`, `range_hashed`, `cache`, `complex_key_cache`, `sparse_hashed`, `complex_key_sparse_hashed`, `complex_key_range_hashed`, `direct`, `complex_key_direct`, `ip_trie`. Подробнее о способах размещения словарей в памяти читайте в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/create/dictionary/layouts).
+  * **Размещение в памяти** — способ размещения словаря в памяти. Поддерживаются способы: `flat`, `hashed`, `complex_key_hashed`, `range_hashed`, `cache`, `complex_key_cache`, `sparse_hashed`, `complex_key_sparse_hashed`, `complex_key_range_hashed`, `direct`, `complex_key_direct`, `ip_trie`, `ssd_cache`, `complex_key_ssd_cache`. Подробнее о способах размещения словарей в памяти читайте в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/create/dictionary/layouts).
   * **Размер кэша** — количество ячеек кеша для способов `cache`, `complex_key_cache`. Подробнее читайте в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/create/dictionary/layouts/cache).
   * **Чтение просроченных ключей** — определяет, разрешать ли считывать ключи с истекшим сроком действия. Используется для способов `cache` и `complex_key_cache`. Подробнее читайте в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/create/dictionary/layouts/cache).
   * Настройки очереди обновлений, в которой создаются задачи обновления кеша, если ключи не найдены в словаре. Настройки используются для способов `cache` и `complex_key_cache`.
@@ -870,7 +870,7 @@ Managed Service for ClickHouse® поддерживает несколько т�
     Подробнее читайте в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/create/dictionary/layouts/flat).
 
   * **Доступ к ключу из атрибутов** — позволяет получать имя составного ключа с помощью функции `dictGetString`. Используется для способа `ip_trie`. Включение этой настройки увеличивает нагрузку на оперативную память.
-  * **Числовой ключ** — имя ключевого столбца словаря. Ключевой столбец должен иметь тип данных UInt64. Используется для способов `flat`, `hashed`, `range_hashed`, `cache`, `sparse_hashed`, `direct`. Подробнее читайте в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/create/dictionary/attributes#numeric-key).
+  * **Числовой ключ** — имя ключевого столбца словаря. Ключевой столбец должен иметь тип данных UInt64. Используется для способов `flat`, `hashed`, `range_hashed`, `cache`, `sparse_hashed`, `direct`, `ssd_cache`. Подробнее читайте в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/create/dictionary/attributes#numeric-key).
   * **Столбцы данных** — описание составного ключа словаря. Составной ключ может состоять из одного или более элементов. Используется для способов `complex_key_*` и `ip_trie`:
 
     * **Имя** — имя столбца.
@@ -972,7 +972,7 @@ Managed Service for ClickHouse® поддерживает несколько т�
 
   * `--postgresql-invalidate-query` — запрос для проверки изменений словаря PostgreSQL. ClickHouse® будет обновлять словарь только при изменении результата выполнения этого запроса.
 
-  * `--layout-type` — способ размещения словаря в памяти. Поддерживаются способы: `flat`, `hashed`, `complex_key_hashed`, `range_hashed`, `cache`, `complex_key_cache`, `sparse_hashed`, `complex_key_sparse_hashed`, `complex_key_range_hashed`, `direct`, `complex_key_direct`, `ip_trie`. Подробнее о способах размещения словарей в памяти читайте в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/create/dictionary/layouts).
+  * `--layout-type` — способ размещения словаря в памяти. Поддерживаются способы: `flat`, `hashed`, `complex_key_hashed`, `range_hashed`, `cache`, `complex_key_cache`, `sparse_hashed`, `complex_key_sparse_hashed`, `complex_key_range_hashed`, `direct`, `complex_key_direct`, `ip_trie`, `ssd_cache`, `complex_key_ssd_cache`. Подробнее о способах размещения словарей в памяти читайте в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/create/dictionary/layouts).
   * `--layout-size-in-cells` — количество ячеек кеша для способов `cache`, `complex_key_cache`. Подробнее о кеше читайте в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/create/dictionary/layouts/cache).
   * `--layout-allow-read-expired-keys` — определяет, разрешать ли считывать ключи с истекшим сроком действия. Используется для способов `cache` и `complex_key_cache`. Подробнее читайте в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/create/dictionary/layouts/cache).
   * Настройки очереди обновлений, в которой создаются задачи обновления кеша, если ключи не найдены в словаре. Настройки используются для способов `cache` и `complex_key_cache`.
@@ -992,7 +992,17 @@ Managed Service for ClickHouse® поддерживает несколько т�
     Подробнее читайте в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/create/dictionary/layouts/flat).
 
   * `--layout-access-to-key-from-attributes` — позволяет получать имя составного ключа с помощью функции `dictGetString`. Используется для способа `ip_trie`. Включение этой настройки увеличивает нагрузку на оперативную память.
-  * `--structure-id` — имя ключевого столбца словаря. Ключевой столбец должен иметь тип данных UInt64. Используется для способов `flat`, `hashed`, `range_hashed`, `cache`, `sparse_hashed`, `direct`. Подробнее о ключах читайте в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/create/dictionary/attributes#numeric-key).
+
+  * Настройки хранения данных на SSD для способов `ssd_cache` и `complex_key_ssd_cache`:
+    
+    * `--layout-block-size` — размер блока чтения в байтах. Значение по умолчанию — `4096` (4 КБ).
+    * `--layout-file-size` — максимальный размер файла кеша в байтах. Значение по умолчанию — `4294967296` (4 ГБ).
+    * `--layout-read-buffer-size` — размер буфера в оперативной памяти для чтения данных с SSD в байтах. Значение по умолчанию — `65536` (64 КБ).
+    * `--layout-write-buffer-size` — размер буфера в оперативной памяти для записи данных на SSD в байтах. Значение по умолчанию — `4096` (4 КБ).
+
+    Подробнее читайте в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/create/dictionary/layouts/ssd-cache).
+  
+  * `--structure-id` — имя ключевого столбца словаря. Ключевой столбец должен иметь тип данных UInt64. Используется для способов `flat`, `hashed`, `range_hashed`, `cache`, `sparse_hashed`, `direct`, `ssd_cache`. Подробнее о ключах читайте в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/create/dictionary/attributes#numeric-key).
   * `--structure-key` — описание составного ключа словаря. Составной ключ может состоять из одного или более элементов. Используется для способов `complex_key_*` и `ip_trie`:
 
     * `name` — имя столбца.
@@ -1107,7 +1117,7 @@ Managed Service for ClickHouse® поддерживает несколько т�
 
       {% endcut %}
 
-    * `layout.type` — способ размещения словаря в памяти. Поддерживаются способы: `FLAT`, `HASHED`, `COMPLEX_KEY_HASHED`, `RANGE_HASHED`, `CACHE`, `COMPLEX_KEY_CACHE`, `SPARSE_HASHED`, `COMPLEX_KEY_SPARSE_HASHED`, `COMPLEX_KEY_RANGE_HASHED`, `DIRECT`, `COMPLEX_KEY_DIRECT`, `IP_TRIE`. Подробнее о способах размещения словарей в памяти читайте в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/create/dictionary/layouts).
+    * `layout.type` — способ размещения словаря в памяти. Поддерживаются способы: `FLAT`, `HASHED`, `COMPLEX_KEY_HASHED`, `RANGE_HASHED`, `CACHE`, `COMPLEX_KEY_CACHE`, `SPARSE_HASHED`, `COMPLEX_KEY_SPARSE_HASHED`, `COMPLEX_KEY_RANGE_HASHED`, `DIRECT`, `COMPLEX_KEY_DIRECT`, `IP_TRIE`, `SSD_CACHE`, `COMPLEX_KEY_SSD_CACHE`. Подробнее о способах размещения словарей в памяти читайте в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/create/dictionary/layouts).
     * `layout.sizeInCells` — количество ячеек кеша для способов `CACHE`, `COMPLEX_KEY_CACHE`. Подробнее о кеше читайте в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/create/dictionary/layouts/cache).
     * `layout.allowReadExpiredKeys` — определяет, разрешать ли считывать ключи с истекшим сроком действия. Используется для способов `CACHE` и `COMPLEX_KEY_CACHE`. Подробнее читайте в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/create/dictionary/layouts/cache).
     * Настройки очереди обновлений, в которой создаются задачи обновления кеша, если ключи не найдены в словаре. Настройки используются для способов `CACHE` и `COMPLEX_KEY_CACHE`.
@@ -1127,7 +1137,17 @@ Managed Service for ClickHouse® поддерживает несколько т�
       Подробнее читайте в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/create/dictionary/layouts/flat).
 
     * `layout.accessToKeyFromAttributes` — позволяет получать имя составного ключа с помощью функции `dictGetString`. Используется для способа `IP_TRIE`. Включение этой настройки увеличивает нагрузку на оперативную память.
-    * `structure.id.name` — имя ключевого столбца словаря. Ключевой столбец должен иметь тип данных UInt64. Используется для способов `FLAT`, `HASHED`, `RANGE_HASHED`, `CACHE`, `SPARSE_HASHED`, `DIRECT`. Подробнее о ключах читайте в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/create/dictionary/attributes#numeric-key).
+    
+    * Настройки хранения данных на SSD для способов `SSD_CACHE` и `COMPLEX_KEY_SSD_CACHE`:
+    
+      * `layout.blockSize` — размер блока чтения в байтах. Значение по умолчанию — `4096` (4 КБ).
+      * `layout.fileSize` — максимальный размер файла кеша в байтах. Значение по умолчанию — `4294967296` (4 ГБ).
+      * `layout.readBufferSize` — размер буфера в оперативной памяти для чтения данных с SSD в байтах. Значение по умолчанию — `65536` (64 КБ).
+      * `layout.writeBufferSize` — размер буфера в оперативной памяти для записи данных на SSD в байтах. Значение по умолчанию — `4096` (4 КБ).
+
+      Подробнее читайте в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/create/dictionary/layouts/ssd-cache).
+
+    * `structure.id.name` — имя ключевого столбца словаря. Ключевой столбец должен иметь тип данных UInt64. Используется для способов `FLAT`, `HASHED`, `RANGE_HASHED`, `CACHE`, `SPARSE_HASHED`, `DIRECT`, `SSD_CACHE`. Подробнее о ключах читайте в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/create/dictionary/attributes#numeric-key).
     * `structure.key.attributes` — описание составного ключа словаря. Составной ключ может состоять из одного или более элементов. Используется для способов `COMPLEX_KEY_*` и `IP_TRIE`:
 
       * `name` — имя столбца.
@@ -1242,7 +1262,7 @@ Managed Service for ClickHouse® поддерживает несколько т�
 
       {% endcut %}
 
-    * `layout.type` — способ размещения словаря в памяти. Поддерживаются способы: `FLAT`, `HASHED`, `COMPLEX_KEY_HASHED`, `RANGE_HASHED`, `CACHE`, `COMPLEX_KEY_CACHE`, `SPARSE_HASHED`, `COMPLEX_KEY_SPARSE_HASHED`, `COMPLEX_KEY_RANGE_HASHED`, `DIRECT`, `COMPLEX_KEY_DIRECT`, `IP_TRIE`. Подробнее о способах размещения словарей в памяти читайте в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/create/dictionary/layouts).
+    * `layout.type` — способ размещения словаря в памяти. Поддерживаются способы: `FLAT`, `HASHED`, `COMPLEX_KEY_HASHED`, `RANGE_HASHED`, `CACHE`, `COMPLEX_KEY_CACHE`, `SPARSE_HASHED`, `COMPLEX_KEY_SPARSE_HASHED`, `COMPLEX_KEY_RANGE_HASHED`, `DIRECT`, `COMPLEX_KEY_DIRECT`, `IP_TRIE`, `SSD_CACHE`, `COMPLEX_KEY_SSD_CACHE`. Подробнее о способах размещения словарей в памяти читайте в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/create/dictionary/layouts).
     * `layout.size_in_cells` — количество ячеек кеша для способов `CACHE`, `COMPLEX_KEY_CACHE`. Подробнее о кеше читайте в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/create/dictionary/layouts/cache).
     * `layout.allow_read_expired_keys` — определяет, разрешать ли считывать ключи с истекшим сроком действия. Используется для способов `CACHE` и `COMPLEX_KEY_CACHE`. Подробнее читайте в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/create/dictionary/layouts/cache).
     * Настройки очереди обновлений, в которой создаются задачи обновления кеша, если ключи не найдены в словаре. Настройки используются для способов `CACHE` и `COMPLEX_KEY_CACHE`.
@@ -1262,7 +1282,17 @@ Managed Service for ClickHouse® поддерживает несколько т�
       Подробнее читайте в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/create/dictionary/layouts/flat).
 
     * `layout.access_to_key_from_attributes` — позволяет получать имя составного ключа с помощью функции `dictGetString`. Используется для способа `IP_TRIE`. Включение этой настройки увеличивает нагрузку на оперативную память.
-    * `structure.id.name` — имя ключевого столбца словаря. Ключевой столбец должен иметь тип данных UInt64. Используется для способов `FLAT`, `HASHED`, `RANGE_HASHED`, `CACHE`, `SPARSE_HASHED`, `DIRECT`. Подробнее о ключах читайте в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/create/dictionary/attributes#numeric-key).
+
+    * Настройки хранения данных на SSD для способов `SSD_CACHE` и `COMPLEX_KEY_SSD_CACHE`:
+    
+      * `layout.block_size` — размер блока чтения в байтах. Значение по умолчанию — `4096` (4 КБ).
+      * `layout.file_size` — максимальный размер файла кеша в байтах. Значение по умолчанию — `4294967296` (4 ГБ).
+      * `layout.read_buffer_size` — размер буфера в оперативной памяти для чтения данных с SSD в байтах. Значение по умолчанию — `65536` (64 КБ).
+      * `layout.write_buffer_size` — размер буфера в оперативной памяти для записи данных на SSD в байтах. Значение по умолчанию — `4096` (4 КБ).
+
+      Подробнее читайте в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/create/dictionary/layouts/ssd-cache).
+
+    * `structure.id.name` — имя ключевого столбца словаря. Ключевой столбец должен иметь тип данных UInt64. Используется для способов `FLAT`, `HASHED`, `RANGE_HASHED`, `CACHE`, `SPARSE_HASHED`, `DIRECT`, `SSD_CACHE`. Подробнее о ключах читайте в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/create/dictionary/attributes#numeric-key).
     * `structure.key.attributes` — описание составного ключа словаря. Составной ключ может состоять из одного или более элементов. Используется для способов `COMPLEX_KEY_*` и `IP_TRIE`:
 
       * `name` — имя столбца.

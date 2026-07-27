@@ -1,37 +1,21 @@
 ---
-title: '{{ load-testing-full-name }} shutdown'
-description: We are sunsetting {{ load-testing-full-name }}. This page outlines the decommissioning timeline and procedure, and provides guidance for migration.
+title: '{{ load-testing-full-name }} is decommissioned.'
+description: '{{ load-testing-full-name }} is decommissioned.'
 ---
 
-# {{ load-testing-full-name }} shutdown
+# {{ load-testing-full-name }} is decommissioned
 
 {% note warning %}
 
-We are sunsetting {{ load-testing-full-name }}. This page outlines the decommissioning timeline and procedure, and provides guidance for migration.
+{{ load-testing-full-name }} ceased to operate on July 1, 2026. 
 
 {% endnote %}
-
-## What's happening {#what-happens}
-
-We have made the decision to discontinue {{ load-testing-name }}. We understand this may impact your workflows, and we are committed to supporting you through a smooth transition to alternative solutions.
-
-## Key dates {#key-dates}
-
-The decommissioning process will follow these three stages:
-
-* **April 13, 2026**: {{ load-testing-name }} end of sale.
-* **June 1, 2026**: Transition to read-only mode. You will no longer be able to run new tests or modify configurations. Yet, you will still be able to view results of previous tests and existing settings.
-* **July 1, 2026**: Full decommissioning. Access to the interface will be disabled.
 
 ## What happens to your data {#data}
 
-Your test configurations and load testing results will be preserved. After decommissioning, we will retain backup copies of your data, which you can request via our [support](https://center.yandex.cloud/support/).
+You can request backups of test configurations and load test results through [support](https://center.yandex.cloud/support/).
 
-{% note info %}
-
-If your cloud contains virtual machines that were used as load testing agents, they will continue to run after {{ load-testing-name }} is decommissioned. You are responsible for deleting or or reconfiguring these former agents.
-
-{% endnote %}
+If your clouds contain virtual machines that were used as load testing agents, they will continue to run after {{ load-testing-name }} is decommissioned. You are responsible for deleting or or reconfiguring these former agents.
 
 ## Migration {#migration}
 

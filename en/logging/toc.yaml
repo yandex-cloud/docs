@@ -3,6 +3,8 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
+  - name: Migrating to {{ monium-name }}
+    href: migration-to-monium.md
   - name: Step-by-step guides
     items:
       - name: All guides

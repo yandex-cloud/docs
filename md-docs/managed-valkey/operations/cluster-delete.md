@@ -17,8 +17,8 @@
 
 - Консоль управления {#console}
   
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором нужно удалить кластер.
-  1. Перейдите в сервис **Yandex Managed Service for&nbsp;Valkey™**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно удалить кластер.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-valkey) в сервис **Yandex Managed Service for&nbsp;Valkey™**.
   1. В строке нужного кластера нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
   1. В открывшемся окне поставьте флаг **Я удаляю кластер** и нажмите кнопку **Удалить**.
   

@@ -5,7 +5,6 @@ description: Follow this guide to learn how to use the AWS SDK for PHP in {{ cns
 
 # How to get started with the AWS SDK for PHP in {{ cns-full-name }}
 
-{% include [preview-stage](../../_includes/notifications/preview-stage.md) %}
 
 To get started with the AWS SDK for PHP:
 1. [Get your cloud ready](#before-you-begin).

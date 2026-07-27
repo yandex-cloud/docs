@@ -2,11 +2,12 @@
 
 # Все методы
 
-Метод | Описание
------ | -----
-[PutBucketLifecycleConfiguration](lifecycles/upload.md) | Загружает конфигурацию жизненного цикла объектов в Object Storage.
-[GetBucketLifecycleConfiguration](lifecycles/get.md) | Возвращает конфигурацию жизненного цикла объектов из Object Storage.
-[DeleteBucketLifecycle](lifecycles/delete.md) | Удаляет конфигурацию жизненного цикла объектов из Object Storage.
+#|
+|| **Метод** | **Описание** ||
+|| [PutBucketLifecycleConfiguration](lifecycles/upload.md) | Загружает конфигурацию жизненного цикла объектов в Object Storage. ||
+|| [GetBucketLifecycleConfiguration](lifecycles/get.md) | Возвращает конфигурацию жизненного цикла объектов из Object Storage. ||
+|| [DeleteBucketLifecycle](lifecycles/delete.md) | Удаляет конфигурацию жизненного цикла объектов из Object Storage. ||
+|#
 
 #### Полезные ссылки {#see-also}
 

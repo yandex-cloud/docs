@@ -9,11 +9,53 @@
 
 ## Databases {#databases}
 
+{{ mpg-name }}:
+
 * [Creating a PostgreSQL cluster](postgresql/create-cluster.md)
 * [Updating cluster settings](postgresql/edit-cluster.md)
+* [Creating a user](postgresql/create-user.md)
+* [Updating a user](postgresql/edit-user.md)
+* [Deleting a user](postgresql/delete-user.md)
+* [Creating a database](postgresql/create-database.md)
+* [Updating a database](postgresql/edit-database.md)
+* [Deleting a database](postgresql/delete-database.md)
 * [Creating a backup](postgresql/new-copy.md)
 * [Recovering a cluster](postgresql/recover-copy.md)
 * [Deleting a cluster](postgresql/delete-cluster.md)
+
+{{ mch-name }}:
+
+* [Creating an {{ CH }}](clickhouse/create-cluster.md) cluster
+* [Updating cluster settings](clickhouse/edit-cluster.md)
+* [Creating a backup](clickhouse/new-copy.md)
+* [Recovering a cluster](clickhouse/recover-copy.md)
+* [Deleting a cluster](clickhouse/delete-cluster.md)
+* [Creating a database](clickhouse/create-database.md)
+* [Updating a database](clickhouse/edit-database.md)
+* [Deleting a database](clickhouse/delete-database.md)
+* [Creating a role](clickhouse/create-role.md)
+* [Editing a role](clickhouse/edit-role.md)
+* [Deleting a role](clickhouse/delete-role.md)
+* [Creating a user](clickhouse/create-user.md)
+* [Updating a user](clickhouse/edit-user.md)
+* [Deleting a user](clickhouse/delete-user.md)
+
+{{ yt-name }}:
+
+* [Enabling {{ yt-name }}](ytsaurus/enable.md)
+* [Updating cluster settings](ytsaurus/edit-cluster.md)
+* [Getting an administrator password and token](ytsaurus/get-admin-credentials.md)
+* [Opening the web UI](ytsaurus/connect-ui.md)
+* [Connecting to the HTTP proxy](ytsaurus/connect-api.md)
+* [Disabling {{ yt-name }}](ytsaurus/disable.md)
+
+## {{ rest-catalog-name }} {#rest-catalog}
+
+* [Creating a catalog](rest-catalog/create-catalog.md)
+* [Updating a catalog](rest-catalog/edit-catalog.md)
+* [Creating a catalog user](rest-catalog/create-principal.md)
+* [Deleting a catalog user](rest-catalog/delete-principal.md)
+* [Deleting a catalog](rest-catalog/delete-catalog.md).
 
 ## Buckets {#buckets}
 
@@ -35,6 +77,7 @@
 ## Logging {#logging}
 
 * [Viewing logs](logging/logs-view.md)
+* [Recovering Loki in standalone mode if PVC is full](logging/loki-recovery.md)
 
 ## Monitoring {#monitoring}
 
@@ -77,4 +120,5 @@
 
 ## Managing a cluster {#cluster-management}
 
-* [Upgrading a cluster](cluster-upgrade.md)
+* [Upgrading a cluster](cluster/upgrade-cluster.md)
+* [Scaling a cluster](cluster/scale-cluster.md)

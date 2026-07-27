@@ -5,6 +5,15 @@ description: This section contains the {{ video-name }} release notes.
 
 # {{ video-full-name }} release notes
 
+## April – June 2026 {#apr-jun-2026}
+
+* Added advanced monitoring and statistics features for channels and videos.
+* Supported uploading videos with multiple tracks: audio and subtitles.
+* Published a [video player SDK for iOS](sdk/ios-sdk.md).
+* Added the ability to customize the logo in [player templates](concepts/presets.md). You can make your logo clickable by linking a URL to it.
+* Added the **Show video before processing is complete** option to the channel settings.
+* Added a choice of delay between source and playback for broadcasts: standard (15–20 seconds) or low (4–5 seconds).
+
 ## January-March 2026 {#jan-mar-2026}
 
 * [Broadcasts](concepts/streams.md) have entered the [General Availability](../overview/concepts/launch-stages.md) stage. Simplified the broadcast workflow in the interface: now you set up the video source when actually creating a broadcast, without separate line management.

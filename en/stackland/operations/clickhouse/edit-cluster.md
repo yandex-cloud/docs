@@ -19,6 +19,11 @@ If you have a [{{ CH }}](../../concepts/components/clickhouse.md) cluster in you
       * `spec.clickhouse.resources.limits.memory`: Maximum RAM for the {{ CH }} pod.
       * `spec.clickhouse.storage.size`: Storage size for {{ CH }}. You can only increase it.
       * `spec.clickhouse.storage.storageClass`: Storage class for {{ CH }}.
+      * `spec.clickhouse.autoScaling.enabled`: Enabling automatic storage expansion.
+      * `spec.clickhouse.autoScaling.maxSize`: Maximum storage size.
+      * `spec.clickhouse.autoScaling.standardIncreasePercent`: Storage size expansion percentage (`20` by default).
+      * `spec.clickhouse.autoScaling.resizeTriggerPercent`: Storage utilization percentage to initiate the expansion (`80` by default).
+      * `spec.clickhouse.readOnlyTriggerPercent`: Disk usage percentage to switch to read-only mode (`95` by default).
       * `spec.clickhouse.shards[].id`: Shard ID. Updating this parameter will delete the shard together with its data and create a new one with a new name.
       * `spec.clickhouse.shards[].instances`: Number of instances per shard.
       * `spec.clickhouse.shards[].weight`: Shard weight for data distribution.
@@ -41,7 +46,7 @@ If you have a [{{ CH }}](../../concepts/components/clickhouse.md) cluster in you
 
   1. If you have not opened a project yet, select one.
   1. In the left-hand menu, select **{{ CH }} Clusters**.
-  1. Select a cluster.
+  1. Select the cluster.
   1. Click **Edit**.
   1. Edit the following fields:
 
@@ -54,7 +59,11 @@ If you have a [{{ CH }}](../../concepts/components/clickhouse.md) cluster in you
       **Storage**
 
       * **Storage class**: Storage class for {{ CH }} data.
-      * **Storage size**: Data storage size. You can only increase it.
+      * **Storage size**: Data storage size. You can only increase it or enable automatic storage expansion.
+      * **Automatic storage size increase**: Toggle to enable disk autoscaling. When activating, specify the following:
+        * **Maximum storage size**: Upper limit to which the disk can expand.
+        * **Storage size expansion percentage**: Expansion increment as a percentage of the current size (the default is 20).
+        * **Storage utilization percentage to initiate expansion**: Utilization threshold to trigger the expansion (the default is 80).
 
       **Settings**
 

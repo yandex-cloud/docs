@@ -6,7 +6,7 @@
 
 ## Получить список обслуживаний {#list-maintenance}
 
-1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
 1. Нажмите на имя нужного кластера и выберите вкладку **Обслуживание**.
 
 Чтобы просмотреть обслуживания с определенным статусом, нажмите кнопку **Статус** над списком обслуживаний и в выпадающем меню выберите нужный статус. Вы также можете найти обслуживание по его идентификатору или имени задания – используйте поле над списком обслуживаний.
@@ -15,7 +15,7 @@
 
 ## Получить логи кластера, относящиеся к техническому обслуживанию {#maintenance-logs}
 
-1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
 1. Нажмите на имя нужного кластера и выберите вкладку **Обслуживание**.
 1. Нажмите на идентификатор нужного обслуживания.
 1. Нажмите ссылку **Логи задания**.
@@ -30,7 +30,7 @@
 
     Чтобы перенести обслуживание на новую дату и время:
 
-    1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
     1. Нажмите на имя нужного кластера и выберите вкладку **Обслуживание**.
     1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) справа в строке обслуживания со статусом **Запланировано**.
     1. В выпадающем меню выберите ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) **Перенести**.
@@ -160,7 +160,7 @@
 
     Чтобы провести запланированное обслуживание кластера немедленно:
 
-    1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
     1. Нажмите на имя нужного кластера и выберите вкладку **Обслуживание**.
     1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) справа в строке обслуживания.
     1. В выпадающем меню выберите ![image](../../_assets/console-icons/triangle-right.svg) **Провести сейчас**.
@@ -267,7 +267,7 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
     1. Нажмите на имя нужного кластера и выберите вкладку **Обслуживание**.
     1. Нажмите кнопку ![image](../../_assets/console-icons/calendar.svg) **Настроить окно обслуживания**.
     1. В открывшемся окне:

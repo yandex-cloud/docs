@@ -45,7 +45,18 @@ Custom images must be uploaded to {{ baremetal-name }} in [ISO](https://en.wikip
 
 When installing an OS from a custom image, you can select the [boot mode](./server-advanced-settings.md#boot-mode), `Legacy` or `UEFI`, and, optionally, [create](./server-advanced-settings.md#creating-rst-raids) RAIDs on the server drives using the built-in RAID controllers on its motherboard, provided the OS or software supports this feature.
 
-To [install](../operations/servers/reinstall-os-from-own-image.md) an OS from a custom image, employ the [server KVM console](../operations/servers/server-kvm.md) to mount the custom image on the server's virtual CD drive, then boot from it as follows:
+To [install](../operations/servers/reinstall-os-from-own-image.md) an OS from a custom image, employ the [server KVM console](../operations/servers/server-kvm.md) to mount the custom image on the server's virtual CD drive, then boot from it.
+
+For servers on supported platforms, there are two available options for mounting a custom ISO image:
+
+* In the [management console]({{ link-console-main }}), navigate to the **KVM console** tab and click **Mount Image**. This is the recommended method. This method is faster, and the image will not unmount when you close the KVM console window; it remains mounted until the specified time. If the image is mounted, above the KVM console, you will see the **Mounted Image** indicator and the remaining mount time.
+* In the KVM console window, go to **Media** → **Virtual Media Wizard...**. This method is available for all servers, but the image will be unmounted when you close the KVM console window.
+
+{% include [mount-iso-platform-note](../../_includes/baremetal/mount-iso-platform-note.md) %}
+
+For more information on mounting an ISO image via the **KVM console** tab, see [{#T}](../operations/servers/reinstall-os-from-own-image.md#boot-from-image).
+
+To mount an image in the KVM console window:
 
 1. Click the CD icon or select **Media** → **Virtual Media Wizard...** in the top menu of the KVM console window. In the window that opens:
 

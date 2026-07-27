@@ -5,10 +5,6 @@ description: Из статьи вы узнаете, какие методы S3 A
 
 # Все методы CORS
 
-Метод | Описание
------ | -----
-[PutBucketCors](cors/upload.md) | Загружает конфигурацию бакета для [CORS](../../concepts/cors.md) в {{ objstorage-name }}.
-[GetBucketCors](cors/get.md) | Возвращает конфигурацию бакета для CORS из {{ objstorage-name }}.
-[DeleteBucketCors](cors/delete.md) | Удаляет конфигурацию бакета для CORS.
+{% include [cors-methods-table](../../../_includes/storage/s3-api-ref/cors-methods-table.md) %}
 
 {% include [the-s3-api-see-also-include](../../../_includes/storage/the-s3-api-see-also-include.md) %}

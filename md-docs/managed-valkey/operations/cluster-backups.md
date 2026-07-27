@@ -25,8 +25,8 @@
 
   Чтобы восстановить из резервной копии существующий кластер:
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором нужно восстановить кластер.
-  1. Перейдите в сервис **Yandex Managed Service for&nbsp;Valkey™**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно восстановить кластер.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-valkey) в сервис **Yandex Managed Service for&nbsp;Valkey™**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Резервные копии**.
   1. В строке нужной резервной копии нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Восстановить кластер**.
   1. Задайте настройки нового кластера. В списке **Каталог** можно выбрать каталог для нового кластера.
@@ -34,8 +34,8 @@
 
   Чтобы восстановить из резервной копии удаленный ранее кластер:
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором нужно восстановить кластер.
-  1. Перейдите в сервис **Yandex Managed Service for&nbsp;Valkey™**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно восстановить кластер.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-valkey) в сервис **Yandex Managed Service for&nbsp;Valkey™**.
   1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **Резервные копии**.
   1. Найдите нужную резервную копию по времени создания и идентификатору кластера. В колонке **Идентификатор** содержатся идентификаторы в формате `<идентификатор_кластера>:<идентификатор_резервной_копии>`.
   1. В строке нужной резервной копии нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Восстановить кластер**.
@@ -148,7 +148,7 @@
         * `configSpec.redis.password` — пароль пользователя.
         * `hostSpecs` — параметры хоста:
 
-             * `zoneId` — [зона доступности](../../overview/concepts/geo-scope.md).
+            * `zoneId` — [зона доступности](../../overview/concepts/geo-scope.md).
             * `subnetId` — [идентификатор подсети](../../vpc/concepts/network.md#subnet). Необходимо указывать, если в выбранной зоне доступности создано две или больше подсетей.
             * `replicaPriority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover).
             * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`. Включить публичный доступ можно, только если для параметра `tlsEnabled` указано значение `true`.
@@ -225,7 +225,7 @@
         * `config_spec.redis.password` — пароль пользователя.
         * `host_specs` — параметры хоста:
 
-             * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md).
+            * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md).
             * `subnet_id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet). Необходимо указывать, если в выбранной зоне доступности создано две или больше подсетей.
             * `replica_priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover).
             * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`. Включить публичный доступ можно, только если для параметра `tlsEnabled` указано значение `true`.
@@ -250,8 +250,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, где нужно создать резервную копию.
-  1. Перейдите в сервис **Yandex Managed Service for&nbsp;Valkey™**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, где нужно создать резервную копию.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-valkey) в сервис **Yandex Managed Service for&nbsp;Valkey™**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Резервные копии**.
   1. Нажмите кнопку **Создать резервную копию**.
 
@@ -347,13 +347,15 @@
 - Консоль управления {#console}
 
   Чтобы получить список резервных копий кластера:
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-  1. Перейдите в сервис **Yandex Managed Service for&nbsp;Valkey™**.
+  
+  1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-valkey) в сервис **Yandex Managed Service for&nbsp;Valkey™**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Резервные копии**.
 
   Чтобы получить список всех резервных копий в каталоге:
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-  1. Перейдите в сервис **Yandex Managed Service for&nbsp;Valkey™**.
+  
+  1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-valkey) в сервис **Yandex Managed Service for&nbsp;Valkey™**.
   1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **Резервные копии**.
 
 - CLI {#cli}
@@ -491,13 +493,15 @@
 - Консоль управления {#console}
 
   Чтобы получить информацию о резервной копии существующего кластера:
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог с кластером, информацию о копии которого нужно получить.
-  1. Перейдите в сервис **Yandex Managed Service for&nbsp;Valkey™**.
+  
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог с кластером, информацию о копии которого нужно получить.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-valkey) в сервис **Yandex Managed Service for&nbsp;Valkey™**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Резервные копии**.
 
   Чтобы получить информацию о резервной копии удаленного ранее кластера:
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором располагался удаленный кластер.
-  1. Перейдите в сервис **Yandex Managed Service for&nbsp;Valkey™**.
+  
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором располагался удаленный кластер.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-valkey) в сервис **Yandex Managed Service for&nbsp;Valkey™**.
   1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **Резервные копии**.
 
 - CLI {#cli}

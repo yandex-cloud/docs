@@ -1,4 +1,4 @@
-* _Project_: Top-level logical entity. You can use projects to aggregate telemetry from associated applications and microservices and restrict data access for development teams. Some examples include an online store, billing system, or security services.
+* _Project_: Top-level logical entity. You can use projects to aggregate telemetry from associated applications and microservices and restrict data access for development teams. Some examples include an online store, billing system, or security services. The system automatically creates a project associated with a {{ yandex-cloud }} folder. You can also create custom projects to logically separate telemetry within a single folder.
 
 * _Cluster_: Allows you to isolate an environment or independent service installations, e.g., production and test clusters, clusters in different regions.
 

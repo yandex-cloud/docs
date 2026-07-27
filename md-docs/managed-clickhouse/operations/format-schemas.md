@@ -31,7 +31,7 @@ _Схема формата_ данных (format schema) описывает фо
 - Консоль управления {#console}
 
    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-   1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+   1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
    1. Нажмите на имя нужного кластера и выберите вкладку **Схемы формата данных**.
 
 - CLI {#cli}
@@ -210,7 +210,7 @@ Managed Service for ClickHouse® работает только со схемам
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-    1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
     1. Нажмите на имя нужного кластера и выберите вкладку **Схемы формата данных**.
     1. Нажмите кнопку **Создать схему**.
     1. В диалоговом окне **Добавление схемы** заполните форму, указав в поле **URL** полученную ранее ссылку на файл со схемой формата.
@@ -424,7 +424,7 @@ Managed Service for ClickHouse® не отслеживает изменения 
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-    1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
     1. Нажмите на имя нужного кластера и выберите вкладку **Схемы формата данных**.
     1. Выберите нужную схему, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Редактировать**.
 
@@ -654,7 +654,7 @@ Managed Service for ClickHouse® не отслеживает изменения 
 - Консоль управления {#console}
 
    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-   1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+   1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
    1. Нажмите на имя нужного кластера и выберите вкладку **Схемы формата данных**.
    1. Выберите нужную схему, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Удалить**.
 

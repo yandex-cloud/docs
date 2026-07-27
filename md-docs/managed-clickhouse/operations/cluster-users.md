@@ -35,7 +35,7 @@ Managed Service for ClickHouse® позволяет управлять поль�
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
   1. Нажмите на имя нужного кластера, затем выберите вкладку **Пользователи**.
 
 - CLI {#cli}
@@ -128,7 +128,7 @@ Managed Service for ClickHouse® позволяет управлять поль�
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Пользователи**.
   1. Нажмите кнопку **Создать пользователя**.
   1. Введите имя пользователя базы данных.
@@ -495,7 +495,7 @@ Managed Service for ClickHouse® позволяет управлять поль�
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Пользователи**.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Изменить пароль**.
 
@@ -982,7 +982,7 @@ Managed Service for ClickHouse® позволяет управлять поль�
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Пользователи**.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Настроить**.
   1. Настройте права пользователя на доступ к определенным базам данных:
@@ -1341,7 +1341,7 @@ Managed Service for ClickHouse® позволяет управлять поль�
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Пользователи**.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Удалить**.
 
@@ -1487,7 +1487,7 @@ Managed Service for ClickHouse® позволяет управлять поль�
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
   1. Нажмите на кластер с именем `mych` и выберите вкладку **Пользователи**.
   1. Нажмите кнопку **Создать пользователя**.
   1. Введите имя пользователя базы данных `ro-user` и пароль `Passw0rd`.

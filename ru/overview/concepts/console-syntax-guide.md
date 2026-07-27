@@ -47,7 +47,7 @@ description: Сервисы {{ yandex-cloud }} предоставляют раз
 ### Замените элементы базового синтаксиса {#basic-syntax}
 
 1. Поменяйте разделитель каталогов в путях файлов: в Linux для этого служит прямая косая черта `/`, в Windows - обратная `\`.
-1. Поменяйте символы переноса строки. Вместо символа `\` в cmd используйте `^`, а в PowerShell - `` ` ``).
+1. Поменяйте символы переноса строки. Вместо символа `\` в cmd используйте `^`, а в PowerShell - `` ` ``.
 1. Проверьте использование всех видов кавычек: [в Linux](http://mywiki.wooledge.org/Quotes) и [в PowerShell](https://learn.microsoft.com/ru-ru/powershell/module/microsoft.powershell.core/about/about_quoting_rules?view=powershell-7) они обрабатываются по-разному.
 1. Проверьте синтаксис использования переменных. 
 

@@ -14,21 +14,21 @@ Yandex Cloud Router — сервис для управления сетевым�
 
  - [Все инструкции](operations/index.md)
 
- - [Получить информацию о Routing Instance](operations/ri-get-info.md)
+ - [Получить информацию о виртуальном маршрутизаторе](operations/ri-get-info.md)
 
- - [Получить список операций Routing Instance](operations/ri-operations.md)
+ - [Получить список операций виртуального маршрутизатора](operations/ri-operations.md)
 
- - [Создать Routing Instance](operations/ri-create.md)
+ - [Создать виртуальный маршрутизатор](operations/ri-create.md)
 
- - [Изменить параметры Routing Instance](operations/ri-update.md)
+ - [Изменить параметры виртуального маршрутизатора](operations/ri-update.md)
 
- - [Управлять сетями и IP-префиксами в Routing Instance](operations/ri-prefixes-upsert.md)
+ - [Управлять сетями и IP-префиксами в виртуальном маршрутизаторе](operations/ri-prefixes-upsert.md)
 
- - [Добавить приватное соединение в Routing Instance](operations/ri-priv-con-add.md)
+ - [Добавить приватное соединение в виртуальный маршрутизатор](operations/ri-priv-con-add.md)
 
- - [Удалить приватное соединение из Routing Instance](operations/ri-priv-con-del.md)
+ - [Удалить приватное соединение из виртуального маршрутизатора](operations/ri-priv-con-del.md)
 
- - [Удалить Routing Instance](operations/ri-delete.md)
+ - [Удалить виртуальный маршрутизатор](operations/ri-delete.md)
 
  - [Инструкции Cloud Interconnect](../interconnect/operations/index.md)
 
@@ -40,7 +40,7 @@ Yandex Cloud Router — сервис для управления сетевым�
 
  - [Терминология](concepts/terms.md)
 
- - [Routing Instance](concepts/routing-instance.md)
+ - [Виртуальный маршрутизатор](concepts/routing-instance.md)
 
  - [Анонсы IP-префиксов](concepts/announces.md)
 
@@ -60,7 +60,7 @@ Yandex Cloud Router — сервис для управления сетевым�
 
  - [On-premises с резервированием и несколько облачных сетей](scenarios/ri-1_prc-2ha_vpc-few.md)
 
- - [Два отдельных Route Instance без резервирования on-premises](scenarios/ri-2_prc-1noha_vpc-1.md)
+ - [Два отдельных виртуальных маршрутизатора без резервирования on-premises](scenarios/ri-2_prc-1noha_vpc-1.md)
 
  - [Равномерное распределение трафика из on-premises (Active-Active)](scenarios/prc-ha-with-active-active.md)
 
@@ -84,7 +84,7 @@ Yandex Cloud Router — сервис для управления сетевым�
 
  - [Организация сетевой связности между приватной подсетью BareMetal и on-premise-ресурсами](tutorials/bms-cic-onprem.md)
 
- - [Изменение набора IP-префиксов VPC в Routing Instance](tutorials/ri-prefixes-upsert.md)
+ - [Изменение набора IP-префиксов VPC в виртуальном маршрутизаторе](tutorials/ri-prefixes-upsert.md)
 
  - [Управление доступом](security/index.md)
 

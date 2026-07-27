@@ -4,7 +4,10 @@
 yc iam service-account --folder-id <идентификатор_каталога> list
 ```
 
+Где `--folder-id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
+
 Результат:
+
 ```text
 +----------------------+------------+--------+---------------------+-----------------------+
 |          ID          |    NAME    | LABELS |     CREATED AT      | LAST AUTHENTICATED AT |
