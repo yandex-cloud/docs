@@ -35,6 +35,6 @@ This is it, your backup has been created.
 
 {% note info %}
 
-To restore a deleted cluster from a backup, see [Recovering a cluster](recover-copy.md).
+To recover a deleted cluster from a backup, see [Recovering a cluster](recover-copy.md).
 
 {% endnote %}

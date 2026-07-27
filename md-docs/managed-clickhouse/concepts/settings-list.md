@@ -741,6 +741,16 @@
 
     Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings#server_configuration_parameters-timezone).
 
+* **TLS**{#setting-tls} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
+
+    Позволяет загружать [пользовательские сертификаты](../../certificate-manager/concepts/imported-certificate.md) для интеграций с внешними системами.
+
+    Инструменты, с которыми можно использовать сертификаты:
+
+    * Внешние словари.
+    * Интеграционные движки: Apache Kafka®, Redis (совместим с Valkey™), PostgreSQL, MySQL®, MongoDB (совместим с Yandex StoreDoc), YTsaurus, S3, NATS, RabbitMQ, ArrowFlight.
+    * Табличные функции: `remote`, `remoteSecure`, `url`, `urlCluster`, `s3`, `s3Cluster`.
+
 * **Total memory profiler step**{#setting-total-memory-profiler-step} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
 
     Объем памяти (в байтах) для стектрейса (stack trace) на каждом шаге выделения памяти. Данные хранятся в системной таблице `system.trace_log`, при этом значение `query_id` является пустой строкой.

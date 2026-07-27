@@ -46,8 +46,6 @@ See also [{#T}](../qa/cluster-autoscaler.md).
 
 {% include [master-autoscaler-note](../../_includes/managed-kubernetes/master-autoscaler-note.md) %}
 
-{% include [master-pricing-note](../../_includes/managed-kubernetes/master-pricing-note.md) %}
-
 {{ k8s-ma }} automatically adjusts master configuration according to the current workload. This enables stable cluster operation without manual configuration selection.
 
 For scaling, {{ k8s-ma }} regularly collects master utilization metrics, such as th number of vCPUs and the amount of RAM. It can then take the following decisions based on these metrics:

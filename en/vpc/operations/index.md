@@ -1,6 +1,6 @@
 ---
 title: Step-by-step guides for {{ vpc-full-name }}
-description: This page provides a list of step-by-step guides for {{ vpc-name }}.
+description: This page features step-by-step guides for {{ vpc-name }}.
 ---
 
 # Step-by-step guides for {{ vpc-name }}
@@ -11,7 +11,6 @@ description: This page provides a list of step-by-step guides for {{ vpc-name }}
 - [{#T}](network-delete.md)
 - [{#T}](network-update.md)
 - [{#T}](network-get-info.md)
-- [{#T}](network-map.md)
 - [{#T}](network-move.md)
 
 ## Subnet {#subnet}

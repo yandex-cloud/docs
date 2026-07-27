@@ -5,7 +5,6 @@ description: List of supported tools for working with {{ cns-name }}.
 
 # Supported tools
 
-{% include [preview-stage](../../_includes/notifications/preview-stage.md) %}
 
 {% include [ask-for-turning-on](../../_includes/notifications/ask-for-turning-on.md) %}
 
@@ -15,10 +14,10 @@ description: List of supported tools for working with {{ cns-name }}.
 
 With {{ cns-name }}, you can send notifications to apps registered in the following services:
 
-* [Apple Push Notification service](https://developer.apple.com/notifications/) (APNs)
-* [Firebase Cloud Messaging](https://firebase.google.com/) (FCM)
-* [Huawei Mobile Services](https://developer.huawei.com/consumer/) (HMS)
-* [RuStore](https://www.rustore.ru/help/sdk/push-notifications/)
+* [Apple Push Notification service](https://developer.apple.com/notifications/) (APNs).
+* [Firebase Cloud Messaging](https://firebase.google.com/) (FCM).
+* [Huawei Mobile Services](https://developer.huawei.com/consumer/) (HMS).
+* [RuStore](https://www.rustore.ru/help/sdk/push-notifications/).
 
 User browsers on any device.
 

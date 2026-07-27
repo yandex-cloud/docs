@@ -4,8 +4,8 @@
 
 Позволяет проверить:
 
-- Существует ли бакет.
-- Достаточно ли у пользователя прав для доступа к бакету.
+* Существует ли бакет.
+* Достаточно ли у пользователя прав для доступа к бакету.
 
 {% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
@@ -17,12 +17,10 @@ HEAD /{bucket} HTTP/2
 
 ### Path параметры {#path-parameters}
 
-Параметр | Описание
------ | -----
-`bucket` | Имя бакета.
-
+{% include [path-parameters](../../../_includes_service/storage-path-parameters.md) %}
 
 ### Заголовки {#request-headers}
+
 Используйте в запросе только [общие заголовки](../common-request-headers.md).
 
 ## Ответ {#response}

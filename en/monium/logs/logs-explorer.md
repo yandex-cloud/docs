@@ -15,7 +15,7 @@ The log UI allows you to:
 To view logs, configure their delivery:
 
 * Set up data transfer in OpenTelemetry format for your application or service, e.g., with the help of [OTel Collector](../collector/opentelemetry.md) or [Fluent Bit](../collector/fluentbit.md).
-* Turn on logging for {{ yandex-cloud }} resources. As a general rule, you can set up logging when creating or updating a resource. For more information, see the relevant service guides.
+* Turn on logging for {{ yandex-cloud }} resources. As a general rule, you can set up logging when creating or updating a resource. For more information, see the guides for the relevant service.
 
   For the list of services that support automated logging, see [{#T}](../../overview/concepts/monitoring-logging-tools.md).
 
@@ -50,7 +50,7 @@ To view logs, configure their delivery:
      { <key>="<value>", <key>="<value>", ... }
      ```
       
-     For more information about making queries, see [{#T}](../concepts/data-model.md) and [{#T}](../concepts/querying.md).
+     For information on how to build queries, see [{#T}](../concepts/data-model.md) and [{#T}](../concepts/querying.md).
 
      Example of an application log search query:
 
@@ -88,7 +88,7 @@ For log analysis, you can use log filtering in the query line, log records, and 
 
 * To locate a specific portion of the logs, select the labels of interest from the list. For example, the label `level = WARN` will display all WARNING level logs.
 
-  For more on how to make queries, see [{#T}](../concepts/data-model.md) and [{#T}](../concepts/querying.md).
+  For information on how to build queries, see [{#T}](../concepts/data-model.md) and [{#T}](../concepts/querying.md).
 
 * To view the logs of different applications or resources at the same time, click **Add query** and specify another query's parameters.
 
@@ -99,54 +99,43 @@ The graph shows the number of log records over time. The graph automatically upd
 Features available when using the graph:
 
 * **Information window**:
-  * To open a window with info on logs received at a specific point in time, hover your cursor over that part of the graph.
-  * To pin the information window, click the relevant part of the graph.
-  * To navigate to log records, click ![image](../../_assets/console-icons/ellipsis.svg) → **Go to logs** next to the line of interest.
 
-  ![image](../../_assets/monium/tooltip-go-to-logs.png)
+    * To open a window with info on logs received at a specific point in time, hover your cursor over that part of the graph.
+    * To pin the information window, click the relevant part of the graph.
+    * To navigate to log records, click ![image](../../_assets/console-icons/ellipsis.svg) → **Go to logs** next to the line of interest.
+
+    ![image](../../_assets/monium/tooltip-go-to-logs.png)
 
 * **Legend**: Shows the values of the labels for each data series on the graph.
+* **Chart type**: Selects the type of the graph with the number of logs:
 
-* **Graph type**: Selects the type of the graph with the number of logs:
-  * **Line**: Lines.
-  * **Area**: Shaded areas.
-  * **Column** (default): Columns.
-
+    * **Line**: Lines.
+    * **Area**: Shaded areas.
+    * **Column** (default): Columns.
 * **Log grouping**: Select a grouping parameter from the **Group by** list. For example, grouping by `level` will show log distribution by level of importance.
-
-* **Errors**: A separate graph and log records with the `level="ERROR"` field.
-
-* **Statistics**: Aggregated metrics for log volume and distribution assessment:
-  * `count(logs)`: Number of records over time to identify peak loads.
-  * `min`, `max`, and `avg`: Analysis of numeric fields, e.g., response time, to track service degradation.
-  * Grouping by labels (resource_id, resource_type, level, host) to build metrics.
-  
-  The data updates automatically if you change the query or time range.
-
 * When working with multiple queries, you can create a separate graph for each one. Do it by enabling **One graph per query** or selecting the number of graphs per row.
+* To examine a graph in detail or share it, click ![image](../../_assets/console-icons/ellipsis.svg) in the top-right corner of the graph and select:
 
-* To examine a graph in detail or share it, click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the graph and select:
-  * **Show graph full screen**
-  * **Copy screenshot link**
-  * **Copy screenshot to clipboard**
-
+    * **Show chart fullscreen**.
+    * **Copy screenshot link**.
+    * **Copy screenshot to content**.
 * **Export logs to file**: Saves logs in `CSV`, `JSON`, or `TXT` format. You can save no more than 1,000 log lines. If there are more, shorten the time range.
 
 If you need no visualization, click **Hide graph**. To display the graph again, click **Show graph**.
 
 ### Working with log records {#log-records}
 
+* If log descriptions do not fit into the screen width, enable **Line breaks**.
 * To analyze a particular log entry, expand it and select one of the following actions next to the log line of interest:
-  * **=**: Add the line’s key label to the query.
-  * **!=**: Exclude the line’s key label from the query.
-  * ![image](../../_assets/console-icons/eye.svg): Hide the log line.
-  * **Copy**: Copy the log line.
+    * **=**: Add the line’s key label to the query.
+    * **!=**: Exclude the line’s key label from the query.
+    * ![eye](../../_assets/console-icons/eye.svg): Hide the log line.
+    * ![copy](../../_assets/console-icons/copy.svg): Copy the log line.
 
-  If you work with [traces](../traces/index.md), you can use the `trace.id` and `span.id` fields to navigate to relevant trace data.
-
-* If log descriptions do not fit into one screen, enable **Line breaks**.
+    If you work with [traces](../traces/index.md), you can use the `trace.id` and `span.id` fields to navigate to relevant trace data.
 
 * To configure the log lines table, click ![image](../../_assets/console-icons/gear.svg) at the top-right corner of the table and select the columns and context.
+
 
 ## Service dashboard for logs {#logs-service-dashboard}
 

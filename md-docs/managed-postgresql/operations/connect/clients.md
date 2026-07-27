@@ -154,7 +154,7 @@ sudo apt update && sudo apt install --yes postgresql-client
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
   1. Нажмите на имя нужного кластера.
   1. Назначьте роль аккаунту пользователя, который будет подключаться к БД:
      1. Выберите вкладку **Права доступа** и нажмите кнопку **Назначить роли**.
@@ -497,7 +497,7 @@ WebSQL — это сервис Yandex Cloud, который позволяет �
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог с нужным кластером.
-  1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
   1. Нажмите на имя нужного кластера и перейдите на вкладку **WebSQL**.
   1. Выберите нужное подключение.
 

@@ -9,7 +9,7 @@
 
 Чтобы перенести метаданные между кластерами Yandex Data Processing:
 
-1. [Подготовьте инфраструктуру](#infra)
+1. [Подготовьте инфраструктуру](#infra).
 1. [Создайте тестовую таблицу](#create-table).
 1. [Экспортируйте данные](#export-data).
 1. [Подключите Yandex Data Processing к Apache Hive™ Metastore](#connect).

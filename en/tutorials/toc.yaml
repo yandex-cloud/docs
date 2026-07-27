@@ -112,8 +112,8 @@ items:
           - name: '{{ TF }}'
             href: security/static-key-in-lockbox/terraform.md
       - name: >-
-          "Service account with an {{ oslogin }} profile for VM management via
-          Ansible"
+          Service account with an {{ oslogin }} profile for VM management via
+          Ansible
         href: security/sa-oslogin-ansible.md
       - name: Providing secure access to content in {{ cdn-name }}
         items:
@@ -825,6 +825,10 @@ items:
             href: web/user-agent-statistics.md
           - name: Formatting {{ video-name }} content in IFrame
             href: web/video-iframe.md
+          - name: Installing Gatsby using {{ cloud-apps-name }}
+            href: web/gatsby-static-site-cloudapp.md
+          - name: Installing Hugo using {{ cloud-apps-name }}
+            href: web/hugo-static-site-cloudapp.md
       - name: 1C
         items:
           - name: 1C-Bitrix online store

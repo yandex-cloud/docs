@@ -31,7 +31,7 @@ At the project level, you can assign roles to users and groups:
 * Project-level roles automatically apply to all namespaces within the project.
 * Project administrators can independently manage access without involving the cluster administrator.
 
-For more information, see [Configuring project roles](../operations/projects/project-roles.md).
+For more information, see [Configuring roles in a project](../operations/projects/project-roles.md).
 
 ### Quotas {#quotas}
 

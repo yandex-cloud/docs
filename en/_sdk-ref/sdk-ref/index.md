@@ -1,6 +1,6 @@
 # Yandex AI Studio SDK documentation
 
-Current package version: 0.22.0
+Current package version: 0.22.1
 
 - [Authentication in the Yandex AI Studio SDK](auth.md)
 

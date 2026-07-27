@@ -34,13 +34,15 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
 ### Аутентификация
 
- - [Аутентификация от имени пользователя](operations/authentication/user.md)
+ - [Аутентификация с аккаунтом на Яндексе](operations/authentication/user.md)
 
  - [Аутентификация от имени сервисного аккаунта](operations/authentication/service-account.md)
 
  - [Аутентификация от имени федеративного пользователя](operations/authentication/federated-user.md)
 
  - [Аутентификация от имени локального пользователя](operations/authentication/local-user.md)
+
+ - [Аутентификация на сервере без графического интерфейса](operations/authentication/auth-without-gui.md)
 
 ## Концепции
 

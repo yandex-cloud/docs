@@ -30,6 +30,12 @@ If you have a [project](../projects/create-project.md), you can create a [{{ CH 
 
 1. Apply the manifest: `kubectl apply -f clickhousecluster.yaml -n <project name>`. Optionally, you can specify the project name in the `metadata.namespace` resource property and skip it in the command.
 
+{% note info %}
+
+The `metadata.name` resource name and `spec.clickhouse.shards[].id` shard IDs must not be longer than **15 characters**. Only lowercase letters, digits, and hyphens are allowed.
+
+{% endnote %}
+
 ## Using the management console {#console}
 
 1. If you have not opened a project yet, select one.
@@ -39,14 +45,18 @@ If you have a [project](../projects/create-project.md), you can create a [{{ CH 
 
     **Basic parameters**
 
-    * **Cluster name**: Cluster name. Only use lowercase letters, numbers, and hyphens.
+    * **Cluster name**: Cluster name. Only lowercase letters, digits, and hyphens; max **15 characters**.
     * **Version**: {{ CH }} version. Select from the list of available versions.
     * **Cluster service type**: Service type for accessing the entire cluster. Available values: `ClusterIP` (access only within the cluster, default) or `LoadBalancer` (access from outside).
 
     **Storage**
 
     * **Storage class**: `stackland-nvme`, `stackland-ssd`, `stackland-hdd`, `stackland-other`. Learn more about storage classes in [Disk subsystem](../../concepts/components/disk-storage.md#storage-classes).
-    * **Storage size**: Size of the disk used to store data. Once created, the disk size can only be increased.
+    * **Storage size**: Data disk size. Once created, the disk size can only be increased.
+    * **Automatic storage expansion**: Toggle to enable disk autoscaling. When activating, specify the following:
+        * **Maximum storage size**: Upper limit to which the disk can expand.
+        * **Storage size expansion percentage**: Expansion increment as a percentage of the current size (the default is 20).
+        * **Storage utilization percentage to initiate expansion**: Utilization threshold to trigger the expansion (the default is 80).
 
     **Settings** (drop-down section)
 
@@ -63,7 +73,7 @@ If you have a [project](../projects/create-project.md), you can create a [{{ CH 
 
     For each shard, you can configure:
 
-    * **Shard ID**: Shard ID.
+    * **Shard ID**: Shard ID. Max **15 characters**; lowercase letters, digits, and hyphens.
     * **Shard weight**: Shard weight for data distribution.
     * **Number of replicas**: Number of replicas in the shard.
     * **Shard service type**: Service type for the shard. Valid values: `Do not create service` (no endpoint is created, default), `ClusterIP` (access only within the cluster), or `LoadBalancer` (access from outside).

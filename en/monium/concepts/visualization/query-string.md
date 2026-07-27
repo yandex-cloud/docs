@@ -1,12 +1,17 @@
-# Query string
+---
+title: Query string in {{ monium-name }}
+description: 'In {{ monium-name }}''s query string, you can specify your chart and telemetry data selection parameters. Two input modes are supported: tokens and text.'
+---
 
-In a query string, you can specify parameters for rendering charts or selecting relevant data.
+# Query string in {{ monium-name }}
 
-You can enter a query in tokenized or text mode.
+You can use the query string to specify your chart and data selection parameters. For descriptions of the [query language](../querying.md), data model, and configuration objects, see [{#T}](../data-model.md) and [{#T}](../configuration-model.md).
+
+Enter your query in token or text mode.
 
 ## Tokenized query {#query-token}
 
-This is the default mode. A query string in tokenized mode looks like this:
+This is the default mode. A query string in token mode looks like this:
 
 ![Query string in tokenized mode](../../../_assets/monium/query_string_tokens_2026.png "Query string in tokenized mode")
 
@@ -63,3 +68,10 @@ The following features are available when working with a query string:
 * Viewing all token values for selected service or resource.
 
     Click ![view](../../../_assets/console-icons/folder-open.svg) to open the list of values. Select metrics and selectors on the list panel. You will see the tokens available for each set of values.
+
+#### See also {#see-also}
+
+* [{#T}](../querying.md)
+* [{#T}](../data-model.md)
+* [{#T}](../configuration-model.md)
+* [{#T}](../querying-functions.md)

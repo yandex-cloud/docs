@@ -12,7 +12,7 @@
 
    - Консоль управления {#console}
 
-      1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+      1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
       1. Нажмите на имя нужного кластера и перейдите на вкладку **Хосты**.
       1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Создать хост**.
       1. Укажите параметры хоста:
@@ -180,7 +180,7 @@
 
    - Консоль управления {#console}
 
-      1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+      1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
       1. Нажмите на имя нужного кластера и выберите вкладку **Хосты**.
       1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста, выберите пункт **Удалить** и подтвердите удаление.
 
@@ -278,7 +278,7 @@
 
    {% endlist %}
 
-1. Дождитесь, когда кластер перейдет в состояние **Alive**. В консоли управления Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**. Состояние кластера отображается в столбце **Доступность**.
+1. Дождитесь, когда кластер перейдет в состояние **Alive**. В консоли управления [перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**. Состояние кластера отображается в столбце **Доступность**.
 
 {% note info %}
 

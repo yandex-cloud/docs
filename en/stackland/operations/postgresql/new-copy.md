@@ -18,7 +18,7 @@ You can create a backup for any [{{ PG }}](../../concepts/components/postgresql.
 
   1. If you have not opened a project yet, select one.
   1. In the left-hand menu, select **{{ PG }} Clusters**.
-  1. Select the cluster.
+  1. Select a cluster.
   1. Click **Create backup**.
   1. Confirm the creation of a backup.
 

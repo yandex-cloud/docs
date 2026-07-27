@@ -74,15 +74,37 @@ To create a {{ baremetal-name }} image from your ISO image and deploy it on the 
 
     {% note info %}
 
-    All following steps will be performed in the KVM console.
+    Complete the following OS installation steps in the KVM console. You can mount your ISO image using either the KVM console window or the **KVM console** tab in the [management console]({{ link-console-main }}).
 
     {% endnote %}
 
-1. Click the CD icon or select **Media** → **Virtual Media Wizard...** in the top menu of the KVM console window. In the window that opens:
+1. Mount the ISO image to the server's virtual CD drive. For servers on supported platforms, there are two available mounting options:
 
-    1. In the **CD/DVD Media1** section, click **Browse** and select the [previously uploaded](../image-upload.md) ISO OS image in the `user-iso` directory.
-    1. Click **Connect CD/DVD**.
-    1. Check the **Virtual CD 1** device **Status** section to make sure the **Connected To** field now shows your selected ISO path, then click **Close**.
+    {% include [mount-iso-platform-note](../../../_includes/baremetal/mount-iso-platform-note.md) %}
+
+    {% list tabs %}
+
+    - Via the KVM console tab (recommended)
+
+      This method is available for servers on supported platforms. An ISO image mounted this way will not unmount when you close the KVM console window and remains mounted until the specified time.
+
+      1. On the server page in the [management console]({{ link-console-main }}), go to the **KVM console** tab.
+      1. Click **Mount Image**.
+      1. In the dialog that opens, select the [previously downloaded](../image-upload.md) ISO image of your OS and confirm the mount action.
+
+      If the image is mounted, above the KVM console, you will see the **Mounted Image** indicator and the remaining mount time.
+
+    - Via the KVM console window
+
+      This method is available for all servers. The image will be unmounted when you close the KVM console window.
+
+      1. Click the CD icon or select **Media** → **Virtual Media Wizard...** in the top menu of the KVM console window. In the window that opens:
+
+         1. In the **CD/DVD Media1** section, click **Browse** and select the [previously uploaded](../image-upload.md) ISO OS image in the `user-iso` directory.
+         1. Click **Connect CD/DVD**.
+         1. Check the **Virtual CD 1** device **Status** section to make sure the **Connected To** field now shows your selected ISO path, then click **Close**.
+
+    {% endlist %}
 
     Depending on your server configuration, you may need to manually select the boot device or enable `UEFI` mode in [BIOS](https://en.wikipedia.org/wiki/BIOS). For instance, on a server with the `BA-i201-H` configuration, you must boot from a CD drive in UEFI mode for UEFI-based OS installations.
 1. To boot the server from the selected ISO image:
@@ -299,7 +321,19 @@ Up to this point, no disk modifications have been made yet, so you may safely ab
 
     Wait for the operating system installation to complete.
 
-1. {% include [disconnect-kvm-cd](../../../_includes/baremetal/disconnect-kvm-cd.md) %}
+1. Disable the virtual CD drive. The way you do this depends on how the ISO image was mounted:
+
+    {% list tabs %}
+
+    - Via the KVM console tab
+
+      On the server page in the [management console]({{ link-console-main }}), click the button for disabling the mounted image on the **KVM console** tab.
+
+    - Via the KVM console window
+
+      {% include [disconnect-kvm-cd](../../../_includes/baremetal/disconnect-kvm-cd.md) %}
+
+    {% endlist %}
 1. To boot into the new OS, select **Reboot Now** and press **Enter**:
 
     ![17](../../../_assets/baremetal/reinstall-os-from-own-image-screenshots/17.png)

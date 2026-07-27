@@ -30,22 +30,6 @@ description: Follow this guide to add a video thumbnail in {{ video-name }}.
 
       {% include [list-channels-rest-api](../../../_includes/video/list-channels-rest-api.md) %}
 
-  1. Register your thumbnail in {{ video-name }}:
-
-      {% include [register-thumbnail-rest-api](../../../_includes/video/register-thumbnail-rest-api.md) %}
-
-      Save the `thumbnailId` value: you will need it later.
-
-  1. Get a thumbnail upload link:
-
-      {% include [get-thumbnail-uplink-rest-command](../../../_includes/video/get-thumbnail-uplink-rest-command.md) %}
-
-      {% include [get-thumbnail-uplink-api-output](../../../_includes/video/get-thumbnail-uplink-api-output.md) %}
-
-  1. Upload an image file to the thumbnail:
-
-      {% include [upload-thumbnail-curl](../../../_includes/video/upload-thumbnail-curl.md) %}
-
   1. Get a list of videos on the channel:
 
       ```bash
@@ -96,6 +80,22 @@ description: Follow this guide to add a video thumbnail in {{ video-name }}.
 
       Save the `id` of the video you want to add a thumbnail for.
 
+  1. Register your thumbnail in {{ video-name }}:
+
+      {% include [register-thumbnail-rest-api](../../../_includes/video/register-thumbnail-rest-api.md) %}
+
+      Save the `thumbnailId` value: you will need it later.
+
+  1. Get a thumbnail upload link:
+
+      {% include [get-thumbnail-uplink-rest-command](../../../_includes/video/get-thumbnail-uplink-rest-command.md) %}
+
+      {% include [get-thumbnail-uplink-api-output](../../../_includes/video/get-thumbnail-uplink-api-output.md) %}
+
+  1. Upload an image file to the thumbnail:
+
+      {% include [upload-thumbnail-curl](../../../_includes/video/upload-thumbnail-curl.md) %}
+
   1. Add a thumbnail to your video:
 
       {% include [assign-thumbnail-to-video-rest](../../../_includes/video/assign-thumbnail-to-video-rest.md) %}
@@ -111,22 +111,6 @@ description: Follow this guide to add a video thumbnail in {{ video-name }}.
 
       {% include [list-channels-grpc-api](../../../_includes/video/list-channels-grpc-api.md) %}
 
-  1. Register your thumbnail in {{ video-name }}:
-
-      {% include [register-thumbnail-grpc-api](../../../_includes/video/register-thumbnail-grpc-api.md) %}
-
-      Save the `thumbnailId` value: you will need it later.
-
-  1. Get a thumbnail upload link:
-
-      {% include [get-thumbnail-uplink-grpc-command](../../../_includes/video/get-thumbnail-uplink-grpc-command.md) %}
-
-      {% include [get-thumbnail-uplink-api-output](../../../_includes/video/get-thumbnail-uplink-api-output.md) %}
-
-  1. Upload an image file to the thumbnail:
-
-      {% include [upload-thumbnail-curl](../../../_includes/video/upload-thumbnail-curl.md) %}
-
   1. Get a list of videos on the channel:
 
       ```bash
@@ -140,7 +124,7 @@ description: Follow this guide to add a video thumbnail in {{ video-name }}.
 
       Where:
       * `<IAM_token>`: IAM token you got before you started.
-      * `<channel_ID>`: ID of the channel with the video you want to add a thumbnail for.
+      * `channelId`: ID of the channel with the video you want to add a thumbnail for.
 
       Result:
 
@@ -178,6 +162,22 @@ description: Follow this guide to add a video thumbnail in {{ video-name }}.
       ```
 
       Save the `id` of the video you want to add a thumbnail for.
+
+  1. Register your thumbnail in {{ video-name }}:
+
+      {% include [register-thumbnail-grpc-api](../../../_includes/video/register-thumbnail-grpc-api.md) %}
+
+      Save the `thumbnailId` value: you will need it later.
+
+  1. Get a thumbnail upload link:
+
+      {% include [get-thumbnail-uplink-grpc-command](../../../_includes/video/get-thumbnail-uplink-grpc-command.md) %}
+
+      {% include [get-thumbnail-uplink-api-output](../../../_includes/video/get-thumbnail-uplink-api-output.md) %}
+
+  1. Upload an image file to the thumbnail:
+
+      {% include [upload-thumbnail-curl](../../../_includes/video/upload-thumbnail-curl.md) %}
 
   1. Add a thumbnail to your video:
 

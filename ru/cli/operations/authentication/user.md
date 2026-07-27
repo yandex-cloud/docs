@@ -7,4 +7,6 @@ description: Следуя данной инструкции, вы сможете
 
 Для работы с {{ yandex-cloud }} необходим аккаунт на Яндексе. Вы можете аутентифицироваться в процессе интерактивного создания профиля с помощью команды `yc init`.
 
+{% include [note-auth-without-gui](../../../_includes/cli/note-auth-without-gui.md) %}
+
 {% include [include](../../../_includes/cli/passport-profile-create.md) %}

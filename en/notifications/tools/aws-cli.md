@@ -5,7 +5,6 @@ description: The {{ cns-name }} HTTP API is compatible with the Amazon SNS API.
 
 # Getting started with {{ cns-full-name }} using AWS CLI
 
-{% include [preview-stage](../../_includes/notifications/preview-stage.md) %}
 
 To get started with the AWS CLI:
 1. [Get your cloud ready](#before-you-begin).

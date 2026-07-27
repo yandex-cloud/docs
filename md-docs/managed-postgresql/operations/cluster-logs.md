@@ -20,7 +20,7 @@ Managed Service for PostgreSQL позволяет [получить фрагме
 
 - Консоль управления {#console}
 
-    1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
     1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/receipt.svg) **Логи**.
     1. Укажите период времени, за который нужно отобразить логи: введите его вручную или выберите в календаре, нажав на поле ввода дат.
     

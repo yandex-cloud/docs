@@ -2,11 +2,12 @@
 
 # Все методы Static Website Hosting
 
-Метод | Описание
------ | -----
-[PutBucketWebsite](hosting/upload.md) | Загружает конфигурацию бакета для хостинга статических сайтов в Object Storage.
-[GetBucketWebsite](hosting/get.md) | Возвращает конфигурацию бакета для хостинга статических сайтов из Object Storage.
-[DeleteBucketWebsite](hosting/delete.md) | Удаляет конфигурацию бакета для хостинга статических сайтов.
+#|
+|| **Метод** | **Описание** ||
+|| [PutBucketWebsite](hosting/upload.md) | Загружает конфигурацию бакета для хостинга статических сайтов в Object Storage. ||
+|| [GetBucketWebsite](hosting/get.md) | Возвращает конфигурацию бакета для хостинга статических сайтов из Object Storage. ||
+|| [DeleteBucketWebsite](hosting/delete.md) | Удаляет конфигурацию бакета для хостинга статических сайтов. ||
+|#
 
 #### Полезные ссылки {#see-also}
 

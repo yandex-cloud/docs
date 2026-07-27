@@ -157,11 +157,9 @@ When you [install](../operations/servers/reinstall-os-from-marketplace.md) a ser
 
 You can [install](../operations/servers/reinstall-os-from-own-image.md) an OS in UEFI mode from a custom image. During installation, boot the server from the CD drive with the mounted OS installation image in UEFI mode. To do this, in the [KVM console](../operations/servers/server-kvm.md):
 
-1. Select **Media** → **Virtual Media Wizard...** or click the CD icon in the top menu of the KVM console. In the window that opens:
+1. Mount the ISO image to the server's virtual CD drive. For servers on supported platforms, you can do it via the **KVM console** tab in the [management console]({{ link-console-main }}) using the **Mount Image** button or via the KVM console window. For more on both methods, see [{#T}](../operations/servers/reinstall-os-from-own-image.md#boot-from-image).
 
-    1. In the **CD/DVD Media1** section, click **Browse** and select the [previously uploaded](../operations/image-upload.md) ISO OS image in the `user-iso` directory.
-    1. Click **Connect CD/DVD**.
-    1. Check the **Virtual CD 1** device **Status** section to make sure the **Connected To** field now shows your selected ISO path, then click **Close**.
+    {% include [mount-iso-platform-note](../../_includes/baremetal/mount-iso-platform-note.md) %}
 1. Click **Reboot to CD-ROM** in the top-right corner of the KVM console.
 1. Access the BIOS/UEFI system settings menu by pressing **F11** or **Del** during server startup when the [POST](https://en.wikipedia.org/wiki/Power-on_self-test) screen appears. You will see the following message: `Entering Setup...`.
 1. Wait for the system settings menu to open.

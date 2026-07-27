@@ -1,5 +1,7 @@
 # Getting started with {{ cloud-logging-name }}
 
+{% include [deprecation-warning](../_includes/logging/deprecation-warning.md) %}
+
 In this guide, you will add records to a [log group](./concepts/log-group.md) and then view them.
 
 ## Getting started {#before-you-begin}

@@ -10,7 +10,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Резервные копии**.
   1. На странице **Резервные копии** выберите вкладку **Политики резервного копирования**.
   1. Нажмите кнопку **Создать политику**.
@@ -234,7 +234,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Резервные копии**.
   1. На странице **Резервные копии** выберите вкладку **Политики резервного копирования**.
 
@@ -346,7 +346,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Резервные копии**.
   1. На странице **Резервные копии** выберите вкладку **Политики резервного копирования**.
 

@@ -136,7 +136,7 @@ spec:
 
     {% note info %}
 
-    To upgrade images of separately licensed components, such as {{ speechsense-name }}, run the command again with `--image-bundle speechsense`. For more information, see [{#T}](speechsense/install-images.md).
+    To upgrade images of separately licensed components, such as {{ speechsense-name }}, run the command again with `--image-bundle speechsense`. For more information, see [{#T}](../speechsense/install-images.md).
 
     {% endnote %}
 

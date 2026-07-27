@@ -11,7 +11,7 @@ In {{ stackland-name }}, access management includes authentication and authoriza
 The platforms supports these authentication methods:
 
 * **Local users**: Accounts created directly in {{ iam-name }}. This method is best suited for smaller teams or test environments.
-* **Federated users**: IdP accounts. The supported protocols are SAML, OIDC, and LDAP.
+* **Federated users**: IdP accounts. The supported protocols are SAML and LDAP.
 * **Service accounts**: Accounts for automation and cross-service communication. These accounts use long-lived tokens or API keys.
 
 ### Authentication in the web console {#web-auth}
@@ -68,7 +68,7 @@ You can enable group mapping for your federation to have the external IdP's grou
 
 * **Kubernetes RBAC**: Standard Kubernetes access management method used for Kubernetes resources (pods, deployments, services, etc).
 * **IAM AccessBinding**: {{ iam-name }} method of granting permissions to subjects at different levels: clusters, projects, etc.
-* **Access to platform services**: Implemented through the mechanisms of the platform services themselves, e.g., verification uses the username and password of the actual DBMS.
+* **Access to platform services**: Implemented through the mechanisms of the platform services themselves, e.g., verification uses the username and password of the actual DBMS. In [{{ yt-name }}](concepts/components/ytsaurus.md), the administrator credentials are stored in the `ytadminsec` secret. You can also authenticate your users to the web UI through {{ iam-name }} using OAuth.
 
 ### Kubernetes RBAC {#k8s-rbac}
 
@@ -92,7 +92,7 @@ Standard RBAC resources:
 || `ProjectRoleBinding` | Project | Binding a role to a subject within all namespaces of the project ||
 |#
 
-For more on project roles, see [Configuring project roles](operations/projects/project-roles.md).
+Learn more about project roles in [Configuring project roles](operations/projects/project-roles.md).
 
 ### Access role bindings {#iam-access-binding}
 
@@ -148,13 +148,13 @@ You can grant access at these three [resource model](concepts/resource-model.md)
 
 ### Cluster level {#cluster-level}
 
-For access to all the {{ stackland-name }} cluster's resources.
+Access to all resources within a {{ stackland-name }} cluster.
 
 Mechanism: `ClusterRoleBinding` and `ClusterAccessBinding`.
 
 ### Project level {#project-level}
 
-Access to all namespaces of the project. Use for:
+Access to all namespaces within a project. Use for:
 
 * Project administrators.
 * Project team members.

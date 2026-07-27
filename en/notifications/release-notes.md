@@ -5,6 +5,11 @@ description: This section contains the {{ cns-name }} release notes.
 
 # {{ cns-name }} release notes
 
+## Q2 2026 {#q2-2026}
+
+* Introduced package pricing for various SMS categories across the MTS, MegaFon, and T2 mobile networks. For more information, see [Pricing policy](pricing.md#sms).
+* {{ cns-name }} has entered the [General Availability](../overview/concepts/launch-stages.md) stage. This service is subject to a [service level agreement (SLA)](https://yandex.ru/legal/cloud_terms_cns/ru/).
+
 ## Q1 2026 {#q1-2026}
 
 Added the ability to create SMS templates for channels with an individual sender. Templates define the SMS notification type: transactional, authorization, or service. If the message text does not match any of the templates, such message is classified as an ad. [Sending costs](pricing.md) vary by notification type. In {{ cns-name }}, you can create an SMS template and register it with telecom providers.
@@ -55,5 +60,4 @@ For examples of commands for topics, refer to the [management console]({{ link-c
   The examples will be available after you create a channel on the page with its settings.
 
 ## Q3 2024 {#q3-2024}
-
 The service is available upon request at the [Preview](../overview/concepts/launch-stages.md) stage.

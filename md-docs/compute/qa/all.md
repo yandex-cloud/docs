@@ -179,23 +179,9 @@
 
 * [Не удается подключиться по SSH к вновь созданной ВМ с несколькими сетевыми интерфейсами](#unable-to-connect-to-new-multi-interface-vm)
 
-* [ВМ не запускается после изменения конфигурации](#not-starting)
+* [Дополнительные сетевые интерфейсы не работают после добавления на существующую ВМ](#added-net-interfaces-down)
 
-* [ВМ не запускается после остановки](#not-starting-after-stop)
-
-* [ВМ не запускается после изменения типа диска](#not-starting-after-disk-change)
-
-* [ВМ не запускается после изменения размера диска](#not-starting-after-disk-resize)
-
-* [ВМ не запускается после изменения количества vCPU](#not-starting-after-cpu-change)
-
-* [ВМ не запускается после изменения объема vRAM](#not-starting-after-ram-change)
-
-* [ВМ не запускается после изменения метаданных](#not-starting-after-metadata-change)
-
-* [ВМ не запускается после изменения группы безопасности](#not-starting-after-security-group-change)
-
-* [ВМ не запускается после изменения сети](#not-starting-after-network-change)
+* [ВМ недоступна](#vm-unavailable)
 
 ## Общие вопросы {#general}
 
@@ -1468,23 +1454,9 @@ sudo systemctl start nvidia-persistenced
 
 * [Не удается подключиться по SSH к вновь созданной ВМ с несколькими сетевыми интерфейсами](#unable-to-connect-to-new-multi-interface-vm)
 
-* [ВМ не запускается после изменения конфигурации](#not-starting)
+* [Дополнительные сетевые интерфейсы не работают после добавления на существующую ВМ](#added-net-interfaces-down)
 
-* [ВМ не запускается после остановки](#not-starting-after-stop)
-
-* [ВМ не запускается после изменения типа диска](#not-starting-after-disk-change)
-
-* [ВМ не запускается после изменения размера диска](#not-starting-after-disk-resize)
-
-* [ВМ не запускается после изменения количества vCPU](#not-starting-after-cpu-change)
-
-* [ВМ не запускается после изменения объема vRAM](#not-starting-after-ram-change)
-
-* [ВМ не запускается после изменения метаданных](#not-starting-after-metadata-change)
-
-* [ВМ не запускается после изменения группы безопасности](#not-starting-after-security-group-change)
-
-* [ВМ не запускается после изменения сети](#not-starting-after-network-change)
+* [ВМ недоступна](#vm-unavailable)
 
 В этом разделе описаны типичные проблемы, которые могут возникнуть при работе Compute Cloud, и методы их решения.
 
@@ -1988,3 +1960,9 @@ sudo systemctl start nvidia-persistenced
     {% endlist %}
 
 1. Если ранее вам пришлось удалить дополнительные сетевые интерфейсы, вновь [добавьте](../operations/vm-control/attach-network-interface.md) их.
+
+#### ВМ недоступна {#vm-unavailable}
+
+Если ВМ недоступна, причиной может быть [троттлинг](../concepts/storage-read-write.md#throttling). При троттлинге дисковые операции откладываются, из-за чего может зависать SSH-сессия, а сервисы на ВМ не отвечать или отвечать очень медленно. Подробнее о диагностике и устранении проблемы в разделе [Устранение проблем с производительностью дискового и сетевого ввода-вывода на виртуальной машине](../../troubleshooting/compute/known-issues/throttling-and-vm-perfomance-issues.md).
+
+Если проблема не решена, обратитесь в [техническую поддержку](https://center.yandex.cloud/support).

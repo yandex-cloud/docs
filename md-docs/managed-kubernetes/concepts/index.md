@@ -74,12 +74,6 @@ _Мастер_ — компонент, который управляет кла�
 
 ### Вычислительные ресурсы мастера {#master-resources}
 
-{% note warning %}
-
-С 18 июня 2026 года тарификация мастеров изменилась — плата взимается за количество vCPU и объем RAM мастера, выбранные при [создании](../operations/kubernetes-cluster/kubernetes-cluster-create.md) или [изменении](../operations/kubernetes-cluster/kubernetes-cluster-update.md#manage-resources) кластера. Чтобы рассчитать необходимое количество ресурсов мастера для своего кластера, воспользуйтесь таблицей [Рекомендуемые конфигурации мастера](master-configuration.md).
-
-{% endnote %}
-
 _По умолчанию_ для работы одного хоста мастера предоставляются следующие ресурсы:
 * [платформа](../../compute/concepts/vm-platforms.md) — Intel Cascade Lake;
 * гарантированная доля vCPU — 100%;

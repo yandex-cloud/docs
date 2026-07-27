@@ -21,3 +21,4 @@
 - [Аутентификация от имени сервисного аккаунта](authentication/service-account.md)
 - [Аутентификация от имени федеративного пользователя](authentication/federated-user.md)
 - [Аутентификация от имени локального пользователя](authentication/local-user.md)
+- [Аутентификация на сервере без графического интерфейса](authentication/auth-without-gui.md)

@@ -115,7 +115,7 @@ When using `talosctl`, consider the following:
 
 For routine cluster operations, use `kubectl` and other standard Kubernetes tools.
 
-## sladm stopped due to temporary unavailability of the node {#rerun-sladm}
+## _sladm_ stopped due to temporary unavailability of the node {#rerun-sladm}
 
 If the `Node is not running+ready in configured state` message is logged, and then the installation terminates with an error, check the nodes for their current state:
 
@@ -131,7 +131,7 @@ If all nodes are `Ready`, repeat the installation command:
 
 Re-running is safe: `sladm` will re-check the state of nodes and components and continue the installation.
 
-## `Failed` jobs in storage left over from the previous attempt {#storage-failed-jobs}
+## `Failed` jobs in _storage_ left over from the previous attempt {#storage-failed-jobs}
 
 If `sladm` ended with the `Your Stackland cluster is ready` message, and `platformconfig` turned `Installed`, yet there are still old pods or jobs in the `Error` or `Failed` state in the `stackland-storage` namespace, check the jobs and operators for their current state:
 
@@ -145,7 +145,7 @@ kubectl get pod -n stackland-storage-mds2 -o wide
 
 If your re-run jobs end up `Complete`, and the _storage_ operators are in the `Running` state, the old `Failed` jobs belong to previous installation attempts. They do not block access to the management console but may remain in the output of diagnostic commands until you clear the job history.
 
-## The monitoring component stuck in the Updating state {#monitoring-updating}
+## The _monitoring_ component stuck in the _Updating_ state {#monitoring-updating}
 
 If `monitoring-main` is stuck in the `Updating` state for a long time, check the `stackland-monitoring` namespace pods:
 
@@ -191,7 +191,6 @@ After you address the cause of the error, re-run `sladm install` with the same `
 ```bash
 sladm install \
   --config config/ \
-  --dhcp-interface none \
   --installation-timeout 3h
 ```
 
@@ -209,8 +208,6 @@ sladm install \
   --installation-timeout 3h
 ```
 
-### sladm ignores the node's DHCP requests {#unknown-mac}
+### _sladm_ ignores the node's DHCP requests {#unknown-mac}
 
-If `sladm` ignores the node's DHCP requests, check the MAC address in the configuration. It must match the MAC address of the network interface used to boot the server via PXE.
-
-Specify the MAC address in lowercase with colons, e.g., `06:2a:b7:15:de:f1`.
+If the node's network bootloader does not receive an address, check the MAC address in the configuration. It must match the MAC address of the network interface used to boot the server via PXE. If the bootloader receives an address but makes no attempt to proceed with the boot, make sure there is no other DHCP server running on the network.

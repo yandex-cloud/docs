@@ -1,4 +1,8 @@
-* `drsr` — настройки протокола [DRSR](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-drsr/) для аутентификации на стороне {{ microsoft-idp.ad-short }} [пользователя](#dc-setup) с назначенными правами на выполнение репликации данных в каталоге.
+* `drsr` — настройки протокола [DRSR](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-drsr/) для аутентификации на стороне {{ microsoft-idp.ad-short }} [пользователя](#dc-setup) с назначенными правами на выполнение репликации данных в каталоге:
+
+    * `host` — домен или IP-адрес контроллера домена {{ microsoft-idp.ad-short }}.
+    * `username` — `sAMAccountName` пользователя домена {{ microsoft-idp.ad-short }}, которому [назначены](#dc-setup) права на выполнение репликации данных.
+    * `password` — пароль пользователя домена {{ microsoft-idp.ad-short }}.
 * `ldap` — настройки протокола [LDAPS](https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/enable-ldap-over-ssl-3rd-certification-authority)/[LDAP](https://learn.microsoft.com/en-us/windows/win32/api/_ldap/) для аутентификации на стороне {{ microsoft-idp.ad-short }}:
 
     {% note warning %}
@@ -11,9 +15,11 @@
 
         * при использовании `LDAPS` — схема `ldaps://` и порт `636`;
         * при использовании `LDAP` — схема `ldap://` и порт `389`.
-    * `username` — имя пользователя домена {{ microsoft-idp.ad-short }}, которому [назначены](#dc-setup) права на выполнение репликации данных.
+    * `username` — [DN](https://learn.microsoft.com/en-us/previous-versions/windows/desktop/ldap/distinguished-names) пользователя домена {{ microsoft-idp.ad-short }}, которому [назначены](#dc-setup) права на выполнение репликации данных.
     * `password` — пароль пользователя домена {{ microsoft-idp.ad-short }}.
-    * `certificate_path` — путь к файлу с сертификатом открытого ключа, необходимым для расшифрования трафика от контроллера домена. Обязательный параметр при использовании протокола `LDAPS`.
+    * `certificate_path` — путь к файлу с корневым сертификатом удостоверяющего центра (CA), которым подписан сертификат контроллера домена. Необязательный параметр.
+
+        Укажите этот параметр, если вы используете протокол `LDAPS` и корневой сертификат отсутствует в системном хранилище доверенных сертификатов.
 
         Если в параметре `working_directory` задан путь к рабочей директории, вместо пути к файлу сертификата достаточно указать имя этого файла.
     * `insecure_skip_verify` — параметр, позволяющий игнорировать ошибки валидации сертификата открытого ключа при подключении к контроллеру домена. Необязательный параметр. Возможные значения:

@@ -232,3 +232,9 @@
     {% endlist %}
 
 1. Если ранее вам пришлось удалить дополнительные сетевые интерфейсы, вновь [добавьте](../../compute/operations/vm-control/attach-network-interface.md) их.
+
+#### ВМ недоступна {#vm-unavailable}
+
+Если ВМ недоступна, причиной может быть [троттлинг](../../compute/concepts/storage-read-write.md#throttling). При троттлинге дисковые операции откладываются, из-за чего может зависать SSH-сессия, а сервисы на ВМ не отвечать или отвечать очень медленно. Подробнее о диагностике и устранении проблемы в разделе [{#T}](../../troubleshooting/compute/known-issues/throttling-and-vm-perfomance-issues.md).
+
+Если проблема не решена, обратитесь в [техническую поддержку]({{ link-console-support }}).

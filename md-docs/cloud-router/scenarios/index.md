@@ -17,7 +17,7 @@
 
 - [On-Prem без резервирования и 1 VPC](ri-1_prc-1noha_vpc-1.md)
 - [On-Prem без резервирования и несколько VPC](ri-1_prc-1noha_vpc-few.md)
-- [Два отдельных RI без резервирования On-Prem](ri-2_prc-1noha_vpc-1.md)
+- [Два отдельных виртуальных маршрутизатора без резервирования On-Prem](ri-2_prc-1noha_vpc-1.md)
 
 ## Сценарии VPC Stitching {#cr-vpcs}
 - [Организация сетевой связности между двумя и более облачными сетями (VPC Stitching)](vpc-st-with-two-vpc.md)

@@ -66,8 +66,6 @@ _Мастер_ — компонент, который управляет кла�
 
 ### Вычислительные ресурсы мастера {#master-resources}
 
-{% include [master-pricing-note](../../_includes/managed-kubernetes/master-pricing-note.md) %}
-
 {% include [master-default-config](../../_includes/managed-kubernetes/master-default-config.md) %}
 
 При [создании](../operations/kubernetes-cluster/kubernetes-cluster-create.md) и [изменении](../operations/kubernetes-cluster/kubernetes-cluster-update.md#manage-resources) кластера вы можете выбрать конфигурацию мастера, подходящую под ваши задачи.

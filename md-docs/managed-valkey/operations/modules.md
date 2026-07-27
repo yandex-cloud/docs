@@ -18,8 +18,8 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог с нужным кластером.
-    1. Перейдите в сервис **Yandex Managed Service for&nbsp;Valkey™**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог с нужным кластером.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-valkey) в сервис **Yandex Managed Service for&nbsp;Valkey™**.
     1. Выберите нужный кластер.
     1. В верхней части страницы нажмите кнопку **Редактировать**.
     1. В блоке **Модули** подключите необходимые модули Valkey™.
@@ -55,8 +55,10 @@
      ```
 
      Где:
+     
      * `--cluster-name` — имя кластера Yandex Managed Service for Valkey™. Его можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
      * `--valkey-modules` — параметры [модулей Valkey™](../concepts/modules.md):
+        
         * `enable-valkey-search` — подключить модуль `Valkey-Search`: `true` или `false`.
         * `valkey-search-reader-threads` — количество потоков обработки запросов в модуле `Valkey-Search`.
         * `valkey-search-writer-threads` — количество потоков индексации в модуле `Valkey-Search`.
@@ -209,8 +211,10 @@
         * `configSpec.modules` — параметры модулей Valkey™:
 
             * `valkeySearch.enabled` — подключить модуль `Valkey-Search`: `true` или `false`. Для модуля доступна настройка параметров:
+                
                 * `valkeySearch.readerThreads` — количество потоков обработки запросов.
                 * `valkeySearch.writerThreads` — количество потоков индексации.
+            
             * `valkeyJson.enabled` — подключить модуль `Valkey-JSON`: `true` или `false`.
             * `valkeyBloom.enabled` — подключить модуль `Valkey-Bloom`: `true` или `false`.
 
@@ -302,8 +306,10 @@
         * `config_spec.modules` — параметры модулей Valkey™:
 
             * `valkey_search.enabled` — подключить модуль `Valkey-Search`: `true` или `false`. Для модуля доступна настройка параметров:
+                
                 * `valkey_search.reader_threads` — количество потоков обработки запросов.
                 * `valkey_search.writer_threads` — количество потоков индексации.
+            
             * `valkey_json.enabled` — подключить модуль `Valkey-JSON`: `true` или `false`.
             * `valkey_bloom.enabled` — подключить модуль `Valkey-Bloom`: `true` или `false`.
 
@@ -319,8 +325,8 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог с нужным кластером.
-    1. Перейдите в сервис **Yandex Managed Service for&nbsp;Valkey™**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог с нужным кластером.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-valkey) в сервис **Yandex Managed Service for&nbsp;Valkey™**.
     1. Выберите нужный кластер.
     1. В верхней части страницы нажмите кнопку **Редактировать**.
     1. В блоке **Модули** измените необходимые настройки модулей Valkey™.
@@ -356,8 +362,10 @@
      ```
 
      Где:
+     
      * `--cluster-name` — имя кластера Yandex Managed Service for Valkey™. Его можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
      * `--valkey-modules` — параметры [модулей Valkey™](../concepts/modules.md):
+        
         * `valkey-search-reader-threads` — количество потоков обработки запросов в модуле `Valkey-Search`.
         * `valkey-search-writer-threads` — количество потоков индексации в модуле `Valkey-Search`.
 

@@ -3,7 +3,6 @@
 # This is a template - please update with your actual values
 
 userpool_id: "<идентификатор_пула_пользователей>"
-replication_tokens_path: "<путь_к_директории_с_токенами_процессов>"
 working_directory: "<путь_к_рабочей_директории_агента>"
 
 # {{ yandex-cloud }} authentication settings
@@ -30,15 +29,15 @@ dry_run:
 # Active Directory replication API client settings
 drsr:
   host: "<адрес_контроллера_домена>"
-  username: "username"
+  username: "<sAMAccountName_пользователя_Active_Directory>"
   password: "password"
 
 # LDAP client settings
 ldap:
   host: "ldaps://<адрес_контроллера_домена>:636"
-  username: "<имя_пользователя_Active_Directory>"
+  username: "<DN_пользователя_Active_Directory>"
   password: "<пароль_пользователя_Active_Directory>"
-  certificate_path: "<путь_к_сертификату>"
+  certificate_path: "<путь_к_CA_сертификату>"
   insecure_skip_verify: false|true
 
 # Logger configuration

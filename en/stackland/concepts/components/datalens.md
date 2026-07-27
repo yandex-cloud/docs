@@ -52,7 +52,7 @@ To add a user:
 To use {{ datalens-name }}, you also need the following components:
 
 * [{{ mpg-name }}](postgresql.md): To store {{ datalens-name }} data.
-* [{{ iam-name }}](iam.md): For user authentication and authorization.
+* [{{ iam-name }}](iam.md): User authentication and authorization.
 
 ## Configuration {#configuration}
 

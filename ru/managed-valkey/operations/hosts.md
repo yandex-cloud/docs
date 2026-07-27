@@ -8,7 +8,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. [Перейдите]({{ link-console-main }}/link/managed-valkey) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
 
 - CLI {#cli}
@@ -105,10 +105,12 @@
 - Консоль управления {#console}
 
   Чтобы создать хост:
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+  
+  1. [Перейдите]({{ link-console-main }}/link/managed-valkey) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
   1. Укажите параметры хоста:
+     
      * Зону доступности.
 
      
@@ -175,8 +177,10 @@
 
 
      Где:
+     
      * `--cluster-name` — имя кластера {{ mrd-name }}. Его можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
      * `--host` — параметры хоста:
+       
        * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
        * `subnet-id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet). Необходимо указывать, если в выбранной зоне доступности создано две или больше подсетей.
        * `assign-public-ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
@@ -186,6 +190,7 @@
 - {{ TF }} {#tf}
 
   Чтобы создать хост:
+  
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
      Как создать такой файл, описано в разделе [Создание кластера](cluster-create.md).
@@ -264,7 +269,8 @@
 - Консоль управления {#console}
 
   Чтобы изменить параметры хоста в кластере:
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  
+  1. [Перейдите]({{ link-console-main }}/link/managed-valkey) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста и выберите пункт **{{ ui-key.yacloud.common.edit }}**.
 
@@ -301,6 +307,7 @@
 - {{ TF }} {#tf}
 
   Чтобы изменить параметры хоста в кластере:
+  
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
      Как создать такой файл, описано в разделе [Создание кластера](cluster-create.md).
@@ -461,7 +468,8 @@
 - Консоль управления {#console}
 
   Чтобы удалить хост из кластера:
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  
+  1. [Перейдите]({{ link-console-main }}/link/managed-valkey) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
   1. В строке с нужным хостом нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
   1. В открывшемся окне включите опцию **Я удаляю хост** и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.popup-confirm_button }}**.
@@ -484,9 +492,11 @@
 - {{ TF }} {#tf}
 
   Чтобы удалить хост из кластера:
+  
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
      Как создать такой файл, описано в разделе [Создание кластера](cluster-create.md).
+  
   1. Удалите из описания кластера {{ mrd-name }} нужный хост в блоке `hosts`.
   1. Проверьте корректность настроек.
 

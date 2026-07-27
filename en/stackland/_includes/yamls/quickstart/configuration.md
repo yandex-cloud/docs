@@ -1,10 +1,10 @@
 ```yaml
-# You can split the configuration into several files.
+# You can split the configuration into multiple files.
 # Below is an example with four documents (including secrets) in a single file.
 # This is done for clarity; in a real-life deployment, we recommend putting the documents into separate files.
 
 # Cluster configuration
-apiVersion: v1alpha1
+apiVersion: stackland.yandex.cloud/v1alpha1
 kind: StacklandClusterConfig
 metadata:
   name: main
@@ -58,7 +58,7 @@ spec:
 #      combined: {...}
 ---
 # Configuration of control plane hosts
-apiVersion: v1alpha1
+apiVersion: stackland.yandex.cloud/v1alpha1
 kind: StacklandHostsList
 metadata:
   name: control-plane
@@ -78,7 +78,7 @@ spec:
 #           dhcp: true                           # Assign address to the interface via DHCP. Prioritized higher than ip: above.
 ---
 #  Settings of the payload hosts
-apiVersion: v1alpha1
+apiVersion: stackland.yandex.cloud/v1alpha1
 kind: StacklandHostsList
 metadata:
   name: workers
@@ -100,10 +100,10 @@ spec:
 
       features:                                  # Overrides the typical value specified in `StacklandClusterConfig`.
         - gpu                                    # GPU support should be enabled on the host.
-        - nvlink                                 # You should enable NVLink support on the host NVLink
+        - nvlink                                 # NVLink support should be enabled on the host.
 ---
 # Secrets (managed via the `sladm secrets` command)
-apiVersion: v1alpha1
+apiVersion: stackland.yandex.cloud/v1alpha1
 kind: StacklandSecretsConfig
 metadata:
   name: main

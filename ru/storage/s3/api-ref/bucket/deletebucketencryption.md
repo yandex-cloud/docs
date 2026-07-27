@@ -12,9 +12,7 @@ DELETE /{bucket}?encryption HTTP/2
 
 ### Path параметры {#path-parameters}
 
-Параметр | Описание
------ | -----
-`bucket` | Имя бакета.
+{% include [path-parameters](../../../_includes_service/storage-path-parameters.md) %}
 
 ### Заголовки {#request-headers}
 
@@ -37,5 +35,3 @@ DELETE /{bucket}?encryption HTTP/2
 * [Прекращение шифрования бакета](../../../operations/buckets/encrypt.md#del)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}
-
-

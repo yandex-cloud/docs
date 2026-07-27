@@ -2,11 +2,11 @@
 
 # Пошаговые инструкции Cloud Router
 
-- [Получить информацию о Routing Instance](ri-get-info.md)
-- [Получить список операций Routing Instance](ri-operations.md)
-- [Создать Routing Instance](ri-create.md)
-- [Изменить параметры Routing Instance](ri-update.md)
-- [Управлять сетями и IP-префиксами в Routing Instance](ri-prefixes-upsert.md)
-- [Добавить приватное соединение в Routing Instance](ri-priv-con-add.md)
-- [Удалить приватное соединение из Routing Instance](ri-priv-con-del.md)
-- [Удалить Routing Instance](ri-delete.md)
+- [Получить информацию о виртуальном маршрутизаторе](ri-get-info.md)
+- [Получить список операций с виртуальным маршрутизатором](ri-operations.md)
+- [Создать виртуальный маршрутизатор](ri-create.md)
+- [Изменить параметры виртуального маршрутизатора](ri-update.md)
+- [Управлять сетями и IP-префиксами в виртуальном маршрутизаторе](ri-prefixes-upsert.md)
+- [Добавить приватное соединение в виртуальный маршрутизатор](ri-priv-con-add.md)
+- [Удалить приватное соединение из виртуального маршрутизатора](ri-priv-con-del.md)
+- [Удалить виртуальный маршрутизатор](ri-delete.md)

@@ -5,10 +5,6 @@ description: Сервис Lifecycles в {{ objstorage-name }} HTTP API (S3) уп
 
 # Все методы
 
-Метод | Описание
------ | -----
-[PutBucketLifecycleConfiguration](lifecycles/upload.md) | Загружает конфигурацию жизненного цикла объектов в {{ objstorage-name }}.
-[GetBucketLifecycleConfiguration](lifecycles/get.md) | Возвращает конфигурацию жизненного цикла объектов из {{ objstorage-name }}.
-[DeleteBucketLifecycle](lifecycles/delete.md) | Удаляет конфигурацию жизненного цикла объектов из {{ objstorage-name }}.
+{% include [lifecycles-methods-table](../../../_includes/storage/s3-api-ref/lifecycles-methods-table.md) %}
 
 {% include [the-s3-api-see-also-include](../../../_includes/storage/the-s3-api-see-also-include.md) %}

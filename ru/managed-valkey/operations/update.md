@@ -49,8 +49,8 @@ description: Из статьи вы узнаете, как изменить на
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог с нужным кластером.
+  1. [Перейдите]({{ link-console-main }}/link/managed-valkey) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Выберите нужный кластер.
   1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** задайте новые имя и описание кластера.
@@ -187,8 +187,8 @@ description: Из статьи вы узнаете, как изменить на
 
     Чтобы включить или выключить использование FQDN вместо IP-адресов:
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог с нужным кластером.
+    1. [Перейдите]({{ link-console-main }}/link/managed-valkey) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
     1. Выберите нужный кластер.
     1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** включите или выключите опцию **{{ ui-key.yacloud.redis.field_announce-hostnames }}**.
@@ -338,8 +338,8 @@ description: Из статьи вы узнаете, как изменить на
 
     Чтобы изменить режим персистентности:
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог с нужным кластером.
+    1. [Перейдите]({{ link-console-main }}/link/managed-valkey) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
     1. Выберите нужный кластер.
     1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** выберите режим персистентности.
@@ -490,12 +490,16 @@ description: Из статьи вы узнаете, как изменить на
 
 * Кластер из одного хоста будет недоступен несколько минут, соединения с БД будут прерваны.
 * В нешардированном кластере из нескольких хостов:
+   
    * Сменится мастер. Каждый хост по очереди будет остановлен и обновлен, остановленный хост будет недоступен несколько минут.
    * Подключение по [особому FQDN](./connect/fqdn.md#special-fqdns) не гарантирует стабильность соединения с БД: пользовательские сессии могут быть прерваны.
+
 * В шардированном кластере:
+   
    * В каждом шарде из нескольких хостов сменится мастер.
    * Хосты в каждом шарде по очереди будут остановлены и обновлены, остановленный хост-мастер шарда будет недоступен несколько минут.
    * Разрешение имени хоста-мастера может быть недоступно. Если включен публичный доступ к хосту, то подключение будет возможно только по IP-адресу хоста.
+
 * Кластер с хранилищем на локальных SSD-дисках может быть недоступен длительное время, если потребуется миграция данных на другой физический сервер.
 
 Рекомендуется изменять класс хостов только во время отсутствия рабочей нагрузки на кластер.
@@ -504,16 +508,18 @@ description: Из статьи вы узнаете, как изменить на
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог с нужным кластером.
+  1. [Перейдите]({{ link-console-main }}/link/managed-valkey) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Выберите нужный кластер.
   1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}**:
      
 	 * В поле **{{ ui-key.yacloud.mdb.forms.resource_presets_field-generation }}** выберите платформу.
      * Выберите **{{ ui-key.yacloud.mdb.forms.resource_presets_field-type }}** виртуальной машины, на которой разворачиваются хосты:
+        
         * `high-memory` — с увеличенным объемом RAM на 1 vCPU;
         * `burstable` — с неполной гарантированной долей vCPU. ВМ с гарантированной долей меньше 100% обеспечивают указанный уровень производительности с вероятностью временного повышения вплоть до 100%. Кластеры с такими хостами подходят для задач, которые не требуют постоянной гарантии производительности (например, тестирование).
+     
      * Измените конфигурацию хостов.
 	 
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -692,8 +698,8 @@ description: Из статьи вы узнаете, как изменить на
 
   Чтобы изменить тип диска и увеличить размер хранилища для кластера:
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог с нужным кластером.
+  1. [Перейдите]({{ link-console-main }}/link/managed-valkey) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Выберите нужный кластер.
   1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
 
@@ -872,7 +878,7 @@ description: Из статьи вы узнаете, как изменить на
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. [Перейдите]({{ link-console-main }}/link/managed-valkey) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
 
   1. В строке с нужным кластером нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg), затем выберите **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
 
@@ -1039,8 +1045,8 @@ description: Из статьи вы узнаете, как изменить на
 
   Чтобы изменить [настройки СУБД](../concepts/settings-list.md) для кластера:
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог с нужным кластером.
+  1. [Перейдите]({{ link-console-main }}/link/managed-valkey) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Выберите нужный кластер.
   1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. В разделе **{{ ui-key.yacloud.mdb.forms.section_settings }}** нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
@@ -1191,8 +1197,8 @@ description: Из статьи вы узнаете, как изменить на
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог с нужным кластером.
+  1. [Перейдите]({{ link-console-main }}/link/managed-valkey) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Выберите нужный кластер.
   1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Измените дополнительные настройки кластера:
@@ -1459,8 +1465,8 @@ description: Из статьи вы узнаете, как изменить на
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог с нужным кластером.
+    1. [Перейдите]({{ link-console-main }}/link/managed-valkey) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
     1. Выберите нужный кластер.
     1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** включите опцию **{{ ui-key.yacloud.mdb.forms.field_cluster-mode }}**.
@@ -1584,7 +1590,7 @@ description: Из статьи вы узнаете, как изменить на
 
 - Консоль управления {#console}
 
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+    1. [Перейдите]({{ link-console-main }}/link/managed-valkey) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
     1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) справа в строке кластера, который вы хотите переместить.
     1. Выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-move }}**.
     1. Выберите каталог, в который вы хотите переместить кластер.
@@ -1705,8 +1711,8 @@ description: Из статьи вы узнаете, как изменить на
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог с нужным кластером.
+    1. [Перейдите]({{ link-console-main }}/link/managed-valkey) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
     1. Выберите нужный кластер.
     1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите группы безопасности для сетевого трафика кластера.

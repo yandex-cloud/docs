@@ -77,6 +77,7 @@ default:
   pgadmin: pgAdmin 4
   prometheus-name: Prometheus
   RD: Redis
+  rest-catalog-name: Iceberg REST Catalog
   RMQ: RabbitMQ
   speechkit-slug: speechkit
   speechsense-full-name: Yandex SpeechSense
@@ -92,5 +93,7 @@ default:
   VLK: Valkey™
   ya-360: Yandex 360 for Business
   yandex-cloud: Yandex Cloud
+  YT: YTsaurus
+  yt-name: YTsaurus
   YZ: Yezzey
   ZK: ZooKeeper

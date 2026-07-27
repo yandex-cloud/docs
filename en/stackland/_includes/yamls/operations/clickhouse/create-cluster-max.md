@@ -18,7 +18,7 @@ metadata:
 spec:
   clickhouse:
     version: "25.3"
-    service: ClusterIP # Service type for the entire cluster (None, ClusterIP, or LoadBalancer)
+    service: ClusterIP # Service type for the whole cluster (`None`, `ClusterIP`, or `LoadBalancer`)
     shards:
       - id: "shard-1"
         weight: 1
@@ -53,6 +53,12 @@ spec:
     storage:
 #      storageClass: "your-storage-class"
       size: 2Gi
+    autoScaling:
+      enabled: false # enabling autoscaling
+      maxSize: 300Gi # maximum storage size
+      standardIncreasePercent: 20 # storage expansion percentage
+      resizeTriggerPercent: 80 # usage percentage threshold that triggers storage expansion
+    readOnlyTriggerPercent: 95 # disk usage percentage to switch to read-only mode (the default value is 95)
     resources:
       requests:
         cpu: "500m"
@@ -66,7 +72,7 @@ spec:
   keeper:
     instances: 3
     storage:
-#      storageClass: "your-storage-classs"
+#      storageClass: "your-storage-class"
       size: 1Gi
     resources:
       requests:

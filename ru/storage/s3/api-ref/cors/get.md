@@ -12,17 +12,11 @@ GET /{bucket}?cors HTTP/2
 
 ### Path параметры {#path-parameters}
 
-Параметр | Описание
------ | -----
-`bucket` | Имя бакета.
-
+{% include [path-parameters](../../../_includes_service/storage-path-parameters.md) %}
 
 ### Query параметры {#request-params}
 
-Параметр | Описание
------ | -----
-`cors` | Обязательный параметр для обозначения типа операции.
-
+{% include [query-parameters](../../../_includes_service/storage-cors-query-parameters.md) %}
 
 ### Заголовки {#request-headers}
 

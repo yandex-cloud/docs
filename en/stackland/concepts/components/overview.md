@@ -80,7 +80,19 @@ While {{ stackland-name }} provides ready-to-use dashboards and alerts, you can 
 
 [{{ mch-name }}](clickhouse.md) is a columnar analytical DBMS. It simplifies {{ CH }} cluster deployment and management as well as ensures monitoring and scaling.
 
-## Modules {#modules} 
+### {{ rest-catalog-name }} {#rest-catalog}
+
+[{{ rest-catalog-name }}](rest-catalog.md) is a metadata catalog for Apache Iceberg tables based on the Iceberg REST Catalog protocol. This component allows you to create catalogs and users with OAuth2 access through custom resources, such as `RestCatalog` and `RestCatalogPrincipal`.
+
+### {{ mtr-name }} {#trino}
+
+[{{ mtr-name }}](trino.md) is a distributed SQL engine for analytical queries to various data sources. This component makes it easier to deploy {{ TR }} clusters, manage data source catalogs ({{ PG }}, {{ CH }}, or {{ IBRG }}), and configure access rules.
+
+### {{ yt-name }} {#ytsaurus}
+
+{{ yt-name }} is a distributed platform for big data storage and processing. This component deploys a single shared {{ YT }} cluster on the platform: MapReduce engine, dynamic tables, the YQL query engine, a web UI, and {{ iam-name }} integration. The list of subcomponents and resources is set via the `YTsaurusConfig` custom resource.
+
+## Modules {#modules}
 
 ### {{ datalens-name }} {#datalens}
 

@@ -44,7 +44,7 @@
 - Консоль управления {#console}
 
   1. Убедитесь, что сервис **DataLens** [активирован](#activate-datalens) в нужном каталоге и доступ к кластеру из него [разрешен](#allow-access).
-  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
   1. Нажмите на имя нужного кластера и выберите вкладку **DataLens**.
   1. Нажмите кнопку **Создать подключение**.
 
@@ -78,7 +78,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
   1. Нажмите на имя нужного кластера и выберите вкладку **DataLens**.
 
      {% cut "Моего подключения нет в списке" %}
@@ -96,7 +96,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
   1. Нажмите на имя нужного кластера и выберите вкладку **DataLens**.
   1. Выберите подключение из списка.
 
@@ -119,7 +119,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
   1. Нажмите на имя нужного кластера и выберите вкладку **DataLens**.
   1. Выберите подключение из списка.
 

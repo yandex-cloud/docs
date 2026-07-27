@@ -1,6 +1,6 @@
 ---
 title: '{{ baremetal-name }} use cases'
-description: Different use cases for {{ baremetal-full-name }} in {{ yandex-cloud }}.
+description: Various use cases for {{ baremetal-full-name }} in {{ yandex-cloud }}.
 ---
 
 # {{ baremetal-name }} tutorials
@@ -8,6 +8,7 @@ description: Different use cases for {{ baremetal-full-name }} in {{ yandex-clou
 * [{#T}](./backup-baremetal.md)
 * [{#T}](./bms-vrf-routing.md)
 * [{#T}](./bms-simple-subnet.md)
+* [{#T}](./bms-public-subnet.md)
 * [{#T}](./bm-vrf-and-vpc-interconnect.md)
 * [{#T}](./usb-over-ip.md)
 * [{#T}](./opnsense-failover-cluster.md)

@@ -116,3 +116,8 @@ This is it: the cluster has appeared in the **{{ PG }} Clusters** list. To copy 
     For your first connection, you can use `postgres` both as the database name and superuser name.
 
     {% endnote %}
+
+## What's next {#whats-next}
+
+* [Creating a PostgreSQL user](create-user.md)
+* [Creating a PostgreSQL database](create-database.md)

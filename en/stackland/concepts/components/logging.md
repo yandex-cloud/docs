@@ -52,7 +52,6 @@ logStorage:
     limitsConfig:
       maxLabelNamesPerSeries: 20
     compactor:
-      retentionEnabled: true
       retentionDeleteDelay: 24h
 ```
 
@@ -81,7 +80,6 @@ logSender:
       cpu: 100m
   fluentBit:
     logLevel: info
-    tenantId: prod-team
     defaultOutput: true
 ```
 
@@ -89,4 +87,4 @@ logSender:
 * `flushInterval`: Sets the interval in seconds at which Fluent Bit sends collected logs to the storage backend (e.g., Loki).
 * `bufferSize`: Defines the maximum memory volume allocated to Fluent Bit for buffering logs before sending them.
 * `resources`: Limits resources (CPU and memory) for the pod.
-* `fluentBit`: Defines advanced configuration options for Fluent Bit.
+* `fluentBit`: Defines advanced configuration options for Fluent Bit. By default, Loki receives only the Kubernetes API audit logs and `stackland-*` namespace logs.

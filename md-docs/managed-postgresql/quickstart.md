@@ -67,7 +67,7 @@
 ## Создайте кластер {#cluster-create}
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать кластер БД.
-1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
 1. Нажмите кнопку **Создать кластер**.
 1. В поле **Имя кластера** введите имя кластера.
 1. Выберите окружение `PRODUCTION`.

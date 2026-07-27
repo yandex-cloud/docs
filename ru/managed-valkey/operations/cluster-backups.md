@@ -28,8 +28,8 @@ description: Вы можете создавать резервные копии 
 
   Чтобы восстановить из резервной копии существующий кластер:
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором нужно восстановить кластер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно восстановить кластер.
+  1. [Перейдите]({{ link-console-main }}/link/managed-valkey) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.redis.switch_backups }}**.
   1. В строке нужной резервной копии нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
   1. Задайте настройки нового кластера. В списке **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** можно выбрать каталог для нового кластера.
@@ -37,8 +37,8 @@ description: Вы можете создавать резервные копии 
 
   Чтобы восстановить из резервной копии удаленный ранее кластер:
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором нужно восстановить кластер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно восстановить кластер.
+  1. [Перейдите]({{ link-console-main }}/link/managed-valkey) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.redis.switch_backups }}**.
   1. Найдите нужную резервную копию по времени создания и идентификатору кластера. В колонке **{{ ui-key.yacloud.common.id }}** содержатся идентификаторы в формате `<идентификатор_кластера>:<идентификатор_резервной_копии>`.
   1. В строке нужной резервной копии нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
@@ -149,7 +149,7 @@ description: Вы можете создавать резервные копии 
         * `configSpec.redis.password` — пароль пользователя.
         * `hostSpecs` — параметры хоста:
 
-             * `zoneId` — [зона доступности](../../overview/concepts/geo-scope.md).
+            * `zoneId` — [зона доступности](../../overview/concepts/geo-scope.md).
             * `subnetId` — [идентификатор подсети](../../vpc/concepts/network.md#subnet). Необходимо указывать, если в выбранной зоне доступности создано две или больше подсетей.
             * `replicaPriority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover).
             * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`. Включить публичный доступ можно, только если для параметра `tlsEnabled` указано значение `true`.
@@ -218,7 +218,7 @@ description: Вы можете создавать резервные копии 
         * `config_spec.redis.password` — пароль пользователя.
         * `host_specs` — параметры хоста:
 
-             * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md).
+            * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md).
             * `subnet_id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet). Необходимо указывать, если в выбранной зоне доступности создано две или больше подсетей.
             * `replica_priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover).
             * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`. Включить публичный доступ можно, только если для параметра `tlsEnabled` указано значение `true`.
@@ -243,8 +243,8 @@ description: Вы можете создавать резервные копии 
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где нужно создать резервную копию.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, где нужно создать резервную копию.
+  1. [Перейдите]({{ link-console-main }}/link/managed-valkey) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.redis.switch_backups }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
@@ -330,13 +330,15 @@ description: Вы можете создавать резервные копии 
 - Консоль управления {#console}
 
   Чтобы получить список резервных копий кластера:
-  1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  
+  1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
+  1. [Перейдите]({{ link-console-main }}/link/managed-valkey) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.redis.switch_backups }}**.
 
   Чтобы получить список всех резервных копий в каталоге:
-  1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  
+  1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
+  1. [Перейдите]({{ link-console-main }}/link/managed-valkey) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.redis.switch_backups }}**.
 
 - CLI {#cli}
@@ -464,13 +466,15 @@ description: Вы можете создавать резервные копии 
 - Консоль управления {#console}
 
   Чтобы получить информацию о резервной копии существующего кластера:
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с кластером, информацию о копии которого нужно получить.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог с кластером, информацию о копии которого нужно получить.
+  1. [Перейдите]({{ link-console-main }}/link/managed-valkey) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.redis.switch_backups }}**.
 
   Чтобы получить информацию о резервной копии удаленного ранее кластера:
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором располагался удаленный кластер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором располагался удаленный кластер.
+  1. [Перейдите]({{ link-console-main }}/link/managed-valkey) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.redis.switch_backups }}**.
 
 - CLI {#cli}

@@ -3,14 +3,14 @@ grpcurl \
   -rpc-header "Authorization: Bearer <IAM_token>" \
   -rpc-header 'Content-Type: application/json' \
   -d '{
-    "channel_id": "<channel_ID>"
+    "video_id": "<video_ID>"
   }' \
   video.{{ api-host }}:443 yandex.cloud.video.v1.ThumbnailService/Create
 ```
 
 Where:
 * `<IAM_token>`: IAM token you got before you started.
-* `<channel_ID>`: Previously saved channel ID.
+* `video_id`: ID of the video you want to add a thumbnail for.
 
 Result:
 
@@ -30,7 +30,8 @@ Result:
     "@type": "type.googleapis.com/yandex.cloud.video.v1.Thumbnail",
     "channelId": "vplcdyphvqik********",
     "createdAt": "2024-11-02T19:04:28.402787Z",
-    "id": "vpltleyrfnjh********"
+    "id": "vpltleyrfnjh********",
+    "videoId": "vplvh4wvqimx********"
   }
 }
 ```

@@ -14,17 +14,20 @@ GET /{bucket}?versioning HTTP/2
 
 ### Path параметры {#path-parameters}
 
-Параметр | Описание
------ | -----
-`bucket` | Имя бакета.
+#|
+|| **Параметр** | **Описание** ||
+|| `bucket` | Имя бакета ||
+|#
 
 ### Query параметры {#request-params}
 
-Параметр | Описание
------ | -----
-`versioning` | Обязательный параметр для обозначения типа операции.
+#|
+|| **Параметр** | **Описание** ||
+|| `versioning` | Обязательный параметр для обозначения типа операции ||
+|#
 
 ### Заголовки {#request-headers}
+
 Используйте в запросе [общие заголовки](../common-request-headers.md).
 
 ## Ответ {#response}
@@ -47,10 +50,15 @@ GET /{bucket}?versioning HTTP/2
 </VersioningConfiguration>
 ```
 
-Элемент | Описание
------ | -----
-`VersioningConfiguration` | Корневой элемент.
-`Status` | Состояние опции версионирования бакета.<br/><br/>Путь:`/VersioningConfiguration/Status`<br/>Тип: Строка<br/>Возможные значения: `Enabled | Suspended`
+#|
+|| **Элемент** | **Описание** ||
+|| `VersioningConfiguration` | Корневой элемент. ||
+|| `Status` | Состояние опции версионирования бакета.
+
+Путь:`/VersioningConfiguration/Status`.
+Тип: String.
+Возможные значения: `Enabled` \| `Suspended`. ||
+|#
 
 #### Связанные статьи {#related-articles}
 

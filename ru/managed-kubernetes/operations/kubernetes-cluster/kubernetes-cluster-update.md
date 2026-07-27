@@ -275,8 +275,6 @@ description: Следуя данной инструкции, вы сможете
 
 ## Изменить конфигурацию ресурсов мастера {#manage-resources}
 
-{% include [master-pricing-note](../../../_includes/managed-kubernetes/master-pricing-note.md) %}
-
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

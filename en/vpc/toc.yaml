@@ -17,8 +17,6 @@ items:
             href: operations/network-update.md
           - name: Getting cloud network info
             href: operations/network-get-info.md
-          - name: Viewing a cloud network map
-            href: operations/network-map.md
           - name: Moving a cloud network between folders
             href: operations/network-move.md
       - name: Subnet
