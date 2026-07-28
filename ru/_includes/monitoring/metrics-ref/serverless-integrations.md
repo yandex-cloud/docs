@@ -83,4 +83,4 @@ type | Тип приемника.
 `serverless_eventrouter_target_execution_time_milliseconds`<br>`DGAUGE`, миллисекунды | Время обработки сообщения.
 `serverless_eventrouter_target_inflight`<br>`DGAUGE`, штуки | Количество приемников, занятых в данный момент.
 `serverless_eventrouter_target_retry_per_second`<br>`DGAUGE`, отправки/с | Частота повторных отправок сообщений в приемник.
-`serverless_eventrouter_target_throttled_per_second`<br>`DGAUGE`, сообщения/с | Частота возникновения сообщений, не обработанных из-за превышения [квоты или лимита](../../../serverless-integrations/concepts/limits.md#event-router).
+`serverless_eventrouter_target_throttled_per_second`<br>`DGAUGE`, сообщения/с | Частота возникновения сообщений, не обработанных из-за превышения [квоты или лимита](../../../serverless-integrations/concepts/limits.md#eventrouter).

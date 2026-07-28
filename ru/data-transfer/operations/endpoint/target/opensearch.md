@@ -112,7 +112,7 @@ description: Из статьи вы узнаете, как задать наст
 
 ## Решение проблем, возникающих при переносе данных {#troubleshooting}
 
-* [Прерывание трансфера с ошибкой](#ambiguous-resolution-es)
+* [Прерывание трансфера с ошибкой](#ambiguous-resolution-os)
 * [Дублирование документов на приемнике](#duplication)
 * [Превышение лимита максимального количества полей](#exceeding-fields-limit)
 * [Прерывание трансфера с ошибкой mapper_parsing_exception](#data-types)

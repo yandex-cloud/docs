@@ -14,7 +14,7 @@ _Метка_ — это пара ключ-значение в формате `<�
 
 ## Примеры использования меток {#examples}
 
-* [Просмотр детализации использования сервисов по меткам](../../billing/operations/check-charges.md#labels_1).
+* [Просмотр детализации использования сервисов по меткам](../../billing/operations/check-charges.md#labels).
 
     Например, можно [посмотреть детализацию расходов {{ ml-platform-name }}](../../datasphere/operations/community/billing-details.md).
 

@@ -544,7 +544,7 @@ description: Из статьи вы узнаете, как изменить на
 
       * `configSpec.mysqlConfig_<версия_{{ MY }}>` — набор настроек {{ MY }}. Укажите каждую настройку на отдельной строке через запятую.
 
-          Список версий {{ MY }}, доступных для параметра, приведен в [описании метода](../api-ref/Cluster/update.md#yandex.cloud.mdb.mysql.v1.UpdateClusterReques). Описание и возможные значения настроек приведены в разделе [{#T}](../concepts/settings-list.md#dbms-cluster-settings).
+          Список версий {{ MY }}, доступных для параметра, приведен в [описании метода](../api-ref/Cluster/update.md#yandex.cloud.mdb.mysql.v1.UpdateClusterRequest). Описание и возможные значения настроек приведены в разделе [{#T}](../concepts/settings-list.md#dbms-cluster-settings).
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 

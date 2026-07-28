@@ -45,7 +45,7 @@
     
     1. Если вы используете группы безопасности в кластерах, настройте их так, чтобы к кластерам можно было подключаться из интернета:
 
-        * [{{ mmy-name }}](../../managed-mysql/operations/connect/index.md#configuring-security-groups).
+        * [{{ mmy-name }}](../../managed-mysql/operations/connect/index.md#configure-security-groups).
         * [{{ mch-name }}](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
 
 

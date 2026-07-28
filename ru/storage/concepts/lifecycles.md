@@ -18,7 +18,7 @@
 
 * Удаление объектов или их неактивных версий.
 * Удаление незавершенных составных загрузок.
-* Удаление [неактивных маркеров удаления](*noncurrent-delete-markers) (только с помощью [{{ yandex-cloud }} CLI](../../storage/operations/buckets/lifecycles.md#cli_1), [{{ yandex-cloud }} REST](../../storage/api-ref/Bucket/update.md#yandex.cloud.storage.v1.LifecycleRule.NoncurrentDeleteMarkers) и [{{ yandex-cloud }} gRPC](../../storage/api-ref/grpc/Bucket/update.md#yandex.cloud.storage.v1.LifecycleRule.NoncurrentDeleteMarkers)).
+* Удаление [неактивных маркеров удаления](*noncurrent-delete-markers) (только с помощью [{{ yandex-cloud }} CLI](../../storage/operations/buckets/lifecycles.md#cli), [{{ yandex-cloud }} REST](../../storage/api-ref/Bucket/update.md#yandex.cloud.storage.v1.LifecycleRule.NoncurrentDeleteMarkers) и [{{ yandex-cloud }} gRPC](../../storage/api-ref/grpc/Bucket/update.md#yandex.cloud.storage.v1.LifecycleRule.NoncurrentDeleteMarkers)).
 
 
 {% note tip %}

@@ -16,7 +16,7 @@ _Attachment_ — это механизм, при котором инфрастр
 
 При использовании Attachment настройка групп бэкендов и целевых групп выполняется одинаково. На примере целевой группы настройка выглядит следующим образом:
 
-1. [Создайте целевую группу](../../application-load-balancer/operations/target-group-create.md#tf_1) с помощью {{ TF }}.
+1. [Создайте целевую группу](../../application-load-balancer/operations/target-group-create.md#tf) с помощью {{ TF }}.
     
     В описании ресурса добавьте блок `lifecycle` с параметром `ignore_changes = all`, чтобы {{ TF }} не перезаписывал изменения, внесенные Gwin.
 

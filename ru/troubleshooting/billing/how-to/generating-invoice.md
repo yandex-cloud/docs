@@ -13,7 +13,7 @@
 
 {% note info %}
 
-Для формирования счетов на оплату необходимо назначить вашей учетной записи в IAM роли `billing.accounts.editor` или `billing.accounts.admin`. Как это сделать, пишем [в документации](../../../billing/security/index.md#role-list).
+Для формирования счетов на оплату необходимо назначить вашей учетной записи в IAM роли `billing.accounts.editor` или `billing.accounts.admin`. Как это сделать, пишем [в документации](../../../billing/security/index.md#roles-list).
 
 {% endnote %}
 

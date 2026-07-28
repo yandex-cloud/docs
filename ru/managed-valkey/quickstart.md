@@ -29,7 +29,7 @@ description: В этой инструкции вы научитесь созда
 
     {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
-1. [Создайте виртуальную машину Linux](../compute/operations/vm-create/create-linux-vm.md#console_1).
+1. [Создайте виртуальную машину Linux](../compute/operations/vm-create/create-linux-vm.md#console).
 
     Укажите следующие параметры:
 
@@ -43,7 +43,7 @@ description: В этой инструкции вы научитесь созда
 
 1. [Создайте группу безопасности](../vpc/operations/security-group-create.md) в той же сети, в которой находится виртуальная машина. Эта группа безопасности будет назначена кластеру {{ VLK }} при его создании.
 
-    Добавьте в группу [правило](./operations/connect/index.md#configuring-security-groups), разрешающее подключение к [нешардированному кластеру](./concepts/sharding.md) {{ VLK }}. Настройте правило так, чтобы был разрешен входящий трафик из группы безопасности по умолчанию, назначенной виртуальной машине.
+    Добавьте в группу [правило](./operations/connect/index.md#configure-security-groups), разрешающее подключение к [нешардированному кластеру](./concepts/sharding.md) {{ VLK }}. Настройте правило так, чтобы был разрешен входящий трафик из группы безопасности по умолчанию, назначенной виртуальной машине.
 
 
 ## Создайте кластер {#cluster-create}

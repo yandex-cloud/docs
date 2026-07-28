@@ -232,7 +232,7 @@
 
     1. [Получите SSL-сертификат](../../managed-kafka/operations/connect/index.md#get-ssl-cert) для подключения к кластеру {{ mkf-name }}.
     1. [Установите](../../managed-kafka/operations/connect/clients.md#bash-zsh) утилиту `kafkacat`.
-    1. [Запустите](../../managed-kafka/operations/connect/clients.md#with-ssl_1) команду получения сообщений из топика.
+    1. [Запустите](../../managed-kafka/operations/connect/clients.md#with-ssl-1) команду получения сообщений из топика.
 
 ## Удалите созданные ресурсы {#clear-out}
 

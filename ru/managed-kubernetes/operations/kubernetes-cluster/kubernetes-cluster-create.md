@@ -176,7 +176,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Чтобы включить отправку логов в [{{ cloud-logging-full-name }}](../../../logging/):
 
-     1. [Назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту для ресурсов роль [{{ roles-logging-writer }}](../../../logging/security/index.md#loggingwriter).
+     1. [Назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту для ресурсов роль [{{ roles-logging-writer }}](../../../logging/security/index.md#logging-writer).
      1. Передайте настройки отправки в команде создания кластера, в параметре `--master-logging`:
 
         ```bash
@@ -327,7 +327,7 @@ description: Следуя данной инструкции, вы сможете
 
      Чтобы включить отправку логов в [{{ cloud-logging-full-name }}](../../../logging/):
 
-     1. [Назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту для ресурсов роль [{{ roles-logging-writer }}](../../../logging/security/index.md#loggingwriter).
+     1. [Назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту для ресурсов роль [{{ roles-logging-writer }}](../../../logging/security/index.md#logging-writer).
      1. Добавьте к описанию кластера {{ managed-k8s-name }} блок `master_logging`:
 
         {% include [master-logging-tf.md](../../../_includes/managed-kubernetes/master-logging-tf.md) %}
@@ -381,7 +381,7 @@ description: Следуя данной инструкции, вы сможете
 
   Чтобы использовать для защиты секретов [ключ шифрования {{ kms-full-name }}](../../concepts/encryption.md), передайте его идентификатор в параметре `kmsProvider.keyId`.
 
-  Чтобы включить отправку логов в [{{ cloud-logging-full-name }}](../../../logging/), [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту для ресурсов роль [{{ roles-logging-writer }}](../../../logging/security/index.md#loggingwriter) и передайте настройки отправки в параметре `masterSpec.masterLogging`.
+  Чтобы включить отправку логов в [{{ cloud-logging-full-name }}](../../../logging/), [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту для ресурсов роль [{{ roles-logging-writer }}](../../../logging/security/index.md#logging-writer) и передайте настройки отправки в параметре `masterSpec.masterLogging`.
 
   Чтобы добавить [облачную метку](../../concepts/index.md#cluster-labels), передайте ее имя и значение в параметре `labels`.
 

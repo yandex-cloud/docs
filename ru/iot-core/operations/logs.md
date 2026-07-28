@@ -25,7 +25,7 @@
   
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. [Получите](registry/registry-list.md##registry-list) список реестров в каталоге.
+  1. [Получите](registry/registry-list.md#registry-list) список реестров в каталоге.
 
   1. Посмотрите журнал подключений реестра:
   
@@ -71,7 +71,7 @@
   
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    1. [Получите](device/device-list.md##device-list) список устройств в реестре.
+    1. [Получите](device/device-list.md#device-list) список устройств в реестре.
 
     1. Посмотрите журнал подключений устройства:
 

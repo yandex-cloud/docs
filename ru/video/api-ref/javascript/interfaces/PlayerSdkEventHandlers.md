@@ -127,7 +127,7 @@
 
 ▸ (`arg`): `unknown`
 
-[Изменение статуса воспроизведения](../../../sdk/javascript/player-events.md#StatusChange).
+[Изменение статуса воспроизведения](../../../sdk/javascript/player-events.md#statuschange).
 
 *Parameters*
 
