@@ -18,6 +18,10 @@ description: Различные сценарии хранения и восст�
 * [Резервное копирование ВМ с помощью «Хайстекс Акура — Система резервного копирования»](../infrastructure-management/hystax-backup.md)
 * [Резервное копирование кластера {{ managed-k8s-name }} в {{ objstorage-full-name }}](kubernetes-backup.md)
 
+## Миграция данных {#migration}
+
+* [Миграция данных из Amazon S3 в {{ objstorage-full-name }} с помощью rclone](storage-migration-from-amazon-s3.md)
+
 ## Другие руководства {#other}
 
 * [Миграция в {{ yandex-cloud }} с помощью Хайстекс Акура](../infrastructure-management/hystax-migration.md)

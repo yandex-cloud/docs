@@ -349,6 +349,9 @@ items:
               Резервное копирование кластера {{ managed-k8s-name }} в {{
               objstorage-name }}
             href: archive/kubernetes-backup.md
+      - name: >-
+          Миграция данных из Amazon S3 в {{ objstorage-name }} с помощью rclone
+        href: archive/storage-migration-from-amazon-s3.md
       - name: Миграция в {{ yandex-cloud }} с помощью Хайстекс Акура
         href: infrastructure-management/hystax-migration.md
       - name: Защита от сбоев с помощью Хайстекс Акура
