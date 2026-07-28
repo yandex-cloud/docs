@@ -14,6 +14,7 @@ description: Следуя данной инструкции, вы сможете
 * [Создать версию на основе существующей](#create-version-based-on-other).
 * [Откатиться к определенной версии](#backup).
 * [Запланировать удаление версии](#set-deleting-time).
+* [Отменить запланированное удаление версии](#cancel-deleting).
 
 ## Создать новую версию пользовательского секрета {#create-version}
 
@@ -392,7 +393,44 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы запланировать удаление версии, воспользуйтесь методом REST API [scheduleVersionDestruction](../api-ref/Secret/addVersion.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/ScheduleVersionDestruction](../api-ref/grpc/Secret/scheduleVersionDestruction.md).
+  Чтобы запланировать удаление версии, воспользуйтесь методом REST API [scheduleVersionDestruction](../api-ref/Secret/scheduleVersionDestruction.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/ScheduleVersionDestruction](../api-ref/grpc/Secret/scheduleVersionDestruction.md).
+
+{% endlist %}
+
+## Отменить запланированное удаление версии {#cancel-deleting}
+
+Запланированное удаление можно отменить, пока версия еще не удалена.
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для отмены удаления версии:
+
+      ```bash
+      yc lockbox secret cancel-version-destruction --help
+      ```
+
+  1. Посмотрите список версий секрета и найдите ту, у которой указано время удаления:
+
+      ```bash
+      yc lockbox secret list-versions <имя_секрета>
+      ```
+
+  1. Отмените удаление, указав имя секрета и идентификатор версии:
+
+      ```bash
+      yc lockbox secret cancel-version-destruction <имя_секрета> \
+        --version-id <идентификатор_версии>
+      ```
+
+- API {#api}
+
+  Чтобы отменить запланированное удаление версии, воспользуйтесь методом REST API [cancelVersionDestruction](../api-ref/Secret/cancelVersionDestruction.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/CancelVersionDestruction](../api-ref/grpc/Secret/cancelVersionDestruction.md).
 
 {% endlist %}
 
