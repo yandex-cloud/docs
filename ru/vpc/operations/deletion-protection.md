@@ -11,7 +11,7 @@ description: Чтобы предотвратить случайное удале
 
 ## Включить защиту от удаления {#enable-deletion-protection}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
@@ -101,7 +101,7 @@ description: Чтобы предотвратить случайное удале
 
 ## Отключить защиту от удаления {#disable}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
 - Консоль управления {#console}
 

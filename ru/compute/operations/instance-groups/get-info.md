@@ -38,7 +38,7 @@
      {{ yc-compute-ig }} get --name first-instance-group
      ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
