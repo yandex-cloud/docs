@@ -510,7 +510,7 @@ keywords:
         curl \
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters'
+            --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters' \
             --data '@body.json'
         ```
 

@@ -17,8 +17,8 @@
   Чтобы отвязать публичный IP-адрес от ВМ, выполните команду CLI:
 
   ```bash
-  yc compute instance remove-one-to-one-nat
-    --id=<идентификатор_ВМ>
+  yc compute instance remove-one-to-one-nat \
+    --id=<идентификатор_ВМ> \
     --network-interface-index=<номер_сетевого_интерфейса_ВМ>
   ```
 

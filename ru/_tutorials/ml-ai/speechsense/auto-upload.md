@@ -529,7 +529,7 @@
     ```bash
     aws s3api put-object \
       --endpoint-url=https://{{ s3-storage-host }} \
-      --bucket <имя_бакета>
+      --bucket <имя_бакета> \
       --key <имя_папки>/
     ```
 

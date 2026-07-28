@@ -19,7 +19,7 @@ description: Следуя данной инструкции, вы сможете
       ```bash
       aws sqs create-queue \
         --queue-name <имя_очереди> \
-        --endpoint <эндпоинт>
+        --endpoint <эндпоинт> \
         --tags <метки>
       ```
 
@@ -52,7 +52,7 @@ description: Следуя данной инструкции, вы сможете
       ```bash
       aws sqs tag-queue \
         --queue-url <URL_очереди> \
-        --endpoint <эндпоинт>
+        --endpoint <эндпоинт> \
         --tags <метки>
       ```
 
@@ -75,7 +75,7 @@ description: Следуя данной инструкции, вы сможете
       ```bash
       aws sqs untag-queue \
         --queue-url <URL_очереди> \
-        --endpoint <эндпоинт>
+        --endpoint <эндпоинт> \
         --tag-keys <ключи меток>
       ```
 

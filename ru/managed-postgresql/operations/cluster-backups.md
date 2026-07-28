@@ -698,7 +698,7 @@ description: Вы можете создавать резервные копии 
      --resource-preset <класс_хоста> \
      --user name=<имя_пользователя>,password=<пароль_пользователя> \
      --database name=<имя_БД>,owner=<имя_владельца_БД> \
-     --disk-size <размер_хранилища_ГБ>
+     --disk-size <размер_хранилища_ГБ> \
      --backup-window-start 10:00:00
   ```
 

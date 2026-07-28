@@ -61,7 +61,7 @@
       --gateway-id <идентификатор_API-шлюза> \
       --gateway-websocket-broadcast-path <путь> \
       --gateway-websocket-broadcast-service-account-id <идентификатор_сервисного_аккаунта> \
-      --batch-size <размер_группы_сообщений>
+      --batch-size <размер_группы_сообщений> \
       --batch-cutoff <максимальное_время_ожидания>
     ```
 

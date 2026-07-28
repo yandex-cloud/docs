@@ -153,7 +153,7 @@ description: Следуя данной инструкции, вы настрои
 
      ```bash
      yc dns zone set-access-bindings my-disk-group \
-       --access-binding role=dns.editor,subject=userAccount:gfei8n54hmfh********
+       --access-binding role=dns.editor,subject=userAccount:gfei8n54hmfh******** \
        --access-binding role=dns.editor,subject=serviceAccount:ajel6l0jcb9s********
      ```
 

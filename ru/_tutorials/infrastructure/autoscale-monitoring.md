@@ -166,8 +166,8 @@
 
      ```bash
      yc vpc subnet create queue-autoscale-subnet-d \
-       --network-name queue-autoscale-network 
-       --range 192.168.1.0/24 
+       --network-name queue-autoscale-network \
+       --range 192.168.1.0/24 \
        --zone {{ region-id }}-d
      ```
      

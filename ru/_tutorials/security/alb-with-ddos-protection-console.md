@@ -530,7 +530,7 @@
 
      ```bash
      yc alb virtual-host create ddos-host \
-       --http-router-name ddos-router
+       --http-router-name ddos-router \
        --authority alb-with-ddos.com
      ```
 

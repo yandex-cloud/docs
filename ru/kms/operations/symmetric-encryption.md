@@ -139,7 +139,7 @@
   ```bash
   yc kms symmetric-crypto reencrypt \
     --id <идентификатор_ключа> \
-    --ciphertext-file ciphertext-file
+    --ciphertext-file ciphertext-file \
     --source-key-id <идентификатор_исходного_ключа> \
     --source-ciphertext-file source-ciphertext-file
   ```

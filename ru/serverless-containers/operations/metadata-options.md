@@ -24,7 +24,7 @@
     yc serverless container revision deploy \
       --container-id <идентификатор_контейнера> \
       --image <URL_Docker-образа> \
-      --service-account-id <идентификатор_сервисного_аккаунта>
+      --service-account-id <идентификатор_сервисного_аккаунта> \
       --metadata-options <опция>=<enabled_или_disabled>
     ```
 

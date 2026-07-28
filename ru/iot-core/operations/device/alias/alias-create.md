@@ -32,7 +32,7 @@
     Создайте алиас: 
     
     ```bash
-    yc iot device add-topic-aliases arenak5ciqss********
+    yc iot device add-topic-aliases arenak5ciqss******** \
       --topic-aliases commands='$devices/arenak5ciqss********/commands'
     ```
 
@@ -50,9 +50,9 @@
     Также вы можете добавить алиас при [создании устройства](../device-create.md). Для этого вместо уникального идентификатора в топике устройства указывается `{id}`, так как уникальный идентификатор еще неизвестен:
     
     ```bash
-    yc iot device create
-      --registry-name <имя_реестра>
-      --name <имя_устройства>
+    yc iot device create \
+      --registry-name <имя_реестра> \
+      --name <имя_устройства> \
       --topic-aliases <имя_алиаса>='$devices/{id}/<events,_state,_commands_или_config>'
     ```
 

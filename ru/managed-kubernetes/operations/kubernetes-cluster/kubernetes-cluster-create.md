@@ -73,7 +73,7 @@ description: Следуя данной инструкции, вы сможете
        --node-service-account-name <имя_сервисного_аккаунта_для_узлов> \
        --master-location zone=<зона_доступности>,subnet-id=<имя_подсети> \
        --master-scale-policy policy=auto,min-resource-preset-id=<класс_хостов_мастера> \
-       --daily-maintenance-window start=22:00,duration=10h
+       --daily-maintenance-window start=22:00,duration=10h \
        --labels <имя_облачной_метки=значение_облачной_метки>
 
      ```

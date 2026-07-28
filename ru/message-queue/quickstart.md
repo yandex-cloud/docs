@@ -143,7 +143,7 @@ description: В этой инструкции вы научитесь выпол
      ```bash
      aws sqs delete-message \
        --endpoint <эндпоинт> \
-       --queue-url <URL_очереди>
+       --queue-url <URL_очереди> \
        --receipt-handle <идентификатор_получения>
      ```
      Где:

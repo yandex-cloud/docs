@@ -41,9 +41,9 @@ description: Следуя данной инструкции, вы сможете
       ```bash
       yc serverless eventrouter connector create data-stream \
         --bus-id <идентификатор_шины> \
-        --database <путь_к_БД>
-        --stream-name <имя_потока>
-        --consumer <имя_потребителя>
+        --database <путь_к_БД> \
+        --stream-name <имя_потока> \
+        --consumer <имя_потребителя> \
         --service-account-id <идентификатор_сервисного_аккаунта> \
         --name <имя_коннектора> \
         --description "<описание_коннектора>" \
