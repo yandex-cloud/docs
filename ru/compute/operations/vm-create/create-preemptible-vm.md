@@ -29,7 +29,7 @@ description: Следуя данной инструкции, вы сможете
   1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться прерываемая ВМ.
   1. (Опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** настройте загрузочный [диск](../../concepts/disk.md):
 
-      * Выберите [тип диска](../../concepts/disk.md#disks_types).
+      * Выберите [тип диска](../../concepts/disk.md#disks-types).
       * Задайте нужный размер диска.
       * {% include [encryption-section-secondary](../../../_includes/compute/encryption-section-secondary.md) %}
 
@@ -175,7 +175,7 @@ description: Следуя данной инструкции, вы сможете
      Где:
      * `yandex_compute_disk` — описание загрузочного [диска](../../concepts/disk.md):
        * `name` — имя диска.
-       * `type` — [тип](../../concepts/disk.md#disks_types) создаваемого диска.
+       * `type` — [тип](../../concepts/disk.md#disks-types) создаваемого диска.
        * `zone` — [зона доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться диск.
        * `size` — размер диска в ГБ.
        * `image_id` — идентификатор [образа](../../concepts/image.md) для прерываемой ВМ. Вы можете получить идентификатор образа из [списка публичных образов](../images-with-pre-installed-software/get-list.md).

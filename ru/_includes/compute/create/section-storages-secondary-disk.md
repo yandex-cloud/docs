@@ -8,7 +8,7 @@
     * Выберите `Создать новый`.
     * В поле **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** выберите `{{ ui-key.yacloud.compute.instances.create-disk.value_source-none }}`.
     * Укажите имя диска.
-    * Выберите [тип диска](../../../compute/concepts/disk.md#disks_types).
+    * Выберите [тип диска](../../../compute/concepts/disk.md#disks-types).
     * Задайте нужные размер диска и размер блока.
     * (Опционально) В поле **{{ ui-key.yacloud.compute.field_additional_vt356 }}** включите опцию **{{ ui-key.yacloud.compute.field_disk-autodelete_qZn4x }}**, если вы хотите автоматически удалять этот диск при удалении ВМ.
     * Нажмите кнопку **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
