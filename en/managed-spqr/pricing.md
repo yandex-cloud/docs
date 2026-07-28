@@ -100,7 +100,6 @@ Pricing for backup storage has the following specifics:
 
 
 
-
 <MDX>
   <PriceList
     serviceIds={['{{ pcs|mdb.spqr }}']}
@@ -112,3 +111,4 @@ Pricing for backup storage has the following specifics:
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
+

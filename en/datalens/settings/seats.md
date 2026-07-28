@@ -48,6 +48,7 @@ The **Total seats** section displays the total number of seats in an instance, a
 
 * If you [delete a user from the organization](../../organization/operations/edit-account.md) or [revoke](#revoke) their seat, the number of seats does not decrease automatically. The seat revoked from the user becomes free and available for assignment to another user.
 * To reduce the number of seats, change the seat count in the service settings.
+* If you revoke a seat from a user, the service will save their [roles and access permissions](../security/roles.md). So if you give the seat back to this user, they will get the same access to objects as before.
 
 {% endnote %}
 
@@ -79,7 +80,7 @@ The following limits apply: 2,000 queries from private embedded charts per seat 
 
    > 2,000 queries x Number of seats
 
-Only successfully completed queries for chart rendering data are counted. If multiple queries are required to render a single chart, they are counted as one query. Read more in [{#T}](../pricing.md#packet-queries).
+Only successfully completed queries for chart rendering data are counted. If multiple queries are required to render a single chart, they are counted as one query. Read more in [Pricing policy](../pricing.md#packet-queries).
 
 You can [estimate the number of queries from private embedded charts](#embedded-queries-count) by enabling [Usage Analytics](../operations/connection/create-usage-tracking.md).
 

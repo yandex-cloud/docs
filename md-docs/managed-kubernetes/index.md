@@ -800,23 +800,23 @@
 
  - [DirectResponse](gwin-ref/directresponse.md)
 
- - [Gateway](gwin-ref/gateway.md)
-
  - [GRPCRoute](gwin-ref/grpcroute.md)
 
  - [HTTPRoute](gwin-ref/httproute.md)
 
- - [Ingress](gwin-ref/ingress.md)
+ - [Gateway](gwin-ref/gateway.md)
+
+ - [GatewayPolicy](gwin-ref/gatewaypolicy.md)
 
  - [IngressBackendGroup](gwin-ref/ingressbackendgroup.md)
 
- - [IngressPolicy](gwin-ref/ingresspolicy.md)
+ - [Ingress](gwin-ref/ingress.md)
 
- - [ListenerSet](gwin-ref/listenerset.md)
+ - [IngressPolicy](gwin-ref/ingresspolicy.md)
 
  - [ListenerSetPolicy](gwin-ref/listenersetpolicy.md)
 
- - [RoutePolicy](gwin-ref/routepolicy.md)
+ - [ListenerSet](gwin-ref/listenerset.md)
 
  - [Service](gwin-ref/service.md)
 
@@ -828,7 +828,7 @@
 
  - [YCStorageBucket](gwin-ref/ycstoragebucket.md)
 
- - [GatewayPolicy](gwin-ref/gatewaypolicy.md)
+ - [RoutePolicy](gwin-ref/routepolicy.md)
 
 ### Ingress-контроллер
 

@@ -771,6 +771,14 @@ items:
                   Migrating a WordPress website from a third-party hosting
                   provider to {{ yandex-cloud }}
                 href: web/wordpress-transfer.md
+          - name: Creating a Gatsby website using {{ cloud-apps-name }}
+            href: web/gatsby-static-site-cloudapp.md
+          - name: Creating a Hugo website using {{ cloud-apps-name }}
+            href: web/hugo-static-site-cloudapp.md
+          - name: >-
+              Creating a website in Ghost CMS High Availability using {{
+              cloud-apps-name }}
+            href: web/ghost-cms-cloudapp.md
           - name: Website based on LAMP or LEMP stack
             items:
               - name: Overview
@@ -805,7 +813,7 @@ items:
                 href: internet-store/opencart/terraform.md
           - name: Setting up virtual hosting
             href: web/virtual-hosting.md
-          - name: Assigning a domain name to a web server VM
+          - name: Associating a domain name to a web server VM
             items:
               - name: Overview
                 href: web/bind-domain-vm/index.md
@@ -817,18 +825,12 @@ items:
             href: web/flask.md
           - name: Hosting a static Gatsby website
             href: web/gatsby-static-website.md
-          - name: Installing Ghost CMS High Availability using {{ cloud-apps-name }}
-            href: web/ghost-cms-cloudapp.md
           - name: Migrating to {{ cdn-name }} from a third-party CDN provider
             href: web/migrate-to-yc-cdn.md
           - name: Getting website traffic statistics with S3 Select
             href: web/user-agent-statistics.md
           - name: Formatting {{ video-name }} content in IFrame
             href: web/video-iframe.md
-          - name: Installing Gatsby using {{ cloud-apps-name }}
-            href: web/gatsby-static-site-cloudapp.md
-          - name: Installing Hugo using {{ cloud-apps-name }}
-            href: web/hugo-static-site-cloudapp.md
       - name: 1C
         items:
           - name: 1C-Bitrix online store

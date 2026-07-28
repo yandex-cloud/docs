@@ -142,4 +142,4 @@
 
 #### Можно ли вывести деньги с баланса? {#refund}
 
-Чтобы вернуть денежные средства, которые не будут использованы для оплаты услуг Yandex Cloud, [обратитесь](https://center.yandex.cloud/support) в Cloud Center или отправьте письмо на адрес [cloud@support.yandex.ru](mailto:cloud@support.yandex.ru).
+Чтобы вернуть денежные средства, которые не будут использованы для оплаты услуг Yandex Cloud, [обратитесь](https://center.yandex.cloud/support) в Cloud Center или отправьте письмо на адрес [support@yandex.cloud](mailto:support@yandex.cloud).

@@ -106,8 +106,8 @@ http(s)://{{ s3-web-host }}/<имя_бакета>
 
 При хостинге сайта вы можете:
 
-* [Поддержать несколько доменных имен](../operations/hosting/multiple-domains/index.md).
-* [Использовать собственный домен](../operations/hosting/own-domain.md).
+* [{#T}](../operations/hosting/multiple-domains/index.md).
+* [{#T}](../operations/hosting/own-domain.md).
 
   Чтобы использовать протокол HTTPS с собственным доменом, укажите [FQDN](../../glossary/fqdn.md) нужного домена в имени бакета.
 

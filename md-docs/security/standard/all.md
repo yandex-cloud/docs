@@ -4608,7 +4608,7 @@ Yandex Cloud предоставляет возможность использо�
 #### 4.3 В Yandex Object Storage включено HTTPS для хостинга статического сайта {#storage-https}
 
 [Object Storage](../../storage/index.md) поддерживает безопасное подключение по протоколу HTTPS. Вы можете загрузить собственный сертификат безопасности, если к сайту в Object Storage требуется доступ по протоколу HTTPS. Также доступна интеграция с сервисом [Certificate Manager](../../certificate-manager/index.md). Смотрите инструкции в документации Object Storage:
-* [Настройка HTTPS](../../storage/operations/hosting/certificate.md)
+* [Настроить HTTPS](../../storage/operations/hosting/certificate.md)
 * [Бакет](../../storage/concepts/bucket.md)
 
 При работе с сервисом [Object Storage](../../storage/index.md) необходимо убедиться, что в клиенте отключена поддержка протоколов TLS ниже версии 1.2. При помощи политики (bucket policy) [`aws:securetransport`](../../storage/s3/api-ref/policy/conditions.md) необходимо проверить, что для бакета настроен запрет на работу без протокола TLS.

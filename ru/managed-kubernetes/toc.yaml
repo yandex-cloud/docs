@@ -824,24 +824,24 @@ items:
                 href: gwin-ref/backendtlspolicy.md
               - name: DirectResponse
                 href: gwin-ref/directresponse.md
-              - name: Gateway
-                href: gwin-ref/gateway.md
               - name: GRPCRoute
                 href: gwin-ref/grpcroute.md
               - name: HTTPRoute
                 href: gwin-ref/httproute.md
-              - name: Ingress
-                href: gwin-ref/ingress.md
+              - name: Gateway
+                href: gwin-ref/gateway.md
+              - name: GatewayPolicy
+                href: gwin-ref/gatewaypolicy.md
               - name: IngressBackendGroup
                 href: gwin-ref/ingressbackendgroup.md
+              - name: Ingress
+                href: gwin-ref/ingress.md
               - name: IngressPolicy
                 href: gwin-ref/ingresspolicy.md
-              - name: ListenerSet
-                href: gwin-ref/listenerset.md
               - name: ListenerSetPolicy
                 href: gwin-ref/listenersetpolicy.md
-              - name: RoutePolicy
-                href: gwin-ref/routepolicy.md
+              - name: ListenerSet
+                href: gwin-ref/listenerset.md
               - name: Service
                 href: gwin-ref/service.md
               - name: ServicePolicy
@@ -852,8 +852,8 @@ items:
                 href: gwin-ref/tlsroute.md
               - name: YCStorageBucket
                 href: gwin-ref/ycstoragebucket.md
-              - name: GatewayPolicy
-                href: gwin-ref/gatewaypolicy.md
+              - name: RoutePolicy
+                href: gwin-ref/routepolicy.md
       - name: Ingress-контроллер
         items:
           - name: Обзор

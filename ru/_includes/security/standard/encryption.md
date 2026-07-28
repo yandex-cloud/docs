@@ -210,7 +210,7 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 #### 4.3 В {{ objstorage-full-name }} включено HTTPS для хостинга статического сайта {#storage-https}
 
 [{{ objstorage-name }}](../../../storage/) поддерживает безопасное подключение по протоколу HTTPS. Вы можете загрузить собственный сертификат безопасности, если к сайту в {{ objstorage-name }} требуется доступ по протоколу HTTPS. Также доступна интеграция с сервисом [{{ certificate-manager-name }}](../../../certificate-manager/). Смотрите инструкции в документации {{ objstorage-name }}:
-* [Настройка HTTPS](../../../storage/operations/hosting/certificate.md)
+* [{#T}](../../../storage/operations/hosting/certificate.md)
 * [Бакет](../../../storage/concepts/bucket.md)
 
 При работе с сервисом [{{ objstorage-name }}](../../../storage/) необходимо убедиться, что в клиенте отключена поддержка протоколов TLS ниже версии 1.2. При помощи политики (bucket policy) [`aws:securetransport`](../../../storage/s3/api-ref/policy/conditions.md) необходимо проверить, что для бакета настроен запрет на работу без протокола TLS.

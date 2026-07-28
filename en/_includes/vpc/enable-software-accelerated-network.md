@@ -11,12 +11,12 @@ To enable a software-accelerated network on an existing VM:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder this VM belongs to.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** and select the VM.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** and select the VM.
   1. On the top panel, click ![image](../../_assets/console-icons/stop.svg) **{{ ui-key.yacloud.common.stop }}** and confirm stopping the VM.
   1. Wait for the VM status to change to `Stopped` and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** on the top panel.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, select **{{ ui-key.yacloud.component.compute.resources.field_sw-accelerated-net }}**.
   1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
-  1. On the top panel, click ![image](../../_assets/console-icons/stop.svg) **{{ ui-key.yacloud.common.stop }}** and confirm starting the VM.
+  1. On the top panel, click ![image](../../_assets/console-icons/stop.svg) **{{ ui-key.yacloud.common.start }}** and confirm starting the VM.
 
 - CLI {#cli}
 
@@ -103,7 +103,6 @@ To enable a software-accelerated network on an existing VM:
      ```
 
      Where `network_acceleration_type` is the network acceleration type. The possible values are:
-
      * `software_accelerated`: Software-accelerated network.
      * `standard`: Standard network. Specify this value to disable software accelerated network.
 

@@ -313,7 +313,7 @@ Cloud DNS оперирует наборами записей. Набор мож�
 
 * Yandex API Gateway — [запись ANAME](#aname) необходима для [привязки](../../api-gateway/operations/api-gw-domains.md) домена к API-шлюзу и помечена значком ![logo](../../_assets/api-gateway/api-gateway-logo.svg)
 * Yandex Certificate Manager — [запись CNAME](#cname) необходима для прохождения [проверки прав на домен](../../certificate-manager/concepts/challenges.md) и помечена значком ![logo](../../_assets/certificate-manager/certificate-manager-logo.svg)
-* Yandex Object Storage — [запись ANAME](#aname) необходима для [привязки](../../storage/operations/hosting/own-domain.md) домена к бакету и помечена значком ![logo](../../_assets/storage/storage-logo.svg)
+* Yandex Object Storage — [запись ANAME](#aname) необходима, чтобы [привязать](../../storage/operations/hosting/own-domain.md) домена к бакету и помечена значком ![logo](../../_assets/storage/storage-logo.svg)
 
 Сервисные записи нельзя изменять, а удалять можно только по одной. После удаления ресурса, для которого создавалась сервисная ресурсная запись, эту ресурсную запись необходимо [удалить](../operations/resource-record-delete.md) вручную.
 

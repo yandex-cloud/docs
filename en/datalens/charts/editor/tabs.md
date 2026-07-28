@@ -85,7 +85,7 @@ If you set other parameter values for such a chart on the dashboard or in the re
 
 You can get the values ​​of all current parameters on subsequent tabs using the [Editor.getParams()](./methods.md#get-params) method; you can also get the current value of any parameter by its name using [Editor.getParam(name)](./methods.md#get-param).
 
-You can override the parameters using the chart's URL. For example:
+You can override the parameters using the chart's URL. Here is an example:
 
 ```text
 &period=40&metric=2012&metric=2014

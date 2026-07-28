@@ -136,8 +136,8 @@
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с KEDA выполните команду:
 
    ```bash
-   helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/keda/chart/keda-external-scaler-yc \
-     --version 1.1.3 \
+   helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/keda/charts/keda \
+     --version 2.20.1-2 \
      --untar && \
    helm install \
      --namespace keda-system \

@@ -104,6 +104,8 @@
 
  - [Техническое обслуживание](concepts/maintenance.md)
 
+ - [Разграничение зон контроля](concepts/responsibilities.md)
+
  - [Управление доступом](security/index.md)
 
  - [Правила тарификации](pricing.md)

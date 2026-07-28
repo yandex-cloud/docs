@@ -104,7 +104,7 @@ items:
             href: tutorials/data-from-ch-dataset-parametrization.md
           - name: Examples of creating QL charts
             href: tutorials/data-from-ch-to-sql-chart.md
-          - name: Examples of charts created in Editor
+          - name: Examples of creating Editor charts
             href: tutorials/create-chart-editor.md
           - name: Example of using the Activities tab in Editor
             href: tutorials/create-editor-activities.md
@@ -972,7 +972,7 @@ items:
         href: security/embedded-objects.md
       - name: Sharing an object within an organization
         href: concepts/datalens-sharing.md
-      - name: Embedding via JWT
+      - name: Embedding via a JWT
         href: security/private-embedded-objects.md
   - name: Access management
     items:
@@ -1040,6 +1040,10 @@ items:
     items:
       - name: How to use the Public API
         href: operations/api-start.md
+      - name: Versioning
+        href: operations/api-versioning.md
+      - name: Release notes
+        href: release-notes/api-changelog.md
       - name: '{{ datalens-name }} API'
         items:
           - name: Overview
@@ -1168,8 +1172,10 @@ items:
     href: at-ref.md
   - name: Release notes
     items:
-      - name: May 2026
+      - name: June 2026
         href: release-notes/index.md
+      - name: May 2026
+        href: release-notes/2605.md
       - name: April 2026
         href: release-notes/2604.md
       - name: March 2026
@@ -1178,10 +1184,10 @@ items:
         href: release-notes/2602.md
       - name: January 2026
         href: release-notes/2601.md
-      - name: December 2025
-        href: release-notes/2512.md
       - name: Archive
         items:
+          - name: December 2025
+            href: release-notes/2512.md
           - name: November 2025
             href: release-notes/2511.md
           - name: October 2025

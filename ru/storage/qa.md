@@ -154,7 +154,7 @@ yc kms symmetric-key add-access-binding \
 
 #### Как подключить собственный домен к бакету {{ objstorage-name }}? {#domain-bucket}
 
-Чтобы подключить свой [домен](operations/hosting/own-domain.md) к [бакету](concepts/bucket.md):
+Чтобы [подключить](operations/hosting/own-domain.md) свой домен к [бакету](concepts/bucket.md):
 
 1. [Создайте](operations/buckets/create.md) бакет с именем домена.
 

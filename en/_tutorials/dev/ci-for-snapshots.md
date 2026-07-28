@@ -22,7 +22,7 @@ If you no longer need the VMs you created, [delete them](#clear-out).
 
 Before creating a VM:
 1. Navigate to the {{ yandex-cloud }} [management console]({{ link-console-main }}) and select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to work with.
-1. Make sure the selected folder has a [network](../../vpc/concepts/network.md#network) with a [subnet](../../vpc/concepts/network.md#subnet) for your VM. To do this, navigate to **{{ vpc-name }}** on the folder page. If the list contains a network, click its name to see the list of subnets. If there are no networks in the list or the selected network has no subnets, [create them](../../vpc/quickstart.md) as required.
+1. Make sure the selected folder has a [network](../../vpc/concepts/network.md#network) with a [subnet](../../vpc/concepts/network.md#subnet) for your VM. Do it by navigating to **{{ vpc-name }}** on the folder page. If the list contains a network, click its name to see the list of subnets. If there are no networks in the list or the selected network has no subnets, [create them](../../vpc/quickstart.md) as required.
 
 ### Required paid resources {#paid-resources}
 

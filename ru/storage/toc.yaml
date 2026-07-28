@@ -99,11 +99,11 @@ items:
             href: operations/objects/object-meta.md
       - name: Хостинг статических сайтов
         items:
-          - name: Настройка хостинга
+          - name: Настроить хостинг
             href: operations/hosting/setup.md
-          - name: Поддержка собственного домена
+          - name: Поддержать собственный домен
             href: operations/hosting/own-domain.md
-          - name: Поддержка нескольких доменных имен
+          - name: Поддержать несколько доменных имен
             items:
               - name: Обзор
                 href: operations/hosting/multiple-domains/index.md
@@ -111,7 +111,7 @@ items:
                 href: operations/hosting/multiple-domains/console.md
               - name: '{{ TF }}'
                 href: operations/hosting/multiple-domains/terraform.md
-          - name: Настройка HTTPS
+          - name: Настроить HTTPS
             href: operations/hosting/certificate.md
   - name: Практические руководства
     items:
