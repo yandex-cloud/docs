@@ -28,7 +28,7 @@
 В зависимости от тарифного плана, вы можете [обратиться в службу технической поддержки](https://center.yandex.cloud/support) одним из способов:
 
 * Через форму обратной связи в [Центре Поддержки](https://center.yandex.cloud/support), 24 часа в сутки.
-* По электронной почте [cloud@support.yandex.ru](mailto:cloud@support.yandex.ru), 24 часа в сутки.
+* По электронной почте [support@yandex.cloud](mailto:support@yandex.cloud), 24 часа в сутки.
 * Через чат, 24 часа в сутки для платных тарифных планов и в будние дни с 8:00 до 21:00 по московскому времени (UTC +3) для базового тарифного плана.
 
 ## Вопросы о договоре {#contract}
@@ -220,7 +220,7 @@
 
 #### Можно ли вывести деньги с баланса? {#refund}
 
-Чтобы вернуть денежные средства, которые не будут использованы для оплаты услуг Yandex Cloud, [обратитесь](https://center.yandex.cloud/support) в Cloud Center или отправьте письмо на адрес [cloud@support.yandex.ru](mailto:cloud@support.yandex.ru).
+Чтобы вернуть денежные средства, которые не будут использованы для оплаты услуг Yandex Cloud, [обратитесь](https://center.yandex.cloud/support) в Cloud Center или отправьте письмо на адрес [support@yandex.cloud](mailto:support@yandex.cloud).
 
 ## Вопросы о платежном аккаунте {#billing-account}
 

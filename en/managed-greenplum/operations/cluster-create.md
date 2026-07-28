@@ -13,7 +13,7 @@ For more information, see [{#T}](../concepts/index.md).
 
 ## Roles for creating a cluster {#roles}
 
-To create and use a {{ mgp-name }} cluster, your {{ yandex-cloud }} account needs the following roles:
+To create a {{ mgp-name }} cluster and use it, your {{ yandex-cloud }} account needs the following roles:
 
 * {% include [roles-mgp-editor](../../_includes/mdb/mgp/roles-mgp-editor.md) %}
 * {% include [roles-vpc-user](../../_includes/mdb/roles-vpc-user.md) %}
@@ -265,7 +265,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
            ...
            --maintenance-window type=<maintenance_type>,`
                                `day=<day_of_week>,`
-                               `hour=<hour> \
+                               `hour=<time_interval_ordinal_number> \
         ```
 
         Where `type` is the maintenance type:
@@ -472,6 +472,30 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
               Specify either `folder_id` or `log_group_id`.
 
+  1. To set the [maintenance window](../concepts/maintenance.md#maintenance-window) that will also apply to stopped clusters, add the `maintenance_window` section to the cluster description:
+
+      ```hcl
+      resource "yandex_mdb_greenplum_cluster" "<cluster_name_in_{{ TF }}>" {
+        ...
+        maintenance_window {
+          type = "<maintenance_type>"
+          day  = "<day_of_week>"
+          hour = <sequence_number_of_hour_interval>
+        }
+        ...
+      }
+      ```
+
+      Where `type` is the maintenance type:
+
+      * `ANYTIME`: Any time (default).
+      * `WEEKLY`: On a schedule. For this value, also specify the following:
+        
+          * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+          * `hour`: UTC hour interval, from `1` to `24`.
+
+            > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
+
 
   1. Make sure the {{ TF }} configuration files are correct:
 
@@ -558,6 +582,12 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             "greenplumEnabled": "<transfer_DBMS_logs>",
             "poolerEnabled": "<transfer_connection_pooler_logs>",
             "folderId": "<folder_ID>"
+          },
+          "maintenanceWindow": {
+            "weeklyMaintenanceWindow": {
+            "day": "<day_of_week>",
+            "hour": "<sequence_number_of_hour_interval>"
+            }
           }
         }
         ```
@@ -644,6 +674,16 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                 Specify either `folderId` or `logGroupId`.
 
+
+        * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md#maintenance-window) settings. Provide one of these parameters:
+
+            * `anytime`: Allows performing maintenance at any time; default option.
+            * `weeklyMaintenanceWindow`: Maintenance takes place once a week at the specified time:
+
+                * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+                * `hour`: UTC hour interval, from `1` to `24`.
+
+                  > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
     1. Call the [Cluster.Create](../api-ref/Cluster/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
@@ -735,6 +775,12 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             "greenplum_enabled": "<transfer_DBMS_logs>",
             "pooler_enabled": "<transfer_connection_pooler_logs>",
             "folder_id": "<folder_ID>"
+          },
+          "maintenance_window": {
+            "weekly_maintenance_window": {
+              "day": "<day_of_week>",
+              "hour": "<sequence_number_of_hour_interval>"
+            }
           }
         }
         ```
@@ -824,6 +870,16 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                 Specify either `folder_id` or `log_group_id`.
 
+
+        * `maintenance_window`: [Maintenance window](../concepts/maintenance.md#maintenance-window) settings. Provide one of these parameters:
+
+            * `anytime`: Allows performing maintenance at any time; default option.
+            * `weekly_maintenance_window`: Maintenance takes place once a week at the specified time:
+
+                * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+                * `hour`: UTC hour interval, from `1` to `24`.
+
+                  > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
     1. Call the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 

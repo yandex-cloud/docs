@@ -347,7 +347,7 @@ default:
   link-speechsense-main: https://speechsense.yandex.cloud/
   link-src-docs: https://sourcecraft.dev/portal/docs/en
   link-src-main: https://sourcecraft.dev
-  link-support-mail: cloud@support.yandex.ru
+  link-support-mail: support@yandex.cloud
   link-tracker: https://tracker.yandex.com/
   link-tracker-cloudless: https://yandex.ru/support/tracker/ru
   link-video-main: https://video.yandex.cloud/
@@ -516,9 +516,8 @@ default:
         tag: 1.21.2-1
     yc_keda:
       helmChart:
-        name: >-
-          cr.yandex/yc-marketplace/yandex-cloud/keda/chart/keda-external-scaler-yc
-        tag: 1.1.3
+        name: cr.yandex/yc-marketplace/yandex-cloud/keda/charts/keda
+        tag: 2.20.1-2
     yc_kubernetes-node-remediation:
       helmChart:
         name: >-
@@ -5420,6 +5419,18 @@ default:
           button_action-delete-cloud_3simi: Delete cloud
         FolderActions:
           button_action-delete-folder_mu24C: Delete folder
+        Terraform:
+          button:
+            TerraformButton:
+              button_terraform_ozL8u: Code generation
+          TerraformDialog:
+            button_code_api_grpc: API code
+            button_code_cli: CLI code
+            button_code-terraform: Terraform code
+            button_documentation: Terraform documentation
+            button_documentation_api_grpc: API documentation
+            button_documentation_cli: CLI documentation
+            button_open-cloud-shell: Open Cloud Shell
       compute:
         attach-disk:
           button_attach: Attach
@@ -7228,6 +7239,9 @@ default:
           action_stepdown-host: Step down
         switch_list: Clusters
         switch_operations: Operations
+        UserAddDialog:
+          label_iam_ffBD5: IAM
+          label_password_2MQCs: Password
       monitoring:
         button_open-in-monitoring: Open in Monium
       mysql:

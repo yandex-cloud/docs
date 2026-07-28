@@ -894,15 +894,15 @@ Identifies whether Workload Identity Federation is enabled. ||
       }
     ],
     "node_labels": "map<string, string>",
+    "workload_identity_federation": {
+      "enabled": "bool"
+    },
     "variables": [
       {
         "key": "string",
         "value": "string"
       }
-    ],
-    "workload_identity_federation": {
-      "enabled": "bool"
-    }
+    ]
   }
   // end of the list of possible fields
 }
@@ -1037,17 +1037,16 @@ Support for unsafe sysctl parameters. For more details see [documentation](https
 || node_taints[] | **[Taint](#yandex.cloud.k8s.v1.Taint2)**
 
 Taints that are applied to the nodes of the node group at creation time.
-
 **The `nodeTaints` field is not supported for the [yandex.cloud.k8s.v1.NodeGroupService.Update](update.md#Update) request.** ||
 || node_labels | **object** (map<**string**, **string**>)
 
 Labels that are assigned to the nodes of the node group at creation time. ||
-|| variables[] | **[Variable](#yandex.cloud.k8s.v1.Variable2)**
-
-User-defined variables for templating. ||
 || workload_identity_federation | **[NodeGroupWorkloadIdentityFederation](#yandex.cloud.k8s.v1.NodeGroupWorkloadIdentityFederation2)**
 
 Workload Identity Federation parameters of the node group. ||
+|| variables[] | **[Variable](#yandex.cloud.k8s.v1.Variable2)**
+
+User-defined variables for templating. ||
 |#
 
 ## NodeTemplate {#yandex.cloud.k8s.v1.NodeTemplate2}
@@ -1528,6 +1527,17 @@ onto the node entirely. Enforced by the scheduler.
 - `NO_EXECUTE`: Evict any already-running pods that do not tolerate the taint. ||
 |#
 
+## NodeGroupWorkloadIdentityFederation {#yandex.cloud.k8s.v1.NodeGroupWorkloadIdentityFederation2}
+
+NodeGroupWorkloadIdentityFederation contains configuration for Workload Identity Federation.
+
+#|
+||Field | Description ||
+|| enabled | **bool**
+
+Identifies whether Workload Identity Federation is enabled. ||
+|#
+
 ## Variable {#yandex.cloud.k8s.v1.Variable2}
 
 Variable is a user-defined key-value pair used for templating.
@@ -1545,15 +1555,4 @@ The string length in characters must be 1-128. Value must match the regular expr
 Variable value.
 
 The maximum string length in characters is 262144. ||
-|#
-
-## NodeGroupWorkloadIdentityFederation {#yandex.cloud.k8s.v1.NodeGroupWorkloadIdentityFederation2}
-
-NodeGroupWorkloadIdentityFederation contains configuration for Workload Identity Federation.
-
-#|
-||Field | Description ||
-|| enabled | **bool**
-
-Identifies whether Workload Identity Federation is enabled. ||
 |#

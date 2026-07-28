@@ -24,7 +24,7 @@ To streamline troubleshooting, the management console provides dashboards for vi
 
 The top of the dashboard displays signals that aggregate the state of multiple metrics. They use a traffic-light color-coding system:
 
-| Stage | Value | Description |
+| Status | Value | Description |
 | :--- | :--- | :--- |
 | 🟢&nbsp;**OK** | `2` | All critical indicators are healthy. The cluster and its components are operating normally. |
 | 🟠&nbsp;**Warn** | `1` | Minor deviations are detected. The cluster is functional but requires attention to prevent performance degradation (e.g., connection queue growth or increased latency). |
@@ -222,8 +222,8 @@ To view detailed information about the [PXF](external-tables.md) state:
 
     * **Signals**:
         * **Availability**: PXF service availability over the last five minutes.
-        * **Memory Utilization**: RAM usage by the PXF service.
-        * **CPU Utilization**: CPU usage by the PXF service.
+        * **Memory Utilization**: Indicates RAM usage by the PXF service.
+        * **CPU Utilization**: Indicates CPU usage by the PXF service.
 
     * **Overview**: General metrics of the PXF service:
         * **Unavailable instances**: Unavailable PXF instances.
@@ -340,7 +340,7 @@ To configure state indicator alerts for a [cluster](#monitoring-cluster) and [ho
   1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select:
       * **{{ mgp-name }} — Cluster Overview** to configure cluster alerts.
       * **{{ mgp-name }} — Host Overview** to configure host alerts.
-  1. In the indicator chart, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+  1. On the relevant chart with indicators, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
   1. If the chart shows multiple metrics, select the data query to generate the metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. For more on the query language, see [this {{ monitoring-full-name }} guide](../../monitoring/concepts/querying.md).
   1. Set the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` thresholds for notifications.
   1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.

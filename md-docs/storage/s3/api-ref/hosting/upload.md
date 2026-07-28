@@ -172,7 +172,7 @@ PUT /{bucket}?website HTTP/2
 
 #### Связанные статьи {#related-articles}
 
-[Настройка хостинга](../../../operations/hosting/setup.md)
+[Настроить хостинг](../../../operations/hosting/setup.md)
 
 #### Полезные ссылки {#see-also}
 

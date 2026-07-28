@@ -27,6 +27,10 @@ The storage space available to the host should be at least twice as large as the
 ## Available host classes {#available-flavors}
 
 
+{% include [disk-flavor-dependencies](../../_includes/mdb/disk-flavor-dependencies.md) %}
+
+For example, `{{ region-id }}-d` does not support Intel Broadwell and local SSD storage if Intel Cascade Lake is used.
+
 Configuration types:
 
 * **burstable**: Configurations with a [guaranteed vCPU share](../../compute/concepts/performance-levels.md) under 100%. This host class is intended for test load, while the minimum recommended host configuration for production solutions is two vCPUs with a guaranteed share of 100%.
@@ -34,10 +38,6 @@ Configuration types:
 * **high-memory**: Standard configurations for {{ VLK }}.
 
     A cluster with this configuration type may contain several hosts (from one to current [quota](./limits.md) limit) per cluster or [shard](./sharding.md). The minimum number of hosts per cluster [depends](./limits.md#mrd-limits) on the [selected disk type](./storage.md).
-
-{% include [zone-d-restrictions](../../_includes/mdb/ru-central1-d-restrictions.md) %}
-
-{% include [burstable-hosts-deprecation-2023](../../_includes/mdb/burstable-hosts-deprecation-2023.md) %}
 
 | Host class name | Number of vCPUs | RAM, GB | CPU performance | Disk <br>size, GB |
 |-------------------|----------------|---------|------------------------|----------------------|

@@ -93,9 +93,19 @@ You can add and remove users, manage individual user settings, and change databa
 
   1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
 
-  1. Enter the database user name and password.
+  
+  1. Choose the authorization method:
 
-      {% include [user-name-and-password-limits](../../_includes/mdb/mmg/note-info-user-name-and-pass-limits.md) %}
+      * **{{ ui-key.yacloud.mongodb.UserAddDialog.label_password_2MQCs }}**: Authorization by username and password.
+        
+        For this authorization method, enter the username and password.
+
+        {% include [user-name-and-password-limits](../../_includes/mdb/mmg/note-info-user-name-and-pass-limits.md) %}
+
+      * **{{ ui-key.yacloud.mongodb.UserAddDialog.label_iam_ffBD5 }}**: Authroization using a [Yandex account](../../iam/concepts/users/accounts.md#passport), [federated account](../../iam/concepts/users/accounts.md#saml-federation), or [local account](../../iam/concepts/users/accounts.md#local).
+
+        For this authorization method, select the account in the **{{ ui-key.yacloud.common.user }}** field.
+
 
   1. Configure the user’s [roles](../concepts/users-and-roles.md):
 

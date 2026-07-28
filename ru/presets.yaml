@@ -37,6 +37,7 @@ default:
   api-host-certmanager-validation: validation.certificate-manager.api.cloud.yandex.net
   api-host-data-transfer: datatransfer.api.cloud.yandex.net
   api-host-data-transfer-operation: operation.api.cloud.yandex.net/operations
+  api-host-datalens: https://api.datalens.tech
   api-host-iot-broker: iot-broker.api.cloud.yandex.net
   api-host-iot-data: iot-data.api.cloud.yandex.net
   api-host-kms: kms.api.cloud.yandex.net
@@ -349,7 +350,7 @@ default:
   link-speechsense-main: https://speechsense.yandex.cloud/
   link-src-docs: https://sourcecraft.dev/portal/docs/ru
   link-src-main: https://sourcecraft.dev
-  link-support-mail: cloud@support.yandex.ru
+  link-support-mail: support@yandex.cloud
   link-tracker: https://tracker.yandex.ru/
   link-tracker-cloudless: https://yandex.ru/support/tracker/ru/
   link-video-main: https://video.yandex.cloud/
@@ -518,9 +519,8 @@ default:
         tag: 1.21.2-1
     yc_keda:
       helmChart:
-        name: >-
-          cr.yandex/yc-marketplace/yandex-cloud/keda/chart/keda-external-scaler-yc
-        tag: 1.1.3
+        name: cr.yandex/yc-marketplace/yandex-cloud/keda/charts/keda
+        tag: 2.20.1-2
     yc_kubernetes-node-remediation:
       helmChart:
         name: >-
@@ -2385,12 +2385,6 @@ default:
       live:
         v1|number: 0.015345
         v1|string: "0,015345\_₸"
-  sku|KZT|ydb:
-    v1:
-      serverless:
-        requests|pricingRate:
-          1|number: 123.2
-          1|string: "123,2\_₸"
   sku|KZT|yds:
     events:
       puts|pricingRate:

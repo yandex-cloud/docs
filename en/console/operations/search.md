@@ -33,72 +33,101 @@ Folders are searched by certain object types and fields.
 
 Object type | Fields
 --- | ---
-[API gateway](../../api-gateway/concepts/index.md) | Domain, ID, name
+[API gateway](../../api-gateway/concepts/index.md) | ID, name, labels, description, domain
 
 
 ### {{ alb-full-name }} {#alb}
 
 Object type | Fields
 --- | ---
-[HTTP router](../../application-load-balancer/concepts/http-router.md) | ID, name
-[Load balancer](../../application-load-balancer/concepts/application-load-balancer.md) | Private IP address, ID, name, public IPv4 address, public IPv6 address
-[Backend group](../../application-load-balancer/concepts/backend-group.md) | ID, name
-[Target group](../../application-load-balancer/concepts/target-group.md) | ID, name
+[Load balancer](../../application-load-balancer/concepts/application-load-balancer.md) | ID, name, labels, description, private IP address, public IPv4 address, public IPv6 address
+[Backend group](../../application-load-balancer/concepts/backend-group.md) | ID, name, labels, description
+[Target group](../../application-load-balancer/concepts/target-group.md) | ID, name, labels, description
+[HTTP router](../../application-load-balancer/concepts/http-router.md) | ID, name, labels, description
 
 
 ### {{ at-full-name }} {#at}
 
 Object type | Fields
 --- | ---
-[Trail](../../audit-trails/concepts/trail.md) | ID, name
+[Trail](../../audit-trails/concepts/trail.md) | ID, name, labels, description
+
+
+### {{ certificate-manager-full-name }} {#certificate-manager}
+
+Object type | Fields
+--- | ---
+[Certificate](../../certificate-manager/concepts/index.md) | ID, name, domains, labels, description
+
+
+### {{ backup-full-name }} {#backup}
+
+Object type | Fields
+--- | ---
+[Backup policy](../../backup/concepts/policy.md) | ID, name
 
 
 ### {{ cdn-full-name }} {#cdn}
 
 Object type | Fields
 --- | ---
-[CDN resource](../../cdn/concepts/resource.md) | ID, name
+[CDN resource](../../cdn/concepts/resource.md) | ID, CNAME, labels
 
 
 ### {{ dns-full-name }} {#dns}
 
 Object type | Fields
 --- | ---
-[DNS zone](../../dns/concepts/dns-zone.md) | Zone, ID, name, labels
+[DNS zone](../../dns/concepts/dns-zone.md) | Zone, ID, name, labels, description
+Endpoint | ID, name, labels, description
+Firewall | ID, name, labels, description
 
 
 ### {{ sf-full-name }} {#functions}
 
 Object type | Fields
 --- | ---
-[Connection to a managed database](../../functions/operations/database-connection.md) | ID, name
-[Function](../../functions/concepts/function.md) | ID, name
+[Connection to a managed database](../../functions/operations/database-connection.md) | ID, name, labels, description
+[Trigger](../../functions/concepts/trigger/index.md) | ID, name, labels, description
+[Function](../../functions/concepts/function.md) | ID, name, labels, description
 
 
 ### {{ cloud-logging-full-name }} {#logging}
 
 Object type | Fields
 --- | ---
-[Log group](../../logging/concepts/log-group.md) | ID, name
-[Log target](../../logging/operations/create-sink.md) | ID, name
+[Log group](../../logging/concepts/log-group.md) | ID, name, labels
+[Log target](../../logging/operations/create-sink.md) | ID, name, labels
 
 
 ### {{ postbox-full-name }} {#postbox}
 
 Object type | Fields
 --- | ---
-[Address](../../postbox/concepts/glossary.md#adress) | ID, name
+[Address](../../postbox/concepts/glossary.md#adress) | ID, address, labels, description
+
+
+### {{ cloud-registry-full-name }} {#cloud-registry}
+
+Object type | Fields
+--- | ---
+[Registry](../../cloud-registry/concepts/registry.md) | ID, name, labels, description
 
 
 ### {{ compute-full-name }} {#compute}
 
 Object type | Fields
 --- | ---
-[VM instance](../../compute/concepts/vm.md) | FQDN, ID, name, host name, labels, description
-[Instance group](../../compute/concepts/instance-groups/index.md) | ID, name, labels
-[Disk](../../compute/concepts/disk.md) | ID, name, description
-[VM with GPU](../../compute/concepts/gpus.md) | ID, name
-[Schedule](../../compute/concepts/snapshot-schedule.md) | ID, name, description
+[VM instance](../../compute/concepts/vm.md) | ID, name, labels, description, FQDN, host name, subnet ID, private ipv4 address, private ipv6 address, public ipv4 address, public ipv6 address
+[Dedicated host](../../compute/concepts/dedicated-host.md) | ID, name, labels, description
+[Instance group](../../compute/concepts/instance-groups/index.md) | ID, name, labels, description
+[VM placement group](../../compute/concepts/placement-groups.md) | ID, name, labels, description
+[Non-replicated disk placement group](../../compute/concepts/disk-placement-group.md) | ID, name, labels, description
+[Disk](../../compute/concepts/disk.md) | ID, name, labels, description
+[GPU cluster](../../compute/concepts/gpus.md#gpu-clusters) | ID, name, labels, description
+[Image](../../compute/concepts/image.md) | ID, name, labels, description
+[Reserved instance pool](../../compute/concepts/reserved-pools.md) | ID, name, labels, description
+[Schedule](../../compute/concepts/snapshot-schedule.md) | ID, name, labels, description
 [Disk snapshot](../../compute/concepts/snapshot.md) | ID, name, labels, description
 [File storage](../../compute/concepts/filesystem.md) | ID, name, labels, description
 
@@ -107,7 +136,7 @@ Object type | Fields
 
 Object type | Fields
 --- | ---
-[Registry](../../container-registry/concepts/registry.md) | ID, name
+[Registry](../../container-registry/concepts/registry.md) | ID, name, labels
 [Repository](../../container-registry/concepts/repository.md) | ID, name
 
 
@@ -115,94 +144,91 @@ Object type | Fields
 
 Object type | Fields
 --- | ---
-Cluster | ID, name, description, hosts
+Cluster | ID, name, labels, description, hosts
+
+
+### {{ data-transfer-full-name }} {#data-transfer}
+
+Object type | Fields
+--- | ---
+[Transfer](../../data-transfer/concepts/index.md#transfer) | ID, name, labels, description
+[Endpoint](../../data-transfer/concepts/index.md#endpoint) | ID, name, labels, description
 
 
 ### {{ iam-full-name }} {#iam}
 
 Object type | Fields
 --- | ---
-[Service account](../../iam/concepts/users/service-accounts.md) | ID, name
+[Authorized key](../../iam/concepts/authorization/key.md) | ID, description
+[Service account](../../iam/concepts/users/service-accounts.md) | ID, name, labels, description
+[Static access key](../../iam/concepts/authorization/access-key.md) | ID, key ID, description
+[API_key](../../iam/concepts/authorization/api-key.md) | ID, description
 
 
 ### {{ kms-full-name }} {#kms}
 
 Object type | Fields
 --- | ---
-[Asymmetric signature key pair](../../kms/concepts/asymmetric-signature-key.md) | ID, name
-[Asymmetric encryption key pair](../../kms/concepts/asymmetric-encryption-key.md) | ID, name
-[Symmetric key](../../kms/concepts/symmetric-encryption.md) | ID, name
+[Asymmetric signature key pair](../../kms/concepts/asymmetric-signature-key.md) | ID, name, labels, description
+[Asymmetric encryption key pair](../../kms/concepts/asymmetric-encryption-key.md) | ID, name, labels, description
+[Symmetric key](../../kms/concepts/symmetric-encryption.md) | ID, name, labels, description
 
 
 ### {{ lockbox-full-name }} {#lockbox}
 
 Object type | Fields
 --- | ---
-[Secret](../../lockbox/concepts/secret.md) | ID, name
+[Secret](../../lockbox/concepts/secret.md) | ID, name, labels, description
 
 
 ### {{ maf-full-name }} {#maf}
 
 Object type | Fields
 --- | ---
-Cluster | Bucket, ID, name, description, service account, hosts
+Cluster | ID, name, labels, description, service account, S3 bucket
 
 
 ### {{ mkf-full-name }} {#mkf}
 
 Object type | Fields
 --- | ---
-Cluster | Private IP address, ID, name, description, users, topics, hosts
+Cluster | Private IP address, ID, name, labels, description, users, topics, hosts
 
 
 ### {{ mch-full-name }} {#mch}
 
 Object type | Fields
 --- | ---
-Cluster | Databases, private IP address, ID, name, description, users, hosts
+Cluster | Databases, private IP address, ID, name, labels, description, users, hosts
 
 
-### {{ mes-full-name }} {#mes}
-
-Object type | Fields
---- | ---
-Cluster | Private IP address, ID, name, description, users, hosts
-
-
-### {{ mgp-full-name }} {#mgp}
+### {{ mgl-full-name }} {#gitlab}
 
 Object type | Fields
 --- | ---
-Cluster | Private IP address, ID, name, description, users, hosts
+[Instance](../../managed-gitlab/concepts/index.md) | ID, name, labels, description
 
 
 ### {{ managed-k8s-full-name }} {#k8s}
 
 Object type | Fields
 --- | ---
-[Node group](../../managed-kubernetes/concepts/index.md#node-group) | ID, cluster ID, name
-Cluster | ID, name
-
-
-### {{ mmg-full-name }} {#mmg}
-
-Object type | Fields
---- | ---
-Cluster | Databases, private IP address, ID, name, labels, description, users, hosts
+[Node group](../../managed-kubernetes/concepts/index.md#node-group) | ID, cluster ID, name, labels, description
+Cluster | ID, name, labels, description
 
 
 ### {{ mmy-full-name }} {#mmy}
 
 Object type | Fields
 --- | ---
-Cluster | Databases, private IP address, ID, name, description, users, hosts
+Cluster | Databases, private IP address, ID, name, labels, description, users, hosts
 
 
 ### {{ mos-full-name }} {#mos}
 
 Object type | Fields
 --- | ---
-Cluster | Private IP address, ID, name, description, users, hosts
+Cluster | Private IP address, ID, name, labels, description, hosts
 
 
 ### {{ mpg-full-name }} {#mpg}
@@ -212,32 +238,40 @@ Object type | Fields
 Cluster | Databases, private IP address, ID, name, labels, description, users, hosts
 
 
+### {{ mtr-full-name }} {#mtr}
+
+Object type | Fields
+--- | ---
+Cluster | ID, name, labels, description, service account
+
+
 ### {{ mrd-full-name }} {#mrd}
 
 Object type | Fields
 --- | ---
-Cluster | Private IP address, ID, name, labels, description, hosts
+Cluster | Private IP address, ID, name, labels, description, users, hosts
 
 
 ### {{ ydb-full-name }} {#ydb}
 
 Object type | Fields
 --- | ---
-[Database](../../ydb/concepts/resources.md#database) | ID, name
+[Database](../../ydb/concepts/resources.md#database) | ID, name, labels, description
+[Backup]({{ ydb.docs }}/devops/backup-and-recovery) | ID, name, labels, description
 
 
 ### {{ message-queue-full-name }} {#message-queue}
 
 Object type | Fields
 --- | ---
-[Message queue](../../message-queue/concepts/queue.md) | ID, name
+[Message queue](../../message-queue/concepts/queue.md) | ID, name, labels
 
 
 ### {{ metadata-hub-full-name }} {#metadata-hub}
 
 Object type | Fields
 --- | ---
-[Cluster](../../metadata-hub/concepts/metastore.md) | ID, name, description, service account, hosts
+[Cluster](../../metadata-hub/concepts/metastore.md) | ID, name, labels, description, service account
 
 
 ### {{ monitoring-full-name }} {#monitoring}
@@ -249,11 +283,18 @@ Object type | Fields
 [Notification channel](../../monitoring/concepts/alerting/notification-channel.md) | ID, name, description
 
 
+### {{ mgp-full-name }} {#mgp}
+
+Object type | Fields
+--- | ---
+Cluster | Databases, private IP address, ID, name, labels, description, users, hosts
+
+
 ### {{ network-load-balancer-full-name }} {#nlb}
 
 Object type | Fields
 --- | ---
-[Network load balancer](../../network-load-balancer/concepts/index.md) | Private IP address, ID, name, labels, description, public IPv4 address
+[Network load balancer](../../network-load-balancer/concepts/index.md) | ID, name, labels, description, private ipv4 address, private ipv6 address, public ipv4 address, public ipv6 address
 [Target group](../../network-load-balancer/concepts/target-resources.md) | ID, name, labels, description
 
 
@@ -261,24 +302,57 @@ Object type | Fields
 
 Object type | Fields
 --- | ---
-[Bucket](../../storage/concepts/bucket.md) | ID, name
+[Bucket](../../storage/concepts/bucket.md) | ID, name, resource ID, labels
+
+
+### {{ resmgr-full-name }} {#resource-manager}
+
+Object type | Fields
+--- | ---
+[Folder](../../resource-manager/concepts/resources-hierarchy.md#folder) | ID, name, labels, description
+[Cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) | ID, name, labels, description
 
 
 ### {{ serverless-containers-full-name }} {#containers}
 
 Object type | Fields
 --- | ---
-[Container](../../serverless-containers/concepts/container.md) | ID, name
+[Container](../../serverless-containers/concepts/container.md) | ID, name, labels, description
+
+
+### {{ sws-full-name }} {#sws}
+
+Object type | Fields
+--- | ---
+[Load balancer](../../application-load-balancer/concepts/application-load-balancer.md) | ID, name, labels, description
+[ARL profile](../../smartwebsecurity/concepts/arl.md) | ID, name, labels, description
+[WAF profile](../../smartwebsecurity/concepts/waf.md) | ID, name, labels, description
+[Security profile](../../smartwebsecurity/concepts/profiles.md) | ID, name, labels, description
+[List of matches](../../smartwebsecurity/concepts/conditions.md#match-list) | ID, name, labels, description
+
+
+### {{ captcha-full-name }} {#captcha}
+
+Object type | Fields
+--- | ---
+[Captcha](../../smartcaptcha/concepts/validation.md) | ID, name, labels, description
+
+
+### {{ mmg-full-name }} {#mmg}
+
+Object type | Fields
+--- | ---
+Cluster | Databases, private IP address, ID, name, labels, description, users, hosts
 
 
 ### {{ vpc-full-name }} {#vpc}
 
 Object type | Fields
 --- | ---
-[IP_address](../../vpc/concepts/address.md) | IP address, ID, name, description
-[NAT instance](../../tutorials/routing/nat-instance/index.md) | Private IP address, ID, subnet ID, public IPv4 address ID, name, description, public IPv4 address
-[Security group](../../vpc/concepts/security-groups.md) | ID, name, description
-[Cloud network](../../vpc/concepts/network.md#network) | ID, name, description
-[Subnet](../../vpc/concepts/network.md#subnet) | ID, name, description
-[Route table](../../vpc/concepts/routing.md) | ID, name, description
-[Gateway](../../vpc/concepts/gateways.md) | ID, name, description
+[IP_address](../../vpc/concepts/address.md) | Address, ID, name, labels, description
+[Security group](../../vpc/concepts/security-groups.md) | ID, name, labels, description
+[Cloud network](../../vpc/concepts/network.md#network) | ID, name, labels, description
+[Subnet](../../vpc/concepts/network.md#subnet) | ID, name, labels, description, CIDR v4, CIDR v6
+[Private endpoint](../../vpc/concepts/private-endpoint.md) | ID, name, labels, description
+[Route table](../../vpc/concepts/routing.md) | ID, name, labels, description
+[Gateway](../../vpc/concepts/gateways.md) | ID, name, labels, description

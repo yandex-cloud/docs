@@ -110,11 +110,11 @@
 
 ### Хостинг статических сайтов
 
- - [Настройка хостинга](operations/hosting/setup.md)
+ - [Настроить хостинг](operations/hosting/setup.md)
 
- - [Поддержка собственного домена](operations/hosting/own-domain.md)
+ - [Поддержать собственный домен](operations/hosting/own-domain.md)
 
-#### Поддержка нескольких доменных имен
+#### Поддержать несколько доменных имен
 
  - [Обзор](operations/hosting/multiple-domains/index.md)
 
@@ -122,7 +122,7 @@
 
  - [Terraform](operations/hosting/multiple-domains/terraform.md)
 
- - [Настройка HTTPS](operations/hosting/certificate.md)
+ - [Настроить HTTPS](operations/hosting/certificate.md)
 
 ## Практические руководства
 

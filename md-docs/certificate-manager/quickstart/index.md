@@ -50,7 +50,7 @@
         1. Выберите [класс хранилища](../../storage/concepts/storage-class.md) по умолчанию.
         1. Нажмите кнопку **Создать бакет** для завершения операции.
 
-    1. Настройте [хостинг](../../storage/operations/hosting/setup.md) в бакете:
+    1. [Настройте](../../storage/operations/hosting/setup.md) хостинг в бакете:
 
         1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится бакет.
         1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
@@ -60,7 +60,7 @@
         1. Выберите `Хостинг` и укажите главную страницу сайта.
         1. Нажмите кнопку **Сохранить** для завершения операции.
 
-    1. Настройте [алиас](../../storage/operations/hosting/own-domain.md) для бакета у своего провайдера [DNS](../../glossary/dns.md) или на собственном DNS-сервере.
+    1. [Настройте](../../storage/operations/hosting/own-domain.md) алиас для бакета у своего провайдера [DNS](../../glossary/dns.md) или на собственном DNS-сервере.
 
         Например, для домена `www.example.com` необходимо добавить запись:
 
@@ -181,5 +181,5 @@
 
 * [Сертификат от Let's Encrypt](../concepts/managed-certificate.md)
 * [Проверка прав на домен](../concepts/challenges.md)
-* [Настройка HTTPS в бакете](../../storage/operations/hosting/certificate.md)
+* [Настроить HTTPS](../../storage/operations/hosting/certificate.md)
 * [Развертывание статического веб-сайта в отказоустойчивой конфигурации в Yandex Cloud](../../architecture/static-website-in-yc.md)

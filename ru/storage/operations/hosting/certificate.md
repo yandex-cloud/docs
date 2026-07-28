@@ -1,9 +1,9 @@
 ---
-title: Настройка HTTPS для хостинга в {{ objstorage-full-name }}
+title: Настроить HTTPS для хостинга в {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете настроить  HTTPS для хостинга в {{ objstorage-name }}.
 ---
 
-# Настройка HTTPS
+# Настроить HTTPS
 
 Если для [хостинга статического сайта](../../concepts/hosting.md) вы используете бакет без точки в имени, сайт будет по умолчанию доступен по протоколам HTTP и [HTTPS](../../../glossary/ssl-certificate.md) по следующим адресам:
 
@@ -33,7 +33,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endnote %}
 
-## Выбор сертификата из {{ certificate-manager-name }} {#cert-manager}
+## Выбрать сертификат из {{ certificate-manager-name }} {#cert-manager}
 
 {% list tabs group=instructions %}
 
@@ -129,7 +129,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-## Загрузка собственного сертификата безопасности {#own}
+## Загрузить собственный сертификат безопасности {#own}
 
 Собственный сертификат лучше [загружать](../../../certificate-manager/operations/import/cert-create.md) с помощью сервиса {{ certificate-manager-name }}.
 

@@ -118,7 +118,7 @@ To create a pivot table:
 1. {% include [create-2](../../_includes/datalens/visualization-ref/create-2.md) %}
 1. {% include [create-3](../../_includes/datalens/visualization-ref/create-3.md) %}
 1. {% include [create-4](../../_includes/datalens/visualization-ref/create-4.md) %}
-1. Select the **Pivot table** chart type.
+1. Select **Pivot table** as the chart type.
 1. Drag a dimension from the dataset to the **Columns** section.
 1. Drag a dimension from the dataset to the **Rows** section.
 
@@ -206,6 +206,7 @@ When the option is enabled, the ![image](../../_assets/console-icons/circle-ques
 
 To set the width of any column to `Auto`, click **Reset**.
 
+
 #### Freezing table columns {#column-fixation}
 
 {% note info %}
@@ -215,7 +216,7 @@ You can only freeze columns generated from dimensions in the **Rows** section.
 {% endnote %}
 
 1. In the top-right corner of the **Columns** or **Rows** section, click ![image](../../_assets/console-icons/gear.svg) (this icon appears when you hover over the section).
-1. In the **Freeze** window that opens, enter the number of columns to freeze. These columns will stay in place as you scroll horizontally.
+1. In the window that opens, click ![image](../../_assets/console-icons/pin.svg) next to the name of the far right column to pin the columns. This column and all columns to the left of it will stay in place as you scroll horizontally.
 1. Click **Apply**.
 
 #### Changing the number of rows {#pagination-limit}

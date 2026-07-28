@@ -19,21 +19,8 @@ description: Как использовать расширение try_convert в
 
 Подробнее о расширении читайте в [документации try_convert](https://github.com/open-gpdb/gpdb/tree/OPENGPDB_STABLE/contrib/try_convert).
 
-## Установить расширение try_convert в кластер {{ mgp-name }} {#extension-install}
+Для установки расширения обратитесь в [службу технической поддержки]({{ link-console-support }}).
 
-1. [Подключитесь](../connect/index.md) к базе данных от имени владельца или пользователя, имеющего в базе данных разрешение `CREATE`, и выполните команду:
-
-    ```sql
-    CREATE EXTENSION try_convert;
-    ```
-
-1. Проверьте, что расширение было установлено:
-
-    ```sql
-    SELECT extname FROM pg_extension;
-    ```
-
-    Будет выведен список расширений, установленных в БД.
 
 ## Примеры использования {#examples}
 

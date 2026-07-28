@@ -18,19 +18,13 @@ If a cluster uses advanced sharding, the host class is changed separately for ho
 
 ## Available host classes {#available-flavors}
 
-Hosts in {{ mspqr-name }} clusters are deployed on {{ compute-full-name }} VMs. You can create these VMs on any platforms {{ compute-name }} supports. To learn more about the platforms, see [this article](../../compute/concepts/vm-platforms.md).
+Hosts in {{ mspqr-name }} clusters are deployed on {{ compute-full-name }} VMs. You can create these VMs on any platforms {{ compute-name }} supports. To learn more about the platforms, see [this article](../../compute/concepts/vm-platforms.md). The storage size does not depend on the host class.
 
 The full list of possible host configurations on each platform is provided below. All configurations support two disk types: `network-ssd` and `network-hdd`.
 
-The storage size does not depend on the host class.
+{% include [disk-flavor-dependencies](../../_includes/mdb/disk-flavor-dependencies.md) %}
 
-{% note info %}
-
-AMD Zen 4 is available to a limited number of users for private testing. To request access to the platform, contact your account manager.
-
-Intel Broadwell is not available for clusters with hosts residing in the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
-
-{% endnote %}
+For example, Intel Broadwell is not available in `{{ region-id }}-d`.
 
 Configuration types:
 

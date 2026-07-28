@@ -3,7 +3,6 @@
 # Правила тарификации для Yandex Managed Service for YDB
 
 
-
 Тарификация Yandex Managed Service for YDB отличается в зависимости от режимов использования:
 
 * [Правила тарификации для режима Serverless в Managed Service for YDB](serverless.md).

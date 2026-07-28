@@ -296,7 +296,7 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mgp-full-name }
       {{ yc-mdb-gp }} cluster update <cluster_name_or_ID> \
         --maintenance-window type=<maintenance_type>,`
                             `day=<day_of_week>,`
-                            `hour=<hour>
+                            `hour=<time_interval_ordinal_number>
       ```
     
       Where `type` is the maintenance type:
@@ -321,6 +321,8 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mgp-full-name }
         ...
         maintenance_window {
           type = "<maintenance_type>"
+          day  = "<day_of_week>"
+          hour = <sequence_number_of_hour_interval>
         }
         ...
       }
@@ -332,7 +334,9 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mgp-full-name }
       * `WEEKLY`: On a schedule. For this value, also specify the following:
         
         * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-        * `hour`: Hour of day (UTC), from `1` to `24`.
+        * `hour`: UTC hour interval, from `1` to `24`.
+
+          > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
   1. Make sure the settings are correct.
 
@@ -364,7 +368,7 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mgp-full-name }
                  "maintenanceWindow": {
                    "weeklyMaintenanceWindow": {
                      "day": "<day_of_week>",
-                     "hour": "<hour>"
+                     "hour": "<sequence_number_of_hour_interval>"
                    }
                  }
                }'
@@ -390,8 +394,10 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mgp-full-name }
         
         * `weeklyMaintenanceWindow`: Maintenance takes place once a week at the specified time:
 
-          * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-          * `hour`: Time of day (UTC), from `1` to `24`.
+          * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+          * `hour`: UTC hour interval, from `1` to `24`.
+
+            > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
   
@@ -424,7 +430,7 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mgp-full-name }
              "maintenance_window": {
                "weekly_maintenance_window": {
                  "day": "<day_of_week>",
-                 "hour": "<hour>"
+                 "hour": "<sequence_number_of_hour_interval>"
                }
              }
            }' \
@@ -467,8 +473,10 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mgp-full-name }
 
         * `weekly_maintenance_window`: Maintenance takes place once a week at the specified time:
 
-          * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-          * `hour`: Time of day (UTC), from `1` to `24`.
+          * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+          * `hour`: UTC hour interval, from `1` to `24`.
+
+            > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
   

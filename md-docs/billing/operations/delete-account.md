@@ -35,7 +35,7 @@
  
    Если вам не удалось самостоятельно устранить причину, по которой аккаунт не может быть удален, [обратитесь](https://center.yandex.cloud/support/tickets/create) в техническую поддержку. Обратите внимание, что удалить ресурсы может только пользователь.
 
-1. После удовлетворения всех условий, платежный аккаунт становится неактивным и не может быть использован для работы с ресурсами Yandex Cloud. Для удаления неактивного аккаунта отправьте письмо на адрес [cloud@support.yandex.ru](mailto:cloud@support.yandex.ru).
+1. После удовлетворения всех условий, платежный аккаунт становится неактивным и не может быть использован для работы с ресурсами Yandex Cloud. Для удаления неактивного аккаунта отправьте письмо на адрес [support@yandex.cloud](mailto:support@yandex.cloud).
 
    {% note info %}
    
@@ -43,7 +43,7 @@
    
    {% endnote %}
 
-Чтобы вернуть денежные средства, которые не будут использованы для оплаты услуг Yandex Cloud, [обратитесь](https://center.yandex.cloud/support) в Cloud Center или отправьте письмо на адрес [cloud@support.yandex.ru](mailto:cloud@support.yandex.ru).
+Чтобы вернуть денежные средства, которые не будут использованы для оплаты услуг Yandex Cloud, [обратитесь](https://center.yandex.cloud/support) в Cloud Center или отправьте письмо на адрес [support@yandex.cloud](mailto:support@yandex.cloud).
 
 {% note warning %}
 

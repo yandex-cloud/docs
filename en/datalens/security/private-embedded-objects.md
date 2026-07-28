@@ -20,6 +20,7 @@ To configure the features and appearance of embedded objects, you can use specia
   * 30 seconds for dashboards.
   * 15 seconds for charts.
 
+* `_reload_on_session_expire`: Enables automatic page reload after the session lifetime expires. To activate the parameter, set it to `1`.
 * `_theme`: Specifies the object's appearance. The possible values are:
 
   * `light`: Light theme.

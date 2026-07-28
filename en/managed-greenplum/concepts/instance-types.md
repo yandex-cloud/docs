@@ -29,7 +29,9 @@ The available storage size does not depend on the host class. For storage limita
 
 {{ mgp-name }} cluster hosts are deployed on {{ compute-full-name }} virtual machines on Intel Cascade Lake and Intel Ice Lake [platforms](../../compute/concepts/vm-platforms.md) with a guaranteed vCPU share of 100%. The full list of possible host configurations is provided below.
 
-{% include [zone-d-disk-restrictions](../../_includes/mdb/ru-central1-d-local-ssd.md) %}
+{% include [disk-flavor-dependencies](../../_includes/mdb/disk-flavor-dependencies.md) %}
+
+For example, `{{ region-id }}-d` does not support Intel Broadwell and local SSD storage if Intel Cascade Lake is used.
 
 Configuration types:
 

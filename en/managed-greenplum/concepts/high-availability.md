@@ -37,7 +37,7 @@ To ensure data integrity and minimize cluster recovery time:
 
 ## Maintaining a cluster and modifying its parameters {#maintenance}
 
-Running [unscheduled maintenance operations](../concepts/maintenance.md#irregular-ops) may reduce cluster performance or make your cluster unavailable for some time. Set the [maintenance start time](../concepts/maintenance.md#maintenance-window) to a day and hour when your cluster has no active workload.
+Running [unscheduled maintenance operations](../concepts/maintenance.md#irregular-ops) may reduce cluster performance or make your cluster unavailable for some time. Set the [maintenance start time](../concepts/maintenance.md#maintenance-window) to a day of week and time interval with no cluster workload.
 
 Actions such as [changing the host class, disk type, or increasing the storage size](../operations/cluster-config.md) interrupt sessions and make the cluster unavailable for some time. Perform these operations when your cluster has no active workload.
 

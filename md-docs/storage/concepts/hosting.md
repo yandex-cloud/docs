@@ -123,7 +123,7 @@ http(s)://website.yandexcloud.net/<имя_бакета>
 При хостинге сайта вы можете:
 
 * [Поддержать несколько доменных имен](../operations/hosting/multiple-domains/index.md).
-* [Использовать собственный домен](../operations/hosting/own-domain.md).
+* [Поддержать собственный домен](../operations/hosting/own-domain.md).
 
   Чтобы использовать протокол HTTPS с собственным доменом, укажите [FQDN](../../glossary/fqdn.md) нужного домена в имени бакета.
 
@@ -133,10 +133,10 @@ http(s)://website.yandexcloud.net/<имя_бакета>
 
 ### Полезные ссылки {#see-also}
 
-* [Настройка хостинга](../operations/hosting/setup.md)
-* [Собственный домен](../operations/hosting/own-domain.md)
-* [Поддержка нескольких доменных имен](../operations/hosting/multiple-domains/index.md)
-* [Настройка HTTPS](../operations/hosting/certificate.md)
+* [Настроить хостинг](../operations/hosting/setup.md)
+* [Поддержать собственный домен](../operations/hosting/own-domain.md)
+* [Поддержать несколько доменных имен](../operations/hosting/multiple-domains/index.md)
+* [Настроить HTTPS](../operations/hosting/certificate.md)
 * [Как исправить некорректный MIME-тип объектов при их загрузке в бакет?](../qa.md#qa-mime-type)
 
 

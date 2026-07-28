@@ -15,6 +15,7 @@ description: На этой странице приведен справочни�
 | --- | --- |
 | [yandex_mdb_mongodb_cluster]({{ tf-provider-resources-link }}/mdb_mongodb_cluster) | [Кластер](concepts/index.md) |
 | [yandex_mdb_mongodb_cluster_iam_binding]({{ tf-provider-resources-link }}/mdb_mongodb_cluster_iam_binding) | [Настройка](../iam/concepts/access-control/index.md#access-bindings) прав доступа к кластеру |
+| [yandex_mdb_mongodb_backup_retention_policy]({{ tf-provider-resources-link }}/mdb_mongodb_backup_retention_policy) | Политика резервного копирования |
 
 ## Источники данных {#data-sources}
 
@@ -25,3 +26,4 @@ description: На этой странице приведен справочни�
 | [yandex_mdb_mongodb_cluster]({{ tf-provider-datasources-link }}/mdb_mongodb_cluster) | Информация о [кластере](./concepts/index.md) |
 | [yandex_mdb_mongodb_database]({{ tf-provider-datasources-link }}/mdb_mongodb_database) | Информация о базе данных |
 | [yandex_mdb_mongodb_user]({{ tf-provider-datasources-link }}/mdb_mongodb_user) | Информация о пользователе базы данных |
+| [yandex_mdb_mongodb_backup_retention_policy]({{ tf-provider-datasources-link }}/mdb_mongodb_backup_retention_policy) | Информация о политике резервного копирования |

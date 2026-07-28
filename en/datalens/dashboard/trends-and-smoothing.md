@@ -1,9 +1,9 @@
 ---
-title: Trends and smoothings in {{ datalens-full-name }} charts
+title: Trend and smoothing lines in {{ datalens-full-name }} charts
 description: Follow this guide to apply a smoothing or add a trend line to a chart on a {{ datalens-full-name }} dashboard.
 ---
 
-# Trends and smoothings in {{ datalens-full-name }} charts
+# Trend and smoothing lines in {{ datalens-full-name }} charts
 
 In {{ datalens-short-name }}, you can apply a smoothing or add a trend line to a chart on a dashboard:
 
@@ -74,10 +74,10 @@ The changes made to the trend line and smoothing settings will appear directly o
 
 ![chart-trend](../../_assets/datalens/dashboard/chart-modeling.png)
 
-## Limitations {#restrictions}
+## Limits {#restrictions}
 
 * Available only for linear charts (Wizard, QL charts, or Editor charts).
 * Available only from dashboards.
 * Not available for linear charts with the `X` axis in discrete mode.
 * The settings are not retained.
-* Not available on public and embedded dashboards for now.
+* Not yet available for embedded dashboards.

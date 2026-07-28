@@ -129,7 +129,7 @@ When the option is enabled, the ![image](../../_assets/console-icons/circle-ques
 
 {% cut "Setting up column width" %}
 
-1. In the top-right corner of the **Columns** section, click ![image](../../_assets/console-icons/gear.svg) (the icon is displayed when you hover over the section).
+1. In the top-right corner of the **Columns** section, click ![image](../../_assets/console-icons/gear.svg) (the icon appears when you hover over the section).
 1. Under **Width**, select the values for columns and rows:
 
    * `Auto`: Automatic column width.
@@ -156,10 +156,13 @@ To set the width of any column to `Auto`, click **Reset**.
 
 {% endcut %}
 
-{% cut "Freezing table columns" %}
 
-1. In the top-right corner of the **Columns** section, click ![image](../../_assets/console-icons/gear.svg) (the icon is displayed when you hover over the section).
-1. In the **Freeze** window that opens, enter the number of columns to freeze. These columns will stay in place as you scroll horizontally.
+{% cut "Pinning table columns" %}
+
+You can pin multiple columns on the left side of the table:
+
+1. In the top-right corner of the **Columns** section, click ![image](../../_assets/console-icons/gear.svg) (the icon appears when you hover over the section).
+1. In the window that opens, click ![image](../../_assets/console-icons/pin.svg) next to the name of the far right column to pin the columns. This column and all columns to the left of it will stay in place as you scroll horizontally.
 1. Click **Apply**.
 
 {% endcut %}
@@ -344,7 +347,7 @@ Use sorting. This makes the data easier to comprehend.
 
 * Use the [URL](../function-ref/URL.md) function in table cells to enable users to follow a link.
 
-* **Auto height.** When placing a table on a dashboard, enable auto height in the widget settings. This will help you save dashboard space. 
+* **Auto height**: When placing a table on a dashboard, enable auto height in the widget settings. This will help you save dashboard space. 
 
   {% cut "Setting up auto height" %}
   

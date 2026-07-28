@@ -50,7 +50,7 @@
 
 ## Хостинг статических сайтов {#hosting}
 
-* [Настройка хостинга](hosting/setup.md)
-* [Собственный домен](hosting/own-domain.md)
-* [Поддержка нескольких доменных имен](hosting/multiple-domains/index.md)
-* [Настройка HTTPS](hosting/certificate.md)
+* [Настроить хостинг](hosting/setup.md)
+* [Поддержать собственный домен](hosting/own-domain.md)
+* [Поддержать несколько доменных имен](hosting/multiple-domains/index.md)
+* [Настроить HTTPS](hosting/certificate.md)
