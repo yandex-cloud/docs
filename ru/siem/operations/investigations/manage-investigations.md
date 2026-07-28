@@ -26,7 +26,8 @@ description: Следуя данной инструкции, вы научите
   1. Перейдите на вкладку **{{ ui-key.yacloud_org.security.ycdr.YcdrPageLayout.investigations_wYxSe }}**.
   1. Нажмите **{{ ui-key.yacloud_org.security.siem.InvestigationsPage.create-investigation_iCPUP }}**.
   1. Введите название расследования в поле заголовка.
-  1. В поле **{{ ui-key.yacloud_org.security.siem.InvestigationPageLayout.fieldDescription_wiAxw }}** добавьте описание расследования.
+  1. (Опционально) В поле **{{ ui-key.yacloud_org.security.siem.InvestigationPageLayout.fieldDescription_wiAxw }}** добавьте описание расследования.
+  1. (Опционально) Добавьте метки для группировки и поиска расследований.
 
   {% note tip %}
 
@@ -68,6 +69,27 @@ description: Следуя данной инструкции, вы научите
 
 {% endlist %}
 
+### Управление метками {#manage-labels}
+
+Метки позволяют группировать расследования по категориям и упрощают поиск.
+
+{% list tabs group=instructions %}
+
+- Интерфейс {{ cloud-center }} {#cloud-center}
+
+  Чтобы добавить метку:
+
+  1. Откройте расследование.
+  1. В блоке **{{ ui-key.yacloud_org.security.siem.InvestigationPageLayout.information_cZr8L }}** нажмите на поле меток.
+  1. Введите название метки.
+  1. Нажмите клавишу **Enter**.
+
+  Чтобы удалить метку:
+
+  1. Откройте расследование.
+  1. В блоке **{{ ui-key.yacloud_org.security.siem.InvestigationPageLayout.information_cZr8L }}** нажмите ![xmark](../../../_assets/console-icons/xmark.svg) рядом с меткой.
+
+{% endlist %}
 
 ## Копирование расследования {#copy}
 

@@ -155,7 +155,7 @@ Object Storage имеет внутренние [SLA](../glossary/sla.md) и SLO 
 
 #### Как подключить собственный домен к бакету Object Storage? {#domain-bucket}
 
-Чтобы подключить свой [домен](operations/hosting/own-domain.md) к [бакету](concepts/bucket.md):
+Чтобы [подключить](operations/hosting/own-domain.md) свой домен к [бакету](concepts/bucket.md):
 
 1. [Создайте](operations/buckets/create.md) бакет с именем домена.
 

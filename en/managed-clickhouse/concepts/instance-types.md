@@ -26,9 +26,9 @@ Hosts in {{ mch-name }} clusters are deployed on {{ compute-full-name }} VMs. Yo
 
 The full list of possible host configurations on each platform is provided below.
 
-{% include [zone-d-restrictions](../../_includes/mdb/ru-central1-d-restrictions.md) %}
+{% include [disk-flavor-dependencies](../../_includes/mdb/disk-flavor-dependencies.md) %}
 
-{% include [burstable-hosts-deprecation-2023](../../_includes/mdb/burstable-hosts-deprecation-2023.md) %}
+For example, `{{ region-id }}-d` does not support Intel Broadwell and local SSD storage if Intel Cascade Lake is used.
 
 {% include [instance-types-code](../../_includes/mdb/instance-types-code-c3-b3.md) %}
 

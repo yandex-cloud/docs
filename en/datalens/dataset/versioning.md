@@ -20,11 +20,11 @@ All versions fall into the following types:
 1. **Current**: Most recently saved dataset version. It is displayed for all users that open the dataset for viewing in the workbook or from the navigation panel. A dataset can only have one current version.
 
 
-1. **Draft**: Version containing unsaved dataset changes. Common users do not see the changes made to the draft. This allows you to hide dataset edits until you actualize your version. A dataset can only have one draft. 
+1. **Draft**: Version containing unsaved dataset changes. Common users see none of the changes made to the draft. This allows you to hide dataset edits until you actualize your version. A dataset can only have one draft. 
    When you open a draft, you see a panel at the top informing you that it is the draft version of the dataset. There are buttons in the right-hand panel:
 
-   * **Make current**: Turns the draft into the current version. The version current at the time will become outdated.
-   * **Open current**: Opens the current version.
+   * **Make actual**: Turns the draft into the current version. The version current at the time will become outdated.
+   * **Open actual**: Opens the current version.
 
    {% cut "Draft" %}
 
@@ -38,8 +38,8 @@ All versions fall into the following types:
 1. **Outdated**: Version that is no longer current.  
    When you open an outdated version, a panel appears at the top indicating the version type, creation date and time, and login of the version author. There are buttons in the right-hand panel:
 
-   * **Make current**: Turns an outdated version into the current one. The version current at the time will become outdated.
-   * **Open current**: Opens the current version.
+   * **Make actual**: Turns an outdated version into the current one. The version current at the time will become outdated.
+   * **Open actual**: Opens the current version.
 
    {% cut "Outdated version" %}
 

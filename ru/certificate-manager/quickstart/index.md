@@ -32,7 +32,7 @@
         1. Выберите [класс хранилища](../../storage/concepts/storage-class.md) по умолчанию.
         1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}** для завершения операции.
 
-    1. Настройте [хостинг](../../storage/operations/hosting/setup.md) в бакете:
+    1. [Настройте](../../storage/operations/hosting/setup.md) хостинг в бакете:
 
         1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится бакет.
         1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -42,7 +42,7 @@
         1. Выберите `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}` и укажите главную страницу сайта.
         1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}** для завершения операции.
 
-    1. Настройте [алиас](../../storage/operations/hosting/own-domain.md) для бакета у своего провайдера [DNS](../../glossary/dns.md) или на собственном DNS-сервере.
+    1. [Настройте](../../storage/operations/hosting/own-domain.md) алиас для бакета у своего провайдера [DNS](../../glossary/dns.md) или на собственном DNS-сервере.
 
         Например, для домена `www.example.com` необходимо добавить запись:
 
@@ -163,5 +163,5 @@
 
 * [{#T}](../concepts/managed-certificate.md)
 * [{#T}](../concepts/challenges.md)
-* [Настройка HTTPS в бакете](../../storage/operations/hosting/certificate.md)
+* [{#T}](../../storage/operations/hosting/certificate.md)
 * [{#T}](../../architecture/static-website-in-yc.md)

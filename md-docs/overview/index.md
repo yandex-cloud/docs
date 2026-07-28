@@ -28,6 +28,8 @@
 
  - [Разграничение зон контроля в Yandex Data Processing](concepts/data-processing-responsibilities.md)
 
+ - [Разграничение зон контроля в Managed Service for Apache Airflow™](concepts/maf-responsibilities.md)
+
  - [Удаление данных пользователей](concepts/data-deletion.md)
 
  - [Получение сведений для запроса на включение ресурса в белый список Минцифры](concepts/info-for-federal-ip-whitelist.md)

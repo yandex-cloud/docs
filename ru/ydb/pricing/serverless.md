@@ -7,11 +7,11 @@ editable: false
 # Правила тарификации для режима Serverless в {{ ydb-name }}
 
 
-
 {% note tip %}
 
 
 Чтобы рассчитать стоимость использования сервиса, воспользуйтесь [калькулятором](https://yandex.cloud/ru/prices?state=2443a6ec26b9#calculator) на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
+
 
 
 
@@ -164,7 +164,11 @@ editable: false
 
 
 
+
 ## Цены для региона Россия {#prices}
+
+
+
 
 {% include [pricing-diff-regions](../../_includes/pricing-diff-regions.md) %}
 
@@ -178,6 +182,7 @@ editable: false
     currency="RUB"
   />
 </MDX>
+
 
 
 

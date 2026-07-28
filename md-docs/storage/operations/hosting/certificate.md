@@ -1,6 +1,6 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Пошаговые инструкции](../index.md) > Хостинг статических сайтов > Настройка HTTPS
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Пошаговые инструкции](../index.md) > Хостинг статических сайтов > Настроить HTTPS
 
-# Настройка HTTPS
+# Настроить HTTPS
 
 Если для [хостинга статического сайта](../../concepts/hosting.md) вы используете бакет без точки в имени, сайт будет по умолчанию доступен по протоколам HTTP и [HTTPS](../../../glossary/ssl-certificate.md) по следующим адресам:
 
@@ -36,7 +36,7 @@ Object Storage поддерживает только [PEM](https://en.wikipedia.
 
 {% endnote %}
 
-## Выбор сертификата из Certificate Manager {#cert-manager}
+## Выбрать сертификат из Certificate Manager {#cert-manager}
 
 {% list tabs group=instructions %}
 
@@ -169,7 +169,7 @@ Object Storage поддерживает только [PEM](https://en.wikipedia.
 
 {% endlist %}
 
-## Загрузка собственного сертификата безопасности {#own}
+## Загрузить собственный сертификат безопасности {#own}
 
 Собственный сертификат лучше [загружать](../../../certificate-manager/operations/import/cert-create.md) с помощью сервиса Certificate Manager.
 
@@ -212,6 +212,6 @@ cat domain.pem intermediate.pem rootca.pem > bundle.pem
 #### Полезные ссылки {#see-also}
 
 * [Как исправить некорректный MIME-тип объектов при их загрузке в бакет?](../../qa.md#qa-mime-type)
-* [Настройка хостинга](setup.md)
-* [Собственный домен](own-domain.md)
-* [Поддержка нескольких доменных имен](multiple-domains/index.md)
+* [Настроить хостинг](setup.md)
+* [Поддержать собственный домен](own-domain.md)
+* [Поддержать несколько доменных имен](multiple-domains/index.md)

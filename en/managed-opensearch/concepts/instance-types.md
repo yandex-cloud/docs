@@ -18,7 +18,9 @@ Hosts in {{ mos-name }} clusters are deployed on {{ compute-full-name }} VMs. Yo
 
 The full list of possible host group configurations on each platform is provided below.
 
-{% include [zone-d-disk-restrictions](../../_includes/mdb/ru-central1-d-local-ssd.md) %}
+{% include [disk-flavor-dependencies](../../_includes/mdb/disk-flavor-dependencies.md) %}
+
+For example, `{{ region-id }}-d` does not support Intel Broadwell and local SSD storage if Intel Cascade Lake is used.
 
 Configuration types:
 

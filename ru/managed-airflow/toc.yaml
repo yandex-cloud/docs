@@ -109,6 +109,8 @@ items:
         href: concepts/instance-types.md
       - name: Техническое обслуживание
         href: concepts/maintenance.md
+      - name: Разграничение зон контроля
+        href: concepts/responsibilities.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

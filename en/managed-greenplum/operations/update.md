@@ -357,7 +357,7 @@ If you enabled public access to the cluster but cannot access it from the inter
             --yandexquery-access=<allow_access_from_Yandex_Query> \
             --maintenance-window type=<maintenance_type>,`
                                 `day=<day_of_week>,`
-                                `hour=<hour> \
+                                `hour=<sequence_number_of_hour_interval> \
             --websql-access=<allow_access_from_{{ websql-name }}> \
             --deletion-protection
         ```
@@ -409,7 +409,7 @@ If you enabled public access to the cluster but cannot access it from the inter
           maintenance_window {
             type = "<maintenance_type>"
             day  = "<day_of_week>"
-            hour = <hour>
+            hour = <sequence_number_of_hour_interval>
           }
 
           access {
@@ -444,8 +444,10 @@ If you enabled public access to the cluster but cannot access it from the inter
             * `type`: Maintenance type. The possible values include:
                 * `ANYTIME`: Any time.
                 * `WEEKLY`: On a schedule.
-            * `day`: Day of week in `DDD` format for the `WEEKLY` type, e.g., `MON`.
-            * `hour`: Time of day (UTC) in `HH` format for the `WEEKLY` type, e.g., `21`.
+            * `day`: Day of week for the `WEEKLY` type, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+            * `hour`: UTC hour interval for the `WEEKLY` type, from `1` to `24`.
+
+              > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
         
         * `access.data_lens`: Access to the cluster from [{{ datalens-full-name }}](../../datalens/concepts/index.md), `true` or `false`.
@@ -514,7 +516,7 @@ If you enabled public access to the cluster but cannot access it from the inter
           "maintenanceWindow": {
             "weeklyMaintenanceWindow": {
               "day": "<day_of_week>",
-              "hour": "<hour>"
+              "hour": "<sequence_number_of_hour_interval>"
             }
           },
           "deletionProtection": <protect_cluster_from_deletion>,
@@ -563,8 +565,10 @@ If you enabled public access to the cluster but cannot access it from the inter
             * `anytime`: Maintenance takes place at any time.
             * `weeklyMaintenanceWindow`: Maintenance takes place once a week at the specified time:
 
-                * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-                * `hour`: Time of day (UTC), from `1` to `24`.
+                * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+                * `hour`: UTC hour interval, from `1` to `24`.
+
+                  > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
         * `deletionProtection`: Cluster deletion protection, `true` or `false`.
 
@@ -645,7 +649,7 @@ If you enabled public access to the cluster but cannot access it from the inter
           "maintenance_window": {
             "weekly_maintenance_window": {
               "day": "<day_of_week>",
-              "hour": "<hour>"
+              "hour": "<sequence_number_of_hour_interval>"
             }
           },
           "deletion_protection": <protect_cluster_from_deletion>,
@@ -694,8 +698,10 @@ If you enabled public access to the cluster but cannot access it from the inter
             * `anytime`: Maintenance takes place at any time.
             * `weekly_maintenance_window`: Maintenance takes place once a week at the specified time:
 
-                * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-                * `hour`: Time of day (UTC), from `1` to `24`.
+                * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+                * `hour`: UTC hour interval, from `1` to `24`.
+
+                  > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
         * `deletion_protection`: Cluster deletion protection, `true` or `false`.
 

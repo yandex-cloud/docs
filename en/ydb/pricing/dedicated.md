@@ -7,13 +7,13 @@ editable: false
 # Pricing policy for Dedicated mode in {{ ydb-name }}
 
 
-
 {% note tip %}
 
 
 
 
 For cost estimation, use [this calculator](https://yandex.cloud/en/prices?state=02fcbc53c755#calculator) on our website or check out the pricing below.
+
 
 
 {% endnote %}
@@ -82,7 +82,11 @@ Currently, you cannot order storage or web traffic this way.
 
 {% endnote %}
 
-## Prices for the Russia region {#prices}
+
+
+
+## Prices {#prices}
+
 
 {% include [pricing-diff-regions](../../_includes/pricing-diff-regions.md) %}
 
@@ -100,12 +104,12 @@ Currently, you cannot order storage or web traffic this way.
 </MDX>
 
 
+
 {% note info "Minimum storage group size" %}
 
 A single [storage group](../concepts/resources.md#storage-groups) can store up to 100 GB of user data. The minimum granularity of space allocation for a DB is one storage group.
 
 {% endnote %}
-
 
 {% include [egress-traffic-pricing](../../_includes/egress-traffic-pricing.md) %}
 

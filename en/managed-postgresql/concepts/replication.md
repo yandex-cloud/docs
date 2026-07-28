@@ -39,7 +39,7 @@ Specifics of automatic replication in {{ mpg-name }}:
 
 ### Manual management of replication streams {#replication-manual}
 
-When you manage replication streams manually, a cluster host other than the master will serve as the replication source for a replica.
+When you manage replication streams manually, a cluster host other than the master will serve as the replication source for a replica. If a manually specified replication source becomes unavailable, the replica will automatically switch to the current master while still being treated as a replica with a manually specified replication source. Once the replication source is restored, the replica will switch back to it.
 
 This way, in a {{ PG }} cluster with complex topology, you can configure _cascading replication_ during which some of the replicas use other cluster hosts as the replication stream source. The replication stream for such source hosts can be managed both automatically, using the {{ mpg-name }} tools, and manually.
 
@@ -48,7 +48,6 @@ This way, in a {{ PG }} cluster with complex topology, you can configure _cascad
 Replicas, for which the replication source is specified manually, cannot:
 
 * Become a master host when the previous one is changed automatically or [manually](../operations/update.md#start-manual-failover).
-* Automatically switch to a new replication source when the current replication source fails.
 * Be part of quorum replication.
 * Be selected as most recent replicas when using a [special FQDN](../operations/connect/fqdn.md#fqdn-replica).
 

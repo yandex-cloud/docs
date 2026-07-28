@@ -79,7 +79,7 @@
      gp_relsizes_stats
     ```
 
-1. Обратитесь [службу технической поддержки](https://center.yandex.cloud/support) для применения расширения.
+1. Обратитесь в [службу технической поддержки](https://center.yandex.cloud/support) для применения расширения.
 
 1. [Перезапустите](../cluster-stop.md) кластер.
 

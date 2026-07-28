@@ -1,9 +1,9 @@
 ---
-title: Настройка хостинга в {{ objstorage-full-name }}
+title: Настроить хостинг в {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете настроить хостинг статического сайта в {{ objstorage-name }}.
 ---
 
-# Настройка хостинга
+# Настроить хостинг
 
 
 {% include [static-site-information](../../../_includes/storage/static-site-information.md) %}
@@ -27,7 +27,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endnote %}
 
-## Хостинг статического сайта {#hosting}
+## Настроить хостинг статического сайта {#hosting}
 
 {% include [static-site-all-redirection-exception](../../../_includes/storage/static-site-all-redirection-exception.md) %}
 

@@ -53,7 +53,7 @@
 
 ### Что делать, если нет доступа к платежному аккаунту?
 
-[Создайте запрос в техническую поддержку](https://center.yandex.cloud/support) или напишите письмо на электронную почту [cloud@support.yandex.ru](mailto:cloud@support.yandex.ru) с подробным описанием ситуации.
+[Создайте запрос в техническую поддержку](https://center.yandex.cloud/support) или напишите письмо на электронную почту [support@yandex.cloud](mailto:support@yandex.cloud) с подробным описанием ситуации.
 
 ### Что делать, если произошло списание, но я не пользовался сервисами Yandex Cloud?
 

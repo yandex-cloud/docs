@@ -1,9 +1,9 @@
 ---
-title: '{{ datalens-full-name }} release notes: May 2026'
-description: Check out {{ datalens-full-name }} release notes for May 2026.
+title: '{{ datalens-full-name }} release notes: June 2026'
+description: Check out {{ datalens-full-name }} release notes for June 2026.
 ---
 
-# {{ datalens-full-name }} release notes: May 2026
+# {{ datalens-full-name }} release notes: June 2026
 
 * [Changes in basic features](#base)
 * [Fixes and improvements](#fixes)
@@ -11,117 +11,153 @@ description: Check out {{ datalens-full-name }} release notes for May 2026.
 ## Changes in basic features {#base}
 
 
-* New dashboards available in [{{ datalens-gallery }}]({{ link-datalens-main }}/gallery). For more information, see the [{{ datalens-short-name }}](https://messenger.360.yandex.ru/#/join/01a309da-b9a8-4167-9892-b72f1ec1bff0/1778684386173061) chat in {{ messenger-full-name }}.
-* We have prepared for you a brief video digest covering {{ datalens-full-name }} updates over the past two quarters. Watch on your preferred platform:
+* Implemented [agent mode](../dashboard/insights.md#neuroanalyst-2) for Neuroanalyst on the dashboard. In this mode, Neuroanalyst analyzes the dataset your dashboard is based on and can respond by selecting a chart or building a new one based on the dataset. For context, it uses the dataset and a [reference tab](../dashboard/insights.md#reference-tab). When in agent mode, Neuroanalyst uses charts from the reference tab as templates for new charts.
 
-  * [YouTube](https://youtu.be/NphWrA3TFWs)
-  * [VK Video](https://vkvideo.ru/video-200452713_456240432?list=ln-yghSH3nJwSMTzT5WVh)
-  * [RuTube](https://rutube.ru/video/7af10c515697b698319c7f2b76b6fc3e/)
-
-* Implemented the [{{ SR }}](../operations/connection/create-starrocks.md) connector that enables creating a connection using a direct link.
-
-* Added a new form for creating a [dashboard mailing list](../dashboard/settings.md#maillists).
+  You can [enable Neuroanalyst's agent mode](../dashboard/insights.md#turn-on) in its settings on the dashboard:
   
-  You can now configure scheduled mailings of dashboard snapshots to email addresses of {{ datalens-short-name }} users.
+  1. If the **Neuroanalyst** option is off, turn it on (on by default).
+  1. Enable the **Agent mode** option.
+  1. [Select a reference tab](../operations/dashboard/dashboard-ai-reference-tab.md) if your dashboard has more than one tab.
+  1. Optionally, [hide](../operations/dashboard/dashboard-hide-tabs.md) the reference tab in the dashboard settings.
+
+  When selecting a reference tab, please follow these recommendations:
+
+  * On the tab, place [wizard charts](../concepts/chart/dataset-based-charts.md) that describe your dataset in various aspects and answer different questions.
+  * In the descriptions of your dashboard charts or widgets, provide examples of questions they help answer.
+  * Instead of tab selectors, use filters in charts to make your charts answer more specific questions.
+  * Use charts built on a single dataset.
+  * Use relevant field descriptions in the dataset.
+
+  Current limitations:
+
+  * Works only on one dataset, the one your reference tab is based on.
+  * The titles of the first three charts get into Neuroanalyst's recommendations.
+
+  Try out Neuroanalyst's agent mode on the public [demo dashboard](https://datalens.yandex/9fms9uae7ip02) (click ![image](../../_assets/console-icons/sparkles.svg) in the bottom-right corner).
+  Also see the [reference tab](https://datalens.yandex/9fms9uae7ip02?tab=et01) example.
+
+* Implemented the ability to add Neuroanalyst to the [dashboard](../operations/dashboard/add-ai.md) and [report](../reports/insights.md) as a separate [Insight](../dashboard/widget.md#ai) widget.
   
-  When creating a mailing list, consider the following:
+  This widget displays Neuroanalyst's insights for the selected chart on the current dashboard tab or report page. When adding a widget, you can set a custom prompt asking about the data. When you save a dashboard or report, the system will analyze the chart you specify and return its findings based on the chart and custom prompt data. The result will be updated every time you open the dashboard or report.
+
+* Updated dashboard [mailing lists](../operations/dashboard/add-maillists.md):
+
+  * Now, within a single mailing list, you can set up multiple states with sets of attached screenshots in the email, e.g., for each of the tabs.
+  * Added the screenshot auto height setting.
+  * Added the ability to specify the date in the attached file's name.
+  * Implemented the ability to select several users in a separate window.
+
+
+* Added new dashboard style options:
   
-  * Mailing lists are only available for dashboards stored in [workbooks](../workbooks-collections/index.md).
-  * A user with the `{{ roles-datalens-admin }}` role can add or update a mailing list.
-  * You can customize the dashboard state for each mailing list, e.g., select specific tabs and selector values.
+  * Dashboard [background](../operations/dashboard/add-dashboard-background.md) separately for light and dark themes.
+  * [Background and transparency](../operations/dashboard/add-widget-background.md) separately for light and dark themes for all dashboard widgets.
+  * Rounding for all [dashboard](../operations/dashboard/add-rounding.md) and [report](../reports/report-operations.md#widget-rounding) widgets separately for light and dark themes.
 
-  {% cut "Mailing list email content" %}
-
-  ![maillist-content](../../_assets/datalens/release-notes/maillist-content.png)
-
-  {% endcut %}
-
-* Revised the dialog for assigning access permissions. For each user or group, the permissions settings window displays the effective role for the current object (collection or workbook).
+* Added the ability to save a [draft version](../dataset/versioning.md#version-types) of the dataset.
   
-  Optionally, you can open a window with an individual user’s permissions settings to view details, including roles inherited from parent collections.
-
-* Added new [roles for collections](../security/workbooks-access-basic.md#collection-roles):
-
-  * The `Collection visitor` role allows you to view information about the collection without access to its nested objects.
-  * The `Creator in collection` role allows you to view a collection and create objects inside it without accessing the existing ones.
+  A draft is a version containing unsaved dataset changes. Common users see none of the changes made to the draft. The charts and dashboards based on it remain unchanged. This allows you to hide dataset edits until you actualize your version.
   
-  Previously, when a user had access to a workbook but not to its parent collections, they could only access the workbook via a direct link or through lists of available objects. Now you can grant permissions to visit specific collections, and create objects inside them without access to existing objects.
+  To create a draft after you have edited a dataset, click the check mark in the top-right corner and select **Save as draft**.
 
-* Implemented access management using [shared objects](../security/workbooks-access-advanced.md). Shared objects are connections and datasets you can reuse and link to multiple workbooks across different teams.
-  
-  When linking a shared object, select a permission delegation option:
-  
-  * **Delegate access permissions**: Access permissions to the shared object (connection or dataset) will not be checked within the workbook. This means that anyone with access to the workbook the connection is linked to will also have access to the object.
-  * **Do not delegate access permissions**: For users to access the object (connection or dataset) from the workbook, they must be granted access to the original, i.e., the shared object.
-
-  Linking an object to a workbook requires appropriate permissions for the shared objects, so we added two additional roles:
-
-  * The `Links without delegation` role for a shared object allows you to link it to workbooks without delegating access permissions.
-  * The `Links with delegation` role for a shared object allows you to link it to workbooks with or without delegating access permissions.
-
-
-* Implemented early [cache invalidation](../dataset/cache-invalidation.md) in datasets:
-
-  * Cache invalidation allows you to reduce the number of queries to the source and optimize cache usage in {{ datalens-short-name }}.
-  * Cache invalidation conditions are defined in dataset settings.
-  * Available [invalidation modes](../dataset/cache-invalidation.md#modes): SQL-based and formula-based.
-
-  {{ datalens-short-name }} caches query results from data sources to accelerate chart and dashboard rendering. By default, the cache refreshes only after its TTL expires. This may become a constraint if you need real-time visibility, as your data will update regularly but infrequently.
-  
-  Here is how cache invalidation solves this issue: the system runs an occasional _invalidation query_ against the data source to check if the data has changed. If the query returns a different result, the cache refreshes immediately without waiting for TTL expiration.
-
-* Redesigned the color picker tool, introducing an enhanced color palette and improved visual display. This redesign applies to report [widget background settings](../reports/report-operations.md#widget-background), [chart color settings](../concepts/chart/settings.md#color-settings), [dataset field color settings](../dataset/create-dataset.md#setup-fields), and global [appearance](../settings/appearance.md) settings.
-
-* Implemented hiding dashboard tabs. You can [choose to display](../operations/dashboard/dashboard-hide-tabs.md) all or selected tabs. Hidden tabs are not visible by default when you open the dashboard, but you see them if you use a link to a hidden tab to open the dashboard. Hidden tabs are visible in edit mode.
-
-  Use cases for hidden tabs include:
-
-  * Hiding archived tabs prior to deletion.
-  * Staging new tabs that are still in development before making them visible to all users.
-  * Adding a tab with details that is only accessible by clicking a link in another chart.
+  To apply changes to visualizations, in draft view mode, click **Make actual**.
 
 
 ## Fixes and improvements {#fixes}
 
 
+* Added the ability to upload files when [importing a workbook](../workbooks-collections/export-and-import.md#import-workbook) via drag and drop.
+* Added the ability to select a range of objects in the list of workbooks and collections: hold down the **Shift** key and mark the beginning and end of the range with your mouse.
+* Updated the embed and public access settings dialog. To access the settings, click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/arrow-shape-turn-up-right.svg) **Share** at the top of the chart or dashboard and select a tab:
 
-* Now you can search licenses by `userId`.
+  * **In organization**: To set up [access to a workbook](../security/workbooks-access.md) or [share a link within an organization](../concepts/datalens-sharing.md).
+  * **Publicly**: To set up [public access](../concepts/datalens-public.md) via a link for external users.
+  * **Embed**: To [embed private objects](../security/private-embedded-objects.md).
+
+* Fixed the context menu for shared objects in the navigation bar.
+* Improved access permission management: now the `Editor` [role](../security/roles.md#datalens-workbooks-editor) is enough to delete datasets and connections in a workbook.
+* Fixed a bug where breadcrumbs were not automatically updated when copying a workbook from a nested collection.
 
 
-* Fixed a [background export](../concepts/chart/data-export.md#background-export) error in cells containing special characters.
+* Provided the ability to change the chart and dashboard background color using special parameters in the link:
+
+
+  * `_bg_color`: Sets the background color of:
+    
+    * [Private](../security/private-embedded-objects.md) charts and dashboards in hexadecimal format, e.g., `_bg_color=D7F7F7`.
+    * [Public](../concepts/datalens-public.md) charts and dashboards in hexadecimal format, only if `_embedded` equals `1`, e.g., `_bg_color=D7F7F7&_embedded=1`.
+
+  * `_widgets_bg_color`: Sets the background color of:
+    
+    * Private dashboard widgets in hexadecimal format, e.g., `_widgets_bg_color=B7F7F7`.
+    * Public dashboard widgets in hexadecimal format, only if `_embedded` equals `1`, e.g., `_widgets_bg_color=B7F7F7&_embedded=1`.
+
 
 ### Fixes in connections {#connection-fixes}
 
-* Fixed an issue where connections to [Google Sheets](../operations/connection/create-google-sheets.md) could persist despite an outdated state.
+* Fixed an OAuth token [connection](../concepts/connection/index.md) authorization issue in the Safari browser.
 
-### Fixes in reports {#chart-fixes}
 
-* Fixed [report export](../reports/report-operations.md#report-export) issues, including:
-  
-  * Incorrect display of the note icon in text widgets.
-  * Images loading failures in Safari.
-  * Incorrect text wrapping in the **Header** widget when widget size was insufficient to accommodate the full text.
-  
-* Report pages in the preview area in Safari now load faster.
+### Fixes in datasets {#dataset-fixes}
+
+* Fixed an error that occurred when replacing a connection with a [shared](../security/workbooks-access-advanced.md) connection in a dataset.
+
+
+### Fixes in reports {#report-fixes}
+
+* Fixed errors in report [preview](../reports/report-operations.md#report-preview) modes in document and presentation formats where the content could not be scaled up to full screen.
 
 
 ### Dashboard fixes {#dashboard-fixes}
 
-* Restricted the scope of selectors displayed on multiple tabs. Previously, default values of such selectors could also affect tabs where those selectors were not visible.
-* Fixed a group selector copying error.
+* Changed [inserting a copied selector](../operations/dashboard/add-selector.md#copy-paste) with display settings on `Selected tabs`. Now, if you select the following in the insert dialog box:
 
-  Previously, pasting a group selector with a group-wide setting caused the tab to malfunction if each individual selector was set to `Current tab`.
+  * **Copy**: Creates an independent selector on the current tab.
+  * `Update settings`: After the insertion, the original selector's **Show in tabs** setting will be automatically updated.
+  * If you close the window, the selector will not be inserted.
 
-  Now, if you paste a selector with a group-wide setting into another tab and select **Edit settings**, the new settings will apply both to the group and each of its selectors (provided they are visible on the original tab).
+* The [mobile widget order](../operations/dashboard/display-modes.md) menu now gives access to global selectors.
+* You can now reset the appearance of the dashboard itself or the dashboard and all charts on it. Do it in dashboard editing mode by clicking ![image](../../_assets/console-icons/arrow-rotate-left.svg) to the right of the **Appearance** section's name and select `Reset dashboard appearance` or `Reset the appearance of dashboard and all charts`.
+* Added a restriction for widgets featuring a group of selectors: you can no longer save a group in which several selectors refer to the same parameter. Previously, this restriction applied only to manual selectors; now it also applies to dataset selectors.
+* Added a missing parameter message when opening the dashboard settings window.
+* Now you can add questions for the Neuroanalyst chat in the dashboard settings in Neuroanalyst's agent mode. By default, questions are taken from descriptions and titles of the first three widgets on the reference tab. To ask your own questions, go to the dashboard settings:
+  
+  1. If the **Neuroanalyst** option is off, turn it on (on by default).
+  1. Enable the **Agent mode** option.
+  1. [[Select a reference tab](../operations/dashboard/dashboard-ai-reference-tab.md)](../operations/dashboard/dashboard-ai-reference-tab.md) if your dashboard has more than one tab.
+  1. Opposite to **Example questions**, click ![image](../../_assets/console-icons/pencil.svg) and, in the window that opens, enter your questions to Neuroanalyst. These questions will be displayed when you launch Neuroanalyst.
+  1. Optionally, [hide](../operations/dashboard/dashboard-hide-tabs.md) the reference tab in the dashboard settings.
+
+
+* Fixed a bug with global [selectors](../dashboard/selector.md) on the mobile dashboard.
+* Fixed a `Calendar` selector bug where, after you selected a period, the calendar would reopen when hovering over the chart.
+* Fixed a dashboard chart issue where the [calculated field](../concepts/calculations/index.md) tooltip value would not update if using fields dependent on dashboard filters.
+* Fixed a bug in selectors with shared datasets.
 
 
 ### Fixes in charts {#chart-fixes}
 
+* Fixed the following for the [combined chart](../visualization-ref/combined-chart.md):
+ 
+  * Incorrect display of charts with a category axis with sorting on.
+  * Caption overlay.
+
+* Fixed the following for the [normalized column chart](../visualization-ref/combined-chart.md):
+  
+  * Error when selecting `HTML` in the **Markup** setting for a field in the **Split** section.
+  * Chart display with the **Split** section.
+
+* Fixed the display of captions in a [column chart](../visualization-ref/column-chart.md) with sorting.
+* In the chart inspector, added splitting several queries with `;` to run two queries at once.
+* In the wizard, restored the ![image](../../_assets/console-icons/ellipsis.svg) button when hovering over a dataset to be able to open and use the menu.
+* Fixed incorrect filter operation when using an empty field.
+* In charts with hierarchy, fixed the selection of the X-axis display mode when editing.
 
 
-* Added support for additional [trend and smoothing lines](../dashboard/trends-and-smoothing.md) on public dashboard charts.
+* Fixed a scrolling problem in the widget chart list in Safari triggered by large numbers of charts.
 
+### Changes in Editor {#editor-fixes}
 
-* Fixed a hierarchical navigation error in [bar charts](../visualization-ref/bar-chart.md).
-* Fixed the display of trailing zeros in [normalized column chart](../visualization-ref/normalized-column-chart.md) tooltips.
+* Fixed re-rendering of the [Advanced chart](../charts/editor/widgets/advanced.md) when resizing the parent widget.
+* Fixed the **Create Editor chart** button in the [API Connector](../operations/connection/create-api-connector.md) connection, which now correctly redirects to Editor's visualization selection page.
 

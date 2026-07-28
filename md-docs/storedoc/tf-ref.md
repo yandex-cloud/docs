@@ -17,6 +17,7 @@ Terraform распространяется под лицензией [Business S
 | --- | --- |
 | [yandex_mdb_mongodb_cluster](../terraform/resources/mdb_mongodb_cluster.md) | [Кластер](concepts/index.md) |
 | [yandex_mdb_mongodb_cluster_iam_binding](../terraform/resources/mdb_mongodb_cluster_iam_binding.md) | [Настройка](../iam/concepts/access-control/index.md#access-bindings) прав доступа к кластеру |
+| [yandex_mdb_mongodb_backup_retention_policy](../terraform/resources/mdb_mongodb_backup_retention_policy.md) | Политика резервного копирования |
 
 ## Источники данных {#data-sources}
 
@@ -27,3 +28,4 @@ Terraform распространяется под лицензией [Business S
 | [yandex_mdb_mongodb_cluster](../terraform/data-sources/mdb_mongodb_cluster.md) | Информация о [кластере](concepts/index.md) |
 | [yandex_mdb_mongodb_database](../terraform/data-sources/mdb_mongodb_database.md) | Информация о базе данных |
 | [yandex_mdb_mongodb_user](../terraform/data-sources/mdb_mongodb_user.md) | Информация о пользователе базы данных |
+| [yandex_mdb_mongodb_backup_retention_policy](../terraform/data-sources/mdb_mongodb_backup_retention_policy.md) | Информация о политике резервного копирования |

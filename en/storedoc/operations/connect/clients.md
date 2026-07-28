@@ -191,6 +191,98 @@ Before connecting, install [MongoDB Shell](index.md#install-mongosh).
 
 {% endlist %}
 
+
+
+### Connecting with IAM authentication {#iam}
+
+You can connect to a {{ mmg-name }} cluster using IAM authentication. This authentication option is supported for [Yandex accounts](../../../iam/concepts/users/accounts.md#passport), [federated](../../../iam/concepts/users/accounts.md#saml-federation) accounts, and [local](../../../iam/concepts/users/accounts.md#local) accounts.
+
+The connection is established via MongoDB Shell. For information on how to install MongoDB Shell, see [this guide](index.md#mongosh-install).
+
+Before you proceed with connection, configure the [security groups](index.md#configuring-security-groups) and [enable public access](../hosts.md#update) to the cluster hosts if connecting over the internet.
+
+To connect to a cluster using IAM authentication:
+
+1. Set up authentication:
+
+    {% list tabs group=instructions %}
+
+    - Management console {#console}
+
+      1. Open the [folder dashboard]({{ link-console-main }}).
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+      1. Select the cluster.
+      1. Assign the {{ yandex-cloud }} account the `managed-mongodb.clusters.connector` role for the cluster:
+         
+          1. Select the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+          1. Click **{{ ui-key.yacloud_components.acl.action.assign-roles }}** in the top-right corner of the page.
+          1. In the **{{ ui-key.yacloud_components.acl.label.subject }}** field, select the account.
+              
+              To find the account you need, enter its associated email address.
+          
+          1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the `managed-mongodb.clusters.connector` role.
+          1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
+      
+      1. Create a user named {{ SD }}:
+
+          1. Select ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}**.
+          1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}** in the top-right corner of the page.
+          1. Choose the **{{ ui-key.yacloud.mongodb.UserAddDialog.label_iam_ffBD5 }}** authorization method.
+          1. Select the {{ yandex-cloud }} account with the `managed-mongodb.clusters.connector` role.
+          1. Select the databases and configure [roles](../../concepts/users-and-roles.md) for them:
+          
+              1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.dialogs.button_add-database }}** and select the database.
+              1. Assign roles for the selected database.
+              
+                  To assign a role, click ![image](../../../_assets/console-icons/plus.svg) and select the role you need.
+          
+          1. Click **{{ ui-key.yacloud.mdb.cluster.users.popup-add_button_add }}**.
+
+    {% endlist %}
+
+1. Get an IAM token and place it in the `IAM_TOKEN` environment variable:
+    
+    * [Guide](../../../iam/operations/iam-token/create.md) for a Yandex account.
+    * [Guide](../../../iam/operations/iam-token/create-for-federation.md) for a federated account.
+    * [Guide](../../../iam/operations/iam-token/create-for-local.md) for a local account.
+
+1. [Get an SSL certificate](index.md#get-ssl-cert).
+1. Connect to the cluster by running this command:
+
+    For a non-sharded cluster:
+
+    ```bash
+    mongosh --norc \
+            --tls \
+            --tlsCAFile ~/.mongodb/root.crt \
+            --host '<MONGOINFRA_or_MONGOS_host_1_FQDN>:27018,...,<MONGOINFRA_or_MONGOS_host_N_FQDN>:27018' \
+            --username "<DB_user_name>" \
+            --password "$IAM_TOKEN" \
+            --authenticationDatabase '$external' \
+            --authenticationMechanism PLAIN \
+            <DB_name>
+    ```
+
+    For a sharded cluster:
+
+    ```bash
+    mongosh --norc \
+            --tls \
+            --tlsCAFile ~/.mongodb/root.crt \
+            --host '<MONGOINFRA_or_MONGOS_host_1_FQDN>:27017,...,<MONGOINFRA_or_MONGOS_host_N_FQDN>:27017' \
+            --username "<DB_user_name>" \
+            --password "$IAM_TOKEN" \
+            --authenticationDatabase '$external' \
+            --authenticationMechanism PLAIN \
+            <DB_name>
+    ```
+
+    Where `--username` is the database user name, which matches the {{ yandex-cloud }} account email address.
+
+    {% include [see-fqdn-host](../../../_includes/mdb/mmg/fqdn-host.md) %}
+
+
+
 ## Connecting from graphical IDEs {#connection-ide}
 
 {% include [ide-environments](../../../_includes/mdb/mmg-ide-envs.md) %}

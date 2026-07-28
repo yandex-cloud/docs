@@ -134,7 +134,7 @@
 Проверка проходит автоматически при соблюдении следующих условий:
 
 * Сертификат находится в статусе `Renewing` — проходит процедуру [обновления](managed-certificate.md#renew).
-* Сертификат используется в [HTTPS-конфигурации](../../storage/operations/hosting/certificate#cert-manager) статического сайта [{{ objstorage-name }}](../../tutorials/web/static/index.md).
+* Сертификат [выбран](../../storage/operations/hosting/certificate#cert-manager) для HTTPS-конфигурации статического сайта [{{ objstorage-name }}](../../tutorials/web/static/index.md).
 * Для каждого домена сертификата настроен:
     
     * [алиас](../../storage/operations/hosting/own-domain.md) на бакет статического сайта, в котором используется этот сертификат;
