@@ -79,6 +79,8 @@ items:
             href: operations/objects/rename-move.md
           - name: Копирование объектов
             href: operations/objects/copy.md
+          - name: Изменение класса хранилища объекта
+            href: operations/objects/change-storage-class.md
           - name: Скачивание объекта по подписанной ссылке (pre-signed URL)
             href: operations/objects/link-for-download.md
           - name: Загрузка объекта по подписанной ссылке (pre-signed URL)

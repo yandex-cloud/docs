@@ -23,3 +23,5 @@
 * [CyberDuck](../../../storage/tools/cyberduck.md);
 * [AWS CLI](../../../storage/tools/aws-cli.md);
 * [s3cmd](../../../storage/tools/s3cmd.md).
+
+Команды {{ yandex-cloud }} CLI и AWS CLI, а также вызовы API для смены класса хранилища приведены в разделе [{#T}](../../../storage/operations/objects/change-storage-class.md).
