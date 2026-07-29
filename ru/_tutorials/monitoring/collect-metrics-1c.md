@@ -168,7 +168,7 @@
 Сервисный аккаунт нужен для передачи метрик из ВМ в {{ monitoring-name }}.
 
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт `sa-1c-monitoring` в каталоге, куда будут записываться метрики.
-1. [Назначьте](../../iam/operations/roles/grant.md) сервисному аккаунту [роль](../../monitoring/security/index.md#monitoring.editor) `monitoring.editor`.
+1. [Назначьте](../../iam/operations/roles/grant.md) сервисному аккаунту [роль](../../monitoring/security/index.md#monitoring-editor) `monitoring.editor`.
 1. [Подключите](../../compute/operations/vm-control/vm-connect-sa.md) сервисный аккаунт к ВМ, на которой установлено «1С:Предприятие».
 
 ## Установите и настройте {{ unified-agent-short-name }} {#configure-ua}

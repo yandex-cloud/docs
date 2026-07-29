@@ -140,7 +140,7 @@ description: Следуя данной инструкции, вы сможете
     module_type = "RULE_CONDITION", meta.matched_rule_verdict = "DENY"
     ```
   
-  * Показать запросы, для которых сработали правила [Smart Protection](../concepts/rules.md##smart-protection-rules) с отправкой на капчу:
+  * Показать запросы, для которых сработали правила [Smart Protection](../concepts/rules.md#smart-protection-rules) с отправкой на капчу:
     
     ```
     module_type = "SMART_PROTECTION", meta.matched_rule_verdict = "CAPTCHA"

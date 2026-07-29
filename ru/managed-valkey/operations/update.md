@@ -1855,7 +1855,7 @@ description: Из статьи вы узнаете, как изменить на
 
 {% note warning %}
 
-Может потребоваться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups) для подключения к кластеру.
+Может потребоваться дополнительная [настройка групп безопасности](connect/index.md#configure-security-groups) для подключения к кластеру.
 
 {% endnote %}
 

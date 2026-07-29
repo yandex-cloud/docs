@@ -7,10 +7,10 @@ description: '{{ at-full-name }} позволяет собирать аудит�
 
 {{ at-full-name }} позволяет собирать [аудитные логи уровня конфигурации](./events.md) и [аудитные логи уровня сервисов](./events-data-plane.md) ресурсов {{ yandex-cloud }} и загружать их в [бакет](../../storage/concepts/bucket.md) {{ objstorage-name }}, [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-name }}, [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-name }} или [шину](../../serverless-integrations/concepts/eventrouter/bus.md) {{ er-full-name }}:
 
-* [Загрузка аудитных логов в бакет](../operations/create-trail.md#bucket_1).
-* [Загрузка аудитных логов в Cloud Logging](../operations/create-trail.md#logging_1).
-* [Загрузка аудитных логов в поток данных](../operations/create-trail.md#data-streams_1).
-* [Загрузка аудитных логов в шину](../operations/create-trail.md#eventrouter_1).
+* [Загрузка аудитных логов в бакет](../operations/create-trail.md#bucket).
+* [Загрузка аудитных логов в Cloud Logging](../operations/create-trail.md#logging).
+* [Загрузка аудитных логов в поток данных](../operations/create-trail.md#data-streams).
+* [Загрузка аудитных логов в шину](../operations/create-trail.md#eventrouter).
 
 Сбор аудитных логов позволяет применять инструменты анализа и оперативного реагирования на события {{ yandex-cloud }}:
 

@@ -13,7 +13,7 @@ description: В статье описаны поля для интеграцио
 
 #|
 || Имя поля | Тип | Обязательное | Значение по умолчанию | Поддерживается [шаблонизация](../../templating.md) | Описание ||
-|| `connection` | [DatabaseConnection](#DatabaseonnecCtion) | Нет | Нет | Нет | Параметры подключения к базе данных. ||
+|| `connection` | [DatabaseConnection](#DatabaseConnection) | Нет | Нет | Нет | Параметры подключения к базе данных. ||
 || `dsn` | `string` | Нет | Нет | Нет | Строка подключения (DSN) к базе данных. Поддерживаемые схемы: `postgres://`, `postgresql://`, `clickhouse://`, `grpc://`, `grpcs://`, `ydb://`, а также формат {{ MY }} DSN (`user:pass@tcp(host:port)/db?...`). ||
 || `query` | `string` | Да | Нет | Да | Текст SQL-запроса. ||
 || `mode` | `string` | Нет | `EXEC` | Нет | Метод выполнения SQL-запроса. Доступные значения:

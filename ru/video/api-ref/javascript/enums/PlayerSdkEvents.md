@@ -48,7 +48,7 @@
 
 • **StatusChange** = `"StatusChange"`
 
-[Изменение статуса](../../../sdk/javascript/player-events.md#StatusChange) воспроизведения.
+[Изменение статуса](../../../sdk/javascript/player-events.md#statuschange) воспроизведения.
 
 ### UtcStartTimeChange {#utcstarttimechange}
 

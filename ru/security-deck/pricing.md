@@ -49,7 +49,7 @@ editable: false
 
 {% note tip %}
 
-Чтобы рассчитать потребление ресурсов для вашей организации, проанализируйте [детализацию по всем сервисам](../billing/operations/check-charges.md#services_1) для каждого [платежного аккаунта](../billing/concepts/billing-account.md), привязанного к этой организации.
+Чтобы рассчитать потребление ресурсов для вашей организации, проанализируйте [детализацию по всем сервисам](../billing/operations/check-charges.md#services) для каждого [платежного аккаунта](../billing/concepts/billing-account.md), привязанного к этой организации.
 
 {% endnote %}
 

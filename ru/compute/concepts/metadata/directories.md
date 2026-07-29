@@ -73,7 +73,7 @@ description: Из этой статьи вы узнаете о каталога�
 
 Каталог `user-data` не содержит отдельных ключей, и все данные отдаются сразу целиком при обращении к корневому ключу каталога `/latest/user-data/`.
 
-В этом каталоге хранится метаинформация, которая задается пользователем при [создании](../../operations/index.md#vm-create) или [изменении](../../operations/vm-control/vm-update.md#change-metadata) ВМ. Получателем этой информации является процесс [cloud-init](https://cloudinit.readthedocs.io/en/latest/index.html), который запускается при старте ВМ.
+В этом каталоге хранится метаинформация, которая задается пользователем при [создании](../../operations/index.md#vm-create) или [изменении](../../operations/vm-control/vm-update.md#changing-metadata) ВМ. Получателем этой информации является процесс [cloud-init](https://cloudinit.readthedocs.io/en/latest/index.html), который запускается при старте ВМ.
 
 Чтобы получить информацию из этого каталога, нужно [выполнить запрос](../../operations/vm-info/get-info.md#example4).
 

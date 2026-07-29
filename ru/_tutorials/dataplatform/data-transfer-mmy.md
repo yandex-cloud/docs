@@ -35,7 +35,7 @@
 
 1. Если вы используете группы безопасности, настройте их так, чтобы к кластерам можно было подключаться из интернета:
 
-    * [Инструкция для {{ mmy-name }}](../../managed-mysql/operations/connect/index.md#configuring-security-groups).
+    * [Инструкция для {{ mmy-name }}](../../managed-mysql/operations/connect/index.md#configure-security-groups).
     * [Инструкция для {{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
 
 

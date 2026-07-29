@@ -117,7 +117,7 @@ _Политика жизненного цикла_ — это набор пра�
 `type` | `string` | Тип удаления:<ul><li>`HARD_DELETE` — удалять артефакты безвозвратно;</li><li>`SOFT_DELETE` — помечать артефакты для удаления с возможностью восстановления.</li></ul>
 `cooldown_period_days` | `integer` | Период ожидания в днях перед удалением.
 `older_than_days` | `integer` | Удалять артефакты старше указанного количества дней.
-`version_condition` | [DeleteByVersionCondition](#dDeleteByVersionCondition) | Удаление артефактов по количеству версий.
+`version_condition` | [DeleteByVersionCondition](#DeleteByVersionCondition) | Удаление артефактов по количеству версий.
 `always` | `boolean` | Удалять все артефакты, которые попали в выборку.
 
 ### Объект DeleteByVersionCondition {#DeleteByVersionCondition}
