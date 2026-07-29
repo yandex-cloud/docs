@@ -5,6 +5,16 @@ description: This section contains the {{ backup-name }} release notes.
 
 # {{ backup-full-name }} release notes
 
+## Q2 2026 {#q2-2026}
+
+* Introduced capabilities to connect VMs and servers located outside {{ yandex-cloud }} to {{ backup-name }}. For more information, see these docs:
+  * [{#T}](./concepts/vm-connection/external-resources.md)
+  * [{#T}](./operations/external/connect.md)
+  * [{#T}](./operations/backup-vm/create.md)
+  * [{#T}](./operations/external/recover.md)
+* Streamlined the process for connecting an existing {{ compute-name }} VM to {{ backup-name }} in the [management console]({{ link-console-main }}): you no longer need to attach a service account to the VM or manually install the {{ backup-name }} agent.
+* Added {{ iam-name }} [access policies](./security/index.md#access-policies) to enforce restrictions on certain actions with {{ backup-name }} resources even if such actions are allowed by user roles.
+
 ## Q1 2026 {#q1-2026}
 
 * Improved the process for creating a VM with a connection to {{ backup-name }} in the [management console]({{ link-console-main }}).

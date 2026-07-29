@@ -23,7 +23,7 @@ In this guide, you will set up web resource protection using SWS tools connected
 
 1. Connecting resources to {{ yandex-cloud }}:
    1. [Get your cloud ready](#before-you-begin)
-   1. [Create a protected resource](#resource-create)
+   1. [Create a resource that needs to be protected](#resource-create)
 
 1. [Set up DDoS and anti-bot protection](#antiddos-antibot-protection):
 
@@ -46,7 +46,7 @@ In this guide, you will set up web resource protection using SWS tools connected
 1. Optionally, [set up the web application firewall](#firewall)
 
    1. [Create a WAF profile](#waf-create)
-   1. [Configure the Yandex rule set](#waf-configure-rules)
+   1. [Configure Yandex Ruleset](#waf-configure-rules)
    1. [Create an exclusion rule](#create-exclusion)
    1. [Add your WAF profile to the security profile](#waf-add-to-profile)
    1. [Test the WAF rules](#test-waf-rules)
@@ -61,7 +61,7 @@ In this guide, you will set up web resource protection using SWS tools connected
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-## Create a protected resource {#resource-create}
+## Create a resource that needs to be protected {#resource-create}
 
 {% include [sws-type-resources](../../_includes/smartwebsecurity/sws-type-resources.md) %}
 
@@ -173,7 +173,7 @@ WAF rules include L7 DDoS protection. If you add a WAF rule to a security profil
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder the protected resources are in.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the protected resources.
   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/profiles.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}** and select **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
@@ -486,7 +486,7 @@ To test ARL rules, use a suitable load testing tool with HTTP support.
 
   1. Open the L7 load balancer, API gateway, or proxy server your security profile is associated with.
   1. Select **{{ ui-key.yacloud.common.logs }}**.
-  1. In the **Query** row, specify your query for ARL rule search and click **Run**.
+  1. In the **Query** row, specify your query for ARL rule search and click **Execute**.
 
       Request examples:
 
@@ -518,7 +518,7 @@ After disabling the **{{ ui-key.yacloud.smart-web-security.overview.column_dry-r
 
 A web application firewall (WAF) protects your web apps from various vulnerability exploits and requires fine tuning depending on the specific features of your service.
 
-When creating a WAF profile, you can enable multiple rule sets. For a quick start, we recommend [ML WAF](../../smartwebsecurity/concepts/waf.md#yandex-ml-ruleset) (Yandex Malicious Score) and [Yandex rule set](../../smartwebsecurity/concepts/waf.md#yandex-ruleset); they produce the lowest number of false positives.
+When creating a WAF profile, you can enable multiple rule sets. For a quick start, we recommend [ML WAF](../../smartwebsecurity/concepts/waf.md#yandex-ml-ruleset) (Yandex Malicious Score) and [Yandex Ruleset](../../smartwebsecurity/concepts/waf.md#yandex-ruleset): they return the least number of false positives.
 
 For added protection, use additional rule sets and tailor them to your service.
 
@@ -541,7 +541,7 @@ You may need to disable certain rules to prevent false positives and create excl
 
 {% endlist %}
 
-### Configure the Yandex rule set {#waf-configure-rules}
+### Configure Yandex Ruleset {#waf-configure-rules}
 
 {% list tabs group=instructions %}
 
@@ -599,7 +599,7 @@ You may need to disable certain rules to prevent false positives and create excl
 
   1. Open the L7 load balancer, API gateway, or proxy server your security profile is associated with.
   1. Select **{{ ui-key.yacloud.common.logs }}**.
-  1. In the **Query** row, specify your query for WAF rule search and click **Run**.
+  1. In the **Query** row, specify your query for WAF rule search and click **Execute**.
 
       Request examples:
 

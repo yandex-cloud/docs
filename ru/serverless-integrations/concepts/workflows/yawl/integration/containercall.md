@@ -5,6 +5,8 @@ description: В статье описаны поля для интеграцио
 
 # ContainerCall
 
+{% include [workflows-ai-studio-note](../../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 Вызов контейнера [{{ serverless-containers-full-name }}](../../../../../serverless-containers/).
 
 Имя поля | Тип | Обязательное | Значение по умолчанию | Поддерживается [шаблонизация](../../templating.md) | Описание

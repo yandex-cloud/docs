@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [kms](../index.md) > [asymmetric-encryption-crypto](index.md) > get-public-key
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник (англ.)](../../../index.md) > [kms](../index.md) > [asymmetric-encryption-crypto](index.md) > get-public-key
 
 # yc kms asymmetric-encryption-crypto get-public-key
 

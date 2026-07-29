@@ -5,6 +5,8 @@ description: В статье описаны поля для интеграцио
 
 # DatabaseQuery
 
+{% include [workflows-ai-studio-note](../../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 Выполнение SQL-запросов к базам данных {{ MY }}, {{ PG }}, {{ CH }} и {{ ydb-short-name }}.
 
 Поля `connection` и `dsn` — взаимоисключающие, нужно использовать только одно из них.

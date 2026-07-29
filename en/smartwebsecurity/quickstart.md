@@ -5,9 +5,9 @@
 ## Setup steps {#steps}
 
 * [Get your cloud ready](#before-you-begin).
-* [Create and configure a protected resource](#resource-create).
+* [Create and configure a resource that needs to be protected](#resource-create).
 * [Create and check a security profile](#security-profile).
-* [Connect a security profile to the protected resource](#profile-connect).
+* [Connect a security profile to the resource](#profile-connect).
 * [Test the security profile](#monitoring).
 * Optionally, [create and connect a WAF profile](#waf).
 * Optionally, [create and connect an ARL profile](#arl).
@@ -24,7 +24,7 @@ If having problems configuring {{ sws-name }}:
 {% include [before-you-begin](../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
 
-## Create and configure a protected resource {#resource-create}
+## Create and configure a resource that needs to be protected {#resource-create}
 
 {% list tabs group=resources %}
 
@@ -122,7 +122,7 @@ If having problems configuring {{ sws-name }}:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder the protected resources are in.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the protected resources.
   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![shield-check](../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}** and select **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.

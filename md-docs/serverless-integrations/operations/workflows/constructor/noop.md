@@ -2,6 +2,17 @@
 
 # Добавить шаг No op
 
+{% note info %}
+
+На данный момент Workflows поддерживается в двух интерфейсах — [Yandex Cloud](https://console.yandex.cloud/link/serverless-integrations/workflows/workflows) и [Yandex AI Studio](https://aistudio.yandex.ru/platform/link//workflows). При этом:
+
+* рабочие процессы, [созданные в интерфейсе Yandex Cloud](../workflow/create-constructor.md), автоматически _доступны_ в интерфейсе AI Studio;
+* рабочие процессы, созданные в интерфейсе AI Studio, _недоступны_ в интерфейсе Yandex Cloud.
+
+С 3 сентября 2026 года Workflows перестанет поддерживаться в интерфейсе Yandex Cloud. Для создания рабочих процессов и управления ими используйте интерфейс AI Studio.
+
+{% endnote %}
+
 Управляющий шаг No op не выполняет никаких действий. Этот шаг нужен, например, чтобы успешно завершить пайплайн, если в шаге [Switch](switch.md) было выполнено условие по умолчанию, или если требуется сделать заглушку на месте одного из шагов на этапе прототипирования.
 
 {% note tip %}

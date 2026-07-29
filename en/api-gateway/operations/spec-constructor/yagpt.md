@@ -12,6 +12,7 @@ description: Follow this guide to add the {{ ai-studio-full-name }} extension us
     1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) in which you created or want to create an [API gateway](../../concepts/index.md).
     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
     1. Select an API gateway or click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}** to create a new one.
+    1. Click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
     1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** field, click ![image](../../../_assets/api-gateway/spec-constructor/cloud-yagpt.svg).
     1. Specify the following:
 
@@ -21,7 +22,7 @@ description: Follow this guide to add the {{ ai-studio-full-name }} extension us
 
     1. Under **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_model_uri_title }}**, select a model and specify:
 
-        * For a `{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_model_uri_yagpt_label }}` model: Folder ID that will be specified in the text generation model URI.
+        * For a `{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_model_uri_yagpt_label }}` model: Folder ID that will be specified in the text generation model URI. The latest version of the {{ yagpt-name }} model (`/latest` segment) is used.
         * For a `{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_model_uri_datasphere_label }}` model: ID of the model tuned in [{{ ml-platform-full-name }}](../../../datasphere/index.yaml).
 
     1. Under **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_prompt_src_title }}**, select a prompt source and specify the following:
@@ -32,7 +33,7 @@ description: Follow this guide to add the {{ ai-studio-full-name }} extension us
 
         * `{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_text_generation_hint }}`:
 
-            * Optionally, **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_text_generation_temp_title }}**: Determines the variability of the model's response. Specify a value from `0` to `1`. With a higher temperature, you get a more creative and randomized response from the model. The default value is `0.3`.
+            * **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_text_generation_temp_title }}**: Determines the variability of the model's response. This is an optional setting. Accepts a value from `0` to `1`. With a higher temperature, you get a more creative and randomized response from the model. The default value is `0.3`.
             * Optionally, **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_text_generation_max_tokens_title }}**: Maximum number of generation [tokens]({{ link-docs-ai }}ai-studio/concepts/generation/tokens). The default value is `5`. This allows you to limit the size of the model response, if required.
 
         * `{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_text_classification_hint }}`:

@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-airflow](../../index.md) > [v0](../index.md) > [cluster](index.md) > start
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [managed-airflow](../../index.md) > [v0](../index.md) > [cluster](index.md) > start
 
 # yc managed-airflow v0 cluster start
 

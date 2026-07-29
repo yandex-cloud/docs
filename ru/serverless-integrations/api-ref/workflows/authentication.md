@@ -5,6 +5,8 @@ description: Для выполнения операций через API в {{ s
 
 # Аутентификация в API {{ sw-name }}
 
+{% include [workflows-ai-studio-note](../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 Для выполнения операций через [API](../../../glossary/rest-api.md) можно использовать [IAM-токен](../../../iam/concepts/authorization/iam-token.md) или [API-ключ](../../../iam/concepts/authorization/api-key.md).
 
 {% note info %}

@@ -94,7 +94,7 @@ VMware does not recommend using disk snapshots as the only backup feature; this 
 
   * {{ compute-name }}: A {{ backup-full-name }} service.
 
-[{{ backup-full-name }}](https://yandex.cloud/ru/services/backup) uses an agent-based backup technology. Backup and recovery is available for [{{ compute-name }}](../../../compute/concepts/vm.md) VMs with [supported operating systems](../../../backup/concepts/vm-connection.md#os).
+[{{ backup-full-name }}](https://yandex.cloud/ru/services/backup) uses an agent-based backup technology. Backup and recovery is available for [{{ compute-name }}](../../../compute/concepts/vm.md) VMs with [supported operating systems](../../../backup/concepts/vm-connection/compute.md#os).
 
 You can install a [{{ backup-name }} agent](../../../backup/concepts/agent.md) on the guest OS of a VM when creating the VM or after deploying it manually.
 

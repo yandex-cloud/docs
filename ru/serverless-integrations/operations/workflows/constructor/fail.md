@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Добавить шаг Fail
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 Управляющий шаг Fail завершает запуск рабочего процесса с ошибкой. Если шаг находится внутри шагов [Foreach](./foreach.md) или [Parallel](./parallel.md), завершается запуск всего рабочего процесса, а не только текущей ветки выполнения.
 
 {% include [templating-note](../../../../_includes/serverless-integrations/templating-note.md) %}

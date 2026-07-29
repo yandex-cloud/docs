@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-kafka](../../index.md) > [v0](../index.md) > [cluster](index.md) > list-access-bindings
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [managed-kafka](../../index.md) > [v0](../index.md) > [cluster](index.md) > list-access-bindings
 
 # yc managed-kafka v0 cluster list-access-bindings
 

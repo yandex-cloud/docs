@@ -1,9 +1,9 @@
 ---
 title: How to limit RAM usage by the backup agent
-description: Follow this guide to configure the backup agent to limit the use of RAM of the backed up resource, i.e., virtual machine or {{ baremetal-name }} server.
+description: Follow this guide to configure the backup agent to limit the use of RAM of the resource to back up.
 ---
 
-# Limiting RAM usage by the {{ backup-name }} agent
+# Limiting resource RAM usage by the {{ backup-name }} agent
 
 
 {% include [agent-ram-usage-paragraph](../../_includes/backup/operations/agent-ram-usage-paragraph.md) %}
@@ -18,7 +18,7 @@ To limit the use of RAM by the agent:
 
 - Linux {#linux}
 
-  1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM or {{ baremetal-name }} server over SSH.
+  1. [Connect](../../compute/operations/vm-connect/ssh.md) to the {{ compute-name }} VM instance or {{ baremetal-name }} server over SSH. If connecting to an [external resource](../concepts/vm-connection/external-resources.md), use any convenient connection method.
   1. Stop the backup agent system process by running the following command in the terminal:
 
       ```bash
@@ -47,7 +47,7 @@ To limit the use of RAM by the agent:
 
 - Windows {#windows}
 
-  1. Connect to the VM [via RDP](../../compute/operations/vm-connect/rdp.md) or to the {{ baremetal-name }} server [using the KVM console](../../baremetal/operations/servers/server-kvm.md).
+  1. Connect to the {{ compute-name }} VM instance [via RDP](../../compute/operations/vm-connect/rdp.md) or to the {{ baremetal-name }} server [using the KVM console](../../baremetal/operations/servers/server-kvm.md). If connecting to an [external resource](../concepts/vm-connection/external-resources.md), use any convenient connection method.
   1. Run `PowerShell` as an administrator.
   1. In the `PowerShell` terminal, run this command:
 

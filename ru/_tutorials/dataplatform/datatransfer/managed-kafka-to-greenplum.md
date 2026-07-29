@@ -36,6 +36,7 @@
             * [{{ mkf-name }}](../../../managed-kafka/operations/connect/index.md#configuring-security-groups).
             * [{{ mgp-name }}](../../../managed-greenplum/operations/connect/index.md#configuring-security-groups).
 
+    
     - {{ TF }} {#tf}
 
         1. {% include [terraform-install-without-setting](../../../_includes/mdb/terraform/install-without-setting.md) %}
@@ -51,6 +52,7 @@
             * [группы безопасности](../../../vpc/concepts/security-groups.md) для подключения к кластерам;
             * кластер-источник {{ mkf-name }};
             * кластер-приемник {{ GP }} в сервисе {{ mgp-name }};
+            * эндпоинт {{ KF }};
             * трансфер.
 
         1. Укажите в файле `kafka-greenplum.tf` пароли пользователя и версии {{ KF }} и {{ GP }}.
@@ -68,6 +70,7 @@
 
             {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
 
+
     {% endlist %}
 
 1. Установите утилиты:
@@ -84,6 +87,8 @@
 
         ```bash
         sudo apt update && sudo apt-get install --yes jq
+        ```
+
 
 ## Подготовьте тестовые данные {#prepare-data}
 
@@ -111,73 +116,73 @@
 
 ## Подготовьте и активируйте трансфер {#prepare-transfer}
 
-1. [Создайте эндпоинт-источник](../../../data-transfer/operations/endpoint/source/kafka.md) типа `{{ KF }}` и задайте для него:
-
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.topic_name.title }}** — `sensors`.
-    * Правила конвертации типа `json`. В поле **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}** выберите `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}` и в открывшуюся форму скопируйте следующую спецификацию полей:
-
-    {% cut "sensors-specification" %}
-
-    ```json
-    [
-        {
-            "name": "device_id",
-            "type": "utf8",
-            "key": true
-        },
-        {
-            "name": "datetime",
-            "type": "utf8"
-        },
-        {
-            "name": "latitude",
-            "type": "double"
-        },
-        {
-            "name": "longitude",
-            "type": "double"
-        },
-        {
-            "name": "altitude",
-            "type": "double"
-        },
-        {
-            "name": "speed",
-            "type": "double"
-        },
-        {
-            "name": "battery_voltage",
-            "type": "double"
-        },
-        {
-            "name": "cabin_temperature",
-            "type": "uint16"
-        },
-        {
-            "name": "fuel_level",
-            "type": "uint16"
-        }
-    ]
-    ```
-
-    {% endcut %}
-
 1. [Создайте эндпоинт-приемник](../../../data-transfer/operations/endpoint/target/greenplum.md) типа `{{ GP }}`, укажите имя пользователя `user`.
-1. Создайте и активируйте трансфер:
+1. Создайте эндпоинт-источник {{ KF }} и трансфер:
 
     {% list tabs group=instructions %}
 
     - Вручную {#manual}
 
+        1. [Создайте эндпоинт-источник](../../../data-transfer/operations/endpoint/source/kafka.md) типа `{{ KF }}` и задайте для него:
+
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.topic_name.title }}** — `sensors`.
+            * Правила конвертации типа `json`. В поле **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}** выберите `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}` и в открывшуюся форму скопируйте следующую спецификацию полей:
+
+                {% cut "sensors-specification" %}
+
+                ```json
+                [
+                    {
+                        "name": "device_id",
+                        "type": "utf8",
+                        "key": true
+                    },
+                    {
+                        "name": "datetime",
+                        "type": "utf8"
+                    },
+                    {
+                        "name": "latitude",
+                        "type": "double"
+                    },
+                    {
+                        "name": "longitude",
+                        "type": "double"
+                    },
+                    {
+                        "name": "altitude",
+                        "type": "double"
+                    },
+                    {
+                        "name": "speed",
+                        "type": "double"
+                    },
+                    {
+                        "name": "battery_voltage",
+                        "type": "double"
+                    },
+                    {
+                        "name": "cabin_temperature",
+                        "type": "uint16"
+                    },
+                    {
+                        "name": "fuel_level",
+                        "type": "uint16"
+                    }
+                ]
+                ```
+
+                {% endcut %}
+
         1. [Создайте трансфер](../../../data-transfer/operations/transfer.md#create) типа _{{ dt-type-repl }}_, использующий созданные эндпоинты.
         1. [Активируйте трансфер](../../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус {{ dt-status-repl }}.
 
+    
     - {{ TF }} {#tf}
 
         1. Укажите в файле `kafka-greenplum.tf` переменные:
 
-            * `kf_source_endpoint_id` — значение идентификатора эндпоинта для источника;
-            * `gp_target_endpoint_id` — значение идентификатора эндпоинта для приемника;
+            * `gp_target_endpoint_id` — значение идентификатора эндпоинта для приемника {{ GP }};
             * `transfer_enabled` – значение `1` для создания трансфера.
 
         1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
@@ -193,6 +198,7 @@
             {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
         1. Трансфер активируется автоматически. Дождитесь его перехода в статус {{ dt-status-repl }}.
+
 
     {% endlist %}
 
@@ -230,13 +236,15 @@
 Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
 1. Убедитесь, что трансфер находится в статусе {{ dt-status-finished }} и [удалите](../../../data-transfer/operations/transfer.md#delete) его.
-1. [Удалите эндпоинт-источник и эндпоинт-приемник](../../../data-transfer/operations/endpoint/index.md#delete).
-1. Остальные ресурсы удалите в зависимости от способа их создания:
+
+
+1. Удалите ресурсы в зависимости от способа их создания:
 
     {% list tabs group=instructions %}
 
     - Вручную {#manual}
 
+        1. [Удалите эндпоинт-источник](../../../data-transfer/operations/endpoint/index.md#delete).
         1. [Удалите кластер {{ mkf-name }}](../../../managed-kafka/operations/cluster-delete.md).
         1. [Удалите кластер {{ mgp-name }}](../../../managed-greenplum/operations/cluster-delete.md).
 
@@ -245,3 +253,6 @@
         {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
     {% endlist %}
+
+1. [Удалите эндпоинт-приемник](../../../data-transfer/operations/endpoint/index.md#delete).
+

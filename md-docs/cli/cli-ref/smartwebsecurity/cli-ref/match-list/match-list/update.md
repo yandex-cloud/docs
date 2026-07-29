@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [smartwebsecurity](../../index.md) > [match-list](../index.md) > [match-list](index.md) > update
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [smartwebsecurity](../../index.md) > [match-list](../index.md) > [match-list](index.md) > update
 
 # yc smartwebsecurity match-list match-list update
 

@@ -9,7 +9,7 @@ Event name | Description
 `CreateEmbed` | Creating an embedding
 `CreateEmbeddingSecret` | Creating a key for an [embedding](../../../datalens/security/embedded-objects.md)
 `CreateEntityBinding` | Creating a [shared object](../../../datalens/security/workbooks-access-advanced.md) binding in a workbook
-`CreateEntry` | Create object
+`CreateEntry` | Creating an object
 `CreateWorkbook` | Creating a workbook
 `DeleteCollections` | Deleting collections
 `DeleteColorPalette` | Deleting a color palette
@@ -45,6 +45,7 @@ Event name | Description
 `UpdateEntityBinding` | Updating a shared object binding in a workbook
 `UpdateEntry` | Updating an object
 `UpdateSharedEntryAccessBindings` | Updating access permissions for a shared object
+`UpdateTenantAccessBindings` | Updating access permissions for a {{ datalens-name }} instance
 `UpdateWorkbook` | Updating a workbook
 `UpdateWorkbookAccessBindings` | Updating access permissions for a workbook
 

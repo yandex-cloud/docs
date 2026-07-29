@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [storage](../../index.md) > [v0](../index.md) > [bucket](index.md) > create-inventory-configuration
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [storage](../../index.md) > [v0](../index.md) > [bucket](index.md) > create-inventory-configuration
 
 # yc storage v0 bucket create-inventory-configuration
 

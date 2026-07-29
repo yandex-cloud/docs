@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [application-load-balancer](../../index.md) > [v0](../index.md) > [virtual-host](index.md) > remove-grpc-route
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [application-load-balancer](../../index.md) > [v0](../index.md) > [virtual-host](index.md) > remove-grpc-route
 
 # yc application-load-balancer v0 virtual-host remove-grpc-route
 

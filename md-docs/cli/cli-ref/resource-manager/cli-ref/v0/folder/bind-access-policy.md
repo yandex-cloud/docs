@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [resource-manager](../../index.md) > [v0](../index.md) > [folder](index.md) > bind-access-policy
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [resource-manager](../../index.md) > [v0](../index.md) > [folder](index.md) > bind-access-policy
 
 # yc resource-manager v0 folder bind-access-policy
 

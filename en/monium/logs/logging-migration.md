@@ -6,9 +6,11 @@
 
 {% include [migration-comparison](../../_pricing_examples/monium/migration-comparison.md) %}
 
+All prices are shown in the [{{ cloud-logging-name }}](../../logging/pricing.md#prices) and [{{ monium-name }} pricing policies](../pricing.md#prices).
+
 ## Testing {{ monium-name }} without migration {#preview}
 
-Logs from {{ cloud-logging-name }} are already available in {{ monium-name }}. Open them in the [management console]({{ link-console-main }}) by doing one of the following: 
+Logs from {{ cloud-logging-name }} are already available in {{ monium-name }}. Open them in the [management console]({{ link-console-main }}) in one of the following ways: 
 
 * When viewing logs in {{ cloud-logging-name }}, click **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}**.
 * Open the link:
@@ -17,9 +19,9 @@ Logs from {{ cloud-logging-name }} are already available in {{ monium-name }}. O
   {{ link-monium }}/projects/folder__<folder_ID>/logs
   ```
 
-For each folder, the system creates a project with an ID in `folder__<folder_ID>` format, where you can access logs of each log group by its name.
+For each folder, a project with an ID in `folder__<folder_ID>` format is created, and logs of every log group can be accessed by its name.
 
-To search for logs, specify this query:
+To search for logs, specify a request like:
 
 ```
 {project="folder__<folder_ID>", cluster="default", service="<log_group_name>"}
@@ -31,17 +33,17 @@ To search for logs, specify this query:
 
 1. Update your data delivery agent (Unified Agent, Fluent Bit 4.0) or use [Otel Collector](../collector/opentelemetry.md) and [configure delivery in OTel format](#agent-setup).
 
-1. Specify a new endpoint: `{{ api-host-monium }}:443`. Otherwise, logs will continue to be delivered via {{ cloud-logging-name }} and billed accordingly.
+1. Specify a new endpoint: `{{ api-host-monium }}:443`. Without this, logs will still be delivered via {{ cloud-logging-name }} and billed accordingly.
 
 1. Make sure logs are delivered to {{ monium-name }} directly, not via {{ cloud-logging-name }}.
 
-   To check this, [view service usage details](../../billing/operations/check-charges.md#products) by products in {{ billing-name }}. After migration, you should see usage details for logs in {{ monium-name }}. {{ cloud-logging-name }} consumption should decrease or stop entirely.
+   To check this, [view service usage details](../../billing/operations/check-charges.md#products) by products in {{ billing-name }}. After migration, you should see usage details for logs in {{ monium-name }}. {{ cloud-logging-name }} usage should reduce or disappear.
 
    After migration, logs will be billed according to the {{ monium-name }} pricing and all platform features will become available.
 
-1. Optionally, rename the projects, clusters, and services. You can leave the current structure: `folder__<folder_ID>` → `default` → `log group name` or set custom names. For more information, see [{#T}](../concepts/data-model.md).
+1. Optionally, rename the projects, clusters, and services. You can leave the current structure: `folder__<folder_ID>` → `default` → `log group name` or provide your own naming. For more information, see [{#T}](../concepts/data-model.md).
 
-## Configuring an agent for OTel delivery {#agent-setup}
+## Configuring your agent for OTel delivery {#agent-setup}
 
 ### Unified Agent {#unified-agent}
 
@@ -75,7 +77,7 @@ To search for logs, specify this query:
            cloud_meta:
    ```
 
-   You can specify any `project`: you can [create your own projects](../collector/project.md) in {{ monium-name }}. In the `service` property, specify the log group name to save the data structure.
+   The `project` property can be any: you can [create your own projects](../collector/project.md) in {{ monium-name }}. In the `service` property, specify the log group name to save the data structure.
 
 1. To specify a cluster, add the `cluster: <cluster_name>` property. The default value is `default`.
 
@@ -83,13 +85,13 @@ To search for logs, specify this query:
 
 You can continue using Fluent Bit or configure delivery via [OTel Collector](../collector/opentelemetry.md).
 
-1. Make sure that your [Fluent Bit](https://fluentbit.io/) version is 4.0 or higher:
+1. Make sure that you have installed [Fluent Bit](https://fluentbit.io/) version 4.0 or higher:
 
    ```bash
    apt show fluent-bit
    ```
 
-1. Make sure the configuration file is in YAML format. Support for the standard INI format will be discontinued at the end of 2026.
+1. Make sure that the configuration file is in YAML format. Support for the classic INI format will be discontinued at the end of 2026.
 
 1. Replace the `outputs` section.
 
@@ -143,8 +145,8 @@ You can continue using Fluent Bit or configure delivery via [OTel Collector](../
 
    In the `service.name` property, specify the log group name to save the data structure. The `cluster` property is optional. The default value is `default`.
 
-## Reading logs via the API {#api-reading}
+## Reading logs via API {#api-reading}
 
-[Reading logs via the {{ cloud-logging-name }} API](../../logging/api-ref/grpc/LogReading/read.md) will be supported until March 1, 2027 if you preserve the `folder__<folder_ID>` → `default` → `log group name` structure. All data remains accessible within the 31-day retention period.
+[Log reading via the {{ cloud-logging-name }} API](../../logging/api-ref/grpc/LogReading/read.md) will be supported until March 1, 2027 if you preserve the `folder__<folder_ID>` → `default` → `log group name` structure. The data is available within the storage period of 31 days.
 
-Reading data via the {{ monium-name }} API and the associated documentation will become available in July 2026. Make sure to migrate read requests to the new API before the old API support is discontinued.
+Data reading via the {{ monium-name }} API and its documentation will become available in July 2026. Make sure to migrate read requests to the new API before the old API support is discontinued.

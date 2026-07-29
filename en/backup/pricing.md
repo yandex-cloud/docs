@@ -17,34 +17,34 @@ editable: false
 
 ## What goes into the cost of using {{ backup-name }} {#rules}
 
-The cost of {{ backup-name }} depends on the number of backed up resource units, i.e., {{ compute-full-name }} VMs and {{ baremetal-full-name }} servers, and the total storage space used for backups.
+The cost of {{ backup-name }} depends on the number of target resource units, i.e., VMs and servers, and the total storage space used for their backups.
 
 ### Resource unit backup {#vms}
 
-In {{ backup-name }}, you start paying for a {{ compute-name }} instance or {{ baremetal-name }} server as soon as you link it to a [backup policy](./concepts/policy.md). You continue to pay until you unlink the resource unit from the policy, whichever status it is in.
+In {{ backup-name }}, you start paying for a [resource](./concepts/index.md#protected-resources) as soon as you link it to a [backup policy](./concepts/policy.md). Regardless of the resource status, you will be charged for the resource until you unlink it from the policy.
 
-If you delete a VM in [{{ compute-full-name }}](../compute/) using the [management console]({{ link-console-main }}), this will also unlink such a VM from all policies. If you delete a VM using the CLI, {{ TF }}, or API, it will not be unlinked from the policies automatically, so you will have to do it yourself.
+If you delete a VM in [{{ compute-full-name }}](../compute/index.yaml) using the [management console]({{ link-console-main }}), the system automatically unlinks such a VM from all policies. If you delete a VM using the CLI, {{ TF }}, or API, you will have to manually unlink it from policies.
 
-If you need to unlink a {{ baremetal-name }} server from a policy, you will still have to do it on your own.
+If you need to [unlink](./operations/policy-vm/detach-vm.md) a {{ baremetal-name }} server or an [external resource](./concepts/vm-connection/external-resources.md) from a policy, you will still have to do it on your own.
 
-The minimum billing unit is one backed up resource unit (VM or {{ baremetal-name }} server) per hour.
+The minimum billing unit is one [resource unit](./concepts/index.md#protected-resources) per hour.
 
 ### Using the storage {#backups}
 
-You are charged for the total size of storage used by backups.
+You pay for the total storage space consumed by backups.
 
 The minimum billing unit is 1 hour of storing 1 MB of data.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
 If a backed up resource unit is stopped or deleted, {{ backup-name }} continues to store its backups, and you continue to pay based on their size. Such backup size depends on the following:
-* VM disk usage or {{ baremetal-name }} server disk usage.
+* Used disk space of the resource to back up.
 * Amount of data changes during regular backups.
 * Data compression option.
 
 {% note info %}
 
-To optimize your costs, consider removing the backups of the deleted VMs or the {{ baremetal-name }} servers you stopped renting.
+To optimize your costs, consider removing the backups of the deleted [resources](./concepts/index.md#protected-resources) you stopped renting.
 
 {% endnote %}
 

@@ -2,6 +2,12 @@
 
 To delete a [folder](../../concepts/resources-hierarchy.md#folder), you must have the [{{ roles-resource-manager-editor }}](../../security/index.md#resource-manager-editor) role or higher for that folder. If you cannot perform this operation, contact an [administrator](../../../iam/roles-reference.md#admin) or the [folder owner](../../concepts/resources-hierarchy.md#owner).
 
+{% note info %}
+
+Deleting a folder may be denied if there is a `resourceManager.denyFolderRemoval` [authorization policy](*access_policies) for that folder (or for the [cloud](../../concepts/resources-hierarchy.md#cloud) or [organization](*organization) the folder belongs to). This restriction applies even if the user has a [role](*roles) that allows deleting folders.
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -95,7 +101,7 @@ To delete a [folder](../../concepts/resources-hierarchy.md#folder), you must hav
 
       {% endcut %}
 
-      For more on the properties of the `yandex_resourcemanager_folder` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/resourcemanager_folder).
+      For more on `yandex_resourcemanager_folder` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/resourcemanager_folder).
 
   1. In the command line, navigate to the directory with the {{ TF }} configuration file.
 
@@ -154,3 +160,9 @@ The storage cost is calculated at the previous rate. Track how much the resource
 As soon as the deletion preparation and delay periods are over, the folder enters the `DELETING` status. This status means it is being permanently deleted, which can take up to 72 hours. All the folder's resources will be deleted together with it.
 
 Sometimes, the system may cancel the deletion of a folder if it contains resources that cannot be deleted. For more information, see [{#T}](../../concepts/resources-hierarchy.md#inability-to-delete). Once the deletion is canceled, the folder will go back to `ACTIVE` with a message to the user stating the reasons why the folder could not be deleted.
+
+[*organization]: An organization is the highest resource in the resource model hierarchy in {{ yandex-cloud }} that consolidates the resources of all other services. Organizations are also used to manage users and their authentication and authorization settings. For more information, see [{#T}](../../../organization/concepts/organization.md).
+
+[*roles]: A role is a set of permissions that defines the allowed scope of operations with {{ yandex-cloud }} resources. For more information, see [{#T}](../../../iam/concepts/access-control/roles.md).
+
+[*access_policies]: _Access policies_ are a {{ iam-full-name }} mechanism that allows you to manage permissions for specific operations with [{{ yandex-cloud }} resources](../../../overview/roles-and-resources.md). Access policies complement the [role](../../../iam/concepts/access-control/roles.md) system for more flexible [access management](../../../iam/concepts/access-control/index.md). For more information, see [{#T}](../../../iam/concepts/access-control/access-policies.md).

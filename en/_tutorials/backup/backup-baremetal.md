@@ -378,7 +378,11 @@ To start a {{ baremetal-name }} server backup outside the backup policy schedule
 
 ## Restore your server from the backup {#server-recovery}
 
+{% note info %}
+
 {% include [vm-and-bms-backup-incompatibility](../../_includes/backup/vm-and-bms-backup-incompatibility.md) %}
+
+{% endnote %}
 
 If you need to restore one server's backup to another server, or if the OS has been reinstalled on the source server, [reinstall](#agent-install) the {{ backup-name }} agent on that server.
 

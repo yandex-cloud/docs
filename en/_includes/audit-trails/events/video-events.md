@@ -27,6 +27,10 @@ Event name | Description
 `DeleteVideo` | Deleting a video
 `DownloadEpisode` | Downloading an episode
 `EpisodePerformAction` | Performing actions with an episode
+`InitializeChannelAdminChat` | Initializing a channel admin chat
+`InitializeEpisodeChat` | Initializing an episode chat
+`ResetChannelAdminChat` | Resetting a channel admin chat
+`ResyncEpisodeChatAdmins` | Synchronizing episode chat admins
 `SetChannelAccessBindings` | Assigning access permissions for a channel
 `StreamLinePerformAction` | Performing actions with a stream line
 `StreamLineUpdateStreamKey` | Updating a stream key of a stream line

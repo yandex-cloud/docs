@@ -3,7 +3,7 @@ The `backup.user` role enables connecting backup providers, connecting VMs and {
 
 Users with this role can:
 * View info on connected backup [providers](../../backup/concepts/index.md#providers), as well as connect providers available in {{ backup-name }}.
-* View info on virtual machines and {{ baremetal-name }} servers [connected](../../backup/concepts/vm-connection.md) to {{ backup-name }}, as well as connect VMs and {{ baremetal-name }} servers to it.
+* View info on virtual machines and {{ baremetal-name }} servers [connected](../../backup/concepts/vm-connection/index.md) to {{ backup-name }}, as well as connect VMs and {{ baremetal-name }} servers to it.
 * View info on [backup policies](../../backup/concepts/policy.md) as well as on virtual machines and {{ baremetal-name }} servers linked to such policies.
 * Link backup policies to VMs and {{ baremetal-name }} servers and unlink them.
 * View info on [access permissions](../../iam/concepts/access-control/index.md) granted for backup policies.

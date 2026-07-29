@@ -18,7 +18,7 @@ Yandex DataLens — это сервис бизнес-аналитики для �
 
  - [Квоты и лимиты](concepts/limits.md)
 
- - [Обучающие курсы](training.md)
+ - [Обучающие материалы](training.md)
 
 ## Воркбуки и коллекции
 
@@ -961,6 +961,12 @@ Yandex DataLens — это сервис бизнес-аналитики для �
  - [Версионирование](reports/versioning.md)
 
  - [Нейроаналитик в отчетах](reports/insights.md)
+
+## HTML-страницы
+
+ - [Обзор](html-pages/index.md)
+
+ - [Версионирование](html-pages/versioning.md)
 
 ## Публикация и встраивание
 

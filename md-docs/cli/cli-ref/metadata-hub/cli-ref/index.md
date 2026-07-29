@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../index.md) > [Интерфейс командной строки](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > metadata-hub > Overview
+[Документация Yandex Cloud](../../../../index.md) > [Интерфейс командной строки](../../../index.md) > [Справочник (англ.)](../../index.md) > metadata-hub > Overview
 
 # yc metadata-hub
 

@@ -10,7 +10,7 @@ description: Follow this guide to update a {{ metastore-full-name }} cluster.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to update a cluster.
-  1. [Navigate](../../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+  1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
   1. In the cluster row, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
@@ -24,7 +24,7 @@ description: Follow this guide to update a {{ metastore-full-name }} cluster.
 
   1. Under **{{ ui-key.yacloud.metastore.label_section-warehouse }}**, update the following bucket settings:
 
-        * **{{ ui-key.yacloud.metastore.label_warehouse-bucket }}**: Name of the {{ objstorage-name }} bucket to store the {{ metastore-name }} (warehouse) data.
+        * **{{ ui-key.yacloud.metastore.label_warehouse-bucket }}**: Name of the {{ objstorage-name }} bucket to use as an {{ metastore-name }} warehouse.
         * **{{ ui-key.yacloud.metastore.label_warehouse-path }}**: Path within the bucket that will be used to prefix the {{ metastore-name }} data. This is an optional setting.
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select another [security group](configure-security-group.md) or create a new one.
@@ -160,7 +160,7 @@ description: Follow this guide to update a {{ metastore-full-name }} cluster.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 

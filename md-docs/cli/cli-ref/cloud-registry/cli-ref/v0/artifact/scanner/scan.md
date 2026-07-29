@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [cloud-registry](../../../index.md) > [v0](../../index.md) > [artifact](../index.md) > [scanner](index.md) > scan
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник (англ.)](../../../../../index.md) > [cloud-registry](../../../index.md) > [v0](../../index.md) > [artifact](../index.md) > [scanner](index.md) > scan
 
 # yc cloud-registry v0 artifact scanner scan
 

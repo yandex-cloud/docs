@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Указать облачную сеть, в которой будет выполняться рабочий процесс
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 Вы можете указать облачную сеть, в которой будет выполняться рабочий процесс.
 
 {% include [network](../../../../_includes/functions/network.md) %}

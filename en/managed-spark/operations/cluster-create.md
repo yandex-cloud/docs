@@ -192,7 +192,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
            ...
            --maintenance-window type=<maintenance_type>,`
                                `day=<day_of_week>,`
-                               `hour=<hour> \
+                               `hour=<sequence_number_of_hour_interval> \
         ```
 
         Where `type` is the maintenance type:
@@ -235,7 +235,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
     
        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
     
@@ -290,6 +290,12 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
          "logging": {
            "enabled": <use_of_logging>,
            "folder_id": "<folder_ID>"
+         },
+         "maintenance_window": {
+           "weekly_maintenance_window": {
+             "day": "<day_of_week>",
+             "hour": "<sequence_number_of_hour_interval>"
+           }
          }
        }
        ```
@@ -364,6 +370,16 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
           * `log_group_id`: Custom log group ID. Logs will be written to this group.
 
           Specify either `folder_id` or `log_group_id`.
+
+       * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. Provide one of these two properties:
+
+          * `anytime`: Maintenance takes place at any time.
+          * `weekly_maintenance_window`: Maintenance takes place once a week at the specified time:
+
+              * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+              * `hour`: UTC hour interval, from `1` to `24`.
+
+                > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
     1. Call the [ClusterService/Create](../api-ref/grpc/Cluster/create.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 

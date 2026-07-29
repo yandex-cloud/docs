@@ -165,10 +165,13 @@ Configuration of a PostgreSQL server for the host. ||
 Flag showing public IP assignment status to this host. ||
 || replica_type | enum **ReplicaType**
 
+ReplicaType represents the current synchronization state of a PostgreSQL replica
+as reported by the primary host.
+
 - `REPLICA_TYPE_UNKNOWN`: Replica type is unknown (we have no data) or it's master
-- `ASYNC`
-- `SYNC`
-- `QUORUM` ||
+- `ASYNC`: The replica uses asynchronous replication.
+- `SYNC`: The replica is a synchronous standby in priority-based synchronous replication.
+- `QUORUM`: The replica participates in quorum-based synchronous replication. ||
 |#
 
 ## Resources {#yandex.cloud.mdb.postgresql.v1.Resources}

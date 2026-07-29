@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [kms](../../index.md) > [v0](../index.md) > [asymmetric-encryption-crypto](index.md) > decrypt
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [kms](../../index.md) > [v0](../index.md) > [asymmetric-encryption-crypto](index.md) > decrypt
 
 # yc kms v0 asymmetric-encryption-crypto decrypt
 

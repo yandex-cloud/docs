@@ -41,7 +41,7 @@ Configure one of the supported data sources:
 * [{{ DS }}](../source/data-streams.md)
 * [Oracle](../source/oracle.md)
 * [{{ ydb-name }}](../source/ydb.md)
-* [{{ OS }}](../source/opensearch.md).
+* [{{ OS }}](../source/opensearch.md)
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).
 
@@ -55,7 +55,7 @@ For a complete list of supported sources and targets in {{ data-transfer-full-na
 
 When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
 
-* [Configuration settings](#bucket-config) for an {{ objstorage-full-name }} bucket or custom S3-compatible storage.
+* [Connection settings](#bucket-config) for an {{ objstorage-full-name }} bucket or custom S3-compatible storage.
 * [Additional parameters](#additional-settings).
 
 ### Connection settings {#bucket-config}
@@ -72,7 +72,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 - Custom S3-compatible storage {#s3-storage}
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}**: Name of the bucket to upload source data to.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.region.title }}**: Region where data is stored.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.region.title }}**: Region where user data is stored.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.endpoint.title }}**: Endpoint for an Amazon S3-compatible service.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.aws_access_key_id.title }}** and **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.aws_secret_access_key.title }}**: [ID and contents of the AWS key](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) for access to the bucket.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.use_ssl.title }}**: Select this option if the remote server uses a secure SSL/TLS connection.
@@ -80,7 +80,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 {% endlist %}
 
-If the new endpoint and the {{ objstorage-name }} bucket reside in different folders, then when configuring the connection, select manual setup and specify the following values:
+If the new endpoint and the {{ objstorage-name }} bucket reside in different folders, then when configuring the connection, you must select manual setup and specify the following values:
 
   * `ru-central1` region.
   * {{ s3-storage-host }} endpoint.
@@ -88,9 +88,9 @@ If the new endpoint and the {{ objstorage-name }} bucket reside in different fol
 
 ### Additional settings {#additional-settings}
 
-* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageV1Endpoint.path_prefix.title }}**: Bucket path to use for data export.
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageV1Endpoint.path_prefix.title }}**: The path in the bucket used for data export.
 
-* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageV1SerializerConfig.title }}**: Format for writing data to the bucket: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}`, `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_CSV.title }}`, or `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_PARQUET.title }}`. For more information, see [{#T}](../../../concepts/serializer.md#serializer-s3).
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageV1SerializerConfig.title }}**: Format in which the data will be written to the bucket: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}`, `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_CSV.title }}`, or `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_PARQUET.title }}`. For more information, see [{#T}](../../../concepts/serializer.md#serializer-s3).
 
     {% list tabs group=bucket-data-format %}
 
@@ -106,7 +106,7 @@ If the new endpoint and the {{ objstorage-name }} bucket reside in different fol
 
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageV1SerializerConfig.Parquet.column_compression_codec.title }}**: Compression algorithm of data parts: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageCodecUI.GZIP.title }}`, `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageParquetCompressionCodecUI.SNAPPY.title }}`, or `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageParquetCompressionCodecUI.ZSTD.title }}`.
   
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.Parquet.row_group.title }}**: Data grouping settings. You can specify the maximum number of rows in a group or the maximum group size in bytes. If you use these settings together, a new group will be created when at least one of the limits is exceeded.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.Parquet.row_group.title }}**: Parameters for splitting data into groups. You can specify the maximum number of rows in a group or the maximum group size in bytes. If you use these settings together, a new group will be created when at least one of the limits is exceeded.
 
     {% endlist %}
 
@@ -116,12 +116,12 @@ If the new endpoint and the {{ objstorage-name }} bucket reside in different fol
 
     - {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageV1WriterSettings.SnapshotWriter.title }} {#snapshot}
 
-      *  **Maximum number of records per file**: If left empty, all data will be written to a single file.
-      *  **Maximum number of bytes per file**: If left empty, all data will be written to a single file.
+      *  **Maximum number of records per file**: If left empty, the data will be written to a single file.
+      *  **Maximum number of bytes per file**: If left empty, the data will be written to a single file.
 
     - {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageV1WriterSettings.ReplicationWriter.title }} {#replication}
 
-      * **Rotation interval**: Time in seconds after which a new file will be written. The timestamp is retrieved from the properties of incoming messages. The default value is one hour.
+      * **Rotation interval**: Value in seconds after which a new file will be written. The timestamp data is taken from the parameters of the received messages. The default value is one hour.
 
     {% endlist %}
 

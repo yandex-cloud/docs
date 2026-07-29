@@ -2,10 +2,10 @@ Event name | Description
 --- | ---
 `AddDashboardsNodeGroup` | Adding a `Dashboards` type host group
 `AddOpenSearchNodeGroup` | Adding an `OpenSearch` type host group
-`BackupCluster` | Creating backups
+`BackupCluster` | Creating a backup
 `CreateCluster` | Creating a cluster
 `DeleteCluster` | Deleting a cluster
-`DeleteBackup` | Deleting backups
+`DeleteBackup` | Deleting a backup
 `DeleteDashboardsNodeGroup` | Deleting a `Dashboards` type host group
 `DeleteOpenSearchNodeGroup` | Deleting an `OpenSearch` type host group
 `MoveCluster` | Moving a cluster
@@ -14,7 +14,9 @@ Event name | Description
 `RestoreCluster` | Creating a new cluster from a backup
 `StartCluster` | Starting a cluster
 `StopCluster` | Stopping a cluster
+`SetClusterAccessBindings` | Assigning access permissions for a cluster
 `SwitchMaster` | Changing the host quorum leader with the `MANAGER` role
 `UpdateCluster` | Updating a cluster
-`UpdateDashboardsNodeGroup` |  Updating a `Dashboards` type host group
+`UpdateClusterAccessBindings` | Updating access permissions for a cluster
+`UpdateDashboardsNodeGroup` | Updating a `Dashboards` type host group
 `UpdateOpenSearchNodeGroup` | Updating a `OpenSearch` type host group

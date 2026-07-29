@@ -5,6 +5,8 @@ description: В статье описаны поля для интеграцио
 
 # Postbox
 
+{% include [workflows-ai-studio-note](../../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 Рассылка писем с помощью {{ postbox-full-name }}. Поля `simple` и `raw` — взаимоисключающие.
 
 Имя поля | Тип | Обязательное | Значение по умолчанию | Поддерживается [шаблонизация](../../templating.md) | Описание

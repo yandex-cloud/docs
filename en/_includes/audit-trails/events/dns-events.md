@@ -12,3 +12,15 @@ Event name | Description
 `UpdateDnsZoneAccessBindings` | Updating access permissions for a DNS zone
 `UpdatePrivateNetworks` | Updating private networks
 `UpdateRecordSets` | Updating a record set
+`CreateDnsFirewall` | Creating a DNS firewall
+`CreateDnsInboundEndpoint` | Creating a DNS inbound endpoint
+`DeleteDnsFirewall` | Deleting a DNS firewall
+`DeleteDnsInboundEndpoint` | Deleting a DNS inbound endpoint
+`MoveDnsFirewall` | Moving a DNS firewall
+`MoveDnsZone` | Moving a DNS zone
+`SetDnsFirewallAccessBindings` | Assigning access permissions for a DNS firewall
+`SetDnsInboundEndpointAccessBindings` | Assigning access permissions for a DNS inbound endpoint
+`UpdateDnsFirewall` | Updating a DNS firewall
+`UpdateDnsFirewallAccessBindings` | Updating access permissions for a DNS Firewall
+`UpdateDnsInboundEndpoint` | Updating a DNS inbound endpoint
+`UpdateDnsInboundEndpointAccessBindings` | Updating access permissions for a DNS inbound endpoint

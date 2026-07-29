@@ -5,6 +5,8 @@ description: В статье описаны поля для интеграцио
 
 # FoundationModelsCall
 
+{% include [workflows-ai-studio-note](../../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 Интеграция с [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/).
 
 Поля `generate`, `classify`, `fewShotClassify` и `vision` — взаимоисключающие, можно использовать только одно из них.

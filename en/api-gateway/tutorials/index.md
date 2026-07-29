@@ -20,7 +20,6 @@ description: Various use cases for {{ api-gw-full-name }} in {{ yandex-cloud }}.
 
 ## Serverless bots {#bots}
 
-* [{#T}](slack-bot-serverless.md)
 * [{#T}](telegram-bot-serverless/index.md)
 * [{#T}](recognizer-bot.md)
 

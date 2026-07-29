@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Запустить рабочий процесс по таймеру
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 Вы можете задать расписание при [создании](../workflow/create-yawl.md) или [изменении](../workflow/update.md) рабочего процесса.
 
 

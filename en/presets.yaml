@@ -640,227 +640,11 @@ default:
   oslogin: OS Login
   packer-source-link: github.com/hashicorp/yandex
   pc|baremetal:
-    component:
-      bms-1029p-body:
-        1-month: dn2n6sqhzm4i7eg4w4f5
-        12-month: dn2p6himjfj4hnjshxco
-        3-month: dn2idsw46rbwcnkndlhn
-        6-month: dn2hi7cbvh3bnbkef4up
-      bms-4-body:
-        1-month: dn2hf2sf5kjjsy24igas
-        12-month: dn26l6yl7fy772frgm57
-        6-month: dn2kktaxucp5qcd4qwg2
-      bms-5-body:
-        1-month: dn23jkrdimocsz35cb3j
-        12-month: dn2fvsnp4xv57a3343yi
-        6-month: dn24ca2sok3s4f2gzt2p
-      bms-6017r-1p-body:
-        1-month: dn2q2frxpt6tvufg4dbj
-        12-month: dn2jbwhte5bfbbaktedf
-        3-month: dn2rbrihkjxszdhcqspo
-        6-month: dn2b2nlopzirnvkm6jui
-      bms-6017r-2p-body:
-        1-month: dn2so47gvuqx5azgciwy
-        12-month: dn2tcjv6cx76pi5bpxb5
-        3-month: dn2bwgkxfxqi2he7idmx
-        6-month: dn2d5amh7npq6uybeid2
-      bms-6018r-body:
-        1-month: dn2inhbs6bc4xt5qslnx
-        12-month: dn2nzwmnpelqxxvtwye5
-        3-month: dn2lzxls7ofr42crh4dw
-        6-month: dn2gupw4x3udejwq5e5u
-      bms-cpu-9374f:
-        1-month: dn2pfqosztwi37a46var
-        12-month: dn2utlf3nvipm32zcpay
-        6-month: dn23srlxojqmyxtjvjaj
-      bms-cpu-9654:
-        1-month: dn2gapsxksuvberkeejp
-        12-month: dn2qhh4ko6fyaortvj5e
-        6-month: dn2fatbu5pne55oy6hzx
-      bms-cpu-a74f3:
-        1-month: dn2rfhujlau2gfdvqlyb
-        12-month: dn27kskeeji5jlnmhl6r
-        6-month: dn26uakr7ifl3ydqtbxf
-      bms-cpu-a7663:
-        1-month: dn2k5fnkc2gf6turl3nn
-        12-month: dn25abxi4n2crsf7bfwm
-        6-month: dn2sja5ohxdv7qg2h6ca
-      bms-cpu-a7702:
-        1-month: dn2l5ndw2bje755zbqr3
-        12-month: dn2tekwag3er56niky5q
-        6-month: dn2evtbxjk5ebwwxufwf
-      bms-cpu-a7713:
-        1-month: dn2coxmovsx46wkqlnxo
-        12-month: dn275k7ro6ghfulaxtko
-        6-month: dn2r7sywy6x2zge3edlx
-      bms-cpu-i6230:
-        1-month: dn2dxqjz3vqfxeq6fqbz
-        12-month: dn25uptp35c3njgv25wn
-        3-month: dn2oxbuy2kziiorp7436
-        6-month: dn27jt4jbpgrabnckmlm
-      bms-cpu-i6230r:
-        1-month: dn2j734aagfsgjhhnst5
-        12-month: dn2pydc6l4pylhxzylql
-        3-month: dn2revpxepujo6i4wvqv
-        6-month: dn2r4dbzpdsyoxjryx7n
-      bms-cpu-i6338:
-        1-month: dn23xg3gocgea4ggcfms
-        12-month: dn2nzcswxno72krkmbgm
-        6-month: dn2yzqdsaxbvfak4lm4d
-      bms-cpu-i6354:
-        1-month: dn2q7b3ksu3nllqyqn5n
-        12-month: dn23azulygrw3ol2v46k
-        6-month: dn2fpm7sil3qemax3fux
-      bms-cpu-ie5-2660v4:
-        1-month: dn2l54dob4rh7tcdtjzv
-        12-month: dn2ig6lvlsqelfhir524
-        3-month: dn2taonqwhl2vrfzys37
-        6-month: dn2mtpccuek5frawr5c6
-      bms-cpu-ie5-2683v4:
-        1-month: dn2dfnvwxwtlpfjbxk3e
-        12-month: dn2ksjdod7xaford5gb7
-        3-month: dn2drrgaldi27t2xgthq
-        6-month: dn2yixalmc2pietpjnth
-      bms-disk-h10t:
-        1-month: dn2rxn3jel5ho6onhjbv
-        12-month: dn2n7wwo3bt5xdi5rzzt
-        6-month: dn2ideioei5cl4h2gzzt
-      bms-disk-h18t:
-        1-month: dn2uoqurociclerj2zfq
-        12-month: dn26y56bchvl7yz2kr2w
-        6-month: dn2fmpkngngdlvmu3d2o
-      bms-disk-h24t:
-        1-month: dn2op6mwlwr7tddx2ehz
-        12-month: dn23bjapbz7qnn6twea6
-        6-month: dn2pyf5czt2gxoasrk4y
-      bms-disk-h2t:
-        1-month: dn2cbviac3ihjpwcykjx
-        12-month: dn2y2f2x35opxk2agxfo
-        6-month: dn2mgwbloahpazpxqw6p
-      bms-disk-h4t:
-        1-month: dn234z6au3ylmagjwlzl
-        12-month: dn2xcg5okoynzl3ij4j5
-        6-month: dn2zd7v6d52yy7ac7ltj
-      bms-disk-h6t:
-        1-month: dn2obi2lujxh5vyjkedg
-        12-month: dn24ddqqool3cfijz45b
-        6-month: dn2avcjnxsr7xdizxyps
-      bms-disk-h8t:
-        1-month: dn2q6su23o4d4nsfur6c
-        12-month: dn2aiwljeiweel6gjhep
-        6-month: dn2k7xqbq3ajtqf7zzlh
-      bms-disk-n1:
-        9t:
-          1-month: dn267evqb4p2ieeex26w
-          12-month: dn2s2ncolp3jf66qwz5k
-          6-month: dn2aca5yqeny2t6heevi
-      bms-disk-n15t:
-        1-month: dn2qdotiduetkmxlqrgm
-        12-month: dn2dms3u2aycmhwbj4hq
-        6-month: dn2ua2sx5qiedw5ho4kk
-      bms-disk-n3:
-        2t:
-          1-month: dn2mh5yvnvtutyk3kcvf
-          12-month: dn2stgr6762qd6k4pe2q
-          6-month: dn2rayvhnb72zt4ma7zi
-        8t:
-          1-month: dn24n6bpxl2ivkljm25p
-          12-month: dn2ajvdgyzmf6la7egrf
-          6-month: dn2kt3ujgyrkhoezlykg
-      bms-disk-n30t:
-        1-month: dn2sds6ugoavxsbodgas
-        12-month: dn23fgyko2gzetuogqic
-        6-month: dn2clrq6dp6klj53bclb
-      bms-disk-n6:
-        4t:
-          1-month: dn2cn64rlm6jwzkutsio
-          12-month: dn2pqurgoqvvi6kzbhux
-          6-month: dn2yp4figp7synm5yzma
-      bms-disk-n7:
-        6t:
-          1-month: dn2kecth6uxsypxlwk2q
-          12-month: dn2boqfmtqisnnvkwqco
-          6-month: dn2k4waxyycntde6xse6
-      bms-disk-n960g:
-        1-month: dn264ticfrzqmxhryaca
-        12-month: dn2g7cmowvyni6srnwnz
-        6-month: dn2i6ljztgkdajccuhmv
-      bms-net-2p25g:
-        1-month: dn2eoyyipzikrm3cqc5n
-        12-month: dn23ik6vvs2qq46zszjh
-        6-month: dn2hzeojco7xuqvr2f4t
-      bms-ram3-512:
-        1-month: dn272obotmhjs6qugtzr
-        12-month: dn2dmubcjjn6l2mtrj7t
-        3-month: dn25p4ghrem3sn243lyb
-        6-month: dn2dhr4kosajyu44vuwo
-      bms-ram4-1024:
-        1-month: dn2rugtcpr57w7ugcnbc
-        12-month: dn2r4hq24jjsevutxx4e
-        6-month: dn2ayyeths5prrvw2obq
-      bms-ram4-128:
-        1-month: dn2jdfhvkkk5djdn5a67
-        12-month: dn2vxly5jcdelrtbzhbu
-        6-month: dn2zyajirinjrlgpt7c4
-      bms-ram4-1536:
-        1-month: dn2v3gzlsxjntfyxairs
-        12-month: dn2azcrrab7x55oinh3i
-        6-month: dn2aptpgc5bllfb23vdn
-      bms-ram4-16:
-        1-month: dn23h2is6g3cbqeptfvz
-        12-month: dn2c7sqmplx7xdxmaqdh
-        3-month: dn2kfl2eqfpzcf2w3wmt
-        6-month: dn2lt74sflg4e3poxhzr
-      bms-ram4-256:
-        1-month: dn2dv5wenvfrto45hfm4
-        12-month: dn2wyg3gxlkfceytswtv
-        6-month: dn24kvv2icxqkwzc6yys
-      bms-ram4-32:
-        1-month: dn2mgfustyk26cx5rnrk
-        12-month: dn2cte6dlvabkmfwxryi
-        3-month: dn2qm5zh6wthji2febzy
-        6-month: dn26pe7pi3th4wrcboym
-      bms-ram4-384:
-        1-month: dn2g6x6yk4y7m4e4pxk2
-        12-month: dn2iqe3mhypusw6pjnzr
-        6-month: dn2yzzbpgdeyuqighn57
-      bms-ram4-512:
-        1-month: dn2bdc7npppzfjv5ij2f
-        12-month: dn2x3ayqvf3kehc2ek4z
-        6-month: dn2rhpijz2x2j63flcbq
-      bms-ram4-64:
-        1-month: dn2fumiz6cxhwgmz76cy
-        12-month: dn2cxcdjpeocox42tkmk
-        3-month: dn2sbp4q2d4kch7jro77
-        6-month: dn2dg23ibbqvgkcyo2t5
-      bms-ram4-768:
-        1-month: dn2dgc2wgb66hjtrorcb
-        12-month: dn2llsw6zdiwrnbxpjsi
-        6-month: dn2qdr52uysxi4zg3uh6
-      bms-ram5-1024:
-        1-month: dn2ik4cilht6fnzy342n
-        12-month: dn2z5kbnnrwtdskvubvp
-        6-month: dn2uolcyjsoxijipgtfp
-      bms-ram5-1152:
-        1-month: dn2fu4jxrhluhbedcjow
-        12-month: dn2hi2jzcxq25cfkh3tv
-        6-month: dn2cc2by6ypakdtgbr3b
-      bms-ram5-1536:
-        1-month: dn2qadhat3extf2mvg6l
-        12-month: dn2zswkgijc5ricmuzei
-        6-month: dn2kmalpsed7rnwvzypd
-      bms-ram5-2304:
-        1-month: dn2xs5h6cibwl365tcgy
-        12-month: dn24sbsywwkfzrlsczat
-        6-month: dn27jv3l7lupclz2h3jp
-      bms-ram5-768:
-        1-month: dn2kpozwkk5f35bbeilt
-        12-month: dn2flwzigmsxhoggt5se
-        6-month: dn2ye7d5al7eiqowbagn
     data:
       data-100tb:
         1sec: dn26njqhlhymcdct3bvv
     public-network:
+      ip-address: dn2utsrjuhxfxgcpzqlf
       subnet-24: dn2qbtbqcfbyvwddjc3a
       subnet-25: dn27vm5ukg42b3irvhnt
       subnet-26: dn2fi6d5ptstw4xesiba
@@ -869,222 +653,6 @@ default:
       subnet-29: dn2tkuvap6istmk4dz5a
       subnet-31: dn2gf7ncn54qfzez6xhp
     server:
-      ba-a612-n-25g:
-        1-day: dn2hdfgsbn7yuax22bqa
-        1-month: dn2rn6ae5uv7qgsb7b4e
-        12-month: dn22u5zxzz6crvpcqlcf
-        3-month: dn2zsjqdumxx7sa5ot42
-        6-month: dn2gpij2jxb3lez5xwno
-      ba-a702-6n-4h-2x25g:
-        1-day: dn2on7cf5yl2eksf63kz
-        1-month: dn25vpyw2jrteinlopqg
-        12-month: dn2365bmgepnjvlx4a2e
-        3-month: dn2av5viocqdhzppgxb3
-        6-month: dn2msbrtv7xf6mobmlzt
-      ba-a704-4n-2x25g:
-        1-day: dn2gydegnu7og3b6jtdc
-        1-month: dn2fju2w7rjtt4holbsj
-        12-month: dn2o37ubk4t3iaow63jt
-        3-month: dn2wch2v5lriafthzrjf
-        6-month: dn2s3j7tgubgjk7l5azt
-      ba-i103-s-10g:
-        1-day: dn2d1eocobn8amlmll3r
-        1-month: dn2p7pofnj0beukb0erb
-        12-month: dn20q66guu76is04nktv
-        3-month: dn2mcqi74h70gor1pm4n
-        6-month: dn2d06jhdbolrd6osgc2
-      ba-i106-sh-10g:
-        1-day: dn247633ncch74qta3t0
-        1-month: dn209gne5ncks8amg0sr
-        12-month: dn2kke6qjoetsu276fph
-        3-month: dn2fje1gmt1vuqoehi11
-        6-month: dn2sic92geij6849f92h
-      ba-i111-8s-10g:
-        1-day: dn2fqof7dkuu0t19vg2n
-        1-month: dn2rccvd57q4cm23anot
-        12-month: dn2av9k1sknc85mfbpk6
-        3-month: dn2g53dcfhivbid4ejgu
-        6-month: dn2st70gmnb1ug7m8d5b
-      ba-i200-h:
-        1-day: dn2g773c1s243adit5gr
-        1-month: dn2s7fs0s1chg0ehqd9v
-        12-month: dn229ek85qs9grfkj329
-        3-month: dn20vplumf3dl0je987u
-        6-month: dn2aqpduj7201haq3s0m
-      ba-i201-h:
-        1-day: dn29efir9q16m69e8b00
-        1-month: dn29mgh44iurq1s0tsfr
-        12-month: dn2mg1hl72ifqaj7hnc1
-        3-month: dn2ir5imkb2qd0ja1h3t
-        6-month: dn2ku348i9v7212fi9cp
-      ba-i202-s:
-        1-day: dn248idn3c3nuapmaers
-        1-month: dn2bbj5lq0scisug3sqf
-        12-month: dn2gk5s3m7u2lutv2jl1
-        3-month: dn250saptim5g80d1qd5
-        6-month: dn2i332ocdm1c9vt0e4v
-      ba-i203-s-10g:
-        1-day: dn22q9tst809lhe7jm6o
-        1-month: dn2q5k7qjr9a1c1br0s3
-        12-month: dn2mipar2rv7ftl47dcs
-        3-month: dn28ug6e636vfnc3a8vv
-        6-month: dn2nallja21ktps5jd73
-      ba-i204-sh:
-        1-day: dn2qcaa2fn9qojrtlaen
-        1-month: dn2k4uj24mr40qum106j
-        12-month: dn2p250tre1qr771s9d4
-        3-month: dn2bcf1jmctd8qcm6j3p
-        6-month: dn2on5bj7r5ll50f4itf
-      ba-i205-sh:
-        1-day: dn2ulsf25hluloina0kh
-        1-month: dn27d76a4mhn5cgaaade
-        12-month: dn2fd2997d0lk67hhd63
-        3-month: dn27ooj9ap9j3ccakgq7
-        6-month: dn216ev8t9vrrk1dt2iv
-      ba-i206-sh-10g:
-        1-day: dn2ch1jpaf0s9st4f570
-        1-month: dn2a7jakic5i8momu5ld
-        12-month: dn2poffc962r6jak7vmt
-        3-month: dn2qeercv8ro3lrgnats
-        6-month: dn25umjcegp3blc78jd6
-      ba-i207-h:
-        1-day: dn2078jofd76jr4q9e4p
-        1-month: dn2h4afe6o5c9letkdhc
-        12-month: dn2h6le2bmau2nqlds31
-        3-month: dn2lfsekea7dpb9vmk6v
-        6-month: dn2tjamfiogm09opqgbc
-      ba-i208-s-10g:
-        1-day: dn2gevnt83tr2gp6hkcb
-        1-month: dn20rqkq339lm12jdf1i
-        12-month: dn24tlo2ho04hev1pbff
-        3-month: dn2vtgg9f7ua65f0dtb3
-        6-month: dn20pjhfri33ds0keiuj
-      ba-i209-ss-1_10g:
-        1-day: dn2yby6dsq4bt5jcuuun
-        1-month: dn2lncsqs6acqa2laqq4
-        12-month: dn2yqrddp3zyw3no5aty
-        3-month: dn2qmfirxcmthwlqocxk
-        6-month: dn2ynwho4s5ee7od5jdo
-      ba-i211-8s-10g:
-        1-day: dn23os41prg8rcrk1e2q
-        1-month: dn2h8c7qqre739ol0sii
-        12-month: dn21fsqmbhvseaof5pf6
-        3-month: dn2pstl57mu8t3c1qm4q
-        6-month: dn2jc74moe4laf8m6m7j
-      ba-i217-s-1_10g:
-        1-day: dn2r5rks2csdg6435bp4
-        1-month: dn25qijyv3bobflplxne
-        12-month: dn22un44apyqndj2ei5l
-        3-month: dn2dj4l3apo6jbjco3l7
-        6-month: dn2loxxtnmlb45n3jmix
-      ba-i218-s:
-        1-day: dn2yspxmcbxndak267qp
-        1-month: dn2eyi7ztdxbxmd4dgj5
-        12-month: dn2zlvn2xg4xmjtzizsd
-        3-month: dn2vj6swslxr2owotaqt
-        6-month: dn2szgigswzw6nv7adb3
-      ba-i303-s-1_10g:
-        1-day: dn2op6gc722a7ht2dwm6
-        1-month: dn2ajlgrnczfudt4aprz
-        12-month: dn2chxdp3rd7c4gfpwjk
-        3-month: dn2ntl3c24tmuhho6ktk
-        6-month: dn2n676hywonfptdfkir
-      ba-i304-s-1_10g:
-        1-day: dn2vlawp67roiqemccp3
-        1-month: dn23ai3sr76sboszzyws
-        12-month: dn2emmb4nzfuwyt5wafi
-        3-month: dn2424aigb3pjjkcpmba
-        6-month: dn2ruw6xaaz66a3fzrgl
-      ba-i305-s-1_10g:
-        1-day: dn2mctoyavr7fktkf7pr
-        1-month: dn2ttf6ziizkmf22b3so
-        12-month: dn2zmzemgsseo5dgljmh
-        3-month: dn2kvvyzsww5npxnebsp
-        6-month: dn237vghgolroo4ydv5u
-      ba-i306-s-1_10g:
-        1-day: dn2rcuvvvqlghrdjsm7t
-        1-month: dn2b77ei6xmricmhcyhx
-        12-month: dn2m776icdbu4zkuzo23
-        3-month: dn2neb7iyhdiopskp4jn
-        6-month: dn2oxyrcqxomzqlol7k5
-      ba-i307-s-1_10g:
-        1-day: dn2ljmpg33wqyy4xsqin
-        1-month: dn2hb7lhlpcuqriyjhjc
-        12-month: dn2kldddix4p3cb2qkyh
-        3-month: dn2tz7xil7nu57opghuv
-        6-month: dn2sf5hvjhbrmsu3loib
-      ba-i308-s-1_10g:
-        1-day: dn26kjb5pjcolif45eo4
-        1-month: dn2zu5wiiyly2ezqphc6
-        12-month: dn2gysmx6ghcdpf46nfr
-        3-month: dn2bmjfxttyb2ivjlvsc
-        6-month: dn2hjjuk5yu5slloyfv2
-      ba-i309-s-1_10g:
-        1-day: dn2rihme6not4ee3koyf
-        1-month: dn2mwf54vxlyxix5o7px
-        12-month: dn2qfqm2mmwejw2eanhc
-        3-month: dn2su6ac7s73fmelvvxo
-        6-month: dn2eyici4i3uovpegvyu
-      ba-i310-s-1_10g:
-        1-day: dn2istwibkqtj2le6odt
-        1-month: dn2dzkbl7qswpeafquct
-        12-month: dn2rvboahnbdmwvtcctu
-        3-month: dn2brg67bhvnjrfbk4a4
-        6-month: dn2jlgymkgmvherpay4n
-      ba-i311-s:
-        1-day: dn2pmeuzaf5x5jog4dxl
-        1-month: dn2rx7dxbtooxf6ckpkc
-        12-month: dn2tvhgbuvohlnad2k6x
-        3-month: dn2srbkn5ce5cooadlam
-        6-month: dn2jezaritxjqnxhtgln
-      ba-i312-s-1_10g:
-        1-day: dn2v3nzkyhevnkcjm6p3
-        1-month: dn2wekfztklezwxtqy2i
-        12-month: dn26hqkghwo62qlle6us
-        3-month: dn2bdzddffpjdd7uv6ul
-        6-month: dn2kb3iwp44nha6kdiwc
-      ba-i407-s-10g:
-        1-day: dn2ouvd21k0ibt7asnui
-        1-month: dn23f47oub924jn942p9
-        12-month: dn2qn4bebcnt668lpfnr
-        3-month: dn2oacigdm7h1aq7hg5n
-        6-month: dn2ltpbugu8svm24auo7
-      ba-i501-h-25g:
-        1-day: dn2csfysf5feqp2mb4pm
-        1-month: dn2rguwssadodwqe4nur
-        12-month: dn2w5ud3lad457b3pvrz
-        3-month: dn2hxcjsmu5rveyuxeuk
-        6-month: dn2cm5czmuchlstnwxrh
-      ba-i506-nh-25g:
-        1-day: dn2k3mcygm5lrhav7mgd
-        1-month: dn2unaewdvtq6w6z5h6n
-        12-month: dn2x45chipeeabquucfb
-        3-month: dn2ld7dt234bvfh5s24q
-        6-month: dn2icrgshvkj5v7twlka
-      ba-i507-nh-2x25g:
-        1-day: dn2kfjsf7pmblupclrwv
-        1-month: dn2gwcmonbral4lstku2
-        12-month: dn2hpol7haiv62bfnezm
-        3-month: dn246222g4vgyfep52tu
-        6-month: dn2eiai7nzpv2jhifqle
-      ba-i511-nh-25g:
-        1-day: dn2siwxpw2uequksuh2p
-        1-month: dn2b2bjvep3amsxwaq2x
-        12-month: dn2ryxjsrbbmkhr7zp5b
-        3-month: dn2vhal66x64cw4m4hji
-        6-month: dn2phs4ddgmweohkdfij
-      ba-i512-nh-2x25g:
-        1-day: dn2ylkpt7bfhvqnubswz
-        1-month: dn2ejql2dltywx5oeoz3
-        12-month: dn2v24od7g7xbleg2kjn
-        3-month: dn2dp5s4he4poka7clnc
-        6-month: dn2fvi7h6viwsujbcxv3
-      ba-i523-nh-2x25g:
-        1-day: dn23mesissp7dp5jufbd
-        1-month: dn2su66lkggfhlfilzsh
-        12-month: dn27exfj4jsyf2coyomd
-        3-month: dn2ad4tcwajsemoj7dto
-        6-month: dn25xzcf7d4uoy7pllkv
       bf25-i201-h:
         1-day: dn2b2g5qopu74rjflyan
         1-month: dn2gzvgszwupi2ksy4yz
@@ -1157,217 +725,14 @@ default:
         12-month: dn2ajehb5v5zgudjtf7n
         3-month: dn2cym764mbfzb5ocdyi
         6-month: dn2ddsgk7wsbw7d2zuol
-      bms-1027r-body:
-        1-month: dn2paaexhgf2bviickkp
-        12-month: dn2oqzoduucamz4ny6ir
-        6-month: dn2bhhmb5x7nnrdhair7
-      bms-cpu-a9274f:
-        1-month: dn2vt664tba3iblf6bu2
-        12-month: dn2oc7waiwmkghi5azan
-        3-month: dn2hplv446j7rgfoxour
-        6-month: dn22sp4giatug3acvlsw
-      bms-cpu-ie5-2650v2:
-        1-month: dn2v7dn7jxq3h4tchgff
-        12-month: dn25yqzqiq7qp7hz4v5r
-        6-month: dn2ivjxagp5bkcqeyh23
-      bms-cpu-ie5-2660:
-        1-month: dn2hgetevoigfobrvogv
-        12-month: dn2q7iyoipkk4h6obmye
-        6-month: dn2kwjai2jd2upnvid7o
-      bms-cpu-ie5-2667v2:
-        1-month: dn2qtcb7z6l6ydpdioff
-        12-month: dn2epyedr37qffbjlmeu
-        6-month: dn25rpnmyjhrt3o2k7tn
-      bms-disk-s0:
-        9t:
-          1-month: dn275ufhbf5ux5he5enr
-          12-month: dn2zxsclnwljubw7wlul
-          6-month: dn2a2ajurq65jgmkoosw
-      bms-disk-s1:
-        9t:
-          1-month: dn2timdwkypwxsfl3l4e
-          12-month: dn2uysyoofbphvg3ubws
-          6-month: dn2mvup6umlyjgnakica
-      bms-disk-s3:
-        8t:
-          1-month: dn2nx7nypgc5nvnmyecx
-          12-month: dn2sayrysfduqvmcqkxs
-          6-month: dn23lsh3xtc5cgmnawjk
-      bms-disk-s7:
-        6t:
-          1-month: dn2iayw7fvwou5uyznp4
-          12-month: dn2bx37k4lluau6kdl6s
-          6-month: dn2wsahke3cpmy5cvv22
-      bms-net-1_10g:
-        1-month: dn2s6amxbjgvsm2r5j55
-        12-month: dn23r7vlp6ntotrexv3n
-        6-month: dn2d7su6ir2rgf2ghird
-      bms-net-2p10g:
-        1-month: dn2sg2gxxpuzwcuswmqq
-        12-month: dn2ryumxa7vh6247dki7
-        6-month: dn2cvyx2kvtgwmncj77a
-      bms-net-2p1g:
-        1-month: dn2w6cnum7kjv42kxmnp
-        12-month: dn2iynyzlnu5lz44i2w5
-        6-month: dn2rgcu46gwquelzyge6
-      bms-net-2p25g-mclag:
-        1-month: dn2zhqrrfxokfmmjcbjl
-        12-month: dn2wtcrigbuiy56in5lj
-        6-month: dn2nxqkn3jbcpgraihji
-      bms-net-2x2p10g:
-        1-month: dn26cypvum4o7othokpj
-        12-month: dn22akrrpikbs5y3vwgl
-        6-month: dn2zrlohcdk7mq6w5ebw
       bms-publicannounce-pi-prefix-any:
         1-month: dn2waf73ew5izjrkgflw
-      bms-r162-body:
-        1-month: dn2zjp3yzaeu4wvlmiuf
-        12-month: dn2dhl4vasigq4j62aqk
-        3-month: dn2n5d7bs4a4xnz42gs2
-        6-month: dn25zde5xrtjfig2ci6p
-      bms-r163-body:
-        1-month: dn2suxupujdijkwjpanb
-        12-month: dn2pfigwksn2qw7idwcx
-        3-month: dn2yv2k3bb5v2q3umcyn
-        6-month: dn2mvfybussqrwlasrnd
-      bms-ram3-128:
-        1-month: dn2dspoxf6trcs7xcb3j
-        12-month: dn2aljp6sqk57xc2qebu
-        6-month: dn2mr6vdtoi22hz4nqba
-      bms-ram3-256:
-        1-month: dn2xjjxbpghreoyy2hda
-        12-month: dn2bzamy6wdtzxtefsy4
-        6-month: dn2ahzx6t7b3y5i464cz
-      bms-ram3-32:
-        1-month: dn2wvnr7h3cmwte6yuho
-        12-month: dn2bq5lyymhwp4kipzdi
-        6-month: dn2s5d5d3qhfgacqque5
-      bms-ram3-64:
-        1-month: dn2qf7kdxxn2onpen6di
-        12-month: dn2vln7iq4gfwaa3m3v6
-        6-month: dn225456trqnu374dy6m
-      bms-ram5-128:
-        1-month: dn2iyujt44xymjl2gjse
-        12-month: dn2go3unbosnvorlqlmj
-        3-month: dn2n73jj34iu2sm57dmi
-        6-month: dn225umxjytxa2g6bqtz
-      bms-ram5-256:
-        1-month: dn2olfdrsw32m6coin46
-        12-month: dn2rgl7l65n2terbsibn
-        3-month: dn2wvqmczeylhaqzl5rv
-        6-month: dn2qmgafofbcra6ytra2
-      bms-ram5-384:
-        1-month: dn2rk6ycntauno2pryay
-        12-month: dn2faa2ieuo5np5lzu4j
-        3-month: dn2pufvkwyz6k7bta2xz
-        6-month: dn2sjybb22ke74avdy3a
-      bms-ram5-512:
-        1-month: dn2seluh3dypz64xtcbz
-        12-month: dn2lwyudpgr5kv3vynfi
-        3-month: dn27d636dmgryetfrx4k
-        6-month: dn2btz7hw2cwsiwl256s
-      ha-a701-6n-4h-2x25g:
-        1-day: dn2kwtyc4rsjl45zge33
-        1-month: dn26gmom2kyebwew76rc
-        12-month: dn2ys2apjyjorhxscme3
-        3-month: dn2n6ry7zr6ytyqhx5o7
-        6-month: dn2bgq4z6yp5noo7rccd
-      ha-a703-4n-2x25g:
-        1-day: dn2t4jidixssq4rhiwjv
-        1-month: dn2esv2kzzwhpofamv6v
-        12-month: dn2ptk4iz3h7wtsu7ovx
-        3-month: dn2rbapzjljtggqzovla
-        6-month: dn2m6gruyasudyi72unw
-      ha-i302-s-10g:
-        1-day: dn2c2vkpanbck1rpp6l8
-        1-month: dn26an39ra4lmdlcoea8
-        12-month: dn25polktkalpfmkqgg6
-        3-month: dn2m1o9e8kre8hphp2q7
-        6-month: dn201l4ki383a9per2i7
       ha-i502-n-25g-gxl4-p1:
         1-day: dn2reufj2egdb4txhmcw
         1-month: dn2dpms5iltwitsem46m
         12-month: dn2onr36xgn5jpeau7nr
         3-month: dn2l332n5sb3eez56xso
         6-month: dn2bfze2ziqavalvg7qd
-      ha-i502-n-25g-gxl4:
-        1-day: dn246uedlfoxttyttloq
-        1-month: dn2aksaq2jnah5n3p2ow
-        12-month: dn2k2zqaoqzwhfdwxuwd
-        3-month: dn2nkrdoxtldsqcw6sxy
-        6-month: dn2ep4zl2llvx2j63glh
-      la-i100-h:
-        1-day: dn2t33wjf2qexcjgwqfm
-        1-month: dn2a7ztltvaxx4jix3j4
-        12-month: dn2zzamxus5wjc5agckw
-        3-month: dn2ykoup6uk7wyuzjkxr
-        6-month: dn2abhoqihnkaw4t6d6d
-      la-i101-h:
-        1-day: dn2gbbtarqnd4mjedmwg
-        1-month: dn24fsf2ghlibwvea2to
-        12-month: dn2kkiff4ugazm3y3zkx
-        3-month: dn2szbvg7l5scxvtzhfj
-        6-month: dn24opipvdoq3ppsvel5
-      la-i102-s:
-        1-day: dn2yedxhx7bbwj2ckpvg
-        1-month: dn236l4bgtgbsqvugfjq
-        12-month: dn2vrmyws4jdzugjzmjc
-        3-month: dn2ahicct5qbgthfjwfe
-        6-month: dn222cz4rrr2irahaybl
-      la-i104-sh:
-        1-day: dn2hzy3p3ofhixrevblu
-        1-month: dn2rhxkefdopx36lmabp
-        12-month: dn2tpv3gb72l3csdtruc
-        3-month: dn2heprd6ns5ywiz4d2c
-        6-month: dn2fbnlbq7y4tpaa6hpe
-      la-i105-sh:
-        1-day: dn2hewv6wwjn7hheudoc
-        1-month: dn24hmyrngrtfsnp26nq
-        12-month: dn2gw4ab4atyreye4xrd
-        3-month: dn22cc76b5ptltxkkhmv
-        6-month: dn2oh3librm7x763qqgk
-      la-i107-s-1_10g:
-        1-day: dn2mvtdvofk4cpsfj37n
-        1-month: dn2wg7fk3h5hac3wxnw6
-        12-month: dn2ql3ll3wwzilxfptf6
-        3-month: dn22qacvosdvpihqi36r
-        6-month: dn2lbddwbtt3y5m4ph4e
-      la-i108-s-1_10g:
-        1-day: dn27dway3ctq7ckrdytq
-        1-month: dn2pe5mj3k35wl2rzzmi
-        12-month: dn2o5qnxdn7jxgcatyif
-        3-month: dn2mhzsdg7gtb4d4fckw
-        6-month: dn2mj2rnkhctk4lzcz4c
-      la-i109-s-1_10g:
-        1-day: dn2zgcjjjuzfd5oed7vl
-        1-month: dn2edz7oes4zlxahffho
-        12-month: dn2zgj65klqob6zmmc4q
-        3-month: dn24gzpgs6nag43ub65g
-        6-month: dn2h5m7ryj7mswsoclgf
-      la-i110-s-1_10g:
-        1-day: dn2en7sxanjpwvrrpiof
-        1-month: dn2jwzbvnw6hghewhy4z
-        12-month: dn27kmrcjjbe6lrdsgcl
-        3-month: dn2v2vb5tlsukuzzn4hx
-        6-month: dn2milwf2eoxiskqwh3d
-      la-i113-s:
-        1-day: dn2ayfkvcbcy7ykjr3h5
-        1-month: dn247i2gjig7uj63xdzv
-        12-month: dn24yko6koontg32wjtm
-        3-month: dn2fk5rqjzelrsqlh6zw
-        6-month: dn2plhocvyi3hfzx7uv5
-      la-i114-s:
-        1-day: dn2c3fvr5id64qmsvelk
-        1-month: dn22gcl3uajdmvxh3ilp
-        12-month: dn2hy7escq66mrhbqz62
-        3-month: dn2rpej2eep226m4lnin
-        6-month: dn2jupfua327m4scynoi
-      la-i115-s:
-        1-day: dn2cugv7y5ambfbcvu4p
-        1-month: dn2hh32gzekv7ruox2qr
-        12-month: dn2nsehhmr7sjuehmcgs
-        3-month: dn255uas2eyfvu35xws4
-        6-month: dn2mczdsmitkkon5xwwd
   pc|compute:
     hostgroup:
       cpu:
@@ -1534,31 +899,6 @@ default:
         internal: dn2djih21mipc4jo77uk
       ingress:
         internal: dn2dj452r5cbun6bv52e
-  pc|security_deck:
-    access_transparency:
-      subscription:
-        v1: dn27wruc3zutdqdc45cg
-    cspm:
-      resources: dn2muudyflujxdk7e32n
-    dspm:
-      t1_5:
-        subscription:
-          monthly_usage:
-            v1: dn233k5ozolpslveo3jx
-      t11:
-        subscription:
-          monthly_usage:
-            v1: dn2goet36a5vh2jdqdzf
-      t3:
-        subscription:
-          monthly_usage:
-            v1: dn2ih5ta2ay3ztmre2rf
-      t5_5:
-        subscription:
-          monthly_usage:
-            v1: dn2nk3uheuixi6rwb7uv
-    kspm:
-      nodes: dn2ukunmpcmrnab3u5ko
   pc|storage:
     api:
       network:
@@ -3117,6 +2457,10 @@ default:
         title_description: Description
         title_name: Name
       aside-navigation:
+        all-panel:
+          menu:
+            category:
+              explore: Explore
         menu-item:
           alerts:
             title: Alerts
@@ -3130,6 +2474,8 @@ default:
             title: Metrics
           logs-analytics:
             title: Errors
+          logs-metrics:
+            title: Logs metrics
           logs:
             title: Logs
           notification-feed:
@@ -3238,6 +2584,21 @@ default:
         button_dashboards-action: Create dashboard
         title_service-dashboards: Service dashboards
         title_service-features: Features
+      logs-metrics:
+        form:
+          block:
+            group-by: Group by
+            log-selector: Log selector
+          row:
+            aggregate-function-key-value: Aggregate function
+            window: Evaluation window
+        view:
+          field:
+            output-metric: Output metric
+      logs:
+        logs-metrics:
+          create: Create metric
+          title: Logs metrics
       monitoring-alerts-channels:
         method:
           ya-chats: Yandex Messenger
@@ -4689,11 +4050,16 @@ default:
         action_start_backup: Create backup
         button_action-activate: Activate
         button_attach-instance: Attach a VM
+        button_connect-external-resource: Connect external resource
         button_create-policy: Create policy
         column_baremetal-instance-status: Server status
         context_current-bms: current
         context_current-vm: current
+        dialog_connect-external-resource_title: Connect external resource
+        field_connect-external-resource_policies: Backup policies
+        field_connect-external-resource_resource-type: Resource type
         field_delete-old-vm: Delete the outdated VM
+        field_recover-to-resource: Target resource
         field_vm-instances: Cloud Backup
         files-recovery:
           value_location-custom: Custom
@@ -4703,6 +4069,9 @@ default:
           value_overwrite-older: Overwrite only existing files
         label_backups: Backups
         label_baremetal-instances: BareMetal servers
+        label_connected-resources: Connected resources
+        label_external-server-instances: External servers
+        label_external-vm-instances: External virtual machines
         label_instances: Virtual machines
         label_navigate-to-journal-action: Open the backup log
         label_policies: Backup policies
@@ -4755,9 +4124,13 @@ default:
             field_post-data-command-enabled_rXvwj: Run the command after data capture
             field_pre-data-command-enabled_sZ45C: Run the command before data capture
             field_pre-post-data-command_mmRTZ: Commands before and after data capture
+        section_connect-external-resource_command: Command to install the Cloud Backup agent
         title_linked-recourses: Attached resources
+        title_recovery-dialog_external: Restoring from a backup
         title_select-vm-backup-policies-row: Backup policies
         value_bms-recourses: BareMetal servers
+        value_external-server: External server
+        value_external-vm: External virtual machine
         value_vm-recourses: Virtual machines
       baremetal:
         action_add-to-raid: Add to RAID
@@ -5448,8 +4821,13 @@ default:
         components:
           AttachInstanceToPoolDialog:
             button_attach_pHLyg: Attach
+          BackupMethodField:
+            cloudBackup_title_aB1c2: Cloud Backup
           BackupSection:
             section_backup_1MXwy: Backup
+          CloudBackupFooter:
+            button_create-policy_cBf1a: Create policy
+            placeholder_select-policy_cBf3c: Select policy
           InstanceActions:
             button_attach-to-pool_ak57z: Attach to VM reserve pool
             button_confirm-detach-vm-from-pool_8dze2: Detach
@@ -7438,7 +6816,6 @@ default:
           overview:
             label_domain: Default domain
             label_wss_domain: WebSocket endpoint
-            section_spec: Specification
         item:
           editor:
             button_action-continue: Continue
@@ -8667,15 +8044,36 @@ default:
                         title: Bucket
                       service_account_id:
                         title: Service account
+                    IcebergParquetRowGroup:
+                      row_group_max_bytes:
+                        title: Row group max bytes
+                      row_group_max_rows:
+                        title: Row group max rows
+                    IcebergReplicationSettings:
+                      commit_interval:
+                        title: Commit interval
                     IcebergTarget:
                       cleanup_policy:
                         title: Cleanup policy
+                      default_namespace:
+                        title: Default namespace
                       mdb_cluster_id:
                         title: Apache Hive™ Metastore cluster
                       prefix:
                         title: Path prefix
+                      replication_settings:
+                        title: Replication settings
                       security_group_ids:
                         title: Security groups
+                      writer_settings:
+                        title: Writer settings
+                    IcebergWriterSettings:
+                      max_bytes_per_file:
+                        title: Max bytes per file
+                      max_rows_per_file:
+                        title: Max rows per file
+                      parquet:
+                        title: Parquet settings
             kafka:
               console:
                 form:
@@ -9580,18 +8978,18 @@ default:
         http_headers_name: HTTP headers
         http_http_method_for_extension_name: Method
         http_method_name: HTTP method
-        http_omit_empty_headers_name: Omit empty headers
-        http_omit_empty_query_parameters_name: Omit empty query parameters
+        http_properties_omit_empty_headers_view_spec_layout_title: Empty headers
+        http_properties_omit_empty_query_parameters_view_spec_layout_title: Empty query parameters
+        http_properties_send_original_headers_view_spec_layout_title: Original request headers
+        http_properties_send_original_query_params_view_spec_layout_title: Original request query parameters
         http_query_name: Query parameters
         http_read_timeout_name: Read timeout
-        http_send_original_headers_name: Send original query headers
-        http_send_original_query_params_name: Send original query parameters
         http_url_name: URL
         object_storage_bucket_name: Bucket
         object_storage_error_object_filename_name: Error object
         object_storage_filename_name: Object name
         path_name: Path
-        serverless_containers_container_id_name: Container ID
+        serverless_containers_properties_container_id_view_spec_layout_title: Container
         service_account_id_name: Service account
     yc-serverless-workflows:
       dynamic-forms:
@@ -10382,6 +9780,7 @@ default:
     document-api-endpoint: https://docapi.serverless.yandexcloud.net
     ep-dedicated: grpcs://lb.etnk1u65e4shtgj338va.ydb.mdb.yandexcloud.net:2135
     ep-serverless: grpcs://ydb.serverless.yandexcloud.net:2135
+    host-serverless: ydb.serverless.yandexcloud.net
     id-dedicated: etnk1u65e4shtgj338va
     id-serverless: etnudu2n9ri35luqe4h1
     name-dedicated: ydb-dedicated

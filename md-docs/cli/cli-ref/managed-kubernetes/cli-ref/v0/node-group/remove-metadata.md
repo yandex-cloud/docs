@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-kubernetes](../../index.md) > [v0](../index.md) > [node-group](index.md) > remove-metadata
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [managed-kubernetes](../../index.md) > [v0](../index.md) > [node-group](index.md) > remove-metadata
 
 # yc managed-kubernetes v0 node-group remove-metadata
 

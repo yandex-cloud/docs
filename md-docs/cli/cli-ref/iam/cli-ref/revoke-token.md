@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../index.md) > [Интерфейс командной строки](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [iam](index.md) > revoke-token
+[Документация Yandex Cloud](../../../../index.md) > [Интерфейс командной строки](../../../index.md) > [Справочник (англ.)](../../index.md) > [iam](index.md) > revoke-token
 
 # yc iam revoke-token
 

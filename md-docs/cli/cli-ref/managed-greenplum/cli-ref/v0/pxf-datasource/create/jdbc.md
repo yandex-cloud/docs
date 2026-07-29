@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [managed-greenplum](../../../index.md) > [v0](../../index.md) > [pxf-datasource](../index.md) > [create](index.md) > jdbc
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник (англ.)](../../../../../index.md) > [managed-greenplum](../../../index.md) > [v0](../../index.md) > [pxf-datasource](../index.md) > [create](index.md) > jdbc
 
 # yc managed-greenplum v0 pxf-datasource create jdbc
 

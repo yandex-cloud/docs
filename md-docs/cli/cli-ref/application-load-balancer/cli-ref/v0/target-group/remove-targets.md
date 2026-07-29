@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [application-load-balancer](../../index.md) > [v0](../index.md) > [target-group](index.md) > remove-targets
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [application-load-balancer](../../index.md) > [v0](../index.md) > [target-group](index.md) > remove-targets
 
 # yc application-load-balancer v0 target-group remove-targets
 

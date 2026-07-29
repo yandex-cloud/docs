@@ -5,6 +5,8 @@ description: В статье описаны поля для интеграцио
 
 # YDBDocument
 
+{% include [workflows-ai-studio-note](../../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 Взаимодействие с документными таблицами в базе данных [{{ ydb-full-name }}](../../../../../ydb/). Поля `get`, `put`, `update` и `scan` — взаимоисключающие, можно использовать только одно из них.
 
 Имя поля | Тип | Обязательное | Значение по умолчанию | Поддерживается [шаблонизация](../../templating.md) | Описание

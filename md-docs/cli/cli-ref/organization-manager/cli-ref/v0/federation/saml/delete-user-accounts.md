@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [organization-manager](../../../index.md) > [v0](../../index.md) > [federation](../index.md) > [saml](index.md) > delete-user-accounts
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник (англ.)](../../../../../index.md) > [organization-manager](../../../index.md) > [v0](../../index.md) > [federation](../index.md) > [saml](index.md) > delete-user-accounts
 
 # yc organization-manager v0 federation saml delete-user-accounts
 

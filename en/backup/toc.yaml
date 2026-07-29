@@ -16,7 +16,7 @@ items:
         href: operations/index.md
       - name: Activating the service
         href: operations/activate-service.md
-      - name: VM in {{ backup-name }}
+      - name: '{{ compute-name }} in {{ backup-name }}'
         items:
           - name: Creating and connecting a Linux VM
             href: operations/create-vm.md
@@ -34,7 +34,7 @@ items:
             href: operations/refresh-connection.md
           - name: Reconnecting a Linux VM with {{ oslogin }} to {{ backup-name }}
             href: operations/refresh-connection-oslogin-linux.md
-          - name: Updating or recovering the {{ backup-name }} agent
+          - name: Updating the {{ backup-name }} agent
             href: operations/update-backup-agent.md
           - name: Viewing a VM connection status
             href: operations/get-connection-status.md
@@ -45,8 +45,8 @@ items:
       - name: '{{ baremetal-name }} in {{ backup-name }}'
         items:
           - name: >-
-              Leasing a {{ baremetal-name }} server connected to {{ backup-name
-              }}
+              Renting a {{ baremetal-name }} server with a connection to {{
+              backup-name }}
             href: operations/backup-baremetal/lease-server-with-backup.md
           - name: >-
               Connecting an existing {{ baremetal-name }} server to {{
@@ -54,19 +54,21 @@ items:
             href: operations/backup-baremetal/backup-baremetal.md
           - name: Reconnecting a {{ baremetal-name }} server to {{ backup-name }}
             href: operations/backup-baremetal/refresh-connection.md
-          - name: Restoring the {{ backup-name }} agent
-            href: operations/backup-baremetal/restore-agent.md
+      - name: External resources in {{ backup-name }}
+        items:
+          - name: Connecting an external resource
+            href: operations/external/connect.md
       - name: Backup policies
         items:
           - name: Creating a policy
             href: operations/policy-vm/create.md
           - name: Updating a policy
             href: operations/policy-vm/update.md
-          - name: Linking a VM or {{ baremetal-name }} server to a policy
+          - name: Linking a resource to a policy
             href: operations/policy-vm/attach-and-detach-vm.md
           - name: Getting information about a policy
             href: operations/policy-vm/get-info.md
-          - name: Unlinking a VM or {{ baremetal-name }} server from a policy
+          - name: Unlinking a resource from a policy
             href: operations/policy-vm/detach-vm.md
           - name: Deleting a policy
             href: operations/policy-vm/delete.md
@@ -74,11 +76,15 @@ items:
         items:
           - name: Creating a backup
             href: operations/backup-vm/create.md
-          - name: Restoring a VM or {{ baremetal-name }} server from a backup
-            href: operations/backup-vm/recover.md
           - name: >-
-              Restoring a VM or {{ baremetal-name }} server from a backup of
-              another VM or {{ baremetal-name }} server
+              Restoring a {{ compute-name }} VM or {{ baremetal-name }} server
+              from a backup
+            href: operations/backup-vm/recover.md
+          - name: Restoring an external VM or server from a backup
+            href: operations/external/recover.md
+          - name: >-
+              Restoring a {{ compute-name }} VM or {{ baremetal-name }} server
+              from a backup of another VM or server
             href: operations/backup-vm/non-native-recovery.md
           - name: Restoring individual directories and files from a backup
             href: operations/backup-vm/recover-file-by-file.md
@@ -86,9 +92,11 @@ items:
             href: operations/backup-vm/view-disk-layout.md
           - name: Deleting a backup
             href: operations/backup-vm/delete.md
-          - name: Deleting all backups of a VM or {{ baremetal-name }} server
+          - name: Deleting all backups of a resource
             href: operations/backup-vm/batch-delete.md
-      - name: Viewing service resource operations
+      - name: Restoring the {{ backup-name }} agent
+        href: operations/backup-baremetal/restore-agent.md
+      - name: Viewing operations on service resources
         href: operations/operation-logs.md
       - name: Limiting RAM usage by the {{ backup-name }} agent
         href: operations/limit-agent-memory-usage.md
@@ -114,8 +122,16 @@ items:
     items:
       - name: Overview
         href: concepts/index.md
-      - name: Connecting a VM and {{ baremetal-name }} server to the service
-        href: concepts/vm-connection.md
+      - name: Connecting resources to {{ backup-name }}
+        items:
+          - name: Overview
+            href: concepts/vm-connection/index.md
+          - name: '{{ compute-name }} VM'
+            href: concepts/vm-connection/compute.md
+          - name: Servers {{ baremetal-name }}
+            href: concepts/vm-connection/baremetal.md
+          - name: VMs and servers outside {{ yandex-cloud }}
+            href: concepts/vm-connection/external-resources.md
       - name: Backup policies
         href: concepts/policy.md
       - name: Backups

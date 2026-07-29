@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Запустить рабочий процесс по ссылке
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 ## Получить ссылку для запуска {#get-link}
 
 {% list tabs group=instructions %}

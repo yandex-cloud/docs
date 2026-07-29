@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [cloud-registry](../../index.md) > [registry](../index.md) > [lifecycle-policy](index.md) > get-dry-run-result
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [cloud-registry](../../index.md) > [registry](../index.md) > [lifecycle-policy](index.md) > get-dry-run-result
 
 # yc cloud-registry registry lifecycle-policy get-dry-run-result
 

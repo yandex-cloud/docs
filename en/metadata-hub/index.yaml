@@ -19,7 +19,7 @@ blocks:
     visible:
       sm: false
       md: true
-    description: "Yandex\_Cloud service for database connection management, storage of data exchange schemas and dataset descriptions, plus a metadata management system."
+    description: "Yandex\_MetaData\_Hub is a Yandex\_Cloud service that allows customers to manage database connections, store data exchange schemas, and describe datasets, while also providing a metadata management system."
     colSizes:
       all: 12
       sm: 6

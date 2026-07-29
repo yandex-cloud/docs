@@ -5,7 +5,11 @@ description: Follow this guide to purge the resource cache.
 
 # Purging the resource cache
 
-To [purge the cache](../../concepts/caching.md) of the resource:
+{% note warning %}
+
+{% include [purge-cache-limits-notice](../../../_includes/cdn/purge-cache-limits-notice.md) %}
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
@@ -116,3 +120,8 @@ To [purge the cache](../../concepts/caching.md) of the resource:
 {% endlist %}
   
 It may take up to 15 minutes to purge the cache.
+
+#### Useful links {#see-also}
+
+[{#T}](../../concepts/caching.md)
+

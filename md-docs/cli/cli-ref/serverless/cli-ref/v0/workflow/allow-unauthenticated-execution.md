@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [serverless](../../index.md) > [v0](../index.md) > [workflow](index.md) > allow-unauthenticated-execution
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [serverless](../../index.md) > [v0](../index.md) > [workflow](index.md) > allow-unauthenticated-execution
 
 # yc serverless v0 workflow allow-unauthenticated-execution
 

@@ -5,6 +5,8 @@ description: Следуя данной инструкции, с помощью �
 
 # Добавить цикл While
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 Управляющий шаг While позволяет задать последовательность шагов, которые будут выполняться в цикле. Шаг выполняется, пока соблюдено заданное в поле **{{ ui-key.yacloud.serverless-workflows.workflow-editor_while-step-condition-field }}** условие, но не более чем заданное в поле **{{ ui-key.yacloud.serverless-workflows.workflow-editor_while-step-max-iterations-field }}** количество раз. Если условие не задано, шаг выполняется указанное количество раз. Если ограничение на количество итераций не задано, цикл будет выполняться, пока соблюдено условие или до достижения [таймаута](../../../concepts/limits.md) выполнения рабочего процесса.
 
 Каждая ветка выполнения внутри шага While (с учетом всех шагов [Switch](./switch.md)) должна содержать [интеграционный шаг](./index.md#integration-steps) или шаг [Success](./success.md), [Fail](./fail.md) или [Wait](./wait.md).

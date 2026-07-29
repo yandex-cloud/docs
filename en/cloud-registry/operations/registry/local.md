@@ -1,6 +1,6 @@
 ---
 title: Creating a local registry in {{ cloud-registry-full-name }}
-description: Follow this guide to create a local registry in {{ cloud-registry-name }}.
+description: '{{ cloud-registry-name }}Follow this guide to create a local registry in.'
 ---
 
 # Creating a local registry
@@ -17,27 +17,34 @@ description: Follow this guide to create a local registry in {{ cloud-registry-n
     1. In the **Registry type** field, select `Local`.
     1. If you set the registry format to:
 
-        * `Docker`, specify the artifact immutability policy:
+        * `Docker`, specify an artifact immutability policy:
 
             * `Disabled`: Do not use the policy.
             * `Simple`: Prevent artifact overwriting.
             * `Full`: Prevent artifact overwriting, even after the artifact is deleted.
 
-        * `Maven`, specify the versioning policy:
+        * `Maven`, specify a versioning policy:
 
             * `Mixed`: A combination of `Release` and `Snapshot` for flexibility.
             * `Release`: For stable versions.
             * `Snapshot`: For development with frequent updates.
 
-    1. Enter a name and description for the registry.
-    1. Add labels in `key: value` format.
+        * `Debian`, optionally, configure registry metadata signing:
+
+            Enable **Registry signing** and specify the [{{ lockbox-full-name }}](../../../lockbox/) secret containing the GPG key for signing. For more information on preparing a GPG key and creating a secret, see [{#T}](../debian/installation.md#prepare-gpg-key).
+
+    1. Under **Registry information**:
+
+        * Enter the registry name. The name must not contain spaces or special characters.
+        * Optionally, enter a description and add registry labels in `key: value` format.
+
     1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
     To create a local registry, run this command:
 
-    ```
+    ```bash
     yc cloud-registry registry create \
       --name <registry_name> \
       --description <registry_description> \
@@ -49,11 +56,11 @@ description: Follow this guide to create a local registry in {{ cloud-registry-n
     Where:
     * `--name`: Registry name.
     * `--description`: Registry description.
-    * `--registry-kind`: Registry format. Available formats: `maven`, `npm`, `docker`, `nuget`, `pypi`, and `binary`.
+    * `--registry-kind`: Registry format. Available formats: `maven`, `npm`, `docker`, `nuget`, `pypi`, `binary`, `debian`.
     * `--registry-type`: Registry [type](../../concepts/registry.md#registry-types).
-    * `--properties`: Registry properties. Provide them as a string in `name1=value1,name2=value2` format. Available properties for local registries are as follows:
+    * `--properties`: Registry properties. Provide them as a string in `name1=value1,name2=value2` format. The available properties for local registries are as follows:
 
-        * `immutable-artifacts-policy`: Artifact immutability policy. It is only supported for the `docker` registry format. Here are available policy options:
+        * `immutable-artifacts-policy`: Artifact immutability policy. It is only supported for the `docker` registry format. Here are the available policy options:
 
             * `disabled`: Do not use the policy.
             * `simple`: Prevent artifact overwriting.
@@ -61,7 +68,7 @@ description: Follow this guide to create a local registry in {{ cloud-registry-n
 
             The default value is `disabled`.
 
-        * `version-policy`: Versioning policy. It is only supported for the `maven` registry format. Here are available policy options:
+        * `version-policy`: Versioning policy. It is only supported for the `maven` registry format. Here are the available policy options:
 
             * `mixed`: A combination of `release` and `snapshot` for flexibility.
             * `release`: For stable versions.
@@ -69,9 +76,11 @@ description: Follow this guide to create a local registry in {{ cloud-registry-n
 
             The default value is `mixed`.
 
+        * `signingGpgKeySecretId`: ID of the {{ lockbox-full-name }} secret containing the GPG key for signing the metadata. It is only supported for the `debian` registry format. For more information on preparing a GPG key and creating a secret, see [{#T}](../debian/installation.md#prepare-gpg-key).
+
     Result:
 
-    ```
+    ```text
     done (3s)
     id: cn1fsnc2dak********
     folder_id: b1gc1t4cb638********

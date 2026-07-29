@@ -1142,107 +1142,151 @@ parameters which detailed description is available in
 ||Field | Description ||
 || recoveryMinApplyDelay | **string** (int64)
 
-in milliseconds. ||
+Sets the minimum delay for applying changes during recovery. In milliseconds. ||
 || sharedBuffers | **string** (int64)
 
-in bytes. ||
+Sets the number of shared memory buffers used by the server. In bytes. ||
 || tempBuffers | **string** (int64)
 
-in bytes. ||
+Sets the maximum number of temporary buffers used by each session. In bytes. ||
 || workMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used for query workspaces. This much memory can be used by each
+internal sort operation and hash table before switching to temporary disk files. In bytes. ||
 || tempFileLimit | **string** (int64)
 
-in bytes. ||
+Limits the total size of all temporary files used by each process. -1 means no limit. In bytes. ||
 || backendFlushAfter | **string** (int64)
 
-Acceptable values are 0 to 2048, inclusive. ||
+Specifies how much data a backend can write before forcing the operating system to issue the writes. In bytes.
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64)
 
-in milliseconds. ||
+Time before a snapshot is too old to read pages changed after the snapshot was taken.
+A value of -1 disables this feature. In milliseconds. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum delay before canceling queries when a hot standby server is processing streamed WAL data. In milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
+
+Enables the planner to use constraints to optimize queries.
 
 - `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
 - `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
 - `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
-|| cursorTupleFraction | **number** (double) ||
+|| cursorTupleFraction | **number** (double)
+
+Sets the planner's estimate of the fraction of a cursor's rows that will be retrieved. ||
 || fromCollapseLimit | **string** (int64)
+
+Sets the FROM-list size beyond which subqueries are not collapsed.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
 || joinCollapseLimit | **string** (int64)
 
+Sets the FROM-list size beyond which JOIN constructs are not flattened.
+
 Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_ON`: Force parallel mode for all queries that can be executed safely in parallel.
-- `FORCE_PARALLEL_MODE_OFF`: Enable parallel mode only if it is expected to increase performance.
-- `FORCE_PARALLEL_MODE_REGRESS`: Equivalent to on, but generates output identical to the off state. ||
+Forces use of parallel query facilities. If possible, run query using a parallel worker and with parallel restrictions.
+
+- `FORCE_PARALLEL_MODE_ON`: Forces parallel mode for queries considered safe, even when no performance benefit is expected.
+- `FORCE_PARALLEL_MODE_OFF`: Uses parallel mode only when the planner expects it to improve performance.
+- `FORCE_PARALLEL_MODE_REGRESS`: Behaves like ON, but hides added Gather nodes in EXPLAIN output and
+suppresses parallel-worker context lines to stabilize regression-test output. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are sent to the client.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Causes all statements generating error at or above this level to be logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinDurationStatement | **string** (int64)
 
-in milliseconds. ||
-|| logCheckpoints | **boolean** ||
-|| logConnections | **boolean** ||
-|| logDisconnections | **boolean** ||
-|| logDuration | **boolean** ||
+Sets the minimum execution time above which all statements will be logged. In milliseconds. ||
+|| logCheckpoints | **boolean**
+
+Logs each checkpoint. ||
+|| logConnections | **boolean**
+
+Logs each successful connection. ||
+|| logDisconnections | **boolean**
+
+Logs end of a session, including duration. ||
+|| logDuration | **boolean**
+
+Logs the duration of each completed SQL statement.
+ ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
+
+Sets the verbosity of logged messages.
 
 - `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
 - `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
 - `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
-|| logLockWaits | **boolean** ||
+|| logLockWaits | **boolean**
+
+Logs long lock waits. ||
 || logStatement | **enum** (LogStatement)
+
+Sets the type of statements logged.
 
 - `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
 - `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
 - `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
 - `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
-|| logTempFiles | **string** (int64) ||
-|| searchPath | **string** ||
-|| rowSecurity | **boolean** ||
+|| logTempFiles | **string** (int64)
+
+Log the use of temporary files larger than this number of kilobytes. ||
+|| searchPath | **string**
+
+Sets the schema search order for names that are not schema-qualified. ||
+|| rowSecurity | **boolean**
+
+Enable row security. ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
+
+Sets the transaction isolation level of each new transaction.
 
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
 - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
@@ -1252,77 +1296,155 @@ All queries in the current transaction see only the rows that were fixed prior t
 If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any statement. In milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any wait for a lock. In milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
+
+Sets the output format for bytea.
 
 - `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
 - `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`: Base64 encoding.
-- `XML_BINARY_HEX`: Hexadecimal encoding. ||
+Sets how binary values are to be encoded in XML.
+
+- `XML_BINARY_BASE64`: Encodes binary values using Base64.
+- `XML_BINARY_HEX`: Encodes binary values using hexadecimal notation. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`: XML document.
-- `XML_OPTION_CONTENT`: XML fragment. ||
+Sets whether XML data in implicit parsing and serialization operations is to be considered as documents or content fragments.
+
+- `XML_OPTION_DOCUMENT`: Treats an XML value as a complete, well-formed document.
+- `XML_OPTION_CONTENT`: Treats an XML value as a content fragment, which may contain multiple top-level elements or character nodes. ||
 || ginPendingListLimit | **string** (int64)
 
-in bytes. ||
+Sets the maximum size of the pending list for GIN index. In bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds.
+Sets the time to wait on a lock before checking for deadlock. In milliseconds.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
-|| maxLocksPerTransaction | **string** (int64) ||
-|| maxPredLocksPerTransaction | **string** (int64) ||
-|| arrayNulls | **boolean** ||
+|| maxLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of locks per transaction. The shared lock table is sized on the assumption that
+at most max_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| maxPredLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of predicate locks per transaction.The shared predicate lock table is sized on the assumption that
+at most max_pred_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| arrayNulls | **boolean**
+
+Enable input of NULL elements in arrays. When turned on, unquoted NULL in an array input
+value means a null value; otherwise it is taken literally. ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+Sets whether \"\\'\" is allowed in string literals.
+
+- `BACKSLASH_QUOTE`: Legacy invalid value. Do not use.
 - `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
 - `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
 - `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
-|| defaultWithOids | **boolean** ||
-|| escapeStringWarning | **boolean** ||
-|| loCompatPrivileges | **boolean** ||
-|| operatorPrecedenceWarning | **boolean** ||
-|| quoteAllIdentifiers | **boolean** ||
-|| standardConformingStrings | **boolean** ||
-|| synchronizeSeqscans | **boolean** ||
-|| transformNullEquals | **boolean** ||
-|| exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
-|| enableBitmapscan | **boolean** ||
-|| enableHashagg | **boolean** ||
-|| enableHashjoin | **boolean** ||
-|| enableIndexscan | **boolean** ||
-|| enableIndexonlyscan | **boolean** ||
-|| enableMaterial | **boolean** ||
-|| enableMergejoin | **boolean** ||
-|| enableNestloop | **boolean** ||
-|| enableSeqscan | **boolean** ||
-|| enableSort | **boolean** ||
-|| enableTidscan | **boolean** ||
+|| defaultWithOids | **boolean**
+
+WITH OIDS is no longer supported; this can only be false. ||
+|| escapeStringWarning | **boolean**
+
+Warn about backslash escapes in ordinary string literals. ||
+|| loCompatPrivileges | **boolean**
+
+Enables backward compatibility mode for privilege checks on large objects. Skips privilege checks
+when reading or modifying large objects, for compatibility with PostgreSQL releases prior to 9.0. ||
+|| operatorPrecedenceWarning | **boolean**
+
+Emit a warning for constructs that changed meaning since PostgreSQL 9.4. ||
+|| quoteAllIdentifiers | **boolean**
+
+When generating SQL fragments, quote all identifiers. ||
+|| standardConformingStrings | **boolean**
+
+Causes '...' strings to treat backslashes literally. ||
+|| synchronizeSeqscans | **boolean**
+
+Enable synchronized sequential scans. ||
+|| transformNullEquals | **boolean**
+
+Treats \"expr=NULL\" as \"expr IS NULL\". When turned on, expressions of the form expr = NULL
+(or NULL = expr) are treated as expr IS NULL, that is, they return true if expr evaluates to the
+null value, and false otherwise. The correct behavior of expr = NULL is to always return null (unknown). ||
+|| exitOnError | **boolean**
+
+Terminate session on any error. ||
+|| seqPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a sequentially fetched disk page.
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a nonsequentially fetched disk page.
+
+The minimum value is 0. ||
+|| enableBitmapscan | **boolean**
+
+Enables the planner's use of bitmap-scan plans. ||
+|| enableHashagg | **boolean**
+
+Enables the planner's use of hashed aggregation plans. ||
+|| enableHashjoin | **boolean**
+
+Enables the planner's use of hash join plans. ||
+|| enableIndexscan | **boolean**
+
+Enables the planner's use of index-scan plans. ||
+|| enableIndexonlyscan | **boolean**
+
+Enables the planner's use of index-only-scan plans. ||
+|| enableMaterial | **boolean**
+
+Enables the planner's use of materialization. ||
+|| enableMergejoin | **boolean**
+
+Enables the planner's use of merge join plans. ||
+|| enableNestloop | **boolean**
+
+Enables the planner's use of nested-loop join plans. ||
+|| enableSeqscan | **boolean**
+
+Enables the planner's use of sequential-scan plans. ||
+|| enableSort | **boolean**
+
+Enables the planner's use of explicit sort steps. ||
+|| enableTidscan | **boolean**
+
+Enables the planner's use of TID scan plans. ||
 || maxParallelWorkers | **string** (int64)
+
+Sets the maximum number of parallel workers that can be active at one time.
 
 Acceptable values are 0 to 1024, inclusive. ||
 || maxParallelWorkersPerGather | **string** (int64)
 
+Sets the maximum number of parallel processes per executor node.
+
 Acceptable values are 0 to 1024, inclusive. ||
-|| timezone | **string** ||
+|| timezone | **string**
+
+Sets the time zone for displaying and interpreting time stamps. ||
 || effectiveIoConcurrency | **string** (int64)
+
+Number of simultaneous requests that can be handled efficiently by the disk subsystem.
 
 Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
+
+Sets the planner's assumption about the effective size of the disk cache available to a single query. In bytes.
 
 Acceptable values are 1048576 to 549755813888, inclusive. ||
 |#
@@ -1337,107 +1459,151 @@ parameters which detailed description is available in
 ||Field | Description ||
 || recoveryMinApplyDelay | **string** (int64)
 
-in milliseconds. ||
+Sets the minimum delay for applying changes during recovery. In milliseconds. ||
 || sharedBuffers | **string** (int64)
 
-in bytes. ||
+Sets the number of shared memory buffers used by the server. In bytes. ||
 || tempBuffers | **string** (int64)
 
-in bytes. ||
+Sets the maximum number of temporary buffers used by each session. In bytes. ||
 || workMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used for query workspaces. This much memory can be used by each
+internal sort operation and hash table before switching to temporary disk files. In bytes. ||
 || tempFileLimit | **string** (int64)
 
-in bytes. ||
+Limits the total size of all temporary files used by each process. -1 means no limit. In bytes. ||
 || backendFlushAfter | **string** (int64)
 
-Acceptable values are 0 to 2048, inclusive. ||
+Specifies how much data a backend can write before forcing the operating system to issue the writes. In bytes.
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64)
 
-in milliseconds. ||
+Time before a snapshot is too old to read pages changed after the snapshot was taken.
+A value of -1 disables this feature. In milliseconds. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum delay before canceling queries when a hot standby server is processing streamed WAL data. In milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
+
+Enables the planner to use constraints to optimize queries.
 
 - `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
 - `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
 - `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
-|| cursorTupleFraction | **number** (double) ||
+|| cursorTupleFraction | **number** (double)
+
+Sets the planner's estimate of the fraction of a cursor's rows that will be retrieved. ||
 || fromCollapseLimit | **string** (int64)
+
+Sets the FROM-list size beyond which subqueries are not collapsed.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
 || joinCollapseLimit | **string** (int64)
 
+Sets the FROM-list size beyond which JOIN constructs are not flattened.
+
 Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_ON`: Force parallel mode for all queries that can be executed safely in parallel.
-- `FORCE_PARALLEL_MODE_OFF`: Enable parallel mode only if it is expected to increase performance.
-- `FORCE_PARALLEL_MODE_REGRESS`: Equivalent to on, but generates output identical to the off state. ||
+Forces use of parallel query facilities. If possible, run query using a parallel worker and with parallel restrictions.
+
+- `FORCE_PARALLEL_MODE_ON`: Forces parallel mode for queries considered safe, even when no performance benefit is expected.
+- `FORCE_PARALLEL_MODE_OFF`: Uses parallel mode only when the planner expects it to improve performance.
+- `FORCE_PARALLEL_MODE_REGRESS`: Behaves like ON, but hides added Gather nodes in EXPLAIN output and
+suppresses parallel-worker context lines to stabilize regression-test output. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are sent to the client.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Causes all statements generating error at or above this level to be logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinDurationStatement | **string** (int64)
 
-in milliseconds. ||
-|| logCheckpoints | **boolean** ||
-|| logConnections | **boolean** ||
-|| logDisconnections | **boolean** ||
-|| logDuration | **boolean** ||
+Sets the minimum execution time above which all statements will be logged. In milliseconds. ||
+|| logCheckpoints | **boolean**
+
+Logs each checkpoint. ||
+|| logConnections | **boolean**
+
+Logs each successful connection. ||
+|| logDisconnections | **boolean**
+
+Logs end of a session, including duration. ||
+|| logDuration | **boolean**
+
+Logs the duration of each completed SQL statement.
+ ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
+
+Sets the verbosity of logged messages.
 
 - `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
 - `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
 - `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
-|| logLockWaits | **boolean** ||
+|| logLockWaits | **boolean**
+
+Logs long lock waits. ||
 || logStatement | **enum** (LogStatement)
+
+Sets the type of statements logged.
 
 - `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
 - `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
 - `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
 - `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
-|| logTempFiles | **string** (int64) ||
-|| searchPath | **string** ||
-|| rowSecurity | **boolean** ||
+|| logTempFiles | **string** (int64)
+
+Log the use of temporary files larger than this number of kilobytes. ||
+|| searchPath | **string**
+
+Sets the schema search order for names that are not schema-qualified. ||
+|| rowSecurity | **boolean**
+
+Enable row security. ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
+
+Sets the transaction isolation level of each new transaction.
 
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
 - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
@@ -1447,77 +1613,155 @@ All queries in the current transaction see only the rows that were fixed prior t
 If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any statement. In milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any wait for a lock. In milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
+
+Sets the output format for bytea.
 
 - `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
 - `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`: Base64 encoding.
-- `XML_BINARY_HEX`: Hexadecimal encoding. ||
+Sets how binary values are to be encoded in XML.
+
+- `XML_BINARY_BASE64`: Encodes binary values using Base64.
+- `XML_BINARY_HEX`: Encodes binary values using hexadecimal notation. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`: XML document.
-- `XML_OPTION_CONTENT`: XML fragment. ||
+Sets whether XML data in implicit parsing and serialization operations is to be considered as documents or content fragments.
+
+- `XML_OPTION_DOCUMENT`: Treats an XML value as a complete, well-formed document.
+- `XML_OPTION_CONTENT`: Treats an XML value as a content fragment, which may contain multiple top-level elements or character nodes. ||
 || ginPendingListLimit | **string** (int64)
 
-in bytes. ||
+Sets the maximum size of the pending list for GIN index. In bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds.
+Sets the time to wait on a lock before checking for deadlock. In milliseconds.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
-|| maxLocksPerTransaction | **string** (int64) ||
-|| maxPredLocksPerTransaction | **string** (int64) ||
-|| arrayNulls | **boolean** ||
+|| maxLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of locks per transaction. The shared lock table is sized on the assumption that
+at most max_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| maxPredLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of predicate locks per transaction.The shared predicate lock table is sized on the assumption that
+at most max_pred_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| arrayNulls | **boolean**
+
+Enable input of NULL elements in arrays. When turned on, unquoted NULL in an array input
+value means a null value; otherwise it is taken literally. ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+Sets whether \"\\'\" is allowed in string literals.
+
+- `BACKSLASH_QUOTE`: Legacy invalid value. Do not use.
 - `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
 - `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
 - `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
-|| defaultWithOids | **boolean** ||
-|| escapeStringWarning | **boolean** ||
-|| loCompatPrivileges | **boolean** ||
-|| operatorPrecedenceWarning | **boolean** ||
-|| quoteAllIdentifiers | **boolean** ||
-|| standardConformingStrings | **boolean** ||
-|| synchronizeSeqscans | **boolean** ||
-|| transformNullEquals | **boolean** ||
-|| exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
-|| enableBitmapscan | **boolean** ||
-|| enableHashagg | **boolean** ||
-|| enableHashjoin | **boolean** ||
-|| enableIndexscan | **boolean** ||
-|| enableIndexonlyscan | **boolean** ||
-|| enableMaterial | **boolean** ||
-|| enableMergejoin | **boolean** ||
-|| enableNestloop | **boolean** ||
-|| enableSeqscan | **boolean** ||
-|| enableSort | **boolean** ||
-|| enableTidscan | **boolean** ||
+|| defaultWithOids | **boolean**
+
+WITH OIDS is no longer supported; this can only be false. ||
+|| escapeStringWarning | **boolean**
+
+Warn about backslash escapes in ordinary string literals. ||
+|| loCompatPrivileges | **boolean**
+
+Enables backward compatibility mode for privilege checks on large objects. Skips privilege checks
+when reading or modifying large objects, for compatibility with PostgreSQL releases prior to 9.0. ||
+|| operatorPrecedenceWarning | **boolean**
+
+Emit a warning for constructs that changed meaning since PostgreSQL 9.4. ||
+|| quoteAllIdentifiers | **boolean**
+
+When generating SQL fragments, quote all identifiers. ||
+|| standardConformingStrings | **boolean**
+
+Causes '...' strings to treat backslashes literally. ||
+|| synchronizeSeqscans | **boolean**
+
+Enable synchronized sequential scans. ||
+|| transformNullEquals | **boolean**
+
+Treats \"expr=NULL\" as \"expr IS NULL\". When turned on, expressions of the form expr = NULL
+(or NULL = expr) are treated as expr IS NULL, that is, they return true if expr evaluates to the
+null value, and false otherwise. The correct behavior of expr = NULL is to always return null (unknown). ||
+|| exitOnError | **boolean**
+
+Terminate session on any error. ||
+|| seqPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a sequentially fetched disk page.
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a nonsequentially fetched disk page.
+
+The minimum value is 0. ||
+|| enableBitmapscan | **boolean**
+
+Enables the planner's use of bitmap-scan plans. ||
+|| enableHashagg | **boolean**
+
+Enables the planner's use of hashed aggregation plans. ||
+|| enableHashjoin | **boolean**
+
+Enables the planner's use of hash join plans. ||
+|| enableIndexscan | **boolean**
+
+Enables the planner's use of index-scan plans. ||
+|| enableIndexonlyscan | **boolean**
+
+Enables the planner's use of index-only-scan plans. ||
+|| enableMaterial | **boolean**
+
+Enables the planner's use of materialization. ||
+|| enableMergejoin | **boolean**
+
+Enables the planner's use of merge join plans. ||
+|| enableNestloop | **boolean**
+
+Enables the planner's use of nested-loop join plans. ||
+|| enableSeqscan | **boolean**
+
+Enables the planner's use of sequential-scan plans. ||
+|| enableSort | **boolean**
+
+Enables the planner's use of explicit sort steps. ||
+|| enableTidscan | **boolean**
+
+Enables the planner's use of TID scan plans. ||
 || maxParallelWorkers | **string** (int64)
+
+Sets the maximum number of parallel workers that can be active at one time.
 
 Acceptable values are 0 to 1024, inclusive. ||
 || maxParallelWorkersPerGather | **string** (int64)
 
+Sets the maximum number of parallel processes per executor node.
+
 Acceptable values are 0 to 1024, inclusive. ||
-|| timezone | **string** ||
+|| timezone | **string**
+
+Sets the time zone for displaying and interpreting time stamps. ||
 || effectiveIoConcurrency | **string** (int64)
+
+Number of simultaneous requests that can be handled efficiently by the disk subsystem.
 
 Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
+
+Sets the planner's assumption about the effective size of the disk cache available to a single query. In bytes.
 
 Acceptable values are 1048576 to 549755813888, inclusive. ||
 |#
@@ -1532,107 +1776,151 @@ parameters which detailed description is available in
 ||Field | Description ||
 || recoveryMinApplyDelay | **string** (int64)
 
-in milliseconds. ||
+Sets the minimum delay for applying changes during recovery. In milliseconds. ||
 || sharedBuffers | **string** (int64)
 
-in bytes. ||
+Sets the number of shared memory buffers used by the server. In bytes. ||
 || tempBuffers | **string** (int64)
 
-in bytes. ||
+Sets the maximum number of temporary buffers used by each session. In bytes. ||
 || workMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used for query workspaces. This much memory can be used by each
+internal sort operation and hash table before switching to temporary disk files. In bytes. ||
 || tempFileLimit | **string** (int64)
 
-in bytes. ||
+Limits the total size of all temporary files used by each process. -1 means no limit. In bytes. ||
 || backendFlushAfter | **string** (int64)
 
-Acceptable values are 0 to 2048, inclusive. ||
+Specifies how much data a backend can write before forcing the operating system to issue the writes. In bytes.
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64)
 
-in milliseconds. ||
+Time before a snapshot is too old to read pages changed after the snapshot was taken.
+A value of -1 disables this feature. In milliseconds. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum delay before canceling queries when a hot standby server is processing streamed WAL data. In milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
+
+Enables the planner to use constraints to optimize queries.
 
 - `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
 - `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
 - `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
-|| cursorTupleFraction | **number** (double) ||
+|| cursorTupleFraction | **number** (double)
+
+Sets the planner's estimate of the fraction of a cursor's rows that will be retrieved. ||
 || fromCollapseLimit | **string** (int64)
+
+Sets the FROM-list size beyond which subqueries are not collapsed.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
 || joinCollapseLimit | **string** (int64)
 
+Sets the FROM-list size beyond which JOIN constructs are not flattened.
+
 Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_ON`: Force parallel mode for all queries that can be executed safely in parallel.
-- `FORCE_PARALLEL_MODE_OFF`: Enable parallel mode only if it is expected to increase performance.
-- `FORCE_PARALLEL_MODE_REGRESS`: Equivalent to on, but generates output identical to the off state. ||
+Forces use of parallel query facilities. If possible, run query using a parallel worker and with parallel restrictions.
+
+- `FORCE_PARALLEL_MODE_ON`: Forces parallel mode for queries considered safe, even when no performance benefit is expected.
+- `FORCE_PARALLEL_MODE_OFF`: Uses parallel mode only when the planner expects it to improve performance.
+- `FORCE_PARALLEL_MODE_REGRESS`: Behaves like ON, but hides added Gather nodes in EXPLAIN output and
+suppresses parallel-worker context lines to stabilize regression-test output. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are sent to the client.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Causes all statements generating error at or above this level to be logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinDurationStatement | **string** (int64)
 
-in milliseconds. ||
-|| logCheckpoints | **boolean** ||
-|| logConnections | **boolean** ||
-|| logDisconnections | **boolean** ||
-|| logDuration | **boolean** ||
+Sets the minimum execution time above which all statements will be logged. In milliseconds. ||
+|| logCheckpoints | **boolean**
+
+Logs each checkpoint. ||
+|| logConnections | **boolean**
+
+Logs each successful connection. ||
+|| logDisconnections | **boolean**
+
+Logs end of a session, including duration. ||
+|| logDuration | **boolean**
+
+Logs the duration of each completed SQL statement.
+ ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
+
+Sets the verbosity of logged messages.
 
 - `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
 - `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
 - `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
-|| logLockWaits | **boolean** ||
+|| logLockWaits | **boolean**
+
+Logs long lock waits. ||
 || logStatement | **enum** (LogStatement)
+
+Sets the type of statements logged.
 
 - `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
 - `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
 - `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
 - `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
-|| logTempFiles | **string** (int64) ||
-|| searchPath | **string** ||
-|| rowSecurity | **boolean** ||
+|| logTempFiles | **string** (int64)
+
+Log the use of temporary files larger than this number of kilobytes. ||
+|| searchPath | **string**
+
+Sets the schema search order for names that are not schema-qualified. ||
+|| rowSecurity | **boolean**
+
+Enable row security. ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
+
+Sets the transaction isolation level of each new transaction.
 
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
 - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
@@ -1642,77 +1930,155 @@ All queries in the current transaction see only the rows that were fixed prior t
 If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any statement. In milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any wait for a lock. In milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
+
+Sets the output format for bytea.
 
 - `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
 - `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`: Base64 encoding.
-- `XML_BINARY_HEX`: Hexadecimal encoding. ||
+Sets how binary values are to be encoded in XML.
+
+- `XML_BINARY_BASE64`: Encodes binary values using Base64.
+- `XML_BINARY_HEX`: Encodes binary values using hexadecimal notation. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`: XML document.
-- `XML_OPTION_CONTENT`: XML fragment. ||
+Sets whether XML data in implicit parsing and serialization operations is to be considered as documents or content fragments.
+
+- `XML_OPTION_DOCUMENT`: Treats an XML value as a complete, well-formed document.
+- `XML_OPTION_CONTENT`: Treats an XML value as a content fragment, which may contain multiple top-level elements or character nodes. ||
 || ginPendingListLimit | **string** (int64)
 
-in bytes. ||
+Sets the maximum size of the pending list for GIN index. In bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds.
+Sets the time to wait on a lock before checking for deadlock. In milliseconds.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
-|| maxLocksPerTransaction | **string** (int64) ||
-|| maxPredLocksPerTransaction | **string** (int64) ||
-|| arrayNulls | **boolean** ||
+|| maxLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of locks per transaction. The shared lock table is sized on the assumption that
+at most max_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| maxPredLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of predicate locks per transaction.The shared predicate lock table is sized on the assumption that
+at most max_pred_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| arrayNulls | **boolean**
+
+Enable input of NULL elements in arrays. When turned on, unquoted NULL in an array input
+value means a null value; otherwise it is taken literally. ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+Sets whether \"\\'\" is allowed in string literals.
+
+- `BACKSLASH_QUOTE`: Legacy invalid value. Do not use.
 - `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
 - `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
 - `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
-|| defaultWithOids | **boolean** ||
-|| escapeStringWarning | **boolean** ||
-|| loCompatPrivileges | **boolean** ||
-|| operatorPrecedenceWarning | **boolean** ||
-|| quoteAllIdentifiers | **boolean** ||
-|| standardConformingStrings | **boolean** ||
-|| synchronizeSeqscans | **boolean** ||
-|| transformNullEquals | **boolean** ||
-|| exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
-|| enableBitmapscan | **boolean** ||
-|| enableHashagg | **boolean** ||
-|| enableHashjoin | **boolean** ||
-|| enableIndexscan | **boolean** ||
-|| enableIndexonlyscan | **boolean** ||
-|| enableMaterial | **boolean** ||
-|| enableMergejoin | **boolean** ||
-|| enableNestloop | **boolean** ||
-|| enableSeqscan | **boolean** ||
-|| enableSort | **boolean** ||
-|| enableTidscan | **boolean** ||
+|| defaultWithOids | **boolean**
+
+WITH OIDS is no longer supported; this can only be false. ||
+|| escapeStringWarning | **boolean**
+
+Warn about backslash escapes in ordinary string literals. ||
+|| loCompatPrivileges | **boolean**
+
+Enables backward compatibility mode for privilege checks on large objects. Skips privilege checks
+when reading or modifying large objects, for compatibility with PostgreSQL releases prior to 9.0. ||
+|| operatorPrecedenceWarning | **boolean**
+
+Emit a warning for constructs that changed meaning since PostgreSQL 9.4. ||
+|| quoteAllIdentifiers | **boolean**
+
+When generating SQL fragments, quote all identifiers. ||
+|| standardConformingStrings | **boolean**
+
+Causes '...' strings to treat backslashes literally. ||
+|| synchronizeSeqscans | **boolean**
+
+Enable synchronized sequential scans. ||
+|| transformNullEquals | **boolean**
+
+Treats \"expr=NULL\" as \"expr IS NULL\". When turned on, expressions of the form expr = NULL
+(or NULL = expr) are treated as expr IS NULL, that is, they return true if expr evaluates to the
+null value, and false otherwise. The correct behavior of expr = NULL is to always return null (unknown). ||
+|| exitOnError | **boolean**
+
+Terminate session on any error. ||
+|| seqPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a sequentially fetched disk page.
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a nonsequentially fetched disk page.
+
+The minimum value is 0. ||
+|| enableBitmapscan | **boolean**
+
+Enables the planner's use of bitmap-scan plans. ||
+|| enableHashagg | **boolean**
+
+Enables the planner's use of hashed aggregation plans. ||
+|| enableHashjoin | **boolean**
+
+Enables the planner's use of hash join plans. ||
+|| enableIndexscan | **boolean**
+
+Enables the planner's use of index-scan plans. ||
+|| enableIndexonlyscan | **boolean**
+
+Enables the planner's use of index-only-scan plans. ||
+|| enableMaterial | **boolean**
+
+Enables the planner's use of materialization. ||
+|| enableMergejoin | **boolean**
+
+Enables the planner's use of merge join plans. ||
+|| enableNestloop | **boolean**
+
+Enables the planner's use of nested-loop join plans. ||
+|| enableSeqscan | **boolean**
+
+Enables the planner's use of sequential-scan plans. ||
+|| enableSort | **boolean**
+
+Enables the planner's use of explicit sort steps. ||
+|| enableTidscan | **boolean**
+
+Enables the planner's use of TID scan plans. ||
 || maxParallelWorkers | **string** (int64)
+
+Sets the maximum number of parallel workers that can be active at one time.
 
 Acceptable values are 0 to 1024, inclusive. ||
 || maxParallelWorkersPerGather | **string** (int64)
 
+Sets the maximum number of parallel processes per executor node.
+
 Acceptable values are 0 to 1024, inclusive. ||
-|| timezone | **string** ||
+|| timezone | **string**
+
+Sets the time zone for displaying and interpreting time stamps. ||
 || effectiveIoConcurrency | **string** (int64)
+
+Number of simultaneous requests that can be handled efficiently by the disk subsystem.
 
 Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
+
+Sets the planner's assumption about the effective size of the disk cache available to a single query. In bytes.
 
 Acceptable values are 1048576 to 549755813888, inclusive. ||
 |#
@@ -1727,107 +2093,151 @@ parameters which detailed description is available in
 ||Field | Description ||
 || recoveryMinApplyDelay | **string** (int64)
 
-in milliseconds. ||
+Sets the minimum delay for applying changes during recovery. In milliseconds. ||
 || sharedBuffers | **string** (int64)
 
-in bytes. ||
+Sets the number of shared memory buffers used by the server. In bytes. ||
 || tempBuffers | **string** (int64)
 
-in bytes. ||
+Sets the maximum number of temporary buffers used by each session. In bytes. ||
 || workMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used for query workspaces. This much memory can be used by each
+internal sort operation and hash table before switching to temporary disk files. In bytes. ||
 || tempFileLimit | **string** (int64)
 
-in bytes. ||
+Limits the total size of all temporary files used by each process. -1 means no limit. In bytes. ||
 || backendFlushAfter | **string** (int64)
 
-Acceptable values are 0 to 2048, inclusive. ||
+Specifies how much data a backend can write before forcing the operating system to issue the writes. In bytes.
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64)
 
-in milliseconds. ||
+Time before a snapshot is too old to read pages changed after the snapshot was taken.
+A value of -1 disables this feature. In milliseconds. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum delay before canceling queries when a hot standby server is processing streamed WAL data. In milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
+
+Enables the planner to use constraints to optimize queries.
 
 - `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
 - `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
 - `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
-|| cursorTupleFraction | **number** (double) ||
+|| cursorTupleFraction | **number** (double)
+
+Sets the planner's estimate of the fraction of a cursor's rows that will be retrieved. ||
 || fromCollapseLimit | **string** (int64)
+
+Sets the FROM-list size beyond which subqueries are not collapsed.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
 || joinCollapseLimit | **string** (int64)
 
+Sets the FROM-list size beyond which JOIN constructs are not flattened.
+
 Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_ON`: Force parallel mode for all queries that can be executed safely in parallel.
-- `FORCE_PARALLEL_MODE_OFF`: Enable parallel mode only if it is expected to increase performance.
-- `FORCE_PARALLEL_MODE_REGRESS`: Equivalent to on, but generates output identical to the off state. ||
+Forces use of parallel query facilities. If possible, run query using a parallel worker and with parallel restrictions.
+
+- `FORCE_PARALLEL_MODE_ON`: Forces parallel mode for queries considered safe, even when no performance benefit is expected.
+- `FORCE_PARALLEL_MODE_OFF`: Uses parallel mode only when the planner expects it to improve performance.
+- `FORCE_PARALLEL_MODE_REGRESS`: Behaves like ON, but hides added Gather nodes in EXPLAIN output and
+suppresses parallel-worker context lines to stabilize regression-test output. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are sent to the client.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Causes all statements generating error at or above this level to be logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinDurationStatement | **string** (int64)
 
-in milliseconds. ||
-|| logCheckpoints | **boolean** ||
-|| logConnections | **boolean** ||
-|| logDisconnections | **boolean** ||
-|| logDuration | **boolean** ||
+Sets the minimum execution time above which all statements will be logged. In milliseconds. ||
+|| logCheckpoints | **boolean**
+
+Logs each checkpoint. ||
+|| logConnections | **boolean**
+
+Logs each successful connection. ||
+|| logDisconnections | **boolean**
+
+Logs end of a session, including duration. ||
+|| logDuration | **boolean**
+
+Logs the duration of each completed SQL statement.
+ ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
+
+Sets the verbosity of logged messages.
 
 - `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
 - `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
 - `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
-|| logLockWaits | **boolean** ||
+|| logLockWaits | **boolean**
+
+Logs long lock waits. ||
 || logStatement | **enum** (LogStatement)
+
+Sets the type of statements logged.
 
 - `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
 - `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
 - `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
 - `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
-|| logTempFiles | **string** (int64) ||
-|| searchPath | **string** ||
-|| rowSecurity | **boolean** ||
+|| logTempFiles | **string** (int64)
+
+Log the use of temporary files larger than this number of kilobytes. ||
+|| searchPath | **string**
+
+Sets the schema search order for names that are not schema-qualified. ||
+|| rowSecurity | **boolean**
+
+Enable row security. ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
+
+Sets the transaction isolation level of each new transaction.
 
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
 - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
@@ -1837,77 +2247,155 @@ All queries in the current transaction see only the rows that were fixed prior t
 If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any statement. In milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any wait for a lock. In milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
+
+Sets the output format for bytea.
 
 - `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
 - `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`: Base64 encoding.
-- `XML_BINARY_HEX`: Hexadecimal encoding. ||
+Sets how binary values are to be encoded in XML.
+
+- `XML_BINARY_BASE64`: Encodes binary values using Base64.
+- `XML_BINARY_HEX`: Encodes binary values using hexadecimal notation. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`: XML document.
-- `XML_OPTION_CONTENT`: XML fragment. ||
+Sets whether XML data in implicit parsing and serialization operations is to be considered as documents or content fragments.
+
+- `XML_OPTION_DOCUMENT`: Treats an XML value as a complete, well-formed document.
+- `XML_OPTION_CONTENT`: Treats an XML value as a content fragment, which may contain multiple top-level elements or character nodes. ||
 || ginPendingListLimit | **string** (int64)
 
-in bytes. ||
+Sets the maximum size of the pending list for GIN index. In bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds.
+Sets the time to wait on a lock before checking for deadlock. In milliseconds.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
-|| maxLocksPerTransaction | **string** (int64) ||
-|| maxPredLocksPerTransaction | **string** (int64) ||
-|| arrayNulls | **boolean** ||
+|| maxLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of locks per transaction. The shared lock table is sized on the assumption that
+at most max_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| maxPredLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of predicate locks per transaction.The shared predicate lock table is sized on the assumption that
+at most max_pred_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| arrayNulls | **boolean**
+
+Enable input of NULL elements in arrays. When turned on, unquoted NULL in an array input
+value means a null value; otherwise it is taken literally. ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+Sets whether \"\\'\" is allowed in string literals.
+
+- `BACKSLASH_QUOTE`: Legacy invalid value. Do not use.
 - `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
 - `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
 - `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
-|| defaultWithOids | **boolean** ||
-|| escapeStringWarning | **boolean** ||
-|| loCompatPrivileges | **boolean** ||
-|| operatorPrecedenceWarning | **boolean** ||
-|| quoteAllIdentifiers | **boolean** ||
-|| standardConformingStrings | **boolean** ||
-|| synchronizeSeqscans | **boolean** ||
-|| transformNullEquals | **boolean** ||
-|| exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
-|| enableBitmapscan | **boolean** ||
-|| enableHashagg | **boolean** ||
-|| enableHashjoin | **boolean** ||
-|| enableIndexscan | **boolean** ||
-|| enableIndexonlyscan | **boolean** ||
-|| enableMaterial | **boolean** ||
-|| enableMergejoin | **boolean** ||
-|| enableNestloop | **boolean** ||
-|| enableSeqscan | **boolean** ||
-|| enableSort | **boolean** ||
-|| enableTidscan | **boolean** ||
+|| defaultWithOids | **boolean**
+
+WITH OIDS is no longer supported; this can only be false. ||
+|| escapeStringWarning | **boolean**
+
+Warn about backslash escapes in ordinary string literals. ||
+|| loCompatPrivileges | **boolean**
+
+Enables backward compatibility mode for privilege checks on large objects. Skips privilege checks
+when reading or modifying large objects, for compatibility with PostgreSQL releases prior to 9.0. ||
+|| operatorPrecedenceWarning | **boolean**
+
+Emit a warning for constructs that changed meaning since PostgreSQL 9.4. ||
+|| quoteAllIdentifiers | **boolean**
+
+When generating SQL fragments, quote all identifiers. ||
+|| standardConformingStrings | **boolean**
+
+Causes '...' strings to treat backslashes literally. ||
+|| synchronizeSeqscans | **boolean**
+
+Enable synchronized sequential scans. ||
+|| transformNullEquals | **boolean**
+
+Treats \"expr=NULL\" as \"expr IS NULL\". When turned on, expressions of the form expr = NULL
+(or NULL = expr) are treated as expr IS NULL, that is, they return true if expr evaluates to the
+null value, and false otherwise. The correct behavior of expr = NULL is to always return null (unknown). ||
+|| exitOnError | **boolean**
+
+Terminate session on any error. ||
+|| seqPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a sequentially fetched disk page.
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a nonsequentially fetched disk page.
+
+The minimum value is 0. ||
+|| enableBitmapscan | **boolean**
+
+Enables the planner's use of bitmap-scan plans. ||
+|| enableHashagg | **boolean**
+
+Enables the planner's use of hashed aggregation plans. ||
+|| enableHashjoin | **boolean**
+
+Enables the planner's use of hash join plans. ||
+|| enableIndexscan | **boolean**
+
+Enables the planner's use of index-scan plans. ||
+|| enableIndexonlyscan | **boolean**
+
+Enables the planner's use of index-only-scan plans. ||
+|| enableMaterial | **boolean**
+
+Enables the planner's use of materialization. ||
+|| enableMergejoin | **boolean**
+
+Enables the planner's use of merge join plans. ||
+|| enableNestloop | **boolean**
+
+Enables the planner's use of nested-loop join plans. ||
+|| enableSeqscan | **boolean**
+
+Enables the planner's use of sequential-scan plans. ||
+|| enableSort | **boolean**
+
+Enables the planner's use of explicit sort steps. ||
+|| enableTidscan | **boolean**
+
+Enables the planner's use of TID scan plans. ||
 || maxParallelWorkers | **string** (int64)
+
+Sets the maximum number of parallel workers that can be active at one time.
 
 Acceptable values are 0 to 1024, inclusive. ||
 || maxParallelWorkersPerGather | **string** (int64)
 
+Sets the maximum number of parallel processes per executor node.
+
 Acceptable values are 0 to 1024, inclusive. ||
-|| timezone | **string** ||
+|| timezone | **string**
+
+Sets the time zone for displaying and interpreting time stamps. ||
 || effectiveIoConcurrency | **string** (int64)
+
+Number of simultaneous requests that can be handled efficiently by the disk subsystem.
 
 Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
+
+Sets the planner's assumption about the effective size of the disk cache available to a single query. In bytes.
 
 Acceptable values are 1048576 to 549755813888, inclusive. ||
 |#
@@ -1922,107 +2410,151 @@ parameters which detailed description is available in
 ||Field | Description ||
 || recoveryMinApplyDelay | **string** (int64)
 
-in milliseconds. ||
+Sets the minimum delay for applying changes during recovery. In milliseconds. ||
 || sharedBuffers | **string** (int64)
 
-in bytes. ||
+Sets the number of shared memory buffers used by the server. In bytes. ||
 || tempBuffers | **string** (int64)
 
-in bytes. ||
+Sets the maximum number of temporary buffers used by each session. In bytes. ||
 || workMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used for query workspaces. This much memory can be used by each
+internal sort operation and hash table before switching to temporary disk files. In bytes. ||
 || tempFileLimit | **string** (int64)
 
-in bytes. ||
+Limits the total size of all temporary files used by each process. -1 means no limit. In bytes. ||
 || backendFlushAfter | **string** (int64)
 
-Acceptable values are 0 to 2048, inclusive. ||
+Specifies how much data a backend can write before forcing the operating system to issue the writes. In bytes.
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64)
 
-in milliseconds. ||
+Time before a snapshot is too old to read pages changed after the snapshot was taken.
+A value of -1 disables this feature. In milliseconds. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum delay before canceling queries when a hot standby server is processing streamed WAL data. In milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
+
+Enables the planner to use constraints to optimize queries.
 
 - `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
 - `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
 - `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
-|| cursorTupleFraction | **number** (double) ||
+|| cursorTupleFraction | **number** (double)
+
+Sets the planner's estimate of the fraction of a cursor's rows that will be retrieved. ||
 || fromCollapseLimit | **string** (int64)
+
+Sets the FROM-list size beyond which subqueries are not collapsed.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
 || joinCollapseLimit | **string** (int64)
 
+Sets the FROM-list size beyond which JOIN constructs are not flattened.
+
 Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_ON`: Force parallel mode for all queries that can be executed safely in parallel.
-- `FORCE_PARALLEL_MODE_OFF`: Enable parallel mode only if it is expected to increase performance.
-- `FORCE_PARALLEL_MODE_REGRESS`: Equivalent to on, but generates output identical to the off state. ||
+Forces use of parallel query facilities. If possible, run query using a parallel worker and with parallel restrictions.
+
+- `FORCE_PARALLEL_MODE_ON`: Forces parallel mode for queries considered safe, even when no performance benefit is expected.
+- `FORCE_PARALLEL_MODE_OFF`: Uses parallel mode only when the planner expects it to improve performance.
+- `FORCE_PARALLEL_MODE_REGRESS`: Behaves like ON, but hides added Gather nodes in EXPLAIN output and
+suppresses parallel-worker context lines to stabilize regression-test output. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are sent to the client.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Causes all statements generating error at or above this level to be logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinDurationStatement | **string** (int64)
 
-in milliseconds. ||
-|| logCheckpoints | **boolean** ||
-|| logConnections | **boolean** ||
-|| logDisconnections | **boolean** ||
-|| logDuration | **boolean** ||
+Sets the minimum execution time above which all statements will be logged. In milliseconds. ||
+|| logCheckpoints | **boolean**
+
+Logs each checkpoint. ||
+|| logConnections | **boolean**
+
+Logs each successful connection. ||
+|| logDisconnections | **boolean**
+
+Logs end of a session, including duration. ||
+|| logDuration | **boolean**
+
+Logs the duration of each completed SQL statement.
+ ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
+
+Sets the verbosity of logged messages.
 
 - `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
 - `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
 - `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
-|| logLockWaits | **boolean** ||
+|| logLockWaits | **boolean**
+
+Logs long lock waits. ||
 || logStatement | **enum** (LogStatement)
+
+Sets the type of statements logged.
 
 - `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
 - `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
 - `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
 - `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
-|| logTempFiles | **string** (int64) ||
-|| searchPath | **string** ||
-|| rowSecurity | **boolean** ||
+|| logTempFiles | **string** (int64)
+
+Log the use of temporary files larger than this number of kilobytes. ||
+|| searchPath | **string**
+
+Sets the schema search order for names that are not schema-qualified. ||
+|| rowSecurity | **boolean**
+
+Enable row security. ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
+
+Sets the transaction isolation level of each new transaction.
 
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
 - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
@@ -2032,81 +2564,157 @@ All queries in the current transaction see only the rows that were fixed prior t
 If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any statement. In milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any wait for a lock. In milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
+
+Sets the output format for bytea.
 
 - `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
 - `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`: Base64 encoding.
-- `XML_BINARY_HEX`: Hexadecimal encoding. ||
+Sets how binary values are to be encoded in XML.
+
+- `XML_BINARY_BASE64`: Encodes binary values using Base64.
+- `XML_BINARY_HEX`: Encodes binary values using hexadecimal notation. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`: XML document.
-- `XML_OPTION_CONTENT`: XML fragment. ||
+Sets whether XML data in implicit parsing and serialization operations is to be considered as documents or content fragments.
+
+- `XML_OPTION_DOCUMENT`: Treats an XML value as a complete, well-formed document.
+- `XML_OPTION_CONTENT`: Treats an XML value as a content fragment, which may contain multiple top-level elements or character nodes. ||
 || ginPendingListLimit | **string** (int64)
 
-in bytes. ||
+Sets the maximum size of the pending list for GIN index. In bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds.
+Sets the time to wait on a lock before checking for deadlock. In milliseconds.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
-|| maxLocksPerTransaction | **string** (int64) ||
-|| maxPredLocksPerTransaction | **string** (int64) ||
-|| arrayNulls | **boolean** ||
+|| maxLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of locks per transaction. The shared lock table is sized on the assumption that
+at most max_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| maxPredLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of predicate locks per transaction.The shared predicate lock table is sized on the assumption that
+at most max_pred_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| arrayNulls | **boolean**
+
+Enable input of NULL elements in arrays. When turned on, unquoted NULL in an array input
+value means a null value; otherwise it is taken literally. ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+Sets whether \"\\'\" is allowed in string literals.
+
+- `BACKSLASH_QUOTE`: Legacy invalid value. Do not use.
 - `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
 - `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
 - `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
-|| defaultWithOids | **boolean** ||
-|| escapeStringWarning | **boolean** ||
-|| loCompatPrivileges | **boolean** ||
-|| quoteAllIdentifiers | **boolean** ||
-|| standardConformingStrings | **boolean** ||
-|| synchronizeSeqscans | **boolean** ||
-|| transformNullEquals | **boolean** ||
-|| exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
-|| enableBitmapscan | **boolean** ||
-|| enableHashagg | **boolean** ||
-|| enableHashjoin | **boolean** ||
-|| enableIndexscan | **boolean** ||
-|| enableIndexonlyscan | **boolean** ||
-|| enableMaterial | **boolean** ||
-|| enableMergejoin | **boolean** ||
-|| enableNestloop | **boolean** ||
-|| enableSeqscan | **boolean** ||
-|| enableSort | **boolean** ||
-|| enableTidscan | **boolean** ||
+|| defaultWithOids | **boolean**
+
+WITH OIDS is no longer supported; this can only be false. ||
+|| escapeStringWarning | **boolean**
+
+Warn about backslash escapes in ordinary string literals. ||
+|| loCompatPrivileges | **boolean**
+
+Enables backward compatibility mode for privilege checks on large objects. Skips privilege checks
+when reading or modifying large objects, for compatibility with PostgreSQL releases prior to 9.0. ||
+|| quoteAllIdentifiers | **boolean**
+
+When generating SQL fragments, quote all identifiers. ||
+|| standardConformingStrings | **boolean**
+
+Causes '...' strings to treat backslashes literally. ||
+|| synchronizeSeqscans | **boolean**
+
+Enable synchronized sequential scans. ||
+|| transformNullEquals | **boolean**
+
+Treats \"expr=NULL\" as \"expr IS NULL\". When turned on, expressions of the form expr = NULL
+(or NULL = expr) are treated as expr IS NULL, that is, they return true if expr evaluates to the
+null value, and false otherwise. The correct behavior of expr = NULL is to always return null (unknown). ||
+|| exitOnError | **boolean**
+
+Terminate session on any error. ||
+|| seqPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a sequentially fetched disk page.
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a nonsequentially fetched disk page.
+
+The minimum value is 0. ||
+|| enableBitmapscan | **boolean**
+
+Enables the planner's use of bitmap-scan plans. ||
+|| enableHashagg | **boolean**
+
+Enables the planner's use of hashed aggregation plans. ||
+|| enableHashjoin | **boolean**
+
+Enables the planner's use of hash join plans. ||
+|| enableIndexscan | **boolean**
+
+Enables the planner's use of index-scan plans. ||
+|| enableIndexonlyscan | **boolean**
+
+Enables the planner's use of index-only-scan plans. ||
+|| enableMaterial | **boolean**
+
+Enables the planner's use of materialization. ||
+|| enableMergejoin | **boolean**
+
+Enables the planner's use of merge join plans. ||
+|| enableNestloop | **boolean**
+
+Enables the planner's use of nested-loop join plans. ||
+|| enableSeqscan | **boolean**
+
+Enables the planner's use of sequential-scan plans. ||
+|| enableSort | **boolean**
+
+Enables the planner's use of explicit sort steps. ||
+|| enableTidscan | **boolean**
+
+Enables the planner's use of TID scan plans. ||
 || maxParallelWorkers | **string** (int64)
+
+Sets the maximum number of parallel workers that can be active at one time.
 
 Acceptable values are 0 to 1024, inclusive. ||
 || maxParallelWorkersPerGather | **string** (int64)
 
+Sets the maximum number of parallel processes per executor node.
+
 Acceptable values are 0 to 1024, inclusive. ||
-|| timezone | **string** ||
+|| timezone | **string**
+
+Sets the time zone for displaying and interpreting time stamps. ||
 || effectiveIoConcurrency | **string** (int64)
+
+Number of simultaneous requests that can be handled efficiently by the disk subsystem.
 
 Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
+Sets the planner's assumption about the effective size of the disk cache available to a single query. In bytes.
+
 Acceptable values are 1048576 to 549755813888, inclusive. ||
 || idleSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when not in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 |#
@@ -2121,107 +2729,151 @@ parameters which detailed description is available in
 ||Field | Description ||
 || recoveryMinApplyDelay | **string** (int64)
 
-in milliseconds. ||
+Sets the minimum delay for applying changes during recovery. In milliseconds. ||
 || sharedBuffers | **string** (int64)
 
-in bytes. ||
+Sets the number of shared memory buffers used by the server. In bytes. ||
 || tempBuffers | **string** (int64)
 
-in bytes. ||
+Sets the maximum number of temporary buffers used by each session. In bytes. ||
 || workMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used for query workspaces. This much memory can be used by each
+internal sort operation and hash table before switching to temporary disk files. In bytes. ||
 || tempFileLimit | **string** (int64)
 
-in bytes. ||
+Limits the total size of all temporary files used by each process. -1 means no limit. In bytes. ||
 || backendFlushAfter | **string** (int64)
 
-Acceptable values are 0 to 2048, inclusive. ||
+Specifies how much data a backend can write before forcing the operating system to issue the writes. In bytes.
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64)
 
-in milliseconds. ||
+Time before a snapshot is too old to read pages changed after the snapshot was taken.
+A value of -1 disables this feature. In milliseconds. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum delay before canceling queries when a hot standby server is processing streamed WAL data. In milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
+
+Enables the planner to use constraints to optimize queries.
 
 - `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
 - `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
 - `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
-|| cursorTupleFraction | **number** (double) ||
+|| cursorTupleFraction | **number** (double)
+
+Sets the planner's estimate of the fraction of a cursor's rows that will be retrieved. ||
 || fromCollapseLimit | **string** (int64)
+
+Sets the FROM-list size beyond which subqueries are not collapsed.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
 || joinCollapseLimit | **string** (int64)
 
+Sets the FROM-list size beyond which JOIN constructs are not flattened.
+
 Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_ON`: Force parallel mode for all queries that can be executed safely in parallel.
-- `FORCE_PARALLEL_MODE_OFF`: Enable parallel mode only if it is expected to increase performance.
-- `FORCE_PARALLEL_MODE_REGRESS`: Equivalent to on, but generates output identical to the off state. ||
+Forces use of parallel query facilities. If possible, run query using a parallel worker and with parallel restrictions.
+
+- `FORCE_PARALLEL_MODE_ON`: Forces parallel mode for queries considered safe, even when no performance benefit is expected.
+- `FORCE_PARALLEL_MODE_OFF`: Uses parallel mode only when the planner expects it to improve performance.
+- `FORCE_PARALLEL_MODE_REGRESS`: Behaves like ON, but hides added Gather nodes in EXPLAIN output and
+suppresses parallel-worker context lines to stabilize regression-test output. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are sent to the client.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Causes all statements generating error at or above this level to be logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinDurationStatement | **string** (int64)
 
-in milliseconds. ||
-|| logCheckpoints | **boolean** ||
-|| logConnections | **boolean** ||
-|| logDisconnections | **boolean** ||
-|| logDuration | **boolean** ||
+Sets the minimum execution time above which all statements will be logged. In milliseconds. ||
+|| logCheckpoints | **boolean**
+
+Logs each checkpoint. ||
+|| logConnections | **boolean**
+
+Logs each successful connection. ||
+|| logDisconnections | **boolean**
+
+Logs end of a session, including duration. ||
+|| logDuration | **boolean**
+
+Logs the duration of each completed SQL statement.
+ ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
+
+Sets the verbosity of logged messages.
 
 - `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
 - `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
 - `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
-|| logLockWaits | **boolean** ||
+|| logLockWaits | **boolean**
+
+Logs long lock waits. ||
 || logStatement | **enum** (LogStatement)
+
+Sets the type of statements logged.
 
 - `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
 - `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
 - `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
 - `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
-|| logTempFiles | **string** (int64) ||
-|| searchPath | **string** ||
-|| rowSecurity | **boolean** ||
+|| logTempFiles | **string** (int64)
+
+Log the use of temporary files larger than this number of kilobytes. ||
+|| searchPath | **string**
+
+Sets the schema search order for names that are not schema-qualified. ||
+|| rowSecurity | **boolean**
+
+Enable row security. ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
+
+Sets the transaction isolation level of each new transaction.
 
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
 - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
@@ -2231,81 +2883,157 @@ All queries in the current transaction see only the rows that were fixed prior t
 If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any statement. In milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any wait for a lock. In milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
+
+Sets the output format for bytea.
 
 - `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
 - `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`: Base64 encoding.
-- `XML_BINARY_HEX`: Hexadecimal encoding. ||
+Sets how binary values are to be encoded in XML.
+
+- `XML_BINARY_BASE64`: Encodes binary values using Base64.
+- `XML_BINARY_HEX`: Encodes binary values using hexadecimal notation. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`: XML document.
-- `XML_OPTION_CONTENT`: XML fragment. ||
+Sets whether XML data in implicit parsing and serialization operations is to be considered as documents or content fragments.
+
+- `XML_OPTION_DOCUMENT`: Treats an XML value as a complete, well-formed document.
+- `XML_OPTION_CONTENT`: Treats an XML value as a content fragment, which may contain multiple top-level elements or character nodes. ||
 || ginPendingListLimit | **string** (int64)
 
-in bytes. ||
+Sets the maximum size of the pending list for GIN index. In bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds.
+Sets the time to wait on a lock before checking for deadlock. In milliseconds.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
-|| maxLocksPerTransaction | **string** (int64) ||
-|| maxPredLocksPerTransaction | **string** (int64) ||
-|| arrayNulls | **boolean** ||
+|| maxLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of locks per transaction. The shared lock table is sized on the assumption that
+at most max_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| maxPredLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of predicate locks per transaction.The shared predicate lock table is sized on the assumption that
+at most max_pred_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| arrayNulls | **boolean**
+
+Enable input of NULL elements in arrays. When turned on, unquoted NULL in an array input
+value means a null value; otherwise it is taken literally. ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+Sets whether \"\\'\" is allowed in string literals.
+
+- `BACKSLASH_QUOTE`: Legacy invalid value. Do not use.
 - `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
 - `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
 - `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
-|| defaultWithOids | **boolean** ||
-|| escapeStringWarning | **boolean** ||
-|| loCompatPrivileges | **boolean** ||
-|| quoteAllIdentifiers | **boolean** ||
-|| standardConformingStrings | **boolean** ||
-|| synchronizeSeqscans | **boolean** ||
-|| transformNullEquals | **boolean** ||
-|| exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
-|| enableBitmapscan | **boolean** ||
-|| enableHashagg | **boolean** ||
-|| enableHashjoin | **boolean** ||
-|| enableIndexscan | **boolean** ||
-|| enableIndexonlyscan | **boolean** ||
-|| enableMaterial | **boolean** ||
-|| enableMergejoin | **boolean** ||
-|| enableNestloop | **boolean** ||
-|| enableSeqscan | **boolean** ||
-|| enableSort | **boolean** ||
-|| enableTidscan | **boolean** ||
+|| defaultWithOids | **boolean**
+
+WITH OIDS is no longer supported; this can only be false. ||
+|| escapeStringWarning | **boolean**
+
+Warn about backslash escapes in ordinary string literals. ||
+|| loCompatPrivileges | **boolean**
+
+Enables backward compatibility mode for privilege checks on large objects. Skips privilege checks
+when reading or modifying large objects, for compatibility with PostgreSQL releases prior to 9.0. ||
+|| quoteAllIdentifiers | **boolean**
+
+When generating SQL fragments, quote all identifiers. ||
+|| standardConformingStrings | **boolean**
+
+Causes '...' strings to treat backslashes literally. ||
+|| synchronizeSeqscans | **boolean**
+
+Enable synchronized sequential scans. ||
+|| transformNullEquals | **boolean**
+
+Treats \"expr=NULL\" as \"expr IS NULL\". When turned on, expressions of the form expr = NULL
+(or NULL = expr) are treated as expr IS NULL, that is, they return true if expr evaluates to the
+null value, and false otherwise. The correct behavior of expr = NULL is to always return null (unknown). ||
+|| exitOnError | **boolean**
+
+Terminate session on any error. ||
+|| seqPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a sequentially fetched disk page.
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a nonsequentially fetched disk page.
+
+The minimum value is 0. ||
+|| enableBitmapscan | **boolean**
+
+Enables the planner's use of bitmap-scan plans. ||
+|| enableHashagg | **boolean**
+
+Enables the planner's use of hashed aggregation plans. ||
+|| enableHashjoin | **boolean**
+
+Enables the planner's use of hash join plans. ||
+|| enableIndexscan | **boolean**
+
+Enables the planner's use of index-scan plans. ||
+|| enableIndexonlyscan | **boolean**
+
+Enables the planner's use of index-only-scan plans. ||
+|| enableMaterial | **boolean**
+
+Enables the planner's use of materialization. ||
+|| enableMergejoin | **boolean**
+
+Enables the planner's use of merge join plans. ||
+|| enableNestloop | **boolean**
+
+Enables the planner's use of nested-loop join plans. ||
+|| enableSeqscan | **boolean**
+
+Enables the planner's use of sequential-scan plans. ||
+|| enableSort | **boolean**
+
+Enables the planner's use of explicit sort steps. ||
+|| enableTidscan | **boolean**
+
+Enables the planner's use of TID scan plans. ||
 || maxParallelWorkers | **string** (int64)
+
+Sets the maximum number of parallel workers that can be active at one time.
 
 Acceptable values are 0 to 1024, inclusive. ||
 || maxParallelWorkersPerGather | **string** (int64)
 
+Sets the maximum number of parallel processes per executor node.
+
 Acceptable values are 0 to 1024, inclusive. ||
-|| timezone | **string** ||
+|| timezone | **string**
+
+Sets the time zone for displaying and interpreting time stamps. ||
 || effectiveIoConcurrency | **string** (int64)
+
+Number of simultaneous requests that can be handled efficiently by the disk subsystem.
 
 Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
+Sets the planner's assumption about the effective size of the disk cache available to a single query. In bytes.
+
 Acceptable values are 1048576 to 549755813888, inclusive. ||
 || idleSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when not in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 |#
@@ -2320,107 +3048,151 @@ parameters which detailed description is available in
 ||Field | Description ||
 || recoveryMinApplyDelay | **string** (int64)
 
-in milliseconds. ||
+Sets the minimum delay for applying changes during recovery. In milliseconds. ||
 || sharedBuffers | **string** (int64)
 
-in bytes. ||
+Sets the number of shared memory buffers used by the server. In bytes. ||
 || tempBuffers | **string** (int64)
 
-in bytes. ||
+Sets the maximum number of temporary buffers used by each session. In bytes. ||
 || workMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used for query workspaces. This much memory can be used by each
+internal sort operation and hash table before switching to temporary disk files. In bytes. ||
 || tempFileLimit | **string** (int64)
 
-in bytes. ||
+Limits the total size of all temporary files used by each process. -1 means no limit. In bytes. ||
 || backendFlushAfter | **string** (int64)
 
-Acceptable values are 0 to 2048, inclusive. ||
+Specifies how much data a backend can write before forcing the operating system to issue the writes. In bytes.
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64)
 
-in milliseconds. ||
+Time before a snapshot is too old to read pages changed after the snapshot was taken.
+A value of -1 disables this feature. In milliseconds. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum delay before canceling queries when a hot standby server is processing streamed WAL data. In milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
+
+Enables the planner to use constraints to optimize queries.
 
 - `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
 - `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
 - `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
-|| cursorTupleFraction | **number** (double) ||
+|| cursorTupleFraction | **number** (double)
+
+Sets the planner's estimate of the fraction of a cursor's rows that will be retrieved. ||
 || fromCollapseLimit | **string** (int64)
+
+Sets the FROM-list size beyond which subqueries are not collapsed.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
 || joinCollapseLimit | **string** (int64)
 
+Sets the FROM-list size beyond which JOIN constructs are not flattened.
+
 Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_ON`: Force parallel mode for all queries that can be executed safely in parallel.
-- `FORCE_PARALLEL_MODE_OFF`: Enable parallel mode only if it is expected to increase performance.
-- `FORCE_PARALLEL_MODE_REGRESS`: Equivalent to on, but generates output identical to the off state. ||
+Forces use of parallel query facilities. If possible, run query using a parallel worker and with parallel restrictions.
+
+- `FORCE_PARALLEL_MODE_ON`: Forces parallel mode for queries considered safe, even when no performance benefit is expected.
+- `FORCE_PARALLEL_MODE_OFF`: Uses parallel mode only when the planner expects it to improve performance.
+- `FORCE_PARALLEL_MODE_REGRESS`: Behaves like ON, but hides added Gather nodes in EXPLAIN output and
+suppresses parallel-worker context lines to stabilize regression-test output. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are sent to the client.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Causes all statements generating error at or above this level to be logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinDurationStatement | **string** (int64)
 
-in milliseconds. ||
-|| logCheckpoints | **boolean** ||
-|| logConnections | **boolean** ||
-|| logDisconnections | **boolean** ||
-|| logDuration | **boolean** ||
+Sets the minimum execution time above which all statements will be logged. In milliseconds. ||
+|| logCheckpoints | **boolean**
+
+Logs each checkpoint. ||
+|| logConnections | **boolean**
+
+Logs each successful connection. ||
+|| logDisconnections | **boolean**
+
+Logs end of a session, including duration. ||
+|| logDuration | **boolean**
+
+Logs the duration of each completed SQL statement.
+ ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
+
+Sets the verbosity of logged messages.
 
 - `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
 - `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
 - `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
-|| logLockWaits | **boolean** ||
+|| logLockWaits | **boolean**
+
+Logs long lock waits. ||
 || logStatement | **enum** (LogStatement)
+
+Sets the type of statements logged.
 
 - `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
 - `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
 - `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
 - `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
-|| logTempFiles | **string** (int64) ||
-|| searchPath | **string** ||
-|| rowSecurity | **boolean** ||
+|| logTempFiles | **string** (int64)
+
+Log the use of temporary files larger than this number of kilobytes. ||
+|| searchPath | **string**
+
+Sets the schema search order for names that are not schema-qualified. ||
+|| rowSecurity | **boolean**
+
+Enable row security. ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
+
+Sets the transaction isolation level of each new transaction.
 
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
 - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
@@ -2430,81 +3202,157 @@ All queries in the current transaction see only the rows that were fixed prior t
 If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any statement. In milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any wait for a lock. In milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
+
+Sets the output format for bytea.
 
 - `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
 - `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`: Base64 encoding.
-- `XML_BINARY_HEX`: Hexadecimal encoding. ||
+Sets how binary values are to be encoded in XML.
+
+- `XML_BINARY_BASE64`: Encodes binary values using Base64.
+- `XML_BINARY_HEX`: Encodes binary values using hexadecimal notation. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`: XML document.
-- `XML_OPTION_CONTENT`: XML fragment. ||
+Sets whether XML data in implicit parsing and serialization operations is to be considered as documents or content fragments.
+
+- `XML_OPTION_DOCUMENT`: Treats an XML value as a complete, well-formed document.
+- `XML_OPTION_CONTENT`: Treats an XML value as a content fragment, which may contain multiple top-level elements or character nodes. ||
 || ginPendingListLimit | **string** (int64)
 
-in bytes. ||
+Sets the maximum size of the pending list for GIN index. In bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds.
+Sets the time to wait on a lock before checking for deadlock. In milliseconds.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
-|| maxLocksPerTransaction | **string** (int64) ||
-|| maxPredLocksPerTransaction | **string** (int64) ||
-|| arrayNulls | **boolean** ||
+|| maxLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of locks per transaction. The shared lock table is sized on the assumption that
+at most max_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| maxPredLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of predicate locks per transaction.The shared predicate lock table is sized on the assumption that
+at most max_pred_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| arrayNulls | **boolean**
+
+Enable input of NULL elements in arrays. When turned on, unquoted NULL in an array input
+value means a null value; otherwise it is taken literally. ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+Sets whether \"\\'\" is allowed in string literals.
+
+- `BACKSLASH_QUOTE`: Legacy invalid value. Do not use.
 - `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
 - `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
 - `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
-|| defaultWithOids | **boolean** ||
-|| escapeStringWarning | **boolean** ||
-|| loCompatPrivileges | **boolean** ||
-|| quoteAllIdentifiers | **boolean** ||
-|| standardConformingStrings | **boolean** ||
-|| synchronizeSeqscans | **boolean** ||
-|| transformNullEquals | **boolean** ||
-|| exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
-|| enableBitmapscan | **boolean** ||
-|| enableHashagg | **boolean** ||
-|| enableHashjoin | **boolean** ||
-|| enableIndexscan | **boolean** ||
-|| enableIndexonlyscan | **boolean** ||
-|| enableMaterial | **boolean** ||
-|| enableMergejoin | **boolean** ||
-|| enableNestloop | **boolean** ||
-|| enableSeqscan | **boolean** ||
-|| enableSort | **boolean** ||
-|| enableTidscan | **boolean** ||
+|| defaultWithOids | **boolean**
+
+WITH OIDS is no longer supported; this can only be false. ||
+|| escapeStringWarning | **boolean**
+
+Warn about backslash escapes in ordinary string literals. ||
+|| loCompatPrivileges | **boolean**
+
+Enables backward compatibility mode for privilege checks on large objects. Skips privilege checks
+when reading or modifying large objects, for compatibility with PostgreSQL releases prior to 9.0. ||
+|| quoteAllIdentifiers | **boolean**
+
+When generating SQL fragments, quote all identifiers. ||
+|| standardConformingStrings | **boolean**
+
+Causes '...' strings to treat backslashes literally. ||
+|| synchronizeSeqscans | **boolean**
+
+Enable synchronized sequential scans. ||
+|| transformNullEquals | **boolean**
+
+Treats \"expr=NULL\" as \"expr IS NULL\". When turned on, expressions of the form expr = NULL
+(or NULL = expr) are treated as expr IS NULL, that is, they return true if expr evaluates to the
+null value, and false otherwise. The correct behavior of expr = NULL is to always return null (unknown). ||
+|| exitOnError | **boolean**
+
+Terminate session on any error. ||
+|| seqPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a sequentially fetched disk page.
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a nonsequentially fetched disk page.
+
+The minimum value is 0. ||
+|| enableBitmapscan | **boolean**
+
+Enables the planner's use of bitmap-scan plans. ||
+|| enableHashagg | **boolean**
+
+Enables the planner's use of hashed aggregation plans. ||
+|| enableHashjoin | **boolean**
+
+Enables the planner's use of hash join plans. ||
+|| enableIndexscan | **boolean**
+
+Enables the planner's use of index-scan plans. ||
+|| enableIndexonlyscan | **boolean**
+
+Enables the planner's use of index-only-scan plans. ||
+|| enableMaterial | **boolean**
+
+Enables the planner's use of materialization. ||
+|| enableMergejoin | **boolean**
+
+Enables the planner's use of merge join plans. ||
+|| enableNestloop | **boolean**
+
+Enables the planner's use of nested-loop join plans. ||
+|| enableSeqscan | **boolean**
+
+Enables the planner's use of sequential-scan plans. ||
+|| enableSort | **boolean**
+
+Enables the planner's use of explicit sort steps. ||
+|| enableTidscan | **boolean**
+
+Enables the planner's use of TID scan plans. ||
 || maxParallelWorkers | **string** (int64)
+
+Sets the maximum number of parallel workers that can be active at one time.
 
 Acceptable values are 0 to 1024, inclusive. ||
 || maxParallelWorkersPerGather | **string** (int64)
 
+Sets the maximum number of parallel processes per executor node.
+
 Acceptable values are 0 to 1024, inclusive. ||
-|| timezone | **string** ||
+|| timezone | **string**
+
+Sets the time zone for displaying and interpreting time stamps. ||
 || effectiveIoConcurrency | **string** (int64)
+
+Number of simultaneous requests that can be handled efficiently by the disk subsystem.
 
 Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
+Sets the planner's assumption about the effective size of the disk cache available to a single query. In bytes.
+
 Acceptable values are 1048576 to 549755813888, inclusive. ||
 || idleSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when not in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 |#
@@ -2519,107 +3367,151 @@ parameters which detailed description is available in
 ||Field | Description ||
 || recoveryMinApplyDelay | **string** (int64)
 
-in milliseconds. ||
+Sets the minimum delay for applying changes during recovery. In milliseconds. ||
 || sharedBuffers | **string** (int64)
 
-in bytes. ||
+Sets the number of shared memory buffers used by the server. In bytes. ||
 || tempBuffers | **string** (int64)
 
-in bytes. ||
+Sets the maximum number of temporary buffers used by each session. In bytes. ||
 || workMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used for query workspaces. This much memory can be used by each
+internal sort operation and hash table before switching to temporary disk files. In bytes. ||
 || tempFileLimit | **string** (int64)
 
-in bytes. ||
+Limits the total size of all temporary files used by each process. -1 means no limit. In bytes. ||
 || backendFlushAfter | **string** (int64)
 
-Acceptable values are 0 to 2048, inclusive. ||
+Specifies how much data a backend can write before forcing the operating system to issue the writes. In bytes.
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64)
 
-in milliseconds. ||
+Time before a snapshot is too old to read pages changed after the snapshot was taken.
+A value of -1 disables this feature. In milliseconds. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum delay before canceling queries when a hot standby server is processing streamed WAL data. In milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
+
+Enables the planner to use constraints to optimize queries.
 
 - `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
 - `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
 - `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
-|| cursorTupleFraction | **number** (double) ||
+|| cursorTupleFraction | **number** (double)
+
+Sets the planner's estimate of the fraction of a cursor's rows that will be retrieved. ||
 || fromCollapseLimit | **string** (int64)
+
+Sets the FROM-list size beyond which subqueries are not collapsed.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
 || joinCollapseLimit | **string** (int64)
 
+Sets the FROM-list size beyond which JOIN constructs are not flattened.
+
 Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_ON`: Force parallel mode for all queries that can be executed safely in parallel.
-- `FORCE_PARALLEL_MODE_OFF`: Enable parallel mode only if it is expected to increase performance.
-- `FORCE_PARALLEL_MODE_REGRESS`: Equivalent to on, but generates output identical to the off state. ||
+Forces use of parallel query facilities. If possible, run query using a parallel worker and with parallel restrictions.
+
+- `FORCE_PARALLEL_MODE_ON`: Forces parallel mode for queries considered safe, even when no performance benefit is expected.
+- `FORCE_PARALLEL_MODE_OFF`: Uses parallel mode only when the planner expects it to improve performance.
+- `FORCE_PARALLEL_MODE_REGRESS`: Behaves like ON, but hides added Gather nodes in EXPLAIN output and
+suppresses parallel-worker context lines to stabilize regression-test output. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are sent to the client.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Causes all statements generating error at or above this level to be logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinDurationStatement | **string** (int64)
 
-in milliseconds. ||
-|| logCheckpoints | **boolean** ||
-|| logConnections | **boolean** ||
-|| logDisconnections | **boolean** ||
-|| logDuration | **boolean** ||
+Sets the minimum execution time above which all statements will be logged. In milliseconds. ||
+|| logCheckpoints | **boolean**
+
+Logs each checkpoint. ||
+|| logConnections | **boolean**
+
+Logs each successful connection. ||
+|| logDisconnections | **boolean**
+
+Logs end of a session, including duration. ||
+|| logDuration | **boolean**
+
+Logs the duration of each completed SQL statement.
+ ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
+
+Sets the verbosity of logged messages.
 
 - `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
 - `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
 - `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
-|| logLockWaits | **boolean** ||
+|| logLockWaits | **boolean**
+
+Logs long lock waits. ||
 || logStatement | **enum** (LogStatement)
+
+Sets the type of statements logged.
 
 - `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
 - `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
 - `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
 - `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
-|| logTempFiles | **string** (int64) ||
-|| searchPath | **string** ||
-|| rowSecurity | **boolean** ||
+|| logTempFiles | **string** (int64)
+
+Log the use of temporary files larger than this number of kilobytes. ||
+|| searchPath | **string**
+
+Sets the schema search order for names that are not schema-qualified. ||
+|| rowSecurity | **boolean**
+
+Enable row security. ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
+
+Sets the transaction isolation level of each new transaction.
 
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
 - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
@@ -2629,81 +3521,157 @@ All queries in the current transaction see only the rows that were fixed prior t
 If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any statement. In milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any wait for a lock. In milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
+
+Sets the output format for bytea.
 
 - `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
 - `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`: Base64 encoding.
-- `XML_BINARY_HEX`: Hexadecimal encoding. ||
+Sets how binary values are to be encoded in XML.
+
+- `XML_BINARY_BASE64`: Encodes binary values using Base64.
+- `XML_BINARY_HEX`: Encodes binary values using hexadecimal notation. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`: XML document.
-- `XML_OPTION_CONTENT`: XML fragment. ||
+Sets whether XML data in implicit parsing and serialization operations is to be considered as documents or content fragments.
+
+- `XML_OPTION_DOCUMENT`: Treats an XML value as a complete, well-formed document.
+- `XML_OPTION_CONTENT`: Treats an XML value as a content fragment, which may contain multiple top-level elements or character nodes. ||
 || ginPendingListLimit | **string** (int64)
 
-in bytes. ||
+Sets the maximum size of the pending list for GIN index. In bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds.
+Sets the time to wait on a lock before checking for deadlock. In milliseconds.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
-|| maxLocksPerTransaction | **string** (int64) ||
-|| maxPredLocksPerTransaction | **string** (int64) ||
-|| arrayNulls | **boolean** ||
+|| maxLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of locks per transaction. The shared lock table is sized on the assumption that
+at most max_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| maxPredLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of predicate locks per transaction.The shared predicate lock table is sized on the assumption that
+at most max_pred_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| arrayNulls | **boolean**
+
+Enable input of NULL elements in arrays. When turned on, unquoted NULL in an array input
+value means a null value; otherwise it is taken literally. ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+Sets whether \"\\'\" is allowed in string literals.
+
+- `BACKSLASH_QUOTE`: Legacy invalid value. Do not use.
 - `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
 - `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
 - `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
-|| defaultWithOids | **boolean** ||
-|| escapeStringWarning | **boolean** ||
-|| loCompatPrivileges | **boolean** ||
-|| quoteAllIdentifiers | **boolean** ||
-|| standardConformingStrings | **boolean** ||
-|| synchronizeSeqscans | **boolean** ||
-|| transformNullEquals | **boolean** ||
-|| exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
-|| enableBitmapscan | **boolean** ||
-|| enableHashagg | **boolean** ||
-|| enableHashjoin | **boolean** ||
-|| enableIndexscan | **boolean** ||
-|| enableIndexonlyscan | **boolean** ||
-|| enableMaterial | **boolean** ||
-|| enableMergejoin | **boolean** ||
-|| enableNestloop | **boolean** ||
-|| enableSeqscan | **boolean** ||
-|| enableSort | **boolean** ||
-|| enableTidscan | **boolean** ||
+|| defaultWithOids | **boolean**
+
+WITH OIDS is no longer supported; this can only be false. ||
+|| escapeStringWarning | **boolean**
+
+Warn about backslash escapes in ordinary string literals. ||
+|| loCompatPrivileges | **boolean**
+
+Enables backward compatibility mode for privilege checks on large objects. Skips privilege checks
+when reading or modifying large objects, for compatibility with PostgreSQL releases prior to 9.0. ||
+|| quoteAllIdentifiers | **boolean**
+
+When generating SQL fragments, quote all identifiers. ||
+|| standardConformingStrings | **boolean**
+
+Causes '...' strings to treat backslashes literally. ||
+|| synchronizeSeqscans | **boolean**
+
+Enable synchronized sequential scans. ||
+|| transformNullEquals | **boolean**
+
+Treats \"expr=NULL\" as \"expr IS NULL\". When turned on, expressions of the form expr = NULL
+(or NULL = expr) are treated as expr IS NULL, that is, they return true if expr evaluates to the
+null value, and false otherwise. The correct behavior of expr = NULL is to always return null (unknown). ||
+|| exitOnError | **boolean**
+
+Terminate session on any error. ||
+|| seqPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a sequentially fetched disk page.
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a nonsequentially fetched disk page.
+
+The minimum value is 0. ||
+|| enableBitmapscan | **boolean**
+
+Enables the planner's use of bitmap-scan plans. ||
+|| enableHashagg | **boolean**
+
+Enables the planner's use of hashed aggregation plans. ||
+|| enableHashjoin | **boolean**
+
+Enables the planner's use of hash join plans. ||
+|| enableIndexscan | **boolean**
+
+Enables the planner's use of index-scan plans. ||
+|| enableIndexonlyscan | **boolean**
+
+Enables the planner's use of index-only-scan plans. ||
+|| enableMaterial | **boolean**
+
+Enables the planner's use of materialization. ||
+|| enableMergejoin | **boolean**
+
+Enables the planner's use of merge join plans. ||
+|| enableNestloop | **boolean**
+
+Enables the planner's use of nested-loop join plans. ||
+|| enableSeqscan | **boolean**
+
+Enables the planner's use of sequential-scan plans. ||
+|| enableSort | **boolean**
+
+Enables the planner's use of explicit sort steps. ||
+|| enableTidscan | **boolean**
+
+Enables the planner's use of TID scan plans. ||
 || maxParallelWorkers | **string** (int64)
+
+Sets the maximum number of parallel workers that can be active at one time.
 
 Acceptable values are 0 to 1024, inclusive. ||
 || maxParallelWorkersPerGather | **string** (int64)
 
+Sets the maximum number of parallel processes per executor node.
+
 Acceptable values are 0 to 1024, inclusive. ||
-|| timezone | **string** ||
+|| timezone | **string**
+
+Sets the time zone for displaying and interpreting time stamps. ||
 || effectiveIoConcurrency | **string** (int64)
+
+Number of simultaneous requests that can be handled efficiently by the disk subsystem.
 
 Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
+Sets the planner's assumption about the effective size of the disk cache available to a single query. In bytes.
+
 Acceptable values are 1048576 to 549755813888, inclusive. ||
 || idleSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when not in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 |#
@@ -2718,110 +3686,154 @@ parameters which detailed description is available in
 ||Field | Description ||
 || recoveryMinApplyDelay | **string** (int64)
 
-in milliseconds. ||
+Sets the minimum delay for applying changes during recovery. In milliseconds. ||
 || sharedBuffers | **string** (int64)
 
-in bytes. ||
+Sets the number of shared memory buffers used by the server. In bytes. ||
 || tempBuffers | **string** (int64)
 
-in bytes. ||
+Sets the maximum number of temporary buffers used by each session. In bytes. ||
 || workMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used for query workspaces. This much memory can be used by each
+internal sort operation and hash table before switching to temporary disk files. In bytes. ||
 || tempFileLimit | **string** (int64)
 
-in bytes. ||
+Limits the total size of all temporary files used by each process. -1 means no limit. In bytes. ||
 || backendFlushAfter | **string** (int64)
 
-Acceptable values are 0 to 2048, inclusive. ||
+Specifies how much data a backend can write before forcing the operating system to issue the writes. In bytes.
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64)
 
-in milliseconds. ||
+Time before a snapshot is too old to read pages changed after the snapshot was taken.
+A value of -1 disables this feature. In milliseconds. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum delay before canceling queries when a hot standby server is processing streamed WAL data. In milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
+
+Enables the planner to use constraints to optimize queries.
 
 - `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
 - `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
 - `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
-|| cursorTupleFraction | **number** (double) ||
+|| cursorTupleFraction | **number** (double)
+
+Sets the planner's estimate of the fraction of a cursor's rows that will be retrieved. ||
 || fromCollapseLimit | **string** (int64)
+
+Sets the FROM-list size beyond which subqueries are not collapsed.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
 || joinCollapseLimit | **string** (int64)
 
+Sets the FROM-list size beyond which JOIN constructs are not flattened.
+
 Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_ON`: Force parallel query for all queries for which it is thought to be safe
-- `DEBUG_PARALLEL_QUERY_OFF`: Use parallel mode only when it is expected to improve performance
-- `DEBUG_PARALLEL_QUERY_REGRESS`: Like ON, but with additional changes for regression testing (suppresses context lines, hides Gather nodes in EXPLAIN) ||
+Forces the planner to use parallel query nodes.
+
+- `DEBUG_PARALLEL_QUERY_ON`: Forces parallel mode for queries considered safe, even when no performance benefit is expected.
+- `DEBUG_PARALLEL_QUERY_OFF`: Uses parallel mode only when the planner expects it to improve performance.
+- `DEBUG_PARALLEL_QUERY_REGRESS`: Behaves like ON, but hides added Gather nodes in EXPLAIN output and
+suppresses parallel-worker context lines to stabilize regression-test output. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are sent to the client.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Causes all statements generating error at or above this level to be logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinDurationStatement | **string** (int64)
 
-in milliseconds. ||
-|| logCheckpoints | **boolean** ||
-|| logConnections | **boolean** ||
-|| logDisconnections | **boolean** ||
-|| logDuration | **boolean** ||
+Sets the minimum execution time above which all statements will be logged. In milliseconds. ||
+|| logCheckpoints | **boolean**
+
+Logs each checkpoint. ||
+|| logConnections | **boolean**
+
+Logs each successful connection. ||
+|| logDisconnections | **boolean**
+
+Logs end of a session, including duration. ||
+|| logDuration | **boolean**
+
+Logs the duration of each completed SQL statement.
+ ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
+
+Sets the verbosity of logged messages.
 
 - `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
 - `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
 - `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
-|| logLockWaits | **boolean** ||
+|| logLockWaits | **boolean**
+
+Logs long lock waits. ||
 || logStatement | **enum** (LogStatement)
+
+Sets the type of statements logged.
 
 - `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
 - `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
 - `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
 - `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
-|| logTempFiles | **string** (int64) ||
-|| searchPath | **string** ||
-|| rowSecurity | **boolean** ||
+|| logTempFiles | **string** (int64)
+
+Log the use of temporary files larger than this number of kilobytes. ||
+|| searchPath | **string**
+
+Sets the schema search order for names that are not schema-qualified. ||
+|| rowSecurity | **boolean**
+
+Enable row security. ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
+
+Sets the transaction isolation level of each new transaction.
 
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
 - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
@@ -2831,81 +3843,157 @@ All queries in the current transaction see only the rows that were fixed prior t
 If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any statement. In milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any wait for a lock. In milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
+
+Sets the output format for bytea.
 
 - `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
 - `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`: Base64 encoding.
-- `XML_BINARY_HEX`: Hexadecimal encoding. ||
+Sets how binary values are to be encoded in XML.
+
+- `XML_BINARY_BASE64`: Encodes binary values using Base64.
+- `XML_BINARY_HEX`: Encodes binary values using hexadecimal notation. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`: XML document.
-- `XML_OPTION_CONTENT`: XML fragment. ||
+Sets whether XML data in implicit parsing and serialization operations is to be considered as documents or content fragments.
+
+- `XML_OPTION_DOCUMENT`: Treats an XML value as a complete, well-formed document.
+- `XML_OPTION_CONTENT`: Treats an XML value as a content fragment, which may contain multiple top-level elements or character nodes. ||
 || ginPendingListLimit | **string** (int64)
 
-in bytes. ||
+Sets the maximum size of the pending list for GIN index. In bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds.
+Sets the time to wait on a lock before checking for deadlock. In milliseconds.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
-|| maxLocksPerTransaction | **string** (int64) ||
-|| maxPredLocksPerTransaction | **string** (int64) ||
-|| arrayNulls | **boolean** ||
+|| maxLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of locks per transaction. The shared lock table is sized on the assumption that
+at most max_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| maxPredLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of predicate locks per transaction.The shared predicate lock table is sized on the assumption that
+at most max_pred_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| arrayNulls | **boolean**
+
+Enable input of NULL elements in arrays. When turned on, unquoted NULL in an array input
+value means a null value; otherwise it is taken literally. ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+Sets whether \"\\'\" is allowed in string literals.
+
+- `BACKSLASH_QUOTE`: Legacy invalid value. Do not use.
 - `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
 - `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
 - `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
-|| defaultWithOids | **boolean** ||
-|| escapeStringWarning | **boolean** ||
-|| loCompatPrivileges | **boolean** ||
-|| quoteAllIdentifiers | **boolean** ||
-|| standardConformingStrings | **boolean** ||
-|| synchronizeSeqscans | **boolean** ||
-|| transformNullEquals | **boolean** ||
-|| exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
-|| enableBitmapscan | **boolean** ||
-|| enableHashagg | **boolean** ||
-|| enableHashjoin | **boolean** ||
-|| enableIndexscan | **boolean** ||
-|| enableIndexonlyscan | **boolean** ||
-|| enableMaterial | **boolean** ||
-|| enableMergejoin | **boolean** ||
-|| enableNestloop | **boolean** ||
-|| enableSeqscan | **boolean** ||
-|| enableSort | **boolean** ||
-|| enableTidscan | **boolean** ||
+|| defaultWithOids | **boolean**
+
+WITH OIDS is no longer supported; this can only be false. ||
+|| escapeStringWarning | **boolean**
+
+Warn about backslash escapes in ordinary string literals. ||
+|| loCompatPrivileges | **boolean**
+
+Enables backward compatibility mode for privilege checks on large objects. Skips privilege checks
+when reading or modifying large objects, for compatibility with PostgreSQL releases prior to 9.0. ||
+|| quoteAllIdentifiers | **boolean**
+
+When generating SQL fragments, quote all identifiers. ||
+|| standardConformingStrings | **boolean**
+
+Causes '...' strings to treat backslashes literally. ||
+|| synchronizeSeqscans | **boolean**
+
+Enable synchronized sequential scans. ||
+|| transformNullEquals | **boolean**
+
+Treats \"expr=NULL\" as \"expr IS NULL\". When turned on, expressions of the form expr = NULL
+(or NULL = expr) are treated as expr IS NULL, that is, they return true if expr evaluates to the
+null value, and false otherwise. The correct behavior of expr = NULL is to always return null (unknown). ||
+|| exitOnError | **boolean**
+
+Terminate session on any error. ||
+|| seqPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a sequentially fetched disk page.
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a nonsequentially fetched disk page.
+
+The minimum value is 0. ||
+|| enableBitmapscan | **boolean**
+
+Enables the planner's use of bitmap-scan plans. ||
+|| enableHashagg | **boolean**
+
+Enables the planner's use of hashed aggregation plans. ||
+|| enableHashjoin | **boolean**
+
+Enables the planner's use of hash join plans. ||
+|| enableIndexscan | **boolean**
+
+Enables the planner's use of index-scan plans. ||
+|| enableIndexonlyscan | **boolean**
+
+Enables the planner's use of index-only-scan plans. ||
+|| enableMaterial | **boolean**
+
+Enables the planner's use of materialization. ||
+|| enableMergejoin | **boolean**
+
+Enables the planner's use of merge join plans. ||
+|| enableNestloop | **boolean**
+
+Enables the planner's use of nested-loop join plans. ||
+|| enableSeqscan | **boolean**
+
+Enables the planner's use of sequential-scan plans. ||
+|| enableSort | **boolean**
+
+Enables the planner's use of explicit sort steps. ||
+|| enableTidscan | **boolean**
+
+Enables the planner's use of TID scan plans. ||
 || maxParallelWorkers | **string** (int64)
+
+Sets the maximum number of parallel workers that can be active at one time.
 
 Acceptable values are 0 to 1024, inclusive. ||
 || maxParallelWorkersPerGather | **string** (int64)
 
+Sets the maximum number of parallel processes per executor node.
+
 Acceptable values are 0 to 1024, inclusive. ||
-|| timezone | **string** ||
+|| timezone | **string**
+
+Sets the time zone for displaying and interpreting time stamps. ||
 || effectiveIoConcurrency | **string** (int64)
+
+Number of simultaneous requests that can be handled efficiently by the disk subsystem.
 
 Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
+Sets the planner's assumption about the effective size of the disk cache available to a single query. In bytes.
+
 Acceptable values are 1048576 to 549755813888, inclusive. ||
 || idleSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when not in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 |#
@@ -2920,110 +4008,154 @@ parameters which detailed description is available in
 ||Field | Description ||
 || recoveryMinApplyDelay | **string** (int64)
 
-in milliseconds. ||
+Sets the minimum delay for applying changes during recovery. In milliseconds. ||
 || sharedBuffers | **string** (int64)
 
-in bytes. ||
+Sets the number of shared memory buffers used by the server. In bytes. ||
 || tempBuffers | **string** (int64)
 
-in bytes. ||
+Sets the maximum number of temporary buffers used by each session. In bytes. ||
 || workMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used for query workspaces. This much memory can be used by each
+internal sort operation and hash table before switching to temporary disk files. In bytes. ||
 || tempFileLimit | **string** (int64)
 
-in bytes. ||
+Limits the total size of all temporary files used by each process. -1 means no limit. In bytes. ||
 || backendFlushAfter | **string** (int64)
 
-Acceptable values are 0 to 2048, inclusive. ||
+Specifies how much data a backend can write before forcing the operating system to issue the writes. In bytes.
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64)
 
-in milliseconds. ||
+Time before a snapshot is too old to read pages changed after the snapshot was taken.
+A value of -1 disables this feature. In milliseconds. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum delay before canceling queries when a hot standby server is processing streamed WAL data. In milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
+
+Enables the planner to use constraints to optimize queries.
 
 - `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
 - `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
 - `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
-|| cursorTupleFraction | **number** (double) ||
+|| cursorTupleFraction | **number** (double)
+
+Sets the planner's estimate of the fraction of a cursor's rows that will be retrieved. ||
 || fromCollapseLimit | **string** (int64)
+
+Sets the FROM-list size beyond which subqueries are not collapsed.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
 || joinCollapseLimit | **string** (int64)
 
+Sets the FROM-list size beyond which JOIN constructs are not flattened.
+
 Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_ON`: Force parallel query for all queries for which it is thought to be safe
-- `DEBUG_PARALLEL_QUERY_OFF`: Use parallel mode only when it is expected to improve performance
-- `DEBUG_PARALLEL_QUERY_REGRESS`: Like ON, but with additional changes for regression testing (suppresses context lines, hides Gather nodes in EXPLAIN) ||
+Forces the planner to use parallel query nodes.
+
+- `DEBUG_PARALLEL_QUERY_ON`: Forces parallel mode for queries considered safe, even when no performance benefit is expected.
+- `DEBUG_PARALLEL_QUERY_OFF`: Uses parallel mode only when the planner expects it to improve performance.
+- `DEBUG_PARALLEL_QUERY_REGRESS`: Behaves like ON, but hides added Gather nodes in EXPLAIN output and
+suppresses parallel-worker context lines to stabilize regression-test output. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are sent to the client.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Causes all statements generating error at or above this level to be logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinDurationStatement | **string** (int64)
 
-in milliseconds. ||
-|| logCheckpoints | **boolean** ||
-|| logConnections | **boolean** ||
-|| logDisconnections | **boolean** ||
-|| logDuration | **boolean** ||
+Sets the minimum execution time above which all statements will be logged. In milliseconds. ||
+|| logCheckpoints | **boolean**
+
+Logs each checkpoint. ||
+|| logConnections | **boolean**
+
+Logs each successful connection. ||
+|| logDisconnections | **boolean**
+
+Logs end of a session, including duration. ||
+|| logDuration | **boolean**
+
+Logs the duration of each completed SQL statement.
+ ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
+
+Sets the verbosity of logged messages.
 
 - `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
 - `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
 - `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
-|| logLockWaits | **boolean** ||
+|| logLockWaits | **boolean**
+
+Logs long lock waits. ||
 || logStatement | **enum** (LogStatement)
+
+Sets the type of statements logged.
 
 - `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
 - `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
 - `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
 - `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
-|| logTempFiles | **string** (int64) ||
-|| searchPath | **string** ||
-|| rowSecurity | **boolean** ||
+|| logTempFiles | **string** (int64)
+
+Log the use of temporary files larger than this number of kilobytes. ||
+|| searchPath | **string**
+
+Sets the schema search order for names that are not schema-qualified. ||
+|| rowSecurity | **boolean**
+
+Enable row security. ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
+
+Sets the transaction isolation level of each new transaction.
 
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
 - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
@@ -3033,81 +4165,157 @@ All queries in the current transaction see only the rows that were fixed prior t
 If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any statement. In milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any wait for a lock. In milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
+
+Sets the output format for bytea.
 
 - `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
 - `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`: Base64 encoding.
-- `XML_BINARY_HEX`: Hexadecimal encoding. ||
+Sets how binary values are to be encoded in XML.
+
+- `XML_BINARY_BASE64`: Encodes binary values using Base64.
+- `XML_BINARY_HEX`: Encodes binary values using hexadecimal notation. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`: XML document.
-- `XML_OPTION_CONTENT`: XML fragment. ||
+Sets whether XML data in implicit parsing and serialization operations is to be considered as documents or content fragments.
+
+- `XML_OPTION_DOCUMENT`: Treats an XML value as a complete, well-formed document.
+- `XML_OPTION_CONTENT`: Treats an XML value as a content fragment, which may contain multiple top-level elements or character nodes. ||
 || ginPendingListLimit | **string** (int64)
 
-in bytes. ||
+Sets the maximum size of the pending list for GIN index. In bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds.
+Sets the time to wait on a lock before checking for deadlock. In milliseconds.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
-|| maxLocksPerTransaction | **string** (int64) ||
-|| maxPredLocksPerTransaction | **string** (int64) ||
-|| arrayNulls | **boolean** ||
+|| maxLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of locks per transaction. The shared lock table is sized on the assumption that
+at most max_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| maxPredLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of predicate locks per transaction.The shared predicate lock table is sized on the assumption that
+at most max_pred_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| arrayNulls | **boolean**
+
+Enable input of NULL elements in arrays. When turned on, unquoted NULL in an array input
+value means a null value; otherwise it is taken literally. ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+Sets whether \"\\'\" is allowed in string literals.
+
+- `BACKSLASH_QUOTE`: Legacy invalid value. Do not use.
 - `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
 - `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
 - `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
-|| defaultWithOids | **boolean** ||
-|| escapeStringWarning | **boolean** ||
-|| loCompatPrivileges | **boolean** ||
-|| quoteAllIdentifiers | **boolean** ||
-|| standardConformingStrings | **boolean** ||
-|| synchronizeSeqscans | **boolean** ||
-|| transformNullEquals | **boolean** ||
-|| exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
-|| enableBitmapscan | **boolean** ||
-|| enableHashagg | **boolean** ||
-|| enableHashjoin | **boolean** ||
-|| enableIndexscan | **boolean** ||
-|| enableIndexonlyscan | **boolean** ||
-|| enableMaterial | **boolean** ||
-|| enableMergejoin | **boolean** ||
-|| enableNestloop | **boolean** ||
-|| enableSeqscan | **boolean** ||
-|| enableSort | **boolean** ||
-|| enableTidscan | **boolean** ||
+|| defaultWithOids | **boolean**
+
+WITH OIDS is no longer supported; this can only be false. ||
+|| escapeStringWarning | **boolean**
+
+Warn about backslash escapes in ordinary string literals. ||
+|| loCompatPrivileges | **boolean**
+
+Enables backward compatibility mode for privilege checks on large objects. Skips privilege checks
+when reading or modifying large objects, for compatibility with PostgreSQL releases prior to 9.0. ||
+|| quoteAllIdentifiers | **boolean**
+
+When generating SQL fragments, quote all identifiers. ||
+|| standardConformingStrings | **boolean**
+
+Causes '...' strings to treat backslashes literally. ||
+|| synchronizeSeqscans | **boolean**
+
+Enable synchronized sequential scans. ||
+|| transformNullEquals | **boolean**
+
+Treats \"expr=NULL\" as \"expr IS NULL\". When turned on, expressions of the form expr = NULL
+(or NULL = expr) are treated as expr IS NULL, that is, they return true if expr evaluates to the
+null value, and false otherwise. The correct behavior of expr = NULL is to always return null (unknown). ||
+|| exitOnError | **boolean**
+
+Terminate session on any error. ||
+|| seqPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a sequentially fetched disk page.
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a nonsequentially fetched disk page.
+
+The minimum value is 0. ||
+|| enableBitmapscan | **boolean**
+
+Enables the planner's use of bitmap-scan plans. ||
+|| enableHashagg | **boolean**
+
+Enables the planner's use of hashed aggregation plans. ||
+|| enableHashjoin | **boolean**
+
+Enables the planner's use of hash join plans. ||
+|| enableIndexscan | **boolean**
+
+Enables the planner's use of index-scan plans. ||
+|| enableIndexonlyscan | **boolean**
+
+Enables the planner's use of index-only-scan plans. ||
+|| enableMaterial | **boolean**
+
+Enables the planner's use of materialization. ||
+|| enableMergejoin | **boolean**
+
+Enables the planner's use of merge join plans. ||
+|| enableNestloop | **boolean**
+
+Enables the planner's use of nested-loop join plans. ||
+|| enableSeqscan | **boolean**
+
+Enables the planner's use of sequential-scan plans. ||
+|| enableSort | **boolean**
+
+Enables the planner's use of explicit sort steps. ||
+|| enableTidscan | **boolean**
+
+Enables the planner's use of TID scan plans. ||
 || maxParallelWorkers | **string** (int64)
+
+Sets the maximum number of parallel workers that can be active at one time.
 
 Acceptable values are 0 to 1024, inclusive. ||
 || maxParallelWorkersPerGather | **string** (int64)
 
+Sets the maximum number of parallel processes per executor node.
+
 Acceptable values are 0 to 1024, inclusive. ||
-|| timezone | **string** ||
+|| timezone | **string**
+
+Sets the time zone for displaying and interpreting time stamps. ||
 || effectiveIoConcurrency | **string** (int64)
+
+Number of simultaneous requests that can be handled efficiently by the disk subsystem.
 
 Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
+Sets the planner's assumption about the effective size of the disk cache available to a single query. In bytes.
+
 Acceptable values are 1048576 to 549755813888, inclusive. ||
 || idleSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when not in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 |#
@@ -3122,107 +4330,150 @@ parameters which detailed description is available in
 ||Field | Description ||
 || recoveryMinApplyDelay | **string** (int64)
 
-in milliseconds. ||
+Sets the minimum delay for applying changes during recovery. In milliseconds. ||
 || sharedBuffers | **string** (int64)
 
-in bytes. ||
+Sets the number of shared memory buffers used by the server. In bytes. ||
 || tempBuffers | **string** (int64)
 
-in bytes. ||
+Sets the maximum number of temporary buffers used by each session. In bytes. ||
 || workMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used for query workspaces. This much memory can be used by each
+internal sort operation and hash table before switching to temporary disk files. In bytes. ||
 || tempFileLimit | **string** (int64)
 
-in bytes. ||
+Limits the total size of all temporary files used by each process. -1 means no limit. In bytes. ||
 || backendFlushAfter | **string** (int64)
 
-Acceptable values are 0 to 2048, inclusive. ||
+Specifies how much data a backend can write before forcing the operating system to issue the writes. In bytes.
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum delay before canceling queries when a hot standby server is processing streamed WAL data. In milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
+
+Enables the planner to use constraints to optimize queries.
 
 - `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
 - `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
 - `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
-|| cursorTupleFraction | **number** (double) ||
+|| cursorTupleFraction | **number** (double)
+
+Sets the planner's estimate of the fraction of a cursor's rows that will be retrieved. ||
 || fromCollapseLimit | **string** (int64)
+
+Sets the FROM-list size beyond which subqueries are not collapsed.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
 || joinCollapseLimit | **string** (int64)
 
+Sets the FROM-list size beyond which JOIN constructs are not flattened.
+
 Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_ON`: Force parallel query for all queries for which it is thought to be safe
-- `DEBUG_PARALLEL_QUERY_OFF`: Use parallel mode only when it is expected to improve performance
-- `DEBUG_PARALLEL_QUERY_REGRESS`: Like ON, but with additional changes for regression testing (suppresses context lines, hides Gather nodes in EXPLAIN) ||
+Forces the planner's use parallel query nodes.
+
+- `DEBUG_PARALLEL_QUERY_ON`: Forces parallel mode for queries considered safe, even when no performance benefit is expected.
+- `DEBUG_PARALLEL_QUERY_OFF`: Uses parallel mode only when the planner expects it to improve performance.
+- `DEBUG_PARALLEL_QUERY_REGRESS`: Behaves like ON, but hides added Gather nodes in EXPLAIN output and
+suppresses parallel-worker context lines to stabilize regression-test output. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are sent to the client.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Causes all statements generating error at or above this level to be logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinDurationStatement | **string** (int64)
 
-in milliseconds. ||
-|| logCheckpoints | **boolean** ||
-|| logConnections | **boolean** ||
-|| logDisconnections | **boolean** ||
-|| logDuration | **boolean** ||
+Sets the minimum execution time above which all statements will be logged. In milliseconds. ||
+|| logCheckpoints | **boolean**
+
+Logs each checkpoint. ||
+|| logConnections | **boolean**
+
+Logs each successful connection. ||
+|| logDisconnections | **boolean**
+
+Logs end of a session, including duration. ||
+|| logDuration | **boolean**
+
+Logs the duration of each completed SQL statement.
+ ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
+
+Sets the verbosity of logged messages.
 
 - `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
 - `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
 - `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
-|| logLockWaits | **boolean** ||
+|| logLockWaits | **boolean**
+
+Logs long lock waits. ||
 || logStatement | **enum** (LogStatement)
+
+Sets the type of statements logged.
 
 - `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
 - `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
 - `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
 - `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
-|| logTempFiles | **string** (int64) ||
-|| searchPath | **string** ||
-|| rowSecurity | **boolean** ||
+|| logTempFiles | **string** (int64)
+
+Log the use of temporary files larger than this number of kilobytes. ||
+|| searchPath | **string**
+
+Sets the schema search order for names that are not schema-qualified. ||
+|| rowSecurity | **boolean**
+
+Enable row security. ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
+
+Sets the transaction isolation level of each new transaction.
 
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
 - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
@@ -3232,83 +4483,159 @@ All queries in the current transaction see only the rows that were fixed prior t
 If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any statement. In milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed duration of any wait for a lock. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
+
+Sets the output format for bytea.
 
 - `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
 - `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`: Base64 encoding.
-- `XML_BINARY_HEX`: Hexadecimal encoding. ||
+Sets how binary values are to be encoded in XML.
+
+- `XML_BINARY_BASE64`: Encodes binary values using Base64.
+- `XML_BINARY_HEX`: Encodes binary values using hexadecimal notation. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`: XML document.
-- `XML_OPTION_CONTENT`: XML fragment. ||
+Sets whether XML data in implicit parsing and serialization operations is to be considered as documents or content fragments.
+
+- `XML_OPTION_DOCUMENT`: Treats an XML value as a complete, well-formed document.
+- `XML_OPTION_CONTENT`: Treats an XML value as a content fragment, which may contain multiple top-level elements or character nodes. ||
 || ginPendingListLimit | **string** (int64)
 
-in bytes. ||
+Sets the maximum size of the pending list for GIN index. In bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds.
+Sets the time to wait on a lock before checking for deadlock. In milliseconds.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
-|| maxLocksPerTransaction | **string** (int64) ||
-|| maxPredLocksPerTransaction | **string** (int64) ||
-|| arrayNulls | **boolean** ||
+|| maxLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of locks per transaction. The shared lock table is sized on the assumption that
+at most max_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| maxPredLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of predicate locks per transaction.The shared predicate lock table is sized on the assumption that
+at most max_pred_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| arrayNulls | **boolean**
+
+Enable input of NULL elements in arrays. When turned on, unquoted NULL in an array input
+value means a null value; otherwise it is taken literally. ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+Sets whether \"\\'\" is allowed in string literals.
+
+- `BACKSLASH_QUOTE`: Legacy invalid value. Do not use.
 - `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
 - `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
 - `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
-|| defaultWithOids | **boolean** ||
-|| escapeStringWarning | **boolean** ||
-|| loCompatPrivileges | **boolean** ||
-|| quoteAllIdentifiers | **boolean** ||
-|| standardConformingStrings | **boolean** ||
-|| synchronizeSeqscans | **boolean** ||
-|| transformNullEquals | **boolean** ||
-|| exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
-|| enableBitmapscan | **boolean** ||
-|| enableHashagg | **boolean** ||
-|| enableHashjoin | **boolean** ||
-|| enableIndexscan | **boolean** ||
-|| enableIndexonlyscan | **boolean** ||
-|| enableMaterial | **boolean** ||
-|| enableMergejoin | **boolean** ||
-|| enableNestloop | **boolean** ||
-|| enableSeqscan | **boolean** ||
-|| enableSort | **boolean** ||
-|| enableTidscan | **boolean** ||
+|| defaultWithOids | **boolean**
+
+WITH OIDS is no longer supported; this can only be false. ||
+|| escapeStringWarning | **boolean**
+
+Warn about backslash escapes in ordinary string literals. ||
+|| loCompatPrivileges | **boolean**
+
+Enables backward compatibility mode for privilege checks on large objects. Skips privilege checks
+when reading or modifying large objects, for compatibility with PostgreSQL releases prior to 9.0. ||
+|| quoteAllIdentifiers | **boolean**
+
+When generating SQL fragments, quote all identifiers. ||
+|| standardConformingStrings | **boolean**
+
+Causes '...' strings to treat backslashes literally. ||
+|| synchronizeSeqscans | **boolean**
+
+Enable synchronized sequential scans. ||
+|| transformNullEquals | **boolean**
+
+Treats \"expr=NULL\" as \"expr IS NULL\". When turned on, expressions of the form expr = NULL
+(or NULL = expr) are treated as expr IS NULL, that is, they return true if expr evaluates to the
+null value, and false otherwise. The correct behavior of expr = NULL is to always return null (unknown). ||
+|| exitOnError | **boolean**
+
+Terminate session on any error. ||
+|| seqPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a sequentially fetched disk page.
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a nonsequentially fetched disk page.
+
+The minimum value is 0. ||
+|| enableBitmapscan | **boolean**
+
+Enables the planner's use of bitmap-scan plans. ||
+|| enableHashagg | **boolean**
+
+Enables the planner's use of hashed aggregation plans. ||
+|| enableHashjoin | **boolean**
+
+Enables the planner's use of hash join plans. ||
+|| enableIndexscan | **boolean**
+
+Enables the planner's use of index-scan plans. ||
+|| enableIndexonlyscan | **boolean**
+
+Enables the planner's use of index-only-scan plans. ||
+|| enableMaterial | **boolean**
+
+Enables the planner's use of materialization. ||
+|| enableMergejoin | **boolean**
+
+Enables the planner's use of merge join plans. ||
+|| enableNestloop | **boolean**
+
+Enables the planner's use of nested-loop join plans. ||
+|| enableSeqscan | **boolean**
+
+Enables the planner's use of sequential-scan plans. ||
+|| enableSort | **boolean**
+
+Enables the planner's use of explicit sort steps. ||
+|| enableTidscan | **boolean**
+
+Enables the planner's use of TID scan plans. ||
 || maxParallelWorkers | **string** (int64)
+
+Sets the maximum number of parallel workers that can be active at one time.
 
 Acceptable values are 0 to 1024, inclusive. ||
 || maxParallelWorkersPerGather | **string** (int64)
 
+Sets the maximum number of parallel processes per executor node.
+
 Acceptable values are 0 to 1024, inclusive. ||
-|| timezone | **string** ||
+|| timezone | **string**
+
+Sets the time zone for displaying and interpreting time stamps. ||
 || effectiveIoConcurrency | **string** (int64)
+
+Number of simultaneous requests that can be handled efficiently by the disk subsystem.
 
 Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
-Acceptable values are 0 to 549755813888, inclusive. ||
+Sets the planner's assumption about the effective size of the disk cache available to a single query. In bytes.
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || idleSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when not in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 |#
@@ -3323,107 +4650,150 @@ parameters which detailed description is available in
 ||Field | Description ||
 || recoveryMinApplyDelay | **string** (int64)
 
-in milliseconds. ||
+Sets the minimum delay for applying changes during recovery. In milliseconds. ||
 || sharedBuffers | **string** (int64)
 
-in bytes. ||
+Sets the number of shared memory buffers used by the server. In bytes. ||
 || tempBuffers | **string** (int64)
 
-in bytes. ||
+Sets the maximum number of temporary buffers used by each session. In bytes. ||
 || workMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used for query workspaces. This much memory can be used by each
+internal sort operation and hash table before switching to temporary disk files. In bytes. ||
 || tempFileLimit | **string** (int64)
 
-in bytes. ||
+Limits the total size of all temporary files used by each process. -1 means no limit. In bytes. ||
 || backendFlushAfter | **string** (int64)
 
-Acceptable values are 0 to 2048, inclusive. ||
+Specifies how much data a backend can write before forcing the operating system to issue the writes. In bytes.
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum delay before canceling queries when a hot standby server is processing streamed WAL data. In milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
+
+Enables the planner to use constraints to optimize queries.
 
 - `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
 - `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
 - `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
-|| cursorTupleFraction | **number** (double) ||
+|| cursorTupleFraction | **number** (double)
+
+Sets the planner's estimate of the fraction of a cursor's rows that will be retrieved. ||
 || fromCollapseLimit | **string** (int64)
+
+Sets the FROM-list size beyond which subqueries are not collapsed.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
 || joinCollapseLimit | **string** (int64)
 
+Sets the FROM-list size beyond which JOIN constructs are not flattened.
+
 Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_ON`: Force parallel query for all queries for which it is thought to be safe
-- `DEBUG_PARALLEL_QUERY_OFF`: Use parallel mode only when it is expected to improve performance
-- `DEBUG_PARALLEL_QUERY_REGRESS`: Like ON, but with additional changes for regression testing (suppresses context lines, hides Gather nodes in EXPLAIN) ||
+Forces the planner's use parallel query nodes.
+
+- `DEBUG_PARALLEL_QUERY_ON`: Forces parallel mode for queries considered safe, even when no performance benefit is expected.
+- `DEBUG_PARALLEL_QUERY_OFF`: Uses parallel mode only when the planner expects it to improve performance.
+- `DEBUG_PARALLEL_QUERY_REGRESS`: Behaves like ON, but hides added Gather nodes in EXPLAIN output and
+suppresses parallel-worker context lines to stabilize regression-test output. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are sent to the client.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Causes all statements generating error at or above this level to be logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinDurationStatement | **string** (int64)
 
-in milliseconds. ||
-|| logCheckpoints | **boolean** ||
-|| logConnections | **boolean** ||
-|| logDisconnections | **boolean** ||
-|| logDuration | **boolean** ||
+Sets the minimum execution time above which all statements will be logged. In milliseconds. ||
+|| logCheckpoints | **boolean**
+
+Logs each checkpoint. ||
+|| logConnections | **boolean**
+
+Logs each successful connection. ||
+|| logDisconnections | **boolean**
+
+Logs end of a session, including duration. ||
+|| logDuration | **boolean**
+
+Logs the duration of each completed SQL statement.
+ ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
+
+Sets the verbosity of logged messages.
 
 - `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
 - `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
 - `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
-|| logLockWaits | **boolean** ||
+|| logLockWaits | **boolean**
+
+Logs long lock waits. ||
 || logStatement | **enum** (LogStatement)
+
+Sets the type of statements logged.
 
 - `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
 - `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
 - `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
 - `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
-|| logTempFiles | **string** (int64) ||
-|| searchPath | **string** ||
-|| rowSecurity | **boolean** ||
+|| logTempFiles | **string** (int64)
+
+Log the use of temporary files larger than this number of kilobytes. ||
+|| searchPath | **string**
+
+Sets the schema search order for names that are not schema-qualified. ||
+|| rowSecurity | **boolean**
+
+Enable row security. ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
+
+Sets the transaction isolation level of each new transaction.
 
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
 - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
@@ -3433,83 +4803,159 @@ All queries in the current transaction see only the rows that were fixed prior t
 If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any statement. In milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed duration of any wait for a lock. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
+
+Sets the output format for bytea.
 
 - `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
 - `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`: Base64 encoding.
-- `XML_BINARY_HEX`: Hexadecimal encoding. ||
+Sets how binary values are to be encoded in XML.
+
+- `XML_BINARY_BASE64`: Encodes binary values using Base64.
+- `XML_BINARY_HEX`: Encodes binary values using hexadecimal notation. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`: XML document.
-- `XML_OPTION_CONTENT`: XML fragment. ||
+Sets whether XML data in implicit parsing and serialization operations is to be considered as documents or content fragments.
+
+- `XML_OPTION_DOCUMENT`: Treats an XML value as a complete, well-formed document.
+- `XML_OPTION_CONTENT`: Treats an XML value as a content fragment, which may contain multiple top-level elements or character nodes. ||
 || ginPendingListLimit | **string** (int64)
 
-in bytes. ||
+Sets the maximum size of the pending list for GIN index. In bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds.
+Sets the time to wait on a lock before checking for deadlock. In milliseconds.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
-|| maxLocksPerTransaction | **string** (int64) ||
-|| maxPredLocksPerTransaction | **string** (int64) ||
-|| arrayNulls | **boolean** ||
+|| maxLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of locks per transaction. The shared lock table is sized on the assumption that
+at most max_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| maxPredLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of predicate locks per transaction.The shared predicate lock table is sized on the assumption that
+at most max_pred_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| arrayNulls | **boolean**
+
+Enable input of NULL elements in arrays. When turned on, unquoted NULL in an array input
+value means a null value; otherwise it is taken literally. ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+Sets whether \"\\'\" is allowed in string literals.
+
+- `BACKSLASH_QUOTE`: Legacy invalid value. Do not use.
 - `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
 - `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
 - `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
-|| defaultWithOids | **boolean** ||
-|| escapeStringWarning | **boolean** ||
-|| loCompatPrivileges | **boolean** ||
-|| quoteAllIdentifiers | **boolean** ||
-|| standardConformingStrings | **boolean** ||
-|| synchronizeSeqscans | **boolean** ||
-|| transformNullEquals | **boolean** ||
-|| exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
-|| enableBitmapscan | **boolean** ||
-|| enableHashagg | **boolean** ||
-|| enableHashjoin | **boolean** ||
-|| enableIndexscan | **boolean** ||
-|| enableIndexonlyscan | **boolean** ||
-|| enableMaterial | **boolean** ||
-|| enableMergejoin | **boolean** ||
-|| enableNestloop | **boolean** ||
-|| enableSeqscan | **boolean** ||
-|| enableSort | **boolean** ||
-|| enableTidscan | **boolean** ||
+|| defaultWithOids | **boolean**
+
+WITH OIDS is no longer supported; this can only be false. ||
+|| escapeStringWarning | **boolean**
+
+Warn about backslash escapes in ordinary string literals. ||
+|| loCompatPrivileges | **boolean**
+
+Enables backward compatibility mode for privilege checks on large objects. Skips privilege checks
+when reading or modifying large objects, for compatibility with PostgreSQL releases prior to 9.0. ||
+|| quoteAllIdentifiers | **boolean**
+
+When generating SQL fragments, quote all identifiers. ||
+|| standardConformingStrings | **boolean**
+
+Causes '...' strings to treat backslashes literally. ||
+|| synchronizeSeqscans | **boolean**
+
+Enable synchronized sequential scans. ||
+|| transformNullEquals | **boolean**
+
+Treats \"expr=NULL\" as \"expr IS NULL\". When turned on, expressions of the form expr = NULL
+(or NULL = expr) are treated as expr IS NULL, that is, they return true if expr evaluates to the
+null value, and false otherwise. The correct behavior of expr = NULL is to always return null (unknown). ||
+|| exitOnError | **boolean**
+
+Terminate session on any error. ||
+|| seqPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a sequentially fetched disk page.
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a nonsequentially fetched disk page.
+
+The minimum value is 0. ||
+|| enableBitmapscan | **boolean**
+
+Enables the planner's use of bitmap-scan plans. ||
+|| enableHashagg | **boolean**
+
+Enables the planner's use of hashed aggregation plans. ||
+|| enableHashjoin | **boolean**
+
+Enables the planner's use of hash join plans. ||
+|| enableIndexscan | **boolean**
+
+Enables the planner's use of index-scan plans. ||
+|| enableIndexonlyscan | **boolean**
+
+Enables the planner's use of index-only-scan plans. ||
+|| enableMaterial | **boolean**
+
+Enables the planner's use of materialization. ||
+|| enableMergejoin | **boolean**
+
+Enables the planner's use of merge join plans. ||
+|| enableNestloop | **boolean**
+
+Enables the planner's use of nested-loop join plans. ||
+|| enableSeqscan | **boolean**
+
+Enables the planner's use of sequential-scan plans. ||
+|| enableSort | **boolean**
+
+Enables the planner's use of explicit sort steps. ||
+|| enableTidscan | **boolean**
+
+Enables the planner's use of TID scan plans. ||
 || maxParallelWorkers | **string** (int64)
+
+Sets the maximum number of parallel workers that can be active at one time.
 
 Acceptable values are 0 to 1024, inclusive. ||
 || maxParallelWorkersPerGather | **string** (int64)
 
+Sets the maximum number of parallel processes per executor node.
+
 Acceptable values are 0 to 1024, inclusive. ||
-|| timezone | **string** ||
+|| timezone | **string**
+
+Sets the time zone for displaying and interpreting time stamps. ||
 || effectiveIoConcurrency | **string** (int64)
+
+Number of simultaneous requests that can be handled efficiently by the disk subsystem.
 
 Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
-Acceptable values are 0 to 549755813888, inclusive. ||
+Sets the planner's assumption about the effective size of the disk cache available to a single query. In bytes.
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || idleSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when not in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 |#
@@ -3524,107 +4970,150 @@ parameters which detailed description is available in
 ||Field | Description ||
 || recoveryMinApplyDelay | **string** (int64)
 
-in milliseconds. ||
+Sets the minimum delay for applying changes during recovery. In milliseconds. ||
 || sharedBuffers | **string** (int64)
 
-in bytes. ||
+Sets the number of shared memory buffers used by the server. In bytes. ||
 || tempBuffers | **string** (int64)
 
-in bytes. ||
+Sets the maximum number of temporary buffers used by each session. In bytes. ||
 || workMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used for query workspaces. This much memory can be used by each
+internal sort operation and hash table before switching to temporary disk files. In bytes. ||
 || tempFileLimit | **string** (int64)
 
-in bytes. ||
+Limits the total size of all temporary files used by each process. -1 means no limit. In bytes. ||
 || backendFlushAfter | **string** (int64)
 
-Acceptable values are 0 to 2048, inclusive. ||
+Specifies how much data a backend can write before forcing the operating system to issue the writes. In bytes.
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum delay before canceling queries when a hot standby server is processing streamed WAL data. In milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
+
+Enables the planner to use constraints to optimize queries.
 
 - `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
 - `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
 - `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
-|| cursorTupleFraction | **number** (double) ||
+|| cursorTupleFraction | **number** (double)
+
+Sets the planner's estimate of the fraction of a cursor's rows that will be retrieved. ||
 || fromCollapseLimit | **string** (int64)
+
+Sets the FROM-list size beyond which subqueries are not collapsed.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
 || joinCollapseLimit | **string** (int64)
 
+Sets the FROM-list size beyond which JOIN constructs are not flattened.
+
 Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_ON`: Force parallel query for all queries for which it is thought to be safe
-- `DEBUG_PARALLEL_QUERY_OFF`: Use parallel mode only when it is expected to improve performance
-- `DEBUG_PARALLEL_QUERY_REGRESS`: Like ON, but with additional changes for regression testing (suppresses context lines, hides Gather nodes in EXPLAIN) ||
+Forces the planner's use parallel query nodes.
+
+- `DEBUG_PARALLEL_QUERY_ON`: Forces parallel mode for queries considered safe, even when no performance benefit is expected.
+- `DEBUG_PARALLEL_QUERY_OFF`: Uses parallel mode only when the planner expects it to improve performance.
+- `DEBUG_PARALLEL_QUERY_REGRESS`: Behaves like ON, but hides added Gather nodes in EXPLAIN output and
+suppresses parallel-worker context lines to stabilize regression-test output. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are sent to the client.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Causes all statements generating error at or above this level to be logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinDurationStatement | **string** (int64)
 
-in milliseconds. ||
-|| logCheckpoints | **boolean** ||
-|| logConnections | **boolean** ||
-|| logDisconnections | **boolean** ||
-|| logDuration | **boolean** ||
+Sets the minimum execution time above which all statements will be logged. In milliseconds. ||
+|| logCheckpoints | **boolean**
+
+Logs each checkpoint. ||
+|| logConnections | **boolean**
+
+Logs each successful connection. ||
+|| logDisconnections | **boolean**
+
+Logs end of a session, including duration. ||
+|| logDuration | **boolean**
+
+Logs the duration of each completed SQL statement.
+ ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
+
+Sets the verbosity of logged messages.
 
 - `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
 - `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
 - `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
-|| logLockWaits | **boolean** ||
+|| logLockWaits | **boolean**
+
+Logs long lock waits. ||
 || logStatement | **enum** (LogStatement)
+
+Sets the type of statements logged.
 
 - `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
 - `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
 - `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
 - `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
-|| logTempFiles | **string** (int64) ||
-|| searchPath | **string** ||
-|| rowSecurity | **boolean** ||
+|| logTempFiles | **string** (int64)
+
+Log the use of temporary files larger than this number of kilobytes. ||
+|| searchPath | **string**
+
+Sets the schema search order for names that are not schema-qualified. ||
+|| rowSecurity | **boolean**
+
+Enable row security. ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
+
+Sets the transaction isolation level of each new transaction.
 
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
 - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
@@ -3634,83 +5123,159 @@ All queries in the current transaction see only the rows that were fixed prior t
 If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any statement. In milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed duration of any wait for a lock. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
+
+Sets the output format for bytea.
 
 - `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
 - `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`: Base64 encoding.
-- `XML_BINARY_HEX`: Hexadecimal encoding. ||
+Sets how binary values are to be encoded in XML.
+
+- `XML_BINARY_BASE64`: Encodes binary values using Base64.
+- `XML_BINARY_HEX`: Encodes binary values using hexadecimal notation. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`: XML document.
-- `XML_OPTION_CONTENT`: XML fragment. ||
+Sets whether XML data in implicit parsing and serialization operations is to be considered as documents or content fragments.
+
+- `XML_OPTION_DOCUMENT`: Treats an XML value as a complete, well-formed document.
+- `XML_OPTION_CONTENT`: Treats an XML value as a content fragment, which may contain multiple top-level elements or character nodes. ||
 || ginPendingListLimit | **string** (int64)
 
-in bytes. ||
+Sets the maximum size of the pending list for GIN index. In bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds.
+Sets the time to wait on a lock before checking for deadlock. In milliseconds.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
-|| maxLocksPerTransaction | **string** (int64) ||
-|| maxPredLocksPerTransaction | **string** (int64) ||
-|| arrayNulls | **boolean** ||
+|| maxLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of locks per transaction. The shared lock table is sized on the assumption that
+at most max_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| maxPredLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of predicate locks per transaction.The shared predicate lock table is sized on the assumption that
+at most max_pred_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| arrayNulls | **boolean**
+
+Enable input of NULL elements in arrays. When turned on, unquoted NULL in an array input
+value means a null value; otherwise it is taken literally. ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+Sets whether \"\\'\" is allowed in string literals.
+
+- `BACKSLASH_QUOTE`: Legacy invalid value. Do not use.
 - `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
 - `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
 - `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
-|| defaultWithOids | **boolean** ||
-|| escapeStringWarning | **boolean** ||
-|| loCompatPrivileges | **boolean** ||
-|| quoteAllIdentifiers | **boolean** ||
-|| standardConformingStrings | **boolean** ||
-|| synchronizeSeqscans | **boolean** ||
-|| transformNullEquals | **boolean** ||
-|| exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
-|| enableBitmapscan | **boolean** ||
-|| enableHashagg | **boolean** ||
-|| enableHashjoin | **boolean** ||
-|| enableIndexscan | **boolean** ||
-|| enableIndexonlyscan | **boolean** ||
-|| enableMaterial | **boolean** ||
-|| enableMergejoin | **boolean** ||
-|| enableNestloop | **boolean** ||
-|| enableSeqscan | **boolean** ||
-|| enableSort | **boolean** ||
-|| enableTidscan | **boolean** ||
+|| defaultWithOids | **boolean**
+
+WITH OIDS is no longer supported; this can only be false. ||
+|| escapeStringWarning | **boolean**
+
+Warn about backslash escapes in ordinary string literals. ||
+|| loCompatPrivileges | **boolean**
+
+Enables backward compatibility mode for privilege checks on large objects. Skips privilege checks
+when reading or modifying large objects, for compatibility with PostgreSQL releases prior to 9.0. ||
+|| quoteAllIdentifiers | **boolean**
+
+When generating SQL fragments, quote all identifiers. ||
+|| standardConformingStrings | **boolean**
+
+Causes '...' strings to treat backslashes literally. ||
+|| synchronizeSeqscans | **boolean**
+
+Enable synchronized sequential scans. ||
+|| transformNullEquals | **boolean**
+
+Treats \"expr=NULL\" as \"expr IS NULL\". When turned on, expressions of the form expr = NULL
+(or NULL = expr) are treated as expr IS NULL, that is, they return true if expr evaluates to the
+null value, and false otherwise. The correct behavior of expr = NULL is to always return null (unknown). ||
+|| exitOnError | **boolean**
+
+Terminate session on any error. ||
+|| seqPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a sequentially fetched disk page.
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a nonsequentially fetched disk page.
+
+The minimum value is 0. ||
+|| enableBitmapscan | **boolean**
+
+Enables the planner's use of bitmap-scan plans. ||
+|| enableHashagg | **boolean**
+
+Enables the planner's use of hashed aggregation plans. ||
+|| enableHashjoin | **boolean**
+
+Enables the planner's use of hash join plans. ||
+|| enableIndexscan | **boolean**
+
+Enables the planner's use of index-scan plans. ||
+|| enableIndexonlyscan | **boolean**
+
+Enables the planner's use of index-only-scan plans. ||
+|| enableMaterial | **boolean**
+
+Enables the planner's use of materialization. ||
+|| enableMergejoin | **boolean**
+
+Enables the planner's use of merge join plans. ||
+|| enableNestloop | **boolean**
+
+Enables the planner's use of nested-loop join plans. ||
+|| enableSeqscan | **boolean**
+
+Enables the planner's use of sequential-scan plans. ||
+|| enableSort | **boolean**
+
+Enables the planner's use of explicit sort steps. ||
+|| enableTidscan | **boolean**
+
+Enables the planner's use of TID scan plans. ||
 || maxParallelWorkers | **string** (int64)
+
+Sets the maximum number of parallel workers that can be active at one time.
 
 Acceptable values are 0 to 1024, inclusive. ||
 || maxParallelWorkersPerGather | **string** (int64)
 
+Sets the maximum number of parallel processes per executor node.
+
 Acceptable values are 0 to 1024, inclusive. ||
-|| timezone | **string** ||
+|| timezone | **string**
+
+Sets the time zone for displaying and interpreting time stamps. ||
 || effectiveIoConcurrency | **string** (int64)
+
+Number of simultaneous requests that can be handled efficiently by the disk subsystem.
 
 Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
-Acceptable values are 0 to 549755813888, inclusive. ||
+Sets the planner's assumption about the effective size of the disk cache available to a single query. In bytes.
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || idleSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when not in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 |#
@@ -3725,107 +5290,150 @@ parameters which detailed description is available in
 ||Field | Description ||
 || recoveryMinApplyDelay | **string** (int64)
 
-in milliseconds. ||
+Sets the minimum delay for applying changes during recovery. In milliseconds. ||
 || sharedBuffers | **string** (int64)
 
-in bytes. ||
+Sets the number of shared memory buffers used by the server. In bytes. ||
 || tempBuffers | **string** (int64)
 
-in bytes. ||
+Sets the maximum number of temporary buffers used by each session. In bytes. ||
 || workMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used for query workspaces. This much memory can be used by each
+internal sort operation and hash table before switching to temporary disk files. In bytes. ||
 || tempFileLimit | **string** (int64)
 
-in bytes. ||
+Limits the total size of all temporary files used by each process. -1 means no limit. In bytes. ||
 || backendFlushAfter | **string** (int64)
 
-Acceptable values are 0 to 2048, inclusive. ||
+Specifies how much data a backend can write before forcing the operating system to issue the writes. In bytes.
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum delay before canceling queries when a hot standby server is processing streamed WAL data. In milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
+
+Enables the planner to use constraints to optimize queries.
 
 - `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
 - `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
 - `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
-|| cursorTupleFraction | **number** (double) ||
+|| cursorTupleFraction | **number** (double)
+
+Sets the planner's estimate of the fraction of a cursor's rows that will be retrieved. ||
 || fromCollapseLimit | **string** (int64)
+
+Sets the FROM-list size beyond which subqueries are not collapsed.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
 || joinCollapseLimit | **string** (int64)
 
+Sets the FROM-list size beyond which JOIN constructs are not flattened.
+
 Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_ON`: Force parallel query for all queries for which it is thought to be safe
-- `DEBUG_PARALLEL_QUERY_OFF`: Use parallel mode only when it is expected to improve performance
-- `DEBUG_PARALLEL_QUERY_REGRESS`: Like ON, but with additional changes for regression testing (suppresses context lines, hides Gather nodes in EXPLAIN) ||
+Forces the planner's use parallel query nodes.
+
+- `DEBUG_PARALLEL_QUERY_ON`: Forces parallel mode for queries considered safe, even when no performance benefit is expected.
+- `DEBUG_PARALLEL_QUERY_OFF`: Uses parallel mode only when the planner expects it to improve performance.
+- `DEBUG_PARALLEL_QUERY_REGRESS`: Behaves like ON, but hides added Gather nodes in EXPLAIN output and
+suppresses parallel-worker context lines to stabilize regression-test output. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are sent to the client.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Causes all statements generating error at or above this level to be logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinDurationStatement | **string** (int64)
 
-in milliseconds. ||
-|| logCheckpoints | **boolean** ||
-|| logConnections | **boolean** ||
-|| logDisconnections | **boolean** ||
-|| logDuration | **boolean** ||
+Sets the minimum execution time above which all statements will be logged. In milliseconds. ||
+|| logCheckpoints | **boolean**
+
+Logs each checkpoint. ||
+|| logConnections | **boolean**
+
+Logs each successful connection. ||
+|| logDisconnections | **boolean**
+
+Logs end of a session, including duration. ||
+|| logDuration | **boolean**
+
+Logs the duration of each completed SQL statement.
+ ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
+
+Sets the verbosity of logged messages.
 
 - `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
 - `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
 - `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
-|| logLockWaits | **boolean** ||
+|| logLockWaits | **boolean**
+
+Logs long lock waits. ||
 || logStatement | **enum** (LogStatement)
+
+Sets the type of statements logged.
 
 - `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
 - `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
 - `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
 - `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
-|| logTempFiles | **string** (int64) ||
-|| searchPath | **string** ||
-|| rowSecurity | **boolean** ||
+|| logTempFiles | **string** (int64)
+
+Log the use of temporary files larger than this number of kilobytes. ||
+|| searchPath | **string**
+
+Sets the schema search order for names that are not schema-qualified. ||
+|| rowSecurity | **boolean**
+
+Enable row security. ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
+
+Sets the transaction isolation level of each new transaction.
 
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
 - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
@@ -3835,83 +5443,159 @@ All queries in the current transaction see only the rows that were fixed prior t
 If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any statement. In milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed duration of any wait for a lock. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
+
+Sets the output format for bytea.
 
 - `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
 - `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`: Base64 encoding.
-- `XML_BINARY_HEX`: Hexadecimal encoding. ||
+Sets how binary values are to be encoded in XML.
+
+- `XML_BINARY_BASE64`: Encodes binary values using Base64.
+- `XML_BINARY_HEX`: Encodes binary values using hexadecimal notation. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`: XML document.
-- `XML_OPTION_CONTENT`: XML fragment. ||
+Sets whether XML data in implicit parsing and serialization operations is to be considered as documents or content fragments.
+
+- `XML_OPTION_DOCUMENT`: Treats an XML value as a complete, well-formed document.
+- `XML_OPTION_CONTENT`: Treats an XML value as a content fragment, which may contain multiple top-level elements or character nodes. ||
 || ginPendingListLimit | **string** (int64)
 
-in bytes. ||
+Sets the maximum size of the pending list for GIN index. In bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds.
+Sets the time to wait on a lock before checking for deadlock. In milliseconds.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
-|| maxLocksPerTransaction | **string** (int64) ||
-|| maxPredLocksPerTransaction | **string** (int64) ||
-|| arrayNulls | **boolean** ||
+|| maxLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of locks per transaction. The shared lock table is sized on the assumption that
+at most max_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| maxPredLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of predicate locks per transaction.The shared predicate lock table is sized on the assumption that
+at most max_pred_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| arrayNulls | **boolean**
+
+Enable input of NULL elements in arrays. When turned on, unquoted NULL in an array input
+value means a null value; otherwise it is taken literally. ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+Sets whether \"\\'\" is allowed in string literals.
+
+- `BACKSLASH_QUOTE`: Legacy invalid value. Do not use.
 - `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
 - `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
 - `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
-|| defaultWithOids | **boolean** ||
-|| escapeStringWarning | **boolean** ||
-|| loCompatPrivileges | **boolean** ||
-|| quoteAllIdentifiers | **boolean** ||
-|| standardConformingStrings | **boolean** ||
-|| synchronizeSeqscans | **boolean** ||
-|| transformNullEquals | **boolean** ||
-|| exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
-|| enableBitmapscan | **boolean** ||
-|| enableHashagg | **boolean** ||
-|| enableHashjoin | **boolean** ||
-|| enableIndexscan | **boolean** ||
-|| enableIndexonlyscan | **boolean** ||
-|| enableMaterial | **boolean** ||
-|| enableMergejoin | **boolean** ||
-|| enableNestloop | **boolean** ||
-|| enableSeqscan | **boolean** ||
-|| enableSort | **boolean** ||
-|| enableTidscan | **boolean** ||
+|| defaultWithOids | **boolean**
+
+WITH OIDS is no longer supported; this can only be false. ||
+|| escapeStringWarning | **boolean**
+
+Warn about backslash escapes in ordinary string literals. ||
+|| loCompatPrivileges | **boolean**
+
+Enables backward compatibility mode for privilege checks on large objects. Skips privilege checks
+when reading or modifying large objects, for compatibility with PostgreSQL releases prior to 9.0. ||
+|| quoteAllIdentifiers | **boolean**
+
+When generating SQL fragments, quote all identifiers. ||
+|| standardConformingStrings | **boolean**
+
+Causes '...' strings to treat backslashes literally. ||
+|| synchronizeSeqscans | **boolean**
+
+Enable synchronized sequential scans. ||
+|| transformNullEquals | **boolean**
+
+Treats \"expr=NULL\" as \"expr IS NULL\". When turned on, expressions of the form expr = NULL
+(or NULL = expr) are treated as expr IS NULL, that is, they return true if expr evaluates to the
+null value, and false otherwise. The correct behavior of expr = NULL is to always return null (unknown). ||
+|| exitOnError | **boolean**
+
+Terminate session on any error. ||
+|| seqPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a sequentially fetched disk page.
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a nonsequentially fetched disk page.
+
+The minimum value is 0. ||
+|| enableBitmapscan | **boolean**
+
+Enables the planner's use of bitmap-scan plans. ||
+|| enableHashagg | **boolean**
+
+Enables the planner's use of hashed aggregation plans. ||
+|| enableHashjoin | **boolean**
+
+Enables the planner's use of hash join plans. ||
+|| enableIndexscan | **boolean**
+
+Enables the planner's use of index-scan plans. ||
+|| enableIndexonlyscan | **boolean**
+
+Enables the planner's use of index-only-scan plans. ||
+|| enableMaterial | **boolean**
+
+Enables the planner's use of materialization. ||
+|| enableMergejoin | **boolean**
+
+Enables the planner's use of merge join plans. ||
+|| enableNestloop | **boolean**
+
+Enables the planner's use of nested-loop join plans. ||
+|| enableSeqscan | **boolean**
+
+Enables the planner's use of sequential-scan plans. ||
+|| enableSort | **boolean**
+
+Enables the planner's use of explicit sort steps. ||
+|| enableTidscan | **boolean**
+
+Enables the planner's use of TID scan plans. ||
 || maxParallelWorkers | **string** (int64)
+
+Sets the maximum number of parallel workers that can be active at one time.
 
 Acceptable values are 0 to 1024, inclusive. ||
 || maxParallelWorkersPerGather | **string** (int64)
 
+Sets the maximum number of parallel processes per executor node.
+
 Acceptable values are 0 to 1024, inclusive. ||
-|| timezone | **string** ||
+|| timezone | **string**
+
+Sets the time zone for displaying and interpreting time stamps. ||
 || effectiveIoConcurrency | **string** (int64)
+
+Number of simultaneous requests that can be handled efficiently by the disk subsystem.
 
 Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
-Acceptable values are 0 to 549755813888, inclusive. ||
+Sets the planner's assumption about the effective size of the disk cache available to a single query. In bytes.
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || idleSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when not in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 |#

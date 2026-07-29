@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Сделать рабочий процесс публичным
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 Сделайте рабочий процесс публичным, чтобы любой пользователь мог запустить его.
 
 {% list tabs group=instructions %}

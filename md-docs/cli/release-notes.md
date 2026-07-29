@@ -1,14 +1,45 @@
-[Документация Yandex Cloud](../index.md) > [Интерфейс командной строки](index.md) > Релизы CLI
+[Документация Yandex Cloud](../index.md) > [Интерфейс командной строки](index.md) > Релизы
 
-# Релизы CLI
+# Релизы Yandex Cloud CLI
 
 ## Текущая версия {#latest-release}
 
-### Версия 1.21.0 (27.07.26) {#v-1-21-0}
+### Версия 1.21.0 (29.07.26) {#v-1-21-0}
 
 #### BareMetal {#v-1-21-0-baremetal-name}
 
 * Добавлена команда `yc baremetal image resolve` для получения доступных опубликованных образов по каждому family.
+
+#### Identity and Access Management {#v-1-21-0-iam-name}
+
+* В команду `yc iam access-key issue-ephemeral` добавлены параметры `--aws-profile` и `--aws-credentials-file`, позволяющие записывать эфемерный ключ напрямую в файл учетных данных AWS вместо вывода в STDOUT.
+
+#### Managed Service for Apache Kafka® {#v-1-21-0-mkf-name}
+
+* Добавлена поддержка параметра `--log-message-timestamp-type` для управления типом временной метки сообщений на уровне кластера Kafka:
+  * `yc managed-kafka cluster create`;
+  * `yc managed-kafka cluster update`.
+
+#### Managed Service for MySQL® {#v-1-21-0-mmy-name}
+
+* В команду `yc managed-mysql cluster restore` добавлен параметр `--source-cluster-id`, который позволяет выбирать кластер для восстановления.
+
+#### Managed Service for PostgreSQL {#v-1-21-0-mpg-name}
+
+* В команду `yc managed-greenplum cluster restore` добавлены параметры `--restore-pxf` и `--restore-hba` для восстановления настроек PXF и аутентификации пользователя при восстановлении кластера Greenplum® из резервной копии.
+
+* Добавлена группа команд для получения данных диагностики производительности в Managed Service for PostgreSQL:
+  * `yc managed-postgresql performance-diagnostics list-raw-sessions`;
+  * `yc managed-postgresql performance-diagnostics list-raw-statements`.
+
+#### Smart Web Security {#v-1-21-0-sws-name}
+
+* Добавлена группа команд `yc smartwebsecurity custom-page` для управления пользовательскими страницами:
+  * `yc smartwebsecurity custom-page get`;
+  * `yc smartwebsecurity custom-page list`;
+  * `yc smartwebsecurity custom-page create`;
+  * `yc smartwebsecurity custom-page update`;
+  * `yc smartwebsecurity custom-page delete`.
 
 ## Предыдущие релизы {#previous-release}
 

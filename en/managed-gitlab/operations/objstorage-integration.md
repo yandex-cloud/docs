@@ -5,6 +5,12 @@ description: Follow this guide to enable storing {{ GL }} data in {{ objstorage-
 
 # Integration with {{ objstorage-name }}
 
+{% note warning %}
+
+Before enabling integration with {{ objstorage-name }}, make sure the [security group](configure-security-group.md) of the {{ mgl-name }} instance allows incoming connections on port `80` from external IP addresses of {{ lets-encrypt }}. Read more on [{{ objstorage-name }} integration limitations](../concepts/s3-integration.md#restrictions).
+
+{% endnote %}
+
 Integration with {{ objstorage-name }} allows you to reduce the amount of data on the [instance](../concepts/index.md#instance) disks to prevent their overflow. You can select data types to store in {{ objstorage-name }}:
 
 {% include [s3-object-type](../../_includes/managed-gitlab/s3-object-type.md) %}

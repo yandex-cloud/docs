@@ -5,6 +5,6 @@
 
       {% note info %}
 
-      If you created the policy via the management console, subsequent updates of backup retention settings will take effect only after a next backup is created. If the changes have not taken effect, [disassociate](../../backup/operations/policy-vm/detach-vm.md) the policy from the VM or {{ baremetal-name }} server and then [reassociate](../../backup/operations/policy-vm/attach-and-detach-vm.md) it.
+      If you created the policy via the management console, subsequent updates of backup retention settings will take effect only after a next backup is created. If the changes have not taken effect, [disassociate](../../backup/operations/policy-vm/detach-vm.md) the policy from the resource and then [reassociate](../../backup/operations/policy-vm/attach-and-detach-vm.md) it.
 
       {% endnote %}

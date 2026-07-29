@@ -17,6 +17,8 @@ keywords:
 
 {% include [workflows-preview-note](../../_includes/serverless-integrations/workflows-preview-note.md) %}
 
+{% include [workflows-ai-studio-note](../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 С помощью этой инструкции вы создадите [рабочий процесс](../concepts/workflows/workflow.md) и запустите его. Во время выполнения рабочего процесса будут вызываться [функции](../../functions/concepts/function.md) [{{ sf-full-name }}](../../functions/).
 
 

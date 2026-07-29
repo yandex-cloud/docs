@@ -1374,7 +1374,7 @@ Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `p
 || tempFileLimit | **string** (int64) ||
 || backendFlushAfter | **string** (int64)
 
-Acceptable values are 0 to 2048, inclusive. ||
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || maxStandbyStreamingDelay | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
@@ -1498,8 +1498,12 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || synchronizeSeqscans | **boolean** ||
 || transformNullEquals | **boolean** ||
 || exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
+|| seqPageCost | **number** (double)
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+The minimum value is 0. ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
 || enableHashjoin | **boolean** ||
@@ -1537,7 +1541,7 @@ Acceptable values are 1048576 to 549755813888, inclusive. ||
 || tempFileLimit | **string** (int64) ||
 || backendFlushAfter | **string** (int64)
 
-Acceptable values are 0 to 2048, inclusive. ||
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || maxStandbyStreamingDelay | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
@@ -1661,8 +1665,12 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || synchronizeSeqscans | **boolean** ||
 || transformNullEquals | **boolean** ||
 || exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
+|| seqPageCost | **number** (double)
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+The minimum value is 0. ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
 || enableHashjoin | **boolean** ||
@@ -1700,7 +1708,7 @@ Acceptable values are 1048576 to 549755813888, inclusive. ||
 || tempFileLimit | **string** (int64) ||
 || backendFlushAfter | **string** (int64)
 
-Acceptable values are 0 to 2048, inclusive. ||
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || maxStandbyStreamingDelay | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
@@ -1824,8 +1832,12 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || synchronizeSeqscans | **boolean** ||
 || transformNullEquals | **boolean** ||
 || exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
+|| seqPageCost | **number** (double)
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+The minimum value is 0. ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
 || enableHashjoin | **boolean** ||
@@ -1863,7 +1875,7 @@ Acceptable values are 1048576 to 549755813888, inclusive. ||
 || tempFileLimit | **string** (int64) ||
 || backendFlushAfter | **string** (int64)
 
-Acceptable values are 0 to 2048, inclusive. ||
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || maxStandbyStreamingDelay | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
@@ -1987,8 +1999,12 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || synchronizeSeqscans | **boolean** ||
 || transformNullEquals | **boolean** ||
 || exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
+|| seqPageCost | **number** (double)
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+The minimum value is 0. ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
 || enableHashjoin | **boolean** ||
@@ -2026,7 +2042,7 @@ Acceptable values are 1048576 to 549755813888, inclusive. ||
 || tempFileLimit | **string** (int64) ||
 || backendFlushAfter | **string** (int64)
 
-Acceptable values are 0 to 2048, inclusive. ||
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || maxStandbyStreamingDelay | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
@@ -2149,8 +2165,12 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || synchronizeSeqscans | **boolean** ||
 || transformNullEquals | **boolean** ||
 || exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
+|| seqPageCost | **number** (double)
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+The minimum value is 0. ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
 || enableHashjoin | **boolean** ||
@@ -2191,7 +2211,7 @@ Acceptable values are 0 to 2147483647, inclusive. ||
 || tempFileLimit | **string** (int64) ||
 || backendFlushAfter | **string** (int64)
 
-Acceptable values are 0 to 2048, inclusive. ||
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || maxStandbyStreamingDelay | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
@@ -2314,8 +2334,12 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || synchronizeSeqscans | **boolean** ||
 || transformNullEquals | **boolean** ||
 || exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
+|| seqPageCost | **number** (double)
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+The minimum value is 0. ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
 || enableHashjoin | **boolean** ||
@@ -2356,7 +2380,7 @@ Acceptable values are 0 to 2147483647, inclusive. ||
 || tempFileLimit | **string** (int64) ||
 || backendFlushAfter | **string** (int64)
 
-Acceptable values are 0 to 2048, inclusive. ||
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || maxStandbyStreamingDelay | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
@@ -2479,8 +2503,12 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || synchronizeSeqscans | **boolean** ||
 || transformNullEquals | **boolean** ||
 || exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
+|| seqPageCost | **number** (double)
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+The minimum value is 0. ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
 || enableHashjoin | **boolean** ||
@@ -2521,7 +2549,7 @@ Acceptable values are 0 to 2147483647, inclusive. ||
 || tempFileLimit | **string** (int64) ||
 || backendFlushAfter | **string** (int64)
 
-Acceptable values are 0 to 2048, inclusive. ||
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || maxStandbyStreamingDelay | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
@@ -2644,8 +2672,12 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || synchronizeSeqscans | **boolean** ||
 || transformNullEquals | **boolean** ||
 || exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
+|| seqPageCost | **number** (double)
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+The minimum value is 0. ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
 || enableHashjoin | **boolean** ||
@@ -2686,7 +2718,7 @@ Acceptable values are 0 to 2147483647, inclusive. ||
 || tempFileLimit | **string** (int64) ||
 || backendFlushAfter | **string** (int64)
 
-Acceptable values are 0 to 2048, inclusive. ||
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || maxStandbyStreamingDelay | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
@@ -2812,8 +2844,12 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || synchronizeSeqscans | **boolean** ||
 || transformNullEquals | **boolean** ||
 || exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
+|| seqPageCost | **number** (double)
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+The minimum value is 0. ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
 || enableHashjoin | **boolean** ||
@@ -2854,7 +2890,7 @@ Acceptable values are 0 to 2147483647, inclusive. ||
 || tempFileLimit | **string** (int64) ||
 || backendFlushAfter | **string** (int64)
 
-Acceptable values are 0 to 2048, inclusive. ||
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || maxStandbyStreamingDelay | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
@@ -2980,8 +3016,12 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || synchronizeSeqscans | **boolean** ||
 || transformNullEquals | **boolean** ||
 || exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
+|| seqPageCost | **number** (double)
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+The minimum value is 0. ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
 || enableHashjoin | **boolean** ||
@@ -3022,7 +3062,7 @@ Acceptable values are 0 to 2147483647, inclusive. ||
 || tempFileLimit | **string** (int64) ||
 || backendFlushAfter | **string** (int64)
 
-Acceptable values are 0 to 2048, inclusive. ||
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxStandbyStreamingDelay | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
@@ -3149,8 +3189,12 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || synchronizeSeqscans | **boolean** ||
 || transformNullEquals | **boolean** ||
 || exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
+|| seqPageCost | **number** (double)
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+The minimum value is 0. ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
 || enableHashjoin | **boolean** ||
@@ -3174,7 +3218,7 @@ Acceptable values are 0 to 1024, inclusive. ||
 Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
-Acceptable values are 0 to 549755813888, inclusive. ||
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || idleSessionTimeout | **string** (int64)
 
 Acceptable values are 0 to 2147483647, inclusive. ||
@@ -3191,7 +3235,7 @@ Acceptable values are 0 to 2147483647, inclusive. ||
 || tempFileLimit | **string** (int64) ||
 || backendFlushAfter | **string** (int64)
 
-Acceptable values are 0 to 2048, inclusive. ||
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxStandbyStreamingDelay | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
@@ -3318,8 +3362,12 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || synchronizeSeqscans | **boolean** ||
 || transformNullEquals | **boolean** ||
 || exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
+|| seqPageCost | **number** (double)
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+The minimum value is 0. ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
 || enableHashjoin | **boolean** ||
@@ -3343,7 +3391,7 @@ Acceptable values are 0 to 1024, inclusive. ||
 Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
-Acceptable values are 0 to 549755813888, inclusive. ||
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || idleSessionTimeout | **string** (int64)
 
 Acceptable values are 0 to 2147483647, inclusive. ||
@@ -3360,7 +3408,7 @@ Acceptable values are 0 to 2147483647, inclusive. ||
 || tempFileLimit | **string** (int64) ||
 || backendFlushAfter | **string** (int64)
 
-Acceptable values are 0 to 2048, inclusive. ||
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxStandbyStreamingDelay | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
@@ -3487,8 +3535,12 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || synchronizeSeqscans | **boolean** ||
 || transformNullEquals | **boolean** ||
 || exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
+|| seqPageCost | **number** (double)
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+The minimum value is 0. ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
 || enableHashjoin | **boolean** ||
@@ -3512,7 +3564,7 @@ Acceptable values are 0 to 1024, inclusive. ||
 Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
-Acceptable values are 0 to 549755813888, inclusive. ||
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || idleSessionTimeout | **string** (int64)
 
 Acceptable values are 0 to 2147483647, inclusive. ||
@@ -3529,7 +3581,7 @@ Acceptable values are 0 to 2147483647, inclusive. ||
 || tempFileLimit | **string** (int64) ||
 || backendFlushAfter | **string** (int64)
 
-Acceptable values are 0 to 2048, inclusive. ||
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxStandbyStreamingDelay | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
@@ -3656,8 +3708,12 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || synchronizeSeqscans | **boolean** ||
 || transformNullEquals | **boolean** ||
 || exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
+|| seqPageCost | **number** (double)
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+The minimum value is 0. ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
 || enableHashjoin | **boolean** ||
@@ -3681,7 +3737,7 @@ Acceptable values are 0 to 1024, inclusive. ||
 Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
-Acceptable values are 0 to 549755813888, inclusive. ||
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || idleSessionTimeout | **string** (int64)
 
 Acceptable values are 0 to 2147483647, inclusive. ||

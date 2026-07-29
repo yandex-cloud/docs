@@ -1661,8 +1661,6 @@ items:
             href: serverless/postfix-integration.md
       - name: Serverless-based bots
         items:
-          - name: Developing a Slack bot
-            href: serverless/slack-bot-serverless.md
           - name: Developing a Telegram bot
             items:
               - name: Overview

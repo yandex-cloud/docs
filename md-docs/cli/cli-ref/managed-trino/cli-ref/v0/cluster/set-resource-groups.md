@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-trino](../../index.md) > [v0](../index.md) > [cluster](index.md) > set-resource-groups
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [managed-trino](../../index.md) > [v0](../index.md) > [cluster](index.md) > set-resource-groups
 
 # yc managed-trino v0 cluster set-resource-groups
 

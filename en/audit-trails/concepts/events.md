@@ -67,6 +67,12 @@ Service name: `cloudapps`.
 
 {% include [cloud-apps-events](../../_includes/audit-trails/events/cloud-apps-events.md) %}
 
+## {{ connection-manager-full-name }} {#connection-manager}
+
+Service name: `connectionmanager`.
+
+{% include [connectionmanager-events](../../_includes/audit-trails/events/connectionmanager-events.md) %}
+
 ## {{ backup-full-name }} {#backup}
 
 Service name: `backup`.
@@ -328,6 +334,12 @@ Service name: `ytsaurus`.
 
 {% include [ytsaurus-events](../../_includes/audit-trails/events/ytsaurus-events.md) %}
 
+## {{ cns-full-name }} {#notifications}
+
+Service name: `notifications`.
+
+{% include [notifications-events](../../_includes/audit-trails/events/notifications-events.md) %}
+
 ## {{ resmgr-full-name }} {#resmgr}
 
 Service name: `resourcemanager`.
@@ -355,6 +367,12 @@ Module name: `securitydeck.kspm`.
 Module name: `securitydeck.cspm`.
 
 {% include [sd-cspm-events](../../_includes/audit-trails/events/sd-cspm-events.md) %}
+
+### Data Security Posture Management ({{ dspm-name }}) {#sd-dspm}
+
+Module name: `securitydeck.dspm`.
+
+{% include [sd-dspm-events](../../_includes/audit-trails/events/sd-dspm-events.md) %}
 
 ### {{ alerts-name }} {#sd-alerts}
 
@@ -403,5 +421,11 @@ Service name: `network`.
 Service name: `websql`.
 
 {% include [websql-events](../../_includes/audit-trails/events/websql-events.md) %}
+
+## {{ sw-full-name }} {#workflows}
+
+Service name: `serverless.workflows`.
+
+{% include [workflows-events](../../_includes/audit-trails/events/workflows-events.md) %}
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

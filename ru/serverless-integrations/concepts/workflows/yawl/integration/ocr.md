@@ -5,6 +5,8 @@ description: В статье описаны поля для интеграцио
 
 # OCR
 
+{% include [workflows-ai-studio-note](../../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 Распознавание текста на изображениях с помощью сервиса [{{ vision-full-name }}]({{ link-docs-ai }}vision/concepts/ocr/).
 
 Поля `base64`, `url`, `objectStorage` и `disk` — взаимоисключающие, можно использовать только одно из них.

@@ -20,9 +20,9 @@ items:
           Creating a website in Ghost CMS High Availability using {{
           cloud-apps-name }}
         href: tutorials/ghost-cms-cloudapp.md
-      - name: Installing Gatsby using {{ cloud-apps-name }}
+      - name: Creating a Gatsby website using {{ cloud-apps-name }}
         href: tutorials/gatsby-static-site-cloudapp.md
-      - name: Installing Hugo using {{ cloud-apps-name }}
+      - name: Creating a Hugo website using {{ cloud-apps-name }}
         href: tutorials/hugo-static-site-cloudapp.md
   - name: Access management
     href: security/index.md

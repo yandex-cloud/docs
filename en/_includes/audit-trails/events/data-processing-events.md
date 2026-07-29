@@ -4,7 +4,9 @@ Event name | Description
 `CreateSubcluster` | Creating a subcluster
 `DeleteCluster` | Deleting a cluster
 `DeleteSubcluster` | Deleting a subcluster
+`SetClusterAccessBindings` | Assigning access permissions for a cluster
 `StartCluster` | Starting a cluster
 `StopCluster` | Stopping a cluster
 `UpdateCluster` | Updating a cluster
-`UpdateSubcluster` | Updating subclusters
+`UpdateClusterAccessBindings` | Updating access permissions for a cluster
+`UpdateSubcluster` | Updating a subcluster

@@ -5,6 +5,8 @@ description: Вы можете посмотреть график монитор�
 
 # Посмотреть логи рабочего процесса
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 Время в журнале указано по [UTC](https://ru.wikipedia.org/wiki/Всемирное_координированное_время).
 
 {% list tabs group=instructions %}

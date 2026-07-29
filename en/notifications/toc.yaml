@@ -176,7 +176,9 @@ items:
             href: api-ref/delete-sms-sandbox-phone-number.md
       - name: Publish
         href: api-ref/publish.md
-  - name: '{{ monitoring-name }} metrics'
+  - name: '{{ at-name }} events'
+    href: at-ref.md
+  - name: Metrics {{ monitoring-name }}
     href: metrics.md
   - name: Logs {{ cloud-logging-name }}
     href: concepts/logging.md

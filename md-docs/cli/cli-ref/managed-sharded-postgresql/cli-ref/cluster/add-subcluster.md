@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-sharded-postgresql](../index.md) > [cluster](index.md) > add-subcluster
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник (англ.)](../../../index.md) > [managed-sharded-postgresql](../index.md) > [cluster](index.md) > add-subcluster
 
 # yc managed-sharded-postgresql cluster add-subcluster
 

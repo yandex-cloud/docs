@@ -3,7 +3,7 @@ title: Инструкции по работе с интерфейсом кома
 description: Из статьи вы узнаете как работать с интерфейсом командной строки в {{ yandex-cloud }}. Рассказываем о том, как выполнить аутентификацию от имени пользователя или сервисного аккаунта, как управлять профилем (создавать, удалять, активировать, изменять параметры).
 ---
 
-# Все инструкции CLI
+# Все инструкции для {{ yandex-cloud }} CLI
 
 - [{#T}](install-cli.md) 
 - [{#T}](update-cli.md)
@@ -24,4 +24,5 @@ description: Из статьи вы узнаете как работать с и
 - [{#T}](authentication/service-account.md)
 - [{#T}](authentication/federated-user.md)
 - [{#T}](authentication/local-user.md)
+- [{#T}](authentication/iam-token-env.md)
 - [{#T}](authentication/auth-without-gui.md)

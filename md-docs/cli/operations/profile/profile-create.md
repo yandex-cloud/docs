@@ -1,6 +1,6 @@
-[Документация Yandex Cloud](../../../index.md) > [Интерфейс командной строки](../../index.md) > [Пошаговые инструкции](../index.md) > Управление профилем > Создание профиля
+[Документация Yandex Cloud](../../../index.md) > [Интерфейс командной строки](../../index.md) > [Пошаговые инструкции](../index.md) > Управление профилем > Создание
 
-# Создание профиля
+# Создание профиля Yandex Cloud CLI
 
 Создать профиль можно двумя способами:
 
@@ -34,6 +34,14 @@
 Если по какой-то причине вы не можете использовать сервисный аккаунт, выполните аутентификацию через [SSH-туннель](../authentication/auth-without-gui.md#linux-vm-auth) или с помощью [форвардинга X11](../authentication/auth-without-gui.md#auth-without-gui).
 
 {% endnote %}
+
+
+{% note tip %}
+
+Если доступ к Yandex Cloud в вашей организации осуществляется через прокси-сервер, перед выполнением команды `yc init` [настройте подключение CLI к прокси-серверу](../../concepts/index.md#cli-via-proxy).
+
+{% endnote %}
+
 
 {% list tabs group=authentication %}
 
@@ -152,6 +160,18 @@
        ```
     
     
+    
+       {% note info %}
+    
+       В случае отсутствия на сервере графического интерфейса и браузера возникает ошибка:
+       
+       ```text
+       ERROR: fill default credentials: federation id authentication is not supported on this system because the browser can not be opened
+       ```
+       
+       [Аутентифицируйтесь сервисным аккаунтом](../authentication/service-account.md). Также вы можете использовать [SSH-туннель](../authentication/auth-without-gui.md#linux-vm-auth) или [форвардинг X11](../authentication/auth-without-gui.md#auth-without-gui).
+    
+       {% endnote %}
     
     1. Выберите профиль, для которого вы хотите настроить аутентификацию, или создайте новый.
     

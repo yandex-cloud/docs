@@ -6,6 +6,7 @@ Event name | Description
 `CreateLoadBalancer` | Creating a proxy server
 `CreateMatchList` | Creating an address list
 `CreateSecurityProfile` | Creating a security profile
+`CreateSolidWafProfile` | Creating a SolidWall WAF profile
 `CreateWafProfile` | Creating a WAF profile
 `DeleteArlProfile` | Deleting an ARL profile
 `DeleteCustomPage` | Deleting a response page template
@@ -13,6 +14,7 @@ Event name | Description
 `DeleteLoadBalancer` | Deleting a proxy server
 `DeleteMatchList` | Deleting an address list
 `DeleteSecurityProfile` | Deleting a security profile
+`DeleteSolidWafProfile` | Deleting a SolidWall WAF profile
 `DeleteWafProfile` | Deleting a WAF profile
 `StartLoadBalancer` | Starting a proxy server
 `StopLoadBalancer` | Stopping a proxy server
@@ -22,4 +24,5 @@ Event name | Description
 `UpdateLoadBalancer` | Updating a proxy server
 `UpdateMatchList` | Updating an address list
 `UpdateSecurityProfile` | Updating a security profile
+`UpdateSolidWafProfile` | Updating a SolidWall WAF profile
 `UpdateWafProfile` | Updating a WAF profile

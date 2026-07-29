@@ -34,7 +34,7 @@ Additional labels:
 
 Composite metrics aggregating multiple indicators to quickly assess the status of a cluster or individual component. The signal values ​​are interpreted as follows:
 
-| Numeric value | Stage | Description |
+| Numeric value | Status | Description |
 | :--- | :--- | :--- |
 | `2` | **OK** (Green) | All important cluster or component indicators are within acceptable boundaries. The system is operating normally. |
 | `1` | **Warn** (Yellow) | Deviations are detected according to one or more indicators. The cluster or component is functioning but may require attention. |
@@ -76,7 +76,7 @@ Odyssey connection pooler metrics.
 | `pooler.is_available`<br/>`DGAUGE` | Pooler availability indicator for the last 5 minutes. `1`: available, `0`: unavailable. |
 | `pooler.cpu_limit_warn`<br/>`DGAUGE`, % | Pooler CPU utilization warning threshold. |
 | `pooler.memory_limit_warn`<br/>`DGAUGE`, bytes | Pooler memory consumption warning threshold. |
-| `pooler.bytes_sent`<br/>`DGAUGE`, bytes per second | Data send speed from pooler to clients. |
+| `pooler.bytes_sent`<br/>`DGAUGE`, bytes | Total sent data size. |
 | `pooler.bytes_received`<br/>`DGAUGE`, bytes per second | Data receive speed from clients by pooler. |
 | `pooler.used_servers`<br/>`DGAUGE`, count | Number of active server connections (pooler → DMBS). |
 | `pooler.free_servers`<br/>`DGAUGE`, count | Number of free server connections in the pool. |

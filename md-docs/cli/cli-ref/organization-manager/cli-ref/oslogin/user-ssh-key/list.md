@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [organization-manager](../../index.md) > [oslogin](../index.md) > [user-ssh-key](index.md) > list
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [organization-manager](../../index.md) > [oslogin](../index.md) > [user-ssh-key](index.md) > list
 
 # yc organization-manager oslogin user-ssh-key list
 

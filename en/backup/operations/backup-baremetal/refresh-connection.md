@@ -1,6 +1,6 @@
 ---
 title: How to update a {{ baremetal-full-name }} server connection to {{ backup-full-name }}
-description: Follow this guide to update a {{ baremetal-name }} server connection to {{ backup-name }}.
+description: Follow this guide to update a {{ baremetal-full-name }} server connection to {{ backup-full-name }}.
 ---
 
 # Reconnecting a {{ baremetal-full-name }} server to {{ backup-name }}

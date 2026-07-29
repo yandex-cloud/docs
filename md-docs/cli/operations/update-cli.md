@@ -1,6 +1,6 @@
-[Документация Yandex Cloud](../../index.md) > [Интерфейс командной строки](../index.md) > [Пошаговые инструкции](index.md) > Обновление CLI
+[Документация Yandex Cloud](../../index.md) > [Интерфейс командной строки](../index.md) > [Пошаговые инструкции](index.md) > Обновление
 
-# Обновление CLI
+# Обновление Yandex Cloud CLI
 
 ## Посмотреть версию CLI {#see-version}
 
@@ -16,7 +16,7 @@ yc version
 Yandex Cloud CLI 0.144.0 darwin/arm64
 ```
 
-Информация о версиях CLI представлена на странице [Релизы CLI](../release-notes.md).
+Информация о версиях CLI представлена на странице [Релизы Yandex Cloud CLI](../release-notes.md).
 
 ## Обновить CLI {#update}
 

@@ -9,7 +9,7 @@ items:
         href: quickstart.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-      - name: Обучающие курсы
+      - name: Обучающие материалы
         href: training.md
   - name: Воркбуки и коллекции
     items:
@@ -962,6 +962,12 @@ items:
         href: reports/versioning.md
       - name: Нейроаналитик в отчетах
         href: reports/insights.md
+  - name: HTML-страницы
+    items:
+      - name: Обзор
+        href: html-pages/index.md
+      - name: Версионирование
+        href: html-pages/versioning.md
   - name: Публикация и встраивание
     items:
       - name: Обзор
