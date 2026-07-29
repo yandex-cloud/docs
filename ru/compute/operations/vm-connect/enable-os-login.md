@@ -108,7 +108,7 @@ description: Следуя данной инструкции, вы сможете
       Выполните команду:
 
       ```bash
-      yc compute instance update
+      yc compute instance update \
         --name <имя_ВМ> \
         --folder-id <идентификатор_каталога> \
         --metadata enable-oslogin=false
@@ -117,7 +117,7 @@ description: Следуя данной инструкции, вы сможете
       Убедитесь, что доступ по {{ oslogin }} выключен:
 
       ```bash
-      yc compute ssh
+      yc compute ssh \
         --name <имя_ВМ> \
         --folder-id <идентификатор_каталога>
       ```

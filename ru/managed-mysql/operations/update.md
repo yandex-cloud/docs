@@ -97,7 +97,7 @@ description: Из статьи вы узнаете, как изменить на
   1. Укажите нужный класс в команде изменения кластера:
 
       ```bash
-      {{ yc-mdb-my }} cluster update <имя_или_идентификатор_кластера>
+      {{ yc-mdb-my }} cluster update <имя_или_идентификатор_кластера> \
         --resource-preset <идентификатор_класса>
       ```
 
@@ -419,7 +419,7 @@ description: Из статьи вы узнаете, как изменить на
      Все поддерживаемые параметры перечислены в [формате запроса для метода update](../api-ref/Cluster/update.md), в поле `mysql_config_5_7`. Чтобы указать имя параметра в вызове CLI, преобразуйте его имя из вида <q>lowerCamelCase</q> в <q>snake_case</q>, например, параметр `logMinDurationStatement` из запроса к API преобразуется в `log_min_duration_statement` для команды CLI:
 
      ```bash
-     {{ yc-mdb-my }} cluster update-config <имя_кластера>
+     {{ yc-mdb-my }} cluster update-config <имя_кластера> \
        --set log_min_duration_statement=100,<имя_параметра>=<значение>,...
      ```
 

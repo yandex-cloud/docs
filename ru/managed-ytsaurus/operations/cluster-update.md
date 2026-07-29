@@ -180,7 +180,7 @@ keywords:
         curl \
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://{{ api-host-ytsaurus }}/ytsaurus/v1/clusters'
+            --url 'https://{{ api-host-ytsaurus }}/ytsaurus/v1/clusters' \
             --data '@body.json'
         ```
 

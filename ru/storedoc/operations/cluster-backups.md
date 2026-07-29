@@ -916,7 +916,7 @@ description: Вы можете создавать резервные копии 
         curl \
            --request GET \
            --header "Authorization: Bearer $IAM_TOKEN" \
-           --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/backups'
+           --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/backups' \
            --url-query folderId=<идентификатор_каталога>
         ```
 

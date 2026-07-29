@@ -1380,7 +1380,7 @@ yc compute instance update <ID_виртуальной_машины> \
 
       ```bash
       export ORG_ID=<ID_организации>
-      yc organization-manager organization list-access-bindings
+      yc organization-manager organization list-access-bindings \
         --id=${ORG_ID} \
         --format=json | jq -r '.[] | select(.role_id=="admin" or .role_id=="editor" or .role_id=="organization-manager.organizations.owner" or .role_id=="organization-manager.admin" or .role_id=="resource-manager.clouds.owner" or role_id=="resource-manager.clouds.editor")'
       ```

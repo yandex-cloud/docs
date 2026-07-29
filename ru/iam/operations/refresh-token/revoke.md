@@ -44,7 +44,7 @@ description: Следуя данной инструкции, вы сможете
 
       ```bash
       yc iam refresh-token revoke \
-        --refresh-token <тело_refresh-токена_в_stdin>
+        --refresh-token <тело_refresh-токена_в_stdin> \
         --refresh-token-id <идентификатор_refresh-токена> \
         --subject-id <идентификатор_пользователя> \
         --client-id <идентификатор_OAuth-приложения> \

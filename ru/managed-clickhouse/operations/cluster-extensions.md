@@ -309,7 +309,7 @@
      curl \
        --request POST \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/extensions'
+       --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/extensions' \
        --data '{
                  "extensionSpec": {
                    "name": "<имя_расширения>"
@@ -385,7 +385,7 @@
      curl \
        --request PATCH \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/extensions'
+       --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/extensions' \
        --data '{
                  "extensionSpec": {
                    "name": "<имя_расширения>"
@@ -522,7 +522,7 @@
      curl \
        --request POST \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/extensions:batchSet'
+       --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/extensions:batchSet' \
        --data '{
                  "extensionSpec": [
                    {

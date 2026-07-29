@@ -212,7 +212,7 @@
 
       ```bash
       curl \
-        --user admin:<пароль>
+        --user admin:<пароль> \
         --cacert ~/.opensearch/root.crt \
         -X POST 'https://<FQDN_хоста_с_ролью_DATA>:{{ port-mos }}/_nodes/reload_secure_settings'
       ```

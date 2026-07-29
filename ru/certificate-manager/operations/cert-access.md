@@ -161,8 +161,8 @@ description: Следуя данной инструкции, вы сможете
 
       ```bash
       yc certificate-manager certificate set-access-bindings my-certificate \
-        --access-binding role=editor,subject=userAccount:gfei8n54hmfh********
-        --access-binding role=viewer,subject=userAccount:helj89sfj80a********
+        --access-binding role=editor,subject=userAccount:gfei8n54hmfh******** \
+        --access-binding role=viewer,subject=userAccount:helj89sfj80a******** \
         --access-binding role=editor,subject=serviceAccount:ajel6l0jcb9s********
       ```
 

@@ -49,7 +49,7 @@
 
       ```bash
       yc iam service-account create \
-        --name github-action
+        --name github-action \
         --folder-name <имя_каталога>
       ```
 

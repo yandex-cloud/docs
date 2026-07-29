@@ -44,7 +44,7 @@ description: Следуя данной инструкции, вы сможете
       ```bash
       yc application-load-balancer load-balancer disable-zones \
         <имя_или_идентификатор_балансировщика> \
-        --zones <зоны_доступности>
+        --zones <зоны_доступности> \
         --duration <время_отключения>
       ```
 
