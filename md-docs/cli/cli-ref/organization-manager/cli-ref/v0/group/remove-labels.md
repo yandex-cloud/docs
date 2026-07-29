@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [organization-manager](../../index.md) > [v0](../index.md) > [group](index.md) > remove-labels
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [organization-manager](../../index.md) > [v0](../index.md) > [group](index.md) > remove-labels
 
 # yc organization-manager v0 group remove-labels
 

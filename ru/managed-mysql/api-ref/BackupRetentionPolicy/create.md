@@ -29,6 +29,7 @@ apiPlayground:
           description: |-
             **string** (int64)
             Retention duration.
+            Acceptable values are 7 to 1095, inclusive.
           type: string
           format: int64
         description:
@@ -112,7 +113,9 @@ The maximum string length in characters is 50. ||
 CronTab schedule. ||
 || retainForDays | **string** (int64)
 
-Retention duration. ||
+Retention duration.
+
+Acceptable values are 7 to 1095, inclusive. ||
 || description | **string**
 
 Policy description. ||

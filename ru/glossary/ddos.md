@@ -94,6 +94,8 @@ DDoS-атаки — одна из главных угроз для интерн�
 
 * [Создание](../application-load-balancer/tutorials/alb-with-ddos-protection/index.md) L7-балансировщика [{{ alb-full-name }}](/services/application-load-balancer) с защитой от DDoS-атак.
 
+* [{{ sws-full-name }}](/services/smartwebsecurity) — сервис для защиты инфраструктуры от DDoS-атак и ботов на уровне приложений (L7).
+
 * [{{ vpc-full-name }}](../vpc/ddos-protection/) — сервис для управления облачными сетями с возможностью защиты от DDoS-атак. Подробнее в [документации](../vpc/).
 
 * Файрволы веб-приложений:

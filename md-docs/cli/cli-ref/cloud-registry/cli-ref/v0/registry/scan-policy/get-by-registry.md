@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [cloud-registry](../../../index.md) > [v0](../../index.md) > [registry](../index.md) > [scan-policy](index.md) > get-by-registry
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник (англ.)](../../../../../index.md) > [cloud-registry](../../../index.md) > [v0](../../index.md) > [registry](../index.md) > [scan-policy](index.md) > get-by-registry
 
 # yc cloud-registry v0 registry scan-policy get-by-registry
 

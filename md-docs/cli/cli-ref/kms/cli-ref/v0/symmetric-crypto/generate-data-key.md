@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [kms](../../index.md) > [v0](../index.md) > [symmetric-crypto](index.md) > generate-data-key
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [kms](../../index.md) > [v0](../index.md) > [symmetric-crypto](index.md) > generate-data-key
 
 # yc kms v0 symmetric-crypto generate-data-key
 

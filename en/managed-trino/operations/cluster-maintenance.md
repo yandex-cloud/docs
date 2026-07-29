@@ -75,13 +75,7 @@ To run a scheduled cluster maintenance job immediately:
 
 ## Configuring a maintenance window {#set-maintenance-window}
 
-By default, maintenance can be scheduled for any time. You can choose a specific day of the week and hour to schedule maintenance. For example, you can choose the time when the cluster is least busy.
-
-{% note warning %}
-
-A scheduled maintenance job will be canceled automatically if it falls outside the specified interval.
-
-{% endnote %}
+By default, [maintenance](../concepts/maintenance.md) can be scheduled for any time. You can choose a specific day of the week and time interval to schedule maintenance. For example, you can choose the time when the cluster is least busy.
 
 {% list tabs group=instructions %}
 
@@ -93,6 +87,168 @@ A scheduled maintenance job will be canceled automatically if it falls outside t
   1. Click ![image](../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.mdb.maintenance.action_maintenance-window-setup }}**.
   1. In the window that opens:
      * To allow maintenance at any time, select **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-anytime }}**, which is also the default option.
-     * To allow weekly maintenance at a specific time, select **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}** and specify the weekday and hour in UTC.
+     * To allow weekly maintenance at a specific time, select **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}** and specify the weekday and UTC time interval.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  To change your maintenance window settings:
+
+  1. View the description of the CLI command for updating a cluster:
+
+      ```bash
+      {{ yc-mdb-tr }} cluster update --help
+      ```
+
+  1. Run this command:
+
+        ```bash
+        {{ yc-mdb-tr }} cluster update <cluster_name_or_ID> \
+          --deletion-protection \
+          --maintenance-window type=<maintenance_type>,`
+                              `day=<day_of_week>,`
+                              `hour=<sequence_number_of_hour_interval>
+        ```
+
+        Where `type` is the maintenance type: 
+
+        {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
+
+        You can get the cluster name and ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
+
+- {{ TF }} {#tf}
+
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
+
+     To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
+
+  1. To change maintenance time (including for disabled clusters), add the `maintenance_window` section to the cluster description:
+
+     {% include [Terraform maintenance window parameters description](../../_includes/managed-trino/terraform/maintenance-window-parameters.md) %}
+
+     You can get the cluster name with the [list of clusters](cluster-list.md#list-clusters) in the folder.
+
+  1. Make sure the settings are correct.
+
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm updating the resources.
+
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+- REST API {#api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Create a file named `body.json` and paste the following code into it:
+
+      ```json
+      {
+        "updateMask": "maintenanceWindow",
+        "maintenanceWindow": {
+          "weeklyMaintenanceWindow": {
+            "day": "<day_of_week>",
+            "hour": "<sequence_number_of_hour_interval>"
+          }
+        }
+      }
+      ```
+
+     Where:
+
+        * `updateMask`: Comma-separated string of settings to update.
+
+            Here, we provide only one setting. 
+
+        * `maintenanceWindow`: Maintenance window settings, applying to both running and stopped clusters. Provide one of these two properties: 
+
+            * `anytime`: Maintenance takes place at any time.
+            * `weeklyMaintenanceWindow`: Maintenance takes place once a week at the specified time:
+
+                * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+                * `hour`: UTC hour interval, from `1` to `24`.
+
+                  > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
+
+  1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+      ```bash
+      curl \
+        --request PATCH \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<cluster_ID>'
+        --data '@body.json'
+      ```
+
+     You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
+
+  1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+  1. Create a file named `body.json` and paste the following code into it:
+
+      ```json
+      {
+        "cluster_id": "<cluster_ID>",
+        "update_mask": {
+          "paths": ["maintenance_window"]
+        },
+        "maintenance_window": {
+          "weekly_maintenance_window": {
+            "day": "<day_of_week>",
+            "hour": "<sequence_number_of_hour_interval>"
+          }
+        }
+      }
+      ```
+
+      Where:
+
+      * `cluster_id`: Cluster ID.
+
+          You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
+
+      * `update_mask`: List of settings to update as an array of strings (`paths[]`).
+
+          Here, we provide only one setting.
+
+      * `maintenance_window`: Maintenance window settings (including for disabled clusters). Provide one of these two properties:
+
+          * `anytime`: Maintenance takes place at any time.
+          * `weekly_maintenance_window`: Maintenance takes place once a week at the specified time:
+
+            * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+            * `hour`: UTC hour interval, from `1` to `24`.
+
+              > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
+
+  1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+      ```bash
+      grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/trino/v1/cluster_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d @ \
+        {{ api-host-trino }}:{{ port-https }} \
+        yandex.cloud.trino.v1.ClusterService.Update \
+        < body.json
+      ```
+
+  1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}

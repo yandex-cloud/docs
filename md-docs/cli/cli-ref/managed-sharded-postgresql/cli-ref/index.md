@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../index.md) > [Интерфейс командной строки](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > managed-sharded-postgresql > Overview
+[Документация Yandex Cloud](../../../../index.md) > [Интерфейс командной строки](../../../index.md) > [Справочник (англ.)](../../index.md) > managed-sharded-postgresql > Overview
 
 # yc managed-sharded-postgresql
 

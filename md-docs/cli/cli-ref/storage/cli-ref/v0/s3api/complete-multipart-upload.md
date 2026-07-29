@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [storage](../../index.md) > [v0](../index.md) > [s3api](index.md) > complete-multipart-upload
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [storage](../../index.md) > [v0](../index.md) > [s3api](index.md) > complete-multipart-upload
 
 # yc storage v0 s3api complete-multipart-upload
 

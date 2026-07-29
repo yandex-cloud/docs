@@ -11,6 +11,8 @@ keywords:
 
 # Рабочий процесс
 
+{% include [workflows-ai-studio-note](../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 _Рабочий процесс_ — событийно-ориентированное приложение, состоящее из [интеграционных](yawl/index.md#integration-steps) и [управляющих](yawl/index.md#management-steps) _шагов_ и переходов между ними. Возможные атрибуты шага:
 
 * название и описание;

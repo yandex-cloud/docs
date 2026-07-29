@@ -1,24 +1,28 @@
 ---
-title: How to restore a VM or {{ baremetal-name }} server from a backup of another VM or {{ baremetal-name }} server
-description: Use this guide to restore a VM or {{ baremetal-full-name }} server from a backup of another VM or {{ baremetal-name }} server.
+title: How to restore a {{ compute-name }} VM or {{ baremetal-name }} server from a backup of another VM or {{ backup-full-name }} server
+description: Use this guide to restore a {{ compute-name }} VM or {{ baremetal-name }} server from a backup of another VM or {{ backup-full-name }} server.
 ---
 
-# Restoring a VM or {{ baremetal-name }} server from a backup of another VM or {{ baremetal-name }} server
+# Restoring a {{ compute-name }} VM or {{ baremetal-name }} server from a backup of another VM or server
 
+
+{% note info %}
 
 {% include [vm-and-bms-backup-incompatibility](../../../_includes/backup/vm-and-bms-backup-incompatibility.md) %}
 
-If a folder contains multiple VMs or {{ baremetal-name }} servers connected to {{ backup-name }}, you can restore a VM or {{ baremetal-name }} server from a backup of another VM or {{ baremetal-name }} server, respectively. You may need this, for example, if the source VM or {{ baremetal-name }} server is down.
+{% endnote %}
+
+If a folder contains multiple VMs or servers connected to {{ backup-name }}, you can restore a VM or server from a backup of another VM or server, respectively. You may need this, for example, if the source VM or server is down.
 
 {% include [avoid-errors-when-restoring-from-backup.md](../../../_includes/backup/avoid-errors-when-restoring-from-backup.md) %}
 
 {% note info %}
 
-The operating system of the target VM or {{ baremetal-name }} server must be the same as that of the VM or {{ baremetal-name }} server the backup was created from. The boot disk of the target VM or {{ baremetal-name }} server must be at least the size of the boot disk of the source VM or {{ baremetal-name }} server. The target VM or {{ baremetal-name }} server [status](../../../compute/concepts/vm-statuses.md#list-of-statuses) must be `Running`.
+The target VM or server must have the same operating system as that of the VM or server the backup was created from. The boot disk of the target VM or server must be at least the size of the boot disk of the source VM or server. The target {{ compute-name }} VM or {{ baremetal-name }} server must be in `Running` [status](../../../compute/concepts/vm-statuses.md#list-of-statuses).
 
 {% endnote %}
 
-To restore a VM or {{ baremetal-name }} server from a backup of another VM or {{ baremetal-name }} server:
+To restore a VM or server from a backup of another VM or server:
 
 {% list tabs group=instructions %}
 
@@ -27,14 +31,14 @@ To restore a VM or {{ baremetal-name }} server from a backup of another VM or {{
   1. In the [management console]({{ link-console-main }}), select the folder containing the backup.
   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. In the left-hand panel, select ![backups](../../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.backup.label_backups }}**.
-  1. Depending on the resource you want to recover from the backup, select the **{{ ui-key.yacloud.backup.value_vm-recourses }}** or **{{ ui-key.yacloud.backup.value_bms-recourses }}** tab.
-  1. In the line with the backup to restore the VM or {{ baremetal-name }} server from, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.backup.action_recovery }}** or **{{ ui-key.yacloud.backup.action_bms-recovery }}**, respectively. In the window that opens:
+  1. Depending on what resource you want to restore, select the **{{ ui-key.yacloud.backup.value_vm-recourses }}** or **{{ ui-key.yacloud.backup.value_bms-recourses }}** tab.
+  1. In the line with the backup to restore the VM or server from, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.backup.action_recovery }}** or **{{ ui-key.yacloud.backup.action_bms-recovery }}**, respectively. In the window that opens:
   
-      1. Select the VM or {{ baremetal-name }} server to restore the backup to. If needed, click **{{ ui-key.yacloud.common.create }}** to [create](../index.md#connect-vm) a new VM or to [lease](../../../baremetal/operations/servers/server-lease.md) a new {{ baremetal-name }} server for recovery from a backup.
+      1. Select the {{ compute-name }} VM or {{ baremetal-name }} server to restore the backup to. If needed, click **{{ ui-key.yacloud.common.create }}** to [create](../index.md#connect-vm) a new VM or to [lease](../../../baremetal/operations/servers/server-lease.md) a new {{ baremetal-name }} server for recovery from a backup.
 
-          If creating a new VM, wait until the VM [connects](../../concepts/vm-connection.md) to {{ backup-name }}. If leasing a new {{ baremetal-name }} server, [connect](../backup-baremetal/backup-baremetal.md) it to {{ backup-name }}. Then click ![refresh](../../../_assets/console-icons/arrow-rotate-right.svg) in the backup recovery window for the new VM or {{ baremetal-name }} server to show up in the list.
+          If creating a new VM, wait until the VM [connects](../../concepts/vm-connection/compute.md) to {{ backup-name }}. If leasing a new {{ baremetal-name }} server, [connect](../backup-baremetal/backup-baremetal.md) it to {{ backup-name }}. Then click ![refresh](../../../_assets/console-icons/arrow-rotate-right.svg) in the backup recovery window for the new VM or server to appear in the list.
   
-      1. (Only for VMs) To avoid a conflict between the restored and the source VM, enable **{{ ui-key.yacloud.backup.field_delete-old-vm }}**.
+      1. To avoid a conflict between the restored and the source VM, enable **{{ ui-key.yacloud.backup.field_delete-old-vm }}** (for VMs only).
 
           If this option is not selected, after the recovery the source VM you created the backup from will become outdated. To continue creating backups of this VM, [refresh](../refresh-connection.md) its connection to {{ backup-name }}.
       1. Click **{{ ui-key.yacloud.backup.action_recovery-start }}**.
@@ -45,26 +49,24 @@ To restore a VM or {{ baremetal-name }} server from a backup of another VM or {{
 
   1. {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI command to restore a VM or {{ baremetal-name }} server from a backup:
+  1. See the description of the CLI command to restore a [resource](../../concepts/index.md#protected-resources) from a backup:
 
      ```bash
      yc backup backups recover --help
      ```
 
-  1. Get the IDs of the target VM to restore the backup to and the source VM whose backup you want to use:
+  1. Learn the IDs of the target resource to restore the backup to and the source resource whose backup you want to use:
 
-      {% include [get-vm-id](../../../_includes/backup/operations/get-vm-id.md) %}
+      {% include [get-resource-ids](../../../_includes/backup/operations/get-resource-ids.md) %}
 
-      {% include [get-bms-ids](../../../_includes/backup/operations/get-bms-ids.md) %}
-
-  1. Get the ID of the backup of the source VM or {{ baremetal-name }} server:
+  1. Learn the ID of the source resource backup:
 
      ```bash
      yc backup backups list \
-       --instance-id <source_VM_or_{{ baremetal-name }}_server_ID>
+       --instance-id <source_resource_ID>
      ```
 
-     Where `--instance-id` is the ID of the source VM or {{ baremetal-name }} server whose backup you want to use.
+     Where `--instance-id` is the ID of the source resource whose backup you want to use.
 
      Result:
 
@@ -77,18 +79,18 @@ To restore a VM or {{ baremetal-name }} server from a backup of another VM or {{
      +--------------------------------------+--------------------------------------+----------------------+--------------------------------------+----------------------+------+------------------+--------+---------------------+
      ```
 
-  1. Restore your VM or {{ baremetal-name }} server from the backup:
+  1. Restore the selected resource from the backup:
 
      ```bash
      yc backup backups recover \
        --source-backup-id <backup_ID> \
-       --destination-instance-id <source_VM_or_{{ baremetal-name }}_server_ID>
+       --destination-instance-id <target_resource_ID>
      ```
 
      Where:
 
      * `--source-backup-id`: Backup ID.
-     * `--destination-instance-id`: ID of the target VM or {{ baremetal-name }} server to restore the backup to.
+     * `--destination-instance-id`: ID of the target VM or server to restore the backup to.
 
      Result:
 
@@ -110,7 +112,7 @@ To restore a VM or {{ baremetal-name }} server from a backup of another VM or {{
 
 {% endnote %}
 
-Following recovery from a backup, the source VM (unless the **{{ ui-key.yacloud.backup.field_delete-old-vm }}** option was enabled in the management console during the backup) or {{ baremetal-name }} server the backup was created from will become obsolete. To be able to create new backups of the source VM or {{ baremetal-name }} server, refresh their connection to {{ backup-name }}. For more information, see these guides: [{#T}](../refresh-connection.md) and [{#T}](../backup-baremetal/refresh-connection.md).
+Following recovery from a backup, the source {{ compute-name }} VM (unless the **{{ ui-key.yacloud.backup.field_delete-old-vm }}** option was enabled in the management console during the backup) or source {{ baremetal-name }} server the backup was created from will become obsolete. To be able to create new backups of the source VM or {{ baremetal-name }} server, refresh their connection to {{ backup-name }}. For more information, see these guides: [{#T}](../refresh-connection.md) and [{#T}](../backup-baremetal/refresh-connection.md).
 
 {% include [non-native-bms-restore-connectivity-loss](../../../_includes/backup/operations/non-native-bms-restore-connectivity-loss.md) %}
 

@@ -41,6 +41,8 @@ items:
         href: ../cli/cli-ref/metadata-hub/cli-ref/connection-manager/index.md
       - name: '{{ TF }} reference'
         href: connman-tf-ref.md
+      - name: '{{ at-name }} events'
+        href: connman-at-ref.md
       - name: API reference
         items:
           - name: API authentication
@@ -409,7 +411,7 @@ items:
                 href: operations/data-catalog/create-catalog.md
               - name: Updating a metadata catalog
                 href: operations/data-catalog/update-catalog.md
-              - name: Getting a list of operations with a metadata catalog
+              - name: Getting a list of operations
                 href: operations/data-catalog/catalog-operations.md
               - name: Deleting a metadata catalog
                 href: operations/data-catalog/delete-catalog.md
@@ -419,7 +421,7 @@ items:
                 href: operations/data-catalog/source-list.md
               - name: Creating a source
                 href: operations/data-catalog/create-source.md
-              - name: Edit origin
+              - name: Editing a source
                 href: operations/data-catalog/update-source.md
               - name: Deleting an origin
                 href: operations/data-catalog/delete-source.md
@@ -521,6 +523,8 @@ items:
         items:
           - name: Metadata catalogs
             href: concepts/data-catalog.md
+          - name: Data sources
+            href: concepts/data-catalog-sources.md
       - name: Service roles for access management
         href: security/data-catalog-roles.md
   - name: Access management

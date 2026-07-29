@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-postgresql](../../index.md) > [v0](../index.md) > [repack](index.md) > launch
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [managed-postgresql](../../index.md) > [v0](../index.md) > [repack](index.md) > launch
 
 # yc managed-postgresql v0 repack launch
 

@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [application-load-balancer](../index.md) > [target-group](index.md) > add-targets
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник (англ.)](../../../index.md) > [application-load-balancer](../index.md) > [target-group](index.md) > add-targets
 
 # yc application-load-balancer target-group add-targets
 

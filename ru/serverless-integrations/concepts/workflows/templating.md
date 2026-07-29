@@ -16,6 +16,8 @@ keywords:
 
 # Шаблонизация
 
+{% include [workflows-ai-studio-note](../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 Значения полей, которые поддерживают шаблонизацию, можно генерировать динамически с использованием данных, полученных из состояния рабочего процесса. Язык шаблонизации — `jq`. Подробнее в [документации jq](https://jqlang.github.io/jq/manual/).
 
 В {{ sw-name }} доступны jq-шаблоны в двух форматах:

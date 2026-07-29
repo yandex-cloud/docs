@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [iot](../index.md) > [mqtt](index.md) > subscribe
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник (англ.)](../../../index.md) > [iot](../index.md) > [mqtt](index.md) > subscribe
 
 # yc iot mqtt subscribe
 

@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [dataproc](../index.md) > [job](index.md) > create-spark
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник (англ.)](../../../index.md) > [dataproc](../index.md) > [job](index.md) > create-spark
 
 # yc dataproc job create-spark
 

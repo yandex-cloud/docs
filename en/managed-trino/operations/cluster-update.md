@@ -144,7 +144,7 @@ Learn more about other cluster updates:
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -327,7 +327,7 @@ Learn more about other cluster updates:
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -505,7 +505,7 @@ Learn more about other cluster updates:
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -689,7 +689,7 @@ Learn more about other cluster updates:
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -905,7 +905,7 @@ Learn more about other cluster updates:
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1106,7 +1106,7 @@ Learn more about other cluster updates:
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1364,7 +1364,7 @@ Learn more about other cluster updates:
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1526,7 +1526,7 @@ Learn more about other cluster updates:
           --deletion-protection \
           --maintenance-window type=<maintenance_type>,`
                               `day=<day_of_week>,`
-                              `hour=<hour> \
+                              `hour=<sequence_number_of_hour_interval> \
           --log-enabled \
           --log-folder-id <folder_ID> \
           --log-group-id <log_group_ID> \
@@ -1560,7 +1560,7 @@ Learn more about other cluster updates:
         
           If you want to delete all certificates, provide `--remove-trusted-certs`.
 
-        You can get the cluster name and ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.   
+        You can get the cluster name and ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
 
 - {{ TF }} {#tf}
 
@@ -1625,7 +1625,7 @@ Learn more about other cluster updates:
           "maintenanceWindow": {
             "weeklyMaintenanceWindow": {
               "day": "<day_of_week>",
-              "hour": "<hour>"
+              "hour": "<sequence_number_of_hour_interval>"
             }
           },
           "tls": {
@@ -1665,8 +1665,11 @@ Learn more about other cluster updates:
             * `anytime`: Maintenance takes place at any time.
             * `weeklyMaintenanceWindow`: Maintenance takes place once a week at the specified time:
             
-              * `day`: Day of week for the `WEEKLY` type, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-              * `hour`: Time of day (UTC) for the `WEEKLY` type, from `1` to `24`.
+              * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+              * `hour`: UTC hour interval, from `1` to `24`.
+
+                > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
+
         * `tls`: TLS parameters.
 
            {% include notitle [tls](../../_includes/managed-trino/cluster-settings.md#tls) %}
@@ -1693,7 +1696,7 @@ Learn more about other cluster updates:
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1719,7 +1722,7 @@ Learn more about other cluster updates:
           "maintenance_window": {
             "weekly_maintenance_window": {
               "day": "<day_of_week>",
-              "hour": "<hour>"
+              "hour": "<sequence_number_of_hour_interval>"
             }
           },
           "tls": {
@@ -1778,8 +1781,10 @@ Learn more about other cluster updates:
             * `anytime`: Maintenance takes place at any time.
             * `weekly_maintenance_window`: Maintenance takes place once a week at the specified time:
             
-              * `day`: Day of week for the `WEEKLY` type, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-              * `hour`: Time of day (UTC) for the `WEEKLY` type, from `1` to `24`.
+              * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+              * `hour`: UTC hour interval, from `1` to `24`.
+
+                > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
         
         * `tls`: TLS parameters.
 

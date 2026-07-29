@@ -13,4 +13,4 @@ To get started, select the relevant guide:
 
 #### Useful links {#see-also}
 
-* [Webinar: How to take load off a high-load infrastructure using Cloud CDN](https://yandex.cloud/ru/events/1489?utm_source=docs&utm_medium=yandex&utm_campaign=infra&utm_content=vebinar&utm_term=cdns3)
+* [Webinar: How to take load off a high-load infrastructure using {{ cdn-name }}](https://yandex.cloud/ru/events/1489?utm_source=docs&utm_medium=yandex&utm_campaign=infra&utm_content=vebinar&utm_term=cdns3)

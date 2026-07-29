@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [cloud-registry](../../index.md) > [v0](../index.md) > [registry](index.md) > create
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [cloud-registry](../../index.md) > [v0](../index.md) > [registry](index.md) > create
 
 # yc cloud-registry v0 registry create
 

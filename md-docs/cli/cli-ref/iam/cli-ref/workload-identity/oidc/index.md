@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [iam](../../index.md) > [workload-identity](../index.md) > oidc > Overview
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [iam](../../index.md) > [workload-identity](../index.md) > oidc > Overview
 
 # yc iam workload-identity oidc
 

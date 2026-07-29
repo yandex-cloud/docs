@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [ydb](../index.md) > [database](index.md) > list-access-bindings
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник (англ.)](../../../index.md) > [ydb](../index.md) > [database](index.md) > list-access-bindings
 
 # yc ydb database list-access-bindings
 

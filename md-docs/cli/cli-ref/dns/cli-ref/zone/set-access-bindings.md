@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [dns](../index.md) > [zone](index.md) > set-access-bindings
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник (англ.)](../../../index.md) > [dns](../index.md) > [zone](index.md) > set-access-bindings
 
 # yc dns zone set-access-bindings
 

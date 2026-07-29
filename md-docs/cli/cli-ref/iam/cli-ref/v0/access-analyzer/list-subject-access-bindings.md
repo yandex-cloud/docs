@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [iam](../../index.md) > [v0](../index.md) > [access-analyzer](index.md) > list-subject-access-bindings
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [iam](../../index.md) > [v0](../index.md) > [access-analyzer](index.md) > list-subject-access-bindings
 
 # yc iam v0 access-analyzer list-subject-access-bindings
 

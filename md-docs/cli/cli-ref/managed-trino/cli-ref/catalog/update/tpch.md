@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-trino](../../index.md) > [catalog](../index.md) > [update](index.md) > tpch
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [managed-trino](../../index.md) > [catalog](../index.md) > [update](index.md) > tpch
 
 # yc managed-trino catalog update tpch
 

@@ -12,25 +12,27 @@ description: Follow this guide to add the Access over HTTP extension using the s
     1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) in which you created or want to create an [API gateway](../../concepts/index.md).
     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
     1. Select an API gateway or click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}** to create a new one.
+    1. Click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
     1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** field, click ![image](../../../_assets/api-gateway/spec-constructor/http.svg).
     1. Specify the following:
 
         {% include [common-spec-constructor](../../../_includes/api-gateway/common-spec-constructor.md) %}
 
+        * Optionally, **{{ ui-key.yc-serverless-apigw.dynamic-forms.service_account_id_name }}**: Service account to use for authorization when accessing the {{ yandex-cloud }} API. If you do not have a service account, [create](../../../iam/operations/sa/create.md) one.
         * **{{ ui-key.yc-serverless-apigw.dynamic-forms.http_url_name }}**: URL to redirect the invocation to. It must be accessible from the internet.
         * Optionally, **{{ ui-key.yc-serverless-apigw.dynamic-forms.http_http_method_for_extension_name }}**: HTTP method to use for the invocation. If you skip this parameter, the method specified in the **{{ ui-key.yc-serverless-apigw.dynamic-forms.http_method_name }}** field will be used.
         * Optionally, **{{ ui-key.yc-serverless-apigw.dynamic-forms.http_headers_name }}**: HTTP headers to provide in the request.
+          
+           Enable **{{ ui-key.yc-serverless-apigw.dynamic-forms.http_properties_send_original_headers_view_spec_layout_title }}**. By default, all headers of the original request, except `User-Agent`, are not provided.
 
-            Enable **{{ ui-key.yc-serverless-apigw.dynamic-forms.http_send_original_headers_name }}**. By default, the HTTP headers of the original request are not provided.
-
+        Enable **{{ ui-key.yc-serverless-apigw.dynamic-forms.http_properties_omit_empty_headers_view_spec_layout_title }}** if required. By default, empty HTTP headers are provided.
         * Optionally, **{{ ui-key.yc-serverless-apigw.dynamic-forms.http_query_name }}**: Query parameters to provide in the request.
 
-            Enable **{{ ui-key.yc-serverless-apigw.dynamic-forms.http_send_original_query_params_name }}**. By default, the query parameters of the original request are not provided.
+           Enable **{{ ui-key.yc-serverless-apigw.dynamic-forms.http_properties_send_original_query_params_view_spec_layout_title }}**. By default, the query parameters of the original request are not provided.
 
+        Enable **{{ ui-key.yc-serverless-apigw.dynamic-forms.http_properties_omit_empty_query_parameters_view_spec_layout_title }}** if required. By default, empty query parameters are provided.
         * Optionally, **{{ ui-key.yc-serverless-apigw.dynamic-forms.http_read_timeout_name }}**: Invocation read timeout in seconds.
         * Optionally, **{{ ui-key.yc-serverless-apigw.dynamic-forms.http_connect_timeout_name }}**: Connection timeout for the invocation in seconds.
-    1. Optionally, enable **{{ ui-key.yc-serverless-apigw.dynamic-forms.http_omit_empty_headers_name }}**. By default, empty headers are provided.
-    1. Optionally, enable **{{ ui-key.yc-serverless-apigw.dynamic-forms.http_omit_empty_query_parameters_name }}**. By default, empty query parameters are provided.
     1. Click **{{ ui-key.yacloud.common.add }}**.
 
 {% endlist %}

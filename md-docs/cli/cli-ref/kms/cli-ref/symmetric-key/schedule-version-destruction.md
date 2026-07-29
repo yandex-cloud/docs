@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [kms](../index.md) > [symmetric-key](index.md) > schedule-version-destruction
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник (англ.)](../../../index.md) > [kms](../index.md) > [symmetric-key](index.md) > schedule-version-destruction
 
 # yc kms symmetric-key schedule-version-destruction
 

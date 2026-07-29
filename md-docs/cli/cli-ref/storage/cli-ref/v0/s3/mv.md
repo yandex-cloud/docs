@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [storage](../../index.md) > [v0](../index.md) > [s3](index.md) > mv
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [storage](../../index.md) > [v0](../index.md) > [s3](index.md) > mv
 
 # yc storage v0 s3 mv
 

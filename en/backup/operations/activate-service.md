@@ -14,7 +14,7 @@ description: Follow this guide to activate {{ backup-name }}.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a VM or {{ baremetal-full-name }} server with a {{ backup-name }} connection.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [resource](../concepts/index.md#protected-resources) connected to {{ backup-name }}.
   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. Click **{{ ui-key.yacloud.backup.button_action-activate }}**.
 

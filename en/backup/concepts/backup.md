@@ -10,24 +10,24 @@ description: In this tutorial, you will learn about backups in {{ backup-name }}
 
 ## Backup types {#types}
 
-* _Full backup_ contains all the data required to recover a VM or {{ baremetal-full-name }} server. VMs and {{ baremetal-name }} servers recover faster from full backups than from incremental backups. However, full backups take up more storage space and take longer to create.
-* _Incremental backup_ contains only data that is different from the previous VM or {{ baremetal-name }} server backup. VMs and servers take longer to recover from incremental backups than from full backups because of the use of chains of incremental backups. Incremental backups are made faster and take up less space than full backups. It is not advisable to use an incremental backup if there are many differences between two consecutive backups.
-
-{% include [av-note](../../_includes/backup/av-note.md) %}
-
-You cannot restore a VM backup to a {{ baremetal-name }} server or a {{ baremetal-name }} server backup to a VM.
+* A _full backup_ contains all data required to recover a [resource](./index.md#protected-resources). Resources recover faster from full backups than from incremental backups. However, full backups take up more storage space and take longer to create.
+* An _incremental backup_ contains only data that is different from the previous backup of the resource. Resources take longer to recover from incremental backups than from full backups due to the use of chains of incremental backups. Incremental backups are made faster and take up less space than full backups. It is not advisable to use an incremental backup if there are many differences between two consecutive backups.
 
 {% note tip %}
 
-To take advantage of both types, combine them. For example, create two [backup policies](policy.md) for the same VM or {{ baremetal-name }} server: schedule weekly full backups in one policy and daily incremental backups in the other.
+To take advantage of both types, combine them. For example, create two [backup policies](./policy.md) for the same VM: schedule weekly full backups in one policy and daily incremental backups in the other.
 
 {% endnote %}
 
+{% include [av-note](../../_includes/backup/av-note.md) %}
+
+{% include [vm-and-bms-backup-incompatibility](../../_includes/backup/vm-and-bms-backup-incompatibility.md) %}
+
 ### Working with LVM {#lvm}
 
-{{ backup-name }} allows creating VM and {{ baremetal-name }} server backups with logical volumes managed by the subsystem [LVM](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)).
+{{ backup-name }} allows creating resource backups with logical volumes managed by the subsystem [LVM](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)).
 
-You should keep in mind the following when restoring VMs and {{ baremetal-name }} servers from such backups:
+You should keep in mind the following when restoring resources from such backups:
 
 {% list tabs group=backup_resource_type %}
 
@@ -42,7 +42,7 @@ You should keep in mind the following when restoring VMs and {{ baremetal-name }
 
       {% endnote %}
 
-- {{ baremetal-name }} server {#baremetal-server}
+- Server {#baremetal-server}
 
   * To restore a backup to the same server it was created for, you do not need to take any additional actions: the LVM volume structure should recover correctly.
   * When restoring a backup to a server other than the original one, [request]({{ link-console-support }}/tickets/create) a special bootable [ISO image](https://en.wikipedia.org/wiki/Optical_disc_image) from support and load the target server from that image.
@@ -55,20 +55,17 @@ Backups created in {{ backup-name }} are stored in {{ objstorage-full-name }} in
 
 Data in {{ objstorage-name }} is stored securely in compliance with the international and national standards. Learn more about security in {{ yandex-cloud }} in the [{#T}](../../security/conform.md) section of the document.
 
-You cannot get access to backup files and buckets that store them. {{ backup-name }} is your only option to restore a VM or {{ baremetal-name }} server from a backup.
+You cannot get access to backup files and buckets that store them. You can recover a resource from a backup only using {{ backup-name }}.
 
 ### Backup archives {#archives}
 
-Backup copies are grouped into archives. A _backup archive_ includes all backups created for one VM or {{ baremetal-name }} server under a single backup policy.
+Backups are grouped into archives. A _backup archive_ is a total of all backups pertaining to one resource under a single backup policy.
 
 By using archives, you can [delete](../operations/backup-vm/batch-delete.md) backups for outdated resources more efficiently. Furthermore, deleting backups as a whole archive reduces the load on the [{{ backup-name }} agent](./agent.md) and is less likely to cause errors than deleting them one by one.
 
 ## File-by-file recovery {#file-by-file}
 
-With {{ backup-name }}, you can restore individual files and directories from a backup to any VM [connected](vm-connection.md) to the service. For more information, see [{#T}](../operations/backup-vm/recover-file-by-file.md).
-
-File-by-file recovery to {{ baremetal-name }} servers is currently not available.
-
+With {{ backup-name }}, you can restore individual files and directories from a backup to any {{ compute-name }} VM or {{ baremetal-name }} server [connected](vm-connection/index.md) to the service. For more information, see [{#T}](../operations/backup-vm/recover-file-by-file.md).
 
 ## Use cases {#examples}
 

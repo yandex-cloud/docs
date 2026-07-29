@@ -7134,7 +7134,8 @@
         "performanceDiagnostics": {
           "enabled": "boolean",
           "sessionsSamplingInterval": "string",
-          "statementsSamplingInterval": "string"
+          "statementsSamplingInterval": "string",
+          "advancedMode": "boolean"
         },
         "diskSizeAutoscaling": {
           "plannedUsageThreshold": "string",
@@ -7671,8 +7672,12 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || synchronizeSeqscans | **boolean** ||
 || transformNullEquals | **boolean** ||
 || exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
+|| seqPageCost | **number** (double)
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+The minimum value is 0. ||
 || autovacuumMaxWorkers | **string** (int64)
 
 Acceptable values are 1 to 32, inclusive. ||
@@ -7984,8 +7989,12 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || synchronizeSeqscans | **boolean** ||
 || transformNullEquals | **boolean** ||
 || exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
+|| seqPageCost | **number** (double)
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+The minimum value is 0. ||
 || autovacuumMaxWorkers | **string** (int64)
 
 Acceptable values are 1 to 32, inclusive. ||
@@ -8303,8 +8312,12 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || synchronizeSeqscans | **boolean** ||
 || transformNullEquals | **boolean** ||
 || exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
+|| seqPageCost | **number** (double)
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+The minimum value is 0. ||
 || autovacuumMaxWorkers | **string** (int64)
 
 Acceptable values are 1 to 32, inclusive. ||
@@ -8638,8 +8651,12 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || synchronizeSeqscans | **boolean** ||
 || transformNullEquals | **boolean** ||
 || exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
+|| seqPageCost | **number** (double)
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+The minimum value is 0. ||
 || autovacuumMaxWorkers | **string** (int64)
 
 Acceptable values are 1 to 32, inclusive. ||
@@ -8971,8 +8988,12 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || synchronizeSeqscans | **boolean** ||
 || transformNullEquals | **boolean** ||
 || exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
+|| seqPageCost | **number** (double)
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+The minimum value is 0. ||
 || autovacuumMaxWorkers | **string** (int64)
 
 Acceptable values are 1 to 32, inclusive. ||
@@ -9330,8 +9351,12 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || synchronizeSeqscans | **boolean** ||
 || transformNullEquals | **boolean** ||
 || exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
+|| seqPageCost | **number** (double)
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+The minimum value is 0. ||
 || autovacuumMaxWorkers | **string** (int64)
 
 Acceptable values are 1 to 32, inclusive. ||
@@ -9688,8 +9713,12 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || synchronizeSeqscans | **boolean** ||
 || transformNullEquals | **boolean** ||
 || exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
+|| seqPageCost | **number** (double)
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+The minimum value is 0. ||
 || autovacuumMaxWorkers | **string** (int64)
 
 Acceptable values are 1 to 32, inclusive. ||
@@ -10050,8 +10079,12 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || synchronizeSeqscans | **boolean** ||
 || transformNullEquals | **boolean** ||
 || exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
+|| seqPageCost | **number** (double)
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+The minimum value is 0. ||
 || autovacuumMaxWorkers | **string** (int64)
 
 Acceptable values are 1 to 32, inclusive. ||
@@ -10417,8 +10450,12 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || synchronizeSeqscans | **boolean** ||
 || transformNullEquals | **boolean** ||
 || exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
+|| seqPageCost | **number** (double)
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+The minimum value is 0. ||
 || autovacuumMaxWorkers | **string** (int64)
 
 Acceptable values are 1 to 32, inclusive. ||
@@ -10784,8 +10821,12 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || synchronizeSeqscans | **boolean** ||
 || transformNullEquals | **boolean** ||
 || exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
+|| seqPageCost | **number** (double)
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+The minimum value is 0. ||
 || autovacuumMaxWorkers | **string** (int64)
 
 Acceptable values are 1 to 32, inclusive. ||
@@ -11154,8 +11195,12 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || synchronizeSeqscans | **boolean** ||
 || transformNullEquals | **boolean** ||
 || exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
+|| seqPageCost | **number** (double)
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+The minimum value is 0. ||
 || autovacuumMaxWorkers | **string** (int64)
 
 Acceptable values are 1 to 32, inclusive. ||
@@ -11215,7 +11260,7 @@ The minimum value is 0. ||
 Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
-Acceptable values are 0 to 549755813888, inclusive. ||
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
@@ -11529,8 +11574,12 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || synchronizeSeqscans | **boolean** ||
 || transformNullEquals | **boolean** ||
 || exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
+|| seqPageCost | **number** (double)
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+The minimum value is 0. ||
 || autovacuumMaxWorkers | **string** (int64)
 
 Acceptable values are 1 to 32, inclusive. ||
@@ -11591,7 +11640,7 @@ The minimum value is 0. ||
 Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
-Acceptable values are 0 to 549755813888, inclusive. ||
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
@@ -11906,8 +11955,12 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || synchronizeSeqscans | **boolean** ||
 || transformNullEquals | **boolean** ||
 || exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
+|| seqPageCost | **number** (double)
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+The minimum value is 0. ||
 || autovacuumMaxWorkers | **string** (int64)
 
 Acceptable values are 1 to 32, inclusive. ||
@@ -11967,7 +12020,7 @@ The minimum value is 0. ||
 Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
-Acceptable values are 0 to 549755813888, inclusive. ||
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
@@ -12285,8 +12338,12 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || synchronizeSeqscans | **boolean** ||
 || transformNullEquals | **boolean** ||
 || exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
+|| seqPageCost | **number** (double)
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+The minimum value is 0. ||
 || autovacuumMaxWorkers | **string** (int64)
 
 Acceptable values are 1 to 32, inclusive. ||
@@ -12347,7 +12404,7 @@ The minimum value is 0. ||
 Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
-Acceptable values are 0 to 549755813888, inclusive. ||
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
@@ -12533,6 +12590,7 @@ Acceptable values are 1 to 86400, inclusive. ||
 || statementsSamplingInterval | **string** (int64)
 
 Acceptable values are 1 to 86400, inclusive. ||
+|| advancedMode | **boolean** ||
 |#
 
 ## DiskSizeAutoscaling {#yandex.cloud.mdb.postgresql.v1.DiskSizeAutoscaling}

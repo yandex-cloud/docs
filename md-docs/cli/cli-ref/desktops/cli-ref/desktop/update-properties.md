@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [desktops](../index.md) > [desktop](index.md) > update-properties
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник (англ.)](../../../index.md) > [desktops](../index.md) > [desktop](index.md) > update-properties
 
 # yc desktops desktop update-properties
 

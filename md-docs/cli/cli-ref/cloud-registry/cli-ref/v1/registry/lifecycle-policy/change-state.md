@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [cloud-registry](../../../index.md) > [v1](../../index.md) > [registry](../index.md) > [lifecycle-policy](index.md) > change-state
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник (англ.)](../../../../../index.md) > [cloud-registry](../../../index.md) > [v1](../../index.md) > [registry](../index.md) > [lifecycle-policy](index.md) > change-state
 
 # yc cloud-registry v1 registry lifecycle-policy change-state
 

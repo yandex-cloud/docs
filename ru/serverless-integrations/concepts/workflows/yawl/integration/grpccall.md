@@ -5,6 +5,8 @@ description: В статье описаны поля для интеграцио
 
 # GRPCCall
 
+{% include [workflows-ai-studio-note](../../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 Только для сервисов, которые поддерживают [gRPC reflection](https://grpc.io/docs/guides/reflection/).
 
 Имя поля | Тип | Обязательное | Значение по умолчанию | Поддерживается [шаблонизация](../../templating.md) | Описание

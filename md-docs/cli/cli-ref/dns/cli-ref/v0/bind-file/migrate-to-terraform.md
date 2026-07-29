@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [dns](../../index.md) > [v0](../index.md) > [bind-file](index.md) > migrate-to-terraform
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [dns](../../index.md) > [v0](../index.md) > [bind-file](index.md) > migrate-to-terraform
 
 # yc dns v0 bind-file migrate-to-terraform
 

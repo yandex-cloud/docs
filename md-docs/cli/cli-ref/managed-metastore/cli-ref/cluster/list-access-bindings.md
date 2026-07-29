@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-metastore](../index.md) > [cluster](index.md) > list-access-bindings
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник (англ.)](../../../index.md) > [managed-metastore](../index.md) > [cluster](index.md) > list-access-bindings
 
 # yc managed-metastore cluster list-access-bindings
 

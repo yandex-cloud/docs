@@ -78,7 +78,7 @@ For an {{ alb-name }} load balancer deployed according to the `Ingress` configur
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you created the required {{ managed-k8s-name }} cluster.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Select the {{ managed-k8s-name }} cluster whose `Ingress` configuration was used to create the load balancer.
   1. On the {{ managed-k8s-name }} cluster page, navigate to the ![shapes-3](../../../_assets/console-icons/shapes-3.svg) **{{ ui-key.yacloud.k8s.cluster.switch_custom-resources }}** tab.
   1. Select `ingressgroupstatuses.alb.yc.io` and navigate to the **{{ ui-key.yacloud.k8s.custom-resources.label_tab-resources }}** tab.

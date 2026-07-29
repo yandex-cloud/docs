@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-mysql](../../index.md) > [v0](../index.md) > [resource-preset](index.md) > list
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [managed-mysql](../../index.md) > [v0](../index.md) > [resource-preset](index.md) > list
 
 # yc managed-mysql v0 resource-preset list
 

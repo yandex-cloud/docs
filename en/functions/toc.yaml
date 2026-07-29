@@ -421,7 +421,7 @@ items:
         href: tutorials/index.md
       - name: Serverless-based backend
         items:
-          - name: Deploying a web application
+          - name: Deploying a web application using the Java Servlet API
             href: tutorials/java-servlet-todo-list.md
           - name: Converting a video to a GIF in Python
             items:
@@ -455,8 +455,6 @@ items:
             href: tutorials/serverless-live-debug.md
       - name: Serverless-based bots
         items:
-          - name: Developing a Slack bot
-            href: tutorials/slack-bot-serverless.md
           - name: Developing a Telegram bot
             items:
               - name: Overview

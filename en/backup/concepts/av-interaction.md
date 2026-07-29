@@ -6,7 +6,7 @@ description: In this tutorial, you will learn how an antivirus can affect increm
 # Interaction with an antivirus
 
 
-[Backup policies](policy.md) in {{ backup-full-name }} provide an [option](policy.md#specification) for quick backups: `fastBackupEnabled`. When creating an [incremental backup](backup.md#types) under such a policy, the {{ backup-name }} agent checks not all files but only those of them whose size or last accessing time changed. This allows creating incremental backups faster.
+[Backup policies](./policy.md) in {{ backup-full-name }} provide an [option](./policy.md#specification) for quick backups: `fastBackupEnabled`. When creating an [incremental backup](./backup.md#types) under such a policy, the {{ backup-name }} agent checks not all files but only those of them whose size or last accessing time changed. This allows creating incremental backups faster.
 
 After an antivirus run, creating an incremental backup under a policy with enabled quick backups can take much longer than usual. This is because the antivirus changes the `access time` (last accessing time) value for each file being scanned. When creating another incremental copy, the {{ backup-name }} agent checks the disk in block mode and backs up the whole disk if it detects data in blocks has changed.
 
@@ -21,7 +21,7 @@ The antivirus affects quick backups in the following cases:
 * The antivirus performed a scan before the backup start.
 * The {{ backup-name }} agent has processed the whole disk to create an incremental copy.
 * The final backup size is comparable with previous incremental copies.
-* The time required to create an incremental copy of a VM or {{ baremetal-name }} server has increased drastically.
+* The time required to create an incremental copy of a resource has increased drastically.
 
 
 ## Solution {#decision}

@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [serverless](../../index.md) > [trigger](../index.md) > [create](index.md) > object-storage
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [serverless](../../index.md) > [trigger](../index.md) > [create](index.md) > object-storage
 
 # yc serverless trigger create object-storage
 

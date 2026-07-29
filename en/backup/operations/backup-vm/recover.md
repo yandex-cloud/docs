@@ -1,12 +1,16 @@
 ---
-title: How to restore your VM or {{ baremetal-name }} server from a backup
+title: How to restore your VM or {{ baremetal-full-name }} server from a backup
 description: Follow this guide to restore a VM or {{ baremetal-full-name }} server from a backup.
 ---
 
-# Restoring a VM or {{ baremetal-full-name }} server from a backup
+# Restoring a {{ compute-full-name }} VM or {{ baremetal-full-name }} server from a backup
 
+
+{% note info %}
 
 {% include [vm-and-bms-backup-incompatibility](../../../_includes/backup/vm-and-bms-backup-incompatibility.md) %}
+
+{% endnote %}
 
 {% include [avoid-errors-when-restoring-from-backup.md](../../../_includes/backup/avoid-errors-when-restoring-from-backup.md) %}
 
@@ -16,7 +20,7 @@ If the current VM is down, [create](../#connect-vm) a new one with a connection 
 
 {% endnote %}
 
-To restore a VM or {{ baremetal-name }} server from a backup:
+To restore a {{ compute-name }} VM or {{ baremetal-name }} server from a backup:
 
 {% list tabs group=instructions %}
 
@@ -25,9 +29,9 @@ To restore a VM or {{ baremetal-name }} server from a backup:
   1. In the [management console]({{ link-console-main }}), select the folder containing the backup.
   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. In the left-hand panel, select ![backups](../../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.backup.label_backups }}**.
-  1. Depending on the resource you want to recover from the backup, select the **{{ ui-key.yacloud.backup.value_vm-recourses }}** or **{{ ui-key.yacloud.backup.value_bms-recourses }}** tab.
-  1. In the line with the backup to restore the VM or {{ baremetal-name }} server from, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.backup.action_recovery }}** or **{{ ui-key.yacloud.backup.action_bms-recovery }}**, respectively.
-  1. In the window that opens, select the VM or {{ baremetal-name }} server you backed up. In the list, this VM or server will be labeled `({{ ui-key.yacloud.backup.context_current-vm }})` or `({{ ui-key.yacloud.backup.context_current-bms }})`, respectively.
+  1. Depending on what resource you want to restore, select the **{{ ui-key.yacloud.backup.value_vm-recourses }}** or **{{ ui-key.yacloud.backup.value_bms-recourses }}** tab.
+  1. In the line with the backup to restore the VM or server from, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.backup.action_recovery }}** or **{{ ui-key.yacloud.backup.action_bms-recovery }}**, respectively.
+  1. In the window that opens, select the VM or server the selected backup was made from. In the list, this VM or server will be labeled `({{ ui-key.yacloud.backup.context_current-vm }})` or `({{ ui-key.yacloud.backup.context_current-bms }})`, respectively.
   1. Click **{{ ui-key.yacloud.backup.action_recovery-start }}**.
 
 - CLI {#cli}
@@ -36,7 +40,7 @@ To restore a VM or {{ baremetal-name }} server from a backup:
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI command to restore a VM or {{ baremetal-name }} server from a backup:
+  1. See the description of the CLI command to restore a [resource](../../concepts/index.md#protected-resources) from a backup:
 
       ```bash
       yc backup backups recover --help
@@ -46,24 +50,22 @@ To restore a VM or {{ baremetal-name }} server from a backup:
 
       {% include [get-backup-id](../../../_includes/backup/operations/get-backup-id.md) %}
 
-  1. Get the ID of the VM to restore:
+  1. Get the ID of the resource to restore:
 
-      {% include [get-vm-id](../../../_includes/backup/operations/get-vm-id.md) %}
+      {% include [get-resource-ids](../../../_includes/backup/operations/get-resource-ids.md) %}
 
-      {% include [get-bms-ids](../../../_includes/backup/operations/get-bms-ids.md) %}
-
-  1. Restore your VM or {{ baremetal-name }} server from the backup:
+  1. Restore the {{ compute-name }} VM or {{ baremetal-name }} server from the backup:
 
       ```bash
       yc backup backups recover \
         --source-backup-id <backup_ID> \
-        --destination-instance-id <VM_or_{{ baremetal-name }}_server_ID>
+        --destination-instance-id <VM_or_server_ID>
       ```
 
       Where:
 
-      * `--source-backup-id`: ID of the backup to restore the VM or {{ baremetal-name }} server from.
-      * `--destination-instance-id`: ID of the VM or {{ baremetal-name }} server to restore the backup to.
+      * `--source-backup-id`: ID of the backup to restore the {{ compute-name }} VM or {{ baremetal-name }} server from.
+      * `--destination-instance-id`: ID of the {{ compute-name }} VM or {{ baremetal-name }} server to restore the backup to.
 
       Result:
 

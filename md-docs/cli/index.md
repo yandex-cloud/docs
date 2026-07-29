@@ -6,53 +6,57 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
 # Интерфейс командной строки
 
- - [Начало работы с CLI](quickstart.md)
+ - [Начало работы](quickstart.md)
 
 ## Пошаговые инструкции
 
  - [Все инструкции](operations/index.md)
 
- - [Установка CLI](operations/install-cli.md)
+ - [Установка](operations/install-cli.md)
 
- - [Обновление CLI](operations/update-cli.md)
+ - [Обновление](operations/update-cli.md)
 
- - [Удаление CLI](operations/remove-cli.md)
+ - [Удаление](operations/remove-cli.md)
 
- - [Работа с версиями команд CLI](operations/command-versioning.md)
+ - [Работа с версиями команд](operations/command-versioning.md)
 
 ### Управление профилем
 
- - [Создание профиля](operations/profile/profile-create.md)
+ - [Создание](operations/profile/profile-create.md)
 
- - [Управление параметрами профиля](operations/profile/manage-properties.md)
+ - [Управление параметрами](operations/profile/manage-properties.md)
 
- - [Получение информации о профиле](operations/profile/profile-list.md)
+ - [Получение информации](operations/profile/profile-list.md)
 
- - [Активация профиля](operations/profile/profile-activate.md)
+ - [Активация](operations/profile/profile-activate.md)
 
- - [Удаление профиля](operations/profile/profile-delete.md)
+ - [Удаление](operations/profile/profile-delete.md)
 
 ### Аутентификация
 
- - [Аутентификация с аккаунтом на Яндексе](operations/authentication/user.md)
+ - [Аккаунт на Яндексе](operations/authentication/user.md)
 
- - [Аутентификация от имени сервисного аккаунта](operations/authentication/service-account.md)
+ - [Сервисный аккаунт](operations/authentication/service-account.md)
 
- - [Аутентификация от имени федеративного пользователя](operations/authentication/federated-user.md)
+ - [Федеративный пользователь](operations/authentication/federated-user.md)
 
- - [Аутентификация от имени локального пользователя](operations/authentication/local-user.md)
+ - [Локальный пользователь](operations/authentication/local-user.md)
 
- - [Аутентификация на сервере без графического интерфейса](operations/authentication/auth-without-gui.md)
+ - [IAM-токен из переменной окружения](operations/authentication/iam-token-env.md)
+
+ - [Без графического интерфейса и браузера](operations/authentication/auth-without-gui.md)
 
 ## Концепции
 
  - [Запуск команд](concepts/index.md)
 
- - [Конфигурация CLI](concepts/core-properties.md)
+ - [Эндпоинты](concepts/endpoints.md)
+
+ - [Конфигурация](concepts/core-properties.md)
 
  - [Синхронный и асинхронный режимы выполнения команд](concepts/mode.md)
 
-## Справочник CLI (англ.)
+## Справочник (англ.)
 
  - [Overview](cli-ref/index.md)
 
@@ -11616,6 +11620,6 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [list](cli-ref/ydb/cli-ref/v0/storage-type/list.md)
 
- - [Релизы CLI](release-notes.md)
+ - [Релизы](release-notes.md)
 
  - [Решение проблем](error.md)

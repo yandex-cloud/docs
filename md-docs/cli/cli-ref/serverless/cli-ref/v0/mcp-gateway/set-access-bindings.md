@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [serverless](../../index.md) > [v0](../index.md) > [mcp-gateway](index.md) > set-access-bindings
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [serverless](../../index.md) > [v0](../index.md) > [mcp-gateway](index.md) > set-access-bindings
 
 # yc serverless v0 mcp-gateway set-access-bindings
 

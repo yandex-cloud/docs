@@ -1,6 +1,6 @@
 ---
 title: Creating a backup policy
-description: In this tutorial, you will learn how to create a backup policy in {{ backup-name }}.
+description: In this tutorial, you will learn how to create a backup policy in {{ backup-full-name }}.
 ---
 
 # Creating a backup policy
@@ -37,7 +37,7 @@ You cannot create backup policies with some advanced settings in the {{ yandex-c
       * Select the [type of backup](../../concepts/backup.md#types):
 
           * `{{ ui-key.yacloud.backup.policy-form.title_incremental-backup-card }}`: Saves only data that is different from the previous backup. On the first run, a full backup of the resource will be made.
-          * `{{ ui-key.yacloud.backup.policy-form.title_full-backup-card }}`: Saves all VM or {{ baremetal-name }} server data.
+          * `{{ ui-key.yacloud.backup.policy-form.title_full-backup-card }}`: Saves all data of the [backed up resource](../../concepts/index.md#protected-resources).
 
           Once the policy is created, you cannot change the type.
 
@@ -93,7 +93,7 @@ You cannot create backup policies with some advanced settings in the {{ yandex-c
 
       Save the configuration to a `.json` file.
 
-      The example describes a configuration for a backup policy that will create [incremental](../../concepts/backup.md#types) [VM](../../../compute/concepts/vm.md) or [{{ baremetal-name }} server](../../../baremetal/concepts/servers.md) [backups](../../concepts/backup.md) every Monday at 00:05 (UTC+0). Only the last 10 backups will be stored.
+      The example presents a backup policy configuration that will create [incremental](../../concepts/backup.md#types) [backups](../../concepts/backup.md) of the [resource](../../concepts/index.md#protected-resources) every Monday at 00:05 (UTC+0). Only the last 10 backups will be stored.
 
       The full specification is described in [{#T}](../../concepts/policy.md#specification).
 
@@ -189,7 +189,7 @@ You cannot create backup policies with some advanced settings in the {{ yandex-c
      Where:
 
      * `archive_name`: Names of generated archives. This is an optional setting. The parameter variables include:
-       * `Machine Name`: [VM](../../../compute/concepts/vm.md) or [{{ baremetal-name }} server](../../../baremetal/concepts/servers.md) name.
+       * `Machine Name`: Name of the [resource to back up](../../concepts/index.md#protected-resources).
        * `Plan ID`: Plan ID.
        * `Unique ID`: Unique ID.
 

@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [smartwebsecurity](../../../index.md) > [v1](../../index.md) > [advanced-rate-limiter](../index.md) > [advanced-rate-limiter-profile](index.md) > delete
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник (англ.)](../../../../../index.md) > [smartwebsecurity](../../../index.md) > [v1](../../index.md) > [advanced-rate-limiter](../index.md) > [advanced-rate-limiter-profile](index.md) > delete
 
 # yc smartwebsecurity v1 advanced-rate-limiter advanced-rate-limiter-profile delete
 

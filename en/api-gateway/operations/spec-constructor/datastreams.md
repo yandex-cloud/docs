@@ -12,6 +12,7 @@ description: Follow this guide to add the {{ yds-full-name }} extension using th
     1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) in which you created or want to create an [API gateway](../../concepts/index.md).
     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
     1. Select an API gateway or click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}** to create a new one.
+    1. Click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
     1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** field, click ![image](../../../_assets/api-gateway/spec-constructor/cloud-datastreams.svg).
     1. Specify the following:
 

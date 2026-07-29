@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [iam](../../index.md) > [v0](../index.md) > [access-policy-template](index.md) > list
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [iam](../../index.md) > [v0](../index.md) > [access-policy-template](index.md) > list
 
 # yc iam v0 access-policy-template list
 

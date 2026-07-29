@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-sharded-postgresql](../index.md) > [v0](index.md) > resource-preset
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник (англ.)](../../../index.md) > [managed-sharded-postgresql](../index.md) > [v0](index.md) > resource-preset
 
 # yc managed-sharded-postgresql v0 resource-preset
 

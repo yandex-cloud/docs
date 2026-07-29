@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [cloud-registry](../index.md) > [artifact](index.md) > remove-access-binding
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник (англ.)](../../../index.md) > [cloud-registry](../index.md) > [artifact](index.md) > remove-access-binding
 
 # yc cloud-registry artifact remove-access-binding
 

@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [smartcaptcha](../../index.md) > [v0](../index.md) > [captcha](index.md) > get
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [smartcaptcha](../../index.md) > [v0](../index.md) > [captcha](index.md) > get
 
 # yc smartcaptcha v0 captcha get
 

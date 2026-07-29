@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [backup](../../index.md) > [v0](../index.md) > [backup](index.md) > recover
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [backup](../../index.md) > [v0](../index.md) > [backup](index.md) > recover
 
 # yc backup v0 backup recover
 

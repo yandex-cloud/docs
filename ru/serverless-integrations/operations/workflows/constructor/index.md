@@ -5,6 +5,8 @@ description: Из статьи вы узнаете, как работать с �
 
 # Обзор конструктора шагов рабочего процесса {{ sw-name }}
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 Для настройки интеграционных и управляющих шагов [рабочего процесса](../../../concepts/workflows/workflow.md) вы можете использовать конструктор. Конструктор доступен в [консоли управления]({{ link-console-main }}) при [создании](../workflow/create-constructor.md) и [изменении](../workflow/update.md) рабочего процесса.
 
 В конструкторе вы можете настроить следующие шаги рабочих процессов:

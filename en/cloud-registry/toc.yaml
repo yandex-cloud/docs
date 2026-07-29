@@ -97,6 +97,14 @@ items:
                 href: operations/go/push.md
               - name: Pushing a Go module from the registry
                 href: operations/go/pull.md
+          - name: Debian artifact
+            items:
+              - name: Configuring APT
+                href: operations/debian/installation.md
+              - name: Pushing a Debian package to a registry
+                href: operations/debian/push.md
+              - name: Pulling a Debian package from a registry
+                href: operations/debian/pull.md
           - name: Deleting an artifact from a registry
             href: operations/artifacts/delete.md
       - name: Creating a lifecycle policy
@@ -131,6 +139,8 @@ items:
             href: concepts/artifacts/binary.md
           - name: Go artifact
             href: concepts/artifacts/go.md
+          - name: Debian artifact
+            href: concepts/artifacts/debian.md
       - name: Lifecycle policy
         href: concepts/lifecycle-policy.md
       - name: Quotas and limits

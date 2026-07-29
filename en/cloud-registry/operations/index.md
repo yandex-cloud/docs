@@ -74,6 +74,12 @@ description: This section contains step-by-step guides for {{ cloud-registry-nam
 * [Pushing a Go module](go/push.md)
 * [Pulling a Go module](go/pull.md)
 
+### Debian {#debian}
+
+* [Configuring the APT package manager](debian/installation.md)
+* [Pushing a Debian package](debian/push.md)
+* [Pulling a Debian package](debian/pull.md)
+
 
 ## Other guides {#other}
 

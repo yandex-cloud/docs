@@ -1,6 +1,6 @@
 ---
 title: How to rent a {{ baremetal-full-name }} server with a connection to {{ backup-full-name }}
-description: Follow this guide to rent a {{ baremetal-name }} server with a connection to {{ backup-name }}.
+description: Follow this guide to rent a {{ baremetal-full-name }} server with a connection to {{ backup-full-name }}.
 ---
 
 # Renting a {{ baremetal-full-name }} server with a connection to {{ backup-name }}

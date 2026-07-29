@@ -32,7 +32,7 @@ At the very basic level, you can use [domains and subdomains](#domains-and-subdo
 
 To upload metadata, use _sources_ and _ingestions_.
 
-A source is a connection through which the metadata is uploaded. This connection stores information about the database or service metadata is ingested from as well as authentication data. [Learn more about available backends](../operations/data-catalog/create-source.md).
+A [source](data-catalog-sources.md) is a connection through which the metadata is uploaded. This connection stores information about the database or service metadata is ingested from as well as authentication data.
 
 A source can connect to both clusters of managed databases in {{ yandex-cloud }} and to custom installations of these databases. It can also fetch object links based on ongoing data delivery in {{ data-transfer-full-name }}.
 

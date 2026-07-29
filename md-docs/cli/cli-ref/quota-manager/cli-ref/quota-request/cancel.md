@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [quota-manager](../index.md) > [quota-request](index.md) > cancel
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник (англ.)](../../../index.md) > [quota-manager](../index.md) > [quota-request](index.md) > cancel
 
 # yc quota-manager quota-request cancel
 

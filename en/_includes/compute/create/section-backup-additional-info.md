@@ -6,10 +6,4 @@ To do this, expand the **{{ ui-key.yacloud.compute.instances.create.section_addi
 
 {% endnote %}
 
-{% note tip %}
-
-{% include [cloud-backup-resources-note](../../../_includes/backup/cloud-backup-resources-note.md) %}
-
-{% endnote %}
-
-For more information, see [{#T}](../../../backup/concepts/vm-connection.md).
+For more information, see [{#T}](../../../backup/concepts/vm-connection/compute.md).

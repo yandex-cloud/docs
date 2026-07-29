@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [desktops](../../index.md) > [v0](../index.md) > [image](index.md) > copy
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [desktops](../../index.md) > [v0](../index.md) > [image](index.md) > copy
 
 # yc desktops v0 image copy
 

@@ -7,7 +7,7 @@ description: In this article, you will learn how backup policies in {{ backup-na
 # Backup policies
 
 
-Backups of {{ yandex-cloud }} resources are created in {{ backup-name }} automatically according to _backup policies_.
+[Resource](./index.md#protected-resources) backups are created in {{ backup-name }} automatically according to _backup policies_.
 
 You can start [creating](../operations/policy-vm/create.md) the policies after you [activate](index.md#providers) {{ backup-name }}.
 
@@ -21,7 +21,7 @@ The {{ yandex-cloud }} management console does not support some parameters from 
 
 {% include [default-policies](../../_includes/backup/default-policies.md) %}
 
-By default, VMs and {{ baremetal-full-name }} servers in {{ backup-name }} are not linked to any backup policies. To start creating backups, link a [VM](../operations/policy-vm/attach-and-detach-vm.md) or [{{ baremetal-name }} server](../operations/backup-baremetal/backup-baremetal.md#agent-install) to one or more policies.
+By default, resources in {{ backup-name }} are not linked to any backup policies. To start creating backups, [link](./vm-connection/index.md) your resource to one or more policies.
 
 The backup policy specifies:
 
@@ -31,7 +31,7 @@ The backup policy specifies:
 
 * Schedule type and settings:
 
-    * `{{ ui-key.yacloud.backup.policy-form.value_schedule-type-fixed }}`: Backup frequency in hours, days, weeks, or months. Use [UTC±00:00](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00).
+    * `{{ ui-key.yacloud.backup.policy-form.value_schedule-type-fixed }}`: Backup frequency in hours, days, weeks, or months. Use [UTC±00:00](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00) time.
     * `{{ ui-key.yacloud.backup.policy-form.value_schedule-type-interval }}`: Interval, in hours or days, between the end of the previous backup and the start of the new one.
 
 * [Backup retention](#retention) settings.
@@ -40,17 +40,21 @@ The backup policy specifies:
 
 ## Storing backups {#retention}
 
-You can set up backup storage for the policy. The following can be stored for each VM or {{ baremetal-name }} server included in the policy:
+You can set up backup storage for the policy. For each resource linked to a policy, you can store:
 
 * All backups created under this policy.
 * Only the last several backups.
 * Only the backups younger than a certain age, e.g., those created during the last few days.
 
-The settings apply to all VMs and {{ baremetal-name }} servers in the policy.
+The settings apply to all resources linked to the policy.
+
+{% note info %}
 
 {% include [vm-and-bms-backup-incompatibility](../../_includes/backup/vm-and-bms-backup-incompatibility.md) %}
 
-If you make changes to the backup retention rules, by default they will take effect as soon as you create another backup. For a detailed description of backup retention policy configuration parameters, see the next section.
+{% endnote %}
+
+If you make changes to the backup retention rules, by default they will take effect as soon as you create another backup. For more on the backup retention rule settings, see the next section.
 
 ## Backup policy specification {#specification}
 

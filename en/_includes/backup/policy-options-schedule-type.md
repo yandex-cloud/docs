@@ -8,4 +8,4 @@
 
 * `{{ ui-key.yacloud.backup.policy-form.value_schedule-type-interval }}`: Specify the interval, in hours or days, between the end of the previous backup and the start of the new one.
 
-Backups are created based on the VM's or {{ baremetal-name }} server's local time. There may be a slight delay in the schedule depending on the current service load.
+Backups are created based on the local time of the resource. There may be a slight delay from the schedule depending on how loaded the service currently is.

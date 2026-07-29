@@ -1,6 +1,7 @@
 Event name | Description
 --- | ---
 `CreateProject` | Creating a project
+`CreateProjectBinding` | Creating a project binding
 `CreateSpace` | Creating a space
 `DeleteProject` | Deleting a project
 `DeleteSpace` | Deleting a space

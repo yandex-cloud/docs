@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [cloudrouter](../index.md) > [routing-instance](index.md) > remove-labels
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник (англ.)](../../../index.md) > [cloudrouter](../index.md) > [routing-instance](index.md) > remove-labels
 
 # yc cloudrouter routing-instance remove-labels
 

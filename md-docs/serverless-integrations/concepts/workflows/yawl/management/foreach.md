@@ -2,6 +2,17 @@
 
 # Foreach
 
+{% note info %}
+
+На данный момент Workflows поддерживается в двух интерфейсах — [Yandex Cloud](https://console.yandex.cloud/link/serverless-integrations/workflows/workflows) и [Yandex AI Studio](https://aistudio.yandex.ru/platform/link//workflows). При этом:
+
+* рабочие процессы, [созданные в интерфейсе Yandex Cloud](../../../../operations/workflows/workflow/create-constructor.md), автоматически _доступны_ в интерфейсе AI Studio;
+* рабочие процессы, созданные в интерфейсе AI Studio, _недоступны_ в интерфейсе Yandex Cloud.
+
+С 3 сентября 2026 года Workflows перестанет поддерживаться в интерфейсе Yandex Cloud. Для создания рабочих процессов и управления ими используйте интерфейс AI Studio.
+
+{% endnote %}
+
 Выполняет последовательность шагов, указанную в `do`, над каждым элементом входных данных. Выходные данные — массив результатов выполнения шагов, указанных в `do`. Для шагов в `do` в поле `next` можно указывать только шаги, которые есть в списке шагов в `do`. Подробнее о [состоянии рабочего процесса при выполнении шага Foreach](../../workflow.md#state-for-Foreach).
 
 Имя поля | Тип | Обязательное | Значение по умолчанию | Поддерживается [шаблонизация](../../templating.md) | Описание

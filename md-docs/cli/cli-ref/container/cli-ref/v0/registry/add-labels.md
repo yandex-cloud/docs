@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [container](../../index.md) > [v0](../index.md) > [registry](index.md) > add-labels
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [container](../../index.md) > [v0](../index.md) > [registry](index.md) > add-labels
 
 # yc container v0 registry add-labels
 

@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-redis](../../index.md) > [v0](../index.md) > [cluster](index.md) > backup
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [managed-redis](../../index.md) > [v0](../index.md) > [cluster](index.md) > backup
 
 # yc managed-redis v0 cluster backup
 

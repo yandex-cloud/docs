@@ -82,13 +82,7 @@ To run a scheduled cluster maintenance job immediately:
 
 ## Configuring a maintenance window {#set-maintenance-window}
 
-By default, maintenance can be scheduled for any time. You can choose a specific day of the week and hour to schedule maintenance. For example, you can choose the time when the cluster is least busy.
-
-{% note warning %}
-
-A scheduled maintenance job will be canceled automatically if it falls outside the specified interval.
-
-{% endnote %}
+By default, [maintenance](../concepts/maintenance.md) can be scheduled for any time. You can choose a specific day of week and hour interval for the maintenance. For example, you can choose the time when the cluster is least busy.
 
 {% list tabs group=instructions %}
 
@@ -100,7 +94,7 @@ A scheduled maintenance job will be canceled automatically if it falls outside t
   1. Click ![image](../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.mdb.maintenance.action_maintenance-window-setup }}**.
   1. In the window that opens:
      * To allow maintenance at any time, select **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-anytime }}**, which is also the default option.
-     * To allow weekly maintenance at a specific time, select **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}** and specify the weekday and hour in UTC.
+     * To allow weekly maintenance at a specific time, select **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}** and specify the day of the week and UTC time interval.
 
 - CLI {#cli}
 
@@ -120,7 +114,7 @@ A scheduled maintenance job will be canceled automatically if it falls outside t
       {{ yc-mdb-sp }} cluster update <cluster_name_or_ID> \
          --maintenance-window type=<maintenance_type>,`
                              `day=<day_of_week>,`
-                             `hour=<hour>
+                             `hour=<sequence_number_of_hour_interval>
       ```
 
       Where `type` is the maintenance type:
@@ -143,7 +137,7 @@ A scheduled maintenance job will be canceled automatically if it falls outside t
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -174,7 +168,7 @@ A scheduled maintenance job will be canceled automatically if it falls outside t
              "maintenance_window": {
                "weekly_maintenance_window": {
                  "day": "<day_of_week>",
-                 "hour": "<hour>"
+                 "hour": "<sequence_number_of_hour_interval>"
                }
              }
            }' \
@@ -188,13 +182,15 @@ A scheduled maintenance job will be canceled automatically if it falls outside t
 
        Here, we provide only one setting.
 
-     * `maintenance_window`: [Maintenance](../concepts/maintenance.md) window settings, including for stopped clusters. In `maintenance_window`, provide one of these two parameters:
+     * `maintenance_window`: [Maintenance](../concepts/maintenance.md) window settings, applying to both running and stopped clusters. Provide one of these two properties:
 
        * `anytime`: Any time.
-       * `weekly_maintenance_window`: Once a week on the specified day and time:
+       * `weekly_maintenance_window`: Maintenance takes place once a week at the specified time:
 
-         * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-         * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
+         * `day`: Day of week, e.g., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+         * `hour`: UTC hour interval, from `1` to `24`.
+
+           > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 

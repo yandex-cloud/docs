@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [cdn](../index.md) > [resource](index.md) > get-provider-cname
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник (англ.)](../../../index.md) > [cdn](../index.md) > [resource](index.md) > get-provider-cname
 
 # yc cdn resource get-provider-cname
 

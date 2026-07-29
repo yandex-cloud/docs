@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [managed-greenplum](../../../index.md) > [v0](../../index.md) > [resource-preset](../index.md) > [list](index.md) > master
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник (англ.)](../../../../../index.md) > [managed-greenplum](../../../index.md) > [v0](../../index.md) > [resource-preset](../index.md) > [list](index.md) > master
 
 # yc managed-greenplum v0 resource-preset list master
 

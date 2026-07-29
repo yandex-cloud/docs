@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-opensearch](../index.md) > [cluster](index.md) > switch-master
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник (англ.)](../../../index.md) > [managed-opensearch](../index.md) > [cluster](index.md) > switch-master
 
 # yc managed-opensearch cluster switch-master
 

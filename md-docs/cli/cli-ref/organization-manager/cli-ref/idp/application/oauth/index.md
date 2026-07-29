@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [organization-manager](../../../index.md) > [idp](../../index.md) > [application](../index.md) > oauth > Overview
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник (англ.)](../../../../../index.md) > [organization-manager](../../../index.md) > [idp](../../index.md) > [application](../index.md) > oauth > Overview
 
 # yc organization-manager idp application oauth
 

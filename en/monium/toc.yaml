@@ -239,6 +239,8 @@ items:
             href: logs/concepts/ttl.md
       - name: Log metrics
         href: logs/logs-metrics.md
+      - name: Calculating log-based metrics
+        href: logs/aggregates.md
       - name: Limitations
         href: logs/limits.md
   - name: Traces

@@ -6,6 +6,8 @@ description: В статье описаны поля для интеграцио
 
 # ObjectStorage
 
+{% include [workflows-ai-studio-note](../../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 Взаимодействие с объектами {{ objstorage-full-name }}. Поля `put` и `get` — взаимоисключающие, можно выполнить только одно действие над объектом.
 
 Имя поля | Тип | Обязательное | Значение по умолчанию | Поддерживается [шаблонизация](../../templating.md) | Описание

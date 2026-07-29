@@ -1,12 +1,12 @@
 ---
 title: Quotas in {{ backup-full-name }}
-description: '{{ backup-name }} has quotas on instances and total size of backups. For more information about the service restrictions, read this article.'
+description: '{{ backup-name }} has quotas on how many resources can be backed up and total size of backups. For more information about the service limitations, read this article.'
 editable: false
 ---
 
 # Quotas in {{ backup-name }}
 
-{{ backup-name }} has [_quotas_]({{ link-console-quotas }}), that is, organizational restrictions that can be changed by technical support on request.
+{{ backup-name }} is subject to [_quotas_]({{ link-console-quotas }}), i.e., organizational constraints that our support team can change upon request.
 
 {% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
 

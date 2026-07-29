@@ -149,8 +149,6 @@ items:
             href: tutorials/serverless-live-debug.md
       - name: Serverless-based bots
         items:
-          - name: Developing a Slack bot
-            href: tutorials/slack-bot-serverless.md
           - name: Developing a Telegram bot
             items:
               - name: Overview

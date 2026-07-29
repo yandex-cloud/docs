@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [serverless](../index.md) > [mcp-gateway](index.md) > remove-access-binding
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник (англ.)](../../../index.md) > [serverless](../index.md) > [mcp-gateway](index.md) > remove-access-binding
 
 # yc serverless mcp-gateway remove-access-binding
 

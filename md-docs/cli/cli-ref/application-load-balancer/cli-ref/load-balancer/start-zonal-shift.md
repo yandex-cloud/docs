@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [application-load-balancer](../index.md) > [load-balancer](index.md) > start-zonal-shift
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник (англ.)](../../../index.md) > [application-load-balancer](../index.md) > [load-balancer](index.md) > start-zonal-shift
 
 # yc application-load-balancer load-balancer start-zonal-shift
 

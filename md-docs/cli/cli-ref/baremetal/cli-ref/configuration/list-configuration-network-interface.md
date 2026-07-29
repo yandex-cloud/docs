@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [baremetal](../index.md) > [configuration](index.md) > list-configuration-network-interface
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник (англ.)](../../../index.md) > [baremetal](../index.md) > [configuration](index.md) > list-configuration-network-interface
 
 # yc baremetal configuration list-configuration-network-interface
 

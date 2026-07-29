@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Добавить шаг Wait
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 Управляющий шаг Wait приостанавливает выполнение рабочего процесса на заданный интервал времени или до наступления заданной временной метки. Если заданный интервал времени отрицательный или равен нулю, а также если указанная временная метка уже наступила, данный шаг завершится мгновенно.
 
 {% include [templating-note](../../../../_includes/serverless-integrations/templating-note.md) %}

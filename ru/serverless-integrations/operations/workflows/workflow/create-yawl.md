@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Создать рабочий процесс с помощью YaWL-спецификации
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 ## Подготовить YaWL-спецификацию {#prepare-spec}
 
 Сохраните [YaWL-спецификацию](../../../concepts/workflows/yawl/index.md) рабочего процесса в YAML-файле, например `yawl-spec.yaml`.

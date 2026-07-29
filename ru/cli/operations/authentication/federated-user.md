@@ -3,11 +3,19 @@ title: Аутентификация от имени федеративного �
 description: Следуя данной инструкции, вы сможете аутентифицироваться в CLI от имени федеративного пользователя.
 ---
 
-# Аутентификация от имени федеративного пользователя
+# Аутентификация в {{ yandex-cloud }} CLI от имени федеративного пользователя
 
 Вы можете использовать [федеративный аккаунт](../../../iam/concepts/users/accounts.md#saml-federation) для работы с {{ yandex-cloud }}, если ваша компания настроила [федерацию удостоверений](../../../iam/concepts/federations.md). В этом случае не требуется личный [аккаунт на Яндексе](../../../iam/concepts/users/accounts.md#passport).
 
 {% include [note-auth-without-gui](../../../_includes/cli/note-auth-without-gui.md) %}
+
+
+{% note tip %}
+
+{% include [cli-proxy-setup](../../../_includes/cli/cli-proxy-setup.md) %}
+
+{% endnote %}
+
 
 Если у вас еще нет интерфейса командной строки {{ yandex-cloud }}, [установите его](../install-cli.md).
 

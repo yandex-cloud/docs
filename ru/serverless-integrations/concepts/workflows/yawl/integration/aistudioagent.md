@@ -5,6 +5,8 @@ description: В статье описаны поля для интеграцио
 
 # AIStudioAgent
 
+{% include [workflows-ai-studio-note](../../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 Взаимодействие с [агентами {{ ai-studio-name }}]({{ link-docs-ai }}ai-studio/concepts/agents/index).
 
 Имя поля | Тип | Обязательное | Значение по умолчанию | Поддерживается [шаблонизация](../../templating.md) | Описание

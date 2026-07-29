@@ -25,7 +25,7 @@ For more information about the roles you need to use {{ data-transfer-name }}, s
 
 To use the service from the management console:
 1. Open the folder dashboard.
-1. Navigate to [**{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**]({{ link-console-main }}/link/data-transfer/). 
+1. [Navigate]({{ link-console-main }}/link/data-transfer/) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**. 
 
 ## Configure the source and the target {#db-settings}
 
@@ -79,7 +79,7 @@ Get the target ready to receive data:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+  1. [Navigate]({{ link-console-main }}/link/data-transfer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
   1. In the left-hand panel, select ![image](../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
   1. Click **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.
   1. Make sure the **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}** field is set to `{{ ui-key.yacloud.data-transfer.forms.label_source-type }}`.
@@ -99,7 +99,7 @@ For more information, see [{#T}](operations/endpoint/index.md).
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+  1. [Navigate]({{ link-console-main }}/link/data-transfer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
   1. In the left-hand panel, select ![image](../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
   1. Click **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.
   1. Make sure the **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}** field is set to `{{ ui-key.yacloud.data-transfer.forms.label_target-type }}`.
@@ -119,7 +119,7 @@ For more information, see [{#T}](./operations/endpoint/index.md).
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+  1. [Navigate]({{ link-console-main }}/link/data-transfer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
   1. In the left-hand panel, select ![image](../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
   1. Click **{{ ui-key.yacloud.data-transfer.button_create-transfer }}**.
   1. Enter a name for the transfer.
@@ -143,7 +143,7 @@ For more information, see [Transfer types](./concepts/transfer-lifecycle.md#tran
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+  1. [Navigate]({{ link-console-main }}/link/data-transfer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
   1. In the left-hand panel, select ![image](../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
   1. Click ![ellipsis](../_assets/console-icons/ellipsis.svg) next to the transfer name and select **{{ ui-key.yacloud.data-transfer.label_connector-operation-ACTIVATE }}**.
 

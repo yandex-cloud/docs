@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../index.md) > [Интерфейс командной строки](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > managed-kubernetes > Overview
+[Документация Yandex Cloud](../../../../index.md) > [Интерфейс командной строки](../../../index.md) > [Справочник (англ.)](../../index.md) > managed-kubernetes > Overview
 
 # yc managed-kubernetes
 

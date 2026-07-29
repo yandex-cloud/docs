@@ -7,4 +7,4 @@ The service supports:
 * [Python artifacts](../../cloud-registry/concepts/artifacts/python.md)
 * [Binary artifacts](../../cloud-registry/concepts/artifacts/binary.md)
 * [Go artifacts](../../cloud-registry/concepts/artifacts/go.md)
-
+* [Debian artifacts](../../cloud-registry/concepts/artifacts/debian.md)

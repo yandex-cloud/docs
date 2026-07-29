@@ -2,6 +2,17 @@
 
 # Вызов контейнера Yandex Serverless Containers
 
+{% note info %}
+
+На данный момент Workflows поддерживается в двух интерфейсах — [Yandex Cloud](https://console.yandex.cloud/link/serverless-integrations/workflows/workflows) и [Yandex AI Studio](https://aistudio.yandex.ru/platform/link//workflows). При этом:
+
+* рабочие процессы, [созданные в интерфейсе Yandex Cloud](../workflow/create-constructor.md), автоматически _доступны_ в интерфейсе AI Studio;
+* рабочие процессы, созданные в интерфейсе AI Studio, _недоступны_ в интерфейсе Yandex Cloud.
+
+С 3 сентября 2026 года Workflows перестанет поддерживаться в интерфейсе Yandex Cloud. Для создания рабочих процессов и управления ими используйте интерфейс AI Studio.
+
+{% endnote %}
+
 {% note tip %}
 
 В интерфейсе Yandex AI Studio некоторые поля отмечены значком ![image](../../../../_assets/console-icons/curly-brackets.svg). В таких полях можно указывать [шаблоны](../../../concepts/workflows/templating.md) и динамически получать данные из предыдущих шагов рабочего процесса. Чтобы не писать шаблон вручную, нажмите ![image](../../../../_assets/console-icons/curly-brackets.svg) или введите в поле `{{`.

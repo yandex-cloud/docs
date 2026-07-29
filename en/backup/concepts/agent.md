@@ -6,37 +6,40 @@ description: The {{ backup-name }} agent interfaces the resources with {{ backup
 # {{ backup-name }} agent
 
 
-The {{ backup-name }} agent interfaces the resources with {{ backup-name }} and the backup provider. It is installed on [{{ compute-full-name }}](../../compute/index.yaml) VMs or [{{ baremetal-full-name }}](../../baremetal/index.yaml) servers.
+Installed on [target resources](./index.md#protected-resources), the {{ backup-name }} agent enables them to interface with {{ backup-name }} and the backup provider.
 
 Learn more about the backup provider and data sent to it in [{#T}](index.md#providers).
 
 The {{ backup-name }} agent performs the following actions on the resource:
 
-* Registers the resource in {{ backup-name }} under a [service account](vm-connection.md#sa).
+* Registers the resource in {{ backup-name }}.
 * Reports the resource's connection status to {{ backup-name }}.
-* Backs up the resource according to the [backup policy](policy.md).
+* Backs up the resource according to the [backup policy](./policy.md).
 * Recovers the resource from a backup.
 * Disconnects the resource from {{ backup-name }}.
 
 {% note info %}
 
-To perform operations in {{ backup-name }}, including deleting backups, your [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) must have at least one active resource (VM in `RUNNING` status or {{ baremetal-name }} server in `READY` status) with the {{ backup-name }} agent installed. If there are no such VMs or servers, [create](../operations/create-vm.md) a temporary new VM connected to {{ backup-name }} to take the actions you need.
+To perform operations in {{ backup-name }}, including deleting backups, your [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) must have at least one active resource with the {{ backup-name }} agent installed. If there are no such resources, [create](../operations/create-vm.md) a temporary new {{ compute-full-name }} VM connected to {{ backup-name }} to perform the required tasks.
 
 {% endnote %}
 
-You can install the {{ backup-name }} agent on a VM [manually](vm-connection.md#self-install) or create a VM from {{ marketplace-full-name }} [images](vm-connection.md#os) with a pre-installed {{ backup-name }} agent.
+Depending on the type of your target resource, you can install the {{ backup-name }} agent either automatically or manually.
 
-{{ baremetal-name }} servers only support manual installation of the {{ backup-name }} agent. For more information, see [Connecting a {{ baremetal-name }} server to {{ backup-name }}](../operations/backup-baremetal/backup-baremetal.md).
+You can automatically install the agent when creating a new {{ compute-name }} VM or {{ baremetal-name }} server, provided its OS image supports automatic agent installation. You can manually install the {{ backup-name }} agent on all types of target resources.
 
+For more on installing the agent on target resources, see [{#T}](./vm-connection/index.md).
 
 ## Use cases {#examples}
 
 * [{#T}](../tutorials/backup-baremetal.md)
 * [{#T}](../tutorials/vm-with-backup-policy/index.md)
 
-
 #### Useful links {#see-also}
 
+* [{#T}](./vm-connection/compute.md)
+* [{#T}](./vm-connection/baremetal.md)
+* [{#T}](./vm-connection/external-resources.md)
 * [{#T}](../operations/connect-vm-linux.md)
 * [{#T}](../operations/connect-vm-oslogin-linux.md)
 * [{#T}](../operations/connect-vm-windows.md)

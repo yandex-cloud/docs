@@ -5,8 +5,8 @@ description: Follow this guide to set up PyPI.
 
 # Setting up PyPI
 
-1. {% include [auth-env-vars](../../../_includes/cloud-registry/auth-env-vars.md) %}
-1. In the user’s root directory, create a file named `~/.pypirc` with the following content and specify the token in it:
+1. {% include [auth-env](../../../_includes/cloud-registry/auth-env.md) %}
+1. In the user’s root directory, create a file named `~/.pypirc` with the following content:
 
     {% list tabs group=registry_auth %}
 

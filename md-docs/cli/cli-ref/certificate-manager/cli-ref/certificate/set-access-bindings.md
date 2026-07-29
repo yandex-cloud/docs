@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [certificate-manager](../index.md) > [certificate](index.md) > set-access-bindings
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник (англ.)](../../../index.md) > [certificate-manager](../index.md) > [certificate](index.md) > set-access-bindings
 
 # yc certificate-manager certificate set-access-bindings
 

@@ -5,6 +5,8 @@ description: На данной странице приведен список с
 
 # Сервисные роли для {{ sw-name }}
 
+{% include [workflows-ai-studio-note](../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 С помощью сервисных ролей [{{ sw-name }}](../concepts/index.md#workflows) вы можете управлять доступом пользователей к [рабочим процессам](../concepts/workflows/workflow.md) {{ sw-name }}.
 
 {% note info %}

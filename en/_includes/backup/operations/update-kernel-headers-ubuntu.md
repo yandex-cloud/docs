@@ -49,4 +49,5 @@
     sudo reboot
     ```
 
-    During the reboot, the DKMS framework will rebuild the SnapAPI module for the required Linux kernel version and the {{ backup-name }} agent will start operating.
+    During the reboot, the DKMS framework will rebuild the SnapAPI module for the required Linux kernel version and the {{ backup-name }} agent will run.
+1. {% include [update-snapapi-dkms](./update-snapapi-dkms.md) %}

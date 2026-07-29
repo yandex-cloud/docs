@@ -77,25 +77,6 @@ editable: false
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Стартовый пакетный тариф {#starter-pricing}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include notitle [rub.md](../_pricing/security-deck/starter/rub.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include notitle [kzt.md](../_pricing/security-deck/starter/kzt.md) %}
-
-{% endlist %}
-
-
-
-### Модули и подписки {#price-list}
-
 
 <MDX>
   <PriceList

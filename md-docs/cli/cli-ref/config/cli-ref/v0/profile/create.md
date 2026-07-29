@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [config](../../index.md) > [v0](../index.md) > [profile](index.md) > create
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [config](../../index.md) > [v0](../index.md) > [profile](index.md) > create
 
 # yc config v0 profile create
 

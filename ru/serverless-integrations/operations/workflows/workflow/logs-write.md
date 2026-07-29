@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Записать логи в журнал выполнения рабочего процесса
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 {% include [logging-note](../../../../_includes/functions/logging-note.md) %}
 
 {% list tabs group=instructions %}

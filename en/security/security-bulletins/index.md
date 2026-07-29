@@ -2,6 +2,8 @@
 
 This page contains security recommendations from {{ yandex-cloud }} experts.
 
+{% include [07.07.2026 — CVE-2026-53359 – Januscape](../../_includes/security/security-bulletins/CVE-2026-53359-januscape.md) %}
+
 {% include [25.06.2026 — Targeted data encryption attacks in the Linux infrastructure](../../_includes/security/security-bulletins/targeted-ransomware-attacks-linux-infrastructure.md) %}
 
 {% include [05.06.2026 — CVE-2026-49975 HTTP/2 Bomb](../../_includes/security/security-bulletins/cve-2026-49975-cve-2026-47774-http2-bomb.md) %}
@@ -323,7 +325,7 @@ You can do this by using the following tools:
 
 ### Additional information
 
-A checklist for a secure Kubernetes configuration is available [here](../domains/kubernetes.md).
+A checklist for a secure Kubernetes configuration is available [here](../domains/checklist#kubernetes-security).
 
 ## 03/03/2021: CVE-2021-21309: Remote code execution via a vulnerability in {{ RD }}
 

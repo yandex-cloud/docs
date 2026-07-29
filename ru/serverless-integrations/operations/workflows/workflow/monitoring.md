@@ -5,6 +5,8 @@ description: Вы можете посмотреть график монитор�
 
 # Посмотреть графики мониторинга рабочего процесса
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

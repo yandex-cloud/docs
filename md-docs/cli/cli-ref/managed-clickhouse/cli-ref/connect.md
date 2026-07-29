@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../index.md) > [Интерфейс командной строки](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [managed-clickhouse](index.md) > connect
+[Документация Yandex Cloud](../../../../index.md) > [Интерфейс командной строки](../../../index.md) > [Справочник (англ.)](../../index.md) > [managed-clickhouse](index.md) > connect
 
 # yc managed-clickhouse connect
 

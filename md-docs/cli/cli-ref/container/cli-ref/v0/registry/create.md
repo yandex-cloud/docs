@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [container](../../index.md) > [v0](../index.md) > [registry](index.md) > create
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [container](../../index.md) > [v0](../index.md) > [registry](index.md) > create
 
 # yc container v0 registry create
 

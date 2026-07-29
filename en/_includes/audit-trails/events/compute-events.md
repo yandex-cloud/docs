@@ -63,6 +63,7 @@ Event name | Description
 `instancegroup.EnableZones` | Enabling availability zones
 `instancegroup.PauseInstanceGroup` | Pausing instance group management processes
 `instancegroup.ResumeInstanceGroup` | Resuming instance group management processes
+`instancegroup.RollingRecreateInstanceGroupInstances` | Recreating instances in group one by one
 `instancegroup.RollingRestartInstanceGroupInstances` | Restarting instances in a group one by one
 `instancegroup.SetInstanceGroupAccessBindings` | Assigning roles to an instance group
 `instancegroup.StartInstanceGroup` | Starting an instance group

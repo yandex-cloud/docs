@@ -3,7 +3,7 @@ title: Как создать профиль в {{ yandex-cloud }} CLI
 description: Следуя данной инструкции, вы сможете создать профиль в CLI.
 ---
 
-# Создание профиля
+# Создание профиля {{ yandex-cloud }} CLI
 
 Создать профиль можно двумя способами:
 
@@ -29,6 +29,14 @@ description: Следуя данной инструкции, вы сможете
 Если вы еще не подключены к консоли управления, войдите в [консоль]({{ link-console-main }}) и примите пользовательское соглашение (нажмите **Войти**).
 
 {% include [note-auth-without-gui](../../../_includes/cli/note-auth-without-gui.md) %}
+
+
+{% note tip %}
+
+{% include [cli-proxy-setup](../../../_includes/cli/cli-proxy-setup.md) %}
+
+{% endnote %}
+
 
 {% list tabs group=authentication %}
 

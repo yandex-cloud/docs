@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-greenplum](../index.md) > [cluster](index.md) > add-labels
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник (англ.)](../../../index.md) > [managed-greenplum](../index.md) > [cluster](index.md) > add-labels
 
 # yc managed-greenplum cluster add-labels
 

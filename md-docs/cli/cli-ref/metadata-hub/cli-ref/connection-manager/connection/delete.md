@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [metadata-hub](../../index.md) > [connection-manager](../index.md) > [connection](index.md) > delete
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [metadata-hub](../../index.md) > [connection-manager](../index.md) > [connection](index.md) > delete
 
 # yc metadata-hub connection-manager connection delete
 

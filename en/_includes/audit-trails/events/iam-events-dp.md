@@ -12,3 +12,4 @@ Event name | Description
 `oslogin.CheckSshPolicy` | Checking permissions to connect via SSH with {{ oslogin }} access
 `oslogin.GenerateSshCertificate` | Generating an SSH certificate for {{ oslogin }} access
 `RevokeIamToken` | Revoking an IAM token
+`AccessKeyLastUsed` | Last use of a static key

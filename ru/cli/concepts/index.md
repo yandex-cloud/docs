@@ -1,4 +1,4 @@
-# Запуск команд
+# Запуск команд {{ yandex-cloud }} CLI
 
 Команды [CLI](../../glossary/cli.md) разделены на группы, каждая из которых соответствует сервису или компоненту {{ yandex-cloud }}.
 
@@ -9,6 +9,45 @@
 {% endnote %}
 
 Команды выполняются после прохождения аутентификации. После этого токен сохраняется в файловой системе. Вы также можете получать токен из переменной среды окружения `YC_IAM_TOKEN` вне зависимости от того, есть ли у вас сохраненный токен.
+
+## Передача нескольких значений одного параметра {#multiple-values}
+
+Некоторые параметры CLI могут принимать несколько значений. В зависимости от команды значения можно перечислить через запятую или передать по отдельности, повторив параметр:
+
+```bash
+yc <команда> \
+  --<параметр> <значение_1> \
+  --<параметр> <значение_2>
+```
+
+Поддерживаемый способ передачи значений зависит от команды и параметра. Перед выполнением команды посмотрите ее описание:
+
+```bash
+yc <команда> --help
+```
+
+### Примеры {#multiple-values-examples}
+
+При [создании версии функции](../../functions/operations/function/environment-variables-add.md) можно передать каждую переменную окружения в отдельном параметре `--environment`. Используйте этот способ, например, если значение переменной содержит запятые:
+
+```bash
+yc serverless function version create \
+  --function-name my-function \
+  --runtime python312 \
+  --entrypoint main.handler \
+  --source-path ./function.zip \
+  --environment OPENSEARCH_HOSTS='["hostname1","hostname2","hostname3"]' \
+  --environment OPENSEARCH_INDEX=index_v2
+```
+
+При [назначении ролей на сертификат](../../certificate-manager/operations/cert-access.md) передайте каждое назначение в отдельном параметре `--access-binding`:
+
+```bash
+yc certificate-manager certificate set-access-bindings my-certificate \
+  --access-binding role=editor,subject=userAccount:gfei8n54hmfh******** \
+  --access-binding role=viewer,subject=userAccount:helj89sfj80a******** \
+  --access-binding role=editor,subject=serviceAccount:ajel6l0jcb9s********
+```
 
 ## Управление конфигурацией CLI {#manage-properties}
 
@@ -66,7 +105,9 @@ CLI может отправлять запросы к {{ yandex-cloud }} чер�
 * доменное имя или IP-адрес прокси-сервера;
 * порт для установки соединения.
 
-{% note info %}
+{% note tip %}
+
+В URL прокси-сервера указывайте протокол, который прокси-сервер использует для входящих соединений. Если вы не знаете протокол, уточните его у администратора. Подробнее о поддерживаемых протоколах в [документации пакета net/http](https://pkg.go.dev/net/http#Transport.Proxy).
 
 Если в пароле содержатся спецсимволы, замените их на шестнадцатеричные коды ASCII. Например, если в пароле есть символ `@`, используйте `%40`.
 
@@ -123,3 +164,9 @@ CLI может отправлять запросы к {{ yandex-cloud }} чер�
 {% include [command-ver-intro](../../_includes/cli/command-ver-intro.md) %}
 
 Подробнее на странице [{#T}](../operations/command-versioning.md).
+
+
+#### Полезные ссылки {#see-also}
+
+[{#T}](../../overview/concepts/console-syntax-guide.md)
+

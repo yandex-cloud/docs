@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [dataproc](../../index.md) > [v0](../index.md) > [subcluster](index.md) > update
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [dataproc](../../index.md) > [v0](../index.md) > [subcluster](index.md) > update
 
 # yc dataproc v0 subcluster update
 

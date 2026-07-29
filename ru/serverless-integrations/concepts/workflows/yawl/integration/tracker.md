@@ -5,6 +5,8 @@ description: В статье описаны поля для интеграцио
 
 # Tracker
 
+{% include [workflows-ai-studio-note](../../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 Обращение к {{ tracker-full-name }} API. Поля `getIssue`, `createIssue`, `updateIissue`, `listIssues`, `linkIssues`, `updateIssueStatus`, `createComment`, `updateComment` и `listComments` — взаимоисключающие.
 
 Имя поля | Тип | Обязательное | Значение по умолчанию | Поддерживается [шаблонизация](../../templating.md) | Описание

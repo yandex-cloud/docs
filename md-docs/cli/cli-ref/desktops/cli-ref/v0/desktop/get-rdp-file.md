@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [desktops](../../index.md) > [v0](../index.md) > [desktop](index.md) > get-rdp-file
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [desktops](../../index.md) > [v0](../index.md) > [desktop](index.md) > get-rdp-file
 
 # yc desktops v0 desktop get-rdp-file
 

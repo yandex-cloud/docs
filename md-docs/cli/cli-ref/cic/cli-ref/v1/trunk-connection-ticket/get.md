@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [cic](../../index.md) > [v1](../index.md) > [trunk-connection-ticket](index.md) > get
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [cic](../../index.md) > [v1](../index.md) > [trunk-connection-ticket](index.md) > get
 
 # yc cic v1 trunk-connection-ticket get
 

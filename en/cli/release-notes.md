@@ -7,6 +7,75 @@ description: This page presents CLI releases and their updates.
 
 ## Current version {#latest-release}
 
+### Version 1.18.0 (09/07/26) {#v-1-18-0}
+
+#### {{ interconnect-name }} {#v-1-18-0-cic}
+
+* Added the `yc cic revoke` command.
+* Added the `--spec`, `--ticket-id`, and `--trunk-connection-id` parameters to the following commands:
+  * `yc cic create`
+  * `yc cic get`
+  * `yc cic listoperations`
+* Deleted the `--description`, `--ipv4-peering`, `--ipv4-static-routes`, `--labels`, `--name`, `--private-connection-id`, `--trunk-connection-id`, and `--vlan-id` parameters from the following commands:
+  * `yc cic create`
+  * `yc cic get`
+  * `yc cic listoperations`
+
+#### {{ iam-name }} {#v-1-18-0-iam}
+
+* Added a new `list-profiles` command: `yc iam oauth-client list-profiles`.
+* Added new parameters when creating OAuthClient: `authentication_methods`, `profile-id`, and `pkce_required`:
+  * `yc iam oauth-client create`
+  * `yc iam oauth-client update`
+* Added commands to block and unblock service accounts:
+  * `yc iam service-account suspend`
+  * `yc iam service-account reactivate`
+
+#### {{ mpg-name }} {#v-1-18-0-mpg}
+
+* Added the `pg_repack` management command group for {{ mpg-name }} clusters:
+  * `yc managed-postgresql repack list-running`
+  * `yc managed-postgresql repack launch`
+  * `yc managed-postgresql repack terminate`
+* Added the `pg_repack` management parameter for {{ mpg-name }} clusters:
+  * `yc managed-postgresql cluster create`
+  * `yc managed-postgresql cluster update`
+* Added the `repack` service type for viewing `pg_repack` logs in {{ mpg-name }} clusters: `yc managed-postgresql cluster list-logs`.
+
+#### {{ mmg-name }} {#v-1-18-0-mmg}
+
+* Added a new parameter for creating users with IAM authentication in {{ mmg-name }}: `yc managed-mongodb user create`.
+* Added a new `deletion-protection` parameter for creating and updating users in {{ mmg-name }}: `yc managed-mongodb user create`, `yc managed-mongodb user update`.
+* Added a new `deletion-protection` parameter for creating and updating databases in {{ mmg-name }}: `yc managed-mongodb database create`, `yc managed-mongodb database update`.
+
+#### {{ cloud-registry-name }} {#v-1-18-0-cloud-registry}
+
+* Added parameters for filtering by registry name, type, and status to the `yc cloud-registry registry list` command.
+
+## Previous releases {#previous-release}
+
+### Version 1.17.0 (06/07/26) {#v-1-17-0}
+
+#### {{ backup-name }} {#v-1-17-0-backup-name}
+
+* Added the `yc backup agent install-external` command for getting the command for backup agent installation to external resources: `yc backup agent install-external`.
+* Added support for external resources to the following `yc backup` commands:
+  * `yc backup resources list`
+  * `yc backup backups list`
+
+### Version 1.16.0 (02/07/26) {#v-1-16-0}
+
+#### {{ cloud-registry-name }} {#v-1-16-0-cloud-registry-name}
+
+Added the `yc cloud-registry artifact list` command for getting a list of artifacts.
+
+#### {{ mmg-name }} {#v-1-16-0-mmg-name}
+
+Added the `--autocompact`, `--autocompact-bloat-percent`, `--autocompact-target-free-space`, and `--autocompact-compaction-type` parameters to the following commands:
+* `yc managed-mongodb cluster create`
+* `yc managed-mongodb cluster update`
+* `yc managed-mongodb cluster restore`
+
 ### Version 1.15.0 (30/06/26) {#v-1-15-0}
 
 #### {{ mch-name }} {#v-1-15-0-mch-name}

@@ -226,3 +226,9 @@ Service name: `wiki`.
 Service name: `websql`.
 
 {% include [websql-events-dp](../../_includes/audit-trails/events/websql-events-dp.md) %}
+
+## {{ sw-full-name }} {#workflows}
+
+Service name: `serverless.workflows`.
+
+{% include [workflows-events-dp](../../_includes/audit-trails/events/workflows-events-dp.md) %}

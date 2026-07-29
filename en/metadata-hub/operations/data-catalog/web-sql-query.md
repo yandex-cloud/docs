@@ -26,7 +26,7 @@ To run an SQL query:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the [resource folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) you created the metadata catalog in.
-    1. [Navigate](../../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+    1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
     1. In the list that opens, select the metadata catalog.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}**.
@@ -37,7 +37,7 @@ To run an SQL query:
 
     1. In the **Data** field, click the **Open in WebSQL** link.
     1. Select a connection to the source cluster database. This will take you to {{ websql-name }}.
-    1. In the top-right panel, enter the SQL query and click **Run**.
+    1. In the top-right panel, enter the SQL query and click **Execute**.
 
         Here are some examples of what you can do with SQL commands:
 

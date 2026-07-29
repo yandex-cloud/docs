@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [kms](../index.md) > [asymmetric-signature-key](index.md) > delete
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник (англ.)](../../../index.md) > [kms](../index.md) > [asymmetric-signature-key](index.md) > delete
 
 # yc kms asymmetric-signature-key delete
 

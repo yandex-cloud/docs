@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../../index.md) > [iam](../../../../index.md) > [v0](../../../index.md) > [workload-identity](../../index.md) > [oidc](../index.md) > [federation](index.md) > add-audiences
+[Документация Yandex Cloud](../../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../../index.md) > [Справочник (англ.)](../../../../../../index.md) > [iam](../../../../index.md) > [v0](../../../index.md) > [workload-identity](../../index.md) > [oidc](../index.md) > [federation](index.md) > add-audiences
 
 # yc iam v0 workload-identity oidc federation add-audiences
 

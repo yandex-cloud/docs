@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [dataproc](../../index.md) > [v0](../index.md) > [cluster](index.md) > delete
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [dataproc](../../index.md) > [v0](../index.md) > [cluster](index.md) > delete
 
 # yc dataproc v0 cluster delete
 

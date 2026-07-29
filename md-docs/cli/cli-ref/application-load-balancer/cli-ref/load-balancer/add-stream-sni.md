@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [application-load-balancer](../index.md) > [load-balancer](index.md) > add-stream-sni
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник (англ.)](../../../index.md) > [application-load-balancer](../index.md) > [load-balancer](index.md) > add-stream-sni
 
 # yc application-load-balancer load-balancer add-stream-sni
 

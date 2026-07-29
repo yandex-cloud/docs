@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-gitlab](../../index.md) > [v0](../index.md) > [instance](index.md) > get
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [managed-gitlab](../../index.md) > [v0](../index.md) > [instance](index.md) > get
 
 # yc managed-gitlab v0 instance get
 

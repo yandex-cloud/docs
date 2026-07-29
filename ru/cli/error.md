@@ -3,9 +3,32 @@ title: Решение проблем CLI
 description: В этой статье описаны решения типичных проблем, которые могут возникать при работе с CLI.
 ---
 
-# Решение проблем CLI
+# Решение проблем с {{ yandex-cloud }} CLI
 
-## Ошибки при установке CLI {#installation-errors}
+* [{#T}](#installation-errors)
+  * [{#T}](#powershell-restriction)
+  * [{#T}](#access-to-s3)
+  * [{#T}](#failure-writing-output-to-destination)
+  * [{#T}](#command-not-found)
+  * [{#T}](#compdef-not-found)
+* [{#T}](#operation-errors)
+  * [{#T}](#sample)
+  * [{#T}](#operation-error-details)
+  * [{#T}](#what-to-do)
+  * [{#T}](#name-not-found)
+  * [{#T}](#proxy)
+  * [{#T}](#invalid-token)
+  * [{#T}](#federated-auth-without-gui)
+
+## Проблемы при установке CLI {#installation-errors}
+
+#### В PowerShell запрещено выполнение скриптов {#powershell-restriction}
+
+{% include [cli-powershell-execution-policy](../_includes/cli/cli-powershell-execution-policy.md) %}
+
+#### Нет доступа к https://{{ s3-storage-host-cli }} {#access-to-s3}
+
+{% include [cli-install-without-access](../_includes/cli/cli-install-without-access.md) %}
 
 #### Failure writing output to destination {#failure-writing-output-to-destination}
 
@@ -20,17 +43,65 @@ sudo apt install curl
 
 Затем повторите [установку CLI](./operations/install-cli.md).
 
-## Ошибки при работе с CLI {#operation-errors}
+#### Команда yc не найдена в Linux или macOS {#command-not-found}
+
+Если после установки CLI возникает ошибка `yc: command not found`, перезапустите командную оболочку или выполните команду:
+
+```bash
+exec -l $SHELL
+```
+
+Если ошибка сохраняется:
+
+1. Убедитесь, что исполняемый файл CLI установлен:
+
+    ```bash
+    ls -l "$HOME/yandex-cloud/bin/yc"
+    ```
+
+    Если файла нет, повторите [установку CLI](./operations/install-cli.md).
+
+1. Добавьте путь к исполняемому файлу в переменную окружения `PATH` для текущей сессии и проверьте работу CLI:
+
+    ```bash
+    source "$HOME/yandex-cloud/path.bash.inc"
+    yc version
+    ```
+
+1. Чтобы путь добавлялся в новых сессиях автоматически, убедитесь, что в файле `~/.zshrc`, `~/.bashrc` или `~/.bash_profile`, соответствующем вашей командной оболочке, есть строка:
+
+    ```bash
+    if [ -f "$HOME/yandex-cloud/path.bash.inc" ]; then source "$HOME/yandex-cloud/path.bash.inc"; fi
+    ```
+
+#### Ошибка command not found: compdef {#compdef-not-found}
+
+Ошибка `command not found: compdef` возникает, если автодополнение CLI загружается до инициализации системы автодополнения `zsh`.
+
+Добавьте следующие строки в файл `~/.zshrc` перед строкой, которая подключает файл `completion.zsh.inc`:
+
+```bash
+autoload -Uz compinit
+compinit
+```
+
+Затем перезапустите командную оболочку или выполните команду `exec -l $SHELL`. Подробнее о настройке автодополнения читайте в разделе [{#T}](./operations/install-cli.md#enable-completion).
+
+## Проблемы при работе с CLI {#operation-errors}
 
 Если во время выполнения операции возникла ошибка, [CLI](../glossary/cli.md) отобразит соответствующее сообщение.
 
 #### Пример сообщения об ошибке {#sample}
 
-```
-yc compute instance create --name my-inst3 --metadata user-data="#ps1\nnet user Administrator Passw0rd" --zone {{ region-id }}-a --public-ip --create-boot-disk image-folder-id=standard-images,image-name=windows-2016-gvlk-153
-7967224
-ERROR: rpc error: code = ResourceExhausted desc = The limit on maximum number of instances has exceeded.
+```bash
+yc compute instance create \
+  --name my-inst3 \
+  --metadata user-data="#ps1\nnet user Administrator Passw0rd" \
+  --zone {{ region-id }}-a \
+  --public-ip \
+  --create-boot-disk image-folder-id=standard-images,image-name=windows-2016-gvlk-153
 
+ERROR: rpc error: code = ResourceExhausted desc = The limit on maximum number of instances has exceeded.
 
 server-request-id: 9d42710c-4a14-4561-a491-1f3bf76dbaaa
 client-request-id: e69f4463-b9de-45bc-89b3-4db6e4d1bae6
@@ -40,29 +111,40 @@ Use server-request-id, client-request-id, client-trace-id for investigation of i
 If you are going to ask for help of cloud support, please send the following trace file: C:\Users\username\yandex-cloud\logs\yc_compute_instance_create-2019-02-18T12-26-39.897.txt
 ```
 
-#### Что делать? {#what-to-do}
+#### Как получить подробную информацию об ошибке операции? {#operation-error-details}
+
+Если CLI вывел идентификатор операции, запросите сведения о ней:
+
+```bash
+yc operation get <идентификатор_операции>
+```
+
+Сведения об операции могут содержать более подробное описание причины ошибки.
+
+#### Как обратиться в службу технической поддержки? {#what-to-do}
 
 Чтобы помочь нашим специалистам быстрее решить вашу проблему, из сообщения об ошибке:
-
 1. Скопируйте все доступные **идентификаторы**. В данном примере это `server-request-id`, `client-request-id` и `client-trace-id`.
 1. Скопируйте **файл с логами**, который сохранился на вашем ПК. Путь к логам указан в конце сообщения об ошибке.
 В данном примере это:
-    ```
+
+    ```text
     C:\Users\username\yandex-cloud\logs\yc_compute_instance_create-2019-02-18T12-26-39.897.txt
     ```
+
 1. Обратитесь с этой информацией в [службу технической поддержки]({{ link-console-support }}).
 
-## Ресурс не найден при обращении по имени {#name-not-found}
+#### Ресурс не найден при обращении по имени {#name-not-found}
 
 Если при обращении к ресурсу по имени возникает ошибка:
 
-```
+```text
 ERROR: ... not found
 ```
 
 или
 
-```
+```text
 ERROR: rpc error: code = NotFound ...
 ```
 
@@ -87,3 +169,38 @@ yc config set folder-id <идентификатор_каталога>
 ```
 
 Если вы используете идентификатор ресурса, указывать каталог не нужно — идентификаторы уникальны.
+
+#### Как пользоваться CLI через прокси-сервер? {#proxy}
+
+{% include [cli-proxy-setup](../_includes/cli/cli-proxy-setup.md) %}
+
+#### Недействительный токен {#invalid-token}
+
+При выполнении команды CLI может возникать ошибка о недействительности токена, например:
+
+```text
+ERROR: Unable to list clouds: rpc error: code = Unauthenticated desc = UNAUTHENTICATED: The token is invalid
+```
+
+Независимо от типа [профиля](./operations/profile/profile-create.md) CLI аутентификация в {{ yandex-cloud }} выполняется с помощью [IAM-токена](../iam/concepts/authorization/iam-token.md). CLI получает его следующими способами:
+* из браузера;
+* в обмен на [авторизованный ключ](../iam/concepts/authorization/key.md);
+* напрямую из переменной окружения `YC_IAM_TOKEN`.
+
+Ошибка свидетельствует о том, что IAM-токен недействителен. Например, мог истечь срок его действия, или токен был отозван.
+
+Повторно [аутентифицируйтесь](./operations/index.md#auth) в CLI.
+
+Учитывайте также, что передача IAM-токена в переменную окружения `export YC_IAM_TOKEN=<значение_IAM-токена>` переопределяет аутентификационные параметры, заданные при других типах аутентификации.
+
+#### Ошибка при аутентификации на сервере без графического интерфейса и браузера {#federated-auth-without-gui}
+
+{% include [federated-auth-without-gui](../_includes/cli/federated-auth-without-gui.md) %}
+
+
+### Полезные ссылки {#see-also}
+
+* [{#T}](../overview/concepts/console-syntax-guide.md)
+* [{#T}](../overview/concepts/interfaces.md)
+* [{#T}](../support/overview.md)
+

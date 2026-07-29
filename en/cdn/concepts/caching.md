@@ -55,6 +55,12 @@ There are technical [limits](limits.md) on cache prefetching.
 
 You can delete cached file copies from CDN servers by _purging the cache_. This lets you quickly update in the CDN the content that has changed in the origins.
 
+{% note warning %}
+
+{% include [purge-cache-limits-notice](../../_includes/cdn/purge-cache-limits-notice.md) %}
+
+{% endnote %}
+
 You can [purge](../operations/resources/purge-cache.md) cache either fully or partially. Partial purge is recommended: if you delete copies of all files from the cache, CDN servers will significantly increase the load on the origins, having to access them at every file request.
 
 {% include [wildcard-paths-purging-specifics](../../_includes/cdn/wildcard-paths-purging-specifics.md) %}
@@ -78,8 +84,6 @@ If the file is cached based on the [query parameters](#cookie-and-query) (that i
 {% include [the-vary-headers-purge-warning](../../_includes/cdn/the-vary-headers-purge-warning.md) %}
 
 {% endnote %}
-
-There are technical [limits](limits.md) for cache purging.
 
 ## Use cases {#examples}
 

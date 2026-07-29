@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Добавить шаг No op
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 Управляющий шаг No op не выполняет никаких действий. Этот шаг нужен, например, чтобы успешно завершить пайплайн, если в шаге [Switch](./switch.md) было выполнено условие по умолчанию, или если требуется сделать заглушку на месте одного из шагов на этапе прототипирования.
 
 {% include [templating-note](../../../../_includes/serverless-integrations/templating-note.md) %}
