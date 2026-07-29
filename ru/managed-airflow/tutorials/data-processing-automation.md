@@ -1,5 +1,6 @@
 ---
 title: Автоматизация работы с {{ dataproc-full-name }}
+description: С помощью этого руководства вы автоматизируете работу с {{ dataproc-full-name }} с помощью {{ maf-full-name }}.
 canonical: '{{ link-docs }}/tutorials/dataplatform/data-processing-and-airflow'
 ---
 
