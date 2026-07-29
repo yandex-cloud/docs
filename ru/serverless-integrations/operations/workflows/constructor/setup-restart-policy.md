@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Настроить политику повторных попыток для рабочего процесса
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 {% list tabs %}
 
 - Консоль управления {#console}

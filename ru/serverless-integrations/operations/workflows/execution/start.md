@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Запустить рабочий процесс
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 Чтобы любой пользователь мог запустить рабочий процесс, сделайте его [публичным](../workflow/make-public.md).
 
 {% list tabs group=instructions %}

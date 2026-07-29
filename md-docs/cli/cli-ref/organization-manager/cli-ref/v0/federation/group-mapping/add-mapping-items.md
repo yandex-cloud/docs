@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [organization-manager](../../../index.md) > [v0](../../index.md) > [federation](../index.md) > [group-mapping](index.md) > add-mapping-items
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник (англ.)](../../../../../index.md) > [organization-manager](../../../index.md) > [v0](../../index.md) > [federation](../index.md) > [group-mapping](index.md) > add-mapping-items
 
 # yc organization-manager v0 federation group-mapping add-mapping-items
 

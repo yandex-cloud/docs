@@ -11,6 +11,8 @@ keywords:
 
 # Обзор
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 ## Рабочий процесс {#workflow}
 
 JSON-схема рабочего процесса доступна в [репозитории на GitHub](https://raw.githubusercontent.com/yandex-cloud/json-schema-store/refs/heads/master/serverless/workflows/yawl.json).

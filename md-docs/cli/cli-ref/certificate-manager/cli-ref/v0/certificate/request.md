@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [certificate-manager](../../index.md) > [v0](../index.md) > [certificate](index.md) > request
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [certificate-manager](../../index.md) > [v0](../index.md) > [certificate](index.md) > request
 
 # yc certificate-manager v0 certificate request
 

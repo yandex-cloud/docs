@@ -1,6 +1,11 @@
+---
+title: How to create a Windows Server {{ compute-full-name }} VM with a connection to {{ backup-full-name }}
+description: Follow this guide to create a Windows Server {{ compute-full-name }} VM with a connection to {{ backup-full-name }}.
+---
+
 # Creating a Windows Server VM with a connection to {{ backup-name }}
 
-You can back up your {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [supported Windows-based operating systems](../concepts/vm-connection.md#windows).
+You can back up your {{ compute-full-name }} [VMs](../../compute/concepts/vm.md) with [supported Windows-based operating systems](../concepts/vm-connection/compute.md#windows).
 
 {% include [requirements](../../_includes/backup/requirements.md) %}
 
@@ -18,7 +23,7 @@ You can back up your {{ compute-name }} [VMs](../../compute/concepts/vm.md) with
 
     {% endnote %}
 
-1. [Set up](../concepts/vm-connection.md#vm-network-access) network access for your VM.
+1. [Set up](../concepts/vm-connection/compute.md#vm-network-access) network access for your VM.
 
 ## Creating a VM {#creating-vm}
 
@@ -29,8 +34,11 @@ You can back up your {{ compute-name }} [VMs](../../compute/concepts/vm.md) with
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a VM.
   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}** and click **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an [operating system supported in {{ backup-name }}](../concepts/vm-connection.md#windows).
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an [operating system supported in {{ backup-name }}](../concepts/vm-connection/compute.md#windows).
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}** and **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, set up your VM.
+
+      {% include [vm-requirements](../../_includes/backup/vm-requirements.md) %}
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
       1. Choose a subnet in the selected availability zone.
@@ -45,6 +53,10 @@ You can back up your {{ compute-name }} [VMs](../../compute/concepts/vm.md) with
 
   1. Specify the other VM parameters as needed.
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+
+  {% include [agent-installation-timespan](../../_includes/backup/agent-installation-timespan-win.md) %}
+
+  {% include [vm-all-set](../../_includes/backup/vm-all-set.md) %}
 
 - CLI {#cli}
 
@@ -116,7 +128,7 @@ You can back up your {{ compute-name }} [VMs](../../compute/concepts/vm.md) with
       * `--zone`: [Availability zone](../../overview/concepts/geo-scope.md) corresponding to the selected subnet.
       * `subnet-name`: Name of the selected [subnet](../../vpc/concepts/network.md#subnet).
       * `security-group-ids`: ID of the [security group](../../vpc/concepts/security-groups.md) configured to work with {{ backup-name }}.
-      * `image-id`: OS [image ID](../../compute/concepts/image.md). [List of supported Windows-based operating systems](../concepts/vm-connection.md#windows).
+      * `image-id`: OS [image ID](../../compute/concepts/image.md). [List of supported Windows-based operating systems](../concepts/vm-connection/compute.md#windows).
       * `size`: Boot disk size.
       * `--cores`: [Number of vCPUs](../../compute/concepts/vm.md) in the VM.
       * `--core-fraction`: Guaranteed vCPU share, in %.
@@ -153,13 +165,13 @@ You can back up your {{ compute-name }} [VMs](../../compute/concepts/vm.md) with
 
       {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
 
+  {% include [agent-installation-timespan](../../_includes/backup/agent-installation-timespan-win.md) %}
+
+  {% include [vm-list](../../_includes/backup/vm-list.md) %}
+
 {% endlist %}
 
-{% include [agent-installation-timespan](../../_includes/backup/agent-installation-timespan-win.md) %}
-
 {% include [agent-installation-failure](../../_includes/backup/agent-installation-failure-win.md) %}
-
-{% include [vm-list](../../_includes/backup/vm-list.md) %}
 
 #### Useful links {#see-also}
 

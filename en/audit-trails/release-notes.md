@@ -5,6 +5,415 @@ description: This section contains the {{ at-name }} release notes.
 
 # {{ at-full-name }} release notes
 
+
+## Q2 2026 {#q2-2026}
+
+* Added new events for the services:
+
+  {% cut "{{ ai-studio-full-name }}" %}
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `mcp_hub.InvokeMcpTool` | Calling an MCP tool
+  `mcp_hub.ListMcpTools` | Getting a list of MCP tools
+  `mcp_hub.StartMcpSession` | Running an MCP session
+  `searchindex.CreateSearchIndex` | Creating a search index
+  `searchindex.DeleteFilesFromSearchIndex` | Deleting files from a search index
+  `searchindex.DeleteSearchIndex` | Deleting a search index
+  `searchindex.UploadFilesToSearchIndex` | Uploading files to a search index
+
+  {% endcut %}
+
+  {% cut "{{ baremetal-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `CreatePublicPrefixPool` | Creating a public prefix pool
+  `DeletePublicPrefixPool` | Deleting a public prefix pool
+  `UpdatePublicPrefixPool` | Updating a public prefix pool
+
+  {% endcut %}
+
+  {% cut "{{ cloud-registry-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `CreateArtifact` | Creating an [artifact](../cloud-registry/concepts/artifacts/index.md)
+  `UpdateArtifact` | Updating an artifact
+
+  {% endcut %}
+
+  {% cut "{{ datalens-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `CreateEntityBinding` | Creating a shared object binding in a workbook
+  `DeleteEntityBinding` | Deleting a shared object binding from a workbook
+  `DeleteSharedEntry` | Deleting a shared object
+  `MoveSharedEntry` | Moving a shared object
+  `UpdateEntityBinding` | Updating a shared object binding in a workbook
+  `UpdateSharedEntryAccessBindings` | Updating access permissions for a shared object
+  `UpdateTenantAccessBindings` | Updating access permissions for a tenant
+
+  {% endcut %}
+
+  {% cut "{{ dns-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `CreateDnsInboundEndpoint` | Creating an incoming DNS endpoint
+  `DeleteDnsInboundEndpoint` | Deleting an incoming DNS endpoint
+  `SetDnsInboundEndpointAccessBindings` | Assigning access permissions to an incoming DNS endpoint
+  `UpdateDnsInboundEndpoint` | Updating an incoming DNS endpoint
+  `UpdateDnsInboundEndpointAccessBindings` | Updating access permissions to an incoming DNS endpoint
+
+  {% endcut %}
+
+  {% cut "{{ org-full-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `idp.ResetOwnPassword` | Resetting your own password
+  `oauth.AddOAuthFederatedUserAccounts` | Adding a user to a workload identity federation
+
+  {% endcut %}
+
+  {% cut "{{ video-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `DownloadEpisode` | Downloading an episode
+
+  {% endcut %}
+
+  {% cut "{{ iam-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `ReactivateServiceAccount` | Activating a service account
+  `SuspendServiceAccount` | Deactivating a service account
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `credential.CreateYcSsprToken` | Generating a token for self-service password reset
+
+  {% endcut %}
+
+  {% cut "{{ mkf-short-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `SetClusterAccessBindings` | Assigning access permissions for a cluster
+  `UpdateClusterAccessBindings` | Updating access permissions for a cluster
+
+  {% endcut %}
+
+  {% cut "{{ mch-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `SetClusterAccessBindings` | Assigning access permissions for a cluster
+  `UpdateClusterAccessBindings` | Updating access permissions for a cluster
+
+  {% endcut %}
+
+  {% cut "{{ mmg-short-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `ResetupHosts` | Resyncing a host
+  `RestartHosts` | Restarting a host
+  `SetClusterAccessBindings` | Assigning access permissions for a cluster
+  `StepdownHosts` | Changing the master host
+  `UpdateClusterAccessBindings` | Updating access permissions for a cluster
+
+  {% endcut %}
+
+  {% cut "{{ mmy-short-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `SetClusterAccessBindings` | Assigning access permissions for a cluster
+  `UpdateClusterAccessBindings` | Updating access permissions for a cluster
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `UpdateDatabase` | Updating a database
+
+  {% endcut %}
+
+  {% cut "{{ mpg-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `SetClusterAccessBindings` | Assigning access permissions for a cluster
+  `UpdateClusterAccessBindings` | Updating access permissions for a cluster
+
+  {% endcut %}
+
+  {% cut "{{ mspqr-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `MoveCluster` | Moving a cluster
+  `SetClusterAccessBindings` | Assigning access permissions for a cluster
+  `UpdateClusterAccessBindings` | Updating access permissions for a cluster
+
+  {% endcut %}
+
+  {% cut "{{ ydb-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `SetBackupAccessBindings` | Assigning access permissions for a database backup
+  `SetDatabaseAccessBindings` | Assigning access permissions for a database
+  `UpdateBackupAccessBindings` | Updating access permissions for a database backup
+  `UpdateDatabaseAccessBindings` | Updating access permissions for a database
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `AlterTopic` | Updating a [topic]({{ ydb.docs }}/concepts/glossary#topic)
+  `CreateTopic` | Creating a topic
+  `DeleteTopic` | Deleting a topic
+
+  {% endcut %}
+
+  {% cut "{{ objstorage-name }}" %}
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `ObjectGetByPresignURL` | Getting an object from a bucket using a [pre-signed URL](../storage/security/overview.md#pre-signed)
+
+  {% endcut %}
+
+  {% cut "{{ wiki-full-name }}" %}
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `ChangeOrganizationDomain` | Changing organization domain
+  `ChangeOrganizationMetrika` | Changing organization [Yandex Metrica counter](https://yandex.ru/support/wiki/en/add-metrika)
+  `ChangeOrganizationSettings` | Changing organization settings
+
+  {% endcut %}
+
+  {% cut "{{ backup-full-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `CreateBackup` | Creating a backup
+
+  {% endcut %}
+
+  {% cut "{{ maf-full-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `SetClusterAccessBindings` | Assigning access permissions for a cluster
+  `UpdateClusterAccessBindings` | Updating access permissions for a cluster
+
+  {% endcut %}
+
+  {% cut "{{ metastore-full-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `SetClusterAccessBindings` | Assigning access permissions for a cluster
+  `UpdateClusterAccessBindings` | Updating access permissions for a cluster
+
+  {% endcut %}
+
+  {% cut "{{ mgp-full-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `SetClusterAccessBindings` | Assigning access permissions for a cluster
+  `UpdateClusterAccessBindings` | Updating access permissions for a cluster
+
+  {% endcut %}
+
+  {% cut "{{ sd-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `ExportDiscoveryResults` | Exporting data scan results
+
+  {% endcut %}
+
+  {% cut "{{ ai-studio-full-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `settings.SetFolderSettings` | Updating folder settings
+
+  {% endcut %}
+
+  {% cut "{{ sd-name }}" %}
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `TriggerInventoryControlBatch` | Running a configuration control check
+  `TriggerInventoryControlEvent` | Running a configuration control check
+  `TriggerInventoryControlSnapshot` | Creating a configuration control snapshot
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `UpdateProjectControl` | Updating project control
+
+  {% endcut %}
+
+  {% cut "{{ mos-full-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `SetClusterAccessBindings` | Assigning access permissions for a cluster
+  `UpdateClusterAccessBindings` | Updating access permissions for a cluster
+
+  {% endcut %}
+
+  {% cut "{{ mrd-full-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `SetClusterAccessBindings` | Assigning access permissions for a cluster
+  `UpdateClusterAccessBindings` | Updating access permissions for a cluster
+
+  {% endcut %}
+
+  {% cut "{{ msp-full-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `SetClusterAccessBindings` | Assigning access permissions for a cluster
+  `UpdateClusterAccessBindings` | Updating access permissions for a cluster
+
+  {% endcut %}
+
+  {% cut "{{ mtr-full-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `SetClusterAccessBindings` | Assigning access permissions for a cluster
+  `UpdateClusterAccessBindings` | Updating access permissions for a cluster
+
+  {% endcut %}
+
+  {% cut "{{ connection-manager-full-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `CreateConnection` | Creating a connection
+  `DeleteConnection` | Deleting a connection
+  `SetConnectionAccessBindings` | Assigning connection access permissions
+  `UpdateConnection` | Editing a connection
+  `UpdateConnectionAccessBindings` | Updating connection access permissions
+
+  {% endcut %}
+
+  {% cut "{{ cns-full-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `CreateMobileApplication` | Creating a mobile application
+  `CreateSMSChannel` | Creating an SMS channel
+  `CreateWebpushChannel` | Creating a Web Push channel
+  `DeleteMobileApplication` | Deleting a mobile application
+  `DeleteSMSChannel` | Deleting an SMS channel
+  `DeleteWebpushChannel` | Deleting a Web Push channel
+  `UpdateMobileApplication` | Updating a mobile application
+  `UpdateSMSChannel` | Updating an SMS channel
+  `UpdateWebpushChannel` | Updating a Web Push channel
+
+  {% endcut %}
+
+* Deleted events for:
+
+  {% cut "{{ sd-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `AssetRemovedFromScope` | {{ cspm-name }} object removed from scope report
+
+  {% endcut %}
+
+* Moved events for the following services:
+
+  {% cut "{{ ydb-name }}" %}
+
+  Moved the `AlterTopic`, `CreateTopic`, `DeleteTopic` events from [management level](./concepts/format.md) to [data level](./concepts/format-data-plane.md).
+
+  {% endcut %}
+
+
 ## Q1 2026 {#q1-2026}
 
 * Added new events for the services:

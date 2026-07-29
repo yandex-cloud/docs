@@ -5,6 +5,8 @@ description: В статье описаны поля для интеграцио
 
 # HTTPCall
 
+{% include [workflows-ai-studio-note](../../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 HTTP-запрос на указанный эндпоинт.
 
 Имя поля | Тип | Обязательное | Значение по умолчанию | Поддерживается [шаблонизация](../../templating.md) | Описание

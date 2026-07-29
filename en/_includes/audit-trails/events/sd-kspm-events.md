@@ -8,3 +8,4 @@ Event name | Description
 `EnableSDProject` | Enabling a {{ sd-name }} project
 `UpdateException` | Updating exception parameters
 `UpdateProject`   | Updating project parameters
+`UpdateProjectControl` | Updating project control settings

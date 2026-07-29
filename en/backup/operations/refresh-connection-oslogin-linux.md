@@ -1,13 +1,13 @@
 ---
-title: How to update a connection of a Linux VM with {{ oslogin }} to {{ backup-full-name }}
-description: Follow this guide to update a connection of a Linux VM with {{ oslogin }} to {{ backup-name }}.
+title: How to update a connection of a {{ compute-full-name }} Linux VM with {{ oslogin }} to {{ backup-full-name }}
+description: Follow this guide to update a connection of a {{ compute-full-name }} Linux VM with {{ oslogin }} to {{ backup-name }}.
 ---
 
 # Reconnecting a Linux VM with {{ oslogin }} to {{ backup-name }}
 
 {% note info %}
 
-If you have [deleted](delete-vm.md) a VM from {{ backup-name }} and want to reconnect it, use these tutorials:
+If you have [deleted](delete-vm.md) a {{ compute-full-name }} VM from {{ backup-name }} and want to reconnect it, follow these guides:
 
 * [Connecting a Linux VM](connect-vm-linux.md)
 * [Connecting a Linux VM with {{ oslogin }}](connect-vm-oslogin-linux.md)

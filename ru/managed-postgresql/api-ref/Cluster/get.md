@@ -7096,7 +7096,8 @@ The maximum string length in characters is 50. ||
     "performanceDiagnostics": {
       "enabled": "boolean",
       "sessionsSamplingInterval": "string",
-      "statementsSamplingInterval": "string"
+      "statementsSamplingInterval": "string",
+      "advancedMode": "boolean"
     },
     "diskSizeAutoscaling": {
       "plannedUsageThreshold": "string",
@@ -7415,56 +7416,81 @@ parameters which detailed description is available in
 ||Field | Description ||
 || maxConnections | **string** (int64)
 
+Sets the maximum number of concurrent connections.
+
 The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
-in bytes. ||
+Sets the number of shared memory buffers used by the server. In bytes. ||
 || tempBuffers | **string** (int64)
 
-in bytes. ||
-|| maxPreparedTransactions | **string** (int64) ||
+Sets the maximum number of temporary buffers used by each session. In bytes. ||
+|| maxPreparedTransactions | **string** (int64)
+
+Sets the maximum number of simultaneously prepared transactions. ||
 || workMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used for query workspaces. This much memory can be used by each
+internal sort operation and hash table before switching to temporary disk files. In bytes. ||
 || maintenanceWorkMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used for maintenance operations.
+This includes operations such as VACUUM and CREATE INDEX. In bytes. ||
 || autovacuumWorkMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used by each autovacuum worker process. In bytes. ||
 || tempFileLimit | **string** (int64)
 
-in bytes. ||
+Limits the total size of all temporary files used by each process. -1 means no limit. In bytes. ||
 || vacuumCostDelay | **string** (int64)
 
-in milliseconds. ||
-|| vacuumCostPageHit | **string** (int64) ||
-|| vacuumCostPageMiss | **string** (int64) ||
-|| vacuumCostPageDirty | **string** (int64) ||
-|| vacuumCostLimit | **string** (int64) ||
+Vacuum cost delay. In milliseconds. ||
+|| vacuumCostPageHit | **string** (int64)
+
+Vacuum cost for a page found in the buffer cache. ||
+|| vacuumCostPageMiss | **string** (int64)
+
+Vacuum cost for a page not found in the buffer cache. ||
+|| vacuumCostPageDirty | **string** (int64)
+
+Vacuum cost for a page dirtied by vacuum. ||
+|| vacuumCostLimit | **string** (int64)
+
+Vacuum cost amount available before napping. ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds.
+Background writer sleep time between rounds. In milliseconds.
 
 Acceptable values are 10 to 10000, inclusive. ||
-|| bgwriterLruMaxpages | **string** (int64) ||
-|| bgwriterLruMultiplier | **number** (double) ||
+|| bgwriterLruMaxpages | **string** (int64)
+
+Background writer maximum number of LRU pages to flush per round. ||
+|| bgwriterLruMultiplier | **number** (double)
+
+Multiple of the average buffer usage to free per round. ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes
+Specifies how much data the background writer can write before forcing the operating system to issue the writes. In bytes.
 
 Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes
+Specifies how much data a backend can write before forcing the operating system to issue the writes. In bytes.
 
 Acceptable values are 0 to 2097152, inclusive. ||
-|| oldSnapshotThreshold | **string** (int64) ||
+|| oldSnapshotThreshold | **string** (int64)
+
+Time before a snapshot is too old to read pages changed after the snapshot was taken.
+A value of -1 disables this feature. In milliseconds. ||
 || walLevel | **enum** (WalLevel)
+
+Sets the level of information written to the WAL.
 
 - `WAL_LEVEL_REPLICA`: Supports WAL archiving and physical replication.
 - `WAL_LEVEL_LOGICAL`: Supports WAL archiving, physical replication, and logical decoding. ||
 || synchronousCommit | **enum** (SynchronousCommit)
+
+Sets the current transaction's synchronization level.
 
 - `SYNCHRONOUS_COMMIT_ON`: Success is reported to the client if the data is in WAL (Write-Ahead Log), and WAL is written to the storage of both the master and its synchronous standby server. Default value.
 - `SYNCHRONOUS_COMMIT_OFF`: Success is reported to the client even if the data is not in WAL.
@@ -7477,104 +7503,149 @@ The transaction may be lost due to simultaneous storage subsystem failure on the
 The transaction may be lost due to irrecoverably failure of both the master and its synchronous standby. ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum time between automatic WAL checkpoints. In milliseconds.
 
 Acceptable values are 30000 to 86400000, inclusive. ||
-|| checkpointCompletionTarget | **number** (double) ||
+|| checkpointCompletionTarget | **number** (double)
+
+Time spent flushing dirty buffers during checkpoint, as fraction of checkpoint interval. ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes
+Specifies how much data can be written during a checkpoint before forcing the operating system to issue the writes. In bytes.
 
 Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
-in bytes. ||
+Sets the WAL size that triggers a checkpoint. In bytes. ||
 || minWalSize | **string** (int64)
 
-in bytes. ||
+Sets the minimum size to shrink the WAL to. In bytes. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
-in milliseconds. ||
-|| defaultStatisticsTarget | **string** (int64) ||
+Sets the maximum delay before canceling queries when a hot standby server is processing streamed WAL data. In milliseconds. ||
+|| defaultStatisticsTarget | **string** (int64)
+
+Sets the default statistics target. This applies to table columns that have not had a
+column-specific target set via ALTER TABLE SET STATISTICS. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
+
+Enables the planner to use constraints to optimize queries.
 
 - `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
 - `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
 - `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
-|| cursorTupleFraction | **number** (double) ||
+|| cursorTupleFraction | **number** (double)
+
+Sets the planner's estimate of the fraction of a cursor's rows that will be retrieved. ||
 || fromCollapseLimit | **string** (int64)
+
+Sets the FROM-list size beyond which subqueries are not collapsed.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
 || joinCollapseLimit | **string** (int64)
 
+Sets the FROM-list size beyond which JOIN constructs are not flattened.
+
 Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_ON`: Force parallel mode for all queries that can be executed safely in parallel.
-- `FORCE_PARALLEL_MODE_OFF`: Enable parallel mode only if it is expected to increase performance.
-- `FORCE_PARALLEL_MODE_REGRESS`: Equivalent to on, but generates output identical to the off state. ||
+Forces use of parallel query facilities. If possible, run query using a parallel worker and with parallel restrictions.
+
+- `FORCE_PARALLEL_MODE_ON`: Forces parallel mode for queries considered safe, even when no performance benefit is expected.
+- `FORCE_PARALLEL_MODE_OFF`: Uses parallel mode only when the planner expects it to improve performance.
+- `FORCE_PARALLEL_MODE_REGRESS`: Behaves like ON, but hides added Gather nodes in EXPLAIN output and
+suppresses parallel-worker context lines to stabilize regression-test output. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are sent to the client.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Causes all statements generating error at or above this level to be logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinDurationStatement | **string** (int64)
 
-in milliseconds. ||
-|| logCheckpoints | **boolean** ||
-|| logConnections | **boolean** ||
-|| logDisconnections | **boolean** ||
-|| logDuration | **boolean** ||
+Sets the minimum execution time above which all statements will be logged. In milliseconds. ||
+|| logCheckpoints | **boolean**
+
+Logs each checkpoint. ||
+|| logConnections | **boolean**
+
+Logs each successful connection. ||
+|| logDisconnections | **boolean**
+
+Logs end of a session, including duration. ||
+|| logDuration | **boolean**
+
+Logs the duration of each completed SQL statement.
+ ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
+
+Sets the verbosity of logged messages.
 
 - `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
 - `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
 - `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
-|| logLockWaits | **boolean** ||
+|| logLockWaits | **boolean**
+
+Logs long lock waits. ||
 || logStatement | **enum** (LogStatement)
+
+Sets the type of statements logged.
 
 - `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
 - `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
 - `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
 - `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
-|| logTempFiles | **string** (int64) ||
-|| searchPath | **string** ||
-|| rowSecurity | **boolean** ||
+|| logTempFiles | **string** (int64)
+
+Log the use of temporary files larger than this number of kilobytes. ||
+|| searchPath | **string**
+
+Sets the schema search order for names that are not schema-qualified. ||
+|| rowSecurity | **boolean**
+
+Enable row security. ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
+
+Sets the transaction isolation level of each new transaction.
 
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
 - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
@@ -7584,115 +7655,230 @@ All queries in the current transaction see only the rows that were fixed prior t
 If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any statement. In milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any wait for a lock. In milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
+
+Sets the output format for bytea.
 
 - `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
 - `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`: Base64 encoding.
-- `XML_BINARY_HEX`: Hexadecimal encoding. ||
+Sets how binary values are to be encoded in XML.
+
+- `XML_BINARY_BASE64`: Encodes binary values using Base64.
+- `XML_BINARY_HEX`: Encodes binary values using hexadecimal notation. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`: XML document.
-- `XML_OPTION_CONTENT`: XML fragment. ||
+Sets whether XML data in implicit parsing and serialization operations is to be considered as documents or content fragments.
+
+- `XML_OPTION_DOCUMENT`: Treats an XML value as a complete, well-formed document.
+- `XML_OPTION_CONTENT`: Treats an XML value as a content fragment, which may contain multiple top-level elements or character nodes. ||
 || ginPendingListLimit | **string** (int64)
 
-in bytes. ||
+Sets the maximum size of the pending list for GIN index. In bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds.
+Sets the time to wait on a lock before checking for deadlock. In milliseconds.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
-|| maxLocksPerTransaction | **string** (int64) ||
-|| maxPredLocksPerTransaction | **string** (int64) ||
-|| arrayNulls | **boolean** ||
+|| maxLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of locks per transaction. The shared lock table is sized on the assumption that
+at most max_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| maxPredLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of predicate locks per transaction.The shared predicate lock table is sized on the assumption that
+at most max_pred_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| arrayNulls | **boolean**
+
+Enable input of NULL elements in arrays. When turned on, unquoted NULL in an array input
+value means a null value; otherwise it is taken literally. ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+Sets whether \"\\'\" is allowed in string literals.
+
+- `BACKSLASH_QUOTE`: Legacy invalid value. Do not use.
 - `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
 - `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
 - `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
-|| defaultWithOids | **boolean** ||
-|| escapeStringWarning | **boolean** ||
-|| loCompatPrivileges | **boolean** ||
-|| operatorPrecedenceWarning | **boolean** ||
-|| quoteAllIdentifiers | **boolean** ||
-|| standardConformingStrings | **boolean** ||
-|| synchronizeSeqscans | **boolean** ||
-|| transformNullEquals | **boolean** ||
-|| exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
+|| defaultWithOids | **boolean**
+
+WITH OIDS is no longer supported; this can only be false. ||
+|| escapeStringWarning | **boolean**
+
+Warn about backslash escapes in ordinary string literals. ||
+|| loCompatPrivileges | **boolean**
+
+Enables backward compatibility mode for privilege checks on large objects. Skips privilege checks
+when reading or modifying large objects, for compatibility with PostgreSQL releases prior to 9.0. ||
+|| operatorPrecedenceWarning | **boolean**
+
+Emit a warning for constructs that changed meaning since PostgreSQL 9.4. ||
+|| quoteAllIdentifiers | **boolean**
+
+When generating SQL fragments, quote all identifiers. ||
+|| standardConformingStrings | **boolean**
+
+Causes '...' strings to treat backslashes literally. ||
+|| synchronizeSeqscans | **boolean**
+
+Enable synchronized sequential scans. ||
+|| transformNullEquals | **boolean**
+
+Treats \"expr=NULL\" as \"expr IS NULL\". When turned on, expressions of the form expr = NULL
+(or NULL = expr) are treated as expr IS NULL, that is, they return true if expr evaluates to the
+null value, and false otherwise. The correct behavior of expr = NULL is to always return null (unknown). ||
+|| exitOnError | **boolean**
+
+Terminate session on any error. ||
+|| seqPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a sequentially fetched disk page.
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a nonsequentially fetched disk page.
+
+The minimum value is 0. ||
 || autovacuumMaxWorkers | **string** (int64)
 
+Sets the maximum number of simultaneously running autovacuum worker processes.
+
 Acceptable values are 1 to 32, inclusive. ||
-|| autovacuumVacuumCostDelay | **string** (int64) ||
-|| autovacuumVacuumCostLimit | **string** (int64) ||
+|| autovacuumVacuumCostDelay | **string** (int64)
+
+Vacuum cost delay in milliseconds, for autovacuum. ||
+|| autovacuumVacuumCostLimit | **string** (int64)
+
+Vacuum cost amount available before napping, for autovacuum. ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds.
+Time to sleep between autovacuum runs. In milliseconds.
 
 Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds.
+Forces a switch to the next WAL file if no new file has been started within the specified interval. In milliseconds.
 
 Acceptable values are 10000 to 86400000, inclusive. ||
 || trackActivityQuerySize | **string** (int64)
 
+Sets the size reserved for pg_stat_activity.query, in bytes.
+
 Acceptable values are 100 to 102400, inclusive. ||
-|| enableBitmapscan | **boolean** ||
-|| enableHashagg | **boolean** ||
-|| enableHashjoin | **boolean** ||
-|| enableIndexscan | **boolean** ||
-|| enableIndexonlyscan | **boolean** ||
-|| enableMaterial | **boolean** ||
-|| enableMergejoin | **boolean** ||
-|| enableNestloop | **boolean** ||
-|| enableSeqscan | **boolean** ||
-|| enableSort | **boolean** ||
-|| enableTidscan | **boolean** ||
+|| enableBitmapscan | **boolean**
+
+Enables the planner's use of bitmap-scan plans. ||
+|| enableHashagg | **boolean**
+
+Enables the planner's use of hashed aggregation plans. ||
+|| enableHashjoin | **boolean**
+
+Enables the planner's use of hash join plans. ||
+|| enableIndexscan | **boolean**
+
+Enables the planner's use of index-scan plans. ||
+|| enableIndexonlyscan | **boolean**
+
+Enables the planner's use of index-only-scan plans. ||
+|| enableMaterial | **boolean**
+
+Enables the planner's use of materialization. ||
+|| enableMergejoin | **boolean**
+
+Enables the planner's use of merge join plans. ||
+|| enableNestloop | **boolean**
+
+Enables the planner's use of nested-loop join plans. ||
+|| enableSeqscan | **boolean**
+
+Enables the planner's use of sequential-scan plans. ||
+|| enableSort | **boolean**
+
+Enables the planner's use of explicit sort steps. ||
+|| enableTidscan | **boolean**
+
+Enables the planner's use of TID scan plans. ||
 || maxWorkerProcesses | **string** (int64)
+
+Maximum number of concurrent worker processes.
 
 Acceptable values are 0 to 1024, inclusive. ||
 || maxParallelWorkers | **string** (int64)
 
+Sets the maximum number of parallel workers that can be active at one time.
+
 Acceptable values are 0 to 1024, inclusive. ||
 || maxParallelWorkersPerGather | **string** (int64)
 
+Sets the maximum number of parallel processes per executor node.
+
 Acceptable values are 0 to 1024, inclusive. ||
-|| autovacuumVacuumScaleFactor | **number** (double) ||
-|| autovacuumAnalyzeScaleFactor | **number** (double) ||
-|| defaultTransactionReadOnly | **boolean** ||
-|| timezone | **string** ||
-|| enableParallelAppend | **boolean** ||
-|| enableParallelHash | **boolean** ||
-|| enablePartitionPruning | **boolean** ||
-|| enablePartitionwiseAggregate | **boolean** ||
-|| enablePartitionwiseJoin | **boolean** ||
-|| jit | **boolean** ||
+|| autovacuumVacuumScaleFactor | **number** (double)
+
+Number of tuple updates or deletes prior to vacuum as a fraction of reltuples. ||
+|| autovacuumAnalyzeScaleFactor | **number** (double)
+
+Number of tuple inserts, updates, or deletes prior to analyze as a fraction of reltuples. ||
+|| defaultTransactionReadOnly | **boolean**
+
+Sets the default read-only status of new transactions. ||
+|| timezone | **string**
+
+Sets the time zone for displaying and interpreting time stamps. ||
+|| enableParallelAppend | **boolean**
+
+Enables the planner's use of parallel append plans. ||
+|| enableParallelHash | **boolean**
+
+Enables the planner's use of parallel hash plans. ||
+|| enablePartitionPruning | **boolean**
+
+Enables plan-time and execution-time partition pruning. Allows the query planner and executor to
+compare partition bounds to conditions in the query to determine which partitions must be scanned. ||
+|| enablePartitionwiseAggregate | **boolean**
+
+Enables partitionwise aggregation and grouping. ||
+|| enablePartitionwiseJoin | **boolean**
+
+Enables partitionwise join. ||
+|| jit | **boolean**
+
+Allow JIT compilation. ||
 || maxParallelMaintenanceWorkers | **string** (int64)
 
+Sets the maximum number of parallel processes per maintenance operation.
+
 The minimum value is 0. ||
-|| parallelLeaderParticipation | **boolean** ||
-|| vacuumCleanupIndexScaleFactor | **number** (double) ||
+|| parallelLeaderParticipation | **boolean**
+
+Controls whether Gather and Gather Merge also run subplans. ||
+|| vacuumCleanupIndexScaleFactor | **number** (double)
+
+Number of tuple inserts prior to index cleanup as a fraction of reltuples. ||
 || effectiveIoConcurrency | **string** (int64)
+
+Number of simultaneous requests that can be handled efficiently by the disk subsystem.
 
 Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
+Sets the planner's assumption about the effective size of the disk cache available to a single query. In bytes.
+
 Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
+
+Lists shared libraries to preload into server.
 
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`: Required for the [auto_explain](https://www.postgresql.org/docs/current/auto-explain.html) extension.
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`: Required for the [pg_hint_plan](https://github.com/ossc-db/pg_hint_plan) extension.
@@ -7704,88 +7890,156 @@ Acceptable values are 1048576 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
-in milliseconds. ||
-|| autoExplainLogAnalyze | **boolean** ||
-|| autoExplainLogBuffers | **boolean** ||
-|| autoExplainLogTiming | **boolean** ||
-|| autoExplainLogTriggers | **boolean** ||
-|| autoExplainLogVerbose | **boolean** ||
-|| autoExplainLogNestedStatements | **boolean** ||
-|| autoExplainSampleRate | **number** (double) ||
-|| pgHintPlanEnableHint | **boolean** ||
-|| pgHintPlanEnableHintTable | **boolean** ||
+Sets the minimum statement execution time, that will cause the statement's plan to be logged.
+Setting this to 0 logs all plans. -1 (the default) disables logging of plans. For example, if
+you set it to 250ms then all statements that run 250ms or longer will be logged. In milliseconds.
+ ||
+|| autoExplainLogAnalyze | **boolean**
+
+Causes EXPLAIN ANALYZE output, rather than just EXPLAIN output,to be printed
+when an executionplan is logged. This parameter is off by default. ||
+|| autoExplainLogBuffers | **boolean**
+
+Controls whether buffer usage statistics are printed when an execution plan is logged;
+it's equivalent to the BUFFERS option of EXPLAIN. This parameter has no effect unless
+auto_explain.log_analyze is enabled. This parameter is off by default. ||
+|| autoExplainLogTiming | **boolean**
+
+Controls whether per-node timing information is printed when an execution plan is logged;
+it's equivalent to the TIMING option of EXPLAIN. The overhead of repeatedly reading the system
+clock can slow down queries significantly on some systems, so it may be useful to set this
+parameter to off when only actual row counts, and not exact times, are needed. This parameter
+has no effect unless auto_explain.log_analyze is enabled. This parameter is on by default. ||
+|| autoExplainLogTriggers | **boolean**
+
+Causes trigger execution statistics to be included when an execution plan is logged. This parameter
+has no effect unless auto_explain.log_analyze is enabled. This parameter is off by default. ||
+|| autoExplainLogVerbose | **boolean**
+
+Controls whether verbose details are printed when an execution plan is logged; it's
+equivalent to the VERBOSE option of EXPLAIN. This parameter is off by default. ||
+|| autoExplainLogNestedStatements | **boolean**
+
+Causes nested statements (statements executed inside a function) to be considered for logging.
+When it is off, only top-level query plans are logged. This parameter is off by default. ||
+|| autoExplainSampleRate | **number** (double)
+
+Causes auto_explain to only explain a fraction of the statements in each session. The default is 1,
+meaning explain all the queries. In case of nested statements, either all will be explained or none. ||
+|| pgHintPlanEnableHint | **boolean**
+
+Enables processing of query hints by pg_hint_plan. ||
+|| pgHintPlanEnableHintTable | **boolean**
+
+Enables lookup of hints in the hint table. ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disable debug output
-- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Print debug messages about hint parsing
-- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Print detailed debug information including query planning process
-- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Print verbose debug output with all internal operations ||
+Controls whether and how verbosely hint parsing results are logged.
+
+- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disables diagnostic logging.
+- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Logs hint-processing results grouped by used, unused, duplicate, and erroneous hints.
+- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Logs hint-processing results together with detailed planner diagnostics.
+- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Logs the most detailed diagnostics, including query strings used to extract hints. ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
-|| pgQualstatsEnabled | **boolean** ||
-|| pgQualstatsTrackConstants | **boolean** ||
-|| pgQualstatsMax | **string** (int64) ||
-|| pgQualstatsResolveOids | **boolean** ||
-|| pgQualstatsSampleRate | **number** (double) ||
+Sets the log level for pg_hint_plan debug messages.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
+|| pgQualstatsEnabled | **boolean**
+
+Controls whether pg_qualstats collects execution statistics for query predicates,
+including filters and join conditions. ||
+|| pgQualstatsTrackConstants | **boolean**
+
+Controls whether pg_qualstats keeps separate statistics for predicates containing different constant values ||
+|| pgQualstatsMax | **string** (int64)
+
+Limits the number of predicate-statistics and query-text entries retained by pg_qualstats. ||
+|| pgQualstatsResolveOids | **boolean**
+
+Controls whether pg_qualstats resolves object OIDs and stores their names  when collecting statistics.
+Enabling this increases memory usage and requires additional system-catalog lookups. ||
+|| pgQualstatsSampleRate | **number** (double)
+
+Sets the fraction of queries sampled by pg_qualstats. A value of -1 selects an automatic rate
+of 1 / max_connections; 0 samples no queries, and 1 samples every query. ||
 || maxStackDepth | **string** (int64)
 
-in bytes.
+Sets the maximum stack depth, in bytes.
 
 Acceptable values are 65536 to 134217728, inclusive. ||
 || geqo | **boolean**
 
-enable Genetic Query Optimizer, by default is on ||
+Enables genetic query optimization. This algorithm attempts to do planning
+without exhaustive searching, by default is on. ||
 || geqoThreshold | **string** (int64)
 
-The number of tables to use geqo, default is 12
+Sets the threshold of FROM items beyond which GEQO is used, default is 12.
 
 Acceptable values are 2 to 2147483647, inclusive. ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5
+GEQO: effort is used to set the default for other GEQO parameters.
+Tradeoff between planning time and query plan quality, default is 5.
 
 Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
-number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
+GEQO: number of individuals in the population.
+Useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort. ||
 || geqoGenerations | **string** (int64)
 
-the number of generations used by GEQO, useful values are in the same range as the pool size ||
+GEQO: number of iterations of the algorithm. Zero selects a suitable default value.
+Useful values are in the same range as the pool size. ||
 || geqoSelectionBias | **number** (double)
 
-selective pressure within the population ||
+GEQO: selective pressure within the population. ||
 || geqoSeed | **number** (double)
 
-initial value of the random number generator used by GEQO ||
-|| pgTrgmSimilarityThreshold | **number** (double) ||
-|| pgTrgmWordSimilarityThreshold | **number** (double) ||
-|| pgTrgmStrictWordSimilarityThreshold | **number** (double) ||
+GEQO: seed for random path selection. ||
+|| pgTrgmSimilarityThreshold | **number** (double)
+
+Sets the trigram similarity threshold used by the `%` operator
+to determine whether two strings are similar. ||
+|| pgTrgmWordSimilarityThreshold | **number** (double)
+
+Sets the threshold used by the `<%` and `%>` operators when comparing
+a string with the most similar continuous part of another string. ||
+|| pgTrgmStrictWordSimilarityThreshold | **number** (double)
+
+Sets the threshold used by the `<<%` and `%>>` operators when comparing
+a string with parts of another string aligned to word boundaries. ||
 || maxStandbyArchiveDelay | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum delay before canceling queries when a hot standby server is processing archived WAL data. In milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is
+not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
-|| logReplicationCommands | **boolean** ||
+|| logReplicationCommands | **boolean**
+
+Logs each replication command. ||
 || logAutovacuumMinDuration | **string** (int64)
 
-in milliseconds. The default is 1000 (1 sec). ||
+Sets the minimum execution time above which autovacuum actions will be logged.
+Zero prints all actions. -1 turns autovacuum logging off. In milliseconds. The default is 1000 (1 sec).
+ ||
 || passwordEncryption | **enum** (PasswordEncryption)
 
-A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
+A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are
+`` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
 - `PASSWORD_ENCRYPTION_MD5`: The method md5 uses a custom less secure challenge-response mechanism. It prevents password sniffing and avoids storing passwords on the server in plain text but provides no protection if an attacker manages to steal the password hash from the server. Also, the MD5 hash algorithm is nowadays no longer considered secure against determined attacks.
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256`: The method scram-sha-256 performs SCRAM-SHA-256 authentication, as described in RFC 7677. It is a challenge-response scheme that prevents password sniffing on untrusted connections and supports storing passwords on the server in a cryptographically hashed form that is thought to be secure.
@@ -7818,56 +8072,81 @@ parameters which detailed description is available in
 ||Field | Description ||
 || maxConnections | **string** (int64)
 
+Sets the maximum number of concurrent connections.
+
 The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
-in bytes. ||
+Sets the number of shared memory buffers used by the server. In bytes. ||
 || tempBuffers | **string** (int64)
 
-in bytes. ||
-|| maxPreparedTransactions | **string** (int64) ||
+Sets the maximum number of temporary buffers used by each session. In bytes. ||
+|| maxPreparedTransactions | **string** (int64)
+
+Sets the maximum number of simultaneously prepared transactions. ||
 || workMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used for query workspaces. This much memory can be used by each
+internal sort operation and hash table before switching to temporary disk files. In bytes. ||
 || maintenanceWorkMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used for maintenance operations.
+This includes operations such as VACUUM and CREATE INDEX. In bytes. ||
 || autovacuumWorkMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used by each autovacuum worker process. In bytes. ||
 || tempFileLimit | **string** (int64)
 
-in bytes. ||
+Limits the total size of all temporary files used by each process. -1 means no limit. In bytes. ||
 || vacuumCostDelay | **string** (int64)
 
-in milliseconds. ||
-|| vacuumCostPageHit | **string** (int64) ||
-|| vacuumCostPageMiss | **string** (int64) ||
-|| vacuumCostPageDirty | **string** (int64) ||
-|| vacuumCostLimit | **string** (int64) ||
+Vacuum cost delay. In milliseconds. ||
+|| vacuumCostPageHit | **string** (int64)
+
+Vacuum cost for a page found in the buffer cache. ||
+|| vacuumCostPageMiss | **string** (int64)
+
+Vacuum cost for a page not found in the buffer cache. ||
+|| vacuumCostPageDirty | **string** (int64)
+
+Vacuum cost for a page dirtied by vacuum. ||
+|| vacuumCostLimit | **string** (int64)
+
+Vacuum cost amount available before napping. ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds.
+Background writer sleep time between rounds. In milliseconds.
 
 Acceptable values are 10 to 10000, inclusive. ||
-|| bgwriterLruMaxpages | **string** (int64) ||
-|| bgwriterLruMultiplier | **number** (double) ||
+|| bgwriterLruMaxpages | **string** (int64)
+
+Background writer maximum number of LRU pages to flush per round. ||
+|| bgwriterLruMultiplier | **number** (double)
+
+Multiple of the average buffer usage to free per round. ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes
+Specifies how much data the background writer can write before forcing the operating system to issue the writes. In bytes.
 
 Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes
+Specifies how much data a backend can write before forcing the operating system to issue the writes. In bytes.
 
 Acceptable values are 0 to 2097152, inclusive. ||
-|| oldSnapshotThreshold | **string** (int64) ||
+|| oldSnapshotThreshold | **string** (int64)
+
+Time before a snapshot is too old to read pages changed after the snapshot was taken.
+A value of -1 disables this feature. In milliseconds. ||
 || walLevel | **enum** (WalLevel)
+
+Sets the level of information written to the WAL.
 
 - `WAL_LEVEL_REPLICA`: Supports WAL archiving and physical replication.
 - `WAL_LEVEL_LOGICAL`: Supports WAL archiving, physical replication, and logical decoding. ||
 || synchronousCommit | **enum** (SynchronousCommit)
+
+Sets the current transaction's synchronization level.
 
 - `SYNCHRONOUS_COMMIT_ON`: Success is reported to the client if the data is in WAL (Write-Ahead Log), and WAL is written to the storage of both the master and its synchronous standby server. Default value.
 - `SYNCHRONOUS_COMMIT_OFF`: Success is reported to the client even if the data is not in WAL.
@@ -7880,104 +8159,149 @@ The transaction may be lost due to simultaneous storage subsystem failure on the
 The transaction may be lost due to irrecoverably failure of both the master and its synchronous standby. ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum time between automatic WAL checkpoints. In milliseconds.
 
 Acceptable values are 30000 to 86400000, inclusive. ||
-|| checkpointCompletionTarget | **number** (double) ||
+|| checkpointCompletionTarget | **number** (double)
+
+Time spent flushing dirty buffers during checkpoint, as fraction of checkpoint interval. ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes
+Specifies how much data can be written during a checkpoint before forcing the operating system to issue the writes. In bytes.
 
 Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
-in bytes. ||
+Sets the WAL size that triggers a checkpoint. In bytes. ||
 || minWalSize | **string** (int64)
 
-in bytes. ||
+Sets the minimum size to shrink the WAL to. In bytes. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
-in milliseconds. ||
-|| defaultStatisticsTarget | **string** (int64) ||
+Sets the maximum delay before canceling queries when a hot standby server is processing streamed WAL data. In milliseconds. ||
+|| defaultStatisticsTarget | **string** (int64)
+
+Sets the default statistics target. This applies to table columns that have not had a
+column-specific target set via ALTER TABLE SET STATISTICS. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
+
+Enables the planner to use constraints to optimize queries.
 
 - `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
 - `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
 - `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
-|| cursorTupleFraction | **number** (double) ||
+|| cursorTupleFraction | **number** (double)
+
+Sets the planner's estimate of the fraction of a cursor's rows that will be retrieved. ||
 || fromCollapseLimit | **string** (int64)
+
+Sets the FROM-list size beyond which subqueries are not collapsed.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
 || joinCollapseLimit | **string** (int64)
 
+Sets the FROM-list size beyond which JOIN constructs are not flattened.
+
 Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_ON`: Force parallel mode for all queries that can be executed safely in parallel.
-- `FORCE_PARALLEL_MODE_OFF`: Enable parallel mode only if it is expected to increase performance.
-- `FORCE_PARALLEL_MODE_REGRESS`: Equivalent to on, but generates output identical to the off state. ||
+Forces use of parallel query facilities. If possible, run query using a parallel worker and with parallel restrictions.
+
+- `FORCE_PARALLEL_MODE_ON`: Forces parallel mode for queries considered safe, even when no performance benefit is expected.
+- `FORCE_PARALLEL_MODE_OFF`: Uses parallel mode only when the planner expects it to improve performance.
+- `FORCE_PARALLEL_MODE_REGRESS`: Behaves like ON, but hides added Gather nodes in EXPLAIN output and
+suppresses parallel-worker context lines to stabilize regression-test output. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are sent to the client.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Causes all statements generating error at or above this level to be logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinDurationStatement | **string** (int64)
 
-in milliseconds. ||
-|| logCheckpoints | **boolean** ||
-|| logConnections | **boolean** ||
-|| logDisconnections | **boolean** ||
-|| logDuration | **boolean** ||
+Sets the minimum execution time above which all statements will be logged. In milliseconds. ||
+|| logCheckpoints | **boolean**
+
+Logs each checkpoint. ||
+|| logConnections | **boolean**
+
+Logs each successful connection. ||
+|| logDisconnections | **boolean**
+
+Logs end of a session, including duration. ||
+|| logDuration | **boolean**
+
+Logs the duration of each completed SQL statement.
+ ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
+
+Sets the verbosity of logged messages.
 
 - `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
 - `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
 - `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
-|| logLockWaits | **boolean** ||
+|| logLockWaits | **boolean**
+
+Logs long lock waits. ||
 || logStatement | **enum** (LogStatement)
+
+Sets the type of statements logged.
 
 - `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
 - `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
 - `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
 - `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
-|| logTempFiles | **string** (int64) ||
-|| searchPath | **string** ||
-|| rowSecurity | **boolean** ||
+|| logTempFiles | **string** (int64)
+
+Log the use of temporary files larger than this number of kilobytes. ||
+|| searchPath | **string**
+
+Sets the schema search order for names that are not schema-qualified. ||
+|| rowSecurity | **boolean**
+
+Enable row security. ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
+
+Sets the transaction isolation level of each new transaction.
 
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
 - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
@@ -7987,121 +8311,242 @@ All queries in the current transaction see only the rows that were fixed prior t
 If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any statement. In milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any wait for a lock. In milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
+
+Sets the output format for bytea.
 
 - `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
 - `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`: Base64 encoding.
-- `XML_BINARY_HEX`: Hexadecimal encoding. ||
+Sets how binary values are to be encoded in XML.
+
+- `XML_BINARY_BASE64`: Encodes binary values using Base64.
+- `XML_BINARY_HEX`: Encodes binary values using hexadecimal notation. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`: XML document.
-- `XML_OPTION_CONTENT`: XML fragment. ||
+Sets whether XML data in implicit parsing and serialization operations is to be considered as documents or content fragments.
+
+- `XML_OPTION_DOCUMENT`: Treats an XML value as a complete, well-formed document.
+- `XML_OPTION_CONTENT`: Treats an XML value as a content fragment, which may contain multiple top-level elements or character nodes. ||
 || ginPendingListLimit | **string** (int64)
 
-in bytes. ||
+Sets the maximum size of the pending list for GIN index. In bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds.
+Sets the time to wait on a lock before checking for deadlock. In milliseconds.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
-|| maxLocksPerTransaction | **string** (int64) ||
-|| maxPredLocksPerTransaction | **string** (int64) ||
-|| arrayNulls | **boolean** ||
+|| maxLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of locks per transaction. The shared lock table is sized on the assumption that
+at most max_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| maxPredLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of predicate locks per transaction.The shared predicate lock table is sized on the assumption that
+at most max_pred_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| arrayNulls | **boolean**
+
+Enable input of NULL elements in arrays. When turned on, unquoted NULL in an array input
+value means a null value; otherwise it is taken literally. ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+Sets whether \"\\'\" is allowed in string literals.
+
+- `BACKSLASH_QUOTE`: Legacy invalid value. Do not use.
 - `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
 - `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
 - `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
-|| defaultWithOids | **boolean** ||
-|| escapeStringWarning | **boolean** ||
-|| loCompatPrivileges | **boolean** ||
-|| operatorPrecedenceWarning | **boolean** ||
-|| quoteAllIdentifiers | **boolean** ||
-|| standardConformingStrings | **boolean** ||
-|| synchronizeSeqscans | **boolean** ||
-|| transformNullEquals | **boolean** ||
-|| exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
+|| defaultWithOids | **boolean**
+
+WITH OIDS is no longer supported; this can only be false. ||
+|| escapeStringWarning | **boolean**
+
+Warn about backslash escapes in ordinary string literals. ||
+|| loCompatPrivileges | **boolean**
+
+Enables backward compatibility mode for privilege checks on large objects. Skips privilege checks
+when reading or modifying large objects, for compatibility with PostgreSQL releases prior to 9.0. ||
+|| operatorPrecedenceWarning | **boolean**
+
+Emit a warning for constructs that changed meaning since PostgreSQL 9.4. ||
+|| quoteAllIdentifiers | **boolean**
+
+When generating SQL fragments, quote all identifiers. ||
+|| standardConformingStrings | **boolean**
+
+Causes '...' strings to treat backslashes literally. ||
+|| synchronizeSeqscans | **boolean**
+
+Enable synchronized sequential scans. ||
+|| transformNullEquals | **boolean**
+
+Treats \"expr=NULL\" as \"expr IS NULL\". When turned on, expressions of the form expr = NULL
+(or NULL = expr) are treated as expr IS NULL, that is, they return true if expr evaluates to the
+null value, and false otherwise. The correct behavior of expr = NULL is to always return null (unknown). ||
+|| exitOnError | **boolean**
+
+Terminate session on any error. ||
+|| seqPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a sequentially fetched disk page.
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a nonsequentially fetched disk page.
+
+The minimum value is 0. ||
 || autovacuumMaxWorkers | **string** (int64)
 
+Sets the maximum number of simultaneously running autovacuum worker processes.
+
 Acceptable values are 1 to 32, inclusive. ||
-|| autovacuumVacuumCostDelay | **string** (int64) ||
-|| autovacuumVacuumCostLimit | **string** (int64) ||
+|| autovacuumVacuumCostDelay | **string** (int64)
+
+Vacuum cost delay in milliseconds, for autovacuum. ||
+|| autovacuumVacuumCostLimit | **string** (int64)
+
+Vacuum cost amount available before napping, for autovacuum. ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds.
+Time to sleep between autovacuum runs. In milliseconds.
 
 Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds.
+Forces a switch to the next WAL file if no new file has been started within the specified interval. In milliseconds.
 
 Acceptable values are 10000 to 86400000, inclusive. ||
 || trackActivityQuerySize | **string** (int64)
 
+Sets the size reserved for pg_stat_activity.query, in bytes.
+
 Acceptable values are 100 to 102400, inclusive. ||
-|| enableBitmapscan | **boolean** ||
-|| enableHashagg | **boolean** ||
-|| enableHashjoin | **boolean** ||
-|| enableIndexscan | **boolean** ||
-|| enableIndexonlyscan | **boolean** ||
-|| enableMaterial | **boolean** ||
-|| enableMergejoin | **boolean** ||
-|| enableNestloop | **boolean** ||
-|| enableSeqscan | **boolean** ||
-|| enableSort | **boolean** ||
-|| enableTidscan | **boolean** ||
+|| enableBitmapscan | **boolean**
+
+Enables the planner's use of bitmap-scan plans. ||
+|| enableHashagg | **boolean**
+
+Enables the planner's use of hashed aggregation plans. ||
+|| enableHashjoin | **boolean**
+
+Enables the planner's use of hash join plans. ||
+|| enableIndexscan | **boolean**
+
+Enables the planner's use of index-scan plans. ||
+|| enableIndexonlyscan | **boolean**
+
+Enables the planner's use of index-only-scan plans. ||
+|| enableMaterial | **boolean**
+
+Enables the planner's use of materialization. ||
+|| enableMergejoin | **boolean**
+
+Enables the planner's use of merge join plans. ||
+|| enableNestloop | **boolean**
+
+Enables the planner's use of nested-loop join plans. ||
+|| enableSeqscan | **boolean**
+
+Enables the planner's use of sequential-scan plans. ||
+|| enableSort | **boolean**
+
+Enables the planner's use of explicit sort steps. ||
+|| enableTidscan | **boolean**
+
+Enables the planner's use of TID scan plans. ||
 || maxWorkerProcesses | **string** (int64)
+
+Maximum number of concurrent worker processes.
 
 Acceptable values are 0 to 1024, inclusive. ||
 || maxParallelWorkers | **string** (int64)
 
+Sets the maximum number of parallel workers that can be active at one time.
+
 Acceptable values are 0 to 1024, inclusive. ||
 || maxParallelWorkersPerGather | **string** (int64)
 
+Sets the maximum number of parallel processes per executor node.
+
 Acceptable values are 0 to 1024, inclusive. ||
-|| autovacuumVacuumScaleFactor | **number** (double) ||
-|| autovacuumAnalyzeScaleFactor | **number** (double) ||
-|| defaultTransactionReadOnly | **boolean** ||
-|| timezone | **string** ||
-|| enableParallelAppend | **boolean** ||
-|| enableParallelHash | **boolean** ||
-|| enablePartitionPruning | **boolean** ||
-|| enablePartitionwiseAggregate | **boolean** ||
-|| enablePartitionwiseJoin | **boolean** ||
-|| jit | **boolean** ||
+|| autovacuumVacuumScaleFactor | **number** (double)
+
+Number of tuple updates or deletes prior to vacuum as a fraction of reltuples. ||
+|| autovacuumAnalyzeScaleFactor | **number** (double)
+
+Number of tuple inserts, updates, or deletes prior to analyze as a fraction of reltuples. ||
+|| defaultTransactionReadOnly | **boolean**
+
+Sets the default read-only status of new transactions. ||
+|| timezone | **string**
+
+Sets the time zone for displaying and interpreting time stamps. ||
+|| enableParallelAppend | **boolean**
+
+Enables the planner's use of parallel append plans. ||
+|| enableParallelHash | **boolean**
+
+Enables the planner's use of parallel hash plans. ||
+|| enablePartitionPruning | **boolean**
+
+Enables plan-time and execution-time partition pruning. Allows the query planner and executor to
+compare partition bounds to conditions in the query to determine which partitions must be scanned. ||
+|| enablePartitionwiseAggregate | **boolean**
+
+Enables partitionwise aggregation and grouping. ||
+|| enablePartitionwiseJoin | **boolean**
+
+Enables partitionwise join. ||
+|| jit | **boolean**
+
+Allow JIT compilation. ||
 || maxParallelMaintenanceWorkers | **string** (int64)
 
+Sets the maximum number of parallel processes per maintenance operation.
+
 The minimum value is 0. ||
-|| parallelLeaderParticipation | **boolean** ||
-|| vacuumCleanupIndexScaleFactor | **number** (double) ||
-|| logTransactionSampleRate | **number** (double) ||
+|| parallelLeaderParticipation | **boolean**
+
+Controls whether Gather and Gather Merge also run subplans. ||
+|| vacuumCleanupIndexScaleFactor | **number** (double)
+
+Number of tuple inserts prior to index cleanup as a fraction of reltuples. ||
+|| logTransactionSampleRate | **number** (double)
+
+Sets the fraction of transactions from which to log all statements. Use a
+value between 0.0 (never log) and 1.0 (log all statements for all transactions). ||
 || planCacheMode | **enum** (PlanCacheMode)
+
+Controls the planner's selection of custom or generic plan. Prepared statements can have custom and generic plans,
+and the planner will attempt to choose which is better. This can be set to override the default behavior.
 
 - `PLAN_CACHE_MODE_AUTO`: Automatic selection.
 - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`: Forces the use of custom plans.
 - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`: Forces the use of generic plans. ||
 || effectiveIoConcurrency | **string** (int64)
 
+Number of simultaneous requests that can be handled efficiently by the disk subsystem.
+
 Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
+Sets the planner's assumption about the effective size of the disk cache available to a single query. In bytes.
+
 Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
+
+Lists shared libraries to preload into server.
 
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`: Required for the [auto_explain](https://www.postgresql.org/docs/current/auto-explain.html) extension.
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`: Required for the [pg_hint_plan](https://github.com/ossc-db/pg_hint_plan) extension.
@@ -8113,88 +8558,156 @@ Acceptable values are 1048576 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
-in milliseconds. ||
-|| autoExplainLogAnalyze | **boolean** ||
-|| autoExplainLogBuffers | **boolean** ||
-|| autoExplainLogTiming | **boolean** ||
-|| autoExplainLogTriggers | **boolean** ||
-|| autoExplainLogVerbose | **boolean** ||
-|| autoExplainLogNestedStatements | **boolean** ||
-|| autoExplainSampleRate | **number** (double) ||
-|| pgHintPlanEnableHint | **boolean** ||
-|| pgHintPlanEnableHintTable | **boolean** ||
+Sets the minimum statement execution time, that will cause the statement's plan to be logged.
+Setting this to 0 logs all plans. -1 (the default) disables logging of plans. For example, if
+you set it to 250ms then all statements that run 250ms or longer will be logged. In milliseconds.
+ ||
+|| autoExplainLogAnalyze | **boolean**
+
+Causes EXPLAIN ANALYZE output, rather than just EXPLAIN output,to be printed
+when an executionplan is logged. This parameter is off by default. ||
+|| autoExplainLogBuffers | **boolean**
+
+Controls whether buffer usage statistics are printed when an execution plan is logged;
+it's equivalent to the BUFFERS option of EXPLAIN. This parameter has no effect unless
+auto_explain.log_analyze is enabled. This parameter is off by default. ||
+|| autoExplainLogTiming | **boolean**
+
+Controls whether per-node timing information is printed when an execution plan is logged;
+it's equivalent to the TIMING option of EXPLAIN. The overhead of repeatedly reading the system
+clock can slow down queries significantly on some systems, so it may be useful to set this
+parameter to off when only actual row counts, and not exact times, are needed. This parameter
+has no effect unless auto_explain.log_analyze is enabled. This parameter is on by default. ||
+|| autoExplainLogTriggers | **boolean**
+
+Causes trigger execution statistics to be included when an execution plan is logged. This parameter
+has no effect unless auto_explain.log_analyze is enabled. This parameter is off by default. ||
+|| autoExplainLogVerbose | **boolean**
+
+Controls whether verbose details are printed when an execution plan is logged; it's
+equivalent to the VERBOSE option of EXPLAIN. This parameter is off by default. ||
+|| autoExplainLogNestedStatements | **boolean**
+
+Causes nested statements (statements executed inside a function) to be considered for logging.
+When it is off, only top-level query plans are logged. This parameter is off by default. ||
+|| autoExplainSampleRate | **number** (double)
+
+Causes auto_explain to only explain a fraction of the statements in each session. The default is 1,
+meaning explain all the queries. In case of nested statements, either all will be explained or none. ||
+|| pgHintPlanEnableHint | **boolean**
+
+Enables processing of query hints by pg_hint_plan. ||
+|| pgHintPlanEnableHintTable | **boolean**
+
+Enables lookup of hints in the hint table. ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disable debug output
-- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Print debug messages about hint parsing
-- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Print detailed debug information including query planning process
-- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Print verbose debug output with all internal operations ||
+Controls whether and how verbosely hint parsing results are logged.
+
+- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disables diagnostic logging.
+- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Logs hint-processing results grouped by used, unused, duplicate, and erroneous hints.
+- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Logs hint-processing results together with detailed planner diagnostics.
+- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Logs the most detailed diagnostics, including query strings used to extract hints. ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
-|| pgQualstatsEnabled | **boolean** ||
-|| pgQualstatsTrackConstants | **boolean** ||
-|| pgQualstatsMax | **string** (int64) ||
-|| pgQualstatsResolveOids | **boolean** ||
-|| pgQualstatsSampleRate | **number** (double) ||
+Sets the log level for pg_hint_plan debug messages.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
+|| pgQualstatsEnabled | **boolean**
+
+Controls whether pg_qualstats collects execution statistics for query predicates,
+including filters and join conditions. ||
+|| pgQualstatsTrackConstants | **boolean**
+
+Controls whether pg_qualstats keeps separate statistics for predicates containing different constant values ||
+|| pgQualstatsMax | **string** (int64)
+
+Limits the number of predicate-statistics and query-text entries retained by pg_qualstats. ||
+|| pgQualstatsResolveOids | **boolean**
+
+Controls whether pg_qualstats resolves object OIDs and stores their names  when collecting statistics.
+Enabling this increases memory usage and requires additional system-catalog lookups. ||
+|| pgQualstatsSampleRate | **number** (double)
+
+Sets the fraction of queries sampled by pg_qualstats. A value of -1 selects an automatic rate
+of 1 / max_connections; 0 samples no queries, and 1 samples every query. ||
 || maxStackDepth | **string** (int64)
 
-in bytes.
+Sets the maximum stack depth, in bytes.
 
 Acceptable values are 65536 to 134217728, inclusive. ||
 || geqo | **boolean**
 
-enable Genetic Query Optimizer, by default is on ||
+Enables genetic query optimization. This algorithm attempts to do planning
+without exhaustive searching, by default is on. ||
 || geqoThreshold | **string** (int64)
 
-The number of tables to use geqo, default is 12
+Sets the threshold of FROM items beyond which GEQO is used, default is 12.
 
 Acceptable values are 2 to 2147483647, inclusive. ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5
+GEQO: effort is used to set the default for other GEQO parameters.
+Tradeoff between planning time and query plan quality, default is 5.
 
 Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
-number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
+GEQO: number of individuals in the population.
+Useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort. ||
 || geqoGenerations | **string** (int64)
 
-the number of generations used by GEQO, useful values are in the same range as the pool size ||
+GEQO: number of iterations of the algorithm. Zero selects a suitable default value.
+Useful values are in the same range as the pool size. ||
 || geqoSelectionBias | **number** (double)
 
-selective pressure within the population ||
+GEQO: selective pressure within the population. ||
 || geqoSeed | **number** (double)
 
-initial value of the random number generator used by GEQO ||
-|| pgTrgmSimilarityThreshold | **number** (double) ||
-|| pgTrgmWordSimilarityThreshold | **number** (double) ||
-|| pgTrgmStrictWordSimilarityThreshold | **number** (double) ||
+GEQO: seed for random path selection. ||
+|| pgTrgmSimilarityThreshold | **number** (double)
+
+Sets the trigram similarity threshold used by the `%` operator
+to determine whether two strings are similar. ||
+|| pgTrgmWordSimilarityThreshold | **number** (double)
+
+Sets the threshold used by the `<%` and `%>` operators when comparing
+a string with the most similar continuous part of another string. ||
+|| pgTrgmStrictWordSimilarityThreshold | **number** (double)
+
+Sets the threshold used by the `<<%` and `%>>` operators when comparing
+a string with parts of another string aligned to word boundaries. ||
 || maxStandbyArchiveDelay | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum delay before canceling queries when a hot standby server is processing archived WAL data. In milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is
+not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
-|| logReplicationCommands | **boolean** ||
+|| logReplicationCommands | **boolean**
+
+Logs each replication command. ||
 || logAutovacuumMinDuration | **string** (int64)
 
-in milliseconds. The default is 1000 (1 sec). ||
+Sets the minimum execution time above which autovacuum actions will be logged.
+Zero prints all actions. -1 turns autovacuum logging off. In milliseconds. The default is 1000 (1 sec).
+ ||
 || passwordEncryption | **enum** (PasswordEncryption)
 
-A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
+A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are
+`` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
 - `PASSWORD_ENCRYPTION_MD5`: The method md5 uses a custom less secure challenge-response mechanism. It prevents password sniffing and avoids storing passwords on the server in plain text but provides no protection if an attacker manages to steal the password hash from the server. Also, the MD5 hash algorithm is nowadays no longer considered secure against determined attacks.
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256`: The method scram-sha-256 performs SCRAM-SHA-256 authentication, as described in RFC 7677. It is a challenge-response scheme that prevents password sniffing on untrusted connections and supports storing passwords on the server in a cryptographically hashed form that is thought to be secure.
@@ -8227,56 +8740,81 @@ parameters which detailed description is available in
 ||Field | Description ||
 || maxConnections | **string** (int64)
 
+Sets the maximum number of concurrent connections.
+
 The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
-in bytes. ||
+Sets the number of shared memory buffers used by the server. In bytes. ||
 || tempBuffers | **string** (int64)
 
-in bytes. ||
-|| maxPreparedTransactions | **string** (int64) ||
+Sets the maximum number of temporary buffers used by each session. In bytes. ||
+|| maxPreparedTransactions | **string** (int64)
+
+Sets the maximum number of simultaneously prepared transactions. ||
 || workMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used for query workspaces. This much memory can be used by each
+internal sort operation and hash table before switching to temporary disk files. In bytes. ||
 || maintenanceWorkMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used for maintenance operations.
+This includes operations such as VACUUM and CREATE INDEX. In bytes. ||
 || autovacuumWorkMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used by each autovacuum worker process. In bytes. ||
 || tempFileLimit | **string** (int64)
 
-in bytes. ||
+Limits the total size of all temporary files used by each process. -1 means no limit. In bytes. ||
 || vacuumCostDelay | **string** (int64)
 
-in milliseconds. ||
-|| vacuumCostPageHit | **string** (int64) ||
-|| vacuumCostPageMiss | **string** (int64) ||
-|| vacuumCostPageDirty | **string** (int64) ||
-|| vacuumCostLimit | **string** (int64) ||
+Vacuum cost delay. In milliseconds. ||
+|| vacuumCostPageHit | **string** (int64)
+
+Vacuum cost for a page found in the buffer cache. ||
+|| vacuumCostPageMiss | **string** (int64)
+
+Vacuum cost for a page not found in the buffer cache. ||
+|| vacuumCostPageDirty | **string** (int64)
+
+Vacuum cost for a page dirtied by vacuum. ||
+|| vacuumCostLimit | **string** (int64)
+
+Vacuum cost amount available before napping. ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds.
+Background writer sleep time between rounds. In milliseconds.
 
 Acceptable values are 10 to 10000, inclusive. ||
-|| bgwriterLruMaxpages | **string** (int64) ||
-|| bgwriterLruMultiplier | **number** (double) ||
+|| bgwriterLruMaxpages | **string** (int64)
+
+Background writer maximum number of LRU pages to flush per round. ||
+|| bgwriterLruMultiplier | **number** (double)
+
+Multiple of the average buffer usage to free per round. ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes
+Specifies how much data the background writer can write before forcing the operating system to issue the writes. In bytes.
 
 Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes
+Specifies how much data a backend can write before forcing the operating system to issue the writes. In bytes.
 
 Acceptable values are 0 to 2097152, inclusive. ||
-|| oldSnapshotThreshold | **string** (int64) ||
+|| oldSnapshotThreshold | **string** (int64)
+
+Time before a snapshot is too old to read pages changed after the snapshot was taken.
+A value of -1 disables this feature. In milliseconds. ||
 || walLevel | **enum** (WalLevel)
+
+Sets the level of information written to the WAL.
 
 - `WAL_LEVEL_REPLICA`: Supports WAL archiving and physical replication.
 - `WAL_LEVEL_LOGICAL`: Supports WAL archiving, physical replication, and logical decoding. ||
 || synchronousCommit | **enum** (SynchronousCommit)
+
+Sets the current transaction's synchronization level.
 
 - `SYNCHRONOUS_COMMIT_ON`: Success is reported to the client if the data is in WAL (Write-Ahead Log), and WAL is written to the storage of both the master and its synchronous standby server. Default value.
 - `SYNCHRONOUS_COMMIT_OFF`: Success is reported to the client even if the data is not in WAL.
@@ -8289,104 +8827,149 @@ The transaction may be lost due to simultaneous storage subsystem failure on the
 The transaction may be lost due to irrecoverably failure of both the master and its synchronous standby. ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum time between automatic WAL checkpoints. In milliseconds.
 
 Acceptable values are 30000 to 86400000, inclusive. ||
-|| checkpointCompletionTarget | **number** (double) ||
+|| checkpointCompletionTarget | **number** (double)
+
+Time spent flushing dirty buffers during checkpoint, as fraction of checkpoint interval. ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes
+Specifies how much data can be written during a checkpoint before forcing the operating system to issue the writes. In bytes.
 
 Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
-in bytes. ||
+Sets the WAL size that triggers a checkpoint. In bytes. ||
 || minWalSize | **string** (int64)
 
-in bytes. ||
+Sets the minimum size to shrink the WAL to. In bytes. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
-in milliseconds. ||
-|| defaultStatisticsTarget | **string** (int64) ||
+Sets the maximum delay before canceling queries when a hot standby server is processing streamed WAL data. In milliseconds. ||
+|| defaultStatisticsTarget | **string** (int64)
+
+Sets the default statistics target. This applies to table columns that have not had a
+column-specific target set via ALTER TABLE SET STATISTICS. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
+
+Enables the planner to use constraints to optimize queries.
 
 - `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
 - `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
 - `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
-|| cursorTupleFraction | **number** (double) ||
+|| cursorTupleFraction | **number** (double)
+
+Sets the planner's estimate of the fraction of a cursor's rows that will be retrieved. ||
 || fromCollapseLimit | **string** (int64)
+
+Sets the FROM-list size beyond which subqueries are not collapsed.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
 || joinCollapseLimit | **string** (int64)
 
+Sets the FROM-list size beyond which JOIN constructs are not flattened.
+
 Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_ON`: Force parallel mode for all queries that can be executed safely in parallel.
-- `FORCE_PARALLEL_MODE_OFF`: Enable parallel mode only if it is expected to increase performance.
-- `FORCE_PARALLEL_MODE_REGRESS`: Equivalent to on, but generates output identical to the off state. ||
+Forces use of parallel query facilities. If possible, run query using a parallel worker and with parallel restrictions.
+
+- `FORCE_PARALLEL_MODE_ON`: Forces parallel mode for queries considered safe, even when no performance benefit is expected.
+- `FORCE_PARALLEL_MODE_OFF`: Uses parallel mode only when the planner expects it to improve performance.
+- `FORCE_PARALLEL_MODE_REGRESS`: Behaves like ON, but hides added Gather nodes in EXPLAIN output and
+suppresses parallel-worker context lines to stabilize regression-test output. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are sent to the client.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Causes all statements generating error at or above this level to be logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinDurationStatement | **string** (int64)
 
-in milliseconds. ||
-|| logCheckpoints | **boolean** ||
-|| logConnections | **boolean** ||
-|| logDisconnections | **boolean** ||
-|| logDuration | **boolean** ||
+Sets the minimum execution time above which all statements will be logged. In milliseconds. ||
+|| logCheckpoints | **boolean**
+
+Logs each checkpoint. ||
+|| logConnections | **boolean**
+
+Logs each successful connection. ||
+|| logDisconnections | **boolean**
+
+Logs end of a session, including duration. ||
+|| logDuration | **boolean**
+
+Logs the duration of each completed SQL statement.
+ ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
+
+Sets the verbosity of logged messages.
 
 - `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
 - `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
 - `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
-|| logLockWaits | **boolean** ||
+|| logLockWaits | **boolean**
+
+Logs long lock waits. ||
 || logStatement | **enum** (LogStatement)
+
+Sets the type of statements logged.
 
 - `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
 - `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
 - `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
 - `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
-|| logTempFiles | **string** (int64) ||
-|| searchPath | **string** ||
-|| rowSecurity | **boolean** ||
+|| logTempFiles | **string** (int64)
+
+Log the use of temporary files larger than this number of kilobytes. ||
+|| searchPath | **string**
+
+Sets the schema search order for names that are not schema-qualified. ||
+|| rowSecurity | **boolean**
+
+Enable row security. ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
+
+Sets the transaction isolation level of each new transaction.
 
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
 - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
@@ -8396,121 +8979,242 @@ All queries in the current transaction see only the rows that were fixed prior t
 If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any statement. In milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any wait for a lock. In milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
+
+Sets the output format for bytea.
 
 - `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
 - `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`: Base64 encoding.
-- `XML_BINARY_HEX`: Hexadecimal encoding. ||
+Sets how binary values are to be encoded in XML.
+
+- `XML_BINARY_BASE64`: Encodes binary values using Base64.
+- `XML_BINARY_HEX`: Encodes binary values using hexadecimal notation. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`: XML document.
-- `XML_OPTION_CONTENT`: XML fragment. ||
+Sets whether XML data in implicit parsing and serialization operations is to be considered as documents or content fragments.
+
+- `XML_OPTION_DOCUMENT`: Treats an XML value as a complete, well-formed document.
+- `XML_OPTION_CONTENT`: Treats an XML value as a content fragment, which may contain multiple top-level elements or character nodes. ||
 || ginPendingListLimit | **string** (int64)
 
-in bytes. ||
+Sets the maximum size of the pending list for GIN index. In bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds.
+Sets the time to wait on a lock before checking for deadlock. In milliseconds.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
-|| maxLocksPerTransaction | **string** (int64) ||
-|| maxPredLocksPerTransaction | **string** (int64) ||
-|| arrayNulls | **boolean** ||
+|| maxLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of locks per transaction. The shared lock table is sized on the assumption that
+at most max_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| maxPredLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of predicate locks per transaction.The shared predicate lock table is sized on the assumption that
+at most max_pred_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| arrayNulls | **boolean**
+
+Enable input of NULL elements in arrays. When turned on, unquoted NULL in an array input
+value means a null value; otherwise it is taken literally. ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+Sets whether \"\\'\" is allowed in string literals.
+
+- `BACKSLASH_QUOTE`: Legacy invalid value. Do not use.
 - `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
 - `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
 - `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
-|| defaultWithOids | **boolean** ||
-|| escapeStringWarning | **boolean** ||
-|| loCompatPrivileges | **boolean** ||
-|| operatorPrecedenceWarning | **boolean** ||
-|| quoteAllIdentifiers | **boolean** ||
-|| standardConformingStrings | **boolean** ||
-|| synchronizeSeqscans | **boolean** ||
-|| transformNullEquals | **boolean** ||
-|| exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
+|| defaultWithOids | **boolean**
+
+WITH OIDS is no longer supported; this can only be false. ||
+|| escapeStringWarning | **boolean**
+
+Warn about backslash escapes in ordinary string literals. ||
+|| loCompatPrivileges | **boolean**
+
+Enables backward compatibility mode for privilege checks on large objects. Skips privilege checks
+when reading or modifying large objects, for compatibility with PostgreSQL releases prior to 9.0. ||
+|| operatorPrecedenceWarning | **boolean**
+
+Emit a warning for constructs that changed meaning since PostgreSQL 9.4. ||
+|| quoteAllIdentifiers | **boolean**
+
+When generating SQL fragments, quote all identifiers. ||
+|| standardConformingStrings | **boolean**
+
+Causes '...' strings to treat backslashes literally. ||
+|| synchronizeSeqscans | **boolean**
+
+Enable synchronized sequential scans. ||
+|| transformNullEquals | **boolean**
+
+Treats \"expr=NULL\" as \"expr IS NULL\". When turned on, expressions of the form expr = NULL
+(or NULL = expr) are treated as expr IS NULL, that is, they return true if expr evaluates to the
+null value, and false otherwise. The correct behavior of expr = NULL is to always return null (unknown). ||
+|| exitOnError | **boolean**
+
+Terminate session on any error. ||
+|| seqPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a sequentially fetched disk page.
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a nonsequentially fetched disk page.
+
+The minimum value is 0. ||
 || autovacuumMaxWorkers | **string** (int64)
 
+Sets the maximum number of simultaneously running autovacuum worker processes.
+
 Acceptable values are 1 to 32, inclusive. ||
-|| autovacuumVacuumCostDelay | **string** (int64) ||
-|| autovacuumVacuumCostLimit | **string** (int64) ||
+|| autovacuumVacuumCostDelay | **string** (int64)
+
+Vacuum cost delay in milliseconds, for autovacuum. ||
+|| autovacuumVacuumCostLimit | **string** (int64)
+
+Vacuum cost amount available before napping, for autovacuum. ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds.
+Time to sleep between autovacuum runs. In milliseconds.
 
 Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds.
+Forces a switch to the next WAL file if no new file has been started within the specified interval. In milliseconds.
 
 Acceptable values are 10000 to 86400000, inclusive. ||
 || trackActivityQuerySize | **string** (int64)
 
+Sets the size reserved for pg_stat_activity.query, in bytes.
+
 Acceptable values are 100 to 102400, inclusive. ||
-|| enableBitmapscan | **boolean** ||
-|| enableHashagg | **boolean** ||
-|| enableHashjoin | **boolean** ||
-|| enableIndexscan | **boolean** ||
-|| enableIndexonlyscan | **boolean** ||
-|| enableMaterial | **boolean** ||
-|| enableMergejoin | **boolean** ||
-|| enableNestloop | **boolean** ||
-|| enableSeqscan | **boolean** ||
-|| enableSort | **boolean** ||
-|| enableTidscan | **boolean** ||
+|| enableBitmapscan | **boolean**
+
+Enables the planner's use of bitmap-scan plans. ||
+|| enableHashagg | **boolean**
+
+Enables the planner's use of hashed aggregation plans. ||
+|| enableHashjoin | **boolean**
+
+Enables the planner's use of hash join plans. ||
+|| enableIndexscan | **boolean**
+
+Enables the planner's use of index-scan plans. ||
+|| enableIndexonlyscan | **boolean**
+
+Enables the planner's use of index-only-scan plans. ||
+|| enableMaterial | **boolean**
+
+Enables the planner's use of materialization. ||
+|| enableMergejoin | **boolean**
+
+Enables the planner's use of merge join plans. ||
+|| enableNestloop | **boolean**
+
+Enables the planner's use of nested-loop join plans. ||
+|| enableSeqscan | **boolean**
+
+Enables the planner's use of sequential-scan plans. ||
+|| enableSort | **boolean**
+
+Enables the planner's use of explicit sort steps. ||
+|| enableTidscan | **boolean**
+
+Enables the planner's use of TID scan plans. ||
 || maxWorkerProcesses | **string** (int64)
+
+Maximum number of concurrent worker processes.
 
 Acceptable values are 0 to 1024, inclusive. ||
 || maxParallelWorkers | **string** (int64)
 
+Sets the maximum number of parallel workers that can be active at one time.
+
 Acceptable values are 0 to 1024, inclusive. ||
 || maxParallelWorkersPerGather | **string** (int64)
 
+Sets the maximum number of parallel processes per executor node.
+
 Acceptable values are 0 to 1024, inclusive. ||
-|| autovacuumVacuumScaleFactor | **number** (double) ||
-|| autovacuumAnalyzeScaleFactor | **number** (double) ||
-|| defaultTransactionReadOnly | **boolean** ||
-|| timezone | **string** ||
-|| enableParallelAppend | **boolean** ||
-|| enableParallelHash | **boolean** ||
-|| enablePartitionPruning | **boolean** ||
-|| enablePartitionwiseAggregate | **boolean** ||
-|| enablePartitionwiseJoin | **boolean** ||
-|| jit | **boolean** ||
+|| autovacuumVacuumScaleFactor | **number** (double)
+
+Number of tuple updates or deletes prior to vacuum as a fraction of reltuples. ||
+|| autovacuumAnalyzeScaleFactor | **number** (double)
+
+Number of tuple inserts, updates, or deletes prior to analyze as a fraction of reltuples. ||
+|| defaultTransactionReadOnly | **boolean**
+
+Sets the default read-only status of new transactions. ||
+|| timezone | **string**
+
+Sets the time zone for displaying and interpreting time stamps. ||
+|| enableParallelAppend | **boolean**
+
+Enables the planner's use of parallel append plans. ||
+|| enableParallelHash | **boolean**
+
+Enables the planner's use of parallel hash plans. ||
+|| enablePartitionPruning | **boolean**
+
+Enables plan-time and execution-time partition pruning. Allows the query planner and executor to
+compare partition bounds to conditions in the query to determine which partitions must be scanned. ||
+|| enablePartitionwiseAggregate | **boolean**
+
+Enables partitionwise aggregation and grouping. ||
+|| enablePartitionwiseJoin | **boolean**
+
+Enables partitionwise join. ||
+|| jit | **boolean**
+
+Allow JIT compilation. ||
 || maxParallelMaintenanceWorkers | **string** (int64)
 
+Sets the maximum number of parallel processes per maintenance operation.
+
 The minimum value is 0. ||
-|| parallelLeaderParticipation | **boolean** ||
-|| vacuumCleanupIndexScaleFactor | **number** (double) ||
-|| logTransactionSampleRate | **number** (double) ||
+|| parallelLeaderParticipation | **boolean**
+
+Controls whether Gather and Gather Merge also run subplans. ||
+|| vacuumCleanupIndexScaleFactor | **number** (double)
+
+Number of tuple inserts prior to index cleanup as a fraction of reltuples. ||
+|| logTransactionSampleRate | **number** (double)
+
+Sets the fraction of transactions from which to log all statements. Use a
+value between 0.0 (never log) and 1.0 (log all statements for all transactions). ||
 || planCacheMode | **enum** (PlanCacheMode)
+
+Controls the planner's selection of custom or generic plan. Prepared statements can have custom and generic plans,
+and the planner will attempt to choose which is better. This can be set to override the default behavior.
 
 - `PLAN_CACHE_MODE_AUTO`: Automatic selection.
 - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`: Forces the use of custom plans.
 - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`: Forces the use of generic plans. ||
 || effectiveIoConcurrency | **string** (int64)
 
+Number of simultaneous requests that can be handled efficiently by the disk subsystem.
+
 Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
+Sets the planner's assumption about the effective size of the disk cache available to a single query. In bytes.
+
 Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
+
+Lists shared libraries to preload into server.
 
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`: Required for the [auto_explain](https://www.postgresql.org/docs/current/auto-explain.html) extension.
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`: Required for the [pg_hint_plan](https://github.com/ossc-db/pg_hint_plan) extension.
@@ -8522,116 +9226,199 @@ Acceptable values are 1048576 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
-in milliseconds. ||
-|| autoExplainLogAnalyze | **boolean** ||
-|| autoExplainLogBuffers | **boolean** ||
-|| autoExplainLogTiming | **boolean** ||
-|| autoExplainLogTriggers | **boolean** ||
-|| autoExplainLogVerbose | **boolean** ||
-|| autoExplainLogNestedStatements | **boolean** ||
-|| autoExplainSampleRate | **number** (double) ||
-|| pgHintPlanEnableHint | **boolean** ||
-|| pgHintPlanEnableHintTable | **boolean** ||
+Sets the minimum statement execution time, that will cause the statement's plan to be logged.
+Setting this to 0 logs all plans. -1 (the default) disables logging of plans. For example, if
+you set it to 250ms then all statements that run 250ms or longer will be logged. In milliseconds.
+ ||
+|| autoExplainLogAnalyze | **boolean**
+
+Causes EXPLAIN ANALYZE output, rather than just EXPLAIN output,to be printed
+when an executionplan is logged. This parameter is off by default. ||
+|| autoExplainLogBuffers | **boolean**
+
+Controls whether buffer usage statistics are printed when an execution plan is logged;
+it's equivalent to the BUFFERS option of EXPLAIN. This parameter has no effect unless
+auto_explain.log_analyze is enabled. This parameter is off by default. ||
+|| autoExplainLogTiming | **boolean**
+
+Controls whether per-node timing information is printed when an execution plan is logged;
+it's equivalent to the TIMING option of EXPLAIN. The overhead of repeatedly reading the system
+clock can slow down queries significantly on some systems, so it may be useful to set this
+parameter to off when only actual row counts, and not exact times, are needed. This parameter
+has no effect unless auto_explain.log_analyze is enabled. This parameter is on by default. ||
+|| autoExplainLogTriggers | **boolean**
+
+Causes trigger execution statistics to be included when an execution plan is logged. This parameter
+has no effect unless auto_explain.log_analyze is enabled. This parameter is off by default. ||
+|| autoExplainLogVerbose | **boolean**
+
+Controls whether verbose details are printed when an execution plan is logged; it's
+equivalent to the VERBOSE option of EXPLAIN. This parameter is off by default. ||
+|| autoExplainLogNestedStatements | **boolean**
+
+Causes nested statements (statements executed inside a function) to be considered for logging.
+When it is off, only top-level query plans are logged. This parameter is off by default. ||
+|| autoExplainSampleRate | **number** (double)
+
+Causes auto_explain to only explain a fraction of the statements in each session. The default is 1,
+meaning explain all the queries. In case of nested statements, either all will be explained or none. ||
+|| pgHintPlanEnableHint | **boolean**
+
+Enables processing of query hints by pg_hint_plan. ||
+|| pgHintPlanEnableHintTable | **boolean**
+
+Enables lookup of hints in the hint table. ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disable debug output
-- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Print debug messages about hint parsing
-- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Print detailed debug information including query planning process
-- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Print verbose debug output with all internal operations ||
+Controls whether and how verbosely hint parsing results are logged.
+
+- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disables diagnostic logging.
+- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Logs hint-processing results grouped by used, unused, duplicate, and erroneous hints.
+- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Logs hint-processing results together with detailed planner diagnostics.
+- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Logs the most detailed diagnostics, including query strings used to extract hints. ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
-|| hashMemMultiplier | **number** (double) ||
+Sets the log level for pg_hint_plan debug messages.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
+|| hashMemMultiplier | **number** (double)
+
+Multiple of work_mem to use for hash tables. ||
 || logicalDecodingWorkMem | **string** (int64)
 
-in bytes.
+Sets the maximum memory to be used for logical decoding. This much memory can be
+used by each internal reorder buffer before spilling to disk. In bytes.
 
 Acceptable values are 65536 to 1099511627776, inclusive. ||
 || maintenanceIoConcurrency | **string** (int64)
 
+A variant of effective_io_concurrency that is used for maintenance work.
+
 Acceptable values are 0 to 1000, inclusive. ||
 || maxSlotWalKeepSize | **string** (int64)
 
-in bytes. ||
+Sets the maximum WAL size that can be reserved by replication slots. Replication slots will be marked as failed,
+and segments released for deletion or recycling, if this much space is occupied by WAL on disk. In bytes. ||
 || walKeepSize | **string** (int64)
 
-in bytes. ||
-|| enableIncrementalSort | **boolean** ||
-|| autovacuumVacuumInsertThreshold | **string** (int64) ||
-|| autovacuumVacuumInsertScaleFactor | **number** (double) ||
+Sets the size of WAL files held for standby servers. In bytes. ||
+|| enableIncrementalSort | **boolean**
+
+Enables the planner's use of incremental sort steps. ||
+|| autovacuumVacuumInsertThreshold | **string** (int64)
+
+Minimum number of tuple inserts prior to vacuum, or -1 to disable insert vacuums. ||
+|| autovacuumVacuumInsertScaleFactor | **number** (double)
+
+Number of tuple inserts prior to vacuum as a fraction of reltuples. ||
 || logMinDurationSample | **string** (int64)
 
-in milliseconds. ||
-|| logStatementSampleRate | **number** (double) ||
+Sets the minimum execution time above which a sample of statements will be logged. Sampling is determined
+by log_statement_sample_rate. Zero logs a sample of all queries. -1 turns this feature off. In milliseconds. ||
+|| logStatementSampleRate | **number** (double)
+
+Fraction of statements exceeding log_min_duration_sample to be logged. Use a value between 0.0 (never log) and 1.0 (always log). ||
 || logParameterMaxLength | **string** (int64)
 
-in bytes. ||
+When logging statements, limit logged parameter values to first N bytes. -1 to print values in full. ||
 || logParameterMaxLengthOnError | **string** (int64)
 
-in bytes. ||
-|| pgQualstatsEnabled | **boolean** ||
-|| pgQualstatsTrackConstants | **boolean** ||
-|| pgQualstatsMax | **string** (int64) ||
-|| pgQualstatsResolveOids | **boolean** ||
-|| pgQualstatsSampleRate | **number** (double) ||
+When reporting an error, limit logged parameter values to first N bytes. -1 to print values in full. ||
+|| pgQualstatsEnabled | **boolean**
+
+Controls whether pg_qualstats collects execution statistics for query predicates,
+including filters and join conditions. ||
+|| pgQualstatsTrackConstants | **boolean**
+
+Controls whether pg_qualstats keeps separate statistics for predicates containing different constant values ||
+|| pgQualstatsMax | **string** (int64)
+
+Limits the number of predicate-statistics and query-text entries retained by pg_qualstats. ||
+|| pgQualstatsResolveOids | **boolean**
+
+Controls whether pg_qualstats resolves object OIDs and stores their names  when collecting statistics.
+Enabling this increases memory usage and requires additional system-catalog lookups. ||
+|| pgQualstatsSampleRate | **number** (double)
+
+Sets the fraction of queries sampled by pg_qualstats. A value of -1 selects an automatic rate
+of 1 / max_connections; 0 samples no queries, and 1 samples every query. ||
 || maxStackDepth | **string** (int64)
 
-in bytes.
+Sets the maximum stack depth, in bytes.
 
 Acceptable values are 65536 to 134217728, inclusive. ||
 || geqo | **boolean**
 
-enable Genetic Query Optimizer, by default is on ||
+Enables genetic query optimization. This algorithm attempts to do planning
+without exhaustive searching, by default is on. ||
 || geqoThreshold | **string** (int64)
 
-The number of tables to use geqo, default is 12
+Sets the threshold of FROM items beyond which GEQO is used, default is 12.
 
 Acceptable values are 2 to 2147483647, inclusive. ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5
+GEQO: effort is used to set the default for other GEQO parameters.
+Tradeoff between planning time and query plan quality, default is 5.
 
 Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
-number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
+GEQO: number of individuals in the population.
+Useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort. ||
 || geqoGenerations | **string** (int64)
 
-the number of generations used by GEQO, useful values are in the same range as the pool size ||
+GEQO: number of iterations of the algorithm. Zero selects a suitable default value.
+Useful values are in the same range as the pool size. ||
 || geqoSelectionBias | **number** (double)
 
-selective pressure within the population ||
+GEQO: selective pressure within the population. ||
 || geqoSeed | **number** (double)
 
-initial value of the random number generator used by GEQO ||
-|| pgTrgmSimilarityThreshold | **number** (double) ||
-|| pgTrgmWordSimilarityThreshold | **number** (double) ||
-|| pgTrgmStrictWordSimilarityThreshold | **number** (double) ||
+GEQO: seed for random path selection. ||
+|| pgTrgmSimilarityThreshold | **number** (double)
+
+Sets the trigram similarity threshold used by the `%` operator
+to determine whether two strings are similar. ||
+|| pgTrgmWordSimilarityThreshold | **number** (double)
+
+Sets the threshold used by the `<%` and `%>` operators when comparing
+a string with the most similar continuous part of another string. ||
+|| pgTrgmStrictWordSimilarityThreshold | **number** (double)
+
+Sets the threshold used by the `<<%` and `%>>` operators when comparing
+a string with parts of another string aligned to word boundaries. ||
 || maxStandbyArchiveDelay | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum delay before canceling queries when a hot standby server is processing archived WAL data. In milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is
+not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
-|| logReplicationCommands | **boolean** ||
+|| logReplicationCommands | **boolean**
+
+Logs each replication command. ||
 || logAutovacuumMinDuration | **string** (int64)
 
-in milliseconds. The default is 1000 (1 sec). ||
+Sets the minimum execution time above which autovacuum actions will be logged.
+Zero prints all actions. -1 turns autovacuum logging off. In milliseconds. The default is 1000 (1 sec).
+ ||
 || passwordEncryption | **enum** (PasswordEncryption)
 
-A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
+A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are
+`` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
 - `PASSWORD_ENCRYPTION_MD5`: The method md5 uses a custom less secure challenge-response mechanism. It prevents password sniffing and avoids storing passwords on the server in plain text but provides no protection if an attacker manages to steal the password hash from the server. Also, the MD5 hash algorithm is nowadays no longer considered secure against determined attacks.
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256`: The method scram-sha-256 performs SCRAM-SHA-256 authentication, as described in RFC 7677. It is a challenge-response scheme that prevents password sniffing on untrusted connections and supports storing passwords on the server in a cryptographically hashed form that is thought to be secure.
@@ -8664,56 +9451,81 @@ parameters which detailed description is available in
 ||Field | Description ||
 || maxConnections | **string** (int64)
 
+Sets the maximum number of concurrent connections.
+
 The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
-in bytes. ||
+Sets the number of shared memory buffers used by the server. In bytes. ||
 || tempBuffers | **string** (int64)
 
-in bytes. ||
-|| maxPreparedTransactions | **string** (int64) ||
+Sets the maximum number of temporary buffers used by each session. In bytes. ||
+|| maxPreparedTransactions | **string** (int64)
+
+Sets the maximum number of simultaneously prepared transactions. ||
 || workMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used for query workspaces. This much memory can be used by each
+internal sort operation and hash table before switching to temporary disk files. In bytes. ||
 || maintenanceWorkMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used for maintenance operations.
+This includes operations such as VACUUM and CREATE INDEX. In bytes. ||
 || autovacuumWorkMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used by each autovacuum worker process. In bytes. ||
 || tempFileLimit | **string** (int64)
 
-in bytes. ||
+Limits the total size of all temporary files used by each process. -1 means no limit. In bytes. ||
 || vacuumCostDelay | **string** (int64)
 
-in milliseconds. ||
-|| vacuumCostPageHit | **string** (int64) ||
-|| vacuumCostPageMiss | **string** (int64) ||
-|| vacuumCostPageDirty | **string** (int64) ||
-|| vacuumCostLimit | **string** (int64) ||
+Vacuum cost delay. In milliseconds. ||
+|| vacuumCostPageHit | **string** (int64)
+
+Vacuum cost for a page found in the buffer cache. ||
+|| vacuumCostPageMiss | **string** (int64)
+
+Vacuum cost for a page not found in the buffer cache. ||
+|| vacuumCostPageDirty | **string** (int64)
+
+Vacuum cost for a page dirtied by vacuum. ||
+|| vacuumCostLimit | **string** (int64)
+
+Vacuum cost amount available before napping. ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds.
+Background writer sleep time between rounds. In milliseconds.
 
 Acceptable values are 10 to 10000, inclusive. ||
-|| bgwriterLruMaxpages | **string** (int64) ||
-|| bgwriterLruMultiplier | **number** (double) ||
+|| bgwriterLruMaxpages | **string** (int64)
+
+Background writer maximum number of LRU pages to flush per round. ||
+|| bgwriterLruMultiplier | **number** (double)
+
+Multiple of the average buffer usage to free per round. ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes
+Specifies how much data the background writer can write before forcing the operating system to issue the writes. In bytes.
 
 Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes
+Specifies how much data a backend can write before forcing the operating system to issue the writes. In bytes.
 
 Acceptable values are 0 to 2097152, inclusive. ||
-|| oldSnapshotThreshold | **string** (int64) ||
+|| oldSnapshotThreshold | **string** (int64)
+
+Time before a snapshot is too old to read pages changed after the snapshot was taken.
+A value of -1 disables this feature. In milliseconds. ||
 || walLevel | **enum** (WalLevel)
+
+Sets the level of information written to the WAL.
 
 - `WAL_LEVEL_REPLICA`: Supports WAL archiving and physical replication.
 - `WAL_LEVEL_LOGICAL`: Supports WAL archiving, physical replication, and logical decoding. ||
 || synchronousCommit | **enum** (SynchronousCommit)
+
+Sets the current transaction's synchronization level.
 
 - `SYNCHRONOUS_COMMIT_ON`: Success is reported to the client if the data is in WAL (Write-Ahead Log), and WAL is written to the storage of both the master and its synchronous standby server. Default value.
 - `SYNCHRONOUS_COMMIT_OFF`: Success is reported to the client even if the data is not in WAL.
@@ -8726,104 +9538,149 @@ The transaction may be lost due to simultaneous storage subsystem failure on the
 The transaction may be lost due to irrecoverably failure of both the master and its synchronous standby. ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum time between automatic WAL checkpoints. In milliseconds.
 
 Acceptable values are 30000 to 86400000, inclusive. ||
-|| checkpointCompletionTarget | **number** (double) ||
+|| checkpointCompletionTarget | **number** (double)
+
+Time spent flushing dirty buffers during checkpoint, as fraction of checkpoint interval. ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes
+Specifies how much data can be written during a checkpoint before forcing the operating system to issue the writes. In bytes.
 
 Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
-in bytes. ||
+Sets the WAL size that triggers a checkpoint. In bytes. ||
 || minWalSize | **string** (int64)
 
-in bytes. ||
+Sets the minimum size to shrink the WAL to. In bytes. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
-in milliseconds. ||
-|| defaultStatisticsTarget | **string** (int64) ||
+Sets the maximum delay before canceling queries when a hot standby server is processing streamed WAL data. In milliseconds. ||
+|| defaultStatisticsTarget | **string** (int64)
+
+Sets the default statistics target. This applies to table columns that have not had a
+column-specific target set via ALTER TABLE SET STATISTICS. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
+
+Enables the planner to use constraints to optimize queries.
 
 - `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
 - `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
 - `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
-|| cursorTupleFraction | **number** (double) ||
+|| cursorTupleFraction | **number** (double)
+
+Sets the planner's estimate of the fraction of a cursor's rows that will be retrieved. ||
 || fromCollapseLimit | **string** (int64)
+
+Sets the FROM-list size beyond which subqueries are not collapsed.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
 || joinCollapseLimit | **string** (int64)
 
+Sets the FROM-list size beyond which JOIN constructs are not flattened.
+
 Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_ON`: Force parallel mode for all queries that can be executed safely in parallel.
-- `FORCE_PARALLEL_MODE_OFF`: Enable parallel mode only if it is expected to increase performance.
-- `FORCE_PARALLEL_MODE_REGRESS`: Equivalent to on, but generates output identical to the off state. ||
+Forces use of parallel query facilities. If possible, run query using a parallel worker and with parallel restrictions.
+
+- `FORCE_PARALLEL_MODE_ON`: Forces parallel mode for queries considered safe, even when no performance benefit is expected.
+- `FORCE_PARALLEL_MODE_OFF`: Uses parallel mode only when the planner expects it to improve performance.
+- `FORCE_PARALLEL_MODE_REGRESS`: Behaves like ON, but hides added Gather nodes in EXPLAIN output and
+suppresses parallel-worker context lines to stabilize regression-test output. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are sent to the client.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Causes all statements generating error at or above this level to be logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinDurationStatement | **string** (int64)
 
-in milliseconds. ||
-|| logCheckpoints | **boolean** ||
-|| logConnections | **boolean** ||
-|| logDisconnections | **boolean** ||
-|| logDuration | **boolean** ||
+Sets the minimum execution time above which all statements will be logged. In milliseconds. ||
+|| logCheckpoints | **boolean**
+
+Logs each checkpoint. ||
+|| logConnections | **boolean**
+
+Logs each successful connection. ||
+|| logDisconnections | **boolean**
+
+Logs end of a session, including duration. ||
+|| logDuration | **boolean**
+
+Logs the duration of each completed SQL statement.
+ ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
+
+Sets the verbosity of logged messages.
 
 - `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
 - `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
 - `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
-|| logLockWaits | **boolean** ||
+|| logLockWaits | **boolean**
+
+Logs long lock waits. ||
 || logStatement | **enum** (LogStatement)
+
+Sets the type of statements logged.
 
 - `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
 - `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
 - `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
 - `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
-|| logTempFiles | **string** (int64) ||
-|| searchPath | **string** ||
-|| rowSecurity | **boolean** ||
+|| logTempFiles | **string** (int64)
+
+Log the use of temporary files larger than this number of kilobytes. ||
+|| searchPath | **string**
+
+Sets the schema search order for names that are not schema-qualified. ||
+|| rowSecurity | **boolean**
+
+Enable row security. ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
+
+Sets the transaction isolation level of each new transaction.
 
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
 - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
@@ -8833,122 +9690,245 @@ All queries in the current transaction see only the rows that were fixed prior t
 If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any statement. In milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any wait for a lock. In milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
+
+Sets the output format for bytea.
 
 - `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
 - `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`: Base64 encoding.
-- `XML_BINARY_HEX`: Hexadecimal encoding. ||
+Sets how binary values are to be encoded in XML.
+
+- `XML_BINARY_BASE64`: Encodes binary values using Base64.
+- `XML_BINARY_HEX`: Encodes binary values using hexadecimal notation. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`: XML document.
-- `XML_OPTION_CONTENT`: XML fragment. ||
+Sets whether XML data in implicit parsing and serialization operations is to be considered as documents or content fragments.
+
+- `XML_OPTION_DOCUMENT`: Treats an XML value as a complete, well-formed document.
+- `XML_OPTION_CONTENT`: Treats an XML value as a content fragment, which may contain multiple top-level elements or character nodes. ||
 || ginPendingListLimit | **string** (int64)
 
-in bytes. ||
+Sets the maximum size of the pending list for GIN index. In bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds.
+Sets the time to wait on a lock before checking for deadlock. In milliseconds.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
-|| maxLocksPerTransaction | **string** (int64) ||
-|| maxPredLocksPerTransaction | **string** (int64) ||
-|| arrayNulls | **boolean** ||
+|| maxLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of locks per transaction. The shared lock table is sized on the assumption that
+at most max_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| maxPredLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of predicate locks per transaction.The shared predicate lock table is sized on the assumption that
+at most max_pred_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| arrayNulls | **boolean**
+
+Enable input of NULL elements in arrays. When turned on, unquoted NULL in an array input
+value means a null value; otherwise it is taken literally. ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+Sets whether \"\\'\" is allowed in string literals.
+
+- `BACKSLASH_QUOTE`: Legacy invalid value. Do not use.
 - `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
 - `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
 - `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
-|| defaultWithOids | **boolean** ||
-|| escapeStringWarning | **boolean** ||
-|| loCompatPrivileges | **boolean** ||
-|| operatorPrecedenceWarning | **boolean** ||
-|| quoteAllIdentifiers | **boolean** ||
-|| standardConformingStrings | **boolean** ||
-|| synchronizeSeqscans | **boolean** ||
-|| transformNullEquals | **boolean** ||
-|| exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
+|| defaultWithOids | **boolean**
+
+WITH OIDS is no longer supported; this can only be false. ||
+|| escapeStringWarning | **boolean**
+
+Warn about backslash escapes in ordinary string literals. ||
+|| loCompatPrivileges | **boolean**
+
+Enables backward compatibility mode for privilege checks on large objects. Skips privilege checks
+when reading or modifying large objects, for compatibility with PostgreSQL releases prior to 9.0. ||
+|| operatorPrecedenceWarning | **boolean**
+
+Emit a warning for constructs that changed meaning since PostgreSQL 9.4. ||
+|| quoteAllIdentifiers | **boolean**
+
+When generating SQL fragments, quote all identifiers. ||
+|| standardConformingStrings | **boolean**
+
+Causes '...' strings to treat backslashes literally. ||
+|| synchronizeSeqscans | **boolean**
+
+Enable synchronized sequential scans. ||
+|| transformNullEquals | **boolean**
+
+Treats \"expr=NULL\" as \"expr IS NULL\". When turned on, expressions of the form expr = NULL
+(or NULL = expr) are treated as expr IS NULL, that is, they return true if expr evaluates to the
+null value, and false otherwise. The correct behavior of expr = NULL is to always return null (unknown). ||
+|| exitOnError | **boolean**
+
+Terminate session on any error. ||
+|| seqPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a sequentially fetched disk page.
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a nonsequentially fetched disk page.
+
+The minimum value is 0. ||
 || autovacuumMaxWorkers | **string** (int64)
 
+Sets the maximum number of simultaneously running autovacuum worker processes.
+
 Acceptable values are 1 to 32, inclusive. ||
-|| autovacuumVacuumCostDelay | **string** (int64) ||
-|| autovacuumVacuumCostLimit | **string** (int64) ||
+|| autovacuumVacuumCostDelay | **string** (int64)
+
+Vacuum cost delay in milliseconds, for autovacuum. ||
+|| autovacuumVacuumCostLimit | **string** (int64)
+
+Vacuum cost amount available before napping, for autovacuum. ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds.
+Time to sleep between autovacuum runs. In milliseconds.
 
 Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds.
+Forces a switch to the next WAL file if no new file has been started within the specified interval. In milliseconds.
 
 Acceptable values are 10000 to 86400000, inclusive. ||
 || trackActivityQuerySize | **string** (int64)
 
+Sets the size reserved for pg_stat_activity.query, in bytes.
+
 Acceptable values are 100 to 102400, inclusive. ||
-|| onlineAnalyzeEnable | **boolean** ||
-|| enableBitmapscan | **boolean** ||
-|| enableHashagg | **boolean** ||
-|| enableHashjoin | **boolean** ||
-|| enableIndexscan | **boolean** ||
-|| enableIndexonlyscan | **boolean** ||
-|| enableMaterial | **boolean** ||
-|| enableMergejoin | **boolean** ||
-|| enableNestloop | **boolean** ||
-|| enableSeqscan | **boolean** ||
-|| enableSort | **boolean** ||
-|| enableTidscan | **boolean** ||
+|| onlineAnalyzeEnable | **boolean**
+
+Enables automatic table-statistics updates by online_analyze after data-modifying operations. ||
+|| enableBitmapscan | **boolean**
+
+Enables the planner's use of bitmap-scan plans. ||
+|| enableHashagg | **boolean**
+
+Enables the planner's use of hashed aggregation plans. ||
+|| enableHashjoin | **boolean**
+
+Enables the planner's use of hash join plans. ||
+|| enableIndexscan | **boolean**
+
+Enables the planner's use of index-scan plans. ||
+|| enableIndexonlyscan | **boolean**
+
+Enables the planner's use of index-only-scan plans. ||
+|| enableMaterial | **boolean**
+
+Enables the planner's use of materialization. ||
+|| enableMergejoin | **boolean**
+
+Enables the planner's use of merge join plans. ||
+|| enableNestloop | **boolean**
+
+Enables the planner's use of nested-loop join plans. ||
+|| enableSeqscan | **boolean**
+
+Enables the planner's use of sequential-scan plans. ||
+|| enableSort | **boolean**
+
+Enables the planner's use of explicit sort steps. ||
+|| enableTidscan | **boolean**
+
+Enables the planner's use of TID scan plans. ||
 || maxWorkerProcesses | **string** (int64)
+
+Maximum number of concurrent worker processes.
 
 Acceptable values are 0 to 1024, inclusive. ||
 || maxParallelWorkers | **string** (int64)
 
+Sets the maximum number of parallel workers that can be active at one time.
+
 Acceptable values are 0 to 1024, inclusive. ||
 || maxParallelWorkersPerGather | **string** (int64)
 
+Sets the maximum number of parallel processes per executor node.
+
 Acceptable values are 0 to 1024, inclusive. ||
-|| autovacuumVacuumScaleFactor | **number** (double) ||
-|| autovacuumAnalyzeScaleFactor | **number** (double) ||
-|| defaultTransactionReadOnly | **boolean** ||
-|| timezone | **string** ||
-|| enableParallelAppend | **boolean** ||
-|| enableParallelHash | **boolean** ||
-|| enablePartitionPruning | **boolean** ||
-|| enablePartitionwiseAggregate | **boolean** ||
-|| enablePartitionwiseJoin | **boolean** ||
-|| jit | **boolean** ||
+|| autovacuumVacuumScaleFactor | **number** (double)
+
+Number of tuple updates or deletes prior to vacuum as a fraction of reltuples. ||
+|| autovacuumAnalyzeScaleFactor | **number** (double)
+
+Number of tuple inserts, updates, or deletes prior to analyze as a fraction of reltuples. ||
+|| defaultTransactionReadOnly | **boolean**
+
+Sets the default read-only status of new transactions. ||
+|| timezone | **string**
+
+Sets the time zone for displaying and interpreting time stamps. ||
+|| enableParallelAppend | **boolean**
+
+Enables the planner's use of parallel append plans. ||
+|| enableParallelHash | **boolean**
+
+Enables the planner's use of parallel hash plans. ||
+|| enablePartitionPruning | **boolean**
+
+Enables plan-time and execution-time partition pruning. Allows the query planner and executor to
+compare partition bounds to conditions in the query to determine which partitions must be scanned. ||
+|| enablePartitionwiseAggregate | **boolean**
+
+Enables partitionwise aggregation and grouping. ||
+|| enablePartitionwiseJoin | **boolean**
+
+Enables partitionwise join. ||
+|| jit | **boolean**
+
+Allow JIT compilation. ||
 || maxParallelMaintenanceWorkers | **string** (int64)
 
+Sets the maximum number of parallel processes per maintenance operation.
+
 The minimum value is 0. ||
-|| parallelLeaderParticipation | **boolean** ||
-|| vacuumCleanupIndexScaleFactor | **number** (double) ||
-|| logTransactionSampleRate | **number** (double) ||
+|| parallelLeaderParticipation | **boolean**
+
+Controls whether Gather and Gather Merge also run subplans. ||
+|| vacuumCleanupIndexScaleFactor | **number** (double)
+
+Number of tuple inserts prior to index cleanup as a fraction of reltuples. ||
+|| logTransactionSampleRate | **number** (double)
+
+Sets the fraction of transactions from which to log all statements. Use a
+value between 0.0 (never log) and 1.0 (log all statements for all transactions). ||
 || planCacheMode | **enum** (PlanCacheMode)
+
+Controls the planner's selection of custom or generic plan. Prepared statements can have custom and generic plans,
+and the planner will attempt to choose which is better. This can be set to override the default behavior.
 
 - `PLAN_CACHE_MODE_AUTO`: Automatic selection.
 - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`: Forces the use of custom plans.
 - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`: Forces the use of generic plans. ||
 || effectiveIoConcurrency | **string** (int64)
 
+Number of simultaneous requests that can be handled efficiently by the disk subsystem.
+
 Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
+Sets the planner's assumption about the effective size of the disk cache available to a single query. In bytes.
+
 Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
+
+Lists shared libraries to preload into server.
 
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`: Required for the [auto_explain](https://www.postgresql.org/docs/current/auto-explain.html) extension.
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`: Required for the [pg_hint_plan](https://github.com/ossc-db/pg_hint_plan) extension.
@@ -8960,112 +9940,197 @@ Acceptable values are 1048576 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
-in milliseconds. ||
-|| autoExplainLogAnalyze | **boolean** ||
-|| autoExplainLogBuffers | **boolean** ||
-|| autoExplainLogTiming | **boolean** ||
-|| autoExplainLogTriggers | **boolean** ||
-|| autoExplainLogVerbose | **boolean** ||
-|| autoExplainLogNestedStatements | **boolean** ||
-|| autoExplainSampleRate | **number** (double) ||
-|| pgHintPlanEnableHint | **boolean** ||
-|| pgHintPlanEnableHintTable | **boolean** ||
+Sets the minimum statement execution time, that will cause the statement's plan to be logged.
+Setting this to 0 logs all plans. -1 (the default) disables logging of plans. For example, if
+you set it to 250ms then all statements that run 250ms or longer will be logged. In milliseconds.
+ ||
+|| autoExplainLogAnalyze | **boolean**
+
+Causes EXPLAIN ANALYZE output, rather than just EXPLAIN output,to be printed
+when an executionplan is logged. This parameter is off by default. ||
+|| autoExplainLogBuffers | **boolean**
+
+Controls whether buffer usage statistics are printed when an execution plan is logged;
+it's equivalent to the BUFFERS option of EXPLAIN. This parameter has no effect unless
+auto_explain.log_analyze is enabled. This parameter is off by default. ||
+|| autoExplainLogTiming | **boolean**
+
+Controls whether per-node timing information is printed when an execution plan is logged;
+it's equivalent to the TIMING option of EXPLAIN. The overhead of repeatedly reading the system
+clock can slow down queries significantly on some systems, so it may be useful to set this
+parameter to off when only actual row counts, and not exact times, are needed. This parameter
+has no effect unless auto_explain.log_analyze is enabled. This parameter is on by default. ||
+|| autoExplainLogTriggers | **boolean**
+
+Causes trigger execution statistics to be included when an execution plan is logged. This parameter
+has no effect unless auto_explain.log_analyze is enabled. This parameter is off by default. ||
+|| autoExplainLogVerbose | **boolean**
+
+Controls whether verbose details are printed when an execution plan is logged; it's
+equivalent to the VERBOSE option of EXPLAIN. This parameter is off by default. ||
+|| autoExplainLogNestedStatements | **boolean**
+
+Causes nested statements (statements executed inside a function) to be considered for logging.
+When it is off, only top-level query plans are logged. This parameter is off by default. ||
+|| autoExplainSampleRate | **number** (double)
+
+Causes auto_explain to only explain a fraction of the statements in each session. The default is 1,
+meaning explain all the queries. In case of nested statements, either all will be explained or none. ||
+|| pgHintPlanEnableHint | **boolean**
+
+Enables processing of query hints by pg_hint_plan. ||
+|| pgHintPlanEnableHintTable | **boolean**
+
+Enables lookup of hints in the hint table. ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disable debug output
-- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Print debug messages about hint parsing
-- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Print detailed debug information including query planning process
-- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Print verbose debug output with all internal operations ||
+Controls whether and how verbosely hint parsing results are logged.
+
+- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disables diagnostic logging.
+- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Logs hint-processing results grouped by used, unused, duplicate, and erroneous hints.
+- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Logs hint-processing results together with detailed planner diagnostics.
+- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Logs the most detailed diagnostics, including query strings used to extract hints. ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
-|| hashMemMultiplier | **number** (double) ||
+Sets the log level for pg_hint_plan debug messages.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
+|| hashMemMultiplier | **number** (double)
+
+Multiple of work_mem to use for hash tables. ||
 || logicalDecodingWorkMem | **string** (int64)
 
-in bytes.
+Sets the maximum memory to be used for logical decoding. This much memory can be
+used by each internal reorder buffer before spilling to disk. In bytes.
 
 Acceptable values are 65536 to 1099511627776, inclusive. ||
 || maintenanceIoConcurrency | **string** (int64)
 
+A variant of effective_io_concurrency that is used for maintenance work.
+
 Acceptable values are 0 to 1000, inclusive. ||
 || maxSlotWalKeepSize | **string** (int64)
 
-in bytes. ||
+Sets the maximum WAL size that can be reserved by replication slots. Replication slots will be marked as failed,
+and segments released for deletion or recycling, if this much space is occupied by WAL on disk. In bytes. ||
 || walKeepSize | **string** (int64)
 
-in bytes. ||
-|| enableIncrementalSort | **boolean** ||
-|| autovacuumVacuumInsertThreshold | **string** (int64) ||
-|| autovacuumVacuumInsertScaleFactor | **number** (double) ||
+Sets the size of WAL files held for standby servers. In bytes. ||
+|| enableIncrementalSort | **boolean**
+
+Enables the planner's use of incremental sort steps. ||
+|| autovacuumVacuumInsertThreshold | **string** (int64)
+
+Minimum number of tuple inserts prior to vacuum, or -1 to disable insert vacuums. ||
+|| autovacuumVacuumInsertScaleFactor | **number** (double)
+
+Number of tuple inserts prior to vacuum as a fraction of reltuples. ||
 || logMinDurationSample | **string** (int64)
 
-in milliseconds. ||
-|| logStatementSampleRate | **number** (double) ||
+Sets the minimum execution time above which a sample of statements will be logged. Sampling is determined
+by log_statement_sample_rate. Zero logs a sample of all queries. -1 turns this feature off. In milliseconds. ||
+|| logStatementSampleRate | **number** (double)
+
+Fraction of statements exceeding log_min_duration_sample to be logged. Use a value between 0.0 (never log) and 1.0 (always log). ||
 || logParameterMaxLength | **string** (int64)
 
-in bytes. ||
+When logging statements, limit logged parameter values to first N bytes. -1 to print values in full. ||
 || logParameterMaxLengthOnError | **string** (int64)
 
-in bytes. ||
-|| pgQualstatsEnabled | **boolean** ||
-|| pgQualstatsTrackConstants | **boolean** ||
-|| pgQualstatsMax | **string** (int64) ||
-|| pgQualstatsResolveOids | **boolean** ||
-|| pgQualstatsSampleRate | **number** (double) ||
-|| plantunerFixEmptyTable | **boolean** ||
+When reporting an error, limit logged parameter values to first N bytes. -1 to print values in full. ||
+|| pgQualstatsEnabled | **boolean**
+
+Controls whether pg_qualstats collects execution statistics for query predicates,
+including filters and join conditions. ||
+|| pgQualstatsTrackConstants | **boolean**
+
+Controls whether pg_qualstats keeps separate statistics for predicates containing different constant values ||
+|| pgQualstatsMax | **string** (int64)
+
+Limits the number of predicate-statistics and query-text entries retained by pg_qualstats. ||
+|| pgQualstatsResolveOids | **boolean**
+
+Controls whether pg_qualstats resolves object OIDs and stores their names  when collecting statistics.
+Enabling this increases memory usage and requires additional system-catalog lookups. ||
+|| pgQualstatsSampleRate | **number** (double)
+
+Sets the fraction of queries sampled by pg_qualstats. A value of -1 selects an automatic rate
+of 1 / max_connections; 0 samples no queries, and 1 samples every query. ||
+|| plantunerFixEmptyTable | **boolean**
+
+Controls whether plantuner sets estimated page and row counts to zero for tables that have no storage blocks. ||
 || geqo | **boolean**
 
-enable Genetic Query Optimizer, by default is on ||
+Enables genetic query optimization. This algorithm attempts to do planning
+without exhaustive searching, by default is on. ||
 || geqoThreshold | **string** (int64)
 
-The number of tables to use geqo, default is 12
+Sets the threshold of FROM items beyond which GEQO is used, default is 12.
 
 Acceptable values are 2 to 2147483647, inclusive. ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5
+GEQO: effort is used to set the default for other GEQO parameters.
+Tradeoff between planning time and query plan quality, default is 5.
 
 Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
-number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
+GEQO: number of individuals in the population.
+Useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort. ||
 || geqoGenerations | **string** (int64)
 
-the number of generations used by GEQO, useful values are in the same range as the pool size ||
+GEQO: number of iterations of the algorithm. Zero selects a suitable default value.
+Useful values are in the same range as the pool size. ||
 || geqoSelectionBias | **number** (double)
 
-selective pressure within the population ||
+GEQO: selective pressure within the population. ||
 || geqoSeed | **number** (double)
 
-initial value of the random number generator used by GEQO ||
-|| pgTrgmSimilarityThreshold | **number** (double) ||
-|| pgTrgmWordSimilarityThreshold | **number** (double) ||
-|| pgTrgmStrictWordSimilarityThreshold | **number** (double) ||
+GEQO: seed for random path selection. ||
+|| pgTrgmSimilarityThreshold | **number** (double)
+
+Sets the trigram similarity threshold used by the `%` operator
+to determine whether two strings are similar. ||
+|| pgTrgmWordSimilarityThreshold | **number** (double)
+
+Sets the threshold used by the `<%` and `%>` operators when comparing
+a string with the most similar continuous part of another string. ||
+|| pgTrgmStrictWordSimilarityThreshold | **number** (double)
+
+Sets the threshold used by the `<<%` and `%>>` operators when comparing
+a string with parts of another string aligned to word boundaries. ||
 || maxStandbyArchiveDelay | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum delay before canceling queries when a hot standby server is processing archived WAL data. In milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is
+not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
-|| logReplicationCommands | **boolean** ||
+|| logReplicationCommands | **boolean**
+
+Logs each replication command. ||
 || logAutovacuumMinDuration | **string** (int64)
 
-in milliseconds. The default is 1000 (1 sec). ||
+Sets the minimum execution time above which autovacuum actions will be logged.
+Zero prints all actions. -1 turns autovacuum logging off. In milliseconds. The default is 1000 (1 sec).
+ ||
 || passwordEncryption | **enum** (PasswordEncryption)
 
-A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
+A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are
+`` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
 - `PASSWORD_ENCRYPTION_MD5`: The method md5 uses a custom less secure challenge-response mechanism. It prevents password sniffing and avoids storing passwords on the server in plain text but provides no protection if an attacker manages to steal the password hash from the server. Also, the MD5 hash algorithm is nowadays no longer considered secure against determined attacks.
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256`: The method scram-sha-256 performs SCRAM-SHA-256 authentication, as described in RFC 7677. It is a challenge-response scheme that prevents password sniffing on untrusted connections and supports storing passwords on the server in a cryptographically hashed form that is thought to be secure.
@@ -9098,56 +10163,81 @@ parameters which detailed description is available in
 ||Field | Description ||
 || maxConnections | **string** (int64)
 
+Sets the maximum number of concurrent connections.
+
 The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
-in bytes. ||
+Sets the number of shared memory buffers used by the server. In bytes. ||
 || tempBuffers | **string** (int64)
 
-in bytes. ||
-|| maxPreparedTransactions | **string** (int64) ||
+Sets the maximum number of temporary buffers used by each session. In bytes. ||
+|| maxPreparedTransactions | **string** (int64)
+
+Sets the maximum number of simultaneously prepared transactions. ||
 || workMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used for query workspaces. This much memory can be used by each
+internal sort operation and hash table before switching to temporary disk files. In bytes. ||
 || maintenanceWorkMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used for maintenance operations.
+This includes operations such as VACUUM and CREATE INDEX. In bytes. ||
 || autovacuumWorkMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used by each autovacuum worker process. In bytes. ||
 || tempFileLimit | **string** (int64)
 
-in bytes. ||
+Limits the total size of all temporary files used by each process. -1 means no limit. In bytes. ||
 || vacuumCostDelay | **string** (int64)
 
-in milliseconds. ||
-|| vacuumCostPageHit | **string** (int64) ||
-|| vacuumCostPageMiss | **string** (int64) ||
-|| vacuumCostPageDirty | **string** (int64) ||
-|| vacuumCostLimit | **string** (int64) ||
+Vacuum cost delay. In milliseconds. ||
+|| vacuumCostPageHit | **string** (int64)
+
+Vacuum cost for a page found in the buffer cache. ||
+|| vacuumCostPageMiss | **string** (int64)
+
+Vacuum cost for a page not found in the buffer cache. ||
+|| vacuumCostPageDirty | **string** (int64)
+
+Vacuum cost for a page dirtied by vacuum. ||
+|| vacuumCostLimit | **string** (int64)
+
+Vacuum cost amount available before napping. ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds.
+Background writer sleep time between rounds. In milliseconds.
 
 Acceptable values are 10 to 10000, inclusive. ||
-|| bgwriterLruMaxpages | **string** (int64) ||
-|| bgwriterLruMultiplier | **number** (double) ||
+|| bgwriterLruMaxpages | **string** (int64)
+
+Background writer maximum number of LRU pages to flush per round. ||
+|| bgwriterLruMultiplier | **number** (double)
+
+Multiple of the average buffer usage to free per round. ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes
+Specifies how much data the background writer can write before forcing the operating system to issue the writes. In bytes.
 
 Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes
+Specifies how much data a backend can write before forcing the operating system to issue the writes. In bytes.
 
 Acceptable values are 0 to 2097152, inclusive. ||
-|| oldSnapshotThreshold | **string** (int64) ||
+|| oldSnapshotThreshold | **string** (int64)
+
+Time before a snapshot is too old to read pages changed after the snapshot was taken.
+A value of -1 disables this feature. In milliseconds. ||
 || walLevel | **enum** (WalLevel)
+
+Sets the level of information written to the WAL.
 
 - `WAL_LEVEL_REPLICA`: Supports WAL archiving and physical replication.
 - `WAL_LEVEL_LOGICAL`: Supports WAL archiving, physical replication, and logical decoding. ||
 || synchronousCommit | **enum** (SynchronousCommit)
+
+Sets the current transaction's synchronization level.
 
 - `SYNCHRONOUS_COMMIT_ON`: Success is reported to the client if the data is in WAL (Write-Ahead Log), and WAL is written to the storage of both the master and its synchronous standby server. Default value.
 - `SYNCHRONOUS_COMMIT_OFF`: Success is reported to the client even if the data is not in WAL.
@@ -9160,104 +10250,149 @@ The transaction may be lost due to simultaneous storage subsystem failure on the
 The transaction may be lost due to irrecoverably failure of both the master and its synchronous standby. ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum time between automatic WAL checkpoints. In milliseconds.
 
 Acceptable values are 30000 to 86400000, inclusive. ||
-|| checkpointCompletionTarget | **number** (double) ||
+|| checkpointCompletionTarget | **number** (double)
+
+Time spent flushing dirty buffers during checkpoint, as fraction of checkpoint interval. ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes
+Specifies how much data can be written during a checkpoint before forcing the operating system to issue the writes. In bytes.
 
 Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
-in bytes. ||
+Sets the WAL size that triggers a checkpoint. In bytes. ||
 || minWalSize | **string** (int64)
 
-in bytes. ||
+Sets the minimum size to shrink the WAL to. In bytes. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
-in milliseconds. ||
-|| defaultStatisticsTarget | **string** (int64) ||
+Sets the maximum delay before canceling queries when a hot standby server is processing streamed WAL data. In milliseconds. ||
+|| defaultStatisticsTarget | **string** (int64)
+
+Sets the default statistics target. This applies to table columns that have not had a
+column-specific target set via ALTER TABLE SET STATISTICS. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
+
+Enables the planner to use constraints to optimize queries.
 
 - `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
 - `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
 - `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
-|| cursorTupleFraction | **number** (double) ||
+|| cursorTupleFraction | **number** (double)
+
+Sets the planner's estimate of the fraction of a cursor's rows that will be retrieved. ||
 || fromCollapseLimit | **string** (int64)
+
+Sets the FROM-list size beyond which subqueries are not collapsed.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
 || joinCollapseLimit | **string** (int64)
 
+Sets the FROM-list size beyond which JOIN constructs are not flattened.
+
 Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_ON`: Force parallel mode for all queries that can be executed safely in parallel.
-- `FORCE_PARALLEL_MODE_OFF`: Enable parallel mode only if it is expected to increase performance.
-- `FORCE_PARALLEL_MODE_REGRESS`: Equivalent to on, but generates output identical to the off state. ||
+Forces use of parallel query facilities. If possible, run query using a parallel worker and with parallel restrictions.
+
+- `FORCE_PARALLEL_MODE_ON`: Forces parallel mode for queries considered safe, even when no performance benefit is expected.
+- `FORCE_PARALLEL_MODE_OFF`: Uses parallel mode only when the planner expects it to improve performance.
+- `FORCE_PARALLEL_MODE_REGRESS`: Behaves like ON, but hides added Gather nodes in EXPLAIN output and
+suppresses parallel-worker context lines to stabilize regression-test output. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are sent to the client.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Causes all statements generating error at or above this level to be logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinDurationStatement | **string** (int64)
 
-in milliseconds. ||
-|| logCheckpoints | **boolean** ||
-|| logConnections | **boolean** ||
-|| logDisconnections | **boolean** ||
-|| logDuration | **boolean** ||
+Sets the minimum execution time above which all statements will be logged. In milliseconds. ||
+|| logCheckpoints | **boolean**
+
+Logs each checkpoint. ||
+|| logConnections | **boolean**
+
+Logs each successful connection. ||
+|| logDisconnections | **boolean**
+
+Logs end of a session, including duration. ||
+|| logDuration | **boolean**
+
+Logs the duration of each completed SQL statement.
+ ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
+
+Sets the verbosity of logged messages.
 
 - `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
 - `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
 - `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
-|| logLockWaits | **boolean** ||
+|| logLockWaits | **boolean**
+
+Logs long lock waits. ||
 || logStatement | **enum** (LogStatement)
+
+Sets the type of statements logged.
 
 - `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
 - `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
 - `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
 - `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
-|| logTempFiles | **string** (int64) ||
-|| searchPath | **string** ||
-|| rowSecurity | **boolean** ||
+|| logTempFiles | **string** (int64)
+
+Log the use of temporary files larger than this number of kilobytes. ||
+|| searchPath | **string**
+
+Sets the schema search order for names that are not schema-qualified. ||
+|| rowSecurity | **boolean**
+
+Enable row security. ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
+
+Sets the transaction isolation level of each new transaction.
 
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
 - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
@@ -9267,119 +10402,236 @@ All queries in the current transaction see only the rows that were fixed prior t
 If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any statement. In milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any wait for a lock. In milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
+
+Sets the output format for bytea.
 
 - `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
 - `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`: Base64 encoding.
-- `XML_BINARY_HEX`: Hexadecimal encoding. ||
+Sets how binary values are to be encoded in XML.
+
+- `XML_BINARY_BASE64`: Encodes binary values using Base64.
+- `XML_BINARY_HEX`: Encodes binary values using hexadecimal notation. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`: XML document.
-- `XML_OPTION_CONTENT`: XML fragment. ||
+Sets whether XML data in implicit parsing and serialization operations is to be considered as documents or content fragments.
+
+- `XML_OPTION_DOCUMENT`: Treats an XML value as a complete, well-formed document.
+- `XML_OPTION_CONTENT`: Treats an XML value as a content fragment, which may contain multiple top-level elements or character nodes. ||
 || ginPendingListLimit | **string** (int64)
 
-in bytes. ||
+Sets the maximum size of the pending list for GIN index. In bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds.
+Sets the time to wait on a lock before checking for deadlock. In milliseconds.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
-|| maxLocksPerTransaction | **string** (int64) ||
-|| maxPredLocksPerTransaction | **string** (int64) ||
-|| arrayNulls | **boolean** ||
+|| maxLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of locks per transaction. The shared lock table is sized on the assumption that
+at most max_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| maxPredLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of predicate locks per transaction.The shared predicate lock table is sized on the assumption that
+at most max_pred_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| arrayNulls | **boolean**
+
+Enable input of NULL elements in arrays. When turned on, unquoted NULL in an array input
+value means a null value; otherwise it is taken literally. ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+Sets whether \"\\'\" is allowed in string literals.
+
+- `BACKSLASH_QUOTE`: Legacy invalid value. Do not use.
 - `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
 - `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
 - `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
-|| defaultWithOids | **boolean** ||
-|| escapeStringWarning | **boolean** ||
-|| loCompatPrivileges | **boolean** ||
-|| quoteAllIdentifiers | **boolean** ||
-|| standardConformingStrings | **boolean** ||
-|| synchronizeSeqscans | **boolean** ||
-|| transformNullEquals | **boolean** ||
-|| exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
+|| defaultWithOids | **boolean**
+
+WITH OIDS is no longer supported; this can only be false. ||
+|| escapeStringWarning | **boolean**
+
+Warn about backslash escapes in ordinary string literals. ||
+|| loCompatPrivileges | **boolean**
+
+Enables backward compatibility mode for privilege checks on large objects. Skips privilege checks
+when reading or modifying large objects, for compatibility with PostgreSQL releases prior to 9.0. ||
+|| quoteAllIdentifiers | **boolean**
+
+When generating SQL fragments, quote all identifiers. ||
+|| standardConformingStrings | **boolean**
+
+Causes '...' strings to treat backslashes literally. ||
+|| synchronizeSeqscans | **boolean**
+
+Enable synchronized sequential scans. ||
+|| transformNullEquals | **boolean**
+
+Treats \"expr=NULL\" as \"expr IS NULL\". When turned on, expressions of the form expr = NULL
+(or NULL = expr) are treated as expr IS NULL, that is, they return true if expr evaluates to the
+null value, and false otherwise. The correct behavior of expr = NULL is to always return null (unknown). ||
+|| exitOnError | **boolean**
+
+Terminate session on any error. ||
+|| seqPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a sequentially fetched disk page.
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a nonsequentially fetched disk page.
+
+The minimum value is 0. ||
 || autovacuumMaxWorkers | **string** (int64)
 
+Sets the maximum number of simultaneously running autovacuum worker processes.
+
 Acceptable values are 1 to 32, inclusive. ||
-|| autovacuumVacuumCostDelay | **string** (int64) ||
-|| autovacuumVacuumCostLimit | **string** (int64) ||
+|| autovacuumVacuumCostDelay | **string** (int64)
+
+Vacuum cost delay in milliseconds, for autovacuum. ||
+|| autovacuumVacuumCostLimit | **string** (int64)
+
+Vacuum cost amount available before napping, for autovacuum. ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds.
+Time to sleep between autovacuum runs. In milliseconds.
 
 Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds.
+Forces a switch to the next WAL file if no new file has been started within the specified interval. In milliseconds.
 
 Acceptable values are 10000 to 86400000, inclusive. ||
 || trackActivityQuerySize | **string** (int64)
 
+Sets the size reserved for pg_stat_activity.query, in bytes.
+
 Acceptable values are 100 to 102400, inclusive. ||
-|| enableBitmapscan | **boolean** ||
-|| enableHashagg | **boolean** ||
-|| enableHashjoin | **boolean** ||
-|| enableIndexscan | **boolean** ||
-|| enableIndexonlyscan | **boolean** ||
-|| enableMaterial | **boolean** ||
-|| enableMergejoin | **boolean** ||
-|| enableNestloop | **boolean** ||
-|| enableSeqscan | **boolean** ||
-|| enableSort | **boolean** ||
-|| enableTidscan | **boolean** ||
+|| enableBitmapscan | **boolean**
+
+Enables the planner's use of bitmap-scan plans. ||
+|| enableHashagg | **boolean**
+
+Enables the planner's use of hashed aggregation plans. ||
+|| enableHashjoin | **boolean**
+
+Enables the planner's use of hash join plans. ||
+|| enableIndexscan | **boolean**
+
+Enables the planner's use of index-scan plans. ||
+|| enableIndexonlyscan | **boolean**
+
+Enables the planner's use of index-only-scan plans. ||
+|| enableMaterial | **boolean**
+
+Enables the planner's use of materialization. ||
+|| enableMergejoin | **boolean**
+
+Enables the planner's use of merge join plans. ||
+|| enableNestloop | **boolean**
+
+Enables the planner's use of nested-loop join plans. ||
+|| enableSeqscan | **boolean**
+
+Enables the planner's use of sequential-scan plans. ||
+|| enableSort | **boolean**
+
+Enables the planner's use of explicit sort steps. ||
+|| enableTidscan | **boolean**
+
+Enables the planner's use of TID scan plans. ||
 || maxWorkerProcesses | **string** (int64)
+
+Maximum number of concurrent worker processes.
 
 Acceptable values are 0 to 1024, inclusive. ||
 || maxParallelWorkers | **string** (int64)
 
+Sets the maximum number of parallel workers that can be active at one time.
+
 Acceptable values are 0 to 1024, inclusive. ||
 || maxParallelWorkersPerGather | **string** (int64)
 
+Sets the maximum number of parallel processes per executor node.
+
 Acceptable values are 0 to 1024, inclusive. ||
-|| autovacuumVacuumScaleFactor | **number** (double) ||
-|| autovacuumAnalyzeScaleFactor | **number** (double) ||
-|| defaultTransactionReadOnly | **boolean** ||
-|| timezone | **string** ||
-|| enableParallelAppend | **boolean** ||
-|| enableParallelHash | **boolean** ||
-|| enablePartitionPruning | **boolean** ||
-|| enablePartitionwiseAggregate | **boolean** ||
-|| enablePartitionwiseJoin | **boolean** ||
-|| jit | **boolean** ||
+|| autovacuumVacuumScaleFactor | **number** (double)
+
+Number of tuple updates or deletes prior to vacuum as a fraction of reltuples. ||
+|| autovacuumAnalyzeScaleFactor | **number** (double)
+
+Number of tuple inserts, updates, or deletes prior to analyze as a fraction of reltuples. ||
+|| defaultTransactionReadOnly | **boolean**
+
+Sets the default read-only status of new transactions. ||
+|| timezone | **string**
+
+Sets the time zone for displaying and interpreting time stamps. ||
+|| enableParallelAppend | **boolean**
+
+Enables the planner's use of parallel append plans. ||
+|| enableParallelHash | **boolean**
+
+Enables the planner's use of parallel hash plans. ||
+|| enablePartitionPruning | **boolean**
+
+Enables plan-time and execution-time partition pruning. Allows the query planner and executor to
+compare partition bounds to conditions in the query to determine which partitions must be scanned. ||
+|| enablePartitionwiseAggregate | **boolean**
+
+Enables partitionwise aggregation and grouping. ||
+|| enablePartitionwiseJoin | **boolean**
+
+Enables partitionwise join. ||
+|| jit | **boolean**
+
+Allow JIT compilation. ||
 || maxParallelMaintenanceWorkers | **string** (int64)
 
+Sets the maximum number of parallel processes per maintenance operation.
+
 The minimum value is 0. ||
-|| parallelLeaderParticipation | **boolean** ||
-|| logTransactionSampleRate | **number** (double) ||
+|| parallelLeaderParticipation | **boolean**
+
+Controls whether Gather and Gather Merge also run subplans. ||
+|| logTransactionSampleRate | **number** (double)
+
+Sets the fraction of transactions from which to log all statements. Use a
+value between 0.0 (never log) and 1.0 (log all statements for all transactions). ||
 || planCacheMode | **enum** (PlanCacheMode)
+
+Controls the planner's selection of custom or generic plan. Prepared statements can have custom and generic plans,
+and the planner will attempt to choose which is better. This can be set to override the default behavior.
 
 - `PLAN_CACHE_MODE_AUTO`: Automatic selection.
 - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`: Forces the use of custom plans.
 - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`: Forces the use of generic plans. ||
 || effectiveIoConcurrency | **string** (int64)
 
+Number of simultaneous requests that can be handled efficiently by the disk subsystem.
+
 Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
+Sets the planner's assumption about the effective size of the disk cache available to a single query. In bytes.
+
 Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
+
+Lists shared libraries to preload into server.
 
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`: Required for the [auto_explain](https://www.postgresql.org/docs/current/auto-explain.html) extension.
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`: Required for the [pg_hint_plan](https://github.com/ossc-db/pg_hint_plan) extension.
@@ -9392,161 +10644,253 @@ Acceptable values are 1048576 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_SPQRGUARD`: Required for the [spqrguard](https://github.com/pg-sharding/spqrguard) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
-in milliseconds. ||
-|| autoExplainLogAnalyze | **boolean** ||
-|| autoExplainLogBuffers | **boolean** ||
-|| autoExplainLogTiming | **boolean** ||
-|| autoExplainLogTriggers | **boolean** ||
-|| autoExplainLogVerbose | **boolean** ||
-|| autoExplainLogNestedStatements | **boolean** ||
-|| autoExplainSampleRate | **number** (double) ||
-|| pgHintPlanEnableHint | **boolean** ||
-|| pgHintPlanEnableHintTable | **boolean** ||
+Sets the minimum statement execution time, that will cause the statement's plan to be logged.
+Setting this to 0 logs all plans. -1 (the default) disables logging of plans. For example, if
+you set it to 250ms then all statements that run 250ms or longer will be logged. In milliseconds.
+ ||
+|| autoExplainLogAnalyze | **boolean**
+
+Causes EXPLAIN ANALYZE output, rather than just EXPLAIN output,to be printed
+when an executionplan is logged. This parameter is off by default. ||
+|| autoExplainLogBuffers | **boolean**
+
+Controls whether buffer usage statistics are printed when an execution plan is logged;
+it's equivalent to the BUFFERS option of EXPLAIN. This parameter has no effect unless
+auto_explain.log_analyze is enabled. This parameter is off by default. ||
+|| autoExplainLogTiming | **boolean**
+
+Controls whether per-node timing information is printed when an execution plan is logged;
+it's equivalent to the TIMING option of EXPLAIN. The overhead of repeatedly reading the system
+clock can slow down queries significantly on some systems, so it may be useful to set this
+parameter to off when only actual row counts, and not exact times, are needed. This parameter
+has no effect unless auto_explain.log_analyze is enabled. This parameter is on by default. ||
+|| autoExplainLogTriggers | **boolean**
+
+Causes trigger execution statistics to be included when an execution plan is logged. This parameter
+has no effect unless auto_explain.log_analyze is enabled. This parameter is off by default. ||
+|| autoExplainLogVerbose | **boolean**
+
+Controls whether verbose details are printed when an execution plan is logged; it's
+equivalent to the VERBOSE option of EXPLAIN. This parameter is off by default. ||
+|| autoExplainLogNestedStatements | **boolean**
+
+Causes nested statements (statements executed inside a function) to be considered for logging.
+When it is off, only top-level query plans are logged. This parameter is off by default. ||
+|| autoExplainSampleRate | **number** (double)
+
+Causes auto_explain to only explain a fraction of the statements in each session. The default is 1,
+meaning explain all the queries. In case of nested statements, either all will be explained or none. ||
+|| pgHintPlanEnableHint | **boolean**
+
+Enables processing of query hints by pg_hint_plan. ||
+|| pgHintPlanEnableHintTable | **boolean**
+
+Enables lookup of hints in the hint table. ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disable debug output
-- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Print debug messages about hint parsing
-- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Print detailed debug information including query planning process
-- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Print verbose debug output with all internal operations ||
+Controls whether and how verbosely hint parsing results are logged.
+
+- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disables diagnostic logging.
+- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Logs hint-processing results grouped by used, unused, duplicate, and erroneous hints.
+- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Logs hint-processing results together with detailed planner diagnostics.
+- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Logs the most detailed diagnostics, including query strings used to extract hints. ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
-|| hashMemMultiplier | **number** (double) ||
+Sets the log level for pg_hint_plan debug messages.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
+|| hashMemMultiplier | **number** (double)
+
+Multiple of work_mem to use for hash tables. ||
 || logicalDecodingWorkMem | **string** (int64)
 
-in bytes.
+Sets the maximum memory to be used for logical decoding. This much memory can be
+used by each internal reorder buffer before spilling to disk. In bytes.
 
 Acceptable values are 65536 to 1099511627776, inclusive. ||
 || maintenanceIoConcurrency | **string** (int64)
 
+A variant of effective_io_concurrency that is used for maintenance work.
+
 Acceptable values are 0 to 1000, inclusive. ||
 || maxSlotWalKeepSize | **string** (int64)
 
-in bytes. ||
+Sets the maximum WAL size that can be reserved by replication slots. Replication slots will be marked as failed,
+and segments released for deletion or recycling, if this much space is occupied by WAL on disk. In bytes. ||
 || walKeepSize | **string** (int64)
 
-in bytes. ||
-|| enableIncrementalSort | **boolean** ||
-|| autovacuumVacuumInsertThreshold | **string** (int64) ||
-|| autovacuumVacuumInsertScaleFactor | **number** (double) ||
+Sets the size of WAL files held for standby servers. In bytes. ||
+|| enableIncrementalSort | **boolean**
+
+Enables the planner's use of incremental sort steps. ||
+|| autovacuumVacuumInsertThreshold | **string** (int64)
+
+Minimum number of tuple inserts prior to vacuum, or -1 to disable insert vacuums. ||
+|| autovacuumVacuumInsertScaleFactor | **number** (double)
+
+Number of tuple inserts prior to vacuum as a fraction of reltuples. ||
 || logMinDurationSample | **string** (int64)
 
-in milliseconds. ||
-|| logStatementSampleRate | **number** (double) ||
+Sets the minimum execution time above which a sample of statements will be logged. Sampling is determined
+by log_statement_sample_rate. Zero logs a sample of all queries. -1 turns this feature off. In milliseconds. ||
+|| logStatementSampleRate | **number** (double)
+
+Fraction of statements exceeding log_min_duration_sample to be logged. Use a value between 0.0 (never log) and 1.0 (always log). ||
 || logParameterMaxLength | **string** (int64)
 
-in bytes. ||
+When logging statements, limit logged parameter values to first N bytes. -1 to print values in full. ||
 || logParameterMaxLengthOnError | **string** (int64)
 
-in bytes. ||
+When reporting an error, limit logged parameter values to first N bytes. -1 to print values in full. ||
 || clientConnectionCheckInterval | **string** (int64)
 
-in milliseconds. ||
-|| enableAsyncAppend | **boolean** ||
-|| enableGathermerge | **boolean** ||
-|| enableMemoize | **boolean** ||
+Sets the time interval between checks for disconnection while running queries. In milliseconds. ||
+|| enableAsyncAppend | **boolean**
+
+Enables the planner's use of async append plans. ||
+|| enableGathermerge | **boolean**
+
+Enables the planner's use of gather merge plans. ||
+|| enableMemoize | **boolean**
+
+Enables the planner's use of memoization. ||
 || logRecoveryConflictWaits | **boolean**
 
-in milliseconds. ||
+Logs standby recovery conflict waits. ||
 || vacuumFailsafeAge | **string** (int64)
 
-in milliseconds. ||
+Age at which VACUUM should trigger failsafe to avoid a wraparound outage. ||
 || vacuumMultixactFailsafeAge | **string** (int64)
 
-in milliseconds. ||
-|| pgQualstatsEnabled | **boolean** ||
-|| pgQualstatsTrackConstants | **boolean** ||
-|| pgQualstatsMax | **string** (int64) ||
-|| pgQualstatsResolveOids | **boolean** ||
-|| pgQualstatsSampleRate | **number** (double) ||
+Multixact age at which VACUUM should trigger failsafe to avoid a wraparound outage. ||
+|| pgQualstatsEnabled | **boolean**
+
+Controls whether pg_qualstats collects execution statistics for query predicates,
+including filters and join conditions. ||
+|| pgQualstatsTrackConstants | **boolean**
+
+Controls whether pg_qualstats keeps separate statistics for predicates containing different constant values ||
+|| pgQualstatsMax | **string** (int64)
+
+Limits the number of predicate-statistics and query-text entries retained by pg_qualstats. ||
+|| pgQualstatsResolveOids | **boolean**
+
+Controls whether pg_qualstats resolves object OIDs and stores their names  when collecting statistics.
+Enabling this increases memory usage and requires additional system-catalog lookups. ||
+|| pgQualstatsSampleRate | **number** (double)
+
+Sets the fraction of queries sampled by pg_qualstats. A value of -1 selects an automatic rate
+of 1 / max_connections; 0 samples no queries, and 1 samples every query. ||
 || maxStackDepth | **string** (int64)
 
-in bytes.
+Sets the maximum stack depth, in bytes.
 
 Acceptable values are 65536 to 134217728, inclusive. ||
 || geqo | **boolean**
 
-enable Genetic Query Optimizer, by default is on ||
+Enables genetic query optimization. This algorithm attempts to do planning
+without exhaustive searching, by default is on. ||
 || geqoThreshold | **string** (int64)
 
-The number of tables to use geqo, default is 12
+Sets the threshold of FROM items beyond which GEQO is used, default is 12.
 
 Acceptable values are 2 to 2147483647, inclusive. ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5
+GEQO: effort is used to set the default for other GEQO parameters.
+Tradeoff between planning time and query plan quality, default is 5.
 
 Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
-number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
+GEQO: number of individuals in the population.
+Useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort. ||
 || geqoGenerations | **string** (int64)
 
-the number of generations used by GEQO, useful values are in the same range as the pool size ||
+GEQO: number of iterations of the algorithm. Zero selects a suitable default value.
+Useful values are in the same range as the pool size. ||
 || geqoSelectionBias | **number** (double)
 
-selective pressure within the population ||
+GEQO: selective pressure within the population. ||
 || geqoSeed | **number** (double)
 
-initial value of the random number generator used by GEQO ||
-|| pgTrgmSimilarityThreshold | **number** (double) ||
-|| pgTrgmWordSimilarityThreshold | **number** (double) ||
-|| pgTrgmStrictWordSimilarityThreshold | **number** (double) ||
+GEQO: seed for random path selection. ||
+|| pgTrgmSimilarityThreshold | **number** (double)
+
+Sets the trigram similarity threshold used by the `%` operator
+to determine whether two strings are similar. ||
+|| pgTrgmWordSimilarityThreshold | **number** (double)
+
+Sets the threshold used by the `<%` and `%>` operators when comparing
+a string with the most similar continuous part of another string. ||
+|| pgTrgmStrictWordSimilarityThreshold | **number** (double)
+
+Sets the threshold used by the `<<%` and `%>>` operators when comparing
+a string with parts of another string aligned to word boundaries. ||
 || maxStandbyArchiveDelay | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum delay before canceling queries when a hot standby server is processing archived WAL data. In milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is
+not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
-|| logReplicationCommands | **boolean** ||
+|| logReplicationCommands | **boolean**
+
+Logs each replication command. ||
 || logAutovacuumMinDuration | **string** (int64)
 
-in milliseconds. The default is 1000 (1 sec). ||
+Sets the minimum execution time above which autovacuum actions will be logged.
+Zero prints all actions. -1 turns autovacuum logging off. In milliseconds. The default is 1000 (1 sec).
+ ||
 || passwordEncryption | **enum** (PasswordEncryption)
 
-A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
+A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are
+`` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
 - `PASSWORD_ENCRYPTION_MD5`: The method md5 uses a custom less secure challenge-response mechanism. It prevents password sniffing and avoids storing passwords on the server in plain text but provides no protection if an attacker manages to steal the password hash from the server. Also, the MD5 hash algorithm is nowadays no longer considered secure against determined attacks.
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256`: The method scram-sha-256 performs SCRAM-SHA-256 authentication, as described in RFC 7677. It is a challenge-response scheme that prevents password sniffing on untrusted connections and supports storing passwords on the server in a cryptographically hashed form that is thought to be secure.
 This is the most secure of the currently provided methods, but it is not supported by older client libraries. ||
 || autoExplainLogFormat | **enum** (AutoExplainLogFormat)
 
-Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
+Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``,
+`` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``.
+The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
 
-- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`: 'text' value for the EXPLAIN output format in auto_explain extension
-- `AUTO_EXPLAIN_LOG_FORMAT_XML`: 'xml' value for the EXPLAIN output format in auto_explain extension
-- `AUTO_EXPLAIN_LOG_FORMAT_JSON`: 'json' value for the EXPLAIN output format in auto_explain extension
-- `AUTO_EXPLAIN_LOG_FORMAT_YAML`: 'yaml' value for the EXPLAIN output format in auto_explain extension ||
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`: Formats logged execution plans as plain text.
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`: Formats logged execution plans as XML.
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`: Formats logged execution plans as JSON.
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML`: Formats logged execution plans as YAML. ||
 || idleSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when not in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || checkpointWarning | **string** (int64)
 
-in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
+Sets the interval below which checkpoints triggered by filling WAL segment files cause a warning to be written to the server log.
+A value of 0 disables the warning. In milliseconds.
 
 Acceptable values are 0 to 2147483647000, inclusive. ||
 || autovacuumVacuumThreshold | **string** (int64)
 
-Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+Minimum number of tuple updates or deletes prior to vacuum.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || autovacuumAnalyzeThreshold | **string** (int64)
 
-Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+Minimum number of tuple inserts, updates, or deletes prior to analyze.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 |#
@@ -9577,56 +10921,81 @@ parameters which detailed description is available in
 ||Field | Description ||
 || maxConnections | **string** (int64)
 
+Sets the maximum number of concurrent connections.
+
 The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
-in bytes. ||
+Sets the number of shared memory buffers used by the server. In bytes. ||
 || tempBuffers | **string** (int64)
 
-in bytes. ||
-|| maxPreparedTransactions | **string** (int64) ||
+Sets the maximum number of temporary buffers used by each session. In bytes. ||
+|| maxPreparedTransactions | **string** (int64)
+
+Sets the maximum number of simultaneously prepared transactions. ||
 || workMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used for query workspaces. This much memory can be used by each
+internal sort operation and hash table before switching to temporary disk files. In bytes. ||
 || maintenanceWorkMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used for maintenance operations.
+This includes operations such as VACUUM and CREATE INDEX. In bytes. ||
 || autovacuumWorkMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used by each autovacuum worker process. In bytes. ||
 || tempFileLimit | **string** (int64)
 
-in bytes. ||
+Limits the total size of all temporary files used by each process. -1 means no limit. In bytes. ||
 || vacuumCostDelay | **string** (int64)
 
-in milliseconds. ||
-|| vacuumCostPageHit | **string** (int64) ||
-|| vacuumCostPageMiss | **string** (int64) ||
-|| vacuumCostPageDirty | **string** (int64) ||
-|| vacuumCostLimit | **string** (int64) ||
+Vacuum cost delay. In milliseconds. ||
+|| vacuumCostPageHit | **string** (int64)
+
+Vacuum cost for a page found in the buffer cache. ||
+|| vacuumCostPageMiss | **string** (int64)
+
+Vacuum cost for a page not found in the buffer cache. ||
+|| vacuumCostPageDirty | **string** (int64)
+
+Vacuum cost for a page dirtied by vacuum. ||
+|| vacuumCostLimit | **string** (int64)
+
+Vacuum cost amount available before napping. ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds.
+Background writer sleep time between rounds. In milliseconds.
 
 Acceptable values are 10 to 10000, inclusive. ||
-|| bgwriterLruMaxpages | **string** (int64) ||
-|| bgwriterLruMultiplier | **number** (double) ||
+|| bgwriterLruMaxpages | **string** (int64)
+
+Background writer maximum number of LRU pages to flush per round. ||
+|| bgwriterLruMultiplier | **number** (double)
+
+Multiple of the average buffer usage to free per round. ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes
+Specifies how much data the background writer can write before forcing the operating system to issue the writes. In bytes.
 
 Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes
+Specifies how much data a backend can write before forcing the operating system to issue the writes. In bytes.
 
 Acceptable values are 0 to 2097152, inclusive. ||
-|| oldSnapshotThreshold | **string** (int64) ||
+|| oldSnapshotThreshold | **string** (int64)
+
+Time before a snapshot is too old to read pages changed after the snapshot was taken.
+A value of -1 disables this feature. In milliseconds. ||
 || walLevel | **enum** (WalLevel)
+
+Sets the level of information written to the WAL.
 
 - `WAL_LEVEL_REPLICA`: Supports WAL archiving and physical replication.
 - `WAL_LEVEL_LOGICAL`: Supports WAL archiving, physical replication, and logical decoding. ||
 || synchronousCommit | **enum** (SynchronousCommit)
+
+Sets the current transaction's synchronization level.
 
 - `SYNCHRONOUS_COMMIT_ON`: Success is reported to the client if the data is in WAL (Write-Ahead Log), and WAL is written to the storage of both the master and its synchronous standby server. Default value.
 - `SYNCHRONOUS_COMMIT_OFF`: Success is reported to the client even if the data is not in WAL.
@@ -9639,104 +11008,149 @@ The transaction may be lost due to simultaneous storage subsystem failure on the
 The transaction may be lost due to irrecoverably failure of both the master and its synchronous standby. ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum time between automatic WAL checkpoints. In milliseconds.
 
 Acceptable values are 30000 to 86400000, inclusive. ||
-|| checkpointCompletionTarget | **number** (double) ||
+|| checkpointCompletionTarget | **number** (double)
+
+Time spent flushing dirty buffers during checkpoint, as fraction of checkpoint interval. ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes
+Specifies how much data can be written during a checkpoint before forcing the operating system to issue the writes. In bytes.
 
 Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
-in bytes. ||
+Sets the WAL size that triggers a checkpoint. In bytes. ||
 || minWalSize | **string** (int64)
 
-in bytes. ||
+Sets the minimum size to shrink the WAL to. In bytes. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
-in milliseconds. ||
-|| defaultStatisticsTarget | **string** (int64) ||
+Sets the maximum delay before canceling queries when a hot standby server is processing streamed WAL data. In milliseconds. ||
+|| defaultStatisticsTarget | **string** (int64)
+
+Sets the default statistics target. This applies to table columns that have not had a
+column-specific target set via ALTER TABLE SET STATISTICS. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
+
+Enables the planner to use constraints to optimize queries.
 
 - `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
 - `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
 - `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
-|| cursorTupleFraction | **number** (double) ||
+|| cursorTupleFraction | **number** (double)
+
+Sets the planner's estimate of the fraction of a cursor's rows that will be retrieved. ||
 || fromCollapseLimit | **string** (int64)
+
+Sets the FROM-list size beyond which subqueries are not collapsed.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
 || joinCollapseLimit | **string** (int64)
 
+Sets the FROM-list size beyond which JOIN constructs are not flattened.
+
 Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_ON`: Force parallel mode for all queries that can be executed safely in parallel.
-- `FORCE_PARALLEL_MODE_OFF`: Enable parallel mode only if it is expected to increase performance.
-- `FORCE_PARALLEL_MODE_REGRESS`: Equivalent to on, but generates output identical to the off state. ||
+Forces use of parallel query facilities. If possible, run query using a parallel worker and with parallel restrictions.
+
+- `FORCE_PARALLEL_MODE_ON`: Forces parallel mode for queries considered safe, even when no performance benefit is expected.
+- `FORCE_PARALLEL_MODE_OFF`: Uses parallel mode only when the planner expects it to improve performance.
+- `FORCE_PARALLEL_MODE_REGRESS`: Behaves like ON, but hides added Gather nodes in EXPLAIN output and
+suppresses parallel-worker context lines to stabilize regression-test output. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are sent to the client.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Causes all statements generating error at or above this level to be logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinDurationStatement | **string** (int64)
 
-in milliseconds. ||
-|| logCheckpoints | **boolean** ||
-|| logConnections | **boolean** ||
-|| logDisconnections | **boolean** ||
-|| logDuration | **boolean** ||
+Sets the minimum execution time above which all statements will be logged. In milliseconds. ||
+|| logCheckpoints | **boolean**
+
+Logs each checkpoint. ||
+|| logConnections | **boolean**
+
+Logs each successful connection. ||
+|| logDisconnections | **boolean**
+
+Logs end of a session, including duration. ||
+|| logDuration | **boolean**
+
+Logs the duration of each completed SQL statement.
+ ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
+
+Sets the verbosity of logged messages.
 
 - `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
 - `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
 - `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
-|| logLockWaits | **boolean** ||
+|| logLockWaits | **boolean**
+
+Logs long lock waits. ||
 || logStatement | **enum** (LogStatement)
+
+Sets the type of statements logged.
 
 - `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
 - `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
 - `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
 - `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
-|| logTempFiles | **string** (int64) ||
-|| searchPath | **string** ||
-|| rowSecurity | **boolean** ||
+|| logTempFiles | **string** (int64)
+
+Log the use of temporary files larger than this number of kilobytes. ||
+|| searchPath | **string**
+
+Sets the schema search order for names that are not schema-qualified. ||
+|| rowSecurity | **boolean**
+
+Enable row security. ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
+
+Sets the transaction isolation level of each new transaction.
 
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
 - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
@@ -9746,120 +11160,239 @@ All queries in the current transaction see only the rows that were fixed prior t
 If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any statement. In milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any wait for a lock. In milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
+
+Sets the output format for bytea.
 
 - `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
 - `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`: Base64 encoding.
-- `XML_BINARY_HEX`: Hexadecimal encoding. ||
+Sets how binary values are to be encoded in XML.
+
+- `XML_BINARY_BASE64`: Encodes binary values using Base64.
+- `XML_BINARY_HEX`: Encodes binary values using hexadecimal notation. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`: XML document.
-- `XML_OPTION_CONTENT`: XML fragment. ||
+Sets whether XML data in implicit parsing and serialization operations is to be considered as documents or content fragments.
+
+- `XML_OPTION_DOCUMENT`: Treats an XML value as a complete, well-formed document.
+- `XML_OPTION_CONTENT`: Treats an XML value as a content fragment, which may contain multiple top-level elements or character nodes. ||
 || ginPendingListLimit | **string** (int64)
 
-in bytes. ||
+Sets the maximum size of the pending list for GIN index. In bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds.
+Sets the time to wait on a lock before checking for deadlock. In milliseconds.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
-|| maxLocksPerTransaction | **string** (int64) ||
-|| maxPredLocksPerTransaction | **string** (int64) ||
-|| arrayNulls | **boolean** ||
+|| maxLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of locks per transaction. The shared lock table is sized on the assumption that
+at most max_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| maxPredLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of predicate locks per transaction.The shared predicate lock table is sized on the assumption that
+at most max_pred_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| arrayNulls | **boolean**
+
+Enable input of NULL elements in arrays. When turned on, unquoted NULL in an array input
+value means a null value; otherwise it is taken literally. ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+Sets whether \"\\'\" is allowed in string literals.
+
+- `BACKSLASH_QUOTE`: Legacy invalid value. Do not use.
 - `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
 - `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
 - `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
-|| defaultWithOids | **boolean** ||
-|| escapeStringWarning | **boolean** ||
-|| loCompatPrivileges | **boolean** ||
-|| quoteAllIdentifiers | **boolean** ||
-|| standardConformingStrings | **boolean** ||
-|| synchronizeSeqscans | **boolean** ||
-|| transformNullEquals | **boolean** ||
-|| exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
+|| defaultWithOids | **boolean**
+
+WITH OIDS is no longer supported; this can only be false. ||
+|| escapeStringWarning | **boolean**
+
+Warn about backslash escapes in ordinary string literals. ||
+|| loCompatPrivileges | **boolean**
+
+Enables backward compatibility mode for privilege checks on large objects. Skips privilege checks
+when reading or modifying large objects, for compatibility with PostgreSQL releases prior to 9.0. ||
+|| quoteAllIdentifiers | **boolean**
+
+When generating SQL fragments, quote all identifiers. ||
+|| standardConformingStrings | **boolean**
+
+Causes '...' strings to treat backslashes literally. ||
+|| synchronizeSeqscans | **boolean**
+
+Enable synchronized sequential scans. ||
+|| transformNullEquals | **boolean**
+
+Treats \"expr=NULL\" as \"expr IS NULL\". When turned on, expressions of the form expr = NULL
+(or NULL = expr) are treated as expr IS NULL, that is, they return true if expr evaluates to the
+null value, and false otherwise. The correct behavior of expr = NULL is to always return null (unknown). ||
+|| exitOnError | **boolean**
+
+Terminate session on any error. ||
+|| seqPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a sequentially fetched disk page.
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a nonsequentially fetched disk page.
+
+The minimum value is 0. ||
 || autovacuumMaxWorkers | **string** (int64)
 
+Sets the maximum number of simultaneously running autovacuum worker processes.
+
 Acceptable values are 1 to 32, inclusive. ||
-|| autovacuumVacuumCostDelay | **string** (int64) ||
-|| autovacuumVacuumCostLimit | **string** (int64) ||
+|| autovacuumVacuumCostDelay | **string** (int64)
+
+Vacuum cost delay in milliseconds, for autovacuum. ||
+|| autovacuumVacuumCostLimit | **string** (int64)
+
+Vacuum cost amount available before napping, for autovacuum. ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds.
+Time to sleep between autovacuum runs. In milliseconds.
 
 Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds.
+Forces a switch to the next WAL file if no new file has been started within the specified interval. In milliseconds.
 
 Acceptable values are 10000 to 86400000, inclusive. ||
 || trackActivityQuerySize | **string** (int64)
 
+Sets the size reserved for pg_stat_activity.query, in bytes.
+
 Acceptable values are 100 to 102400, inclusive. ||
-|| onlineAnalyzeEnable | **boolean** ||
-|| enableBitmapscan | **boolean** ||
-|| enableHashagg | **boolean** ||
-|| enableHashjoin | **boolean** ||
-|| enableIndexscan | **boolean** ||
-|| enableIndexonlyscan | **boolean** ||
-|| enableMaterial | **boolean** ||
-|| enableMergejoin | **boolean** ||
-|| enableNestloop | **boolean** ||
-|| enableSeqscan | **boolean** ||
-|| enableSort | **boolean** ||
-|| enableTidscan | **boolean** ||
+|| onlineAnalyzeEnable | **boolean**
+
+Enables automatic table-statistics updates by online_analyze after data-modifying operations. ||
+|| enableBitmapscan | **boolean**
+
+Enables the planner's use of bitmap-scan plans. ||
+|| enableHashagg | **boolean**
+
+Enables the planner's use of hashed aggregation plans. ||
+|| enableHashjoin | **boolean**
+
+Enables the planner's use of hash join plans. ||
+|| enableIndexscan | **boolean**
+
+Enables the planner's use of index-scan plans. ||
+|| enableIndexonlyscan | **boolean**
+
+Enables the planner's use of index-only-scan plans. ||
+|| enableMaterial | **boolean**
+
+Enables the planner's use of materialization. ||
+|| enableMergejoin | **boolean**
+
+Enables the planner's use of merge join plans. ||
+|| enableNestloop | **boolean**
+
+Enables the planner's use of nested-loop join plans. ||
+|| enableSeqscan | **boolean**
+
+Enables the planner's use of sequential-scan plans. ||
+|| enableSort | **boolean**
+
+Enables the planner's use of explicit sort steps. ||
+|| enableTidscan | **boolean**
+
+Enables the planner's use of TID scan plans. ||
 || maxWorkerProcesses | **string** (int64)
+
+Maximum number of concurrent worker processes.
 
 Acceptable values are 0 to 1024, inclusive. ||
 || maxParallelWorkers | **string** (int64)
 
+Sets the maximum number of parallel workers that can be active at one time.
+
 Acceptable values are 0 to 1024, inclusive. ||
 || maxParallelWorkersPerGather | **string** (int64)
 
+Sets the maximum number of parallel processes per executor node.
+
 Acceptable values are 0 to 1024, inclusive. ||
-|| autovacuumVacuumScaleFactor | **number** (double) ||
-|| autovacuumAnalyzeScaleFactor | **number** (double) ||
-|| defaultTransactionReadOnly | **boolean** ||
-|| timezone | **string** ||
-|| enableParallelAppend | **boolean** ||
-|| enableParallelHash | **boolean** ||
-|| enablePartitionPruning | **boolean** ||
-|| enablePartitionwiseAggregate | **boolean** ||
-|| enablePartitionwiseJoin | **boolean** ||
-|| jit | **boolean** ||
+|| autovacuumVacuumScaleFactor | **number** (double)
+
+Number of tuple updates or deletes prior to vacuum as a fraction of reltuples. ||
+|| autovacuumAnalyzeScaleFactor | **number** (double)
+
+Number of tuple inserts, updates, or deletes prior to analyze as a fraction of reltuples. ||
+|| defaultTransactionReadOnly | **boolean**
+
+Sets the default read-only status of new transactions. ||
+|| timezone | **string**
+
+Sets the time zone for displaying and interpreting time stamps. ||
+|| enableParallelAppend | **boolean**
+
+Enables the planner's use of parallel append plans. ||
+|| enableParallelHash | **boolean**
+
+Enables the planner's use of parallel hash plans. ||
+|| enablePartitionPruning | **boolean**
+
+Enables plan-time and execution-time partition pruning. Allows the query planner and executor to
+compare partition bounds to conditions in the query to determine which partitions must be scanned. ||
+|| enablePartitionwiseAggregate | **boolean**
+
+Enables partitionwise aggregation and grouping. ||
+|| enablePartitionwiseJoin | **boolean**
+
+Enables partitionwise join. ||
+|| jit | **boolean**
+
+Allow JIT compilation. ||
 || maxParallelMaintenanceWorkers | **string** (int64)
 
+Sets the maximum number of parallel processes per maintenance operation.
+
 The minimum value is 0. ||
-|| parallelLeaderParticipation | **boolean** ||
-|| logTransactionSampleRate | **number** (double) ||
+|| parallelLeaderParticipation | **boolean**
+
+Controls whether Gather and Gather Merge also run subplans. ||
+|| logTransactionSampleRate | **number** (double)
+
+Sets the fraction of transactions from which to log all statements. Use a
+value between 0.0 (never log) and 1.0 (log all statements for all transactions). ||
 || planCacheMode | **enum** (PlanCacheMode)
+
+Controls the planner's selection of custom or generic plan. Prepared statements can have custom and generic plans,
+and the planner will attempt to choose which is better. This can be set to override the default behavior.
 
 - `PLAN_CACHE_MODE_AUTO`: Automatic selection.
 - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`: Forces the use of custom plans.
 - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`: Forces the use of generic plans. ||
 || effectiveIoConcurrency | **string** (int64)
 
+Number of simultaneous requests that can be handled efficiently by the disk subsystem.
+
 Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
+Sets the planner's assumption about the effective size of the disk cache available to a single query. In bytes.
+
 Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
+
+Lists shared libraries to preload into server.
 
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`: Required for the [auto_explain](https://www.postgresql.org/docs/current/auto-explain.html) extension.
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`: Required for the [pg_hint_plan](https://github.com/ossc-db/pg_hint_plan) extension.
@@ -9872,157 +11405,251 @@ Acceptable values are 1048576 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_SPQRGUARD`: Required for the [spqrguard](https://github.com/pg-sharding/spqrguard) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
-in milliseconds. ||
-|| autoExplainLogAnalyze | **boolean** ||
-|| autoExplainLogBuffers | **boolean** ||
-|| autoExplainLogTiming | **boolean** ||
-|| autoExplainLogTriggers | **boolean** ||
-|| autoExplainLogVerbose | **boolean** ||
-|| autoExplainLogNestedStatements | **boolean** ||
-|| autoExplainSampleRate | **number** (double) ||
-|| pgHintPlanEnableHint | **boolean** ||
-|| pgHintPlanEnableHintTable | **boolean** ||
+Sets the minimum statement execution time, that will cause the statement's plan to be logged.
+Setting this to 0 logs all plans. -1 (the default) disables logging of plans. For example, if
+you set it to 250ms then all statements that run 250ms or longer will be logged. In milliseconds.
+ ||
+|| autoExplainLogAnalyze | **boolean**
+
+Causes EXPLAIN ANALYZE output, rather than just EXPLAIN output,to be printed
+when an executionplan is logged. This parameter is off by default. ||
+|| autoExplainLogBuffers | **boolean**
+
+Controls whether buffer usage statistics are printed when an execution plan is logged;
+it's equivalent to the BUFFERS option of EXPLAIN. This parameter has no effect unless
+auto_explain.log_analyze is enabled. This parameter is off by default. ||
+|| autoExplainLogTiming | **boolean**
+
+Controls whether per-node timing information is printed when an execution plan is logged;
+it's equivalent to the TIMING option of EXPLAIN. The overhead of repeatedly reading the system
+clock can slow down queries significantly on some systems, so it may be useful to set this
+parameter to off when only actual row counts, and not exact times, are needed. This parameter
+has no effect unless auto_explain.log_analyze is enabled. This parameter is on by default. ||
+|| autoExplainLogTriggers | **boolean**
+
+Causes trigger execution statistics to be included when an execution plan is logged. This parameter
+has no effect unless auto_explain.log_analyze is enabled. This parameter is off by default. ||
+|| autoExplainLogVerbose | **boolean**
+
+Controls whether verbose details are printed when an execution plan is logged; it's
+equivalent to the VERBOSE option of EXPLAIN. This parameter is off by default. ||
+|| autoExplainLogNestedStatements | **boolean**
+
+Causes nested statements (statements executed inside a function) to be considered for logging.
+When it is off, only top-level query plans are logged. This parameter is off by default. ||
+|| autoExplainSampleRate | **number** (double)
+
+Causes auto_explain to only explain a fraction of the statements in each session. The default is 1,
+meaning explain all the queries. In case of nested statements, either all will be explained or none. ||
+|| pgHintPlanEnableHint | **boolean**
+
+Enables processing of query hints by pg_hint_plan. ||
+|| pgHintPlanEnableHintTable | **boolean**
+
+Enables lookup of hints in the hint table. ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disable debug output
-- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Print debug messages about hint parsing
-- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Print detailed debug information including query planning process
-- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Print verbose debug output with all internal operations ||
+Controls whether and how verbosely hint parsing results are logged.
+
+- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disables diagnostic logging.
+- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Logs hint-processing results grouped by used, unused, duplicate, and erroneous hints.
+- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Logs hint-processing results together with detailed planner diagnostics.
+- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Logs the most detailed diagnostics, including query strings used to extract hints. ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
-|| hashMemMultiplier | **number** (double) ||
+Sets the log level for pg_hint_plan debug messages.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
+|| hashMemMultiplier | **number** (double)
+
+Multiple of work_mem to use for hash tables. ||
 || logicalDecodingWorkMem | **string** (int64)
 
-in bytes.
+Sets the maximum memory to be used for logical decoding. This much memory can be
+used by each internal reorder buffer before spilling to disk. In bytes.
 
 Acceptable values are 65536 to 1099511627776, inclusive. ||
 || maintenanceIoConcurrency | **string** (int64)
 
+A variant of effective_io_concurrency that is used for maintenance work.
+
 Acceptable values are 0 to 1000, inclusive. ||
 || maxSlotWalKeepSize | **string** (int64)
 
-in bytes. ||
+Sets the maximum WAL size that can be reserved by replication slots. Replication slots will be marked as failed,
+and segments released for deletion or recycling, if this much space is occupied by WAL on disk. In bytes. ||
 || walKeepSize | **string** (int64)
 
-in bytes. ||
-|| enableIncrementalSort | **boolean** ||
-|| autovacuumVacuumInsertThreshold | **string** (int64) ||
-|| autovacuumVacuumInsertScaleFactor | **number** (double) ||
+Sets the size of WAL files held for standby servers. In bytes. ||
+|| enableIncrementalSort | **boolean**
+
+Enables the planner's use of incremental sort steps. ||
+|| autovacuumVacuumInsertThreshold | **string** (int64)
+
+Minimum number of tuple inserts prior to vacuum, or -1 to disable insert vacuums. ||
+|| autovacuumVacuumInsertScaleFactor | **number** (double)
+
+Number of tuple inserts prior to vacuum as a fraction of reltuples. ||
 || logMinDurationSample | **string** (int64)
 
-in milliseconds. ||
-|| logStatementSampleRate | **number** (double) ||
+Sets the minimum execution time above which a sample of statements will be logged. Sampling is determined
+by log_statement_sample_rate. Zero logs a sample of all queries. -1 turns this feature off. In milliseconds. ||
+|| logStatementSampleRate | **number** (double)
+
+Fraction of statements exceeding log_min_duration_sample to be logged. Use a value between 0.0 (never log) and 1.0 (always log). ||
 || logParameterMaxLength | **string** (int64)
 
-in bytes. ||
+When logging statements, limit logged parameter values to first N bytes. -1 to print values in full. ||
 || logParameterMaxLengthOnError | **string** (int64)
 
-in bytes. ||
+When reporting an error, limit logged parameter values to first N bytes. -1 to print values in full. ||
 || clientConnectionCheckInterval | **string** (int64)
 
-in milliseconds. ||
-|| enableAsyncAppend | **boolean** ||
-|| enableGathermerge | **boolean** ||
-|| enableMemoize | **boolean** ||
+Sets the time interval between checks for disconnection while running queries. In milliseconds. ||
+|| enableAsyncAppend | **boolean**
+
+Enables the planner's use of async append plans. ||
+|| enableGathermerge | **boolean**
+
+Enables the planner's use of gather merge plans. ||
+|| enableMemoize | **boolean**
+
+Enables the planner's use of memoization. ||
 || logRecoveryConflictWaits | **boolean**
 
-in milliseconds. ||
+Logs standby recovery conflict waits. ||
 || vacuumFailsafeAge | **string** (int64)
 
-in milliseconds. ||
+Age at which VACUUM should trigger failsafe to avoid a wraparound outage. ||
 || vacuumMultixactFailsafeAge | **string** (int64)
 
-in milliseconds. ||
-|| pgQualstatsEnabled | **boolean** ||
-|| pgQualstatsTrackConstants | **boolean** ||
-|| pgQualstatsMax | **string** (int64) ||
-|| pgQualstatsResolveOids | **boolean** ||
-|| pgQualstatsSampleRate | **number** (double) ||
-|| plantunerFixEmptyTable | **boolean** ||
+Multixact age at which VACUUM should trigger failsafe to avoid a wraparound outage. ||
+|| pgQualstatsEnabled | **boolean**
+
+Controls whether pg_qualstats collects execution statistics for query predicates,
+including filters and join conditions. ||
+|| pgQualstatsTrackConstants | **boolean**
+
+Controls whether pg_qualstats keeps separate statistics for predicates containing different constant values ||
+|| pgQualstatsMax | **string** (int64)
+
+Limits the number of predicate-statistics and query-text entries retained by pg_qualstats. ||
+|| pgQualstatsResolveOids | **boolean**
+
+Controls whether pg_qualstats resolves object OIDs and stores their names  when collecting statistics.
+Enabling this increases memory usage and requires additional system-catalog lookups. ||
+|| pgQualstatsSampleRate | **number** (double)
+
+Sets the fraction of queries sampled by pg_qualstats. A value of -1 selects an automatic rate
+of 1 / max_connections; 0 samples no queries, and 1 samples every query. ||
+|| plantunerFixEmptyTable | **boolean**
+
+Controls whether plantuner sets estimated page and row counts to zero for tables that have no storage blocks. ||
 || geqo | **boolean**
 
-enable Genetic Query Optimizer, by default is on ||
+Enables genetic query optimization. This algorithm attempts to do planning
+without exhaustive searching, by default is on. ||
 || geqoThreshold | **string** (int64)
 
-The number of tables to use geqo, default is 12
+Sets the threshold of FROM items beyond which GEQO is used, default is 12.
 
 Acceptable values are 2 to 2147483647, inclusive. ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5
+GEQO: effort is used to set the default for other GEQO parameters.
+Tradeoff between planning time and query plan quality, default is 5.
 
 Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
-number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
+GEQO: number of individuals in the population.
+Useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort. ||
 || geqoGenerations | **string** (int64)
 
-the number of generations used by GEQO, useful values are in the same range as the pool size ||
+GEQO: number of iterations of the algorithm. Zero selects a suitable default value.
+Useful values are in the same range as the pool size. ||
 || geqoSelectionBias | **number** (double)
 
-selective pressure within the population ||
+GEQO: selective pressure within the population. ||
 || geqoSeed | **number** (double)
 
-initial value of the random number generator used by GEQO ||
-|| pgTrgmSimilarityThreshold | **number** (double) ||
-|| pgTrgmWordSimilarityThreshold | **number** (double) ||
-|| pgTrgmStrictWordSimilarityThreshold | **number** (double) ||
+GEQO: seed for random path selection. ||
+|| pgTrgmSimilarityThreshold | **number** (double)
+
+Sets the trigram similarity threshold used by the `%` operator
+to determine whether two strings are similar. ||
+|| pgTrgmWordSimilarityThreshold | **number** (double)
+
+Sets the threshold used by the `<%` and `%>` operators when comparing
+a string with the most similar continuous part of another string. ||
+|| pgTrgmStrictWordSimilarityThreshold | **number** (double)
+
+Sets the threshold used by the `<<%` and `%>>` operators when comparing
+a string with parts of another string aligned to word boundaries. ||
 || maxStandbyArchiveDelay | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum delay before canceling queries when a hot standby server is processing archived WAL data. In milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is
+not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
-|| logReplicationCommands | **boolean** ||
+|| logReplicationCommands | **boolean**
+
+Logs each replication command. ||
 || logAutovacuumMinDuration | **string** (int64)
 
-in milliseconds. The default is 1000 (1 sec). ||
+Sets the minimum execution time above which autovacuum actions will be logged.
+Zero prints all actions. -1 turns autovacuum logging off. In milliseconds. The default is 1000 (1 sec).
+ ||
 || passwordEncryption | **enum** (PasswordEncryption)
 
-A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
+A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are
+`` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
 - `PASSWORD_ENCRYPTION_MD5`: The method md5 uses a custom less secure challenge-response mechanism. It prevents password sniffing and avoids storing passwords on the server in plain text but provides no protection if an attacker manages to steal the password hash from the server. Also, the MD5 hash algorithm is nowadays no longer considered secure against determined attacks.
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256`: The method scram-sha-256 performs SCRAM-SHA-256 authentication, as described in RFC 7677. It is a challenge-response scheme that prevents password sniffing on untrusted connections and supports storing passwords on the server in a cryptographically hashed form that is thought to be secure.
 This is the most secure of the currently provided methods, but it is not supported by older client libraries. ||
 || autoExplainLogFormat | **enum** (AutoExplainLogFormat)
 
-Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
+Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``,
+`` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``.
+The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
 
-- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`: 'text' value for the EXPLAIN output format in auto_explain extension
-- `AUTO_EXPLAIN_LOG_FORMAT_XML`: 'xml' value for the EXPLAIN output format in auto_explain extension
-- `AUTO_EXPLAIN_LOG_FORMAT_JSON`: 'json' value for the EXPLAIN output format in auto_explain extension
-- `AUTO_EXPLAIN_LOG_FORMAT_YAML`: 'yaml' value for the EXPLAIN output format in auto_explain extension ||
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`: Formats logged execution plans as plain text.
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`: Formats logged execution plans as XML.
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`: Formats logged execution plans as JSON.
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML`: Formats logged execution plans as YAML. ||
 || idleSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when not in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || checkpointWarning | **string** (int64)
 
-in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
+Sets the interval below which checkpoints triggered by filling WAL segment files cause a warning to be written to the server log.
+A value of 0 disables the warning. In milliseconds.
 
 Acceptable values are 0 to 2147483647000, inclusive. ||
 || autovacuumVacuumThreshold | **string** (int64)
 
-Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+Minimum number of tuple updates or deletes prior to vacuum.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || autovacuumAnalyzeThreshold | **string** (int64)
 
-Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+Minimum number of tuple inserts, updates, or deletes prior to analyze.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 |#
@@ -10053,56 +11680,81 @@ parameters which detailed description is available in
 ||Field | Description ||
 || maxConnections | **string** (int64)
 
+Sets the maximum number of concurrent connections.
+
 The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
-in bytes. ||
+Sets the number of shared memory buffers used by the server. In bytes. ||
 || tempBuffers | **string** (int64)
 
-in bytes. ||
-|| maxPreparedTransactions | **string** (int64) ||
+Sets the maximum number of temporary buffers used by each session. In bytes. ||
+|| maxPreparedTransactions | **string** (int64)
+
+Sets the maximum number of simultaneously prepared transactions. ||
 || workMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used for query workspaces. This much memory can be used by each
+internal sort operation and hash table before switching to temporary disk files. In bytes. ||
 || maintenanceWorkMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used for maintenance operations.
+This includes operations such as VACUUM and CREATE INDEX. In bytes. ||
 || autovacuumWorkMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used by each autovacuum worker process. In bytes. ||
 || tempFileLimit | **string** (int64)
 
-in bytes. ||
+Limits the total size of all temporary files used by each process. -1 means no limit. In bytes. ||
 || vacuumCostDelay | **string** (int64)
 
-in milliseconds. ||
-|| vacuumCostPageHit | **string** (int64) ||
-|| vacuumCostPageMiss | **string** (int64) ||
-|| vacuumCostPageDirty | **string** (int64) ||
-|| vacuumCostLimit | **string** (int64) ||
+Vacuum cost delay. In milliseconds. ||
+|| vacuumCostPageHit | **string** (int64)
+
+Vacuum cost for a page found in the buffer cache. ||
+|| vacuumCostPageMiss | **string** (int64)
+
+Vacuum cost for a page not found in the buffer cache. ||
+|| vacuumCostPageDirty | **string** (int64)
+
+Vacuum cost for a page dirtied by vacuum. ||
+|| vacuumCostLimit | **string** (int64)
+
+Vacuum cost amount available before napping. ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds.
+Background writer sleep time between rounds. In milliseconds.
 
 Acceptable values are 10 to 10000, inclusive. ||
-|| bgwriterLruMaxpages | **string** (int64) ||
-|| bgwriterLruMultiplier | **number** (double) ||
+|| bgwriterLruMaxpages | **string** (int64)
+
+Background writer maximum number of LRU pages to flush per round. ||
+|| bgwriterLruMultiplier | **number** (double)
+
+Multiple of the average buffer usage to free per round. ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes
+Specifies how much data the background writer can write before forcing the operating system to issue the writes. In bytes.
 
 Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes
+Specifies how much data a backend can write before forcing the operating system to issue the writes. In bytes.
 
 Acceptable values are 0 to 2097152, inclusive. ||
-|| oldSnapshotThreshold | **string** (int64) ||
+|| oldSnapshotThreshold | **string** (int64)
+
+Time before a snapshot is too old to read pages changed after the snapshot was taken.
+A value of -1 disables this feature. In milliseconds. ||
 || walLevel | **enum** (WalLevel)
+
+Sets the level of information written to the WAL.
 
 - `WAL_LEVEL_REPLICA`: Supports WAL archiving and physical replication.
 - `WAL_LEVEL_LOGICAL`: Supports WAL archiving, physical replication, and logical decoding. ||
 || synchronousCommit | **enum** (SynchronousCommit)
+
+Sets the current transaction's synchronization level.
 
 - `SYNCHRONOUS_COMMIT_ON`: Success is reported to the client if the data is in WAL (Write-Ahead Log), and WAL is written to the storage of both the master and its synchronous standby server. Default value.
 - `SYNCHRONOUS_COMMIT_OFF`: Success is reported to the client even if the data is not in WAL.
@@ -10115,104 +11767,149 @@ The transaction may be lost due to simultaneous storage subsystem failure on the
 The transaction may be lost due to irrecoverably failure of both the master and its synchronous standby. ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum time between automatic WAL checkpoints. In milliseconds.
 
 Acceptable values are 30000 to 86400000, inclusive. ||
-|| checkpointCompletionTarget | **number** (double) ||
+|| checkpointCompletionTarget | **number** (double)
+
+Time spent flushing dirty buffers during checkpoint, as fraction of checkpoint interval. ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes
+Specifies how much data can be written during a checkpoint before forcing the operating system to issue the writes. In bytes.
 
 Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
-in bytes. ||
+Sets the WAL size that triggers a checkpoint. In bytes. ||
 || minWalSize | **string** (int64)
 
-in bytes. ||
+Sets the minimum size to shrink the WAL to. In bytes. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
-in milliseconds. ||
-|| defaultStatisticsTarget | **string** (int64) ||
+Sets the maximum delay before canceling queries when a hot standby server is processing streamed WAL data. In milliseconds. ||
+|| defaultStatisticsTarget | **string** (int64)
+
+Sets the default statistics target. This applies to table columns that have not had a
+column-specific target set via ALTER TABLE SET STATISTICS. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
+
+Enables the planner to use constraints to optimize queries.
 
 - `CONSTRAINT_EXCLUSION_ON`: Use constraints for all tables.
 - `CONSTRAINT_EXCLUSION_OFF`: Do not use constraints.
 - `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
-|| cursorTupleFraction | **number** (double) ||
+|| cursorTupleFraction | **number** (double)
+
+Sets the planner's estimate of the fraction of a cursor's rows that will be retrieved. ||
 || fromCollapseLimit | **string** (int64)
+
+Sets the FROM-list size beyond which subqueries are not collapsed.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
 || joinCollapseLimit | **string** (int64)
 
+Sets the FROM-list size beyond which JOIN constructs are not flattened.
+
 Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_ON`: Force parallel mode for all queries that can be executed safely in parallel.
-- `FORCE_PARALLEL_MODE_OFF`: Enable parallel mode only if it is expected to increase performance.
-- `FORCE_PARALLEL_MODE_REGRESS`: Equivalent to on, but generates output identical to the off state. ||
+Forces use of parallel query facilities. If possible, run query using a parallel worker and with parallel restrictions.
+
+- `FORCE_PARALLEL_MODE_ON`: Forces parallel mode for queries considered safe, even when no performance benefit is expected.
+- `FORCE_PARALLEL_MODE_OFF`: Uses parallel mode only when the planner expects it to improve performance.
+- `FORCE_PARALLEL_MODE_REGRESS`: Behaves like ON, but hides added Gather nodes in EXPLAIN output and
+suppresses parallel-worker context lines to stabilize regression-test output. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are sent to the client.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Causes all statements generating error at or above this level to be logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinDurationStatement | **string** (int64)
 
-in milliseconds. ||
-|| logCheckpoints | **boolean** ||
-|| logConnections | **boolean** ||
-|| logDisconnections | **boolean** ||
-|| logDuration | **boolean** ||
+Sets the minimum execution time above which all statements will be logged. In milliseconds. ||
+|| logCheckpoints | **boolean**
+
+Logs each checkpoint. ||
+|| logConnections | **boolean**
+
+Logs each successful connection. ||
+|| logDisconnections | **boolean**
+
+Logs end of a session, including duration. ||
+|| logDuration | **boolean**
+
+Logs the duration of each completed SQL statement.
+ ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
+
+Sets the verbosity of logged messages.
 
 - `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
 - `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
 - `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
-|| logLockWaits | **boolean** ||
+|| logLockWaits | **boolean**
+
+Logs long lock waits. ||
 || logStatement | **enum** (LogStatement)
+
+Sets the type of statements logged.
 
 - `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
 - `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
 - `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
 - `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
-|| logTempFiles | **string** (int64) ||
-|| searchPath | **string** ||
-|| rowSecurity | **boolean** ||
+|| logTempFiles | **string** (int64)
+
+Log the use of temporary files larger than this number of kilobytes. ||
+|| searchPath | **string**
+
+Sets the schema search order for names that are not schema-qualified. ||
+|| rowSecurity | **boolean**
+
+Enable row security. ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
+
+Sets the transaction isolation level of each new transaction.
 
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
 - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began. Default value.
@@ -10222,119 +11919,236 @@ All queries in the current transaction see only the rows that were fixed prior t
 If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any statement. In milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any wait for a lock. In milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
+
+Sets the output format for bytea.
 
 - `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
 - `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`: Base64 encoding.
-- `XML_BINARY_HEX`: Hexadecimal encoding. ||
+Sets how binary values are to be encoded in XML.
+
+- `XML_BINARY_BASE64`: Encodes binary values using Base64.
+- `XML_BINARY_HEX`: Encodes binary values using hexadecimal notation. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`: XML document.
-- `XML_OPTION_CONTENT`: XML fragment. ||
+Sets whether XML data in implicit parsing and serialization operations is to be considered as documents or content fragments.
+
+- `XML_OPTION_DOCUMENT`: Treats an XML value as a complete, well-formed document.
+- `XML_OPTION_CONTENT`: Treats an XML value as a content fragment, which may contain multiple top-level elements or character nodes. ||
 || ginPendingListLimit | **string** (int64)
 
-in bytes. ||
+Sets the maximum size of the pending list for GIN index. In bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds.
+Sets the time to wait on a lock before checking for deadlock. In milliseconds.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
-|| maxLocksPerTransaction | **string** (int64) ||
-|| maxPredLocksPerTransaction | **string** (int64) ||
-|| arrayNulls | **boolean** ||
+|| maxLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of locks per transaction. The shared lock table is sized on the assumption that
+at most max_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| maxPredLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of predicate locks per transaction.The shared predicate lock table is sized on the assumption that
+at most max_pred_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| arrayNulls | **boolean**
+
+Enable input of NULL elements in arrays. When turned on, unquoted NULL in an array input
+value means a null value; otherwise it is taken literally. ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+Sets whether \"\\'\" is allowed in string literals.
+
+- `BACKSLASH_QUOTE`: Legacy invalid value. Do not use.
 - `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
 - `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
 - `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
-|| defaultWithOids | **boolean** ||
-|| escapeStringWarning | **boolean** ||
-|| loCompatPrivileges | **boolean** ||
-|| quoteAllIdentifiers | **boolean** ||
-|| standardConformingStrings | **boolean** ||
-|| synchronizeSeqscans | **boolean** ||
-|| transformNullEquals | **boolean** ||
-|| exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
+|| defaultWithOids | **boolean**
+
+WITH OIDS is no longer supported; this can only be false. ||
+|| escapeStringWarning | **boolean**
+
+Warn about backslash escapes in ordinary string literals. ||
+|| loCompatPrivileges | **boolean**
+
+Enables backward compatibility mode for privilege checks on large objects. Skips privilege checks
+when reading or modifying large objects, for compatibility with PostgreSQL releases prior to 9.0. ||
+|| quoteAllIdentifiers | **boolean**
+
+When generating SQL fragments, quote all identifiers. ||
+|| standardConformingStrings | **boolean**
+
+Causes '...' strings to treat backslashes literally. ||
+|| synchronizeSeqscans | **boolean**
+
+Enable synchronized sequential scans. ||
+|| transformNullEquals | **boolean**
+
+Treats \"expr=NULL\" as \"expr IS NULL\". When turned on, expressions of the form expr = NULL
+(or NULL = expr) are treated as expr IS NULL, that is, they return true if expr evaluates to the
+null value, and false otherwise. The correct behavior of expr = NULL is to always return null (unknown). ||
+|| exitOnError | **boolean**
+
+Terminate session on any error. ||
+|| seqPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a sequentially fetched disk page.
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a nonsequentially fetched disk page.
+
+The minimum value is 0. ||
 || autovacuumMaxWorkers | **string** (int64)
 
+Sets the maximum number of simultaneously running autovacuum worker processes.
+
 Acceptable values are 1 to 32, inclusive. ||
-|| autovacuumVacuumCostDelay | **string** (int64) ||
-|| autovacuumVacuumCostLimit | **string** (int64) ||
+|| autovacuumVacuumCostDelay | **string** (int64)
+
+Vacuum cost delay in milliseconds, for autovacuum. ||
+|| autovacuumVacuumCostLimit | **string** (int64)
+
+Vacuum cost amount available before napping, for autovacuum. ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds.
+Time to sleep between autovacuum runs. In milliseconds.
 
 Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds.
+Forces a switch to the next WAL file if no new file has been started within the specified interval. In milliseconds.
 
 Acceptable values are 10000 to 86400000, inclusive. ||
 || trackActivityQuerySize | **string** (int64)
 
+Sets the size reserved for pg_stat_activity.query, in bytes.
+
 Acceptable values are 100 to 102400, inclusive. ||
-|| enableBitmapscan | **boolean** ||
-|| enableHashagg | **boolean** ||
-|| enableHashjoin | **boolean** ||
-|| enableIndexscan | **boolean** ||
-|| enableIndexonlyscan | **boolean** ||
-|| enableMaterial | **boolean** ||
-|| enableMergejoin | **boolean** ||
-|| enableNestloop | **boolean** ||
-|| enableSeqscan | **boolean** ||
-|| enableSort | **boolean** ||
-|| enableTidscan | **boolean** ||
+|| enableBitmapscan | **boolean**
+
+Enables the planner's use of bitmap-scan plans. ||
+|| enableHashagg | **boolean**
+
+Enables the planner's use of hashed aggregation plans. ||
+|| enableHashjoin | **boolean**
+
+Enables the planner's use of hash join plans. ||
+|| enableIndexscan | **boolean**
+
+Enables the planner's use of index-scan plans. ||
+|| enableIndexonlyscan | **boolean**
+
+Enables the planner's use of index-only-scan plans. ||
+|| enableMaterial | **boolean**
+
+Enables the planner's use of materialization. ||
+|| enableMergejoin | **boolean**
+
+Enables the planner's use of merge join plans. ||
+|| enableNestloop | **boolean**
+
+Enables the planner's use of nested-loop join plans. ||
+|| enableSeqscan | **boolean**
+
+Enables the planner's use of sequential-scan plans. ||
+|| enableSort | **boolean**
+
+Enables the planner's use of explicit sort steps. ||
+|| enableTidscan | **boolean**
+
+Enables the planner's use of TID scan plans. ||
 || maxWorkerProcesses | **string** (int64)
+
+Maximum number of concurrent worker processes.
 
 Acceptable values are 0 to 1024, inclusive. ||
 || maxParallelWorkers | **string** (int64)
 
+Sets the maximum number of parallel workers that can be active at one time.
+
 Acceptable values are 0 to 1024, inclusive. ||
 || maxParallelWorkersPerGather | **string** (int64)
 
+Sets the maximum number of parallel processes per executor node.
+
 Acceptable values are 0 to 1024, inclusive. ||
-|| autovacuumVacuumScaleFactor | **number** (double) ||
-|| autovacuumAnalyzeScaleFactor | **number** (double) ||
-|| defaultTransactionReadOnly | **boolean** ||
-|| timezone | **string** ||
-|| enableParallelAppend | **boolean** ||
-|| enableParallelHash | **boolean** ||
-|| enablePartitionPruning | **boolean** ||
-|| enablePartitionwiseAggregate | **boolean** ||
-|| enablePartitionwiseJoin | **boolean** ||
-|| jit | **boolean** ||
+|| autovacuumVacuumScaleFactor | **number** (double)
+
+Number of tuple updates or deletes prior to vacuum as a fraction of reltuples. ||
+|| autovacuumAnalyzeScaleFactor | **number** (double)
+
+Number of tuple inserts, updates, or deletes prior to analyze as a fraction of reltuples. ||
+|| defaultTransactionReadOnly | **boolean**
+
+Sets the default read-only status of new transactions. ||
+|| timezone | **string**
+
+Sets the time zone for displaying and interpreting time stamps. ||
+|| enableParallelAppend | **boolean**
+
+Enables the planner's use of parallel append plans. ||
+|| enableParallelHash | **boolean**
+
+Enables the planner's use of parallel hash plans. ||
+|| enablePartitionPruning | **boolean**
+
+Enables plan-time and execution-time partition pruning. Allows the query planner and executor to
+compare partition bounds to conditions in the query to determine which partitions must be scanned. ||
+|| enablePartitionwiseAggregate | **boolean**
+
+Enables partitionwise aggregation and grouping. ||
+|| enablePartitionwiseJoin | **boolean**
+
+Enables partitionwise join. ||
+|| jit | **boolean**
+
+Allow JIT compilation. ||
 || maxParallelMaintenanceWorkers | **string** (int64)
 
+Sets the maximum number of parallel processes per maintenance operation.
+
 The minimum value is 0. ||
-|| parallelLeaderParticipation | **boolean** ||
-|| logTransactionSampleRate | **number** (double) ||
+|| parallelLeaderParticipation | **boolean**
+
+Controls whether Gather and Gather Merge also run subplans. ||
+|| logTransactionSampleRate | **number** (double)
+
+Sets the fraction of transactions from which to log all statements. Use a
+value between 0.0 (never log) and 1.0 (log all statements for all transactions). ||
 || planCacheMode | **enum** (PlanCacheMode)
+
+Controls the planner's selection of custom or generic plan. Prepared statements can have custom and generic plans,
+and the planner will attempt to choose which is better. This can be set to override the default behavior.
 
 - `PLAN_CACHE_MODE_AUTO`: Automatic selection.
 - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`: Forces the use of custom plans.
 - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`: Forces the use of generic plans. ||
 || effectiveIoConcurrency | **string** (int64)
 
+Number of simultaneous requests that can be handled efficiently by the disk subsystem.
+
 Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
+Sets the planner's assumption about the effective size of the disk cache available to a single query. In bytes.
+
 Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
+
+Lists shared libraries to preload into server.
 
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`: Required for the [auto_explain](https://www.postgresql.org/docs/current/auto-explain.html) extension.
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`: Required for the [pg_hint_plan](https://github.com/ossc-db/pg_hint_plan) extension.
@@ -10348,165 +12162,263 @@ Acceptable values are 1048576 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_SPQRGUARD`: Required for the [spqrguard](https://github.com/pg-sharding/spqrguard) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
-in milliseconds. ||
-|| autoExplainLogAnalyze | **boolean** ||
-|| autoExplainLogBuffers | **boolean** ||
-|| autoExplainLogTiming | **boolean** ||
-|| autoExplainLogTriggers | **boolean** ||
-|| autoExplainLogVerbose | **boolean** ||
-|| autoExplainLogNestedStatements | **boolean** ||
-|| autoExplainSampleRate | **number** (double) ||
-|| pgHintPlanEnableHint | **boolean** ||
-|| pgHintPlanEnableHintTable | **boolean** ||
+Sets the minimum statement execution time, that will cause the statement's plan to be logged.
+Setting this to 0 logs all plans. -1 (the default) disables logging of plans. For example, if
+you set it to 250ms then all statements that run 250ms or longer will be logged. In milliseconds.
+ ||
+|| autoExplainLogAnalyze | **boolean**
+
+Causes EXPLAIN ANALYZE output, rather than just EXPLAIN output,to be printed
+when an executionplan is logged. This parameter is off by default. ||
+|| autoExplainLogBuffers | **boolean**
+
+Controls whether buffer usage statistics are printed when an execution plan is logged;
+it's equivalent to the BUFFERS option of EXPLAIN. This parameter has no effect unless
+auto_explain.log_analyze is enabled. This parameter is off by default. ||
+|| autoExplainLogTiming | **boolean**
+
+Controls whether per-node timing information is printed when an execution plan is logged;
+it's equivalent to the TIMING option of EXPLAIN. The overhead of repeatedly reading the system
+clock can slow down queries significantly on some systems, so it may be useful to set this
+parameter to off when only actual row counts, and not exact times, are needed. This parameter
+has no effect unless auto_explain.log_analyze is enabled. This parameter is on by default. ||
+|| autoExplainLogTriggers | **boolean**
+
+Causes trigger execution statistics to be included when an execution plan is logged. This parameter
+has no effect unless auto_explain.log_analyze is enabled. This parameter is off by default. ||
+|| autoExplainLogVerbose | **boolean**
+
+Controls whether verbose details are printed when an execution plan is logged; it's
+equivalent to the VERBOSE option of EXPLAIN. This parameter is off by default. ||
+|| autoExplainLogNestedStatements | **boolean**
+
+Causes nested statements (statements executed inside a function) to be considered for logging.
+When it is off, only top-level query plans are logged. This parameter is off by default. ||
+|| autoExplainSampleRate | **number** (double)
+
+Causes auto_explain to only explain a fraction of the statements in each session. The default is 1,
+meaning explain all the queries. In case of nested statements, either all will be explained or none. ||
+|| pgHintPlanEnableHint | **boolean**
+
+Enables processing of query hints by pg_hint_plan. ||
+|| pgHintPlanEnableHintTable | **boolean**
+
+Enables lookup of hints in the hint table. ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disable debug output
-- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Print debug messages about hint parsing
-- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Print detailed debug information including query planning process
-- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Print verbose debug output with all internal operations ||
+Controls whether and how verbosely hint parsing results are logged.
+
+- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disables diagnostic logging.
+- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Logs hint-processing results grouped by used, unused, duplicate, and erroneous hints.
+- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Logs hint-processing results together with detailed planner diagnostics.
+- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Logs the most detailed diagnostics, including query strings used to extract hints. ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
-|| hashMemMultiplier | **number** (double) ||
+Sets the log level for pg_hint_plan debug messages.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
+|| hashMemMultiplier | **number** (double)
+
+Multiple of work_mem to use for hash tables. ||
 || logicalDecodingWorkMem | **string** (int64)
 
-in bytes.
+Sets the maximum memory to be used for logical decoding. This much memory can be
+used by each internal reorder buffer before spilling to disk. In bytes.
 
 Acceptable values are 65536 to 1099511627776, inclusive. ||
 || maintenanceIoConcurrency | **string** (int64)
 
+A variant of effective_io_concurrency that is used for maintenance work.
+
 Acceptable values are 0 to 1000, inclusive. ||
 || maxSlotWalKeepSize | **string** (int64)
 
-in bytes. ||
+Sets the maximum WAL size that can be reserved by replication slots. Replication slots will be marked as failed,
+and segments released for deletion or recycling, if this much space is occupied by WAL on disk. In bytes. ||
 || walKeepSize | **string** (int64)
 
-in bytes. ||
-|| enableIncrementalSort | **boolean** ||
-|| autovacuumVacuumInsertThreshold | **string** (int64) ||
-|| autovacuumVacuumInsertScaleFactor | **number** (double) ||
+Sets the size of WAL files held for standby servers. In bytes. ||
+|| enableIncrementalSort | **boolean**
+
+Enables the planner's use of incremental sort steps. ||
+|| autovacuumVacuumInsertThreshold | **string** (int64)
+
+Minimum number of tuple inserts prior to vacuum, or -1 to disable insert vacuums. ||
+|| autovacuumVacuumInsertScaleFactor | **number** (double)
+
+Number of tuple inserts prior to vacuum as a fraction of reltuples. ||
 || logMinDurationSample | **string** (int64)
 
-in milliseconds. ||
-|| logStatementSampleRate | **number** (double) ||
+Sets the minimum execution time above which a sample of statements will be logged. Sampling is determined
+by log_statement_sample_rate. Zero logs a sample of all queries. -1 turns this feature off. In milliseconds. ||
+|| logStatementSampleRate | **number** (double)
+
+Fraction of statements exceeding log_min_duration_sample to be logged. Use a value between 0.0 (never log) and 1.0 (always log). ||
 || logParameterMaxLength | **string** (int64)
 
-in bytes. ||
+When logging statements, limit logged parameter values to first N bytes. -1 to print values in full. ||
 || logParameterMaxLengthOnError | **string** (int64)
 
-in bytes. ||
+When reporting an error, limit logged parameter values to first N bytes. -1 to print values in full. ||
 || clientConnectionCheckInterval | **string** (int64)
 
-in milliseconds. ||
-|| enableAsyncAppend | **boolean** ||
-|| enableGathermerge | **boolean** ||
-|| enableMemoize | **boolean** ||
+Sets the time interval between checks for disconnection while running queries. In milliseconds. ||
+|| enableAsyncAppend | **boolean**
+
+Enables the planner's use of async append plans. ||
+|| enableGathermerge | **boolean**
+
+Enables the planner's use of gather merge plans. ||
+|| enableMemoize | **boolean**
+
+Enables the planner's use of memoization. ||
 || logRecoveryConflictWaits | **boolean**
 
-in milliseconds. ||
+Logs standby recovery conflict waits. ||
 || vacuumFailsafeAge | **string** (int64)
 
-in milliseconds. ||
+Age at which VACUUM should trigger failsafe to avoid a wraparound outage. ||
 || vacuumMultixactFailsafeAge | **string** (int64)
 
-in milliseconds. ||
-|| pgQualstatsEnabled | **boolean** ||
-|| pgQualstatsTrackConstants | **boolean** ||
-|| pgQualstatsMax | **string** (int64) ||
-|| pgQualstatsResolveOids | **boolean** ||
-|| pgQualstatsSampleRate | **number** (double) ||
+Multixact age at which VACUUM should trigger failsafe to avoid a wraparound outage. ||
+|| pgQualstatsEnabled | **boolean**
+
+Controls whether pg_qualstats collects execution statistics for query predicates,
+including filters and join conditions. ||
+|| pgQualstatsTrackConstants | **boolean**
+
+Controls whether pg_qualstats keeps separate statistics for predicates containing different constant values ||
+|| pgQualstatsMax | **string** (int64)
+
+Limits the number of predicate-statistics and query-text entries retained by pg_qualstats. ||
+|| pgQualstatsResolveOids | **boolean**
+
+Controls whether pg_qualstats resolves object OIDs and stores their names  when collecting statistics.
+Enabling this increases memory usage and requires additional system-catalog lookups. ||
+|| pgQualstatsSampleRate | **number** (double)
+
+Sets the fraction of queries sampled by pg_qualstats. A value of -1 selects an automatic rate
+of 1 / max_connections; 0 samples no queries, and 1 samples every query. ||
 || maxStackDepth | **string** (int64)
 
-in bytes.
+Sets the maximum stack depth, in bytes.
 
 Acceptable values are 65536 to 134217728, inclusive. ||
-|| enableGroupByReordering | **boolean** ||
+|| enableGroupByReordering | **boolean**
+
+Controls if the query planner will produce a plan which will provide GROUP BY keys sorted in the order of keys of a
+child node of the plan, such as an index scan. When disabled, the query planner will produce a plan with GROUP BY keys
+only sorted to match the ORDER BY clause, if any. When enabled, the planner will try to produce a more efficient plan.
+The default value is on. ||
 || geqo | **boolean**
 
-enable Genetic Query Optimizer, by default is on ||
+Enables genetic query optimization. This algorithm attempts to do planning
+without exhaustive searching, by default is on. ||
 || geqoThreshold | **string** (int64)
 
-The number of tables to use geqo, default is 12
+Sets the threshold of FROM items beyond which GEQO is used, default is 12.
 
 Acceptable values are 2 to 2147483647, inclusive. ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5
+GEQO: effort is used to set the default for other GEQO parameters.
+Tradeoff between planning time and query plan quality, default is 5.
 
 Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
-number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
+GEQO: number of individuals in the population.
+Useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort. ||
 || geqoGenerations | **string** (int64)
 
-the number of generations used by GEQO, useful values are in the same range as the pool size ||
+GEQO: number of iterations of the algorithm. Zero selects a suitable default value.
+Useful values are in the same range as the pool size. ||
 || geqoSelectionBias | **number** (double)
 
-selective pressure within the population ||
+GEQO: selective pressure within the population. ||
 || geqoSeed | **number** (double)
 
-initial value of the random number generator used by GEQO ||
-|| pgTrgmSimilarityThreshold | **number** (double) ||
-|| pgTrgmWordSimilarityThreshold | **number** (double) ||
-|| pgTrgmStrictWordSimilarityThreshold | **number** (double) ||
+GEQO: seed for random path selection. ||
+|| pgTrgmSimilarityThreshold | **number** (double)
+
+Sets the trigram similarity threshold used by the `%` operator
+to determine whether two strings are similar. ||
+|| pgTrgmWordSimilarityThreshold | **number** (double)
+
+Sets the threshold used by the `<%` and `%>` operators when comparing
+a string with the most similar continuous part of another string. ||
+|| pgTrgmStrictWordSimilarityThreshold | **number** (double)
+
+Sets the threshold used by the `<<%` and `%>>` operators when comparing
+a string with parts of another string aligned to word boundaries. ||
 || maxStandbyArchiveDelay | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum delay before canceling queries when a hot standby server is processing archived WAL data. In milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is
+not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
-|| logReplicationCommands | **boolean** ||
+|| logReplicationCommands | **boolean**
+
+Logs each replication command. ||
 || logAutovacuumMinDuration | **string** (int64)
 
-in milliseconds. The default is 1000 (1 sec). ||
+Sets the minimum execution time above which autovacuum actions will be logged.
+Zero prints all actions. -1 turns autovacuum logging off. In milliseconds. The default is 1000 (1 sec).
+ ||
 || passwordEncryption | **enum** (PasswordEncryption)
 
-A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
+A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are
+`` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
 - `PASSWORD_ENCRYPTION_MD5`: The method md5 uses a custom less secure challenge-response mechanism. It prevents password sniffing and avoids storing passwords on the server in plain text but provides no protection if an attacker manages to steal the password hash from the server. Also, the MD5 hash algorithm is nowadays no longer considered secure against determined attacks.
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256`: The method scram-sha-256 performs SCRAM-SHA-256 authentication, as described in RFC 7677. It is a challenge-response scheme that prevents password sniffing on untrusted connections and supports storing passwords on the server in a cryptographically hashed form that is thought to be secure.
 This is the most secure of the currently provided methods, but it is not supported by older client libraries. ||
 || autoExplainLogFormat | **enum** (AutoExplainLogFormat)
 
-Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
+Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``,
+`` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``.
+The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
 
-- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`: Text EXPLAIN output format
-- `AUTO_EXPLAIN_LOG_FORMAT_XML`: XML EXPLAIN output format
-- `AUTO_EXPLAIN_LOG_FORMAT_JSON`: JSON EXPLAIN output format
-- `AUTO_EXPLAIN_LOG_FORMAT_YAML`: YAML EXPLAIN output format ||
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`: Formats logged execution plans as plain text.
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`: Formats logged execution plans as XML.
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`: Formats logged execution plans as JSON.
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML`: Formats logged execution plans as YAML. ||
 || idleSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when not in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || checkpointWarning | **string** (int64)
 
-in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
+Sets the interval below which checkpoints triggered by filling WAL segment files cause a warning to be written to the server log.
+A value of 0 disables the warning. In milliseconds.
 
 Acceptable values are 0 to 2147483647000, inclusive. ||
 || pgHintPlanHintsAnywhere | **boolean**
 
-If it is true, pg_hint_plan reads hints ignoring SQL syntax. This allows placing hints anywhere in the query but may cause false reads. Default is false. ||
+Allows pg_hint_plan to read hint comments from any position in the query text,
+without regard to SQL syntax. This may cause false hint matches. ||
 || autovacuumVacuumThreshold | **string** (int64)
 
-Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+Minimum number of tuple updates or deletes prior to vacuum.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || autovacuumAnalyzeThreshold | **string** (int64)
 
-Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+Minimum number of tuple inserts, updates, or deletes prior to analyze.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 |#
@@ -10537,56 +12449,81 @@ parameters which detailed description is available in
 ||Field | Description ||
 || maxConnections | **string** (int64)
 
+Sets the maximum number of concurrent connections.
+
 The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
-in bytes. ||
+Sets the number of shared memory buffers used by the server. In bytes. ||
 || tempBuffers | **string** (int64)
 
-in bytes. ||
-|| maxPreparedTransactions | **string** (int64) ||
+Sets the maximum number of temporary buffers used by each session. In bytes. ||
+|| maxPreparedTransactions | **string** (int64)
+
+Sets the maximum number of simultaneously prepared transactions. ||
 || workMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used for query workspaces. This much memory can be used by each
+internal sort operation and hash table before switching to temporary disk files. In bytes. ||
 || maintenanceWorkMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used for maintenance operations.
+This includes operations such as VACUUM and CREATE INDEX. In bytes. ||
 || autovacuumWorkMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used by each autovacuum worker process. In bytes. ||
 || tempFileLimit | **string** (int64)
 
-in bytes. ||
+Limits the total size of all temporary files used by each process. -1 means no limit. In bytes. ||
 || vacuumCostDelay | **string** (int64)
 
-in milliseconds. ||
-|| vacuumCostPageHit | **string** (int64) ||
-|| vacuumCostPageMiss | **string** (int64) ||
-|| vacuumCostPageDirty | **string** (int64) ||
-|| vacuumCostLimit | **string** (int64) ||
+Vacuum cost delay. In milliseconds. ||
+|| vacuumCostPageHit | **string** (int64)
+
+Vacuum cost for a page found in the buffer cache. ||
+|| vacuumCostPageMiss | **string** (int64)
+
+Vacuum cost for a page not found in the buffer cache. ||
+|| vacuumCostPageDirty | **string** (int64)
+
+Vacuum cost for a page dirtied by vacuum. ||
+|| vacuumCostLimit | **string** (int64)
+
+Vacuum cost amount available before napping. ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds.
+Background writer sleep time between rounds. In milliseconds.
 
 Acceptable values are 10 to 10000, inclusive. ||
-|| bgwriterLruMaxpages | **string** (int64) ||
-|| bgwriterLruMultiplier | **number** (double) ||
+|| bgwriterLruMaxpages | **string** (int64)
+
+Background writer maximum number of LRU pages to flush per round. ||
+|| bgwriterLruMultiplier | **number** (double)
+
+Multiple of the average buffer usage to free per round. ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes
+Specifies how much data the background writer can write before forcing the operating system to issue the writes. In bytes.
 
 Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes
+Specifies how much data a backend can write before forcing the operating system to issue the writes. In bytes.
 
 Acceptable values are 0 to 2097152, inclusive. ||
-|| oldSnapshotThreshold | **string** (int64) ||
+|| oldSnapshotThreshold | **string** (int64)
+
+Time before a snapshot is too old to read pages changed after the snapshot was taken.
+A value of -1 disables this feature. In milliseconds. ||
 || walLevel | **enum** (WalLevel)
+
+Sets the level of information written to the WAL.
 
 - `WAL_LEVEL_REPLICA`: Supports WAL archiving and physical replication.
 - `WAL_LEVEL_LOGICAL`: Supports WAL archiving, physical replication, and logical decoding. ||
 || synchronousCommit | **enum** (SynchronousCommit)
+
+Sets the current transaction's synchronization level.
 
 - `SYNCHRONOUS_COMMIT_ON`: Success is reported to the client if the data is in WAL (Write-Ahead Log), and WAL is written to the storage of both the master and its synchronous standby server. Default value.
 - `SYNCHRONOUS_COMMIT_OFF`: Success is reported to the client even if the data is not in WAL.
@@ -10599,104 +12536,149 @@ The transaction may be lost due to simultaneous storage subsystem failure on the
 The transaction may be lost due to irrecoverably failure of both the master and its synchronous standby. ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum time between automatic WAL checkpoints. In milliseconds.
 
 Acceptable values are 30000 to 86400000, inclusive. ||
-|| checkpointCompletionTarget | **number** (double) ||
+|| checkpointCompletionTarget | **number** (double)
+
+Time spent flushing dirty buffers during checkpoint, as fraction of checkpoint interval. ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes
+Specifies how much data can be written during a checkpoint before forcing the operating system to issue the writes. In bytes.
 
 Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
-in bytes. ||
+Sets the WAL size that triggers a checkpoint. In bytes. ||
 || minWalSize | **string** (int64)
 
-in bytes. ||
+Sets the minimum size to shrink the WAL to. In bytes. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
-in milliseconds. ||
-|| defaultStatisticsTarget | **string** (int64) ||
+Sets the maximum delay before canceling queries when a hot standby server is processing streamed WAL data. In milliseconds. ||
+|| defaultStatisticsTarget | **string** (int64)
+
+Sets the default statistics target. This applies to table columns that have not had a
+column-specific target set via ALTER TABLE SET STATISTICS. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
+
+Enables the planner to use constraints to optimize queries.
 
 - `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
 - `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
 - `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
-|| cursorTupleFraction | **number** (double) ||
+|| cursorTupleFraction | **number** (double)
+
+Sets the planner's estimate of the fraction of a cursor's rows that will be retrieved. ||
 || fromCollapseLimit | **string** (int64)
+
+Sets the FROM-list size beyond which subqueries are not collapsed.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
 || joinCollapseLimit | **string** (int64)
 
+Sets the FROM-list size beyond which JOIN constructs are not flattened.
+
 Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_ON`: Force parallel mode for all queries that can be executed safely in parallel.
-- `FORCE_PARALLEL_MODE_OFF`: Enable parallel mode only if it is expected to increase performance.
-- `FORCE_PARALLEL_MODE_REGRESS`: Equivalent to on, but generates output identical to the off state. ||
+Forces use of parallel query facilities. If possible, run query using a parallel worker and with parallel restrictions.
+
+- `FORCE_PARALLEL_MODE_ON`: Forces parallel mode for queries considered safe, even when no performance benefit is expected.
+- `FORCE_PARALLEL_MODE_OFF`: Uses parallel mode only when the planner expects it to improve performance.
+- `FORCE_PARALLEL_MODE_REGRESS`: Behaves like ON, but hides added Gather nodes in EXPLAIN output and
+suppresses parallel-worker context lines to stabilize regression-test output. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are sent to the client.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Causes all statements generating error at or above this level to be logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinDurationStatement | **string** (int64)
 
-in milliseconds. ||
-|| logCheckpoints | **boolean** ||
-|| logConnections | **boolean** ||
-|| logDisconnections | **boolean** ||
-|| logDuration | **boolean** ||
+Sets the minimum execution time above which all statements will be logged. In milliseconds. ||
+|| logCheckpoints | **boolean**
+
+Logs each checkpoint. ||
+|| logConnections | **boolean**
+
+Logs each successful connection. ||
+|| logDisconnections | **boolean**
+
+Logs end of a session, including duration. ||
+|| logDuration | **boolean**
+
+Logs the duration of each completed SQL statement.
+ ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
+
+Sets the verbosity of logged messages.
 
 - `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
 - `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
 - `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
-|| logLockWaits | **boolean** ||
+|| logLockWaits | **boolean**
+
+Logs long lock waits. ||
 || logStatement | **enum** (LogStatement)
+
+Sets the type of statements logged.
 
 - `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
 - `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
 - `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
 - `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
-|| logTempFiles | **string** (int64) ||
-|| searchPath | **string** ||
-|| rowSecurity | **boolean** ||
+|| logTempFiles | **string** (int64)
+
+Log the use of temporary files larger than this number of kilobytes. ||
+|| searchPath | **string**
+
+Sets the schema search order for names that are not schema-qualified. ||
+|| rowSecurity | **boolean**
+
+Enable row security. ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
+
+Sets the transaction isolation level of each new transaction.
 
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
 - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
@@ -10706,120 +12688,239 @@ All queries in the current transaction see only the rows that were fixed prior t
 If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any statement. In milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any wait for a lock. In milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
+
+Sets the output format for bytea.
 
 - `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
 - `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`: Base64 encoding.
-- `XML_BINARY_HEX`: Hexadecimal encoding. ||
+Sets how binary values are to be encoded in XML.
+
+- `XML_BINARY_BASE64`: Encodes binary values using Base64.
+- `XML_BINARY_HEX`: Encodes binary values using hexadecimal notation. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`: XML document.
-- `XML_OPTION_CONTENT`: XML fragment. ||
+Sets whether XML data in implicit parsing and serialization operations is to be considered as documents or content fragments.
+
+- `XML_OPTION_DOCUMENT`: Treats an XML value as a complete, well-formed document.
+- `XML_OPTION_CONTENT`: Treats an XML value as a content fragment, which may contain multiple top-level elements or character nodes. ||
 || ginPendingListLimit | **string** (int64)
 
-in bytes. ||
+Sets the maximum size of the pending list for GIN index. In bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds.
+Sets the time to wait on a lock before checking for deadlock. In milliseconds.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
-|| maxLocksPerTransaction | **string** (int64) ||
-|| maxPredLocksPerTransaction | **string** (int64) ||
-|| arrayNulls | **boolean** ||
+|| maxLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of locks per transaction. The shared lock table is sized on the assumption that
+at most max_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| maxPredLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of predicate locks per transaction.The shared predicate lock table is sized on the assumption that
+at most max_pred_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| arrayNulls | **boolean**
+
+Enable input of NULL elements in arrays. When turned on, unquoted NULL in an array input
+value means a null value; otherwise it is taken literally. ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+Sets whether \"\\'\" is allowed in string literals.
+
+- `BACKSLASH_QUOTE`: Legacy invalid value. Do not use.
 - `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
 - `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
 - `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
-|| defaultWithOids | **boolean** ||
-|| escapeStringWarning | **boolean** ||
-|| loCompatPrivileges | **boolean** ||
-|| quoteAllIdentifiers | **boolean** ||
-|| standardConformingStrings | **boolean** ||
-|| synchronizeSeqscans | **boolean** ||
-|| transformNullEquals | **boolean** ||
-|| exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
+|| defaultWithOids | **boolean**
+
+WITH OIDS is no longer supported; this can only be false. ||
+|| escapeStringWarning | **boolean**
+
+Warn about backslash escapes in ordinary string literals. ||
+|| loCompatPrivileges | **boolean**
+
+Enables backward compatibility mode for privilege checks on large objects. Skips privilege checks
+when reading or modifying large objects, for compatibility with PostgreSQL releases prior to 9.0. ||
+|| quoteAllIdentifiers | **boolean**
+
+When generating SQL fragments, quote all identifiers. ||
+|| standardConformingStrings | **boolean**
+
+Causes '...' strings to treat backslashes literally. ||
+|| synchronizeSeqscans | **boolean**
+
+Enable synchronized sequential scans. ||
+|| transformNullEquals | **boolean**
+
+Treats \"expr=NULL\" as \"expr IS NULL\". When turned on, expressions of the form expr = NULL
+(or NULL = expr) are treated as expr IS NULL, that is, they return true if expr evaluates to the
+null value, and false otherwise. The correct behavior of expr = NULL is to always return null (unknown). ||
+|| exitOnError | **boolean**
+
+Terminate session on any error. ||
+|| seqPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a sequentially fetched disk page.
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a nonsequentially fetched disk page.
+
+The minimum value is 0. ||
 || autovacuumMaxWorkers | **string** (int64)
 
+Sets the maximum number of simultaneously running autovacuum worker processes.
+
 Acceptable values are 1 to 32, inclusive. ||
-|| autovacuumVacuumCostDelay | **string** (int64) ||
-|| autovacuumVacuumCostLimit | **string** (int64) ||
+|| autovacuumVacuumCostDelay | **string** (int64)
+
+Vacuum cost delay in milliseconds, for autovacuum. ||
+|| autovacuumVacuumCostLimit | **string** (int64)
+
+Vacuum cost amount available before napping, for autovacuum. ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds.
+Time to sleep between autovacuum runs. In milliseconds.
 
 Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds.
+Forces a switch to the next WAL file if no new file has been started within the specified interval. In milliseconds.
 
 Acceptable values are 10000 to 86400000, inclusive. ||
 || trackActivityQuerySize | **string** (int64)
 
+Sets the size reserved for pg_stat_activity.query, in bytes.
+
 Acceptable values are 100 to 102400, inclusive. ||
-|| onlineAnalyzeEnable | **boolean** ||
-|| enableBitmapscan | **boolean** ||
-|| enableHashagg | **boolean** ||
-|| enableHashjoin | **boolean** ||
-|| enableIndexscan | **boolean** ||
-|| enableIndexonlyscan | **boolean** ||
-|| enableMaterial | **boolean** ||
-|| enableMergejoin | **boolean** ||
-|| enableNestloop | **boolean** ||
-|| enableSeqscan | **boolean** ||
-|| enableSort | **boolean** ||
-|| enableTidscan | **boolean** ||
+|| onlineAnalyzeEnable | **boolean**
+
+Enables automatic table-statistics updates by online_analyze after data-modifying operations. ||
+|| enableBitmapscan | **boolean**
+
+Enables the planner's use of bitmap-scan plans. ||
+|| enableHashagg | **boolean**
+
+Enables the planner's use of hashed aggregation plans. ||
+|| enableHashjoin | **boolean**
+
+Enables the planner's use of hash join plans. ||
+|| enableIndexscan | **boolean**
+
+Enables the planner's use of index-scan plans. ||
+|| enableIndexonlyscan | **boolean**
+
+Enables the planner's use of index-only-scan plans. ||
+|| enableMaterial | **boolean**
+
+Enables the planner's use of materialization. ||
+|| enableMergejoin | **boolean**
+
+Enables the planner's use of merge join plans. ||
+|| enableNestloop | **boolean**
+
+Enables the planner's use of nested-loop join plans. ||
+|| enableSeqscan | **boolean**
+
+Enables the planner's use of sequential-scan plans. ||
+|| enableSort | **boolean**
+
+Enables the planner's use of explicit sort steps. ||
+|| enableTidscan | **boolean**
+
+Enables the planner's use of TID scan plans. ||
 || maxWorkerProcesses | **string** (int64)
+
+Maximum number of concurrent worker processes.
 
 Acceptable values are 0 to 1024, inclusive. ||
 || maxParallelWorkers | **string** (int64)
 
+Sets the maximum number of parallel workers that can be active at one time.
+
 Acceptable values are 0 to 1024, inclusive. ||
 || maxParallelWorkersPerGather | **string** (int64)
 
+Sets the maximum number of parallel processes per executor node.
+
 Acceptable values are 0 to 1024, inclusive. ||
-|| autovacuumVacuumScaleFactor | **number** (double) ||
-|| autovacuumAnalyzeScaleFactor | **number** (double) ||
-|| defaultTransactionReadOnly | **boolean** ||
-|| timezone | **string** ||
-|| enableParallelAppend | **boolean** ||
-|| enableParallelHash | **boolean** ||
-|| enablePartitionPruning | **boolean** ||
-|| enablePartitionwiseAggregate | **boolean** ||
-|| enablePartitionwiseJoin | **boolean** ||
-|| jit | **boolean** ||
+|| autovacuumVacuumScaleFactor | **number** (double)
+
+Number of tuple updates or deletes prior to vacuum as a fraction of reltuples. ||
+|| autovacuumAnalyzeScaleFactor | **number** (double)
+
+Number of tuple inserts, updates, or deletes prior to analyze as a fraction of reltuples. ||
+|| defaultTransactionReadOnly | **boolean**
+
+Sets the default read-only status of new transactions. ||
+|| timezone | **string**
+
+Sets the time zone for displaying and interpreting time stamps. ||
+|| enableParallelAppend | **boolean**
+
+Enables the planner's use of parallel append plans. ||
+|| enableParallelHash | **boolean**
+
+Enables the planner's use of parallel hash plans. ||
+|| enablePartitionPruning | **boolean**
+
+Enables plan-time and execution-time partition pruning. Allows the query planner and executor to
+compare partition bounds to conditions in the query to determine which partitions must be scanned. ||
+|| enablePartitionwiseAggregate | **boolean**
+
+Enables partitionwise aggregation and grouping. ||
+|| enablePartitionwiseJoin | **boolean**
+
+Enables partitionwise join. ||
+|| jit | **boolean**
+
+Allow JIT compilation. ||
 || maxParallelMaintenanceWorkers | **string** (int64)
 
+Sets the maximum number of parallel processes per maintenance operation.
+
 The minimum value is 0. ||
-|| parallelLeaderParticipation | **boolean** ||
-|| logTransactionSampleRate | **number** (double) ||
+|| parallelLeaderParticipation | **boolean**
+
+Controls whether Gather and Gather Merge also run subplans. ||
+|| logTransactionSampleRate | **number** (double)
+
+Sets the fraction of transactions from which to log all statements. Use a
+value between 0.0 (never log) and 1.0 (log all statements for all transactions). ||
 || planCacheMode | **enum** (PlanCacheMode)
+
+Controls the planner's selection of custom or generic plan. Prepared statements can have custom and generic plans,
+and the planner will attempt to choose which is better. This can be set to override the default behavior.
 
 - `PLAN_CACHE_MODE_AUTO`: Automatic selection.
 - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`: Forces the use of custom plans.
 - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`: Forces the use of generic plans. ||
 || effectiveIoConcurrency | **string** (int64)
 
+Number of simultaneous requests that can be handled efficiently by the disk subsystem.
+
 Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
+Sets the planner's assumption about the effective size of the disk cache available to a single query. In bytes.
+
 Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
+
+Lists shared libraries to preload into server.
 
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`: Required for the [auto_explain](https://www.postgresql.org/docs/current/auto-explain.html) extension.
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`: Required for the [pg_hint_plan](https://github.com/ossc-db/pg_hint_plan) extension.
@@ -10833,166 +12934,266 @@ Acceptable values are 1048576 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_SPQRGUARD`: Required for the [spqrguard](https://github.com/pg-sharding/spqrguard) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
-in milliseconds. ||
-|| autoExplainLogAnalyze | **boolean** ||
-|| autoExplainLogBuffers | **boolean** ||
-|| autoExplainLogTiming | **boolean** ||
-|| autoExplainLogTriggers | **boolean** ||
-|| autoExplainLogVerbose | **boolean** ||
-|| autoExplainLogNestedStatements | **boolean** ||
-|| autoExplainSampleRate | **number** (double) ||
-|| pgHintPlanEnableHint | **boolean** ||
-|| pgHintPlanEnableHintTable | **boolean** ||
+Sets the minimum statement execution time, that will cause the statement's plan to be logged.
+Setting this to 0 logs all plans. -1 (the default) disables logging of plans. For example, if
+you set it to 250ms then all statements that run 250ms or longer will be logged. In milliseconds.
+ ||
+|| autoExplainLogAnalyze | **boolean**
+
+Causes EXPLAIN ANALYZE output, rather than just EXPLAIN output,to be printed
+when an executionplan is logged. This parameter is off by default. ||
+|| autoExplainLogBuffers | **boolean**
+
+Controls whether buffer usage statistics are printed when an execution plan is logged;
+it's equivalent to the BUFFERS option of EXPLAIN. This parameter has no effect unless
+auto_explain.log_analyze is enabled. This parameter is off by default. ||
+|| autoExplainLogTiming | **boolean**
+
+Controls whether per-node timing information is printed when an execution plan is logged;
+it's equivalent to the TIMING option of EXPLAIN. The overhead of repeatedly reading the system
+clock can slow down queries significantly on some systems, so it may be useful to set this
+parameter to off when only actual row counts, and not exact times, are needed. This parameter
+has no effect unless auto_explain.log_analyze is enabled. This parameter is on by default. ||
+|| autoExplainLogTriggers | **boolean**
+
+Causes trigger execution statistics to be included when an execution plan is logged. This parameter
+has no effect unless auto_explain.log_analyze is enabled. This parameter is off by default. ||
+|| autoExplainLogVerbose | **boolean**
+
+Controls whether verbose details are printed when an execution plan is logged; it's
+equivalent to the VERBOSE option of EXPLAIN. This parameter is off by default. ||
+|| autoExplainLogNestedStatements | **boolean**
+
+Causes nested statements (statements executed inside a function) to be considered for logging.
+When it is off, only top-level query plans are logged. This parameter is off by default. ||
+|| autoExplainSampleRate | **number** (double)
+
+Causes auto_explain to only explain a fraction of the statements in each session. The default is 1,
+meaning explain all the queries. In case of nested statements, either all will be explained or none. ||
+|| pgHintPlanEnableHint | **boolean**
+
+Enables processing of query hints by pg_hint_plan. ||
+|| pgHintPlanEnableHintTable | **boolean**
+
+Enables lookup of hints in the hint table. ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disable debug output
-- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Print debug messages about hint parsing
-- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Print detailed debug information including query planning process
-- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Print verbose debug output with all internal operations ||
+Controls whether and how verbosely hint parsing results are logged.
+
+- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disables diagnostic logging.
+- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Logs hint-processing results grouped by used, unused, duplicate, and erroneous hints.
+- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Logs hint-processing results together with detailed planner diagnostics.
+- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Logs the most detailed diagnostics, including query strings used to extract hints. ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
-|| hashMemMultiplier | **number** (double) ||
+Sets the log level for pg_hint_plan debug messages.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
+|| hashMemMultiplier | **number** (double)
+
+Multiple of work_mem to use for hash tables. ||
 || logicalDecodingWorkMem | **string** (int64)
 
-in bytes.
+Sets the maximum memory to be used for logical decoding. This much memory can be
+used by each internal reorder buffer before spilling to disk. In bytes.
 
 Acceptable values are 65536 to 1099511627776, inclusive. ||
 || maintenanceIoConcurrency | **string** (int64)
 
+A variant of effective_io_concurrency that is used for maintenance work.
+
 Acceptable values are 0 to 1000, inclusive. ||
 || maxSlotWalKeepSize | **string** (int64)
 
-in bytes. ||
+Sets the maximum WAL size that can be reserved by replication slots. Replication slots will be marked as failed,
+and segments released for deletion or recycling, if this much space is occupied by WAL on disk. In bytes. ||
 || walKeepSize | **string** (int64)
 
-in bytes. ||
-|| enableIncrementalSort | **boolean** ||
-|| autovacuumVacuumInsertThreshold | **string** (int64) ||
-|| autovacuumVacuumInsertScaleFactor | **number** (double) ||
+Sets the size of WAL files held for standby servers. In bytes. ||
+|| enableIncrementalSort | **boolean**
+
+Enables the planner's use of incremental sort steps. ||
+|| autovacuumVacuumInsertThreshold | **string** (int64)
+
+Minimum number of tuple inserts prior to vacuum, or -1 to disable insert vacuums. ||
+|| autovacuumVacuumInsertScaleFactor | **number** (double)
+
+Number of tuple inserts prior to vacuum as a fraction of reltuples. ||
 || logMinDurationSample | **string** (int64)
 
-in milliseconds. ||
-|| logStatementSampleRate | **number** (double) ||
+Sets the minimum execution time above which a sample of statements will be logged. Sampling is determined
+by log_statement_sample_rate. Zero logs a sample of all queries. -1 turns this feature off. In milliseconds. ||
+|| logStatementSampleRate | **number** (double)
+
+Fraction of statements exceeding log_min_duration_sample to be logged. Use a value between 0.0 (never log) and 1.0 (always log). ||
 || logParameterMaxLength | **string** (int64)
 
-in bytes. ||
+When logging statements, limit logged parameter values to first N bytes. -1 to print values in full. ||
 || logParameterMaxLengthOnError | **string** (int64)
 
-in bytes. ||
+When reporting an error, limit logged parameter values to first N bytes. -1 to print values in full. ||
 || clientConnectionCheckInterval | **string** (int64)
 
-in milliseconds. ||
-|| enableAsyncAppend | **boolean** ||
-|| enableGathermerge | **boolean** ||
-|| enableMemoize | **boolean** ||
+Sets the time interval between checks for disconnection while running queries. In milliseconds. ||
+|| enableAsyncAppend | **boolean**
+
+Enables the planner's use of async append plans. ||
+|| enableGathermerge | **boolean**
+
+Enables the planner's use of gather merge plans. ||
+|| enableMemoize | **boolean**
+
+Enables the planner's use of memoization. ||
 || logRecoveryConflictWaits | **boolean**
 
-in milliseconds. ||
+Logs standby recovery conflict waits. ||
 || vacuumFailsafeAge | **string** (int64)
 
-in milliseconds. ||
+Age at which VACUUM should trigger failsafe to avoid a wraparound outage. ||
 || vacuumMultixactFailsafeAge | **string** (int64)
 
-in milliseconds. ||
-|| pgQualstatsEnabled | **boolean** ||
-|| pgQualstatsTrackConstants | **boolean** ||
-|| pgQualstatsMax | **string** (int64) ||
-|| pgQualstatsResolveOids | **boolean** ||
-|| pgQualstatsSampleRate | **number** (double) ||
-|| plantunerFixEmptyTable | **boolean** ||
+Multixact age at which VACUUM should trigger failsafe to avoid a wraparound outage. ||
+|| pgQualstatsEnabled | **boolean**
+
+Controls whether pg_qualstats collects execution statistics for query predicates,
+including filters and join conditions. ||
+|| pgQualstatsTrackConstants | **boolean**
+
+Controls whether pg_qualstats keeps separate statistics for predicates containing different constant values ||
+|| pgQualstatsMax | **string** (int64)
+
+Limits the number of predicate-statistics and query-text entries retained by pg_qualstats. ||
+|| pgQualstatsResolveOids | **boolean**
+
+Controls whether pg_qualstats resolves object OIDs and stores their names  when collecting statistics.
+Enabling this increases memory usage and requires additional system-catalog lookups. ||
+|| pgQualstatsSampleRate | **number** (double)
+
+Sets the fraction of queries sampled by pg_qualstats. A value of -1 selects an automatic rate
+of 1 / max_connections; 0 samples no queries, and 1 samples every query. ||
+|| plantunerFixEmptyTable | **boolean**
+
+Controls whether plantuner sets estimated page and row counts to zero for tables that have no storage blocks. ||
 || maxStackDepth | **string** (int64)
 
-in bytes.
+Sets the maximum stack depth, in bytes.
 
 Acceptable values are 65536 to 134217728, inclusive. ||
-|| enableGroupByReordering | **boolean** ||
+|| enableGroupByReordering | **boolean**
+
+Controls if the query planner will produce a plan which will provide GROUP BY keys sorted in the order of keys of a
+child node of the plan, such as an index scan. When disabled, the query planner will produce a plan with GROUP BY keys
+only sorted to match the ORDER BY clause, if any. When enabled, the planner will try to produce a more efficient plan.
+The default value is on. ||
 || geqo | **boolean**
 
-enable Genetic Query Optimizer, by default is on ||
+Enables genetic query optimization. This algorithm attempts to do planning
+without exhaustive searching, by default is on. ||
 || geqoThreshold | **string** (int64)
 
-The number of tables to use geqo, default is 12
+Sets the threshold of FROM items beyond which GEQO is used, default is 12.
 
 Acceptable values are 2 to 2147483647, inclusive. ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5
+GEQO: effort is used to set the default for other GEQO parameters.
+Tradeoff between planning time and query plan quality, default is 5.
 
 Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
-number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
+GEQO: number of individuals in the population.
+Useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort. ||
 || geqoGenerations | **string** (int64)
 
-the number of generations used by GEQO, useful values are in the same range as the pool size ||
+GEQO: number of iterations of the algorithm. Zero selects a suitable default value.
+Useful values are in the same range as the pool size. ||
 || geqoSelectionBias | **number** (double)
 
-selective pressure within the population ||
+GEQO: selective pressure within the population. ||
 || geqoSeed | **number** (double)
 
-initial value of the random number generator used by GEQO ||
-|| pgTrgmSimilarityThreshold | **number** (double) ||
-|| pgTrgmWordSimilarityThreshold | **number** (double) ||
-|| pgTrgmStrictWordSimilarityThreshold | **number** (double) ||
+GEQO: seed for random path selection. ||
+|| pgTrgmSimilarityThreshold | **number** (double)
+
+Sets the trigram similarity threshold used by the `%` operator
+to determine whether two strings are similar. ||
+|| pgTrgmWordSimilarityThreshold | **number** (double)
+
+Sets the threshold used by the `<%` and `%>` operators when comparing
+a string with the most similar continuous part of another string. ||
+|| pgTrgmStrictWordSimilarityThreshold | **number** (double)
+
+Sets the threshold used by the `<<%` and `%>>` operators when comparing
+a string with parts of another string aligned to word boundaries. ||
 || maxStandbyArchiveDelay | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum delay before canceling queries when a hot standby server is processing archived WAL data. In milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is
+not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
-|| logReplicationCommands | **boolean** ||
+|| logReplicationCommands | **boolean**
+
+Logs each replication command. ||
 || logAutovacuumMinDuration | **string** (int64)
 
-in milliseconds. The default is 1000 (1 sec). ||
+Sets the minimum execution time above which autovacuum actions will be logged.
+Zero prints all actions. -1 turns autovacuum logging off. In milliseconds. The default is 1000 (1 sec).
+ ||
 || passwordEncryption | **enum** (PasswordEncryption)
 
-A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
+A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are
+`` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
 - `PASSWORD_ENCRYPTION_MD5`: The method md5 uses a custom less secure challenge-response mechanism. It prevents password sniffing and avoids storing passwords on the server in plain text but provides no protection if an attacker manages to steal the password hash from the server. Also, the MD5 hash algorithm is nowadays no longer considered secure against determined attacks.
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256`: The method scram-sha-256 performs SCRAM-SHA-256 authentication, as described in RFC 7677. It is a challenge-response scheme that prevents password sniffing on untrusted connections and supports storing passwords on the server in a cryptographically hashed form that is thought to be secure.
 This is the most secure of the currently provided methods, but it is not supported by older client libraries. ||
 || autoExplainLogFormat | **enum** (AutoExplainLogFormat)
 
-Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
+Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``,
+`` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``.
+The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
 
-- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`: 'text' value for the EXPLAIN output format in auto_explain extension
-- `AUTO_EXPLAIN_LOG_FORMAT_XML`: 'xml' value for the EXPLAIN output format in auto_explain extension
-- `AUTO_EXPLAIN_LOG_FORMAT_JSON`: 'json' value for the EXPLAIN output format in auto_explain extension
-- `AUTO_EXPLAIN_LOG_FORMAT_YAML`: 'yaml' value for the EXPLAIN output format in auto_explain extension ||
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`: Formats logged execution plans as plain text.
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`: Formats logged execution plans as XML.
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`: Formats logged execution plans as JSON.
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML`: Formats logged execution plans as YAML. ||
 || idleSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when not in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || checkpointWarning | **string** (int64)
 
-in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
+Sets the interval below which checkpoints triggered by filling WAL segment files cause a warning to be written to the server log.
+A value of 0 disables the warning. In milliseconds.
 
 Acceptable values are 0 to 2147483647000, inclusive. ||
 || pgHintPlanHintsAnywhere | **boolean**
 
-If it is true, pg_hint_plan reads hints ignoring SQL syntax. This allows placing hints anywhere in the query but may cause false reads. Default is false. ||
+Allows pg_hint_plan to read hint comments from any position in the query text,
+without regard to SQL syntax. This may cause false hint matches. ||
 || autovacuumVacuumThreshold | **string** (int64)
 
-Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+Minimum number of tuple updates or deletes prior to vacuum.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || autovacuumAnalyzeThreshold | **string** (int64)
 
-Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+Minimum number of tuple inserts, updates, or deletes prior to analyze.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 |#
@@ -11023,56 +13224,81 @@ parameters which detailed description is available in
 ||Field | Description ||
 || maxConnections | **string** (int64)
 
+Sets the maximum number of concurrent connections.
+
 The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
-in bytes. ||
+Sets the number of shared memory buffers used by the server. In bytes. ||
 || tempBuffers | **string** (int64)
 
-in bytes. ||
-|| maxPreparedTransactions | **string** (int64) ||
+Sets the maximum number of temporary buffers used by each session. In bytes. ||
+|| maxPreparedTransactions | **string** (int64)
+
+Sets the maximum number of simultaneously prepared transactions. ||
 || workMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used for query workspaces. This much memory can be used by each
+internal sort operation and hash table before switching to temporary disk files. In bytes. ||
 || maintenanceWorkMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used for maintenance operations.
+This includes operations such as VACUUM and CREATE INDEX. In bytes. ||
 || autovacuumWorkMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used by each autovacuum worker process. In bytes. ||
 || tempFileLimit | **string** (int64)
 
-in bytes. ||
+Limits the total size of all temporary files used by each process. -1 means no limit. In bytes. ||
 || vacuumCostDelay | **string** (int64)
 
-in milliseconds. ||
-|| vacuumCostPageHit | **string** (int64) ||
-|| vacuumCostPageMiss | **string** (int64) ||
-|| vacuumCostPageDirty | **string** (int64) ||
-|| vacuumCostLimit | **string** (int64) ||
+Vacuum cost delay. In milliseconds. ||
+|| vacuumCostPageHit | **string** (int64)
+
+Vacuum cost for a page found in the buffer cache. ||
+|| vacuumCostPageMiss | **string** (int64)
+
+Vacuum cost for a page not found in the buffer cache. ||
+|| vacuumCostPageDirty | **string** (int64)
+
+Vacuum cost for a page dirtied by vacuum. ||
+|| vacuumCostLimit | **string** (int64)
+
+Vacuum cost amount available before napping. ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds.
+Background writer sleep time between rounds. In milliseconds.
 
 Acceptable values are 10 to 10000, inclusive. ||
-|| bgwriterLruMaxpages | **string** (int64) ||
-|| bgwriterLruMultiplier | **number** (double) ||
+|| bgwriterLruMaxpages | **string** (int64)
+
+Background writer maximum number of LRU pages to flush per round. ||
+|| bgwriterLruMultiplier | **number** (double)
+
+Multiple of the average buffer usage to free per round. ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes
+Specifies how much data the background writer can write before forcing the operating system to issue the writes. In bytes.
 
 Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes
+Specifies how much data a backend can write before forcing the operating system to issue the writes. In bytes.
 
 Acceptable values are 0 to 2097152, inclusive. ||
-|| oldSnapshotThreshold | **string** (int64) ||
+|| oldSnapshotThreshold | **string** (int64)
+
+Time before a snapshot is too old to read pages changed after the snapshot was taken.
+A value of -1 disables this feature. In milliseconds. ||
 || walLevel | **enum** (WalLevel)
+
+Sets the level of information written to the WAL.
 
 - `WAL_LEVEL_REPLICA`: Supports WAL archiving and physical replication.
 - `WAL_LEVEL_LOGICAL`: Supports WAL archiving, physical replication, and logical decoding. ||
 || synchronousCommit | **enum** (SynchronousCommit)
+
+Sets the current transaction's synchronization level.
 
 - `SYNCHRONOUS_COMMIT_ON`: Success is reported to the client if the data is in WAL (Write-Ahead Log), and WAL is written to the storage of both the master and its synchronous standby server. Default value.
 - `SYNCHRONOUS_COMMIT_OFF`: Success is reported to the client even if the data is not in WAL.
@@ -11085,107 +13311,152 @@ The transaction may be lost due to simultaneous storage subsystem failure on the
 The transaction may be lost due to irrecoverably failure of both the master and its synchronous standby. ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum time between automatic WAL checkpoints. In milliseconds.
 
 Acceptable values are 30000 to 86400000, inclusive. ||
-|| checkpointCompletionTarget | **number** (double) ||
+|| checkpointCompletionTarget | **number** (double)
+
+Time spent flushing dirty buffers during checkpoint, as fraction of checkpoint interval. ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes
+Specifies how much data can be written during a checkpoint before forcing the operating system to issue the writes. In bytes.
 
 Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
-in bytes. ||
+Sets the WAL size that triggers a checkpoint. In bytes. ||
 || minWalSize | **string** (int64)
 
-in bytes. ||
+Sets the minimum size to shrink the WAL to. In bytes. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
-in milliseconds. ||
-|| defaultStatisticsTarget | **string** (int64) ||
+Sets the maximum delay before canceling queries when a hot standby server is processing streamed WAL data. In milliseconds. ||
+|| defaultStatisticsTarget | **string** (int64)
+
+Sets the default statistics target. This applies to table columns that have not had a
+column-specific target set via ALTER TABLE SET STATISTICS. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
+
+Enables the planner to use constraints to optimize queries.
 
 - `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
 - `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
 - `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
-|| cursorTupleFraction | **number** (double) ||
+|| cursorTupleFraction | **number** (double)
+
+Sets the planner's estimate of the fraction of a cursor's rows that will be retrieved. ||
 || fromCollapseLimit | **string** (int64)
+
+Sets the FROM-list size beyond which subqueries are not collapsed.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
 || joinCollapseLimit | **string** (int64)
 
+Sets the FROM-list size beyond which JOIN constructs are not flattened.
+
 Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_ON`: Force parallel query for all queries for which it is thought to be safe
-- `DEBUG_PARALLEL_QUERY_OFF`: Use parallel mode only when it is expected to improve performance
-- `DEBUG_PARALLEL_QUERY_REGRESS`: Like ON, but with additional changes for regression testing (suppresses context lines, hides Gather nodes in EXPLAIN) ||
+Forces the planner to use parallel query nodes.
+
+- `DEBUG_PARALLEL_QUERY_ON`: Forces parallel mode for queries considered safe, even when no performance benefit is expected.
+- `DEBUG_PARALLEL_QUERY_OFF`: Uses parallel mode only when the planner expects it to improve performance.
+- `DEBUG_PARALLEL_QUERY_REGRESS`: Behaves like ON, but hides added Gather nodes in EXPLAIN output and
+suppresses parallel-worker context lines to stabilize regression-test output. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are sent to the client.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Causes all statements generating error at or above this level to be logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinDurationStatement | **string** (int64)
 
-in milliseconds. ||
-|| logCheckpoints | **boolean** ||
-|| logConnections | **boolean** ||
-|| logDisconnections | **boolean** ||
-|| logDuration | **boolean** ||
+Sets the minimum execution time above which all statements will be logged. In milliseconds. ||
+|| logCheckpoints | **boolean**
+
+Logs each checkpoint. ||
+|| logConnections | **boolean**
+
+Logs each successful connection. ||
+|| logDisconnections | **boolean**
+
+Logs end of a session, including duration. ||
+|| logDuration | **boolean**
+
+Logs the duration of each completed SQL statement.
+ ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
+
+Sets the verbosity of logged messages.
 
 - `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
 - `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
 - `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
-|| logLockWaits | **boolean** ||
+|| logLockWaits | **boolean**
+
+Logs long lock waits. ||
 || logStatement | **enum** (LogStatement)
+
+Sets the type of statements logged.
 
 - `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
 - `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
 - `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
 - `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
-|| logTempFiles | **string** (int64) ||
-|| searchPath | **string** ||
-|| rowSecurity | **boolean** ||
+|| logTempFiles | **string** (int64)
+
+Log the use of temporary files larger than this number of kilobytes. ||
+|| searchPath | **string**
+
+Sets the schema search order for names that are not schema-qualified. ||
+|| rowSecurity | **boolean**
+
+Enable row security. ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
+
+Sets the transaction isolation level of each new transaction.
 
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
 - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
@@ -11195,119 +13466,236 @@ All queries in the current transaction see only the rows that were fixed prior t
 If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any statement. In milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any wait for a lock. In milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
+
+Sets the output format for bytea.
 
 - `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
 - `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`: Base64 encoding.
-- `XML_BINARY_HEX`: Hexadecimal encoding. ||
+Sets how binary values are to be encoded in XML.
+
+- `XML_BINARY_BASE64`: Encodes binary values using Base64.
+- `XML_BINARY_HEX`: Encodes binary values using hexadecimal notation. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`: XML document.
-- `XML_OPTION_CONTENT`: XML fragment. ||
+Sets whether XML data in implicit parsing and serialization operations is to be considered as documents or content fragments.
+
+- `XML_OPTION_DOCUMENT`: Treats an XML value as a complete, well-formed document.
+- `XML_OPTION_CONTENT`: Treats an XML value as a content fragment, which may contain multiple top-level elements or character nodes. ||
 || ginPendingListLimit | **string** (int64)
 
-in bytes. ||
+Sets the maximum size of the pending list for GIN index. In bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds.
+Sets the time to wait on a lock before checking for deadlock. In milliseconds.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
-|| maxLocksPerTransaction | **string** (int64) ||
-|| maxPredLocksPerTransaction | **string** (int64) ||
-|| arrayNulls | **boolean** ||
+|| maxLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of locks per transaction. The shared lock table is sized on the assumption that
+at most max_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| maxPredLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of predicate locks per transaction.The shared predicate lock table is sized on the assumption that
+at most max_pred_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| arrayNulls | **boolean**
+
+Enable input of NULL elements in arrays. When turned on, unquoted NULL in an array input
+value means a null value; otherwise it is taken literally. ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+Sets whether \"\\'\" is allowed in string literals.
+
+- `BACKSLASH_QUOTE`: Legacy invalid value. Do not use.
 - `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
 - `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
 - `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
-|| defaultWithOids | **boolean** ||
-|| escapeStringWarning | **boolean** ||
-|| loCompatPrivileges | **boolean** ||
-|| quoteAllIdentifiers | **boolean** ||
-|| standardConformingStrings | **boolean** ||
-|| synchronizeSeqscans | **boolean** ||
-|| transformNullEquals | **boolean** ||
-|| exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
+|| defaultWithOids | **boolean**
+
+WITH OIDS is no longer supported; this can only be false. ||
+|| escapeStringWarning | **boolean**
+
+Warn about backslash escapes in ordinary string literals. ||
+|| loCompatPrivileges | **boolean**
+
+Enables backward compatibility mode for privilege checks on large objects. Skips privilege checks
+when reading or modifying large objects, for compatibility with PostgreSQL releases prior to 9.0. ||
+|| quoteAllIdentifiers | **boolean**
+
+When generating SQL fragments, quote all identifiers. ||
+|| standardConformingStrings | **boolean**
+
+Causes '...' strings to treat backslashes literally. ||
+|| synchronizeSeqscans | **boolean**
+
+Enable synchronized sequential scans. ||
+|| transformNullEquals | **boolean**
+
+Treats \"expr=NULL\" as \"expr IS NULL\". When turned on, expressions of the form expr = NULL
+(or NULL = expr) are treated as expr IS NULL, that is, they return true if expr evaluates to the
+null value, and false otherwise. The correct behavior of expr = NULL is to always return null (unknown). ||
+|| exitOnError | **boolean**
+
+Terminate session on any error. ||
+|| seqPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a sequentially fetched disk page.
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a nonsequentially fetched disk page.
+
+The minimum value is 0. ||
 || autovacuumMaxWorkers | **string** (int64)
 
+Sets the maximum number of simultaneously running autovacuum worker processes.
+
 Acceptable values are 1 to 32, inclusive. ||
-|| autovacuumVacuumCostDelay | **string** (int64) ||
-|| autovacuumVacuumCostLimit | **string** (int64) ||
+|| autovacuumVacuumCostDelay | **string** (int64)
+
+Vacuum cost delay in milliseconds, for autovacuum. ||
+|| autovacuumVacuumCostLimit | **string** (int64)
+
+Vacuum cost amount available before napping, for autovacuum. ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds.
+Time to sleep between autovacuum runs. In milliseconds.
 
 Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds.
+Forces a switch to the next WAL file if no new file has been started within the specified interval. In milliseconds.
 
 Acceptable values are 10000 to 86400000, inclusive. ||
 || trackActivityQuerySize | **string** (int64)
 
+Sets the size reserved for pg_stat_activity.query, in bytes.
+
 Acceptable values are 100 to 102400, inclusive. ||
-|| enableBitmapscan | **boolean** ||
-|| enableHashagg | **boolean** ||
-|| enableHashjoin | **boolean** ||
-|| enableIndexscan | **boolean** ||
-|| enableIndexonlyscan | **boolean** ||
-|| enableMaterial | **boolean** ||
-|| enableMergejoin | **boolean** ||
-|| enableNestloop | **boolean** ||
-|| enableSeqscan | **boolean** ||
-|| enableSort | **boolean** ||
-|| enableTidscan | **boolean** ||
+|| enableBitmapscan | **boolean**
+
+Enables the planner's use of bitmap-scan plans. ||
+|| enableHashagg | **boolean**
+
+Enables the planner's use of hashed aggregation plans. ||
+|| enableHashjoin | **boolean**
+
+Enables the planner's use of hash join plans. ||
+|| enableIndexscan | **boolean**
+
+Enables the planner's use of index-scan plans. ||
+|| enableIndexonlyscan | **boolean**
+
+Enables the planner's use of index-only-scan plans. ||
+|| enableMaterial | **boolean**
+
+Enables the planner's use of materialization. ||
+|| enableMergejoin | **boolean**
+
+Enables the planner's use of merge join plans. ||
+|| enableNestloop | **boolean**
+
+Enables the planner's use of nested-loop join plans. ||
+|| enableSeqscan | **boolean**
+
+Enables the planner's use of sequential-scan plans. ||
+|| enableSort | **boolean**
+
+Enables the planner's use of explicit sort steps. ||
+|| enableTidscan | **boolean**
+
+Enables the planner's use of TID scan plans. ||
 || maxWorkerProcesses | **string** (int64)
+
+Maximum number of concurrent worker processes.
 
 Acceptable values are 0 to 1024, inclusive. ||
 || maxParallelWorkers | **string** (int64)
 
+Sets the maximum number of parallel workers that can be active at one time.
+
 Acceptable values are 0 to 1024, inclusive. ||
 || maxParallelWorkersPerGather | **string** (int64)
 
+Sets the maximum number of parallel processes per executor node.
+
 Acceptable values are 0 to 1024, inclusive. ||
-|| autovacuumVacuumScaleFactor | **number** (double) ||
-|| autovacuumAnalyzeScaleFactor | **number** (double) ||
-|| defaultTransactionReadOnly | **boolean** ||
-|| timezone | **string** ||
-|| enableParallelAppend | **boolean** ||
-|| enableParallelHash | **boolean** ||
-|| enablePartitionPruning | **boolean** ||
-|| enablePartitionwiseAggregate | **boolean** ||
-|| enablePartitionwiseJoin | **boolean** ||
-|| jit | **boolean** ||
+|| autovacuumVacuumScaleFactor | **number** (double)
+
+Number of tuple updates or deletes prior to vacuum as a fraction of reltuples. ||
+|| autovacuumAnalyzeScaleFactor | **number** (double)
+
+Number of tuple inserts, updates, or deletes prior to analyze as a fraction of reltuples. ||
+|| defaultTransactionReadOnly | **boolean**
+
+Sets the default read-only status of new transactions. ||
+|| timezone | **string**
+
+Sets the time zone for displaying and interpreting time stamps. ||
+|| enableParallelAppend | **boolean**
+
+Enables the planner's use of parallel append plans. ||
+|| enableParallelHash | **boolean**
+
+Enables the planner's use of parallel hash plans. ||
+|| enablePartitionPruning | **boolean**
+
+Enables plan-time and execution-time partition pruning. Allows the query planner and executor to
+compare partition bounds to conditions in the query to determine which partitions must be scanned. ||
+|| enablePartitionwiseAggregate | **boolean**
+
+Enables partitionwise aggregation and grouping. ||
+|| enablePartitionwiseJoin | **boolean**
+
+Enables partitionwise join. ||
+|| jit | **boolean**
+
+Allow JIT compilation. ||
 || maxParallelMaintenanceWorkers | **string** (int64)
 
+Sets the maximum number of parallel processes per maintenance operation.
+
 The minimum value is 0. ||
-|| parallelLeaderParticipation | **boolean** ||
-|| logTransactionSampleRate | **number** (double) ||
+|| parallelLeaderParticipation | **boolean**
+
+Controls whether Gather and Gather Merge also run subplans. ||
+|| logTransactionSampleRate | **number** (double)
+
+Sets the fraction of transactions from which to log all statements. Use a
+value between 0.0 (never log) and 1.0 (log all statements for all transactions). ||
 || planCacheMode | **enum** (PlanCacheMode)
+
+Controls the planner's selection of custom or generic plan. Prepared statements can have custom and generic plans,
+and the planner will attempt to choose which is better. This can be set to override the default behavior.
 
 - `PLAN_CACHE_MODE_AUTO`: Automatic selection.
 - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`: Forces the use of custom plans.
 - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`: Forces the use of generic plans. ||
 || effectiveIoConcurrency | **string** (int64)
 
+Number of simultaneous requests that can be handled efficiently by the disk subsystem.
+
 Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
+Sets the planner's assumption about the effective size of the disk cache available to a single query. In bytes.
+
 Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
+
+Lists shared libraries to preload into server.
 
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`: Required for the [auto_explain](https://www.postgresql.org/docs/current/auto-explain.html) extension.
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`: Required for the [pg_hint_plan](https://github.com/ossc-db/pg_hint_plan) extension.
@@ -11322,166 +13710,264 @@ Acceptable values are 1048576 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_SPQRGUARD`: Required for the [spqrguard](https://github.com/pg-sharding/spqrguard) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
-in milliseconds. ||
-|| autoExplainLogAnalyze | **boolean** ||
-|| autoExplainLogBuffers | **boolean** ||
-|| autoExplainLogTiming | **boolean** ||
-|| autoExplainLogTriggers | **boolean** ||
-|| autoExplainLogVerbose | **boolean** ||
-|| autoExplainLogNestedStatements | **boolean** ||
-|| autoExplainSampleRate | **number** (double) ||
-|| pgHintPlanEnableHint | **boolean** ||
-|| pgHintPlanEnableHintTable | **boolean** ||
+Sets the minimum statement execution time, that will cause the statement's plan to be logged.
+Setting this to 0 logs all plans. -1 (the default) disables logging of plans. For example, if
+you set it to 250ms then all statements that run 250ms or longer will be logged. In milliseconds.
+ ||
+|| autoExplainLogAnalyze | **boolean**
+
+Causes EXPLAIN ANALYZE output, rather than just EXPLAIN output,to be printed
+when an executionplan is logged. This parameter is off by default. ||
+|| autoExplainLogBuffers | **boolean**
+
+Controls whether buffer usage statistics are printed when an execution plan is logged;
+it's equivalent to the BUFFERS option of EXPLAIN. This parameter has no effect unless
+auto_explain.log_analyze is enabled. This parameter is off by default. ||
+|| autoExplainLogTiming | **boolean**
+
+Controls whether per-node timing information is printed when an execution plan is logged;
+it's equivalent to the TIMING option of EXPLAIN. The overhead of repeatedly reading the system
+clock can slow down queries significantly on some systems, so it may be useful to set this
+parameter to off when only actual row counts, and not exact times, are needed. This parameter
+has no effect unless auto_explain.log_analyze is enabled. This parameter is on by default. ||
+|| autoExplainLogTriggers | **boolean**
+
+Causes trigger execution statistics to be included when an execution plan is logged. This parameter
+has no effect unless auto_explain.log_analyze is enabled. This parameter is off by default. ||
+|| autoExplainLogVerbose | **boolean**
+
+Controls whether verbose details are printed when an execution plan is logged; it's
+equivalent to the VERBOSE option of EXPLAIN. This parameter is off by default. ||
+|| autoExplainLogNestedStatements | **boolean**
+
+Causes nested statements (statements executed inside a function) to be considered for logging.
+When it is off, only top-level query plans are logged. This parameter is off by default. ||
+|| autoExplainSampleRate | **number** (double)
+
+Causes auto_explain to only explain a fraction of the statements in each session. The default is 1,
+meaning explain all the queries. In case of nested statements, either all will be explained or none. ||
+|| pgHintPlanEnableHint | **boolean**
+
+Enables processing of query hints by pg_hint_plan. ||
+|| pgHintPlanEnableHintTable | **boolean**
+
+Enables lookup of hints in the hint table. ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disable debug output
-- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Print debug messages about hint parsing
-- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Print detailed debug information including query planning process
-- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Print verbose debug output with all internal operations ||
+Controls whether and how verbosely hint parsing results are logged.
+
+- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disables diagnostic logging.
+- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Logs hint-processing results grouped by used, unused, duplicate, and erroneous hints.
+- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Logs hint-processing results together with detailed planner diagnostics.
+- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Logs the most detailed diagnostics, including query strings used to extract hints. ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
-|| hashMemMultiplier | **number** (double) ||
+Sets the log level for pg_hint_plan debug messages.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
+|| hashMemMultiplier | **number** (double)
+
+Multiple of work_mem to use for hash tables. ||
 || logicalDecodingWorkMem | **string** (int64)
 
-in bytes.
+Sets the maximum memory to be used for logical decoding. This much memory can be
+used by each internal reorder buffer before spilling to disk. In bytes.
 
 Acceptable values are 65536 to 1099511627776, inclusive. ||
 || maintenanceIoConcurrency | **string** (int64)
 
+A variant of effective_io_concurrency that is used for maintenance work.
+
 Acceptable values are 0 to 1000, inclusive. ||
 || maxSlotWalKeepSize | **string** (int64)
 
-in bytes. ||
+Sets the maximum WAL size that can be reserved by replication slots. Replication slots will be marked as failed,
+and segments released for deletion or recycling, if this much space is occupied by WAL on disk. In bytes. ||
 || walKeepSize | **string** (int64)
 
-in bytes. ||
-|| enableIncrementalSort | **boolean** ||
-|| autovacuumVacuumInsertThreshold | **string** (int64) ||
-|| autovacuumVacuumInsertScaleFactor | **number** (double) ||
+Sets the size of WAL files held for standby servers. In bytes. ||
+|| enableIncrementalSort | **boolean**
+
+Enables the planner's use of incremental sort steps. ||
+|| autovacuumVacuumInsertThreshold | **string** (int64)
+
+Minimum number of tuple inserts prior to vacuum, or -1 to disable insert vacuums. ||
+|| autovacuumVacuumInsertScaleFactor | **number** (double)
+
+Number of tuple inserts prior to vacuum as a fraction of reltuples. ||
 || logMinDurationSample | **string** (int64)
 
-in milliseconds. ||
-|| logStatementSampleRate | **number** (double) ||
+Sets the minimum execution time above which a sample of statements will be logged. Sampling is determined
+by log_statement_sample_rate. Zero logs a sample of all queries. -1 turns this feature off. In milliseconds. ||
+|| logStatementSampleRate | **number** (double)
+
+Fraction of statements exceeding log_min_duration_sample to be logged. Use a value between 0.0 (never log) and 1.0 (always log). ||
 || logParameterMaxLength | **string** (int64)
 
-in bytes. ||
+When logging statements, limit logged parameter values to first N bytes. -1 to print values in full. ||
 || logParameterMaxLengthOnError | **string** (int64)
 
-in bytes. ||
+When reporting an error, limit logged parameter values to first N bytes. -1 to print values in full. ||
 || clientConnectionCheckInterval | **string** (int64)
 
-in milliseconds. ||
-|| enableAsyncAppend | **boolean** ||
-|| enableGathermerge | **boolean** ||
-|| enableMemoize | **boolean** ||
+Sets the time interval between checks for disconnection while running queries. In milliseconds. ||
+|| enableAsyncAppend | **boolean**
+
+Enables the planner's use of async append plans. ||
+|| enableGathermerge | **boolean**
+
+Enables the planner's use of gather merge plans. ||
+|| enableMemoize | **boolean**
+
+Enables the planner's use of memoization. ||
 || logRecoveryConflictWaits | **boolean**
 
-in milliseconds. ||
+Logs standby recovery conflict waits. ||
 || vacuumFailsafeAge | **string** (int64)
 
-in milliseconds. ||
+Age at which VACUUM should trigger failsafe to avoid a wraparound outage. ||
 || vacuumMultixactFailsafeAge | **string** (int64)
 
-in milliseconds. ||
-|| pgQualstatsEnabled | **boolean** ||
-|| pgQualstatsTrackConstants | **boolean** ||
-|| pgQualstatsMax | **string** (int64) ||
-|| pgQualstatsResolveOids | **boolean** ||
-|| pgQualstatsSampleRate | **number** (double) ||
+Multixact age at which VACUUM should trigger failsafe to avoid a wraparound outage. ||
+|| pgQualstatsEnabled | **boolean**
+
+Controls whether pg_qualstats collects execution statistics for query predicates,
+including filters and join conditions. ||
+|| pgQualstatsTrackConstants | **boolean**
+
+Controls whether pg_qualstats keeps separate statistics for predicates containing different constant values ||
+|| pgQualstatsMax | **string** (int64)
+
+Limits the number of predicate-statistics and query-text entries retained by pg_qualstats. ||
+|| pgQualstatsResolveOids | **boolean**
+
+Controls whether pg_qualstats resolves object OIDs and stores their names  when collecting statistics.
+Enabling this increases memory usage and requires additional system-catalog lookups. ||
+|| pgQualstatsSampleRate | **number** (double)
+
+Sets the fraction of queries sampled by pg_qualstats. A value of -1 selects an automatic rate
+of 1 / max_connections; 0 samples no queries, and 1 samples every query. ||
 || maxStackDepth | **string** (int64)
 
-in bytes.
+Sets the maximum stack depth, in bytes.
 
 Acceptable values are 65536 to 134217728, inclusive. ||
-|| enableGroupByReordering | **boolean** ||
+|| enableGroupByReordering | **boolean**
+
+Controls if the query planner will produce a plan which will provide GROUP BY keys sorted in the order of keys of a
+child node of the plan, such as an index scan. When disabled, the query planner will produce a plan with GROUP BY keys
+only sorted to match the ORDER BY clause, if any. When enabled, the planner will try to produce a more efficient plan.
+The default value is on. ||
 || geqo | **boolean**
 
-enable Genetic Query Optimizer, by default is on ||
+Enables genetic query optimization. This algorithm attempts to do planning
+without exhaustive searching, by default is on. ||
 || geqoThreshold | **string** (int64)
 
-The number of tables to use geqo, default is 12
+Sets the threshold of FROM items beyond which GEQO is used, default is 12.
 
 Acceptable values are 2 to 2147483647, inclusive. ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5
+GEQO: effort is used to set the default for other GEQO parameters.
+Tradeoff between planning time and query plan quality, default is 5.
 
 Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
-number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
+GEQO: number of individuals in the population.
+Useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort. ||
 || geqoGenerations | **string** (int64)
 
-the number of generations used by GEQO, useful values are in the same range as the pool size ||
+GEQO: number of iterations of the algorithm. Zero selects a suitable default value.
+Useful values are in the same range as the pool size. ||
 || geqoSelectionBias | **number** (double)
 
-selective pressure within the population ||
+GEQO: selective pressure within the population. ||
 || geqoSeed | **number** (double)
 
-initial value of the random number generator used by GEQO ||
-|| pgTrgmSimilarityThreshold | **number** (double) ||
-|| pgTrgmWordSimilarityThreshold | **number** (double) ||
-|| pgTrgmStrictWordSimilarityThreshold | **number** (double) ||
+GEQO: seed for random path selection. ||
+|| pgTrgmSimilarityThreshold | **number** (double)
+
+Sets the trigram similarity threshold used by the `%` operator
+to determine whether two strings are similar. ||
+|| pgTrgmWordSimilarityThreshold | **number** (double)
+
+Sets the threshold used by the `<%` and `%>` operators when comparing
+a string with the most similar continuous part of another string. ||
+|| pgTrgmStrictWordSimilarityThreshold | **number** (double)
+
+Sets the threshold used by the `<<%` and `%>>` operators when comparing
+a string with parts of another string aligned to word boundaries. ||
 || maxStandbyArchiveDelay | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum delay before canceling queries when a hot standby server is processing archived WAL data. In milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is
+not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
-|| logReplicationCommands | **boolean** ||
+|| logReplicationCommands | **boolean**
+
+Logs each replication command. ||
 || logAutovacuumMinDuration | **string** (int64)
 
-in milliseconds. The default is 1000 (1 sec). ||
+Sets the minimum execution time above which autovacuum actions will be logged.
+Zero prints all actions. -1 turns autovacuum logging off. In milliseconds. The default is 1000 (1 sec).
+ ||
 || passwordEncryption | **enum** (PasswordEncryption)
 
-A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
+A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are
+`` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
 - `PASSWORD_ENCRYPTION_MD5`: The method md5 uses a custom less secure challenge-response mechanism. It prevents password sniffing and avoids storing passwords on the server in plain text but provides no protection if an attacker manages to steal the password hash from the server. Also, the MD5 hash algorithm is nowadays no longer considered secure against determined attacks.
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256`: The method scram-sha-256 performs SCRAM-SHA-256 authentication, as described in RFC 7677. It is a challenge-response scheme that prevents password sniffing on untrusted connections and supports storing passwords on the server in a cryptographically hashed form that is thought to be secure.
 This is the most secure of the currently provided methods, but it is not supported by older client libraries. ||
 || autoExplainLogFormat | **enum** (AutoExplainLogFormat)
 
-Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
+Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``,
+`` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``.
+The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
 
-- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`: 'text' value for the EXPLAIN output format in auto_explain extension
-- `AUTO_EXPLAIN_LOG_FORMAT_XML`: 'xml' value for the EXPLAIN output format in auto_explain extension
-- `AUTO_EXPLAIN_LOG_FORMAT_JSON`: 'json' value for the EXPLAIN output format in auto_explain extension
-- `AUTO_EXPLAIN_LOG_FORMAT_YAML`: 'yaml' value for the EXPLAIN output format in auto_explain extension ||
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`: Formats logged execution plans as plain text.
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`: Formats logged execution plans as XML.
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`: Formats logged execution plans as JSON.
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML`: Formats logged execution plans as YAML. ||
 || idleSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when not in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || checkpointWarning | **string** (int64)
 
-in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
+Sets the interval below which checkpoints triggered by filling WAL segment files cause a warning to be written to the server log.
+A value of 0 disables the warning. In milliseconds.
 
 Acceptable values are 0 to 2147483647000, inclusive. ||
 || pgHintPlanHintsAnywhere | **boolean**
 
-If it is true, pg_hint_plan reads hints ignoring SQL syntax. This allows placing hints anywhere in the query but may cause false reads. Default is false. ||
+Allows pg_hint_plan to read hint comments from any position in the query text,
+without regard to SQL syntax. This may cause false hint matches. ||
 || autovacuumVacuumThreshold | **string** (int64)
 
-Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+Minimum number of tuple updates or deletes prior to vacuum.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || autovacuumAnalyzeThreshold | **string** (int64)
 
-Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+Minimum number of tuple inserts, updates, or deletes prior to analyze.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 |#
@@ -11512,56 +13998,81 @@ parameters which detailed description is available in
 ||Field | Description ||
 || maxConnections | **string** (int64)
 
+Sets the maximum number of concurrent connections.
+
 The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
-in bytes. ||
+Sets the number of shared memory buffers used by the server. In bytes. ||
 || tempBuffers | **string** (int64)
 
-in bytes. ||
-|| maxPreparedTransactions | **string** (int64) ||
+Sets the maximum number of temporary buffers used by each session. In bytes. ||
+|| maxPreparedTransactions | **string** (int64)
+
+Sets the maximum number of simultaneously prepared transactions. ||
 || workMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used for query workspaces. This much memory can be used by each
+internal sort operation and hash table before switching to temporary disk files. In bytes. ||
 || maintenanceWorkMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used for maintenance operations.
+This includes operations such as VACUUM and CREATE INDEX. In bytes. ||
 || autovacuumWorkMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used by each autovacuum worker process. In bytes. ||
 || tempFileLimit | **string** (int64)
 
-in bytes. ||
+Limits the total size of all temporary files used by each process. -1 means no limit. In bytes. ||
 || vacuumCostDelay | **string** (int64)
 
-in milliseconds. ||
-|| vacuumCostPageHit | **string** (int64) ||
-|| vacuumCostPageMiss | **string** (int64) ||
-|| vacuumCostPageDirty | **string** (int64) ||
-|| vacuumCostLimit | **string** (int64) ||
+Vacuum cost delay. In milliseconds. ||
+|| vacuumCostPageHit | **string** (int64)
+
+Vacuum cost for a page found in the buffer cache. ||
+|| vacuumCostPageMiss | **string** (int64)
+
+Vacuum cost for a page not found in the buffer cache. ||
+|| vacuumCostPageDirty | **string** (int64)
+
+Vacuum cost for a page dirtied by vacuum. ||
+|| vacuumCostLimit | **string** (int64)
+
+Vacuum cost amount available before napping. ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds.
+Background writer sleep time between rounds. In milliseconds.
 
 Acceptable values are 10 to 10000, inclusive. ||
-|| bgwriterLruMaxpages | **string** (int64) ||
-|| bgwriterLruMultiplier | **number** (double) ||
+|| bgwriterLruMaxpages | **string** (int64)
+
+Background writer maximum number of LRU pages to flush per round. ||
+|| bgwriterLruMultiplier | **number** (double)
+
+Multiple of the average buffer usage to free per round. ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes
+Specifies how much data the background writer can write before forcing the operating system to issue the writes. In bytes.
 
 Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes
+Specifies how much data a backend can write before forcing the operating system to issue the writes. In bytes.
 
 Acceptable values are 0 to 2097152, inclusive. ||
-|| oldSnapshotThreshold | **string** (int64) ||
+|| oldSnapshotThreshold | **string** (int64)
+
+Time before a snapshot is too old to read pages changed after the snapshot was taken.
+A value of -1 disables this feature. In milliseconds. ||
 || walLevel | **enum** (WalLevel)
+
+Sets the level of information written to the WAL.
 
 - `WAL_LEVEL_REPLICA`: Supports WAL archiving and physical replication.
 - `WAL_LEVEL_LOGICAL`: Supports WAL archiving, physical replication, and logical decoding. ||
 || synchronousCommit | **enum** (SynchronousCommit)
+
+Sets the current transaction's synchronization level.
 
 - `SYNCHRONOUS_COMMIT_ON`: Success is reported to the client if the data is in WAL (Write-Ahead Log), and WAL is written to the storage of both the master and its synchronous standby server. Default value.
 - `SYNCHRONOUS_COMMIT_OFF`: Success is reported to the client even if the data is not in WAL.
@@ -11574,107 +14085,152 @@ The transaction may be lost due to simultaneous storage subsystem failure on the
 The transaction may be lost due to irrecoverably failure of both the master and its synchronous standby. ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum time between automatic WAL checkpoints. In milliseconds.
 
 Acceptable values are 30000 to 86400000, inclusive. ||
-|| checkpointCompletionTarget | **number** (double) ||
+|| checkpointCompletionTarget | **number** (double)
+
+Time spent flushing dirty buffers during checkpoint, as fraction of checkpoint interval. ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes
+Specifies how much data can be written during a checkpoint before forcing the operating system to issue the writes. In bytes.
 
 Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
-in bytes. ||
+Sets the WAL size that triggers a checkpoint. In bytes. ||
 || minWalSize | **string** (int64)
 
-in bytes. ||
+Sets the minimum size to shrink the WAL to. In bytes. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
-in milliseconds. ||
-|| defaultStatisticsTarget | **string** (int64) ||
+Sets the maximum delay before canceling queries when a hot standby server is processing streamed WAL data. In milliseconds. ||
+|| defaultStatisticsTarget | **string** (int64)
+
+Sets the default statistics target. This applies to table columns that have not had a
+column-specific target set via ALTER TABLE SET STATISTICS. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
+
+Enables the planner to use constraints to optimize queries.
 
 - `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
 - `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
 - `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
-|| cursorTupleFraction | **number** (double) ||
+|| cursorTupleFraction | **number** (double)
+
+Sets the planner's estimate of the fraction of a cursor's rows that will be retrieved. ||
 || fromCollapseLimit | **string** (int64)
+
+Sets the FROM-list size beyond which subqueries are not collapsed.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
 || joinCollapseLimit | **string** (int64)
 
+Sets the FROM-list size beyond which JOIN constructs are not flattened.
+
 Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_ON`: Force parallel query for all queries for which it is thought to be safe
-- `DEBUG_PARALLEL_QUERY_OFF`: Use parallel mode only when it is expected to improve performance
-- `DEBUG_PARALLEL_QUERY_REGRESS`: Like ON, but with additional changes for regression testing (suppresses context lines, hides Gather nodes in EXPLAIN) ||
+Forces the planner to use parallel query nodes.
+
+- `DEBUG_PARALLEL_QUERY_ON`: Forces parallel mode for queries considered safe, even when no performance benefit is expected.
+- `DEBUG_PARALLEL_QUERY_OFF`: Uses parallel mode only when the planner expects it to improve performance.
+- `DEBUG_PARALLEL_QUERY_REGRESS`: Behaves like ON, but hides added Gather nodes in EXPLAIN output and
+suppresses parallel-worker context lines to stabilize regression-test output. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are sent to the client.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Causes all statements generating error at or above this level to be logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinDurationStatement | **string** (int64)
 
-in milliseconds. ||
-|| logCheckpoints | **boolean** ||
-|| logConnections | **boolean** ||
-|| logDisconnections | **boolean** ||
-|| logDuration | **boolean** ||
+Sets the minimum execution time above which all statements will be logged. In milliseconds. ||
+|| logCheckpoints | **boolean**
+
+Logs each checkpoint. ||
+|| logConnections | **boolean**
+
+Logs each successful connection. ||
+|| logDisconnections | **boolean**
+
+Logs end of a session, including duration. ||
+|| logDuration | **boolean**
+
+Logs the duration of each completed SQL statement.
+ ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
+
+Sets the verbosity of logged messages.
 
 - `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
 - `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
 - `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
-|| logLockWaits | **boolean** ||
+|| logLockWaits | **boolean**
+
+Logs long lock waits. ||
 || logStatement | **enum** (LogStatement)
+
+Sets the type of statements logged.
 
 - `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
 - `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
 - `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
 - `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
-|| logTempFiles | **string** (int64) ||
-|| searchPath | **string** ||
-|| rowSecurity | **boolean** ||
+|| logTempFiles | **string** (int64)
+
+Log the use of temporary files larger than this number of kilobytes. ||
+|| searchPath | **string**
+
+Sets the schema search order for names that are not schema-qualified. ||
+|| rowSecurity | **boolean**
+
+Enable row security. ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
+
+Sets the transaction isolation level of each new transaction.
 
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
 - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
@@ -11684,120 +14240,239 @@ All queries in the current transaction see only the rows that were fixed prior t
 If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any statement. In milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any wait for a lock. In milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
+
+Sets the output format for bytea.
 
 - `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
 - `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`: Base64 encoding.
-- `XML_BINARY_HEX`: Hexadecimal encoding. ||
+Sets how binary values are to be encoded in XML.
+
+- `XML_BINARY_BASE64`: Encodes binary values using Base64.
+- `XML_BINARY_HEX`: Encodes binary values using hexadecimal notation. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`: XML document.
-- `XML_OPTION_CONTENT`: XML fragment. ||
+Sets whether XML data in implicit parsing and serialization operations is to be considered as documents or content fragments.
+
+- `XML_OPTION_DOCUMENT`: Treats an XML value as a complete, well-formed document.
+- `XML_OPTION_CONTENT`: Treats an XML value as a content fragment, which may contain multiple top-level elements or character nodes. ||
 || ginPendingListLimit | **string** (int64)
 
-in bytes. ||
+Sets the maximum size of the pending list for GIN index. In bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds.
+Sets the time to wait on a lock before checking for deadlock. In milliseconds.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
-|| maxLocksPerTransaction | **string** (int64) ||
-|| maxPredLocksPerTransaction | **string** (int64) ||
-|| arrayNulls | **boolean** ||
+|| maxLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of locks per transaction. The shared lock table is sized on the assumption that
+at most max_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| maxPredLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of predicate locks per transaction.The shared predicate lock table is sized on the assumption that
+at most max_pred_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| arrayNulls | **boolean**
+
+Enable input of NULL elements in arrays. When turned on, unquoted NULL in an array input
+value means a null value; otherwise it is taken literally. ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+Sets whether \"\\'\" is allowed in string literals.
+
+- `BACKSLASH_QUOTE`: Legacy invalid value. Do not use.
 - `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
 - `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
 - `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
-|| defaultWithOids | **boolean** ||
-|| escapeStringWarning | **boolean** ||
-|| loCompatPrivileges | **boolean** ||
-|| quoteAllIdentifiers | **boolean** ||
-|| standardConformingStrings | **boolean** ||
-|| synchronizeSeqscans | **boolean** ||
-|| transformNullEquals | **boolean** ||
-|| exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
+|| defaultWithOids | **boolean**
+
+WITH OIDS is no longer supported; this can only be false. ||
+|| escapeStringWarning | **boolean**
+
+Warn about backslash escapes in ordinary string literals. ||
+|| loCompatPrivileges | **boolean**
+
+Enables backward compatibility mode for privilege checks on large objects. Skips privilege checks
+when reading or modifying large objects, for compatibility with PostgreSQL releases prior to 9.0. ||
+|| quoteAllIdentifiers | **boolean**
+
+When generating SQL fragments, quote all identifiers. ||
+|| standardConformingStrings | **boolean**
+
+Causes '...' strings to treat backslashes literally. ||
+|| synchronizeSeqscans | **boolean**
+
+Enable synchronized sequential scans. ||
+|| transformNullEquals | **boolean**
+
+Treats \"expr=NULL\" as \"expr IS NULL\". When turned on, expressions of the form expr = NULL
+(or NULL = expr) are treated as expr IS NULL, that is, they return true if expr evaluates to the
+null value, and false otherwise. The correct behavior of expr = NULL is to always return null (unknown). ||
+|| exitOnError | **boolean**
+
+Terminate session on any error. ||
+|| seqPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a sequentially fetched disk page.
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a nonsequentially fetched disk page.
+
+The minimum value is 0. ||
 || autovacuumMaxWorkers | **string** (int64)
 
+Sets the maximum number of simultaneously running autovacuum worker processes.
+
 Acceptable values are 1 to 32, inclusive. ||
-|| autovacuumVacuumCostDelay | **string** (int64) ||
-|| autovacuumVacuumCostLimit | **string** (int64) ||
+|| autovacuumVacuumCostDelay | **string** (int64)
+
+Vacuum cost delay in milliseconds, for autovacuum. ||
+|| autovacuumVacuumCostLimit | **string** (int64)
+
+Vacuum cost amount available before napping, for autovacuum. ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds.
+Time to sleep between autovacuum runs. In milliseconds.
 
 Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds.
+Forces a switch to the next WAL file if no new file has been started within the specified interval. In milliseconds.
 
 Acceptable values are 10000 to 86400000, inclusive. ||
 || trackActivityQuerySize | **string** (int64)
 
+Sets the size reserved for pg_stat_activity.query, in bytes.
+
 Acceptable values are 100 to 102400, inclusive. ||
-|| onlineAnalyzeEnable | **boolean** ||
-|| enableBitmapscan | **boolean** ||
-|| enableHashagg | **boolean** ||
-|| enableHashjoin | **boolean** ||
-|| enableIndexscan | **boolean** ||
-|| enableIndexonlyscan | **boolean** ||
-|| enableMaterial | **boolean** ||
-|| enableMergejoin | **boolean** ||
-|| enableNestloop | **boolean** ||
-|| enableSeqscan | **boolean** ||
-|| enableSort | **boolean** ||
-|| enableTidscan | **boolean** ||
+|| onlineAnalyzeEnable | **boolean**
+
+Enables automatic table-statistics updates by online_analyze after data-modifying operations. ||
+|| enableBitmapscan | **boolean**
+
+Enables the planner's use of bitmap-scan plans. ||
+|| enableHashagg | **boolean**
+
+Enables the planner's use of hashed aggregation plans. ||
+|| enableHashjoin | **boolean**
+
+Enables the planner's use of hash join plans. ||
+|| enableIndexscan | **boolean**
+
+Enables the planner's use of index-scan plans. ||
+|| enableIndexonlyscan | **boolean**
+
+Enables the planner's use of index-only-scan plans. ||
+|| enableMaterial | **boolean**
+
+Enables the planner's use of materialization. ||
+|| enableMergejoin | **boolean**
+
+Enables the planner's use of merge join plans. ||
+|| enableNestloop | **boolean**
+
+Enables the planner's use of nested-loop join plans. ||
+|| enableSeqscan | **boolean**
+
+Enables the planner's use of sequential-scan plans. ||
+|| enableSort | **boolean**
+
+Enables the planner's use of explicit sort steps. ||
+|| enableTidscan | **boolean**
+
+Enables the planner's use of TID scan plans. ||
 || maxWorkerProcesses | **string** (int64)
+
+Maximum number of concurrent worker processes.
 
 Acceptable values are 0 to 1024, inclusive. ||
 || maxParallelWorkers | **string** (int64)
 
+Sets the maximum number of parallel workers that can be active at one time.
+
 Acceptable values are 0 to 1024, inclusive. ||
 || maxParallelWorkersPerGather | **string** (int64)
 
+Sets the maximum number of parallel processes per executor node.
+
 Acceptable values are 0 to 1024, inclusive. ||
-|| autovacuumVacuumScaleFactor | **number** (double) ||
-|| autovacuumAnalyzeScaleFactor | **number** (double) ||
-|| defaultTransactionReadOnly | **boolean** ||
-|| timezone | **string** ||
-|| enableParallelAppend | **boolean** ||
-|| enableParallelHash | **boolean** ||
-|| enablePartitionPruning | **boolean** ||
-|| enablePartitionwiseAggregate | **boolean** ||
-|| enablePartitionwiseJoin | **boolean** ||
-|| jit | **boolean** ||
+|| autovacuumVacuumScaleFactor | **number** (double)
+
+Number of tuple updates or deletes prior to vacuum as a fraction of reltuples. ||
+|| autovacuumAnalyzeScaleFactor | **number** (double)
+
+Number of tuple inserts, updates, or deletes prior to analyze as a fraction of reltuples. ||
+|| defaultTransactionReadOnly | **boolean**
+
+Sets the default read-only status of new transactions. ||
+|| timezone | **string**
+
+Sets the time zone for displaying and interpreting time stamps. ||
+|| enableParallelAppend | **boolean**
+
+Enables the planner's use of parallel append plans. ||
+|| enableParallelHash | **boolean**
+
+Enables the planner's use of parallel hash plans. ||
+|| enablePartitionPruning | **boolean**
+
+Enables plan-time and execution-time partition pruning. Allows the query planner and executor to
+compare partition bounds to conditions in the query to determine which partitions must be scanned. ||
+|| enablePartitionwiseAggregate | **boolean**
+
+Enables partitionwise aggregation and grouping. ||
+|| enablePartitionwiseJoin | **boolean**
+
+Enables partitionwise join. ||
+|| jit | **boolean**
+
+Allow JIT compilation. ||
 || maxParallelMaintenanceWorkers | **string** (int64)
 
+Sets the maximum number of parallel processes per maintenance operation.
+
 The minimum value is 0. ||
-|| parallelLeaderParticipation | **boolean** ||
-|| logTransactionSampleRate | **number** (double) ||
+|| parallelLeaderParticipation | **boolean**
+
+Controls whether Gather and Gather Merge also run subplans. ||
+|| logTransactionSampleRate | **number** (double)
+
+Sets the fraction of transactions from which to log all statements. Use a
+value between 0.0 (never log) and 1.0 (log all statements for all transactions). ||
 || planCacheMode | **enum** (PlanCacheMode)
+
+Controls the planner's selection of custom or generic plan. Prepared statements can have custom and generic plans,
+and the planner will attempt to choose which is better. This can be set to override the default behavior.
 
 - `PLAN_CACHE_MODE_AUTO`: Automatic selection.
 - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`: Forces the use of custom plans.
 - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`: Forces the use of generic plans. ||
 || effectiveIoConcurrency | **string** (int64)
 
+Number of simultaneous requests that can be handled efficiently by the disk subsystem.
+
 Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
+Sets the planner's assumption about the effective size of the disk cache available to a single query. In bytes.
+
 Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
+
+Lists shared libraries to preload into server.
 
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`: Required for the [auto_explain](https://www.postgresql.org/docs/current/auto-explain.html) extension.
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`: Required for the [pg_hint_plan](https://github.com/ossc-db/pg_hint_plan) extension.
@@ -11812,167 +14487,267 @@ Acceptable values are 1048576 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_SPQRGUARD`: Required for the [spqrguard](https://github.com/pg-sharding/spqrguard) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
-in milliseconds. ||
-|| autoExplainLogAnalyze | **boolean** ||
-|| autoExplainLogBuffers | **boolean** ||
-|| autoExplainLogTiming | **boolean** ||
-|| autoExplainLogTriggers | **boolean** ||
-|| autoExplainLogVerbose | **boolean** ||
-|| autoExplainLogNestedStatements | **boolean** ||
-|| autoExplainSampleRate | **number** (double) ||
-|| pgHintPlanEnableHint | **boolean** ||
-|| pgHintPlanEnableHintTable | **boolean** ||
+Sets the minimum statement execution time, that will cause the statement's plan to be logged.
+Setting this to 0 logs all plans. -1 (the default) disables logging of plans. For example, if
+you set it to 250ms then all statements that run 250ms or longer will be logged. In milliseconds.
+ ||
+|| autoExplainLogAnalyze | **boolean**
+
+Causes EXPLAIN ANALYZE output, rather than just EXPLAIN output,to be printed
+when an executionplan is logged. This parameter is off by default. ||
+|| autoExplainLogBuffers | **boolean**
+
+Controls whether buffer usage statistics are printed when an execution plan is logged;
+it's equivalent to the BUFFERS option of EXPLAIN. This parameter has no effect unless
+auto_explain.log_analyze is enabled. This parameter is off by default. ||
+|| autoExplainLogTiming | **boolean**
+
+Controls whether per-node timing information is printed when an execution plan is logged;
+it's equivalent to the TIMING option of EXPLAIN. The overhead of repeatedly reading the system
+clock can slow down queries significantly on some systems, so it may be useful to set this
+parameter to off when only actual row counts, and not exact times, are needed. This parameter
+has no effect unless auto_explain.log_analyze is enabled. This parameter is on by default. ||
+|| autoExplainLogTriggers | **boolean**
+
+Causes trigger execution statistics to be included when an execution plan is logged. This parameter
+has no effect unless auto_explain.log_analyze is enabled. This parameter is off by default. ||
+|| autoExplainLogVerbose | **boolean**
+
+Controls whether verbose details are printed when an execution plan is logged; it's
+equivalent to the VERBOSE option of EXPLAIN. This parameter is off by default. ||
+|| autoExplainLogNestedStatements | **boolean**
+
+Causes nested statements (statements executed inside a function) to be considered for logging.
+When it is off, only top-level query plans are logged. This parameter is off by default. ||
+|| autoExplainSampleRate | **number** (double)
+
+Causes auto_explain to only explain a fraction of the statements in each session. The default is 1,
+meaning explain all the queries. In case of nested statements, either all will be explained or none. ||
+|| pgHintPlanEnableHint | **boolean**
+
+Enables processing of query hints by pg_hint_plan. ||
+|| pgHintPlanEnableHintTable | **boolean**
+
+Enables lookup of hints in the hint table. ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disable debug output
-- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Print debug messages about hint parsing
-- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Print detailed debug information including query planning process
-- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Print verbose debug output with all internal operations ||
+Controls whether and how verbosely hint parsing results are logged.
+
+- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disables diagnostic logging.
+- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Logs hint-processing results grouped by used, unused, duplicate, and erroneous hints.
+- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Logs hint-processing results together with detailed planner diagnostics.
+- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Logs the most detailed diagnostics, including query strings used to extract hints. ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
-|| hashMemMultiplier | **number** (double) ||
+Sets the log level for pg_hint_plan debug messages.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
+|| hashMemMultiplier | **number** (double)
+
+Multiple of work_mem to use for hash tables. ||
 || logicalDecodingWorkMem | **string** (int64)
 
-in bytes.
+Sets the maximum memory to be used for logical decoding. This much memory can be
+used by each internal reorder buffer before spilling to disk. In bytes.
 
 Acceptable values are 65536 to 1099511627776, inclusive. ||
 || maintenanceIoConcurrency | **string** (int64)
 
+A variant of effective_io_concurrency that is used for maintenance work.
+
 Acceptable values are 0 to 1000, inclusive. ||
 || maxSlotWalKeepSize | **string** (int64)
 
-in bytes. ||
+Sets the maximum WAL size that can be reserved by replication slots. Replication slots will be marked as failed,
+and segments released for deletion or recycling, if this much space is occupied by WAL on disk. In bytes. ||
 || walKeepSize | **string** (int64)
 
-in bytes. ||
-|| enableIncrementalSort | **boolean** ||
-|| autovacuumVacuumInsertThreshold | **string** (int64) ||
-|| autovacuumVacuumInsertScaleFactor | **number** (double) ||
+Sets the size of WAL files held for standby servers. In bytes. ||
+|| enableIncrementalSort | **boolean**
+
+Enables the planner's use of incremental sort steps. ||
+|| autovacuumVacuumInsertThreshold | **string** (int64)
+
+Minimum number of tuple inserts prior to vacuum, or -1 to disable insert vacuums. ||
+|| autovacuumVacuumInsertScaleFactor | **number** (double)
+
+Number of tuple inserts prior to vacuum as a fraction of reltuples. ||
 || logMinDurationSample | **string** (int64)
 
-in milliseconds. ||
-|| logStatementSampleRate | **number** (double) ||
+Sets the minimum execution time above which a sample of statements will be logged. Sampling is determined
+by log_statement_sample_rate. Zero logs a sample of all queries. -1 turns this feature off. In milliseconds. ||
+|| logStatementSampleRate | **number** (double)
+
+Fraction of statements exceeding log_min_duration_sample to be logged. Use a value between 0.0 (never log) and 1.0 (always log). ||
 || logParameterMaxLength | **string** (int64)
 
-in bytes. ||
+When logging statements, limit logged parameter values to first N bytes. -1 to print values in full. ||
 || logParameterMaxLengthOnError | **string** (int64)
 
-in bytes. ||
+When reporting an error, limit logged parameter values to first N bytes. -1 to print values in full. ||
 || clientConnectionCheckInterval | **string** (int64)
 
-in milliseconds. ||
-|| enableAsyncAppend | **boolean** ||
-|| enableGathermerge | **boolean** ||
-|| enableMemoize | **boolean** ||
+Sets the time interval between checks for disconnection while running queries. In milliseconds. ||
+|| enableAsyncAppend | **boolean**
+
+Enables the planner's use of async append plans. ||
+|| enableGathermerge | **boolean**
+
+Enables the planner's use of gather merge plans. ||
+|| enableMemoize | **boolean**
+
+Enables the planner's use of memoization. ||
 || logRecoveryConflictWaits | **boolean**
 
-in milliseconds. ||
+Logs standby recovery conflict waits. ||
 || vacuumFailsafeAge | **string** (int64)
 
-in milliseconds. ||
+Age at which VACUUM should trigger failsafe to avoid a wraparound outage. ||
 || vacuumMultixactFailsafeAge | **string** (int64)
 
-in milliseconds. ||
-|| pgQualstatsEnabled | **boolean** ||
-|| pgQualstatsTrackConstants | **boolean** ||
-|| pgQualstatsMax | **string** (int64) ||
-|| pgQualstatsResolveOids | **boolean** ||
-|| pgQualstatsSampleRate | **number** (double) ||
-|| plantunerFixEmptyTable | **boolean** ||
+Multixact age at which VACUUM should trigger failsafe to avoid a wraparound outage. ||
+|| pgQualstatsEnabled | **boolean**
+
+Controls whether pg_qualstats collects execution statistics for query predicates,
+including filters and join conditions. ||
+|| pgQualstatsTrackConstants | **boolean**
+
+Controls whether pg_qualstats keeps separate statistics for predicates containing different constant values ||
+|| pgQualstatsMax | **string** (int64)
+
+Limits the number of predicate-statistics and query-text entries retained by pg_qualstats. ||
+|| pgQualstatsResolveOids | **boolean**
+
+Controls whether pg_qualstats resolves object OIDs and stores their names  when collecting statistics.
+Enabling this increases memory usage and requires additional system-catalog lookups. ||
+|| pgQualstatsSampleRate | **number** (double)
+
+Sets the fraction of queries sampled by pg_qualstats. A value of -1 selects an automatic rate
+of 1 / max_connections; 0 samples no queries, and 1 samples every query. ||
+|| plantunerFixEmptyTable | **boolean**
+
+Controls whether plantuner sets estimated page and row counts to zero for tables that have no storage blocks. ||
 || maxStackDepth | **string** (int64)
 
-in bytes.
+Sets the maximum stack depth, in bytes.
 
 Acceptable values are 65536 to 134217728, inclusive. ||
-|| enableGroupByReordering | **boolean** ||
+|| enableGroupByReordering | **boolean**
+
+Controls if the query planner will produce a plan which will provide GROUP BY keys sorted in the order of keys of a
+child node of the plan, such as an index scan. When disabled, the query planner will produce a plan with GROUP BY keys
+only sorted to match the ORDER BY clause, if any. When enabled, the planner will try to produce a more efficient plan.
+The default value is on. ||
 || geqo | **boolean**
 
-enable Genetic Query Optimizer, by default is on ||
+Enables genetic query optimization. This algorithm attempts to do planning
+without exhaustive searching, by default is on. ||
 || geqoThreshold | **string** (int64)
 
-The number of tables to use geqo, default is 12
+Sets the threshold of FROM items beyond which GEQO is used, default is 12.
 
 Acceptable values are 2 to 2147483647, inclusive. ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5
+GEQO: effort is used to set the default for other GEQO parameters.
+Tradeoff between planning time and query plan quality, default is 5.
 
 Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
-number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
+GEQO: number of individuals in the population.
+Useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort. ||
 || geqoGenerations | **string** (int64)
 
-the number of generations used by GEQO, useful values are in the same range as the pool size ||
+GEQO: number of iterations of the algorithm. Zero selects a suitable default value.
+Useful values are in the same range as the pool size. ||
 || geqoSelectionBias | **number** (double)
 
-selective pressure within the population ||
+GEQO: selective pressure within the population. ||
 || geqoSeed | **number** (double)
 
-initial value of the random number generator used by GEQO ||
-|| pgTrgmSimilarityThreshold | **number** (double) ||
-|| pgTrgmWordSimilarityThreshold | **number** (double) ||
-|| pgTrgmStrictWordSimilarityThreshold | **number** (double) ||
+GEQO: seed for random path selection. ||
+|| pgTrgmSimilarityThreshold | **number** (double)
+
+Sets the trigram similarity threshold used by the `%` operator
+to determine whether two strings are similar. ||
+|| pgTrgmWordSimilarityThreshold | **number** (double)
+
+Sets the threshold used by the `<%` and `%>` operators when comparing
+a string with the most similar continuous part of another string. ||
+|| pgTrgmStrictWordSimilarityThreshold | **number** (double)
+
+Sets the threshold used by the `<<%` and `%>>` operators when comparing
+a string with parts of another string aligned to word boundaries. ||
 || maxStandbyArchiveDelay | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum delay before canceling queries when a hot standby server is processing archived WAL data. In milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is
+not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
-|| logReplicationCommands | **boolean** ||
+|| logReplicationCommands | **boolean**
+
+Logs each replication command. ||
 || logAutovacuumMinDuration | **string** (int64)
 
-in milliseconds. The default is 1000 (1 sec). ||
+Sets the minimum execution time above which autovacuum actions will be logged.
+Zero prints all actions. -1 turns autovacuum logging off. In milliseconds. The default is 1000 (1 sec).
+ ||
 || passwordEncryption | **enum** (PasswordEncryption)
 
-A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
+A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are
+`` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
 - `PASSWORD_ENCRYPTION_MD5`: The method md5 uses a custom less secure challenge-response mechanism. It prevents password sniffing and avoids storing passwords on the server in plain text but provides no protection if an attacker manages to steal the password hash from the server. Also, the MD5 hash algorithm is nowadays no longer considered secure against determined attacks.
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256`: The method scram-sha-256 performs SCRAM-SHA-256 authentication, as described in RFC 7677. It is a challenge-response scheme that prevents password sniffing on untrusted connections and supports storing passwords on the server in a cryptographically hashed form that is thought to be secure.
 This is the most secure of the currently provided methods, but it is not supported by older client libraries. ||
 || autoExplainLogFormat | **enum** (AutoExplainLogFormat)
 
-Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
+Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``,
+`` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``.
+The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
 
-- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`: 'text' value for the EXPLAIN output format in auto_explain extension
-- `AUTO_EXPLAIN_LOG_FORMAT_XML`: 'xml' value for the EXPLAIN output format in auto_explain extension
-- `AUTO_EXPLAIN_LOG_FORMAT_JSON`: 'json' value for the EXPLAIN output format in auto_explain extension
-- `AUTO_EXPLAIN_LOG_FORMAT_YAML`: 'yaml' value for the EXPLAIN output format in auto_explain extension ||
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`: Formats logged execution plans as plain text.
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`: Formats logged execution plans as XML.
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`: Formats logged execution plans as JSON.
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML`: Formats logged execution plans as YAML. ||
 || idleSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when not in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || checkpointWarning | **string** (int64)
 
-in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
+Sets the interval below which checkpoints triggered by filling WAL segment files cause a warning to be written to the server log.
+A value of 0 disables the warning. In milliseconds.
 
 Acceptable values are 0 to 2147483647000, inclusive. ||
 || pgHintPlanHintsAnywhere | **boolean**
 
-If it is true, pg_hint_plan reads hints ignoring SQL syntax. This allows placing hints anywhere in the query but may cause false reads. Default is false. ||
+Allows pg_hint_plan to read hint comments from any position in the query text,
+without regard to SQL syntax. This may cause false hint matches. ||
 || autovacuumVacuumThreshold | **string** (int64)
 
-Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+Minimum number of tuple updates or deletes prior to vacuum.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || autovacuumAnalyzeThreshold | **string** (int64)
 
-Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+Minimum number of tuple inserts, updates, or deletes prior to analyze.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 |#
@@ -12003,55 +14778,77 @@ parameters which detailed description is available in
 ||Field | Description ||
 || maxConnections | **string** (int64)
 
+Sets the maximum number of concurrent connections.
+
 The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
-in bytes. ||
+Sets the number of shared memory buffers used by the server. In bytes. ||
 || tempBuffers | **string** (int64)
 
-in bytes. ||
-|| maxPreparedTransactions | **string** (int64) ||
+Sets the maximum number of temporary buffers used by each session. In bytes. ||
+|| maxPreparedTransactions | **string** (int64)
+
+Sets the maximum number of simultaneously prepared transactions. ||
 || workMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used for query workspaces. This much memory can be used by each
+internal sort operation and hash table before switching to temporary disk files. In bytes. ||
 || maintenanceWorkMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used for maintenance operations.
+This includes operations such as VACUUM and CREATE INDEX. In bytes. ||
 || autovacuumWorkMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used by each autovacuum worker process. In bytes. ||
 || tempFileLimit | **string** (int64)
 
-in bytes. ||
+Limits the total size of all temporary files used by each process. -1 means no limit. In bytes. ||
 || vacuumCostDelay | **string** (int64)
 
-in milliseconds. ||
-|| vacuumCostPageHit | **string** (int64) ||
-|| vacuumCostPageMiss | **string** (int64) ||
-|| vacuumCostPageDirty | **string** (int64) ||
-|| vacuumCostLimit | **string** (int64) ||
+Vacuum cost delay. In milliseconds. ||
+|| vacuumCostPageHit | **string** (int64)
+
+Vacuum cost for a page found in the buffer cache. ||
+|| vacuumCostPageMiss | **string** (int64)
+
+Vacuum cost for a page not found in the buffer cache. ||
+|| vacuumCostPageDirty | **string** (int64)
+
+Vacuum cost for a page dirtied by vacuum. ||
+|| vacuumCostLimit | **string** (int64)
+
+Vacuum cost amount available before napping. ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds.
+Background writer sleep time between rounds. In milliseconds.
 
 Acceptable values are 10 to 10000, inclusive. ||
-|| bgwriterLruMaxpages | **string** (int64) ||
-|| bgwriterLruMultiplier | **number** (double) ||
+|| bgwriterLruMaxpages | **string** (int64)
+
+Background writer maximum number of LRU pages to flush per round. ||
+|| bgwriterLruMultiplier | **number** (double)
+
+Multiple of the average buffer usage to free per round. ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes
+Specifies how much data the background writer can write before forcing the operating system to issue the writes. In bytes.
 
 Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes
+Specifies how much data a backend can write before forcing the operating system to issue the writes. In bytes.
 
 Acceptable values are 0 to 2097152, inclusive. ||
 || walLevel | **enum** (WalLevel)
 
+Sets the level of information written to the WAL.
+
 - `WAL_LEVEL_REPLICA`: Supports WAL archiving and physical replication.
 - `WAL_LEVEL_LOGICAL`: Supports WAL archiving, physical replication, and logical decoding. ||
 || synchronousCommit | **enum** (SynchronousCommit)
+
+Sets the current transaction's synchronization level.
 
 - `SYNCHRONOUS_COMMIT_ON`: Success is reported to the client if the data is in WAL (Write-Ahead Log), and WAL is written to the storage of both the master and its synchronous standby server. Default value.
 - `SYNCHRONOUS_COMMIT_OFF`: Success is reported to the client even if the data is not in WAL.
@@ -12064,107 +14861,152 @@ The transaction may be lost due to simultaneous storage subsystem failure on the
 The transaction may be lost due to irrecoverably failure of both the master and its synchronous standby. ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum time between automatic WAL checkpoints. In milliseconds.
 
 Acceptable values are 30000 to 86400000, inclusive. ||
-|| checkpointCompletionTarget | **number** (double) ||
+|| checkpointCompletionTarget | **number** (double)
+
+Time spent flushing dirty buffers during checkpoint, as fraction of checkpoint interval. ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes
+Specifies how much data can be written during a checkpoint before forcing the operating system to issue the writes. In bytes.
 
 Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
-in bytes. ||
+Sets the WAL size that triggers a checkpoint. In bytes. ||
 || minWalSize | **string** (int64)
 
-in bytes. ||
+Sets the minimum size to shrink the WAL to. In bytes. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
-in milliseconds. ||
-|| defaultStatisticsTarget | **string** (int64) ||
+Sets the maximum delay before canceling queries when a hot standby server is processing streamed WAL data. In milliseconds. ||
+|| defaultStatisticsTarget | **string** (int64)
+
+Sets the default statistics target. This applies to table columns that have not had a
+column-specific target set via ALTER TABLE SET STATISTICS. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
+
+Enables the planner to use constraints to optimize queries.
 
 - `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
 - `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
 - `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
-|| cursorTupleFraction | **number** (double) ||
+|| cursorTupleFraction | **number** (double)
+
+Sets the planner's estimate of the fraction of a cursor's rows that will be retrieved. ||
 || fromCollapseLimit | **string** (int64)
+
+Sets the FROM-list size beyond which subqueries are not collapsed.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
 || joinCollapseLimit | **string** (int64)
 
+Sets the FROM-list size beyond which JOIN constructs are not flattened.
+
 Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_ON`: Force parallel query for all queries for which it is thought to be safe
-- `DEBUG_PARALLEL_QUERY_OFF`: Use parallel mode only when it is expected to improve performance
-- `DEBUG_PARALLEL_QUERY_REGRESS`: Like ON, but with additional changes for regression testing (suppresses context lines, hides Gather nodes in EXPLAIN) ||
+Forces the planner's use parallel query nodes.
+
+- `DEBUG_PARALLEL_QUERY_ON`: Forces parallel mode for queries considered safe, even when no performance benefit is expected.
+- `DEBUG_PARALLEL_QUERY_OFF`: Uses parallel mode only when the planner expects it to improve performance.
+- `DEBUG_PARALLEL_QUERY_REGRESS`: Behaves like ON, but hides added Gather nodes in EXPLAIN output and
+suppresses parallel-worker context lines to stabilize regression-test output. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are sent to the client.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Causes all statements generating error at or above this level to be logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinDurationStatement | **string** (int64)
 
-in milliseconds. ||
-|| logCheckpoints | **boolean** ||
-|| logConnections | **boolean** ||
-|| logDisconnections | **boolean** ||
-|| logDuration | **boolean** ||
+Sets the minimum execution time above which all statements will be logged. In milliseconds. ||
+|| logCheckpoints | **boolean**
+
+Logs each checkpoint. ||
+|| logConnections | **boolean**
+
+Logs each successful connection. ||
+|| logDisconnections | **boolean**
+
+Logs end of a session, including duration. ||
+|| logDuration | **boolean**
+
+Logs the duration of each completed SQL statement.
+ ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
+
+Sets the verbosity of logged messages.
 
 - `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
 - `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
 - `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
-|| logLockWaits | **boolean** ||
+|| logLockWaits | **boolean**
+
+Logs long lock waits. ||
 || logStatement | **enum** (LogStatement)
+
+Sets the type of statements logged.
 
 - `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
 - `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
 - `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
 - `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
-|| logTempFiles | **string** (int64) ||
-|| searchPath | **string** ||
-|| rowSecurity | **boolean** ||
+|| logTempFiles | **string** (int64)
+
+Log the use of temporary files larger than this number of kilobytes. ||
+|| searchPath | **string**
+
+Sets the schema search order for names that are not schema-qualified. ||
+|| rowSecurity | **boolean**
+
+Enable row security. ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
+
+Sets the transaction isolation level of each new transaction.
 
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
 - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
@@ -12174,121 +15016,238 @@ All queries in the current transaction see only the rows that were fixed prior t
 If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any statement. In milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed duration of any wait for a lock. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
+
+Sets the output format for bytea.
 
 - `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
 - `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`: Base64 encoding.
-- `XML_BINARY_HEX`: Hexadecimal encoding. ||
+Sets how binary values are to be encoded in XML.
+
+- `XML_BINARY_BASE64`: Encodes binary values using Base64.
+- `XML_BINARY_HEX`: Encodes binary values using hexadecimal notation. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`: XML document.
-- `XML_OPTION_CONTENT`: XML fragment. ||
+Sets whether XML data in implicit parsing and serialization operations is to be considered as documents or content fragments.
+
+- `XML_OPTION_DOCUMENT`: Treats an XML value as a complete, well-formed document.
+- `XML_OPTION_CONTENT`: Treats an XML value as a content fragment, which may contain multiple top-level elements or character nodes. ||
 || ginPendingListLimit | **string** (int64)
 
-in bytes. ||
+Sets the maximum size of the pending list for GIN index. In bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds.
+Sets the time to wait on a lock before checking for deadlock. In milliseconds.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
-|| maxLocksPerTransaction | **string** (int64) ||
-|| maxPredLocksPerTransaction | **string** (int64) ||
-|| arrayNulls | **boolean** ||
+|| maxLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of locks per transaction. The shared lock table is sized on the assumption that
+at most max_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| maxPredLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of predicate locks per transaction.The shared predicate lock table is sized on the assumption that
+at most max_pred_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| arrayNulls | **boolean**
+
+Enable input of NULL elements in arrays. When turned on, unquoted NULL in an array input
+value means a null value; otherwise it is taken literally. ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+Sets whether \"\\'\" is allowed in string literals.
+
+- `BACKSLASH_QUOTE`: Legacy invalid value. Do not use.
 - `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
 - `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
 - `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
-|| defaultWithOids | **boolean** ||
-|| escapeStringWarning | **boolean** ||
-|| loCompatPrivileges | **boolean** ||
-|| quoteAllIdentifiers | **boolean** ||
-|| standardConformingStrings | **boolean** ||
-|| synchronizeSeqscans | **boolean** ||
-|| transformNullEquals | **boolean** ||
-|| exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
+|| defaultWithOids | **boolean**
+
+WITH OIDS is no longer supported; this can only be false. ||
+|| escapeStringWarning | **boolean**
+
+Warn about backslash escapes in ordinary string literals. ||
+|| loCompatPrivileges | **boolean**
+
+Enables backward compatibility mode for privilege checks on large objects. Skips privilege checks
+when reading or modifying large objects, for compatibility with PostgreSQL releases prior to 9.0. ||
+|| quoteAllIdentifiers | **boolean**
+
+When generating SQL fragments, quote all identifiers. ||
+|| standardConformingStrings | **boolean**
+
+Causes '...' strings to treat backslashes literally. ||
+|| synchronizeSeqscans | **boolean**
+
+Enable synchronized sequential scans. ||
+|| transformNullEquals | **boolean**
+
+Treats \"expr=NULL\" as \"expr IS NULL\". When turned on, expressions of the form expr = NULL
+(or NULL = expr) are treated as expr IS NULL, that is, they return true if expr evaluates to the
+null value, and false otherwise. The correct behavior of expr = NULL is to always return null (unknown). ||
+|| exitOnError | **boolean**
+
+Terminate session on any error. ||
+|| seqPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a sequentially fetched disk page.
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a nonsequentially fetched disk page.
+
+The minimum value is 0. ||
 || autovacuumMaxWorkers | **string** (int64)
 
+Sets the maximum number of simultaneously running autovacuum worker processes.
+
 Acceptable values are 1 to 32, inclusive. ||
-|| autovacuumVacuumCostDelay | **string** (int64) ||
-|| autovacuumVacuumCostLimit | **string** (int64) ||
+|| autovacuumVacuumCostDelay | **string** (int64)
+
+Vacuum cost delay in milliseconds, for autovacuum. ||
+|| autovacuumVacuumCostLimit | **string** (int64)
+
+Vacuum cost amount available before napping, for autovacuum. ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds.
+Time to sleep between autovacuum runs. In milliseconds.
 
 Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds.
+Forces a switch to the next WAL file if no new file has been started within the specified interval. In milliseconds.
 
 Acceptable values are 10000 to 86400000, inclusive. ||
 || trackActivityQuerySize | **string** (int64)
 
+Sets the size reserved for pg_stat_activity.query, in bytes.
+
 Acceptable values are 100 to 102400, inclusive. ||
-|| enableBitmapscan | **boolean** ||
-|| enableHashagg | **boolean** ||
-|| enableHashjoin | **boolean** ||
-|| enableIndexscan | **boolean** ||
-|| enableIndexonlyscan | **boolean** ||
-|| enableMaterial | **boolean** ||
-|| enableMergejoin | **boolean** ||
-|| enableNestloop | **boolean** ||
-|| enableSeqscan | **boolean** ||
-|| enableSort | **boolean** ||
-|| enableTidscan | **boolean** ||
+|| enableBitmapscan | **boolean**
+
+Enables the planner's use of bitmap-scan plans. ||
+|| enableHashagg | **boolean**
+
+Enables the planner's use of hashed aggregation plans. ||
+|| enableHashjoin | **boolean**
+
+Enables the planner's use of hash join plans. ||
+|| enableIndexscan | **boolean**
+
+Enables the planner's use of index-scan plans. ||
+|| enableIndexonlyscan | **boolean**
+
+Enables the planner's use of index-only-scan plans. ||
+|| enableMaterial | **boolean**
+
+Enables the planner's use of materialization. ||
+|| enableMergejoin | **boolean**
+
+Enables the planner's use of merge join plans. ||
+|| enableNestloop | **boolean**
+
+Enables the planner's use of nested-loop join plans. ||
+|| enableSeqscan | **boolean**
+
+Enables the planner's use of sequential-scan plans. ||
+|| enableSort | **boolean**
+
+Enables the planner's use of explicit sort steps. ||
+|| enableTidscan | **boolean**
+
+Enables the planner's use of TID scan plans. ||
 || maxWorkerProcesses | **string** (int64)
+
+Maximum number of concurrent worker processes.
 
 Acceptable values are 0 to 1024, inclusive. ||
 || maxParallelWorkers | **string** (int64)
 
+Sets the maximum number of parallel workers that can be active at one time.
+
 Acceptable values are 0 to 1024, inclusive. ||
 || maxParallelWorkersPerGather | **string** (int64)
 
+Sets the maximum number of parallel processes per executor node.
+
 Acceptable values are 0 to 1024, inclusive. ||
-|| autovacuumVacuumScaleFactor | **number** (double) ||
-|| autovacuumAnalyzeScaleFactor | **number** (double) ||
-|| defaultTransactionReadOnly | **boolean** ||
-|| timezone | **string** ||
-|| enableParallelAppend | **boolean** ||
-|| enableParallelHash | **boolean** ||
-|| enablePartitionPruning | **boolean** ||
-|| enablePartitionwiseAggregate | **boolean** ||
-|| enablePartitionwiseJoin | **boolean** ||
-|| jit | **boolean** ||
+|| autovacuumVacuumScaleFactor | **number** (double)
+
+Number of tuple updates or deletes prior to vacuum as a fraction of reltuples. ||
+|| autovacuumAnalyzeScaleFactor | **number** (double)
+
+Number of tuple inserts, updates, or deletes prior to analyze as a fraction of reltuples. ||
+|| defaultTransactionReadOnly | **boolean**
+
+Sets the default read-only status of new transactions. ||
+|| timezone | **string**
+
+Sets the time zone for displaying and interpreting time stamps. ||
+|| enableParallelAppend | **boolean**
+
+Enables the planner's use of parallel append plans. ||
+|| enableParallelHash | **boolean**
+
+Enables the planner's use of parallel hash plans. ||
+|| enablePartitionPruning | **boolean**
+
+Enables plan-time and execution-time partition pruning. Allows the query planner and executor to
+compare partition bounds to conditions in the query to determine which partitions must be scanned. ||
+|| enablePartitionwiseAggregate | **boolean**
+
+Enables partitionwise aggregation and grouping. ||
+|| enablePartitionwiseJoin | **boolean**
+
+Enables partitionwise join. ||
+|| jit | **boolean**
+
+Allow JIT compilation. ||
 || maxParallelMaintenanceWorkers | **string** (int64)
 
+Sets the maximum number of parallel processes per maintenance operation.
+
 The minimum value is 0. ||
-|| parallelLeaderParticipation | **boolean** ||
-|| logTransactionSampleRate | **number** (double) ||
+|| parallelLeaderParticipation | **boolean**
+
+Controls whether Gather and Gather Merge also run subplans. ||
+|| logTransactionSampleRate | **number** (double)
+
+Sets the fraction of transactions from which to log all statements. Use a
+value between 0.0 (never log) and 1.0 (log all statements for all transactions). ||
 || planCacheMode | **enum** (PlanCacheMode)
+
+Controls the planner's selection of custom or generic plan. Prepared statements can have custom and generic plans,
+and the planner will attempt to choose which is better. This can be set to override the default behavior.
 
 - `PLAN_CACHE_MODE_AUTO`: Automatic selection.
 - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`: Forces the use of custom plans.
 - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`: Forces the use of generic plans. ||
 || effectiveIoConcurrency | **string** (int64)
 
+Number of simultaneous requests that can be handled efficiently by the disk subsystem.
+
 Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
-Acceptable values are 0 to 549755813888, inclusive. ||
+Sets the planner's assumption about the effective size of the disk cache available to a single query. In bytes.
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
+
+Lists shared libraries to preload into server.
 
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`: Required for the [auto_explain](https://www.postgresql.org/docs/current/auto-explain.html) extension.
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`: Required for the [pg_hint_plan](https://github.com/ossc-db/pg_hint_plan) extension.
@@ -12303,171 +15262,276 @@ Acceptable values are 0 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_SPQRGUARD`: Required for the [spqrguard](https://github.com/pg-sharding/spqrguard) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
-in milliseconds. ||
-|| autoExplainLogAnalyze | **boolean** ||
-|| autoExplainLogBuffers | **boolean** ||
-|| autoExplainLogTiming | **boolean** ||
-|| autoExplainLogTriggers | **boolean** ||
-|| autoExplainLogVerbose | **boolean** ||
-|| autoExplainLogNestedStatements | **boolean** ||
-|| autoExplainSampleRate | **number** (double) ||
-|| pgHintPlanEnableHint | **boolean** ||
-|| pgHintPlanEnableHintTable | **boolean** ||
+Sets the minimum statement execution time, that will cause the statement's plan to be logged.
+Setting this to 0 logs all plans. -1 (the default) disables logging of plans. For example, if
+you set it to 250ms then all statements that run 250ms or longer will be logged. In milliseconds.
+ ||
+|| autoExplainLogAnalyze | **boolean**
+
+Causes EXPLAIN ANALYZE output, rather than just EXPLAIN output,to be printed
+when an executionplan is logged. This parameter is off by default. ||
+|| autoExplainLogBuffers | **boolean**
+
+Controls whether buffer usage statistics are printed when an execution plan is logged;
+it's equivalent to the BUFFERS option of EXPLAIN. This parameter has no effect unless
+auto_explain.log_analyze is enabled. This parameter is off by default. ||
+|| autoExplainLogTiming | **boolean**
+
+Controls whether per-node timing information is printed when an execution plan is logged;
+it's equivalent to the TIMING option of EXPLAIN. The overhead of repeatedly reading the system
+clock can slow down queries significantly on some systems, so it may be useful to set this
+parameter to off when only actual row counts, and not exact times, are needed. This parameter
+has no effect unless auto_explain.log_analyze is enabled. This parameter is on by default. ||
+|| autoExplainLogTriggers | **boolean**
+
+Causes trigger execution statistics to be included when an execution plan is logged. This parameter
+has no effect unless auto_explain.log_analyze is enabled. This parameter is off by default. ||
+|| autoExplainLogVerbose | **boolean**
+
+Controls whether verbose details are printed when an execution plan is logged; it's
+equivalent to the VERBOSE option of EXPLAIN. This parameter is off by default. ||
+|| autoExplainLogNestedStatements | **boolean**
+
+Causes nested statements (statements executed inside a function) to be considered for logging.
+When it is off, only top-level query plans are logged. This parameter is off by default. ||
+|| autoExplainSampleRate | **number** (double)
+
+Causes auto_explain to only explain a fraction of the statements in each session. The default is 1,
+meaning explain all the queries. In case of nested statements, either all will be explained or none. ||
+|| pgHintPlanEnableHint | **boolean**
+
+Enables processing of query hints by pg_hint_plan. ||
+|| pgHintPlanEnableHintTable | **boolean**
+
+Enables lookup of hints in the hint table. ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disable debug output
-- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Print debug messages about hint parsing
-- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Print detailed debug information including query planning process
-- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Print verbose debug output with all internal operations ||
+Controls whether and how verbosely hint parsing results are logged.
+
+- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disables diagnostic logging.
+- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Logs hint-processing results grouped by used, unused, duplicate, and erroneous hints.
+- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Logs hint-processing results together with detailed planner diagnostics.
+- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Logs the most detailed diagnostics, including query strings used to extract hints. ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
-|| hashMemMultiplier | **number** (double) ||
+Sets the log level for pg_hint_plan debug messages.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
+|| hashMemMultiplier | **number** (double)
+
+Multiple of work_mem to use for hash tables. ||
 || logicalDecodingWorkMem | **string** (int64)
 
-in bytes.
+Sets the maximum memory to be used for logical decoding. This much memory can be
+used by each internal reorder buffer before spilling to disk. In bytes.
 
 Acceptable values are 65536 to 1099511627776, inclusive. ||
 || maintenanceIoConcurrency | **string** (int64)
 
+A variant of effective_io_concurrency that is used for maintenance work.
+
 Acceptable values are 0 to 1000, inclusive. ||
 || maxSlotWalKeepSize | **string** (int64)
 
-in bytes. ||
+Sets the maximum WAL size that can be reserved by replication slots. Replication slots will be marked as failed,
+and segments released for deletion or recycling, if this much space is occupied by WAL on disk. In bytes. ||
 || walKeepSize | **string** (int64)
 
-in bytes. ||
-|| enableIncrementalSort | **boolean** ||
-|| autovacuumVacuumInsertThreshold | **string** (int64) ||
-|| autovacuumVacuumInsertScaleFactor | **number** (double) ||
+Sets the size of WAL files held for standby servers. In bytes. ||
+|| enableIncrementalSort | **boolean**
+
+Enables the planner's use of incremental sort steps. ||
+|| autovacuumVacuumInsertThreshold | **string** (int64)
+
+Minimum number of tuple inserts prior to vacuum, or -1 to disable insert vacuums. ||
+|| autovacuumVacuumInsertScaleFactor | **number** (double)
+
+Number of tuple inserts prior to vacuum as a fraction of reltuples. ||
 || logMinDurationSample | **string** (int64)
 
-in milliseconds. ||
-|| logStatementSampleRate | **number** (double) ||
+Sets the minimum execution time above which a sample of statements will be logged. Sampling is determined
+by log_statement_sample_rate. Zero logs a sample of all queries. -1 turns this feature off. In milliseconds. ||
+|| logStatementSampleRate | **number** (double)
+
+Fraction of statements exceeding log_min_duration_sample to be logged. Use a value between 0.0 (never log) and 1.0 (always log). ||
 || logParameterMaxLength | **string** (int64)
 
-in bytes. ||
+When logging statements, limit logged parameter values to first N bytes. -1 to print values in full. ||
 || logParameterMaxLengthOnError | **string** (int64)
 
-in bytes. ||
+When reporting an error, limit logged parameter values to first N bytes. -1 to print values in full. ||
 || clientConnectionCheckInterval | **string** (int64)
 
-in milliseconds. ||
-|| enableAsyncAppend | **boolean** ||
-|| enableGathermerge | **boolean** ||
-|| enableMemoize | **boolean** ||
+Sets the time interval between checks for disconnection while running queries. In milliseconds. ||
+|| enableAsyncAppend | **boolean**
+
+Enables the planner's use of async append plans. ||
+|| enableGathermerge | **boolean**
+
+Enables the planner's use of gather merge plans. ||
+|| enableMemoize | **boolean**
+
+Enables the planner's use of memoization. ||
 || logRecoveryConflictWaits | **boolean**
 
-in milliseconds. ||
+Logs standby recovery conflict waits. ||
 || vacuumFailsafeAge | **string** (int64)
 
-in milliseconds. ||
+Age at which VACUUM should trigger failsafe to avoid a wraparound outage. ||
 || vacuumMultixactFailsafeAge | **string** (int64)
 
-in milliseconds. ||
-|| pgQualstatsEnabled | **boolean** ||
-|| pgQualstatsTrackConstants | **boolean** ||
-|| pgQualstatsMax | **string** (int64) ||
-|| pgQualstatsResolveOids | **boolean** ||
-|| pgQualstatsSampleRate | **number** (double) ||
+Multixact age at which VACUUM should trigger failsafe to avoid a wraparound outage. ||
+|| pgQualstatsEnabled | **boolean**
+
+Controls whether pg_qualstats collects execution statistics for query predicates,
+including filters and join conditions. ||
+|| pgQualstatsTrackConstants | **boolean**
+
+Controls whether pg_qualstats keeps separate statistics for predicates containing different constant values ||
+|| pgQualstatsMax | **string** (int64)
+
+Limits the number of predicate-statistics and query-text entries retained by pg_qualstats. ||
+|| pgQualstatsResolveOids | **boolean**
+
+Controls whether pg_qualstats resolves object OIDs and stores their names  when collecting statistics.
+Enabling this increases memory usage and requires additional system-catalog lookups. ||
+|| pgQualstatsSampleRate | **number** (double)
+
+Sets the fraction of queries sampled by pg_qualstats. A value of -1 selects an automatic rate
+of 1 / max_connections; 0 samples no queries, and 1 samples every query. ||
 || maxStackDepth | **string** (int64)
 
-in bytes.
+Sets the maximum stack depth, in bytes.
 
 Acceptable values are 65536 to 134217728, inclusive. ||
-|| enableGroupByReordering | **boolean** ||
+|| enableGroupByReordering | **boolean**
+
+Controls if the query planner will produce a plan which will provide GROUP BY keys sorted in the order of keys of a
+child node of the plan, such as an index scan. When disabled, the query planner will produce a plan with GROUP BY keys
+only sorted to match the ORDER BY clause, if any. When enabled, the planner will try to produce a more efficient plan.
+The default value is on. ||
 || geqo | **boolean**
 
-enable Genetic Query Optimizer, by default is on ||
+Enables genetic query optimization. This algorithm attempts to do planning
+without exhaustive searching, by default is on. ||
 || geqoThreshold | **string** (int64)
 
-The number of tables to use geqo, default is 12 ||
+Sets the threshold of FROM items beyond which GEQO is used, default is 12. ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5
+GEQO: effort is used to set the default for other GEQO parameters.
+Tradeoff between planning time and query plan quality, default is 5.
 
 Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
-number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
+GEQO: number of individuals in the population.
+Useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort. ||
 || geqoGenerations | **string** (int64)
 
-the number of generations used by GEQO, useful values are in the same range as the pool size ||
+GEQO: number of iterations of the algorithm. Zero selects a suitable default value.
+Useful values are in the same range as the pool size. ||
 || geqoSelectionBias | **number** (double)
 
-selective pressure within the population ||
+GEQO: selective pressure within the population. ||
 || geqoSeed | **number** (double)
 
-initial value of the random number generator used by GEQO ||
-|| pgTrgmSimilarityThreshold | **number** (double) ||
-|| pgTrgmWordSimilarityThreshold | **number** (double) ||
-|| pgTrgmStrictWordSimilarityThreshold | **number** (double) ||
+GEQO: seed for random path selection. ||
+|| pgTrgmSimilarityThreshold | **number** (double)
+
+Sets the trigram similarity threshold used by the `%` operator
+to determine whether two strings are similar. ||
+|| pgTrgmWordSimilarityThreshold | **number** (double)
+
+Sets the threshold used by the `<%` and `%>` operators when comparing
+a string with the most similar continuous part of another string. ||
+|| pgTrgmStrictWordSimilarityThreshold | **number** (double)
+
+Sets the threshold used by the `<<%` and `%>>` operators when comparing
+a string with parts of another string aligned to word boundaries. ||
 || maxStandbyArchiveDelay | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum delay before canceling queries when a hot standby server is processing archived WAL data. In milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is
+not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
-|| logReplicationCommands | **boolean** ||
+|| logReplicationCommands | **boolean**
+
+Logs each replication command. ||
 || logAutovacuumMinDuration | **string** (int64)
 
-in milliseconds. The default is 1000 (1 sec). ||
+Sets the minimum execution time above which autovacuum actions will be logged.
+Zero prints all actions. -1 turns autovacuum logging off. In milliseconds. The default is 1000 (1 sec).
+ ||
 || passwordEncryption | **enum** (PasswordEncryption)
 
-A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``.
+A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are
+`` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``.
 
 - `PASSWORD_ENCRYPTION_MD5`: The method md5 uses a custom less secure challenge-response mechanism. It prevents password sniffing and avoids storing passwords on the server in plain text but provides no protection if an attacker manages to steal the password hash from the server. Also, the MD5 hash algorithm is nowadays no longer considered secure against determined attacks.
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256`: The method scram-sha-256 performs SCRAM-SHA-256 authentication, as described in RFC 7677. It is a challenge-response scheme that prevents password sniffing on untrusted connections and supports storing passwords on the server in a cryptographically hashed form that is thought to be secure.
 This is the most secure of the currently provided methods, but it is not supported by older client libraries. ||
 || autoExplainLogFormat | **enum** (AutoExplainLogFormat)
 
-Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
+Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``,
+`` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``.
+The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
 
-- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`: 'text' value for the EXPLAIN output format in auto_explain extension
-- `AUTO_EXPLAIN_LOG_FORMAT_XML`: 'xml' value for the EXPLAIN output format in auto_explain extension
-- `AUTO_EXPLAIN_LOG_FORMAT_JSON`: 'json' value for the EXPLAIN output format in auto_explain extension
-- `AUTO_EXPLAIN_LOG_FORMAT_YAML`: 'yaml' value for the EXPLAIN output format in auto_explain extension ||
-|| trackCommitTimestamp | **boolean** ||
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`: Formats logged execution plans as plain text.
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`: Formats logged execution plans as XML.
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`: Formats logged execution plans as JSON.
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML`: Formats logged execution plans as YAML. ||
+|| trackCommitTimestamp | **boolean**
+
+Collects transaction commit time. ||
 || maxLogicalReplicationWorkers | **string** (int64)
+
+Maximum number of logical replication worker processes.
 
 Acceptable values are 4 to 100, inclusive. ||
 || maxWalSenders | **string** (int64)
 
+Sets the maximum number of simultaneously running WAL sender processes.
+
 Acceptable values are 20 to 100, inclusive. ||
 || maxReplicationSlots | **string** (int64)
+
+Sets the maximum number of simultaneously defined replication slots.
 
 Acceptable values are 20 to 100, inclusive. ||
 || idleSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when not in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || checkpointWarning | **string** (int64)
 
-in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
+Sets the interval below which checkpoints triggered by filling WAL segment files cause a warning to be written to the server log.
+A value of 0 disables the warning. In milliseconds.
 
 Acceptable values are 0 to 2147483647000, inclusive. ||
 || autovacuumVacuumThreshold | **string** (int64)
 
-Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+Minimum number of tuple updates or deletes prior to vacuum.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || autovacuumAnalyzeThreshold | **string** (int64)
 
-Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+Minimum number of tuple inserts, updates, or deletes prior to analyze.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 |#
@@ -12498,55 +15562,77 @@ parameters which detailed description is available in
 ||Field | Description ||
 || maxConnections | **string** (int64)
 
+Sets the maximum number of concurrent connections.
+
 The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
-in bytes. ||
+Sets the number of shared memory buffers used by the server. In bytes. ||
 || tempBuffers | **string** (int64)
 
-in bytes. ||
-|| maxPreparedTransactions | **string** (int64) ||
+Sets the maximum number of temporary buffers used by each session. In bytes. ||
+|| maxPreparedTransactions | **string** (int64)
+
+Sets the maximum number of simultaneously prepared transactions. ||
 || workMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used for query workspaces. This much memory can be used by each
+internal sort operation and hash table before switching to temporary disk files. In bytes. ||
 || maintenanceWorkMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used for maintenance operations.
+This includes operations such as VACUUM and CREATE INDEX. In bytes. ||
 || autovacuumWorkMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used by each autovacuum worker process. In bytes. ||
 || tempFileLimit | **string** (int64)
 
-in bytes. ||
+Limits the total size of all temporary files used by each process. -1 means no limit. In bytes. ||
 || vacuumCostDelay | **string** (int64)
 
-in milliseconds. ||
-|| vacuumCostPageHit | **string** (int64) ||
-|| vacuumCostPageMiss | **string** (int64) ||
-|| vacuumCostPageDirty | **string** (int64) ||
-|| vacuumCostLimit | **string** (int64) ||
+Vacuum cost delay. In milliseconds. ||
+|| vacuumCostPageHit | **string** (int64)
+
+Vacuum cost for a page found in the buffer cache. ||
+|| vacuumCostPageMiss | **string** (int64)
+
+Vacuum cost for a page not found in the buffer cache. ||
+|| vacuumCostPageDirty | **string** (int64)
+
+Vacuum cost for a page dirtied by vacuum. ||
+|| vacuumCostLimit | **string** (int64)
+
+Vacuum cost amount available before napping. ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds.
+Background writer sleep time between rounds. In milliseconds.
 
 Acceptable values are 10 to 10000, inclusive. ||
-|| bgwriterLruMaxpages | **string** (int64) ||
-|| bgwriterLruMultiplier | **number** (double) ||
+|| bgwriterLruMaxpages | **string** (int64)
+
+Background writer maximum number of LRU pages to flush per round. ||
+|| bgwriterLruMultiplier | **number** (double)
+
+Multiple of the average buffer usage to free per round. ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes
+Specifies how much data the background writer can write before forcing the operating system to issue the writes. In bytes.
 
 Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes
+Specifies how much data a backend can write before forcing the operating system to issue the writes. In bytes.
 
 Acceptable values are 0 to 2097152, inclusive. ||
 || walLevel | **enum** (WalLevel)
 
+Sets the level of information written to the WAL.
+
 - `WAL_LEVEL_REPLICA`: Supports WAL archiving and physical replication.
 - `WAL_LEVEL_LOGICAL`: Supports WAL archiving, physical replication, and logical decoding. ||
 || synchronousCommit | **enum** (SynchronousCommit)
+
+Sets the current transaction's synchronization level.
 
 - `SYNCHRONOUS_COMMIT_ON`: Success is reported to the client if the data is in WAL (Write-Ahead Log), and WAL is written to the storage of both the master and its synchronous standby server. Default value.
 - `SYNCHRONOUS_COMMIT_OFF`: Success is reported to the client even if the data is not in WAL.
@@ -12559,107 +15645,152 @@ The transaction may be lost due to simultaneous storage subsystem failure on the
 The transaction may be lost due to irrecoverably failure of both the master and its synchronous standby. ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum time between automatic WAL checkpoints. In milliseconds.
 
 Acceptable values are 30000 to 86400000, inclusive. ||
-|| checkpointCompletionTarget | **number** (double) ||
+|| checkpointCompletionTarget | **number** (double)
+
+Time spent flushing dirty buffers during checkpoint, as fraction of checkpoint interval. ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes
+Specifies how much data can be written during a checkpoint before forcing the operating system to issue the writes. In bytes.
 
 Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
-in bytes. ||
+Sets the WAL size that triggers a checkpoint. In bytes. ||
 || minWalSize | **string** (int64)
 
-in bytes. ||
+Sets the minimum size to shrink the WAL to. In bytes. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
-in milliseconds. ||
-|| defaultStatisticsTarget | **string** (int64) ||
+Sets the maximum delay before canceling queries when a hot standby server is processing streamed WAL data. In milliseconds. ||
+|| defaultStatisticsTarget | **string** (int64)
+
+Sets the default statistics target. This applies to table columns that have not had a
+column-specific target set via ALTER TABLE SET STATISTICS. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
+
+Enables the planner to use constraints to optimize queries.
 
 - `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
 - `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
 - `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
-|| cursorTupleFraction | **number** (double) ||
+|| cursorTupleFraction | **number** (double)
+
+Sets the planner's estimate of the fraction of a cursor's rows that will be retrieved. ||
 || fromCollapseLimit | **string** (int64)
+
+Sets the FROM-list size beyond which subqueries are not collapsed.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
 || joinCollapseLimit | **string** (int64)
 
+Sets the FROM-list size beyond which JOIN constructs are not flattened.
+
 Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_ON`: Force parallel query for all queries for which it is thought to be safe
-- `DEBUG_PARALLEL_QUERY_OFF`: Use parallel mode only when it is expected to improve performance
-- `DEBUG_PARALLEL_QUERY_REGRESS`: Like ON, but with additional changes for regression testing (suppresses context lines, hides Gather nodes in EXPLAIN) ||
+Forces the planner's use parallel query nodes.
+
+- `DEBUG_PARALLEL_QUERY_ON`: Forces parallel mode for queries considered safe, even when no performance benefit is expected.
+- `DEBUG_PARALLEL_QUERY_OFF`: Uses parallel mode only when the planner expects it to improve performance.
+- `DEBUG_PARALLEL_QUERY_REGRESS`: Behaves like ON, but hides added Gather nodes in EXPLAIN output and
+suppresses parallel-worker context lines to stabilize regression-test output. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are sent to the client.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Causes all statements generating error at or above this level to be logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinDurationStatement | **string** (int64)
 
-in milliseconds. ||
-|| logCheckpoints | **boolean** ||
-|| logConnections | **boolean** ||
-|| logDisconnections | **boolean** ||
-|| logDuration | **boolean** ||
+Sets the minimum execution time above which all statements will be logged. In milliseconds. ||
+|| logCheckpoints | **boolean**
+
+Logs each checkpoint. ||
+|| logConnections | **boolean**
+
+Logs each successful connection. ||
+|| logDisconnections | **boolean**
+
+Logs end of a session, including duration. ||
+|| logDuration | **boolean**
+
+Logs the duration of each completed SQL statement.
+ ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
+
+Sets the verbosity of logged messages.
 
 - `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
 - `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
 - `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
-|| logLockWaits | **boolean** ||
+|| logLockWaits | **boolean**
+
+Logs long lock waits. ||
 || logStatement | **enum** (LogStatement)
+
+Sets the type of statements logged.
 
 - `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
 - `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
 - `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
 - `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
-|| logTempFiles | **string** (int64) ||
-|| searchPath | **string** ||
-|| rowSecurity | **boolean** ||
+|| logTempFiles | **string** (int64)
+
+Log the use of temporary files larger than this number of kilobytes. ||
+|| searchPath | **string**
+
+Sets the schema search order for names that are not schema-qualified. ||
+|| rowSecurity | **boolean**
+
+Enable row security. ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
+
+Sets the transaction isolation level of each new transaction.
 
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
 - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
@@ -12669,122 +15800,241 @@ All queries in the current transaction see only the rows that were fixed prior t
 If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any statement. In milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed duration of any wait for a lock. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
+
+Sets the output format for bytea.
 
 - `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
 - `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`: Base64 encoding.
-- `XML_BINARY_HEX`: Hexadecimal encoding. ||
+Sets how binary values are to be encoded in XML.
+
+- `XML_BINARY_BASE64`: Encodes binary values using Base64.
+- `XML_BINARY_HEX`: Encodes binary values using hexadecimal notation. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`: XML document.
-- `XML_OPTION_CONTENT`: XML fragment. ||
+Sets whether XML data in implicit parsing and serialization operations is to be considered as documents or content fragments.
+
+- `XML_OPTION_DOCUMENT`: Treats an XML value as a complete, well-formed document.
+- `XML_OPTION_CONTENT`: Treats an XML value as a content fragment, which may contain multiple top-level elements or character nodes. ||
 || ginPendingListLimit | **string** (int64)
 
-in bytes. ||
+Sets the maximum size of the pending list for GIN index. In bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds.
+Sets the time to wait on a lock before checking for deadlock. In milliseconds.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
-|| maxLocksPerTransaction | **string** (int64) ||
-|| maxPredLocksPerTransaction | **string** (int64) ||
-|| arrayNulls | **boolean** ||
+|| maxLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of locks per transaction. The shared lock table is sized on the assumption that
+at most max_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| maxPredLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of predicate locks per transaction.The shared predicate lock table is sized on the assumption that
+at most max_pred_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| arrayNulls | **boolean**
+
+Enable input of NULL elements in arrays. When turned on, unquoted NULL in an array input
+value means a null value; otherwise it is taken literally. ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+Sets whether \"\\'\" is allowed in string literals.
+
+- `BACKSLASH_QUOTE`: Legacy invalid value. Do not use.
 - `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
 - `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
 - `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
-|| defaultWithOids | **boolean** ||
-|| escapeStringWarning | **boolean** ||
-|| loCompatPrivileges | **boolean** ||
-|| quoteAllIdentifiers | **boolean** ||
-|| standardConformingStrings | **boolean** ||
-|| synchronizeSeqscans | **boolean** ||
-|| transformNullEquals | **boolean** ||
-|| exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
+|| defaultWithOids | **boolean**
+
+WITH OIDS is no longer supported; this can only be false. ||
+|| escapeStringWarning | **boolean**
+
+Warn about backslash escapes in ordinary string literals. ||
+|| loCompatPrivileges | **boolean**
+
+Enables backward compatibility mode for privilege checks on large objects. Skips privilege checks
+when reading or modifying large objects, for compatibility with PostgreSQL releases prior to 9.0. ||
+|| quoteAllIdentifiers | **boolean**
+
+When generating SQL fragments, quote all identifiers. ||
+|| standardConformingStrings | **boolean**
+
+Causes '...' strings to treat backslashes literally. ||
+|| synchronizeSeqscans | **boolean**
+
+Enable synchronized sequential scans. ||
+|| transformNullEquals | **boolean**
+
+Treats \"expr=NULL\" as \"expr IS NULL\". When turned on, expressions of the form expr = NULL
+(or NULL = expr) are treated as expr IS NULL, that is, they return true if expr evaluates to the
+null value, and false otherwise. The correct behavior of expr = NULL is to always return null (unknown). ||
+|| exitOnError | **boolean**
+
+Terminate session on any error. ||
+|| seqPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a sequentially fetched disk page.
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a nonsequentially fetched disk page.
+
+The minimum value is 0. ||
 || autovacuumMaxWorkers | **string** (int64)
 
+Sets the maximum number of simultaneously running autovacuum worker processes.
+
 Acceptable values are 1 to 32, inclusive. ||
-|| autovacuumVacuumCostDelay | **string** (int64) ||
-|| autovacuumVacuumCostLimit | **string** (int64) ||
+|| autovacuumVacuumCostDelay | **string** (int64)
+
+Vacuum cost delay in milliseconds, for autovacuum. ||
+|| autovacuumVacuumCostLimit | **string** (int64)
+
+Vacuum cost amount available before napping, for autovacuum. ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds.
+Time to sleep between autovacuum runs. In milliseconds.
 
 Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds.
+Forces a switch to the next WAL file if no new file has been started within the specified interval. In milliseconds.
 
 Acceptable values are 10000 to 86400000, inclusive. ||
 || trackActivityQuerySize | **string** (int64)
 
+Sets the size reserved for pg_stat_activity.query, in bytes.
+
 Acceptable values are 100 to 102400, inclusive. ||
-|| onlineAnalyzeEnable | **boolean** ||
-|| enableBitmapscan | **boolean** ||
-|| enableHashagg | **boolean** ||
-|| enableHashjoin | **boolean** ||
-|| enableIndexscan | **boolean** ||
-|| enableIndexonlyscan | **boolean** ||
-|| enableMaterial | **boolean** ||
-|| enableMergejoin | **boolean** ||
-|| enableNestloop | **boolean** ||
-|| enableSeqscan | **boolean** ||
-|| enableSort | **boolean** ||
-|| enableTidscan | **boolean** ||
+|| onlineAnalyzeEnable | **boolean**
+
+Enables automatic table-statistics updates by online_analyze after data-modifying operations. ||
+|| enableBitmapscan | **boolean**
+
+Enables the planner's use of bitmap-scan plans. ||
+|| enableHashagg | **boolean**
+
+Enables the planner's use of hashed aggregation plans. ||
+|| enableHashjoin | **boolean**
+
+Enables the planner's use of hash join plans. ||
+|| enableIndexscan | **boolean**
+
+Enables the planner's use of index-scan plans. ||
+|| enableIndexonlyscan | **boolean**
+
+Enables the planner's use of index-only-scan plans. ||
+|| enableMaterial | **boolean**
+
+Enables the planner's use of materialization. ||
+|| enableMergejoin | **boolean**
+
+Enables the planner's use of merge join plans. ||
+|| enableNestloop | **boolean**
+
+Enables the planner's use of nested-loop join plans. ||
+|| enableSeqscan | **boolean**
+
+Enables the planner's use of sequential-scan plans. ||
+|| enableSort | **boolean**
+
+Enables the planner's use of explicit sort steps. ||
+|| enableTidscan | **boolean**
+
+Enables the planner's use of TID scan plans. ||
 || maxWorkerProcesses | **string** (int64)
+
+Maximum number of concurrent worker processes.
 
 Acceptable values are 0 to 1024, inclusive. ||
 || maxParallelWorkers | **string** (int64)
 
+Sets the maximum number of parallel workers that can be active at one time.
+
 Acceptable values are 0 to 1024, inclusive. ||
 || maxParallelWorkersPerGather | **string** (int64)
 
+Sets the maximum number of parallel processes per executor node.
+
 Acceptable values are 0 to 1024, inclusive. ||
-|| autovacuumVacuumScaleFactor | **number** (double) ||
-|| autovacuumAnalyzeScaleFactor | **number** (double) ||
-|| defaultTransactionReadOnly | **boolean** ||
-|| timezone | **string** ||
-|| enableParallelAppend | **boolean** ||
-|| enableParallelHash | **boolean** ||
-|| enablePartitionPruning | **boolean** ||
-|| enablePartitionwiseAggregate | **boolean** ||
-|| enablePartitionwiseJoin | **boolean** ||
-|| jit | **boolean** ||
+|| autovacuumVacuumScaleFactor | **number** (double)
+
+Number of tuple updates or deletes prior to vacuum as a fraction of reltuples. ||
+|| autovacuumAnalyzeScaleFactor | **number** (double)
+
+Number of tuple inserts, updates, or deletes prior to analyze as a fraction of reltuples. ||
+|| defaultTransactionReadOnly | **boolean**
+
+Sets the default read-only status of new transactions. ||
+|| timezone | **string**
+
+Sets the time zone for displaying and interpreting time stamps. ||
+|| enableParallelAppend | **boolean**
+
+Enables the planner's use of parallel append plans. ||
+|| enableParallelHash | **boolean**
+
+Enables the planner's use of parallel hash plans. ||
+|| enablePartitionPruning | **boolean**
+
+Enables plan-time and execution-time partition pruning. Allows the query planner and executor to
+compare partition bounds to conditions in the query to determine which partitions must be scanned. ||
+|| enablePartitionwiseAggregate | **boolean**
+
+Enables partitionwise aggregation and grouping. ||
+|| enablePartitionwiseJoin | **boolean**
+
+Enables partitionwise join. ||
+|| jit | **boolean**
+
+Allow JIT compilation. ||
 || maxParallelMaintenanceWorkers | **string** (int64)
 
+Sets the maximum number of parallel processes per maintenance operation.
+
 The minimum value is 0. ||
-|| parallelLeaderParticipation | **boolean** ||
-|| logTransactionSampleRate | **number** (double) ||
+|| parallelLeaderParticipation | **boolean**
+
+Controls whether Gather and Gather Merge also run subplans. ||
+|| logTransactionSampleRate | **number** (double)
+
+Sets the fraction of transactions from which to log all statements. Use a
+value between 0.0 (never log) and 1.0 (log all statements for all transactions). ||
 || planCacheMode | **enum** (PlanCacheMode)
+
+Controls the planner's selection of custom or generic plan. Prepared statements can have custom and generic plans,
+and the planner will attempt to choose which is better. This can be set to override the default behavior.
 
 - `PLAN_CACHE_MODE_AUTO`: Automatic selection.
 - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`: Forces the use of custom plans.
 - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`: Forces the use of generic plans. ||
 || effectiveIoConcurrency | **string** (int64)
 
+Number of simultaneous requests that can be handled efficiently by the disk subsystem.
+
 Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
-Acceptable values are 0 to 549755813888, inclusive. ||
+Sets the planner's assumption about the effective size of the disk cache available to a single query. In bytes.
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
+
+Lists shared libraries to preload into server.
 
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`: Required for the [auto_explain](https://www.postgresql.org/docs/current/auto-explain.html) extension.
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`: Required for the [pg_hint_plan](https://github.com/ossc-db/pg_hint_plan) extension.
@@ -12799,172 +16049,279 @@ Acceptable values are 0 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_SPQRGUARD`: Required for the [spqrguard](https://github.com/pg-sharding/spqrguard) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
-in milliseconds. ||
-|| autoExplainLogAnalyze | **boolean** ||
-|| autoExplainLogBuffers | **boolean** ||
-|| autoExplainLogTiming | **boolean** ||
-|| autoExplainLogTriggers | **boolean** ||
-|| autoExplainLogVerbose | **boolean** ||
-|| autoExplainLogNestedStatements | **boolean** ||
-|| autoExplainSampleRate | **number** (double) ||
-|| pgHintPlanEnableHint | **boolean** ||
-|| pgHintPlanEnableHintTable | **boolean** ||
+Sets the minimum statement execution time, that will cause the statement's plan to be logged.
+Setting this to 0 logs all plans. -1 (the default) disables logging of plans. For example, if
+you set it to 250ms then all statements that run 250ms or longer will be logged. In milliseconds.
+ ||
+|| autoExplainLogAnalyze | **boolean**
+
+Causes EXPLAIN ANALYZE output, rather than just EXPLAIN output,to be printed
+when an executionplan is logged. This parameter is off by default. ||
+|| autoExplainLogBuffers | **boolean**
+
+Controls whether buffer usage statistics are printed when an execution plan is logged;
+it's equivalent to the BUFFERS option of EXPLAIN. This parameter has no effect unless
+auto_explain.log_analyze is enabled. This parameter is off by default. ||
+|| autoExplainLogTiming | **boolean**
+
+Controls whether per-node timing information is printed when an execution plan is logged;
+it's equivalent to the TIMING option of EXPLAIN. The overhead of repeatedly reading the system
+clock can slow down queries significantly on some systems, so it may be useful to set this
+parameter to off when only actual row counts, and not exact times, are needed. This parameter
+has no effect unless auto_explain.log_analyze is enabled. This parameter is on by default. ||
+|| autoExplainLogTriggers | **boolean**
+
+Causes trigger execution statistics to be included when an execution plan is logged. This parameter
+has no effect unless auto_explain.log_analyze is enabled. This parameter is off by default. ||
+|| autoExplainLogVerbose | **boolean**
+
+Controls whether verbose details are printed when an execution plan is logged; it's
+equivalent to the VERBOSE option of EXPLAIN. This parameter is off by default. ||
+|| autoExplainLogNestedStatements | **boolean**
+
+Causes nested statements (statements executed inside a function) to be considered for logging.
+When it is off, only top-level query plans are logged. This parameter is off by default. ||
+|| autoExplainSampleRate | **number** (double)
+
+Causes auto_explain to only explain a fraction of the statements in each session. The default is 1,
+meaning explain all the queries. In case of nested statements, either all will be explained or none. ||
+|| pgHintPlanEnableHint | **boolean**
+
+Enables processing of query hints by pg_hint_plan. ||
+|| pgHintPlanEnableHintTable | **boolean**
+
+Enables lookup of hints in the hint table. ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disable debug output
-- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Print debug messages about hint parsing
-- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Print detailed debug information including query planning process
-- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Print verbose debug output with all internal operations ||
+Controls whether and how verbosely hint parsing results are logged.
+
+- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disables diagnostic logging.
+- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Logs hint-processing results grouped by used, unused, duplicate, and erroneous hints.
+- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Logs hint-processing results together with detailed planner diagnostics.
+- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Logs the most detailed diagnostics, including query strings used to extract hints. ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
-|| hashMemMultiplier | **number** (double) ||
+Sets the log level for pg_hint_plan debug messages.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
+|| hashMemMultiplier | **number** (double)
+
+Multiple of work_mem to use for hash tables. ||
 || logicalDecodingWorkMem | **string** (int64)
 
-in bytes.
+Sets the maximum memory to be used for logical decoding. This much memory can be
+used by each internal reorder buffer before spilling to disk. In bytes.
 
 Acceptable values are 65536 to 1099511627776, inclusive. ||
 || maintenanceIoConcurrency | **string** (int64)
 
+A variant of effective_io_concurrency that is used for maintenance work.
+
 Acceptable values are 0 to 1000, inclusive. ||
 || maxSlotWalKeepSize | **string** (int64)
 
-in bytes. ||
+Sets the maximum WAL size that can be reserved by replication slots. Replication slots will be marked as failed,
+and segments released for deletion or recycling, if this much space is occupied by WAL on disk. In bytes. ||
 || walKeepSize | **string** (int64)
 
-in bytes. ||
-|| enableIncrementalSort | **boolean** ||
-|| autovacuumVacuumInsertThreshold | **string** (int64) ||
-|| autovacuumVacuumInsertScaleFactor | **number** (double) ||
+Sets the size of WAL files held for standby servers. In bytes. ||
+|| enableIncrementalSort | **boolean**
+
+Enables the planner's use of incremental sort steps. ||
+|| autovacuumVacuumInsertThreshold | **string** (int64)
+
+Minimum number of tuple inserts prior to vacuum, or -1 to disable insert vacuums. ||
+|| autovacuumVacuumInsertScaleFactor | **number** (double)
+
+Number of tuple inserts prior to vacuum as a fraction of reltuples. ||
 || logMinDurationSample | **string** (int64)
 
-in milliseconds. ||
-|| logStatementSampleRate | **number** (double) ||
+Sets the minimum execution time above which a sample of statements will be logged. Sampling is determined
+by log_statement_sample_rate. Zero logs a sample of all queries. -1 turns this feature off. In milliseconds. ||
+|| logStatementSampleRate | **number** (double)
+
+Fraction of statements exceeding log_min_duration_sample to be logged. Use a value between 0.0 (never log) and 1.0 (always log). ||
 || logParameterMaxLength | **string** (int64)
 
-in bytes. ||
+When logging statements, limit logged parameter values to first N bytes. -1 to print values in full. ||
 || logParameterMaxLengthOnError | **string** (int64)
 
-in bytes. ||
+When reporting an error, limit logged parameter values to first N bytes. -1 to print values in full. ||
 || clientConnectionCheckInterval | **string** (int64)
 
-in milliseconds. ||
-|| enableAsyncAppend | **boolean** ||
-|| enableGathermerge | **boolean** ||
-|| enableMemoize | **boolean** ||
+Sets the time interval between checks for disconnection while running queries. In milliseconds. ||
+|| enableAsyncAppend | **boolean**
+
+Enables the planner's use of async append plans. ||
+|| enableGathermerge | **boolean**
+
+Enables the planner's use of gather merge plans. ||
+|| enableMemoize | **boolean**
+
+Enables the planner's use of memoization. ||
 || logRecoveryConflictWaits | **boolean**
 
-in milliseconds. ||
+Logs standby recovery conflict waits. ||
 || vacuumFailsafeAge | **string** (int64)
 
-in milliseconds. ||
+Age at which VACUUM should trigger failsafe to avoid a wraparound outage. ||
 || vacuumMultixactFailsafeAge | **string** (int64)
 
-in milliseconds. ||
-|| pgQualstatsEnabled | **boolean** ||
-|| pgQualstatsTrackConstants | **boolean** ||
-|| pgQualstatsMax | **string** (int64) ||
-|| pgQualstatsResolveOids | **boolean** ||
-|| pgQualstatsSampleRate | **number** (double) ||
-|| plantunerFixEmptyTable | **boolean** ||
+Multixact age at which VACUUM should trigger failsafe to avoid a wraparound outage. ||
+|| pgQualstatsEnabled | **boolean**
+
+Controls whether pg_qualstats collects execution statistics for query predicates,
+including filters and join conditions. ||
+|| pgQualstatsTrackConstants | **boolean**
+
+Controls whether pg_qualstats keeps separate statistics for predicates containing different constant values ||
+|| pgQualstatsMax | **string** (int64)
+
+Limits the number of predicate-statistics and query-text entries retained by pg_qualstats. ||
+|| pgQualstatsResolveOids | **boolean**
+
+Controls whether pg_qualstats resolves object OIDs and stores their names  when collecting statistics.
+Enabling this increases memory usage and requires additional system-catalog lookups. ||
+|| pgQualstatsSampleRate | **number** (double)
+
+Sets the fraction of queries sampled by pg_qualstats. A value of -1 selects an automatic rate
+of 1 / max_connections; 0 samples no queries, and 1 samples every query. ||
+|| plantunerFixEmptyTable | **boolean**
+
+Controls whether plantuner sets estimated page and row counts to zero for tables that have no storage blocks. ||
 || maxStackDepth | **string** (int64)
 
-in bytes.
+Sets the maximum stack depth, in bytes.
 
 Acceptable values are 65536 to 134217728, inclusive. ||
-|| enableGroupByReordering | **boolean** ||
+|| enableGroupByReordering | **boolean**
+
+Controls if the query planner will produce a plan which will provide GROUP BY keys sorted in the order of keys of a
+child node of the plan, such as an index scan. When disabled, the query planner will produce a plan with GROUP BY keys
+only sorted to match the ORDER BY clause, if any. When enabled, the planner will try to produce a more efficient plan.
+The default value is on. ||
 || geqo | **boolean**
 
-enable Genetic Query Optimizer, by default is on ||
+Enables genetic query optimization. This algorithm attempts to do planning
+without exhaustive searching, by default is on. ||
 || geqoThreshold | **string** (int64)
 
-The number of tables to use geqo, default is 12 ||
+Sets the threshold of FROM items beyond which GEQO is used, default is 12. ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5
+GEQO: effort is used to set the default for other GEQO parameters.
+Tradeoff between planning time and query plan quality, default is 5.
 
 Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
-number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
+GEQO: number of individuals in the population.
+Useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort. ||
 || geqoGenerations | **string** (int64)
 
-the number of generations used by GEQO, useful values are in the same range as the pool size ||
+GEQO: number of iterations of the algorithm. Zero selects a suitable default value.
+Useful values are in the same range as the pool size. ||
 || geqoSelectionBias | **number** (double)
 
-selective pressure within the population ||
+GEQO: selective pressure within the population. ||
 || geqoSeed | **number** (double)
 
-initial value of the random number generator used by GEQO ||
-|| pgTrgmSimilarityThreshold | **number** (double) ||
-|| pgTrgmWordSimilarityThreshold | **number** (double) ||
-|| pgTrgmStrictWordSimilarityThreshold | **number** (double) ||
+GEQO: seed for random path selection. ||
+|| pgTrgmSimilarityThreshold | **number** (double)
+
+Sets the trigram similarity threshold used by the `%` operator
+to determine whether two strings are similar. ||
+|| pgTrgmWordSimilarityThreshold | **number** (double)
+
+Sets the threshold used by the `<%` and `%>` operators when comparing
+a string with the most similar continuous part of another string. ||
+|| pgTrgmStrictWordSimilarityThreshold | **number** (double)
+
+Sets the threshold used by the `<<%` and `%>>` operators when comparing
+a string with parts of another string aligned to word boundaries. ||
 || maxStandbyArchiveDelay | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum delay before canceling queries when a hot standby server is processing archived WAL data. In milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is
+not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
-|| logReplicationCommands | **boolean** ||
+|| logReplicationCommands | **boolean**
+
+Logs each replication command. ||
 || logAutovacuumMinDuration | **string** (int64)
 
-in milliseconds. The default is 1000 (1 sec). ||
+Sets the minimum execution time above which autovacuum actions will be logged.
+Zero prints all actions. -1 turns autovacuum logging off. In milliseconds. The default is 1000 (1 sec).
+ ||
 || passwordEncryption | **enum** (PasswordEncryption)
 
-A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``.
+A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are
+`` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``.
 
 - `PASSWORD_ENCRYPTION_MD5`: The method md5 uses a custom less secure challenge-response mechanism. It prevents password sniffing and avoids storing passwords on the server in plain text but provides no protection if an attacker manages to steal the password hash from the server. Also, the MD5 hash algorithm is nowadays no longer considered secure against determined attacks.
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256`: The method scram-sha-256 performs SCRAM-SHA-256 authentication, as described in RFC 7677. It is a challenge-response scheme that prevents password sniffing on untrusted connections and supports storing passwords on the server in a cryptographically hashed form that is thought to be secure.
 This is the most secure of the currently provided methods, but it is not supported by older client libraries. ||
 || autoExplainLogFormat | **enum** (AutoExplainLogFormat)
 
-Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
+Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``,
+`` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``.
+The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
 
-- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`: 'text' value for the EXPLAIN output format in auto_explain extension
-- `AUTO_EXPLAIN_LOG_FORMAT_XML`: 'xml' value for the EXPLAIN output format in auto_explain extension
-- `AUTO_EXPLAIN_LOG_FORMAT_JSON`: 'json' value for the EXPLAIN output format in auto_explain extension
-- `AUTO_EXPLAIN_LOG_FORMAT_YAML`: 'yaml' value for the EXPLAIN output format in auto_explain extension ||
-|| trackCommitTimestamp | **boolean** ||
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`: Formats logged execution plans as plain text.
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`: Formats logged execution plans as XML.
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`: Formats logged execution plans as JSON.
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML`: Formats logged execution plans as YAML. ||
+|| trackCommitTimestamp | **boolean**
+
+Collects transaction commit time. ||
 || maxLogicalReplicationWorkers | **string** (int64)
+
+Maximum number of logical replication worker processes.
 
 Acceptable values are 4 to 100, inclusive. ||
 || maxWalSenders | **string** (int64)
 
+Sets the maximum number of simultaneously running WAL sender processes.
+
 Acceptable values are 20 to 100, inclusive. ||
 || maxReplicationSlots | **string** (int64)
+
+Sets the maximum number of simultaneously defined replication slots.
 
 Acceptable values are 20 to 100, inclusive. ||
 || idleSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when not in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || checkpointWarning | **string** (int64)
 
-in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
+Sets the interval below which checkpoints triggered by filling WAL segment files cause a warning to be written to the server log.
+A value of 0 disables the warning. In milliseconds.
 
 Acceptable values are 0 to 2147483647000, inclusive. ||
 || autovacuumVacuumThreshold | **string** (int64)
 
-Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+Minimum number of tuple updates or deletes prior to vacuum.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || autovacuumAnalyzeThreshold | **string** (int64)
 
-Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+Minimum number of tuple inserts, updates, or deletes prior to analyze.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 |#
@@ -12995,55 +16352,77 @@ parameters which detailed description is available in
 ||Field | Description ||
 || maxConnections | **string** (int64)
 
+Sets the maximum number of concurrent connections.
+
 The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
-in bytes. ||
+Sets the number of shared memory buffers used by the server. In bytes. ||
 || tempBuffers | **string** (int64)
 
-in bytes. ||
-|| maxPreparedTransactions | **string** (int64) ||
+Sets the maximum number of temporary buffers used by each session. In bytes. ||
+|| maxPreparedTransactions | **string** (int64)
+
+Sets the maximum number of simultaneously prepared transactions. ||
 || workMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used for query workspaces. This much memory can be used by each
+internal sort operation and hash table before switching to temporary disk files. In bytes. ||
 || maintenanceWorkMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used for maintenance operations.
+This includes operations such as VACUUM and CREATE INDEX. In bytes. ||
 || autovacuumWorkMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used by each autovacuum worker process. In bytes. ||
 || tempFileLimit | **string** (int64)
 
-in bytes. ||
+Limits the total size of all temporary files used by each process. -1 means no limit. In bytes. ||
 || vacuumCostDelay | **string** (int64)
 
-in milliseconds. ||
-|| vacuumCostPageHit | **string** (int64) ||
-|| vacuumCostPageMiss | **string** (int64) ||
-|| vacuumCostPageDirty | **string** (int64) ||
-|| vacuumCostLimit | **string** (int64) ||
+Vacuum cost delay. In milliseconds. ||
+|| vacuumCostPageHit | **string** (int64)
+
+Vacuum cost for a page found in the buffer cache. ||
+|| vacuumCostPageMiss | **string** (int64)
+
+Vacuum cost for a page not found in the buffer cache. ||
+|| vacuumCostPageDirty | **string** (int64)
+
+Vacuum cost for a page dirtied by vacuum. ||
+|| vacuumCostLimit | **string** (int64)
+
+Vacuum cost amount available before napping. ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds.
+Background writer sleep time between rounds. In milliseconds.
 
 Acceptable values are 10 to 10000, inclusive. ||
-|| bgwriterLruMaxpages | **string** (int64) ||
-|| bgwriterLruMultiplier | **number** (double) ||
+|| bgwriterLruMaxpages | **string** (int64)
+
+Background writer maximum number of LRU pages to flush per round. ||
+|| bgwriterLruMultiplier | **number** (double)
+
+Multiple of the average buffer usage to free per round. ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes
+Specifies how much data the background writer can write before forcing the operating system to issue the writes. In bytes.
 
 Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes
+Specifies how much data a backend can write before forcing the operating system to issue the writes. In bytes.
 
 Acceptable values are 0 to 2097152, inclusive. ||
 || walLevel | **enum** (WalLevel)
 
+Sets the level of information written to the WAL.
+
 - `WAL_LEVEL_REPLICA`: Supports WAL archiving and physical replication.
 - `WAL_LEVEL_LOGICAL`: Supports WAL archiving, physical replication, and logical decoding. ||
 || synchronousCommit | **enum** (SynchronousCommit)
+
+Sets the current transaction's synchronization level.
 
 - `SYNCHRONOUS_COMMIT_ON`: Success is reported to the client if the data is in WAL (Write-Ahead Log), and WAL is written to the storage of both the master and its synchronous standby server. Default value.
 - `SYNCHRONOUS_COMMIT_OFF`: Success is reported to the client even if the data is not in WAL.
@@ -13056,107 +16435,152 @@ The transaction may be lost due to simultaneous storage subsystem failure on the
 The transaction may be lost due to irrecoverably failure of both the master and its synchronous standby. ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum time between automatic WAL checkpoints. In milliseconds.
 
 Acceptable values are 30000 to 86400000, inclusive. ||
-|| checkpointCompletionTarget | **number** (double) ||
+|| checkpointCompletionTarget | **number** (double)
+
+Time spent flushing dirty buffers during checkpoint, as fraction of checkpoint interval. ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes
+Specifies how much data can be written during a checkpoint before forcing the operating system to issue the writes. In bytes.
 
 Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
-in bytes. ||
+Sets the WAL size that triggers a checkpoint. In bytes. ||
 || minWalSize | **string** (int64)
 
-in bytes. ||
+Sets the minimum size to shrink the WAL to. In bytes. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
-in milliseconds. ||
-|| defaultStatisticsTarget | **string** (int64) ||
+Sets the maximum delay before canceling queries when a hot standby server is processing streamed WAL data. In milliseconds. ||
+|| defaultStatisticsTarget | **string** (int64)
+
+Sets the default statistics target. This applies to table columns that have not had a
+column-specific target set via ALTER TABLE SET STATISTICS. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
+
+Enables the planner to use constraints to optimize queries.
 
 - `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
 - `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
 - `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
-|| cursorTupleFraction | **number** (double) ||
+|| cursorTupleFraction | **number** (double)
+
+Sets the planner's estimate of the fraction of a cursor's rows that will be retrieved. ||
 || fromCollapseLimit | **string** (int64)
+
+Sets the FROM-list size beyond which subqueries are not collapsed.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
 || joinCollapseLimit | **string** (int64)
 
+Sets the FROM-list size beyond which JOIN constructs are not flattened.
+
 Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_ON`: Force parallel query for all queries for which it is thought to be safe
-- `DEBUG_PARALLEL_QUERY_OFF`: Use parallel mode only when it is expected to improve performance
-- `DEBUG_PARALLEL_QUERY_REGRESS`: Like ON, but with additional changes for regression testing (suppresses context lines, hides Gather nodes in EXPLAIN) ||
+Forces the planner's use parallel query nodes.
+
+- `DEBUG_PARALLEL_QUERY_ON`: Forces parallel mode for queries considered safe, even when no performance benefit is expected.
+- `DEBUG_PARALLEL_QUERY_OFF`: Uses parallel mode only when the planner expects it to improve performance.
+- `DEBUG_PARALLEL_QUERY_REGRESS`: Behaves like ON, but hides added Gather nodes in EXPLAIN output and
+suppresses parallel-worker context lines to stabilize regression-test output. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are sent to the client.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Causes all statements generating error at or above this level to be logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinDurationStatement | **string** (int64)
 
-in milliseconds. ||
-|| logCheckpoints | **boolean** ||
-|| logConnections | **boolean** ||
-|| logDisconnections | **boolean** ||
-|| logDuration | **boolean** ||
+Sets the minimum execution time above which all statements will be logged. In milliseconds. ||
+|| logCheckpoints | **boolean**
+
+Logs each checkpoint. ||
+|| logConnections | **boolean**
+
+Logs each successful connection. ||
+|| logDisconnections | **boolean**
+
+Logs end of a session, including duration. ||
+|| logDuration | **boolean**
+
+Logs the duration of each completed SQL statement.
+ ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
+
+Sets the verbosity of logged messages.
 
 - `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
 - `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
 - `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
-|| logLockWaits | **boolean** ||
+|| logLockWaits | **boolean**
+
+Logs long lock waits. ||
 || logStatement | **enum** (LogStatement)
+
+Sets the type of statements logged.
 
 - `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
 - `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
 - `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
 - `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
-|| logTempFiles | **string** (int64) ||
-|| searchPath | **string** ||
-|| rowSecurity | **boolean** ||
+|| logTempFiles | **string** (int64)
+
+Log the use of temporary files larger than this number of kilobytes. ||
+|| searchPath | **string**
+
+Sets the schema search order for names that are not schema-qualified. ||
+|| rowSecurity | **boolean**
+
+Enable row security. ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
+
+Sets the transaction isolation level of each new transaction.
 
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
 - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
@@ -13166,121 +16590,238 @@ All queries in the current transaction see only the rows that were fixed prior t
 If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any statement. In milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed duration of any wait for a lock. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
+
+Sets the output format for bytea.
 
 - `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
 - `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`: Base64 encoding.
-- `XML_BINARY_HEX`: Hexadecimal encoding. ||
+Sets how binary values are to be encoded in XML.
+
+- `XML_BINARY_BASE64`: Encodes binary values using Base64.
+- `XML_BINARY_HEX`: Encodes binary values using hexadecimal notation. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`: XML document.
-- `XML_OPTION_CONTENT`: XML fragment. ||
+Sets whether XML data in implicit parsing and serialization operations is to be considered as documents or content fragments.
+
+- `XML_OPTION_DOCUMENT`: Treats an XML value as a complete, well-formed document.
+- `XML_OPTION_CONTENT`: Treats an XML value as a content fragment, which may contain multiple top-level elements or character nodes. ||
 || ginPendingListLimit | **string** (int64)
 
-in bytes. ||
+Sets the maximum size of the pending list for GIN index. In bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds.
+Sets the time to wait on a lock before checking for deadlock. In milliseconds.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
-|| maxLocksPerTransaction | **string** (int64) ||
-|| maxPredLocksPerTransaction | **string** (int64) ||
-|| arrayNulls | **boolean** ||
+|| maxLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of locks per transaction. The shared lock table is sized on the assumption that
+at most max_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| maxPredLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of predicate locks per transaction.The shared predicate lock table is sized on the assumption that
+at most max_pred_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| arrayNulls | **boolean**
+
+Enable input of NULL elements in arrays. When turned on, unquoted NULL in an array input
+value means a null value; otherwise it is taken literally. ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+Sets whether \"\\'\" is allowed in string literals.
+
+- `BACKSLASH_QUOTE`: Legacy invalid value. Do not use.
 - `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
 - `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
 - `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
-|| defaultWithOids | **boolean** ||
-|| escapeStringWarning | **boolean** ||
-|| loCompatPrivileges | **boolean** ||
-|| quoteAllIdentifiers | **boolean** ||
-|| standardConformingStrings | **boolean** ||
-|| synchronizeSeqscans | **boolean** ||
-|| transformNullEquals | **boolean** ||
-|| exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
+|| defaultWithOids | **boolean**
+
+WITH OIDS is no longer supported; this can only be false. ||
+|| escapeStringWarning | **boolean**
+
+Warn about backslash escapes in ordinary string literals. ||
+|| loCompatPrivileges | **boolean**
+
+Enables backward compatibility mode for privilege checks on large objects. Skips privilege checks
+when reading or modifying large objects, for compatibility with PostgreSQL releases prior to 9.0. ||
+|| quoteAllIdentifiers | **boolean**
+
+When generating SQL fragments, quote all identifiers. ||
+|| standardConformingStrings | **boolean**
+
+Causes '...' strings to treat backslashes literally. ||
+|| synchronizeSeqscans | **boolean**
+
+Enable synchronized sequential scans. ||
+|| transformNullEquals | **boolean**
+
+Treats \"expr=NULL\" as \"expr IS NULL\". When turned on, expressions of the form expr = NULL
+(or NULL = expr) are treated as expr IS NULL, that is, they return true if expr evaluates to the
+null value, and false otherwise. The correct behavior of expr = NULL is to always return null (unknown). ||
+|| exitOnError | **boolean**
+
+Terminate session on any error. ||
+|| seqPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a sequentially fetched disk page.
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a nonsequentially fetched disk page.
+
+The minimum value is 0. ||
 || autovacuumMaxWorkers | **string** (int64)
 
+Sets the maximum number of simultaneously running autovacuum worker processes.
+
 Acceptable values are 1 to 32, inclusive. ||
-|| autovacuumVacuumCostDelay | **string** (int64) ||
-|| autovacuumVacuumCostLimit | **string** (int64) ||
+|| autovacuumVacuumCostDelay | **string** (int64)
+
+Vacuum cost delay in milliseconds, for autovacuum. ||
+|| autovacuumVacuumCostLimit | **string** (int64)
+
+Vacuum cost amount available before napping, for autovacuum. ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds.
+Time to sleep between autovacuum runs. In milliseconds.
 
 Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds.
+Forces a switch to the next WAL file if no new file has been started within the specified interval. In milliseconds.
 
 Acceptable values are 10000 to 86400000, inclusive. ||
 || trackActivityQuerySize | **string** (int64)
 
+Sets the size reserved for pg_stat_activity.query, in bytes.
+
 Acceptable values are 100 to 102400, inclusive. ||
-|| enableBitmapscan | **boolean** ||
-|| enableHashagg | **boolean** ||
-|| enableHashjoin | **boolean** ||
-|| enableIndexscan | **boolean** ||
-|| enableIndexonlyscan | **boolean** ||
-|| enableMaterial | **boolean** ||
-|| enableMergejoin | **boolean** ||
-|| enableNestloop | **boolean** ||
-|| enableSeqscan | **boolean** ||
-|| enableSort | **boolean** ||
-|| enableTidscan | **boolean** ||
+|| enableBitmapscan | **boolean**
+
+Enables the planner's use of bitmap-scan plans. ||
+|| enableHashagg | **boolean**
+
+Enables the planner's use of hashed aggregation plans. ||
+|| enableHashjoin | **boolean**
+
+Enables the planner's use of hash join plans. ||
+|| enableIndexscan | **boolean**
+
+Enables the planner's use of index-scan plans. ||
+|| enableIndexonlyscan | **boolean**
+
+Enables the planner's use of index-only-scan plans. ||
+|| enableMaterial | **boolean**
+
+Enables the planner's use of materialization. ||
+|| enableMergejoin | **boolean**
+
+Enables the planner's use of merge join plans. ||
+|| enableNestloop | **boolean**
+
+Enables the planner's use of nested-loop join plans. ||
+|| enableSeqscan | **boolean**
+
+Enables the planner's use of sequential-scan plans. ||
+|| enableSort | **boolean**
+
+Enables the planner's use of explicit sort steps. ||
+|| enableTidscan | **boolean**
+
+Enables the planner's use of TID scan plans. ||
 || maxWorkerProcesses | **string** (int64)
+
+Maximum number of concurrent worker processes.
 
 Acceptable values are 0 to 1024, inclusive. ||
 || maxParallelWorkers | **string** (int64)
 
+Sets the maximum number of parallel workers that can be active at one time.
+
 Acceptable values are 0 to 1024, inclusive. ||
 || maxParallelWorkersPerGather | **string** (int64)
 
+Sets the maximum number of parallel processes per executor node.
+
 Acceptable values are 0 to 1024, inclusive. ||
-|| autovacuumVacuumScaleFactor | **number** (double) ||
-|| autovacuumAnalyzeScaleFactor | **number** (double) ||
-|| defaultTransactionReadOnly | **boolean** ||
-|| timezone | **string** ||
-|| enableParallelAppend | **boolean** ||
-|| enableParallelHash | **boolean** ||
-|| enablePartitionPruning | **boolean** ||
-|| enablePartitionwiseAggregate | **boolean** ||
-|| enablePartitionwiseJoin | **boolean** ||
-|| jit | **boolean** ||
+|| autovacuumVacuumScaleFactor | **number** (double)
+
+Number of tuple updates or deletes prior to vacuum as a fraction of reltuples. ||
+|| autovacuumAnalyzeScaleFactor | **number** (double)
+
+Number of tuple inserts, updates, or deletes prior to analyze as a fraction of reltuples. ||
+|| defaultTransactionReadOnly | **boolean**
+
+Sets the default read-only status of new transactions. ||
+|| timezone | **string**
+
+Sets the time zone for displaying and interpreting time stamps. ||
+|| enableParallelAppend | **boolean**
+
+Enables the planner's use of parallel append plans. ||
+|| enableParallelHash | **boolean**
+
+Enables the planner's use of parallel hash plans. ||
+|| enablePartitionPruning | **boolean**
+
+Enables plan-time and execution-time partition pruning. Allows the query planner and executor to
+compare partition bounds to conditions in the query to determine which partitions must be scanned. ||
+|| enablePartitionwiseAggregate | **boolean**
+
+Enables partitionwise aggregation and grouping. ||
+|| enablePartitionwiseJoin | **boolean**
+
+Enables partitionwise join. ||
+|| jit | **boolean**
+
+Allow JIT compilation. ||
 || maxParallelMaintenanceWorkers | **string** (int64)
 
+Sets the maximum number of parallel processes per maintenance operation.
+
 The minimum value is 0. ||
-|| parallelLeaderParticipation | **boolean** ||
-|| logTransactionSampleRate | **number** (double) ||
+|| parallelLeaderParticipation | **boolean**
+
+Controls whether Gather and Gather Merge also run subplans. ||
+|| logTransactionSampleRate | **number** (double)
+
+Sets the fraction of transactions from which to log all statements. Use a
+value between 0.0 (never log) and 1.0 (log all statements for all transactions). ||
 || planCacheMode | **enum** (PlanCacheMode)
+
+Controls the planner's selection of custom or generic plan. Prepared statements can have custom and generic plans,
+and the planner will attempt to choose which is better. This can be set to override the default behavior.
 
 - `PLAN_CACHE_MODE_AUTO`: Automatic selection.
 - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`: Forces the use of custom plans.
 - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`: Forces the use of generic plans. ||
 || effectiveIoConcurrency | **string** (int64)
 
+Number of simultaneous requests that can be handled efficiently by the disk subsystem.
+
 Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
-Acceptable values are 0 to 549755813888, inclusive. ||
+Sets the planner's assumption about the effective size of the disk cache available to a single query. In bytes.
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
+
+Lists shared libraries to preload into server.
 
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`: Required for the [auto_explain](https://www.postgresql.org/docs/current/auto-explain.html) extension.
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`: Required for the [pg_hint_plan](https://github.com/ossc-db/pg_hint_plan) extension.
@@ -13295,179 +16836,284 @@ Acceptable values are 0 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_SPQRGUARD`: Required for the [spqrguard](https://github.com/pg-sharding/spqrguard) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
-in milliseconds. ||
-|| autoExplainLogAnalyze | **boolean** ||
-|| autoExplainLogBuffers | **boolean** ||
-|| autoExplainLogTiming | **boolean** ||
-|| autoExplainLogTriggers | **boolean** ||
-|| autoExplainLogVerbose | **boolean** ||
-|| autoExplainLogNestedStatements | **boolean** ||
-|| autoExplainSampleRate | **number** (double) ||
-|| pgHintPlanEnableHint | **boolean** ||
-|| pgHintPlanEnableHintTable | **boolean** ||
+Sets the minimum statement execution time, that will cause the statement's plan to be logged.
+Setting this to 0 logs all plans. -1 (the default) disables logging of plans. For example, if
+you set it to 250ms then all statements that run 250ms or longer will be logged. In milliseconds.
+ ||
+|| autoExplainLogAnalyze | **boolean**
+
+Causes EXPLAIN ANALYZE output, rather than just EXPLAIN output,to be printed
+when an executionplan is logged. This parameter is off by default. ||
+|| autoExplainLogBuffers | **boolean**
+
+Controls whether buffer usage statistics are printed when an execution plan is logged;
+it's equivalent to the BUFFERS option of EXPLAIN. This parameter has no effect unless
+auto_explain.log_analyze is enabled. This parameter is off by default. ||
+|| autoExplainLogTiming | **boolean**
+
+Controls whether per-node timing information is printed when an execution plan is logged;
+it's equivalent to the TIMING option of EXPLAIN. The overhead of repeatedly reading the system
+clock can slow down queries significantly on some systems, so it may be useful to set this
+parameter to off when only actual row counts, and not exact times, are needed. This parameter
+has no effect unless auto_explain.log_analyze is enabled. This parameter is on by default. ||
+|| autoExplainLogTriggers | **boolean**
+
+Causes trigger execution statistics to be included when an execution plan is logged. This parameter
+has no effect unless auto_explain.log_analyze is enabled. This parameter is off by default. ||
+|| autoExplainLogVerbose | **boolean**
+
+Controls whether verbose details are printed when an execution plan is logged; it's
+equivalent to the VERBOSE option of EXPLAIN. This parameter is off by default. ||
+|| autoExplainLogNestedStatements | **boolean**
+
+Causes nested statements (statements executed inside a function) to be considered for logging.
+When it is off, only top-level query plans are logged. This parameter is off by default. ||
+|| autoExplainSampleRate | **number** (double)
+
+Causes auto_explain to only explain a fraction of the statements in each session. The default is 1,
+meaning explain all the queries. In case of nested statements, either all will be explained or none. ||
+|| pgHintPlanEnableHint | **boolean**
+
+Enables processing of query hints by pg_hint_plan. ||
+|| pgHintPlanEnableHintTable | **boolean**
+
+Enables lookup of hints in the hint table. ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disable debug output
-- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Print debug messages about hint parsing
-- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Print detailed debug information including query planning process
-- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Print verbose debug output with all internal operations ||
+Controls whether and how verbosely hint parsing results are logged.
+
+- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disables diagnostic logging.
+- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Logs hint-processing results grouped by used, unused, duplicate, and erroneous hints.
+- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Logs hint-processing results together with detailed planner diagnostics.
+- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Logs the most detailed diagnostics, including query strings used to extract hints. ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
-|| hashMemMultiplier | **number** (double) ||
+Sets the log level for pg_hint_plan debug messages.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
+|| hashMemMultiplier | **number** (double)
+
+Multiple of work_mem to use for hash tables. ||
 || logicalDecodingWorkMem | **string** (int64)
 
-in bytes.
+Sets the maximum memory to be used for logical decoding. This much memory can be
+used by each internal reorder buffer before spilling to disk. In bytes.
 
 Acceptable values are 65536 to 1099511627776, inclusive. ||
 || maintenanceIoConcurrency | **string** (int64)
 
+A variant of effective_io_concurrency that is used for maintenance work.
+
 Acceptable values are 0 to 1000, inclusive. ||
 || maxSlotWalKeepSize | **string** (int64)
 
-in bytes. ||
+Sets the maximum WAL size that can be reserved by replication slots. Replication slots will be marked as failed,
+and segments released for deletion or recycling, if this much space is occupied by WAL on disk. In bytes. ||
 || walKeepSize | **string** (int64)
 
-in bytes. ||
-|| enableIncrementalSort | **boolean** ||
-|| autovacuumVacuumInsertThreshold | **string** (int64) ||
-|| autovacuumVacuumInsertScaleFactor | **number** (double) ||
+Sets the size of WAL files held for standby servers. In bytes. ||
+|| enableIncrementalSort | **boolean**
+
+Enables the planner's use of incremental sort steps. ||
+|| autovacuumVacuumInsertThreshold | **string** (int64)
+
+Minimum number of tuple inserts prior to vacuum, or -1 to disable insert vacuums. ||
+|| autovacuumVacuumInsertScaleFactor | **number** (double)
+
+Number of tuple inserts prior to vacuum as a fraction of reltuples. ||
 || logMinDurationSample | **string** (int64)
 
-in milliseconds. ||
-|| logStatementSampleRate | **number** (double) ||
+Sets the minimum execution time above which a sample of statements will be logged. Sampling is determined
+by log_statement_sample_rate. Zero logs a sample of all queries. -1 turns this feature off. In milliseconds. ||
+|| logStatementSampleRate | **number** (double)
+
+Fraction of statements exceeding log_min_duration_sample to be logged. Use a value between 0.0 (never log) and 1.0 (always log). ||
 || logParameterMaxLength | **string** (int64)
 
-in bytes. ||
+When logging statements, limit logged parameter values to first N bytes. -1 to print values in full. ||
 || logParameterMaxLengthOnError | **string** (int64)
 
-in bytes. ||
+When reporting an error, limit logged parameter values to first N bytes. -1 to print values in full. ||
 || clientConnectionCheckInterval | **string** (int64)
 
-in milliseconds. ||
-|| enableAsyncAppend | **boolean** ||
-|| enableGathermerge | **boolean** ||
-|| enableMemoize | **boolean** ||
+Sets the time interval between checks for disconnection while running queries. In milliseconds. ||
+|| enableAsyncAppend | **boolean**
+
+Enables the planner's use of async append plans. ||
+|| enableGathermerge | **boolean**
+
+Enables the planner's use of gather merge plans. ||
+|| enableMemoize | **boolean**
+
+Enables the planner's use of memoization. ||
 || logRecoveryConflictWaits | **boolean**
 
-in milliseconds. ||
+Logs standby recovery conflict waits. ||
 || vacuumFailsafeAge | **string** (int64)
 
-in milliseconds. ||
+Age at which VACUUM should trigger failsafe to avoid a wraparound outage. ||
 || vacuumMultixactFailsafeAge | **string** (int64)
 
-in milliseconds. ||
-|| pgQualstatsEnabled | **boolean** ||
-|| pgQualstatsTrackConstants | **boolean** ||
-|| pgQualstatsMax | **string** (int64) ||
-|| pgQualstatsResolveOids | **boolean** ||
-|| pgQualstatsSampleRate | **number** (double) ||
+Multixact age at which VACUUM should trigger failsafe to avoid a wraparound outage. ||
+|| pgQualstatsEnabled | **boolean**
+
+Controls whether pg_qualstats collects execution statistics for query predicates,
+including filters and join conditions. ||
+|| pgQualstatsTrackConstants | **boolean**
+
+Controls whether pg_qualstats keeps separate statistics for predicates containing different constant values ||
+|| pgQualstatsMax | **string** (int64)
+
+Limits the number of predicate-statistics and query-text entries retained by pg_qualstats. ||
+|| pgQualstatsResolveOids | **boolean**
+
+Controls whether pg_qualstats resolves object OIDs and stores their names  when collecting statistics.
+Enabling this increases memory usage and requires additional system-catalog lookups. ||
+|| pgQualstatsSampleRate | **number** (double)
+
+Sets the fraction of queries sampled by pg_qualstats. A value of -1 selects an automatic rate
+of 1 / max_connections; 0 samples no queries, and 1 samples every query. ||
 || maxStackDepth | **string** (int64)
 
-in bytes.
+Sets the maximum stack depth, in bytes.
 
 Acceptable values are 65536 to 134217728, inclusive. ||
-|| enableGroupByReordering | **boolean** ||
+|| enableGroupByReordering | **boolean**
+
+Controls if the query planner will produce a plan which will provide GROUP BY keys sorted in the order of keys of a
+child node of the plan, such as an index scan. When disabled, the query planner will produce a plan with GROUP BY keys
+only sorted to match the ORDER BY clause, if any. When enabled, the planner will try to produce a more efficient plan.
+The default value is on. ||
 || geqo | **boolean**
 
-enable Genetic Query Optimizer, by default is on ||
+Enables genetic query optimization. This algorithm attempts to do planning
+without exhaustive searching, by default is on. ||
 || geqoThreshold | **string** (int64)
 
-The number of tables to use geqo, default is 12 ||
+Sets the threshold of FROM items beyond which GEQO is used, default is 12. ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5
+GEQO: effort is used to set the default for other GEQO parameters.
+Tradeoff between planning time and query plan quality, default is 5.
 
 Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
-number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
+GEQO: number of individuals in the population.
+Useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort. ||
 || geqoGenerations | **string** (int64)
 
-the number of generations used by GEQO, useful values are in the same range as the pool size ||
+GEQO: number of iterations of the algorithm. Zero selects a suitable default value.
+Useful values are in the same range as the pool size. ||
 || geqoSelectionBias | **number** (double)
 
-selective pressure within the population ||
+GEQO: selective pressure within the population. ||
 || geqoSeed | **number** (double)
 
-initial value of the random number generator used by GEQO ||
-|| pgTrgmSimilarityThreshold | **number** (double) ||
-|| pgTrgmWordSimilarityThreshold | **number** (double) ||
-|| pgTrgmStrictWordSimilarityThreshold | **number** (double) ||
+GEQO: seed for random path selection. ||
+|| pgTrgmSimilarityThreshold | **number** (double)
+
+Sets the trigram similarity threshold used by the `%` operator
+to determine whether two strings are similar. ||
+|| pgTrgmWordSimilarityThreshold | **number** (double)
+
+Sets the threshold used by the `<%` and `%>` operators when comparing
+a string with the most similar continuous part of another string. ||
+|| pgTrgmStrictWordSimilarityThreshold | **number** (double)
+
+Sets the threshold used by the `<<%` and `%>>` operators when comparing
+a string with parts of another string aligned to word boundaries. ||
 || maxStandbyArchiveDelay | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum delay before canceling queries when a hot standby server is processing archived WAL data. In milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is
+not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
-|| logReplicationCommands | **boolean** ||
+|| logReplicationCommands | **boolean**
+
+Logs each replication command. ||
 || logAutovacuumMinDuration | **string** (int64)
 
-in milliseconds. The default is 1000 (1 sec). ||
+Sets the minimum execution time above which autovacuum actions will be logged.
+Zero prints all actions. -1 turns autovacuum logging off. In milliseconds. The default is 1000 (1 sec).
+ ||
 || passwordEncryption | **enum** (PasswordEncryption)
 
-A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``.
+A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are
+`` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``.
 
 - `PASSWORD_ENCRYPTION_MD5`: The method md5 uses a custom less secure challenge-response mechanism. It prevents password sniffing and avoids storing passwords on the server in plain text but provides no protection if an attacker manages to steal the password hash from the server. Also, the MD5 hash algorithm is nowadays no longer considered secure against determined attacks.
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256`: The method scram-sha-256 performs SCRAM-SHA-256 authentication, as described in RFC 7677. It is a challenge-response scheme that prevents password sniffing on untrusted connections and supports storing passwords on the server in a cryptographically hashed form that is thought to be secure.
 This is the most secure of the currently provided methods, but it is not supported by older client libraries. ||
 || autoExplainLogFormat | **enum** (AutoExplainLogFormat)
 
-Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
+Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``,
+`` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``.
+The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
 
-- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`: 'text' value for the EXPLAIN output format in auto_explain extension
-- `AUTO_EXPLAIN_LOG_FORMAT_XML`: 'xml' value for the EXPLAIN output format in auto_explain extension
-- `AUTO_EXPLAIN_LOG_FORMAT_JSON`: 'json' value for the EXPLAIN output format in auto_explain extension
-- `AUTO_EXPLAIN_LOG_FORMAT_YAML`: 'yaml' value for the EXPLAIN output format in auto_explain extension ||
-|| trackCommitTimestamp | **boolean** ||
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`: Formats logged execution plans as plain text.
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`: Formats logged execution plans as XML.
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`: Formats logged execution plans as JSON.
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML`: Formats logged execution plans as YAML. ||
+|| trackCommitTimestamp | **boolean**
+
+Collects transaction commit time. ||
 || maxLogicalReplicationWorkers | **string** (int64)
+
+Maximum number of logical replication worker processes.
 
 Acceptable values are 4 to 100, inclusive. ||
 || maxWalSenders | **string** (int64)
 
+Sets the maximum number of simultaneously running WAL sender processes.
+
 Acceptable values are 20 to 100, inclusive. ||
 || maxReplicationSlots | **string** (int64)
+
+Sets the maximum number of simultaneously defined replication slots.
 
 Acceptable values are 20 to 100, inclusive. ||
 || idleSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when not in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || checkpointWarning | **string** (int64)
 
-in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
+Sets the interval below which checkpoints triggered by filling WAL segment files cause a warning to be written to the server log.
+A value of 0 disables the warning. In milliseconds.
 
 Acceptable values are 0 to 2147483647000, inclusive. ||
 || vacuumTruncate | **boolean**
 
-Enables or disables vacuum to try to truncate off any empty pages at the end of the table. Default is true. ||
+Enables vacuum to truncate empty pages at the end of the table. ||
 || autovacuumVacuumThreshold | **string** (int64)
 
-Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+Minimum number of tuple updates or deletes prior to vacuum.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || autovacuumAnalyzeThreshold | **string** (int64)
 
-Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+Minimum number of tuple inserts, updates, or deletes prior to analyze.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || maxActiveReplicationOrigins | **string** (int64)
 
-Maximum number of replication origins that can be tracked simultaneously, effectively limiting the number of logical replication subscriptions that can be created on the server. Changing this parameter requires a server restart.
+Sets the maximum number of active replication origins.
 
 Acceptable values are 20 to 100, inclusive. ||
 |#
@@ -13498,55 +17144,77 @@ parameters which detailed description is available in
 ||Field | Description ||
 || maxConnections | **string** (int64)
 
+Sets the maximum number of concurrent connections.
+
 The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
-in bytes. ||
+Sets the number of shared memory buffers used by the server. In bytes. ||
 || tempBuffers | **string** (int64)
 
-in bytes. ||
-|| maxPreparedTransactions | **string** (int64) ||
+Sets the maximum number of temporary buffers used by each session. In bytes. ||
+|| maxPreparedTransactions | **string** (int64)
+
+Sets the maximum number of simultaneously prepared transactions. ||
 || workMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used for query workspaces. This much memory can be used by each
+internal sort operation and hash table before switching to temporary disk files. In bytes. ||
 || maintenanceWorkMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used for maintenance operations.
+This includes operations such as VACUUM and CREATE INDEX. In bytes. ||
 || autovacuumWorkMem | **string** (int64)
 
-in bytes. ||
+Sets the maximum memory to be used by each autovacuum worker process. In bytes. ||
 || tempFileLimit | **string** (int64)
 
-in bytes. ||
+Limits the total size of all temporary files used by each process. -1 means no limit. In bytes. ||
 || vacuumCostDelay | **string** (int64)
 
-in milliseconds. ||
-|| vacuumCostPageHit | **string** (int64) ||
-|| vacuumCostPageMiss | **string** (int64) ||
-|| vacuumCostPageDirty | **string** (int64) ||
-|| vacuumCostLimit | **string** (int64) ||
+Vacuum cost delay. In milliseconds. ||
+|| vacuumCostPageHit | **string** (int64)
+
+Vacuum cost for a page found in the buffer cache. ||
+|| vacuumCostPageMiss | **string** (int64)
+
+Vacuum cost for a page not found in the buffer cache. ||
+|| vacuumCostPageDirty | **string** (int64)
+
+Vacuum cost for a page dirtied by vacuum. ||
+|| vacuumCostLimit | **string** (int64)
+
+Vacuum cost amount available before napping. ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds.
+Background writer sleep time between rounds. In milliseconds.
 
 Acceptable values are 10 to 10000, inclusive. ||
-|| bgwriterLruMaxpages | **string** (int64) ||
-|| bgwriterLruMultiplier | **number** (double) ||
+|| bgwriterLruMaxpages | **string** (int64)
+
+Background writer maximum number of LRU pages to flush per round. ||
+|| bgwriterLruMultiplier | **number** (double)
+
+Multiple of the average buffer usage to free per round. ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes
+Specifies how much data the background writer can write before forcing the operating system to issue the writes. In bytes.
 
 Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes
+Specifies how much data a backend can write before forcing the operating system to issue the writes. In bytes.
 
 Acceptable values are 0 to 2097152, inclusive. ||
 || walLevel | **enum** (WalLevel)
 
+Sets the level of information written to the WAL.
+
 - `WAL_LEVEL_REPLICA`: Supports WAL archiving and physical replication.
 - `WAL_LEVEL_LOGICAL`: Supports WAL archiving, physical replication, and logical decoding. ||
 || synchronousCommit | **enum** (SynchronousCommit)
+
+Sets the current transaction's synchronization level.
 
 - `SYNCHRONOUS_COMMIT_ON`: Success is reported to the client if the data is in WAL (Write-Ahead Log), and WAL is written to the storage of both the master and its synchronous standby server. Default value.
 - `SYNCHRONOUS_COMMIT_OFF`: Success is reported to the client even if the data is not in WAL.
@@ -13559,107 +17227,152 @@ The transaction may be lost due to simultaneous storage subsystem failure on the
 The transaction may be lost due to irrecoverably failure of both the master and its synchronous standby. ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum time between automatic WAL checkpoints. In milliseconds.
 
 Acceptable values are 30000 to 86400000, inclusive. ||
-|| checkpointCompletionTarget | **number** (double) ||
+|| checkpointCompletionTarget | **number** (double)
+
+Time spent flushing dirty buffers during checkpoint, as fraction of checkpoint interval. ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes
+Specifies how much data can be written during a checkpoint before forcing the operating system to issue the writes. In bytes.
 
 Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
-in bytes. ||
+Sets the WAL size that triggers a checkpoint. In bytes. ||
 || minWalSize | **string** (int64)
 
-in bytes. ||
+Sets the minimum size to shrink the WAL to. In bytes. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
-in milliseconds. ||
-|| defaultStatisticsTarget | **string** (int64) ||
+Sets the maximum delay before canceling queries when a hot standby server is processing streamed WAL data. In milliseconds. ||
+|| defaultStatisticsTarget | **string** (int64)
+
+Sets the default statistics target. This applies to table columns that have not had a
+column-specific target set via ALTER TABLE SET STATISTICS. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
+
+Enables the planner to use constraints to optimize queries.
 
 - `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
 - `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
 - `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
-|| cursorTupleFraction | **number** (double) ||
+|| cursorTupleFraction | **number** (double)
+
+Sets the planner's estimate of the fraction of a cursor's rows that will be retrieved. ||
 || fromCollapseLimit | **string** (int64)
+
+Sets the FROM-list size beyond which subqueries are not collapsed.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
 || joinCollapseLimit | **string** (int64)
 
+Sets the FROM-list size beyond which JOIN constructs are not flattened.
+
 Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_ON`: Force parallel query for all queries for which it is thought to be safe
-- `DEBUG_PARALLEL_QUERY_OFF`: Use parallel mode only when it is expected to improve performance
-- `DEBUG_PARALLEL_QUERY_REGRESS`: Like ON, but with additional changes for regression testing (suppresses context lines, hides Gather nodes in EXPLAIN) ||
+Forces the planner's use parallel query nodes.
+
+- `DEBUG_PARALLEL_QUERY_ON`: Forces parallel mode for queries considered safe, even when no performance benefit is expected.
+- `DEBUG_PARALLEL_QUERY_OFF`: Uses parallel mode only when the planner expects it to improve performance.
+- `DEBUG_PARALLEL_QUERY_REGRESS`: Behaves like ON, but hides added Gather nodes in EXPLAIN output and
+suppresses parallel-worker context lines to stabilize regression-test output. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are sent to the client.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Sets the message levels that are logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
+Causes all statements generating error at or above this level to be logged.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
 || logMinDurationStatement | **string** (int64)
 
-in milliseconds. ||
-|| logCheckpoints | **boolean** ||
-|| logConnections | **boolean** ||
-|| logDisconnections | **boolean** ||
-|| logDuration | **boolean** ||
+Sets the minimum execution time above which all statements will be logged. In milliseconds. ||
+|| logCheckpoints | **boolean**
+
+Logs each checkpoint. ||
+|| logConnections | **boolean**
+
+Logs each successful connection. ||
+|| logDisconnections | **boolean**
+
+Logs end of a session, including duration. ||
+|| logDuration | **boolean**
+
+Logs the duration of each completed SQL statement.
+ ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
+
+Sets the verbosity of logged messages.
 
 - `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
 - `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
 - `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
-|| logLockWaits | **boolean** ||
+|| logLockWaits | **boolean**
+
+Logs long lock waits. ||
 || logStatement | **enum** (LogStatement)
+
+Sets the type of statements logged.
 
 - `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
 - `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
 - `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
 - `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
-|| logTempFiles | **string** (int64) ||
-|| searchPath | **string** ||
-|| rowSecurity | **boolean** ||
+|| logTempFiles | **string** (int64)
+
+Log the use of temporary files larger than this number of kilobytes. ||
+|| searchPath | **string**
+
+Sets the schema search order for names that are not schema-qualified. ||
+|| rowSecurity | **boolean**
+
+Enable row security. ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
+
+Sets the transaction isolation level of each new transaction.
 
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
 - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
@@ -13669,122 +17382,241 @@ All queries in the current transaction see only the rows that were fixed prior t
 If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum allowed duration of any statement. In milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed duration of any wait for a lock. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
+
+Sets the output format for bytea.
 
 - `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
 - `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`: Base64 encoding.
-- `XML_BINARY_HEX`: Hexadecimal encoding. ||
+Sets how binary values are to be encoded in XML.
+
+- `XML_BINARY_BASE64`: Encodes binary values using Base64.
+- `XML_BINARY_HEX`: Encodes binary values using hexadecimal notation. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`: XML document.
-- `XML_OPTION_CONTENT`: XML fragment. ||
+Sets whether XML data in implicit parsing and serialization operations is to be considered as documents or content fragments.
+
+- `XML_OPTION_DOCUMENT`: Treats an XML value as a complete, well-formed document.
+- `XML_OPTION_CONTENT`: Treats an XML value as a content fragment, which may contain multiple top-level elements or character nodes. ||
 || ginPendingListLimit | **string** (int64)
 
-in bytes. ||
+Sets the maximum size of the pending list for GIN index. In bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds.
+Sets the time to wait on a lock before checking for deadlock. In milliseconds.
 
 Acceptable values are 1 to 2147483647, inclusive. ||
-|| maxLocksPerTransaction | **string** (int64) ||
-|| maxPredLocksPerTransaction | **string** (int64) ||
-|| arrayNulls | **boolean** ||
+|| maxLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of locks per transaction. The shared lock table is sized on the assumption that
+at most max_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| maxPredLocksPerTransaction | **string** (int64)
+
+Sets the maximum number of predicate locks per transaction.The shared predicate lock table is sized on the assumption that
+at most max_pred_locks_per_transaction * max_connections distinct objects will need to be locked at any one time. ||
+|| arrayNulls | **boolean**
+
+Enable input of NULL elements in arrays. When turned on, unquoted NULL in an array input
+value means a null value; otherwise it is taken literally. ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+Sets whether \"\\'\" is allowed in string literals.
+
+- `BACKSLASH_QUOTE`: Legacy invalid value. Do not use.
 - `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
 - `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
 - `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
-|| defaultWithOids | **boolean** ||
-|| escapeStringWarning | **boolean** ||
-|| loCompatPrivileges | **boolean** ||
-|| quoteAllIdentifiers | **boolean** ||
-|| standardConformingStrings | **boolean** ||
-|| synchronizeSeqscans | **boolean** ||
-|| transformNullEquals | **boolean** ||
-|| exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
+|| defaultWithOids | **boolean**
+
+WITH OIDS is no longer supported; this can only be false. ||
+|| escapeStringWarning | **boolean**
+
+Warn about backslash escapes in ordinary string literals. ||
+|| loCompatPrivileges | **boolean**
+
+Enables backward compatibility mode for privilege checks on large objects. Skips privilege checks
+when reading or modifying large objects, for compatibility with PostgreSQL releases prior to 9.0. ||
+|| quoteAllIdentifiers | **boolean**
+
+When generating SQL fragments, quote all identifiers. ||
+|| standardConformingStrings | **boolean**
+
+Causes '...' strings to treat backslashes literally. ||
+|| synchronizeSeqscans | **boolean**
+
+Enable synchronized sequential scans. ||
+|| transformNullEquals | **boolean**
+
+Treats \"expr=NULL\" as \"expr IS NULL\". When turned on, expressions of the form expr = NULL
+(or NULL = expr) are treated as expr IS NULL, that is, they return true if expr evaluates to the
+null value, and false otherwise. The correct behavior of expr = NULL is to always return null (unknown). ||
+|| exitOnError | **boolean**
+
+Terminate session on any error. ||
+|| seqPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a sequentially fetched disk page.
+
+The minimum value is 0. ||
+|| randomPageCost | **number** (double)
+
+Sets the planner's estimate of the cost of a nonsequentially fetched disk page.
+
+The minimum value is 0. ||
 || autovacuumMaxWorkers | **string** (int64)
 
+Sets the maximum number of simultaneously running autovacuum worker processes.
+
 Acceptable values are 1 to 32, inclusive. ||
-|| autovacuumVacuumCostDelay | **string** (int64) ||
-|| autovacuumVacuumCostLimit | **string** (int64) ||
+|| autovacuumVacuumCostDelay | **string** (int64)
+
+Vacuum cost delay in milliseconds, for autovacuum. ||
+|| autovacuumVacuumCostLimit | **string** (int64)
+
+Vacuum cost amount available before napping, for autovacuum. ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds.
+Time to sleep between autovacuum runs. In milliseconds.
 
 Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds.
+Forces a switch to the next WAL file if no new file has been started within the specified interval. In milliseconds.
 
 Acceptable values are 10000 to 86400000, inclusive. ||
 || trackActivityQuerySize | **string** (int64)
 
+Sets the size reserved for pg_stat_activity.query, in bytes.
+
 Acceptable values are 100 to 102400, inclusive. ||
-|| onlineAnalyzeEnable | **boolean** ||
-|| enableBitmapscan | **boolean** ||
-|| enableHashagg | **boolean** ||
-|| enableHashjoin | **boolean** ||
-|| enableIndexscan | **boolean** ||
-|| enableIndexonlyscan | **boolean** ||
-|| enableMaterial | **boolean** ||
-|| enableMergejoin | **boolean** ||
-|| enableNestloop | **boolean** ||
-|| enableSeqscan | **boolean** ||
-|| enableSort | **boolean** ||
-|| enableTidscan | **boolean** ||
+|| onlineAnalyzeEnable | **boolean**
+
+Enables automatic table-statistics updates by online_analyze after data-modifying operations. ||
+|| enableBitmapscan | **boolean**
+
+Enables the planner's use of bitmap-scan plans. ||
+|| enableHashagg | **boolean**
+
+Enables the planner's use of hashed aggregation plans. ||
+|| enableHashjoin | **boolean**
+
+Enables the planner's use of hash join plans. ||
+|| enableIndexscan | **boolean**
+
+Enables the planner's use of index-scan plans. ||
+|| enableIndexonlyscan | **boolean**
+
+Enables the planner's use of index-only-scan plans. ||
+|| enableMaterial | **boolean**
+
+Enables the planner's use of materialization. ||
+|| enableMergejoin | **boolean**
+
+Enables the planner's use of merge join plans. ||
+|| enableNestloop | **boolean**
+
+Enables the planner's use of nested-loop join plans. ||
+|| enableSeqscan | **boolean**
+
+Enables the planner's use of sequential-scan plans. ||
+|| enableSort | **boolean**
+
+Enables the planner's use of explicit sort steps. ||
+|| enableTidscan | **boolean**
+
+Enables the planner's use of TID scan plans. ||
 || maxWorkerProcesses | **string** (int64)
+
+Maximum number of concurrent worker processes.
 
 Acceptable values are 0 to 1024, inclusive. ||
 || maxParallelWorkers | **string** (int64)
 
+Sets the maximum number of parallel workers that can be active at one time.
+
 Acceptable values are 0 to 1024, inclusive. ||
 || maxParallelWorkersPerGather | **string** (int64)
 
+Sets the maximum number of parallel processes per executor node.
+
 Acceptable values are 0 to 1024, inclusive. ||
-|| autovacuumVacuumScaleFactor | **number** (double) ||
-|| autovacuumAnalyzeScaleFactor | **number** (double) ||
-|| defaultTransactionReadOnly | **boolean** ||
-|| timezone | **string** ||
-|| enableParallelAppend | **boolean** ||
-|| enableParallelHash | **boolean** ||
-|| enablePartitionPruning | **boolean** ||
-|| enablePartitionwiseAggregate | **boolean** ||
-|| enablePartitionwiseJoin | **boolean** ||
-|| jit | **boolean** ||
+|| autovacuumVacuumScaleFactor | **number** (double)
+
+Number of tuple updates or deletes prior to vacuum as a fraction of reltuples. ||
+|| autovacuumAnalyzeScaleFactor | **number** (double)
+
+Number of tuple inserts, updates, or deletes prior to analyze as a fraction of reltuples. ||
+|| defaultTransactionReadOnly | **boolean**
+
+Sets the default read-only status of new transactions. ||
+|| timezone | **string**
+
+Sets the time zone for displaying and interpreting time stamps. ||
+|| enableParallelAppend | **boolean**
+
+Enables the planner's use of parallel append plans. ||
+|| enableParallelHash | **boolean**
+
+Enables the planner's use of parallel hash plans. ||
+|| enablePartitionPruning | **boolean**
+
+Enables plan-time and execution-time partition pruning. Allows the query planner and executor to
+compare partition bounds to conditions in the query to determine which partitions must be scanned. ||
+|| enablePartitionwiseAggregate | **boolean**
+
+Enables partitionwise aggregation and grouping. ||
+|| enablePartitionwiseJoin | **boolean**
+
+Enables partitionwise join. ||
+|| jit | **boolean**
+
+Allow JIT compilation. ||
 || maxParallelMaintenanceWorkers | **string** (int64)
 
+Sets the maximum number of parallel processes per maintenance operation.
+
 The minimum value is 0. ||
-|| parallelLeaderParticipation | **boolean** ||
-|| logTransactionSampleRate | **number** (double) ||
+|| parallelLeaderParticipation | **boolean**
+
+Controls whether Gather and Gather Merge also run subplans. ||
+|| logTransactionSampleRate | **number** (double)
+
+Sets the fraction of transactions from which to log all statements. Use a
+value between 0.0 (never log) and 1.0 (log all statements for all transactions). ||
 || planCacheMode | **enum** (PlanCacheMode)
+
+Controls the planner's selection of custom or generic plan. Prepared statements can have custom and generic plans,
+and the planner will attempt to choose which is better. This can be set to override the default behavior.
 
 - `PLAN_CACHE_MODE_AUTO`: Automatic selection.
 - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`: Forces the use of custom plans.
 - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`: Forces the use of generic plans. ||
 || effectiveIoConcurrency | **string** (int64)
 
+Number of simultaneous requests that can be handled efficiently by the disk subsystem.
+
 Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
-Acceptable values are 0 to 549755813888, inclusive. ||
+Sets the planner's assumption about the effective size of the disk cache available to a single query. In bytes.
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
+
+Lists shared libraries to preload into server.
 
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`: Required for the [auto_explain](https://www.postgresql.org/docs/current/auto-explain.html) extension.
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`: Required for the [pg_hint_plan](https://github.com/ossc-db/pg_hint_plan) extension.
@@ -13799,180 +17631,287 @@ Acceptable values are 0 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_SPQRGUARD`: Required for the [spqrguard](https://github.com/pg-sharding/spqrguard) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
-in milliseconds. ||
-|| autoExplainLogAnalyze | **boolean** ||
-|| autoExplainLogBuffers | **boolean** ||
-|| autoExplainLogTiming | **boolean** ||
-|| autoExplainLogTriggers | **boolean** ||
-|| autoExplainLogVerbose | **boolean** ||
-|| autoExplainLogNestedStatements | **boolean** ||
-|| autoExplainSampleRate | **number** (double) ||
-|| pgHintPlanEnableHint | **boolean** ||
-|| pgHintPlanEnableHintTable | **boolean** ||
+Sets the minimum statement execution time, that will cause the statement's plan to be logged.
+Setting this to 0 logs all plans. -1 (the default) disables logging of plans. For example, if
+you set it to 250ms then all statements that run 250ms or longer will be logged. In milliseconds.
+ ||
+|| autoExplainLogAnalyze | **boolean**
+
+Causes EXPLAIN ANALYZE output, rather than just EXPLAIN output,to be printed
+when an executionplan is logged. This parameter is off by default. ||
+|| autoExplainLogBuffers | **boolean**
+
+Controls whether buffer usage statistics are printed when an execution plan is logged;
+it's equivalent to the BUFFERS option of EXPLAIN. This parameter has no effect unless
+auto_explain.log_analyze is enabled. This parameter is off by default. ||
+|| autoExplainLogTiming | **boolean**
+
+Controls whether per-node timing information is printed when an execution plan is logged;
+it's equivalent to the TIMING option of EXPLAIN. The overhead of repeatedly reading the system
+clock can slow down queries significantly on some systems, so it may be useful to set this
+parameter to off when only actual row counts, and not exact times, are needed. This parameter
+has no effect unless auto_explain.log_analyze is enabled. This parameter is on by default. ||
+|| autoExplainLogTriggers | **boolean**
+
+Causes trigger execution statistics to be included when an execution plan is logged. This parameter
+has no effect unless auto_explain.log_analyze is enabled. This parameter is off by default. ||
+|| autoExplainLogVerbose | **boolean**
+
+Controls whether verbose details are printed when an execution plan is logged; it's
+equivalent to the VERBOSE option of EXPLAIN. This parameter is off by default. ||
+|| autoExplainLogNestedStatements | **boolean**
+
+Causes nested statements (statements executed inside a function) to be considered for logging.
+When it is off, only top-level query plans are logged. This parameter is off by default. ||
+|| autoExplainSampleRate | **number** (double)
+
+Causes auto_explain to only explain a fraction of the statements in each session. The default is 1,
+meaning explain all the queries. In case of nested statements, either all will be explained or none. ||
+|| pgHintPlanEnableHint | **boolean**
+
+Enables processing of query hints by pg_hint_plan. ||
+|| pgHintPlanEnableHintTable | **boolean**
+
+Enables lookup of hints in the hint table. ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disable debug output
-- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Print debug messages about hint parsing
-- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Print detailed debug information including query planning process
-- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Print verbose debug output with all internal operations ||
+Controls whether and how verbosely hint parsing results are logged.
+
+- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disables diagnostic logging.
+- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Logs hint-processing results grouped by used, unused, duplicate, and erroneous hints.
+- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Logs hint-processing results together with detailed planner diagnostics.
+- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Logs the most detailed diagnostics, including query strings used to extract hints. ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
-- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
-- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
-- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
-- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
-- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
-- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
-- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
-|| hashMemMultiplier | **number** (double) ||
+Sets the log level for pg_hint_plan debug messages.
+
+- `LOG_LEVEL_DEBUG5`: Provides the most detailed diagnostic information for developers.
+- `LOG_LEVEL_DEBUG4`: Provides more detailed diagnostic information than DEBUG3.
+- `LOG_LEVEL_DEBUG3`: Provides more detailed diagnostic information than DEBUG2.
+- `LOG_LEVEL_DEBUG2`: Provides more detailed diagnostic information than DEBUG1.
+- `LOG_LEVEL_DEBUG1`: Provides diagnostic information for developers.
+- `LOG_LEVEL_INFO`: Reports information implicitly requested by the user.
+- `LOG_LEVEL_LOG`: Reports information of interest to database administrators.
+- `LOG_LEVEL_NOTICE`: Reports information that may be helpful to users.
+- `LOG_LEVEL_WARNING`: Reports a warning about a likely problem.
+- `LOG_LEVEL_ERROR`: Reports an error that aborts the current command.
+- `LOG_LEVEL_FATAL`: Reports an error that aborts the current session.
+- `LOG_LEVEL_PANIC`: Reports an error that aborts all database sessions. ||
+|| hashMemMultiplier | **number** (double)
+
+Multiple of work_mem to use for hash tables. ||
 || logicalDecodingWorkMem | **string** (int64)
 
-in bytes.
+Sets the maximum memory to be used for logical decoding. This much memory can be
+used by each internal reorder buffer before spilling to disk. In bytes.
 
 Acceptable values are 65536 to 1099511627776, inclusive. ||
 || maintenanceIoConcurrency | **string** (int64)
 
+A variant of effective_io_concurrency that is used for maintenance work.
+
 Acceptable values are 0 to 1000, inclusive. ||
 || maxSlotWalKeepSize | **string** (int64)
 
-in bytes. ||
+Sets the maximum WAL size that can be reserved by replication slots. Replication slots will be marked as failed,
+and segments released for deletion or recycling, if this much space is occupied by WAL on disk. In bytes. ||
 || walKeepSize | **string** (int64)
 
-in bytes. ||
-|| enableIncrementalSort | **boolean** ||
-|| autovacuumVacuumInsertThreshold | **string** (int64) ||
-|| autovacuumVacuumInsertScaleFactor | **number** (double) ||
+Sets the size of WAL files held for standby servers. In bytes. ||
+|| enableIncrementalSort | **boolean**
+
+Enables the planner's use of incremental sort steps. ||
+|| autovacuumVacuumInsertThreshold | **string** (int64)
+
+Minimum number of tuple inserts prior to vacuum, or -1 to disable insert vacuums. ||
+|| autovacuumVacuumInsertScaleFactor | **number** (double)
+
+Number of tuple inserts prior to vacuum as a fraction of reltuples. ||
 || logMinDurationSample | **string** (int64)
 
-in milliseconds. ||
-|| logStatementSampleRate | **number** (double) ||
+Sets the minimum execution time above which a sample of statements will be logged. Sampling is determined
+by log_statement_sample_rate. Zero logs a sample of all queries. -1 turns this feature off. In milliseconds. ||
+|| logStatementSampleRate | **number** (double)
+
+Fraction of statements exceeding log_min_duration_sample to be logged. Use a value between 0.0 (never log) and 1.0 (always log). ||
 || logParameterMaxLength | **string** (int64)
 
-in bytes. ||
+When logging statements, limit logged parameter values to first N bytes. -1 to print values in full. ||
 || logParameterMaxLengthOnError | **string** (int64)
 
-in bytes. ||
+When reporting an error, limit logged parameter values to first N bytes. -1 to print values in full. ||
 || clientConnectionCheckInterval | **string** (int64)
 
-in milliseconds. ||
-|| enableAsyncAppend | **boolean** ||
-|| enableGathermerge | **boolean** ||
-|| enableMemoize | **boolean** ||
+Sets the time interval between checks for disconnection while running queries. In milliseconds. ||
+|| enableAsyncAppend | **boolean**
+
+Enables the planner's use of async append plans. ||
+|| enableGathermerge | **boolean**
+
+Enables the planner's use of gather merge plans. ||
+|| enableMemoize | **boolean**
+
+Enables the planner's use of memoization. ||
 || logRecoveryConflictWaits | **boolean**
 
-in milliseconds. ||
+Logs standby recovery conflict waits. ||
 || vacuumFailsafeAge | **string** (int64)
 
-in milliseconds. ||
+Age at which VACUUM should trigger failsafe to avoid a wraparound outage. ||
 || vacuumMultixactFailsafeAge | **string** (int64)
 
-in milliseconds. ||
-|| pgQualstatsEnabled | **boolean** ||
-|| pgQualstatsTrackConstants | **boolean** ||
-|| pgQualstatsMax | **string** (int64) ||
-|| pgQualstatsResolveOids | **boolean** ||
-|| pgQualstatsSampleRate | **number** (double) ||
-|| plantunerFixEmptyTable | **boolean** ||
+Multixact age at which VACUUM should trigger failsafe to avoid a wraparound outage. ||
+|| pgQualstatsEnabled | **boolean**
+
+Controls whether pg_qualstats collects execution statistics for query predicates,
+including filters and join conditions. ||
+|| pgQualstatsTrackConstants | **boolean**
+
+Controls whether pg_qualstats keeps separate statistics for predicates containing different constant values ||
+|| pgQualstatsMax | **string** (int64)
+
+Limits the number of predicate-statistics and query-text entries retained by pg_qualstats. ||
+|| pgQualstatsResolveOids | **boolean**
+
+Controls whether pg_qualstats resolves object OIDs and stores their names  when collecting statistics.
+Enabling this increases memory usage and requires additional system-catalog lookups. ||
+|| pgQualstatsSampleRate | **number** (double)
+
+Sets the fraction of queries sampled by pg_qualstats. A value of -1 selects an automatic rate
+of 1 / max_connections; 0 samples no queries, and 1 samples every query. ||
+|| plantunerFixEmptyTable | **boolean**
+
+Controls whether plantuner sets estimated page and row counts to zero for tables that have no storage blocks. ||
 || maxStackDepth | **string** (int64)
 
-in bytes.
+Sets the maximum stack depth, in bytes.
 
 Acceptable values are 65536 to 134217728, inclusive. ||
-|| enableGroupByReordering | **boolean** ||
+|| enableGroupByReordering | **boolean**
+
+Controls if the query planner will produce a plan which will provide GROUP BY keys sorted in the order of keys of a
+child node of the plan, such as an index scan. When disabled, the query planner will produce a plan with GROUP BY keys
+only sorted to match the ORDER BY clause, if any. When enabled, the planner will try to produce a more efficient plan.
+The default value is on. ||
 || geqo | **boolean**
 
-enable Genetic Query Optimizer, by default is on ||
+Enables genetic query optimization. This algorithm attempts to do planning
+without exhaustive searching, by default is on. ||
 || geqoThreshold | **string** (int64)
 
-The number of tables to use geqo, default is 12 ||
+Sets the threshold of FROM items beyond which GEQO is used, default is 12. ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5
+GEQO: effort is used to set the default for other GEQO parameters.
+Tradeoff between planning time and query plan quality, default is 5.
 
 Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
-number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
+GEQO: number of individuals in the population.
+Useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort. ||
 || geqoGenerations | **string** (int64)
 
-the number of generations used by GEQO, useful values are in the same range as the pool size ||
+GEQO: number of iterations of the algorithm. Zero selects a suitable default value.
+Useful values are in the same range as the pool size. ||
 || geqoSelectionBias | **number** (double)
 
-selective pressure within the population ||
+GEQO: selective pressure within the population. ||
 || geqoSeed | **number** (double)
 
-initial value of the random number generator used by GEQO ||
-|| pgTrgmSimilarityThreshold | **number** (double) ||
-|| pgTrgmWordSimilarityThreshold | **number** (double) ||
-|| pgTrgmStrictWordSimilarityThreshold | **number** (double) ||
+GEQO: seed for random path selection. ||
+|| pgTrgmSimilarityThreshold | **number** (double)
+
+Sets the trigram similarity threshold used by the `%` operator
+to determine whether two strings are similar. ||
+|| pgTrgmWordSimilarityThreshold | **number** (double)
+
+Sets the threshold used by the `<%` and `%>` operators when comparing
+a string with the most similar continuous part of another string. ||
+|| pgTrgmStrictWordSimilarityThreshold | **number** (double)
+
+Sets the threshold used by the `<<%` and `%>>` operators when comparing
+a string with parts of another string aligned to word boundaries. ||
 || maxStandbyArchiveDelay | **string** (int64)
 
-in milliseconds. ||
+Sets the maximum delay before canceling queries when a hot standby server is processing archived WAL data. In milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is
+not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
-|| logReplicationCommands | **boolean** ||
+|| logReplicationCommands | **boolean**
+
+Logs each replication command. ||
 || logAutovacuumMinDuration | **string** (int64)
 
-in milliseconds. The default is 1000 (1 sec). ||
+Sets the minimum execution time above which autovacuum actions will be logged.
+Zero prints all actions. -1 turns autovacuum logging off. In milliseconds. The default is 1000 (1 sec).
+ ||
 || passwordEncryption | **enum** (PasswordEncryption)
 
-A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``.
+A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are
+`` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``.
 
 - `PASSWORD_ENCRYPTION_MD5`: The method md5 uses a custom less secure challenge-response mechanism. It prevents password sniffing and avoids storing passwords on the server in plain text but provides no protection if an attacker manages to steal the password hash from the server. Also, the MD5 hash algorithm is nowadays no longer considered secure against determined attacks.
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256`: The method scram-sha-256 performs SCRAM-SHA-256 authentication, as described in RFC 7677. It is a challenge-response scheme that prevents password sniffing on untrusted connections and supports storing passwords on the server in a cryptographically hashed form that is thought to be secure.
 This is the most secure of the currently provided methods, but it is not supported by older client libraries. ||
 || autoExplainLogFormat | **enum** (AutoExplainLogFormat)
 
-Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
+Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``,
+`` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``.
+The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
 
-- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`: 'text' value for the EXPLAIN output format in auto_explain extension
-- `AUTO_EXPLAIN_LOG_FORMAT_XML`: 'xml' value for the EXPLAIN output format in auto_explain extension
-- `AUTO_EXPLAIN_LOG_FORMAT_JSON`: 'json' value for the EXPLAIN output format in auto_explain extension
-- `AUTO_EXPLAIN_LOG_FORMAT_YAML`: 'yaml' value for the EXPLAIN output format in auto_explain extension ||
-|| trackCommitTimestamp | **boolean** ||
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`: Formats logged execution plans as plain text.
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`: Formats logged execution plans as XML.
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`: Formats logged execution plans as JSON.
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML`: Formats logged execution plans as YAML. ||
+|| trackCommitTimestamp | **boolean**
+
+Collects transaction commit time. ||
 || maxLogicalReplicationWorkers | **string** (int64)
+
+Maximum number of logical replication worker processes.
 
 Acceptable values are 4 to 100, inclusive. ||
 || maxWalSenders | **string** (int64)
 
+Sets the maximum number of simultaneously running WAL sender processes.
+
 Acceptable values are 20 to 100, inclusive. ||
 || maxReplicationSlots | **string** (int64)
+
+Sets the maximum number of simultaneously defined replication slots.
 
 Acceptable values are 20 to 100, inclusive. ||
 || idleSessionTimeout | **string** (int64)
 
-in milliseconds.
+Sets the maximum allowed idle time between queries, when not in a transaction. In milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || checkpointWarning | **string** (int64)
 
-in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
+Sets the interval below which checkpoints triggered by filling WAL segment files cause a warning to be written to the server log.
+A value of 0 disables the warning. In milliseconds.
 
 Acceptable values are 0 to 2147483647000, inclusive. ||
 || vacuumTruncate | **boolean**
 
-Enables or disables vacuum to try to truncate off any empty pages at the end of the table. Default is true. ||
+Enables vacuum to truncate empty pages at the end of the table. ||
 || autovacuumVacuumThreshold | **string** (int64)
 
-Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+Minimum number of tuple updates or deletes prior to vacuum.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || autovacuumAnalyzeThreshold | **string** (int64)
 
-Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+Minimum number of tuple inserts, updates, or deletes prior to analyze.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || maxActiveReplicationOrigins | **string** (int64)
 
-Maximum number of replication origins that can be tracked simultaneously, effectively limiting the number of logical replication subscriptions that can be created on the server. Changing this parameter requires a server restart.
+Sets the maximum number of active replication origins.
 
 Acceptable values are 20 to 100, inclusive. ||
 |#
@@ -14078,6 +18017,9 @@ Acceptable values are 1 to 86400, inclusive. ||
 Interval (in seconds) for pg_stat_statements sampling
 
 Acceptable values are 1 to 86400, inclusive. ||
+|| advancedMode | **boolean**
+
+Switches performance diagnostics from standard to advanced mode. ||
 |#
 
 ## DiskSizeAutoscaling {#yandex.cloud.mdb.postgresql.v1.DiskSizeAutoscaling}
@@ -14156,7 +18098,7 @@ The maintenance policy in effect. ||
 
 ## WeeklyMaintenanceWindow {#yandex.cloud.mdb.postgresql.v1.WeeklyMaintenanceWindow}
 
-Weelky maintenance window settings.
+Weekly maintenance window settings.
 
 #|
 ||Field | Description ||
@@ -14164,13 +18106,13 @@ Weelky maintenance window settings.
 
 Day of the week (in `DDD` format).
 
-- `MON`
-- `TUE`
-- `WED`
-- `THU`
-- `FRI`
-- `SAT`
-- `SUN` ||
+- `MON`: Monday.
+- `TUE`: Tuesday.
+- `WED`: Wednesday.
+- `THU`: Thursday.
+- `FRI`: Friday.
+- `SAT`: Saturday.
+- `SUN`: Sunday. ||
 || hour | **string** (int64)
 
 Hour of the day in UTC (in `HH` format).

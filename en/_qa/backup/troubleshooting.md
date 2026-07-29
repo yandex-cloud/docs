@@ -6,17 +6,17 @@ Make sure that:
 
 - VM {#vm}
 
-  * The VM is created from a [supported image](../../backup/concepts/vm-connection.md#os) or (if the {{ backup-name }} agent is installed manually) [{{ backup-name }}](../../backup/concepts/vm-connection.md#self-install) supports the VM's operating system.
+  * The VM is created from a [supported image](../../backup/concepts/vm-connection/compute.md#os) or (if the {{ backup-name }} agent is installed manually) [{{ backup-name }}](../../backup/concepts/vm-connection/compute.md#self-install) supports the VM's operating system.
   * The service account linked to the VM has the `backup.editor` [role](../../backup/security/index.md#backup-editor).
-  * The [security group](../../vpc/concepts/security-groups.md) is [correctly](../../backup/concepts/vm-connection.md#vm-network-access) configured for the VM.
+  * The [security group](../../backup/concepts/vm-connection/compute.md#vm-network-access) is [correctly](../../vpc/concepts/security-groups.md) configured for the VM.
 
-  For more information, see [Connecting Compute Cloud VM instances to {{ backup-name }}](../../backup/concepts/vm-connection.md).
+  For more information, see [Connecting Compute Cloud VM instances to {{ backup-name }}](../../backup/concepts/vm-connection/compute.md).
 
 - {{ baremetal-name }} server {#baremetal-server}
 
-  * The server runs a [supported operating system](../../backup/concepts/vm-connection.md#self-install).
+  * The server runs a [supported operating system](../../backup/concepts/vm-connection/baremetal.md#self-install).
   * The service account whose IAM token is used to [install](../../backup/operations/backup-baremetal/backup-baremetal.md#agent-install) the {{ backup-name }} agent has the `backup.editor` [role](../../backup/security/index.md#backup-editor).
-  * The server has a [public IP address assigned](../../backup/concepts/vm-connection.md#provide-access).
+  * The server has a [public IP address assigned](../../backup/concepts/vm-connection/baremetal.md#provide-access).
 
   For more information, see [Connecting a {{ baremetal-name }} server to {{ backup-name }}](../../backup/operations/backup-baremetal/backup-baremetal.md).
 
@@ -92,9 +92,9 @@ Iteration 0: The term 'acropsh' is not recognized as the name of a cmdlet, funct
 
 Make sure that:
 
-* [{{ backup-name }} supports](../../backup/concepts/vm-connection.md#os) the VM operating system.
+* [{{ backup-name }} supports](../../backup/concepts/vm-connection/compute.md#os) the VM operating system.
 * The service account linked to the VM has the `backup.editor` [role](../../backup/security/index.md#backup-editor).
-* [Network access for your VM](../../backup/concepts/vm-connection.md#vm-network-access) is enabled.
+* [Network access for your VM](../../backup/concepts/vm-connection/compute.md#vm-network-access) is enabled.
 * The PowerShell execution policies allow scripts. If not, allow scripts and restart PowerShell. For more information, see [this Microsoft guide](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies).
 
 
@@ -120,11 +120,11 @@ Use this guide: [Updating the {{ backup-name }} agent on a VM](../../backup/oper
 
 {% include [update-kernel-headers-description](../../_includes/backup/operations/update-kernel-headers-description.md) %}
 
-To update Linux kernel header versions, follow these tutorials: [Restoring the {{ backup-name }} agent on a VM](../../backup/operations/update-backup-agent.md#restore-agent) and [Restoring the {{ backup-name }} agent on a {{ baremetal-name }} server](../../backup/operations/backup-baremetal/restore-agent.md).
+To upgrade the Linux kernel header version, see [{#T}](../../backup/operations/backup-baremetal/restore-agent.md).
 
 #### Creating incremental backups of a VM or {{ baremetal-name }} server is taking longer than usual {#av-interaction}
 
-Antivirus activity may affect the time required to create [incremental backups](../../backup/concepts/backup.md#types) under a policy with the fast backup [option](../../backup/concepts/policy.md#specification) enabled (`fastBackupEnabled`). Read more in [{#T}](../../backup/concepts/av-interaction.md).
+Antivirus activity may affect the time required to create [incremental backups](../../backup/concepts/backup.md#types) under a policy with the fast backup [option](../../backup/concepts/policy.md#specification) enabled (`fastBackupEnabled`). See details in [{#T}](../../backup/concepts/av-interaction.md).
 
 #### Out-Of-Memory Killer (OOM Killer) kills the {{ backup-name }} agent process in Linux {#oom-solution}
 

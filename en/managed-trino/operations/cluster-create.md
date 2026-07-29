@@ -247,14 +247,14 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
           Learn more about the [settings of cluster resource allocation for queries]({{ tr.docs }}/admin/properties-resource-management.html) and [query execution settings]({{ tr.docs }}/admin/properties-query-management.html).
 
-    1. To set up a maintenance window (including for disabled clusters), provide the relevant value in the `--maintenance-window` parameter:
+    1. To set up a [maintenance window](../concepts/maintenance.md) (including for disabled clusters), provide the relevant value in the `--maintenance-window` parameter:
 
         ```bash
         {{ yc-mdb-tr }} cluster create <cluster_name> \
            ...
            --maintenance-window type=<maintenance_type>,`
                                `day=<day_of_week>,`
-                               `hour=<hour> \
+                               `hour=<sequence_number_of_hour_interval> \
         ```
 
         Where `type` is the maintenance type:
@@ -305,7 +305,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         {% include [Terraform query properties description](../../_includes/managed-trino/terraform/query-properties.md) %}
 
-    1. To set the maintenance window that will also apply to stopped clusters, add the `maintenance_window` section to the cluster description:
+    1. To set the [maintenance](../concepts/maintenance.md) window that will also apply to stopped clusters, add the `maintenance_window` section to the cluster description:
 
         {% include [Terraform maintenance window parameters description](../../_includes/managed-trino/terraform/maintenance-window-parameters.md) %}
 
@@ -319,7 +319,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -399,6 +399,11 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             "enabled": "<use_of_logging>",
             "folderId": "<folder_ID>",
             "minLevel": "<logging_level>"
+          },
+          "maintenanceWindow": {
+            "weeklyMaintenanceWindow": {
+              "day": "<day_of_week>",
+              "hour": "<sequence_number_of_hour_interval>"
           }
         }
         ```
@@ -483,6 +488,16 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
             Specify either `folderId` or `logGroupId`.
 
+        * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) schedule (including for disabled clusters). Provide one of these two properties:
+
+            * `anytime`: Maintenance takes place at any time.
+            * `weeklyMaintenanceWindow`: Maintenance takes place once a week at the specified time:
+
+                * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+                * `hour`: UTC hour interval, from `1` to `24`.
+
+                  > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
+
     1. Call the [Cluster.create](../api-ref/Cluster/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
@@ -497,7 +512,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -571,6 +586,11 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             "enabled": "<use_of_logging>",
             "folder_id": "<folder_ID>",
             "min_level": "<logging_level>"
+          },
+          "maintenance_window": {
+            "weekly_maintenance_window": {
+              "day": "<day_of_week>",
+              "hour": "<sequence_number_of_hour_interval>"
           }
         }
         ```
@@ -654,6 +674,16 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             * `log_group_id`: Custom log group ID. Logs will be written to this group.
 
             Specify either `folder_id` or `log_group_id`.
+
+        * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) schedule (including for disabled clusters). Provide one of these two properties:
+
+            * `anytime`: Maintenance takes place at any time.
+            * `weekly_maintenance_window`: Maintenance takes place once a week at the specified time:
+
+                * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+                * `hour`: UTC hour interval, from `1` to `24`.
+
+                  > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
     1. Call the [ClusterService/Create](../api-ref/grpc/Cluster/create.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 

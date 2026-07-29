@@ -13,11 +13,12 @@ Event name | Description
 `DeleteRepository` | Deleting a repository
 `DeleteScanPolicy` | Deleting a scan policy
 `ScanImage` | Scanning a Docker image
+`SetIpPermission` | Assigning access permissions for an IP permission
+`SetRegistryAccessBindings` | Assigning access permissions for a registry
+`SetRepositoryAccessBindings` | Assigning access permissions for a repository
 `UpdateIpPermission` | Changing a registry access policy
 `UpdateLifecyclePolicy` | Changing a lifecycle policy for Docker images
 `UpdateRegistry` | Updating a registry
 `UpdateScanPolicy` | Updating a scan policy
 `UpdateRegistryAccessBindings` | Updating access permissions for a registry
 `UpdateRepositoryAccessBindings` | Updating access permissions for a repository
-`SetRegistryAccessBindings`  | Assigning access permissions for a registry
-`SetRepositoryAccessBindings` | Assigning access permissions for a repository

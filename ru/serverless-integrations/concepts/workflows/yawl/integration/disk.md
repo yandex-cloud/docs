@@ -5,6 +5,8 @@ description: В статье описаны поля для интеграцио
 
 # Disk
 
+{% include [workflows-ai-studio-note](../../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 Взаимодействие с файлами на Яндекс Диске. Поля `upload` и `download` — взаимоисключающие, можно использовать только одно из них.
 
 Имя поля | Тип | Обязательное | Значение по умолчанию | Поддерживается [шаблонизация](../../templating.md) | Описание

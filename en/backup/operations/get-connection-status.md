@@ -1,6 +1,6 @@
 ---
-title: Viewing a VM connection status
-description: Follow this guide to find out the status of a {{ backup-name }} connection to a VM.
+title: Viewing the status of a {{ compute-full-name }} VM connection to {{ backup-full-name }}
+description: Follow this guide to find out the status of a {{ backup-full-name }} connection to a {{ compute-full-name }} VM.
 ---
 
 # Viewing a VM connection status
@@ -80,5 +80,5 @@ description: Follow this guide to find out the status of a {{ backup-name }} con
 
 #### Useful links {#see-also}
 
-* [VM connection statuses](../concepts/vm-connection.md#statuses)
+* [VM connection statuses](../concepts/vm-connection/compute.md#statuses)
 * [{#T}](get-journal.md)

@@ -1,5 +1,8 @@
 Event name | Description
 --- | ---
+`asymmetricencryption.CancelAsymmetricEncryptionKeyDeletion` | Canceling the deletion of an asymmetric encryption key pair
+`asymmetricsignature.CancelAsymmetricSignatureKeyDeletion` | Canceling the deletion of a digital signature key pair
+`asymmetricsignature.UpdateAsymmetricSignatureKeyAccessBindings` | Updating access permissions for an asymmetric signature key
 `CancelDeleteSymmetricKey` | Canceling a previously scheduled key destruction
 `CancelSymmetricKeyVersionDestruction` | Canceling a previously planned destruction of a symmetric key version
 `CreateAsymmetricEncryptionKey` | Creating an asymmetric encryption key pair
@@ -19,5 +22,3 @@ Event name | Description
 `UpdateSymmetricKey` | Changing a symmetric key
 `UpdateSymmetricKeyAccessBindings` | Updating access permissions for a symmetric key
 `UpdateAsymmetricEncryptionKeyAccessBindings` | Updating access permissions for an asymmetric encryption key pair
-`asymmetricencryption.CancelAsymmetricEncryptionKeyDeletion` | Canceling the deletion of an asymmetric encryption key pair
-`asymmetricsignature.CancelAsymmetricSignatureKeyDeletion` | Canceling the deletion of a digital signature key pair

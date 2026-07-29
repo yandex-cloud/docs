@@ -21,6 +21,7 @@ Event name | Description
 `DeleteOrganization` | Deleting an organization
 `DeleteOsLoginProfile` | Deleting an {{ oslogin }} profile
 `DeleteUserSshKey` | Deleting an SSH user key
+`idp.AddUserBlock` | Adding a user section
 `idp.AddUserpoolDomain` | Associating a domain with a user pool
 `idp.branding.CreateAsset` | Uploading a resource for [branding](../../../organization/concepts/branding.md)
 `idp.branding.CreateBranding` | Creating branding
@@ -36,6 +37,7 @@ Event name | Description
 `idp.DeleteUserpoolDomain` | Deleting domain's association with a user pool
 `idp.ReactivateUser` | Activating a local user
 `idp.RemoveUserBlock` | Unblocking a user
+`idp.ResetOwnPassword` | Resetting your own password
 `idp.SetUserPassword` | Setting a password for a local user
 `idp.SetUserpoolAccessBindings` | Assigning access permissions for a user pool
 `idp.SuspendUser` | Deactivating a local user
@@ -46,26 +48,31 @@ Event name | Description
 `idp.ValidateUserpoolDomain` | Validating a domain to associate with a user pool
 `oauth.CreateApplication` | Creating an [OIDC](https://openid.net/developers/how-connect-works/) app
 `oauth.DeleteApplication` | Deleting an OIDC app
+`oauth.OAuthFederationPrivateTlsCreateCertificate` | Creating a TLS certificate for a private OAuth federation
+`oauth.OAuthFederationPrivateTlsDeleteCertificate` | Deleting a TLS certificate for a private OAuth federation
+`oauth.OAuthFederationPrivateTlsUpdateCertificate` | Updating a TLS certificate for a private OAuth federation
 `oauth.ReactivateApplication` | Activating an OIDC app
 `oauth.SetApplicationAccessBindings` | Assigning access permissions for an OIDC app
 `oauth.SuspendApplication` | Deactivating an OIDC app
 `oauth.UpdateApplication` | Updating an OIDC app
 `oauth.UpdateApplicationAccessBindings` | Updating access permissions for an OIDC app
 `oauth.UpdateApplicationAssignments` | Updating a list of OIDC app users
+`policy.ActivateAuthenticationPolicyRule` | Activating an authentication policy rule
+`policy.CreateAuthenticationPolicyRule` | Creating an authentication policy rule
+`policy.DeactivateAuthenticationPolicyRule` | Deactivating an authentication policy rule
+`policy.DeleteAuthenticationPolicyRule` | Deleting an authentication policy rule
+`policy.UpdateAuthenticationPolicyRule` | Updating an authentication policy rule
 `RejectInvitation` | Rejecting an invitation
 `ResendInvitation` | Resending an invite
-`SetDefaultProfile` | Setting the default profile
-`SetGroupAccessBindings` | Assigning access permissions for a user group
-`SetOrganizationAccessBindings` | Assigning access permissions for an organization
-`saml.AddFederationDomain` | Associating a [domain](../../../organization/concepts/domains.md) with a federation
 `saml.AddFederatedUserAccounts` | Adding a user to a federation
+`saml.AddFederationDomain` | Associating a [domain](../../../organization/concepts/domains.md) with a federation
 `saml.CreateApplication` | Creating a [SAML](../../../organization/concepts/add-federation.md) app
 `saml.CreateFederation` | Creating an identity federation
 `saml.CreateSignatureCertificate` | Creating a signature certificate
 `saml.DeleteApplication` | Deleting a SAML app
+`saml.DeleteFederatedUserAccounts` | Deleting a user from a federation
 `saml.DeleteFederation` | Deleting an identity federation
 `saml.DeleteFederationDomain` | Deleting a domain
-`saml.DeleteFederatedUserAccounts` | Deleting a user from a federation
 `saml.DeleteSignatureCertificate` | Deleting a signature certificate
 `saml.ReactivateApplication` | Activating a SAML app
 `saml.ReactivateFederatedUserAccounts` | Activating a federated user
@@ -79,13 +86,18 @@ Event name | Description
 `saml.UpdateSignatureCertificate` | Updating a signature certificate
 `saml.UploadSignatureCertificate` | Uploading a signature certificate
 `saml.ValidateFederationDomain` | Validating a domain to associate with a federation 
+`SetDefaultProfile` | Setting the default profile
+`SetGroupAccessBindings` | Assigning access permissions for a user group
+`SetOrganizationAccessBindings` | Assigning access permissions for an organization
 `UnbindOrganizationAccessPolicy` | Detaching an authorization policy in an organization
 `UpdateGroup` | Updating a user group
 `UpdateGroupAccessBindings` | Updating access permissions for a user group
 `UpdateGroupMapping` | Updating a federated user group mapping
+`UpdateGroupMappingItems` | Updating group mapping elements
 `UpdateGroupMembers` | Changing user group members
 `UpdateMfaEnforcement` | Updating an MFA policy
 `UpdateMfaEnforcementAudience` | Updating target users for an MFA policy
+`UpdateMfaEnforcementExcludedAudience` | Updating a list of accounts exempt from mandatory MFA usage
 `UpdateOrganization` | Updating an organization
 `UpdateOrganizationAccessBindings` | Updating access permissions for an organization
 `UpdateOrganizationAccessPolicyBindingParameters` | Editing authorization policy parameters in an organization

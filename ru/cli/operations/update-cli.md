@@ -1,4 +1,4 @@
-# Обновление CLI
+# Обновление {{ yandex-cloud }} CLI
 
 ## Посмотреть версию CLI {#see-version}
 

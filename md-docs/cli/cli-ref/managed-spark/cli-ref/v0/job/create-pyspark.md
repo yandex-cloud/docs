@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-spark](../../index.md) > [v0](../index.md) > [job](index.md) > create-pyspark
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [managed-spark](../../index.md) > [v0](../index.md) > [job](index.md) > create-pyspark
 
 # yc managed-spark v0 job create-pyspark
 

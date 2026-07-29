@@ -2,6 +2,17 @@
 
 # Настроить правило перехода по ошибкам
 
+{% note info %}
+
+На данный момент Workflows поддерживается в двух интерфейсах — [Yandex Cloud](https://console.yandex.cloud/link/serverless-integrations/workflows/workflows) и [Yandex AI Studio](https://aistudio.yandex.ru/platform/link//workflows). При этом:
+
+* рабочие процессы, [созданные в интерфейсе Yandex Cloud](../workflow/create-constructor.md), автоматически _доступны_ в интерфейсе AI Studio;
+* рабочие процессы, созданные в интерфейсе AI Studio, _недоступны_ в интерфейсе Yandex Cloud.
+
+С 3 сентября 2026 года Workflows перестанет поддерживаться в интерфейсе Yandex Cloud. Для создания рабочих процессов и управления ими используйте интерфейс AI Studio.
+
+{% endnote %}
+
 Для каждого [интеграционного шага](../../../concepts/workflows/yawl/index.md#integration-steps) рабочего процесса вы можете настраивать [правила перехода по ошибкам](../../../concepts/workflows/yawl/index.md#catchrule), возникшим во время выполнения этого шага. Правила применяются последовательно после применения политики повторных попыток.
 
 Чтобы настроить правило перехода по ошибкам интеграционного шага рабочего процесса:

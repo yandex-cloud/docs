@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [iam](../../../index.md) > [workload-identity](../../index.md) > [oidc](../index.md) > [federation](index.md) > delete
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник (англ.)](../../../../../index.md) > [iam](../../../index.md) > [workload-identity](../../index.md) > [oidc](../index.md) > [federation](index.md) > delete
 
 # yc iam workload-identity oidc federation delete
 

@@ -69,7 +69,7 @@ Connection with the cluster specified in {{ yandex-cloud }}.
 
 {% endlist %}
 
-### Bucket configurations {#bucket-config}
+### File storage {#bucket-config}
 
 {% list tabs group=instructions %}
 
@@ -97,13 +97,25 @@ Connection with the cluster specified in {{ yandex-cloud }}.
 
 - Management console {#console}
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.iceberg.console.form.iceberg.IcebergTarget.cleanup_policy.title }}**: Select a way to clean up data in the target database before the transfer:
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.iceberg.console.form.iceberg.IcebergTarget.cleanup_policy.title }}**: Select a way to clean up data in the target database before the transfer:
 
-     * `{{ ui-key.yc-data-transfer.data-transfer.console.form.iceberg.console.form.iceberg.IcebergCleanupPolicy.ICEBERG_CLEANUP_POLICY_DISABLED.title }}`: Use the existing tables to write new data.
+        * `{{ ui-key.yc-data-transfer.data-transfer.console.form.iceberg.console.form.iceberg.IcebergCleanupPolicy.ICEBERG_CLEANUP_POLICY_DISABLED.title }}`: Use the existing tables to write new data.
 
-     * `{{ ui-key.yc-data-transfer.data-transfer.console.form.iceberg.console.form.iceberg.IcebergCleanupPolicy.ICEBERG_CLEANUP_POLICY_DROP.title }}`: Remove all tables involved in the transfer.
+        * `{{ ui-key.yc-data-transfer.data-transfer.console.form.iceberg.console.form.iceberg.IcebergCleanupPolicy.ICEBERG_CLEANUP_POLICY_DROP.title }}`: Remove all tables involved in the transfer.
 
-       Use this option to always transfer the latest version of the table schema to the target database from the source whenever the transfer is activated.
+        Use this option to always transfer the latest version of the table schema to the target database from the source whenever the transfer is activated.
+
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.iceberg.console.form.iceberg.IcebergTarget.writer_settings.title }}**: Settings for data writes to {{ IBRG }} tables:
+
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.iceberg.console.form.iceberg.IcebergWriterSettings.max_rows_per_file.title }}**: Maximum number of rows per data file. If set to `0`, the number of rows is unlimited.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.iceberg.console.form.iceberg.IcebergWriterSettings.max_bytes_per_file.title }}**: Maximum data file size, in bytes. If set to `0`, the file size is unlimited.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.iceberg.console.form.iceberg.IcebergWriterSettings.parquet.title }}**: Parquet data format settings:
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.iceberg.console.form.iceberg.IcebergParquetRowGroup.row_group_max_bytes.title }}**: Maximum number of rows per group. If set to `0`, the number of rows per group is unlimited.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.iceberg.console.form.iceberg.IcebergParquetRowGroup.row_group_max_rows.title }}**: Maximum row group size, in bytes. If set to `0`, the row group size is unlimited.
+
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.iceberg.console.form.iceberg.IcebergTarget.replication_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.iceberg.console.form.iceberg.IcebergReplicationSettings.commit_interval.title }}**: Interval between commits to an {{ IBRG }} table during replication, in seconds.
+
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.iceberg.console.form.iceberg.IcebergTarget.default_namespace.title }}**: {{ IBRG }} namespace to transfer tables to if the source database has no data schema.
 
 {% endlist %}
 

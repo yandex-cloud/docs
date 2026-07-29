@@ -5,6 +5,8 @@ description: В статье описаны поля для интеграцио
 
 # VectorStore
 
+{% include [workflows-ai-studio-note](../../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 Взаимодействие с векторным хранилищем.
 
 Имя поля | Тип | Обязательное | Значение по умолчанию | Поддерживается [шаблонизация](../../templating.md) | Описание

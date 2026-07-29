@@ -5,6 +5,8 @@ description: В статье описаны поля для интеграцио
 
 # YDS
 
+{% include [workflows-ai-studio-note](../../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 Отправка сообщений в топик [{{ yds-full-name }}](../../../../../data-streams/).
 
 Имя поля | Тип | Обязательное | Значение по умолчанию | Поддерживается [шаблонизация](../../templating.md) | Описание

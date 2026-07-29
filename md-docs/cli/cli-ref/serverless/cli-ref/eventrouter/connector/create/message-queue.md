@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [serverless](../../../index.md) > [eventrouter](../../index.md) > [connector](../index.md) > [create](index.md) > message-queue
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник (англ.)](../../../../../index.md) > [serverless](../../../index.md) > [eventrouter](../../index.md) > [connector](../index.md) > [create](index.md) > message-queue
 
 # yc serverless eventrouter connector create message-queue
 

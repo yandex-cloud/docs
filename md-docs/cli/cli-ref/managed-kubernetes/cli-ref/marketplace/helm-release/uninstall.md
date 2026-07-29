@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-kubernetes](../../index.md) > [marketplace](../index.md) > [helm-release](index.md) > uninstall
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [managed-kubernetes](../../index.md) > [marketplace](../index.md) > [helm-release](index.md) > uninstall
 
 # yc managed-kubernetes marketplace helm-release uninstall
 

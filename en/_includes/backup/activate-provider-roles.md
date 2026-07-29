@@ -1,1 +1,1 @@
-To activate the service, you need _at least_ the `backup.user` [role](../../backup/security/index.md#backup-user) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) in which you want to create backups of VMs or {{ baremetal-name }} servers.
+To activate the service, you need _at least_ the `backup.user` [role](../../backup/security/index.md#backup-user) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) in which you want to create backups of [target resources](../../backup/concepts/index.md#protected-resources).

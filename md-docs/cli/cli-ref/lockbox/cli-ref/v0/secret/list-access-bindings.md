@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [lockbox](../../index.md) > [v0](../index.md) > [secret](index.md) > list-access-bindings
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [lockbox](../../index.md) > [v0](../index.md) > [secret](index.md) > list-access-bindings
 
 # yc lockbox v0 secret list-access-bindings
 

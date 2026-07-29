@@ -12,7 +12,7 @@ description: Follow this guide to request detailed information about existing {{
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Go](../../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+  1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
 
 
@@ -96,7 +96,7 @@ description: Follow this guide to request detailed information about existing {{
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder with the cluster.
-  1. [Go](../../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+  1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
   1. Click the cluster name.
 
@@ -165,7 +165,7 @@ description: Follow this guide to request detailed information about existing {{
 
 ## Viewing operations with clusters {#list-operations}
 
-All actions with {{ metastore-name }} clusters are logged as a list of operations. Each operation gets its own unique ID.
+All actions with {{ metastore-name }} clusters are logged as a list of operations. Each operation gets an ID.
 
 ### Getting a list of operations {#get-operations}
 
@@ -174,7 +174,7 @@ All actions with {{ metastore-name }} clusters are logged as a list of operation
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder with the cluster.
-  1. [Go](../../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+  1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
   1. Click the cluster name.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
@@ -246,7 +246,7 @@ All actions with {{ metastore-name }} clusters are logged as a list of operation
 
 1. [Get the list of operations](#get-operations) for the cluster.
 1. Copy the ID of the operation you need.
-1. Get operation details:
+1. Get the operation details:
 
     {% list tabs group=instructions %}
     

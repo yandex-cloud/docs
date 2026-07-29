@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Вызов функции {{ sf-full-name }}
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 {% list tabs %}
 
 - Консоль управления {#console}

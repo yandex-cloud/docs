@@ -1,4 +1,4 @@
-# Работа с версиями команд CLI
+# Работа с версиями команд {{ yandex-cloud }} CLI
 
 {% include [command-ver-intro](../../_includes/cli/command-ver-intro.md) %}
 

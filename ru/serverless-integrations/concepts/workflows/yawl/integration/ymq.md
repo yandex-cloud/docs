@@ -5,6 +5,8 @@ description: В статье описаны поля для интеграцио
 
 # YMQ
 
+{% include [workflows-ai-studio-note](../../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 Отправка сообщений в очередь [{{ message-queue-full-name }}](../../../../../message-queue/).
 
 Имя поля | Тип | Обязательное | Значение по умолчанию | Поддерживается [шаблонизация](../../templating.md) | Описание

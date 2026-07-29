@@ -40,7 +40,7 @@ To get started:
 - Management console
 
   1. In the [management console]({{ link-console-main }}), go to your working resource catalog.
-  1. [Go](../../console/operations/select-service#select-service.md) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+  1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
   1. Select the metadata catalog you need.
   1. Navigate to the ![image](../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}** tab to view the metadata available in the catalog.

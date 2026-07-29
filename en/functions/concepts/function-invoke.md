@@ -111,7 +111,7 @@ Where:
     
     {% endnote %}
     
-* `isBase64Encoded`: If `body` contains Base64-encoded data, then {{ sf-name }} sets the parameter to `true`.
+* `isBase64Encoded`: If `body` contains Base64-encoded data, then {{ sf-name }} will set the parameter to `true`.
 
 #### Debugging functions {#example}
 
@@ -349,8 +349,8 @@ By default, an HTTP response contains special headers that start with `X-`, for 
 
 Its possible values are:
 
-* `stripAll`: Delete special headers for any response.
-* `stripOnSuccess`: Delete special headers only for successful function responses.
+* `stripAll`: Delete special headers upon any response.
+* `stripOnSuccess`: Delete special headers only upon a successful response of the function.
 
 For example, for the request:
 
@@ -447,14 +447,13 @@ When invoking a function using a trigger, the JSON description of a trigger even
 
 ## Invoking a function using a {{ api-gw-full-name }} extension {#extension}
 
-When invoking a function using the {{ api-gw-name }} extension, the function receives an HTTP request addressed to the API gateway. In which case the `Host` header specifies the host used by the user to access the API gateway, not the function's host. The request source IP is provided in the same way as when [invoking a function using HTTPS](#ip). Learn more about the extension in the [{{ api-gw-full-name }} documentation](../../api-gateway/concepts/extensions/cloud-functions.md).
+When invoking a function using the {{ api-gw-name }} extension, the function receives an HTTP request addressed to the API gateway. In which case the `Host` header specifies the host used by the user to access the API gateway, not the function's host. The request source IP is provided in the same way as when [invoking a function using HTTPS](#ip). Learn more about the extension in [this {{ api-gw-full-name }} guide](../../api-gateway/concepts/extensions/cloud-functions.md).
 
 ### Use cases {#examples-api-gw}
 
 * [{#T}](../tutorials/canary-release.md)
 * [{#T}](../tutorials/java-servlet-todo-list.md)
 * [{#T}](../tutorials/serverless-url-shortener/index.md)
-* [{#T}](../tutorials/slack-bot-serverless.md)
 * [{#T}](../tutorials/telegram-bot-serverless/index.md)
 * [{#T}](../tutorials/websocket-app.md)
 

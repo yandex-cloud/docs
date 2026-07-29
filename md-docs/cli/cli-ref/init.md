@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Интерфейс командной строки](../index.md) > [Справочник CLI (англ.)](index.md) > init
+[Документация Yandex Cloud](../../index.md) > [Интерфейс командной строки](../index.md) > [Справочник (англ.)](index.md) > init
 
 # yc init
 

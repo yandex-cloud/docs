@@ -5,6 +5,8 @@ description: В статье описаны поля для интеграцио
 
 # STT
 
+{% include [workflows-ai-studio-note](../../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 Распознавание речи в аудиофайлах с помощью [{{ speechkit-full-name }} STT]({{ link-docs-ai }}speechkit/stt/).
 
 Поля `base64`, `url`, `objectStorage` и `disk` — взаимоисключающие, можно использовать только одно из них.

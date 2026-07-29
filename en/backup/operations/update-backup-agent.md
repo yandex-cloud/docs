@@ -1,11 +1,11 @@
 ---
-title: How to update or recover the {{ backup-full-name }} agent on a VM
-description: Follow this guide to update or recover the {{ backup-name }} agent on a VM.
+title: How do I update the {{ backup-full-name }} agent on a {{ compute-full-name }} VM?
+description: Follow this guide to update the {{ backup-full-name }} agent on a {{ compute-full-name }} VM.
 ---
 
-# Updating or recovering the {{ backup-full-name }} agent on a VM
+# Updating the {{ backup-full-name }} agent on a {{ compute-full-name }} VM
 
-In some situations, you may need to update the [{{ backup-name }} agent](../concepts/agent.md) or recover its impaired functionality to ensure reliable automatic backups of {{ compute-full-name }} [VMs](../../compute/concepts/vm.md).
+In some situations, you may need to update your [{{ backup-name }} agent](../concepts/agent.md) or restore its functionality for reliable automatic backups of {{ compute-name }} [VMs](../../compute/concepts/vm.md).
 
 ## Updating the {{ backup-name }} agent {#update-agent}
 
@@ -17,7 +17,7 @@ Updating the {{ backup-name }} agent will not affect the data in your existing b
 
 {% endnote %}
 
-To update the {{ backup-name }} agent on your VM:
+To update the {{ backup-name }} agent on a {{ compute-name }} VM:
 
 {% list tabs group=operating_system %}
 
@@ -69,20 +69,6 @@ To update the {{ backup-name }} agent on your VM:
 
 If you were unable to update your {{ backup-name }} agent for any reason, [contact]({{ link-console-support }}) support.
 
-## Recovering the {{ backup-name }} agent {#restore-agent}
+#### See also {#see-also}
 
-{% include [update-kernel-headers-description](../../_includes/backup/operations/update-kernel-headers-description.md) %}
-
-{% list tabs group=operating_system %}
-
-- Debian/Ubuntu {#ubuntu}
-
-  {% include [update-kernel-headers-ubuntu](../../_includes/backup/operations/update-kernel-headers-ubuntu.md) %}
-
-- CentOS {#centos}
-
-  {% include [update-kernel-headers-centos](../../_includes/backup/operations/update-kernel-headers-centos.md) %}
-
-{% endlist %}
-
-If you were unable to recover your {{ backup-name }} agent for any reason, [contact]({{ link-console-support }}) support.
+* [{#T}](./backup-baremetal/restore-agent.md)

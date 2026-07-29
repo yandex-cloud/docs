@@ -32,5 +32,5 @@ _Авторизованные ключи_ — это ключи с алгори�
 
 * [Создать авторизованный ключ](../../operations/authentication/manage-authorized-keys.md#create-authorized-key)
 * [Удалить авторизованный ключ](../../operations/authentication/manage-authorized-keys.md#delete-authorized-key)
-* [Аутентификация от имени сервисного аккаунта](../../../cli/operations/authentication/service-account.md)
+* [Аутентификация в Yandex Cloud CLI от имени сервисного аккаунта](../../../cli/operations/authentication/service-account.md)
 * [Получение IAM-токена для сервисного аккаунта](../../operations/iam-token/create-for-sa.md)

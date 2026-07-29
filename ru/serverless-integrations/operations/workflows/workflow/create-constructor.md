@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Создать рабочий процесс с помощью конструктора
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

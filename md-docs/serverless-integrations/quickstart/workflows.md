@@ -8,6 +8,17 @@ Workflows находится на стадии [Preview](../../overview/concepts
 
 {% endnote %}
 
+{% note info %}
+
+На данный момент Workflows поддерживается в двух интерфейсах — [Yandex Cloud](https://console.yandex.cloud/link/serverless-integrations/workflows/workflows) и [Yandex AI Studio](https://aistudio.yandex.ru/platform/link//workflows). При этом:
+
+* рабочие процессы, [созданные в интерфейсе Yandex Cloud](../operations/workflows/workflow/create-constructor.md), автоматически _доступны_ в интерфейсе AI Studio;
+* рабочие процессы, созданные в интерфейсе AI Studio, _недоступны_ в интерфейсе Yandex Cloud.
+
+С 3 сентября 2026 года Workflows перестанет поддерживаться в интерфейсе Yandex Cloud. Для создания рабочих процессов и управления ими используйте интерфейс AI Studio.
+
+{% endnote %}
+
 С помощью этой инструкции вы создадите [рабочий процесс](../concepts/workflows/workflow.md) и запустите его. Во время выполнения рабочего процесса будут вызываться [функции](../../functions/concepts/function.md) [Yandex Cloud Functions](../../functions/index.md).
 
 

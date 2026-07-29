@@ -1,14 +1,14 @@
 ---
 title: How to delete all backups of a resource
-description: Follow this guide to delete all backups of a VM or {{ baremetal-name }} server.
+description: Follow this guide to delete all backups of a resource.
 ---
 
-# Deleting all backups of a VM or {{ baremetal-name }} server
+# Deleting all backups of a resource
 
 
-If you need to delete all backups of a [VM](../../../compute/concepts/vm.md) or [{{ baremetal-name }} server](../../../baremetal/concepts/servers.md), the faster and more effective way to delete them as a whole [archive](../../concepts/backup.md#archives) rather than separately. This way, you can save time and avoid possible errors.
+If you need to delete all backups of a [{{ compute-name }} VM](../../concepts/vm-connection/compute.md), [{{ baremetal-name }} server](../../concepts/vm-connection/baremetal.md), or [external resource](../../concepts/vm-connection/external-resources.md), a faster and more effective way is to delete them together as a single [archive](../../concepts/backup.md#archives) rather than separately. This way, you can save time and avoid possible errors.
 
-To delete the backup archive of a VM or {{ baremetal-name }} server:
+To delete the backup archive for a [backed up resource](../../concepts/index.md#protected-resources):
 
 {% list tabs group=instructions %}
 
@@ -42,13 +42,14 @@ To delete the backup archive of a VM or {{ baremetal-name }} server:
 
       {% note info %}
 
-      You can request a list of backup archives for a specific VM or {{ baremetal-name }} server:
+      You can request a list of backup archives for a specific backed up resource:
 
       ```bash
-      yc backup backup list-archives --instance-id <VM_or_{{ baremetal-name }}_server_ID>
+      yc backup backup list-archives \
+        --instance-id <resource_ID>
       ```
 
-      However, this command will provide an output in case the VM or server you specified has not been deleted, i.e., it is still there and connected to {{ backup-name }}.
+      However, this command will only provide an output if the resource you specified has not been deleted, i.e., it is still there and connected to {{ backup-name }}.
 
       {% endnote %}
 
@@ -63,25 +64,25 @@ To delete the backup archive of a VM or {{ baremetal-name }} server:
 
           Where `--archive-id` is the ID of the [backup archive](../../concepts/backup.md#archives) you need to delete.
 
-      * You can delete the archive by specifying the IDs of the VM or server and the backup policy:
+      * You can delete the archive by specifying the IDs of the backed up resource and its backup policy:
 
           ```bash
           yc backup backup batch-delete \
-            --instance-id <VM_or_{{ baremetal-name }}_server_ID> \
+            --instance-id <resource_ID> \
             --policy-id <policy_ID>
           ```
 
           Where:
-          * `--instance-id`: ID of the VM or {{ baremetal-name }} server whose backups you need to delete. When using the `--instance-id` parameter, you must specify the `--policy-id` parameter as well.
+          * `--instance-id`: ID of the [{{ compute-name }} VM](../../concepts/vm-connection/compute.md), [{{ baremetal-name }} server](../../concepts/vm-connection/baremetal.md), or [external resource](../../concepts/vm-connection/external-resources.md) whose backups you need to delete. When using the `--instance-id` parameter, you must specify the `--policy-id` parameter as well.
           * `--policy-id`: ID of the [backup policy](../../concepts/policy.md) on which the backups you need to delete were based. When using the `--policy-id` parameter, you must specify the `--instance-id` parameter as well.
 
 {% endlist %}
 
-The archive deletion will remove all backups of the VM or {{ baremetal-name }} server stored in that archive.
+The archive deletion will remove all [resource](../../concepts/index.md#protected-resources) backups stored in that archive.
 
 {% note info %}
 
-If backups for a VM or {{ baremetal-name }} server were based on a variety of backup policies, you also need to delete other VM or server archives created under such policies.
+If the resource backups were based on a variety of backup policies, you also need to delete other archives associated with that resource and created under such policies.
 
 {% endnote %}
 

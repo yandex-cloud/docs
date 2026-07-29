@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-trino](../../index.md) > [v0](../index.md) > [cluster](index.md) > remove-resource-groups
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [managed-trino](../../index.md) > [v0](../index.md) > [cluster](index.md) > remove-resource-groups
 
 # yc managed-trino v0 cluster remove-resource-groups
 

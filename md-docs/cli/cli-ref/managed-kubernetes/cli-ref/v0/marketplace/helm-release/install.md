@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [managed-kubernetes](../../../index.md) > [v0](../../index.md) > [marketplace](../index.md) > [helm-release](index.md) > install
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник (англ.)](../../../../../index.md) > [managed-kubernetes](../../../index.md) > [v0](../../index.md) > [marketplace](../index.md) > [helm-release](index.md) > install
 
 # yc managed-kubernetes v0 marketplace helm-release install
 

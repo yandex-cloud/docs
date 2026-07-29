@@ -1,6 +1,6 @@
 With {{ connection-manager-full-name }}, you can manage database [connection](../../metadata-hub/concepts/connection-manager.md) parameters. Connections are created automatically when you create a new managed database cluster in {{ yandex-cloud }} for {{ PG }}, {{ MY }}, {{ CH }}, {{ RD }}, {{ VLK }}, {{ OS }}, {{ MG }}, {{ TR }}, {{ KF }}, and {{ SD }} clusters. For other types of clusters, you can [create a connection](../../metadata-hub/operations/create-connection.md) manually.
 
-Clusters created before the {{ connection-manager-name }} integration was implemented, will operate as they used to. For such clusters, you can enable integration manually in [additional cluster settings](../../metadata-hub/quickstart/connection-manager.md#mdb-integration).
+Clusters created before the {{ connection-manager-name }} integration was implemented, will operate as before. For such clusters, you can enable integration manually in [additional cluster settings](../../metadata-hub/quickstart/connection-manager.md#mdb-integration).
 
 You cannot edit or delete any connection or secret created automatically together with a new cluster: they are updated automatically when editing user settings in a managed database cluster.
 

@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [organization-manager](../../../index.md) > [idp](../../index.md) > [userpool](../index.md) > [domain](index.md) > add
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник (англ.)](../../../../../index.md) > [organization-manager](../../../index.md) > [idp](../../index.md) > [userpool](../index.md) > [domain](index.md) > add
 
 # yc organization-manager idp userpool domain add
 

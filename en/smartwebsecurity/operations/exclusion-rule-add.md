@@ -27,7 +27,7 @@ description: Follow this guide to create a WAF exclusion rule.
 
               In the **Exception parameters** field, select one or more of the following: `HTTP body`, `Cookie`, `HTTP header`, or `Query params`. Set a value for each parameter. Enable **Case sensitive** as needed.
 
-              To add one more value for a parameter, click ![plus-sign](../../_assets/console-icons/plus.svg) **or**.
+              To add another value for a parameter, click ![plus-sign](../../_assets/console-icons/plus.svg) **or**.
 
       1. {% include [waf-rule-traffic-conditions](../../_includes/smartwebsecurity/waf-rule-traffic-conditions.md) %}
 

@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Добавить логику Parallel
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 Управляющий шаг Parallel выполняет параллельно несколько веток — последовательностей шагов. Результат выполнения шага — объект, в котором ключами являются имена веток выполнения, а значениями — выходные данные соответствующих веток выполнения. Подробнее о [состоянии рабочего процесса при выполнении шага Parallel](../../../concepts/workflows/workflow.md#state-for-Parallel).
 
 {% include [templating-note](../../../../_includes/serverless-integrations/templating-note.md) %}

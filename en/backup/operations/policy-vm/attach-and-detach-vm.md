@@ -1,26 +1,26 @@
 ---
-title: Linking a VM or {{ baremetal-name }} server to a backup policy
-description: In this article, you will learn how to link a {{ compute-name }} VM or {{ baremetal-full-name }} server to a backup policy.
+title: How to link a resource to a backup policy
+description: In this article, you will learn how to link a VM or server to a backup policy.
 ---
 
-# Linking a VM or {{ baremetal-full-name }} server to a backup policy
+# Linking a resource to a backup policy
 
 
-You can only link a VM or {{ baremetal-name }} server to a backup policy if they are connected to {{ backup-full-name }}. For more information, see [{#T}](../index.md#connect-vm) and [{#T}](../index.md#connect-baremetal).
+You can only link [resources](../../concepts/index.md#protected-resources) to a backup policy if they are [connected](../../concepts/vm-connection/index.md) to {{ backup-full-name }}. For more information, see [{#T}](../index.md#connect-vm), [{#T}](../index.md#connect-baremetal), and [{#T}](../index.md#connect-external).
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder where you want to link a VM or {{ baremetal-name }} server to a backup policy.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to link a resource to a backup policy.
   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. Navigate to the ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud_billing.backup.label_policies }}** tab.
-  1. Select the policy to link the VM or {{ baremetal-name }} server to.
+  1. Select the policy you want to link the VM or server to.
   1. Under **{{ ui-key.yacloud.backup.title_linked-recourses }}**, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.backup.button_attach-instance }}**, and in the window that opens:
 
       1. Depending on the resource you want to link to the backup policy, select the **{{ ui-key.yacloud.backup.value_vm-recourses }}** or **{{ ui-key.yacloud.backup.value_bms-recourses }}** tab and select the VM or server from the list.
 
-          If the VM or {{ baremetal-name }} server you want to link to the backup policy is not listed, make sure it is connected to {{ backup-name }}.
+          If the VM or server you want to link to the backup policy is not listed, make sure it is connected to {{ backup-name }}.
       1. Click **{{ ui-key.yacloud_billing.backup.button_attach-instance-submit }}**.
 
 - CLI {#cli}
@@ -29,30 +29,28 @@ You can only link a VM or {{ baremetal-name }} server to a backup policy if they
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI command to link a VM or {{ baremetal-name }} server to a backup policy: 
+  1. See the description of the CLI command for linking a {{ baremetal-name }} resource to a backup policy: 
 
       ```bash
       yc backup policy apply --help
       ```
 
-  1. Get the ID of the policy to link the VM or {{ baremetal-name }} server to:
+  1. Get the ID of the backup policy you want to link a resource to:
 
       {% include [get-policy-id](../../../_includes/backup/operations/get-policy-id.md) %}
 
-  1. Get the ID of the VM to link:
+  1. Get the ID of the resource you want to link:
 
-      {% include [get-vm-id](../../../_includes/backup/operations/get-vm-id.md) %}
+      {% include [get-resource-ids.md](../../../_includes/backup/operations/get-resource-ids.md) %}
 
-      {% include [get-bms-ids](../../../_includes/backup/operations/get-bms-ids.md) %}
-
-  1. Link the VM or {{ baremetal-name }} server by the policy ID:
+  1. Link the resource to the backup policy by specifying its ID:
 
       ```bash
       yc backup policy apply <policy_ID> \
-        --instance-ids <VM_or_{{ baremetal-name }}_server_IDs>
+        --instance-ids <IDs_of_resources_to_back_up>
       ```
 
-      Where `--instance-ids` are the IDs of the VMs or {{ baremetal-name }} servers connected to {{ backup-name }} you need to link to the backup policy. Multiple IDs should be comma-separated.
+      Where `--instance-ids` are the IDs of the [{{ compute-name }} VMs](../../concepts/vm-connection/compute.md), [{{ baremetal-name }} servers](../../concepts/vm-connection/baremetal.md), or [external resources](../../concepts/vm-connection/external-resources.md) connected to {{ backup-name }} which you need to link to the backup policy. Multiple IDs should be comma-separated.
 
   For more information about this command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/policy/apply.md).
 
@@ -62,27 +60,23 @@ You can only link a VM or {{ baremetal-name }} server to a backup policy if they
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  {% note info %}
+  To link a [resource](../../concepts/index.md#protected-resources) to a backup policy:
 
-  Currently, you can only associate a [{{ compute-name }} VM instance](../../../compute/concepts/vm.md) with a [backup policy](../../../backup/concepts/policy.md) using {{ TF }}. To associate a [{{ baremetal-name }} server](../../../baremetal/concepts/servers.md), use the [management console]({{ link-console-main }}), [{{ yandex-cloud }} CLI](../../../cli/cli-ref/backup/cli-ref/policy/apply.md), or [API](../../backup/api-ref/Policy/apply.md).
-
-  {% endnote %}
-
-  To associate a VM with a backup policy:
-
-  1. In the {{ TF }} configuration file, describe the parameters for associating the VM with the policy:
+  1. Describe the resource's link settings in the {{ TF }} configuration file:
 
       ```hcl
       resource "yandex_backup_policy_bindings" "test_backup_binding" {
-        instance_id = "<VM_ID>"
+        instance_id = "<resource_ID>"
         policy_id   = "<policy_ID>"
       }
       ```
 
       Where:
 
-      * `instance_id`: [ID](../../../compute/operations/vm-info/get-info.md#outside-instance) of the VM you want to associate with the policy.
-      * `policy_id`: [ID](./get-info.md) of the policy to associate the VM with.
+      * `instance_id`: ID of the resource you want to link to a backup policy.
+
+          You can get the list of IDs of resources linked to {{ backup-name }} in the default folder by using the `yc backup vm list` {{ yandex-cloud }} CLI command.
+      * `policy_id`: [ID](./get-info.md) of the backup policy you want to link the resource to.
 
      For more on the properties of the `yandex_backup_policy_bindings` resource, see [this provider guide]({{ tf-provider-resources-link }}/backup_policy_bindings).
   1. Create the resources:
@@ -107,5 +101,5 @@ You can only link a VM or {{ baremetal-name }} server to a backup policy if they
 * [{#T}](../create-vm-windows.md)
 * [{#T}](create.md)
 * [{#T}](detach-vm.md)
-* [{#T}](../../concepts/vm-connection.md)
+* [{#T}](../../concepts/vm-connection/index.md)
 * [{#T}](../../concepts/policy.md)

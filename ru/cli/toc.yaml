@@ -1,54 +1,58 @@
 title: Интерфейс командной строки
 href: index.yaml
 items:
-  - name: Начало работы с CLI
+  - name: Начало работы
     href: quickstart.md
   - name: Пошаговые инструкции
     expanded: true
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Установка CLI
+      - name: Установка
         href: operations/install-cli.md
-      - name: Обновление CLI
+      - name: Обновление
         href: operations/update-cli.md
-      - name: Удаление CLI
+      - name: Удаление
         href: operations/remove-cli.md
-      - name: Работа с версиями команд CLI
+      - name: Работа с версиями команд
         href: operations/command-versioning.md
       - name: Управление профилем
         items:
-          - name: Создание профиля
+          - name: Создание
             href: operations/profile/profile-create.md
-          - name: Управление параметрами профиля
+          - name: Управление параметрами
             href: operations/profile/manage-properties.md
-          - name: Получение информации о профиле
+          - name: Получение информации
             href: operations/profile/profile-list.md
-          - name: Активация профиля
+          - name: Активация
             href: operations/profile/profile-activate.md
-          - name: Удаление профиля
+          - name: Удаление
             href: operations/profile/profile-delete.md
       - name: Аутентификация
         items:
-          - name: Аутентификация с аккаунтом на Яндексе
+          - name: Аккаунт на Яндексе
             href: operations/authentication/user.md
-          - name: Аутентификация от имени сервисного аккаунта
+          - name: Сервисный аккаунт
             href: operations/authentication/service-account.md
-          - name: Аутентификация от имени федеративного пользователя
+          - name: Федеративный пользователь
             href: operations/authentication/federated-user.md
-          - name: Аутентификация от имени локального пользователя
+          - name: Локальный пользователь
             href: operations/authentication/local-user.md
-          - name: Аутентификация на сервере без графического интерфейса
+          - name: IAM-токен из переменной окружения
+            href: operations/authentication/iam-token-env.md
+          - name: Без графического интерфейса и браузера
             href: operations/authentication/auth-without-gui.md
   - name: Концепции
     items:
       - name: Запуск команд
         href: concepts/index.md
-      - name: Конфигурация CLI
+      - name: Эндпоинты
+        href: concepts/endpoints.md
+      - name: Конфигурация
         href: concepts/core-properties.md
       - name: Синхронный и асинхронный режимы выполнения команд
         href: concepts/mode.md
-  - name: Справочник CLI (англ.)
+  - name: Справочник (англ.)
     items:
       - name: Overview
         href: cli-ref/index.md
@@ -13165,7 +13169,7 @@ items:
                     href: cli-ref/ydb/cli-ref/v0/storage-type/get.md
                   - name: list
                     href: cli-ref/ydb/cli-ref/v0/storage-type/list.md
-  - name: Релизы CLI
+  - name: Релизы
     href: release-notes.md
   - name: Решение проблем
     href: error.md

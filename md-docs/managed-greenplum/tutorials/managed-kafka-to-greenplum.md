@@ -44,6 +44,7 @@
             * [Managed Service for Apache Kafka®](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
             * [Yandex MPP Analytics for PostgreSQL](../operations/connect/index.md#configuring-security-groups).
 
+    
     - Terraform {#tf}
 
         1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -59,6 +60,7 @@
             * [группы безопасности](../../vpc/concepts/security-groups.md) для подключения к кластерам;
             * кластер-источник Managed Service for Apache Kafka®;
             * кластер-приемник Greenplum® в сервисе Yandex MPP Analytics for PostgreSQL;
+            * эндпоинт Apache Kafka®;
             * трансфер.
 
         1. Укажите в файле `kafka-greenplum.tf` пароли пользователя и версии Apache Kafka® и Greenplum®.
@@ -92,6 +94,7 @@
 
             В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
+
     {% endlist %}
 
 1. Установите утилиты:
@@ -108,6 +111,8 @@
 
         ```bash
         sudo apt update && sudo apt-get install --yes jq
+        ```
+
 
 ## Подготовьте тестовые данные {#prepare-data}
 
@@ -135,73 +140,73 @@
 
 ## Подготовьте и активируйте трансфер {#prepare-transfer}
 
-1. [Создайте эндпоинт-источник](../../data-transfer/operations/endpoint/source/kafka.md) типа `Apache Kafka®` и задайте для него:
-
-    * **Полное имя топика** — `sensors`.
-    * Правила конвертации типа `json`. В поле **Схема данных** выберите `JSON-спецификация` и в открывшуюся форму скопируйте следующую спецификацию полей:
-
-    {% cut "sensors-specification" %}
-
-    ```json
-    [
-        {
-            "name": "device_id",
-            "type": "utf8",
-            "key": true
-        },
-        {
-            "name": "datetime",
-            "type": "utf8"
-        },
-        {
-            "name": "latitude",
-            "type": "double"
-        },
-        {
-            "name": "longitude",
-            "type": "double"
-        },
-        {
-            "name": "altitude",
-            "type": "double"
-        },
-        {
-            "name": "speed",
-            "type": "double"
-        },
-        {
-            "name": "battery_voltage",
-            "type": "double"
-        },
-        {
-            "name": "cabin_temperature",
-            "type": "uint16"
-        },
-        {
-            "name": "fuel_level",
-            "type": "uint16"
-        }
-    ]
-    ```
-
-    {% endcut %}
-
 1. [Создайте эндпоинт-приемник](../../data-transfer/operations/endpoint/target/greenplum.md) типа `Greenplum®`, укажите имя пользователя `user`.
-1. Создайте и активируйте трансфер:
+1. Создайте эндпоинт-источник Apache Kafka® и трансфер:
 
     {% list tabs group=instructions %}
 
     - Вручную {#manual}
 
+        1. [Создайте эндпоинт-источник](../../data-transfer/operations/endpoint/source/kafka.md) типа `Apache Kafka®` и задайте для него:
+
+            * **Полное имя топика** — `sensors`.
+            * Правила конвертации типа `json`. В поле **Схема данных** выберите `JSON-спецификация` и в открывшуюся форму скопируйте следующую спецификацию полей:
+
+                {% cut "sensors-specification" %}
+
+                ```json
+                [
+                    {
+                        "name": "device_id",
+                        "type": "utf8",
+                        "key": true
+                    },
+                    {
+                        "name": "datetime",
+                        "type": "utf8"
+                    },
+                    {
+                        "name": "latitude",
+                        "type": "double"
+                    },
+                    {
+                        "name": "longitude",
+                        "type": "double"
+                    },
+                    {
+                        "name": "altitude",
+                        "type": "double"
+                    },
+                    {
+                        "name": "speed",
+                        "type": "double"
+                    },
+                    {
+                        "name": "battery_voltage",
+                        "type": "double"
+                    },
+                    {
+                        "name": "cabin_temperature",
+                        "type": "uint16"
+                    },
+                    {
+                        "name": "fuel_level",
+                        "type": "uint16"
+                    }
+                ]
+                ```
+
+                {% endcut %}
+
         1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа _**Репликация**_, использующий созданные эндпоинты.
         1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **Реплицируется**.
 
+    
     - Terraform {#tf}
 
         1. Укажите в файле `kafka-greenplum.tf` переменные:
 
-            * `kf_source_endpoint_id` — значение идентификатора эндпоинта для источника;
-            * `gp_target_endpoint_id` — значение идентификатора эндпоинта для приемника;
+            * `gp_target_endpoint_id` — значение идентификатора эндпоинта для приемника Greenplum®;
             * `transfer_enabled` – значение `1` для создания трансфера.
 
         1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
@@ -233,6 +238,7 @@
                1. Дождитесь завершения операции.
 
         1. Трансфер активируется автоматически. Дождитесь его перехода в статус **Реплицируется**.
+
 
     {% endlist %}
 
@@ -270,13 +276,15 @@
 Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
 1. Убедитесь, что трансфер находится в статусе **Завершен** и [удалите](../../data-transfer/operations/transfer.md#delete) его.
-1. [Удалите эндпоинт-источник и эндпоинт-приемник](../../data-transfer/operations/endpoint/index.md#delete).
-1. Остальные ресурсы удалите в зависимости от способа их создания:
+
+
+1. Удалите ресурсы в зависимости от способа их создания:
 
     {% list tabs group=instructions %}
 
     - Вручную {#manual}
 
+        1. [Удалите эндпоинт-источник](../../data-transfer/operations/endpoint/index.md#delete).
         1. [Удалите кластер Managed Service for Apache Kafka®](../../managed-kafka/operations/cluster-delete.md).
         1. [Удалите кластер Yandex MPP Analytics for PostgreSQL](../operations/cluster-delete.md).
 
@@ -303,4 +311,5 @@
             Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
 
     {% endlist %}
-```
+
+1. [Удалите эндпоинт-приемник](../../data-transfer/operations/endpoint/index.md#delete).

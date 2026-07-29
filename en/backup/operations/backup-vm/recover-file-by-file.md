@@ -1,12 +1,12 @@
 ---
-title: How to restore individual directories and files on a VM or {{ baremetal-name }} server
-description: Follow this guide to restore individual directories and files on a VM or {{ baremetal-name }} server.
+title: How to restore individual directories and files on a {{ compute-full-name }} VM or {{ baremetal-full-name }} server
+description: Follow this guide to restore individual directories and files on a {{ compute-full-name }} VM or {{ baremetal-full-name }} server.
 ---
 
-# Restoring individual directories and files on a VM or {{ baremetal-name }} server
+# Restoring individual directories and files on a {{ compute-full-name }} VM or {{ baremetal-full-name }} server
 
 
-You can restore individual files and directories from a backup to any VM or {{ baremetal-name }} server in the `Running` [status](../../../compute/concepts/vm-statuses.md#list-of-statuses) connected to {{ backup-name }}:
+You can restore individual files and directories from a backup to any {{ compute-name }} VM instance or {{ baremetal-name }} server in the `Running` [status](../../../compute/concepts/vm-statuses.md#list-of-statuses) connected to {{ backup-name }}:
 
 {% list tabs group=instructions %}
 
@@ -21,11 +21,11 @@ You can restore individual files and directories from a backup to any VM or {{ b
   1. In the bottom panel, click ![file](../../../_assets/console-icons/file-plus.svg) **{{ ui-key.yacloud.backup.action_add-to-recovery-list }}**.
   1. Add all files and directories you want to restore, one by one, to the **{{ ui-key.yacloud.component.files-recovery-container.title_recovery-container }}** list.
   1. Click **{{ ui-key.yacloud.component.files-recovery-container.action_start-recovery }}**, and in the window that opens:
-      * Select a VM or {{ baremetal-name }} server to recover the files and directories to.
+      * Select a {{ compute-name }} VM or {{ baremetal-name }} server to recover the files and directories to.
 
         {% note info %}
 
-        Make sure the VM or {{ baremetal-name }} server you are recovering the files and directories to is [connected](../../concepts/vm-connection.md) to {{ backup-name }}.
+        Make sure the [resource](../../concepts/index.md#protected-resources) you are recovering the files and directories to is [connected](../../concepts/vm-connection/index.md) to {{ backup-name }}.
 
         {% endnote %}
 
@@ -44,7 +44,7 @@ You can restore individual files and directories from a backup to any VM or {{ b
 
           {% endnote %}
 
-  1. Select an action to perform when file names from a backup match file names on a VM or {{ baremetal-name }} server:
+  1. Select an action to perform when file names from a backup match the names of existing files on a {{ compute-name }} VM or {{ baremetal-name }} server:
       * `{{ ui-key.yacloud.backup.files-recovery.value_overwrite-all }}`.
       * `{{ ui-key.yacloud.backup.files-recovery.value_overwrite-older }}`.
       * `{{ ui-key.yacloud.backup.files-recovery.value_overwrite-none }}`: Files that are not in the source directory will not be written either.

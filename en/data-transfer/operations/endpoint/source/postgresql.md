@@ -406,7 +406,7 @@ Known issues when using a {{ PG }} endpoint:
 * [Error when dropping a table under the Drop cleanup policy](#drop-table-error).
 * [Error when transferring tables with generated columns](#generated-columns)
 
-For the full list of recommendations, see [Troubleshooting](../../../troubleshooting/index.md).
+For the full list of troubleshooting tips, see [Troubleshooting](../../../troubleshooting/index.md).
 
 {% include [master-trans-stop](../../../../_includes/data-transfer/troubles/postgresql/master-trans-stop.md) %}
 

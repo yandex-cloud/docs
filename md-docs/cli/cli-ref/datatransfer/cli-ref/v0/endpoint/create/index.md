@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [datatransfer](../../../index.md) > [v0](../../index.md) > [endpoint](../index.md) > create > Overview
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник (англ.)](../../../../../index.md) > [datatransfer](../../../index.md) > [v0](../../index.md) > [endpoint](../index.md) > create > Overview
 
 # yc datatransfer v0 endpoint create
 

@@ -10,6 +10,12 @@
 
 
 
+   {% note info %}
+
+   {% include [federated-auth-without-gui](federated-auth-without-gui.md) %}
+
+   {% endnote %}
+
 1. Выберите профиль, для которого вы хотите настроить аутентификацию, или создайте новый.
 
    ```text

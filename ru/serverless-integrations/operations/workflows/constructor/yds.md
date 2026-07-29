@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Отправка сообщений в топик {{ yds-full-name }}
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 {% include [templating-note](../../../../_includes/serverless-integrations/templating-note.md) %}
 
 {% list tabs %}

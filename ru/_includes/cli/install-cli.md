@@ -1,8 +1,14 @@
+
+{% note tip %}
+
+{% include [cli-install-without-access](cli-install-without-access.md) %}
+
+{% endnote %}
+
+
 {% list tabs group=operating_system %}
 
 - Linux {#linux}
-
-    {% include [cli-prepare-step-tip](cli-prepare-step-tip.md) %}
 
     1. Выполните команду:
 
@@ -12,17 +18,13 @@
 
         Скрипт установит CLI и добавит путь до исполняемого файла в переменную окружения `PATH`.
 
-        {% note info %}
+        {% note info "Особенности" %}
 
-        Скрипт дополнит переменную `PATH` только если его запустить в командных оболочках `bash` или `zsh`.
+        * Скрипт дополнит переменную `PATH`, только если его запустить в командных оболочках `bash` или `zsh`.
 
-        Если вы запустили скрипт в другой оболочке, добавьте путь до CLI в переменную `PATH` самостоятельно.
+          Если вы запустили скрипт в другой оболочке, добавьте путь до CLI в переменную `PATH` самостоятельно.
 
-        {% endnote %}
-
-        {% note warning %}
-
-        Для корректной работы автодополнения при использовании `zsh` требуется версия оболочки не ниже 5.1, а при использовании `bash` на CentOS и производных дистрибутивах необходимо установить пакет `bash-completion`.
+        * Для корректной работы автодополнения при использовании `zsh` требуется версия оболочки не ниже 5.1, а при использовании `bash` на CentOS и производных дистрибутивах необходимо установить пакет `bash-completion`.
 
         {% endnote %}
 
@@ -30,8 +32,6 @@
 
 - macOS {#macos}
 
-    {% include [cli-prepare-step-tip](cli-prepare-step-tip.md) %}
-
     1. Выполните команду:
 
         ```bash
@@ -39,13 +39,20 @@
         ```
 
         Скрипт установит CLI и добавит путь до исполняемого файла в переменную окружения `PATH`.
+
+        Команда запускает установочный скрипт в `bash`. При этом скрипт определяет командную оболочку пользователя по переменной `SHELL` и для `zsh` добавляет настройки в файл `~/.zshrc`.
+
     1. Перезапустите командную оболочку, чтобы перезагрузить переменные окружения.
 
 - Windows {#windows}
 
-    {% include [cli-prepare-step-tip](cli-prepare-step-tip.md) %}
+    Для Windows CLI можно установить из PowerShell или `cmd.exe`. В обоих случаях установочный скрипт выполняется в PowerShell.
 
-    Для Windows CLI можно установить с помощью PowerShell или командной строки:
+    {% note warning %}
+
+    {% include [cli-powershell-execution-policy](cli-powershell-execution-policy.md) %}
+
+    {% endnote %}
 
     - Для установки с помощью PowerShell:
 
@@ -55,7 +62,7 @@
             
             
             ```powershell
-            iex (New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net{{ yc-windows-path }}')
+            Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net{{ yc-windows-path }}')
             ```
 
 
@@ -68,7 +75,7 @@
 
         1. Введите `Y`. После этого {{ yandex-cloud }} CLI можно пользоваться, командную оболочку перезапускать не нужно.
 
-    - Для установки с помощью командной строки:
+    - Для установки из `cmd.exe`:
 
         1. Выполните команду:
 
@@ -76,7 +83,7 @@
             
             
             ```batch
-            @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net{{ yc-windows-path }}'))" && SET "PATH=%PATH%;%USERPROFILE%\yandex-cloud\bin"
+            @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net{{ yc-windows-path }}'))" && SET "PATH=%PATH%;%USERPROFILE%\yandex-cloud\bin"
             ```
 
 
@@ -89,6 +96,10 @@
 
         1. Введите `Y`.
         1. Перезапустите командную оболочку, чтобы перезагрузить переменные окружения.
+
+        
+    Подробнее в разделе [{#T}](../../overview/concepts/console-syntax-guide.md).
+    
 
 {% endlist %}
 
@@ -283,4 +294,4 @@ CLI поддерживает автодополнение команд в ком
 
 {% endlist %}
 
-Если в процессе установки CLI возникла ошибка, смотрите раздел [Решение проблем CLI](../../cli/error.md#failure-writing-output-to-destination).
+Если в процессе установки CLI возникла ошибка, воспользуйтесь рекомендациями из раздела [{#T}](../../cli/error.md#installation-errors).

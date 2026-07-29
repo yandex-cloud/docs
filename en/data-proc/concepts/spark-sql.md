@@ -121,7 +121,7 @@ A single app runs on a cluster with default settings and two compute hosts. In w
 {% endlist %}
 
 
-## Automatic scaling {#autoscaling}
+## Autoscaling {#autoscaling}
 
 Automatic scaling in {{ dataproc-name }} clusters allows you to automatically manage computing resources of the created cluster by adding more nodes to the cluster when you have pending operations in the execution queue or by releasing nodes (deleting the corresponding VMs) when the cluster load is lower.
 

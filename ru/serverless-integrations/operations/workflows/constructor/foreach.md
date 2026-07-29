@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Добавить цикл Foreach
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 Управляющий шаг Foreach позволяет задать последовательность шагов, которые будут выполняться над каждым элементом входных данных. Выходные данные — массив результатов выполнения всех шагов последовательности. Подробнее о [состоянии рабочего процесса при выполнении шага Foreach](../../../concepts/workflows/workflow.md#state-for-Foreach).
 
 {% include [templating-note](../../../../_includes/serverless-integrations/templating-note.md) %}

@@ -51,16 +51,15 @@ To use WebAuthn, make sure it is supported by your browser and OS. The table bel
 
 #|
 || **Browser** | **Android 14** | **iOS 16** | **Windows 10** | **macOS 13 (Ventura)** | **Desktop Linux** ||
-|| **Chromium**^1^ | Full support | Full support | Full support^2^ | Full support | Only hardware keys^3^ ||
+|| **Chromium**^1^ | Full support | Full support | Full support^2^ | Full support | Only hardware keys ||
 || **Safari** | No information | Full support | No information | Full support | No information ||
-|| **Firefox** | Full support^4^ | Full support | Full support^2^ | Full support^5^ | Only hardware keys ||
+|| **Firefox** | Full support^3^ | Full support | Full support^2^ | Full support^4^ | Only hardware keys ||
 |#
 
 ^1^ This also applies to [Chromium](https://{{ lang }}.wikipedia.org/wiki/Chromium)-based Yandex Browser, Google Chrome, Opera, Vivaldi, Brave, and Microsoft Edge.
 ^2^ For platform-specific authenticators with Windows Hello only.
-^3^ To use Rutoken in Yandex Browser, you need the Rutoken plugin.
-^4^ Use of biometrics may be restricted on some devices.
-^5^ Platform authenticators, e.g., Touch ID, may not be fully available due to the Gecko engine features.
+^3^ Use of biometrics may be restricted on some devices.
+^4^ Platform authenticators, e.g., Touch ID, may not be fully available due to the Gecko engine features.
 
 #### Useful links {#see-also}
 

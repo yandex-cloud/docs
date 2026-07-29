@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [load-balancer](../../index.md) > [v0](../index.md) > [network-load-balancer](index.md) > attach-target-group
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [load-balancer](../../index.md) > [v0](../index.md) > [network-load-balancer](index.md) > attach-target-group
 
 # yc load-balancer v0 network-load-balancer attach-target-group
 

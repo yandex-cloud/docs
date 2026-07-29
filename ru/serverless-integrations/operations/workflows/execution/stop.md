@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Остановить запуск рабочего процесса
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 Если остановить запуск [рабочего процесса](../../../concepts/workflows/workflow.md), {{ sw-name }} сначала дождется завершения текущего активного шага. Чтобы прервать текущий активный шаг, воспользуйтесь инструкцией [{#T}](terminate.md).
 
 {% list tabs group=instructions %}

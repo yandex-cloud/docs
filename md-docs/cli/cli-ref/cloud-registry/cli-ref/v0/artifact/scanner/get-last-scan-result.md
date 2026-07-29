@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [cloud-registry](../../../index.md) > [v0](../../index.md) > [artifact](../index.md) > [scanner](index.md) > get-last-scan-result
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник (англ.)](../../../../../index.md) > [cloud-registry](../../../index.md) > [v0](../../index.md) > [artifact](../index.md) > [scanner](index.md) > get-last-scan-result
 
 # yc cloud-registry v0 artifact scanner get-last-scan-result
 

@@ -32,7 +32,7 @@ You can also assign a role for a parent resource to [inherit access permissions]
 
 {% note warning %}
 
-It usually takes 5 seconds or less to update access permissions. If the role was assigned to you, but you do not have access yet, repeat the operation.
+It may take up to a minute to update access permissions and activate credentials. During this time, the operation may fail with an authorization error, even if the role has already been assigned and the credentials have been created. If the operation fails, try again later.
 
 For example, you were given the right to create folders in the cloud and you were able to create one folder, but couldn't create another one. This is because the access permissions have not yet been updated on the server where the second create folder operation was performed. Try creating the folder again.
 

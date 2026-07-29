@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Добавить шаг Success
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 Управляющий шаг Success успешно завершает запуск рабочего процесса. Если шаг находится внутри шагов [Foreach](./foreach.md) или [Parallel](./parallel.md), завершается запуск всего рабочего процесса, а не только текущей ветки выполнения.
 
 {% list tabs %}

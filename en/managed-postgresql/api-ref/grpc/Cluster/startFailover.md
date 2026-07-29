@@ -103,7 +103,8 @@ The maximum string length in characters is 253. ||
       "performance_diagnostics": {
         "enabled": "bool",
         "sessions_sampling_interval": "int64",
-        "statements_sampling_interval": "int64"
+        "statements_sampling_interval": "int64",
+        "advanced_mode": "bool"
       },
       "disk_size_autoscaling": {
         "planned_usage_threshold": "int64",
@@ -534,6 +535,9 @@ Acceptable values are 1 to 86400, inclusive. ||
 Interval (in seconds) for pg_stat_statements sampling
 
 Acceptable values are 1 to 86400, inclusive. ||
+|| advanced_mode | **bool**
+
+Switches performance diagnostics from standard to advanced mode. ||
 |#
 
 ## DiskSizeAutoscaling {#yandex.cloud.mdb.postgresql.v1.DiskSizeAutoscaling}
@@ -619,7 +623,7 @@ The maintenance policy in effect. ||
 
 ## WeeklyMaintenanceWindow {#yandex.cloud.mdb.postgresql.v1.WeeklyMaintenanceWindow}
 
-Weelky maintenance window settings.
+Weekly maintenance window settings.
 
 #|
 ||Field | Description ||
@@ -627,13 +631,13 @@ Weelky maintenance window settings.
 
 Day of the week (in `DDD` format).
 
-- `MON`
-- `TUE`
-- `WED`
-- `THU`
-- `FRI`
-- `SAT`
-- `SUN` ||
+- `MON`: Monday.
+- `TUE`: Tuesday.
+- `WED`: Wednesday.
+- `THU`: Thursday.
+- `FRI`: Friday.
+- `SAT`: Saturday.
+- `SUN`: Sunday. ||
 || hour | **int64**
 
 Hour of the day in UTC (in `HH` format).

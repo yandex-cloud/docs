@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [lockbox](../../index.md) > [v0](../index.md) > [secret](index.md) > schedule-version-destruction
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [lockbox](../../index.md) > [v0](../index.md) > [secret](index.md) > schedule-version-destruction
 
 # yc lockbox v0 secret schedule-version-destruction
 

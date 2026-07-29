@@ -31,11 +31,11 @@ When using {{ mtr-name }}, you pay for:
 * Computing resources of cluster components.
 * Outgoing traffic from {{ yandex-cloud }} to the internet.
 
-Cluster operation cost is charged per hour. The minimum billing unit is one hour; e.g., you will be charged for 2 hours when using a cluster for 90 minutes (1.5 hours).
+Cluster operation cost is charged per minute. The minimum billing unit is one minute, e.g., 1.5 minutes of cluster usage is billed as 2 minutes.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
-### Example of cluster cost calculation {#example}
+### Cluster cost calculation example {#example}
 
 Suppose we calculate the 30-day usage cost of a cluster with the following configuration:
 

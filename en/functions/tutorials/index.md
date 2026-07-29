@@ -20,7 +20,6 @@ description: This section provides tutorials for {{ sf-name }}.
 
 ## Serverless bots {#bots}
 
-* [{#T}](slack-bot-serverless.md)
 * [{#T}](telegram-bot-serverless/index.md)
 * [{#T}](recognizer-bot.md)
 

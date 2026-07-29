@@ -1,11 +1,11 @@
 ---
-title: How to connect a Linux VM to {{ backup-full-name }}
-description: Follow this guide to connect a Linux VM to {{ backup-name }}.
+title: How to connect a {{ compute-full-name }} Linux VM to {{ backup-full-name }}
+description: Follow this guide to connect a {{ compute-full-name }} Linux VM to {{ backup-full-name }}.
 ---
 
 # Connecting an existing Linux VM to {{ backup-name }}
 
-You can back up your {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [supported Linux-based operating systems](../concepts/vm-connection.md#linux).
+You can back up your {{ compute-full-name }} [VMs](../../compute/concepts/vm.md) with [supported Linux-based operating systems](../concepts/vm-connection/compute.md#linux).
 
 {% include [requirements](../../_includes/backup/requirements.md) %}
 

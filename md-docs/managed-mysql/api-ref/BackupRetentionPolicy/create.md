@@ -44,7 +44,9 @@ The maximum string length in characters is 50. ||
 CronTab schedule. ||
 || retainForDays | **string** (int64)
 
-Retention duration. ||
+Retention duration.
+
+Acceptable values are 7 to 1095, inclusive. ||
 || description | **string**
 
 Policy description. ||

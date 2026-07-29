@@ -6,15 +6,18 @@
 
 ## Установите Yandex Cloud CLI {#install}
 
+{% note tip %}
+
+Вы можете самостоятельно [скачать архив с исполняемым файлом CLI](../../cli/operations/install-cli.md#bin) и установить его.
+
+Например, это может быть полезно, если на целевом устройстве нет доступа к `https://storage.yandexcloud.net`. Скачайте архив с исполняемым файлом CLI на другом устройстве, а затем перенесите архив на целевое устройство разрешенным в вашей организации способом.
+
+{% endnote %}
+
+
 {% list tabs group=operating_system %}
 
 - Linux {#linux}
-
-    {% note tip %}
-    
-    Команда автоматически скачает скрипт установки и сразу выполнит его. Чтобы предварительно ознакомиться с содержимым скрипта, скачайте его вручную и запустите после проверки.
-    
-    {% endnote %}
 
     1. Выполните команду:
 
@@ -24,17 +27,13 @@
 
         Скрипт установит CLI и добавит путь до исполняемого файла в переменную окружения `PATH`.
 
-        {% note info %}
+        {% note info "Особенности" %}
 
-        Скрипт дополнит переменную `PATH` только если его запустить в командных оболочках `bash` или `zsh`.
+        * Скрипт дополнит переменную `PATH`, только если его запустить в командных оболочках `bash` или `zsh`.
 
-        Если вы запустили скрипт в другой оболочке, добавьте путь до CLI в переменную `PATH` самостоятельно.
+          Если вы запустили скрипт в другой оболочке, добавьте путь до CLI в переменную `PATH` самостоятельно.
 
-        {% endnote %}
-
-        {% note warning %}
-
-        Для корректной работы автодополнения при использовании `zsh` требуется версия оболочки не ниже 5.1, а при использовании `bash` на CentOS и производных дистрибутивах необходимо установить пакет `bash-completion`.
+        * Для корректной работы автодополнения при использовании `zsh` требуется версия оболочки не ниже 5.1, а при использовании `bash` на CentOS и производных дистрибутивах необходимо установить пакет `bash-completion`.
 
         {% endnote %}
 
@@ -42,12 +41,6 @@
 
 - macOS {#macos}
 
-    {% note tip %}
-    
-    Команда автоматически скачает скрипт установки и сразу выполнит его. Чтобы предварительно ознакомиться с содержимым скрипта, скачайте его вручную и запустите после проверки.
-    
-    {% endnote %}
-
     1. Выполните команду:
 
         ```bash
@@ -55,17 +48,22 @@
         ```
 
         Скрипт установит CLI и добавит путь до исполняемого файла в переменную окружения `PATH`.
+
+        Команда запускает установочный скрипт в `bash`. При этом скрипт определяет командную оболочку пользователя по переменной `SHELL` и для `zsh` добавляет настройки в файл `~/.zshrc`.
+
     1. Перезапустите командную оболочку, чтобы перезагрузить переменные окружения.
 
 - Windows {#windows}
 
-    {% note tip %}
-    
-    Команда автоматически скачает скрипт установки и сразу выполнит его. Чтобы предварительно ознакомиться с содержимым скрипта, скачайте его вручную и запустите после проверки.
-    
-    {% endnote %}
+    Для Windows CLI можно установить из PowerShell или `cmd.exe`. В обоих случаях установочный скрипт выполняется в PowerShell.
 
-    Для Windows CLI можно установить с помощью PowerShell или командной строки:
+    {% note warning %}
+
+    Если PowerShell сообщает, что выполнение скриптов запрещено, проверьте действующие политики выполнения с помощью команды `Get-ExecutionPolicy -List`. Изменяйте политики только в том случае, если это разрешено правилами безопасности вашей организации. Если политика задана администратором или запуск скриптов запрещен, [установите CLI без использования скрипта](../../cli/operations/install-cli.md#bin).
+    
+    Подробнее о политиках выполнения PowerShell читайте в [документации Microsoft](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies).
+
+    {% endnote %}
 
     - Для установки с помощью PowerShell:
 
@@ -75,7 +73,7 @@
             
             
             ```powershell
-            iex (New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net/yandexcloud-yc/install.ps1')
+            Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net/yandexcloud-yc/install.ps1')
             ```
 
 
@@ -88,7 +86,7 @@
 
         1. Введите `Y`. После этого Yandex Cloud CLI можно пользоваться, командную оболочку перезапускать не нужно.
 
-    - Для установки с помощью командной строки:
+    - Для установки из `cmd.exe`:
 
         1. Выполните команду:
 
@@ -96,7 +94,7 @@
             
             
             ```batch
-            @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net/yandexcloud-yc/install.ps1'))" && SET "PATH=%PATH%;%USERPROFILE%\yandex-cloud\bin"
+            @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net/yandexcloud-yc/install.ps1'))" && SET "PATH=%PATH%;%USERPROFILE%\yandex-cloud\bin"
             ```
 
 
@@ -109,6 +107,10 @@
 
         1. Введите `Y`.
         1. Перезапустите командную оболочку, чтобы перезагрузить переменные окружения.
+
+        
+    Подробнее в разделе [Работа с Yandex Cloud CLI и API в Microsoft Windows](../../overview/concepts/console-syntax-guide.md).
+    
 
 {% endlist %}
 
@@ -303,7 +305,7 @@ CLI поддерживает автодополнение команд в ком
 
 {% endlist %}
 
-Если в процессе установки CLI возникла ошибка, смотрите раздел [Решение проблем CLI](../../cli/error.md#failure-writing-output-to-destination).
+Если в процессе установки CLI возникла ошибка, воспользуйтесь рекомендациями из раздела [Проблемы при установке CLI](../../cli/error.md#installation-errors).
 
 ## Аутентифицируйтесь в Yandex Cloud CLI {#cli-auth}
 
@@ -426,6 +428,18 @@ CLI поддерживает автодополнение команд в ком
      ```
   
   
+  
+     {% note info %}
+  
+     В случае отсутствия на сервере графического интерфейса и браузера возникает ошибка:
+     
+     ```text
+     ERROR: fill default credentials: federation id authentication is not supported on this system because the browser can not be opened
+     ```
+     
+     [Аутентифицируйтесь сервисным аккаунтом](../../cli/operations/authentication/service-account.md). Также вы можете использовать [SSH-туннель](../../cli/operations/authentication/auth-without-gui.md#linux-vm-auth) или [форвардинг X11](../../cli/operations/authentication/auth-without-gui.md#auth-without-gui).
+  
+     {% endnote %}
   
   1. Выберите профиль, для которого вы хотите настроить аутентификацию, или создайте новый.
   

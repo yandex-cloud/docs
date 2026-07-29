@@ -1,10 +1,12 @@
 # Deleting a cloud
 
-To delete a cloud, you must have the [{{ roles-resource-manager-editor }}](../../security/index.md#resource-manager-editor) role or higher for that cloud. If you cannot perform this operation, contact the [cloud owner](../../concepts/resources-hierarchy.md#owner).
+To delete a [cloud](../../concepts/resources-hierarchy.md#cloud), you must have the [{{ roles-resource-manager-editor }}](../../security/index.md#resource-manager-editor) role or higher for that cloud. If you cannot perform this operation, contact the [cloud owner](../../concepts/resources-hierarchy.md#owner).
 
 {% note info %}
 
 Deleting a cloud may not be allowed if that cloud or its parent [organization](*organization) is subject to a `resourceManager.denyCloudRemoval` [authorization policy](*access_policies). This restriction still applies even if the user has a [role](*roles) that allows deleting clouds.
+
+Also, if the `resourceManager.denyFolderRemoval` access policy is created for a cloud or at least one of the folders in a cloud, you cannot delete such a cloud. If the `resourceManager.denyFolderRemoval` policy is created for an organization, you cannot delete any cloud in such an organization.
 
 {% endnote %}
 
@@ -151,8 +153,8 @@ Deletion starts from stopping the resources. The cloud enters the `PENDING_DELET
 
 As soon as the deletion preparation and delay periods are over, the cloud enters the `DELETING` status. This status means it is being permanently deleted, which can take up to 72 hours. All the cloud's resources will be deleted together with it.
 
-[*organization]: [Learn more](../../../organization/concepts/organization.md) about organizations in {{ yandex-cloud }}.
+[*organization]: An organization is the highest resource in the resource model hierarchy in {{ yandex-cloud }} that consolidates the resources of all other services. Organizations are also used to manage users and their authentication and authorization settings. For more information, see [{#T}](../../../organization/concepts/organization.md).
 
-[*roles]: [Learn more](../../security/index.md) about the roles available in {{ resmgr-full-name }}.
+[*roles]: A role is a set of permissions that defines the allowed scope of operations with {{ yandex-cloud }} resources. For more information, see [{#T}](../../../iam/concepts/access-control/roles.md).
 
-[*access_policies]: _Access policies_ are a {{ iam-full-name }} mechanism that allows you to manage permissions for specific operations with [{{ yandex-cloud }}](../../../overview/roles-and-resources.md) resources. Access policies complement the [role](../../../iam/concepts/access-control/roles.md) system for more flexible [access management](../../../iam/concepts/access-control/index.md). [Learn more](../../../iam/concepts/access-control/access-policies.md) about access policies in {{ yandex-cloud }}.
+[*access_policies]: _Access policies_ are a {{ iam-full-name }} mechanism that allows you to manage permissions for specific operations with [{{ yandex-cloud }}](../../../overview/roles-and-resources.md) resources. Access policies complement the [role](../../../iam/concepts/access-control/roles.md) system for more flexible [access management](../../../iam/concepts/access-control/index.md). For more information, see [{#T}](../../../iam/concepts/access-control/access-policies.md).

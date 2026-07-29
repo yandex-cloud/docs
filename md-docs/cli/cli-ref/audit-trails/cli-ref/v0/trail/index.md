@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [audit-trails](../../index.md) > [v0](../index.md) > trail > Overview
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [audit-trails](../../index.md) > [v0](../index.md) > trail > Overview
 
 # yc audit-trails v0 trail
 

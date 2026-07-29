@@ -1,6 +1,6 @@
 ---
-title: How to recover the {{ backup-full-name }} agent on a {{ baremetal-name }} server
-description: Follow this guide to recover the {{ backup-name }} agent on a {{ baremetal-full-name }} server after a Linux kernel version update.
+title: How to recover the {{ backup-full-name }} agent
+description: Follow this guide to recover the {{ backup-full-name }} agent after a Linux kernel version update.
 ---
 
 # Recovering the {{ backup-name }} agent after a Linux kernel update
@@ -13,6 +13,10 @@ description: Follow this guide to recover the {{ backup-name }} agent on a {{ ba
 - Debian/Ubuntu {#ubuntu}
 
   {% include [update-kernel-headers-ubuntu](../../../_includes/backup/operations/update-kernel-headers-ubuntu.md) %}
+
+- CentOS {#centos}
+
+  {% include [update-kernel-headers-centos](../../../_includes/backup/operations/update-kernel-headers-centos.md) %}
 
 {% endlist %}
 

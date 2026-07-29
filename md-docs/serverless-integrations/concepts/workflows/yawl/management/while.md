@@ -2,6 +2,17 @@
 
 # While
 
+{% note info %}
+
+На данный момент Workflows поддерживается в двух интерфейсах — [Yandex Cloud](https://console.yandex.cloud/link/serverless-integrations/workflows/workflows) и [Yandex AI Studio](https://aistudio.yandex.ru/platform/link//workflows). При этом:
+
+* рабочие процессы, [созданные в интерфейсе Yandex Cloud](../../../../operations/workflows/workflow/create-constructor.md), автоматически _доступны_ в интерфейсе AI Studio;
+* рабочие процессы, созданные в интерфейсе AI Studio, _недоступны_ в интерфейсе Yandex Cloud.
+
+С 3 сентября 2026 года Workflows перестанет поддерживаться в интерфейсе Yandex Cloud. Для создания рабочих процессов и управления ими используйте интерфейс AI Studio.
+
+{% endnote %}
+
 Выполняет последовательность шагов, указанную в `do`, пока выполняется условие `condition` и количество итераций не превышает `max_iterations`. Если условие `condition` не задано, шаг выполняется заданное в `max_iterations` количество раз. Если значение `max_iterations` не задано, цикл будет выполняться, пока соблюдается условие или до достижения [таймаута](../../../limits.md) выполнения рабочего процесса.
 
 Результат выполнения — выходные данные последнего шага, для которого возможно задать значение поля `output`, последней итерации.

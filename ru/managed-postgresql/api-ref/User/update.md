@@ -66,7 +66,9 @@ apiPlayground:
           type: string
           format: int64
         settings:
-          description: '**[UserSettings](#yandex.cloud.mdb.postgresql.v1.UserSettings)**'
+          description: |-
+            **[UserSettings](#yandex.cloud.mdb.postgresql.v1.UserSettings)**
+            PostgreSQL settings for this user.
           $ref: '#/definitions/UserSettings'
         login:
           description: |-
@@ -431,7 +433,9 @@ When used in transaction pooling, this setting limits the number of user's activ
 Minimum value: `10` (default: `50`), when used in session pooling.
 
 The minimum value is 10. ||
-|| settings | **[UserSettings](#yandex.cloud.mdb.postgresql.v1.UserSettings)** ||
+|| settings | **[UserSettings](#yandex.cloud.mdb.postgresql.v1.UserSettings)**
+
+PostgreSQL settings for this user. ||
 || login | **boolean**
 
 This flag defines whether the user can login to a PostgreSQL database.

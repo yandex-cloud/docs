@@ -20,7 +20,7 @@ To implement a transfer:
 1. [Configure one of the supported data sources](#supported-sources).
 1. [Configure the target endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
 1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
-1. Perform the required operations with the database and [control the transfer](../../monitoring.md).
+1. Perform the required operations with the database and [see how the transfer is going](../../monitoring.md).
 
 
 ## Scenarios for transferring data to {{ ytsaurus-name }} using {{ data-transfer-full-name }} {#scenarios}
@@ -64,12 +64,11 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 |-------------------------------------------------------------------|----------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Delivering data to static tables                             | ![image](../../../../_assets/common/yes.svg) | Without data transformation (sharding, rotation, or splitting tables into subtables)                                                                    |
 | Parallel copy of data to static tables                    | ![image](../../../../_assets/common/no.svg)  | Under development                                                                                                                        |
-| Delivering data to dynamic tables through static ones          | ![image](../../../../_assets/common/yes.svg) | All intermediate operations on table parts are run as non-transactional and users can see them.<br>`Disabled` and `Drop` cleanup policy limits ^1^. |
-| Parallel copy of data to dynamic tables through static ones | ![image](../../../../_assets/common/yes.svg) | All intermediate operations on table parts are run as non-transactional and users can see them.<br>`Disabled` and `Drop` cleanup policy limits ^1^. |
+| Delivering data to dynamic tables through static ones          | ![image](../../../../_assets/common/yes.svg) | All intermediate operations on table parts are run as non-transactional and users can see them. Rotation is not supported.<br>^1^ `Replace` cleanup policy limits. |
+| Parallel copy of data to dynamic tables through static ones | ![image](../../../../_assets/common/yes.svg) | All intermediate operations on table parts are run as non-transactional and users can see them. Rotation is not supported.<br>^1^ `Replace` cleanup policy limits |
+| Direct copy into dynamic tables | ![image](../../../../_assets/common/yes.svg) | ^1^ `Replace` cleanup policy limits |
 
-^1^ Cleanup policy limits:
-* If the `Disabled` cleanup policy is used, there is no guarantee that new data in existing tables will take precedence over the old should the keys overlap.
-* With the `Drop` policy, the old tables are cleaned up before parts of new tables are added to them. We will fix that.
+^1^ You cannot use the `Replace` cleanup policy together with rotation or additional indexes.
 
 {% note warning %}
 

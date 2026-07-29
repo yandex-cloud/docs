@@ -1,14 +1,14 @@
 ---
-title: How to create a VM or {{ baremetal-full-name }} server backup in {{ backup-full-name }}
-description: Follow this guide to create a VM or {{ baremetal-name }} server backup.
+title: How to create a VM or server backup in {{ backup-full-name }}
+description: Follow this guide to create a VM or server backup in {{ backup-full-name }}.
 ---
 
-# Creating a VM or {{ baremetal-full-name }} server backup
+# Creating a backup of a resource
 
 
-To create a backup of a VM or {{ baremetal-name }} server, [connect](../../concepts/vm-connection.md) it to {{ backup-name }} and [link](../policy-vm/attach-and-detach-vm.md#attach-vm) it to at least one [backup policy](../../concepts/policy.md). Any backup can only be created within policies.
+To create a backup of a [resource](../../concepts/index.md#protected-resources), [connect](../../concepts/vm-connection/index.md) it to {{ backup-name }} and [link](../policy-vm/attach-and-detach-vm.md#attach-vm) it to at least one [backup policy](../../concepts/policy.md). All backups are created only as part of policies.
 
-{{ backup-name }} automatically creates backups based on the schedule detailed in the policy.
+{{ backup-name }} automatically creates backups based on the schedule detailed in a policy.
 
 To create an out-of-schedule backup:
 
@@ -18,11 +18,18 @@ To create an out-of-schedule backup:
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your backup policy.
   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
-  1. Depending on the resource you want to create a backup for, select ![vm](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.backup.label_instances }}** or ![bms](../../../_assets/console-icons/objects-align-justify-horizontal.svg) **{{ ui-key.yacloud.backup.label_baremetal-instances }}** in the left-hand panel.
-  1. In the row with the VM or {{ baremetal-name }} server, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.backup.action_start_backup }}**.
+  1. In the left-hand panel, select ![resources](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.backup.label_connected-resources }}**.
+  1. Depending on the type of resource you want to back up, open the following tab:
+
+      * **{{ ui-key.yacloud.backup.label_instances }}**: For {{ compute-name }} VMs.
+      * **{{ ui-key.yacloud.backup.label_baremetal-instances }}**: For {{ baremetal-name }} servers.
+      * **{{ ui-key.yacloud.backup.label_external-vm-instances }}**: For external VMs.
+      * **{{ ui-key.yacloud.backup.label_external-server-instances }}**: For external servers.
+
+  1. In the row with the resource, click ![options](../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.backup.action_start_backup }}**.
   1. In the window that opens, select the backup policy for creating the backup and click **{{ ui-key.yacloud.common.create }}**.
 
-  {{ backup-name }} will start creating a backup of your VM or {{ baremetal-name }} server. You can follow the progress in the VM or {{ baremetal-name }} server row in the **{{ ui-key.yacloud.backup.column_baremetal-instance-status }}** field.
+  This will start the backup creation process. You can see the progress in the **{{ ui-key.yacloud.backup.column_baremetal-instance-status }}** field of the resource row.
 
 - CLI {#cli}
 
@@ -40,24 +47,22 @@ To create an out-of-schedule backup:
 
       {% include [get-backup-id](../../../_includes/backup/operations/get-policy-id.md) %}
 
-  1. Get the ID of the VM you need to back up:
+  1. Get the ID of the [resource](../../concepts/index.md#protected-resources) you want to back up:
 
-      {% include [get-vm-id](../../../_includes/backup/operations/get-vm-id.md) %}
-
-      {% include [get-bms-ids](../../../_includes/backup/operations/get-bms-ids.md) %}
+      {% include [get-resource-ids](../../../_includes/backup/operations/get-resource-ids.md) %}
 
   1. Create a backup:
 
       ```bash
       yc backup policy execute \
         --id <policy_ID> \
-        --instance-id <VM_or_{{ baremetal-name }}_server_ID>
+        --instance-id <resource_ID>
       ```
 
       Where:
 
       * `--id`: ID of the backup policy the backup will be based on.
-      * `--instance-id`: ID of the VM or {{ baremetal-name }} server you need to back up.
+      * `--instance-id`: ID of the [{{ compute-name }} VM](../../concepts/vm-connection/compute.md), [{{ baremetal-name }}](../../concepts/vm-connection/baremetal.md) server, or [external resource](../../concepts/vm-connection/external-resources.md) to back up.
 
       Result:
 
@@ -74,5 +79,9 @@ To create an out-of-schedule backup:
       ```
 
   For more information about this command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/policy/execute.md).
+
+- API {#api}
+
+  Use the [execute](../../backup/api-ref/Policy/execute.md) REST API method for the [Policy](../../backup/api-ref/Policy/index.md) resource or the [PolicyService/Execute](../../backup/api-ref/grpc/Policy/execute.md) gRPC API call.
 
 {% endlist %}

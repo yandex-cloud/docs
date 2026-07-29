@@ -1,6 +1,6 @@
 Event name | Description
 --- | ---
-`BackupInstance` | Creating backups
+`BackupInstance` | Creating a backup
 `CleanupRegistryInstance` | Docker Registry cleanup
 `CreateInstance` | Creating an instance
 `CreateInstanceBackup` | Creating an instance backup
@@ -12,6 +12,7 @@ Event name | Description
 `ReconfigureGitlab` | Editing the {{ GL }} configuration
 `RescheduleMaintenance` | Changing scheduled maintenance date and time
 `ResizeInstance` | Resizing an instance
+`RestoreInstanceBackup` | Restoring an instance from a backup
 `RollbackMigration` | Canceling migration of an instance to another availability zone
 `ScheduleUpgrade` | Setting the instance upgrade time
 `StartInstance` | Launching an instance

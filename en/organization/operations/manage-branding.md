@@ -39,7 +39,7 @@ To configure [branding](../concepts/branding.md):
   1. Under **{{ ui-key.yacloud_org.organization.branding.AuthBrandingForm.loginSection.title }}**:
 
      1. In the **{{ ui-key.yacloud_org.organization.branding.AuthBrandingForm.loginSection.welcomeLabel }}** field, enter the text to appear below the logo.
-     1. In the **Hint in the input field** field, enter the email template to appear in the input field.
+     1. Under **Hint in the input field**, enter the email template to appear in the input field.
      1. Under **Alternative login methods**, enable or disable the Yandex ID and SSO log-in methods.
 
   1. To discard your changes and set up branding from scratch, click **{{ ui-key.yacloud_org.organization.branding.AuthBrandingForm.clearAllAction }}**.

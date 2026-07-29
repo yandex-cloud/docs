@@ -86,7 +86,7 @@ After creating a cluster, you can edit its basic and advanced settings.
           --log-folder-id <folder_ID> \
           --maintenance-window type=<maintenance_type>,`
                                `day=<day_of_week>,`
-                               `hour=<hour> \
+                               `hour=<sequence_number_of_hour_interval> \
           --deletion-protection
         ```
 
@@ -211,7 +211,7 @@ After creating a cluster, you can edit its basic and advanced settings.
           maintenance_window = {
             type = "<maintenance_type>"
             day  = "<day_of_week>"
-            hour = "<hour>"
+            hour = "<sequence_number_of_hour_interval>"
           }
 
           logging = {
@@ -241,11 +241,13 @@ After creating a cluster, you can edit its basic and advanced settings.
 
         * `maintenance_window`: [Maintenance](../concepts/maintenance.md) window settings (including for disabled clusters). In this section, specify:
 
-          * Maintenance type in the `type` parameter. The possible values include:
+          * `type`: Maintenance type. The possible values include:
             * `ANYTIME`: Any time.
             * `WEEKLY`: On a schedule.
-          * Day of week for the `WEEKLY` maintenance type in the `day` parameter, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-          * UTC hour from `1` to `24` for the `WEEKLY` maintenance type in the `hour` parameter.
+          * `day`: Day of week for the `WEEKLY` type, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+          * `hour`: UTC hour interval for the `WEEKLY` type, from `1` to `24`.
+
+            > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
         * `history_server`: Connecting {{ SPRK }} History Server. To use the service, set the `enabled` parameter to `true`.
 
@@ -267,7 +269,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -332,6 +334,12 @@ After creating a cluster, you can edit its basic and advanced settings.
             "enabled": <use_of_logging>,
             "log_group_id": "<log_group_ID>",
             "folder_id": "<folder_ID>"
+          },
+          "maintenance_window": {
+            "weekly_maintenance_window": {
+              "day": "<day_of_week>",
+              "hour": "<sequence_number_of_hour_interval>"
+            }
           }
         }
         ```
@@ -444,6 +452,16 @@ After creating a cluster, you can edit its basic and advanced settings.
 
                Specify either `folder_id` or `log_group_id`.
 
+           * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. Provide one of these two properties:
+
+               * `anytime`: Maintenance takes place at any time.
+               * `weekly_maintenance_window`: Maintenance takes place once a week at the specified time:
+
+                   * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+                   * `hour`: UTC hour interval, from `1` to `24`.
+
+                     > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
+                     
     1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash

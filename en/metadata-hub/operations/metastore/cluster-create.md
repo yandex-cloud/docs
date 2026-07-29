@@ -30,7 +30,7 @@ To learn more about {{ metastore-name }} clusters in {{ metadata-hub-name }}, se
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a server.
-    1. [Navigate](../../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+    1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
     1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
     1. Enter a name for the cluster. It must be unique within the folder.
@@ -204,11 +204,11 @@ To learn more about {{ metastore-name }} clusters in {{ metadata-hub-name }}, se
 
         {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-    For detailed information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-metastore }}).
+    For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-metastore }}).
 
 
 - REST API {#api}
@@ -282,7 +282,7 @@ To learn more about {{ metastore-name }} clusters in {{ metadata-hub-name }}, se
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 

@@ -1,11 +1,11 @@
 ---
-title: How to delete a VM from {{ backup-full-name }}
+title: How to delete a {{ compute-full-name }} VM instance from {{ backup-full-name }}
 description: Follow this guide to delete a VM from {{ backup-name }}.
 ---
 
 # Deleting a VM from {{ backup-name }}
 
-When you delete a VM from {{ backup-name }}, it remains in {{ compute-full-name }} and keeps running. You need to [delete](../../compute/operations/vm-control/vm-delete.md) a VM from {{ compute-name }} separately.
+When you delete a {{ compute-full-name }} VM instance from {{ backup-name }}, it remains in {{ compute-full-name }} and keeps on running. You need to [delete](../../compute/operations/vm-control/vm-delete.md) a VM from {{ compute-name }} separately.
 
 {% note info %}
 

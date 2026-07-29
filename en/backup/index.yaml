@@ -2,13 +2,14 @@ title: Yandex Cloud Backup
 description:
   - >-
     With Yandex Cloud Backup, you can set up automatic backups for <a
-    href="/docs/compute">Yandex Compute Cloud</a> VMs and <a
-    href="/docs/baremetal">Yandex BareMetal</a> servers.
+    href="/docs/compute">Yandex Compute Cloud</a> VMs, <a
+    href="/docs/baremetal">Yandex BareMetal</a> servers, as well as VMs and
+    servers in the user or third-party provider infrastructure.
 meta:
   title: Yandex Cloud Backup
   description: >-
-    With Yandex Cloud Backup, you can set up automatic backups for Yandex
-    Compute Cloud VMs.
+    With Yandex Cloud Backup, you can set up automatic backups for VMs and
+    servers both inside and outside Yandex Cloud.
   keywords:
     - keyword: backup
     - keyword: yandex backup
@@ -35,10 +36,10 @@ links:
     description: Technical and organizational limitations
     href: concepts/limits
   - title: Access management
-    description: Configure access permissions to use this service
+    description: Configure access permissions for the service
     href: security/
   - title: Pricing policy
-    description: Service pricing and cost calculation
+    description: Prices and cost calculation rules
     href: pricing
   - title: API reference
     description: HTTP API method descriptions

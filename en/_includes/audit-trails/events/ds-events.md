@@ -34,6 +34,7 @@ Event name | Description
 `DeleteSparkConnector` | Deleting an Apache Spark™ connector
 `DeleteYandexDataProcessing` | Deleting a {{ dataproc-name }} template
 `ExecuteJob` | Running a job
+`ExportJupyterProject` | Exporting a Jupyter project
 `OpenProject` | Opening a project
 `ResumeNode` | Resuming a node
 `SetCommunityAccessBindings` | Assigning access permissions for a community

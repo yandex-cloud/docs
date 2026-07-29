@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-ytsaurus](../../index.md) > [v0](../index.md) > [cluster](index.md) > get
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [managed-ytsaurus](../../index.md) > [v0](../index.md) > [cluster](index.md) > get
 
 # yc managed-ytsaurus v0 cluster get
 

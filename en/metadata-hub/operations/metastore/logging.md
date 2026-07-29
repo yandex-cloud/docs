@@ -26,7 +26,7 @@ You can set up regular collection of {{ metastore-name }} cluster performance lo
    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the relevant folder.
-      1. [Navigate](../../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+      1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
       1. In the left-hand panel, select ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
       1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
       1. Specify `metastore-cluster` as the cluster name.
@@ -129,7 +129,7 @@ You can set up regular collection of {{ metastore-name }} cluster performance lo
 
    - gRPC API {#grpc-api}
 
-        1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and place it in an environment variable:
+        1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into an environment variable:
 
             {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
@@ -196,7 +196,7 @@ You can set up regular collection of {{ metastore-name }} cluster performance lo
    - Management console {#console}
 
       1. In the management console, navigate to the relevant folder.
-      1. [Navigate](../../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+      1. [Navigate]({{ link-console-main }}/link/logging) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
       1. Click the row with the `default` log group.
 
       The page that opens will show the log group entries.
@@ -258,7 +258,7 @@ You can set up regular collection of {{ metastore-name }} cluster performance lo
    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the relevant folder.
-      1. [Navigate](../../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+      1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
       1. In the left-hand panel, select ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
       1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
       1. Specify `metastore-cluster` as the cluster name.
@@ -361,7 +361,7 @@ You can set up regular collection of {{ metastore-name }} cluster performance lo
 
    - gRPC API {#grpc-api}
 
-        1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and place it in an environment variable:
+        1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into an environment variable:
 
             {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
@@ -428,7 +428,7 @@ You can set up regular collection of {{ metastore-name }} cluster performance lo
    - Management console {#console}
 
       1. In the management console, navigate to the relevant folder.
-      1. [Navigate](../../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+      1. [Navigate]({{ link-console-main }}/link/logging) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
       1. Click the row with the `metastore-log-group` log group.
 
       The page that opens will show the records.

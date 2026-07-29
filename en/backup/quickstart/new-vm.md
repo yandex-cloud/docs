@@ -16,7 +16,6 @@ To get started with {{ backup-name }}:
 
 1. [Set up your infrastructure](#deploy-infrastructure).
 1. [Create a VM](#vm-create).
-1. [Link your VM to a backup policy](#add-policy).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -38,7 +37,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an [image](../../compute/concepts/image.md) with a [supported OS](../concepts/vm-connection.md#os), e.g., [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an [image](../../compute/concepts/image.md) with a [supported OS](../concepts/vm-connection/compute.md#os), e.g., [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}** and **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, set the preferred VM parameters.
 
@@ -70,14 +69,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 For more information on how to create a VM, see [this guide](../../compute/operations/index.md#vm-create).
 
-## Link your VM to a backup policy {#add-policy}
-
 {% include [agent-installation-timespan](../../_includes/backup/agent-installation-timespan.md) %}
 
-{% include [quickstart-attach-to-policy-after-agent-setup](../../_includes/backup/quickstart-attach-to-policy-after-agent-setup.md) %}
-
-1. {% include [quickstart-check-vm-agent-status](../../_includes/backup/quickstart-check-vm-agent-status.md) %}
-1. {% include [quickstart-attach-vm-to-policy](../../_includes/backup/quickstart-attach-vm-to-policy.md) %}
+{% include [vm-all-set](../../_includes/backup/vm-all-set.md) %}
 
 ## How to delete the resources you created {#clear-out}
 

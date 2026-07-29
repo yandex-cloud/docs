@@ -18,6 +18,8 @@ Event name | Description
 `CommentCreate` | Creating a comment
 `CommentDelete` | Deleting a comment
 `CommentUpdate` | Updating a comment
+`DraftCreate` | Creating a draft
+`DraftPublish` | Publishing a draft
 `GridAddColumns` | Adding columns to a dynamic table
 `GridAddRows` | Adding rows to a dynamic table
 `GridClone` | Creating a dynamic table copy

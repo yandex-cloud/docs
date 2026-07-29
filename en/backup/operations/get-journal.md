@@ -1,6 +1,6 @@
 ---
-title: Viewing the backup log
-description: Follow this guide to find detailed VM backup information in the backup log.
+title: Viewing the {{ compute-full-name }} VM backup log
+description: Follow this guide to learn the details of a {{ compute-full-name }} VM backup from the backup log.
 ---
 
 # Viewing the backup log
@@ -54,5 +54,5 @@ description: Follow this guide to find detailed VM backup information in the bac
 
 #### Useful links {#see-also}
 
-* [VM connection statuses](../concepts/vm-connection.md#statuses)
+* [VM connection statuses](../concepts/vm-connection/compute.md#statuses)
 * [{#T}](get-connection-status.md)

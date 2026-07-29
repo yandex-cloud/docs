@@ -1,20 +1,26 @@
 ---
 title: Delete backup
-description: In this tutorial, you will learn how to delete a VM or {{ baremetal-full-name }} server backup in **{{ backup-full-name }}**.
+description: In this tutorial, you will learn how to delete a VM or server backup in {{ backup-full-name }}.
 ---
 
 # Delete backup
 
 
-{% note info %}
+{% note tip %}
 
-To delete backups, make sure the folder contains at least one VM or {{ baremetal-name }} server connected to {{ backup-name }}. If there are no such VMs or servers, temporarily [create](../create-vm.md) a new VM with a connection to {{ backup-name }} and delete the backups.
+To delete backups, the folder must contain at least one [resource](../../concepts/index.md#protected-resources) connected to {{ backup-name }}. If there are no such resources, [create](../create-vm.md) a temporary new VM connected to {{ backup-name }} and delete the backups.
 
 The deletion process is asynchronous, so wait until it is over. Before stopping or removing the last VM or server connected to {{ backup-name }}, make sure the the backup list is empty.
 
 {% endnote %}
 
 To delete a backup:
+
+{% note info %}
+
+Currently, you can delete a backup of an [external resource](../../concepts/vm-connection/external-resources.md) using the [{{ yandex-cloud }} CLI](../../../cli/cli-ref/backup/cli-ref/backup/delete.md) and [API](../../backup/api-ref/Backup/delete.md).
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
@@ -43,24 +49,22 @@ To delete a backup:
 
       {% include [get-backup-id](../../../_includes/backup/operations/get-backup-id.md) %}
 
-  1. Get the ID of the VM whose backup you need to delete:
+  1. Get the ID of the [resource](../../concepts/index.md#protected-resources) whose backup you need to delete:
 
-      {% include [get-vm-id](../../../_includes/backup/operations/get-vm-id.md) %}
-
-      {% include [get-bms-ids](../../../_includes/backup/operations/get-bms-ids.md) %}
+      {% include [get-resource-ids](../../../_includes/backup/operations/get-resource-ids.md) %}
 
   1. Delete the backup:
 
       ```bash
       yc backup backups delete \
         --backup-id <backup_ID> \
-        --instance-id <VM_or_{{ baremetal-name }}_server_ID>
+        --instance-id <resource_ID>
       ```
 
       Where:
 
       * `--backup-id`: ID of the backup to delete.
-      * `--instance-id`: ID of the VM or {{ baremetal-name }} server whose backup you need to delete.
+      * `--instance-id`: ID of the [{{ compute-name }} VM](../../concepts/vm-connection/compute.md), [{{ baremetal-name }} server](../../concepts/vm-connection/baremetal.md), or [external resource](../../concepts/vm-connection/external-resources.md) whose backup you need to delete.
 
   For more information about this command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/backup/delete.md).
 

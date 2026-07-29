@@ -1,12 +1,12 @@
 ---
 title: How to view disk and partition parameters of a backup in {{ backup-full-name }}
-description: Follow this guide to view disk and partition parameters of a backup in {{ backup-name }}.
+description: Follow this guide to view disk and partition parameters of a backup in {{ backup-full-name }}.
 ---
 
 # Viewing the parameters of backup disks and partitions
 
 
-To avoid errors when recovering from a backup, start by comparing the parameters of the disks and partitions of the backup against those of the [VM](../../../compute/concepts/vm.md) or {{ baremetal-full-name }} [server](../../../baremetal/concepts/servers.md).
+To avoid errors when recovering from a backup, start by comparing the parameters of the disks and partitions of the backup against those of your [resource](../../concepts/index.md#protected-resources).
 
 {% list tabs group=instructions %}
 

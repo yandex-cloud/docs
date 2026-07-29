@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [managed-trino](../../../index.md) > [v0](../../index.md) > [catalog](../index.md) > [update](index.md) > clickhouse
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник (англ.)](../../../../../index.md) > [managed-trino](../../../index.md) > [v0](../../index.md) > [catalog](../index.md) > [update](index.md) > clickhouse
 
 # yc managed-trino v0 catalog update clickhouse
 

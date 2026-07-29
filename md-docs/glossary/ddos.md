@@ -91,6 +91,8 @@ Yandex Cloud предлагает широкий пул средств для б
 
 * [Создание](../application-load-balancer/tutorials/alb-with-ddos-protection/index.md) L7-балансировщика [Yandex Application Load Balancer](https://yandex.cloud/ru/services/application-load-balancer) с защитой от DDoS-атак.
 
+* [Yandex Smart Web Security](https://yandex.cloud/ru/services/smartwebsecurity) — сервис для защиты инфраструктуры от DDoS-атак и ботов на уровне приложений (L7).
+
 * [Yandex Virtual Private Cloud](../vpc/ddos-protection/index.md) — сервис для управления облачными сетями с возможностью защиты от DDoS-атак. Подробнее в [документации](../vpc/index.md).
 
 * Файрволы веб-приложений:

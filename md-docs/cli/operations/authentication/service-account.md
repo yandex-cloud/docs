@@ -1,6 +1,6 @@
-[Документация Yandex Cloud](../../../index.md) > [Интерфейс командной строки](../../index.md) > [Пошаговые инструкции](../index.md) > Аутентификация > Аутентификация от имени сервисного аккаунта
+[Документация Yandex Cloud](../../../index.md) > [Интерфейс командной строки](../../index.md) > [Пошаговые инструкции](../index.md) > Аутентификация > Сервисный аккаунт
 
-# Аутентификация от имени сервисного аккаунта
+# Аутентификация в Yandex Cloud CLI от имени сервисного аккаунта
 
 {% note info %}
 
@@ -41,6 +41,14 @@
 ## Перед началом работы {#before-begin}
 
 Если у вас еще нет сервисного аккаунта, [создайте его](../../../iam/operations/sa/create.md) и [настройте права доступа для него](../../../iam/operations/sa/assign-role-for-sa.md).
+
+
+{% note tip %}
+
+Если доступ к Yandex Cloud в вашей организации осуществляется через прокси-сервер, перед выполнением команды `yc init` [настройте подключение CLI к прокси-серверу](../../concepts/index.md#cli-via-proxy).
+
+{% endnote %}
+
 
 ## Выполняйте действия от имени сервисного аккаунта с помощью имперсонации {#use-impersonation}
 
@@ -265,7 +273,7 @@
 #### Полезные ссылки {#see-also}
 
 - [Управление конфигурацией CLI](../../concepts/index.md#manage-properties).
-- [Создание профиля](../profile/profile-create.md).
-- [Активация профиля](../profile/profile-activate.md).
-- [Управление параметрами профиля](../profile/manage-properties.md).
+- [Создание профиля Yandex Cloud CLI](../profile/profile-create.md).
+- [Активация профиля Yandex Cloud CLI](../profile/profile-activate.md).
+- [Управление параметрами профиля Yandex Cloud CLI](../profile/manage-properties.md).
 - [Работа с Yandex Cloud изнутри виртуальной машины](../../../compute/operations/vm-connect/auth-inside-vm.md).
