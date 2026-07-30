@@ -83,6 +83,7 @@ description: Следуя данной инструкции, вы сможете
             is_blocking = false
           }
         }
+      }
       ```
 
      {% endcut %}
