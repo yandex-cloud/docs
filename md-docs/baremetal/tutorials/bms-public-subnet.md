@@ -65,7 +65,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы будете создавать инфраструктуру.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **BareMetal**.
+  1. [Перейдите](https://console.yandex.cloud/link/baremetal) в сервис **BareMetal**.
   1. На панели слева выберите ![globe](../../_assets/console-icons/globe.svg) **Публичные адреса и подсети**.
   1. Справа вверху нажмите кнопку **Заказать публичную подсеть**.
   1. В поле **Зона доступности** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет доступна подсеть.
@@ -173,7 +173,7 @@
 Перед настройкой сетевого интерфейса узнайте параметры выделенной публичной подсети, к которой подключен сервер: CIDR, адрес шлюза по умолчанию и диапазон доступных публичных IP-адресов.
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **BareMetal**.
+1. [Перейдите](https://console.yandex.cloud/link/baremetal) в сервис **BareMetal**.
 1. На панели слева выберите ![globe](../../_assets/console-icons/globe.svg) **Публичные адреса и подсети** и откройте страницу с информацией о подсети `my-public-subnet`.
 1. Запишите значения CIDR, адреса шлюза по умолчанию и диапазона доступных публичных IP-адресов.
 
@@ -198,7 +198,7 @@
 До настройки публичного IP-адреса сервер недоступен из интернета, поэтому подключиться к нему [по SSH](../../compute/operations/vm-connect/ssh.md) или [по RDP](../../compute/operations/vm-connect/rdp.md) не получится. Для подключения к серверу используйте KVM-консоль.
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **BareMetal**.
+1. [Перейдите](https://console.yandex.cloud/link/baremetal) в сервис **BareMetal**.
 1. В строке с сервером `my-server` нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **KVM-консоль**.
 
     Откроется окно с терминалом KVM-консоли.

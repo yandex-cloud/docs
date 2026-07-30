@@ -27,7 +27,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать сервисный аккаунт.
-     1. Перейдите в сервис **Identity and Access Management**.
+     1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
      1. Нажмите кнопку **Создать сервисный аккаунт**.
      1. Введите имя `group-coi`.
      1. Чтобы назначить сервисному аккаунту роль на текущий каталог, нажмите **Добавить роль** и выберите роль `editor`.
@@ -71,7 +71,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы хотите создать сеть.
-     1. Перейдите в сервис **Virtual Private Cloud**.
+     1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
      1. Нажмите кнопку **Создать сеть**.
      1. Задайте имя сети `yc-auto-network`.
      1. Выберите дополнительную опцию **Создать подсети**.
@@ -246,8 +246,8 @@
    - Консоль управления {#console}
 
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создали группу ВМ.
-     1. Перейдите в сервис **Compute Cloud**.
-     1. Перейдите в раздел **Группы виртуальных машин**.
+     1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
+     1. На панели слева выберите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
      1. Нажмите на имя группы ВМ `group-coi-containers`.
 
    - CLI {#cli}

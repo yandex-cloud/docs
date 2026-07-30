@@ -63,7 +63,7 @@
 
 - Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+  1. [Перейдите]({{ link-org-cloud-center }}) в сервис **{{ org-full-name }}**.
 
   1. На панели слева выберите ![icon-federation](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
 

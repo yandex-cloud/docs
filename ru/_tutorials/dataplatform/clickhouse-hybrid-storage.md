@@ -264,8 +264,8 @@ LIMIT 10
 Чтобы узнать, какой объем занимают куски таблиц [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) в {{ objstorage-name }}, воспользуйтесь метрикой `ch_s3_disk_parts_size` в сервисе {{ monitoring-full-name }}:
 
 1. Откройте [консоль управления]({{ link-console-main }}).
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-1. Перейдите в раздел **Обзор метрик**.
+1. [Перейдите]({{ link-console-main }}/link/monitoring) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. Откройте раздел **Обзор метрик**.
 1. Выполните запрос:
 
     ```text

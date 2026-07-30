@@ -343,7 +343,7 @@
         - Консоль управления {#console}
 
            1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится нужная база данных.
-           1. Перейдите в сервис **Managed Service for&nbsp;YDB**.
+           1. [Перейдите](https://console.yandex.cloud/link/ydb) в сервис **Managed Service for&nbsp;YDB**.
            1. Выберите базу из списка.
            1. Перейдите на вкладку **Навигация**.
            1. Проверьте, что база данных Managed Service for YDB содержит таблицу `sensors` с тестовыми данными из топика.

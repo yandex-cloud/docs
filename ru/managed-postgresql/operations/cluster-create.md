@@ -171,12 +171,6 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [lb-settings](../../_includes/mdb/load-balancer-settings.md) %}
 
-     {% note warning %}
-
-     Включить балансировщик {{ mdb-lb }} можно только при создании кластера.
-
-     {% endnote %}
-
 
   
   1. {% include [diagnostics-settings-console](../../_includes/mdb/mpg/diagnostics-settings-console.md) %}

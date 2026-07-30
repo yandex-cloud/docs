@@ -58,6 +58,45 @@
 
       {% include [backup-policy-create-settings](../../_includes/mdb/cli/backup-policy-create-settings.md) %}
 
+- {{ TF }} {#tf}
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        Как создать такой файл, описано в разделе [Создание кластера](cluster-create.md).
+
+    1. Добавьте описание ресурса:
+
+        ```hcl
+        resource "yandex_mdb_postgresql_backup_retention_policy" "<имя_политики>" {
+          cluster_id      = "<идентификатор_кластера>"
+          policy_name     = "<имя_политики>"
+          description     = "<описание_политики>"
+          retain_for_days = <срок_хранения_копии_в_днях>
+
+          cron = {
+            day_of_month = "<день_месяца>"
+            day_of_week  = "<день_недели>"
+            month        = "<месяц>"
+          }
+        }
+        ```
+
+        Где:
+
+        * `cluster_id` — идентификатор кластера. Его можно получить со [списком кластеров](cluster-list.md#list-clusters).
+
+        {% include [backup-policy-create-settings](../../_includes/mdb/terraform/backup-policy-create-settings.md) %}
+
+    1. Проверьте корректность конфигурационных файлов.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_postgresql_backup_retention_policy).
+
 - REST API {#api}
 
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
@@ -262,6 +301,22 @@
       ```
 
       Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters), а идентификатор политики — со [списком политик](#list-policies).
+
+- {{ TF }} {#tf}
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        Как создать такой файл, описано в разделе [Создание кластера](cluster-create.md).
+
+    1. Удалите ресурс `yandex_mdb_postgresql_backup_retention_policy` с именем удаляемой политики.
+
+    1. Проверьте корректность конфигурационных файлов.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - REST API {#api}
 

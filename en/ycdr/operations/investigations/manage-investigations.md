@@ -21,7 +21,7 @@ To create an investigation:
 
 - {{ sd-name }} UI {#cloud-sd}
 
-  1. Go to [{{ sd-name }}]({{ link-sd-main }}).
+  1. Go to [{{ sd-full-name }}]({{ link-sd-main }}).
   1. In the left-hand panel, select **{{ ycdr-name }}**.
   1. Navigate to the **{{ ui-key.yacloud_org.security.ycdr.YcdrPageLayout.investigations_wYxSe }}** tab.
   1. Click **{{ ui-key.yacloud_org.security.siem.InvestigationsPage.create-investigation_iCPUP }}**.

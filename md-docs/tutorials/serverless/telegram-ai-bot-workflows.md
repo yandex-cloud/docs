@@ -69,7 +69,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете создавать инфраструктуру.
-  1. Перейдите в сервис **Lockbox**.
+  1. [Перейдите](https://console.yandex.cloud/link/lockbox) в сервис **Lockbox**.
   1. Нажмите **Создать секрет**.
   1. В поле **Имя** введите имя секрета.
   1. Выберите тип секрета `Пользовательский`.
@@ -138,7 +138,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Object Storage**.
+  1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
   1. На панели сверху нажмите **Создать бакет**.
   1. Введите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
   1. Укажите максимальный размер бакета `5 ГБ`.
@@ -215,7 +215,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Identity and Access Management**.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. Нажмите **Создать сервисный аккаунт**.
   1. Введите имя сервисного аккаунта `sa-workflows`.
   1. Нажмите ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и назначьте [роли](../../iam/roles-reference.md):
@@ -479,7 +479,7 @@ steps:
 - Консоль управления {#console}
 
   1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Serverless Integrations**.
+  1. [Перейдите](https://console.yandex.cloud/link/serverless-integrations) в сервис **Serverless Integrations**.
   1. На панели слева нажмите ![image](../../_assets/console-icons/graph-node.svg) **Workflows**.
   1. В правом верхнем углу нажмите **Создать рабочий процесс**.
   1. Выберите способ `YaML-спецификация`.
@@ -555,8 +555,8 @@ steps:
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится [рабочий процесс](../../serverless-integrations/concepts/workflows/workflow.md).
-  1. Перейдите в сервис **Serverless Integrations**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится [рабочий процесс](../../serverless-integrations/concepts/workflows/workflow.md).
+  1. [Перейдите](https://console.yandex.cloud/link/serverless-integrations) в сервис **Serverless Integrations**.
   1. На панели слева нажмите ![image](../../_assets/console-icons/graph-node.svg) **Workflows**.
   1. Выберите нужный рабочий процесс.
   1. Включите опцию **Публичный рабочий процесс**.
@@ -611,8 +611,8 @@ steps:
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится рабочий процесс.
-  1. Перейдите в сервис **Serverless Integrations**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится рабочий процесс.
+  1. [Перейдите](https://console.yandex.cloud/link/serverless-integrations) в сервис **Serverless Integrations**.
   1. На панели слева нажмите ![image](../../_assets/console-icons/graph-node.svg) **Workflows**.
   1. Выберите рабочий процесс. Ссылка для запуска будет в поле **Ссылка для запуска**.
 

@@ -154,38 +154,10 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-{% list tabs group=instructions %}
+Чтобы перестать платить за созданные ресурсы:
 
-- Консоль управления {#console}
-
-  1. Удалите реестр:
-     1. Перейдите в свой рабочий [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
-     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-     1. Справа от имени созданного реестра нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
-     1. Нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
-  1. Удалите устройства:
-     1. Перейдите в свой рабочий каталог.
-     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-     1. Выберите реестр.
-     1. Перейдите на вкладку **{{ ui-key.yacloud.iot.label_devices }}**.
-     1. Справа от имени созданного устройства нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
-     1. Нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
-  1. Удалите функцию:
-     1. Перейдите в свой рабочий каталог.
-     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-     1. Справа от имени созданной функции нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.serverless-functions.list.button_action-delete }}**.
-     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.popup-confirm_button_delete }}**.
-  1. Удалите триггер:
-     1. Перейдите в свой рабочий каталог.
-     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-     1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
-     1. Справа от имени созданного триггера нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
-     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.list.popup-confirm_button_delete }}**.
-  1. Удалите сервисный аккаунт:
-     1. Перейдите в свой рабочий каталог.
-     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-     1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
-     1. В строке с именем созданного сервисного аккаунта нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.iam.folder.service-accounts.button_action-delete }}**.
-     1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.popup-confirm_button_delete }}**.
-
-{% endlist %}
+1. [Удалите](../../iot-core/operations/registry/registry-delete.md) реестр.
+1. [Удалите](../../iot-core/operations/device/device-delete.md) устройства.
+1. [Удалите](../../functions/operations/function/function-delete.md) функцию.
+1. [Удалите](../../functions/operations/trigger/trigger-delete.md) триггер.
+1. [Удалите](../../iam/operations/sa/delete.md) сервисный аккаунт.

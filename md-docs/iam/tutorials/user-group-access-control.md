@@ -272,7 +272,7 @@
 
     - Интерфейс Cloud Center {#cloud-center}
 
-      1. Перейдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+      1. [Перейдите](https://center.yandex.cloud/organization) в сервис **Yandex Identity Hub**.
       1. На панели слева выберите ![icon-users](../../_assets/console-icons/person.svg) **Пользователи**.
       1. В правом верхнем углу экрана нажмите кнопку **Пригласить пользователей с аккаунтом на Яндексе**.
       1. Через запятую введите почтовые адреса пользователей, которых вы хотите пригласить в организацию.

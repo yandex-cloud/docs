@@ -53,7 +53,7 @@ Workflows находится на стадии [Preview](../../overview/concepts
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы будете создавать рабочие процессы.
-  1. Перейдите в сервис **Identity and Access Management**.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. Нажмите кнопку **Создать сервисный аккаунт** и в открывшемся окне:
       1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md): `workflow-sa`.
       1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите [роль](../../iam/concepts/access-control/roles.md) `serverless.workflows.executor`.
@@ -146,7 +146,7 @@ Workflows находится на стадии [Preview](../../overview/concepts
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором ранее создали сервисный аккаунт.
-  1. Перейдите в сервис **Lockbox**.
+  1. [Перейдите](https://console.yandex.cloud/link/lockbox) в сервис **Lockbox**.
   1. Нажмите кнопку **Создать секрет** и в открывшемся окне:
 
       1. В поле **Имя** введите имя секрета: `tracker-oauth-token`.
@@ -185,7 +185,7 @@ Workflows находится на стадии [Preview](../../overview/concepts
     - Консоль управления {#console}
 
         1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы ранее создали сервисный аккаунт и секрет.
-        1. Перейдите в сервис **Cloud Postbox**.
+        1. [Перейдите](https://console.yandex.cloud/link/postbox) в сервис **Cloud Postbox**.
         1. Нажмите кнопку **Создать адрес**.
         1. В поле **Домен** укажите домен, с которого будете отправлять письма. Например: `example.com`.
 
@@ -231,7 +231,7 @@ Workflows находится на стадии [Preview](../../overview/concepts
     - Консоль управления {#console}
 
         1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится созданный адрес.
-        1. Перейдите в сервис **Cloud Postbox** и выберите нужный адрес.
+        1. [Перейдите](https://console.yandex.cloud/link/postbox) в сервис **Cloud Postbox** и выберите нужный адрес.
         1. Нажмите кнопку **Запустить проверку**. Если TXT-запись создана корректно, статус проверки на странице адреса изменится на `Success`.
 
             Ответы DNS-сервера кешируются, поэтому возможны задержки при обновлении ресурсной записи.
@@ -534,7 +534,7 @@ Workflows находится на стадии [Preview](../../overview/concepts
     - Консоль управления {#console}
 
         1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находятся созданные ранее ресурсы — сервисный аккаунт, секрет и адрес Yandex Cloud Postbox.
-        1. Перейдите в сервис **Serverless Integrations**.
+        1. [Перейдите](https://console.yandex.cloud/link/serverless-integrations) в сервис **Serverless Integrations**.
         1. На панели слева выберите ![GraphNode](../../_assets/console-icons/graph-node.svg) **Workflows**.
         1. В правом верхнем углу нажмите кнопку **Создать рабочий процесс** и в открывшемся окне:
 
@@ -555,7 +555,7 @@ Workflows находится на стадии [Preview](../../overview/concepts
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится созданный рабочий процесс Workflows.
-    1. Перейдите в сервис **Serverless Integrations**.
+    1. [Перейдите](https://console.yandex.cloud/link/serverless-integrations) в сервис **Serverless Integrations**.
     1. На панели слева выберите ![GraphNode](../../_assets/console-icons/graph-node.svg) **Workflows**.
     1. В строке с рабочим процессом `my-tracker-workflow` нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![TriangleRight](../../_assets/console-icons/triangle-right.svg) **Запустить**.
     1. В открывшемся окне нажмите **Запустить**. Будет запущен созданный ранее рабочий процесс, его выполнение может занять несколько минут.
@@ -579,7 +579,7 @@ Workflows находится на стадии [Preview](../../overview/concepts
     - Консоль управления {#console}
 
         1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находятся созданные ресурсы.
-        1. Перейдите в сервис **Serverless Integrations**.
+        1. [Перейдите](https://console.yandex.cloud/link/serverless-integrations) в сервис **Serverless Integrations**.
         1. На панели слева выберите ![GraphNode](../../_assets/console-icons/graph-node.svg) **Workflows**.
         1. В строке с рабочим процессом `my-tracker-workflow` нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![TrashBin](../../_assets/console-icons/trash-bin.svg) **Удалить**.
         1. Подтвердите удаление.
@@ -594,7 +594,7 @@ Workflows находится на стадии [Preview](../../overview/concepts
     - Консоль управления {#console}
 
         1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится созданный адрес Yandex Cloud Postbox.
-        1. Перейдите в сервис **Cloud Postbox**.
+        1. [Перейдите](https://console.yandex.cloud/link/postbox) в сервис **Cloud Postbox**.
         1. В строке с нужным адресом Yandex Cloud Postbox нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![TrashBin](../../_assets/console-icons/trash-bin.svg) **Удалить**.
         1. Подтвердите удаление.
 

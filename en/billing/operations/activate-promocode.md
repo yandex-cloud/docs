@@ -21,7 +21,7 @@ To activate:
 
 - {{ billing-interface }} {#billing}
 
-  1. Navigate to [**{{ billing-name }}**]({{ link-console-billing }}).
+  1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Select an account on the **{{ ui-key.yacloud_billing.billing.title_accounts }}** page.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_org.billing.account.switch_overview }}** and click **{{ ui-key.yacloud_billing.billing.account.dashboard-grants.button_activate-grant }}**. The button only appears when a promo code becomes available.
   1. Enter your promo code and click **{{ ui-key.yacloud_billing.billing.account.dashboard.popup-grant-activation_button_activate }}**.

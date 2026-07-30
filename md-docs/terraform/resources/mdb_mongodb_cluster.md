@@ -197,19 +197,19 @@ resource "yandex_vpc_subnet" "foo" {
 - `database` [Block]. A database of the MongoDB cluster.
   - `name` (**Required**)(String). The name of the database.
 - `disk_size_autoscaling_mongocfg` [Block]. Disk size autoscaling settings for mongocfg.
-  - `disk_size_limit` (**Required**)(Number). Limit of disk size after autoscaling (GiB).
+  - `disk_size_limit` (**Required**)(Number). The overall maximum for disk size (GB) that limits all autoscaling iterations.
   - `emergency_usage_threshold` (Number). Immediate autoscaling disk usage (percent).
   - `planned_usage_threshold` (Number). Maintenance window autoscaling disk usage (percent).
 - `disk_size_autoscaling_mongod` [Block]. Disk size autoscaling settings for mongod.
-  - `disk_size_limit` (**Required**)(Number). Limit of disk size after autoscaling (GiB).
+  - `disk_size_limit` (**Required**)(Number). The overall maximum for disk size (GB) that limits all autoscaling iterations.
   - `emergency_usage_threshold` (Number). Immediate autoscaling disk usage (percent).
   - `planned_usage_threshold` (Number). Maintenance window autoscaling disk usage (percent).
 - `disk_size_autoscaling_mongoinfra` [Block]. Disk size autoscaling settings for mongoinfra.
-  - `disk_size_limit` (**Required**)(Number). Limit of disk size after autoscaling (GiB).
+  - `disk_size_limit` (**Required**)(Number). The overall maximum for disk size (GB) that limits all autoscaling iterations.
   - `emergency_usage_threshold` (Number). Immediate autoscaling disk usage (percent).
   - `planned_usage_threshold` (Number). Maintenance window autoscaling disk usage (percent).
 - `disk_size_autoscaling_mongos` [Block]. Disk size autoscaling settings for mongos.
-  - `disk_size_limit` (**Required**)(Number). Limit of disk size after autoscaling (GiB).
+  - `disk_size_limit` (**Required**)(Number). The overall maximum for disk size (GB) that limits all autoscaling iterations.
   - `emergency_usage_threshold` (Number). Immediate autoscaling disk usage (percent).
   - `planned_usage_threshold` (Number). Maintenance window autoscaling disk usage (percent).
 - `host` [Block]. A host of the MongoDB cluster.
@@ -226,6 +226,7 @@ resource "yandex_vpc_subnet" "foo" {
     - `priority` (Number). A floating point number that indicates the relative likelihood of a replica set member to become the primary. For more information see [the official documentation](https://www.mongodb.com/docs/current/reference/replica-configuration/#mongodb-rsconf-rsconf.members-n-.priority).
     - `secondary_delay_secs` (Number). The number of seconds `behind` the primary that this replica set member should `lag`. For more information see [the official documentation](https://www.mongodb.com/docs/current/reference/replica-configuration/#mongodb-rsconf-rsconf.members-n-.secondaryDelaySecs).
     - `tags` (Map Of String). A set of key/value pairs to assign for the replica set member. For more information see [the official documentation](https://www.mongodb.com/docs/current/reference/replica-configuration/#mongodb-rsconf-rsconf.members-n-.tags).
+    - `votes` (Number). The number of votes the replica set member has in an election. For more information see [the official documentation](https://www.mongodb.com/docs/current/reference/replica-configuration/#mongodb-rsconf-rsconf.members-n-.votes).
 - `maintenance_window` [Block]. Maintenance window settings of the MongoDB cluster.
   - `day` (String). Day of week for maintenance window if window type is weekly. Possible values: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`.
   - `hour` (Number). Hour of day in UTC time zone (1-24) for maintenance window if window type is weekly.

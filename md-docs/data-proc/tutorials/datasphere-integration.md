@@ -66,8 +66,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог `data-folder`, [созданный ранее](#create-folder).
-  1. В списке сервисов выберите **Virtual Private Cloud**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог `data-folder`, [созданный ранее](#create-folder).
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. В правом верхнем углу нажмите **Создать сеть**.
   1. В поле **Имя** укажите имя сети `data-network`.
   1. Отключите опцию **Создать подсети**.
@@ -81,7 +81,8 @@
 
 - Консоль управления {#console}
 
-    1. В каталоге `data-folder` [перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Virtual Private Cloud**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог `data-folder`.
+    1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
     1. Выберите облачную сеть `data-network`.
     1. Нажмите **Создать подсеть**.
     1. Укажите имя подсети `data-subnet`.
@@ -97,7 +98,8 @@
 
 - Консоль управления {#console}
 
-   1. В каталоге `data-folder` [перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Virtual Private Cloud**.
+   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `data-folder`.
+   1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
    1. На панели слева выберите ![image](../../_assets/console-icons/arrows-opposite-to-dots.svg) **Шлюзы**.
    1. Нажмите **Создать** и задайте настройки шлюза:
       * Введите имя шлюза, например `nat-for-cluster`.
@@ -129,8 +131,8 @@
 
 - Консоль управления {#console}
 
-   1. Перейдите в каталог `data-folder`.
-   1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
+   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `data-folder`.
+   1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
    1. Нажмите кнопку **Создать сервисный аккаунт**.
    1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), например `sa-for-data-proc`.
    1. Нажмите **Добавить роль** и назначьте сервисному аккаунту [роли](../../iam/concepts/access-control/roles.md):
@@ -258,7 +260,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы хотите создать бакет.
-  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
+  1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
   1. Нажмите кнопку **Создать бакет**.
   1. В поле **Имя** укажите имя бакета.
   1. В полях **Чтение объектов**, **Чтение списка объектов** и **Чтение настроек** выберите **С авторизацией**.

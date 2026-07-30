@@ -40,7 +40,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите ваш каталог.
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. Справа сверху нажмите кнопку **Создать сеть**.
   1. В поле **Имя** укажите `webserver-network`.
   1. В поле **Дополнительно** отключите опцию **Создать подсети**.
@@ -119,7 +119,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите ваш каталог.
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. На панели слева выберите ![image](../../../_assets/vpc/security-group.svg) **Группы безопасности**. 
   1. Нажмите кнопку **Создать группу безопасности**.
   1. В поле **Имя** укажите имя `webserver-sg`.
@@ -222,7 +222,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите ваш каталог.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **Виртуальные машины**.
   1. Нажмите кнопку **Создать виртуальную машину**.
   1. В блоке **Общая информация**:
@@ -322,7 +322,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите ваш каталог.
-  1. Перейдите в сервис **Cloud DNS**.
+  1. [Перейдите](https://console.yandex.cloud/link/dns) в сервис **Cloud DNS**.
   1. Нажмите кнопку **Создать зону**.
   1. Задайте настройки [зоны DNS](../../concepts/dns-zone.md), соответствующие вашему домену:
 
@@ -399,7 +399,7 @@ ns1.yandexcloud.net.
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите ваш каталог.
-  1. Перейдите в сервис **Cloud DNS**.
+  1. [Перейдите](https://console.yandex.cloud/link/dns) в сервис **Cloud DNS**.
   1. Выберите созданную ранее DNS-зону.
   1. Нажмите кнопку **Создать запись**.
   1. Задайте параметры записи:

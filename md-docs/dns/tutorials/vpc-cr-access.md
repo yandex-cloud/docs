@@ -112,7 +112,7 @@ Container Registry для хранения Docker-образов в реестр
    - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать сервисный аккаунт.
-      1. Перейдите в сервис **Identity and Access Management**.
+      1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
       1. Нажмите кнопку **Создать сервисный аккаунт**.
       1. Введите имя сервисного аккаунта, например, `sa-terraform`.
       1. Нажмите кнопку **Создать**.
@@ -321,9 +321,9 @@ Container Registry для хранения Docker-образов в реестр
 
 ## Протестируйте работоспособность решения {#test-functionality}
 
-1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором ранее были созданы ресурсы.
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором ранее были созданы ресурсы.
 
-1. Перейдите в сервис **Compute Cloud**.
+1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
 
 1. В списке виртуальных машин выберите ВМ `test-cr-vm`.
 
@@ -397,9 +397,9 @@ Container Registry для хранения Docker-образов в реестр
    demo: digest: sha256:7e9b6e7ba284****************** size: 525
    ```
 
-1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором ранее были созданы ресурсы.
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором ранее были созданы ресурсы.
 
-1. Перейдите в сервис **Container Registry**.
+1. [Перейдите](https://console.yandex.cloud/link/container-registry) в сервис **Container Registry**.
 
 1. Выберите реестр `test-registry`.
 
@@ -426,8 +426,8 @@ Container Registry для хранения Docker-образов в реестр
 
 * Вручную {#manual}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором ранее были созданы ресурсы.
-    1. Перейдите в сервис **Container Registry**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором ранее были созданы ресурсы.
+    1. [Перейдите](https://console.yandex.cloud/link/container-registry) в сервис **Container Registry**.
     1. Выберите реестр `test-registry`.
     1. Выберите репозиторий `hello-world`.
     1. Для каждого Docker-образа в репозитории нажмите значок ![image](../../_assets/console-icons/ellipsis.svg).

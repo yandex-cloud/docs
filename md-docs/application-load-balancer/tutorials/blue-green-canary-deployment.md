@@ -86,7 +86,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-    1. Перейдите в сервис **Virtual Private Cloud**.
+    1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
     1. Справа сверху нажмите кнопку **Создать сеть**.
     1. В поле **Имя** укажите `canary-network`.
     1. В поле **Дополнительно** выберите опцию **Создать подсети**.
@@ -259,7 +259,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-  1. Перейдите в сервис **Object Storage**.
+  1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
   1. Создайте «синий» бакет для стабильной версии бэкенда:
 
      1. Справа сверху нажмите кнопку **Создать бакет**.
@@ -418,7 +418,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-     1. Перейдите в сервис **Object Storage**.
+     1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
      1. Выберите «синий» бакет.
      1. Нажмите кнопку **Загрузить** и выберите для загрузки файл `index.html` версии 1.
      1. Таким же образом загрузите в «зеленый» бакет файл `index.html` версии 2.
@@ -674,7 +674,7 @@
   1. Создайте группу бэкендов `canary-bg-production` с бэкендами `canary-backend-blue` и `canary-backend-green`:
 
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-     1. Перейдите в сервис **Application Load Balancer**.
+     1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
      1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **Группы бэкендов**.
      1. Справа сверху нажмите кнопку **Создать группу бэкендов**.
      1. В поле **Имя** укажите `canary-bg-production`.
@@ -709,7 +709,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **HTTP-роутеры**.
   1. Справа сверху нажмите кнопку **Создать HTTP-роутер**.
   1. В поле **Имя** укажите `canary-router`.
@@ -925,7 +925,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. Справа сверху нажмите кнопку **Создать L7-балансировщик**.
   1. В поле **Имя** укажите `canary-balancer`.
   1. В блоке **Сетевые настройки**:
@@ -1147,7 +1147,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-  1. Перейдите в сервис **Cloud CDN**.
+  1. [Перейдите](https://console.yandex.cloud/link/cdn) в сервис **Cloud CDN**.
   1. Нажмите кнопку **Создать ресурс**.
   1. Задайте основные настройки CDN-ресурса:
       * В блоке **Контент**:
@@ -1344,7 +1344,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-     1. Перейдите в сервис **Cloud CDN**.
+     1. [Перейдите](https://console.yandex.cloud/link/cdn) в сервис **Cloud CDN**.
      1. В списке CDN-ресурсов выберите ресурс с основным доменным именем `cdn.yandexcloud.example`.
      1. Из блока **Настройки DNS** внизу страницы скопируйте доменное имя вида `e1b83ae3********.topology.gslb.yccdn.ru`.
 
@@ -1373,7 +1373,7 @@
    - Консоль управления {#console}
 
      1. Откройте [консоль управления](https://console.yandex.cloud).
-     1. Перейдите в сервис **Cloud DNS**.
+     1. [Перейдите](https://console.yandex.cloud/link/dns) в сервис **Cloud DNS**.
      1. Если у вас нет публичной зоны DNS, создайте ее:
 
         1. Нажмите кнопку **Создать зону**.
@@ -1504,7 +1504,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-     1. Перейдите в сервис **Cloud CDN**.
+     1. [Перейдите](https://console.yandex.cloud/link/cdn) в сервис **Cloud CDN**.
      1. Выберите созданный CDN-ресурс (в списке ресурсов будет указано его основное доменное имя — `cdn.yandexcloud.example`).
      1. Перейдите на вкладку **Контент**.
      1. Нажмите кнопку **Очистить кеш**.
@@ -1574,7 +1574,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-     1. Перейдите в сервис **Cloud CDN**.
+     1. [Перейдите](https://console.yandex.cloud/link/cdn) в сервис **Cloud CDN**.
      1. Выберите созданный CDN-ресурс (в списке ресурсов будет указано его основное доменное имя — `cdn.yandexcloud.example`).
      1. Перейдите на вкладку **Кеширование**.
      1. Нажмите кнопку **Редактировать**.
@@ -1595,7 +1595,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-     1. Перейдите в сервис **Cloud CDN**.
+     1. [Перейдите](https://console.yandex.cloud/link/cdn) в сервис **Cloud CDN**.
      1. Выберите созданный CDN-ресурс (в списке ресурсов будет указано его основное доменное имя — `cdn.yandexcloud.example`).
      1. Перейдите на вкладку **Контент**.
      1. Нажмите кнопку **Очистить кеш**.
@@ -1657,7 +1657,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-     1. Перейдите в сервис **Application Load Balancer**.
+     1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
      1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **Группы бэкендов**.
      1. Выберите `canary-bg-production`.
      1. Для бэкенда `canary-backend-blue` установите вес 80 вместо 100:
@@ -1743,7 +1743,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-     1. Перейдите в сервис **Cloud CDN**.
+     1. [Перейдите](https://console.yandex.cloud/link/cdn) в сервис **Cloud CDN**.
      1. Выберите созданный CDN-ресурс (в списке ресурсов будет указано его основное доменное имя — `cdn.yandexcloud.example`).
      1. Перейдите на вкладку **Кеширование**.
      1. Нажмите кнопку **Редактировать**.
@@ -1766,7 +1766,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-     1. Перейдите в сервис **Cloud CDN**.
+     1. [Перейдите](https://console.yandex.cloud/link/cdn) в сервис **Cloud CDN**.
      1. Выберите созданный CDN-ресурс (в списке ресурсов будет указано его основное доменное имя — `cdn.yandexcloud.example`).
      1. Перейдите на вкладку **Кеширование**.
      1. Нажмите кнопку **Редактировать**.
@@ -1787,7 +1787,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-     1. Перейдите в сервис **Cloud CDN**.
+     1. [Перейдите](https://console.yandex.cloud/link/cdn) в сервис **Cloud CDN**.
      1. Выберите созданный CDN-ресурс (в списке ресурсов будет указано его основное доменное имя — `cdn.yandexcloud.example`).
      1. Перейдите на вкладку **Контент**.
      1. Нажмите кнопку **Очистить кеш**.
@@ -1849,7 +1849,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-     1. Перейдите в сервис **Application Load Balancer**.
+     1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
      1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **Группы бэкендов**.
      1. Выберите `canary-bg-production`.
      1. Для бэкенда `canary-backend-blue` установите вес 100 вместо 0:
@@ -1928,7 +1928,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-     1. Перейдите в сервис **Cloud CDN**.
+     1. [Перейдите](https://console.yandex.cloud/link/cdn) в сервис **Cloud CDN**.
      1. Выберите созданный CDN-ресурс (в списке ресурсов будет указано его основное доменное имя — `cdn.yandexcloud.example`).
      1. Перейдите на вкладку **Кеширование**.
      1. Нажмите кнопку **Редактировать**.

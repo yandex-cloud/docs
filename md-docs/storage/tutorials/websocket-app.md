@@ -699,7 +699,7 @@ echo $YC_IAM_TOKEN
 1. Передайте новые значения в секрет `game-secrets`:
 
     1. В [консоли управления](https://console.yandex.cloud) выберите ваш рабочий каталог.
-    1. Перейдите в сервис **Message Queue**.
+    1. [Перейдите](https://console.yandex.cloud/link/message-queue) в сервис **Message Queue**.
     1. Выберите очередь `capturing-queue`.
     1. Скопируйте значение из поля **URL** и сохраните его в переменную `YMQ_CAPTURE_QUEUE_URL`:
 

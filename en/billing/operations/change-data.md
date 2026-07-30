@@ -46,7 +46,7 @@ You cannot change a business or TIN in the billing account settings. If these de
 1. Wait until the billing account is activated to avoid downtime of resources.
 1. Transfer all clouds from the old billing account to the new one. All you have to do is [link](pin-cloud.md) them to the new billing account.
 
-##### Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [Link another card](pin-card.md)
 * [Changing the payment method](change-payment-method.md)

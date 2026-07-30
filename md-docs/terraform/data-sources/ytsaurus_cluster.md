@@ -40,6 +40,11 @@ filename: yandex/cloud/ytsaurus/v1/cluster.proto
 - `health` (*Read-Only*) (String). Health of the cluster.
 - `id` (String). ID of the cluster to return.
 - `labels` (Map Of String). Cluster labels as `key:value` pairs.
+- `maintenance_window` [Block]. Maintenance window of the cluster.
+  - `anytime` [Block]. Maintenance can be scheduled anytime.
+  - `weekly_maintenance_window` [Block]. Maintenance is allowed only within the specified weekly window.
+    - `day` (String). Day of the week when maintenance can occur.
+    - `hour` (Number). Hour of the day in UTC when the maintenance window starts.
 - `name` (String). Name of the cluster.
  The name is unique within the folder.
 - `security_group_ids` (List Of String). Network interfaces security groups.
@@ -51,6 +56,7 @@ filename: yandex/cloud/ytsaurus/v1/cluster.proto
     - `service_account_id` (String). ID of Service account used for write logs.
   - `compute` [Block]. Cluster exec nodes configuration.
     - `disks` [Block]. Configuration of exec node strorage.
+      - `location_quotas_gb` (List Of Number). Quotas for each location. Must be the same length as locations or empty. Zero value will disable quota for location.
       - `locations` (List Of String). Locations on a disk.
       - `size_gb` (Number). Size of a single disk in GB.
       - `type` (String). Type of a disk.
@@ -58,6 +64,16 @@ filename: yandex/cloud/ytsaurus/v1/cluster.proto
     - `preset` (String). VM configuration preset name.
     - `scale_policy` [Block]. Exec nodes scaling policy.
       - `auto` [Block]. Scale policy that can adjust number of running exec nodes within specified range based on some criteria.
+        - `initial_size` (Number). package: yandex.cloud.ytsaurus.v1
+filename: yandex/cloud/ytsaurus/v1/cluster.proto
+
+        - `linear` [Block]. package: yandex.cloud.ytsaurus.v1
+filename: yandex/cloud/ytsaurus/v1/cluster.proto
+
+          - `cooldown_interval` (String). Cooldown interval.
+          - `overload_coefficient` (Number). Overload coefficient.
+          - `statistics_interval` (String). Statistics interval.
+          - `underload_coefficient` (Number). Underload coefficient.
         - `max_size` (Number). package: yandex.cloud.ytsaurus.v1
 filename: yandex/cloud/ytsaurus/v1/cluster.proto
 

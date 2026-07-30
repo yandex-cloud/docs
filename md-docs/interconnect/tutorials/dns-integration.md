@@ -66,7 +66,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете создавать облачную инфраструктуру.
-  1. Перейдите в сервис **Virtual Private Cloud** и нажмите кнопку **Создать сеть**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud** и нажмите кнопку **Создать сеть**.
   1. В поле **Имя** задайте [имя](*name) облачной сети `my-vpc-network`.
   1. Отключите опцию **Создать подсети**.
   1. Нажмите **Создать сеть**.
@@ -80,7 +80,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. На панели слева выберите ![subnets](../../_assets/console-icons/nodes-right.svg) **Подсети** и нажмите кнопку **Создать подсеть**.
   1. В поле **Имя** задайте [имя](*name) подсети `subnet2`.
   1. В поле **Зона доступности** выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-b`.
@@ -97,7 +97,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL** и нажмите кнопку **Создать кластер**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL** и нажмите кнопку **Создать кластер**.
   1. В поле **Имя кластера** задайте [имя](*name) кластера `my-postgresql-cluster`.
   1. В блоке **База данных** в поле **Пароль** выберите `Сгенерировать`.
   1. В блоке **Сетевые настройки** выберите созданную ранее облачную сеть `my-vpc-network`.
@@ -125,8 +125,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **Cloud DNS**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
+  1. [Перейдите](https://console.yandex.cloud/link/dns) в сервис **Cloud DNS**.
   1. На панели слева выберите ![nodes-down](../../_assets/console-icons/nodes-down.svg) **Входящие подключения** и нажмите кнопку **Создать подключение**. В открывшемся окне:
 
       1. В поле **Имя** задайте [имя](*name) `corp-example-net-inbound`.

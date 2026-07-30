@@ -1,0 +1,2 @@
+* `{{ ui-key.yacloud_org.security.kspm.ControlModeSelect.value_audit_jtY6w }}`: Mode in which a rule violation does not block the deployment of workloads in {{ k8s }} clusters. Default mode.
+* `{{ ui-key.yacloud_org.security.kspm.ControlModeSelect.value_enforce_ttbjL }}`: Mode in which a rule violation leads to blocking the deployment of workloads in {{ k8s }} clusters.

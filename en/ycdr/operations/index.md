@@ -13,8 +13,8 @@ description: In this article, you will learn how to work with investigations and
 
 ## Queries {#queries}
 
-* [{#T}](queries/index.md).
-* [{#T}](queries/manage-queries.md).
-* [{#T}](queries/work-with-templates.md).
-* [{#T}](queries/work-with-schema-datasets.md).
-* [{#T}](queries/query-history.md).
+* [{#T}](queries/index.md)
+* [{#T}](queries/manage-queries.md)
+* [{#T}](queries/work-with-templates.md)
+* [{#T}](queries/work-with-schema-datasets.md)
+* [{#T}](queries/query-history.md)

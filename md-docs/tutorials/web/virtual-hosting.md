@@ -52,7 +52,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. Нажмите кнопку **Создать сеть**.
   1. Укажите **Имя** сети: `vhosting-network`.
   1. Выберите опцию **Создать подсети**.
@@ -71,7 +71,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. На панели слева выберите ![image](../../_assets/console-icons/map-pin.svg) **Публичные IP-адреса**. Нажмите кнопку **Зарезервировать публичный IP-адрес**.
   1. В открывшемся окне выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-d`. Нажмите кнопку **Зарезервировать**.
 
@@ -88,7 +88,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **Группы безопасности**.
   1. Создайте группу безопасности для балансировщика:
      1. Нажмите кнопку **Создать группу безопасности**.
@@ -135,7 +135,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. Перейдите в сервис **Certificate Manager**.
+  1. [Перейдите](https://console.yandex.cloud/link/certificate-manager) в сервис **Certificate Manager**.
   1. Нажмите кнопку **Добавить сертификат** и выберите пункт **Пользовательский сертификат**.
   1. Укажите **Имя** сертификата: `vhosting-cert-a`.
   1. В поле **Сертификат** нажмите кнопку **Добавить сертификат**. Загрузите **Файл** с вашим сертификатом или укажите его **Содержимое** и нажмите кнопку **Добавить**.
@@ -158,7 +158,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**. Нажмите кнопку **Создать группу виртуальных машин**.
   1. Укажите **Имя** группы ВМ: `vhosting-ig-a`.
   1. В блоке **Распределение** выберите несколько зон доступности, чтобы обеспечить отказоустойчивость хостинга.
@@ -288,7 +288,7 @@
 
 Чтобы создать группу бэкендов для сайта `site-a.com`:
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-1. Перейдите в сервис **Application Load Balancer**.
+1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
 1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **Группы бэкендов**. Нажмите кнопку **Создать группу бэкендов**.
 1. Укажите **Имя** группы бэкендов: `vhosting-bg-a`.
 1. В блоке **Бэкенды** нажмите кнопку **Добавить**.
@@ -315,7 +315,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **HTTP-роутеры**. Нажмите кнопку **Создать HTTP-роутер**.
   1. Укажите **Имя** HTTP-роутера: `vhosting-router-a`.
   1. Нажмите кнопку **Добавить виртуальный хост**.
@@ -339,7 +339,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **HTTP-роутеры**. Нажмите кнопку **Создать HTTP-роутер**.
   1. Укажите **Имя** HTTP-роутера: `vhosting-router-default`.
   1. Нажмите кнопку **Добавить виртуальный хост**.
@@ -371,7 +371,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. Нажмите кнопку **Создать L7-балансировщик**.
   1. В открывшемся меню выберите **Вручную**.
   1. Укажите **Имя** балансировщика: `vhosting-alb`.
@@ -403,7 +403,7 @@
 
 Чтобы настроить DNS для сайта `site-a.com`:
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-1. Перейдите в сервис **Application Load Balancer**.
+1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
 1. Скопируйте IP-адрес созданного балансировщика.
 1. На сайте компании, которая предоставляет вам услуги DNS-хостинга, перейдите в настройки DNS.
 1. Создайте или измените A-запись для `site-a.com` таким образом, чтобы она указывала на скопированный IP-адрес:
@@ -421,7 +421,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-     1. Перейдите в сервис **Cloud DNS**.
+     1. [Перейдите](https://console.yandex.cloud/link/dns) в сервис **Cloud DNS**.
      1. Если у вас нет публичной [зоны DNS](../../dns/concepts/dns-zone.md), создайте ее:
         1. Нажмите кнопку **Создать зону**.
         1. Укажите **Имя** зоны: `vhosting-dns-a`.

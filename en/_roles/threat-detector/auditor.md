@@ -1,0 +1,1 @@
+The `threat-detector.auditor` role enables viewing info on [{{ td-full-name }}](../../security-deck/concepts/threat-detector.md) security management rules and [access permissions](../../iam/concepts/access-control/index.md) granted for {{ td-full-name }}.

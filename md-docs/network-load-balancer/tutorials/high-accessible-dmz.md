@@ -157,7 +157,7 @@ Next-Generation Firewall используется для защиты и сег�
 - Консоль управления
 
    1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать сервисный аккаунт.
-   1. Перейдите в сервис **Identity and Access Management**.
+   1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
    1. Нажмите кнопку **Создать сервисный аккаунт**.
    1. Введите имя сервисного аккаунта, например, `sa-terraform`.
 
@@ -742,7 +742,7 @@ Next-Generation Firewall используется для защиты и сег�
 
 ## Включите работу модуля route-switcher {#enable-route-switcher}
 
-После завершения настройки NGFW убедитесь, что проверка состояния FW-A и FW-B выдает значение `Healthy`. Для этого в [консоли управления](https://console.yandex.cloud) Yandex Cloud в каталоге `mgmt` Перейдите в сервис **Network Load Balancer** и затем — на страницу сетевого балансировщика `route-switcher-lb-...`. Раскройте целевую группу и убедитесь, что состояния целевых ресурсов — `Healthy`. Если их состояние — `Unhealthy`, то необходимо убедиться, что FW-A и FW-B запущены, функционируют и [настроены](#configure-gateways).
+После завершения настройки NGFW убедитесь, что проверка состояния FW-A и FW-B выдает значение `Healthy`. Для этого в [консоли управления](https://console.yandex.cloud) Yandex Cloud в каталоге `mgmt` [перейдите](https://console.yandex.cloud/link/network-load-balancer) в сервис **Network Load Balancer** и выберите страницу сетевого балансировщика `route-switcher-lb-...`. Раскройте целевую группу и убедитесь, что состояния целевых ресурсов — `Healthy`. Если их состояние — `Unhealthy`, то необходимо убедиться, что FW-A и FW-B запущены, функционируют и [настроены](#configure-gateways).
 
 Когда статус FW-A и FW-B изменится на `Healthy`, в файле `route-switcher.tf` измените значение параметра `start_module` модуля `route-switcher` на `true`. Чтобы включить работу модуля, выполните команды:
 
@@ -829,7 +829,7 @@ terraform apply
 
 1. В [консоли управления](https://console.yandex.cloud) Yandex Cloud измените параметры этой ВМ:
 
-    1. Перейдите в сервис **Compute Cloud**.
+    1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
     1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины**.
     1. В строке с нужной ВМ нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать**.
     1. В открывшемся окне в блоке **Дополнительно** включите опцию **Доступ к серийной консоли**.

@@ -280,8 +280,8 @@ Packer создаст и запустит виртуальную машину с
 
 - Консоль управления {#console}
 
-  1. Перейдите в [консоль управления]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Откройте [консоль управления]({{ link-console-main }}).
+  1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Откройте раздел ![image](../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.images_e7RdQ }}**. Убедитесь, что там появился новый образ диска.
 
 - CLI {#cli}

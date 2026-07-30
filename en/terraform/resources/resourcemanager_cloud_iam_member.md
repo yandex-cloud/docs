@@ -25,7 +25,7 @@ resource "yandex_resourcemanager_cloud_iam_member" "admin" {
 
 ## Arguments & Attributes Reference
 
-- `cloud_id` (**Required**)(String). The ID of the compute `cloud` to attach the policy to.
+- `cloud_id` (**Required**)(String). The ID of the `cloud` to attach the policy to.
 - `id` (String). The ID of this resource.
 - `member` (**Required**)(String). An array of identities that will be granted the privilege in the `role`. Each entry can have one of the following values:
  * **userAccount:{user_id}**: A unique user ID that represents a specific Yandex account.

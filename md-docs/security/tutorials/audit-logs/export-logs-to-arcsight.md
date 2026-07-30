@@ -68,8 +68,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать бакет, например, `example-folder`.
-  1. Перейдите в сервис **Object Storage**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать бакет, например, `example-folder`.
+  1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
   1. Нажмите **Создать бакет**.
   1. На странице создания бакета:
       1. Введите имя бакета в соответствии с [правилами именования](../../../storage/concepts/bucket.md#naming).
@@ -89,8 +89,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог `example-folder`.
-  1. Перейдите в сервис **Key Management Service**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
+  1. [Перейдите](https://console.yandex.cloud/link/kms) в сервис **Key Management Service**.
   1. Нажмите **Создать ключ** и укажите:
      * **Имя** — `arcsight-kms`.
      * **Алгоритм шифрования** — `AES-256`.
@@ -123,8 +123,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог `example-folder`.
-  1. Перейдите в сервис **Identity and Access Management**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. Нажмите кнопку **Создать сервисный аккаунт**.
   1. Введите имя сервисного аккаунта в соответствии с правилами именования:
   
@@ -148,8 +148,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог `example-folder`.
-  1. Перейдите в сервис **Identity and Access Management**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
   1. В открывшемся списке выберите сервисный аккаунт `sa-arcsight-bucket`.
   1. Нажмите **Создать новый ключ** на верхней панели.
@@ -287,8 +287,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог `example-folder`.
-  1. Перейдите в сервис **Audit Trails**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
+  1. [Перейдите](https://console.yandex.cloud/link/audit-trails) в сервис **Audit Trails**.
   1. Нажмите **Создать трейл** и укажите:
 
      * **Имя** — имя создаваемого трейла, например, `arcsight-trail`.

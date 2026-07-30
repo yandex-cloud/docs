@@ -48,7 +48,7 @@ _Профиль безопасности_ — основной элемент Sm
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находятся защищаемые ресурсы.
-  1. Перейдите в сервис **Smart Web Security**.
+  1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
   1. На панели слева выберите ![image](../../_assets/smartwebsecurity/profiles.svg) **Профили безопасности**.
   1. Нажмите **Создать профиль** и выберите **По преднастроенному шаблону**.
   1. Введите имя профиля, например `anti-ddos`.
@@ -116,7 +116,7 @@ _Профиль безопасности_ — основной элемент Sm
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Smart Web Security**.
+  1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
   1. Выберите раздел **Мониторинг**.
   1. Посмотрите информацию на графиках:
      * **Denied by Security Profile RPS** — количество входящих запросов в секунду, которые были проверены и заблокированы профилем безопасности.
@@ -134,7 +134,7 @@ _Профиль безопасности_ — основной элемент Sm
 - Консоль управления {#console}
 
   1. Убедитесь, что для L7-балансировщика настроено [логирование](../../smartwebsecurity/operations/configure-logging.md).
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. Выберите балансировщик, к которому привязан профиль безопасности.
   1. Выберите раздел **Логи**.
   1. Выберите количество сообщений на одной странице и период. Например, `1 час`.
@@ -166,7 +166,7 @@ _Профиль безопасности_ — основной элемент Sm
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Smart Web Security**.
+  1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
   1. На панели слева выберите ![image](../../_assets/smartwebsecurity/arl.svg) **Профили ARL**.
   1. Нажмите кнопку **Создать профиль ARL**.
   1. Введите имя профиля, например `anti-ddos-arl`.
@@ -195,7 +195,7 @@ _Профиль безопасности_ — основной элемент Sm
 
 - Консоль управления {#console}
 
-   1. Перейдите в сервис **Smart Web Security**.
+   1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
    1. На панели слева выберите ![image](../../_assets/smartwebsecurity/profiles.svg) **Профили безопасности**.
    1. Выберите профиль безопасности `anti-ddos`.
    1. Нажмите кнопку ![plus-sign](../../_assets/console-icons/plus.svg) **Добавить правило**.

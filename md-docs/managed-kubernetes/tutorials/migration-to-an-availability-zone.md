@@ -43,7 +43,7 @@ yc components update
    - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог с вашим кластером Managed Service for Kubernetes.
-      1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+      1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
       1. Перейдите на страницу кластера, затем — в раздел **Рабочая нагрузка**.
       1. На вкладке **Pods** откройте страницу пода.
       1. Перейдите на вкладку **YAML**.
@@ -448,8 +448,8 @@ yc components update
        - Консоль управления {#console}
 
           1. В [консоли управления](https://console.yandex.cloud) выберите каталог с вашим кластером Managed Service for Kubernetes.
-          1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
-          1. Перейдите на страницу кластера, затем — в раздел **Постоянные тома**.
+          1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
+          1. Откройте страницу кластера, затем раздел **Постоянные тома**.
           1. На вкладке **PersistentVolumes** найдите объект `new-pv-test-<номер>` и посмотрите значение поля **Зона доступности**. В нем должна отображаться зона доступности. Прочерк означает, что нет привязки к зоне доступности.
 
        {% endlist %}

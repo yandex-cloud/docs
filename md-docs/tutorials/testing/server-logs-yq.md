@@ -49,7 +49,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать бакет.
-  1. Перейдите в сервис **Object Storage**.
+  1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
   1. Справа сверху нажмите кнопку **Создать бакет**.
   1. В поле **Имя** укажите имя бакета `object-bucket`.
   1. Нажмите кнопку **Создать бакет**.
@@ -67,7 +67,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создали бакеты.
-  1. Перейдите в сервис **Object Storage**.
+  1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
   1. Выберите бакет `object-bucket`.
   1. [Включите механизм логирования](../../storage/operations/buckets/enable-logging.md#enable):
 
@@ -89,7 +89,7 @@
 
 - Интерфейс Yandex Query {#console}
 
-  1. Перейдите в сервис [Query](https://yq.yandex.cloud/).
+  1. [Перейдите](https://yq.yandex.cloud) в сервис **Yandex Query**.
   1. На панели слева выберите **Соединения**.
   1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg) **Создать**.
   1. Введите имя соединения, например `bucket-logs-connection`.
@@ -118,7 +118,7 @@
 
 - Интерфейс Yandex Query {#console}
 
-  1. Перейдите в сервис [Query](https://yq.yandex.cloud/).
+  1. [Перейдите](https://yq.yandex.cloud) в сервис **Yandex Query**.
   1. На панели слева выберите **Соединения**.
   1. Выберите соединение `bucket-logs-connection`.
   1. В редакторе справа введите запрос:

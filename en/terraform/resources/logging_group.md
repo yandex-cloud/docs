@@ -28,7 +28,6 @@ resource "yandex_logging_group" "group1" {
 - `id` (String). 
 - `labels` (*Read-Only*) (Map Of String). A set of key/value label pairs which assigned to resource.
 - `log_group_id` (String). ID of the log group to return.
-
  To get a log group ID make a [LogGroupService.List] request.
 - `name` (String). The resource name.
 - `retention_period` (*Read-Only*) (String). Log entries retention period for the Yandex Cloud Logging group.

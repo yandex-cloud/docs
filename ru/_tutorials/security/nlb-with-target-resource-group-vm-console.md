@@ -104,8 +104,8 @@
 
 1. Измените для группы ВМ интеграцию с целевой группой:
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится группа ВМ.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится группа ВМ.
+    1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
     1. На панели слева выберите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
     1. Выберите группу, которую хотите изменить.
     1. В правом верхнем углу страницы нажмите **{{ ui-key.yacloud.common.edit }}**.

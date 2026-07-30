@@ -148,7 +148,7 @@
    - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать бакет.
-      1. Перейдите в сервис **Object Storage**.
+      1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
       1. На панели сверху нажмите кнопку **Создать бакет**.
       1. На странице создания бакета:
          1. Введите имя бакета в соответствии с [правилами именования](../../../storage/concepts/bucket.md#naming).
@@ -194,7 +194,7 @@
 - Консоль управления {#console}
 
    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы хотите создать федерацию сервисных аккаунтов.
-   1. Перейдите в сервис **Identity and Access Management**.
+   1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
    1. На панели слева выберите ![cpus](../../../_assets/console-icons/cpus.svg) **Федерации сервисных аккаунтов**.
    1. Нажмите **Создать федерацию**.
    1. В поле **Значение Issuer (iss)** введите `URL Issuer` вашего Kubernetes кластера, полученный ранее, например `https://kubernetes.default.svc.cluster.local`.
@@ -212,7 +212,7 @@
 - Консоль управления {#console}
 
    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором будет создан секрет.
-   1. Перейдите в сервис **Lockbox**.
+   1. [Перейдите](https://console.yandex.cloud/link/lockbox) в сервис **Lockbox**.
    1. Нажмите кнопку **Создать секрет**.
    1. В поле **Имя** введите имя секрета `MY_SECRET`.
    1. Выберите **Тип секрета** `Пользовательский`.
@@ -231,7 +231,7 @@
    - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать сервисный аккаунт.
-      1. Перейдите в сервис **Identity and Access Management**.
+      1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
       1. Нажмите кнопку **Создать сервисный аккаунт**.
       1. Введите имя сервисного аккаунта, например `sa-lockbox`.
       1. Нажмите кнопку **Создать**.
@@ -259,7 +259,7 @@
 - Консоль управления {#console}
 
    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором был создан сервисный аккаунт.
-   1. Перейдите в сервис **Identity and Access Management**.
+   1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
    1. В списке выберите сервисный аккаунт `sa-lockbox`.
    1. На верхней панели нажмите ![image](../../../_assets/console-icons/cpus.svg) **Привязать к федерации**.
    1. В поле **Федерация сервисных аккаунтов** выберите ранее созданную федерацию.

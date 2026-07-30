@@ -157,7 +157,7 @@ resource "yandex_vpc_subnet" "baz" {
     - `hours` (Number). The hour at which backup will be started.
     - `minutes` (Number). The minute at which backup will be started.
 - `disk_size_autoscaling` [Block]. Disk size autoscaling settings.
-  - `disk_size_limit` (**Required**)(Number). Limit of disk size after autoscaling (GiB).
+  - `disk_size_limit` (**Required**)(Number). The overall maximum for disk size (GB) that limits all autoscaling iterations.
   - `emergency_usage_threshold` (Number). Immediate autoscaling disk usage (percent).
   - `planned_usage_threshold` (Number). Maintenance window autoscaling disk usage (percent).
 - `host` [Block]. A host of the Redis cluster.

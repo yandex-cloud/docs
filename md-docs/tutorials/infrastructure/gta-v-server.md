@@ -41,7 +41,7 @@
 - Консоль управления {#console}
 
    1. В [консоли управления](https://console.yandex.cloud) выберите ваш каталог.
-   1. Перейдите в сервис **Virtual Private Cloud**.
+   1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
    1. На панели слева выберите ![image](../../_assets/vpc/security-group.svg) **Группы безопасности**. 
    1. Нажмите кнопку **Создать группу безопасности**.
    1. В поле **Имя** укажите имя `gta-v-sg`.
@@ -72,7 +72,7 @@
    - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-      1. Перейдите в сервис **Compute Cloud**.
+      1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
       1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины**.
       1. Нажмите кнопку **Создать виртуальную машину**.
       1. В блоке **Образ загрузочного диска** в поле **Поиск продукта** введите `Ubuntu 22.04 LTS` и выберите публичный образ [Ubuntu 22.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-22-04-lts).

@@ -51,7 +51,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}** и в открывшемся окне:
 
       1. Задайте имя бакета в соответствии с [правилами именования](*bucket_name).
@@ -126,7 +126,7 @@
   1. Создайте базу данных в [режиме Serverless](*ydb_modes):
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали бакет.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+      1. [Перейдите]({{ link-console-main }}/link/ydb) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.ydb.databases.button_create }}**.
       1. Задайте **[{{ ui-key.yacloud.ydb.forms.label_field_name }}](*name)** базы.
       1. В блоке **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}** выберите `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}`.
@@ -228,8 +228,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы создали бакет и базу данных.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали бакет и базу данных.
+  1. [Перейдите]({{ link-console-main }}/link/functions) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
   1. Задайте **{{ ui-key.yacloud.common.name }}** `add-task` и (опционально) **{{ ui-key.yacloud.common.description }}** функции.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
@@ -332,7 +332,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали бакет, базу данных и функции.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. [Перейдите]({{ link-console-main }}/link/api-gateway) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
   1. Задайте **[{{ ui-key.yacloud.common.name }}](*name)** и (опционально) **{{ ui-key.yacloud.common.description }}** шлюза.
   1. В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** добавьте спецификацию:

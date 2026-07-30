@@ -7,7 +7,7 @@ description: '{{ dspm-full-name }}, or {{ dspm-name }}, is a {{ sd-name }} modul
 
 [{{ dspm-full-name }}]({{ link-sd-main }}dspm/), or {{ dspm-name }}, is a tool that helps you quickly detect sensitive information stored in {{ objstorage-full-name }} [buckets](../../storage/concepts/bucket.md) and {{ yandex-360 }} disks for timely action to protect it through [access policies](../../storage/concepts/policy.md), anonymization, etc.
 
-{{ dspm-name }} has two operating modes: [continuous update scanning](#change-scaning) based on [data analysis](#discovery-mode) and [regular scanning](#scanning). The management console provides a separate interface to manage each mode.
+{{ dspm-name }} works in two modes: [continuous change scanning](#change-scaning) based on [data analysis](#discovery-mode) and [regular scanning](#scanning). The management console provides a separate interface to manage each mode.
 
 
 ## Data analysis {#discovery-mode}
@@ -90,6 +90,22 @@ Data categories available for scanning:
 {% include [scan-data-types](../../_includes/security-deck/scan-data-types.md) %}
 
 To create data sources, set up and run scans, and view scan results, the user must have the appropriate [roles](../security/index.md).
+
+### Custom dictionaries {#custom-dictionaries}
+
+{% note info %}
+
+This feature is only available with a [fixed scan volume subscription](../pricing.md#dspm-package-subscription).
+
+{% endnote %}
+
+You can request to add custom keywords and search patterns. This allows you to detect non-standard data, such as:
+
+* Internal documents and corporate secrets.
+* Unique product or project IDs.
+* Custom confidential data patterns not included in standard classifiers.
+
+To enable a custom dictionary, submit a request when [creating](../operations/dspm/create-scan.md#object-storage) a scan for {{ objstorage-name }}, or via [this form](https://forms.yandex.ru/surveys/13835302.f77819f788eb2cd7df871cd6f8523fe29c5e4c23/). In your request, include your contact information, dictionary name, keyword or regular expression examples and describe the type of data you want this dictionary to detect. Our team will process your request and contact you for details and to inform you of the results.
 
 #### Useful links {#see-also}
 

@@ -28,12 +28,10 @@ output "whitelist_fqdns" {
 - `deletion_protection` (Bool). Prevents accidental firewall removal.
 - `description` (String). Description of the DNS firewall.
 - `dns_firewall_id` (String). ID of the DNS firewall to return.
-
  To get a DNS firewall ID, make a [DnsFirewallService.List] request.
 - `enabled` (Bool). Whether the DNS firewall is enabled.
 - `folder_id` (String). ID of the folder that the DNS firewall belongs to.
 - `id` (String). ID of the DNS firewall to return.
-
  To get a DNS firewall ID, make a [DnsFirewallService.List] request.
 - `labels` (Map Of String). DNS firewall labels as `key:value` pairs.
 - `name` (String). Name of the DNS firewall.

@@ -100,7 +100,7 @@
 
 - Интерфейс Cloud Center {#cloud-center}
 
-  1. Перейдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+  1. [Перейдите](https://center.yandex.cloud/organization) в сервис **Yandex Identity Hub**.
 
   1. На панели слева выберите ![icon-federation](../../_assets/console-icons/vector-square.svg) **Федерации**.
 

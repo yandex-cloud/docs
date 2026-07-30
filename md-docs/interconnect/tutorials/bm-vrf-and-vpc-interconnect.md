@@ -69,7 +69,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы будете создавать инфраструктуру.
-  1. Перейдите в сервис **BareMetal**.
+  1. [Перейдите](https://console.yandex.cloud/link/baremetal) в сервис **BareMetal**.
   1. Создайте виртуальный сегмент сети:
         1. На панели слева выберите ![icon](../../_assets/console-icons/vector-square.svg) **VRF** и нажмите кнопку **Создать VRF**.
         1. В поле **Имя** задайте имя VRF: `my-vrf`.
@@ -188,7 +188,7 @@
 - Консоль управления {#console} 
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. Создайте облачную сеть:
 
       1. Справа сверху нажмите **Создать сеть**.
@@ -225,7 +225,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины** и нажмите кнопку **Создать виртуальную машину**.
   1. В блоке **Образ загрузочного диска** выберите подходящий образ ВМ. Например: [Ubuntu 24.04](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-2404-lts-oslogin).
   1. В блоке **Расположение** выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-b`.
@@ -402,7 +402,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создали инфраструктуру.
-  1. Перейдите в сервис **BareMetal**.
+  1. [Перейдите](https://console.yandex.cloud/link/baremetal) в сервис **BareMetal**.
   1. В строке с сервером `server-m3` нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **KVM-консоль**.
   
       Откроется окно с терминалом KVM-консоли, в котором вы увидите строку аутентификации:
@@ -499,7 +499,7 @@
     - Консоль управления {#console} 
     
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создали инфраструктуру.
-      1. Перейдите в сервис **BareMetal**.
+      1. [Перейдите](https://console.yandex.cloud/link/baremetal) в сервис **BareMetal**.
       1. На панели слева выберите ![icon](../../_assets/console-icons/vector-square.svg) **VRF** и выберите виртуальный сегмент сети `my-vrf`.
       1. В блоке **Приватное соединение с облачными сетями** нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![CircleXmark](../../_assets/console-icons/circle-xmark.svg) **Отключить соединение**.
       1. В открывшемся окне подтвердите удаление.

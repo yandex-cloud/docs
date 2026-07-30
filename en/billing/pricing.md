@@ -6,17 +6,43 @@ editable: false
 
 # {{ yandex-cloud }} pricing policy
 
+::: page-constructor
+blocks:
+  - type: card-layout-block
+    animated: false
+    colSizes:
+      all: 12
+      sm: 4
+    children:
+      - type: basic-card
+        title: Price calculator
+        text: Calculate the cost of services based on your needs
+        icon: ../_assets/console-icons/calculator.svg
+        urlTitle: Price calculator
+        url: https://yandex.cloud/en/prices
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+      - type: basic-card
+        title: Price list
+        text: Current prices of all our services
+        icon: ../_assets/console-icons/circle-ruble.svg
+        urlTitle: Price list
+        url: https://yandex.cloud/en/price-list
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+:::
+
+
 
 In {{ yandex-cloud }}, you can use resources of both billable and non-billable services. The fee for using {{ billing-name }} is included in the service price and is not charged separately.
-
-
-{% note tip %}
-
-To calculate the cost of using the services, use our [calculator]({{ link-cloud-calculator }}) on the {{ yandex-cloud }} website or see the [pricing for specific services](#billable).
-
-{% endnote %}
-
-
 
 ## Fees for individual services {#billable}
 

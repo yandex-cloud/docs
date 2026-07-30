@@ -20,11 +20,14 @@ resource "yandex_iam_service_account" "builder" {
 
 - `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
 - `description` (*Read-Only*) (String). The resource description.
+- `expires_at` (String). Timestamp when the service account expires.
 - `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `id` (String). 
 - `labels` (Map Of String). Resource labels as `` key:value `` pairs. Maximum of 64 per resource.
 - `name` (String). The resource name.
 - `service_account_id` (String). ID of a specific service account.
+- `status` (*Read-Only*) (String). Current status of the service account.
+ Determines whether the service account can authenticate and access the system.
 - `timeouts` [Block]. 
   - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
   - `delete` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.

@@ -47,7 +47,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать сервисный аккаунт.
-  1. Перейдите в сервис **Identity and Access Management**.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. Нажмите кнопку **Создать сервисный аккаунт**.
   1. Введите имя сервисного аккаунта: `speechkit-sa`.
   1. Нажмите ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль `ai.speechkit-tts.user`.
@@ -104,7 +104,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором необходимо создать API-шлюз.
-  1. Перейдите в сервис **API Gateway**.
+  1. [Перейдите](https://console.yandex.cloud/link/api-gateway) в сервис **API Gateway**.
   1. Нажмите кнопку **Создать API-шлюз**.
   1. В поле **Имя** введите `speechkit-api-gw`.
   1. В блок **Спецификация** добавьте следующую спецификацию, указав [идентификатор](../../iam/operations/sa/get-id.md) сервисного аккаунта `speechkit-sa` в параметре `service_account_id`:

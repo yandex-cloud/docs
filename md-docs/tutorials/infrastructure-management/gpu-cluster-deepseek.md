@@ -48,7 +48,7 @@
 - Консоль управления {#console}
 
    1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder)для создания кластера.
-   1. Перейдите в сервис **Compute Cloud**.
+   1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
    1. На панели слева выберите ![image](../../_assets/console-icons/cpus.svg) **Кластеры GPU**.
    1. Нажмите кнопку **Создать кластер GPU**.
    1. В поле **Имя** укажите `test-gpu-cluster`.

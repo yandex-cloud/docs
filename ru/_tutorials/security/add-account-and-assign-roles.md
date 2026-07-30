@@ -87,7 +87,7 @@
 
 - Интерфейс {{ cloud-center }} {#cloud-center}
 
-    1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+    1. [Перейдите]({{ link-org-cloud-center }}) в сервис **{{ org-full-name }}**.
     1. На панели слева выберите ![icon-users](../../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}**.
     1. В правом верхнем углу нажмите кнопку ![person-plus](../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud_org.page.users.dropdown.button-text }}** и выберите ![person-planet-earth](../../_assets/console-icons/person-planet-earth.svg) **{{ ui-key.yacloud_org.page.users.action.invite-users }}**.
     1. Введите почту пользователя.
@@ -127,7 +127,7 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `test-folder`.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог `test-folder`.
     1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
     1. В открывшемся окне выберите раздел **{{ ui-key.yacloud_org.common.resource-acl.label_invitee-accounts }}**.
@@ -194,7 +194,7 @@
   1. Перейдите в [консоль управления]({{ link-console-main }}) и на панели слева нажмите на аватар вашего аккаунта.
   1. Выберите организацию `Example organization`.
   1. На панели слева выберите каталог `test-folder`.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}** и задайте настройки ВМ:
 

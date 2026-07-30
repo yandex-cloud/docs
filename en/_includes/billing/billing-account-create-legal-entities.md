@@ -24,7 +24,7 @@ To create a billing account:
 
       * Select **{{ ui-key.yacloud_billing_account.create-account.label_payment_invoice }}**. After you create an account, you will get an email with verification instructions. Until you pass the verification, paid resources will be unavailable.
 
-      * Link a corporate bank card you are authorized to use. If the user account already has bank cards linked to it, you can select one of them without adding a new one.
+      * Link a corporate bank card you are authorized to use. If the user account already has credit/debit cards linked to it, you can select one of them without adding a new one.
 
         {% include [payment-card-types](../../_includes/billing/payment-card-types-business.md) %}
 
@@ -34,10 +34,5 @@ To create a billing account:
 
 If you select the **{{ ui-key.yacloud_billing_account.create-account.label_payment_invoice }}** payment method or if the payer is a non-resident of Russia and Kazakhstan, further instructions will be emailed to you at the address specified in your Yandex or Yandex 360 account. You may also get this email if you select **{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_card }}** for payment method in cases where your new billing account requires verification. Once your documents have been verified, you can activate your billing account and start using {{ yandex-cloud }}.
 
-Email the following documents to [{{ billing-docs-email }}](mailto:{{ billing-docs-email }}):
-
-
-* Copy in English of the legal entity's or individual entrepreneur's certificate of incorporation or registration.
-* [Billing account](../../billing/concepts/billing-account.md#billing-account-id) ID.
-
+{% include [send-docs-for-verification](send-docs-for-verification.md) %}
 

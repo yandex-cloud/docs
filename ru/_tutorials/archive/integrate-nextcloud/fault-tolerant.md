@@ -44,7 +44,7 @@
     - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+      1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
       1. На панели слева выберите ![shield](../../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**. 
       1. Нажмите **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
       1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** укажите имя `nextcloud-sg`.
@@ -80,7 +80,7 @@
     - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+      1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
       1. На панели слева выберите ![arrows-opposite-to-dots](../../../_assets/console-icons/arrows-opposite-to-dots.svg) **{{ ui-key.yacloud.vpc.switch_gateways }}** и нажмите кнопку **{{ ui-key.yacloud.vpc.gateways.button_create-gateway }}**.
       1. В поле **{{ ui-key.yacloud.vpc.gateways.field_name }}** задайте имя шлюза `nextcloud-gateway`. 
       1. В поле **{{ ui-key.yacloud.vpc.gateways.field_type }}** выберите `{{ ui-key.yacloud.vpc.gateways.value_gateway-type-egress-nat }}` и нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
@@ -94,7 +94,7 @@
     - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+      1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
       1. На панели слева выберите ![route](../../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}** и нажмите кнопку **{{ ui-key.yacloud.vpc.network.overview.button_create_route-table }}**.
       1. В поле **{{ ui-key.yacloud.vpc.route-table-form.field_name }}** задайте имя `nextcloud-rt-table`.
       1. В поле **{{ ui-key.yacloud.vpc.route-table-form.field_network-id }}** выберите сеть `nextcloud-network`.
@@ -114,7 +114,7 @@
     - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+      1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
       1. На панели слева выберите ![image](../../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
       1. В строке с нужной подсетью нажмите кнопку ![image](../../../_assets/console-icons/ellipsis.svg) и в контекстном меню выберите пункт **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
       1. В открывшемся окне выберите созданную на предыдущем шаге таблицу маршрутизации и нажмите кнопку **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
@@ -140,7 +140,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `Ubuntu 24.04 LTS` и выберите публичный образ [Ubuntu 24.04 LTS](/marketplace/products/yc/ubuntu-24-04-lts).
   1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
@@ -176,7 +176,7 @@ Nextcloud использует базу данных {{ MY }} для хране�
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}** и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
+  1. [Перейдите]({{ link-console-main }}/link/managed-mysql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}** и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_name }}** введите имя `nextcloud-db-cluster`.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_database }}**:
 
@@ -294,7 +294,7 @@ Nextcloud использует базу данных {{ MY }} для хране�
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}** и выберите кластер `nextcloud-db-cluster`.
+  1. [Перейдите]({{ link-console-main }}/link/managed-mysql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}** и выберите кластер `nextcloud-db-cluster`.
   1. В меню слева выберите ![cube](../../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}**.
   1. С помощью кнопки **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}** добавьте дополнительные [хосты](../../../managed-mysql/concepts/instance-types.md), так чтобы в кластере было три хоста — по одному в каждой [зоне доступности](../../../overview/concepts/geo-scope.md).
 
@@ -322,7 +322,7 @@ Nextcloud использует базу данных {{ MY }} для хране�
     - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+      1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. На панели слева выберите ![hard-drive](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
       1. В строке с нужным диском нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.disks.button_action-snapshot }}**.
       1. В поле **{{ ui-key.yacloud.common.name }}** задайте имя снимка `nextcloud-vm-snapshot`.
@@ -345,7 +345,7 @@ Nextcloud использует базу данных {{ MY }} для хране�
     - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+      1. [Перейдите]({{ link-console-main }}/link/certificate-manager) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
       1. Нажмите **{{ ui-key.yacloud.certificate-manager.button_empty-action }}** и выберите **{{ ui-key.yacloud.certificate-manager.action_request }}**.
       1. В открывшемся окне в поле **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** укажите `mymanagedcert`.
       1. В поле **{{ ui-key.yacloud.certificate-manager.request.field_domains }}** укажите имя вашего домена, например `example.com`.
@@ -361,7 +361,7 @@ Nextcloud использует базу данных {{ MY }} для хране�
     - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+      1. [Перейдите]({{ link-console-main }}/link/certificate-manager) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
       1. В списке сертификатов выберите `mymanagedcert`.
       1. В открывшемся окне в блоке **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}** выберите `CNAME-запись`.
       1. Добавьте в публичную DNS-зону вашего домена [CNAME-запись](../../../dns/concepts/resource-record.md#cname), необходимую для проверки прав на домен. Порядок действий на этом шаге будет зависеть от того, управляет вашим доменом сервис {{ dns-full-name }} или сторонний DNS-провайдер:
@@ -381,7 +381,7 @@ Nextcloud использует базу данных {{ MY }} для хране�
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.groups.button_create }}**.
   1. В поле **{{ ui-key.yacloud.compute.groups.create.field_name }}** задайте имя группы `nextcloud-instance-group`.
@@ -424,7 +424,7 @@ Nextcloud использует базу данных {{ MY }} для хране�
     - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+      1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
       1. На панели слева выберите ![image](../../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}** и нажмите кнопку **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
       1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя группы `nextcloud-bg`.
       1. Включите опцию **{{ ui-key.yacloud.alb.label_session-affinity }}** и в появившемся поле **{{ ui-key.yacloud.alb.label_session-affinity-mode }}** выберите `{{ ui-key.yacloud.alb.label_affinity-connection }}`.
@@ -445,7 +445,7 @@ Nextcloud использует базу данных {{ MY }} для хране�
     - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+      1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
       1. На панели слева выберите ![image](../../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}** и нажмите кнопку **{{ ui-key.yacloud.alb.button_http-router-create }}**.
       1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя HTTP-роутера `nextcloud-router`.
       1. В блоке **{{ ui-key.yacloud.alb.label_virtual-hosts }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_virtual-host-add }}** и в открывшейся форме **{{ ui-key.yacloud.alb.label_new-virtual-host }}**:
@@ -464,7 +464,7 @@ Nextcloud использует базу данных {{ MY }} для хране�
     - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+      1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_load-balancer-create }}** и выберите **{{ ui-key.yacloud.alb.label_alb-create-form }}**.
       1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя балансировщика `nextcloud-alb`.
       1. В поле **{{ ui-key.yacloud.mdb.forms.label_network }}** выберите сеть `nextcloud-network`.
@@ -494,7 +494,7 @@ Nextcloud использует базу данных {{ MY }} для хране�
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. [Перейдите]({{ link-console-main }}/link/dns) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Выберите нужную зону DNS, нажмите кнопку **{{ ui-key.yacloud.dns.button_record-set-create }}** и в открывшемся окне:
 
       1. В поле **{{ ui-key.yacloud.common.name }}** выберите `{{ ui-key.yacloud.dns.label_fqdn-equal-to-zone }}`.

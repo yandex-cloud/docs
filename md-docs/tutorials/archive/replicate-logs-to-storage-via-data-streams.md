@@ -55,7 +55,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать [бакет](../../storage/concepts/bucket.md).
-  1. Перейдите в сервис **Object Storage**.
+  1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
   1. Нажмите **Создать бакет**.
   1. Введите имя бакета.
   1. В поле **Класс хранилища** выберите `Холодное`.
@@ -70,7 +70,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать [поток данных](../../data-streams/concepts/glossary.md#stream-concepts).
-  1. Перейдите в сервис **Data Streams**.
+  1. [Перейдите](https://console.yandex.cloud/link/data-streams) в сервис **Data Streams**.
   1. Нажмите кнопку **Создать поток**.
   1. Укажите существующую [бессерверную](../../ydb/concepts/serverless-and-dedicated.md#serverless) базу данных YDB или [создайте](../../ydb/quickstart.md#serverless) новую. Если вы создали новую БД, нажмите значок ![refresh-button](../../_assets/data-streams/refresh-button.svg), чтобы обновить список БД.
   1. Введите имя потока данных, например `logs-stream`.
@@ -87,7 +87,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится лог группа.
-  1. Перейдите в сервис **Cloud Logging**.
+  1. [Перейдите](https://console.yandex.cloud/link/logging) в сервис **Cloud Logging**.
   1. Напротив лог-группы, в которую поступают логи, нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
   1. В поле **Поток данных** выберите поток `logs-stream`, созданный ранее.
   1. Нажмите кнопку **Сохранить**.
@@ -101,7 +101,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать [трансфер](../../data-transfer/concepts/index.md#transfer).
-  1. Перейдите в сервис **Data Transfer**.
+  1. [Перейдите](https://console.yandex.cloud/link/data-transfer) в сервис **Data Transfer**.
   1. Создайте [эндпоинт](../../data-transfer/concepts/index.md#endpoint)-источник:
      1. На вкладке ![endpoint](../../_assets/console-icons/aperture.svg) **Эндпоинты** нажмите кнопку **Создать эндпоинт**.
      1. В поле **Направление** выберите `Источник`.
@@ -139,14 +139,14 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создали [поток данных](../../data-streams/concepts/glossary.md#stream-concepts), [трансфер](../../data-transfer/concepts/index.md##transfer) и [бакет](../../storage/concepts/bucket.md).
-  1. Перейдите в сервис **Data Streams**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создали [поток данных](../../data-streams/concepts/glossary.md#stream-concepts), [трансфер](../../data-transfer/concepts/index.md##transfer) и [бакет](../../storage/concepts/bucket.md).
+  1. [Перейдите](https://console.yandex.cloud/link/data-streams) в сервис **Data Streams**.
   1. Выберите поток данных `logs-stream`.
-  1. Перейдите на вкладку **Мониторинг** и посмотрите графики активности потока.
-  1. Перейдите в сервис **Data Transfer**.
+  1. Откройте вкладку **Мониторинг** и посмотрите графики активности потока.
+  1. [Перейдите](https://console.yandex.cloud/link/data-transfer) в сервис **Data Transfer**.
   1. Выберите трансфер `logs-transfer`.
-  1. Перейдите на вкладку **Мониторинг** и посмотрите графики активности трансфера.
-  1. Перейдите в сервис **Object Storage**.
+  1. Откройте вкладку **Мониторинг** и посмотрите графики активности трансфера.
+  1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
   1. Выберите бакет, созданный ранее.
   1. Проверьте, что в бакете появились объекты. Скачайте и посмотрите полученные файлы с логами.
 

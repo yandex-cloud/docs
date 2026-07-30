@@ -50,7 +50,7 @@ resource "yandex_cloudregistry_folder" "default" {
 - `name` (*Read-Only*) (String). Name of the artifact.
 - `path` (**Required**)(String). Path of the folder to upsert.
 - `properties` (*Read-Only*) (Map Of String). Key-value properties associated with the artifact.
-- `registry_id` (**Required**)(String). ID of the registry to upsert a folder in.
+- `registry_id` (**Required**)(String). Output only. ID of the registry that contains this artifact.
 - `status` (*Read-Only*) (String). Output only. Status of the artifact.
 - `timeouts` [Block]. 
   - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).

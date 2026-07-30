@@ -65,7 +65,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
     - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите ваш каталог.
-      1. Перейдите в сервис **Identity and Access Management**.
+      1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
       1. Нажмите кнопку **Создать сервисный аккаунт**.
       1. В поле **Имя** укажите имя `service-account-for-budget`.
       1. В поле **Роли в каталоге** нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль `editor`.
@@ -141,7 +141,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
     - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите ваш каталог.
-      1. Перейдите в сервис **Identity and Access Management**.
+      1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
       1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
       1. В открывшемся списке выберите сервисный аккаунт `service-account-for-budget`.
       1. На верхней панели нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Создать новый ключ** и выберите **Создать статический ключ доступа**.
@@ -192,7 +192,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 - Консоль управления {#console} 
 
   1. В [консоли управления](https://console.yandex.cloud) выберите ваш каталог.
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. Справа сверху нажмите кнопку **Создать сеть**.
   1. В поле **Имя** укажите `my-sample-network`.
   1. В поле **Дополнительно** отключите опцию **Создать подсети**.
@@ -302,7 +302,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 - Консоль управления {#console}
   
   1. В [консоли управления](https://console.yandex.cloud) выберите ваш каталог.
-  1. Перейдите в сервис **Message Queue**.
+  1. [Перейдите](https://console.yandex.cloud/link/message-queue) в сервис **Message Queue**.
   1. Нажмите кнопку **Создать очередь**.
   1. В блоке **Базовые параметры** укажите:
       * **Имя** — `budget-queue`.  
@@ -380,7 +380,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
     - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите ваш каталог.
-      1. Перейдите в сервис **Cloud Functions**.
+      1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
       1. Создайте функцию:
           1. Нажмите кнопку **Создать функцию**.
           1. Введите имя функции `budget-trigger-handler`.
@@ -499,7 +499,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите ваш каталог.
-  1. Перейдите в сервис **Cloud Functions**.
+  1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
   1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **Триггеры**.
   1. Нажмите кнопку **Создать триггер**.
   1. В блоке **Базовые параметры**:
@@ -643,7 +643,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
     - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите ваш каталог.
-      1. Перейдите в сервис **Cloud Functions**.
+      1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
       1. Создайте функцию:
           1. Нажмите кнопку **Создать функцию**.
           1. Введите имя функции `budget-queue-handler`.
@@ -748,7 +748,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите ваш каталог.
-  1. Перейдите в сервис **Cloud Functions**.
+  1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
   1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **Триггеры**.
   1. Нажмите кнопку **Создать триггер**.
   1. В блоке **Базовые параметры**:
@@ -822,7 +822,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины**.
   1. Нажмите кнопку **Создать виртуальную машину**.
   1. В блоке **Образ загрузочного диска** выберите [Ubuntu 22.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-22-04-lts).

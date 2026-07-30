@@ -57,7 +57,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Identity and Access Management**.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. Нажмите **Создать сервисный аккаунт**.
   1. Укажите имя сервисного аккаунта: `s2s-vpn-sa`.
   1. Нажмите **Добавить роль** и выберите роли:
@@ -133,7 +133,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. Справа сверху нажмите **Создать сеть**.
   1. В поле **Имя** укажите `s2s-vpn-network`.
   1. В поле **Дополнительно** отключите опцию **Создать подсети**.
@@ -172,7 +172,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. На панели слева выберите ![image](../../_assets/console-icons/map-pin.svg) **Публичные IP-адреса** и нажмите **Зарезервировать публичный IP-адрес**.
   1. В открывшемся окне в поле **Зона доступности** выберите `ru-central1-b` и нажмите **Зарезервировать**.
 
@@ -286,7 +286,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Cloud Apps**.
+  1. [Перейдите](https://console.yandex.cloud/link/cloud-apps) в сервис **Cloud Apps**.
   1. На панели слева выберите ![image](../../_assets/console-icons/shopping-cart.svg) **Магазин приложений**.
   1. В поле **Поиск продуктов** введите `strongswan`, выберите **strongSwan S2S VPN** и нажмите **Использовать**.
   1. В открывшемся окне укажите:
@@ -316,7 +316,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. На панели слева выберите ![image](../../_assets/console-icons/nodes-right.svg) **Подсети**.
   1. В строке автоматически созданной подсети `ipsec-sgw-...` нажмите ![image](../../_assets/console-icons/ellipsis.svg) → **Привязать таблицу маршрутизации** и выберите автоматически созданную таблицу `ipsec-sgw-...`.
   1. Нажмите **Привязать**.
@@ -401,7 +401,7 @@
 
 * Удалите приложение strongSwan S2S VPN:
 
-    1. Перейдите в сервис **Cloud Apps**.
+    1. [Перейдите](https://console.yandex.cloud/link/cloud-apps) в сервис **Cloud Apps**.
     1. В строке с приложением нажмите ![image](../../_assets/console-icons/ellipsis.svg) → **Удалить** и подтвердите удаление.
 
         Вместе с приложением удалятся все связанные с ним ресурсы.

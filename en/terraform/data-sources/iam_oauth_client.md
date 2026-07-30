@@ -9,12 +9,15 @@ An OauthClient resource.
 
 ## Arguments & Attributes Reference
 
+- `authentication_methods` (List Of String). List of authentication methods allowed for the oauth client.
 - `folder_id` (String). ID of the folder oauth client belongs to.
 - `id` (String). ID of the OAuthClient resource to return.
  To get the oauth client ID, use a [OAuthClientService.List] request.
 - `name` (**Required**)(String). Name for the oauth client.
 - `oauth_client_id` (String). ID of the OAuthClient resource to return.
  To get the oauth client ID, use a [OAuthClientService.List] request.
+- `pkce_required` (Bool). Whether PKCE (Proof Key for Code Exchange) is required for the oauth client during the authorization code flow.
+- `profile_id` (String). ID of the profile that defines the set of allowed settings for the oauth client.
 - `redirect_uris` (Set Of String). List of redirect uries allowed for the oauth client.
 - `scopes` (Set Of String). List of oauth scopes requested by the oauth client.
 - `status` (*Read-Only*) (String). Current status of the oauth client.

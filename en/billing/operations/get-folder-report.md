@@ -237,7 +237,7 @@ The table contains the following columns:
 {% endcut %}
 
 
-##### Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [View usage details for the cloud](./check-charges.md)
 

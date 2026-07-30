@@ -5,7 +5,6 @@ subcategory: Identity Hub
 # yandex_organizationmanager_idp_user (Resource)
 
 A user in the Identity Provider system.
-
  Users are created within a userpool and can authenticate to access cloud resources.
  Each user has a unique identifier, credentials, and profile information.
 
@@ -31,8 +30,12 @@ resource "yandex_organizationmanager_idp_user" "example_user" {
 
 ## Arguments & Attributes Reference
 
+- `company_name` (String). User's company name.
 - `created_at` (*Read-Only*) (String). Timestamp when the user was created.
+- `department` (String). User's department.
 - `email` (String). User's email address.
+- `employee_id` (String). User's employee ID
+- `expires_at` (String). Timestamp when the user account expires.
 - `external_id` (String). External identifier for federation with external identity systems.
  This ID can be used to link this user with an account in an external system.
 - `family_name` (String). User's last name.
@@ -43,6 +46,7 @@ resource "yandex_organizationmanager_idp_user" "example_user" {
  Part of the user's profile information.
 - `id` (String). ID of the user to return.
 - `is_active` (Bool). Whether the user is active. Default is true.
+- `job_title` (String). User's job title.
 - `password_hash` [Block]. Password hash. Credentials type. Exactly one of credentials type must be specified.
   - `password_hash` (**Required**)(String). The password hash string.
   - `password_hash_type` (**Required**)(String). Type of the password hash.

@@ -41,7 +41,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. Откройте вкладку **Группы безопасности**.
   1. Нажмите кнопку **Создать группу безопасности**.
   1. Укажите **Имя** группы: `wordpress`.
@@ -132,7 +132,8 @@
 - Консоль управления {#console}
 
    Чтобы добавить [публичную зону DNS](../../../dns/concepts/dns-zone.md#public-zones):
-   1. Перейдите в сервис **Cloud DNS** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где требуется создать [зону DNS](../../../dns/concepts/dns-zone.md).
+   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать [зону DNS](../../../dns/concepts/dns-zone.md).
+   1. [Перейдите](https://console.yandex.cloud/link/dns) в сервис **Cloud DNS**.
    1. Нажмите кнопку **Создать зону**.
    1. Задайте настройки зоны DNS:
       * **Зона** — `example.com.`. Или укажите ваш зарегистрированный домен.

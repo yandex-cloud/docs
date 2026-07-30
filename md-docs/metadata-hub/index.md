@@ -420,6 +420,8 @@
 
  - [Удаление источника](operations/data-catalog/delete-source.md)
 
+ - [Настройка бэкенда для источника](operations/data-catalog/settings-backend-source.md)
+
 #### Загрузки
 
  - [Получение списка загрузок](operations/data-catalog/list-ingestions.md)

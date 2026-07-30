@@ -1042,6 +1042,8 @@ Yandex Cloud предоставляет провайдер, набор моду�
 
  - [smartcaptcha_captcha](data-sources/smartcaptcha_captcha.md)
 
+ - [smartcaptcha_captcha_keys](data-sources/smartcaptcha_captcha_keys.md)
+
 ##### Resources
 
  - [smartcaptcha_captcha](resources/smartcaptcha_captcha.md)

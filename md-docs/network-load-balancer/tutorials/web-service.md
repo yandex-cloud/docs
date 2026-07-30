@@ -87,7 +87,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-    1. Перейдите в сервис **Compute Cloud**.
+    1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
     1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины**.
     1. Нажмите кнопку **Создать виртуальную машину**.
     1. В блоке **Образ загрузочного диска** выберите образ операционной системы [Ubuntu 22.04 LTS OS Login](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-2204-lts-oslogin).
@@ -119,8 +119,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором будет развернута инфраструктура.
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором будет развернута инфраструктура.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. [Создайте облачную сеть](../../vpc/operations/network-create.md) `network`. При создании сети отключите опцию **Создать подсети**.
   1. В сети `network` [создайте подсети](../../vpc/operations/subnet-create.md) со следующими параметрами:
   
@@ -152,8 +152,8 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором будут зарезервированы IP-адреса.
-    1. Перейдите в сервис **Virtual Private Cloud**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором будут зарезервированы IP-адреса.
+    1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
     1. На панели слева выберите ![image](../../_assets/console-icons/map-pin.svg) **Публичные IP-адреса**.
     1. Нажмите кнопку **Зарезервировать публичный IP-адрес**.
     1. В открывшемся окне выберите зону доступности `ru-central1-a` и нажмите кнопку **Зарезервировать**.
@@ -173,8 +173,8 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором будет создана группа безопасности. 
-    1. Перейдите в сервис **Virtual Private Cloud**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором будет создана группа безопасности. 
+    1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
     1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **Группы безопасности**.
     1. Нажмите кнопку **Создать группу безопасности**.
     1. Введите имя группы безопасности — `vpn-sg`.
@@ -211,8 +211,8 @@
 
 - Консоль управления {#console}
   
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором будет создана группа безопасности. 
-    1. Перейдите в сервис **Virtual Private Cloud**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором будет создана группа безопасности. 
+    1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
     1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **Группы безопасности**.
     1. Нажмите кнопку **Создать группу безопасности**.
     1. Введите имя группы безопасности — `web-service-sg`.
@@ -240,7 +240,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором будут созданы ВМ.
-    1. Перейдите в сервис **Compute Cloud**.
+    1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
     1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины**.
     1. Нажмите кнопку **Создать виртуальную машину**.
     1. В блоке **Образ загрузочного диска** перейдите на вкладку **Marketplace** и выберите образ [Drupal 10](https://yandex.cloud/ru/marketplace/products/yc/drupal-8).
@@ -293,8 +293,8 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором будет создана ВМ.
-    1. Перейдите в сервис **Compute Cloud**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором будет создана ВМ.
+    1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
     1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины**.
     1. Нажмите кнопку **Создать виртуальную машину**.
     1. В блоке **Образ загрузочного диска** перейдите на вкладку **Marketplace** и выберите образ [IPSec-инстанс](https://yandex.cloud/ru/marketplace/products/yc/ipsec-instance-ubuntu).
@@ -346,8 +346,8 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором будет настроена маршрутизация.
-    1. Перейдите в сервис **Virtual Private Cloud**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором будет настроена маршрутизация.
+    1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
     1. Выберите сеть `network`, созданную ранее.
     1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **Таблицы маршрутизации**.
     1. Нажмите кнопку **Создать таблицу маршрутизации**.
@@ -371,8 +371,8 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, где требуется настроить маршрутизацию.
-    1. Перейдите в сервис **Virtual Private Cloud**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, где требуется настроить маршрутизацию.
+    1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
     1. На панели слева выберите ![image](../../_assets/console-icons/nodes-right.svg) **Подсети**.
     1. В строке с подсетью `subnet-a` нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Привязать таблицу маршрутизации**.
     1. В открывшемся окне в поле **Таблица маршрутизации** выберите созданную ранее таблицу `vpn-route`.
@@ -391,8 +391,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, где требуется создать балансировщик.
-  1. Перейдите в сервис **Network Load Balancer**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, где требуется создать балансировщик.
+  1. [Перейдите](https://console.yandex.cloud/link/network-load-balancer) в сервис **Network Load Balancer**.
   1. Нажмите кнопку **Создать сетевой балансировщик**.
   1. Задайте имя балансировщика — `web-service-lb`.
   1. В поле **Публичный адрес** выберите `Список` и укажите публичный статический адрес.
