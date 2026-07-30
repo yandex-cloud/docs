@@ -202,8 +202,8 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли  управления](https://console.yandex.cloud) перейдите в каталог, который указали в настройках Yandex Unified Agent.
-    1. Перейдите в сервис **Cloud Logging**.
+    1. В [консоли  управления](https://console.yandex.cloud) выберите каталог, который указали в настройках Yandex Unified Agent.
+    1. [Перейдите](https://console.yandex.cloud/link/logging) в сервис **Cloud Logging**.
     1. Выберите лог-группу по умолчанию `default`.
     1. Перейдите на вкладку **Логи**.
     1. На открывшейся странице отобразятся записи.

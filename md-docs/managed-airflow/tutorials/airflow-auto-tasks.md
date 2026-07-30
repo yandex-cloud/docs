@@ -49,7 +49,7 @@ Managed Service for Apache Airflow™ — это популярный инстр
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать сервисный аккаунт.
-  1. Перейдите в сервис **Identity and Access Management**.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. Нажмите кнопку **Создать сервисный аккаунт**.
   1. Введите имя сервисного аккаунта: `airflow-sa`.
   1. Нажмите ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль `editor`.
@@ -103,7 +103,7 @@ Managed Service for Apache Airflow™ — это популярный инстр
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. Нажмите кнопку **Создать сеть**.
   1. В поле **Имя** укажите `yq-network`.
   1. В поле **Дополнительно** выберите опцию `Создать подсети`.
@@ -190,7 +190,7 @@ Managed Service for Apache Airflow™ — это популярный инстр
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. Перейдите в сервис **Object Storage**.
+  1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
   1. Нажмите кнопку **Создать бакет**.
   1. В поле **Имя** укажите [уникальное имя](../../storage/concepts/bucket.md#naming) бакета, например `airflow-bucket`.
   1. В полях **Чтение объектов** и **Чтение списка объектов** выберите `Для всех`.
@@ -241,7 +241,7 @@ Managed Service for Apache Airflow™ — это популярный инстр
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. На панели слева выберите **Шлюзы**.
   1. Нажмите кнопку **Создать шлюз** и в открывшемся окне:
       1. В поле **Имя** укажите имя `yq-nat`.
@@ -384,7 +384,7 @@ Managed Service for Apache Airflow™ — это популярный инстр
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно [создать кластер](../operations/cluster-create.md).
-  1. Перейдите в сервис **Managed Service for&nbsp;Apache&nbsp;Airflow™**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-airflow) в сервис **Managed Service for&nbsp;Apache&nbsp;Airflow™**.
   1. Нажмите кнопку **Создать кластер**.
   1. В блоке **Базовые параметры** укажите имя кластера. Имя должно быть уникальным в рамках каталога.
   1. В блоке **Настройки доступа** задайте пароль пользователя-администратора. Пароль должен иметь длину не менее 8 символов и содержать как минимум:

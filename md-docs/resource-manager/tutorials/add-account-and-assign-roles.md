@@ -89,7 +89,7 @@
 
 - Интерфейс Cloud Center {#cloud-center}
 
-    1. Перейдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+    1. [Перейдите](https://center.yandex.cloud/organization) в сервис **Yandex Identity Hub**.
     1. На панели слева выберите ![icon-users](../../_assets/console-icons/person.svg) **Пользователи**.
     1. В правом верхнем углу нажмите кнопку ![person-plus](../../_assets/console-icons/person-plus.svg) **Добавить пользователя** и выберите ![person-planet-earth](../../_assets/console-icons/person-planet-earth.svg) **Пригласить пользователей с аккаунтом на Яндексе**.
     1. Введите почту пользователя.
@@ -129,7 +129,7 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог `test-folder`.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог `test-folder`.
     1. Перейдите на вкладку **Права доступа**.
     1. Нажмите кнопку **Настроить доступ**.
     1. В открывшемся окне выберите раздел **Приглашенные аккаунты**.
@@ -196,7 +196,7 @@
   1. Перейдите в [консоль управления](https://console.yandex.cloud) и на панели слева нажмите на аватар вашего аккаунта.
   1. Выберите организацию `Example organization`.
   1. На панели слева выберите каталог `test-folder`.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. Выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины**.
   1. Нажмите кнопку **Создать виртуальную машину** и задайте настройки ВМ:
 

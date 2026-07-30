@@ -82,8 +82,8 @@
 
 - Консоль управления {#console}
   
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с созданной ВМ.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог с созданной ВМ.
+  1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. В списке ВМ выберите `cisco-router`.
   1. Перейдите на вкладку ![image](../../_assets/console-icons/terminal.svg) **{{ ui-key.yacloud.compute.instance.switch_console }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instance.console.connect }}**.
   1. Дождитесь полной загрузки операционной системы.

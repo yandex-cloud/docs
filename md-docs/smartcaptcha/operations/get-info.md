@@ -93,9 +93,9 @@
 
       * `data "yandex_smartcaptcha_captcha"` — описание капчи в качестве источника данных:
          
-         * `resource_id` — идентификатор ресурса.
+         * `captcha_id` — идентификатор капчи.
       
-      * `output "ref_description"` — выходная переменная, которая содержит информацию о [клиентском ключе](../concepts/keys.md) (`client_key`):
+      * `output "my-client-key"` — выходная переменная, которая содержит информацию о [клиентском ключе](../concepts/keys.md) (`client_key`):
          
          * `value` — возвращаемое значение.
 

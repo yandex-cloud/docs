@@ -38,7 +38,7 @@ description: Из статьи вы узнаете, как добавлять и
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [User.List](../api-ref/User/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [User.List](../api-ref/User/list.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -58,7 +58,7 @@ description: Из статьи вы узнаете, как добавлять и
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [UserService.List](../api-ref/grpc/User/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [UserService.List](../api-ref/grpc/User/list.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -130,18 +130,37 @@ description: Из статьи вы узнаете, как добавлять и
      {{ yc-mdb-mg }} user create --help
      ```
   
-  1. Укажите свойства пользователя в команде создания:
+  1. Укажите параметры пользователя в команде создания:
+     
      ```
      {{ yc-mdb-mg }} user create <имя_пользователя> \
        --cluster-name <имя_кластера> \
-       --password <пароль_для_пользователя> \
+       --password <пароль_пользователя> \
        --permission database=<имя_БД>,role=<роль>,role=<другая_роль>,... \
-       --permission database=<имя_другой_БД>,role=<роль>,...
+       --permission database=<имя_другой_БД>,role=<роль>,... \
+       --deletion-protection=<защитить_пользователя_от_удаления>
      ```
   
-     {% include [user-name-and-password-limits](../../_includes/mdb/mmg/note-info-user-name-and-pass-limits.md) %}
+     Где:
+     
+     * `<имя_пользователя>`, `--password` — имя и пароль пользователя.
 
-     Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+       {% include [user-name-and-password-limits](../../_includes/mdb/mmg/note-info-user-name-and-pass-limits.md) %}
+
+     * `--cluster-name` — имя кластера, которое можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+     * `--permission` — разрешения пользователя для доступа к базе данных:
+     
+       * `database` — имя базы данных, к которой пользователь получает доступ.
+         
+         Имя базы данных можно запросить со [списком баз данных в кластере](databases.md#list-db).
+       
+       * `role` — роль пользователя в базе данных. Список доступных значений приведен в разделе [Пользователи и роли](../concepts/users-and-roles.md).
+       
+         Пользователю можно назначить несколько ролей в базе данных. Для этого каждую роль укажите в отдельном параметре `role`.
+      
+       Для каждой базы данных, к которой нужно предоставить доступ пользователю, задайте отдельный параметр `--permission`.
+     
+     * `--deletion-protection` — защита пользователя от непреднамеренного удаления: `true` или `false`. По умолчанию значение не задано, и для пользователя используется значение соответствующей настройки кластера. Если защита включена (`true`), удалить пользователя нельзя.
 
 - {{ TF }} {#tf}
 
@@ -153,9 +172,10 @@ description: Из статьи вы узнаете, как добавлять и
 
         ```hcl
         resource "yandex_mdb_mongodb_user" "<имя_пользователя>" {
-          cluster_id = <идентификатор_кластера>
-          name       = "<имя_пользователя>"
-          password   = "<пароль>"
+          cluster_id          = <идентификатор_кластера>
+          name                = "<имя_пользователя>"
+          password            = "<пароль>"
+          deletion_protection = <защитить_пользователя_от_удаления>
           permission {
             database_name = "<имя_БД>"
             roles         = [ "<список_ролей_пользователя>" ]
@@ -163,9 +183,22 @@ description: Из статьи вы узнаете, как добавлять и
         }
         ```
 
-        Где `database_name` — имя БД, к которой предоставляется доступ.
+        Где:
+        
+        * `cluster_id` — идентификатор кластера, который можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+        * `name`, `password` — имя и пароль пользователя.
 
-        {% include [user-name-and-password-limits](../../_includes/mdb/mmg/note-info-user-name-and-pass-limits.md) %}
+          {% include [user-name-and-password-limits](../../_includes/mdb/mmg/note-info-user-name-and-pass-limits.md) %}
+
+        * `deletion_protection` — защита пользователя от непреднамеренного удаления: `true` или `false`. По умолчанию значение не задано, и для пользователя используется значение соответствующей настройки кластера. Если защита включена (`true`), удалить пользователя нельзя.
+        
+        * `permission` — разрешения пользователя для доступа к базе данных:
+          
+          * `database_name` — имя базы данных, к которой пользователь получает доступ.
+            
+            Имя базы данных можно запросить со [списком баз данных в кластере](databases.md#list-db).
+
+          * `roles` — список ролей пользователя в базе данных. Доступные значения приведены в разделе [Пользователи и роли](../concepts/users-and-roles.md).
 
     1. Проверьте корректность настроек.
 
@@ -183,7 +216,7 @@ description: Из статьи вы узнаете, как добавлять и
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [User.Create](../api-ref/User/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [User.Create](../api-ref/User/create.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -202,26 +235,30 @@ description: Из статьи вы узнаете, как добавлять и
                         "<роль_1>", "<роль_2>", ..., "<роль_N>"
                        ]
                      }
-                   ]
+                   ],
+                   "deletionProtection": <защитить_пользователя_от_удаления>
                  }
                }'
      ```
 
-     Где `userSpec` — настройки нового пользователя БД:
+     Где:
 
-     * `name` — имя пользователя.
-     * `password` — пароль пользователя.
-
+     * `<идентификатор_кластера>` — идентификатор кластера, который можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+     * `userSpec.name`, `userSpec.password` — имя и пароль пользователя.
+       
        {% include [user-name-and-password-limits](../../_includes/mdb/mmg/note-info-user-name-and-pass-limits.md) %}
 
-     * `permissions` — настройки разрешений пользователя:
+     * `userSpec.permissions` — настройки разрешений пользователя:
 
        * `databaseName` — имя базы данных, к которой пользователь получает доступ.
+         
+         Имя базы данных можно запросить со [списком баз данных в кластере](databases.md#list-db).
+
        * `roles` — массив ролей пользователя. Каждая роль представлена в виде отдельной строки в массиве. Список доступных значений приведен в разделе [Пользователи и роли](../concepts/users-and-roles.md).
 
        Для каждой базы данных добавьте отдельный элемент с настройками разрешений в массив `permissions`.
-
-     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+     
+     * `userSpec.deletionProtection` — защита пользователя от непреднамеренного удаления: `true` или `false`. По умолчанию значение не задано, и для пользователя используется значение соответствующей настройки кластера. Если защита включена (`true`), удалить пользователя нельзя.
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/create.md#yandex.cloud.operation.Operation).
 
@@ -232,7 +269,7 @@ description: Из статьи вы узнаете, как добавлять и
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [UserService.Create](../api-ref/grpc/User/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [UserService.Create](../api-ref/grpc/User/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -253,34 +290,44 @@ description: Из статьи вы узнаете, как добавлять и
                       "<роль_1>", "<роль_2>", ..., "<роль_N>"
                    ]   
                  }
-               ]
+               ],
+               "deletion_protection": <защитить_пользователя_от_удаления>
              }
            }' \
        {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.mongodb.v1.UserService.Create
      ```
 
-     Где `user_spec` — настройки нового пользователя БД:
+     Где:
+     
+     * `cluster_id` — идентификатор кластера, который можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+     * `user_spec.name`, `user_spec.password` — имя и пароль пользователя.
 
-     * `name` — имя пользователя.
-     * `password` — пароль пользователя.
+       {% include [user-name-and-password-limits](../../_includes/mdb/mmg/note-info-user-name-and-pass-limits.md) %}
 
-          {% include [user-name-and-password-limits](../../_includes/mdb/mmg/note-info-user-name-and-pass-limits.md) %}
-
-     * `permissions` — настройки разрешений пользователя:
+     * `user_spec.permissions` — настройки разрешений пользователя:
 
        * `database_name` — имя базы данных, к которой пользователь получает доступ.
+         
+         Имя базы данных можно запросить со [списком баз данных в кластере](databases.md#list-db).
+         
        * `roles` — массив ролей пользователя. Каждая роль представлена в виде отдельной строки в массиве. Список доступных значений приведен в разделе [Пользователи и роли](../concepts/users-and-roles.md).
 
        Для каждой базы данных добавьте отдельный элемент с настройками разрешений в массив `permissions`.
 
-     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+     * `user_spec.deletion_protection` — защита пользователя от непреднамеренного удаления: `true` или `false`. По умолчанию значение не задано, и для пользователя используется значение соответствующей настройки кластера. Если защита включена (`true`), удалить пользователя нельзя.
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
-## Изменить пароль и роль пользователя {#updateuser}
+## Изменить настройки пользователя {#updateuser}
+
+{% note info %}
+
+Изменить имя пользователя нельзя.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
@@ -297,7 +344,7 @@ description: Из статьи вы узнаете, как добавлять и
      * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}** — ввести свой пароль. Длина пароля — от 8 до 128 символов.
      * **{{ ui-key.yacloud.component.password-input.label_button-generate }}** — сгенерировать пароль с помощью сервиса [{{ connection-manager-name }}](cluster-create.md#conn-man).
 
-        Чтобы увидеть новый сгенерированный пароль, на странице кластера выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
+        Чтобы увидеть новый сгенерированный пароль, на странице кластера выберите вкладку **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
 
      Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
@@ -316,7 +363,7 @@ description: Из статьи вы узнаете, как добавлять и
   
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
   
-  Чтобы изменить пароль или список ролей пользователя:
+  Чтобы изменить настройки пользователя:
   
   1. Посмотрите описание команды CLI для изменения пользователя:
   
@@ -324,17 +371,40 @@ description: Из статьи вы узнаете, как добавлять и
      {{ yc-mdb-mg }} user update --help
      ```
   
-  1. Укажите свойства пользователя в команде изменения:
+  1. Укажите параметры пользователя в команде изменения:
      
      ```
      {{ yc-mdb-mg }} user update <имя_пользователя> \
        --cluster-name <имя_кластера> \
-       --password <пароль_для_пользователя> \
+       --password <пароль_пользователя> \
        --permission database=<имя_БД>,role=<роль>,role=<другая_роль>,... \
-       --permission database=<имя_другой_БД>,role=<роль>,...
+       --permission database=<имя_другой_БД>,role=<роль>,... \
+       --deletion-protection=<защитить_пользователя_от_удаления>
      ```
   
-     {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
+     Где:
+     
+     * `<имя_пользователя>` — имя пользователя, которое можно запросить со [списком пользователей в кластере](#list-users).
+     * `--cluster-name` — имя кластера, которое можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+     * `--password` — пароль пользователя.
+
+              
+       Длина пароля от 8 до 128 символов.
+       
+
+     * `--permission` — разрешения пользователя для доступа к базе данных:
+     
+       * `database` — имя базы данных, к которой пользователь получает доступ.
+         
+         Имя базы данных можно запросить со [списком баз данных в кластере](databases.md#list-db).
+       
+       * `role` — роль пользователя в базе данных. Список доступных значений приведен в разделе [Пользователи и роли](../concepts/users-and-roles.md).
+
+         Пользователю можно назначить несколько ролей в базе данных. Для этого каждую роль укажите в отдельном параметре `role`.
+      
+       Для каждой базы данных, к которой нужно предоставить доступ пользователю, задайте отдельный параметр `--permission`.
+     
+     * `--deletion-protection` — защита пользователя от непреднамеренного удаления: `true` или `false`. По умолчанию значение не задано, и для пользователя используется значение соответствующей настройки кластера. Если защита включена (`true`), удалить пользователя нельзя.
 
   Чтобы добавить пользователю доступ к базе данных с определенным набором ролей:
 
@@ -371,7 +441,7 @@ description: Из статьи вы узнаете, как добавлять и
 
       Эта команда полностью закрывает пользователю доступ к указанной базе данных.
 
-  Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), имя базы данных — со [списком баз данных в кластере](databases.md#list-db), имя пользователя — со [списком пользователей в кластере](cluster-users.md#list-users).
+  Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), имя базы данных — со [списком баз данных в кластере](databases.md#list-db), имя пользователя — со [списком пользователей в кластере](#list-users).
 
 - {{ TF }} {#tf}
 
@@ -380,21 +450,46 @@ description: Из статьи вы узнаете, как добавлять и
         Инструкция по созданию такого файла приведена в разделе [Создание кластера](cluster-create.md).
 
     1. Найдите ресурс `yandex_mdb_mongodb_user`.
-    1. Измените значение поля `password` и значения полей в блоке `permission`:
+    1. Чтобы задать новый пароль, измените значение поля `password`:
 
         ```hcl
         resource "yandex_mdb_mongodb_user" "<имя_пользователя>" {
-          cluster_id = <идентификатор_кластера>
-          name       = "<имя_пользователя>"
+          ...
           password   = "<новый_пароль>"
+          ...
+        }
+        ```
+
+               
+        Длина пароля от 8 до 128 символов.
+       
+
+    1. Чтобы настроить разрешения пользователя, измените список ролей в поле `roles`:
+        
+        ```hcl
+        resource "yandex_mdb_mongodb_user" "<имя_пользователя>" {
+          ...
           permission {
             database_name = "<имя_БД>"
             roles         = [ "<новый_список_ролей_пользователя>" ]
           }
+          ...
         }
         ```
 
-        {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
+        Список доступных ролей приведен в разделе [Пользователи и роли](../concepts/users-and-roles.md).
+    
+    1. Чтобы включить или отключить защиту пользователя от непреднамеренного удаления, измените значение поля `deletion_protection`:
+
+        ```hcl
+        resource "yandex_mdb_mongodb_user" "<имя_пользователя>" {
+          ...
+          deletion_protection = <защитить_пользователя_от_удаления>
+          ...
+        }
+        ```
+
+        Где `deletion_protection` — защита пользователя от непреднамеренного удаления: `true` или `false`. По умолчанию значение не задано, и для пользователя используется значение соответствующей настройки кластера. Если защита включена (`true`), удалить пользователя нельзя.
 
     1. Проверьте корректность настроек.
   
@@ -412,7 +507,7 @@ description: Из статьи вы узнаете, как добавлять и
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [User.Update](../api-ref/User/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [User.Update](../api-ref/User/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -423,7 +518,7 @@ description: Из статьи вы узнаете, как добавлять и
        --header "Content-Type: application/json" \
        --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>' \
        --data '{
-                "updateMask": "password,permissions.databaseName,permissions.roles",
+                "updateMask": "password,permissions.databaseName,permissions.roles,deletionProtection",
                 "password": "<пароль_пользователя>",
                 "permissions": [
                   {
@@ -432,23 +527,31 @@ description: Из статьи вы узнаете, как добавлять и
                       "<роль_1>", "<роль_2>", ..., "<роль_N>"
                     ]
                   }
-                ]
+                ],
+                "deletionProtection": <защитить_пользователя_от_удаления>
               }'
-     ```                
+     ```
 
      Где:
 
+     * `<идентификатор_кластера>` — идентификатор кластера, который можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+     * `<имя_пользователя>` — имя пользователя, которое можно запросить со [списком пользователей в кластере](#list-users).
      * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
      * `password` — пароль пользователя.
 
-        {% include [user-name-and-password-limits](../../_includes/mdb/mmg/note-info-user-name-and-pass-limits.md) %}
+              
+       Длина пароля от 8 до 128 символов.
+       
 
      * `permissions` — настройки разрешений пользователя:
 
-       * `database_name` — имя базы данных, к которой пользователь получает доступ.
+       * `databaseName` — имя базы данных, к которой пользователь получает доступ.
+         
+         Имя базы данных можно запросить со [списком баз данных в кластере](databases.md#list-db).
+
        * `roles` — массив ролей пользователя. Каждая роль представлена в виде отдельной строки в массиве. Список доступных значений приведен в разделе [Пользователи и роли](../concepts/users-and-roles.md).
- 
-     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя пользователя — со [списком пользователей в кластере](#list-users).
+     
+     * `deletionProtection` — защита пользователя от непреднамеренного удаления: `true` или `false`. По умолчанию значение не задано, и для пользователя используется значение соответствующей настройки кластера. Если защита включена (`true`), удалить пользователя нельзя.
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/update.md#yandex.cloud.operation.Operation).
 
@@ -459,7 +562,7 @@ description: Из статьи вы узнаете, как добавлять и
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [UserService.Update](../api-ref/grpc/User/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [UserService.Update](../api-ref/grpc/User/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -477,7 +580,8 @@ description: Из статьи вы узнаете, как добавлять и
                "paths": [
                  "password",
                  "permissions.database_name",
-                 "permissions.roles"
+                 "permissions.roles",
+                 "deletion_protection"
                ]
              },
              "password": "<пароль_пользователя>",
@@ -488,7 +592,8 @@ description: Из статьи вы узнаете, как добавлять и
                    "<роль_1>", "<роль_2>", ..., "<роль_N>"
                  ]
                }
-             ]
+             ],
+             "deletion_protection": <защитить_пользователя_от_удаления>
            }' \
        {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.mongodb.v1.UserService.Update
@@ -496,23 +601,37 @@ description: Из статьи вы узнаете, как добавлять и
 
      Где:
 
-     * `update_mask` — перечень изменяемых параметров в одну строку через запятую.
+     * `cluster_id` — идентификатор кластера, который можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+     * `user_name` — имя пользователя, которое можно запросить со [списком пользователей в кластере](#list-users).
+
+     * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
      * `password` — пароль пользователя.
 
-        {% include [user-name-and-password-limits](../../_includes/mdb/mmg/note-info-user-name-and-pass-limits.md) %}
+              
+       Длина пароля от 8 до 128 символов.
+       
 
      * `permissions` — настройки разрешений пользователя:
 
        * `database_name` — имя базы данных, к которой пользователь получает доступ.
+         
+         Имя базы данных можно запросить со [списком баз данных в кластере](databases.md#list-db).
+
        * `roles` — массив ролей пользователя. Каждая роль представлена в виде отдельной строки в массиве. Список доступных значений приведен в разделе [Пользователи и роли](../concepts/users-and-roles.md).
-
-     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя пользователя — со [списком пользователей в кластере](#list-users).
-
+     
+     * `deletion_protection` — защита пользователя от непреднамеренного удаления: `true` или `false`. По умолчанию значение не задано, и для пользователя используется значение соответствующей настройки кластера. Если защита включена (`true`), удалить пользователя нельзя.
+     
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/User/update.md#yandex.cloud.operation.Operation). 
 
 {% endlist %}
 
 ## Удалить пользователя {#removeuser}
+
+{% note info %}
+
+Перед удалением пользователя [отключите его защиту от удаления](#updateuser).
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
@@ -562,7 +681,7 @@ description: Из статьи вы узнаете, как добавлять и
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [User.Delete](../api-ref/User/delete.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [User.Delete](../api-ref/User/delete.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -582,7 +701,7 @@ description: Из статьи вы узнаете, как добавлять и
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [UserService.Delete](../api-ref/grpc/User/delete.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [UserService.Delete](../api-ref/grpc/User/delete.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \

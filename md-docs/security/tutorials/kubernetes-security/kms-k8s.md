@@ -18,7 +18,7 @@
 
   Укажите ключ при создании кластера Managed Service for Kubernetes:
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создан кластер Managed Service for Kubernetes.
-  1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Нажмите кнопку **Создать кластер**.
   1. В поле **Ключ шифрования** укажите необходимый ключ или [создайте новый](../../../kms/operations/key.md#create).
   1. Закончите заполнение параметров [создания кластера](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md).

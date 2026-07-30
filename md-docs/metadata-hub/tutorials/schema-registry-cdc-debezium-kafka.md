@@ -41,7 +41,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете работать с реестром схем.
-  1. Перейдите в сервис **Yandex MetaData Hub**.
+  1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
   1. Hа панели слева выберите ![image](../../_assets/console-icons/layout-cells.svg) **Schema Registry** / **Пространство имён**.
   1. Нажмите кнопку **Создать пространство имён**. 
   1. Укажите [настройки пространства имен](../operations/create-name-space.md). После сохранения пространства имен, вы сможете использовать его идентификатор для получения URL Schema Registry: `{namespace_id}.schema-registry.yandexcloud.net:443`.
@@ -55,7 +55,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Yandex Data Transfer**. 
+  1. [Перейдите](https://console.yandex.cloud/link/data-transfer) в сервис **Yandex Data Transfer**. 
   1. [Создайте эндпоинт-источник Apache Kafka®](../../data-transfer/operations/endpoint/source/kafka.md) со следующими настройками:
 
       * **Тип базы данных** — **Apache Kafka®**.

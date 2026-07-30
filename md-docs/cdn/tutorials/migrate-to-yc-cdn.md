@@ -54,7 +54,7 @@
     - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в который будет добавлен сертификат.
-      1. Перейдите в сервис **Certificate Manager**.
+      1. [Перейдите](https://console.yandex.cloud/link/certificate-manager) в сервис **Certificate Manager**.
       1. Нажмите кнопку **Добавить сертификат** и выберите **Сертификат от Let's Encrypt**.
       1. В открывшемся окне в поле **Имя** введите имя сертификата. Например: `my-cdn-certificate`.
       1. В поле **Домены** задайте маску для вашего домена и его поддоменов. Например: `*.example.com`, где `example.com` — доменное имя вашего сайта.
@@ -101,7 +101,7 @@
     - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в который был добавлен [сертификат](../../certificate-manager/concepts/managed-certificate.md).
-      1. Перейдите в сервис **Certificate Manager**.
+      1. [Перейдите](https://console.yandex.cloud/link/certificate-manager) в сервис **Certificate Manager**.
       1. В списке сертификатов выберите сертификат, для которого необходимо пройти процедуру проверки.
       1. В открывшемся окне в блоке **Проверка прав на домены** будет указана информация для прохождения процедуры проверки прав.
 
@@ -163,7 +163,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы будете создавать CDN-ресурс.
-  1. Перейдите в сервис **Cloud CDN**.
+  1. [Перейдите](https://console.yandex.cloud/link/cdn) в сервис **Cloud CDN**.
   1. Нажмите **Создать ресурс**.
   1. Задайте основные настройки CDN-ресурса:
       * В блоке **Контент**:
@@ -297,7 +297,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором расположен ваш CDN-ресурс.
-  1. Перейдите в сервис **Cloud CDN**.
+  1. [Перейдите](https://console.yandex.cloud/link/cdn) в сервис **Cloud CDN**.
   1. В строке с созданным ранее CDN-ресурсом нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать**.
   1. В блоке **Доменные имена для раздачи контента** нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **Добавить доменное имя** и в появившемся поле введите доменное имя, оставшееся от прежнего CDN-ресурса. Например: `cdn.example.com`.
   1. Нажмите кнопку **Сохранить**.

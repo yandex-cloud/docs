@@ -46,7 +46,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы хотите создать ВМ с подключением к Cloud Backup.
-  1. Перейдите в сервис **Cloud Backup**.
+  1. [Перейдите](https://console.yandex.cloud/link/backup) в сервис **Cloud Backup**.
   1. Если сервис Cloud Backup еще не активирован, нажмите **Активировать**.
 
       Если кнопки **Активировать** нет, и вам доступно создание ВМ с подключением к Cloud Backup, значит, сервис уже активирован. Переходите к следующему шагу.
@@ -112,7 +112,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором активирован сервис.
-  1. Перейдите в сервис **Identity and Access Management**.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. Нажмите кнопку **Создать сервисный аккаунт**.
   1. Введите имя [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md) — `backup-sa`.
   1. Нажмите кнопку ![plus-sign](../../../_assets/console-icons/plus.svg) **Добавить роль** и выберите [роль](../../../backup/security/index.md#backup-user) `backup.user`.
@@ -181,7 +181,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать облачную сеть.
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. Справа сверху нажмите кнопку **Создать сеть**.
   1. В поле **Имя** укажите `cloud-network`.
   1. В поле **Дополнительно** выберите опцию **Создать подсети**.
@@ -248,8 +248,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором вы хотите создать ВМ с подключением к Cloud Backup.
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы хотите создать ВМ с подключением к Cloud Backup.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/shield.svg) **Группы безопасности**.
   1. Нажмите **Создать группу безопасности**.
   1. В поле **Имя** укажите `backup-sg`.
@@ -358,8 +358,8 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать политику резервного копирования.
-  1. Перейдите в сервис **Cloud Backup**.
-  1. Перейдите на вкладку ![policies](../../../_assets/console-icons/calendar.svg) **Политики копирования**.
+  1. [Перейдите](https://console.yandex.cloud/link/backup) в сервис **Cloud Backup**.
+  1. Откройте вкладку ![policies](../../../_assets/console-icons/calendar.svg) **Политики копирования**.
   1. Нажмите кнопку **Создать политику**.
   1. Укажите параметры политики:
 
@@ -527,7 +527,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **Виртуальные машины**.
   1. Нажмите кнопку **Создать виртуальную машину**.
   1. В блоке **Образ загрузочного диска** в поле **Поиск продукта** введите `Ubuntu 22.04 LTS` и выберите публичный образ [Ubuntu 22.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-22-04-lts).

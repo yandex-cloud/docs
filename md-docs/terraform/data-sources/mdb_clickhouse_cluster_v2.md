@@ -107,6 +107,8 @@ output "network_id" {
       - `session_timeout_ms` (Number). Client group session and failure detection timeout.
     - `keep_alive_timeout` (Number). The number of seconds that ClickHouse waits for incoming requests for HTTP protocol before closing the connection.
     - `log_level` (String). Logging level.
+    - `mark_cache_size` (Number). Size of the cache for marks (index blocks). For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#mark_cache_size).
+    - `max_build_vector_similarity_index_thread_pool_size` (Number). Maximum number of threads for building vector similarity indexes. For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#max_build_vector_similarity_index_thread_pool_size).
     - `max_concurrent_queries` (Number). Limit on total number of concurrently executed queries.
     - `max_connections` (Number). Max server connections.
     - `max_partition_size_to_drop` (Number). Restriction on dropping partitions.
@@ -192,12 +194,16 @@ output "network_id" {
     - `text_log_retention_size` (Number). The maximum size that text_log can grow to before old data will be removed.
     - `text_log_retention_time` (Number). The maximum time that text_log records will be retained before removal.
     - `timezone` (String). The server's time zone.
+    - `tls` [Block]. TLS configuration for outgoing connections from ClickHouse (e.g. remote tables, dictionaries). Change of the settings is applied with restart.
+      - `trusted_certificates` (List Of String). CA certificates in PEM format. Each element must contain a single self-signed CA certificate or a certificate chain ordered as leaf -> intermediates -> self-signed root. Change of the setting is applied with restart.
     - `total_memory_profiler_step` (Number). Whenever server memory usage becomes larger than every next step in number of bytes the memory profiler will collect the allocating stack trace.
     - `total_memory_tracker_sample_probability` (Number). Allows to collect random allocations and de-allocations and writes them in the system.trace_log system table with trace_type equal to a MemorySample with the specified probability.
     - `trace_log_enabled` (Bool). Enable or disable trace_log system table.
     - `trace_log_retention_size` (Number). The maximum size that trace_log can grow to before old data will be removed.
     - `trace_log_retention_time` (Number). The maximum time that trace_log records will be retained before removal.
     - `uncompressed_cache_size` (Number). Cache size (in bytes) for uncompressed data used by table engines from the MergeTree family. Zero means disabled.
+    - `vector_similarity_index_cache_max_entries` (Number). Maximum number of entries in the vector similarity index cache. For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#vector_similarity_index_cache_max_entries).
+    - `vector_similarity_index_cache_size` (Number). Maximum size of the cache for vector similarity index. For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#vector_similarity_index_cache_size).
     - `zookeeper_log_enabled` (Bool). Enable or disable zookeeper_log system table.
     - `zookeeper_log_retention_size` (Number). The maximum size that zookeeper_log can grow to before old data will be removed.
     - `zookeeper_log_retention_time` (Number). The maximum time that zookeeper_log records will be retained before removal.
@@ -326,6 +332,7 @@ output "network_id" {
       - `null_value` (String). Default value for null.
       - `type` (**Required**)(String). Attribute type.
 - `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
+- `full_version` (*Read-Only*) (String). Full version of the ClickHouse server software.
 - `hosts` [Block]. A host configuration of the ClickHouse cluster.
   - `assign_public_ip` (Bool). Whether the host should get a public IP address.
   - `fqdn` (*Read-Only*) (String). The fully qualified domain name of the host.
@@ -335,6 +342,10 @@ output "network_id" {
   - `zone` (**Required**)(String). The [availability zone](../../overview/concepts/geo-scope.md) where resource is located. If it is not provided, the default provider zone will be used.
 - `id` (*Read-Only*) (String). The resource identifier.
 - `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
+- `monitoring` [Block]. Description of monitoring systems relevant to the ClickHouse cluster.
+  - `description` (*Read-Only*) (String). Description of the monitoring system.
+  - `link` (*Read-Only*) (String). Link to the monitoring system charts for the ClickHouse cluster.
+  - `name` (*Read-Only*) (String). Name of the monitoring system.
 - `name` (**Required**)(String). Name of the ClickHouse cluster. Provided by the client when the cluster is created.
 - `network_id` (**Required**)(String). The `VPC Network ID` of subnets which resource attached to.
 - `performance_diagnostics` [Block]. Performance diagnostics configuration
@@ -386,4 +397,14 @@ output "network_id" {
 - `shard_group` [Block]. A group of clickhouse shards.
   - `description` (String). Description of the shard group.
   - `name` (**Required**)(String). The name of the shard group, used as cluster name in Distributed tables.
-  - `shard_names` (**Required**)(List Of String). List of shards names that belong to the shard group.
+  - `shard_names` (List Of String). List of shards names that belong to the shard group. At least one of shard_names or external_shard must be specified.
+  - `external_shard` [Block]. List of external shards in the shard group. At least one of shard_names or external_shard must be specified.
+    - `name` (**Required**)(String). Name of the external shard.
+    - `weight` (Number). Relative weight of the external shard considered when writing data.
+    - `replica` [Block]. List of replicas in the external shard.
+      - `host` (**Required**)(String). Name (FQDN) or IP address of the external replica host.
+      - `password` (String). Password of the user to authenticate with on the external replica.
+      - `port` (Number). Port to connect to the external replica. Defaults to the ClickHouse native port (9000).
+      - `priority` (Number). Priority of the external replica for load balancing. Lower value is preferred.
+      - `secure` (Bool). Whether to use a secure (SSL/TLS) connection.
+      - `user` (String). Name of the user to authenticate with on the external replica.

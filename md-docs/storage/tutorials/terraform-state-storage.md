@@ -585,7 +585,7 @@ terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -p
 - Консоль управления {#console}
 
   1. Откройте [консоль управления](https://console.yandex.cloud) и выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится созданный [бакет](../concepts/bucket.md).
-  1. Перейдите в сервис **Object Storage**.
+  1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
   1. В списке бакетов выберите тот, в котором должно было сохраниться состояние Terraform.
   1. Убедитесь, что в бакете появился файл состояния.
 

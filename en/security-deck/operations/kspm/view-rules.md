@@ -31,8 +31,14 @@ To view active {{ k8s }} control rules:
       * **{{ ui-key.yacloud_org.security.controls.rule-result.controlRule_kr2Bv }}**: Rule name and brief summary.
       * **{{ ui-key.yacloud_org.security.controls.rule-result.standards_iv6a5 }}**: Icon(s) for the [security standards](../../../security-deck/concepts/workspace.md#standards) that are using this rule. If the icon is colored, it means the rule is checked for the corresponding standard. If the icon is gray, it means it is not.
       * **{{ ui-key.yacloud_org.security.controls.rule-result.verificationMethod_dS9B2 }}**: How the infrastructure controlled in the workspace is checked for compliance with this rule:
-          * `runtime`
-          * `admission`
+
+          * `Runtime`: Rule type applied to container runtimes and {{ k8s }} nodes.
+          * `Admission`: Rule type applied to {{ k8s }} cluster resources. The `Admission` type rules have two operating modes:
+
+              {% include [kspm-admission-modes](../../../_includes/security-deck/kspm-admission-modes.md) %}
+
+          * `HostSecurity`: Rule type from the [CIS Benchmark™](../../concepts/standard-compliance/cis-kubernetes-benchmark.md) standard that applies to components on {{ k8s }} worker nodes.
+
       * **{{ ui-key.yacloud_org.security.controls.ExceptionDrawer.resources_field_id }}**: Rule ID in {{ yandex-cloud }}.
       * **{{ ui-key.yacloud_org.security.controls.rule-result.violations_q7AcU }}**: Number of detected rule violations.
 

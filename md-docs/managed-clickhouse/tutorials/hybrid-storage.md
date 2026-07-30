@@ -430,8 +430,8 @@ LIMIT 10
 Чтобы узнать, какой объем занимают куски таблиц [MergeTree](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree) в Object Storage, воспользуйтесь метрикой `ch_s3_disk_parts_size` в сервисе Yandex Monitoring:
 
 1. Откройте [консоль управления](https://console.yandex.cloud).
-1. Перейдите в сервис **Monitoring**.
-1. Перейдите в раздел **Обзор метрик**.
+1. [Перейдите](https://console.yandex.cloud/link/monitoring) в сервис **Monitoring**.
+1. Откройте раздел **Обзор метрик**.
 1. Выполните запрос:
 
     ```text

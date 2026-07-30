@@ -113,7 +113,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете создавать инфраструктуру.
-  1. Перейдите в сервис **Lockbox**.
+  1. [Перейдите](https://console.yandex.cloud/link/lockbox) в сервис **Lockbox**.
   1. Нажмите **Создать секрет**.
   1. В поле **Имя** укажите имя [секрета](../../lockbox/concepts/secret.md) `gitlab-runner-token`.
   1. В блоке **Данные секрета**:
@@ -187,7 +187,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Identity and Access Management**.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. Нажмите **Создать сервисный аккаунт**.
   1. Укажите имя сервисного аккаунта `gitlab-runner-caller`.
   1. Нажмите ![plus](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль `serverless-containers.containerInvoker`.
@@ -196,7 +196,7 @@
   1. Назначьте сервисному аккаунту `gitlab-runner-lockbox-payload-viewer` роль на секрет:
 
       1. Откройте [консоль управления](https://console.yandex.cloud).
-      1. Перейдите в сервис **Lockbox**.
+      1. [Перейдите](https://console.yandex.cloud/link/lockbox) в сервис **Lockbox**.
       1. Выберите секрет `gitlab-runner-token`.
       1. На панели слева выберите ![image](../../_assets/console-icons/persons.svg) **Права доступа**.
       1. Нажмите **Назначить роли**.
@@ -282,7 +282,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Identity and Access Management**.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. Выберите созданный ранее сервисный аккаунт `gitlab-runner-caller`.
   1. На панели сверху нажмите ![image](../../_assets/console-icons/plus.svg) **Создать новый ключ** и выберите пункт **Создать API-ключ**.
   1. В поле **Область действия** выберите [область действия](../../iam/concepts/authorization/api-key.md#scoped-api-keys) `yc.serverless.containers.invoke`.
@@ -346,7 +346,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Serverless Containers**.
+  1. [Перейдите](https://console.yandex.cloud/link/serverless-containers) в сервис **Serverless Containers**.
   1. Нажмите **Создать контейнер**.
   1. Укажите имя контейнера `serverless-gitlab-runner`.
   1. Нажмите **Создать**.

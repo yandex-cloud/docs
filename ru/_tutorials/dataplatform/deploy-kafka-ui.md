@@ -111,7 +111,7 @@
    FQDN доступен в консоли управления:
 
       1. Перейдите на страницу кластера.
-      1. Перейдите в раздел **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+      1. Откройте раздел **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
       1. Скопируйте значение в столбце **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}**, в строке хоста с ролью `KAFKA`.
 
    Если кластер доступен, появится сообщение:
@@ -268,7 +268,7 @@
    FQDN доступен в консоли управления:
 
       1. Перейдите на страницу кластера.
-      1. Перейдите в раздел **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+      1. Откройте раздел **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
       1. Скопируйте значение в столбце **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}**, в строке хоста с ролью `KAFKA`.
 
    Если кластер доступен, появится сообщение:

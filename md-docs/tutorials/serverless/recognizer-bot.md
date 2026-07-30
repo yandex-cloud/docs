@@ -239,8 +239,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать функцию.
-  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Cloud Functions**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать функцию.
+  1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
   1. Создайте функцию:
 
      1. Нажмите **Создать функцию**.
@@ -426,7 +426,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать API-шлюз.
-  1. Перейдите в сервис **API Gateway**.
+  1. [Перейдите](https://console.yandex.cloud/link/api-gateway) в сервис **API Gateway**.
   1. Нажмите **Создать API-шлюз**.
   1. В поле **Имя** введите `recognizer-bot-api-gw`.
   1. В блок **Спецификация** добавьте спецификацию:

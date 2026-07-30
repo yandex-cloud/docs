@@ -456,7 +456,7 @@ Terraform распространяется под лицензией [Business S
     - Консоль управления {#console}
 
         1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-        1. Перейдите в сервис **Certificate Manager** и выберите сертификат `joomla-cert`.
+        1. [Перейдите](https://console.yandex.cloud/link/certificate-manager) в сервис **Certificate Manager** и выберите сертификат `joomla-cert`.
         1. На панели сверху нажмите ![ArrowUpFromLine](../../../_assets/console-icons/arrow-up-from-line.svg) **Экспортировать сертификат**, выберите вариант `Сертификат без приватного ключа` и нажмите **Скачать сертификат**. На ваш компьютер будет скачан файл с сертификатом `certificate.pem`.
         1. Повторите предыдущее действие и скачайте закрытый ключ, выбрав вариант `Только приватный ключ`. Переименуйте скачанный файл с закрытым ключом в `private_key.pem`.
         1. Сохраните скачанные файлы `certificate.pem` и `private_key.pem` — они понадобятся при настройке веб-сервера.
@@ -610,7 +610,7 @@ Terraform распространяется под лицензией [Business S
     - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-      1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+      1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
       1. Выберите кластер `joomla-pg-cluster` и перейдите на вкладку **Хосты**.
       1. Наведите указатель мыши на поле **FQDN хоста** в строке с  каждым из хостов и нажмите значок ![Copy](../../../_assets/console-icons/copy.svg), чтобы скопировать FQDN хоста. Сохраните скопированные значения — они понадобятся позднее.
 

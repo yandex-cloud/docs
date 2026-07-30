@@ -57,7 +57,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать инфраструктуру.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. [Перейдите]({{ link-console-main }}/link/baremetal) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. На панели слева выберите ![globe](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.baremetal.label_public-subnets_v16CV }}**.
   1. Справа вверху нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-public-subnet-full }}**.
   1. В поле **{{ ui-key.yacloud.baremetal.field_zone-id }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет доступна подсеть.
@@ -115,7 +115,7 @@
 Перед настройкой сетевого интерфейса узнайте параметры выделенной публичной подсети, к которой подключен сервер: CIDR, адрес шлюза по умолчанию и диапазон доступных публичных IP-адресов.
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+1. [Перейдите]({{ link-console-main }}/link/baremetal) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
 1. На панели слева выберите ![globe](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.baremetal.label_public-subnets_v16CV }}** и откройте страницу с информацией о подсети `my-public-subnet`.
 1. Запишите значения CIDR, адреса шлюза по умолчанию и диапазона доступных публичных IP-адресов.
 
@@ -140,7 +140,7 @@
 До настройки публичного IP-адреса сервер недоступен из интернета, поэтому подключиться к нему [по SSH](../../compute/operations/vm-connect/ssh.md) или [по RDP](../../compute/operations/vm-connect/rdp.md) не получится. Для подключения к серверу используйте KVM-консоль.
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+1. [Перейдите]({{ link-console-main }}/link/baremetal) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
 1. В строке с сервером `my-server` нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.baremetal.label_kvm-console_37Kma }}**.
 
     Откроется окно с терминалом KVM-консоли.

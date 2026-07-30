@@ -337,7 +337,7 @@ Regenerate hosts after changing the assign_public_ip parameter.
 - `database` [Block]. To manage databases, please switch to using a separate resource type `yandex_mdb_mysql_databases`.
   - `name` (**Required**)(String). The name of the database.
 - `disk_size_autoscaling` [Block]. Cluster disk size autoscaling settings.
-  - `disk_size_limit` (**Required**)(Number). Limit of disk size after autoscaling (GiB).
+  - `disk_size_limit` (**Required**)(Number). The overall maximum for disk size (GB) that limits all autoscaling iterations.
   - `emergency_usage_threshold` (Number). Immediate autoscaling disk usage (percent).
   - `planned_usage_threshold` (Number). Maintenance window autoscaling disk usage (percent).
 - `host` [Block]. A host of the MySQL cluster.

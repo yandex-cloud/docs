@@ -161,7 +161,7 @@
     Чтобы настроить источник аутентификации Keycloak:
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-    1. Перейдите в сервис **Managed Service for&nbsp;OpenSearch**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-opensearch) в сервис **Managed Service for&nbsp;OpenSearch**.
     1. Нажмите на имя нужного кластера и выберите вкладку **Источники аутентификации**.
     1. Нажмите кнопку **Настроить**.
     1. Укажите нужные значения настроек:

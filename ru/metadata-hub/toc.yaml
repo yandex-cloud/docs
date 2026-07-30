@@ -431,6 +431,8 @@ items:
                 href: operations/data-catalog/update-source.md
               - name: Удаление источника
                 href: operations/data-catalog/delete-source.md
+              - name: Настройка бэкенда для источника
+                href: operations/data-catalog/settings-backend-source.md
           - name: Загрузки
             items:
               - name: Получение списка загрузок

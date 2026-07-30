@@ -1,4 +1,4 @@
-1. Navigate to [**{{ billing-name }}**]({{ link-console-billing }}).
+1. {% include [move-to-billing-step](../../billing/_includes/move-to-billing-step.md) %}
 1. Select the billing account from the list.
 
     {% include [account-access-lost](../../_includes/billing/account-access-lost.md) %}

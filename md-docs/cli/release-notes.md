@@ -4,6 +4,17 @@
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.22.0 (30.07.26) {#v-1-22-0}
+
+#### Compute Cloud {#v-1-22-0-compute-name}
+
+* Добавлена поддержка ключей `secure_boot_template_id` и `vtpm_enabled` в параметре `--hardware-features` для следующих команд:
+  * `yc compute image create`;
+  * `yc compute disk create`;
+  * `yc compute snapshot create`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.21.0 (29.07.26) {#v-1-21-0}
 
 #### BareMetal {#v-1-21-0-baremetal-name}
@@ -40,8 +51,6 @@
   * `yc smartwebsecurity custom-page create`;
   * `yc smartwebsecurity custom-page update`;
   * `yc smartwebsecurity custom-page delete`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.20.0 (23.07.26) {#v-1-20-0}
 

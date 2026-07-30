@@ -20,7 +20,7 @@
 - Консоль управления {#console}
 
    1. В консоли управления выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать [инстанс GitLab](../../../managed-gitlab/concepts/index.md#instance).
-   1. Перейдите в сервис **Managed Service for&nbsp;GitLab**.
+   1. [Перейдите](https://console.yandex.cloud/link/managed-gitlab) в сервис **Managed Service for&nbsp;GitLab**.
    1. Нажмите кнопку **Создать инстанс**.
    1. В верхней части страницы:
 
@@ -80,7 +80,7 @@
 Чтобы интегрировать провайдер аутентификации для GitLab через OmniAuth, добавьте провайдер аутентификации:
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-1. Перейдите в сервис **Managed Service for&nbsp;GitLab**.
+1. [Перейдите](https://console.yandex.cloud/link/managed-gitlab) в сервис **Managed Service for&nbsp;GitLab**.
 1. Нажмите на созданный инстанс и выберите вкладку **OmniAuth**.
 1. Нажмите кнопку **Настроить**.
 1. Чтобы добавить провайдера аутентификации, нажмите кнопку **Add**.

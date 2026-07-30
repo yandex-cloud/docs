@@ -268,8 +268,8 @@ yc compute instance create \
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится лог-группа `default`, идентификатор которой вы указали в файле `spec.yaml`.
-  1. Перейдите в сервис **Cloud Logging**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится лог-группа `default`, идентификатор которой вы указали в файле `spec.yaml`.
+  1. [Перейдите](https://console.yandex.cloud/link/logging) в сервис **Cloud Logging**.
   1. Выберите лог-группу `default`. На открывшейся странице отобразятся записи.
 
 - CLI {#cli}

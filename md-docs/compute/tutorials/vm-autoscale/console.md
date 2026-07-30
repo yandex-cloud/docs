@@ -44,7 +44,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать сервисный аккаунт.
-     1. Перейдите в сервис **Identity and Access Management**.
+     1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
      1. Нажмите кнопку **Создать сервисный аккаунт**. В открывшемся окне:
         * В поле **Имя** укажите `for-autoscale`.
         * Чтобы назначить сервисному аккаунту роль на текущий каталог, нажмите ![image](../../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роли `compute.editor` и `load-balancer.editor`.
@@ -98,7 +98,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы хотите создать сеть.
-     1. Перейдите в сервис **Virtual Private Cloud**.
+     1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
      1. Нажмите кнопку **Создать сеть**.
      1. В поле **Имя** задайте имя сети `yc-auto-network`.
      1. В поле **Дополнительно** включите опцию **Создать подсети**.
@@ -181,7 +181,7 @@
    - Консоль управления {#console}
 
      1. Откройте [консоль управления](https://console.yandex.cloud).
-     1. Перейдите в сервис **Virtual Private Cloud**.
+     1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
      1. Откройте вкладку **Группы безопасности**.
      1. Создайте группу безопасности для балансировщика:
         1. Нажмите кнопку **Создать группу**.
@@ -332,7 +332,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создали группу ВМ.
-     1. Перейдите в сервис **Compute Cloud**.
+     1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
      1. На панели слева нажмите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
      1. Выберите группу ВМ `auto-group`.
 
@@ -368,7 +368,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать балансировщик.
-     1. Перейдите в сервис **Network Load Balancer**.
+     1. [Перейдите](https://console.yandex.cloud/link/network-load-balancer) в сервис **Network Load Balancer**.
      1. Нажмите кнопку **Создать сетевой балансировщик**.
      1. Укажите имя — `group-balancer`.
      1. В поле **Публичный адрес** укажите `Автоматически`.
@@ -422,7 +422,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создали балансировщик.
-     1. Перейдите в сервис **Network Load Balancer**.
+     1. [Перейдите](https://console.yandex.cloud/link/network-load-balancer) в сервис **Network Load Balancer**.
      1. Выберите балансировщик `group-balancer`.
 
    - CLI {#cli}
@@ -484,7 +484,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создали группу ВМ.
-     1. Перейдите в сервис **Compute Cloud**.
+     1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
      1. На панели слева нажмите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
      1. Выберите группу ВМ `auto-group`.
      1. Перейдите на вкладку **Мониторинг**.
@@ -536,7 +536,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создали группу ВМ `auto-group`.
-     1. Перейдите в сервис **Compute Cloud**.
+     1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
      1. На панели слева нажмите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
      1. Выберите группу ВМ `auto-group`.
      1. Перейдите на вкладку **Мониторинг**.

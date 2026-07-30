@@ -106,7 +106,7 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог `secured-entry-point`.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог `secured-entry-point`.
   1. Перейдите на вкладку **Права доступа**.
   1. Нажмите **Настроить доступ**.
   1. В открывшемся окне выберите раздел **Пользовательские аккаунты**.
@@ -131,8 +131,8 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в созданный каталог `secured-entry-point`.
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог `secured-entry-point`.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. Справа сверху нажмите **Создать сеть**.
   1. В поле **Имя** введите `alb-network`.
   1. В поле **Дополнительно** отключите опцию **Создать подсети**.
@@ -185,8 +185,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог `secured-entry-point`.
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог `secured-entry-point`.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. Выберите облачную сеть `alb-network`.
   1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) в строке подсети `subnet-service-1` и выберите **Переместить**.
   1. В выпадающем списке выберите каталог `service-1`.
@@ -210,7 +210,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `service-1`.
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **Группы безопасности**.
   1. Справа сверху нажмите **Создать группу безопасности**.
   1. В поле **Имя** укажите `service-1-security-group`.
@@ -245,7 +245,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `secured-entry-point`.
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **Группы безопасности**.
   1. Справа сверху нажмите **Создать группу безопасности**.
   1. В поле **Имя** укажите `alb-security-group`.
@@ -279,7 +279,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `secured-entry-point`.
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **Группы безопасности**.
   1. Справа сверху нажмите **Создать группу безопасности**.
   1. В поле **Имя** укажите `vm-security-group`.
@@ -316,7 +316,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `secured-entry-point`.
-  1. Перейдите в сервис **Smart Web Security**.
+  1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
   1. На панели слева выберите ![image](../../_assets/smartwebsecurity/profiles.svg) **Профили безопасности** и нажмите **Создать профиль**.
   1. Выберите **По преднастроенному шаблону**.
   1. Введите имя профиля — `sws-profile`.
@@ -340,7 +340,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `secured-entry-point`.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины**.
   1. Нажмите **Создать виртуальную машину**.
   1. В блоке **Образ загрузочного диска** выберите операционную систему [Ubuntu 24.04](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-2404-lts-oslogin).
@@ -402,7 +402,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `secured-entry-point`.
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. Нажмите **Создать L7-балансировщик** и выберите **Визард**. Визард перейдет на страницу создания целевых групп.
 
 {% endlist %}
@@ -526,7 +526,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `secured-entry-point`.
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. На панели слева выберите ![image](../../_assets/console-icons/target.svg) **Целевые группы**.
   1. Нажмите **Создать целевую группу**.
   1. Создайте целевую группу для каталога `service-2` по образцу [целевой группы для каталога `service-1`](#setup-target-group). В качестве параметров целевого ресурса используйте:

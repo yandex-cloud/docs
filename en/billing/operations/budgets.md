@@ -24,7 +24,7 @@ To create a budget:
 
 - {{ billing-interface }} {#billing}
 
-  1. Navigate to [**{{ billing-name }}**]({{ link-console-billing }}).
+  1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
 
   1. Select an account on the **{{ ui-key.yacloud_billing.billing.title_accounts }}** page.
 

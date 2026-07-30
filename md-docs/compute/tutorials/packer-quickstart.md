@@ -296,8 +296,8 @@ Packer создаст и запустит виртуальную машину с
 
 - Консоль управления {#console}
 
-  1. Перейдите в [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Compute Cloud**.
+  1. Откройте [консоль управления](https://console.yandex.cloud).
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. Откройте раздел ![image](../../_assets/console-icons/layers.svg) **Образы**. Убедитесь, что там появился новый образ диска.
 
 - CLI {#cli}

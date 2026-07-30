@@ -204,7 +204,7 @@ AI-агент — это программный помощник на базе �
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете создавать инфраструктуру.
-  1. Перейдите в сервис **Identity and Access Management**.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. Нажмите **Создать сервисный аккаунт**.
   1. Введите имя сервисного аккаунта: `function-sa`.
   1. Нажмите ![plus](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите [роль](https://aistudio.yandex.ru/docs/ru/ai-studio/security/index#languageModels-user) `ai.languageModels.user`.
@@ -276,7 +276,7 @@ AI-агент — это программный помощник на базе �
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **Identity and Access Management** и выберите созданный ранее сервисный аккаунт `function-sa`.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management** и выберите созданный ранее сервисный аккаунт `function-sa`.
   1. На панели сверху нажмите ![image](../../_assets/console-icons/plus.svg) **Создать новый ключ** и выберите пункт **Создать API-ключ**.
   1. В поле **Область действия** выберите [область действия](../../iam/concepts/authorization/api-key.md#scoped-api-keys) `yc.ai.languageModels.execute`.
   1. (Опционально) Укажите **Срок действия** API-ключа.
@@ -330,7 +330,7 @@ AI-агент — это программный помощник на базе �
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **Lockbox** и нажмите **Создать секрет**.
+  1. [Перейдите](https://console.yandex.cloud/link/lockbox) в сервис **Lockbox** и нажмите **Создать секрет**.
   1. В поле **Имя** укажите имя секрета `api-key-secret`.
   1. В поле **Тип секрета** выберите `Пользовательский`.
   1. В поле **Ключ** введите ключ секрета `api-key`.
@@ -380,7 +380,7 @@ AI-агент — это программный помощник на базе �
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **Lockbox** и выберите созданный ранее секрет `api-key-secret`.
+  1. [Перейдите](https://console.yandex.cloud/link/lockbox) в сервис **Lockbox** и выберите созданный ранее секрет `api-key-secret`.
   1. На панели слева выберите раздел ![persons](../../_assets/console-icons/persons.svg) **Права доступа** и нажмите **Назначить роли**. В открывшемся окне:
 
       1. В строке поиска введите имя созданного ранее сервисного аккаунта `function-sa` и выберите этот сервисный аккаунт.
@@ -833,7 +833,7 @@ AI-агент — это программный помощник на базе �
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **Cloud Functions**.
+  1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
   1. Создайте функцию:
      1. Нажмите **Создать функцию**.
      1. В открывшемся окне введите имя функции `ai-agent-function`.
@@ -962,8 +962,8 @@ AI-агент — это программный помощник на базе �
 - Простой AI-агент {#simple}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создали инфраструктуру.
-  1. Перейдите в сервис **Cloud Functions** и выберите созданную функцию.
-  1. Перейдите на вкладку ![circle-play](../../_assets/console-icons/circle-play.svg) **Тестирование**.
+  1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions** и выберите созданную функцию.
+  1. Откройте вкладку ![circle-play](../../_assets/console-icons/circle-play.svg) **Тестирование**.
   1. Нажмите ![play-fill](../../_assets/console-icons/play-fill.svg) **Запустить тест** и посмотрите результат тестирования.
 
       При успешном выполнении запроса состояние функции изменится на `Выполнена`, а ответ функции будет содержать код статуса `200` и ответ модели. Например:
@@ -977,8 +977,8 @@ AI-агент — это программный помощник на базе �
 
 - Продвинутый AI-агент {#advanced}
 
-  1. Перейдите в сервис **Cloud Functions** и выберите созданную функцию.
-  1. Перейдите на вкладку ![circle-play](../../_assets/console-icons/circle-play.svg) **Тестирование**.
+  1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions** и выберите созданную функцию.
+  1. Откройте вкладку ![circle-play](../../_assets/console-icons/circle-play.svg) **Тестирование**.
   1. В поле **Входные данные** укажите:
 
       ```json
@@ -1003,8 +1003,8 @@ AI-агент — это программный помощник на базе �
 
 - Агент-переводчик {#complex}
 
-  1. Перейдите в сервис **Cloud Functions** и выберите созданную функцию.
-  1. Перейдите на вкладку ![circle-play](../../_assets/console-icons/circle-play.svg) **Тестирование**.
+  1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions** и выберите созданную функцию.
+  1. Откройте вкладку ![circle-play](../../_assets/console-icons/circle-play.svg) **Тестирование**.
   1. В поле **Входные данные** укажите:
 
       ```json

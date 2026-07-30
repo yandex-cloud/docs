@@ -73,7 +73,7 @@ Firebase:
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором необходимо создать API-шлюз.
-  1. Перейдите в сервис **API Gateway**.
+  1. [Перейдите](https://console.yandex.cloud/link/api-gateway) в сервис **API Gateway**.
   1. Нажмите кнопку **Создать API-шлюз**.
   1. В поле **Имя** введите `jwt-api-gw`.
   1. В блок **Спецификация** добавьте спецификацию:
@@ -338,7 +338,7 @@ Firebase:
    - Консоль управления {#console}
 
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать бакет.
-     1. Перейдите в сервис **Object Storage**.
+     1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
      1. Нажмите кнопку **Создать бакет**.
      1. На странице создания бакета:
         1. Введите имя бакета — `bucket-for-tutorial`.
@@ -463,7 +463,7 @@ Firebase:
    - Консоль управления {#console}
 
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в который нужно загрузить объекты.
-     1. Перейдите в сервис **Object Storage**.
+     1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
      1. Нажмите на бакет `bucket-for-tutorial`.
      1. Нажмите кнопку **Загрузить** и выберите [сгенерированные ранее](#project-prepare) объекты в папке `build`.
      1. Консоль управления отобразит все объекты, выбранные для загрузки, и предложит для каждого из них выбрать [класс хранилища](../../storage/concepts/storage-class.md). Класс хранилища по умолчанию определяется [настройкой бакета](../../storage/concepts/bucket.md#bucket-settings).

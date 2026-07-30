@@ -164,7 +164,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать реестр.
-  1. Перейдите в сервис **Cloud Registry**.
+  1. [Перейдите](https://console.yandex.cloud/link/cloud-registry) в сервис **Cloud Registry**.
   1. Нажмите **Создать реестр**.
   1. Выберите формат ![image](../../_assets/console-icons/logo-docker.svg) **Docker**.
   1. Выберите тип реестра **Local**.
@@ -228,11 +228,11 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
-  1. Перейдите в сервис **Identity and Access Management**.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. Нажмите **Создать сервисный аккаунт**.
   1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md): `docker-puller`.
   1. Нажмите **Создать**.
-  1. Перейдите в сервис **Cloud Registry**.
+  1. [Перейдите](https://console.yandex.cloud/link/cloud-registry) в сервис **Cloud Registry**.
   1. Выберите ранее созданный реестр.
   1. Перейдите на вкладку ![image](../../_assets/console-icons/persons.svg) **Права доступа**.
   1. Нажмите **Назначить роли**.
@@ -288,7 +288,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Identity and Access Management**.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. В открывшемся списке выберите сервисный аккаунт `docker-puller`.
   1. На панели сверху нажмите ![plus](../../_assets/console-icons/plus.svg) **Создать новый ключ** и выберите `Создать авторизованный ключ`.
   1. Нажмите **Создать**.
@@ -332,7 +332,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. Нажмите **Создать сеть**.
   1. В поле **Имя** укажите `docker-ycr-network`.
   1. В поле **Дополнительно** отключите опцию **Создать подсети**.
@@ -404,7 +404,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. Нажмите **Создать виртуальную машину**.
   1. В блоке **Образ загрузочного диска** выберите один из образов и версию операционной системы на базе Linux.
   1. В блоке **Расположение** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет создана ВМ.

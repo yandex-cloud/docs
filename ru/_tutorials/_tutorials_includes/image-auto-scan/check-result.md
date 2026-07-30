@@ -6,7 +6,7 @@
 
      1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
      1. Перейдите в раздел **{{ ui-key.yacloud.serverless-functions.switch_list }}** и выберите функцию `scan-on-push`.
-     1. В открывшемся окне перейдите в раздел **{{ ui-key.yacloud.serverless-functions.item.switch_logs }}** и укажите период. По умолчанию задан период за 1 час.
+     1. В открывшемся окне откройте раздел **{{ ui-key.yacloud.serverless-functions.item.switch_logs }}** и укажите период. По умолчанию задан период за 1 час.
 
    - CLI {#cli}
 

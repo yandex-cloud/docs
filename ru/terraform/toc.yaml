@@ -1548,6 +1548,9 @@ items:
                   - name: smartcaptcha_captcha
                     href: data-sources/smartcaptcha_captcha.md
                     title: ''
+                  - name: smartcaptcha_captcha_keys
+                    href: data-sources/smartcaptcha_captcha_keys.md
+                    title: ''
                 title: ''
               - name: Resources
                 items:

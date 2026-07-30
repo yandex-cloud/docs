@@ -15,7 +15,7 @@ You cannot use grants to top up [personal accounts](personal-account.md).
 
 ## Viewing your grants {#how-to-view}
 
-You view your grants in {{ billing-name }} or in the management console widget.
+You can view your grants in {{ billing-name }} or in the management console widget.
 
 {% note info %}
 
@@ -29,7 +29,7 @@ You view your grants in {{ billing-name }} or in the management console widget.
 
 - {{ billing-interface }} {#billing}
 
-  1. Navigate to [**{{ billing-name }}**]({{ link-console-billing }}).
+  1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Select the billing account from the list.
   1. On the ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_org.billing.account.switch_overview }}** page, under **{{ ui-key.yacloud_billing.billing.account.dashboard-grants.section_grants }}**, click ![image](../../_assets/console-icons/chevron-right.svg) **{{ ui-key.yacloud_billing.billing.account.dashboard-grants.action_show-all }}**.
   1. On the **{{ ui-key.yacloud_billing.billing.account.offers.label_title }}** page, the **{{ ui-key.yacloud_billing.billing.account.offers.value_grants }}** tab shows all grants you received.

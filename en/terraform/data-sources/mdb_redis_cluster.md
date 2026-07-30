@@ -64,7 +64,7 @@ output "network_id" {
 - `description` (String). The resource description.
 - `disk_encryption_key_id` (String). ID of the KMS key for cluster disk encryption.
 - `disk_size_autoscaling` [Block]. Disk size autoscaling settings.
-  - `disk_size_limit` (**Required**)(Number). Limit of disk size after autoscaling (GiB).
+  - `disk_size_limit` (**Required**)(Number). The overall maximum for disk size (GB) that limits all autoscaling iterations.
   - `emergency_usage_threshold` (Number). Immediate autoscaling disk usage (percent).
   - `planned_usage_threshold` (Number). Maintenance window autoscaling disk usage (percent).
 - `environment` (**Required**)(String). Deployment environment of the Redis cluster. Can be either `PRESTABLE` or `PRODUCTION`.

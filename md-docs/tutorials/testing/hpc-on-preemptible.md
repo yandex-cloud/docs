@@ -38,7 +38,7 @@
 Чтобы создать ВМ:
 
 1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-1. Перейдите в сервис **Compute Cloud**.
+1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
 1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины**.
 1. Нажмите кнопку **Создать виртуальную машину**.
 1. В блоке **Образ загрузочного диска** выберите образ [Ubuntu](https://yandex.cloud/ru/marketplace?tab=software&search=Ubuntu&categories=os).
@@ -305,6 +305,6 @@ ssh master-node
 Чтобы перестать платить за развернутый сервер и группу ВМ, достаточно удалить ВМ `master-node` и группу `compute-group`.
 
 Если вы зарезервировали статический публичный IP-адрес специально для этой ВМ:
-1. Перейдите в сервис **Virtual Private Cloud** из вашего каталога.
-1. Перейдите на вкладку **Публичные IP-адреса**.
+1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud** из вашего каталога.
+1. Откройте вкладку **Публичные IP-адреса**.
 1. Найдите нужный IP-адрес, нажмите значок ![ellipsis](../../_assets/options.svg) и выберите пункт **Удалить**.

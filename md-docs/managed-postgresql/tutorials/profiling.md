@@ -108,7 +108,7 @@
 Чтобы выявить блокировки с помощью [инструмента диагностики производительности](../operations/performance-diagnostics.md):
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
 1. Нажмите на имя нужного кластера, затем выберите вкладку **Диагностика производительности**.
 1. На вкладке **Сессии** в поле **Срез** выберите значение **WAIT_EVENT_TYPE**.
 
@@ -152,7 +152,7 @@ SELECT * FROM pg_locks pl LEFT JOIN pg_stat_activity psa
 Чтобы получить подробную информацию об использовании доступных подключений с помощью инструментов [мониторинга](../operations/monitoring.md):
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
 1. Нажмите на имя нужного кластера, затем выберите вкладку **Мониторинг**.
 1. Изучите график **Total pooler connections**.
 
@@ -184,7 +184,7 @@ SELECT * FROM pg_locks pl LEFT JOIN pg_stat_activity psa
 Чтобы проверить наличие свободного места в хранилище кластера:
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
 1. Нажмите на имя нужного кластера, затем выберите вкладку **Мониторинг**.
 1. Проверьте график **Disk capacity in primary, [bytes]**.
 

@@ -55,8 +55,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором будет размещаться инфраструктура контейнерного приложения.
-  1. Перейдите в сервис **Identity and Access Management**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором будет размещаться инфраструктура контейнерного приложения.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. Нажмите **Создать сервисный аккаунт**.
   1. Введите имя сервисного аккаунта — `mongo-express`.
   1. Нажмите ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роли `container-registry.images.puller`, `lockbox.payloadViewer` и `serverless-containers.containerInvoker`.
@@ -149,7 +149,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. Нажмите **Создать сеть**.
   1. В поле **Имя** укажите `mongo-express-network`.
   1. В поле **Дополнительно** выберите опцию **Создать подсети**.
@@ -234,7 +234,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. На панели слева выберите ![image](../../_assets/vpc/security-group.svg) **Группы безопасности**.
   1. Напротив группы безопасности, созданной по умолчанию для сети `mongo-express-network`, нажмите ![image](../../_assets/options.svg) и выберите ![image](../../_assets/console-icons/pencil.svg) **Редактировать**.
   1. В блоке **Правила** перейдите на вкладку **Исходящий трафик**.
@@ -314,7 +314,7 @@
   1. В блоке **Образ загрузочного диска**:
 
       1. Перейдите на вкладку **Container Solution** и нажмите **Настроить**.
-      1. В открывшемся окне перейдите на вкладку **Docker-compose** и укажите спецификацию Docker-контейнера:
+      1. В открывшемся окне откройте вкладку **Docker-compose** и укажите спецификацию Docker-контейнера:
 
           ```yaml
           version: '3.1'
@@ -430,7 +430,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Lockbox**.
+  1. [Перейдите](https://console.yandex.cloud/link/lockbox) в сервис **Lockbox**.
   1. Нажмите **Создать секрет**.
   1. В поле **Имя** введите имя секрета — `mongodb-creds`.
   1. В поле **Ключ** введите `login`.
@@ -493,7 +493,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Container Registry**.
+  1. [Перейдите](https://console.yandex.cloud/link/container-registry) в сервис **Container Registry**.
   1. Нажмите **Создать реестр**.
   1. Задайте имя реестра `app-registry`.
   1. Нажмите **Создать реестр**.
@@ -628,7 +628,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Serverless Containers**.
+  1. [Перейдите](https://console.yandex.cloud/link/serverless-containers) в сервис **Serverless Containers**.
   1. Нажмите **Создать контейнер**.
   1. Введите имя контейнера `mongo-express-container`.
   1. Нажмите **Создать**.
@@ -761,7 +761,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **API Gateway**.
+  1. [Перейдите](https://console.yandex.cloud/link/api-gateway) в сервис **API Gateway**.
   1. Нажмите **Создать API-шлюз**.
   1. В поле **Имя** введите название API-шлюза — `mongo-express-gw`.
   1. В блок **Спецификация** добавьте спецификацию:

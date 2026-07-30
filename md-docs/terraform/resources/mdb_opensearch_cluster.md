@@ -199,13 +199,21 @@ resource "yandex_vpc_subnet" "es-subnet-d" {
 - `service_account_id` (String). ID of the service account authorized for this cluster.
 - `status` (*Read-Only*) (String).  Status of the cluster. Can be either `CREATING`, `STARTING`, `RUNNING`, `UPDATING`, `STOPPING`, `STOPPED`, `ERROR` or `STATUS_UNKNOWN`. For more information see `status` field of JSON representation in [the official documentation](../../managed-opensearch/api-ref/Cluster/index.md).
 - `config` [Block]. Configuration of the OpenSearch cluster.
-  - `admin_password` (**Required**)(String). Password for admin user of OpenSearch.
+  - `admin_password` (String). Password for admin user of OpenSearch.
+  - `admin_password_wo` (String). Password for the OpenSearch admin user. This attribute is write-only and is not stored in state. Requires `admin_password_wo_version` to trigger updates. Write-only arguments are supported in Terraform 1.11 and later.
+  - `admin_password_wo_version` (Number). Version number for the write-only administrator password. Increment this value to update the password.
   - `audit_log` [Block]. OpenSearch audit logs settings.
     - `compliance_enabled` (Bool). Enables audit logging on changes to a security index, such as changes to roles mappings and role creation or deletion.
 For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/security/audit-logs/index/#audit-user-account-manipulation).
+    - `log_authenticated_requests` (Bool). Enables logging of successfully authenticated REST requests.
+For details, see None.
     - `log_backup_operations` (Bool). Enables snapshots and repositories requests logging.
 For details, see None.
+    - `log_bad_headers` (Bool). Enables logging of REST requests containing bad or spoofed security headers.
+For details, see None.
     - `log_data_modifications` (Bool). Enables indices data write request logging.
+For details, see None.
+    - `log_index_events` (Bool). Enables logging of index-level events, such as creating or deleting an index.
 For details, see None.
     - `log_index_maintenance` (Bool). Enables indices maintenance requests logging, such as indices refreshes, flushes and merges.
 For details, see None.

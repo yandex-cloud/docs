@@ -14,7 +14,7 @@
 - Интерфейс {{ speechsense-name }} {#speechsense}
 
   1. В [интерфейсе]({{ link-speechsense-main }}) {{ speechsense-name }} перейдите в нужное пространство.
-  1. Перейдите на вкладку **{{ ui-key.yc-ui-talkanalytics.connections.connections }}** и выберите шаблон для создания подключения, либо нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**:
+  1. Откройте вкладку **{{ ui-key.yc-ui-talkanalytics.connections.connections }}** и выберите шаблон для создания подключения, либо нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**:
 
      {% include [metadata](../../../_includes/speechsense/data/templates-connection.md) %}
  
@@ -77,7 +77,7 @@
 - Интерфейс {{ amocrm-name }} {#amocrm}
 
   1. Перейдите в раздел **Настройки** в вашем личном кабинете {{ amocrm-name }}.
-  1. Перейдите на вкладку **Настройки выгрузки {{ speechsense-name }}**.
+  1. Откройте вкладку **Настройки выгрузки {{ speechsense-name }}**.
   1. {% include [config-external-connection](../../_tutorials_includes/speechsense-integration/config-external-connection.md) %}
 
   1. Настройте остальные параметры:

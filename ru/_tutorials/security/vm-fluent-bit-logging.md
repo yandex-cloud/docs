@@ -324,9 +324,8 @@
 
     1. Проверьте логи в консоли управления:
 
-       1. Откройте [консоль управления]({{ link-console-main }}).
-       1. Перейдите в каталог, указанный в `folder_id`.
-       1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+       1. В [консоли управления]({{ link-console-main }}) выберите каталог, указанный в `folder_id`.
+       1. [Перейдите]({{ link-console-main }}/link/logging) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
        1. Откройте лог-группу по умолчанию `default`.
        1. На вкладке **{{ ui-key.yacloud.common.logs }}** настройте фильтры:
           - `resource_type=logtest` для просмотра логов тестового сервиса.
