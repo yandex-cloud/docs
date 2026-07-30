@@ -64,8 +64,8 @@
 
 - Консоль управления {#console}
 
-   1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог `data-folder`.
-   1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
+   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `data-folder`.
+   1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
    1. Нажмите кнопку **Создать сервисный аккаунт**.
    1. Введите имя сервисного аккаунта, например, `datasphere-sa`.
    1. Нажмите **Добавить роль** и назначьте сервисному аккаунту роль `datasphere.community-projects.editor`.
@@ -299,8 +299,8 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать функцию.
-    1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Cloud Functions**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать функцию.
+    1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
     1. Нажмите кнопку **Создать функцию**.
     1. Введите имя функции, например, `ai-function`.
     1. Нажмите кнопку **Создать функцию**.
@@ -315,8 +315,8 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится функция.
-    1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Cloud Functions**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится функция.
+    1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
     1. Выберите функцию, версию которой хотите создать.
     1. В разделе **Последняя версия** нажмите кнопку **Создать в редакторе**.
     1. Выберите среду выполнения **Python**. Не выбирайте опцию **Добавить файлы с примерами кода**.

@@ -49,8 +49,8 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-trigger-budget
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать сервисный аккаунт.
-    1. Перейдите в сервис **Identity and Access Management**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать сервисный аккаунт.
+    1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
     1. Нажмите кнопку **Создать сервисный аккаунт**.
     1. Введите имя сервисного аккаунта `service-account-for-budget`.
     1. Нажмите **Добавить роль** и назначьте сервисному аккаунту роли `compute.admin`, `iam.serviceAccounts.user` и `functions.functionInvoker`.
@@ -150,8 +150,8 @@ zip src.zip index.go go.mod
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором создали сервисный аккаунт.
-    1. Перейдите в сервис **Cloud Functions**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором создали сервисный аккаунт.
+    1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
     1. Создайте функцию:
         1. Нажмите кнопку **Создать функцию**.
         1. Введите имя функции `function-for-budget`.
@@ -286,9 +286,9 @@ zip src.zip index.go go.mod
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором создали сервисный аккаунт, функцию и бюджет.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором создали сервисный аккаунт, функцию и бюджет.
 
-    1. Перейдите в сервис **Cloud Functions**.
+    1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
 
     1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **Триггеры**.
 

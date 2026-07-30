@@ -69,7 +69,7 @@
 
      Чтобы создать [облачную сеть](../../vpc/concepts/network.md):
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором будет создана облачная сеть.
-     1. Перейдите в сервис **Virtual Private Cloud**.
+     1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
      1. Нажмите кнопку **Создать сеть**
      1. Задайте имя сети: `my-network`.
      1. Нажмите кнопку **Создать сеть**.
@@ -215,7 +215,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором будет создана прерываемая ВМ.
-     1. Перейдите в сервис **Compute Cloud**.
+     1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
      1. Выберите виртуальную машину `my-rds-vm`.
      1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Перезапустить**.
    

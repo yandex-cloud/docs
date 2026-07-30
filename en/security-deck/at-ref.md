@@ -1,6 +1,6 @@
 ---
 title: '{{ sd-full-name }} event reference in {{ at-full-name }}'
-description: This page lists {{ sd-name }} events that can be tracked in {{ at-name }}.
+description: This page provides a reference for {{ sd-name }} events tracked in {{ at-name }}.
 ---
 
 # {{ at-full-name }} event reference
@@ -20,6 +20,12 @@ The general format of the `event_type` value is as follows:
 Module name: `cspm`.
 
 {% include [sd-cspm-events](../_includes/audit-trails/events/sd-cspm-events.md) %}
+
+### Data Security Posture Management ({{ dspm-name }}) {#sd-cspm}
+
+Module name: `dspm`.
+
+{% include [sd-dspm-events](../_includes/audit-trails/events/sd-dspm-events.md) %}
 
 ### {{ kspm-full-name }} ({{ kspm-name }}) {#sd-kspm}
 

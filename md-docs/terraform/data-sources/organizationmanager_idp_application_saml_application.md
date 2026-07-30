@@ -36,7 +36,7 @@ output "my_saml_app.status" {
     - `value` (**Required**)(String). Value of the SAML attribute.
   - `name_id` [Block]. NameID configuration for the SAML application.
     - `format` (**Required**)(String). Format of the NameID.
-    - `value` (*Read-Only*) (String). Value of the NameID.
+    - `value` (String). Value of the NameID.
 - `created_at` (*Read-Only*) (String). Creation timestamp.
 - `description` (String). Description of the SAML application.
 - `group_claims_settings` [Block]. Group claims settings for the SAML application.

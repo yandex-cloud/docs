@@ -7,12 +7,17 @@ To view detailed information about a specific {{ k8s }} control rule, click the 
   The **{{ ui-key.yacloud_org.security.controls.RulePageLayout.tab_overview_s9riS }}** tab contains:
 
   * Rule ID.
-  * [Set of security requirements](../../security-deck/concepts/standard-compliance/index.md#security-rule-sets) the rule applies to.
-  * Date and time of the most recent security check.
-  * Check method:
+  * [Security requirements](../../security-deck/concepts/standard-compliance/index.md#security-rule-sets) the rule applies to.
+  * Date and time of last security check.
+  * Rule type:
 
-      * `runtime`: Rule type applied to container runtimes and {{ k8s }} nodes.
-      * `admission`: Rule type applied to {{ k8s }} cluster resources.
+      * `Runtime`: Rule type applied to container runtimes and {{ k8s }} nodes.
+      * `Admission`: Rule type applied to {{ k8s }} cluster resources. The `Admission` type rules have two operating modes:
+
+          {% include [kspm-admission-modes](./kspm-admission-modes.md) %}
+
+      * `HostSecurity`: [CIS Benchmark™](../../security-deck/concepts/standard-compliance/cis-kubernetes-benchmark.md) rule type applied to components on {{ k8s }} worker nodes.
+
   * Details on the monitored features, their configurations, or actions performed with them.
 
 - {{ ui-key.yacloud_org.security.controls.RulePageLayout.tab_violations_dkbdT }}

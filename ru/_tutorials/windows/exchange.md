@@ -54,7 +54,7 @@
      Чтобы создать [облачную сеть](../../vpc/concepts/network.md):
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана облачная сеть.
-     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+     1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**
      1. Задайте имя сети: `exchange-network`.
      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
@@ -771,7 +771,7 @@ Database Availability Group обеспечивает отказоусточив�
   Чтобы создать [сетевой балансировщик](../../network-load-balancer/concepts/index.md):
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать сервисный аккаунт.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. [Перейдите]({{ link-console-main }}/link/network-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
   1. Задайте имя балансировщика: `exchange-lb`.
   1. В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_address-type }}** выберите **{{ ui-key.yacloud.common.label_auto }}**.

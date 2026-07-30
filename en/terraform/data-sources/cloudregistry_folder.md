@@ -48,6 +48,7 @@ data "yandex_cloudregistry_folder" "source" {
 - `modified_by` (*Read-Only*) (String). Output only. ID of the user or service account who last modified the artifact.
 - `name` (*Read-Only*) (String). Name of the artifact.
 - `properties` (*Read-Only*) (Map Of String). Key-value properties associated with the artifact.
+- `registry_id` (**Required**)(String). Output only. ID of the registry that contains this artifact.
 - `status` (*Read-Only*) (String). Output only. Status of the artifact.
 - `timeouts` [Block]. 
   - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).

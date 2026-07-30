@@ -90,8 +90,8 @@
 
 #### Настройте статическую маршрутизацию для основного IPsec-шлюза {#cloud-static}
 
-1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором создана сеть `cloud-net`.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создана сеть `cloud-net`.
+1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
 1. Выберите сеть `cloud-net`.
 1. Перейдите на вкладку **{{ ui-key.yacloud.vpc.network.switch_route-table }}** и нажмите **{{ ui-key.yacloud.common.create }}**.
 1. В поле **{{ ui-key.yacloud.vpc.route-table-form.field_name }}** укажите `cloud-net-rt`.
@@ -328,8 +328,8 @@
 
 #### Настройте статическую маршрутизацию для удаленного IPsec-шлюза {#remote-static}
 
-1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором создана сеть `remote-net`.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создана сеть `remote-net`.
+1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
 1. Выберите сеть `remote-net`.
 1. Перейдите на вкладку **{{ ui-key.yacloud.vpc.network.switch_route-table }}** и нажмите **{{ ui-key.yacloud.common.create }}**.
 1. В поле **{{ ui-key.yacloud.vpc.route-table-form.field_name }}** укажите `remote-net-rt`.

@@ -152,7 +152,7 @@ Thumbor удобно использовать для подготовки изо
    - Вручную {#manual}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в который нужно загрузить объект.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+      1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. Нажмите на имя бакета.
       1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
       1. В появившемся окне выберите необходимые файлы и нажмите кнопку **Открыть**.

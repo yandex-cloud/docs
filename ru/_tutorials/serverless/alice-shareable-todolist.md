@@ -111,7 +111,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. [Перейдите]({{ link-console-main }}/link/api-gateway) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Нажмите **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** введите `gate-1`.
   1. Нажмите **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
@@ -131,7 +131,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создали бакет.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. [Перейдите]({{ link-console-main }}/link/ydb) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Нажмите **{{ ui-key.yacloud.ydb.databases.button_create }}**.
   1. Введите **{{ ui-key.yacloud.ydb.forms.label_field_name }}** базы. Требования к имени:
 
@@ -466,7 +466,7 @@
 - Консоль сервиса Яндекс Диалоги
 
   1. Перейдите на вкладку **Настройки**.
-  1. Перейдите на вкладку **Интенты** и нажмите **Создать**.
+  1. Откройте вкладку **Интенты** и нажмите **Создать**.
   1. Добавьте интенты для каждого действия, возможного в диалоге. Разработанные интенты находятся в папке `yc-serverless-alice-shareable-todolist/intents` проекта.
   1. Введите:
 

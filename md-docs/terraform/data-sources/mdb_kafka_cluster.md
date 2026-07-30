@@ -77,6 +77,7 @@ output "network_id" {
       - `log_flush_interval_messages` (String). The number of messages accumulated on a log partition before messages are flushed to disk.
       - `log_flush_interval_ms` (String). The maximum time in ms that a message in any topic is kept in memory before flushed to disk. If not set, the value in log.flush.scheduler.interval.ms is used.
       - `log_flush_scheduler_interval_ms` (String). The frequency in ms that the log flusher checks whether any log needs to be flushed to disk.
+      - `log_message_timestamp_type` (String). Defines whether the timestamp in a message is the message creation time or the log append time. Possible values are `MESSAGE_TIMESTAMP_TYPE_CREATE_TIME` and `MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME`.
       - `log_preallocate` (Bool). Should pre allocate file when create new segment?
       - `log_retention_bytes` (String). The maximum size of the log before deleting it.
       - `log_retention_hours` (String). The number of hours to keep a log file before deleting it (in hours), tertiary to log.retention.ms property.
@@ -122,7 +123,7 @@ output "network_id" {
     - `flush_messages` (String). This setting allows specifying an interval at which we will force an fsync of data written to the log.
     - `flush_ms` (String). This setting allows specifying a time interval at which we will force an fsync of data written to the log.
     - `max_message_bytes` (String). The largest record batch size allowed by Kafka (after compression if compression is enabled).
-    - `message_timestamp_type` (String). Define whether the timestamp in the message is message create time or log append time. Possible values: LOG_APPEND_TIME or CREATE_TIME.
+    - `message_timestamp_type` (String). Defines whether the timestamp in a message is the message creation time or the log append time. Possible values are `MESSAGE_TIMESTAMP_TYPE_CREATE_TIME` and `MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME`.
     - `min_compaction_lag_ms` (String). The minimum time a message will remain uncompacted in the log. Only applicable for logs that are being compacted.
     - `min_insync_replicas` (String). When a producer sets acks to "all" (or "-1"), this configuration specifies the minimum number of replicas that must acknowledge a write for the write to be considered successful. 
     - `preallocate` (Bool). True if we should preallocate the file on disk when creating a new log segment.

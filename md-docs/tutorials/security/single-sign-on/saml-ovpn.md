@@ -26,7 +26,7 @@
 - Консоль управления {#console}
 
    1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-   1. Перейдите в сервис **Compute Cloud**.
+   1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
    1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **Виртуальные машины**.
    1. Нажмите кнопку **Создать виртуальную машину**.
    1. В блоке **Образ загрузочного диска** в поле **Поиск продукта** введите `OpenVPN Access Server` и выберите образ [OpenVPN Access Server](https://yandex.cloud/ru/marketplace/products/yc/openvpn-access-server).

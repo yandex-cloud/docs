@@ -183,6 +183,11 @@ resource "yandex_vpc_security_group" "test-sg-x" {
   - `upload_timeout` (Number). The Tomcat server connection timeout for write operations in seconds. Value is between 5 and 600.
   - `xms` (Number). Maximum JVM heap size for PXF daemon. Value is between 64 and 16384.
   - `xmx` (Number). Initial JVM heap size for PXF daemon. Value is between 64 and 16384.
+- `restore` [Block]. The cluster will be created from the specified backup.
+  - `backup_id` (**Required**)(String). Backup ID. The cluster will be created from the specified backup.
+  - `restore_hba` (Bool). Restore HBA settings from the original cluster.
+  - `restore_pxf` (Bool). Restore PXF settings from the original cluster.
+  - `time` (String). Timestamp of the moment to which the Greenplum cluster should be restored. (Format: `2006-01-02T15:04:05` - UTC). When not set, current time is used.
 - `segment_subcluster` [Block]. Settings for segment subcluster.
   - `resources` [Block]. Resources allocated to hosts for segment subcluster of the Greenplum cluster.
     - `disk_size` (**Required**)(Number). Volume of the storage available to a host, in gigabytes.

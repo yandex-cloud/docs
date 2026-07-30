@@ -284,7 +284,7 @@ AI-агент — это программный помощник на базе �
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете создавать инфраструктуру.
-  1. Перейдите в сервис **Identity and Access Management**.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. Нажмите **Создать сервисный аккаунт**.
   1. Введите имя сервисного аккаунта: `agent-streamer-sa`.
   1. Нажмите ![plus](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите [роли](../../iam/roles-reference.md):
@@ -390,7 +390,7 @@ AI-агент — это программный помощник на базе �
 - Консоль управления {#console}
 
   1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Identity and Access Management**.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. Выберите созданный ранее сервисный аккаунт `agent-streamer-sa`.
   1. На панели сверху нажмите ![image](../../_assets/console-icons/plus.svg) **Создать новый ключ** и выберите **Создать API-ключ**.
   1. В поле **Область действия** выберите [область действия](../../iam/concepts/authorization/api-key.md#scoped-api-keys) `yc.ai.languageModels.execute`.
@@ -451,7 +451,7 @@ AI-агент — это программный помощник на базе �
 - Консоль управления {#console}
 
   1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Lockbox**.
+  1. [Перейдите](https://console.yandex.cloud/link/lockbox) в сервис **Lockbox**.
   1. Нажмите **Создать секрет**.
   1. В поле **Имя** введите имя секрета: `api-key-secret`.
   1. В поле **Тип секрета** выберите `Пользовательский`.
@@ -506,7 +506,7 @@ AI-агент — это программный помощник на базе �
 - Консоль управления {#console}
 
   1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Cloud Functions**.
+  1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
   1. Создайте функцию:
 
      1. Нажмите **Создать функцию**.
@@ -648,7 +648,7 @@ AI-агент — это программный помощник на базе �
     - Консоль управления {#console}
 
       1. Откройте [консоль управления](https://console.yandex.cloud).
-      1. Перейдите в сервис **API Gateway**.
+      1. [Перейдите](https://console.yandex.cloud/link/api-gateway) в сервис **API Gateway**.
       1. Нажмите **Создать API-шлюз**.
       1. В поле **Имя** введите имя API-шлюза: `agent-streamer-gateway`.
       1. В блок **Спецификация** вставьте содержимое файла `gateway-spec.yaml`.

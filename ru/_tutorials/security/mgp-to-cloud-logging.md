@@ -221,8 +221,8 @@
 
    * Консоль управления {#console}
 
-      1. В консоли управления перейдите в нужный каталог.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+      1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
+      1. [Перейдите]({{ link-console-main }}/link/logging) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
       1. Нажмите на строку с лог-группой `default`.
 
       На открывшейся странице отобразятся записи.
@@ -484,7 +484,7 @@
 
    * Консоль управления {#console}
 
-      1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
+      1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
       1. [Перейдите]({{ link-console-main }}/link/logging) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
       1. Нажмите на строку с лог-группой `my-log-group`.
 

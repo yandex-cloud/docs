@@ -54,7 +54,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать сервисный аккаунт.
-    1. Перейдите в сервис **Identity and Access Management**.
+    1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
     1. Нажмите кнопку **Создать сервисный аккаунт**.
     1. Введите имя сервисного аккаунта: `my-db-function-service-account`.
     1. Нажмите кнопку ![](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите [роли](../../iam/concepts/access-control/roles.md) `functions.functionInvoker` и `editor`.
@@ -77,7 +77,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать реестр.
-    1. Перейдите в сервис **IoT Core**.
+    1. [Перейдите](https://console.yandex.cloud/link/iot-core) в сервис **IoT Core**.
     1. Нажмите кнопку **Создать реестр**.
     1. В поле **Имя** введите `my-registry`.
     1. Введите пароль.
@@ -138,7 +138,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать кластер БД.
-    1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
     1. Нажмите кнопку **Создать кластер**.
     1. В поле **Имя кластера** введите `my-pg-database`.
     1. В поле **Окружение** выберите `PRODUCTION`.
@@ -268,7 +268,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать функцию.
-    1. Перейдите в сервис **Cloud Functions**.
+    1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
     1. Нажмите кнопку **Создать функцию**.
     1. Введите имя функции.
     1. Нажмите кнопку **Создать**.
@@ -317,7 +317,7 @@
         Чтобы определить значения параметров для подключения:
 
         1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создали кластер.
-        1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+        1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
         1. Выберите кластер `my-pg-database`.
         1. В строке с нужной БД нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Подключиться**.
         1. На вкладке **PowerShell** найдите пример строки подключения.
@@ -336,7 +336,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать триггер.
-    1. Перейдите в сервис **Cloud Functions**.
+    1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
     1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **Триггеры**.
     1. Нажмите кнопку **Создать триггер**.
     1. В блоке **Базовые параметры**:

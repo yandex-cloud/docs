@@ -55,8 +55,8 @@ AWS S3 Sync — стандартная команда [AWS CLI](../tools/aws-cli
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-  1. Перейдите в сервис **Object Storage**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
   1. Нажмите **Создать бакет**.
   1. Укажите имя бакета в соответствии с [правилами именования](../concepts/bucket.md#naming).
   1. В полях **Чтение объектов**, **Чтение списка объектов** и **Чтение настроек** выберите `С авторизацией`.
@@ -94,7 +94,7 @@ AWS S3 Sync — стандартная команда [AWS CLI](../tools/aws-cli
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
-  1. Перейдите в сервис **Identity and Access Management**.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. Нажмите **Создать сервисный аккаунт**.
   1. В поле **Имя** укажите `sa-backup-to-s3`.
   1. Нажмите ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите [роль](../security/index.md#storage-editor) `storage.editor`.
@@ -170,7 +170,7 @@ AWS S3 Sync — стандартная команда [AWS CLI](../tools/aws-cli
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
-  1. Перейдите в сервис **Identity and Access Management**.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
   1. Выберите сервисный аккаунт `sa-backup-to-s3`.
   1. На панели сверху нажмите ![image](../../_assets/console-icons/plus.svg) **Создать новый ключ** и выберите **Создать статический ключ доступа**.

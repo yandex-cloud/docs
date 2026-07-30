@@ -87,6 +87,7 @@
             is_blocking = false
           }
         }
+      }
       ```
 
      {% endcut %}

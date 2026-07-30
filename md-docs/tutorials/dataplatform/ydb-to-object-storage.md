@@ -206,7 +206,7 @@
 Убедитесь, что данные перенеслись из базы данных Managed Service for YDB в бакет Object Storage:
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится нужный бакет.
-1. Перейдите в сервис **Object Storage**.
+1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
 1. Выберите бакет из списка.
 1. Перейдите на вкладку **Объекты**.
 1. Проверьте, что бакет Object Storage содержит папку `from_YDB` с объектом `<seasons.csv>` с тестовыми данными.

@@ -115,7 +115,7 @@
   - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-    1. Перейдите в сервис **Smart Web Security**.
+    1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
     1. На панели слева выберите ![domain-protection-icon](../../_assets/smartwebsecurity/domain-protection-icon.svg) **Защита доменов**.
     1. Нажмите кнопку **Создать прокси-сервер**.
     1. Введите произвольное имя для прокси-сервера, например, `test-proxy`.
@@ -209,7 +209,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находятся защищаемые ресурсы.
-  1. Перейдите в сервис **Smart Web Security**.
+  1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
   1. На панели слева выберите ![image](../../_assets/smartwebsecurity/profiles.svg) **Профили безопасности**.
   1. Нажмите **Создать профиль** и выберите **По преднастроенному шаблону**.
 
@@ -478,7 +478,7 @@
 - L7-балансировщик {#balancer}
 
   1. Убедитесь, что настроено [логирование](../../smartwebsecurity/operations/configure-logging.md).
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. Выберите балансировщик, к которому привязан профиль безопасности.
   1. Выберите раздел **Логи**:
      
@@ -515,7 +515,7 @@
 - API-шлюз {#api-gateway}
   
   1. Убедитесь, что настроено [логирование](../../api-gateway/operations/api-gw-logs-write.md).
-  1. Перейдите в сервис **API Gateway**.
+  1. [Перейдите](https://console.yandex.cloud/link/api-gateway) в сервис **API Gateway**.
   1. Выберите API-шлюз, к которому привязан профиль безопасности.
   1. Выберите раздел **Логи**:
      
@@ -552,7 +552,7 @@
 - Домен {#domain}
 
   1. Убедитесь, что настроено [логирование](../../smartwebsecurity/operations/proxy-create.md).
-  1. Перейдите в сервис **Smart Web Security**.
+  1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
   1. На панели слева выберите ![domain-protection-icon](../../_assets/smartwebsecurity/domain-protection-icon.svg) **Защита доменов**.
   1. Выберите прокси-сервер, к которому привязан профиль безопасности.
   1. Выберите раздел **Логи**:
@@ -605,7 +605,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Smart Web Security**.
+  1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
   1. Выберите раздел **Мониторинг**.
   1. Посмотрите информацию на графиках:
      * **Denied by Security Profile RPS** — количество входящих запросов в секунду, которые были проверены и заблокированы профилем безопасности.
@@ -630,7 +630,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится профиль безопасности.
-  1. Перейдите в сервис **Smart Web Security**.
+  1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
   1. На панели слева выберите ![image](../../_assets/smartwebsecurity/arl.svg) **Профили ARL** и нажмите **Создать профиль ARL**.
   1. Введите имя профиля, например `arl-site-protection`.
   1. Нажмите **Создать**.
@@ -709,7 +709,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Smart Web Security**.
+  1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
   1. Выберите раздел **Мониторинг**.
   1. Посмотрите информацию на графиках:
      * **Allowed by ARL Profile RPS** — количество входящих запросов в секунду, которое не превышает лимит в профиле ARL.
@@ -736,7 +736,7 @@ Web Application Firewall (WAF) защищает от эксплуатации р
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится профиль безопасности.
-  1. Перейдите в сервис **Smart Web Security**.
+  1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
   1. Перейдите на вкладку ![image](../../_assets/smartwebsecurity/waf.svg) **Профили WAF** и нажмите **Создать профиль WAF**.
   1. Введите имя профиля, например `waf-site-protection`.
   1. Включите наборы правил, например ML WAF и Yandex Ruleset. Чтобы посмотреть правила в наборе, нажмите на строку с его описанием.

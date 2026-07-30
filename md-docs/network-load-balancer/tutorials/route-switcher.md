@@ -79,7 +79,7 @@
    - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать сервисный аккаунт.
-      1. Перейдите в сервис **Identity and Access Management**.
+      1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
       1. Нажмите кнопку **Создать сервисный аккаунт**.
       1. Введите имя сервисного аккаунта, например, `sa-terraform`.
       1. Нажмите кнопку **Создать**.
@@ -293,7 +293,7 @@
    - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите нужный в каталог.
-      1. Перейдите в сервис **Network Load Balancer** и перейдите на страницу сетевого балансировщика `route-switcher-lb-...`.
+      1. [Перейдите](https://console.yandex.cloud/link/network-load-balancer) в сервис **Network Load Balancer** и выберите страницу сетевого балансировщика `route-switcher-lb-...`.
       1. Раскройте целевую группу и убедитесь, что состояния целевых ресурсов имеет статус `Healthy`. 
 
    {% endlist %}
@@ -324,7 +324,7 @@
    - Консоль управления {#console}
   
       1. В [консоли управления](https://console.yandex.cloud) выберите нужный в каталог.
-      1. Перейдите в сервис **Compute Cloud**.
+      1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
       1. В списке ВМ выберите `test-vm`.
       1. Перейдите на вкладку ![image](../../_assets/console-icons/terminal.svg) **Серийная консоль**.
       1. Дождитесь полной загрузки операционной системы.
@@ -373,7 +373,7 @@
    - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите нужный в каталог.
-      1. Перейдите в сервис **Compute Cloud**.
+      1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
       1. Выберите ВМ `nat-a` в списке, нажмите значок ![image](../../_assets/options.svg) и выберите **Остановить**.
       1. В открывшемся окне нажмите кнопку **Остановить**.
 
@@ -415,7 +415,7 @@
    - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите нужный в каталог.
-      1. Перейдите в сервис **Compute Cloud**.
+      1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
       1. Выберите ВМ `nat-a` в списке, нажмите значок ![image](../../_assets/options.svg) и выберите **Остановить**.
       1. В открывшемся окне нажмите кнопку **Запустить**.
 

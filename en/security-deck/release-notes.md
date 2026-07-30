@@ -5,6 +5,26 @@ description: This section contains the {{ sd-name }} release notes.
 
 # {{ sd-full-name }} release notes
 
+## June 2026 {#june-2026}
+
+* {{ sd-full-name }} has entered the [General Availability](../overview/concepts/launch-stages.md) stage. The [Threat Detection](./concepts/threat-detector.md) and Vulnerability Manager modules, along with the AI assistant, remain in [Preview](../overview/concepts/launch-stages.md).
+* Added new rules for infrastructure security compliance verification in [{{ cspm-name }}](./concepts/cspm.md). The new rules govern the use of MFA, key rotation, service account last-authenticated date tracking, and the use of Yandex ID accounts.
+* In [{{ kspm-name }}](./concepts/kspm.md): 
+  * [Exceptions](./operations/kspm/manage-exceptions.md) now support excluding resources from checks based on their type, workload name, and labels.
+  * Implemented rule modes of the _admission_ type.
+  * Supported a new {{ k8s }}® version.
+* Added [support](./operations/alerts/work.md#update-batch) for changing the status, assigning owners, and adjusting severity for multiple alerts at once.
+* When you create a workspace, the system automatically creates a default alert sink unless the user creates a custom one. 
+* Added support for [activating and deactivating workspaces](./operations/workspaces/index.md) in {{ sd-name }}.
+
+## May 2026 {#may-2026}
+
+* [{{ cspm-name }}](./concepts/cspm.md) now includes a new [rule set](./concepts/standard-compliance/yc-gost-57580.md) aligned with GOST R 57580, the national security standard for banking and financial operations. 
+* [{{ dspm-name }}](./concepts/dspm.md) now supports creating [scan scopes](./operations/dspm/create-data-source.md#change-scaning) from preliminary analysis results and continuous [monitoring](./concepts/dspm.md#change-scaning) of those scopes for new or modified sensitive data.  
+* The pricing model has been expanded: you can now purchase monthly [subscriptions](pricing.md#starter-pricing) for the [{{ cspm-name }}](./concepts/cspm.md) and [Threat Detection](./concepts/threat-detector.md) modules.
+* All module [errors](./diagnostics/index.md) are now displayed in a single dedicated interface.
+* Scanning {{ yandex-360 }} disks for sensitive data using [{{ dspm-name }}](./concepts/dspm.md) is now available to all users. Previously, this feature was only available upon request.
+
 ## April 2026 {#april-2026}
 
 * [{{ td-full-name }}](./concepts/threat-detector.md) (TD) kicked off. This module is in [Preview](../overview/concepts/launch-stages.md) and available only upon request.
@@ -14,11 +34,11 @@ description: This section contains the {{ sd-name }} release notes.
 * On the [{{ cspm-name }}](./concepts/cspm.md) and [{{ kspm-name }}](./concepts/kspm.md) alerts page, you can now [exclude a resource](./operations/alerts/work.md#create-exception) from the compliance check.
 
 ## March 2026 {#march-2026}
-* Released [Vulnerability Management (VM)](./concepts/vulnerability-management.md). This module is in [Preview](../overview/concepts/launch-stages.md) and available only upon request.
-* [DSPM](./concepts/dspm.md) now supports preliminary [analysis of data](./concepts/dspm.md#discovery-mode) stored in {{ objstorage-name }} buckets within a workspace.
+* Released the [{{ vuln-man-name }} (VM)](./concepts/vulnerability-management.md) module. This module is in [Preview](../overview/concepts/launch-stages.md) and available only upon request.
+* [{{ dspm-name }}](./concepts/dspm.md) now supports preliminary [analysis of data](./concepts/dspm.md#discovery-mode) stored in {{ objstorage-name }} buckets within a workspace.
 * You can now [group](./operations/alerts/view.md#search) alerts by type and filter them by new attributes.
-* In [KSPM](./concepts/kspm.md), you can now specify objects in [exceptions](./operations/kspm/manage-exceptions.md) using search by namespace.
-* Added new rules for infrastructure security compliance verification in [CSPM](./concepts/cspm.md). The new rules control the [assignment](./rules-reference/cspm.md#check-privileged-roles) of privileged roles, DDoS [protection](./rules-reference/cspm.md#appsec-ddos-protection-l3) at the network level, service account [access](./rules-reference/cspm.md#access) to {{ k8s }}® clusters, and redundant service account roles at the [organization](./rules-reference/cspm.md#sa-privileges-org-roles) and [service](./rules-reference/cspm.md#sa-privileges-service-roles) levels. 
+* In [{{ kspm-name }}](./concepts/kspm.md), you can now specify objects in [exceptions](./operations/kspm/manage-exceptions.md) using search by namespace.
+* Added new rules for infrastructure security compliance verification in [{{ cspm-name }}](./concepts/cspm.md). The new rules control the [assignment](./rules-reference/cspm.md#check-privileged-roles) of privileged roles, DDoS [protection](./rules-reference/cspm.md#appsec-ddos-protection-l3) at the network level, service account [access](./rules-reference/cspm.md#access) to {{ k8s }}® clusters, and redundant service account roles at the [organization](./rules-reference/cspm.md#sa-privileges-org-roles) and [service](./rules-reference/cspm.md#sa-privileges-service-roles) levels. 
 
 ## February 2026 {#february-2026}
 

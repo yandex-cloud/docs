@@ -45,7 +45,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
-  1. Перейдите в сервис **Identity and Access Management**.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. Нажмите кнопку **Создать сервисный аккаунт**.
   1. Введите имя [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md): `forms-integration-sa`.
   1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роли: 
@@ -66,7 +66,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
-  1. Перейдите в сервис **Object Storage**.
+  1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
   1. Нажмите кнопку **Создать бакет**.
   1. Введите **Имя** бакета.
   1. Нажмите кнопку **Создать бакет**.
@@ -80,7 +80,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
-  1. Перейдите в сервис **Object Storage**.
+  1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
   1. Откройте [созданный ранее](#create-s3-bucket) бакет.
   1. Перейдите в раздел **Объекты**.
   1. Нажмите на кнопку ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Настроить ACL**.
@@ -100,7 +100,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
-  1. Перейдите в сервис **Identity and Access Management**.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. Выберите сервисный аккаунт `forms-integration`.
   1. Перейдите в раздел **Обзор**.
   1. Нажмите кнопку **Создать новый ключ** и выберите **Создать статический ключ доступа**.  
@@ -116,7 +116,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
-  1. Перейдите в сервис **Lockbox**.
+  1. [Перейдите](https://console.yandex.cloud/link/lockbox) в сервис **Lockbox**.
   1. Нажмите кнопку **Создать секрет**.
   1. Введите **Имя** секрета — `static-key`.
   1. В блоке **Данные секрета**:
@@ -141,7 +141,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
-  1. Перейдите в сервис **Cloud Functions**.
+  1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
   1. Создайте функцию:
       1. Нажмите кнопку **Создать функцию** в правом верхнем углу.
       1. Введите **Имя** функции — `forms-function`.  
@@ -253,7 +253,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
-  1. Перейдите в сервис **Identity and Access Management**.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. Выберите сервисный аккаунт `forms-integration`.
   1. Перейдите в раздел **Обзор**.
   1. Нажмите кнопку **Создать новый ключ** и выберите **Создать API-ключ**.  
@@ -268,7 +268,7 @@
 
 - Интерфейс Формы {#forms}
 
-  1. Перейдите в сервис [Формы](https://forms.yandex.ru/cloud/admin).
+  1. [Перейдите](https://forms.yandex.ru/cloud/admin) в сервис **Формы**.
 
   1. Нажмите кнопку **Создать форму**.
 
@@ -286,7 +286,7 @@
 
 - Интерфейс Формы {#forms}
 
-  1. Перейдите в сервис [Формы](https://forms.yandex.ru/cloud/admin).
+  1. [Перейдите](https://forms.yandex.ru/cloud/admin) в сервис **Формы**.
 
   1. Откройте созданную ранее форму.
 
@@ -314,7 +314,7 @@
 
 1. Заполните форму и нажмите кнопку **Отправить**.
 
-1. Перейдите в сервис [Формы](https://forms.yandex.ru/cloud/admin).
+1. [Перейдите](https://forms.yandex.ru/cloud/admin) в сервис **Формы**.
 
 1. Откройте созданную ранее форму.
 
@@ -339,7 +339,7 @@
 - Интерфейс Query {#yquery}
 
   1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Yandex Query**.
+  1. [Перейдите](https://yq.yandex.cloud) в сервис **Yandex Query**.
   1. На вкладке **Соединения** нажмите кнопку ![info](../../../_assets/console-icons/plus.svg) **Создать**.
   1. Создайте соединение со следующими параметрами:
       * **Имя** — `forms-connection`.
@@ -368,7 +368,7 @@
   1. Перейдите в [сервис DataLens](https://datalens.ru/promo).
   1. Нажмите **Начать в облаке**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/thunderbolt.svg) **Подключения** и нажмите кнопку **Создать подключение**.
-  1. Перейдите в сервис **Yandex Query** и задайте в открывшемся окне следующие параметры:
+  1. [Перейдите](https://yq.yandex.cloud) в сервис **Yandex Query** и задайте в открывшемся окне следующие параметры:
       * **Облако и каталог** — выберите облако и каталог, в котором вы создали остальные ресурсы.
       * **Сервисный аккаунт** — `forms-integration-sa`.
   1. Нажмите кнопку **Сохранить изменения** и в открывшемся окне задайте имя подключения — `forms-datalens-connection`, затем нажмите кнопку **Создать**.

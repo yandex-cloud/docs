@@ -41,7 +41,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите имя бакета `object-bucket`.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
@@ -59,7 +59,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали бакеты.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите бакет `object-bucket`.
   1. [Включите механизм логирования](../../storage/operations/buckets/enable-logging.md#enable):
 
@@ -81,7 +81,7 @@
 
 - Интерфейс {{ yq-full-name }} {#console}
 
-  1. Перейдите в сервис [{{ yq-name }}](https://yq.yandex.cloud/).
+  1. [Перейдите]({{ link-console-yq }}) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
   1. На панели слева выберите **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
   1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
   1. Введите имя соединения, например `bucket-logs-connection`.
@@ -110,7 +110,7 @@
 
 - Интерфейс {{ yq-full-name }} {#console}
 
-  1. Перейдите в сервис [{{ yq-name }}](https://yq.yandex.cloud/).
+  1. [Перейдите]({{ link-console-yq }}) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
   1. На панели слева выберите **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
   1. Выберите соединение `bucket-logs-connection`.
   1. В редакторе справа введите запрос:

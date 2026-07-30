@@ -40,7 +40,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать сервисный аккаунт.
-  1. Перейдите в сервис **Identity and Access Management**.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. Нажмите кнопку **Создать сервисный аккаунт**.
   1. Введите имя сервисного аккаунта, например `sa-function`. Требования к имени:
 
@@ -60,7 +60,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать БД.
-  1. Перейдите в сервис **Managed Service for&nbsp;YDB**.
+  1. [Перейдите](https://console.yandex.cloud/link/ydb) в сервис **Managed Service for&nbsp;YDB**.
   1. Нажмите кнопку **Создать базу данных**.
   1. Введите имя БД. Требования к имени:
 
@@ -84,7 +84,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать функцию.
-  1. Перейдите в сервис **Cloud Functions**.
+  1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
   1. Нажмите кнопку **Создать функцию**.
   1. Введите имя и описание функции. Требования к имени:
 

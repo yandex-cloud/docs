@@ -71,8 +71,8 @@ Yandex Query — это интерактивный сервис для бесс�
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог `data-folder`.
-  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог `data-folder`.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. Нажмите кнопку **Создать сервисный аккаунт**.
   1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), например `yq-sa`.
   1. Нажмите **Добавить роль** и назначьте сервисному аккаунту роли:
@@ -107,8 +107,8 @@ Yandex Query — это интерактивный сервис для бесс�
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог `data-folder`.
-  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог `data-folder`.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
   1. В открывшемся списке выберите сервисный аккаунт `yq-sa`.
   1. Нажмите кнопку **Создать новый ключ** на верхней панели и выберите пункт **Создать авторизованный ключ**.
@@ -185,8 +185,8 @@ Yandex Query — это интерактивный сервис для бесс�
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог `data-folder`.
-  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог `data-folder`.
+  1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
   1. Справа сверху нажмите кнопку **Создать бакет**.
   1. В поле **Имя** укажите имя бакета.
   1. В полях **Чтение объектов**, **Чтение списка объектов** и **Чтение настроек** выберите **С авторизацией**.
@@ -211,8 +211,8 @@ Yandex Query — это интерактивный сервис для бесс�
 
 - Консоль управления {#console}
   
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог `data-folder`.
-  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Yandex Query**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог `data-folder`.
+  1. [Перейдите](https://yq.yandex.cloud) в сервис **Yandex Query**.
   1. На панели слева выберите **Соединения**.
   1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg)**Создать**.
   1. Введите имя соединения, например `storage-connection`.
@@ -238,7 +238,7 @@ Yandex Query — это интерактивный сервис для бесс�
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `data-folder`.
-  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Yandex Query**.
+  1. [Перейдите](https://yq.yandex.cloud) в сервис **Yandex Query**.
   1. На панели слева выберите **Привязки**.
   1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg) **Создать**.
   1. В блоке **Параметры соединения**:
@@ -286,7 +286,7 @@ Yandex Query — это интерактивный сервис для бесс�
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `data-folder`.
-  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
   1. Нажмите кнопку **Создать кластер**.
   1. Введите имя кластера в поле **Имя кластера**, например `clickhouse`.
 
@@ -340,7 +340,7 @@ Yandex Query — это интерактивный сервис для бесс�
 - Консоль управления {#console}
   
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `data-folder`.
-  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Yandex Query**.
+  1. [Перейдите](https://yq.yandex.cloud) в сервис **Yandex Query**.
   1. На панели слева выберите **Соединения**.
   1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg)**Создать**.
   1. Введите имя соединения, например `clickhouse`.
@@ -374,7 +374,7 @@ Yandex Query — это интерактивный сервис для бесс�
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `data-folder`.
-  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;PostgreSQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
   1. Нажмите кнопку **Создать кластер**.
   1. Введите имя кластера в поле **Имя кластера**, например `postgresql`.
   1. В блоке **База данных**:
@@ -419,7 +419,7 @@ Yandex Query — это интерактивный сервис для бесс�
 - Консоль управления {#console}
   
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `data-folder`.
-  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Yandex Query**.
+  1. [Перейдите](https://yq.yandex.cloud) в сервис **Yandex Query**.
   1. На панели слева выберите **Соединения**.
   1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg)**Создать**.
   1. Введите имя соединения, например `postgresql`.

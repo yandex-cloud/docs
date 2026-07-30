@@ -82,7 +82,7 @@
 - Консоль управления {#console} 
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы будете создавать облачную инфраструктуру.
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. Создайте облачную сеть:
 
       1. Справа сверху нажмите **Создать сеть**.
@@ -110,7 +110,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете облачную инфраструктуру.
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **Группы безопасности** и нажмите кнопку **Создать группу безопасности**.
   1. В поле **Имя** задайте имя `vpn-sg`.
   1. В поле **Сеть** выберите созданную ранее сеть `sample-network`.
@@ -132,7 +132,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины** и нажмите кнопку **Создать виртуальную машину**.
   1. В блоке **Образ загрузочного диска** выберите образ [Ubuntu 24.04](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-2404-lts-oslogin).
   1. В блоке **Расположение** выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-b`.
@@ -182,7 +182,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете облачную инфраструктуру.
-  1. Перейдите в сервис **BareMetal**.
+  1. [Перейдите](https://console.yandex.cloud/link/baremetal) в сервис **BareMetal**.
   1. На панели слева выберите ![icon](../../_assets/console-icons/nodes-right.svg) **Приватные подсети** и нажмите кнопку **Создать подсеть**.
   1. В поле **Пул** выберите пул серверов `ru-central1-m3`.
   1. В поле **Имя** задайте имя подсети: `subnet-m3`.

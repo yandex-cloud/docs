@@ -70,7 +70,7 @@
      Чтобы создать [облачную сеть](../../vpc/concepts/network.md):
 
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором будет создана облачная сеть.
-     1. Перейдите в сервис **Virtual Private Cloud**.
+     1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
      1. Нажмите кнопку **Создать сеть**
      1. Задайте имя сети: `exchange-network`.
      1. Нажмите кнопку **Создать сеть**.
@@ -819,7 +819,7 @@ Database Availability Group обеспечивает отказоусточив�
   Чтобы создать [сетевой балансировщик](../../network-load-balancer/concepts/index.md):
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать сервисный аккаунт.
-  1. Перейдите в сервис **Network Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/network-load-balancer) в сервис **Network Load Balancer**.
   1. Нажмите кнопку **Создать сетевой балансировщик**.
   1. Задайте имя балансировщика: `exchange-lb`.
   1. В поле **Публичный адрес** выберите **Автоматически**.

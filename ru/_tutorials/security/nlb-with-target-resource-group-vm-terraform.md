@@ -92,8 +92,8 @@
 
     {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
-1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором создан L7-балансировщик.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан L7-балансировщик.
+1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
 1. Дождитесь, когда L7-балансировщик перейдет в статус `Active`.
 1. Укажите настройки автомасштабирования в L7-балансировщике:
 
@@ -122,8 +122,8 @@
 
 1. Измените для группы ВМ интеграцию с целевой группой:
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится группа ВМ.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится группа ВМ.
+    1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
     1. На панели слева выберите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
     1. Выберите группу, которую хотите изменить.
     1. В правом верхнем углу страницы нажмите **{{ ui-key.yacloud.common.edit }}**.

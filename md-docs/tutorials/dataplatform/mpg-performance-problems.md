@@ -17,7 +17,7 @@
 ## Проверьте состояние кластера с помощью Yandex Monitoring {#monitoring}
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
 1. Нажмите на имя нужного кластера и выберите вкладку **Мониторинг**.
 1. Чтобы перейти к работе с метриками, дашбордами или алертами в сервисе Yandex Monitoring, нажмите кнопку **Открыть в Monium** на панели сверху.
 1. На графике **Average CPU usage** найдите участок, где график постоянно рос, а потом вышел на плато.

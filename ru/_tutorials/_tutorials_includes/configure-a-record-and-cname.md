@@ -7,7 +7,8 @@
 - Консоль управления {#console}
 
    Чтобы добавить [публичную зону DNS](../../dns/concepts/dns-zone.md#public-zones):
-   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}** в [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder), где требуется создать [зону DNS](../../dns/concepts/dns-zone.md).
+   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать [зону DNS](../../dns/concepts/dns-zone.md).
+   1. [Перейдите]({{ link-console-main }}/link/dns) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
    1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_zone-create }}**.
    1. Задайте настройки зоны DNS:
       * **{{ ui-key.yacloud.dns.label_zone }}** — `example.com.`. Или укажите ваш зарегистрированный домен.

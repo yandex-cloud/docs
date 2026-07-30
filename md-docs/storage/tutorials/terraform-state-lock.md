@@ -69,7 +69,7 @@ Terraform распространяется под лицензией [Business S
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится ваша БД.
-  1. Перейдите в сервис **Managed Service for&nbsp;YDB**.
+  1. [Перейдите](https://console.yandex.cloud/link/ydb) в сервис **Managed Service for&nbsp;YDB**.
   1. В списке БД выберите `state-lock-db`.
   1. Перейдите на вкладку **Навигация**.
   1. В правом верхнем углу нажмите **Создать** и выберите **Таблица**.
@@ -590,7 +590,7 @@ terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -p
 - Консоль управления {#console}
 
   1. Откройте [консоль управления](https://console.yandex.cloud) и выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится созданный [бакет](../concepts/bucket.md).
-  1. Перейдите в сервис **Object Storage**.
+  1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
   1. В списке бакетов выберите тот, в котором должно было сохраниться состояние Terraform.
   1. Убедитесь, что в бакете появился файл состояния.
 

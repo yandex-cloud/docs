@@ -949,7 +949,9 @@ description: Следуя данной инструкции, вы сможете
 
     * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
-      {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [deletion-protection-cluster](../../_includes/mdb/mmg/deletion-protection-cluster.md) %}
+
+      {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
     Идентификатор и имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -989,9 +991,13 @@ description: Следуя данной инструкции, вы сможете
         }
         ```
 
-        {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
-
         Чтобы отключить защиту, установите значение `false`.
+
+        После включения защиты от удаления кластера она также применяется ко всем новым базам данных и пользователям, для которых защита от удаления не задана явно. Если для базы данных или пользователя задано собственное значение настройки защиты от удаления, оно имеет приоритет над значением настройки кластера.
+
+        Настроить защиту от удаления для базы данных можно в ресурсе `yandex_mdb_mongodb_database`, а для пользователя — в ресурсе `yandex_mdb_mongodb_user`.
+
+        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
     1. Проверьте корректность настроек.
 
@@ -1075,7 +1081,9 @@ description: Следуя данной инструкции, вы сможете
 
       * `deletionProtection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
-        {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+        {% include [deletion-protection-cluster](../../_includes/mdb/mmg/deletion-protection-cluster.md) %}
+
+        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
         
     1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
@@ -1171,7 +1179,9 @@ description: Следуя данной инструкции, вы сможете
 
       * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
-        {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+        {% include [deletion-protection-cluster](../../_includes/mdb/mmg/deletion-protection-cluster.md) %}
+
+        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
   1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 

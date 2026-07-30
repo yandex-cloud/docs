@@ -17,6 +17,7 @@ description: На этой странице приведен справочни�
 | [yandex_mdb_postgresql_cluster_iam_binding]({{ tf-provider-resources-link }}/mdb_postgresql_cluster_iam_binding) | [Настройка](../iam/concepts/access-control/index.md#access-bindings) прав доступа к кластеру |
 | [yandex_mdb_postgresql_database]({{ tf-provider-resources-link }}/mdb_postgresql_database) | База данных {{ PG }} |
 | [yandex_mdb_postgresql_user]({{ tf-provider-resources-link }}/mdb_postgresql_user) | Пользователь {{ PG }} |
+| [yandex_mdb_postgresql_backup_retention_policy]({{ tf-provider-resources-link }}/mdb_postgresql_backup_retention_policy) | Политика резервного копирования |
 
 ## Источники данных {#data-sources}
 
@@ -27,3 +28,4 @@ description: На этой странице приведен справочни�
 | [yandex_mdb_postgresql_cluster]({{ tf-provider-datasources-link }}/mdb_postgresql_cluster) | Информация о [кластере {{ PG }}](./concepts/index.md) |
 | [yandex_mdb_postgresql_database]({{ tf-provider-datasources-link }}/mdb_postgresql_database) | Информация о базе данных {{ PG }} |
 | [yandex_mdb_postgresql_user]({{ tf-provider-datasources-link }}/mdb_postgresql_user) | Информация о пользователе {{ PG }} |
+| [yandex_mdb_postgresql_backup_retention_policy]({{ tf-provider-datasources-link }}/mdb_postgresql_backup_retention_policy) | Информация о политике резервного копирования |

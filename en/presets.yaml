@@ -2080,6 +2080,8 @@ default:
         label_credit-cudCredit: Committed use discount
         label_credit-monetaryGrantCredit: Grant
         label_credit-volumeIncentiveCredit: Volume incentive credit
+        label_deselected-all: Clear
+        label_selected-all: select all
         value_empty_clouds_folders: All clouds and folders
         value_empty_service_instances: All workspaces
       billing-widget:
@@ -2208,7 +2210,6 @@ default:
             value_grants: Grants
           overview:
             account-data_label_organization: Organization
-            button_bind-card-apply: Apply
             card_label_edit: Change bank card
             company_label_rs: Billing account
             payment-type_label_card: Bank card
@@ -3442,7 +3443,13 @@ default:
             verificationMethod_dS9B2: |
               Rule type
             violations_q7AcU: Violations
+          RuleExceptions:
+            placeholder_action_t5zxy: Create exception
+          RuleOverview:
+            scan_kind_8Kgmz: |
+              Rule type
           RulePageLayout:
+            tab_exceptions_pHKkb: Exceptions
             tab_overview_s9riS: Overview
             tab_recommendations_qq61Z: Recommendations
             tab_violations_dkbdT: Violations
@@ -3469,6 +3476,10 @@ default:
             scannable_jWMD6: Scannable
             searchResource_cGkdQ: Search by resource name
           button_file_filter_jXXxv: File filter
+          CustomDictionariesAlert:
+            custom_dictionaries_action_no_r9PVm: 'No'
+            custom_dictionaries_action_yes_iuL9X: Yes, I do
+            custom_dictionaries_title_mw3fv: Connecting custom dictionaries
           data-sources:
             bXXxQ: Resources selected
           dataSourceTypes:
@@ -3516,6 +3527,16 @@ default:
             section_organization_resources_title_5u8qX: Organization resources
             section_user_resources_title_aN75p: User resources
         kspm:
+          ControlModeSelect:
+            action_disable_enforce_oYV96: Disable block mode
+            action_enable_enforce_bdsK9: Enable block mode
+            label_mode_rDqYa: Mode
+            value_audit_jtY6w: Audit
+            value_enforce_ttbjL: Blocking
+          KspmExceptionForm:
+            section-title_mode: Effect
+            title_audit: Disable lock mode for rule
+            title_ignore: Ignore rule
           TopControlsByErrorsWidget:
             table_controls_rJ32E: Top rules with alerts
         settings:

@@ -40,7 +40,7 @@
 
   1. Войдите в [консоль управления](https://console.yandex.cloud) Yandex Cloud.
   1. В левой части экрана нажмите на строку с именем каталога, в котором вы хотите развернуть контейнер.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. Нажмите **Создать сервисный аккаунт**.
   1. В поле **Имя** укажите `github-action`.
   1. Нажмите ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роли:
@@ -282,7 +282,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Serverless Containers**.
+  1. [Перейдите](https://console.yandex.cloud/link/serverless-containers) в сервис **Serverless Containers**.
   1. В списке должен появиться контейнер `demo-serverless-container1`, выберите его.
 
       В блоке **Ревизии** должна появиться ревизия контейнера, по времени создания соответствующая времени [запуска CI/CD-процесса](#check-ci-cd).

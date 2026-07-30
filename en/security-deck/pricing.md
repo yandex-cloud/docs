@@ -36,11 +36,17 @@ You do not pay for:
 #|
 || **Name** | **Description** | **Terms** ||
 || {{ sd-name }}. Starter package | Configuration checks for compliance with standards in the [configuration control module](./concepts/cspm.md) and suspicious activity and threat alerts in the [threat detection module](./concepts/threat-detector.md).</br>There are several plans for different numbers of resources per environment. | The prices based on resources per month are fixed and do not depend on the number of days in the month. ||
-|| Package-based subscription to {{ dspm-name }} | Package-based subscription to {{ dspm-name }} is a special offer that includes all DSPM’s features. | To activate this subscription, contact [support]({{ link-console-support }}). ||
+|| Package-based subscription to {{ dspm-name }} | This is a special offer that covers all DSPM features. There are four plans for different amounts of scan data per month.
+What monthly subscription includes:
+* Data scans.
+* Operations with files.
+* Detection of sensitive information in various file formats.
+* Storing information pertaining to detected objects. |
+The specified amount of data is approximate.
+To activate this subscription, contact [support]({{ link-console-support }}).
 |#
 
-The package prices and subscriptions below are per calendar month.
-A calendar month is a period from 00:00 on the first day of the month to 23:59 on the last day of the same month, UTC+3.
+The package plans and subscriptions are priced per calendar month. A calendar month is a period from 00:00 on the first day of the month to 23:59 on the last day of the same month, UTC+3. The cost is fixed and does not depend on the number of days in the month.
 
 ### Module pricing {#modules-rules}
 
@@ -51,7 +57,7 @@ You can estimate the resource consumption for your organization based on the [us
 {% endnote %}
 
 #|
-|| **Module** | **Billing unit** | **Terms** ||
+|| **Module** | **Fee-based services** | **Terms** ||
 || {{ atr-name }} | Overall consumption of resources over the previous month in the organization the module is enabled for. | Calculated monthly.</br>The price is calculated at the beginning of the calendar month and remains unchanged until its end.</br>If the module is used from the first day of the month, the price does not depend on the duration of the calendar month. If used from the second day of the calendar month or later, you pay only for the remaining time until the end of the month on an hourly basis.</br>If you cancel your subscription in the [management console]({{ link-console-main }}), payments will stop to be charged from the first day of the next calendar month. ||
 || Data Security Posture Management ({{ dspm-name }}) | <ul><li>[Data analysis](./concepts/dspm.md#discovery-mode): Once the limit is exceeded, you pay per 1,000,000 objects.</li><li>[Scanning](./concepts/dspm.md#scanning): Data read operations and the amount of data scanned.</li></ul> | <ul><li>[Data analysis](./concepts/dspm.md#discovery-mode): Once the free limit of 100,000 objects is exceeded, you pay per 1,000,000 objects based on the pricing ladder.</li><li>Continuous monitoring ([scanning](./concepts/dspm.md#scanning)): You pay for requests as per the {{ objstorage-name }} [pricing policy](../storage/pricing.md).</li></ul> ||
 || {{ k8s }} Security Posture Management ({{ kspm-name }}) | Worker nodes in [{{ managed-k8s-full-name }}](../managed-kubernetes/) clusters covered by scanning | Calculated monthly. ||
@@ -94,3 +100,4 @@ Let’s assume you set up scanning a bucket with 50 text files, their overall si
 
 
 {% include [usd-scan-by-amount](../_pricing_examples/security-deck/usd-scan-by-amount.md) %}
+

@@ -52,7 +52,7 @@ NYC Taxi and Limousine Commission (TLC):
 
    ![select-catalog](../../_assets/datalens/yandex-query-visualization/select-catalog.png)
 
-1. Перейдите в сервис **Yandex Query**.
+1. [Перейдите](https://yq.yandex.cloud) в сервис **Yandex Query**.
 
    ![select-yq](../../_assets/datalens/yandex-query-visualization/select-yq.png)
 

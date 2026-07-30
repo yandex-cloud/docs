@@ -25,7 +25,8 @@
   yc managed-mongodb user create user2 \
     --cluster-name <имя_кластера> \
     --password <пароль_пользователя> \
-    --permission database=db1,role=read
+    --permission database=db1,role=read \
+    --deletion-protection=true
   ```
 
 - {{ TF }} {#tf}
@@ -38,9 +39,10 @@
 
       ```hcl
       resource "yandex_mdb_mongodb_user" "user2" {
-        cluster_id = <идентификатор_кластера>
-        name       = "user2"
-        password   = "<пароль>"
+        cluster_id          = <идентификатор_кластера>
+        name                = "user2"
+        password            = "<пароль>"
+        deletion_protection = true
         permission {
           database_name = "db1"
           roles         = [ "read" ]
@@ -98,9 +100,10 @@
 
       ```hcl
       resource "yandex_mdb_mongodb_user" "user1" {
-        cluster_id = <идентификатор_кластера>
-        name       = "user1"
-        password   = "<пароль>"
+        cluster_id          = <идентификатор_кластера>
+        name                = "user1"
+        password            = "<пароль>"
+        deletion_protection = true
         permission {
           database_name = "db2"
           roles         = [ "read" ]

@@ -67,7 +67,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете создавать инфраструктуру.
-  1. Перейдите в сервис **Identity and Access Management**.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. Нажмите кнопку **Создать сервисный аккаунт** и в открывшемся окне:
       1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md): `serverless-containers-sa`.
       1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите [роль](../../container-registry/security/index.md#container-registry-images-puller) `container-registry.images.puller`.
@@ -137,7 +137,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы ранее создали сервисный аккаунт.
-  1. Перейдите в сервис **Container Registry**.
+  1. [Перейдите](https://console.yandex.cloud/link/container-registry) в сервис **Container Registry**.
   1. Нажмите кнопку **Создать реестр**.
   1. В поле **Имя** задайте имя реестра: `functions-framework-registry`.
   1. Нажмите кнопку **Создать реестр**.
@@ -568,8 +568,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находятся созданные ранее ресурсы.
-  1. Перейдите в сервис **Serverless Containers**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находятся созданные ранее ресурсы.
+  1. [Перейдите](https://console.yandex.cloud/link/serverless-containers) в сервис **Serverless Containers**.
   1. Нажмите кнопку **Создать контейнер**.
   1. В поле **Имя** укажите имя контейнера: `my-first-function`.
   1. Нажмите кнопку **Создать**.

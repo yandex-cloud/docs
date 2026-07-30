@@ -49,8 +49,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать облачную сеть.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать облачную сеть.
+  1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Нажмите **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
   1. Задайте имя сети, например `ovpn-network`.
   1. Отключите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.

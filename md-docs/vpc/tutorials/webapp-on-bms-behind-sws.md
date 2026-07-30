@@ -69,7 +69,7 @@
 - Консоль управления {#console} 
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете создавать инфраструктуру.
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. Справа сверху нажмите **Создать сеть**.
   1. В поле **Имя** укажите `sample-network`.
   1. В поле **Дополнительно** отключите опцию **Создать подсети**.
@@ -84,7 +84,7 @@
 - Консоль управления {#console} 
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете облачную инфраструктуру.
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. На панели слева выберите ![subnets](../../_assets/console-icons/nodes-right.svg) **Подсети**.
   1. Справа сверху нажмите **Создать подсеть**.
   1. В поле **Имя** укажите `vpc-subnet-a`.
@@ -110,7 +110,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете облачную инфраструктуру.
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **Группы безопасности** и нажмите кнопку **Создать группу безопасности**.
   1. В поле **Имя** задайте имя `vpc-ingress-sg`.
   1. В поле **Сеть** выберите созданную ранее сеть `sample-network`.
@@ -140,7 +140,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины** и нажмите кнопку **Создать виртуальную машину**.
   1. В блоке **Образ загрузочного диска** выберите образ [Ubuntu 24.04](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-2404-lts-oslogin).
   1. В блоке **Расположение** выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-a`.
@@ -264,7 +264,7 @@ vpc:
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **BareMetal**.
+  1. [Перейдите](https://console.yandex.cloud/link/baremetal) в сервис **BareMetal**.
   1. Создайте виртуальный сегмент сети:
         1. На панели слева выберите ![icon](../../_assets/console-icons/vector-square.svg) **VRF** и нажмите кнопку **Создать VRF**.
         1. В поле **Имя** задайте имя VRF: `my-vrf`.
@@ -674,7 +674,7 @@ vpc:
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. На панели слева выберите ![image](../../_assets/console-icons/target.svg) **Целевые группы** и нажмите кнопку **Создать целевую группу**.
   1. В поле **Имя** укажите имя [целевой группы](../../application-load-balancer/concepts/target-group.md) `bms-target-group`.
   1. В блоке **Целевые ресурсы**:
@@ -693,7 +693,7 @@ vpc:
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **Группы бэкендов** и нажмите кнопку **Создать группу бэкендов**.
   1. В поле **Имя** укажите имя [группы бэкендов](../../application-load-balancer/concepts/backend-group.md) `bms-backend-group`.
   1. В поле **Тип** выберите `HTTP`.
@@ -720,7 +720,7 @@ vpc:
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **HTTP-роутеры** и нажмите кнопку **Создать HTTP-роутер**.
   1. В поле **Имя** укажите имя [HTTP-роутера](../../application-load-balancer/concepts/http-router.md) `http-80`.
   1. В блоке **Виртуальные хосты** нажмите кнопку **Добавить виртуальный хост** и в открывшейся форме **Новый виртуальный хост**:
@@ -740,7 +740,7 @@ vpc:
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. Нажмите кнопку **Создать L7-балансировщик** и выберите **Вручную**.
   1. В поле **Имя** укажите имя балансировщика `demo-alb-bms`.
   1. В поле **Сеть** выберите сеть `sample-network`.
@@ -768,7 +768,7 @@ vpc:
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **Smart Web Security**.
+  1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
   1. На панели слева выберите ![arl](../../_assets/smartwebsecurity/arl.svg) **Профили ARL** и нажмите кнопку **Создать профиль ARL**.
   1. В поле **Имя** задайте имя [профиля ARL](../../smartwebsecurity/concepts/arl.md) `arl-profile-demo`.
   1. Нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **Добавить правило** и в открывшемся окне:
@@ -788,7 +788,7 @@ vpc:
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **Smart Web Security**.
+  1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
   1. На панели слева выберите ![waf](../../_assets/smartwebsecurity/waf.svg) **Профили WAF** и нажмите кнопку **Создать профиль WAF**.
   1. В поле **Имя** задайте имя [профиля WAF](../../smartwebsecurity/concepts/waf.md) `waf-profile-demo`.
   1. По умолчанию в профиле WAF включен набор базовых правил [OWASP Core Rule Set](https://coreruleset.org/). Нажмите на строку с набором правил, чтобы посмотреть правила, которые в него входят.
@@ -803,7 +803,7 @@ vpc:
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **Smart Web Security**.
+  1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
   1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **Профили безопасности**.
   1. Нажмите кнопку **Создать профиль** и выберите вариант `С чистого листа`.
   1. В поле **Имя** задайте имя [профиля безопасности](../../smartwebsecurity/concepts/profiles.md) `sws-demo-profile`.
@@ -841,7 +841,7 @@ vpc:
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **Smart Web Security**.
+  1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
   1. На панели слева нажмите ![shield-check](../../_assets/console-icons/shield-check.svg) **Профили безопасности** и выберите созданный ранее профиль `sws-demo-profile`.
   1. На панели сверху нажмите кнопку ![plug](../../_assets/console-icons/plug-connection.svg) **Подключить к хосту**.
   1. В открывшемся окне нажмите **Добавить ресурс** и выберите **Виртуальный хост**.
@@ -875,7 +875,7 @@ vpc:
     - Консоль управления {#console} 
     
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создали инфраструктуру.
-      1. Перейдите в сервис **BareMetal**.
+      1. [Перейдите](https://console.yandex.cloud/link/baremetal) в сервис **BareMetal**.
       1. На панели слева выберите ![icon](../../_assets/console-icons/vector-square.svg) **VRF** и выберите виртуальный сегмент сети `my-vrf`.
       1. В блоке **Приватное соединение с облачными сетями** нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![CircleXmark](../../_assets/console-icons/circle-xmark.svg) **Отключить соединение**.
       1. В открывшемся окне подтвердите удаление.

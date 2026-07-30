@@ -147,6 +147,12 @@ resource "yandex_sws_security_profile" "demo-profile-advanced" {
           geo_ip_not_match {
             locations = ["us", "fm", "gb"]
           }
+          asn_ranges_match {
+            asn_ranges = [64496, 4294967295]
+          }
+          asn_ranges_not_match {
+            asn_ranges = [0]
+          }
         }
       }
     }

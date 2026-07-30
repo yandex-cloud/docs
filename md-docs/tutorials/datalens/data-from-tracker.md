@@ -49,8 +49,8 @@
 
 ## Создайте БД для хранения данных Tracker {#database-create}
 
-1. Перейдите в [консоль управления](https://console.yandex.cloud).
-1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+1. Откройте [консоль управления](https://console.yandex.cloud).
+1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
 1. Нажмите кнопку **Создать кластер ClickHouse**.
 1. Укажите параметры кластера:
     * Базовые параметры:
@@ -114,8 +114,8 @@
 
 ## Создайте функцию Cloud Functions для импорта данных {#function-import}
 
-1. Перейдите в [консоль управления](https://console.yandex.cloud).
-1. Перейдите в сервис **Cloud Functions**.
+1. Откройте [консоль управления](https://console.yandex.cloud).
+1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
 1. Нажмите кнопку **Создать функцию**.
 1. Укажите название функции и нажмите кнопку **Создать**.
 1. В открывшемся окне **Редактор** выберите среду выполнения `Python`.

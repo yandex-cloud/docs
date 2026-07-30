@@ -27,7 +27,7 @@ To view and apply offers:
 
 - {{ billing-interface }} {#billing}
 
-  1. Go to [**{{ billing-name }}**]({{ link-console-billing }}).
+  1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Select an account on the **{{ ui-key.yacloud_billing.billing.title_accounts }}** page. If there are any available offers for the selected billing account, they will be listed in the top information section.
   1. To view all offers, select ![image](../../_assets/console-icons/tag-dollar.svg) **{{ ui-key.yacloud_org.billing.account.switch_proposals }}** in the left-hand panel.
   1. You can view active offers in the **{{ ui-key.yacloud_org.billing.account.proposals.label_from-current }}** tab on the **{{ ui-key.yacloud_org.billing.account.proposals.label_title }}** page. The page displays offers in the `{{ ui-key.yacloud_org.billing.account.proposals.tariff_available-title }}` status. You can filter the list by type of conditions and services or sort the offers by validity period for convenience.

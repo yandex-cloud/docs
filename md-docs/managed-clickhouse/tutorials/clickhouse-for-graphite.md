@@ -45,7 +45,7 @@ Yandex Managed Service for ClickHouse® можно использовать ка
 
 1. [Создайте кластер **Managed Service for&nbsp;ClickHouse**](../operations/cluster-create.md) любой подходящей вам конфигурации с БД `db1` и публичным доступом ко всем его хостам. Сохраните имя БД, имя пользователя БД и пароль.
 1. Откройте [консоль управления](https://console.yandex.cloud).
-1. Перейдите в сервис Managed Service for&nbsp;ClickHouse.
+1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис Managed Service for&nbsp;ClickHouse.
 1. Выберите созданный кластер и на вкладке **Обзор** сохраните идентификатор кластера.
 1. В правом верхнем углу нажмите **Подключиться**, на вкладке **Shell** из поля **Пример строки подключения** сохраните параметр `--host`, например `rc1a-2sqal8f0********.mdb.yandexcloud.net`, это FQDN хоста кластера, он потребуется в дальнейшем.
 

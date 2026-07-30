@@ -86,7 +86,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать кластер Managed Service for Kubernetes.
-  1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Нажмите кнопку **Создать кластер**.
   1. Введите имя кластера: `kubernetes-cluster-wh`.
   1. **Сервисный аккаунт для ресурсов** — укажите сервисный аккаунт `sa-kubernetes`, который будет использоваться для создания ресурсов.
@@ -148,7 +148,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором создан нужный кластер Managed Service for Kubernetes.
-  1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Выберите кластер `kubernetes-cluster-wh`.
   1. На странице кластера перейдите на вкладку ![nodes-management.svg](../../_assets/console-icons/graph-node.svg) **Управление узлами**.
   1. Нажмите кнопку **Создать группу узлов**.

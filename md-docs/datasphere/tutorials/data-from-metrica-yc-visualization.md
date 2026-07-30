@@ -82,7 +82,7 @@
 ### 1.1. Подключите ClickHouse® {#ch-connection}
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог для создания кластера ClickHouse®.
-1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
 1. В открывшемся окне нажмите **Создать кластер ClickHouse**.
 1. Укажите настройки кластера ClickHouse®:
    1. В блоке **Базовые параметры** укажите произвольное имя кластера. 

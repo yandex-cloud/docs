@@ -102,6 +102,7 @@
   * [Создание источника](data-catalog/create-source.md)
   * [Изменение источника](data-catalog/update-source.md)
   * [Удаление источника](data-catalog/delete-source.md)
+  * [Подготовка бэкенда для источников данных](data-catalog/settings-backend-source.md)
 * Работа с данными:
   * [Разметка метаданных](data-catalog/markup-metadata.md)
   * [Поиск метаданных](data-catalog/search-metadata.md)

@@ -494,8 +494,10 @@ At least one of `abort_incomplete_multipart_upload_days`, `expiration`, `transit
       - `value` (**Required**)(String). A value.
   - `noncurrent_version_expiration` [Block]. Specifies when noncurrent object versions expire.
     - `days` (Number). Specifies the number of days noncurrent object versions expire.
+    - `newer_noncurrent_versions` (Number). Specifies the number of noncurrent versions to retain. Object Storage permanently deletes any additional noncurrent versions beyond this number.
   - `noncurrent_version_transition` [Block]. Specifies when noncurrent object versions transitions.
     - `days` (Number). Specifies the number of days noncurrent object versions transition.
+    - `newer_noncurrent_versions` (Number). Specifies the number of noncurrent versions to retain. Object Storage permanently deletes any additional noncurrent versions beyond this number.
     - `storage_class` (**Required**)(String). Specifies the storage class to which you want the noncurrent object versions to transition. Supported values: [`STANDARD_IA`, `COLD`, `ICE`, `INTELLIGENT_TIERING`].
   - `transition` [Block]. Specifies a period in the object's transitions.
     - `date` (String). Specifies the date after which you want the corresponding action to take effect.

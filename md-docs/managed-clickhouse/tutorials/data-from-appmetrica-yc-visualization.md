@@ -64,8 +64,8 @@ Customer journey — это последовательность действи�
 
 ### 1.1. Подключите ClickHouse® {#ch-connection}
 
-1. Перейдите в [консоль управления](https://console.yandex.cloud).
-1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+1. Откройте [консоль управления](https://console.yandex.cloud).
+1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
 1. Нажмите **Создать кластер**.
 1. Укажите настройки кластера ClickHouse®.
 
@@ -97,8 +97,8 @@ Customer journey — это последовательность действи�
 
 ### 1.2. Подключите DataSphere {#datasphere-connection}
 
-1. Перейдите в [консоль управления](https://console.yandex.cloud).
-1. Перейдите в сервис **DataSphere**.
+1. Откройте [консоль управления](https://console.yandex.cloud).
+1. [Перейдите](https://datasphere.yandex.cloud) в сервис **DataSphere**.
 1. Нажмите **Создать проект**.
 1. Укажите название проекта `appmetrica-analysis` и нажмите **Создать**. 
 1. Откройте проект. Для этого в строке с именем проекта нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) → **Открыть**.
@@ -354,8 +354,8 @@ Customer journey — это последовательность действи�
 
 ### 6.2. Создайте диаграмму Sankey в DataSphere {#creating-sankey-chart}
 
-1. Перейдите в [консоль управления](https://console.yandex.cloud).
-1. Перейдите в сервис **DataSphere**.
+1. Откройте [консоль управления](https://console.yandex.cloud).
+1. [Перейдите](https://datasphere.yandex.cloud) в сервис **DataSphere**.
 1. Откройте папку **yandex_appmetrika_cloud_case** → ноутбук **Case_2.ipynb**.
 1. Выполните все шаги (ячейки с кодом) в ноутбуке **Case_2.ipynb**.
 1. Вы получите интерактивную диаграмму Sankey, которая показывает сценарии поведения пользователей. Вы можете двигать блоки диаграммы и сохранить результат в виде изображения.

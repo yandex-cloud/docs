@@ -211,7 +211,7 @@
 - Консоль управления
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог с вашей группой ВМ.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../_assets/compute/vm-group-pic.svg) **Группы виртуальных машин**.
   1. Выберите группу `todo-ig`.
   1. Перейдите на панель **Виртуальные машины**.
@@ -281,7 +281,7 @@ Instance Groups несколько раз опрашивает ВМ прежде
 - Консоль управления
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог с вашей группой ВМ.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../_assets/compute/vm-group-pic.svg) **Группы виртуальных машин**.
   1. Выберите группу `todo-ig`.
   1. В правом верхнем углу нажмите **Редактировать**.
@@ -311,7 +311,7 @@ Instance Groups несколько раз опрашивает ВМ прежде
 - Консоль управления
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог с вашей группой ВМ.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../_assets/compute/vm-group-pic.svg) **Группы виртуальных машин**.
   1. Выберите группу `todo-ig`.
   1. В правом верхнем углу нажмите **Редактировать**.
@@ -354,7 +354,7 @@ Instance Groups несколько раз опрашивает ВМ прежде
 - Консоль управления
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог с вашим кластером БД.
-  1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
   1. Выберите кластер `todo-postgresql`.
   1. Нажмите кнопку ![image](../../_assets/pencil.svg) **Редактировать**.
   1. В блоке **Класс хоста** выберите `s2.medium`.

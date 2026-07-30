@@ -22,5 +22,7 @@
 
 - **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}** — защита кластера от непреднамеренного удаления.
 
-  {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+  {% include [deletion-protection-cluster](../../_includes/mdb/mmg/deletion-protection-cluster.md) %}
+  
+  {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 

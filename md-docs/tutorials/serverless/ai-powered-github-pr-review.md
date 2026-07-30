@@ -62,7 +62,7 @@
 - Консоль управления {#console}
 
    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы будете создавать инфраструктуру.
-   1. Перейдите в сервис **Lockbox**.
+   1. [Перейдите](https://console.yandex.cloud/link/lockbox) в сервис **Lockbox**.
    1. Нажмите кнопку **Создать секрет**.
    1. В поле **Имя** введите имя секрета `github/pat-for-workflows`.
    1. В поле **Тип секрета** выберите `Пользовательский`.
@@ -125,7 +125,7 @@ Cоздайте два [сервисных аккаунта](../../iam/concepts/
     - Консоль управления {#console}
 
         1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-        1. Перейдите в сервис **Identity and Access Management**.
+        1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
         1. Нажмите кнопку **Создать сервисный аккаунт**.
         1. Введите имя сервисного аккаунта `workflow-sa`.
         1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роли [`lockbox.payloadViewer`](../../lockbox/security/index.md#lockbox-payloadViewer) и [`ai.languageModels.user`](https://aistudio.yandex.ru/docs/ru/ai-studio/security/index#languageModels-user).
@@ -199,7 +199,7 @@ Cоздайте два [сервисных аккаунта](../../iam/concepts/
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **Identity and Access Management**.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. В открывшемся списке выберите сервисный аккаунт `github-worker`.
   1. На панели сверху нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **Создать новый ключ** и выберите `Создать авторизованный ключ`.
   1. Нажмите кнопку **Создать**.
@@ -306,8 +306,8 @@ Cоздайте два [сервисных аккаунта](../../iam/concepts/
 
     - Консоль управления {#console}
 
-      1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором вы создаете инфраструктуру.
-      1. Перейдите в сервис **Serverless Integrations**.
+      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
+      1. [Перейдите](https://console.yandex.cloud/link/serverless-integrations) в сервис **Serverless Integrations**.
       1. На панели слева нажмите ![image](../../_assets/console-icons/graph-node.svg) **Workflows**.
       1. В правом верхнем углу нажмите **Создать рабочий процесс**.
       1. Выберите способ `YaML-спецификация`.

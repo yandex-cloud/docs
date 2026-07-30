@@ -39,7 +39,7 @@
 - Консоль управления
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **Виртуальные машины**.
   1. Нажмите кнопку **Создать виртуальную машину**.
   1. В блоке **Образ загрузочного диска** в поле **Поиск продукта** введите `OpenCart` и выберите публичный образ [OpenCart](https://yandex.cloud/ru/marketplace/products/yc/opencart-3).
@@ -219,8 +219,8 @@
 1. Если вы использовали БД MySQL®, то [удалите кластер Managed Service for MySQL®](../../operations/cluster-delete.md) (в примере кластер БД создается с именем `opencart`).
 
 Если вы зарезервировали статический публичный IP-адрес специально для этой ВМ:
-1. Перейдите в сервис **Virtual Private Cloud** в вашем каталоге.
-1. Перейдите на вкладку **IP-адреса**.
+1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud** в вашем каталоге.
+1. Откройте вкладку **IP-адреса**.
 1. Найдите нужный IP-адрес, нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите пункт **Удалить**.
 
 #### Полезные ссылки {#see-also}

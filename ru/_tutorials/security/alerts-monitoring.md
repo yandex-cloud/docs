@@ -21,8 +21,8 @@
 
 Чтобы получать уведомления о срабатывании алерта:
 
-1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать канал уведомлений.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать канал уведомлений.
+1. [Перейдите]({{ link-console-main }}/link/monitoring) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
 1. На панели слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.channels.title }}**.
 1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud_monitoring.channel.button_new-channel }}**.
 1. Укажите параметры канала:
@@ -43,8 +43,8 @@
 
 Алерт отправит уведомление о том, что трейл переходит в неактивный статус.
 
-1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать алерт.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать алерт.
+1. [Перейдите]({{ link-console-main }}/link/monitoring) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
 1. На панели слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
 1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 1. В поле **{{ ui-key.yacloud_monitoring.alert.title_name }}** укажите `deactivating-trail-alert`. 
@@ -67,8 +67,8 @@
 
 Параметр **{{ ui-key.yacloud_monitoring.alert.label_evaluation-window }}** зависит от конкретного трейла. В зависимости от типа и количества ресурсов в блоке сбора аудитных логов трейла, частота загрузки аудитных логов в объект назначения будет варьироваться. 
 
-1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать алерт.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать алерт.
+1. [Перейдите]({{ link-console-main }}/link/monitoring) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
 1. На панели слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
 1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 1. В поле **{{ ui-key.yacloud_monitoring.alert.title_name }}** укажите `stopping-logs-alert`. 
@@ -89,8 +89,8 @@
 
 Алерт отправит уведомление о том, что число трейлов в облаке изменилось.
 
-1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать алерт.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать алерт.
+1. [Перейдите]({{ link-console-main }}/link/monitoring) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
 1. На панели слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
 1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 1. В поле **{{ ui-key.yacloud_monitoring.alert.title_name }}** укажите `number-trails-alert`. 
@@ -107,8 +107,8 @@
 
 Алерт отправит уведомление о том, что квота на количество трейлов в облаке израсходована более чем на 80%.
    
-1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать алерт.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать алерт.
+1. [Перейдите]({{ link-console-main }}/link/monitoring) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
 1. На панели слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
 1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 1. В поле **{{ ui-key.yacloud_monitoring.alert.title_name }}** укажите `trail-quota-alert`. 
@@ -134,8 +134,8 @@
 - Интерфейс {{ monitoring-short-name }} {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находятся нужные трейлы.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-  1. Перейдите на вкладку **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}**.
+  1. [Перейдите]({{ link-console-main }}/link/monitoring) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. Откройте вкладку **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}**.
   1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
   1. Справа вверху нажмите **{{ ui-key.yacloud_monitoring.actions.common.save }}**.
   1. В открывшемся окне введите название дашборда, например `missing-events`, и нажмите **{{ ui-key.yacloud_monitoring.actions.common.save }}**.
@@ -158,7 +158,7 @@
     - Консоль управления {#console}
 
       1. Откройте [консоль управления]({{ link-console-main }}).
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+      1. [Перейдите]({{ link-console-main }}/link/audit-trails) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
       1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.audit-trails.label_trails }}**.
       1. Выберите нужный трейл.
       1. Перейдите на панель ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** для выбранного трейла.
@@ -197,7 +197,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. [Перейдите]({{ link-console-main }}/link/audit-trails) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.audit-trails.label_trails }}**.
   1. Выберите трейл. На странице **{{ ui-key.yacloud.audit-trails.label_trail }}** отобразится подробная информация о трейле.
 
@@ -218,7 +218,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. [Перейдите]({{ link-console-main }}/link/audit-trails) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.audit-trails.label_trails }}**.
   1. Выберите трейл.
   1. Перейдите на панель ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.audit-trails.logs }}** и изучите лог.

@@ -47,7 +47,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
    - Консоль управления {#console}
     
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана облачная сеть.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+      1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
       1. Задайте имя сети `rdgw-network`.
       1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
@@ -82,7 +82,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
    
     - Консоль управления {#console}
     
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** в каталоге, где требуется создать подсеть.
+      1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** в каталоге, где требуется создать подсеть.
       1. Нажмите на имя облачной сети.
       1. В блоке **{{ ui-key.yacloud.vpc.network.overview.section_subnetworks }}** нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
       1. Заполните форму: введите имя подсети `rdgw-subnet`, выберите нужную зону доступности из выпадающего списка (например, `{{ region-id }}-d`).
@@ -128,7 +128,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
 
 - Консоль управления {#console}
 
-   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** в каталоге, где требуется создать группу безопасности.
+   1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** в каталоге, где требуется создать группу безопасности.
    1. Откройте вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_title }}**.
    1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
    1. Введите имя группы безопасности `my-rdgw-sg`.

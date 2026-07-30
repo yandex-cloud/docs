@@ -35,7 +35,7 @@ Smart Web Security позволяет настраивать правила об
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находятся защищаемые ресурсы.
-  1. Перейдите в сервис **Smart Web Security**.
+  1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
   1. На панели слева выберите ![image](../../_assets/smartwebsecurity/profiles.svg) **Профили безопасности**.
   1. Нажмите **Создать профиль** и выберите **По преднастроенному шаблону**.
 

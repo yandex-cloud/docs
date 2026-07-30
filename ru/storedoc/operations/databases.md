@@ -33,7 +33,7 @@
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Database.List](../api-ref/Database/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Database.List](../api-ref/Database/list.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -53,7 +53,7 @@
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [DatabaseService.List](../api-ref/grpc/Database/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [DatabaseService.List](../api-ref/grpc/Database/list.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -100,20 +100,23 @@
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Выполните команду создания БД, задав имя новой базы:
+  Чтобы создать базу данных в кластере, выполните команду:
 
   ```bash
-  {{ yc-mdb-mg }} database create <имя_БД>
-    --cluster-name <имя_кластера>
+  {{ yc-mdb-mg }} database create <имя_БД> \
+    --cluster-name <имя_кластера> \
+    --deletion-protection=<защитить_БД_от_удаления>
   ```
 
-  {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
+  Где:
 
-  Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+  * `<имя_БД>` — имя базы данных.
+    
+    {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
 
-  {{ mmg-short-name }} запустит операцию создания базы данных.
+  * `--cluster-name` — имя кластера, которое можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  [Выдайте разрешение](cluster-users.md#updateuser) на доступ к созданной базе данных нужным пользователям кластера.
+  * `--deletion-protection` — защита базы данных от непреднамеренного удаления: `true` или `false`. По умолчанию значение не задано, и для базы данных используется значение соответствующей настройки кластера. Если защита включена (`true`), удалить базу данных нельзя.
 
 - {{ TF }} {#tf}
 
@@ -125,12 +128,20 @@
 
         ```hcl
         resource "yandex_mdb_mongodb_database" "<имя_БД>" {
-          cluster_id = "<идентификатор_кластера>"
-          name       = "<имя_БД>"
+          cluster_id          = "<идентификатор_кластера>"
+          name                = "<имя_БД>"
+          deletion_protection = <защитить_БД_от_удаления>
         }
         ```
 
-        {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
+        Где:
+
+        * `cluster_id` — идентификатор кластера, который можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+        * `name` — имя базы данных.
+          
+          {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
+
+        * `--deletion-protection` — защита базы данных от непреднамеренного удаления: `true` или `false`. По умолчанию значение не задано, и для базы данных используется значение соответствующей настройки кластера. Если защита включена (`true`), удалить базу данных нельзя.
 
     1. Проверьте корректность настроек.
 
@@ -148,7 +159,7 @@
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Database.Create](../api-ref/Database/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Database.Create](../api-ref/Database/create.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -158,16 +169,20 @@
        --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<идентификатор_кластера>/databases' \
        --data '{
                  "databaseSpec": {
-                   "name": "<имя_БД>"
+                   "name": "<имя_БД>",
+                   "deletionProtection": <защитить_БД_от_удаления>
                  }
                }'
      ```
 
-     Где `databaseSpec` — объект, содержащий имя новой БД.
-
-     {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
-
-     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+     Где:
+     
+     * `<идентификатор_кластера>` — идентификатор кластера, который можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+     * `databaseSpec.name` — имя базы данных.
+       
+       {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
+     
+     * `databaseSpec.deletionProtection` — защита базы данных от непреднамеренного удаления: `true` или `false`. По умолчанию значение не задано, и для базы данных используется значение соответствующей настройки кластера. Если защита включена (`true`), удалить базу данных нельзя.
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Database/create.md#yandex.cloud.operation.Operation).
 
@@ -178,7 +193,7 @@
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [DatabaseService.Create](../api-ref/grpc/Database/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [DatabaseService.Create](../api-ref/grpc/Database/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -190,24 +205,163 @@
        -d '{
              "cluster_id": "<идентификатор_кластера>",
              "database_spec": {
-               "name": "<имя_БД>"
+               "name": "<имя_БД>",
+               "deletion_protection": <защитить_БД_от_удаления>
              }
            }' \
        {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.mongodb.v1.DatabaseService.Create
-     ```           
+     ```
 
-     Где `database_spec` — объект, содержащий имя новой БД.
-
-     {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}     
-
-     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+     Где:
+     
+     * `cluster_id` — идентификатор кластера, который можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+     * `database_spec.name` — имя базы данных.
+       
+       {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
+     
+     * `database_spec.deletion_protection` — защита базы данных от непреднамеренного удаления: `true` или `false`. По умолчанию значение не задано, и для базы данных используется значение соответствующей настройки кластера. Если защита включена (`true`), удалить базу данных нельзя.
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
+После создания базы данных [выдайте разрешение](cluster-users.md#updateuser) на доступ к ней нужным пользователям кластера.
+
+## Изменить настройки базы данных {#update-db}
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы изменить настройки базы данных, выполните команду:
+
+  ```bash
+  {{ yc-mdb-mg }} database update <имя_БД> \
+     --cluster-name <имя_кластера> \
+     --deletion-protection=<защитить_БД_от_удаления>
+  ```
+
+  Где:
+
+  * `<имя_БД>` — имя базы данных, которое можно запросить со [списком баз данных в кластере](#list-db).
+  * `--cluster-name` — имя кластера, которое можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+  * `--deletion-protection` — защита базы данных от непреднамеренного удаления: `true` или `false`. По умолчанию значение не задано, и для базы данных используется значение соответствующей настройки кластера. Если защита включена (`true`), удалить базу данных нельзя.
+
+- {{ TF }} {#tf}
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+      Инструкция по созданию такого файла приведена в разделе [Создание кластера](cluster-create.md).
+
+  1. Найдите ресурс `yandex_mdb_mongodb_database`.
+  1. Чтобы включить или отключить защиту пользователя от непреднамеренного удаления, измените значение поля `deletion_protection`:
+
+      ```hcl
+      resource "yandex_mdb_mongodb_database" "<имя_БД>" {
+        ...
+        deletion_protection = <защитить_БД_от_удаления>
+        ...
+      }
+      ```
+
+      Где `deletion_protection` — защита базы данных от непреднамеренного удаления: `true` или `false`. По умолчанию значение не задано, и для базы данных используется значение соответствующей настройки кластера. Если защита включена (`true`), удалить базу данных нельзя.
+
+  1. Проверьте корректность настроек.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  Подробнее читайте в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mongodb_database).
+
+- REST API {#api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Воспользуйтесь методом [Database.Update](../api-ref/Database/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+
+      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+      ```bash
+      curl \
+        --request PATCH \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "Content-Type: application/json" \
+        --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<идентификатор_кластера>/databases/<имя_БД>' \
+        --data '{
+                  "updateMask": "deletionProtection",
+                  "deletionProtection": <защитить_БД_от_удаления>
+                }'
+      ```
+
+      Где:
+
+      * `<идентификатор_кластера>` — имя кластера, которое можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+      * `<имя_БД>` — имя базы данных, которое можно запросить со [списком баз данных в кластере](#list-db).
+      * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+      * `deletionProtection` — защита базы данных от непреднамеренного удаления: `true` или `false`. По умолчанию значение не задано, и для базы данных используется значение соответствующей настройки кластера. Если защита включена (`true`), удалить базу данных нельзя.
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Database/update.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Воспользуйтесь вызовом [DatabaseService.Update](../api-ref/grpc/Database/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+
+      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+      ```bash
+      grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/mdb/mongodb/v1/database_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "cluster_id": "<идентификатор_кластера>",
+              "database_name": "<имя_БД>",
+              "update_mask": {
+                "paths": [
+                  "deletion_protection"
+                ]
+              },
+              "deletion_protection": <защитить_БД_от_удаления>
+            }' \
+        {{ api-host-mdb }}:{{ port-https }} \
+        yandex.cloud.mdb.mongodb.v1.DatabaseService.Update
+      ```
+
+     Где:
+
+     * `cluster_id` — идентификатор кластера, который можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+     * `database_name` — имя базы данных, которое можно запросить со [списком баз данных в кластере](#list-db).
+     * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+     * `deletion_protection` — защита базы данных от непреднамеренного удаления: `true` или `false`. По умолчанию значение не задано, и для базы данных используется значение соответствующей настройки кластера. Если защита включена (`true`), удалить базу данных нельзя.
+     
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Database/update.md#yandex.cloud.operation.Operation).
+
+{% endlist %}
+
 ## Удалить базу данных {#remove-db}
+
+{% note info %}
+
+Перед удалением базы данных [отключите ее защиту от удаления](#update-db).
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
@@ -257,7 +411,7 @@
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Database.Delete](../api-ref/Database/delete.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Database.Delete](../api-ref/Database/delete.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -277,7 +431,7 @@
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [DatabaseService.Delete](../api-ref/grpc/Database/delete.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [DatabaseService.Delete](../api-ref/grpc/Database/delete.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \

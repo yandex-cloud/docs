@@ -109,7 +109,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог СИБ](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Перейдите в сервис **Smart Web Security**.
+  1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
   1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **Профили безопасности**.
   1. Нажмите кнопку **Создать профиль**.
   1. Выберите **По преднастроенному шаблону**.
@@ -134,7 +134,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог СИБ.
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. Нажмите кнопку **Создать L7-балансировщик** и выберите **Визард**.
 
 {% endlist %}
@@ -239,7 +239,7 @@
   Если в вашей инфраструктуре уже используется L7-балансировщик и настроен обработчик с публичным IP-адресом:
 
   1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. Выберите L7-балансировщик.
   1. В блоке **Обработчики** напротив обработчика с публичным IP-адресом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
   1. В блоке **Приём и обработка трафика** нажмите **Добавить обработчик SNI** и укажите:
@@ -265,7 +265,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог СИБ.
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. Выберите созданный L7-балансировщик.
   1. Слева выберите **Проверки состояния**. 
    

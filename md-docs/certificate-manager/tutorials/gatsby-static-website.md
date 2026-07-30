@@ -67,7 +67,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать [бакет](../../storage/concepts/bucket.md).
-  1. Перейдите в сервис **Object Storage**.
+  1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
   1. Справа вверху нажмите кнопку **Создать бакет**.
   1. В поле **Имя** укажите зарегистрированное вами доменное имя, например `gatsbytest.ru`.
   1. В поле **Макс. размер** укажите `1 ГБ`.
@@ -282,7 +282,7 @@
   1. Добавьте в сервис Certificate Manager [сертификат](../concepts/managed-certificate.md) от Let's Encrypt® для вашего домена, который будет использоваться сайтом:
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы будете создавать сертификат.
-      1. Перейдите в сервис **Certificate Manager**.
+      1. [Перейдите](https://console.yandex.cloud/link/certificate-manager) в сервис **Certificate Manager**.
       1. Нажмите **Добавить сертификат** и выберите **Сертификат от Let's Encrypt**.
       1. В открывшемся окне в поле **Имя** укажите имя создаваемого сертификата. Например: `gatsbytestcert`.
       1. В поле **Домены** укажите имя вашего домена, например `gatsbytest.ru`.
@@ -458,7 +458,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. Перейдите в сервис **Object Storage**.
+  1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
   1. Нажмите на имя необходимого бакета, в данном примере это `gatsbytest.ru`.
   1. На панели слева выберите ![image](../../_assets/console-icons/persons-lock.svg) **Безопасность**.
   1. Перейдите на вкладку **HTTPS**.

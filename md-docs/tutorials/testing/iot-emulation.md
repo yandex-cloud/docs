@@ -210,38 +210,10 @@ export PATH=$PATH:/path/to/terraform
 
 ## Удалите созданные ресурсы {#clear-out}
 
-{% list tabs group=instructions %}
+Чтобы перестать платить за созданные ресурсы:
 
-- Консоль управления {#console}
-
-  1. Удалите реестр:
-     1. Перейдите в свой рабочий [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
-     1. Перейдите в сервис **IoT Core**.
-     1. Справа от имени созданного реестра нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
-     1. Нажмите кнопку **Удалить**.
-  1. Удалите устройства:
-     1. Перейдите в свой рабочий каталог.
-     1. Перейдите в сервис **IoT Core**.
-     1. Выберите реестр.
-     1. Перейдите на вкладку **Устройства**.
-     1. Справа от имени созданного устройства нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
-     1. Нажмите кнопку **Удалить**.
-  1. Удалите функцию:
-     1. Перейдите в свой рабочий каталог.
-     1. Перейдите в сервис **Cloud Functions**.
-     1. Справа от имени созданной функции нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
-     1. Нажмите кнопку **Удалить**.
-  1. Удалите триггер:
-     1. Перейдите в свой рабочий каталог.
-     1. Перейдите в сервис **Cloud Functions**.
-     1. Перейдите на вкладку **Триггеры**.
-     1. Справа от имени созданного триггера нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
-     1. Нажмите кнопку **Удалить**.
-  1. Удалите сервисный аккаунт:
-     1. Перейдите в свой рабочий каталог.
-     1. Перейдите в сервис **Identity and Access Management**.
-     1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
-     1. В строке с именем созданного сервисного аккаунта нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
-     1. Нажмите кнопку **Удалить**.
-
-{% endlist %}
+1. [Удалите](../../iot-core/operations/registry/registry-delete.md) реестр.
+1. [Удалите](../../iot-core/operations/device/device-delete.md) устройства.
+1. [Удалите](../../functions/operations/function/function-delete.md) функцию.
+1. [Удалите](../../functions/operations/trigger/trigger-delete.md) триггер.
+1. [Удалите](../../iam/operations/sa/delete.md) сервисный аккаунт.

@@ -133,8 +133,8 @@
 
         После создания ВМ появится в списке ВМ в разделе **Compute Cloud** в [консоли управления](https://console.yandex.cloud).
      1. Проверьте результат.
-        1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder).
-        1. Перейдите в сервис **Compute Cloud**.
+        1. В [консоли управления](https://console.yandex.cloud) выберите страницу [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder).
+        1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
         1. Нажмите на имя нужной ВМ `coi-vm-with-sp`.
         1. В блоке **Последовательный порт** выберите порт `COM2`. Через несколько минут на экран начнет выводиться `Hello world!`.
 
@@ -195,8 +195,8 @@
 ## Проверьте результат {#check-result}
 
 Чтобы проверить результат настройки вывода информации из Docker-контейнера в серийный порт:
-1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога.
-1. Перейдите в сервис **Compute Cloud**.
+1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
+1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
 1. Нажмите на имя нужной ВМ `coi-vm-with-sp`.
 1. В блоке **Последовательный порт** выберите порт `COM2`. Через несколько минут на экран начнет выводиться `Hello world!`.
 

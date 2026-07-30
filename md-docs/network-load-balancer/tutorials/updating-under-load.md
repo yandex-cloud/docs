@@ -36,7 +36,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать сервисный аккаунт.
-     1. Перейдите в сервис **Identity and Access Management**.
+     1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
      1. Нажмите кнопку **Создать сервисный аккаунт**.
      1. В поле **Имя** укажите `for-load`.
      1. Нажмите значок ![](../../_assets/console-icons/plus.svg) **Добавить роль**. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, а также интегрировать группу с сетевым балансировщиком Network Load Balancer, назначьте сервисному аккаунту роли [compute.editor](../../compute/security/index.md#compute-editor) и [load-balancer.editor](../security/index.md#load-balancer-editor).
@@ -93,7 +93,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы хотите создать сеть.
-     1. Перейдите в сервис **Virtual Private Cloud**.
+     1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
      1. Нажмите кнопку **Создать сеть**.
      1. В поле **Имя** укажите `yc-auto-network`.
      1. Выберите опцию **Создать подсети**.
@@ -170,7 +170,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы хотите создать группу ВМ.
-     1. Перейдите в сервис **Compute Cloud**.
+     1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
      1. На панели слева выберите ![](../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
      1. Нажмите кнопку **Создать группу виртуальных машин**.
      1. В блоке **Базовые параметры**:
@@ -372,7 +372,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создали группу ВМ.
-     1. Перейдите в сервис **Compute Cloud**.
+     1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
      1. На панели слева выберите ![](../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
      1. Нажмите на имя группы ВМ `group-for-load`.
 
@@ -409,7 +409,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать балансировщик.
-     1. Перейдите в сервис **Network Load Balancer**.
+     1. [Перейдите](https://console.yandex.cloud/link/network-load-balancer) в сервис **Network Load Balancer**.
      1. Нажмите кнопку **Создать сетевой балансировщик**.
      1. В поле **Имя** укажите `load-generator`.
      1. В поле **Публичный адрес** выберите `Автоматически`.
@@ -478,7 +478,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создали сетевой балансировщик.
-     1. Перейдите в сервис **Network Load Balancer**.
+     1. [Перейдите](https://console.yandex.cloud/link/network-load-balancer) в сервис **Network Load Balancer**.
      1. Нажмите на имя сетевого балансировщика `load-generator`.
 
    - CLI {#cli}
@@ -512,7 +512,7 @@
    - Консоль управления {#console}
    
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится балансировщик.
-     1. Перейдите в сервис **Network Load Balancer**.
+     1. [Перейдите](https://console.yandex.cloud/link/network-load-balancer) в сервис **Network Load Balancer**.
      1. Скопируйте **IP-адрес** балансировщика `load-generator`.
      
    - CLI {#cli}
@@ -557,7 +557,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создали группу ВМ.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![](../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
   1. Нажмите на имя группы ВМ `group-for-load`.
   1. Нажмите кнопку ![edit](../../_assets/console-icons/pencil.svg) **Редактировать**.
@@ -636,24 +636,24 @@ Transfer/sec:     206.94B
 
    1. Удалите балансировщик нагрузки:
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создали балансировщик нагрузки.
-      1. Перейдите в сервис **Network Load Balancer**.
+      1. [Перейдите](https://console.yandex.cloud/link/network-load-balancer) в сервис **Network Load Balancer**.
       1. Справа в строке балансировщика `load-generator` нажмите ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
       1. В открывшемся окне нажмите **Удалить**.
    1. Удалите группу ВМ:
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создали группу ВМ.
-      1. Перейдите в сервис **Compute Cloud**.
+      1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
       1. На панели слева выберите ![](../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
       1. Справа в строке группы `load-generator` нажмите ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
       1. В открывшемся окне нажмите **Удалить**.
    1. Удалите сервисный аккаунт:
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создали сервисный аккаунт.
-      1. Перейдите в сервис **Identity and Access Management**.
+      1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
       1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
       1. В открывшемся списке в строке с сервисным аккаунтом `yc-auto-sa` нажмите ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
       1. В открывшемся окне нажмите **Удалить**.
    1. Удалите сеть и подсети:
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создали сеть и подсети.
-      1. Перейдите в сервис **Virtual Private Cloud**.
+      1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
       1. Выберите сеть `yc-auto-network`.
       1. В блоке **Подсети**:
          1. Справа в строке подсети `yc-auto-subnet-1` нажмите ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.

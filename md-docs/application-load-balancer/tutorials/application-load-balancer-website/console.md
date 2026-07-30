@@ -47,7 +47,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. Нажмите кнопку **Создать сеть**.
   1. Укажите **Имя** сети: `mysite-network`.
   1. В поле **Дополнительно** выберите опцию **Создать подсети**.
@@ -66,7 +66,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/shield.svg) **Группы безопасности**. 
   1. Создайте группу безопасности для балансировщика:
      1. Нажмите кнопку **Создать группу безопасности**.
@@ -111,7 +111,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. Откройте вкладку **Группы виртуальных машин** и нажмите кнопку **Создать группу виртуальных машин**.
   1. В блоке **Базовые параметры**:
      * Введите имя группы ВМ, например `website-vm-group`.
@@ -191,7 +191,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создали группу ВМ.
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. Откройте вкладку **Группы бэкендов**.
   1. Нажмите кнопку **Создать группу бэкендов**.
   1. Введите имя группы бэкендов, например `website-bg`.
@@ -260,7 +260,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. Скопируйте IP-адрес созданного балансировщика.
   1. На сайте компании, которая предоставляет вам услуги DNS-хостинга, перейдите в настройки DNS.
   1. Создайте или измените [A-запись](../../../dns/concepts/resource-record.md#a) и [CNAME-запись](../../../dns/concepts/resource-record.md#cname) для `alb-example.com`:
@@ -305,8 +305,8 @@
 ## Протестируйте отказоустойчивость {#test-ha}
 
 1. Откройте [консоль управления](https://console.yandex.cloud).
-1. Перейдите в сервис **Compute Cloud**.
-1. Перейдите на страницу ВМ из созданной ранее группы.
+1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
+1. Откройте страницу ВМ из созданной ранее группы.
 1. Скопируйте **Публичный IPv4-адрес** из блока **Сеть**.
 1. [Подключитесь](../../../compute/operations/vm-connect/ssh.md#vm-connect) к ВМ по протоколу SSH.
 1. Остановите веб-сервис, чтобы сымитировать сбой в работе веб-сервера:

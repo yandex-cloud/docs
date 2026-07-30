@@ -57,7 +57,7 @@
 - Консоль управления {#console}
 
     1. Откройте [консоль управления](https://console.yandex.cloud).
-    1. Перейдите в сервис **Virtual Private Cloud**.
+    1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
     1. Нажмите кнопку **Создать сеть**.
     1. Укажите **Имя** сети: `alb-logging-network`.
     1. В поле **Дополнительно** выберите опцию **Создать подсети**.
@@ -72,7 +72,7 @@
 - Консоль управления {#console}
   
   1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
-  1. Перейдите в сервис **Identity and Access Management**.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. Нажмите кнопку **Создать сервисный аккаунт**.
   1. В поле **Имя** введите `alb-logging-service-account`.
   1. Добавьте роли: `functions.functionInvoker` и `editor`.
@@ -95,7 +95,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. Откройте вкладку **Группы безопасности**.
   1. Создайте группу безопасности для балансировщика:
      
@@ -153,7 +153,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
   1. Нажмите кнопку **Создать кластер**.
   1. В поле **Имя кластера** введите `alb-logging-cluster`.
   1. В поле **Окружение** выберите `PRODUCTION`.
@@ -255,7 +255,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. Откройте вкладку **Группы виртуальных машин**. Нажмите кнопку **Создать группу виртуальных машин**.
   1. Укажите имя группы ВМ: `alb-logging-ig`.
   1. В поле **Сервисный аккаунт** выберите аккаунт, [созданный ранее](#create-sa).
@@ -305,8 +305,8 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать [лог-группу](../../logging/concepts/log-group.md).
-    1. Перейдите в сервис **Cloud Logging**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать [лог-группу](../../logging/concepts/log-group.md).
+    1. [Перейдите](https://console.yandex.cloud/link/logging) в сервис **Cloud Logging**.
     1. Нажмите кнопку **Создать группу**.
     1. Введите имя и описание лог-группы, например `alb-logging-group`.
     1. Укажите срок хранения записей в лог-группе.
@@ -329,7 +329,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **Группы бэкендов**. Нажмите кнопку **Создать группу бэкендов**.
   1. Укажите **Имя** группы бэкендов: `alb-logging-bg`.
   1. В блоке **Бэкенды** нажмите кнопку **Добавить**.
@@ -354,7 +354,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **HTTP-роутеры**. Нажмите кнопку **Создать HTTP-роутер**.
   1. Укажите **Имя** HTTP-роутера: `alb-logging-router`.
   1. Нажмите кнопку **Добавить виртуальный хост**.
@@ -375,7 +375,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Application Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. Нажмите кнопку **Создать L7-балансировщик** и выберите опцию **Вручную**.
   1. Укажите **Имя** балансировщика: `alb-logging-balancer`.
   1. В блоке **Сетевые настройки** выберите сеть `alb-logging-network` и группу безопасности `alb-logging-sg-balancer`, созданные ранее.
@@ -401,7 +401,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Cloud Functions**.
+  1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
   1. Нажмите кнопку **Создать функцию**.
   1. Введите имя функции: `alb-logging-function`.
   1. Нажмите кнопку **Создать**. После создания функции вы автоматически будете перенаправлены на страницу **Редактор**.
@@ -500,7 +500,7 @@
      Чтобы определить значения параметров для подключения:
   
      1. Откройте [консоль управления](https://console.yandex.cloud).
-     1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+     1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
      1. Выберите кластер `alb-logging-cluster`.
      1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке с нужной БД.
      1. Выберите пункт **Подключиться**.
@@ -521,9 +521,9 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать триггер.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать триггер.
 
-    1. Перейдите в сервис **Cloud Functions**.
+    1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
 
     1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **Триггеры**.
 
@@ -594,7 +594,7 @@
    - Консоль управления {#console}
    
      1. Откройте [консоль управления](https://console.yandex.cloud).
-     1. Перейдите в сервис **Application Load Balancer**.
+     1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
      1. Найдите в списке балансировщик `alb-logging-balancer` и скопируйте его IP-адрес.
      
    {% endlist %}
@@ -607,7 +607,7 @@
    - Консоль управления {#console}
    
      1. Откройте [консоль управления](https://console.yandex.cloud).
-     1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+     1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
      1. Выберите кластер `alb-logging-cluster`.
      1. Перейдите на вкладку **SQL**.
      1. Выберите пользователя, [созданного вместе с кластером](#set-up-db-create-cluster), и введите его пароль.

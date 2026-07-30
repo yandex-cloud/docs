@@ -65,8 +65,8 @@ Yandex Query — это интерактивный сервис для бесс�
 
 - Консоль управления {#console}
 
-  1. Перейдите в каталог `data-folder`.
-  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог `data-folder`.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. Нажмите кнопку **Создать сервисный аккаунт**.
   1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), например `yq-sa`.
   1. Нажмите **Добавить роль** и назначьте сервисному аккаунту роли:
@@ -99,8 +99,8 @@ Yandex Query — это интерактивный сервис для бесс�
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог `data-folder`.
-  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог `data-folder`.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
   1. В открывшемся списке выберите сервисный аккаунт `yq-sa`.
   1. Нажмите кнопку **Создать новый ключ** на верхней панели и выберите пункт **Создать авторизованный ключ**.
@@ -186,7 +186,7 @@ NYC Taxi and Limousine Commission (TLC):
 - Консоль управления {#console}
   
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `data-folder`.
-  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Yandex Query**.
+  1. [Перейдите](https://yq.yandex.cloud) в сервис **Yandex Query**.
   1. На панели слева выберите **Соединения**.
   1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg)**Создать**.
   1. Введите имя соединения, например `storage-connection`.
@@ -210,7 +210,7 @@ NYC Taxi and Limousine Commission (TLC):
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `data-folder`.
-  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Yandex Query**.
+  1. [Перейдите](https://yq.yandex.cloud) в сервис **Yandex Query**.
   1. На панели слева выберите **Привязки**.
   1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg) **Создать**.
   1. В блоке **Параметры соединения**:
@@ -269,7 +269,7 @@ Query поддерживает два варианта указания прав
    - Консоль управления {#console}
    
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог `data-folder`.
-     1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Yandex Query**.
+     1. [Перейдите](https://yq.yandex.cloud) в сервис **Yandex Query**.
      1. На панели слева нажмите **Привязки**.
      1. В строке с привязкой `yq_binding` нажмите кнопку ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **Клонировать**.
      1. Укажите имя привязки — `yq_tutorial_hive_partitioned`.
@@ -304,7 +304,7 @@ Query поддерживает два варианта указания прав
    - Консоль управления {#console}
    
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог `data-folder`.
-     1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Yandex Query**.
+     1. [Перейдите](https://yq.yandex.cloud) в сервис **Yandex Query**.
      1. На панели слева нажмите **Привязки**.
      1. В строке с привязкой `yq_binding` нажмите кнопку ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **Клонировать**.
      1. Укажите имя привязки — `yq_tutorial_partition_projection`.

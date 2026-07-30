@@ -149,8 +149,8 @@
 
 #### Настройте статическую маршрутизацию для основного IPsec-шлюза {#cloud-static}
 
-1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором создана сеть `cloud-net`.
-1. Перейдите в сервис **Virtual Private Cloud**.
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором создана сеть `cloud-net`.
+1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
 1. Выберите сеть `cloud-net`.
 1. Перейдите на вкладку **Таблицы маршрутизации** и нажмите **Создать**.
 1. В поле **Имя** укажите `cloud-net-rt`.
@@ -387,8 +387,8 @@
 
 #### Настройте статическую маршрутизацию для удаленного IPsec-шлюза {#remote-static}
 
-1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором создана сеть `remote-net`.
-1. Перейдите в сервис **Virtual Private Cloud**.
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором создана сеть `remote-net`.
+1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
 1. Выберите сеть `remote-net`.
 1. Перейдите на вкладку **Таблицы маршрутизации** и нажмите **Создать**.
 1. В поле **Имя** укажите `remote-net-rt`.

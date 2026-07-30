@@ -54,8 +54,8 @@
 
 - Консоль управления {#console}
 
-   1. Перейдите в каталог `data-folder`.
-   1. Перейдите в сервис **Identity and Access Management**.
+   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `data-folder`.
+   1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
    1. Нажмите кнопку **Создать сервисный аккаунт**.
    1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), например `sa-for-mcp-server`.
    1. Нажмите **Добавить роль** и назначьте сервисному аккаунту [роли](../../iam/concepts/access-control/roles.md):
@@ -76,7 +76,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите [каталог ресурсов](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать каталог метаданных.
-    1. Перейдите в сервис **Yandex MetaData Hub**.
+    1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
     1. На панели слева выберите ![image](../../_assets/console-icons/folder-magnifier.svg) **Data Catalog**.
     1. Нажмите кнопку **Создание каталога**.
     1. В поле **Имя** задайте имя каталога `test-sales`.
@@ -194,8 +194,8 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в каталог `data-folder`.
-  1. Перейдите в сервис **AI Studio**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог `data-folder`.
+  1. [Перейдите](https://aistudio.yandex.ru/platform) в сервис **AI Studio**.
   1. На панели слева выберите ![logo-mcp](../../_assets/console-icons/logo-mcp.svg) **MCP-серверы** и нажмите кнопку **Создать MCP-сервер**. В открывшемся окне:
 
       1. В блоке **Способ добавления** выберите опцию ![plug-connection](../../_assets/console-icons/plug-connection.svg) **Подключить**.
