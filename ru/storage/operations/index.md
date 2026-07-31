@@ -21,6 +21,7 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](buckets/create-sts-key.md)
 * [{#T}](buckets/manage-ephemeral-keys.md)
 * [{#T}](buckets/access-via-vpc.md)
+* [{#T}](buckets/sensitive-data-search.md) 
 * [{#T}](buckets/versioning.md)
 * [{#T}](buckets/enable-logging.md)
 * [{#T}](buckets/configure-object-lock.md)

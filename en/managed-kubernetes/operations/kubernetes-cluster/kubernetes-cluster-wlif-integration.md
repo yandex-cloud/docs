@@ -15,7 +15,7 @@ This guide tells you how to set up a {{ managed-k8s-name }} cluster and node gro
 
 {% include [wlif-mk8s-cluster-setup](../../../_includes/managed-kubernetes/wlif-mk8s-cluster-setup.md) %}
 
-### Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../../iam/concepts/workload-identity.md)
 * [{#T}](../../tutorials/wlif-managed-k8s-integration.md)

@@ -599,7 +599,7 @@ Create a node group for the {{ managed-k8s-name }} cluster with the following te
 
 {% endlist %}
 
-### Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./node-group-create-in-instance-pool.md)
 * [{#T}](../../concepts/index.md#node-group)

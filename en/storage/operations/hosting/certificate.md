@@ -40,7 +40,7 @@ The bucket becomes accessible over HTTPS within 30 minutes of uploading the cert
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select a folder.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Select the bucket from the list.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
     1. Select the **{{ ui-key.yacloud.storage.bucket.switch_https }}** tab.
@@ -148,7 +148,7 @@ To upload a certificate:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a folder.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Select the bucket from the list.
    1. In the left-hand panel, select ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
    1. Select the **{{ ui-key.yacloud.storage.bucket.switch_https }}** tab.
@@ -169,7 +169,7 @@ To upload a certificate:
 
 {% endnote %}
 
-### Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../qa.md#qa-mime-type)
 * [{#T}](setup.md)

@@ -56,6 +56,8 @@
 
  - [Доступ в бакет с помощью сервисного подключения из VPC](operations/buckets/access-via-vpc.md)
 
+ - [Поиск чувствительных данных в бакете](operations/buckets/sensitive-data-search.md)
+
  - [Управление версионированием бакета](operations/buckets/versioning.md)
 
  - [Включение механизма логирования](operations/buckets/enable-logging.md)
@@ -381,6 +383,8 @@
  - [Список управления доступом (ACL)](concepts/acl.md)
 
  - [Политика доступа (Bucket Policy)](concepts/policy.md)
+
+ - [Поиск чувствительных данных](concepts/sensitive-data-search.md)
 
  - [Загрузка файла через HTML-форму](concepts/presigned-post-forms.md)
 

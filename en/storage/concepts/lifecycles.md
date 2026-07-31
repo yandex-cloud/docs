@@ -12,20 +12,20 @@ Types of actions include:
 
 * Change the [storage class](./storage-class.md) of objects or their non-current [versions](./versioning.md) to a colder one. You can configure the change to the `ICE` class using the {{ yandex-cloud }} CLI, AWS CLI, {{ TF }}, and the API.
 
-
-{% note tip %}
-
-If you do not want to configure lifecycle rules manually, use [`INTELLIGENT_TIERING` storage](./storage-class.md#intelligent-tiering) that automatically optimizes costs by moving objects between access levels based on how often they are accessed.
-
-{% endnote %}
+    
+    {% include [changing-storage-class](../../_includes/storage/changing-storage-class.md) %}
 
 
 * Delete objects or their non-current versions.
 * Delete incomplete multipart uploads.
+* Delete [non-current delete markers](*noncurrent-delete-markers) (only using the [{{ yandex-cloud }} CLI](../../storage/operations/buckets/lifecycles.md#cli_1), [{{ yandex-cloud }} REST](../../storage/api-ref/Bucket/update.md#yandex.cloud.storage.v1.LifecycleRule.NoncurrentDeleteMarkers), and [{{ yandex-cloud }} gRPC](../../storage/api-ref/grpc/Bucket/update.md#yandex.cloud.storage.v1.LifecycleRule.NoncurrentDeleteMarkers)).
 
 
+{% note tip %}
 
-{% include [changing-storage-class](../../_includes/storage/changing-storage-class.md) %}
+If you do not want to configure lifecycle rules manually, use [`INTELLIGENT_TIERING` storage](./storage-class.md#intelligent-tiering) that automatically optimizes costs by moving objects across access tiers based on access frequency.
+
+{% endnote %}
 
 
 Filters for grouping objects include:
@@ -35,7 +35,7 @@ Filters for grouping objects include:
 * Object [label](./tags.md#object-tags); unavailable in the [management console]({{ link-console-main }}).
 * **AND** logical operator that allows you to group objects using a combination of multiple filters.
 
-You can only specify one filter per lifecycle rule. To specify more than one filter type for a lifecycle at a time, use the logical `AND`. For more information, see [Lifecycle configuration](../s3/api-ref/lifecycles/xml-config.md).
+You can only specify one filter per lifecycle rule. To specify more than one filter type for a lifecycle at a time, use the **logical** `AND`. For more information, see [Lifecycle configuration](../s3/api-ref/lifecycles/xml-config.md).
 
 If you use the [S3 API](../s3/index.md), specify the lifecycle configuration in [XML format](../s3/api-ref/lifecycles/xml-config.md). Various [tools](../tools/index.md) with the S3 API support may require other configuration formats. The AWS CLI, for example, uses the JSON format.
 
@@ -43,6 +43,9 @@ You can only [configure](../operations/buckets/lifecycles.md) object lifecycles 
 
 Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hours to complete.
 
+
 #### Useful links {#see-also}
 
 * [{#T}](../operations/buckets/lifecycles.md)
+
+[*noncurrent-delete-markers]: {% include notitle [popups](../_includes_service/popups.md#noncurrent-delete-markers) %}

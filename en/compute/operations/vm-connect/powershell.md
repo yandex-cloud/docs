@@ -9,4 +9,4 @@ description: Follow this guide to connect to a Windows VM via PowerShell.
 
 #### What's next {#what-is-next}
 
-* [Using {{ yandex-cloud }} from within a VM](auth-inside-vm.md)
+[Using {{ yandex-cloud }} from within a VM](auth-inside-vm.md)

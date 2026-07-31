@@ -25,7 +25,7 @@ To add another network interface to your VM:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the VM belongs to.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Select the VM to which you want to add an additional network interface.
   1. On the **{{ ui-key.yacloud.common.overview }}** tab, under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, click **{{ ui-key.yacloud.compute.instance.overview.button_add-network-interface }}**.
   1. In the window that opens, specify the network interface properties:

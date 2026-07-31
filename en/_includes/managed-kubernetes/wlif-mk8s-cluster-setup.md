@@ -11,7 +11,7 @@
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder with your cluster.
-      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+      1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
       1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the cluster and select **{{ ui-key.yacloud.common.edit }}**.
       1. Enable the workload identity federation in the **{{ ui-key.yacloud.k8s.IAMService.section-title_4Cx2E }}** field.
       1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -97,7 +97,7 @@
 
           {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-      1. Confirm resource changes.
+      1. Confirm updating the resources.
 
           {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

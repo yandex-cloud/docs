@@ -36,6 +36,12 @@
 Управлять доступом к объектам Query можно как с помощью сервисных, так и с помощью примитивных ролей. На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `editor` входят все разрешения `viewer`. После диаграммы дано описание каждой роли.
 
 ```mermaid
+%%{
+  init: {
+    "flowchart": { "defaultRenderer": "elk" },
+    "elk": { "nodePlacementStrategy": "SIMPLE" }
+  }
+}%%
 flowchart BT
     yq.editor --> yq.admin
     yq.invoker --> yq.editor

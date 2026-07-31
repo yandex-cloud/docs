@@ -8,6 +8,9 @@ canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/access-key/issue
 Issue ephemeral access key.
 Access keys are used for the authentication by Yandex Object Storage API
 to provide compatibility with Amazon S3 API.
+By default the key is printed to STDOUT. Pass --aws-profile or --aws-credentials-file
+to write it directly to the AWS credentials file (~/.aws/credentials by default)
+under the given profile.
 
 #### Command Usage
 
@@ -31,6 +34,12 @@ AWS-compatible policy in JSON format that you want to use as an inline session p
 || `--duration` | `duration`
 
 Duration, which specifies the duration of the temporary security credentials. Format 15m-12h. ||
+|| `--aws-profile` | `string`
+
+AWS profile name to store the ephemeral key under. When set, the key is written to the AWS credentials file instead of being printed to STDOUT. Defaults to 'default' when only --aws-credentials-file is set. ||
+|| `--aws-credentials-file` | `string`
+
+Path to the AWS credentials file to write the ephemeral key to. Defaults to the AWS_SHARED_CREDENTIALS_FILE environment variable or ~/.aws/credentials ||
 |#
 
 #### Global Flags

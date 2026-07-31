@@ -13,6 +13,13 @@ description: Следуя данной инструкции, вы узнаете
 * [просмотр ошибок](#errors);
 * [удаление](#delete).
 
+{% note tip %}
+
+Если вы запускали сканирование бакета в интерфейсе {{ objstorage-full-name }}, вы можете [работать](../../../storage/operations/buckets/sensitive-data-search.md#view) с результатами сканирования напрямую в интерфейсе {{ objstorage-full-name }}.
+
+{% endnote %}
+
+
 ## Посмотреть результаты сканирования {#view}
 
 {% list tabs group=instructions %}
@@ -36,13 +43,7 @@ description: Следуя данной инструкции, вы узнаете
 
 ## Скачать результаты сканирования {#download}
 
-При скачивании CSV-файл с результатами сканирования сохраняется локально на вашем компьютере.
-
-{% note info %}
-
-Файл может содержать не более 10 000 записей о найденных чувствительных данных. Для выгрузки большего числа записей используйте [экспорт](#export) в {{ objstorage-name }}.
-
-{% endnote %}
+{% include [download-scan-intro](../../../_includes/security-deck/download-scan-intro.md) %}
 
 {% list tabs group=instructions %}
 
@@ -61,7 +62,7 @@ description: Следуя данной инструкции, вы узнаете
 
 ## Экспортировать результаты сканирования {#export}
 
-При экспорте файл с результатами сканирования сохраняется в выбранный бакет.
+{% include [export-scan-intro](../../../_includes/security-deck/export-scan-intro.md) %}
 
 {% list tabs group=instructions %}
 
@@ -104,6 +105,8 @@ description: Следуя данной инструкции, вы узнаете
   Подробнее про ошибки сканирования на странице [{#T}](../../diagnostics/dspm-diagnostics.md).
 
 {% endlist %}
+
+{% include [errors-scan-outro](../../../_includes/security-deck/errors-scan-outro.md) %}
 
 ## Удалить результаты сканирования {#delete}
 

@@ -11,7 +11,7 @@ You can configure support for multiple domain names for a static website in {{ o
 * [Management console, CLI, API](console.md): Create your infrastructure step by step from the {{ yandex-cloud }} management console, CLI, or API.
 * [{{ TF }}](terraform.md): Streamline creating and managing your resources using the _infrastructure as code_ (IaC) approach. Download a {{ TF }} configuration example from the GitHub repository and deploy your infrastructure using the [{{ yandex-cloud }} {{ TF }} provider]({{ tf-docs-link }}).
 
-### Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../../qa.md#qa-mime-type)
 * [{#T}](../setup.md)

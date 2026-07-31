@@ -13,7 +13,7 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Security Deck {#console}
+- Интерфейс Security Deck {#cloud-sd}
 
   1. Перейдите в сервис [Yandex Security Deck](https://center.yandex.cloud/security/).
   1. На панели слева выберите ![database-magnifier](../../../_assets/console-icons/database-magnifier.svg) **Контроль данных**.

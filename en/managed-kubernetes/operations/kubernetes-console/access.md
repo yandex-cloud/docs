@@ -15,7 +15,8 @@ You can create service accounts in the management console in the same way as whe
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the cluster name and select ![Access](../../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.k8s.cluster.switch_access }}** in the left-hand panel.
   1. In the top-right corner, click **{{ ui-key.yacloud.common.create }}** and select **{{ ui-key.yacloud.k8s.access.button_create-sa }}**.
   1. In the window that opens, enter the service account **{{ ui-key.yacloud.k8s.access.popup-add-sa_field_name }}**.
@@ -34,7 +35,8 @@ To delete a service account:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the cluster name and select ![Access](../../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.k8s.cluster.switch_access }}** in the left-hand panel.
   1. In the service account line, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
   1. Confirm the action.

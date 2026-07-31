@@ -230,6 +230,24 @@ Yandex Smart Web Security позволяет защитить вашу инфр�
 
  - [update](cli-ref/advanced-rate-limiter/advanced-rate-limiter-profile/update.md)
 
+### custom-page
+
+ - [Overview](cli-ref/custom-page/index.md)
+
+#### custom-page
+
+ - [Overview](cli-ref/custom-page/custom-page/index.md)
+
+ - [create](cli-ref/custom-page/custom-page/create.md)
+
+ - [delete](cli-ref/custom-page/custom-page/delete.md)
+
+ - [get](cli-ref/custom-page/custom-page/get.md)
+
+ - [list](cli-ref/custom-page/custom-page/list.md)
+
+ - [update](cli-ref/custom-page/custom-page/update.md)
+
 ### match-list
 
  - [Overview](cli-ref/match-list/index.md)
@@ -301,6 +319,24 @@ Yandex Smart Web Security позволяет защитить вашу инфр�
  - [list](cli-ref/v1/advanced-rate-limiter/advanced-rate-limiter-profile/list.md)
 
  - [update](cli-ref/v1/advanced-rate-limiter/advanced-rate-limiter-profile/update.md)
+
+#### custom-page
+
+ - [Overview](cli-ref/v1/custom-page/index.md)
+
+##### custom-page
+
+ - [Overview](cli-ref/v1/custom-page/custom-page/index.md)
+
+ - [create](cli-ref/v1/custom-page/custom-page/create.md)
+
+ - [delete](cli-ref/v1/custom-page/custom-page/delete.md)
+
+ - [get](cli-ref/v1/custom-page/custom-page/get.md)
+
+ - [list](cli-ref/v1/custom-page/custom-page/list.md)
+
+ - [update](cli-ref/v1/custom-page/custom-page/update.md)
 
 #### match-list
 

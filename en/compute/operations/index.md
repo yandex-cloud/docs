@@ -5,7 +5,9 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 
 # Step-by-step guides for {{ compute-name }}
 
-## Creating a VM {#vm-create}
+## Virtual machines {#vm}
+
+### Creating a VM {#vm-create}
 
 * [{#T}](vm-create/create-linux-vm.md)
 * [{#T}](vm-create/create-from-disks.md)
@@ -14,41 +16,15 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](vm-create/create-with-cloud-init-scripts.md)
 * [{#T}](vm-create/create-with-env-variables.md)
 * [{#T}](vm-create/create-with-lockbox-secret.md)
-* [{#T}](vm-create/create-vm-with-gpu.md)
 * [{#T}](vm-create/create-gen2-vm.md)
 * [{#T}](vm-create/create-preemptible-vm.md)
 
-## DSVM {#dsvm}
-
-* [{#T}](dsvm/index.md)
-* [{#T}](dsvm/quickstart.md)
-
-## Placement groups {#placement-groups}
-
-* [{#T}](placement-groups/create.md)
-* [{#T}](placement-groups/delete.md)
-* [{#T}](placement-groups/create-vm-in-pg.md)
-* [{#T}](placement-groups/create-ig-in-pg.md)
-* [{#T}](placement-groups/add-vm.md)
-* [{#T}](placement-groups/delete-vm.md)
-* [{#T}](placement-groups/placement-groups-get-info.md)
-* [{#T}](placement-groups/delete-ig-from-pg.md)
-* [{#T}](placement-groups/access.md)
-
-## Images with pre-installed software {#images-with-pre-installed-software}
-
-* [{#T}](images-with-pre-installed-software/create.md)
-* [{#T}](images-with-pre-installed-software/setup.md)
-* [{#T}](images-with-pre-installed-software/operate.md)
-* [{#T}](images-with-pre-installed-software/get-list.md)
-* [{#T}](images-with-pre-installed-software/get-info.md)
-
-## Getting VM info {#vm-info}
+### Getting VM info {#vm-info}
 
 * [{#T}](vm-info/get-info.md)
 * [{#T}](vm-info/get-serial-port-output.md)
 
-## Managing a VM {#vm-control}
+### Managing a VM {#vm-control}
 
 * [{#T}](vm-control/vm-stop-and-start.md)
 * [{#T}](vm-control/vm-reset-password.md)
@@ -57,52 +33,80 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](vm-control/vm-change-zone.md)
 * [{#T}](vm-control/vm-change-folder.md)
 * [{#T}](vm-control/vm-change-cloud.md)
-* [{#T}](vm-control/attach-network-interface.md)
-* [{#T}](vm-control/detach-network-interface.md)
-* [{#T}](vm-control/vm-attach-public-ip.md)
-* [{#T}](vm-control/vm-transferring-public-ip.md)
-* [{#T}](vm-control/vm-detach-public-ip.md)
-* [{#T}](vm-control/vm-set-static-ip.md)
 * [{#T}](vm-control/vm-update.md)
 * [{#T}](vm-control/vm-update-resources.md)
-* [{#T}](vm-control/vm-change-security-groups-set.md)
-* [{#T}](vm-control/vm-connect-sa.md)
+* [{#T}](vm-control/vm-update-policies.md)
 * [{#T}](vm-control/vm-access.md)
+* [{#T}](vm-control/vm-connect-sa.md)
 * [{#T}](vm-control/vm-delete.md)
-* [{#T}](vm-control/gpus-maintenance.md)
 
-## Working with VM metadata {#use-metadata}
-
-* [{#T}](vm-metadata/setup-metadata-service.md)
-* [{#T}](vm-metadata/get-vm-metadata.md)
-* [{#T}](vm-metadata/get-identity-document.md)
-* [{#T}](vm-metadata/update-vm-metadata.md)
-* [{#T}](vm-create/create-with-cloud-init-scripts.md)
-* [{#T}](vm-create/create-with-env-variables.md)
-* [{#T}](vm-create/create-with-lockbox-secret.md)
-
-## Using a VM {#vm-use}
+### Using a VM {#vm-use}
 
 * [{#T}](vm-connect/ssh.md)
 * [{#T}](vm-connect/cloud-shell.md)
+* [{#T}](vm-connect/scp-sftp.md)
 * [{#T}](vm-connect/rdp.md)
 * [{#T}](vm-connect/powershell.md)
+* [{#T}](vm-connect/auth-inside-vm.md)
+* [{#T}](vm-connect/recovery-access.md)
+
+### {{ oslogin }} {#oslogin}
+
 * [{#T}](vm-connect/os-login-create-vm.md)
 * [{#T}](vm-connect/enable-os-login.md)
 * [{#T}](vm-connect/os-login-export-certificate.md)
 * [{#T}](vm-connect/os-login.md)
-* [{#T}](vm-connect/auth-inside-vm.md)
-* [{#T}](vm-operate/install-nvidia-drivers.md)
-* [{#T}](vm-connect/recovery-access.md)
 
-## Managing the password reset agent {#guest-agent}
+### Working with a serial console {#serial-console}
+
+* [{#T}](serial-console/index.md)
+* [{#T}](serial-console/connect-ssh.md)
+* [{#T}](serial-console/windows-sac.md)
+
+### Password reset agent {#guest-agent}
 
 * [{#T}](vm-guest-agent/check.md)
 * [{#T}](vm-guest-agent/install.md)
 * [{#T}](vm-guest-agent/reset-password.md)
 * [{#T}](vm-guest-agent/uninstall.md)
 
-## Creating a disk {#disk-create}
+## Network {#network}
+
+* [{#T}](vm-control/attach-network-interface.md)
+* [{#T}](vm-control/detach-network-interface.md)
+* [{#T}](vm-control/vm-attach-public-ip.md)
+* [{#T}](vm-control/vm-detach-public-ip.md)
+* [{#T}](vm-control/vm-set-static-ip.md)
+* [{#T}](vm-control/vm-transferring-public-ip.md)
+* [{#T}](vm-control/internal-ip-update.md)
+* [{#T}](vm-control/vm-change-security-groups-set.md)
+* [{#T}](enable-software-accelerated-network.md)
+
+## GPU {#gpu}
+
+* [{#T}](vm-create/create-vm-with-gpu.md)
+* [{#T}](vm-operate/install-nvidia-drivers.md)
+* [{#T}](gpu-driver-update.md)
+* [{#T}](enable-mig.md)
+* [{#T}](vm-control/gpus-maintenance.md)
+
+
+### GPU clusters {#gpu-cluster}
+
+* [{#T}](gpu-cluster/gpu-cluster-create.md)
+* [{#T}](gpu-cluster/gpu-add-to-cluster.md)
+* [{#T}](gpu-cluster/gpu-cluster-update.md)
+* [{#T}](gpu-cluster/gpu-cluster-get-info.md)
+* [{#T}](gpu-cluster/access.md)
+* [{#T}](gpu-cluster/gpu-cluster-delete.md)
+* [{#T}](gpu-cluster/gpu-cluster-test-physical-state.md)
+* [{#T}](gpu-cluster/gpu-cluster-mpirun-parallel.md)
+* [{#T}](gpu-cluster/test-infiniband-bandwidth.md)
+
+
+## Disks {#disks}
+
+### Creating a disk {#disk-create}
 
 * [{#T}](disk-create/empty.md)
 * [{#T}](disk-create/empty-disk-blocksize.md)
@@ -111,7 +115,7 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](disk-create/from-snapshot.md)
 * [{#T}](disk-create/from-image.md)
 
-## Managing a disk {#disk-control}
+### Managing a disk {#disk-control}
 
 * [{#T}](disk-control/update.md)
 * [{#T}](disk-control/configure-schedule.md)
@@ -122,7 +126,39 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](disk-control/disk-access.md)
 * [{#T}](disk-control/delete.md)
 
-## Disk snapshots {#snapshots}
+## Images {#images}
+
+### Images with pre-installed software {#images-with-pre-installed-software}
+
+* [{#T}](images-with-pre-installed-software/create.md)
+* [{#T}](images-with-pre-installed-software/setup.md)
+* [{#T}](images-with-pre-installed-software/operate.md)
+* [{#T}](images-with-pre-installed-software/get-list.md)
+* [{#T}](images-with-pre-installed-software/get-info.md)
+
+### Yandex Data Science Virtual Machine {#dsvm}
+
+* [{#T}](dsvm/index.md)
+* [{#T}](dsvm/quickstart.md)
+
+### Creating an image {#image-create}
+
+* [{#T}](image-create/custom-image.md)
+* [{#T}](image-create/upload.md)
+* [{#T}](image-create/create-from-disk.md)
+* [{#T}](image-create/create-from-snapshot.md)
+* [{#T}](image-create/create-from-image.md)
+
+### Managing an image {#image-control}
+
+* [{#T}](image-control/get-list.md)
+* [{#T}](image-control/image-control-get-info.md)
+* [{#T}](image-control/import.md)
+* [{#T}](image-control/encrypt.md)
+* [{#T}](image-control/access.md)
+* [{#T}](image-control/delete.md)
+
+## Snapshots {#snapshots}
 
 * [{#T}](disk-control/create-snapshot.md)
 * [{#T}](snapshot-control/get-snapshot.md)
@@ -136,31 +172,6 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](snapshot-control/snapshot-schedule-access.md)
 * [{#T}](snapshot-control/delete-schedule.md)
 
-## Disk placement groups {#placement-groups}
-
-* [{#T}](disk-placement-groups/create.md)
-* [{#T}](disk-placement-groups/add-disk.md)
-* [{#T}](disk-placement-groups/get-info.md)
-* [{#T}](disk-placement-groups/access.md)
-* [{#T}](disk-placement-groups/remove-disk.md)
-
-## Creating an image {#image-create}
-
-* [{#T}](image-create/custom-image.md)
-* [{#T}](image-create/upload.md)
-* [{#T}](image-create/create-from-disk.md)
-* [{#T}](image-create/create-from-snapshot.md)
-* [{#T}](image-create/create-from-image.md)
-
-## Managing an image {#image-control}
-
-* [{#T}](image-control/get-list.md)
-* [{#T}](image-control/image-control-get-info.md)
-* [{#T}](image-control/import.md)
-* [{#T}](image-control/encrypt.md)
-* [{#T}](image-control/access.md)
-* [{#T}](image-control/delete.md)
-
 ## File storages {#filesystem}
 
 * [{#T}](filesystem/create.md)
@@ -171,13 +182,41 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](filesystem/filesystem-access.md)
 * [{#T}](filesystem/delete.md)
 
-## Managing a serial console {#serial-console}
+## Metadata {#use-metadata}
 
-* [{#T}](serial-console/index.md)
-* [{#T}](serial-console/connect-ssh.md)
-* [{#T}](serial-console/windows-sac.md)
+* [{#T}](vm-metadata/setup-metadata-service.md)
+* [{#T}](vm-metadata/get-vm-metadata.md)
+* [{#T}](vm-metadata/get-identity-document.md)
+* [{#T}](vm-metadata/update-vm-metadata.md)
+* [{#T}](vm-create/create-with-cloud-init-scripts.md)
+* [{#T}](vm-create/create-with-env-variables.md)
+* [{#T}](vm-create/create-with-lockbox-secret.md)
 
-## Creating an instance group {#ig-create}
+## Placement groups {#placement-groups}
+
+### VM placement groups {#placement-groups-vm}
+
+* [{#T}](placement-groups/create.md)
+* [{#T}](placement-groups/delete.md)
+* [{#T}](placement-groups/create-vm-in-pg.md)
+* [{#T}](placement-groups/create-ig-in-pg.md)
+* [{#T}](placement-groups/add-vm.md)
+* [{#T}](placement-groups/delete-vm.md)
+* [{#T}](placement-groups/placement-groups-get-info.md)
+* [{#T}](placement-groups/delete-ig-from-pg.md)
+* [{#T}](placement-groups/access.md)
+
+### Disk placement groups {#placement-groups-disks}
+
+* [{#T}](disk-placement-groups/create.md)
+* [{#T}](disk-placement-groups/add-disk.md)
+* [{#T}](disk-placement-groups/get-info.md)
+* [{#T}](disk-placement-groups/access.md)
+* [{#T}](disk-placement-groups/remove-disk.md)
+
+## Instance groups {#ig}
+
+### Creating an instance group {#ig-create}
 
 * [{#T}](instance-groups/create-fixed-group.md)
 * [{#T}](instance-groups/create-with-balancer.md)
@@ -185,38 +224,42 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](instance-groups/create-autoscaled-group.md)
 * [{#T}](instance-groups/create-with-coi.md)
 * [{#T}](instance-groups/create-from-yaml.md)
+* [{#T}](instance-groups/create-group-with-pool.md)
 * [{#T}](placement-groups/create-ig-in-pg.md)
 * [{#T}](instance-groups/create-with-fixed-ip.md)
 * [{#T}](instance-groups/create-with-filesystem.md)
 * [{#T}](instance-groups/create-with-bucket.md)
 
-## Getting instance group info {#ig-info}
+### Getting instance group info {#ig-info}
 
 * [{#T}](instance-groups/get-list.md)
 * [{#T}](instance-groups/get-info.md)
 * [{#T}](instance-groups/get-list-instances.md)
 
-## Managing an instance group {#ig-control}
+### Managing an instance group {#ig-control}
 
 * [{#T}](instance-groups/update.md)
 * [{#T}](instance-groups/update-from-yaml.md)
+* [{#T}](instance-groups/enable-deletion-protection.md)
 * [{#T}](instance-groups/disable-enable-zone.md)
 * [{#T}](instance-groups/move-group.md)
 * [{#T}](instance-groups/move-group-with-nlb.md)
 * [{#T}](instance-groups/move-group-with-alb.md)
 * [{#T}](instance-groups/enable-autohealing.md)
-* [{#T}](instance-groups/deploy/rolling-update.md)
-* [{#T}](instance-groups/deploy/zero-downtime.md)
 * [{#T}](instance-groups/pause-processes.md)
 * [{#T}](instance-groups/resume-processes.md)
 * [{#T}](instance-groups/rolling-restart.md)
 * [{#T}](instance-groups/rolling-recreate.md)
-* [{#T}](instance-groups/enable-deletion-protection.md)
 * [{#T}](instance-groups/stop.md)
 * [{#T}](instance-groups/start.md)
 * [{#T}](instance-groups/access.md)
-* [{#T}](instance-groups/delete.md)
 * [{#T}](placement-groups/delete-ig-from-pg.md)
+* [{#T}](instance-groups/delete.md)
+
+#### Updating instance groups {#ig-update}
+
+* [{#T}](instance-groups/deploy/rolling-update.md)
+* [{#T}](instance-groups/deploy/zero-downtime.md)
 
 ## Dedicated hosts {#dedicated-host}
 
@@ -225,29 +268,14 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](dedicated-host/running-host-vms.md)
 * [{#T}](dedicated-host/access.md)
 
-## Reserved instance pools {#reserved-pools}
+## Reserved pools {#reserved-pools}
 
 * [{#T}](reserved-pools/create-reserved-pool.md)
 * [{#T}](reserved-pools/update-reserved-pool.md)
 * [{#T}](reserved-pools/delete-reserved-pool.md)
 * [{#T}](reserved-pools/manage-pool-vms.md)
 
-
-## GPU clusters {#gpu-cluster}
-
-* [{#T}](gpu-cluster/gpu-cluster-create.md)
-* [{#T}](gpu-cluster/gpu-add-to-cluster.md)
-* [{#T}](gpu-cluster/gpu-cluster-update.md)
-* [{#T}](gpu-cluster/gpu-cluster-delete.md)
-* [{#T}](gpu-cluster/gpu-cluster-get-info.md)
-* [{#T}](gpu-cluster/access.md)
-* [{#T}](gpu-cluster/gpu-cluster-test-physical-state.md)
-* [{#T}](gpu-cluster/gpu-cluster-mpirun-parallel.md)
-* [{#T}](gpu-cluster/test-infiniband-bandwidth.md)
-
-
-## Getting additional information {#get-additional-info}
+## Other guides {#get-additional-info}
 
 * [{#T}](operation-logs.md)
 * [{#T}](metrics-pull.md)
-* [{#T}](gpu-driver-update.md)

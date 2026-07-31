@@ -2,7 +2,7 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ sd-name }} {#console}
+- Интерфейс {{ sd-name }} {#cloud-sd}
 
   1. Перейдите в сервис [{{ sd-full-name }}]({{ link-sd-main }}).
   1. На панели слева выберите ![database-magnifier](../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud_org.security-center.dspm.label_dspm }}**.

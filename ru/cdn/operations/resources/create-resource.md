@@ -100,7 +100,13 @@ description: Следуя данной инструкции, вы сможете
         * Выберите время жизни кеша из списка.
       * В блоке **{{ ui-key.yacloud.cdn.label_additional }}**:
         * Выберите опцию игнорирования Cookie.
-        * Выберите опцию игнорирования Query-параметров.
+        * В поле **{{ ui-key.yacloud.cdn.resources.QueryParamsOptions.label_query-params-caching_4zewB }}** выберите режим:
+          * `{{ ui-key.yacloud.cdn.resources.QueryParamsOptions.option_do-not-cache_4J3Bg }}` — не учитывать query-параметры в ключе кеша.
+          * `{{ ui-key.yacloud.cdn.resources.QueryParamsOptions.option_cache-all_4pexC }}` — учитывать все query-параметры.
+          * `{{ ui-key.yacloud.cdn.resources.QueryParamsOptions.option_cache-all-except_vEGRW }}` — учитывать все query-параметры, кроме указанных.
+          * `{{ ui-key.yacloud.cdn.resources.QueryParamsOptions.option_cache-only_uJKZC }}` — учитывать только указанные query-параметры.
+
+          Для режимов `{{ ui-key.yacloud.cdn.resources.QueryParamsOptions.option_cache-all-except_vEGRW }}` и `{{ ui-key.yacloud.cdn.resources.QueryParamsOptions.option_cache-only_uJKZC }}` укажите query-параметры. Чтобы добавить поле, нажмите **{{ ui-key.yacloud.cdn.resources.QueriesField.button_add-query-param_x8JXA }}**. Можно указать не более десяти параметров. Допустимая длина имени — до 30 символов. Используйте латинские буквы, цифры и символ `_`.
       * Чтобы контент отправлялся клиентам с CDN-серверов в сжатом виде, выберите опцию **{{ ui-key.yacloud.cdn.label_resource-content-gzip-on }}**.
 
         Контент будет отправляться в формате gzip и с HTTP-заголовком `Content-Encoding`. Из источников будет запрашиваться только несжатый контент.
@@ -263,9 +269,17 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [create](../../api-ref/Resource/create.md) для ресурса [Resource](../../api-ref/Resource/index.md) или вызовом gRPC API [ResourceService/Create](../../api-ref/grpc/Resource/create.md).
+    Воспользуйтесь методом REST API [create](../../api-ref/Resource/create.md) для ресурса [Resource](../../api-ref/Resource/index.md) или вызовом gRPC API [ResourceService/Create](../../api-ref/grpc/Resource/create.md).
 
-  Вы можете ограничить доступ к ресурсу с помощью [защищенных токенов](../../concepts/secure-tokens.md) и [политики доступа по IP-адресам](../../concepts/ip-address-acl.md).
+    Чтобы настроить кеширование query-параметров, в объекте `options.queryParamsOptions` передайте только одно из полей и задайте для него `enabled: true`:
+
+    * `ignoreQueryString` со значением `value: true` — не учитывать query-параметры в ключе кеша, со значением `value: false` — учитывать все query-параметры;
+    * `queryParamsWhitelist` — учитывать только query-параметры, перечисленные в `value`;
+    * `queryParamsBlacklist` — учитывать все query-параметры, кроме перечисленных в `value`.
+
+    В gRPC API этим полям соответствуют `ignore_query_string`, `query_params_whitelist` и `query_params_blacklist` в объекте `options.query_params_options`.
+
+    Вы можете ограничить доступ к ресурсу с помощью [защищенных токенов](../../concepts/secure-tokens.md) и [политики доступа по IP-адресам](../../concepts/ip-address-acl.md).
 
 {% endlist %}
 

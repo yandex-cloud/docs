@@ -14,7 +14,7 @@ To configure access to a [bucket](../../concepts/bucket.md) using [{{ iam-name }
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click the name of the bucket you want to grant access to.
   1. In the left-hand menu, select **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
   1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.

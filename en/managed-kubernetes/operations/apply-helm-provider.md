@@ -3,7 +3,7 @@ title: Installing applications from {{ marketplace-full-name }} using {{ TF }}
 description: Follow this guide to enable the Helm {{ TF }} provider and install applications from {{ marketplace-name }} using {{ TF }} manifests.
 ---
 
-# Installing applications from {{ marketplace-full-name }} using {{ TF }}
+# Installing applications from {{ marketplace-full-name }} with {{ TF }}
 
 With the [Helm {{ TF }} provider](https://github.com/hashicorp/terraform-provider-helm), you can install apps from [{{ marketplace-name }}](/marketplace), as well as any other Helm charts, in your {{ managed-k8s-full-name }} cluster using {{ TF }} manifests.
 
@@ -105,9 +105,6 @@ Below we give an example of installing the [{{ GLR }}](/marketplace/products/yc/
 
 To install applications from {{ marketplace-name }}, you can also use the [{{ TF }} module by {{ yandex-cloud }}](https://github.com/terraform-yc-modules/terraform-yc-kubernetes-marketplace).
 
-[Learn more about using modules](../../terraform/concepts/modules.md).
+[Learn more about working with modules](../../terraform/concepts/modules.md).
 
 {% endnote %}
-
-
-

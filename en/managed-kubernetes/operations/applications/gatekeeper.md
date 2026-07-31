@@ -12,7 +12,7 @@
 
 1. In the [management console]({{ link-console-main }}), select a folder.
 
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 
 1. Click the name of your cluster and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 
@@ -68,7 +68,7 @@
   `auditEventsInvolvedNamespace` | Creating events in the affected namespace | `false`
   `enableExternalData` | Experimental support for external data sources | `true`
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [Gatekeeper documentation](https://open-policy-agent.github.io/gatekeeper/website/docs/)
 

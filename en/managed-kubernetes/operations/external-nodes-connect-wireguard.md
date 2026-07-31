@@ -110,7 +110,7 @@ You can see the solution architecture in the diagram below:
 
       Repeat this step for each subnet in your main network.
 
-   1. Associate the route table with the `VM-2` subnet.
+   1. Associate the route table to the `VM-2`'s subnet.
 
 ## Setting up WireGuard gateways {#gw}
 

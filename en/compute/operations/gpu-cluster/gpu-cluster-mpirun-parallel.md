@@ -73,4 +73,4 @@ description: Follow this guide to use mpirun to run distributed jobs in a GPU cl
 
 #### Useful links {#see-also}
 
-* [Questions about GPUs](../../../compute/qa/gpu.md)
+[Questions about GPUs](../../../compute/qa/gpu.md)

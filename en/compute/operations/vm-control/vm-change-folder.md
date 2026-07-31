@@ -195,7 +195,7 @@ After moving a VM, its network interfaces remain connected to the [subnets](../.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you moved the VM to.
-  1. Navigate to **{{ compute-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Click the VM name.
   1. Click **{{ ui-key.yacloud.common.stop }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.

@@ -89,6 +89,8 @@ Number of segments on host. ||
 || `--restore-only` | `value[,value]`
 
 A list of databases and tables to restore. ||
+|| `--restore-pxf` | Restore PXF settings from the original cluster. ||
+|| `--restore-hba` | Restore HBA settings from the original cluster. ||
 || `--master-host-group-ids` | `value[,value]`
 
 A list of host groups for Greenplum master subcluster. ||

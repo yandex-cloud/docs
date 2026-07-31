@@ -527,6 +527,64 @@ items:
             href: concepts/data-catalog-sources.md
       - name: Service roles for access management
         href: security/data-catalog-roles.md
+      - name: '{{ TF }} reference'
+        href: datacatalog-tf-ref.md
+      - name: API reference
+        items:
+          - name: API authentication
+            href: api-ref/authentication-datacatalog.md
+          - name: gRPC
+            items:
+              - name: Overview
+                href: datacatalog/api-ref/grpc/index.md
+              - name: Catalog
+                items:
+                  - name: Overview
+                    href: datacatalog/api-ref/grpc/Catalog/index.md
+                  - name: GetCatalog
+                    href: datacatalog/api-ref/grpc/Catalog/getCatalog.md
+                  - name: ListCatalogs
+                    href: datacatalog/api-ref/grpc/Catalog/listCatalogs.md
+                  - name: CreateCatalog
+                    href: datacatalog/api-ref/grpc/Catalog/createCatalog.md
+                  - name: DeleteCatalog
+                    href: datacatalog/api-ref/grpc/Catalog/deleteCatalog.md
+                  - name: UpdateCatalog
+                    href: datacatalog/api-ref/grpc/Catalog/updateCatalog.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: datacatalog/api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: datacatalog/api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: datacatalog/api-ref/grpc/Operation/cancel.md
+          - name: REST
+            items:
+              - name: Overview
+                href: datacatalog/api-ref/index.md
+              - name: Catalog
+                items:
+                  - name: Overview
+                    href: datacatalog/api-ref/Catalog/index.md
+                  - name: GetCatalog
+                    href: datacatalog/api-ref/Catalog/getCatalog.md
+                  - name: ListCatalogs
+                    href: datacatalog/api-ref/Catalog/listCatalogs.md
+                  - name: CreateCatalog
+                    href: datacatalog/api-ref/Catalog/createCatalog.md
+                  - name: DeleteCatalog
+                    href: datacatalog/api-ref/Catalog/deleteCatalog.md
+                  - name: UpdateCatalog
+                    href: datacatalog/api-ref/Catalog/updateCatalog.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: datacatalog/api-ref/Operation/index.md
+                  - name: Get
+                    href: datacatalog/api-ref/Operation/get.md
+                  - name: Cancel
+                    href: datacatalog/api-ref/Operation/cancel.md
   - name: Access management
     href: security/index.md
   - name: Quotas and limits

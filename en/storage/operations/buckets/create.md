@@ -7,7 +7,7 @@ description: Follow this guide to create a bucket in {{ objstorage-name }}.
 
 {% include [create-bucket](../../../_includes/storage/create-bucket.md) %}
 
-### Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../objects/upload.md)
 * [{#T}](edit-acl.md)

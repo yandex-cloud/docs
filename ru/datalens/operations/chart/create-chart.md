@@ -15,11 +15,9 @@ description: Следуя данной инструкции, вы сможете
 
 
 
-
 1. Перейдите на [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}.
 1. На панели слева нажмите ![image](../../../_assets/console-icons/chart-column.svg) **Чарты**.
 1. Нажмите кнопку **Создать чарт** → **Чарт в Wizard**.
-
 
 
 1. На верхней панели выберите [тип визуализации](../../visualization-ref/index.md).

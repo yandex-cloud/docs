@@ -17,8 +17,6 @@ Syntax:
 
 - [yc cloud-registry v1 configure-docker](configure-docker.md) — Configure the Docker credential helper for Cloud Registry.
 
-- [yc cloud-registry v1 tools](tools.md) — 
-
 - [yc cloud-registry v1 artifact](artifact/index.md) — A set of methods for managing Artifacts.
 
   - [yc cloud-registry v1 artifact add-access-binding](artifact/add-access-binding.md) — Add access binding for the specified artifact.
@@ -40,6 +38,10 @@ Syntax:
   - [yc cloud-registry v1 artifact update-access-bindings](artifact/update-access-bindings.md) — Updates access bindings for the specified artifact (folder, package, artifact, etc).
 
   - [yc cloud-registry v1 artifact upsert](artifact/upsert.md) — Upserts a folder at the specified path within the registry.
+
+- [yc cloud-registry v1 migration](migration/index.md) — A set of methods for managing cloud migration.
+
+  - [yc cloud-registry v1 migration start-cloud](migration/start-cloud.md) — Starts migration for all registries in the specified cloud.
 
 - [yc cloud-registry v1 registry](registry/index.md) — A set of methods for managing Registry resources.
 
@@ -72,6 +74,10 @@ Syntax:
   - [yc cloud-registry v1 registry set-ip-permissions](registry/set-ip-permissions.md) — Set ip permissions for the specified registry.
 
   - [yc cloud-registry v1 registry update](registry/update.md) — Updates the specified registry.
+
+- [yc cloud-registry v1 tools](tools/index.md) — 
+
+
 
 #### Global Flags
 
