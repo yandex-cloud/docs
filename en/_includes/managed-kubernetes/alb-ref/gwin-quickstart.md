@@ -99,7 +99,8 @@ The infrastructure support cost includes:
 
 ### Installation from {{ marketplace-full-name }} {#marketplace-install}
 
-1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. In the [management console]({{ link-console-main }}), select a folder.
+1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the [{{ managed-k8s-name }}](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) cluster you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Gwin](/marketplace/products/yc/gwin) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
@@ -487,4 +488,3 @@ Some resources are not free of charge. Delete the resources you no longer need t
 1. [Delete](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md) the {{ managed-k8s-name }} cluster.
 
 1. [Delete](../../../application-load-balancer/operations/application-load-balancer-delete.md) the {{ alb-name }}:
-

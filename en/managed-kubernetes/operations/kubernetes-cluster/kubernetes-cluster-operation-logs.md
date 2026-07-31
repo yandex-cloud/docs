@@ -17,7 +17,7 @@ Operations enable real-time monitoring of actions with your cluster. This may be
   You can get a list of operations for a specific cluster:
 
   1. In the [management console]({{ link-console-main }}), open the folder containing the cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Select the cluster and open the ![image](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** tab.
 
      This will open the list of operations with the cluster.
@@ -160,4 +160,4 @@ Operations enable real-time monitoring of actions with your cluster. This may be
 
 #### Useful links {#see-also}
 
-* [{#T}](../../../api-design-guide/concepts/about-async.md)
+[{#T}](../../../api-design-guide/concepts/about-async.md)

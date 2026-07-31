@@ -15,7 +15,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the GPU cluster.
-  1. Navigate to **{{ compute-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.gpu-cluster.label_title }}**.
   1. Select the GPU cluster you need.
   1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
@@ -42,7 +42,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
      yc compute gpu-cluster list
      ```
 
-  1. View the roles already assigned for the resource:
+  1. View the list of roles already assigned for the resource:
 
      ```bash
      yc compute gpu-cluster list-access-bindings <GPU_cluster_ID>
@@ -98,7 +98,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
       * `gpu_cluster_id`: GPU cluster ID.
       * `role`: [Role](../../security/index.md#roles-list).
-      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Use this format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Use one of these formats: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
       For more information about `yandex_compute_gpu_cluster_iam_binding` properties, see [this provider guide]({{ tf-provider-resources-link }}/compute_gpu_cluster_iam_binding).
 
@@ -126,7 +126,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the GPU cluster.
-  1. Navigate to **{{ compute-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.gpu-cluster.label_title }}**.
   1. Select the GPU cluster you need.
   1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
@@ -173,7 +173,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
        * `role`: [Role](../../security/index.md#roles-list).
        * `subject`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
-     For example, this command will assign roles to multiple users and a single service account:
+     For example, assign roles to several users and one service account:
 
      ```bash
      yc compute gpu-cluster set-access-bindings my-gpu-cluster \
@@ -210,7 +210,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
       * `gpu_cluster_id`: GPU cluster ID.
       * `role`: [Role](../../security/index.md#roles-list).
-      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Use this format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Use one of these formats: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
       For more information about `yandex_compute_gpu_cluster_iam_binding` properties, see [this provider guide]({{ tf-provider-resources-link }}/compute_gpu_cluster_iam_binding).
 
@@ -244,7 +244,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the GPU cluster.
-  1. Navigate to **{{ compute-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.gpu-cluster.label_title }}**.
   1. Select the GPU cluster you need.
   1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.

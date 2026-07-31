@@ -75,6 +75,84 @@
 
 {% endlist %}
 
+
+## Получить информацию о базе данных {#get-db}
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы получить информацию о конкретной базе данных:
+
+    1. Посмотрите описание команды CLI для получения информации о базе данных:
+
+        ```bash
+        {{ yc-mdb-mg }} database get --help
+        ```
+
+    1. Получите информацию о базе данных, выполнив команду:
+
+        ```bash
+        {{ yc-mdb-mg }} database get <имя_БД> \
+          --cluster-id=<идентификатор_кластера>
+        ```
+
+        Имя базы данных можно получить со [списком баз данных](#list-db) в кластере, а идентификатор кластера — со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+
+- REST API {#api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Воспользуйтесь методом [Database.Get](../api-ref/Database/get.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+          --request GET \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<идентификатор_кластера>/databases/<имя_БД>'
+        ```
+
+        Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге, а имя базы данных — со [списком баз данных](#list-db) в кластере.
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Database/get.md#yandex.cloud.mdb.mongodb.v1.Database).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Воспользуйтесь вызовом [DatabaseService.Get](../api-ref/grpc/Database/get.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mongodb/v1/database_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<идентификатор_кластера>",
+                "database_name": "<имя_БД>"
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.mongodb.v1.DatabaseService.Get
+        ```
+
+        Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге, а имя базы данных — со [списком баз данных](#list-db) в кластере.
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Database/get.md#yandex.cloud.mdb.mongodb.v1.Database).
+
+{% endlist %}
+
+
 ## Создать базу данных {#add-db}
 
 {% include [1000 DBs limit](../../_includes/mdb/1000dbnote.md) %}

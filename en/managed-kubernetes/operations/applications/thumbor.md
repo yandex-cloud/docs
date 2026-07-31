@@ -38,8 +38,8 @@ Thumbor features:
 ## Installation from {{ marketplace-full-name }} {#marketplace-install}
 
 1. In the [management console]({{ link-console-main }}), select a folder.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-1. Click the name of the {{ k8s }} cluster you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
+1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Click the name of the {{ k8s }} cluster you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Thumbor](/marketplace/products/yc/thumbor) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
    * **Namespace**: Create a new [namespace](../../concepts/index.md#namespace), e.g., `thumbor-space`. If you leave the default namespace, Thumbor may work incorrectly.
@@ -117,7 +117,7 @@ Thumbor features:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. [Navigate]({{ link-console-main }}/link/network-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Get the IP address of the load balancer with the following description: `cluster <your_cluster_name>, service <namespace>/thumbor`.
   1. In the browser address bar, open `http://<load_balancer_IP_address>/unsafe/<image_name_in_bucket>`.
 
@@ -143,7 +143,7 @@ Learn more about working with images in [this Thumbor guide](https://thumbor.rea
 
 Learn how to use Thumbor for editing images on your website. The [Thumbor use case](../../tutorials/marketplace/thumbor.md) described in our guide involves configuring [{{ cdn-full-name }}](../../../cdn/concepts/index.md). {{ cdn-full-name }} helps with faster loading of website images.
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [Thumbor documentation](https://thumbor.readthedocs.io/en/latest/)
 * [{{ objstorage-name }} guides](../../../storage/)

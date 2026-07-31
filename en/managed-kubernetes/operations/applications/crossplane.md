@@ -29,7 +29,7 @@ You can install Crossplane in any of the following ways:
 ## Installation in the management console using {{ marketplace-name }} {#marketplace-install}
 
 1. In the [management console]({{ link-console-main }}), select a folder.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Crossplane with {{ yandex-cloud }} support](/marketplace/products/yc/crossplane) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
@@ -43,7 +43,7 @@ You can install Crossplane in any of the following ways:
 
 ## Installation using a Helm chart from the {{ marketplace-name }} repository {#helm-install}
 
-1. {% include [Install Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
+1. {% include [install Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
 1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Crossplane, run this command:
 
@@ -187,8 +187,8 @@ You can install Crossplane in any of the following ways:
 
 ## Use cases {#examples}
 
-* [{#T}](../../tutorials/marketplace/crossplane.md)
+[{#T}](../../tutorials/marketplace/crossplane.md)
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
-* [Crossplane documentation](https://docs.crossplane.io/)
+[Crossplane documentation](https://docs.crossplane.io/)

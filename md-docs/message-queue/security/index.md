@@ -36,6 +36,12 @@
 Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе YMQ.
 
 ```mermaid
+%%{
+  init: {
+    "flowchart": { "defaultRenderer": "elk" },
+    "elk": { "nodePlacementStrategy": "SIMPLE" }
+  }
+}%%
 flowchart BT
     ymq.writer --> ymq.admin
     ymq.reader --> ymq.admin

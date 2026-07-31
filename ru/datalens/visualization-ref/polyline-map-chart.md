@@ -55,9 +55,7 @@ description: Из статьи вы узнаете, как в {{ datalens-full-n
 
 Чтобы создать полилинейную карту:
 
-
 {% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
-
 
 1. {% include [create-1](../../_includes/datalens/visualization-ref/create-1.md) %}
 1. {% include [create-2](../../_includes/datalens/visualization-ref/create-2.md) %}

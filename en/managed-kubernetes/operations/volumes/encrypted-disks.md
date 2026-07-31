@@ -55,7 +55,7 @@ You can use encrypted disks for both [static](#static-provisioning) and [dynamic
     * `metadata:name`: Any name for the `PersistentVolumeClaim`.
     * `spec:storageClassName`: Name of the storage class you created earlier.
 
-1. Create a `PersistentVolumeClaim`:
+1. Create a `PersistentVolumeClaim` object:
 
     ```bash
     kubectl apply -f encrypted-pvc.yaml
@@ -95,7 +95,7 @@ You can use encrypted disks for both [static](#static-provisioning) and [dynamic
 
     After you create the pod, a new encrypted disk with `k8s-csi` prefixed to its name will appear under **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** in **{{ ui-key.yacloud.compute.disks_ddfdb }}** in the [management console]({{ link-console-main }}).
 
-### Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/volume.md)
 * [{#T}](../../concepts/encryption.md) 

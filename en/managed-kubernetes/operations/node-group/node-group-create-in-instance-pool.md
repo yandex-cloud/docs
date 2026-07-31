@@ -102,7 +102,7 @@ For more information, see [{#T}](../../concepts/node-group/reserved-pools.md) an
 
     {% endlist %}
 
-### Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/node-group/reserved-pools.md)
 * [{#T}](../../concepts/node-group/variables-in-the-template.md)

@@ -29,7 +29,8 @@ The `node-sitter` features include:
 
 ## Installation from {{ marketplace-full-name }} {#marketplace-install}
 
-1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. In the [management console]({{ link-console-main }}), select a folder.
+1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the {{ k8s }} cluster you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [node-sitter](/marketplace/products/yc/node-sitter) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
@@ -37,9 +38,10 @@ The `node-sitter` features include:
    * **Application name**: Specify the application name.
    * **Install node-drainer**: Leave this option enabled so the integrated `node-drainer` script prevents pods in the `Error` or `Completed` state from appearing on the nodes of the preemptible VM group.
    * **Tolerations key name**: Specify the key name of the taint policy you set [previously](#before-you-begin). `node-sitter` pods will configure new nodes in the preemptible VM group before user load is distributed to them. After the nodes are successfully configured, `node-sitter` will remove the taint policy so user applications can run on these nodes. If you skip this setting, the system will configure the nodes while starting user applications.
-   * (Optional) **Trusted certificates**: Copy the contents of the x.509 certificate file in PEM format for installation into the trusted certificate storage on the nodes of the preemptible VM group. When recreating nodes, the certificates will be reinstalled.
+   * (Optional) **Trusted certificates**: Copy the contents of the PEM file with x.509 certificates to install them into the trusted certificate storage on the nodes of the preemptible VM group. When recreating nodes, the certificates will be reinstalled.
    * (Optional) **Parameters for kubelet**: Specify additional parameters for running `kubelet` on the nodes of the preemptible VM group.
    * (Optional) **Proxy settings**: Specify proxy settings for downloading container images on the nodes of the preemptible VM group. The settings are provided via the `HTTP_PROXY` and `HTTPS_PROXY` environment variables.
+   * (Optional) **Proxy exclusions**: Specify a list of websites to access without a proxy. To provide the value, use the `NO_PROXY` environment variable.
 
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 

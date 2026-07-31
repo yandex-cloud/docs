@@ -43,7 +43,7 @@ Oftentimes, it is not a new driver that you need but **CUDA Toolkit** update. In
 
 ### Ubuntu installation example {#cuda-example-ubuntu}
 
-1. Connect the NVIDIA CUDA repository:
+1. Add the NVIDIA CUDA repository:
 
    ```bash
    sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu$(lsb_release -rs | sed -e 's/\.//')/x86_64/3bf863cc.pub
@@ -197,3 +197,7 @@ This is why we **do not recommend** updating the driver to a version higher than
    ```
 
 With that done, during `sudo reboot`, systemd will call `ExecStop` for `manage-nvidia`, the driver will be uploaded correctly, and rebooting will not invalidate the GPU.
+
+#### Useful links {#see-also}
+
+* [{#T}](enable-mig.md)

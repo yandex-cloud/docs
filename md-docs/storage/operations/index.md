@@ -18,6 +18,7 @@
 * [Доступ в бакет с помощью Security Token Service](buckets/create-sts-key.md)
 * [Доступ к бакету с помощью эфемерного ключа доступа](buckets/manage-ephemeral-keys.md)
 * [Доступ в бакет с помощью сервисного подключения из Yandex Virtual Private Cloud](buckets/access-via-vpc.md)
+* [Поиск чувствительных данных в бакете](buckets/sensitive-data-search.md) 
 * [Управление версионированием бакета](buckets/versioning.md)
 * [Работа с механизмом логирования действий с бакетом](buckets/enable-logging.md)
 * [Управление блокировками версий объектов (object lock) в бакете](buckets/configure-object-lock.md)

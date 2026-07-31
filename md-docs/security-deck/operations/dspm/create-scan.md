@@ -11,7 +11,7 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Security Deck {#console}
+- Интерфейс Security Deck {#cloud-sd}
 
   1. Перейдите в сервис [Yandex Security Deck](https://center.yandex.cloud/security/).
   1. На панели слева выберите ![database-magnifier](../../../_assets/console-icons/database-magnifier.svg) **Контроль данных**.
@@ -74,6 +74,12 @@
 - Интерфейс v1.0 {#cloud-sd-v1}
 
   Для создания регулярного сканирования нужен [источник данных](../../concepts/dspm.md#data-source). [Создайте](create-data-source.md#create-data-source) его заранее или во время создания сканирования.
+
+  {% note tip %}
+
+  Вы можете не создавать источник данных и [просканировать](../../../storage/operations/buckets/sensitive-data-search.md#create) бакет в интерфейсе Yandex Object Storage.
+
+  {% endnote %}
 
   Чтобы создать регулярное сканирование для Object Storage или Яндекс 360:
 

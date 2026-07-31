@@ -36,15 +36,15 @@ VMs with [vCPU performance level](performance-levels.md) below 100% may operate 
 
 ## Disk and file storage performance {#performance}
 
-Performance of VMs with disks depends on these two categories of limits:
-* [VM disk usage limits](limits.md#compute-limits-vm-disks) set the total maximum load across all VM disks. These limits scale in proportion to the number of vCPUs allocated to a VM.
-* [Disk and file storage limits](limits.md#compute-limits-disks) define individual load thresholds per disk based on its type and size.
+VM performance when working with disks is defined by two limit groups:
+* [VM limits on working with disks](limits.md#compute-limits-vm-disks) set the overall maximum load on all VM disks. These limits are scaled in proportion with the number of vCPUs the VM has.
+* [Limits of disks and file storages](limits.md#compute-limits-disks) provide load limits per disk and depend on its type and size.
 
-Actual disk performance is limited by the lowest of these two values.
+The disk’s actual performance is limited by the lowest of these two values.
 
 The maximum IOPS values are achieved when performing reads and writes that are 4 KB in size. Network SSDs and file storage have much higher IOPS for read operations and process requests faster than HDDs.
 
-For maximum bandwidth, we recommend 4 MB reads and writes.
+For maximum bandwidth, 4 MB read and write operations are recommended.
 
 Disk or storage performance depends on its size: with more allocation units, you get higher IOPS and bandwidth values.
 
@@ -307,15 +307,15 @@ Disk performance depends on its [size](disk.md#maximum-disk-size). To improve th
 
 You can select the storage type only when creating a VM. However, you can [take a disk snapshot](../operations/disk-control/create-snapshot.md) and [create a new VM](../operations/vm-create/create-from-snapshots.md) from such a snapshot with a `network-ssd`.
 
-### Disk load impact on VM network performance {#disk-load-network-impact}
+### Disk load effect on the VM network {#disk-load-network-impact}
 
-Without a [software-accelerated network](software-accelerated-network.md), user workloads and VM network traffic processing tasks share [the same compute cores](software-accelerated-network.md#reg-vm) allocated to the VM. If the load on VM disks is high, e.g., when creating [snapshots](snapshot.md) or [backups](backups.md) of large disks, user processes may consume substantial vCPU capacity. This deprives networking processes of computing resources and may cause short-term network issues, such as increased latency or packet loss. This behavior is standard both for VMs and physical servers with high simultaneous load on disks and network.
+Without a [software-accelerated network](software-accelerated-network.md), the user load and VM network traffic handling are distributed across [the same compute cores](software-accelerated-network.md#reg-vm) allocated to the VM. If the load on VM disks is high, e.g., when creating [snapshots](snapshot.md) or during [backups](backups.md) of large disks, user processes may use a significant percentage of vCPU resources. This causes network traffic handling processes to have less computing resources and possibly short-term network issues, such as high latency or packet loss. Such behavior is typical not only for VMs, but also for any physical server with high simultaneous load on its disks and network.
 
 {% note tip %}
 
-To mitigate the impact of disk load on VM network performance, use one of these approaches:
-* Reduce the rate of backup operations and other tasks that lead to peak loads on disks.
-* Enable a [software-accelerated network](software-accelerated-network.md) for the VM to allocate dedicated compute cores to network traffic and prevent resource contention with user workloads.
+To minimize the disk load effect on the VM network, follow one of these approaches:
+* Reduce the intensity of backup operations and other tasks that cause peak loads on disks.
+* Enable a [software-accelerated network](software-accelerated-network.md) for the VM, so that network traffic handling will be allocated to particular compute cores and will cease to overlap with user load.
 
 {% endnote %}
 

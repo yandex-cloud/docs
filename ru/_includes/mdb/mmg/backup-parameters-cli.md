@@ -42,3 +42,5 @@
     {% include [maintenance-window](../cli/maintenance-window-description.md)%}
 
 * `--performance-diagnostics` — включить диагностику производительности кластера: `true` или `false`.
+
+{% include [Автоматическая перепаковка](autocompact-cli.md) %}

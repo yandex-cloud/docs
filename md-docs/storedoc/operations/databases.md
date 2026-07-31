@@ -87,6 +87,94 @@
 
 {% endlist %}
 
+
+## Получить информацию о базе данных {#get-db}
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+
+    По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
+    Чтобы получить информацию о конкретной базе данных:
+
+    1. Посмотрите описание команды CLI для получения информации о базе данных:
+
+        ```bash
+        yc managed-mongodb database get --help
+        ```
+
+    1. Получите информацию о базе данных, выполнив команду:
+
+        ```bash
+        yc managed-mongodb database get <имя_БД> \
+          --cluster-id=<идентификатор_кластера>
+        ```
+
+        Имя базы данных можно получить со [списком баз данных](#list-db) в кластере, а идентификатор кластера — со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+
+- REST API {#api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        ```bash
+        export IAM_TOKEN="<IAM-токен>"
+        ```
+
+    1. Воспользуйтесь методом [Database.Get](../api-ref/Database/get.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+
+        ```bash
+        curl \
+          --request GET \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --url 'https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/<идентификатор_кластера>/databases/<имя_БД>'
+        ```
+
+        Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге, а имя базы данных — со [списком баз данных](#list-db) в кластере.
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Database/get.md#yandex.cloud.mdb.mongodb.v1.Database).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        ```bash
+        export IAM_TOKEN="<IAM-токен>"
+        ```
+
+    1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
+       
+       ```bash
+       cd ~/ && git clone --depth=1 https://github.com/yandex-cloud/cloudapi
+       ```
+       
+       Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
+    1. Воспользуйтесь вызовом [DatabaseService.Get](../api-ref/grpc/Database/get.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mongodb/v1/database_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<идентификатор_кластера>",
+                "database_name": "<имя_БД>"
+              }' \
+          mdb.api.cloud.yandex.net:443 \
+          yandex.cloud.mdb.mongodb.v1.DatabaseService.Get
+        ```
+
+        Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге, а имя базы данных — со [списком баз данных](#list-db) в кластере.
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Database/get.md#yandex.cloud.mdb.mongodb.v1.Database).
+
+{% endlist %}
+
+
 ## Создать базу данных {#add-db}
 
 {% note info %}

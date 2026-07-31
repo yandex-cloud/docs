@@ -1762,6 +1762,12 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [configure-docker](cli-ref/cloud-registry/cli-ref/configure-docker.md)
 
+#### migration
+
+ - [Overview](cli-ref/cloud-registry/cli-ref/migration/index.md)
+
+ - [start-cloud](cli-ref/cloud-registry/cli-ref/migration/start-cloud.md)
+
 #### registry
 
  - [Overview](cli-ref/cloud-registry/cli-ref/registry/index.md)
@@ -1820,7 +1826,15 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [update](cli-ref/cloud-registry/cli-ref/registry/update.md)
 
- - [tools](cli-ref/cloud-registry/cli-ref/tools.md)
+#### tools
+
+ - [Overview](cli-ref/cloud-registry/cli-ref/tools/index.md)
+
+##### debian
+
+ - [Overview](cli-ref/cloud-registry/cli-ref/tools/debian/index.md)
+
+ - [reindex-packages](cli-ref/cloud-registry/cli-ref/tools/debian/reindex-packages.md)
 
 #### v0
 
@@ -1970,6 +1984,12 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [configure-docker](cli-ref/cloud-registry/cli-ref/v1/configure-docker.md)
 
+##### migration
+
+ - [Overview](cli-ref/cloud-registry/cli-ref/v1/migration/index.md)
+
+ - [start-cloud](cli-ref/cloud-registry/cli-ref/v1/migration/start-cloud.md)
+
 ##### registry
 
  - [Overview](cli-ref/cloud-registry/cli-ref/v1/registry/index.md)
@@ -2028,7 +2048,15 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [update](cli-ref/cloud-registry/cli-ref/v1/registry/update.md)
 
- - [tools](cli-ref/cloud-registry/cli-ref/v1/tools.md)
+##### tools
+
+ - [Overview](cli-ref/cloud-registry/cli-ref/v1/tools/index.md)
+
+###### debian
+
+ - [Overview](cli-ref/cloud-registry/cli-ref/v1/tools/debian/index.md)
+
+ - [reindex-packages](cli-ref/cloud-registry/cli-ref/v1/tools/debian/reindex-packages.md)
 
 ### cloudrouter
 
@@ -7690,6 +7718,14 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [update-config](cli-ref/managed-postgresql/cli-ref/hosts/update-config.md)
 
+#### performance-diagnostics
+
+ - [Overview](cli-ref/managed-postgresql/cli-ref/performance-diagnostics/index.md)
+
+ - [list-raw-sessions](cli-ref/managed-postgresql/cli-ref/performance-diagnostics/list-raw-sessions.md)
+
+ - [list-raw-statements](cli-ref/managed-postgresql/cli-ref/performance-diagnostics/list-raw-statements.md)
+
 #### repack
 
  - [Overview](cli-ref/managed-postgresql/cli-ref/repack/index.md)
@@ -7829,6 +7865,14 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [update](cli-ref/managed-postgresql/cli-ref/v0/hosts/update.md)
 
  - [update-config](cli-ref/managed-postgresql/cli-ref/v0/hosts/update-config.md)
+
+##### performance-diagnostics
+
+ - [Overview](cli-ref/managed-postgresql/cli-ref/v0/performance-diagnostics/index.md)
+
+ - [list-raw-sessions](cli-ref/managed-postgresql/cli-ref/v0/performance-diagnostics/list-raw-sessions.md)
+
+ - [list-raw-statements](cli-ref/managed-postgresql/cli-ref/v0/performance-diagnostics/list-raw-statements.md)
 
 ##### repack
 
@@ -10782,6 +10826,24 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [update](cli-ref/smartwebsecurity/cli-ref/advanced-rate-limiter/advanced-rate-limiter-profile/update.md)
 
+#### custom-page
+
+ - [Overview](cli-ref/smartwebsecurity/cli-ref/custom-page/index.md)
+
+##### custom-page
+
+ - [Overview](cli-ref/smartwebsecurity/cli-ref/custom-page/custom-page/index.md)
+
+ - [create](cli-ref/smartwebsecurity/cli-ref/custom-page/custom-page/create.md)
+
+ - [delete](cli-ref/smartwebsecurity/cli-ref/custom-page/custom-page/delete.md)
+
+ - [get](cli-ref/smartwebsecurity/cli-ref/custom-page/custom-page/get.md)
+
+ - [list](cli-ref/smartwebsecurity/cli-ref/custom-page/custom-page/list.md)
+
+ - [update](cli-ref/smartwebsecurity/cli-ref/custom-page/custom-page/update.md)
+
 #### match-list
 
  - [Overview](cli-ref/smartwebsecurity/cli-ref/match-list/index.md)
@@ -10853,6 +10915,24 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [list](cli-ref/smartwebsecurity/cli-ref/v1/advanced-rate-limiter/advanced-rate-limiter-profile/list.md)
 
  - [update](cli-ref/smartwebsecurity/cli-ref/v1/advanced-rate-limiter/advanced-rate-limiter-profile/update.md)
+
+##### custom-page
+
+ - [Overview](cli-ref/smartwebsecurity/cli-ref/v1/custom-page/index.md)
+
+###### custom-page
+
+ - [Overview](cli-ref/smartwebsecurity/cli-ref/v1/custom-page/custom-page/index.md)
+
+ - [create](cli-ref/smartwebsecurity/cli-ref/v1/custom-page/custom-page/create.md)
+
+ - [delete](cli-ref/smartwebsecurity/cli-ref/v1/custom-page/custom-page/delete.md)
+
+ - [get](cli-ref/smartwebsecurity/cli-ref/v1/custom-page/custom-page/get.md)
+
+ - [list](cli-ref/smartwebsecurity/cli-ref/v1/custom-page/custom-page/list.md)
+
+ - [update](cli-ref/smartwebsecurity/cli-ref/v1/custom-page/custom-page/update.md)
 
 ##### match-list
 

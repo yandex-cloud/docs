@@ -71,8 +71,8 @@ To connect to the VM:
   1. Click **Save**.
   1. Connect to the remote machine by double-clicking the connection you created in the quick access connection list.
 
-  #### Useful links
+  #### Useful links {#see-also}
 
-  * [Installing Remmina on Linux distributions other than Ubuntu](https://remmina.org/how-to-install-remmina/).
+  [Installing Remmina on non-Ubuntu Linux distributions](https://remmina.org/how-to-install-remmina/)
 
 {% endlist %}

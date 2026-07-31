@@ -103,6 +103,6 @@ The `kubernetes` provider is initialized only after creating and setting up a {{
    terraform init
    ```
 
-## Useful links {see-also}
+#### Useful links {see-also}
 
 [Managing {{ k8s }} resources via the {{ TF }} provider](../../managed-kubernetes/tutorials/kubernetes-terraform-provider.md)

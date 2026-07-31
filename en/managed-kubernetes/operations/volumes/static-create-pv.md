@@ -7,8 +7,8 @@ description: Follow this guide to create a pod with a statically provisioned vol
 
 
 Create a [pod](../../concepts/index.md#pod) with a statically provisioned [volume](../../concepts/volume.md):
-1. [Create a PersistentVolume](#create-pv).
-1. [Create a PersistentVolumeClaim](#create-claim).
+1. [Create a PersistentVolume object](#create-pv).
+1. [Create a PersistentVolumeClaim object](#create-claim).
 1. [Create a pod](#create-pod).
 
 {% note tip %}
@@ -68,7 +68,7 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
 
    {% endnote %}
 
-## Create a PersistentVolume {#create-pv}
+## Create a PersistentVolume object {#create-pv}
 
 1. Save the `PersistentVolume` creation specification to a YAML file named `test-pv.yaml`.
 
@@ -133,7 +133,7 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
    ...
    ```
 
-## Create a PersistentVolumeClaim {#create-claim}
+## Create a PersistentVolumeClaim object {#create-claim}
 
 1. Save the `PersistentVolumeClaim` creation specification to a YAML file named `test-claim.yaml`.
 
@@ -269,7 +269,7 @@ Before deleting a volume, you must delete the pod that is using it. Disks in {{ 
 
 1. In {{ compute-name }}, [delete the disk](../../../compute/operations/disk-control/delete.md) associated with the `PersistentVolume`.
 
-### Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/volume.md)
 * [{#T}](./encrypted-disks.md)

@@ -115,7 +115,7 @@ The admin and production environments share these assets:
 ## Installation from {{ marketplace-name }} {#marketplace-install}
 
 1. In the [management console]({{ link-console-main }}), select a folder.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Bitrix](/marketplace/products/yc/bitrix-env) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
@@ -320,7 +320,7 @@ To work with a repository, you need the admin environment.
    /scripts/commit-all.sh <commit description>
    ```
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [1C Bitrix: Web environment](https://dev.1c-bitrix.ru/learning/course/index.php?COURSE_ID=32&LESSON_ID=29234&LESSON_PATH=3903.4862.29228.29234)
 * [Container environment for Bitrix](https://github.com/bitrix-tools/env-docker)

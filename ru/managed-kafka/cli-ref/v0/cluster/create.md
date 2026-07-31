@@ -135,6 +135,9 @@ Allows to set Kafka cluster configuration property "offsets.retention.minutes". 
 || `--transactional-id-expiration-ms` | `int`
 
 Allows to set Kafka cluster configuration property "transactional.id.expiration.ms". Default value: 604800000. ||
+|| `--log-message-timestamp-type` | `string`
+
+Allows to set Kafka cluster configuration property "log.message.timestamp.type". This configuration specifies which timestamp to use for messages - message creation time or log append time. Possible values are: create-time, log-append-time. ||
 || `--ssl-cipher-suites` | `value[,value]`
 
 Allows to set Kafka cluster configuration property "ssl.cipher.suites". List of all valid cipher suites for this cluster, separated by comma. ||

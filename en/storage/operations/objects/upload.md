@@ -26,7 +26,7 @@ You can use [tools](../../tools/index.md) that support {{ objstorage-name }} and
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket to upload the object into.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
   1. If you want to upload an object to the bucket for the first time, click **{{ ui-key.yacloud.storage.bucket.button_empty-create }}**.
@@ -74,7 +74,7 @@ You can use [tools](../../tools/index.md) that support {{ objstorage-name }} and
      * `--endpoint-url`: {{ objstorage-name }} endpoint.
      * `s3 cp --recursive`: Command to upload all objects stored in a local directory, including the nested ones. To upload objects, in the first part of the command, provide the path to the folder from which you want to copy the files to the bucket, and in the second part, the name of your bucket and storage [folder ID](../../concepts/object.md#folder).
 
-  `aws s3 cp` is a high-level command providing limited features. For more information, see the [AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html). All upload features {{ objstorage-name }} supports can be used when running the [aws s3api put-object](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object.html) command (see examples of using [object locks](../../concepts/object-lock.md) [below](#w-object-lock)).
+  `aws s3 cp` is a high-level command providing limited features. For more information, see the [AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html). To access all upload features supported by {{ objstorage-name }}, use the [aws s3api put-object](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object.html) command instead (see examples of using [object locks](../../concepts/object-lock.md) [below](#w-object-lock)).
 
 - {{ TF }} {#tf}
 
@@ -115,7 +115,7 @@ You can use [tools](../../tools/index.md) that support {{ objstorage-name }} and
        description        = "static access key for object storage"
      }
 
-     # Create object
+     # Creating an object
 
      resource "yandex_storage_object" "test-object" {
        access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
@@ -161,7 +161,7 @@ For a bucket with enabled [versioning](../buckets/versioning.md) and [object loc
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket to upload the object into.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
   1. If you want to upload an object to the bucket for the first time, click **{{ ui-key.yacloud.storage.bucket.button_empty-create }}**.
@@ -449,5 +449,5 @@ You can use [conditions](../../concepts/object.md#conditional-writes) when uploa
 
 #### Useful links {#see-also}
 
-* [{#T}](../../tutorials/storage-vpc-access.md)
+[{#T}](../../tutorials/storage-vpc-access.md)
 

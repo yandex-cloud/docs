@@ -20,7 +20,7 @@ If your object already has a configured [ACL](../../concepts/acl.md), it will be
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select a folder.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Select the bucket from the list.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}** and find the object in the list.
     1. To edit the ACL, click ![image](../../../_assets/console-icons/ellipsis.svg) in the row with the object and select **{{ ui-key.yacloud.storage.bucket.button_action-permissions }}**.

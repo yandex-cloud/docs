@@ -357,6 +357,14 @@ items:
             href: cli-ref/hosts/update.md
           - name: update-config
             href: cli-ref/hosts/update-config.md
+      - name: performance-diagnostics
+        items:
+          - name: Overview
+            href: cli-ref/performance-diagnostics/index.md
+          - name: list-raw-sessions
+            href: cli-ref/performance-diagnostics/list-raw-sessions.md
+          - name: list-raw-statements
+            href: cli-ref/performance-diagnostics/list-raw-statements.md
       - name: repack
         items:
           - name: Overview
@@ -497,6 +505,14 @@ items:
                 href: cli-ref/v0/hosts/update.md
               - name: update-config
                 href: cli-ref/v0/hosts/update-config.md
+          - name: performance-diagnostics
+            items:
+              - name: Overview
+                href: cli-ref/v0/performance-diagnostics/index.md
+              - name: list-raw-sessions
+                href: cli-ref/v0/performance-diagnostics/list-raw-sessions.md
+              - name: list-raw-statements
+                href: cli-ref/v0/performance-diagnostics/list-raw-statements.md
           - name: repack
             items:
               - name: Overview

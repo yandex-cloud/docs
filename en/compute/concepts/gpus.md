@@ -143,6 +143,7 @@ Maximum Gen2 cluster size is 20 VMs with 8 GPU, 80 GB VRAM, 180 vCPU, 1,440 GB R
 * [{#T}](../operations/vm-create/create-vm-with-gpu.md)
 * [{#T}](../operations/vm-control/vm-update-resources.md#add-gpu)
 * [{#T}](../operations/vm-control/vm-update-resources.md#update-gpu)
+* [{#T}](../operations/enable-mig.md)
 * [{#T}](../operations/gpu-cluster/gpu-cluster-create.md)
 * [{#T}](../operations/gpu-cluster/gpu-add-to-cluster.md)
 * [{#T}](../operations/gpu-cluster/gpu-cluster-test-physical-state.md)

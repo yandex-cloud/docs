@@ -45,7 +45,7 @@ To access a {{ k8s }} cluster, use the `ID` or `NAME` parameters from the [previ
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the name of the {{ k8s }} cluster.
 
 - CLI {#cli}
@@ -76,7 +76,7 @@ To access a {{ k8s }} cluster, use the `ID` or `NAME` parameters from the [previ
 
   1. {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. Create a {{ TF }} configuration file with a description of the `yandex_kubernetes_cluster` data source in the `data` section and the requested parameters in the `output` sections (one per section). For example:
+  1. Create a {{ TF }} configuration file with a description of the `yandex_kubernetes_cluster` data source in the `data` section and the requested parameters in the `output` sections (one per section). Here is an example:
 
       ```hcl
       data "yandex_kubernetes_cluster" "my_cluster" {

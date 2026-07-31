@@ -31,6 +31,7 @@
   * [Нормированная столбчатая диаграмма](normalized-column-chart.md)
   * [Линейчатая диаграмма](bar-chart.md)
   * [Нормированная линейчатая диаграмма](normalized-bar-chart.md)
+  * [Воронка](funnel.md)
   * [Точечная диаграмма](scatter-chart.md)
   * [Круговая диаграмма](pie-chart.md)
   * [Кольцевая диаграмма](ring-chart.md)

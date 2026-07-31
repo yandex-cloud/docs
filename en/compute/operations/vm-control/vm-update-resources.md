@@ -34,7 +34,7 @@ This section explains you how to change the number and performance of vCPUs and 
   To change the vCPU and RAM of a VM:
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the VM belongs to.
-  1. Navigate to **{{ compute-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Click the VM name.
   1. Click **{{ ui-key.yacloud.common.stop }}** in the top-right corner of the page.
   1. In the window that opens, click **{{ ui-key.yacloud.compute.instance.stop-dialog.button_stop }}**.
@@ -124,7 +124,7 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
   To change the number of GPUs on a VM:
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the VM belongs to.
-  1. Navigate to **{{ compute-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Click the VM name.
   1. Click **{{ ui-key.yacloud.common.stop }}** in the top-right corner of the page.
   1. In the window that opens, click **{{ ui-key.yacloud.compute.instance.stop-dialog.button_stop }}**.
@@ -221,7 +221,7 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
   To change the number of [GPUs](../../concepts/gpus.md) on an existing VM:
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the VM belongs to.
-  1. Navigate to **{{ compute-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Click the VM name.
   1. Click **{{ ui-key.yacloud.common.stop }}** in the top-right corner of the page.
   1. In the window that opens, click **{{ ui-key.yacloud.compute.instance.stop-dialog.button_stop }}**.
@@ -312,7 +312,7 @@ This feature is only available upon agreement with your account manager.
   To enable a [software-accelerated network](../../concepts/software-accelerated-network.md) on an existing VM:
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the VM belongs to.
-  1. Navigate to **{{ compute-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Click the VM name.
   1. Click **{{ ui-key.yacloud.common.stop }}** in the top-right corner of the page.
   1. In the window that opens, click **{{ ui-key.yacloud.compute.instance.stop-dialog.button_stop }}**.

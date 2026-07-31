@@ -21,11 +21,9 @@
 
 
 
-
 1. Перейдите на [главную страницу](https://datalens.ru/?skipPromo=true) DataLens.
 1. На панели слева нажмите ![image](../../../_assets/console-icons/chart-column.svg) **Чарты**.
 1. Нажмите кнопку **Создать чарт** → **Чарт в Wizard**.
-
 
 
 1. На верхней панели выберите [тип визуализации](../../visualization-ref/index.md).

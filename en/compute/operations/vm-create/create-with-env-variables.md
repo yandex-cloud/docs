@@ -84,7 +84,7 @@ To create a VM with metadata from environment variables:
 
           * `subnet-name`: Name of the [subnet](../../../vpc/concepts/network.md#subnet) in the availability zone specified in the `--zone` parameter.
           * `security-group-ids`: [Security group](../../../vpc/concepts/security-groups.md) ID.
-      * `--metadata-from-file`: The `user-data` key with the path to the `cloud-config` YAML configuration file for value. e.g., `--metadata-from-file user-data="/home/user/metadata.yaml"`.
+      * `--metadata-from-file`: The `user-data` key with the path to the `cloud-config` YAML configuration file for value, e.g., `--metadata-from-file user-data="/home/user/metadata.yaml"`.
 
           {% note info %}
 

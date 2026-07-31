@@ -31,6 +31,12 @@ description: Следуя данной инструкции, вы узнаете
 
   Для создания регулярного сканирования нужен [источник данных](../../concepts/dspm.md#data-source). [Создайте](create-data-source.md#create-data-source) его заранее или во время создания сканирования.
 
+  {% note tip %}
+
+  Вы можете не создавать источник данных и [просканировать](../../../storage/operations/buckets/sensitive-data-search.md#create) бакет в интерфейсе {{ objstorage-full-name }}.
+
+  {% endnote %}
+
   Чтобы создать регулярное сканирование для {{ objstorage-name }} или {{ yandex-360 }}:
 
   1. Перейдите в сервис [{{ sd-full-name }}]({{ link-sd-main }}).

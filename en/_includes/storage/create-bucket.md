@@ -7,7 +7,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. In the top panel, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. On the bucket creation page:
 
@@ -162,7 +162,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
   **Creating a bucket using an IAM token**
 
   1. [Get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) and add them to environment variables.
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, specify the properties of the resources you want to create:
 
       ```hcl
       # Creating a bucket using an IAM token
@@ -199,7 +199,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
 
   **Creating a bucket using a static key**
 
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, specify the properties of the resources you want to create:
 
       {% cut "Creating a bucket using a static key" %}
 
@@ -278,7 +278,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
           * `standard`: Standard storage. This is a default value.
           * `cold`: Cold storage.
           * `ice`: Ice storage.
-          * `intelligent_tiering`: Intelligent storage
+          * `intelligent_tiering`: Intelligent-tiering storage
 
           {% include [storage-class-cold-desc](./storage-class-cold-desc.md) %}
 

@@ -20,7 +20,7 @@ To download an object group with a specified prefix (a [folder](../../concepts/o
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket from which you want to download an object.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}** and find the object in the list.
   1. Next to the object you want to download, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.storage.bucket.button_download }}** or open the object and click ![image](../../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud.storage.bucket.button_download }}** in the top panel.
@@ -167,4 +167,3 @@ To download an object group with a specified prefix (a [folder](../../concepts/o
 
 * [{#T}](link-for-download.md)
 * [{#T}](../../security/overview.md)
-

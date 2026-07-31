@@ -7,10 +7,10 @@ description: Follow this guide to create a pod with a dynamically provisioned vo
 
 
 Create a [pod](../../concepts/index.md#pod) with a dynamically provisioned [volume](../../concepts/volume.md):
-1. [Create a PersistentVolumeClaim](#create-pvc).
+1. [Create a PersistentVolumeClaim object](#create-pvc).
 1. [Create a pod](#create-pod).
 
-{% include [Install kubectl to get started](../../../_includes/managed-kubernetes/kubectl-before-you-begin.md) %}
+{% include [kubectl-before-you-begin](../../../_includes/managed-kubernetes/kubectl-before-you-begin.md) %}
 
 {% note tip %}
 
@@ -18,7 +18,7 @@ You can use a [{{ objstorage-full-name }}](../../../storage/) [bucket](../../../
 
 {% endnote %}
 
-## Create a PersistentVolumeClaim {#create-pvc}
+## Create a PersistentVolumeClaim object {#create-pvc}
 
 1. Save the following `PersistentVolumeClaim` creation specification to a YAML file named `pvc-dynamic.yaml`.
 
@@ -160,7 +160,7 @@ kubectl delete pvc <PersistentVolumeClaim_ID>
 
 The disk will be deleted automatically from [{{ compute-full-name }}](../../../compute/).
 
-### Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/volume.md)
 * [{#T}](./encrypted-disks.md)

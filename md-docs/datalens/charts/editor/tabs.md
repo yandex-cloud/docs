@@ -92,9 +92,9 @@
 
 ```js
 {
-  period: 40,
-  metric: ['2012', '2014'],
-  id: ['1215', '1217', '979', '483']
+    period: 40,
+    metric: ['2012', '2014'],
+    id: ['1215', '1217', '979', '483']
 }
 ```
 
@@ -303,9 +303,9 @@
 
   ```js
   module.exports = {
-    fields: {
-        datasetId: Editor.getId('mySource'),
-        path: 'fields'
+      fields: {
+          datasetId: Editor.getId('mySource'),
+          path: 'fields'
     }
   };
   ```
@@ -381,7 +381,7 @@
 
   * `apiConnectionId` — id подключения с типом API Connector, описанного на вкладке [Meta](#meta) и полученного с помощью метода [Editor.getId(arg)](methods.md#get-id).
   * `path` — путь к API после хоста.
-  * `method` — метод: поддерживаются GET и POST.
+  * `method` — метод запроса. Возможные значения: GET и POST.
   * `body` — тело запроса.
 
 
@@ -608,6 +608,7 @@
     ```
 
   {% endlist %}
+
 
 ### Выполнение действий {#run-activities}
 

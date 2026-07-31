@@ -11,6 +11,7 @@ Create a [{{ managed-k8s-name }} cluster](concepts/index.md#kubernetes-cluster) 
 ## Getting started {#before-you-begin}
 
 To get started with {{ managed-k8s-name }}:
+
 1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
 1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
 1. If you do not have a [folder](../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create one](../resource-manager/operations/folder/create.md).
@@ -32,87 +33,100 @@ To get started with {{ managed-k8s-name }}:
 
 ## Create a {{ managed-k8s-name }} cluster {#kubernetes-cluster-create}
 
-1. In the [management console]({{ link-console-main }}), select the folder where you want to create a {{ managed-k8s-name }} cluster.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-1. Click **{{ ui-key.yacloud.k8s.clusters.button_create }}**.
-1. Enter the {{ managed-k8s-name }} cluster name. It must be unique within the folder.
-1. Optionally, enter a description for the {{ managed-k8s-name }} cluster.
-1. **{{ ui-key.yacloud.k8s.clusters.create.field_service-account }}**: Specify the [service account](../iam/concepts/users/service-accounts.md) with the `k8s.clusters.agent` and `vpc.publicAdmin` roles to use for creating resources.
-1. **{{ ui-key.yacloud.k8s.clusters.create.field_node-service-account }}**: Specify the service account with the [{{ roles-cr-puller }}](../container-registry/security/index.md#container-registry-images-puller) role the {{ managed-k8s-name }} nodes will use to access the [Docker image](../container-registry/concepts/docker-image.md) registry in {{ container-registry-full-name }}.
-1. Specify the [release channel](concepts/release-channels-and-updates.md). You will not be able to edit this setting once you create the {{ managed-k8s-name }} cluster.
-1. Under **{{ ui-key.yacloud.k8s.clusters.create.section_main-cluster }}**:
-   * **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}**: Select the {{ k8s }} version to install on the [{{ managed-k8s-name }} master](concepts/index.md#master).
-   * **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}**: Select the [IP address](../vpc/concepts/address.md) assignment method:
-     * `{{ ui-key.yacloud.k8s.clusters.create.switch_auto }}`: Assign a random IP address from the {{ yandex-cloud }} IP address pool.
-     * `{{ ui-key.yacloud.k8s.clusters.create.switch_none }}`: Do not assign a public IP address.
-   * **{{ ui-key.yacloud.k8s.clusters.create.field_master-type }}**: Select the master type:
-     * `{{ ui-key.yacloud.k8s.clusters.create.option_master-type-basic }}`: To create a single master host in the selected availability zone. Specify the cloud network and select the subnet for the master host.
-     * `{{ ui-key.yacloud.k8s.clusters.create.option_master-type-highly-available }}`: To create a single master host in each availability zone. Specify the cloud network and subnet for each availability zone.
+{% list tabs group=instructions %}
 
-     {% include [note-vpc-resources](../_includes/managed-kubernetes/note-vpc-resources.md) %}
+- Management console {#console}
 
-   * Select [security groups](operations/connect/security-groups.md) for the {{ managed-k8s-name }} cluster's network traffic.
-1. Under **{{ ui-key.yacloud.k8s.clusters.create.section_allocation }}**:
-   * **{{ ui-key.yacloud.k8s.clusters.create.field_cluster-cidr }}**: Specify the IP address range to allocate addresses to [pods](concepts/index.md#pod) from.
-   * **{{ ui-key.yacloud.k8s.clusters.create.field_service-cidr }}**: Specify the IP address range to allocate IP addresses to [services](concepts/index.md#service) from.
-   * Set the subnet mask for the {{ managed-k8s-name }} nodes and the maximum number of pods per node.
-1. Click **{{ ui-key.yacloud.common.create }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a {{ managed-k8s-name }} cluster.
+  1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Click **{{ ui-key.yacloud.k8s.clusters.button_create }}**.
+  1. Enter the {{ managed-k8s-name }} cluster name. It must be unique within the folder.
+  1. Optionally, enter a description for the {{ managed-k8s-name }} cluster.
+  1. **{{ ui-key.yacloud.k8s.clusters.create.field_service-account }}**: Specify the [service account](../iam/concepts/users/service-accounts.md) with the `k8s.clusters.agent` and `vpc.publicAdmin` roles to use for creating resources.
+  1. **{{ ui-key.yacloud.k8s.clusters.create.field_node-service-account }}**: Specify the service account with the [{{ roles-cr-puller }}](../container-registry/security/index.md#container-registry-images-puller) role the {{ managed-k8s-name }} nodes will use to access the [Docker image](../container-registry/concepts/docker-image.md) registry in {{ container-registry-full-name }}.
+  1. Specify the [release channel](concepts/release-channels-and-updates.md). You will not be able to edit this setting once you create the {{ managed-k8s-name }} cluster.
+  1. Under **{{ ui-key.yacloud.k8s.clusters.create.section_main-cluster }}**:
+     * **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}**: Select the {{ k8s }} version to install on the [{{ managed-k8s-name }} master](concepts/index.md#master).
+     * **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}**: Select the [IP address](../vpc/concepts/address.md) assignment method:
+       * `{{ ui-key.yacloud.k8s.clusters.create.switch_auto }}`: Assign a random IP address from the {{ yandex-cloud }} IP address pool.
+       * `{{ ui-key.yacloud.k8s.clusters.create.switch_none }}`: Do not assign a public IP address.
+     * **{{ ui-key.yacloud.k8s.clusters.create.field_master-type }}**: Select the master type:
+       * `{{ ui-key.yacloud.k8s.clusters.create.option_master-type-basic }}`: To create a single master host in the selected availability zone. Specify the cloud network and select the subnet for the master host.
+       * `{{ ui-key.yacloud.k8s.clusters.create.option_master-type-highly-available }}`: To create a single master host in each availability zone. Specify the cloud network and subnet for each availability zone.
 
-For more information, see [this step-by-step guide for creating a {{ managed-k8s-name }} cluster](operations/kubernetes-cluster/kubernetes-cluster-create.md).
+       {% include [note-vpc-resources](../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
+     * Select [security groups](operations/connect/security-groups.md) for the {{ managed-k8s-name }} cluster's network traffic.
+  1. Under **{{ ui-key.yacloud.k8s.clusters.create.section_allocation }}**:
+     * **{{ ui-key.yacloud.k8s.clusters.create.field_cluster-cidr }}**: Specify the IP address range to allocate addresses to [pods](concepts/index.md#pod) from.
+     * **{{ ui-key.yacloud.k8s.clusters.create.field_service-cidr }}**: Specify the IP address range to allocate IP addresses to [services](concepts/index.md#service) from.
+     * Set the subnet mask for the {{ managed-k8s-name }} nodes and the maximum number of pods per node.
+  1. Click **{{ ui-key.yacloud.common.create }}**.
+
+  For more information, see [this step-by-step guide for creating a {{ managed-k8s-name }} cluster](operations/kubernetes-cluster/kubernetes-cluster-create.md).
+
+{% endlist %}
 
 ## Create a node group {#node-group-create}
 
 To create a {{ managed-k8s-name }} node group:
-1. In the [management console]({{ link-console-main }}), select the folder where you created the required {{ managed-k8s-name }} cluster.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-1. Select the {{ managed-k8s-name }} cluster to create a node group for.
-1. On the {{ managed-k8s-name }} cluster page, go to the ![nodes-management.svg](../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
-1. Click **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**.
-1. Enter a name and description for the {{ managed-k8s-name }} node group.
-1. In the **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** field, select the {{ k8s }} version for the {{ managed-k8s-name }} nodes.
-1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_scale }}**, select its type:
-   * `{{ ui-key.yacloud.k8s.node-groups.create.value_scale-fixed }}`, to keep a fixed number of nodes in the {{ managed-k8s-name }} group. Specify this number.
-   * `{{ ui-key.yacloud.k8s.node-groups.create.value_scale-auto }}`, to manage the number of nodes in the {{ managed-k8s-name }} group using [{{ managed-k8s-name }} cluster autoscaling](concepts/autoscale.md#ca).
-1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_deploy }}**, specify the maximum number of [VMs](../compute/concepts/vm.md) by which you can exceed or reduce the {{ managed-k8s-name }} group size.
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
-   * Select a [platform](../compute/concepts/vm-platforms.md).
-   * Specify the required number of vCPUs, [guaranteed vCPU performance](../compute/concepts/performance-levels.md), and the amount of RAM.
-   * Optionally, make the VM instance [preemptible](../compute/concepts/preemptible-vm.md) by checking the relevant box.
-   * Optionally, enable a [software accelerated network](../compute/concepts/software-accelerated-network.md).
 
-1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_disk }}**:
-   * Specify the **{{ ui-key.yacloud.k8s.node-groups.create.field_disk-type }}** for the {{ managed-k8s-name }} group nodes:
-     * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-hdd }}`: Standard network drive; HDD network block storage.
-     * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd }}`: Fast network drive; SSD network block storage.
-     * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd-nonreplicated }}`: Network drive with enhanced performance achieved by eliminating redundancy. You can only change the size of this disk type in 93 GB increments.
-     * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd-io-m3 }}`: Network drive with the same performance specifications as `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd-nonreplicated }}`, plus redundancy. You can only change the size of this disk type in 93 GB increments.
+{% list tabs group=instructions %}
 
-     For more information about disk types, see [this {{ compute-full-name }} tutorial](../compute/concepts/disk.md#disks_types).
-   * Specify the disk size for the {{ managed-k8s-name }} group nodes.
-1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}**:
-   * In the **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** field, select an IP address assignment method:
-     * `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}`: Assign a random IP address from the {{ yandex-cloud }} IP address pool.
-     * `{{ ui-key.yacloud.k8s.node-groups.create.switch_none }}`: Do not assign a public IP address.
+- Management console {#console}
 
-     {% note info %}
+  1. In the [management console]({{ link-console-main }}), select the folder where you created the required {{ managed-k8s-name }} cluster.
+  1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Select the {{ managed-k8s-name }} cluster to create a node group for.
+  1. On the {{ managed-k8s-name }} cluster page, go to the ![nodes-management.svg](../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
+  1. Click **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**.
+  1. Enter a name and description for the {{ managed-k8s-name }} node group.
+  1. In the **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** field, select the {{ k8s }} version for the {{ managed-k8s-name }} nodes.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_scale }}**, select its type:
+     * `{{ ui-key.yacloud.k8s.node-groups.create.value_scale-fixed }}`, to keep a fixed number of nodes in the {{ managed-k8s-name }} group. Specify this number.
+     * `{{ ui-key.yacloud.k8s.node-groups.create.value_scale-auto }}`, to manage the number of nodes in the {{ managed-k8s-name }} group using [{{ managed-k8s-name }} cluster autoscaling](concepts/autoscale.md#ca).
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_deploy }}**, specify the maximum number of [VMs](../compute/concepts/vm.md) by which you can exceed or reduce the {{ managed-k8s-name }} group size.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
+     * Select a [platform](../compute/concepts/vm-platforms.md).
+     * Specify the required number of vCPUs, [guaranteed vCPU performance](../compute/concepts/performance-levels.md), and the amount of RAM.
+     * Optionally, make the VM instance [preemptible](../compute/concepts/preemptible-vm.md) by checking the relevant box.
+     * Optionally, enable a [software accelerated network](../compute/concepts/software-accelerated-network.md).
+
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_disk }}**:
+     * Specify the **{{ ui-key.yacloud.k8s.node-groups.create.field_disk-type }}** for the {{ managed-k8s-name }} group nodes:
+       * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-hdd }}`: Standard network drive; HDD network block storage.
+       * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd }}`: Fast network drive; SSD network block storage.
+       * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd-nonreplicated }}`: Network drive with enhanced performance achieved by eliminating redundancy. You can only change the size of this disk type in 93 GB increments.
+       * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd-io-m3 }}`: Network drive with the same performance specifications as `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd-nonreplicated }}`, plus redundancy. You can only change the size of this disk type in 93 GB increments.
+
+       For more information about disk types, see [this {{ compute-full-name }} tutorial](../compute/concepts/disk.md#disks_types).
+     * Specify the disk size for the {{ managed-k8s-name }} group nodes.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}**:
+     * In the **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** field, select an IP address assignment method:
+       * `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}`: Assign a random IP address from the {{ yandex-cloud }} IP address pool.
+       * `{{ ui-key.yacloud.k8s.node-groups.create.switch_none }}`: Do not assign a public IP address.
+
+       {% note info %}
      
-     {% include [nodes-internet-access](../_includes/managed-kubernetes/nodes-internet-access.md) %}
+       {% include [nodes-internet-access](../_includes/managed-kubernetes/nodes-internet-access.md) %}
      
-     {% include [nodes-internet-access-additional](../_includes/managed-kubernetes/nodes-internet-access-additional.md) %}
+       {% include [nodes-internet-access-additional](../_includes/managed-kubernetes/nodes-internet-access-additional.md) %}
      
-     {% endnote %}
+       {% endnote %}
 
-   * Select [security groups](operations/connect/security-groups.md).
-   * Select the availability zone and subnet to place the {{ managed-k8s-name }} group nodes in.
+     * Select [security groups](operations/connect/security-groups.md).
+     * Select the availability zone and subnet to place the {{ managed-k8s-name }} group nodes in.
 
-     {% include [note-vpc-resources](../_includes/managed-kubernetes/note-vpc-resources.md) %}
+       {% include [note-vpc-resources](../_includes/managed-kubernetes/note-vpc-resources.md) %}
 
-1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_access }}**, specify the access credentials for the {{ managed-k8s-name }} group nodes over SSH:
-   * **{{ ui-key.yacloud.compute.instances.create.field_user }}**: Enter the username.
-   * **{{ ui-key.yacloud.compute.instances.create.field_key }}**: Paste the contents of the [public key](operations/node-connect-ssh.md#creating-ssh-keys) file.
-1. Click **{{ ui-key.yacloud.common.create }}**.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_access }}**, specify the access credentials for the {{ managed-k8s-name }} group nodes over SSH:
+     * **{{ ui-key.yacloud.compute.instances.create.field_user }}**: Enter the username.
+     * **{{ ui-key.yacloud.compute.instances.create.field_key }}**: Paste the contents of the [public key](operations/node-connect-ssh.md#creating-ssh-keys) file.
+  1. Click **{{ ui-key.yacloud.common.create }}**.
 
-For more information, see [this step-by-step guide on creating a {{ managed-k8s-name }} node group](operations/node-group/node-group-create.md).
+  For more information, see [this step-by-step guide on creating a {{ managed-k8s-name }} node group](operations/node-group/node-group-create.md).
+
+{% endlist %}
 
 ## Add credentials to the kubectl configuration file {#add-conf}
 

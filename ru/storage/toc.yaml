@@ -45,6 +45,8 @@ items:
               Доступ в бакет с помощью сервисного подключения из {{
               vpc-short-name }}
             href: operations/buckets/access-via-vpc.md
+          - name: Поиск чувствительных данных в бакете
+            href: operations/buckets/sensitive-data-search.md
           - name: Управление версионированием бакета
             href: operations/buckets/versioning.md
           - name: Включение механизма логирования
@@ -428,6 +430,8 @@ items:
         href: concepts/acl.md
       - name: Политика доступа (Bucket Policy)
         href: concepts/policy.md
+      - name: Поиск чувствительных данных
+        href: concepts/sensitive-data-search.md
       - name: Загрузка файла через HTML-форму
         href: concepts/presigned-post-forms.md
       - name: Класс хранилища

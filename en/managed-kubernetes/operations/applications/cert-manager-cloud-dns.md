@@ -38,7 +38,7 @@ The cert-manager application with the {{ dns-full-name }} ACME webhook plugin su
 ## Installation from {{ marketplace-full-name }} {#marketplace-install}
 
 1. In the [management console]({{ link-console-main }}), select a folder.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the {{ managed-k8s-name }} cluster you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [cert-manager with the {{ dns-full-name }} ACME webhook plugin](/marketplace/products/yc/cert-manager-webhook-yandex) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
@@ -144,9 +144,9 @@ To test the installed application, get a test certificate. We are going to use `
 
 ## Use cases {#examples}
 
-* [{#T}](../../tutorials/dnschallenge.md)
+[{#T}](../../tutorials/dnschallenge.md)
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
-* [Let's Encrypt® documentation](https://letsencrypt.org/docs/client-options/)
-* [cert-manager documentation](https://cert-manager.io/docs/configuration/)
+* [Let's Encrypt® guide](https://letsencrypt.org/docs/client-options/)
+* [cert-manager guide](https://cert-manager.io/docs/configuration/)

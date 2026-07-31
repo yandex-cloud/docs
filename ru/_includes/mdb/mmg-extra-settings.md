@@ -14,6 +14,10 @@
     {% include [Maintenance window](console/maintenance-window-description.md) %}
 
 
+- **{{ ui-key.yacloud.mongodb.ClusterForm.AdditionalSection.field_autocompact-enabled_9Eqw8 }}** — включите опцию, чтобы автоматически выполнять перепаковку для освобождения дискового пространства.
+  
+  {% include [Автоматическая перепаковка](mmg/autocompact-console.md) %}
+
 
 - **{{ ui-key.yacloud.mdb.forms.additional-field-websql-service }}** — опция разрешает [выполнять SQL-запросы](../../storedoc/operations/websql.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}.
 

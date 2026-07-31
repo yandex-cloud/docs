@@ -191,7 +191,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
 * [Cancel](../../baremetal/operations/servers/server-lease-cancel.md) your {{ baremetal-name }} server lease renewal. After canceling the lease, the server will remain active until the paid period ends, after which it will be automatically deleted.
 * [Delete](../../baremetal/tutorials/bm-vrf-and-vpc-interconnect.md#clear-out) the private connection.
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [Connecting external nodes to a cluster](../../managed-kubernetes/operations/external-nodes-connect.md)
 * [Configuring WireGuard gateways to connect external nodes](../../managed-kubernetes/operations/external-nodes-connect-wireguard.md)

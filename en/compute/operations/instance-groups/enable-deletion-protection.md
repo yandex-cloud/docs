@@ -12,7 +12,7 @@ Deletion protection prevents accidental deletion of an [instance group](../../co
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), open the folder containing the instance group in question.
-  1. Navigate to **{{ compute-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Select a group to enable deletion protection for.
   1. In the top-right corner of the page, click **{{ ui-key.yacloud.common.edit }}**.
@@ -146,7 +146,7 @@ To disable instance group deletion protection:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), open the folder containing the instance group in question.
-  1. Navigate to **{{ compute-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Select the group to disable deletion protection for.
   1. In the top-right corner of the page, click **{{ ui-key.yacloud.common.edit }}**.
@@ -206,7 +206,7 @@ To disable instance group deletion protection:
      }
      ```
 
-     For more information about `yandex_compute_instance_group` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/compute_instance_group).
+     For more information about the `yandex_compute_instance_group` resource properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/compute_instance_group).
 
   1. Apply the changes:
 

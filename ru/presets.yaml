@@ -2872,6 +2872,7 @@ default:
         dspm:
           action_button_apply: Скачать файл
           action_button_export_without_validation: Экспортировать без проверки
+          action_export: Экспортировать
           action_export_with_validation: "Проверить и\_экспортировать"
           card_field_title: Данные для поиска
           card_title_image: "На\_изображениях"
@@ -4975,6 +4976,15 @@ default:
         label_status-backup: Резервный
         label_use-bucket-site: Использовать сайт бакета
         md_value_certificate-le: Let's Encrypt^®^
+        resources:
+          QueriesField:
+            button_add-query-param_x8JXA: Добавить query-параметр
+          QueryParamsOptions:
+            label_query-params-caching_4zewB: Кеширование query-параметров
+            option_cache-all_4pexC: Кешировать всё
+            option_cache-all-except_vEGRW: Кешировать всё, кроме
+            option_cache-only_uJKZC: Кешировать только
+            option_do-not-cache_4J3Bg: Не кешировать
         sections:
           StaticResponseSection:
             field_static-response-enabled_sPsQU: Настраиваемый HTTP-ответ
@@ -7266,6 +7276,11 @@ default:
           switch_shards: Шарды
           switch_users: Пользователи
         ClusterForm:
+          AdditionalSection:
+            field_autocompact-bloat-percent_gCgoZ: Мин. процент раздувания (bloating) в коллекции
+            field_autocompact-compaction-type_jdXAN: Перепаковка мастер-реплики
+            field_autocompact-enabled_9Eqw8: Перепаковка
+            field_autocompact-target-free-space_tB2yk: Мин. суммарный объём освобождаемого дискового пространства
           ClusterFormBase:
             section_mongocfg-resources_1cuU2: Ресурсы Mongocfg
             section_mongod-resources_ncXUZ: Ресурсы Mongod
@@ -7698,6 +7713,9 @@ default:
       shared:
         iam:
           action_assign-roles_8vkmR: Назначить роли
+        layout:
+          PageActions:
+            button_more_sGEBS: Еще
       smart-web-security:
         action_empty: Создать профиль
         advanced_waf:
@@ -7890,6 +7908,20 @@ default:
         section_sharding-type-advanced: Расширенное
         section_sharding-type-standard: Стандартное
       storage:
+        Bucket:
+          BucketSecurityScanForm:
+            button_submit: Создать сканирование
+            title_file-filter: Включать в сканирование файлы
+            title_profiles: Поиск чувствительных данных
+          BucketSecuritySensitiveDataTab:
+            button_download_hR9sN: Скачать результаты
+            button_export_gQ8rM: Экспортировать в бакет
+            button_repeat_scan_fN7pL: Повторить сканирование
+            button_run_scan_af4cy: Новое сканирование
+            sub_tab_issues: Сообщения и ошибки
+            sub_tab_results: Результаты
+          NewerNoncurrentVersionsField:
+            field_newer_noncurrent_versions_ezq3T: Хранить версий
         bucket:
           button_action-permissions: ACL объекта
           button_create: Создать папку
@@ -7980,6 +8012,7 @@ default:
           switch_object-lock: Блокировки объектов
           switch_policy: Политика доступа
           switch_security: Безопасность
+          switch_sensitive-data-search: Поиск чувствительных данных
           switch_server-logs: Логирование
           switch_settings: Настройки
           switch_versioning: Версионирование
@@ -8005,9 +8038,6 @@ default:
             switch_redirect: Переадресация
             title_connected-domains: Домены в Cloud DNS
             title_redirect: Переадресация
-        Bucket:
-          NewerNoncurrentVersionsField:
-            field_newer_noncurrent_versions_ezq3T: Хранить версий
         buckets:
           button_create: Создать бакет
           button_open-multipart-uploads: Показать список

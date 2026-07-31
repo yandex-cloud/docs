@@ -8,7 +8,7 @@ description: Follow this guide to install Prometheus Operator with {{ monitoring
 
 {% include [install-prometheus-operator](../../../_includes/managed-kubernetes/install-prometheus-operator.md) %}
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{{ monitoring-full-name }}](/services/monitoring)
 * [{{ managed-prometheus-full-name }}](../../../monitoring/operations/prometheus/index.md)

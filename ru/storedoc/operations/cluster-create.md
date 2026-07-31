@@ -393,6 +393,22 @@ description: Следуя данной инструкции, вы сможете
 
       * `<тип_хоста>-disk-size-limit` — максимальный размер хранилища в гигабайтах после увеличения.
 
+      Чтобы настроить автоматическую перепаковку, передайте параметр `--autocompact` со значением `true` и укажите параметры перепаковки:
+
+      ```bash
+      {{ yc-mdb-mg }} cluster create \
+        ...
+        --autocompact=<разрешить_автоматическую_перепаковку> \
+        --autocompact-bloat-percent <минимальный_процент_раздувания_коллекции> \
+        --autocompact-target-free-space <минимальный_объем_освобождаемого_дискового_пространства_в_МБ> \
+        --autocompact-compaction-type <настройки_перепаковки_хоста-мастера> \
+        ...
+      ```
+
+      Где:
+
+      {% include [Автоматическая перепаковка](../../_includes/mdb/mmg/autocompact-cli.md) %}
+    
 
 - {{ TF }} {#tf}
 
@@ -817,6 +833,12 @@ description: Следуя данной инструкции, вы сможете
             "backupRetainPeriodDays": "<время_хранения_резервных_копий_в_днях>",
             "performanceDiagnostics": {
               "profilingEnabled": <включить_профилировщик>
+            },
+            "autocompactConfig": {
+              "enabled": <разрешить_автоматическую_перепаковку>,
+              "targetFreeSpace": "<минимальный_объем_освобождаемого_дискового_пространства_в_МБ>",
+              "bloatPercent": <минимальный_процент_раздувания_коллекции>,
+              "compactionType": "<настройки_перепаковки_хоста-мастера>"
             }
           },
           "databaseSpecs": [
@@ -926,6 +948,12 @@ description: Следуя данной инструкции, вы сможете
             "backupRetainPeriodDays": "<время_хранения_резервных_копий_в_днях>",
             "performanceDiagnostics": {
               "profilingEnabled": <включить_профилировщик>
+            },
+            "autocompactConfig": {
+              "enabled": <разрешить_автоматическую_перепаковку>,
+              "targetFreeSpace": "<минимальный_объем_освобождаемого_дискового_пространства_в_МБ>",
+              "bloatPercent": <минимальный_процент_раздувания_коллекции>,
+              "compactionType": "<настройки_перепаковки_хоста-мастера>"
             }
           },
           "databaseSpecs": [
@@ -1054,6 +1082,12 @@ description: Следуя данной инструкции, вы сможете
             "backupRetainPeriodDays": "<время_хранения_резервных_копий_в_днях>",
             "performanceDiagnostics": {
               "profilingEnabled": <включить_профилировщик>
+            },
+            "autocompactConfig": {
+              "enabled": <разрешить_автоматическую_перепаковку>,
+              "targetFreeSpace": "<минимальный_объем_освобождаемого_дискового_пространства_в_МБ>",
+              "bloatPercent": <минимальный_процент_раздувания_коллекции>,
+              "compactionType": "<настройки_перепаковки_хоста-мастера>"
             }
           },
           "databaseSpecs": [
@@ -1190,6 +1224,10 @@ description: Следуя данной инструкции, вы сможете
               
               * `profilingEnabled` — включение [профилировщика](tools.md#explore-profiler): `true` или `false`.
 
+            * `autocompactConfig` — настройки автоматической перепаковки:
+          
+              {% include [Автоматическая перепаковка](../../_includes/mdb/mmg/autocompact-rest.md) %}
+
         * `databaseSpecs` — настройки баз данных в виде массива элементов. Каждый элемент соответствует отдельной БД и имеет следующую структуру:
 
           * `name` — имя базы данных.
@@ -1300,6 +1338,12 @@ description: Следуя данной инструкции, вы сможете
             "backup_retain_period_days": "<время_хранения_резервных_копий_в_днях>",
             "performance_diagnostics": {
               "profiling_enabled": <включить_профилировщик>
+            },
+            "autocompact_config": {
+              "enabled": <разрешить_автоматическую_перепаковку>,
+              "target_free_space": "<минимальный_объем_освобождаемого_дискового_пространства_в_МБ>",
+              "bloat_percent": <минимальный_процент_раздувания_коллекции>,
+              "compaction_type": "<настройки_перепаковки_хоста-мастера>"
             }
           },
           "database_specs": [
@@ -1409,6 +1453,12 @@ description: Следуя данной инструкции, вы сможете
             "backup_retain_period_days": "<время_хранения_резервных_копий_в_днях>",
             "performance_diagnostics": {
               "profiling_enabled": <включить_профилировщик>
+            },
+            "autocompact_config": {
+              "enabled": <разрешить_автоматическую_перепаковку>,
+              "target_free_space": "<минимальный_объем_освобождаемого_дискового_пространства_в_МБ>",
+              "bloat_percent": <минимальный_процент_раздувания_коллекции>,
+              "compaction_type": "<настройки_перепаковки_хоста-мастера>"
             }
           },
           "database_specs": [
@@ -1537,6 +1587,12 @@ description: Следуя данной инструкции, вы сможете
             "backup_retain_period_days": "<время_хранения_резервных_копий_в_днях>",
             "performance_diagnostics": {
               "profiling_enabled": <включить_профилировщик>
+            },
+            "autocompact_config": {
+              "enabled": <разрешить_автоматическую_перепаковку>,
+              "target_free_space": "<минимальный_объем_освобождаемого_дискового_пространства_в_МБ>",
+              "bloat_percent": <минимальный_процент_раздувания_коллекции>,
+              "compaction_type": "<настройки_перепаковки_хоста-мастера>"
             }
           },
           "database_specs": [
@@ -1629,7 +1685,7 @@ description: Следуя данной инструкции, вы сможете
 
         * `config_spec` — настройки кластера:
 
-          * `version` — версия {{ SD }}: 5.0, 6.0 или 7.0.
+            * `version` — версия {{ SD }}: 5.0, 6.0 или 7.0.
             
             * `mongod`, `mongoinfra`, `mongos`, `mongocfg` — [типы хостов](../concepts/host-roles.md).
 
@@ -1673,6 +1729,10 @@ description: Следуя данной инструкции, вы сможете
             * `performance_diagnostics` — настройки для [сбора статистики](performance-diagnostics.md#activate-stats-collector):
               
               * `profiling_enabled` — включение [профилировщика](tools.md#explore-profiler): `true` или `false`.
+            
+            * `autocompact_config` — настройки автоматической перепаковки:
+          
+              {% include [Автоматическая перепаковка](../../_includes/mdb/mmg/autocompact-grpc.md) %}
 
         * `database_specs` — настройки баз данных в виде массива элементов. Каждый элемент соответствует отдельной БД  и имеет следующую структуру:
           

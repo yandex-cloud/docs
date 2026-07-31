@@ -45,8 +45,8 @@ To create your first bucket in {{ objstorage-name }}:
 1. Choose the default [storage class](concepts/storage-class.md) to use when uploading objects:
     * _Standard storage_ is designed for storing frequently used objects.
     * _Cold storage_ is designed for long-term storage of objects that are rarely read.
-    * _Ice storage_ is designed for objects you need to store for at least one year and which receive very few read requests.
-    * The _intelligent tiering storage_ automatically optimizes costs by moving objects between access levels based on how often they are accessed.
+    * _Ice storage_ is designed for objects you need to store for at least one year and which rarely get read requests.
+    * _Intelligent-tiering storage_ automatically optimizes costs by moving objects across access tiers based on access frequency.
 1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
 
 ## Uploading files to a bucket {#upload-files}
@@ -54,7 +54,7 @@ To create your first bucket in {{ objstorage-name }}:
 To upload an object to a bucket:
 
 1. In the [management console]({{ link-console-main }}), select a folder.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
 1. Click the name of the bucket you need.
 1. To upload files to the bucket, drag them to the bucket screen or click ![bucket](../_assets/storage/upload.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}** and confirm the upload of the files.
 

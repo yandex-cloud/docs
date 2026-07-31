@@ -14,7 +14,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the disk belongs to.
-  1. Navigate to **{{ compute-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
   1. Select the disk from the list.
   1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
@@ -39,7 +39,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
      {% include [compute-disk-list](../../_includes_service/compute-disk-list.md) %}
 
-  1. View the roles already assigned for the resource:
+  1. View the list of roles already assigned for the resource:
 
      ```bash
      yc compute disk list-access-bindings <disk_ID>
@@ -95,7 +95,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
       * `disk_id`: Disk ID.
       * `role`: [Role](../../security/index.md#roles-list).
-      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Use this format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Use one of these formats: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
       For more information about `yandex_compute_disk_iam_binding` properties, see [this provider guide]({{ tf-provider-resources-link }}/compute_disk_iam_binding).
 
@@ -122,7 +122,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the disk belongs to.
-  1. Navigate to **{{ compute-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
   1. Select the disk from the list.
   1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
@@ -205,7 +205,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
       * `disk_id`: Disk ID.
       * `role`: [Role](../../security/index.md#roles-list).
-      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Use this format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Use one of these formats: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
       For more information about `yandex_compute_disk_iam_binding` properties, see [this provider guide]({{ tf-provider-resources-link }}/compute_disk_iam_binding).
 
@@ -232,7 +232,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the disk belongs to.
-  1. Navigate to **{{ compute-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
   1. Select the disk from the list.
   1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
@@ -272,7 +272,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
      * `--role`: ID of the role you need to revoke.
      * `--subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) to revoke the role from.
 
-     For example, this command revokes the `{{ roles-viewer }}` role for the disk from a user with the `ajel6l0jcb9s********` ID:
+     For example, to revoke the `{{ roles-viewer }}` role for a disk from a user with the `ajel6l0jcb9s********` ID:
 
      ```bash
      yc compute disk remove-access-binding my-disk \

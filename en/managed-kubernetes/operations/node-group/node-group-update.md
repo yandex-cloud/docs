@@ -51,7 +51,7 @@ Learn how to change the [availability zone](../../../overview/concepts/geo-scope
 
   To update a {{ managed-k8s-name }} node group:
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the cluster name.
   1. Navigate to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
   1. Select the node group you need.
@@ -194,7 +194,8 @@ Using a [deployment policy](../../concepts/node-group/deploy-policy.md), you can
 
 - Management console {#console}
 
-  1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update the {{ managed-k8s-name }} cluster.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update a {{ managed-k8s-name }} cluster.
+  1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the name of the {{ managed-k8s-name }} cluster.
   1. Navigate to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
   1. Select the node group you need.
@@ -293,7 +294,7 @@ Using a [deployment policy](../../concepts/node-group/deploy-policy.md), you can
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the cluster name.
   1. Navigate to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
   1. Select the node group you need.
@@ -474,7 +475,7 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+    1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
     1. Click the cluster name.
     1. Navigate to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
     1. Select the node group you need.
@@ -543,7 +544,7 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
   To update a cloud label, you will have to remove and recreate it:
 
     1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+    1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
     1. Click the cluster name.
     1. Navigate to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
     1. Select the node group you need.
@@ -611,7 +612,7 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+    1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
     1. Click the cluster name.
     1. Navigate to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
     1. Select the node group you need.
@@ -665,7 +666,7 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+    1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
     1. Click the cluster name.
     1. Navigate to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
     1. Select the node group you need.
@@ -733,7 +734,7 @@ After you update the metadata, the node group status will temporarily change to 
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+    1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
     1. Click the cluster name.
     1. Navigate to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
     1. Select the node group you need.

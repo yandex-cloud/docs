@@ -43,7 +43,7 @@ To create a new image using the link you got in [{{ objstorage-name }}](../../..
 - Management console {#console}
 
   1. In the management console, select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create the image.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![layers](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.images_e7RdQ }}**.
   1. Click **{{ ui-key.yacloud.compute.images.button_upload }}**, and in the window that opens:
 
@@ -251,7 +251,7 @@ To create an image from an existing [image](../../concepts/image.md), [snapshot]
 - Management console {#console}
 
   1. In the management console, select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create an image.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Depending on the source you want to create the new image from, select ![archive](../../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.compute.storage_uisyT }}**, ![picture](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.snapshots_81jHX }}**, or ![layers](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.images_e7RdQ }}** in the left-hand panel.
   1. Depending on the source type you selected, in the list that opens, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) next to the image, snapshot, or disk, and select ![layers](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.disks.button_action-image }}**. In the window that opens:
 
@@ -683,7 +683,7 @@ To create a disk with the `Gen 2` hardware generation assigned:
 - Management console {#console}
 
   1. In the management console, select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create an image.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![archive](../../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.compute.storage_uisyT }}** and click **{{ ui-key.yacloud.compute.storage.button_create-disk }}**. In the window that opens:
 
       1. Name the disk in the **{{ ui-key.yacloud.compute.instances.create-disk.field_name }}** field. The naming requirements are as follows:
@@ -945,7 +945,7 @@ Use a pre-prepared [image](#create-image), [snapshot](#create-snapshot), or [dis
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![server](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}** and click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../../overview/concepts/geo-scope.md) where your VM will reside.
 
@@ -1203,7 +1203,7 @@ Use a pre-prepared [image](#create-image), [snapshot](#create-snapshot), or [dis
               * `image_id`: ID of the [pre-prepared image](#create-image) the VM boot disk will be created from.
               * `snapshot_id`: ID of the [pre-prepared snapshot](#create-snapshot) the VM boot disk will be created from.
 
-          For more information about the `yandex_compute_disk` resource properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/compute_disk).
+          For more information about `yandex_compute_disk` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/compute_disk).
 
       * `yandex_compute_instance`: VM description:
           * `name`: VM name. The naming requirements are as follows:

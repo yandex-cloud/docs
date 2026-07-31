@@ -151,6 +151,6 @@ Create a [VM](../../concepts/vm.md) in a [placement group](../../concepts/placem
 
 {% endlist %}
 
-## See also {#see-also}
+#### Useful links {#see-also}
 
-* [Adding a VM to a placement group](add-vm.md)
+[How to add a VM to a placement group](add-vm.md)

@@ -342,6 +342,14 @@ Managed Service for PostgreSQL помогает разворачивать и п
 
  - [update-config](cli-ref/hosts/update-config.md)
 
+### performance-diagnostics
+
+ - [Overview](cli-ref/performance-diagnostics/index.md)
+
+ - [list-raw-sessions](cli-ref/performance-diagnostics/list-raw-sessions.md)
+
+ - [list-raw-statements](cli-ref/performance-diagnostics/list-raw-statements.md)
+
 ### repack
 
  - [Overview](cli-ref/repack/index.md)
@@ -481,6 +489,14 @@ Managed Service for PostgreSQL помогает разворачивать и п
  - [update](cli-ref/v0/hosts/update.md)
 
  - [update-config](cli-ref/v0/hosts/update-config.md)
+
+#### performance-diagnostics
+
+ - [Overview](cli-ref/v0/performance-diagnostics/index.md)
+
+ - [list-raw-sessions](cli-ref/v0/performance-diagnostics/list-raw-sessions.md)
+
+ - [list-raw-statements](cli-ref/v0/performance-diagnostics/list-raw-statements.md)
 
 #### repack
 

@@ -10,8 +10,9 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [datalens-workbooks-collections-select-note](../../../_includes/datalens/operations/datalens-workbooks-collections-select-note.md) %}
 
-
 1. На панели слева нажмите ![image](../../../_assets/console-icons/chart-column.svg) **Чарты** и выберите нужный чарт.
+
+
 1. В левой части экрана нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) у датасета и выберите **Заменить датасет**.
 1. Выберите другой датасет.
 

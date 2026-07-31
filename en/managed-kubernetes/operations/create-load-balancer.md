@@ -61,7 +61,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     - Manually {#manual}
 
       1. Create a [cloud network](../../vpc/operations/network-create.md) and [subnet](../../vpc/operations/subnet-create.md).
-      1. Create a [service account](../../iam/operations/sa/create.md) with the `k8s.clusters.agent`, `vpc.publicAdmin`, and `load-balancer.admin` [role](../../iam/concepts/access-control/roles.md). It needs the `load-balancer.admin` role to create a [network load balancer](../../network-load-balancer/concepts/index.md).
+      1. Create a [service account](../../iam/operations/sa/create.md) with the `k8s.clusters.agent`, `vpc.publicAdmin`, and `load-balancer.admin` roles. It needs the `load-balancer.admin` role to create a [network load balancer](../../network-load-balancer/concepts/index.md).
       1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
           {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
@@ -88,7 +88,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
           * [Folder ID](../../resource-manager/operations/folder/get-id.md).
           * [{{ k8s }} version](../concepts/release-channels-and-updates.md) for the {{ managed-k8s-name }} cluster and node groups.
           * Name of the {{ managed-k8s-name }} cluster service account.
-      1. Make sure the {{ TF }} configuration files are correct using this command:
+      1. Validate your {{ TF }} configuration files using this command:
 
           ```bash
           terraform validate
@@ -306,7 +306,7 @@ To create a `LoadBalancer` type service:
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select your default folder.
-     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+     1. [Navigate]({{ link-console-main }}/link/network-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
      1. The **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_list }}** tab shows the network load balancer with the `k8s` prefix in the name and the unique ID of your {{ k8s }} cluster in the description.
 
         Copy the balancer address in the **{{ ui-key.yacloud.load-balancer.network-load-balancer.column_ip-address }}** column.
