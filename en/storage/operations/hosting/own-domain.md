@@ -33,7 +33,7 @@ To use a custom domain:
       {% endnote %}
 
       1. In the [management console]({{ link-console-main }}), select a folder.
-      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+      1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. Select the bucket you want to use your own domain for.
       1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}** and go to the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
       1. In **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**, under **{{ ui-key.yacloud.storage.bucket.website.title_connected-domains }}**, click **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}**.
@@ -112,7 +112,7 @@ To use a custom domain:
 
 {% include [objects-access.md](../../../_includes/storage/objects-access.md) %}
 
-### Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../qa.md#qa-mime-type)
 * [{#T}](setup.md)

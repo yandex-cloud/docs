@@ -14,7 +14,7 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket you want to configure object lifecycles for.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_lifecycle }}** tab.
@@ -74,8 +74,8 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
       * `filter`: Object filter. This is an optional setting. It may only contain one element of each type:
 
           * `prefix`: Object [key](../../concepts/object.md#key) prefix that identifies one or more objects falling under the rule. The rule applies to objects with the specified key prefix. This is an optional setting.
-          * `objectSizeGreaterThan`: Minimum object size in bytes. The rule applies to objects with a size greater than or equal to the specified value. This is an optional setting.
-          * `objectSizeLessThan`: Maximum object size in bytes. The rule applies to objects with a size less than or equal to the specified value. This is an optional setting.
+          * `objectSizeGreaterThan`: Minimum object size in bytes. The rule applies to objects with a size greater than the specified value. This is an optional setting.
+          * `objectSizeLessThan`: Maximum object size in bytes. The rule applies to objects with a size less than the specified value. This is an optional setting.
           * `tag`: Object [label](../../concepts/tags.md#object-tags). This is an optional setting. The rule applies to objects with the specified label assigned. It is provided as a record that contains two key-value pairs, such as the following:
 
               ```json
@@ -108,7 +108,7 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
 
           Without a specified object filter, the rule applies to all objects in the bucket.
 
-      * `transitions`: Parameter of a rule for changing the storage class of any objects from regular (`STANDARD`) to cold (`COLD`, `STANDARD_IA`), ice (`ICE`), or intelligent (`INTELLIGENT_TIERING`) and from cold to ice. This is an optional setting. It may contain:
+      * `transitions`: Parameter of a rule for changing the storage tier of any objects from standard (`STANDARD`) to cold (`COLD`, `STANDARD_IA`), ice (`ICE`), or intelligent-tiering (`INTELLIGENT_TIERING`) and from cold to ice. This is an optional setting. It may contain:
           * `date`: Date after which you want the rule to take effect, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format, such as `YYYY-MM-DDT00:00:00Z`. The time is always 00:00 UTC. You cannot use `date` together with `days`. This is an optional setting.
           * `days`: Number of days following the object creation date after which the rule will take effect. The minimum value is `1`. You cannot use `days` together with `date`. This is an optional setting.
           * `storage_class`: Storage class to move the object to. It can be `COLD`, `STANDARD_IA`, `ICE`, or `INTELLIGENT_TIERING`. This is a required setting.
@@ -128,15 +128,17 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
 
           For buckets with versioning enabled, the action will apply to current versions of objects. To work with non-current versions of objects, use the `noncurrent_expiration` parameter.
 
-      * `noncurrent_transitions`: Parameter of a rule for changing the storage class of non-current versions of objects from regular (`STANDARD`) to cold (`COLD`, `STANDARD_IA`), ice (`ICE`), or intelligent (`INTELLIGENT_TIERING`) and from cold to ice. This is an optional setting. It may contain:
+      * `noncurrent_transitions`: Parameter of a rule for changing the storage class of non-current versions of objects from standard (`STANDARD`) to cold (`COLD`, `STANDARD_IA`), ice (`ICE`), or intelligent-tiering (`INTELLIGENT_TIERING`) and from cold to ice. This is an optional setting. It may contain:
           * `noncurrent_days`: Number of days before transition. The minimum value is `1`. This is a required setting.
           * `storage_class`: Storage class to move the object to. It can be `COLD`, `STANDARD_IA`, `ICE`, or `INTELLIGENT_TIERING`. This is a required setting.
       * `noncurrent_expiration`: Parameter of a rule for deleting non-current object versions. This is an optional setting. It may contain:
           * `noncurrent_days`: Number of days before expiration. The minimum value is `1`. This is a required setting.
       * `abort_incomplete_multipart_upload`: Parameter of a rule for removing all parts of multipart uploads that were not complete within the specified number of days. This is an optional setting. It may contain:
           * `days_after_expiration`: Number of days after the object was uploaded. The minimum value is `1`. This is a required setting.
-      * `noncurrent_delete_markers`: Parameter of a rule for deleting non-current delete markers. This is an optional setting. It may contain:
-          * `noncurrent_days`: Number of days that must elapse after the delete marker version is classified as non-current before the rule takes effect. The minimum value is `0`. This is a required setting.
+      * `noncurrent_delete_markers`: Parameter of a rule for deleting [non-current delete markers](*noncurrent-delete-markers). This is an optional setting. It may contain:
+          * `noncurrent_days`: Number of days that must elapse after the object version is marked with a delete marker before the rule takes effect. The minimum value is `0`. If set to `0`, all inactive delete markers within the bucket will be deleted. This is a required setting.
+
+          {% include [noncurrent-delete-markers-note](../../../_includes/storage/noncurrent-delete-markers-note.md) %}
 
       Make sure to specify at least one of the following parameters: `transitions`, `expiration`, `noncurrent_transitions`, `noncurrent_expiration`, or `abort_incomplete_multipart_upload`.
 
@@ -207,8 +209,8 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
       * `Filter`: Object filter. This is an optional setting. It may only contain one element of each type:
 
           * `Prefix`: Object [key](../../concepts/object.md#key) prefix. The rule applies to objects with the specified key prefix. This is an optional setting.
-          * `ObjectSizeGreaterThan`: Minimum object size in bytes. The rule applies to objects with a size greater than or equal to the specified value. This is an optional setting.
-          * `ObjectSizeLessThan`: Maximum object size in bytes. The rule applies to objects with a size less than or equal to the specified value. This is an optional setting.
+          * `ObjectSizeGreaterThan`: Minimum object size in bytes. The rule applies to objects with a size greater than the specified value. This is an optional setting.
+          * `ObjectSizeLessThan`: Maximum object size in bytes. The rule applies to objects with a size less than the specified value. This is an optional setting.
           * `Tag`: Object [label](../../concepts/tags.md#object-tags). This is an optional setting. The rule applies to objects with the specified label assigned. It is provided as a record that contains two key-value pairs, such as the following:
 
               ```json
@@ -244,7 +246,7 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
       * `Status`: Rule status. This is a required setting. It can take one of the following values:
           * `Enabled`: Rule enabled.
           * `Disabled`: Rule disabled.
-      * `Transitions`: Parameter of a rule for changing the storage class of any objects from regular (`STANDARD`) to cold (`COLD`, `STANDARD_IA`), ice (`ICE`), or intelligent (`INTELLIGENT_TIERING`) and from cold to ice. This is an optional setting. It may contain:
+      * `Transitions`: Parameter of a rule for changing the storage class of any objects from standard (`STANDARD`) to cold (`COLD`, `STANDARD_IA`), ice (`ICE`), or intelligent (`INTELLIGENT_TIERING`) and from cold to ice. This is an optional setting. It may contain:
           * `Date`: Date after which the storage class will change, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format, such as `YYYY-MM-DD`. The time is always 00:00 UTC. You cannot use `Date` together with `Days`. This is an optional setting.
           * `Days`: Number of days from the object creation date after which the storage class will change. The minimum value is `1`. You cannot use `Days` together with `Date`. This is an optional setting.
           * `StorageClass`: Storage class to move the object to. It can be `COLD`, `STANDARD_IA`, `ICE`, or `INTELLIGENT_TIERING`. This is a required setting.
@@ -266,7 +268,7 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
 
           For buckets with versioning enabled, the action will apply to current versions of objects. To work with non-current versions of objects, use the `NoncurrentVersionExpiration` parameter.
 
-      * `NoncurrentVersionTransitions`: Parameter of a rule for changing the storage class of non-current versions of objects from regular (`STANDARD`) to cold (`COLD`, `STANDARD_IA`), ice (`ICE`), or intelligent (`INTELLIGENT_TIERING`) and from cold to ice. This is an optional setting. It may contain:
+      * `NoncurrentVersionTransitions`: Parameter of a rule for changing the storage class of non-current versions of objects from standard (`STANDARD`) to cold (`COLD`, `STANDARD_IA`), ice (`ICE`), or intelligent-tiering (`INTELLIGENT_TIERING`) and from cold to ice. This is an optional setting. It may contain:
           * `NoncurrentDays`: Number of days before the storage class of a non-current object version is changed. The minimum value is `1`. This is a required setting.
           * `StorageClass`: Storage class to move the object to. It can be `COLD`, `STANDARD_IA`, `ICE`, or `INTELLIGENT_TIERING`. This is a required setting.
 
@@ -302,7 +304,7 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
   {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
 
 
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, specify the properties of the resources you want to create:
 
      ```hcl
      provider "yandex" {
@@ -418,8 +420,8 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
      * `id`: Unique rule ID which must consist of 255 characters or less. This is an optional setting.
      * `filter`: Object filter. This is an optional setting. It may only contain one element of each type:
          * `prefix`: Object [key](../../concepts/object.md#key) prefix that identifies one or more objects falling under the rule. This is an optional setting.
-         * `object_size_greater_than`: Minimum object size in bytes. The rule applies to objects with a size greater than or equal to the specified value. This is an optional setting.
-         * `object_size_less_than`: Maximum object size in bytes. The rule applies to objects with a size less than or equal to the specified value. This is an optional setting.
+         * `object_size_greater_than`: Minimum object size in bytes. The rule applies to objects with a size greater than the specified value. This is an optional setting.
+         * `object_size_less_than`: Maximum object size in bytes. The rule applies to objects with a size less than the specified value. This is an optional setting.
          * `tag`: Object [label](../../concepts/tags.md#object-tags). This is an optional setting. The rule applies to objects with the specified label assigned. It is provided as a record that contains two key-value pairs, such as the following:
 
              ```hcl
@@ -450,9 +452,9 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
      * `enabled`: Rule state. This is a required setting.
      * `abort_incomplete_multipart_upload`: Parameter of a rule for removing all parts of multipart uploads that were not complete within the specified number of days. This is an optional setting.
      * `expiration`: Parameter of a rule for deleting any objects. For buckets with [versioning](versioning.md) enabled, the action will apply to the current object versions. To work with non-current versions of objects, use the `noncurrent_version_expiration` parameter. This is an optional setting.
-     * `transition`: Parameter of a rule for changing the storage class of any objects from regular (`STANDARD`) to cold (`COLD`, `STANDARD_IA`), ice (`ICE`), or intelligent (`INTELLIGENT_TIERING`) and from cold to ice. For buckets with versioning enabled, the action will apply to current versions of objects. To work with non-current versions of objects, use the `noncurrent_version_transition` parameter. This is an optional setting.
+     * `transition`: Parameter of a rule for changing the storage class of any objects from standard (`STANDARD`) to cold (`COLD`, `STANDARD_IA`), ice (`ICE`), or intelligent (`INTELLIGENT_TIERING`) and from cold to ice. For buckets with versioning enabled, the action will apply to current versions of objects. To work with non-current versions of objects, use the `noncurrent_version_transition` parameter. This is an optional setting.
      * `noncurrent_version_expiration`: Parameter of a rule for deleting non-current object versions. This is an optional setting.
-     * `noncurrent_version_transition`: Parameter of a rule for changing the storage class of non-current versions of objects from regular (`STANDARD`) to cold (`COLD`, `STANDARD_IA`), ice (`ICE`), or intelligent (`INTELLIGENT_TIERING`) and from cold to ice. This is an optional setting.
+     * `noncurrent_version_transition`: Parameter of a rule for changing the storage class of non-current versions of objects from standard (`STANDARD`) to cold (`COLD`, `STANDARD_IA`), ice (`ICE`), or intelligent-tiering (`INTELLIGENT_TIERING`) and from cold to ice. This is an optional setting.
 
      Make sure to specify at least one of the following parameters: `abort_incomplete_multipart_upload`, `expiration`, `transition`, `noncurrent_version_expiration`, or `noncurrent_version_transition`.
 
@@ -488,3 +490,5 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
   If you are using the S3 API, specify the lifecycle configuration in [XML format](../../s3/api-ref/lifecycles/xml-config.md).
 
 {% endlist %}
+
+[*noncurrent-delete-markers]: {% include notitle [popups](../../_includes_service/popups.md#noncurrent-delete-markers) %}

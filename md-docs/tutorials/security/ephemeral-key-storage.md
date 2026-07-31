@@ -8,8 +8,8 @@
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте сервисный аккаунт](#create-sa).
-1. [Подготовьте скрипт для создания эфемерного ключа доступа](#prepare-script).
-1. [Настройте AWS CLI](#setup-aws-cli).
+1. [Создайте эфемерный ключ доступа](#prepare-script).
+1. [Проверьте настройку AWS CLI](#setup-aws-cli).
 1. [Создайте бакет](#create-bucket).
 1. [Загрузите объект в бакет](#upload-files).
 
@@ -118,9 +118,9 @@
 Подробнее смотрите [Сервисные роли Key Management Service](../../kms/security/index.md#service-roles).
 
 
-## Подготовьте скрипт для создания эфемерного ключа доступа {#prepare-script}
+## Создайте эфемерный ключ доступа {#prepare-script}
 
-Скрипт позволяет избежать необходимости обновлять эфемерный ключ в профиле AWS CLI после истечения срока действия ключа. Как управлять эфемерными ключами вручную смотрите в документе [Управление эфемерными ключами доступа](../../iam/operations/authentication/manage-ephemeral-keys.md).
+Эфемерный ключ доступа можно записать напрямую в файл учетных данных AWS CLI. Как управлять эфемерными ключами вручную, смотрите в документе [Управление эфемерными ключами доступа](../../iam/operations/authentication/manage-ephemeral-keys.md).
 
 Чтобы создать эфемерный ключ доступа, пользователю необходима [роль](../../iam/security/index.md#iam-serviceAccounts-ephemeralAccessKeyAdmin) `iam.serviceAccounts.ephemeralAccessKeyAdmin` или выше на каталог.
 
@@ -136,49 +136,43 @@
       yc iam service-account get --name ephemeral-sa --format json | jq -r .id
       ```
 
-  1. Создайте файл, например `issue-ephemeral-script.sh`, и вставьте в него код:
+  1. Создайте эфемерный ключ доступа и запишите его в файл учетных данных AWS CLI:
 
       ```bash
-      #!/bin/sh
       yc iam access-key issue-ephemeral \
         --subject-id <идентификатор_сервисного_аккаунта> \
         --session-name ephemeral-sa-1 \
-        --jq '{Version: 1, AccessKeyId: .access_key_id, SecretAccessKey: .secret, SessionToken: .session_token, ExpiresAt: .expires_at}'
+        --aws-profile ephemeral-profile \
+        --aws-credentials-file ~/.aws/credentials
       ```
 
       Где:
 
       * `--subject-id` — идентификатор сервисного аккаунта `ephemeral-sa`.
       * `--session-name` — имя сессии длиной от 1 до 64 символов. Необходимо для идентификации сессии в случае, если сервисный аккаунт [имперсонирован](../../iam/concepts/access-control/impersonation.md) для нескольких пользователей.
-      * `--jq` — jq-шаблон форматирования вывода. Позволяет преобразовать результат в требуемую AWS CLI структуру.
+      * `--aws-profile` — имя профиля AWS CLI, в который будет записан эфемерный ключ. Если профиль с таким именем уже существует, его данные будут перезаписаны.
+      * `--aws-credentials-file` — путь к файлу учетных данных AWS CLI. По умолчанию используется `~/.aws/credentials`.
 
-  1. Сделайте файл исполняемым:
-
-      ```bash
-      sudo chmod +x issue-ephemeral-script.sh
-      ```
+      После выполнения команды в файле `~/.aws/credentials` появится профиль `ephemeral-profile` с данными эфемерного ключа. Значения ключа в консоль не выводятся.
 
 {% endlist %}
 
 
-## Настройте AWS CLI {#setup-aws-cli}
+## Проверьте настройку AWS CLI {#setup-aws-cli}
 
-Настройте AWS CLI для работы с эфемерным ключом доступа.
+Убедитесь, что AWS CLI использует созданный эфемерный ключ.
 
 {% list tabs group=instructions %}
 
 - AWS CLI {#aws-cli}
 
-  1. Добавьте новый профиль `ephemeral-profile` в `~/.aws/credentials`:
+  1. При необходимости добавьте в профиль `ephemeral-profile` в файле `~/.aws/credentials` параметры региона и эндпоинта Object Storage:
 
       ```text
       [ephemeral-profile]
       region = ru-central1
       endpoint_url = https://storage.yandexcloud.net
-      credential_process = <путь_к_файлу>
       ```
-
-      В параметре `credential_process` укажите абсолютный путь к файлу, созданному при [подготовке скрипта](#prepare-script), например `/home/yc-user/issue-ephemeral-script.sh`.
 
   1. Проверьте конфигурацию профиля:
 

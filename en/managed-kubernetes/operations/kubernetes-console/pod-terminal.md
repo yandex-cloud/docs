@@ -13,7 +13,8 @@ To connect to the terminal:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the cluster name and select ![PersonWorker](../../../_assets/console-icons/person-worker.svg) **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** in the left-hand panel.
   1. Click the pod name.
   1. In the top-right corner, click ![Terminal](../../../_assets/console-icons/terminal.svg) **{{ ui-key.yacloud.k8s.WorkloadsActions.pod-exec_jwJ3R }}**.
@@ -40,4 +41,3 @@ To connect to the terminal:
 #### Useful links {#see-also}
 
 [{#T}](../../concepts/index.md#pod)
-

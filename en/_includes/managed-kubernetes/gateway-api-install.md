@@ -38,8 +38,8 @@ In {{ managed-k8s-name }}, Gateway API launches [{{ alb-full-name }}](../../appl
 
 - Management console {#console}
 
-  1. Go to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the name of the {{ managed-k8s-name }} cluster you need and select the ![Marketplace](../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
   1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Gateway API](/marketplace/products/yc/gateway-api) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
   1. Configure the application:
@@ -109,7 +109,7 @@ To disable CRD auto update, add this Helm chart installation command parameter: 
 
 ## Use cases {#examples}
 
-* [{#T}](../../managed-kubernetes/tutorials/marketplace/gateway-api.md)
+[{#T}](../../managed-kubernetes/tutorials/marketplace/gateway-api.md)
 
 #### Useful links {#see-also}
 

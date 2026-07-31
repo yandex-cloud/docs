@@ -64,4 +64,4 @@ To test the data transfer rate between GPUs on different VMs:
 
 #### Useful links {#see-also}
 
-* [Questions about GPUs](../../../compute/qa/gpu.md)
+[Questions about GPUs](../../../compute/qa/gpu.md)

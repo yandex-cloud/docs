@@ -14,7 +14,7 @@ You can get the ID of a public image or other information about it.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a virtual machine in.
-  1. Navigate to **{{ compute-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. At the top right, click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}** from the list that opens.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, click ![image](../../../_assets/console-icons/circle-info.svg) next to the [public image](../../concepts/image.md#public) you need.
@@ -119,7 +119,7 @@ You can get the ID of a public image or other information about it.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a virtual machine in.
-  1. Navigate to **{{ compute-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. At the top right, click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}** from the list that opens.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, click ![image](../../../_assets/console-icons/circle-info.svg) next to the [public image](../../concepts/image.md#public) you need.

@@ -10,6 +10,13 @@
 * [просмотр ошибок](#errors);
 * [удаление](#delete).
 
+{% note tip %}
+
+Если вы запускали сканирование бакета в интерфейсе Yandex Object Storage, вы можете [работать](../../../storage/operations/buckets/sensitive-data-search.md#view) с результатами сканирования напрямую в интерфейсе Yandex Object Storage.
+
+{% endnote %}
+
+
 ## Посмотреть результаты сканирования {#view}
 
 {% list tabs group=instructions %}
@@ -101,6 +108,8 @@
   Подробнее про ошибки сканирования на странице [Диагностика ошибок в работе модуля контроля данных (DSPM)](../../diagnostics/dspm-diagnostics.md).
 
 {% endlist %}
+
+Подробнее про ошибки сканирования на странице [Диагностика ошибок в работе модуля контроля данных (DSPM)](../../diagnostics/dspm-diagnostics.md).
 
 ## Удалить результаты сканирования {#delete}
 

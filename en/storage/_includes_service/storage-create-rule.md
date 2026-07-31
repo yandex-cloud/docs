@@ -5,8 +5,8 @@ To create a rule:
    * **{{ ui-key.yacloud.storage.bucket.lifecycle.field_description }}**: Rule description in any form.
    * **{{ ui-key.yacloud.storage.bucket.lifecycle.field_prefix }}**: Portion of the object's [key](../concepts/object.md#key) of the required length at the beginning of the key. Prefixes help to sort the objects covered by the rule. If the rule should cover all objects, leave this field empty.
    * **{{ ui-key.yacloud_components.labelset.button_add-label }}**: The rule triggers for all objects with the specified [labels](../concepts/tags.md).
-   * **{{ ui-key.yacloud.storage.bucket.lifecycle.field_max-size }}**: The rule triggers for all objects of the specified size or smaller.
-   * **{{ ui-key.yacloud.storage.bucket.lifecycle.field_min-size }}**: The rule triggers for all objects of the specified size or larger.
+   * **{{ ui-key.yacloud.storage.bucket.lifecycle.field_max-size }}**: The rule triggers for all objects smaller than the specified one.
+   * **{{ ui-key.yacloud.storage.bucket.lifecycle.field_min-size }}**: The rule triggers for all objects larger than the specified one.
 1. Select and configure the types of actions with objects when a rule triggers:
    * `{{ ui-key.yacloud.storage.bucket.lifecycle.label_expiration-type }}`: Removes any objects from the bucket:
 

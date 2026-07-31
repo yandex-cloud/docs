@@ -641,6 +641,14 @@ description: Из статьи вы узнаете, как управлять п
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+  1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Выберите кластер и на панели сверху нажмите кнопку ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}** укажите новый пароль пользователя `admin`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+
 - CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}

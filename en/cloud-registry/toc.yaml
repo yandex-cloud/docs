@@ -179,6 +179,12 @@ items:
             href: cli-ref/artifact/upsert.md
       - name: configure-docker
         href: cli-ref/configure-docker.md
+      - name: migration
+        items:
+          - name: Overview
+            href: cli-ref/migration/index.md
+          - name: start-cloud
+            href: cli-ref/migration/start-cloud.md
       - name: registry
         items:
           - name: Overview
@@ -238,7 +244,15 @@ items:
           - name: update
             href: cli-ref/registry/update.md
       - name: tools
-        href: cli-ref/tools.md
+        items:
+          - name: Overview
+            href: cli-ref/tools/index.md
+          - name: debian
+            items:
+              - name: Overview
+                href: cli-ref/tools/debian/index.md
+              - name: reindex-packages
+                href: cli-ref/tools/debian/reindex-packages.md
       - name: v0
         items:
           - name: Overview
@@ -387,6 +401,12 @@ items:
                 href: cli-ref/v1/artifact/upsert.md
           - name: configure-docker
             href: cli-ref/v1/configure-docker.md
+          - name: migration
+            items:
+              - name: Overview
+                href: cli-ref/v1/migration/index.md
+              - name: start-cloud
+                href: cli-ref/v1/migration/start-cloud.md
           - name: registry
             items:
               - name: Overview
@@ -448,7 +468,15 @@ items:
               - name: update
                 href: cli-ref/v1/registry/update.md
           - name: tools
-            href: cli-ref/v1/tools.md
+            items:
+              - name: Overview
+                href: cli-ref/v1/tools/index.md
+              - name: debian
+                items:
+                  - name: Overview
+                    href: cli-ref/v1/tools/debian/index.md
+                  - name: reindex-packages
+                    href: cli-ref/v1/tools/debian/reindex-packages.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference

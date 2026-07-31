@@ -765,6 +765,14 @@ Managed Service for ClickHouse® позволяет управлять поль�
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. Выберите кластер и на панели сверху нажмите кнопку ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать**.
+  1. В блоке **Настройки СУБД** укажите новый пароль пользователя `admin`.
+  1. Нажмите кнопку **Сохранить изменения**.
+
 - CLI {#cli}
 
     Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).

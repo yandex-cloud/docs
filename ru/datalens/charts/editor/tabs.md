@@ -95,9 +95,9 @@ description: Из статьи вы узнаете, за что отвечают
 
 ```js
 {
-  period: 40,
-  metric: ['2012', '2014'],
-  id: ['1215', '1217', '979', '483']
+    period: 40,
+    metric: ['2012', '2014'],
+    id: ['1215', '1217', '979', '483']
 }
 ```
 
@@ -285,9 +285,9 @@ description: Из статьи вы узнаете, за что отвечают
 
   ```js
   module.exports = {
-    fields: {
-        datasetId: Editor.getId('mySource'),
-        path: 'fields'
+      fields: {
+          datasetId: Editor.getId('mySource'),
+          path: 'fields'
     }
   };
   ```
@@ -363,7 +363,7 @@ description: Из статьи вы узнаете, за что отвечают
 
   * `apiConnectionId` — id подключения с типом API Connector, описанного на вкладке [Meta](#meta) и полученного с помощью метода [Editor.getId(arg)](./methods.md#get-id).
   * `path` — путь к API после хоста.
-  * `method` — метод: поддерживаются GET и POST.
+  * `method` — метод запроса. Возможные значения: GET и POST.
   * `body` — тело запроса.
 
 
@@ -590,6 +590,7 @@ description: Из статьи вы узнаете, за что отвечают
     ```
 
   {% endlist %}
+
 
 ### Выполнение действий {#run-activities}
 

@@ -76,7 +76,7 @@ The cost of using {{ cdn-name }} is based on:
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-You will be charged for a full month on the day you enable [origin shielding](concepts/origins-shielding.md) or [log export](concepts/logs.md). Thereafter, you will be charged on the first day of every next month.
+You will be charged for a full month on the day you enable [origins shielding](concepts/origins-shielding.md), [dedicated IP addressing](concepts/dedicated-ip-addressing.md) or [log export](concepts/logs.md). Also, on the day the CDN resource is created, a fee is charged for the included outgoing traffic package. Thereafter, you will be charged on the first day of every next month.
 
 You can choose one of the following billing models when [activating dedicated IP addressing](operations/resources/dedicated-ip-addressing.md):
 

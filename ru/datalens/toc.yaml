@@ -800,6 +800,8 @@ items:
             href: visualization-ref/bar-chart.md
           - name: Нормированная линейчатая диаграмма
             href: visualization-ref/normalized-bar-chart.md
+          - name: Воронка
+            href: visualization-ref/funnel.md
           - name: Точечная диаграмма
             href: visualization-ref/scatter-chart.md
           - name: Круговая диаграмма

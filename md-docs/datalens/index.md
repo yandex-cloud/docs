@@ -800,6 +800,8 @@ Yandex DataLens — это сервис бизнес-аналитики для �
 
  - [Нормированная линейчатая диаграмма](visualization-ref/normalized-bar-chart.md)
 
+ - [Воронка](visualization-ref/funnel.md)
+
  - [Точечная диаграмма](visualization-ref/scatter-chart.md)
 
  - [Круговая диаграмма](visualization-ref/pie-chart.md)

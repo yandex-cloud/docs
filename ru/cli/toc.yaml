@@ -1976,6 +1976,12 @@ items:
                 href: cli-ref/cloud-registry/cli-ref/artifact/upsert.md
           - name: configure-docker
             href: cli-ref/cloud-registry/cli-ref/configure-docker.md
+          - name: migration
+            items:
+              - name: Overview
+                href: cli-ref/cloud-registry/cli-ref/migration/index.md
+              - name: start-cloud
+                href: cli-ref/cloud-registry/cli-ref/migration/start-cloud.md
           - name: registry
             items:
               - name: Overview
@@ -2049,7 +2055,16 @@ items:
               - name: update
                 href: cli-ref/cloud-registry/cli-ref/registry/update.md
           - name: tools
-            href: cli-ref/cloud-registry/cli-ref/tools.md
+            items:
+              - name: Overview
+                href: cli-ref/cloud-registry/cli-ref/tools/index.md
+              - name: debian
+                items:
+                  - name: Overview
+                    href: cli-ref/cloud-registry/cli-ref/tools/debian/index.md
+                  - name: reindex-packages
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/tools/debian/reindex-packages.md
           - name: v0
             items:
               - name: Overview
@@ -2238,6 +2253,12 @@ items:
                     href: cli-ref/cloud-registry/cli-ref/v1/artifact/upsert.md
               - name: configure-docker
                 href: cli-ref/cloud-registry/cli-ref/v1/configure-docker.md
+              - name: migration
+                items:
+                  - name: Overview
+                    href: cli-ref/cloud-registry/cli-ref/v1/migration/index.md
+                  - name: start-cloud
+                    href: cli-ref/cloud-registry/cli-ref/v1/migration/start-cloud.md
               - name: registry
                 items:
                   - name: Overview
@@ -2317,7 +2338,17 @@ items:
                   - name: update
                     href: cli-ref/cloud-registry/cli-ref/v1/registry/update.md
               - name: tools
-                href: cli-ref/cloud-registry/cli-ref/v1/tools.md
+                items:
+                  - name: Overview
+                    href: cli-ref/cloud-registry/cli-ref/v1/tools/index.md
+                  - name: debian
+                    items:
+                      - name: Overview
+                        href: >-
+                          cli-ref/cloud-registry/cli-ref/v1/tools/debian/index.md
+                      - name: reindex-packages
+                        href: >-
+                          cli-ref/cloud-registry/cli-ref/v1/tools/debian/reindex-packages.md
       - name: cloudrouter
         items:
           - name: Overview
@@ -8528,6 +8559,17 @@ items:
                 href: cli-ref/managed-postgresql/cli-ref/hosts/update.md
               - name: update-config
                 href: cli-ref/managed-postgresql/cli-ref/hosts/update-config.md
+          - name: performance-diagnostics
+            items:
+              - name: Overview
+                href: >-
+                  cli-ref/managed-postgresql/cli-ref/performance-diagnostics/index.md
+              - name: list-raw-sessions
+                href: >-
+                  cli-ref/managed-postgresql/cli-ref/performance-diagnostics/list-raw-sessions.md
+              - name: list-raw-statements
+                href: >-
+                  cli-ref/managed-postgresql/cli-ref/performance-diagnostics/list-raw-statements.md
           - name: repack
             items:
               - name: Overview
@@ -8685,6 +8727,17 @@ items:
                   - name: update-config
                     href: >-
                       cli-ref/managed-postgresql/cli-ref/v0/hosts/update-config.md
+              - name: performance-diagnostics
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/managed-postgresql/cli-ref/v0/performance-diagnostics/index.md
+                  - name: list-raw-sessions
+                    href: >-
+                      cli-ref/managed-postgresql/cli-ref/v0/performance-diagnostics/list-raw-sessions.md
+                  - name: list-raw-statements
+                    href: >-
+                      cli-ref/managed-postgresql/cli-ref/v0/performance-diagnostics/list-raw-statements.md
               - name: repack
                 items:
                   - name: Overview
@@ -12281,6 +12334,30 @@ items:
                   - name: update
                     href: >-
                       cli-ref/smartwebsecurity/cli-ref/advanced-rate-limiter/advanced-rate-limiter-profile/update.md
+          - name: custom-page
+            items:
+              - name: Overview
+                href: cli-ref/smartwebsecurity/cli-ref/custom-page/index.md
+              - name: custom-page
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/custom-page/custom-page/index.md
+                  - name: create
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/custom-page/custom-page/create.md
+                  - name: delete
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/custom-page/custom-page/delete.md
+                  - name: get
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/custom-page/custom-page/get.md
+                  - name: list
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/custom-page/custom-page/list.md
+                  - name: update
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/custom-page/custom-page/update.md
           - name: match-list
             items:
               - name: Overview
@@ -12372,6 +12449,30 @@ items:
                       - name: update
                         href: >-
                           cli-ref/smartwebsecurity/cli-ref/v1/advanced-rate-limiter/advanced-rate-limiter-profile/update.md
+              - name: custom-page
+                items:
+                  - name: Overview
+                    href: cli-ref/smartwebsecurity/cli-ref/v1/custom-page/index.md
+                  - name: custom-page
+                    items:
+                      - name: Overview
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/custom-page/custom-page/index.md
+                      - name: create
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/custom-page/custom-page/create.md
+                      - name: delete
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/custom-page/custom-page/delete.md
+                      - name: get
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/custom-page/custom-page/get.md
+                      - name: list
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/custom-page/custom-page/list.md
+                      - name: update
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/custom-page/custom-page/update.md
               - name: match-list
                 items:
                   - name: Overview

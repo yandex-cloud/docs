@@ -956,6 +956,6 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
 {% endlist %}
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 [Overview of cluster connection methods](../connect/index.md)

@@ -80,6 +80,93 @@ description: Из статьи вы узнаете, как добавлять и
 
 {% endlist %}
 
+
+## Получить информацию о пользователе {#get-user}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+    1. [Перейдите]({{ link-console-main }}/link/storedoc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+    1. Нажмите на имя нужного кластера, затем выберите вкладку ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}**.
+
+        Информация о пользователе доступна в списке пользователей.
+
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы получить информацию о конкретном пользователе:
+
+    1. Посмотрите описание команды CLI для получения информации о пользователе:
+
+        ```bash
+        {{ yc-mdb-mg }} user get --help
+        ```
+
+    1. Получите информацию о пользователе, выполнив команду:
+
+        ```bash
+        {{ yc-mdb-mg }} user get <имя_пользователя> \
+          --cluster-id=<идентификатор_кластера>
+        ```
+
+        Имя пользователя можно получить со [списком пользователей](#list-users) в кластере, а идентификатор кластера — со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+
+- REST API {#api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Воспользуйтесь методом [User.Get](../api-ref/User/get.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+          --request GET \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>'
+        ```
+
+        Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге, а имя пользователя — со [списком пользователей](#list-users) в кластере.
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/get.md#yandex.cloud.mdb.mongodb.v1.User).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [UserService.Get](../api-ref/grpc/User/get.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mongodb/v1/user_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+            "cluster_id": "<идентификатор_кластера>",
+            "user_name": "<имя_пользователя>"
+          }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.mongodb.v1.UserService.Get
+          ```
+
+        Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге, а имя пользователя — со [списком пользователей](#list-users) в кластере.
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/User/get.md#yandex.cloud.mdb.mongodb.v1.User).
+
+{% endlist %}
+
+
 ## Создать пользователя {#adduser}
 
 {% list tabs group=instructions %}

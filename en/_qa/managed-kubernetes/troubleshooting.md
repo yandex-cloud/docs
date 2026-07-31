@@ -201,8 +201,9 @@ Make sure all pods have the `Running` status.
 
 ##### Make sure your cluster has enough CPU resources available {#check-cpu}
 
-1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-1. Click the name of the {{ managed-k8s-name }} cluster you need and select the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
+1. In the [management console]({{ link-console-main }}), select a folder.
+1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Locate the {{ managed-k8s-name }} cluster you need in the list, click its name, and select the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
 1. Go to the **{{ ui-key.yacloud.k8s.nodes.label_nodes }}** tab and click the name of any {{ managed-k8s-name }} node.
 1. Navigate to the **{{ ui-key.yacloud.k8s.node.overview.label_monitoring }}** tab.
 1. Make sure that, in the **CPU, [cores]** chart, the `used` CPU values have not reached the `total` available CPU values. Check this for each {{ managed-k8s-name }} cluster node.
@@ -316,7 +317,7 @@ FATA[0000] rpc error: code = Unknown desc = error testing repository connectivit
 
 This error occurs if access to {{ GL }} over HTTP(S) is disabled.
 
-**Solution**: Enable HTTP(S) access. Proceed as follows:
+**Solution**: Enable HTTP(S) access. To do this:
 
   1. In {{ GL }}, in the left-hand panel, select **Admin → Settings → General**.
   1. Under **Visibility and access controls**, find the **Enabled Git access protocols** setting.
@@ -346,7 +347,8 @@ For more information, see [{#T}](../../application-load-balancer/concepts/best-p
 
    - Management console {#console}
 
-     1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+     1. In the [management console]({{ link-console-main }}), select a folder.
+     1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
      1. Click the name of the {{ k8s }} cluster.
      1. Under **{{ ui-key.yacloud.k8s.cluster.overview.section_master }}**, click the subnet name.
      1. Click ![subnets](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** in the top-right corner.

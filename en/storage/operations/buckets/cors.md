@@ -13,7 +13,7 @@ description: Follow this guide to configure cross-origin resource sharing (CORS)
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket you want to configure CORS for.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_cors }}** tab.
@@ -120,7 +120,7 @@ description: Follow this guide to configure cross-origin resource sharing (CORS)
   {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
 
 
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, specify the properties of the resources you want to create:
 
      ```hcl
      provider "yandex" {

@@ -11,7 +11,7 @@ description: Follow this guide to get information about a disk placement group.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your [disk placement group](../../concepts/disk-placement-group.md).
-  1. Navigate to **{{ compute-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.compute.placement-groups_3CwzD }}**.
   1. Navigate to the **{{ ui-key.yacloud.compute.placement-groups.label_tab-disks }}** tab.
   1. Select the disk placement group.

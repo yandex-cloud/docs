@@ -16,7 +16,7 @@ You can create an autoscaling instance group or group with a fixed number of VM 
 
 To create an instance group:
 1. In the [management console]({{ link-console-main }}), select the folder you want to create your instance group in.
-1. Navigate to **{{ compute-name }}**.
+1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
 1. Click **{{ ui-key.yacloud.compute.groups.button_create }}**.
 1. Under **{{ ui-key.yacloud.compute.groups.create.section_base }}**:

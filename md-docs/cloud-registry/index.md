@@ -190,6 +190,12 @@ Yandex Cloud Registry — сервис для безопасного хране�
 
  - [configure-docker](cli-ref/configure-docker.md)
 
+### migration
+
+ - [Overview](cli-ref/migration/index.md)
+
+ - [start-cloud](cli-ref/migration/start-cloud.md)
+
 ### registry
 
  - [Overview](cli-ref/registry/index.md)
@@ -248,7 +254,15 @@ Yandex Cloud Registry — сервис для безопасного хране�
 
  - [update](cli-ref/registry/update.md)
 
- - [tools](cli-ref/tools.md)
+### tools
+
+ - [Overview](cli-ref/tools/index.md)
+
+#### debian
+
+ - [Overview](cli-ref/tools/debian/index.md)
+
+ - [reindex-packages](cli-ref/tools/debian/reindex-packages.md)
 
 ### v0
 
@@ -398,6 +412,12 @@ Yandex Cloud Registry — сервис для безопасного хране�
 
  - [configure-docker](cli-ref/v1/configure-docker.md)
 
+#### migration
+
+ - [Overview](cli-ref/v1/migration/index.md)
+
+ - [start-cloud](cli-ref/v1/migration/start-cloud.md)
+
 #### registry
 
  - [Overview](cli-ref/v1/registry/index.md)
@@ -456,7 +476,15 @@ Yandex Cloud Registry — сервис для безопасного хране�
 
  - [update](cli-ref/v1/registry/update.md)
 
- - [tools](cli-ref/v1/tools.md)
+#### tools
+
+ - [Overview](cli-ref/v1/tools/index.md)
+
+##### debian
+
+ - [Overview](cli-ref/v1/tools/debian/index.md)
+
+ - [reindex-packages](cli-ref/v1/tools/debian/reindex-packages.md)
 
  - [Справочник Terraform](tf-ref.md)
 

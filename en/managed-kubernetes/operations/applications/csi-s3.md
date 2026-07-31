@@ -28,7 +28,7 @@ You can install Container Storage Interface for S3 in the following ways:
 ## Installation in the management console using {{ marketplace-name }} {#marketplace-install}
 
 1. In the [management console]({{ link-console-main }}), select a folder.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the {{ managed-k8s-name }} cluster you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Container Storage Interface for S3](/marketplace/products/yc/csi-s3) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
@@ -117,7 +117,7 @@ Parameter name | Description | Default value
 `secret.secretKey` | Secret key. |
 `secret.endpoint` | S3 service address. | `https://{{ s3-storage-host }}`
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [CSI specification](https://github.com/container-storage-interface/spec/blob/master/spec.md)
 * [Container Storage Interface for S3 with {{ objstorage-name }} support in GitHub](https://github.com/yandex-cloud/k8s-csi-s3)

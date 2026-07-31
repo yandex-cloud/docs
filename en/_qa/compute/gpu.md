@@ -11,6 +11,26 @@ keywords:
 
 {% include [minitoc](minitoc/gpu.md) %}
 
+#### What should I do if there is a GPU failure on the VM? {#gpu-not-working}
+
+Try [stopping](../../compute/operations/vm-control/vm-stop-and-start.md#stop) and [restarting](../../compute/operations/vm-control/vm-stop-and-start.md#start) the VM. This is usually more effective than a reboot, since when you reboot a VM, it remains on the same host where the GPU issue occurred.
+
+#### "Not Supported" GPU reset error {#not-supported}
+
+{% include notitle [gpu-mig-troubleshooting](../../_includes/compute/gpu-mig-troubleshooting.md#not-supported) %}
+
+#### "In use by another client" GPU reset error {#in-use}
+
+{% include notitle [gpu-mig-troubleshooting](../../_includes/compute/gpu-mig-troubleshooting.md#in-use) %}
+
+#### "Unknown Error" when running nvidia-smi commands {#unknown-error}
+
+{% include notitle [gpu-mig-troubleshooting](../../_includes/compute/gpu-mig-troubleshooting.md#unknown-error) %}
+
+#### "Warning: persistence mode is disabled on device" error when enabling MIG mode {#persistence-mode}
+
+{% include notitle [gpu-mig-troubleshooting](../../_includes/compute/gpu-mig-troubleshooting.md#persistence-mode) %}
+
 
 #### How do I test a GPU cluster physical state? {#test-physical-state}
 
@@ -36,7 +56,3 @@ To check InfiniBand throughput, create and run a script for starting `perftest` 
 
 For more information, see [{#T}](../../compute/operations/gpu-cluster/test-infiniband-bandwidth.md).
 
-
-#### What should I do if there is a GPU failure on the VM? {#gpu-not-working}
-
-Try [stopping](../../compute/operations/vm-control/vm-stop-and-start.md#stop) and [restarting](../../compute/operations/vm-control/vm-stop-and-start.md#start) the VM. This is usually more effective than a reboot, since when you reboot a VM, it remains on the same host where the GPU issue occurred.

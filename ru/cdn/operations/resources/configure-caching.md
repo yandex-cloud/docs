@@ -47,7 +47,13 @@ description: Следуя данной инструкции, вы сможете
   1. (Опционально) В блоке **{{ ui-key.yacloud.cdn.label_additional }}**:
 
       * Выберите опцию игнорирования Cookie.
-      * Выберите опцию игнорирования Query-параметров.
+      * В поле **{{ ui-key.yacloud.cdn.resources.QueryParamsOptions.label_query-params-caching_4zewB }}** выберите режим:
+        * `{{ ui-key.yacloud.cdn.resources.QueryParamsOptions.option_do-not-cache_4J3Bg }}` — не учитывать query-параметры в ключе кеша.
+        * `{{ ui-key.yacloud.cdn.resources.QueryParamsOptions.option_cache-all_4pexC }}` — учитывать все query-параметры.
+        * `{{ ui-key.yacloud.cdn.resources.QueryParamsOptions.option_cache-all-except_vEGRW }}` — учитывать все query-параметры, кроме указанных.
+        * `{{ ui-key.yacloud.cdn.resources.QueryParamsOptions.option_cache-only_uJKZC }}` — учитывать только указанные query-параметры.
+
+        Для режимов `{{ ui-key.yacloud.cdn.resources.QueryParamsOptions.option_cache-all-except_vEGRW }}` и `{{ ui-key.yacloud.cdn.resources.QueryParamsOptions.option_cache-only_uJKZC }}` укажите query-параметры. Чтобы добавить поле, нажмите **{{ ui-key.yacloud.cdn.resources.QueriesField.button_add-query-param_x8JXA }}**. Можно указать не более десяти параметров. Допустимая длина имени — до 30 символов. Используйте латинские буквы, цифры и символ `_`.
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
@@ -127,6 +133,8 @@ description: Следуя данной инструкции, вы сможете
       * `--ignore-cookie` со значением `true` включает игнорирование Cookie.
       * `--ignore-query-string` включает игнорирование Query-параметров.
 
+      С помощью CLI можно настроить учет всех query-параметров или игнорирование всех query-параметров. Чтобы учитывать только указанные параметры или все параметры, кроме указанных, используйте консоль управления или API.
+
       Подробнее о команде `yc cdn resource update` в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
 
 - {{ TF }} {#tf}
@@ -163,6 +171,8 @@ description: Следуя данной инструкции, вы сможете
          * `edge_cache_settings` — время жизни кеша для кодов ответа в секундах. Необязательный параметр, значение по умолчанию: `345600`.
          * `ignore_query_params` — игнорировать query-параметры. Необязательный параметр, значение по умолчанию: `false`.
          * `ignore_cookie` — игнорировать cookie. Необязательный параметр, значение по умолчанию: `false`.
+
+      С помощью {{ TF }} можно настроить учет всех query-параметров или игнорирование всех query-параметров. Чтобы учитывать только указанные параметры или все параметры, кроме указанных, используйте консоль управления или API.
 
       Подробнее о параметрах `yandex_cdn_resource` в {{ TF }} в [документации провайдера]({{ tf-provider-resources-link }}/cdn_resource).
 
@@ -201,7 +211,15 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [update](../../api-ref/Resource/update.md) для ресурса [Resource](../../api-ref/Resource/index.md) или вызовом gRPC API [ResourceService/Update](../../api-ref/grpc/Resource/update.md).
+    Воспользуйтесь методом REST API [update](../../api-ref/Resource/update.md) для ресурса [Resource](../../api-ref/Resource/index.md) или вызовом gRPC API [ResourceService/Update](../../api-ref/grpc/Resource/update.md).
+
+    Чтобы настроить кеширование query-параметров, в объекте `options.queryParamsOptions` передайте только одно из полей и задайте для него `enabled: true`:
+
+    * `ignoreQueryString` со значением `value: true` — не учитывать query-параметры в ключе кеша, со значением `value: false` — учитывать все query-параметры;
+    * `queryParamsWhitelist` — учитывать только query-параметры, перечисленные в `value`;
+    * `queryParamsBlacklist` — учитывать все query-параметры, кроме перечисленных в `value`.
+
+    В gRPC API этим полям соответствуют `ignore_query_string`, `query_params_whitelist` и `query_params_blacklist` в объекте `options.query_params_options`.
 
 {% endlist %}
 

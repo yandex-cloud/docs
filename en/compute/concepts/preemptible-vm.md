@@ -73,7 +73,7 @@ To make sure your application recovers correctly after VM termination, save inte
 
 ## When to use preemptible VMs {#scenarios-for-using}
 
-Preemptible VMs are suitable for stateless, fault-tolerant workloads with flexible VM configuration requirements, for example:
+Preemptible VMs are suitable for stateless, fault-tolerant workloads with flexible VM configuration requirements. Here is an example:
 * Big data processing.
 * Building artifacts, software, or containers.
 * CI/CD pipelines.

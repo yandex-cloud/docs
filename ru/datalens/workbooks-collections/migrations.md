@@ -5,6 +5,7 @@ description: Следуя данной инструкции, вы выполни
 
 # Миграция объектов в воркбуки из папок
 
+
 {% note info %}
 
 * Если вы не видите на панели слева ![collections](../../_assets/console-icons/rectangles-4.svg) **Коллекции и воркбуки**, попросите пользователя с ролью `datalens.admin` [включить воркбуки и коллекции](../../datalens/workbooks-collections/index.md#enable-workbooks) в вашей организации.
@@ -13,7 +14,9 @@ description: Следуя данной инструкции, вы выполни
 
 {% endnote %}
 
-Для миграции можно выбрать любой объект ([подключение](../concepts/connection/index.md), [датасет](../dataset/index.md), [чарт](../concepts/chart/index.md), [дашборд](../concepts/dashboard.md)), находящийся в папке, и выполнить ее способом [переноса](#migration-transfer) или [копирования](#migration-copy).
+
+
+Для миграции можно выбрать любой объект ([подключение](../concepts/connection/index.md), [датасет](../dataset/index.md), [чарт](../concepts/chart/index.md), [отчет](../reports/index.md), [дашборд](../concepts/dashboard.md)), находящийся в папке, и выполнить ее способом [переноса](#migration-transfer) или [копирования](#migration-copy).
 
 {% note info %}
 
