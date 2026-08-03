@@ -173,4 +173,4 @@ ACL | Описание
 #### Полезные ссылки {#see-also}
 
 * [Редактирование ACL бакета](../operations/buckets/edit-acl.md)
-* [Редактирование ACL объекта](../operations/objects/edit-acl.md)
+* [Редактировать ACL объекта](../operations/objects/edit-acl.md)

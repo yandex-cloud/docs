@@ -207,6 +207,7 @@
         * **Тип базы данных** — `YDB`.
         * **Параметры эндпоинта**:
 
+            * **Тип подключения** — выберите `База Managed Service for YDB`.
             * **Настройки подключения**:
                 * **База данных** — выберите [созданную ранее](#before-you-begin) базу данных Managed Service for YDB из списка.
 
@@ -476,7 +477,7 @@
     1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
 
     
-    1. Если при создании эндпоинта для источника вы создавали сервисный аккаунт, [удалите его](../../iam/operations/sa/delete.md).
+    1. [Удалите сервисный аккаунт](../../iam/operations/sa/delete.md).
 
 
     1. [Удалите кластер Managed Service for Apache Kafka®](../../managed-kafka/operations/cluster-delete.md).

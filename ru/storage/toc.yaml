@@ -65,39 +65,39 @@ items:
             href: operations/buckets/get-stats.md
       - name: Объекты
         items:
-          - name: Загрузка объекта
+          - name: Загрузить объект
             href: operations/objects/upload.md
-          - name: Составная загрузка объекта
+          - name: Загрузить объект составной (multipart) загрузкой
             href: operations/objects/multipart-upload.md
-          - name: Получение списка объектов в бакете
+          - name: Получить список объектов в бакете
             href: operations/objects/list.md
-          - name: Получение информации об объекте
+          - name: Получить информацию об объекте
             href: operations/objects/info.md
-          - name: Скачивание объекта
+          - name: Скачать объект
             href: operations/objects/download.md
-          - name: Восстановление версии объекта
+          - name: Восстановить версию объекта
             href: operations/objects/restore-object-version.md
-          - name: Переименование и перемещение объекта
+          - name: Переименовать и переместить объект
             href: operations/objects/rename-move.md
-          - name: Копирование объектов
+          - name: Скопировать объект
             href: operations/objects/copy.md
-          - name: Скачивание объекта по подписанной ссылке (pre-signed URL)
+          - name: Скачать объект по подписанной ссылке (pre-signed URL)
             href: operations/objects/link-for-download.md
-          - name: Загрузка объекта по подписанной ссылке (pre-signed URL)
+          - name: Загрузить объект по подписанной ссылке (pre-signed URL)
             href: operations/objects/link-for-upload.md
-          - name: Настройка блокировок версии объекта
+          - name: Блокировать версии объекта
             href: operations/objects/edit-object-lock.md
-          - name: Удаление объекта
+          - name: Удалить объект
             href: operations/objects/delete.md
-          - name: Удаление всех объектов
+          - name: Удалить все объекты
             href: operations/objects/delete-all.md
-          - name: Удаление частично загруженного объекта
+          - name: Удалить частично загруженный объект
             href: operations/objects/deleting-multipart.md
-          - name: Редактирование ACL объекта
+          - name: Редактировать ACL объекта
             href: operations/objects/edit-acl.md
-          - name: Управление метками объекта
+          - name: Управлять метками объекта
             href: operations/objects/tagging.md
-          - name: Управление пользовательскими метаданными объекта
+          - name: Управлять пользовательскими метаданными объекта
             href: operations/objects/object-meta.md
       - name: Хостинг статических сайтов
         items:

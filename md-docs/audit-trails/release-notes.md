@@ -2,6 +2,181 @@
 
 # История изменений в Yandex Audit Trails
 
+## Июль 2026 {#jul-2026}
+
+Добавлены новые события для сервисов:
+
+  {% cut "Yandex Workflows" %}
+
+  [События уровня сервисов](concepts/format-data-plane.md):
+
+  Событие | Описание
+  --- | ---
+  `ExecutionFinished` | Завершение выполнения запуска рабочего процесса
+  `StartExecution` | Запуск рабочего процесса
+  `StopExecution` | Остановка запуска рабочего процесса
+  `TerminateExecution` | Прекращение запуска рабочего процесса
+
+  [События уровня конфигурации](concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `CreateWorkflow` | Создание рабочего процесса
+  `DeleteWorkflow` | Удаление рабочего процесса
+  `SetWorkflowAccessBindings` | Назначение прав доступа к рабочему процессу
+  `UpdateWorkflow` | Изменение рабочего процесса
+  `UpdateWorkflowAccessBindings` | Изменение прав доступа к рабочему процессу
+
+  {% endcut %}
+
+  {% cut "Yandex Managed Service for Apache Airflow™" %}
+
+  [События уровня конфигурации](concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `SetClusterAccessBindings` | Назначение прав доступа к кластеру
+  `UpdateClusterAccessBindings` | Изменение прав доступа к кластеру
+
+  {% endcut %}
+
+  {% cut "Yandex Data Processing" %}
+
+  [События уровня конфигурации](concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `SetClusterAccessBindings` | Назначение прав доступа к кластеру
+  `UpdateClusterAccessBindings` | Изменение прав доступа к кластеру
+
+  {% endcut %}
+
+  {% cut "Apache Hive™ Metastore" %}
+
+  [События уровня конфигурации](concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `SetClusterAccessBindings` | Назначение прав доступа к кластеру
+  `UpdateClusterAccessBindings` | Изменение прав доступа к кластеру
+
+  {% endcut %}
+
+  {% cut "Yandex Cloud Notification Service" %}
+
+  [События уровня конфигурации](concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `CreateTopic` | Создание топика
+  `DeleteTopic` | Удаление топика
+  `UpdateTopic` | Изменение топика
+
+  {% endcut %}
+
+  {% cut "Yandex Identity Hub" %}
+
+  [События уровня конфигурации](concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `policy.ActivateAuthenticationPolicyRule` | Активация правила политики аутентификации
+  `policy.CreateAuthenticationPolicyRule` | Создание правила политики аутентификации
+  `policy.DeactivateAuthenticationPolicyRule` | Деактивация правила политики аутентификации
+  `policy.DeleteAuthenticationPolicyRule` | Удаление правила политики аутентификации
+  `policy.UpdateAuthenticationPolicyRule` | Изменение правила политики аутентификации
+
+  {% endcut %}
+
+  {% cut "Yandex Managed Service for Apache Spark™" %}
+
+  [События уровня конфигурации](concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `SetClusterAccessBindings` | Назначение прав доступа к кластеру
+  `UpdateClusterAccessBindings` | Изменение прав доступа к кластеру
+
+  {% endcut %}
+
+  {% cut "Yandex Managed Service for Trino" %}
+
+  [События уровня конфигурации](concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `SetClusterAccessBindings` | Назначение прав доступа к кластеру
+  `UpdateClusterAccessBindings` | Изменение прав доступа к кластеру
+
+  {% endcut %}
+
+  {% cut "Cloud Video" %}
+
+  [События уровня конфигурации](concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `InitializeChannelAdminChat` | Инициализация чата администраторов канала
+  `InitializeEpisodeChat` | Инициализация чата эпизода
+  `RenewVideoSource` | Обновление источника видео
+  `ResetChannelAdminChat` | Сброс чата администраторов канала
+  `ResyncEpisodeChatAdmins` | Синхронизация администраторов чата эпизода
+
+  {% endcut %}
+
+  {% cut "Yandex Lockbox" %}
+
+  [События уровня конфигурации](concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `SetCurrentVersion` | Назначение текущей версии секрета
+
+  {% endcut %}
+
+  {% cut "Yandex Managed Service for Apache Kafka®" %}
+
+  [События уровня конфигурации](concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `RescheduleMaintenance` | Перенос запланированного технического обслуживания
+
+  {% endcut %}
+
+  {% cut "Cloud Registry" %}
+
+  [События уровня конфигурации](concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `CreateLifecyclePolicy` | Создание [политики жизненного цикла](../cloud-registry/concepts/lifecycle-policy.md)
+  `DeleteLifecyclePolicy` | Удаление политики жизненного цикла
+  `UpdateLifecyclePolicy` | Изменение политики жизненного цикла
+
+  {% endcut %}
+
+  {% cut "Yandex Object Storage" %}
+
+  [События уровня конфигурации](concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `BucketInventoryConfigurationDelete` | Удаление конфигурации S3 Inventory бакета
+  `BucketInventoryConfigurationUpdate` | Изменение конфигурации S3 Inventory бакета
+
+  {% endcut %}
+
+  {% cut "Security Deck" %}
+
+  [События уровня сервисов](concepts/format-data-plane.md):
+
+  Событие | Описание
+  --- | ---
+  `AddCluster` | Добавление кластера
+  `DeleteCluster` | Удаление кластера
+
+  {% endcut %}
 
 ## II квартал 2026 {#q2-2026}
 

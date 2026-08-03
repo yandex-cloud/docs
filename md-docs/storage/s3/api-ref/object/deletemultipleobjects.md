@@ -113,7 +113,7 @@ POST /{bucket}?delete HTTP/2
 
 * [Объект](../../../concepts/object.md)
 
-* [Удаление всех объектов из бакета](../../../operations/objects/delete-all.md)
+* [Удалить все объекты из бакета](../../../operations/objects/delete-all.md)
 
 #### Полезные ссылки {#see-also}
 

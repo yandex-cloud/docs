@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > Справочник API > [REST (англ.)](../index.md) > [PrivateCloudConnection](index.md) > Delete
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > Справочник API > API v1alpha > [REST (англ.)](../index.md) > [PrivateCloudConnection](index.md) > Delete
 
 # BareMetal API, REST: PrivateCloudConnection.Delete
 

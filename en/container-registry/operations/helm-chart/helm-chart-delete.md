@@ -13,7 +13,7 @@ You can delete [Helm charts](https://helm.sh/docs/topics/charts/) in a {{ contai
 
 - CLI {#cli}
 
-  To delete a Helm chart locally, run the command below:
+  To delete a Helm chart locally, run this command:
 
   ```bash
   helm repo remove {{ registry }}/<registry_ID>/<Helm_chart_name>:<version>
@@ -21,7 +21,7 @@ You can delete [Helm charts](https://helm.sh/docs/topics/charts/) in a {{ contai
 
 {% endlist %}
 
-## Deleting a Helm chart in a registry
+## Deleting a Helm chart from a registry
 
 {% list tabs group=instructions %}
 
@@ -31,7 +31,7 @@ You can delete [Helm charts](https://helm.sh/docs/topics/charts/) in a {{ contai
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  To delete a Helm chart uploaded to {{ container-registry-name }}, run the command you would use to [delete](../docker-image/docker-image-delete.md) Docker images:
+  To delete a Helm chart pushed to {{ container-registry-name }}, run the command you would use to [delete](../docker-image/docker-image-delete.md) Docker images:
 
   ```bash
   yc container image delete <image_ID>

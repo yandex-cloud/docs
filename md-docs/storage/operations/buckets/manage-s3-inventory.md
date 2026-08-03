@@ -357,5 +357,5 @@
 #### Полезные ссылки {#see-also}
 
 * [Выгрузка метаданных объектов (S3 Inventory)](../../concepts/s3-inventory.md)
-* [Скачивание объекта](../objects/download.md)
+* [Скачать объект](../objects/download.md)
 * [Работа с механизмом логирования действий с бакетом](enable-logging.md)

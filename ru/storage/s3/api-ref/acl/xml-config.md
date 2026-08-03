@@ -74,6 +74,6 @@ description: Описан общий вид XML-структуры конфиг�
 
 #### Связанные статьи {#related-articles}
 
-* [{#T}](../../../concepts/acl.md)
+[{#T}](../../../concepts/acl.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

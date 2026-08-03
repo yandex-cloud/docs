@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > Справочник API > [gRPC (англ.)](../index.md) > Vrf > Overview
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > Справочник API > API v1alpha > [gRPC (англ.)](../index.md) > Vrf > Overview
 
 # BareMetal API, gRPC: VrfService
 
@@ -8,10 +8,10 @@ A set of methods for managing VRF resources.
 
 #|
 ||Method | Description ||
-|| [Get](get.md) | Returns the specific VRF resource. ||
-|| [List](list.md) | Retrieves the list of VRF resources in the specified folder. ||
-|| [Create](create.md) | Creates a VRF in the specified folder. ||
-|| [Update](update.md) | Updates the specified VRF resource. ||
-|| [Delete](delete.md) | Deletes the specified VRF resource. ||
-|| [ListOperations](listOperations.md) | Lists operations for the specified VRF. ||
+|| [GetVrf](getVrf.md) | Returns the specific VRF resource. ||
+|| [ListVrfs](listVrfs.md) | Retrieves the list of VRF resources in the specified folder. ||
+|| [CreateVrf](createVrf.md) | Creates a VRF in the specified folder. ||
+|| [UpdateVrf](updateVrf.md) | Updates the specified VRF resource. ||
+|| [DeleteVrf](deleteVrf.md) | Deletes the specified VRF resource. ||
+|| [ListVrfOperations](listVrfOperations.md) | Lists operations for the specified vrf. ||
 |#

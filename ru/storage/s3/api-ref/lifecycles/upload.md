@@ -12,17 +12,11 @@ PUT /{bucket}?lifecycle HTTP/2
 
 ### Path параметры {#path-parameters}
 
-Параметр | Описание
------ | -----
-`bucket` | Имя бакета.
-
+{% include [path-parameters](../../../_includes_service/storage-path-parameters.md) %}
 
 ### Query параметры {#request-params}
 
-Параметр | Описание
------ | -----
-`lifecycle` | Обязательный параметр для обозначения типа операции.
-
+{% include [lifecycles-query-parameters](../../../_includes_service/storage-lifecycles-query-parameters.md) %}
 
 ### Заголовки {#request-headers}
 

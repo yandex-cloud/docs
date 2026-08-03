@@ -62,7 +62,22 @@
 
     Полное описание настройки приведено в [документации {{ KF }}](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_max.message.bytes).
 
-* **Min compaction lag, ms** {{ tag-all }} {#settings-topic-max-compaction-lag-ms}    
+* **Тип временной метки в сообщении** {{ tag-all }} {#settings-topic-message-timestamp-type}
+
+    Тип временной метки, добавляемой к сообщениям топика:
+
+    #|
+    || **Консоль управления** | **API** | **{{ TF }}** | **CLI** | **Описание** ||
+    || `Unspecified`      | `MESSAGE_TIMESTAMP_TYPE_UNSPECIFIED` | — | — | Используется значение [настройки уровня кластера](#settings-log-message-timestamp-type) ||
+    || `CreateTime`       | `MESSAGE_TIMESTAMP_TYPE_CREATE_TIME` | `MESSAGE_TIMESTAMP_TYPE_CREATE_TIME` | `create-time`     | Время создания сообщения [производителем](../../../managed-kafka/concepts/producers-consumers.md) ||
+    || `LogAppendTime`    | `MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME`  | `MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME` | `log-append-time` | Время добавления сообщения в лог брокером ||
+    |#
+
+    Подробнее в настройке уровня кластера [Log message timestamp type](#settings-log-message-timestamp-type).
+
+    Полное описание настройки приведено в [документации {{ KF }}](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_message.timestamp.type).
+
+* **Min compaction lag, ms** {{ tag-all }} {#settings-topic-min-compaction-lag-ms}    
 
     Минимальное время, в течение которого сообщение в логе будет оставаться несжатым.
 

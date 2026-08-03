@@ -77,7 +77,7 @@ PUT /{bucket}/{key}?tagging&versionId={versionId} HTTP/2
 
 * [Объект](../../../concepts/object.md)
 
-* [Управление метками объекта](../../../operations/objects/tagging.md)
+* [Управлять метками объекта](../../../operations/objects/tagging.md)
 
 #### Полезные ссылки {#see-also}
 

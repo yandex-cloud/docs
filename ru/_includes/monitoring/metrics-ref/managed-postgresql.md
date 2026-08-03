@@ -146,7 +146,6 @@ subcluster_name | Имя подкластера
 | `pg_log_counter.error_query_canceled`<br/>`DGAUGE`, штуки | Количество отмененных запросов {{ PG }}. |
 | `pg_log_counter.fatal_connection_failure`<br/>`DGAUGE`, штуки | Количество фатальных ошибок подключения к {{ PG }}. |
 | `pg_log_counter.fatal_invalid_password`<br/>`DGAUGE`, штуки | Количество фатальных ошибок {{ PG }} из-за неверного пароля. |
-| `postgres.corruption_found`<br/>`DGAUGE`, 0/1 | Признак обнаружения повреждения данных в кластере {{ PG }}<br/>Принимает значение `1`, если повреждение обнаружено, `0` — если нет.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
 | `postgres.slru_Clog_blks_hit`<br/>`DGAUGE`, штуки | Количество попаданий в SLRU-кеш страницы Clog (журнал фиксации транзакций). |
 | `postgres.slru_Clog_blks_read`<br/>`DGAUGE`, штуки | Количество чтений страниц Clog SLRU из диска. |
 | `postgres.slru_Clog_blks_written`<br/>`DGAUGE`, штуки | Количество записей страниц Clog SLRU на диск. |

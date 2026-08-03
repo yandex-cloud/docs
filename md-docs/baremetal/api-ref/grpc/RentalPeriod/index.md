@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > Справочник API > [gRPC (англ.)](../index.md) > RentalPeriod > Overview
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > Справочник API > API v1alpha > [gRPC (англ.)](../index.md) > RentalPeriod > Overview
 
 # BareMetal API, gRPC: RentalPeriodService
 
@@ -8,5 +8,5 @@ A set of methods to retrieve information about RentalPeriod resources.
 
 #|
 ||Method | Description ||
-|| [List](list.md) | Retrieves the list of RentalPeriod resources. ||
+|| [ListRentalPeriods](listRentalPeriods.md) | Retrieves the list of RentalPeriod resources. ||
 |#

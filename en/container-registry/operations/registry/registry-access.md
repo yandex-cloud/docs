@@ -6,13 +6,13 @@ You can set up policies for accessing a [registry](../../concepts/registry.md) f
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the registry was created in.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing the registry.
+  1. [Navigate]({{ link-console-main }}/link/container-registry) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Select the registry to configure access to.
   1. In the left-hand panel, click ![IP-access](../../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.cr.registry.label_ip-permissions }}**.
   1. Click **{{ ui-key.yacloud.cr.registry.button_update-ip-permissions }}**.
-  1. Enter the IP address and specify an action: PULL to allow pulling and PUSH to allow pushing [Docker images](../../concepts/docker-image.md) to the registry.
-  1. To configure access for multiple IPs, click **{{ ui-key.yacloud.common.add }}**.
+  1. Enter the IP address and specify the action: `PULL` to allow pulling [Docker images](../../concepts/docker-image.md) from the registry, or `PUSH` to allow pushing them to the registry.
+  1. To configure access for multiple IP addresses, click **{{ ui-key.yacloud.common.add }}**.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -47,7 +47,7 @@ You can set up policies for accessing a [registry](../../concepts/registry.md) f
 
      To learn more about the command, see the [CLI reference](../../../cli/cli-ref/container/cli-ref/registry/set-ip-permissions).
 
-     As a result of executing this command, all the permissions set for IP addresses will be deleted. To continue, type `yes` and press **Enter**.
+     Running this command will remove all existing IP address permissions. To continue, type `yes` and press **Enter**.
 
      Result:
 
@@ -55,7 +55,7 @@ You can set up policies for accessing a [registry](../../concepts/registry.md) f
      WARN: All current ip permissions will be deleted. Are you sure?[y/N]
      ```
 
-  1. Check the current permissions:
+  1. Check the applied restrictions:
 
      ```bash
      yc container registry list-ip-permissions <registry_name>
@@ -90,15 +90,15 @@ You can set up policies for accessing a [registry](../../concepts/registry.md) f
 
      Where:
      * `my_registry`: Registry ID. If the configuration already contains the [yandex_container_registry]({{ tf-provider-resources-link }}/container_registry) resource, you can specify it, e.g., `yandex_container_registry.my_registry.id`.
-     * `pull`: IP addresses that can be used to pull [Docker images](../../concepts/docker-image.md) from the registry. This is an optional setting.
-     * `push`: IP addresses that can be used to push Docker images to the registry. This is an optional setting.
+     * `pull`: IP addresses that are allowed to pull [Docker images](../../concepts/docker-image.md) from the registry. This is an optional setting.
+     * `push`: IP addresses that are allowed to push Docker images to the registry. This is an optional setting.
 
-     For more on the properties of the `yandex_container_registry_ip_permission` resource, see [this provider guide]({{ tf-provider-resources-link }}/container_registry_ip_permission).
+     For more information about the `yandex_container_registry_ip_permission` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/container_registry_ip_permission).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources. You can check the new resources in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/) command:
+     {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
      ```bash
      yc container registry list-ip-permissions <registry_name>

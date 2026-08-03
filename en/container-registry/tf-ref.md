@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ container-registry-full-name }}'
-description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ container-registry-name }}.
+description: This page gives information about the {{ TF }} provider resources and data sources supported by {{ container-registry-name }}.
 ---
 
 # {{ TF }} reference for {{ container-registry-full-name }}
@@ -9,7 +9,7 @@ description: This page provides reference information on the {{ TF }} provider r
 
 ## Resources {#resources}
 
-The following {{ TF }} provider resources are supported for {{ container-registry-name }}:
+{{ container-registry-name }} supports the following {{ TF }} provider resources:
 
 | **{{ TF }} resource** | **{{ yandex-cloud }} resource** |
 | --- | --- |

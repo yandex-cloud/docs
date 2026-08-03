@@ -50,7 +50,7 @@ DELETE /{bucket}/{key} HTTP/2
 
 * [Объект](../../../concepts/object.md)
 
-* [Удаление объекта](../../../operations/objects/delete.md)
+* [Удалить объект](../../../operations/objects/delete.md)
 
 #### Полезные ссылки {#see-also}
 

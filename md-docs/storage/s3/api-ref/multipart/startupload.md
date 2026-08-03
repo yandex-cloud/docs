@@ -97,7 +97,7 @@ X-Amz-Grant-Read: uri="http://acs.amazonaws.com/groups/s3/AuthenticatedUsers"
 
 * [Составная (multipart) загрузка](../../../concepts/multipart.md)
 
-* [Создание составной загрузки в бакете](../../../operations/objects/multipart-upload.md#create-multipart-upload)
+* [Создать составную загрузку в бакете](../../../operations/objects/multipart-upload.md#create-multipart-upload)
 
 #### Полезные ссылки {#see-also}
 

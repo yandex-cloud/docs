@@ -252,7 +252,7 @@
       2025-10-03 09:45:12         23 test-file.txt
       ```
 
-  Подробности в документе [Загрузка объекта](../../../storage/operations/objects/upload.md).
+  Подробности в документе [Загрузить объект](../../../storage/operations/objects/upload.md).
 
 {% endlist %}
 

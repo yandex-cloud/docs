@@ -252,6 +252,8 @@ Stackland базируется на Kubernetes®, что позволяет ра
 
  - [Масштабирование кластера](concepts/cluster-scaling.md)
 
+ - [Лицензирование](concepts/licensing.md)
+
 ### Компоненты
 
  - [Обзор](concepts/components/overview.md)

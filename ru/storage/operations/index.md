@@ -43,6 +43,7 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](objects/rename-move.md)
 * [{#T}](objects/copy.md)
 * [{#T}](objects/link-for-download.md)
+* [{#T}](objects/link-for-upload.md)
 * [{#T}](objects/edit-object-lock.md)
 * [{#T}](objects/delete.md)
 * [{#T}](objects/delete-all.md)

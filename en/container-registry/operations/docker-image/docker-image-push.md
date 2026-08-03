@@ -5,7 +5,7 @@ description: This guide describes how to push a local Docker image to a {{ conta
 
 # Pushing a Docker image to a registry
 
-These instructions describe how to push a local [Docker image](../../concepts/docker-image.md) to a registry.
+This guide describes how to push a local [Docker image](../../concepts/docker-image.md) to a registry.
 
 {% note info %}
 
@@ -33,7 +33,7 @@ To push a Docker image to the registry, you need the `container-registry.images.
      ubuntu                                      latest  1d9c********  2 weeks ago   86.7MB
      ```
 
-  1. (Optional) Assign a URL to the Docker image using the following format: `{{ registry }}/<registry_ID>/<Docker_image_name>:<tag>`:
+  1. Optionally, assign a URL to the Docker image in the following format: `{{ registry }}/<registry_ID>/<Docker_image_name>:<tag>`:
 
      ```bash
      docker tag ubuntu \
@@ -42,11 +42,11 @@ To push a Docker image to the registry, you need the `container-registry.images.
 
      {% note info %}
 
-     You can only push Docker images to {{ container-registry-name }} if they have a URL in this format: `{{ registry }}/<registry_ID>/<Docker_image_name>:<tag>`.
+     To push Docker images to {{ container-registry-name }}, you need to assign them URLs in this format: `{{ registry }}/<registry_ID>/<Docker_image_name>:<tag>`.
 
      {% endnote %}
 
-  1. Push the required Docker image to the registry:
+  1. Push the Docker image to the registry:
 
      ```bash
      docker push {{ registry }}/<registry_ID>/ubuntu:hello

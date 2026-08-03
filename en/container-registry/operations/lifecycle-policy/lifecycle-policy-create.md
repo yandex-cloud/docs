@@ -1,13 +1,13 @@
 # Creating a lifecycle policy
 
-You can only set a [lifecycle policy](../../concepts/lifecycle-policy.md) for a [repository](../../concepts/repository.md). To find out the name of a repository, request a [list of repositories in the registry](../repository/repository-list.md#repository-get).
+You can only set a [lifecycle policy](../../concepts/lifecycle-policy.md) for a [repository](../../concepts/repository.md). To find out the repository name, get a [list of repositories in the registry](../repository/repository-list.md#repository-get).
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the [registry](../../concepts/registry.md) was created in.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) with the [registry](../../concepts/registry.md).
+  1. [Navigate]({{ link-console-main }}/link/container-registry) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Select the registry and click the row with its name.
   1. Select the repository and click the row with its name.
   1. In the left-hand panel, click ![lifecycle](../../../_assets/console-icons/arrows-rotate-right.svg) **{{ ui-key.yacloud.cr.registry.label_lifecycle }}**.
@@ -18,7 +18,7 @@ You can only set a [lifecycle policy](../../concepts/lifecycle-policy.md) for a 
      * **{{ ui-key.yacloud.common.label_status }}**: Lifecycle policy status after its creation. We do not recommend creating an `ACTIVE` policy right away.
      * Under **{{ ui-key.yacloud.cr.registry.label_lifecycle-rules }}**, add rules:
        1. Click **{{ ui-key.yacloud.common.add }}**.
-       1. Set the rule parameters:
+       1. Configure the rule:
 
           {% include [lifecycle-rules-console](../../../_includes/container-registry/lifecycle-rules-console.md) %}
 
@@ -29,11 +29,11 @@ You can only set a [lifecycle policy](../../concepts/lifecycle-policy.md) for a 
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  1. Prepare [policy rules](../../concepts/lifecycle-policy.md#lifecycle-rules) and save them to a file named `rules.json`.
+  1. Set up [policy rules](../../concepts/lifecycle-policy.md#lifecycle-rules) and save them to a file named `rules.json`.
 
      {% include [lifecycle-rules](../../../_includes/container-registry/lifecycle-rules.md) %}
 
-  1. Create a lifecycle policy by running the command:
+  1. Create a lifecycle policy by running this command:
 
      ```bash
      yc container repository lifecycle-policy create \
@@ -46,14 +46,14 @@ You can only set a [lifecycle policy](../../concepts/lifecycle-policy.md) for a 
      Where:
      * `--repository-name`: Repository name.
      * `--rules`: Path to the policy description file.
-     * `--description` (optional): Lifecycle policy description.
-     * `--name` (optional): Policy name. The naming requirements are as follows:
+     * `--description`: Lifecycle policy description. This is an optional setting.
+     * `--name`: Policy name. This is an optional setting. The naming requirements are as follows:
 
        {% include [name-format](../../../_includes/name-format.md) %}
 
      {% note info %}
 
-     The default policy is created disabled (`DISABLED` status). We do not recommend creating an active policy (`--active` flag) right away.
+     By default, the policy is created with the `DISABLED` status. We do not recommend creating an active policy (with the `--active` flag) right away.
 
      {% endnote %}
 
@@ -69,8 +69,8 @@ You can only set a [lifecycle policy](../../concepts/lifecycle-policy.md) for a 
        untagged: true
      ```
 
-     The `expired_period` parameter value in the response is displayed in seconds. This is a technical constraint, the format will be changed.
-  1. Make sure that the policy is created by running the command:
+     The value of the `expired_period` parameter in the response is shown in seconds. This is a technical constraint; the format will be changed.
+  1. Make sure the policy has been created by running the following command:
 
      ```bash
      yc container repository lifecycle-policy list --repository-name crp3cpm16edq********/ubuntu
@@ -93,7 +93,7 @@ You can only set a [lifecycle policy](../../concepts/lifecycle-policy.md) for a 
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, specify the properties of the resources you want to create:
 
      ```hcl
      resource "yandex_container_repository_lifecycle_policy" "my_lifecycle_policy" {
@@ -113,16 +113,16 @@ You can only set a [lifecycle policy](../../concepts/lifecycle-policy.md) for a 
 
      Where:
      * `name`: Policy name.
-     * `status`: Policy status. It can either be `true` or `false`.
+     * `status`: Policy status. It can be either `active` or `disabled`.
      * `repository_id`: Repository ID.
-     * `rule`: Section with the policy rule. Contains the following:
+     * `rule`: Policy rule section. It contains the following:
        * `description`: Rule description.
-       * `untagged`: If the parameter is set to `true`, the rule applies to all [Docker images](../../concepts/docker-image.md) that do not have a [tag](../../concepts/docker-image.md#version).
+       * `untagged`: If this parameter is set to `true`, the rule applies to all [Docker images](../../concepts/docker-image.md) that do not have a [tag](../../concepts/docker-image.md#version).
        * `tag_regexp`: Docker image tag for filtering. Java regular expressions are supported. For example, the `test.*` regular expression retrieves all images with tags starting with `test`.
        * `retained_top`: Number of Docker images that will not be deleted even if they match the lifecycle policy rules.
        * `expire_period`: Time after which the lifecycle policy applies to the Docker image. This parameter comes as a number followed by a unit of measurement: `s`, `m`, `h`, or `d` (seconds, minutes, hours, or days). `expire_period` must be a multiple of 24 hours.
 
-     For more on the properties of the `yandex_container_repository_lifecycle_policy` resource, see [this provider guide]({{ tf-provider-resources-link }}/container_repository_lifecycle_policy).
+     For more information about `yandex_container_repository_lifecycle_policy` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/container_repository_lifecycle_policy).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -141,6 +141,6 @@ You can only set a [lifecycle policy](../../concepts/lifecycle-policy.md) for a 
 
 {% note tip %}
 
-You can [test the lifecycle policy](lifecycle-policy-dry-run.md) to check what [Docker images](../../concepts/docker-image.md) comply with the policy rules. Docker images are not actually deleted during dry runs.
+You can [test the lifecycle policy](lifecycle-policy-dry-run.md) to see which [Docker images](../../concepts/docker-image.md) match the policy rules. Docker images are not actually deleted during dry runs.
 
 {% endnote %}

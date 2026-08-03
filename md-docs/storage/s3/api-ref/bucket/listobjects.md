@@ -331,7 +331,7 @@ Object Storage выберет только те ключи, которые на�
 
 * [Бакет в Object Storage](../../../concepts/bucket.md)
 
-* [Получение списка объектов в бакете](../../../operations/objects/list.md)
+* [Получить список объектов в бакете](../../../operations/objects/list.md)
 
 #### Полезные ссылки {#see-also}
 

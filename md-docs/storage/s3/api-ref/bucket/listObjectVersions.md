@@ -173,7 +173,7 @@ Object Storage выберет только те ключи, которые на�
 
 * [Блокировка версии объекта (object lock)](../../../concepts/object-lock.md)
 
-* [Восстановление версии объекта в версионируемом бакете](../../../operations/objects/restore-object-version.md)
+* [Восстановить версию объекта](../../../operations/objects/restore-object-version.md)
 
 #### Полезные ссылки {#see-also}
 

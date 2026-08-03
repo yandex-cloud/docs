@@ -777,7 +777,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
             INSERT 0 1
             ```
 
-        1. Убедитесь, что в бакете [создан новый объект](../../../storage/operations/objects/info.md).
+        1. [Убедитесь](../../../storage/operations/objects/info.md), что в бакете создан новый объект.
 
     {% note info %}
 

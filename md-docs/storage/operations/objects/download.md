@@ -1,6 +1,6 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Пошаговые инструкции](../index.md) > Объекты > Скачивание объекта
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Пошаговые инструкции](../index.md) > Объекты > Скачать объект
 
-# Скачивание объекта
+# Скачать объект
 
 
 Чтобы работать с объектами в [зашифрованном](../../concepts/encryption.md) бакете, у пользователя или [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md) вместе с [ролью](../../security/index.md#storage-configurer) `storage.configurer` должны быть следующие [роли на ключ шифрования](../../../kms/operations/key-access.md):
@@ -241,5 +241,5 @@
 #### Полезные ссылки {#see-also}
 
 
-* [Получение подписанной ссылки (pre-signed URL) на скачивание объекта](link-for-download.md)
+* [Получить подписанную ссылку (pre-signed URL) на скачивание объекта](link-for-download.md)
 * [Обзор способов управления доступом в Object Storage](../../security/overview.md)

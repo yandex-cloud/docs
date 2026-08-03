@@ -2,27 +2,27 @@
 
 # Monitoring
 
-Stackland позволяет организовать мониторинг кластера и платформенных компонентов с помощью [Prometheus](https://prometheus.io), [Loki](https://grafana.com/oss/loki/), [Fluent Bit](https://fluentbit.io/) и [Grafana](https://grafana.com).
+Stackland позволяет организовать мониторинг кластера и платформенных компонентов с помощью [Prometheus](https://prometheus.io), [Grafana](https://grafana.com) и Alertmanager.
 
 * Prometheus — средство сбора метрик кластера и платформенных компонентов.
-* Loki — средство централизованного сбора логов.
-* Fluent Bit — средство поставки логов.
 * Grafana — интерфейс для просмотра и визуализации метрик и логов.
 * Alertmanager — средство управления правилами алертинга и отправки уведомлений о проблемах.
 
-Вы можете расширить возможности мониторинга, добавив источники данных и плагины для работы с ними.
+Сбор и хранение логов выполняет отдельный компонент [Logging Stack](logging.md). Он подключает источники данных Loki к Grafana.
 
 ## Интерфейс Grafana {#grafana}
 
 Интерфейс Grafana доступен по адресу `https://grafana.sys.<домен кластера>`. Для входа используйте кнопку **Sign in with Stackland Auth**.
 
-К интерфейсу уже подключены источники данных Loki и Prometheus. Чтобы добавить новые источники или проверить уже подключенные, откройте страницу **Data sources** во вкладке **Connections**. Чтобы увидеть, какие метрики и логи собираются в кластере, откройте вкладку **Explore** и выберите **Metrics** или **Logs**.
+Компонент Monitoring подключает к Grafana источники данных `prometheus` и `alertmanager`. Компонент Logging Stack добавляет источники `stackland-logs` и `audit-logs`. Чтобы проверить подключенные источники, откройте страницу **Data sources** во вкладке **Connections**. Для просмотра метрик и логов откройте вкладку **Explore**.
 
 ## Управление доступом {#access}
 
 В зависимости от [роли в кластере](../../access-management.md) пользователю будет назначаться глобальная роль в Grafana. Если пользователь входит в группу `stackland-cluster-admins`, то в Grafana пользователь сразу получит права администратора. Если входит в `stackland-cluster-editors` — роль `editor`. Если пользователь не состоит в группе, то он получит роль `viewer`.
 
 После входа можно управлять правами на уровне отдельных ресурсов Grafana и отдельных пользователей. Подробнее об управлении доступами читайте в [документации Grafana](https://grafana.com/docs/grafana/latest/permissions/).
+
+Доступ к источникам логов дополнительно проверяет tenant proxy компонента Logging Stack. По умолчанию логи доступны только участникам группы `stackland-cluster-admins`; роль Grafana `Viewer` или `Editor` сама по себе не предоставляет к ним доступ.
 
 ## Дашборды метрик {#dashboards}
 
@@ -32,13 +32,13 @@ Stackland позволяет организовать мониторинг кл�
 
 ## Логи {#logs}
 
-Логи кластера можно просмотреть на вкладке **Explore** в разделе **Logs**. По умолчанию для поставки логов используется сервис Fluent Bit.
+Системные логи можно просмотреть на вкладке **Explore** с помощью источника `stackland-logs`, аудитные логи Kubernetes API — с помощью `audit-logs`. Подробнее см. в разделе [Посмотреть логи](../../operations/logging/logs-view.md).
 
 ## Алерты {#alerts}
 
 Настройка правил алертинга позволяет получать уведомления о проблемах в кластере или приложениях. Уведомления можно отправлять с помощью электронной почты, очередей сообщений или мессенджеров.
 
-Про создание каналов нотификаций читайте в разделе [Создать правило алертинга](../../operations/monitoring/alerts-create-rule.md).
+Про создание каналов уведомлений читайте в разделе [Создать канал уведомлений](../../operations/monitoring/alerts-create-contact-point.md).
 
 ## Конфигурация {#configuration}
 
@@ -47,62 +47,77 @@ Stackland позволяет организовать мониторинг кл�
 ```yaml
 apiVersion: stackland.yandex.cloud/v1alpha1
 kind: MonitoringConfig
-metadata: ...
+metadata:
+  name: main
 status:
   datasourceConfigured: true
   grafanaReady: true
+  s3ExtensionProvisioned: true
   message: Grafana is ready
   observedGeneration: 1
 spec:
   enabled: true
   settings:
+    clusterIssuer: stackland-default
+    prometheus:
+      enabled: true
+      replicas: 2
+      retention: 15d
+      ingressEnabled: true
+      storage:
+        size: "10Gi"
+      resources:
+        requests:
+          cpu: "1"
+          memory: "2Gi"
+        limits:
+          cpu: "1"
+          memory: "2Gi"
+      thanos:
+        longTermStorage:
+          stackland: {}
     alertmanager:
       enabled: true
+      replicas: 3
+      retention: "240h"
       ingressEnabled: true
-      replicas: 2
-      retention: 120h
       storage:
-        storageClass: topolvm
-        size: 1Gi
+        enabled: true
+        size: "1Gi"
       resources:
         requests:
-          cpu: 50m
-          memory: 200Mi
-    grafana:
-      enabled: true
-      resources:
+          cpu: "100m"
+          memory: "256Mi"
         limits:
-          cpu: 500m
-          memory: 1Gi
-        requests:
-          cpu: 100m
-          memory: 256Mi
+          cpu: "500m"
+          memory: "1Gi"
     grafanaOperator:
       enabled: true
       resources:
-        limits:
-          cpu: 500m
-          memory: 512Mi
         requests:
-          cpu: 100m
-          memory: 128Mi
-    prometheus:
+          memory: "128Mi"
+          cpu: "50m"
+        limits:
+          cpu: "200m"
+          memory: "512Mi"
+    grafana:
       enabled: true
-      ingressEnabled: true
-      replicas: 2
       resources:
-        limits:
-          memory: 2Gi
         requests:
-          cpu: 100m
-          memory: 400Mi
-      storage:
-        storageClass: topolvm
-        size: 100Gi
-      # Optional: extend the default HA read path with S3-backed long-term storage.
-      # thanos:
-      #   longTermStorage:
-      #     stackland: {}
+          cpu: "200m"
+          memory: "512Mi"
+        limits:
+          cpu: "1"
+          memory: "2Gi"
+    hardwareMonitoring:
+      enabled: true
+      resources:
+        requests:
+          cpu: "50m"
+          memory: "64Mi"
+        limits:
+          cpu: "200m"
+          memory: "256Mi"
 ```
 
 #### Состояние компонента мониторинга {#status}
@@ -111,30 +126,56 @@ spec:
 status:
   datasourceConfigured: true
   grafanaReady: true
+  s3ExtensionProvisioned: true
   message: Grafana is ready
   observedGeneration: 1
 ```
 
-* `datasourceConfigured` — Prometheus и Loki подключены к Grafana.
+* `datasourceConfigured` — включенные источники данных Prometheus и Alertmanager созданы в Grafana.
 * `grafanaReady` — Grafana готова к работе.
+* `s3ExtensionProvisioned` — S3-ресурсы для долгосрочного хранения метрик Thanos переданы под управление Monitoring. Поле имеет значение `true`, если задан `thanos.longTermStorage.stackland` и контроллер начал создавать связанные ресурсы.
 * `message` — сообщение о состоянии Grafana.
 * `observedGeneration` — активная версия конфигурации.
+
+#### Общие настройки {#common-settings}
+
+```yaml
+clusterIssuer: stackland-default
+```
+
+* `clusterIssuer` — имя ClusterIssuer для TLS-сертификатов.
 
 #### Alertmanager {#alertmanager}
 
 ```yaml
 alertmanager:
   enabled: true
+  replicas: 3
+  retention: "240h"
   ingressEnabled: true
+  storage:
+    enabled: true
+    storageClass: stackland-ssd
+    size: "1Gi"
   resources:
     requests:
-      cpu: 50m
-      memory: 200Mi
+      cpu: "100m"
+      memory: "256Mi"
+    limits:
+      cpu: "500m"
+      memory: "1Gi"
 ```
 
 * `enabled` — включает Alertmanager.
+* `replicas` — количество реплик Alertmanager.
+* `retention` — срок хранения данных Alertmanager.
+* `storage.enabled` — включает PVC для состояния Alertmanager. По умолчанию хранилище включено.
+* `storage.storageClass` — StorageClass для PVC. Если параметр не указан, используется StorageClass кластера по умолчанию.
+* `storage.size` — размер PVC. Если параметр не указан, используется `1Gi`.
 * `ingressEnabled` — открывает доступ к Alertmanager через Ingress.
 * `resources` — требования к ресурсам.
+
+Поля `storage.enabled`, `storage.storageClass` и `storage.size` нельзя изменить после создания `MonitoringConfig`. Для изменения хранилища пересоздайте ресурс.
 
 #### Grafana {#grafana}
 
@@ -142,12 +183,12 @@ alertmanager:
 grafana:
   enabled: true
   resources:
-    limits:
-      cpu: 500m
-      memory: 1Gi
     requests:
-      cpu: 100m
-      memory: 256Mi
+      cpu: "200m"
+      memory: "512Mi"
+    limits:
+      cpu: "1"
+      memory: "2Gi"
 ```
 
 * `enabled` — включает Grafana.
@@ -159,12 +200,12 @@ grafana:
 grafanaOperator:
   enabled: true
   resources:
-    limits:
-      cpu: 500m
-      memory: 512Mi
     requests:
-      cpu: 100m
-      memory: 128Mi
+      memory: "128Mi"
+      cpu: "50m"
+    limits:
+      cpu: "200m"
+      memory: "512Mi"
 ```
 
 * `enabled` — включает Grafana Operator.
@@ -176,18 +217,48 @@ grafanaOperator:
 ```yaml
 prometheus:
   enabled: true
+  replicas: 2
+  retention: 15d
   ingressEnabled: true
-  resources:
-    limits:
-      memory: 2Gi
-    requests:
-      cpu: 100m
-      memory: 400Mi
   storage:
-    size: 100Gi
+    storageClass: stackland-ssd
+    size: "10Gi"
+  resources:
+    requests:
+      cpu: "1"
+      memory: "2Gi"
+    limits:
+      cpu: "1"
+      memory: "2Gi"
+  thanos:
+    longTermStorage:
+      stackland: {}
 ```
 
 * `enabled` — включает Prometheus.
-* `ingressEnabled` — открывает веб-интерфейс Prometheus через Ingress.
+* `replicas` — количество реплик Prometheus.
+* `retention` — срок хранения данных Prometheus.
+* `ingressEnabled` — открывает доступ к Prometheus через Ingress.
 * `resources` — требования к ресурсам.
+* `storage.storageClass` — StorageClass для PVC. Если параметр не указан, используется StorageClass кластера по умолчанию.
 * `storage.size` — размер PVC; локальная глубина истории ограничивается автоматически как 80% от размера PVC.
+* `thanos.longTermStorage.stackland` — включает долгосрочное хранение метрик во внутреннем S3. Для использования параметра должен быть включен компонент [Object Storage](storage.md).
+
+Поля `storage.storageClass` и `storage.size` нельзя изменить после создания `MonitoringConfig`. Для изменения хранилища пересоздайте ресурс.
+
+#### Мониторинг оборудования {#hardware-monitoring}
+
+```yaml
+hardwareMonitoring:
+  enabled: true
+  resources:
+    requests:
+      cpu: "50m"
+      memory: "64Mi"
+    limits:
+      cpu: "200m"
+      memory: "256Mi"
+```
+
+* `enabled` — включает сбор метрик состояния оборудования.
+* `resources` — требования к ресурсам агента мониторинга оборудования.

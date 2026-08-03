@@ -98,6 +98,9 @@ editable: false
       "health": "string",
       "status": "string",
       "clusterId": "string",
+      "placement": {
+        "dedicated": "boolean"
+      },
       // Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`, `connectorConfigIcebergSink`
       "connectorConfigMirrormaker": {
         "sourceCluster": {
@@ -388,6 +391,7 @@ The maximum string length in characters is 63. ||
 - `ERROR`
 - `PAUSED` ||
 || clusterId | **string** ||
+|| placement | **[ConnectorPlacement](#yandex.cloud.mdb.kafka.v1.ConnectorPlacement)** ||
 || connectorConfigMirrormaker | **[ConnectorConfigMirrorMaker](#yandex.cloud.mdb.kafka.v1.ConnectorConfigMirrorMaker)**
 
 Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`, `connectorConfigIcebergSink`. ||
@@ -397,6 +401,13 @@ Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3
 || connectorConfigIcebergSink | **[ConnectorConfigIcebergSink](#yandex.cloud.mdb.kafka.v1.ConnectorConfigIcebergSink)**
 
 Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`, `connectorConfigIcebergSink`. ||
+|#
+
+## ConnectorPlacement {#yandex.cloud.mdb.kafka.v1.ConnectorPlacement}
+
+#|
+||Field | Description ||
+|| dedicated | **boolean** ||
 |#
 
 ## ConnectorConfigMirrorMaker {#yandex.cloud.mdb.kafka.v1.ConnectorConfigMirrorMaker}

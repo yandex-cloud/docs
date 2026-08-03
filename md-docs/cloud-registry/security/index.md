@@ -43,7 +43,8 @@
 ```mermaid
 %%{
   init: {
-    "flowchart": { "defaultRenderer": "elk" }
+    "flowchart": { "defaultRenderer": "elk" },
+    "elk": { "nodePlacementStrategy": "NETWORK_SIMPLEX" }
   }
 }%%
 flowchart BT

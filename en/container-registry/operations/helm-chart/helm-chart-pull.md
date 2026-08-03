@@ -12,7 +12,7 @@ You can pull [Helm charts](https://helm.sh/docs/topics/charts/) from a {{ contai
 
 - CLI {#cli}
 
-  To pull a Helm chart, run the command below:
+  To pull a Helm chart, run this below:
 
   ```bash
   helm pull oci://{{ registry }}/<registry_ID>/<Helm_chart_name> --version <version>

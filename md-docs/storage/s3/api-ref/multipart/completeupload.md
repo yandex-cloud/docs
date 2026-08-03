@@ -112,7 +112,7 @@ POST /{bucket}/{key}?uploadId=UploadId HTTP/2
 
 * [Составная (multipart) загрузка](../../../concepts/multipart.md)
 
-* [Завершение составной загрузки с условием](../../../operations/objects/multipart-upload.md#conditional-writes)
+* [Завершить составную загрузку с условием](../../../operations/objects/multipart-upload.md#conditional-writes)
 
 #### Полезные ссылки {#see-also}
 

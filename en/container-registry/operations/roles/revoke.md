@@ -1,13 +1,13 @@
 # Revoking a role for a resource
 
-You can prevent a [subject](../../../iam/concepts/access-control/index.md#subject) from accessing a resource. To do this, revoke the subject's [roles](../../../iam/concepts/access-control/roles.md) for that resource or the resources that the access rights are inherited from. For more information, see [{#T}](../../../iam/concepts/access-control/index.md).
+You can prevent a [subject](../../../iam/concepts/access-control/index.md#subject) from accessing a resource. To do this, revoke the subject's [roles](../../../iam/concepts/access-control/roles.md) for that resource and any resources from which permissions are inherited. For more information, see [{#T}](../../../iam/concepts/access-control/index.md).
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to revoke a role for a resource.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. [Navigate]({{ link-console-main }}/link/container-registry) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Select a [registry](../../concepts/registry.md) or [repository](../../concepts/repository.md) in it.
   1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. Select a user from the list and click ![image](../../../_assets/console-icons/ellipsis.svg) next to the username.
@@ -41,7 +41,7 @@ You can prevent a [subject](../../../iam/concepts/access-control/index.md#subjec
          --user-account-id <user_ID>
        ```
 
-     * From a [service account](../../../iam/concepts/users/service-accounts.md):
+     * [From a service account](../../../iam/concepts/users/service-accounts.md):
        
        ```bash
        yc container <resource> remove-access-binding <resource_name_or_ID> \
@@ -64,7 +64,7 @@ You can prevent a [subject](../../../iam/concepts/access-control/index.md#subjec
      
      **Example**
 
-     The example below revokes the `container-registry.admin` role for `my-first-registry` from a user.
+     The example below revokes the `container-registry.admin` role for `my-first-registry` from the user.
      
      ```bash
      yc container registry remove-access-binding my-first-registry \
@@ -82,9 +82,9 @@ You can prevent a [subject](../../../iam/concepts/access-control/index.md#subjec
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. Open the {{ TF }} configuration file and delete the fragment with the role assignment description.
+  1. Open the {{ TF }} configuration file and delete the section describing the role assignment.
 
-     Example role assignment description in the {{ TF }} configuration:
+     Example of role assignment description in the {{ TF }} configuration:
 
        ```
        resource "yandex_container_registry_iam_binding" "registry_name" {
@@ -97,7 +97,7 @@ You can prevent a [subject](../../../iam/concepts/access-control/index.md#subjec
        }
        ```
 
-       For more on the properties of the `yandex_container_registry_iam_binding` resource, see [this provider guide]({{ tf-provider-resources-link }}/container_registry_iam_binding).
+       For more information about `yandex_container_registry_iam_binding`, see [this provider guide]({{ tf-provider-resources-link }}/container_registry_iam_binding).
   
   1. {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -119,10 +119,10 @@ You can prevent a [subject](../../../iam/concepts/access-control/index.md#subjec
 
   [View](get-assigned-roles.md#cli) the roles assigned for resources.
   
-  To revoke registry roles, use the [updateAccessBindings](../../api-ref/Registry/updateAccessBindings.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/UpdateAccessBindings](../../api-ref/grpc/Registry/updateAccessBindings.md) gRPC API call.
+  To revoke roles assigned for a registry, use the [updateAccessBindings](../../api-ref/Registry/updateAccessBindings.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/UpdateAccessBindings](../../api-ref/grpc/Registry/updateAccessBindings.md) gRPC API call.
 
-  To revoke repository roles, use the [updateAccessBindings](../../api-ref/Repository/updateAccessBindings.md) REST API method for the [Repository](../../api-ref/Repository/index.md) resource or the [RepositoryService/UpdateAccessBindings](../../api-ref/grpc/Repository/updateAccessBindings.md) gRPC API call.
+  To revoke roles assigned for a repository, use the [updateAccessBindings](../../api-ref/Repository/updateAccessBindings.md) REST API method for the [Repository](../../api-ref/Repository/index.md) resource or the [RepositoryService/UpdateAccessBindings](../../api-ref/grpc/Repository/updateAccessBindings.md) gRPC API call.
 
 {% endlist %}
 
-You can read more about role management in the {{ iam-full-name }} [documentation](../../../iam/concepts/index.md).
+For more information about managing roles, see [this {{ iam-full-name }} guide](../../../iam/concepts/index.md).
