@@ -54,4 +54,4 @@ _Метка_ — это пара ключ-значение для логичес
 #### Полезные ссылки {#see-also}
 
 * [Управление метками бакета](../operations/buckets/tagging.md)
-* [Управление метками объекта](../operations/objects/tagging.md)
+* [Управлять метками объекта](../operations/objects/tagging.md)

@@ -1,6 +1,6 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Пошаговые инструкции](../index.md) > Объекты > Получение списка объектов в бакете
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Пошаговые инструкции](../index.md) > Объекты > Получить список объектов в бакете
 
-# Получение списка объектов в бакете
+# Получить список объектов в бакете
 
 {% list tabs group=instructions %}
 

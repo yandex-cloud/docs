@@ -5,19 +5,19 @@ description: Follow this guide to assign roles for a resource.
 
 # Assigning a role for a resource
 
-To grant access to a [resource](../../../iam/concepts/access-control/resources-with-access-control.md), assign the subject a [role](../../../iam/concepts/access-control/roles.md) for the resource itself or a resource from which access permissions are inherited, e.g., a [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) or [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud). For the current list of resources you can assign roles for, see [{#T}](../../security/index.md#resources).
+To grant access to a [resource](../../../iam/concepts/access-control/resources-with-access-control.md), assign a [role](../../../iam/concepts/access-control/roles.md) to a subject for the resource itself or for a resource from which access permissions are inherited, such as a [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) or [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud). For the current list of resources you can assign roles for, see [{#T}](../../security/index.md#resources).
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to assign a role for a resource.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. [Navigate]({{ link-console-main }}/link/container-registry) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Select a [registry](../../concepts/registry.md) or [repository](../../concepts/repository.md) in it.
   1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. Click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
   1. In the window that opens, select a group, user, or [service account](../../../iam/concepts/users/service-accounts.md).
-  1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the role from the list.
+  1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select role from the list.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -26,7 +26,7 @@ To grant access to a [resource](../../../iam/concepts/access-control/resources-w
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  To assign a role for a resource, run the following command:
+  Run this command to assign a role for a resource:
 
   * To a user:
 
@@ -77,7 +77,7 @@ To grant access to a [resource](../../../iam/concepts/access-control/resources-w
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. Describe the following in a configuration file:
+  1. Describe the following in the configuration file:
      * The `yandex_container_registry_iam_binding` resource parameters to assign the role for the [registry](../../concepts/registry.md):
 
        ```
@@ -92,9 +92,9 @@ To grant access to a [resource](../../../iam/concepts/access-control/resources-w
        ```
 
        Where:
-       * `registry_id`: ID of the registry for which a role is being assigned. To find out the registry ID, [get a list of registries in the folder](../registry/registry-list.md#registry-list).
+       * `registry_id`: ID of the registry for which the role is being assigned. To find out the registry ID, [get a list of registries in the folder](../registry/registry-list.md#registry-list).
        * `role`: [Role](../../security/index.md#service-roles) you want to assign.
-       * `members`: ID of the user, group, or service account to which you are assigning the role.
+       * `members`: ID of the user, group, or service account getting the role.
      
      * The `yandex_container_repository_iam_binding` resource parameters to assign the role for the [repository](../../concepts/repository.md):
 
@@ -110,15 +110,15 @@ To grant access to a [resource](../../../iam/concepts/access-control/resources-w
        ```
 
        Where:
-       * `repository_id`: ID of the repository for which you are assigning the role. To find out the ID of a repository, [get a list of repositories in the folder](../repository/repository-list.md#repository-list).
+       * `repository_id`: ID of the repository for which you are assigning the role. To find out the repository ID, [get a list of repositories in the folder](../repository/repository-list.md#repository-list).
        * `role`: Role you want to assign.
-       * `members`: ID of the user, group, or service account to which you are assigning the role.
+       * `members`: ID of the user, group, or service account getting the role.
 
-     For more on the properties of the `yandex_container_repository_iam_binding` resource, see [this provider guide]({{ tf-provider-resources-link }}/container_repository_iam_binding).
+     For more information about `yandex_container_repository_iam_binding`, see [this provider guide]({{ tf-provider-resources-link }}/container_repository_iam_binding).
   
   1. {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  You can check that the role has been assigned using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+  You can check whether the role has been assigned using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
      * Registry:
 

@@ -81,6 +81,13 @@ apiPlayground:
             Example of a filter: `message.hostname='node1.db.cloud.yandex.net'`
             The maximum string length in characters is 1000.
           type: string
+        orderBy:
+          description: |-
+            **string**
+            Order by specification as a JSON array of {field, order} objects.
+            Supported fields: TIMESTAMP. Supported orders: ASC, DESC.
+            Example: [{"field": "TIMESTAMP", "order": "DESC"}]
+          type: string
       additionalProperties: false
     body: null
     definitions: null
@@ -163,6 +170,11 @@ The expression must specify:
 Example of a filter: `message.hostname='node1.db.cloud.yandex.net'`
 
 The maximum string length in characters is 1000. ||
+|| orderBy | **string**
+
+Order by specification as a JSON array of {field, order} objects.
+Supported fields: TIMESTAMP. Supported orders: ASC, DESC.
+Example: [{"field": "TIMESTAMP", "order": "DESC"}] ||
 |#
 
 ## Response {#yandex.cloud.mdb.kafka.v1.ListClusterLogsResponse}

@@ -22,7 +22,7 @@ description: In this article, you will learn about {{ datalens-full-name }} Neur
 
 
 * Your data and queries stay within the {{ yandex-cloud }} infrastructure.
-* Your data and queries are not logged, nor used for model tuning.
+* Your data and queries are not logged, nor used for model fine-tuning.
 * The admin can [disable generation of insights for your users](#prohibit) at the dashboard or report level.
 
 See more about Neuroanalyst limits [here](./limits.md#datalens-ai-limits).

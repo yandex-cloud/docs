@@ -1,0 +1,156 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > Справочник API > API v2 > [REST (англ.)](../index.md) > [PrivateCloudConnection](index.md) > ListPrivateCloudConnections
+
+# BareMetal API, REST: PrivateCloudConnection.ListPrivateCloudConnections
+
+Retrieves the list of Private cloud connection resources in the specified folder.
+
+https://google.aip.dev/130 --)
+
+## HTTP request
+
+```
+GET https://baremetal.api.cloud.yandex.net/baremetal/v2/clouds/{cloudId}/folders/{folderId}/privateCloudConnections
+```
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| cloudId | **string**
+
+Required field. ID of the parent cloud.
+
+To get the cloud ID, use a [yandex.cloud.resourcemanager.v1.CloudService.List](../../../resource-manager/api-ref/Cloud/list.md#List) request. ||
+|| folderId | **string**
+
+Required field. ID of the folder to list private cloud connections in.
+To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../resource-manager/api-ref/Folder/list.md#List) request.
+
+The maximum string length in characters is 50. Value must match the regular expression ` [a-z][a-z0-9.-]* `. ||
+|#
+
+## Query parameters {#yandex.cloud.baremetal.v2.ListPrivateCloudConnectionsRequest}
+
+#|
+||Field | Description ||
+|| pageSize | **string** (int64)
+
+The maximum number of results per page to return. If the number of available
+results is greater than `page_size`,
+the service returns a [ListPrivateCloudConnectionResponse.next_page_token]
+that can be used to get the next page of results in subsequent list requests.
+Default value is 20.
+
+The maximum value is 1000. ||
+|| pageToken | **string**
+
+Page token. To get the next page of results, set `page_token` to the
+[ListPrivateCloudConnectionResponse.next_page_token] returned by a previous list request. ||
+|| orderBy | **string**
+
+Sorting order for the listing. Follows the [AIP-132](https://google.aip.dev/132) `order_by` format:
+```"field [asc|desc]"```, e.g. `"createTime desc"`.
+
+Supported fields: `privateCloudConnectionId`, `createTime`, `updateTime`.
+Default order: `privateCloudConnectionId asc`. ||
+|| filter | **string**
+
+Filter expression following [AIP-160](https://google.aip.dev/160).
+
+Supported fields and operators:
+- `privateCloudConnectionId`, `name`, `vrfId`, `routingInstanceId` - `=`, `!=`, `:` (contains)
+- `state` - `=`, `!=`
+
+Example: `state = "ACTIVE" AND vrfId = "enp1234abcd"`. ||
+|#
+
+## Response {#yandex.cloud.baremetal.v2.ListPrivateCloudConnectionsResponse}
+
+**HTTP Code: 200 - OK**
+
+```json
+{
+  "privateCloudConnections": [
+    {
+      "privateCloudConnectionId": "string",
+      "cloudId": "string",
+      "folderId": "string",
+      "vrfId": "string",
+      "routingInstanceId": "string",
+      "state": "string",
+      "name": "string",
+      "createTime": "string",
+      "updateTime": "string"
+    }
+  ],
+  "nextPageToken": "string"
+}
+```
+
+#|
+||Field | Description ||
+|| privateCloudConnections[] | **[PrivateCloudConnection](#yandex.cloud.baremetal.v2.PrivateCloudConnection)**
+
+List of Private cloud connection resources. ||
+|| nextPageToken | **string**
+
+Token for getting the next page of the list. If the number of results is greater than
+[ListPrivateCloudConnectionRequest.page_size], use `next_page_token` as the value
+for the [ListPrivateCloudConnectionRequest.page_token] parameter in the next list request.
+Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
+|#
+
+## PrivateCloudConnection {#yandex.cloud.baremetal.v2.PrivateCloudConnection}
+
+A Private cloud connection resource.
+
+#|
+||Field | Description ||
+|| privateCloudConnectionId | **string**
+
+ID of the private cloud connection. ||
+|| cloudId | **string**
+
+ID of the cloud that the private cloud connection belongs to. ||
+|| folderId | **string**
+
+ID of the folder that the private cloud connection belongs to. ||
+|| vrfId | **string**
+
+ID of VRF that is connected to routing Instance. ||
+|| routingInstanceId | **string**
+
+ID of Cloud Router Routing Instance. ||
+|| state | **enum** (State)
+
+State of the private cloud connection.
+
+- `CREATING`: Private cloud connection is waiting for network resources to be allocated.
+- `READY`: Private cloud connection is ready to use.
+- `ERROR`: Private cloud connection encountered a problem and cannot operate.
+- `DELETING`: Private cloud connection is being deleted.
+- `UPDATING`: Private cloud connection is being updated. ||
+|| name | **string**
+
+Name of the private cloud connection. ||
+|| createTime | **string** (date-time)
+
+Creation timestamp.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| updateTime | **string** (date-time)
+
+Updafe timestamp.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|#

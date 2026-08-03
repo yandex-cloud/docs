@@ -29,6 +29,14 @@ apiPlayground:
         - connectorSpec
       additionalProperties: false
     definitions:
+      ConnectorPlacement:
+        type: object
+        properties:
+          dedicated:
+            description: |-
+              **boolean**
+              Run workers on dedicated nodes instead of broker hosts.
+            type: boolean
       ThisClusterSpec:
         type: object
         properties: {}
@@ -435,6 +443,11 @@ apiPlayground:
             type: object
             additionalProperties:
               type: string
+          placement:
+            description: |-
+              **[ConnectorPlacement](#yandex.cloud.mdb.kafka.v1.ConnectorPlacement)**
+              Placement of the connector workers.
+            $ref: '#/definitions/ConnectorPlacement'
           connectorConfigMirrormaker:
             description: |-
               **[ConnectorConfigMirrorMakerSpec](#yandex.cloud.mdb.kafka.v1.ConnectorConfigMirrorMakerSpec)**
@@ -495,6 +508,9 @@ The maximum string length in characters is 50. ||
     "name": "string",
     "tasksMax": "string",
     "properties": "object",
+    "placement": {
+      "dedicated": "boolean"
+    },
     // Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`, `connectorConfigIcebergSink`
     "connectorConfigMirrormaker": {
       "sourceCluster": {
@@ -617,6 +633,9 @@ Maximum number of connector tasks. Default value is the number of brokers. ||
 
 A set of properties passed to Managed Service for Apache Kafka® with the connector configuration.
 Example: `sync.topics.config.enabled: true`. ||
+|| placement | **[ConnectorPlacement](#yandex.cloud.mdb.kafka.v1.ConnectorPlacement)**
+
+Placement of the connector workers. ||
 || connectorConfigMirrormaker | **[ConnectorConfigMirrorMakerSpec](#yandex.cloud.mdb.kafka.v1.ConnectorConfigMirrorMakerSpec)**
 
 Configuration of the MirrorMaker connector.
@@ -638,6 +657,18 @@ Configuration of Iceberg Sink connector.
 Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`, `connectorConfigIcebergSink`.
 
 Additional settings for the connector. ||
+|#
+
+## ConnectorPlacement {#yandex.cloud.mdb.kafka.v1.ConnectorPlacement}
+
+Connector worker placement.
+By default, workers run on Kafka broker hosts.
+
+#|
+||Field | Description ||
+|| dedicated | **boolean**
+
+Run workers on dedicated nodes instead of broker hosts. ||
 |#
 
 ## ConnectorConfigMirrorMakerSpec {#yandex.cloud.mdb.kafka.v1.ConnectorConfigMirrorMakerSpec}

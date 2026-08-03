@@ -78,6 +78,8 @@ apiPlayground:
 
 Same as [ListLogs](/docs/managed-kafka/api-ref/Cluster/listLogs#ListLogs) but using server-side streaming. Also allows for `tail -f` semantics.
 
+
+
 ## HTTP request
 
 ```

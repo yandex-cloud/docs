@@ -1,9 +1,9 @@
 ---
-title: Редактирование ACL объекта в бакете в {{ objstorage-full-name }}
+title: Редактировать ACL объекта в бакете в {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете редактировать ACL объекта в бакете в {{ objstorage-name }}.
 ---
 
-# Редактирование ACL объекта
+# Редактировать ACL объекта
 
 {% include [full-overview](../../../_includes/storage/security/full-overview.md) %}
 

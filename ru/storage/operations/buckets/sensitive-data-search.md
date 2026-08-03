@@ -137,17 +137,6 @@ description: Следуя данной инструкции, вы узнаете
 
 {% include [errors-scan-outro](../../../_includes/security-deck/errors-scan-outro.md) %}
 
-[*bucket-object-key]: [Ключ объекта](../../concepts/object.md#key) — это полное имя файла внутри бакета, часто записанное как путь в файловой системе.
+[*bucket-object-key]: [Ключ объекта](../../concepts/object.md#key) — это полное имя файла внутри бакета, часто записанное как путь в файловой системе. Примеры ключей: `docs/reports/2026/april.pdf`, `photos/trips/paris/img001.jpg`.
 
-Примеры ключей:
-
-* `docs/reports/2026/april.pdf`
-*  `photos/trips/paris/img001.jpg`
-
-[*bucket-object-prefix]: [Префикс](../../concepts/object.md#folder) — это начальная часть ключа, которую интерфейс показывает как папку.
-
-Примеры префиксов:
-
-* `photos/`
-* `photos/trips/`
-* `photos/trips/paris/`
+[*bucket-object-prefix]: [Префикс](../../concepts/object.md#folder) — это начальная часть ключа, которую интерфейс показывает как папку. Примеры префиксов: `photos/`, `photos/trips/`, `photos/trips/paris/`.

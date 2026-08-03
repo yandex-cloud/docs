@@ -2,7 +2,7 @@
 
 {% include [default-catalogue](../default-catalogue.md) %}
 
-1. Make sure that a registry has not been created in the folder yet:
+1. Make sure the folder does not contain a registry yet:
 
     ```bash
     yc container registry list
@@ -51,8 +51,8 @@
 
     {% include [name-format](../name-format.md) %}
 
-    The `--name` parameter is optional. You can create a registry without a name and use its ID to access it. The `name` field is user-defined. It is used when listing in the {{ yandex-cloud }} CLI and not used in the Docker CLI.
-1. Make sure the registry was created:
+    The `--name` parameter is optional. You can create a registry without a name and use its ID to access it. The `name` field is user-defined. It is used when listing resources in the {{ yandex-cloud }} CLI and is not used in the Docker CLI.
+1. Make sure the registry has been created:
 
     ```bash
     yc container registry list

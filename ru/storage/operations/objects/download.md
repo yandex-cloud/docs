@@ -1,9 +1,9 @@
 ---
-title: Скачивание объекта в {{ objstorage-full-name }}
+title: Скачать объект в {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете скачать объект из бакета в {{ objstorage-name }}.
 ---
 
-# Скачивание объекта
+# Скачать объект
 
 
 {% include [encryption-roles](../../../_includes/storage/encryption-roles.md) %}

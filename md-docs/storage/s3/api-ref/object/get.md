@@ -74,7 +74,7 @@ GET /{bucket}/{key} HTTP/2
 
 * [Объект](../../../concepts/object.md)
 
-* [Скачивание объекта](../../../operations/objects/download.md)
+* [Скачать объект](../../../operations/objects/download.md)
 
 #### Полезные ссылки {#see-also}
 

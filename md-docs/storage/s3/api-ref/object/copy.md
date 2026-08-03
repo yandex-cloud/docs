@@ -101,7 +101,7 @@ PUT /{bucket}/{key} HTTP/2
 
 * [Объект](../../../concepts/object.md)
 
-* [Копирование объектов](../../../operations/objects/copy.md)
+* [Скопировать объект](../../../operations/objects/copy.md)
 
 #### Полезные ссылки {#see-also}
 

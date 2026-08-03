@@ -18,7 +18,7 @@ To create an API Connector connection, follow these steps:
    * **Port**: Specify the API connection port.
    * **URL path**: Optionally, specify the path to the API (part of the [URL](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL) without a protocol, host name, or port).
    * **HTTPS**: Enable the secure connection option if your server supports HTTPS.
-   * **Allowed methods**: Select a method to send an HTTP request to the API. The available methods are `GET`, `POST`, `PUT`, and `PATCH`.
+   * **Allowed methods**: Select a method to send an HTTP request to the API. The available methods are `GET`, `POST`, `PUT`, `PATCH`, and `DELETE`.
    * Add public and private headers to your HTTP request as key-value pairs. To do this, click **Add**, select the header, and enter its value.
 
      * **Public request headers** do not contain sensitive data. You can view values of public headers at any time in the connection settings. The following public headers are available:

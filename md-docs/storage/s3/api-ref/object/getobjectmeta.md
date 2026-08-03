@@ -76,7 +76,7 @@ HEAD /{bucket}/{key} HTTP/2
 
 * [Объект](../../../concepts/object.md)
 
-* [Получение информации об объекте](../../../operations/objects/info.md)
+* [Получить информацию об объекте](../../../operations/objects/info.md)
 
 #### Полезные ссылки {#see-also}
 

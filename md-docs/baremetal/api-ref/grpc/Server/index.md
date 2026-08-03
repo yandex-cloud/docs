@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > Справочник API > [gRPC (англ.)](../index.md) > Server > Overview
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > Справочник API > API v1alpha > [gRPC (англ.)](../index.md) > Server > Overview
 
 # BareMetal API, gRPC: ServerService
 
@@ -8,17 +8,16 @@ A set of methods for managing Server resources.
 
 #|
 ||Method | Description ||
-|| [Get](get.md) | Returns the specific Server resource. ||
-|| [List](list.md) | Retrieves the list of Server resources in the specified folder. ||
-|| [Create](create.md) | Creates a server in the specified folder. ||
-|| [BatchCreate](batchCreate.md) | Creates multiple servers in the specified folder. ||
-|| [Update](update.md) | Updates the specified server. ||
-|| [PowerOff](powerOff.md) |  ||
-|| [PowerOn](powerOn.md) |  ||
-|| [Reboot](reboot.md) |  ||
-|| [Reinstall](reinstall.md) |  ||
-|| [ListOperations](listOperations.md) | Lists operations for the specified server. ||
-|| [StartProlongation](startProlongation.md) | Starts prolongation of the specified server. ||
-|| [StopProlongation](stopProlongation.md) | Stops prolongation of the specified server. ||
-|| [ProlongateEndedRent](prolongateEndedRent.md) | Enable prolongation after rental period end ||
+|| [GetServer](getServer.md) | Returns the specific Server resource. ||
+|| [ListServers](listServers.md) | Retrieves the list of Server resources in the specified folder. ||
+|| [CreateServer](createServer.md) | Creates a server in the specified folder. ||
+|| [BatchCreateServers](batchCreateServers.md) | Creates multiple servers in the specified folder. ||
+|| [UpdateServer](updateServer.md) | Updates the specified server. ||
+|| [DeleteServer](deleteServer.md) | Deletes the specified server. ||
+|| [PowerOffServer](powerOffServer.md) | Powers off the specified server. ||
+|| [PowerOnServer](powerOnServer.md) | Powers on the specified server. ||
+|| [RebootServer](rebootServer.md) | Reboots the specified server. ||
+|| [ReinstallServer](reinstallServer.md) | Reinstalls the specified server. ||
+|| [RenewServerRental](renewServerRental.md) | Enable prolongation after rental period end ||
+|| [ListServerOperations](listServerOperations.md) | Lists operations for the specified server. ||
 |#

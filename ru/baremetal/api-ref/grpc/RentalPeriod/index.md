@@ -10,5 +10,5 @@ A set of methods to retrieve information about RentalPeriod resources.
 
 #|
 ||Method | Description ||
-|| [List](list.md) | Retrieves the list of RentalPeriod resources. ||
+|| [ListRentalPeriods](listRentalPeriods.md) | Retrieves the list of RentalPeriod resources. ||
 |#

@@ -1,6 +1,6 @@
 Get the ID of the latest version of the [public](../../compute/operations/images-with-pre-installed-software/get-list.md) {{ coi }}.
 
-A {{ coi }} in [{{ container-registry-name }}](../../container-registry/) may get updates and modifications that come with new releases. This will not automatically update the [VM](../../compute/concepts/vm.md) image to the latest version. To create an [instance group](../../compute/concepts/instance-groups/index.md) with the latest {{ coi }} version, perform an availability check:
+A {{ coi }} in [{{ container-registry-name }}](../../container-registry/) may get updates and modifications that come with new releases. This will not automatically update the [VM](../../compute/concepts/vm.md) image to the latest version. To create an [instance group](../../compute/concepts/instance-groups/index.md) with the latest {{ coi }} version, manually check whether it is available:
 
 {% list tabs group=instructions %}
 
@@ -11,7 +11,7 @@ A {{ coi }} in [{{ container-registry-name }}](../../container-registry/) may ge
   ```
 
   Result:
-
+  
   ```bash
   id: <latest_COI_version_ID>
   folder_id: standard-images

@@ -116,7 +116,7 @@ GET /{bucket}/{key}?uploadId=UploadId HTTP/2
 
 * [Составная (multipart) загрузка](../../../concepts/multipart.md)
 
-* [Составная загрузка объекта](../../../operations/objects/multipart-upload.md)
+* [Загрузить объект составной (multipart) загрузкой](../../../operations/objects/multipart-upload.md)
 
 #### Полезные ссылки {#see-also}
 

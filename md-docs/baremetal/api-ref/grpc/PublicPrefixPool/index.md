@@ -1,13 +1,14 @@
-[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > Справочник API > [gRPC (англ.)](../index.md) > PublicPrefixPool > Overview
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > Справочник API > API v1alpha > [gRPC (англ.)](../index.md) > PublicPrefixPool > Overview
 
 # BareMetal API, gRPC: PublicPrefixPoolService
+
+A set of methods for managing PublicPrefixPool resources.
 
 ## Methods
 
 #|
 ||Method | Description ||
-|| [Get](get.md) | Returns the specified public prefix pool. ||
-|| [List](list.md) | Lists public prefix pools in the specified folder. ||
-|| [Update](update.md) | Updates the specified public prefix pool. ||
-|| [ListOperations](listOperations.md) | Lists operations for the specified public prefix pool. ||
+|| [GetPublicPrefixPool](getPublicPrefixPool.md) | Returns the specified public prefix pool. ||
+|| [ListPublicPrefixPools](listPublicPrefixPools.md) | Lists public prefix pools in the specified folder. ||
+|| [UpdatePublicPrefixPool](updatePublicPrefixPool.md) | Updates the specified public prefix pool. ||
 |#

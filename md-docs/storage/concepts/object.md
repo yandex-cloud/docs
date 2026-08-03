@@ -131,7 +131,7 @@ Object Storage накладывает ограничения на размеры
 
 {% endnote %}
 
-Подробнее в инструкции [Управление пользовательскими метаданными объекта](../operations/objects/object-meta.md).
+Подробнее в инструкции [Управлять пользовательскими метаданными объекта](../operations/objects/object-meta.md).
 
 ## Условия записи (conditional writes) {#conditional-writes}
 

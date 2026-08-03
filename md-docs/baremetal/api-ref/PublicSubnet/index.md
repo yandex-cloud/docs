@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > Справочник API > [REST (англ.)](../index.md) > PublicSubnet > Overview
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > Справочник API > API v1alpha > [REST (англ.)](../index.md) > PublicSubnet > Overview
 
 # BareMetal API, REST: PublicSubnet
 
@@ -8,10 +8,10 @@ A set of methods for managing PublicSubnet resources.
 
 #|
 ||Method | Description ||
-|| [Get](get.md) | Returns the specific PublicSubnet resource. ||
-|| [List](list.md) | Retrieves the list of PublicSubnet resources in the specified folder. ||
-|| [Create](create.md) | Creates a public subnet in the specified folder. ||
-|| [Update](update.md) | Updates the specified public subnet. ||
-|| [Delete](delete.md) | Deletes the specified public subnet. ||
-|| [ListOperations](listOperations.md) | Lists operations for the specified public subnet. ||
+|| [GetPublicSubnet](getPublicSubnet.md) | Returns the specific PublicSubnet resource. ||
+|| [ListPublicSubnets](listPublicSubnets.md) | Retrieves the list of PublicSubnet resources in the specified folder. ||
+|| [CreatePublicSubnet](createPublicSubnet.md) | Creates a public subnet in the specified folder. ||
+|| [UpdatePublicSubnet](updatePublicSubnet.md) | Updates the specified public subnet. ||
+|| [DeletePublicSubnet](deletePublicSubnet.md) | Deletes the specified public subnet. ||
+|| [ListPublicSubnetOperations](listPublicSubnetOperations.md) | Lists operations for the specified public subnet. ||
 |#

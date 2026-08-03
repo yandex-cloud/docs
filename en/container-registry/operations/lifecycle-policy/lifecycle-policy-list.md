@@ -21,8 +21,8 @@ Find out how to get:
 
   {% endnote %}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the [registry](../../concepts/registry.md) was created in.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) with the [registry](../../concepts/registry.md).
+  1. [Navigate]({{ link-console-main }}/link/container-registry) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Select the registry and click the row with its name.
   1. Select the repository and click the row with its name.
   1. In the left-hand panel, click ![lifecycle](../../../_assets/console-icons/arrows-rotate-right.svg) **{{ ui-key.yacloud.cr.registry.label_lifecycle }}**.
@@ -31,7 +31,7 @@ Find out how to get:
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  * Retrieve a list of [lifecycle policies](../../concepts/lifecycle-policy.md) in a repository:
+  * Get a list of [lifecycle policies](../../concepts/lifecycle-policy.md) in a repository:
 
     ```bash
     yc container repository lifecycle-policy list --repository-name crp2hlbs67tj********/ubuntu
@@ -48,7 +48,7 @@ Find out how to get:
     +----------------------+-------------+----------------------+----------+---------------------+-------------------------------+
     ```
 
-  * Retrieve a list of lifecycle policies in a registry:
+  * Get a list of lifecycle policies in a registry:
 
     ```bash
     yc container repository lifecycle-policy list --registry-id crp2hlbs67tj********
@@ -68,7 +68,7 @@ Find out how to get:
 
 - API {#api}
 
-  To retrieve a list of lifecycle policies, use the [List](../../api-ref/grpc/LifecyclePolicy/list.md) method for the [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md) resource.
+  To get a list of lifecycle policies, use the [List](../../api-ref/grpc/LifecyclePolicy/list.md) method for the [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md) resource.
 
 {% endlist %}
 
@@ -78,18 +78,18 @@ Find out how to get:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the registry was created in.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing the registry.
+  1. [Navigate]({{ link-console-main }}/link/container-registry) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Select the registry and click the row with its name.
   1. Select the repository and click the row with its name.
   1. In the left-hand panel, click ![lifecycle](../../../_assets/console-icons/arrows-rotate-right.svg) **{{ ui-key.yacloud.cr.registry.label_lifecycle }}**.
-  1. Click the name of the lifecycle policy you need.
+  1. Click the lifecycle policy name.
 
 - CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  Get detailed information about a lifecycle policy using the `id` from the [previous](#lifecycle-policy-list) item:
+  Get detailed information about a lifecycle policy using `id` from the [previous](#lifecycle-policy-list) step:
 
   ```bash
   yc container repository lifecycle-policy get crp6lg1868p3********
@@ -111,6 +111,6 @@ Find out how to get:
 
   To get detailed information about a lifecycle policy, use the [Get](../../api-ref/grpc/LifecyclePolicy/get.md) method for the [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md) resource. Specify the policy ID in the `lifecycle_policy_id` parameter.
 
-  You can retrieve a list of policies using the [List](../../api-ref/grpc/LifecyclePolicy/list.md) method for the [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md) resource.
+  You can get the list of policies using the [List](../../api-ref/grpc/LifecyclePolicy/list.md) method for the [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md) resource.
 
 {% endlist %}

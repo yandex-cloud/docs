@@ -288,6 +288,17 @@ apiPlayground:
             default: 604800000 (7 days)
             type: string
             format: int64
+          logMessageTimestampType:
+            description: |-
+              **enum** (MessageTimestampType)
+              Define whether the timestamp in the message is message create time or log append time.
+              - `MESSAGE_TIMESTAMP_TYPE_CREATE_TIME`: Message timestamp type is create time.
+              - `MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME`: Message timestamp type is log append time.
+            type: string
+            enum:
+              - MESSAGE_TIMESTAMP_TYPE_UNSPECIFIED
+              - MESSAGE_TIMESTAMP_TYPE_CREATE_TIME
+              - MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME
       KafkaConfig3:
         type: object
         properties:
@@ -454,6 +465,17 @@ apiPlayground:
             default: 604800000 (7 days)
             type: string
             format: int64
+          logMessageTimestampType:
+            description: |-
+              **enum** (MessageTimestampType)
+              Define whether the timestamp in the message is message create time or log append time.
+              - `MESSAGE_TIMESTAMP_TYPE_CREATE_TIME`: Message timestamp type is create time.
+              - `MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME`: Message timestamp type is log append time.
+            type: string
+            enum:
+              - MESSAGE_TIMESTAMP_TYPE_UNSPECIFIED
+              - MESSAGE_TIMESTAMP_TYPE_CREATE_TIME
+              - MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME
       KafkaConfig4:
         type: object
         properties:
@@ -612,6 +634,17 @@ apiPlayground:
             default: 604800000 (7 days)
             type: string
             format: int64
+          logMessageTimestampType:
+            description: |-
+              **enum** (MessageTimestampType)
+              Define whether the timestamp in the message is message create time or log append time.
+              - `MESSAGE_TIMESTAMP_TYPE_CREATE_TIME`: Message timestamp type is create time.
+              - `MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME`: Message timestamp type is log append time.
+            type: string
+            enum:
+              - MESSAGE_TIMESTAMP_TYPE_UNSPECIFIED
+              - MESSAGE_TIMESTAMP_TYPE_CREATE_TIME
+              - MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME
       Kafka:
         type: object
         properties:
@@ -906,7 +939,8 @@ The maximum string length in characters is 50. ||
         "saslEnabledMechanisms": [
           "string"
         ],
-        "transactionalIdExpirationMs": "string"
+        "transactionalIdExpirationMs": "string",
+        "logMessageTimestampType": "string"
       },
       "kafkaConfig_3": {
         "compressionType": "string",
@@ -933,7 +967,8 @@ The maximum string length in characters is 50. ||
         "saslEnabledMechanisms": [
           "string"
         ],
-        "transactionalIdExpirationMs": "string"
+        "transactionalIdExpirationMs": "string",
+        "logMessageTimestampType": "string"
       },
       "kafkaConfig_4": {
         "compressionType": "string",
@@ -959,7 +994,8 @@ The maximum string length in characters is 50. ||
         "saslEnabledMechanisms": [
           "string"
         ],
-        "transactionalIdExpirationMs": "string"
+        "transactionalIdExpirationMs": "string",
+        "logMessageTimestampType": "string"
       }
       // end of the list of possible fields
     },
@@ -1261,6 +1297,12 @@ The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512
 || transactionalIdExpirationMs | **string** (int64)
 
 Timeout for transactional ids to expire in ms. Default: 604800000 (7 days). ||
+|| logMessageTimestampType | **enum** (MessageTimestampType)
+
+Define whether the timestamp in the message is message create time or log append time.
+
+- `MESSAGE_TIMESTAMP_TYPE_CREATE_TIME`: Message timestamp type is create time.
+- `MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME`: Message timestamp type is log append time. ||
 |#
 
 ## KafkaConfig3 {#yandex.cloud.mdb.kafka.v1.KafkaConfig3}
@@ -1354,6 +1396,12 @@ The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512
 || transactionalIdExpirationMs | **string** (int64)
 
 Timeout for transactional ids to expire in ms. Default: 604800000 (7 days). ||
+|| logMessageTimestampType | **enum** (MessageTimestampType)
+
+Define whether the timestamp in the message is message create time or log append time.
+
+- `MESSAGE_TIMESTAMP_TYPE_CREATE_TIME`: Message timestamp type is create time.
+- `MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME`: Message timestamp type is log append time. ||
 |#
 
 ## KafkaConfig4 {#yandex.cloud.mdb.kafka.v1.KafkaConfig4}
@@ -1442,6 +1490,12 @@ The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512
 || transactionalIdExpirationMs | **string** (int64)
 
 Timeout for transactional ids to expire in ms. Default: 604800000 (7 days). ||
+|| logMessageTimestampType | **enum** (MessageTimestampType)
+
+Define whether the timestamp in the message is message create time or log append time.
+
+- `MESSAGE_TIMESTAMP_TYPE_CREATE_TIME`: Message timestamp type is create time.
+- `MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME`: Message timestamp type is log append time. ||
 |#
 
 ## Zookeeper {#yandex.cloud.mdb.kafka.v1.ConfigSpec.Zookeeper}

@@ -1,6 +1,6 @@
 ---
 title: How to get information about a registry access policy in {{ container-registry-full-name }}
-description: Follow this guide to get information about registry access policies.
+description: Follow this guide to get information about a registry access policy.
 ---
 
 # Getting information about a registry access policy
@@ -10,7 +10,7 @@ description: Follow this guide to get information about registry access policies
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the registry.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. [Navigate]({{ link-console-main }}/link/container-registry) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/tray.svg) **{{ ui-key.yacloud.cr.switch_registry }}**.
   1. Select the registry.
   1. The **{{ ui-key.yacloud.cr.registry.label_ip-permissions }}** page will show the registry access policy details.
@@ -21,9 +21,9 @@ description: Follow this guide to get information about registry access policies
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  To find out a registry ID or name, [get](registry-list.md) a list of registries in the folder.
+  To find out the registry ID or name, [get](registry-list.md) a list of registries in the folder.
   
-  Get formation about a registry access policy:
+  Get formation about the registry access policy:
 
   ```bash
   yc container registry list-ip-permissions <registry_name>

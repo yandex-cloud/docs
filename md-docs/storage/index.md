@@ -76,39 +76,39 @@
 
 ### Объекты
 
- - [Загрузка объекта](operations/objects/upload.md)
+ - [Загрузить объект](operations/objects/upload.md)
 
- - [Составная загрузка объекта](operations/objects/multipart-upload.md)
+ - [Загрузить объект составной (multipart) загрузкой](operations/objects/multipart-upload.md)
 
- - [Получение списка объектов в бакете](operations/objects/list.md)
+ - [Получить список объектов в бакете](operations/objects/list.md)
 
- - [Получение информации об объекте](operations/objects/info.md)
+ - [Получить информацию об объекте](operations/objects/info.md)
 
- - [Скачивание объекта](operations/objects/download.md)
+ - [Скачать объект](operations/objects/download.md)
 
- - [Восстановление версии объекта](operations/objects/restore-object-version.md)
+ - [Восстановить версию объекта](operations/objects/restore-object-version.md)
 
- - [Переименование и перемещение объекта](operations/objects/rename-move.md)
+ - [Переименовать и переместить объект](operations/objects/rename-move.md)
 
- - [Копирование объектов](operations/objects/copy.md)
+ - [Скопировать объект](operations/objects/copy.md)
 
- - [Скачивание объекта по подписанной ссылке (pre-signed URL)](operations/objects/link-for-download.md)
+ - [Скачать объект по подписанной ссылке (pre-signed URL)](operations/objects/link-for-download.md)
 
- - [Загрузка объекта по подписанной ссылке (pre-signed URL)](operations/objects/link-for-upload.md)
+ - [Загрузить объект по подписанной ссылке (pre-signed URL)](operations/objects/link-for-upload.md)
 
- - [Настройка блокировок версии объекта](operations/objects/edit-object-lock.md)
+ - [Блокировать версии объекта](operations/objects/edit-object-lock.md)
 
- - [Удаление объекта](operations/objects/delete.md)
+ - [Удалить объект](operations/objects/delete.md)
 
- - [Удаление всех объектов](operations/objects/delete-all.md)
+ - [Удалить все объекты](operations/objects/delete-all.md)
 
- - [Удаление частично загруженного объекта](operations/objects/deleting-multipart.md)
+ - [Удалить частично загруженный объект](operations/objects/deleting-multipart.md)
 
- - [Редактирование ACL объекта](operations/objects/edit-acl.md)
+ - [Редактировать ACL объекта](operations/objects/edit-acl.md)
 
- - [Управление метками объекта](operations/objects/tagging.md)
+ - [Управлять метками объекта](operations/objects/tagging.md)
 
- - [Управление пользовательскими метаданными объекта](operations/objects/object-meta.md)
+ - [Управлять пользовательскими метаданными объекта](operations/objects/object-meta.md)
 
 ### Хостинг статических сайтов
 

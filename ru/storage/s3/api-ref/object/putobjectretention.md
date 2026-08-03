@@ -69,6 +69,6 @@ PUT /{bucket}/{key}?retention&versionId={versionId} HTTP/2
 
 * [{#T}](../../../concepts/object-lock.md)
 
-* [Настройка блокировок версии объекта](../../../operations/objects/edit-object-lock.md)
+* [{#T}](../../../operations/objects/edit-object-lock.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

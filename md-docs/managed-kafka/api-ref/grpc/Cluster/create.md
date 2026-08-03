@@ -51,7 +51,8 @@ Creates a new Apache Kafka® cluster in the specified folder.
         "sasl_enabled_mechanisms": [
           "SaslMechanism"
         ],
-        "transactional_id_expiration_ms": "google.protobuf.Int64Value"
+        "transactional_id_expiration_ms": "google.protobuf.Int64Value",
+        "log_message_timestamp_type": "MessageTimestampType"
       },
       "kafka_config_3": {
         "compression_type": "CompressionType",
@@ -78,7 +79,8 @@ Creates a new Apache Kafka® cluster in the specified folder.
         "sasl_enabled_mechanisms": [
           "SaslMechanism"
         ],
-        "transactional_id_expiration_ms": "google.protobuf.Int64Value"
+        "transactional_id_expiration_ms": "google.protobuf.Int64Value",
+        "log_message_timestamp_type": "MessageTimestampType"
       },
       "kafka_config_4": {
         "compression_type": "CompressionType",
@@ -104,7 +106,8 @@ Creates a new Apache Kafka® cluster in the specified folder.
         "sasl_enabled_mechanisms": [
           "SaslMechanism"
         ],
-        "transactional_id_expiration_ms": "google.protobuf.Int64Value"
+        "transactional_id_expiration_ms": "google.protobuf.Int64Value",
+        "log_message_timestamp_type": "MessageTimestampType"
       }
       // end of the list of possible fields
     },
@@ -492,6 +495,12 @@ The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512
 || transactional_id_expiration_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Timeout for transactional ids to expire in ms. Default: 604800000 (7 days). ||
+|| log_message_timestamp_type | enum **MessageTimestampType**
+
+Define whether the timestamp in the message is message create time or log append time.
+
+- `MESSAGE_TIMESTAMP_TYPE_CREATE_TIME`: Message timestamp type is create time.
+- `MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME`: Message timestamp type is log append time. ||
 |#
 
 ## KafkaConfig3 {#yandex.cloud.mdb.kafka.v1.KafkaConfig3}
@@ -585,6 +594,12 @@ The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512
 || transactional_id_expiration_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Timeout for transactional ids to expire in ms. Default: 604800000 (7 days). ||
+|| log_message_timestamp_type | enum **MessageTimestampType**
+
+Define whether the timestamp in the message is message create time or log append time.
+
+- `MESSAGE_TIMESTAMP_TYPE_CREATE_TIME`: Message timestamp type is create time.
+- `MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME`: Message timestamp type is log append time. ||
 |#
 
 ## KafkaConfig4 {#yandex.cloud.mdb.kafka.v1.KafkaConfig4}
@@ -673,6 +688,12 @@ The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512
 || transactional_id_expiration_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Timeout for transactional ids to expire in ms. Default: 604800000 (7 days). ||
+|| log_message_timestamp_type | enum **MessageTimestampType**
+
+Define whether the timestamp in the message is message create time or log append time.
+
+- `MESSAGE_TIMESTAMP_TYPE_CREATE_TIME`: Message timestamp type is create time.
+- `MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME`: Message timestamp type is log append time. ||
 |#
 
 ## Zookeeper {#yandex.cloud.mdb.kafka.v1.ConfigSpec.Zookeeper}

@@ -278,8 +278,8 @@ signature = Hex(sign(SigningKey, StringToSign))
 В подразделе приведены примеры кода для генерации подписанных URL.
 
 Чтобы показать принцип формирования и подписи запросов к Object Storage, в этих примерах не используются [AWS SDK](../tools/sdk/index.md). Примеры с использованием Yandex Cloud CLI, AWS CLI и AWS SDK смотрите на страницах:
-* [Получение подписанной ссылки (pre-signed URL) на скачивание объекта](../operations/objects/link-for-download.md)
-* [Получение подписанной ссылки (pre-signed URL) на загрузку объекта](../operations/objects/link-for-upload.md)
+* [Получить подписанную ссылку (pre-signed URL) на скачивание объекта](../operations/objects/link-for-download.md)
+* [Получить подписанную ссылку (pre-signed URL) на загрузку объекта](../operations/objects/link-for-upload.md)
 
 {% list tabs %}
 

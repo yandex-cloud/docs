@@ -1,6 +1,6 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Пошаговые инструкции](../index.md) > Объекты > Копирование объектов
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Пошаговые инструкции](../index.md) > Объекты > Скопировать объект
 
-# Копирование объектов
+# Скопировать объект
 
 В Object Storage поддерживается копирование объектов на стороне сервера (_Server Side Copy_). 
 

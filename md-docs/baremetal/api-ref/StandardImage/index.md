@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > Справочник API > [REST (англ.)](../index.md) > StandardImage > Overview
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > Справочник API > API v1alpha > [REST (англ.)](../index.md) > StandardImage > Overview
 
 # BareMetal API, REST: StandardImage
 

@@ -65,6 +65,22 @@
 
     Полное описание настройки приведено в [документации {{ KF }}](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.flush.scheduler.interval.ms).
 
+* **Log message timestamp type** {{ tag-all }} {#settings-log-message-timestamp-type}
+
+    Тип временной метки, добавляемой к сообщениям топика:
+
+    #|
+    || **Консоль управления, {{ TF }} и API**     | **CLI**              | **Описание**  ||
+    || `MESSAGE_TIMESTAMP_TYPE_CREATE_TIME`    | `create-time`     | Время создания сообщения [производителем](../../../managed-kafka/concepts/producers-consumers.md) ||
+    || `MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME`| `log-append-time` | Время добавления сообщения в лог брокером ||
+    |#
+
+    Если пользователь не задал значение настройки явно, то {{ KF }} использует время создания сообщения производителем (`MESSAGE_TIMESTAMP_TYPE_CREATE_TIME`).
+
+    Это глобальная настройка, которая задается на уровне кластера. Ее можно переопределить на [уровне топика](#settings-topic-message-timestamp-type).
+
+    Полное описание настройки приведено в [документации {{ KF }}](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.message.timestamp.type).
+
 * **Log preallocate** {{ tag-all }} {#settings-log-preallocate}
 
     Определяет, будет ли заранее выделяться место под файлы сегментов лога.
