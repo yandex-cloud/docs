@@ -144,17 +144,6 @@
 
 Подробнее про ошибки сканирования на странице [Диагностика ошибок в работе модуля контроля данных (DSPM)](../../../security-deck/diagnostics/dspm-diagnostics.md).
 
-[*bucket-object-key]: [Ключ объекта](../../concepts/object.md#key) — это полное имя файла внутри бакета, часто записанное как путь в файловой системе.
+[*bucket-object-key]: [Ключ объекта](../../concepts/object.md#key) — это полное имя файла внутри бакета, часто записанное как путь в файловой системе. Примеры ключей: `docs/reports/2026/april.pdf`, `photos/trips/paris/img001.jpg`.
 
-Примеры ключей:
-
-* `docs/reports/2026/april.pdf`
-*  `photos/trips/paris/img001.jpg`
-
-[*bucket-object-prefix]: [Префикс](../../concepts/object.md#folder) — это начальная часть ключа, которую интерфейс показывает как папку.
-
-Примеры префиксов:
-
-* `photos/`
-* `photos/trips/`
-* `photos/trips/paris/`
+[*bucket-object-prefix]: [Префикс](../../concepts/object.md#folder) — это начальная часть ключа, которую интерфейс показывает как папку. Примеры префиксов: `photos/`, `photos/trips/`, `photos/trips/paris/`.

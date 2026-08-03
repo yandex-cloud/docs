@@ -179,6 +179,7 @@
         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `YDB`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.title }}**:
 
+            * **Тип подключения** — выберите `База {{ ydb-name }}`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.connection.title }}**:
                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}** — выберите [созданную ранее](#before-you-begin) базу данных {{ ydb-name }} из списка.
 
@@ -432,7 +433,7 @@
     1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
 
     
-    1. Если при создании эндпоинта для источника вы создавали сервисный аккаунт, [удалите его](../../iam/operations/sa/delete.md).
+    1. [Удалите сервисный аккаунт](../../iam/operations/sa/delete.md).
 
 
     1. [Удалите кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).

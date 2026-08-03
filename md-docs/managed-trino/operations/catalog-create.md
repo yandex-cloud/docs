@@ -1660,6 +1660,14 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
 
 ### Коннектор Hive {#hive}
 
+{% note info %}
+
+В каталогах с Hive-коннектором Managed Service for Trino переопределяет значение параметра [`hive.hive-views.run-as-invoker`](https://trino.io/docs/current/connector/hive.html#hive-views) по умолчанию с `false` на `true`. При таком значении авторизация доступа к данным Hive-представлений (`VIEW`) выполняется от имени пользователя, выполняющего запрос, а не от имени пользователя, который создал представление. Это позволяет корректно применять правила [управления доступом](../concepts/access-control.md) с учетом IAM-групп пользователя, выполняющего запрос.
+
+Если в дополнительных настройках каталога значение параметра `hive.hive-views.run-as-invoker` задано явно, оно не переопределяется.
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

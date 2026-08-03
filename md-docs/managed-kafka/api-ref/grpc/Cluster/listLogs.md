@@ -22,7 +22,8 @@ For more information about logs, see the [Logs](../../../operations/cluster-logs
   "page_size": "int64",
   "page_token": "string",
   "always_next_page_token": "bool",
-  "filter": "string"
+  "filter": "string",
+  "order_by": "string"
 }
 ```
 
@@ -70,6 +71,11 @@ The expression must specify:
 Example of a filter: `message.hostname='node1.db.cloud.yandex.net'`
 
 The maximum string length in characters is 1000. ||
+|| order_by | **string**
+
+Order by specification as a JSON array of {field, order} objects.
+Supported fields: TIMESTAMP. Supported orders: ASC, DESC.
+Example: [{"field": "TIMESTAMP", "order": "DESC"}] ||
 |#
 
 ## ListClusterLogsResponse {#yandex.cloud.mdb.kafka.v1.ListClusterLogsResponse}

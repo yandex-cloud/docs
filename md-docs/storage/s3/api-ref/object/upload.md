@@ -89,7 +89,7 @@ X-Amz-Grant-Read: uri="http://acs.amazonaws.com/groups/s3/AuthenticatedUsers"
 
 * [Объект](../../../concepts/object.md)
 
-* [Загрузка объекта](../../../operations/objects/upload.md)
+* [Загрузить объект](../../../operations/objects/upload.md)
 
 #### Полезные ссылки {#see-also}
 

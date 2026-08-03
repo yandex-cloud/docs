@@ -54,7 +54,7 @@ DELETE /{bucket}/{key}?uploadId=UploadId HTTP/2
 
 * [Составная (multipart) загрузка](../../../concepts/multipart.md)
 
-* [Удаление частично загруженного объекта](../../../operations/objects/deleting-multipart.md)
+* [Удалить частично загруженный объект](../../../operations/objects/deleting-multipart.md)
 
 #### Полезные ссылки {#see-also}
 

@@ -54,6 +54,9 @@ The maximum string length in characters is 100. ||
       "health": "string",
       "status": "string",
       "clusterId": "string",
+      "placement": {
+        "dedicated": "boolean"
+      },
       // Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`, `connectorConfigIcebergSink`
       "connectorConfigMirrormaker": {
         "sourceCluster": {
@@ -191,6 +194,9 @@ Current status of the connector.
 || clusterId | **string**
 
 ID of the Apache Kafka® cluster that the connector belongs to. ||
+|| placement | **[ConnectorPlacement](#yandex.cloud.mdb.kafka.v1.ConnectorPlacement)**
+
+Placement of the connector workers. ||
 || connectorConfigMirrormaker | **[ConnectorConfigMirrorMaker](#yandex.cloud.mdb.kafka.v1.ConnectorConfigMirrorMaker)**
 
 Configuration of the MirrorMaker connector.
@@ -212,6 +218,18 @@ Configuration of Iceberg Sink connector.
 Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`, `connectorConfigIcebergSink`.
 
 Additional settings for the connector. ||
+|#
+
+## ConnectorPlacement {#yandex.cloud.mdb.kafka.v1.ConnectorPlacement}
+
+Connector worker placement.
+By default, workers run on Kafka broker hosts.
+
+#|
+||Field | Description ||
+|| dedicated | **boolean**
+
+Run workers on dedicated nodes instead of broker hosts. ||
 |#
 
 ## ConnectorConfigMirrorMaker {#yandex.cloud.mdb.kafka.v1.ConnectorConfigMirrorMaker}

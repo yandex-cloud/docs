@@ -1,6 +1,6 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Пошаговые инструкции](../index.md) > Объекты > Получение информации об объекте
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Пошаговые инструкции](../index.md) > Объекты > Получить информацию об объекте
 
-# Получение информации об объекте
+# Получить информацию об объекте
 
 {% list tabs group=instructions %}
 

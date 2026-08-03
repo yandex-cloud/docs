@@ -1,6 +1,6 @@
 ---
 title: Getting started with {{ container-registry-name }}
-description: Use this guide to create your first {{ container-registry-name }} registry and try your hand at managing Docker images.
+description: Use this guide to create your first registry in {{ container-registry-name }} and try your hand at managing Docker images.
 ---
 
 # Getting started with {{ container-registry-name }}
@@ -9,13 +9,13 @@ Use this guide to create your first [registry](../concepts/registry.md) and try 
 
 ## Getting started {#before-you-begin}
 
-To create a registry, you will need a folder in {{ yandex-cloud }}. If you do not have any folders yet, create one before creating a registry:
+To create a registry, you will need a folder in {{ yandex-cloud }}. If you do not have a folder yet, create one before creating a registry:
 
 {% include [create-folder](../../_includes/create-folder.md) %}
 
 To work with {{ container-registry-name }} and Docker images, [install the {{ yandex-cloud }} CLI](../../cli/operations/install-cli.md) and [configure](../operations/configure-docker.md) Docker.
 
-## Creating a registry and performing basic operations on Docker images {#registry-create}
+## Creating a registry and performing basic Docker image operations {#registry-create}
 
 1. Create a registry in {{ container-registry-name }}:
 
@@ -34,7 +34,7 @@ To work with {{ container-registry-name }} and Docker images, [install the {{ ya
    created_at: "2018-12-25T12:24:56.286Z"
    ```
 
-   You will use the received `ID` to access the created registry later.
+   You will use the returned `ID` to access the created registry later.
 1. Authenticate to {{ container-registry-name }} via a [Docker Credential helper](../operations/authentication.md#cred-helper):
    1. Configure Docker to use `docker-credential-yc`:
 
@@ -48,11 +48,10 @@ To work with {{ container-registry-name }} and Docker images, [install the {{ ya
       Credential helper is configured in '/home/<user>/.docker/config.json'
       ```
 
-      During setup, information about the current user profile is saved.
+      The current user profile information is saved during configuration.
 
       {% include [credential-helper](../../_includes/credential-helper.md) %}
-
-   1. Make sure Docker is configured.
+   1. Make sure Docker is now configured.
 
       The `/home/<user>/.docker/config.json` configuration file should now contain this line:
 
@@ -60,7 +59,7 @@ To work with {{ container-registry-name }} and Docker images, [install the {{ ya
       "{{ registry }}": "yc"
       ```
 
-1. Pull a Docker image from [Docker Hub](https://hub.docker.com):
+1. Pull a Docker image from the [Docker Hub](https://hub.docker.com) repository:
 
    ```bash
    docker pull ubuntu
@@ -73,7 +72,7 @@ To work with {{ container-registry-name }} and Docker images, [install the {{ ya
    {{ registry }}/<registry_ID>/ubuntu:hello
    ```
 
-1. Push the Docker image to the repository {{ container-registry-name }}:
+1. Push the Docker image to the {{ container-registry-name }} repository:
 
    ```bash
    docker push \
@@ -89,9 +88,9 @@ To work with {{ container-registry-name }} and Docker images, [install the {{ ya
 
 #### See also {#see-also}
 
-* [Creating a registry](../operations/registry/registry-create.md).
-* [Authentication in {{ container-registry-name }}](../operations/authentication.md).
-* [Creating a Docker image](../operations/docker-image/docker-image-create.md).
-* [Pushing a Docker image](../operations/docker-image/docker-image-push.md).
-* [Pulling a Docker image](../operations/docker-image/docker-image-pull.md).
-* [Running a Docker image on a VM](../tutorials/index.md).
+* [Creating a registry](../operations/registry/registry-create.md)
+* [{{ container-registry-name }} authentication](../operations/authentication.md)
+* [Creating a Docker image](../operations/docker-image/docker-image-create.md)
+* [Pushing a Docker image](../operations/docker-image/docker-image-push.md)
+* [Pulling a Docker image](../operations/docker-image/docker-image-pull.md)
+* [Running a Docker image on a VM](../tutorials/index.md)

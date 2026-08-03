@@ -5,6 +5,181 @@ description: В разделе представлена история изме�
 
 # История изменений в {{ at-full-name }}
 
+## Июль 2026 {#jul-2026}
+
+Добавлены новые события для сервисов:
+
+  {% cut "{{ sw-full-name }}" %}
+
+  [События уровня сервисов](./concepts/format-data-plane.md):
+
+  Событие | Описание
+  --- | ---
+  `ExecutionFinished` | Завершение выполнения запуска рабочего процесса
+  `StartExecution` | Запуск рабочего процесса
+  `StopExecution` | Остановка запуска рабочего процесса
+  `TerminateExecution` | Прекращение запуска рабочего процесса
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `CreateWorkflow` | Создание рабочего процесса
+  `DeleteWorkflow` | Удаление рабочего процесса
+  `SetWorkflowAccessBindings` | Назначение прав доступа к рабочему процессу
+  `UpdateWorkflow` | Изменение рабочего процесса
+  `UpdateWorkflowAccessBindings` | Изменение прав доступа к рабочему процессу
+
+  {% endcut %}
+
+  {% cut "{{ maf-full-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `SetClusterAccessBindings` | Назначение прав доступа к кластеру
+  `UpdateClusterAccessBindings` | Изменение прав доступа к кластеру
+
+  {% endcut %}
+
+  {% cut "{{ dataproc-full-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `SetClusterAccessBindings` | Назначение прав доступа к кластеру
+  `UpdateClusterAccessBindings` | Изменение прав доступа к кластеру
+
+  {% endcut %}
+
+  {% cut "{{ metastore-full-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `SetClusterAccessBindings` | Назначение прав доступа к кластеру
+  `UpdateClusterAccessBindings` | Изменение прав доступа к кластеру
+
+  {% endcut %}
+
+  {% cut "{{ cns-full-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `CreateTopic` | Создание топика
+  `DeleteTopic` | Удаление топика
+  `UpdateTopic` | Изменение топика
+
+  {% endcut %}
+
+  {% cut "{{ org-full-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `policy.ActivateAuthenticationPolicyRule` | Активация правила политики аутентификации
+  `policy.CreateAuthenticationPolicyRule` | Создание правила политики аутентификации
+  `policy.DeactivateAuthenticationPolicyRule` | Деактивация правила политики аутентификации
+  `policy.DeleteAuthenticationPolicyRule` | Удаление правила политики аутентификации
+  `policy.UpdateAuthenticationPolicyRule` | Изменение правила политики аутентификации
+
+  {% endcut %}
+
+  {% cut "{{ msp-full-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `SetClusterAccessBindings` | Назначение прав доступа к кластеру
+  `UpdateClusterAccessBindings` | Изменение прав доступа к кластеру
+
+  {% endcut %}
+
+  {% cut "{{ mtr-full-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `SetClusterAccessBindings` | Назначение прав доступа к кластеру
+  `UpdateClusterAccessBindings` | Изменение прав доступа к кластеру
+
+  {% endcut %}
+
+  {% cut "{{ video-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `InitializeChannelAdminChat` | Инициализация чата администраторов канала
+  `InitializeEpisodeChat` | Инициализация чата эпизода
+  `RenewVideoSource` | Обновление источника видео
+  `ResetChannelAdminChat` | Сброс чата администраторов канала
+  `ResyncEpisodeChatAdmins` | Синхронизация администраторов чата эпизода
+
+  {% endcut %}
+
+  {% cut "{{ lockbox-full-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `SetCurrentVersion` | Назначение текущей версии секрета
+
+  {% endcut %}
+
+  {% cut "{{ mkf-full-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `RescheduleMaintenance` | Перенос запланированного технического обслуживания
+
+  {% endcut %}
+
+  {% cut "{{ cloud-registry-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `CreateLifecyclePolicy` | Создание [политики жизненного цикла](../cloud-registry/concepts/lifecycle-policy.md)
+  `DeleteLifecyclePolicy` | Удаление политики жизненного цикла
+  `UpdateLifecyclePolicy` | Изменение политики жизненного цикла
+
+  {% endcut %}
+
+  {% cut "{{ objstorage-full-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `BucketInventoryConfigurationDelete` | Удаление конфигурации S3 Inventory бакета
+  `BucketInventoryConfigurationUpdate` | Изменение конфигурации S3 Inventory бакета
+
+  {% endcut %}
+
+  {% cut "{{ sd-name }}" %}
+
+  [События уровня сервисов](./concepts/format-data-plane.md):
+
+  Событие | Описание
+  --- | ---
+  `AddCluster` | Добавление кластера
+  `DeleteCluster` | Удаление кластера
+
+  {% endcut %}
 
 ## II квартал 2026 {#q2-2026}
 
