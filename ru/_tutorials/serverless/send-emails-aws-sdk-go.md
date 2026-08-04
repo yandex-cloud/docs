@@ -175,7 +175,7 @@
       1. {% include [edit-main-go](../../_includes/postbox/send-emails-aws-sdk/edit-main-go.md) %}
       1. Создайте файл `go.mod` и вставьте в него код:
 
-          ```goalng
+          ```go
           module postbox
 
           go 1.23

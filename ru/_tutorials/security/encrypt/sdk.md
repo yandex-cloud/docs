@@ -139,7 +139,7 @@ SDK {{ yandex-cloud }} наиболее удобен для шифрования
 
 - Java {#java}
 
-    ```Java
+    ```java
     SymmetricCryptoServiceBlockingStub symmetricCryptoService = ServiceFactory.builder()
         .endpoint(endpoint)
         .credentialProvider(credentialProvider)
