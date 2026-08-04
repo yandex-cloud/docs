@@ -115,7 +115,7 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В списке групп рабочих рабочих столов выберите созданную ранее группу.
+  1. В списке групп рабочих столов выберите созданную ранее группу.
   1. На панели слева выберите ![persons](../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.label_access-rights }}**.
   1. Нажмите **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
   1. В открывшемся окне **{{ ui-key.yacloud_components.acl.label.title }}** выберите группу пользователей, созданную ранее.
