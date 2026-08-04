@@ -198,4 +198,3 @@
 1. [Кластер {{ msp-name }}](../../../managed-spark/operations/cluster-delete.md).
 1. [NAT-шлюз](../../../vpc/operations/delete-nat-gateway.md#delete-nat-gateway).
 
-{% endlist %}
