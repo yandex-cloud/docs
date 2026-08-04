@@ -20,7 +20,7 @@
    * В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите, какую систему развернуть на загрузочном [диске](../../compute/concepts/disk.md) ВМ.
 
    * В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:
-     * Выберите [тип диска](../../compute/concepts/disk.md#disks_types).
+     * Выберите [тип диска](../../compute/concepts/disk.md#disks-types).
      * Укажите размер диска.
      * Чтобы добавить дополнительные диски, нажмите **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
    * В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:

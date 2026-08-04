@@ -9,7 +9,7 @@
 1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
 1. (Опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** настройте загрузочный [диск](../../../compute/concepts/disk.md):
 
-    * Выберите [тип диска](../../../compute/concepts/disk.md#disks_types).
+    * Выберите [тип диска](../../../compute/concepts/disk.md#disks-types).
     * Задайте нужный размер диска.
     * {% include [encryption-section-secondary](../encryption-section-secondary.md) %}
 
