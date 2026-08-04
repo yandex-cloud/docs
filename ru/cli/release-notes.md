@@ -2751,7 +2751,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 ##### {{ cloud-desktop-name }} {#cloud-desktop}
 
-* В команду `yc desktops desktop` добавлен параметр `user-account-id`. Удален праметр `subject`.
+* В команду `yc desktops desktop` добавлен параметр `user-account-id`. Удален параметр `subject`.
 * Добавлена команда `yc desktops image` для управления образами рабочих столов.
 
 ##### {{ container-registry-name }} {#container-registry}
