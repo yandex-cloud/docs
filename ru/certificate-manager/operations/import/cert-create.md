@@ -20,7 +20,7 @@
 
 - PowerShell {#powershell}
 
-  ```PowerShell
+  ```powershell
   openssl req -x509 -newkey rsa:4096 -nodes `
     -keyout key.pem `
     -out cert.pem `
