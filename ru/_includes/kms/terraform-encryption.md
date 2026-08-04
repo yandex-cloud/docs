@@ -82,5 +82,3 @@
    "strong password"
    ```
 
-   {% endnote %}
-

@@ -105,8 +105,6 @@
 
     {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
 
-{% endlist %}
-
 ## Подготовка кластера-источника {#prepare}
 
 1. [Подключитесь к базе данных](../../../managed-mysql/operations/connect/index.md) `db1` кластера {{ mmy-full-name }} от имени пользователя `user1`.
