@@ -64,7 +64,7 @@ description: Следуя данной инструкции, вы сможете
 
    {% note info %}
 
-   Не путайте [классы хранилищ {{ k8s }}](manage-storage-class.md) и [типы дисков {{ compute-full-name }}](../../../compute/concepts/disk.md#disks_types).
+   Не путайте [классы хранилищ {{ k8s }}](manage-storage-class.md) и [типы дисков {{ compute-full-name }}](../../../compute/concepts/disk.md#disks-types).
 
    {% endnote %}
 
