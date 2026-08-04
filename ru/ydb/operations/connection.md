@@ -86,7 +86,7 @@
 
 * [IAM-токен](../../iam/concepts/authorization/iam-token.md) — рекомендуется для выполнения разовых операций от имени [аккаунта в {{ yandex-cloud }}](../../iam/concepts/users/accounts.md#passport) или [федеративного аккаунта](../../iam/concepts/users/accounts.md#saml-federation). Время жизни токена не более 12 часов.
 * [Авторизованный ключ доступа](../../iam/concepts/authorization/key.md) — рекомендуется для выполнения команд {{ ydb-short-name }} CLI снаружи {{ yandex-cloud }} от имени [сервисного аккаунта](../../iam/concepts/index#sa).
-* [Сервис метаданных](../../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm.md) — наиболее безопасный и производительный режим. Применяется при выполнении команд на виртуальных машинах внутри {{ yandex-cloud }}. Также поддерживается сервисом [{{ sf-full-name }}](../../functions/).
+* [Сервис метаданных](../../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm) — наиболее безопасный и производительный режим. Применяется при выполнении команд на виртуальных машинах внутри {{ yandex-cloud }}. Также поддерживается сервисом [{{ sf-full-name }}](../../functions/).
 
 Настройте выбранный режим:
 
