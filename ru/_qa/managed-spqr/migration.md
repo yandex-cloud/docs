@@ -88,7 +88,7 @@ ALTER DISTRIBUTION <имя_правила_шардирования> ADD DEFAULT 
 ALTER TABLE ... /* __spqr__multishard_ddl: true */;
 ```
 
-{% note warning}
+{% note warning %}
 
 Действие не транзакционно. Переименование таблиц требует осторожности.
 

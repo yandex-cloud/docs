@@ -23,7 +23,7 @@
   1. (Опционально) Добавьте метки для воркера.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** выберите конфигурацию вычислительных ресурсов.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** настройте загрузочный диск:
-      * Выберите [тип диска](../../compute/concepts/disk.md#disks_types).
+      * Выберите [тип диска](../../compute/concepts/disk.md#disks-types).
       * Задайте размер диска.
   1. (Опционально) Выберите или создайте сервисный аккаунт для воркера.
 

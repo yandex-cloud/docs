@@ -71,7 +71,7 @@ description: Следуя данной инструкции, вы сможете
      * `--core-fraction` — [гарантированная доля vCPU](../../../compute/concepts/performance-levels.md) для узлов {{ managed-k8s-name }}.
      * `--daily-maintenance-window` — начало и длительность интервала времени в UTC, в течение которого запустится [обновление](../../concepts/release-channels-and-updates.md#updates). Параметр не связан с длительностью самого обновления и временем его окончания.
      * `--disk-size` — [размер диска](../../../compute/concepts/disk.md#maximum-disk-size) узла {{ managed-k8s-name }}.
-     * `--disk-type` — [тип диска](../../../compute/concepts/disk.md#disks_types) узла {{ managed-k8s-name }}: `network-nvme` или `network-hdd`.
+     * `--disk-type` — [тип диска](../../../compute/concepts/disk.md#disks-types) узла {{ managed-k8s-name }}: `network-nvme` или `network-hdd`.
      * Тип масштабирования:
 
        * `--fixed-size` — фиксированное количество узлов в группе узлов {{ managed-k8s-name }}.
@@ -416,7 +416,7 @@ description: Следуя данной инструкции, вы сможете
 
     {% include [public-ip](../../../_includes/managed-kubernetes/public-ip.md) %}
 
-  * Чтобы узлы использовали [нереплицируемые диски](../../../compute/concepts/disk.md#disks_types), передайте значение `network-ssd-nonreplicated` для параметра `nodeTemplate.bootDiskSpec.diskTypeId`.
+  * Чтобы узлы использовали [нереплицируемые диски](../../../compute/concepts/disk.md#disks-types), передайте значение `network-ssd-nonreplicated` для параметра `nodeTemplate.bootDiskSpec.diskTypeId`.
 
     Размер нереплицируемых дисков можно менять только с шагом 93 ГБ. Максимальный размер такого диска — 4 ТБ.
 
@@ -479,7 +479,7 @@ description: Следуя данной инструкции, вы сможете
 * Количество vCPU для узлов — два.
 * [Гарантированная доля vCPU](../../../compute/concepts/performance-levels.md) — 50%.
 * [Размер диска](../../../compute/concepts/disk.md#maximum-disk-size) — 64 ГБ.
-* [Тип диска](../../../compute/concepts/disk.md#disks_types) — `network-ssd`.
+* [Тип диска](../../../compute/concepts/disk.md#disks-types) — `network-ssd`.
 * Количество узлов — один.
 * [Политика развертывания](../../concepts/node-group/deploy-policy.md):
     * Максимальное количество узлов, на которое можно расширить группу при ее изменении или обновлении — `3`.

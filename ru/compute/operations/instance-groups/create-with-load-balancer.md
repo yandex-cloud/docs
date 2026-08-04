@@ -43,7 +43,7 @@ description: Следуя данной инструкции, вы сможете
      * В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** введите описание [шаблона](../../concepts/instance-groups/instance-template.md).
      * В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите, какую систему развернуть на загрузочном [диске](../../concepts/disk.md) ВМ.
      * В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:
-       * Выберите [тип диска](../../../compute/concepts/disk.md#disks_types).
+       * Выберите [тип диска](../../../compute/concepts/disk.md#disks-types).
        * Укажите размер диска.
        * Чтобы добавить дополнительные диски, нажмите **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
      * В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
@@ -164,7 +164,7 @@ description: Следуя данной инструкции, вы сможете
            * `READ_ONLY` — доступ на чтение.
            * `READ_WRITE` — доступ на чтение и запись.
          * `image_id` — идентификатор публичного образа. Идентификаторы образа можно посмотреть в [консоли управления]({{ link-console-main }}) при создании ВМ или в [{{ marketplace-name }}](/marketplace) на странице образа в блоке **Идентификаторы продукта**.
-         * `type_id` — [тип диска](../../../compute/concepts/disk.md#disks_types).
+         * `type_id` — [тип диска](../../../compute/concepts/disk.md#disks-types).
          * `size` — размер диска.
          * `network_id` — идентификатор сети `default-net`.
          * `primary_v4_address_spec` — спецификация версии интернет протокола IPv4. Вы можете предоставить публичный доступ к ВМ группы, указав версию IP для [публичного IP-адреса](../../../vpc/concepts/address.md#public-addresses). Подробнее читайте в разделе [{#T}](../../concepts/instance-groups/instance-template.md#instance-template).
