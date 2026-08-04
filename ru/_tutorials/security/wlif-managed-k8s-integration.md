@@ -128,8 +128,6 @@
 
 {% endlist %}
 
-{% endlist %}
-
 ## Подготовьте сервисный аккаунт {{ iam-short-name }} {#prepare-sa}
 
 1. Создайте сервисный аккаунт {{ iam-short-name }}:
