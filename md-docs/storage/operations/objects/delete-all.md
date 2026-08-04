@@ -1,6 +1,6 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Пошаговые инструкции](../index.md) > Объекты > Удаление всех объектов
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Пошаговые инструкции](../index.md) > Объекты > Удалить все объекты
 
-# Удаление всех объектов из бакета
+# Удалить все объекты из бакета
 
 {% note warning %}
 

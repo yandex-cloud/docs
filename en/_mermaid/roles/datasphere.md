@@ -1,8 +1,18 @@
 ```mermaid
+%%{
+  init: {
+    "flowchart": { "defaultRenderer": "elk" },
+    "elk": { "nodePlacementStrategy": "NETWORK_SIMPLEX" }
+  }
+}%%
 flowchart BT
-    datasphere.community-projects.viewer --> datasphere.community-projects.developer
-    datasphere.community-projects.developer --> datasphere.community-projects.editor
-    datasphere.community-projects.editor --> datasphere.community-projects.admin
+    datasphere.community-projects.viewer["datasphere.
+    community-projects.viewer"] --> datasphere.community-projects.developer["datasphere.
+    community-projects.developer"]
+    datasphere.community-projects.developer --> datasphere.community-projects.editor["datasphere.
+    community-projects.editor"]
+    datasphere.community-projects.editor --> datasphere.community-projects.admin["datasphere.
+    community-projects.admin"]
     datasphere.community-projects.viewer --> datasphere.communities.viewer
     datasphere.communities.viewer --> datasphere.communities.developer
     datasphere.communities.developer --> datasphere.communities.editor

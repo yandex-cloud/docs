@@ -45,7 +45,7 @@ Find out how to get:
 
 - CLI {#cli}
 
-  Get detailed information about a Docker image using the `id` from the [previous](#docker-image-list) item:
+  Get detailed information about a Docker image using `id` from the [previous](#docker-image-list) step:
 
   ```bash
   yc container image get crphc7nnrvhl********

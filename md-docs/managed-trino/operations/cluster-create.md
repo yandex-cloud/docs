@@ -55,17 +55,24 @@
         1. (Опционально) Включите параметр **Приватный доступ**, чтобы кластер был доступен только через [сервисное подключение](../concepts/network.md#private-endpoint).
 
     1. (Опционально) В блоке **Политика перезапросов** задайте параметры [отказоустойчивого выполнения запросов](../concepts/retry-policy.md):
-        1. Выберите **Тип объекта для перезапроса**:
-           * **Задача** — в рамках запроса повторно выполняется промежуточное задание, вызвавшее сбой воркера.
-           * **Запрос** — повторно выполняются все [этапы запроса](../concepts/index.md#query-execution), в котором произошел сбой воркера.
-        1. (Опционально) В поле **Параметры перезапросов** задайте дополнительные параметры в формате `ключ: значение`. Подробнее о параметрах в [документации Trino](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
-        1. (Опционально) В поле **Параметры хранилища** задайте дополнительные параметры хранилища Exchange Manager в формате `ключ: значение`. Подробнее о параметрах в [документации Trino](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 
         {% note warning %}
         
         Настройка влияет на производительность запросов.
         
         {% endnote %}
+
+        1. Выберите **Тип объекта для перезапроса**:
+           * **Задача** — в рамках запроса повторно выполняется промежуточное задание, вызвавшее сбой воркера.
+           * **Запрос** — повторно выполняются все [этапы запроса](../concepts/index.md#query-execution), в котором произошел сбой воркера.
+        1. (Опционально) В поле **Параметры перезапросов** задайте дополнительные параметры в формате `ключ: значение`. Подробнее о параметрах в [документации Trino](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
+        1. (Опционально) В поле **Параметры хранилища** задайте дополнительные параметры хранилища Exchange Manager в формате `ключ: значение`. Подробнее о параметрах в [документации Trino](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
+        1. Выберите **Тип хранилища** для Exchange Manager:
+
+            * `serviceS3` — служебный бакет на стороне Managed Service for Trino.
+            * `s3` — пользовательский [бакет Object Storage](../../storage/concepts/bucket.md). В поле **Имя бакета** укажите имя бакета. [Сервисному аккаунту](../../iam/concepts/users/service-accounts.md) кластера должна быть назначена роль [storage.editor](../../storage/security/index.md#storage-editor) на этот бакет.
+
+            Подробнее о типах хранилища в разделе [Типы хранилища для Exchange Manager](../concepts/retry-policy.md#exchange-manager-storage).
 
     1. Задайте конфигурацию [координатора](../concepts/index.md#coordinator) и [воркеров](../concepts/index.md#workers).
     1. (Опционально) В блоке **Каталоги** добавьте [каталоги Trino](../concepts/index.md#catalog). Вы можете сделать это как при создании кластера, так и позже. Подробнее в разделе [Создание каталога Trino](catalog-create.md).
@@ -308,6 +315,7 @@
            --retry-policy \
            --retry-policy-additional-properties <список_дополнительных_параметров_политики_перезапросов> \
            --retry-policy-exchange-manager-service-s3 \
+           --retry-policy-exchange-manager-s3-bucket <имя_пользовательского_бакета> \
            --retry-policy-exchange-manager-additional-properties <список_дополнительных_параметров_хранилища>
         ```
 
@@ -320,7 +328,13 @@
             * `query` — повторно выполняются все [этапы запроса](../concepts/index.md#query-execution), в котором произошел сбой воркера.
 
         * `--retry-policy-additional-properties` — дополнительные параметры повторного выполнения запросов в формате `<ключ>=<значение>`. Подробнее о параметрах в [документации Trino](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
-        * `--retry-policy-exchange-manager-service-s3` — использование S3-хранилища для записи данных при перезапросах.
+        * Параметры хранилища для Exchange Manager. Укажите один из двух параметров:
+
+            * `--retry-policy-exchange-manager-service-s3` — использовать служебный бакет на стороне Managed Service for Trino.
+            * `--retry-policy-exchange-manager-s3-bucket` — использовать пользовательский [бакет Object Storage](../../storage/concepts/bucket.md). Укажите имя бакета. [Сервисному аккаунту](../../iam/concepts/users/service-accounts.md) кластера должна быть назначена роль [storage.editor](../../storage/security/index.md#storage-editor) на этот бакет.
+
+            Подробнее о типах хранилища в разделе [Типы хранилища для Exchange Manager](../concepts/retry-policy.md#exchange-manager-storage).
+
         * `--retry-policy-exchange-manager-additional-properties` — дополнительные параметры хранилища в формате `<ключ>=<значение>`. Подробнее о параметрах в [документации Trino](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 
     1. Чтобы добавить настройки выполнения запросов и выделения ресурсов для запросов, задайте параметр:
@@ -505,7 +519,11 @@
               additional_properties = {
                 <список_дополнительных_параметров_хранилища>
               }
+              # Укажите один из двух блоков: service_s3 или s3.
               service_s3 = {}
+              s3 = {
+                bucket = "<имя_пользовательского_бакета>"
+              }
             }
           }
           ...
@@ -521,10 +539,17 @@
         
         * `additional_properties` — дополнительные параметры повторного выполнения запросов в формате `"<ключ>" = "<значение>"`. Подробнее о параметрах в [документации Trino](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
         
-        * `exchangeManager` — параметры хранилища Exchange Manager:
+        * `exchange_manager` — параметры хранилища Exchange Manager:
         
-            * `service_s3` — использование S3-хранилища для записи данных при перезапросах.
             * `additional_properties` — дополнительные параметры хранилища Exchange Manager в формате `"<ключ>" = "<значение>"`. Подробнее о параметрах в [документации Trino](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
+            * Тип хранилища. Укажите один из двух блоков:
+        
+                * `service_s3` — использовать служебный бакет на стороне Managed Service for Trino. Оставьте блок пустым: `service_s3 = {}`.
+                * `s3` — использовать пользовательский [бакет Object Storage](../../storage/concepts/bucket.md):
+        
+                    * `bucket` — имя бакета. [Сервисному аккаунту](../../iam/concepts/users/service-accounts.md) кластера должна быть назначена роль [storage.editor](../../storage/security/index.md#storage-editor) на этот бакет.
+        
+                Подробнее о типах хранилища в разделе [Типы хранилища для Exchange Manager](../concepts/retry-policy.md#exchange-manager-storage).
 
     1. Чтобы задать настройки выполнения запросов и выделения ресурсов для запросов, добавьте к описанию кластера блок `query_properties`:
 
@@ -719,7 +744,10 @@
               "policy": "<тип_объекта_для_перезапроса>",
               "exchangeManager": {
                 "storage": {
-                  "serviceS3": {}
+                  "serviceS3": {},
+                  "s3": {
+                    "bucket": "<имя_пользовательского_бакета>"
+                  }
                 },
                 "additionalProperties": {<дополнительные_параметры_хранилища>}
               },
@@ -796,6 +824,13 @@
 
                   * `TASK` — в рамках запроса повторно выполняется промежуточное задание, вызвавшее сбой воркера.
                   * `QUERY` – повторно выполняются все [этапы запроса](../concepts/index.md#query-execution), в котором произошел сбой воркера.
+
+               * `exchangeManager.storage` — тип бакета в качестве хранилища Exchange Manager. Укажите один из двух параметров:
+
+                  * `serviceS3` — использовать служебный бакет на стороне Managed Service for Trino. Оставьте объект пустым: `"serviceS3": {}`.
+                  * `s3.bucket` — имя пользовательского [бакета Object Storage](../../storage/concepts/bucket.md). [Сервисному аккаунту](../../iam/concepts/users/service-accounts.md) кластера должна быть назначена роль [storage.editor](../../storage/security/index.md#storage-editor) на этот бакет.
+
+                  Подробнее о типах хранилища в разделе [Типы хранилища для Exchange Manager](../concepts/retry-policy.md#exchange-manager-storage).
 
                * `exchangeManager.additionalProperties` – дополнительные параметры хранилища Exchange Manager в формате `ключ: значение`. Подробнее о параметрах в [документации Trino](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 
@@ -966,7 +1001,10 @@
               "policy": "<тип_объекта_для_перезапроса>",
               "exchange_manager": {
                 "storage": {
-                  "service_s3": ""
+                  "service_s3": "",
+                  "s3": {
+                    "bucket": "<имя_пользовательского_бакета>"
+                  }
                 },
                 "additional_properties": {<дополнительные_параметры_хранилища>}
               },
@@ -1043,6 +1081,13 @@
 
                   * `TASK` — в рамках запроса повторно выполняется промежуточное задание, вызвавшее сбой воркера.
                   * `QUERY` – повторно выполняются все [этапы запроса](../concepts/index.md#query-execution), в котором произошел сбой воркера.
+
+               * `exchange_manager.storage` — тип бакета в качестве хранилища Exchange Manager. Укажите один из двух параметров:
+
+                  * `service_s3` — использовать служебный бакет на стороне Managed Service for Trino. Оставьте значение пустым: `"service_s3": ""`.
+                  * `s3.bucket` — имя пользовательского [бакета Object Storage](../../storage/concepts/bucket.md). [Сервисному аккаунту](../../iam/concepts/users/service-accounts.md) кластера должна быть назначена роль [storage.editor](../../storage/security/index.md#storage-editor) на этот бакет.
+
+                  Подробнее о типах хранилища в разделе [Типы хранилища для Exchange Manager](../concepts/retry-policy.md#exchange-manager-storage).
 
                * `exchange_manager.additional_properties` – дополнительные параметры хранилища Exchange Manager в формате `ключ: значение`. Подробнее о параметрах в [документации Trino](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 

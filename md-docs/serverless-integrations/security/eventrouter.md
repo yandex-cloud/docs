@@ -5,6 +5,12 @@
 С помощью сервисных ролей [EventRouter](../concepts/index.md#eventrouter) вы можете управлять доступом пользователей к ресурсам EventRouter — [шинам](../concepts/eventrouter/bus.md), [коннекторам](../concepts/eventrouter/connector.md) и [правилам](../concepts/eventrouter/rule.md).
 
 ```mermaid
+%%{
+  init: {
+    "flowchart": { "defaultRenderer": "elk" },
+    "elk": { "nodePlacementStrategy": "SIMPLE" }
+  }
+}%%
 flowchart BT
     serverless.eventrouter.editor --> serverless.eventrouter.admin
     serverless.eventrouter.viewer --> serverless.eventrouter.editor

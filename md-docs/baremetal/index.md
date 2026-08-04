@@ -874,11 +874,13 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [Аутентификация в API](api-ref/authentication.md)
 
-##### gRPC (англ.)
+##### API v1alpha
+
+###### gRPC (англ.)
 
  - [Overview](api-ref/grpc/index.md)
 
-###### Configuration
+####### Configuration
 
  - [Overview](api-ref/grpc/Configuration/index.md)
 
@@ -888,7 +890,7 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [ListConfigurationNetworkInterface](api-ref/grpc/Configuration/listConfigurationNetworkInterface.md)
 
-###### HardwarePool
+####### HardwarePool
 
  - [Overview](api-ref/grpc/HardwarePool/index.md)
 
@@ -896,7 +898,7 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [List](api-ref/grpc/HardwarePool/list.md)
 
-###### Image
+####### Image
 
  - [Overview](api-ref/grpc/Image/index.md)
 
@@ -912,7 +914,7 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [ListOperations](api-ref/grpc/Image/listOperations.md)
 
-###### MountedImage
+####### MountedImage
 
  - [Overview](api-ref/grpc/MountedImage/index.md)
 
@@ -922,7 +924,7 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [Get](api-ref/grpc/MountedImage/get.md)
 
-###### Operation
+####### Operation
 
  - [Overview](api-ref/grpc/Operation/index.md)
 
@@ -930,7 +932,7 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [Cancel](api-ref/grpc/Operation/cancel.md)
 
-###### PrivateCloudConnection
+####### PrivateCloudConnection
 
  - [Overview](api-ref/grpc/PrivateCloudConnection/index.md)
 
@@ -944,7 +946,7 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [Delete](api-ref/grpc/PrivateCloudConnection/delete.md)
 
-###### PrivateSubnet
+####### PrivateSubnet
 
  - [Overview](api-ref/grpc/PrivateSubnet/index.md)
 
@@ -960,7 +962,7 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [ListOperations](api-ref/grpc/PrivateSubnet/listOperations.md)
 
-###### PublicPrefixPool
+####### PublicPrefixPool
 
  - [Overview](api-ref/grpc/PublicPrefixPool/index.md)
 
@@ -972,7 +974,7 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [ListOperations](api-ref/grpc/PublicPrefixPool/listOperations.md)
 
-###### PublicSubnet
+####### PublicSubnet
 
  - [Overview](api-ref/grpc/PublicSubnet/index.md)
 
@@ -988,13 +990,13 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [ListOperations](api-ref/grpc/PublicSubnet/listOperations.md)
 
-###### RentalPeriod
+####### RentalPeriod
 
  - [Overview](api-ref/grpc/RentalPeriod/index.md)
 
  - [List](api-ref/grpc/RentalPeriod/list.md)
 
-###### Server
+####### Server
 
  - [Overview](api-ref/grpc/Server/index.md)
 
@@ -1024,7 +1026,7 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [ProlongateEndedRent](api-ref/grpc/Server/prolongateEndedRent.md)
 
-###### StandardImage
+####### StandardImage
 
  - [Overview](api-ref/grpc/StandardImage/index.md)
 
@@ -1032,7 +1034,7 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [List](api-ref/grpc/StandardImage/list.md)
 
-###### Storage
+####### Storage
 
  - [Overview](api-ref/grpc/Storage/index.md)
 
@@ -1040,7 +1042,7 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [BatchGetDefault](api-ref/grpc/Storage/batchGetDefault.md)
 
-###### Vrf
+####### Vrf
 
  - [Overview](api-ref/grpc/Vrf/index.md)
 
@@ -1056,7 +1058,7 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [ListOperations](api-ref/grpc/Vrf/listOperations.md)
 
-###### Zone
+####### Zone
 
  - [Overview](api-ref/grpc/Zone/index.md)
 
@@ -1064,11 +1066,11 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [List](api-ref/grpc/Zone/list.md)
 
-##### REST (англ.)
+###### REST (англ.)
 
  - [Overview](api-ref/index.md)
 
-###### Configuration
+####### Configuration
 
  - [Overview](api-ref/Configuration/index.md)
 
@@ -1078,7 +1080,7 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [ListConfigurationNetworkInterface](api-ref/Configuration/listConfigurationNetworkInterface.md)
 
-###### HardwarePool
+####### HardwarePool
 
  - [Overview](api-ref/HardwarePool/index.md)
 
@@ -1086,7 +1088,7 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [List](api-ref/HardwarePool/list.md)
 
-###### Image
+####### Image
 
  - [Overview](api-ref/Image/index.md)
 
@@ -1102,7 +1104,7 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [ListOperations](api-ref/Image/listOperations.md)
 
-###### MountedImage
+####### MountedImage
 
  - [Overview](api-ref/MountedImage/index.md)
 
@@ -1112,7 +1114,7 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [Get](api-ref/MountedImage/get.md)
 
-###### Operation
+####### Operation
 
  - [Overview](api-ref/Operation/index.md)
 
@@ -1120,7 +1122,7 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [Cancel](api-ref/Operation/cancel.md)
 
-###### PrivateCloudConnection
+####### PrivateCloudConnection
 
  - [Overview](api-ref/PrivateCloudConnection/index.md)
 
@@ -1134,7 +1136,7 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [Delete](api-ref/PrivateCloudConnection/delete.md)
 
-###### PrivateSubnet
+####### PrivateSubnet
 
  - [Overview](api-ref/PrivateSubnet/index.md)
 
@@ -1150,7 +1152,7 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [ListOperations](api-ref/PrivateSubnet/listOperations.md)
 
-###### PublicPrefixPool
+####### PublicPrefixPool
 
  - [Overview](api-ref/PublicPrefixPool/index.md)
 
@@ -1162,7 +1164,7 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [ListOperations](api-ref/PublicPrefixPool/listOperations.md)
 
-###### PublicSubnet
+####### PublicSubnet
 
  - [Overview](api-ref/PublicSubnet/index.md)
 
@@ -1178,13 +1180,13 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [ListOperations](api-ref/PublicSubnet/listOperations.md)
 
-###### RentalPeriod
+####### RentalPeriod
 
  - [Overview](api-ref/RentalPeriod/index.md)
 
  - [List](api-ref/RentalPeriod/list.md)
 
-###### Server
+####### Server
 
  - [Overview](api-ref/Server/index.md)
 
@@ -1214,7 +1216,7 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [ProlongateEndedRent](api-ref/Server/prolongateEndedRent.md)
 
-###### StandardImage
+####### StandardImage
 
  - [Overview](api-ref/StandardImage/index.md)
 
@@ -1222,7 +1224,7 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [List](api-ref/StandardImage/list.md)
 
-###### Storage
+####### Storage
 
  - [Overview](api-ref/Storage/index.md)
 
@@ -1230,7 +1232,7 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [BatchGetDefault](api-ref/Storage/batchGetDefault.md)
 
-###### Vrf
+####### Vrf
 
  - [Overview](api-ref/Vrf/index.md)
 
@@ -1246,13 +1248,355 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [ListOperations](api-ref/Vrf/listOperations.md)
 
-###### Zone
+####### Zone
 
  - [Overview](api-ref/Zone/index.md)
 
  - [Get](api-ref/Zone/get.md)
 
  - [List](api-ref/Zone/list.md)
+
+##### API v2
+
+###### gRPC (англ.)
+
+ - [Overview](api-ref/grpc/index.md)
+
+####### BootImage
+
+ - [Overview](api-ref/grpc/BootImage/index.md)
+
+ - [GetBootImage](api-ref/grpc/BootImage/getBootImage.md)
+
+ - [ListBootImages](api-ref/grpc/BootImage/listBootImages.md)
+
+ - [CreateBootImage](api-ref/grpc/BootImage/createBootImage.md)
+
+ - [UpdateBootImage](api-ref/grpc/BootImage/updateBootImage.md)
+
+ - [DeleteBootImage](api-ref/grpc/BootImage/deleteBootImage.md)
+
+ - [ListBootImageOperations](api-ref/grpc/BootImage/listBootImageOperations.md)
+
+####### Configuration
+
+ - [Overview](api-ref/grpc/Configuration/index.md)
+
+ - [ListConfigurationRentalPeriods](api-ref/grpc/Configuration/listConfigurationRentalPeriods.md)
+
+ - [ResolveConfigurationDefaultStorage](api-ref/grpc/Configuration/resolveConfigurationDefaultStorage.md)
+
+ - [ResolveConfigurationsDefaultStorages](api-ref/grpc/Configuration/resolveConfigurationsDefaultStorages.md)
+
+####### HardwarePool
+
+ - [Overview](api-ref/grpc/HardwarePool/index.md)
+
+ - [GetHardwarePool](api-ref/grpc/HardwarePool/getHardwarePool.md)
+
+ - [ListHardwarePools](api-ref/grpc/HardwarePool/listHardwarePools.md)
+
+####### Image
+
+ - [Overview](api-ref/grpc/Image/index.md)
+
+ - [GetImage](api-ref/grpc/Image/getImage.md)
+
+ - [ListImages](api-ref/grpc/Image/listImages.md)
+
+ - [ResolveImages](api-ref/grpc/Image/resolveImages.md)
+
+####### Operation
+
+ - [Overview](api-ref/grpc/Operation/index.md)
+
+ - [Get](api-ref/grpc/Operation/get.md)
+
+ - [Cancel](api-ref/grpc/Operation/cancel.md)
+
+####### PrivateCloudConnection
+
+ - [Overview](api-ref/grpc/PrivateCloudConnection/index.md)
+
+ - [GetPrivateCloudConnection](api-ref/grpc/PrivateCloudConnection/getPrivateCloudConnection.md)
+
+ - [ListPrivateCloudConnections](api-ref/grpc/PrivateCloudConnection/listPrivateCloudConnections.md)
+
+ - [CreatePrivateCloudConnection](api-ref/grpc/PrivateCloudConnection/createPrivateCloudConnection.md)
+
+ - [UpdatePrivateCloudConnection](api-ref/grpc/PrivateCloudConnection/updatePrivateCloudConnection.md)
+
+ - [DeletePrivateCloudConnection](api-ref/grpc/PrivateCloudConnection/deletePrivateCloudConnection.md)
+
+####### PrivateSubnet
+
+ - [Overview](api-ref/grpc/PrivateSubnet/index.md)
+
+ - [GetPrivateSubnet](api-ref/grpc/PrivateSubnet/getPrivateSubnet.md)
+
+ - [ListPrivateSubnets](api-ref/grpc/PrivateSubnet/listPrivateSubnets.md)
+
+ - [CreatePrivateSubnet](api-ref/grpc/PrivateSubnet/createPrivateSubnet.md)
+
+ - [UpdatePrivateSubnet](api-ref/grpc/PrivateSubnet/updatePrivateSubnet.md)
+
+ - [DeletePrivateSubnet](api-ref/grpc/PrivateSubnet/deletePrivateSubnet.md)
+
+ - [ListPrivateSubnetOperations](api-ref/grpc/PrivateSubnet/listPrivateSubnetOperations.md)
+
+####### PublicPrefixPool
+
+ - [Overview](api-ref/grpc/PublicPrefixPool/index.md)
+
+ - [GetPublicPrefixPool](api-ref/grpc/PublicPrefixPool/getPublicPrefixPool.md)
+
+ - [ListPublicPrefixPools](api-ref/grpc/PublicPrefixPool/listPublicPrefixPools.md)
+
+ - [UpdatePublicPrefixPool](api-ref/grpc/PublicPrefixPool/updatePublicPrefixPool.md)
+
+####### PublicSubnet
+
+ - [Overview](api-ref/grpc/PublicSubnet/index.md)
+
+ - [GetPublicSubnet](api-ref/grpc/PublicSubnet/getPublicSubnet.md)
+
+ - [ListPublicSubnets](api-ref/grpc/PublicSubnet/listPublicSubnets.md)
+
+ - [CreatePublicSubnet](api-ref/grpc/PublicSubnet/createPublicSubnet.md)
+
+ - [UpdatePublicSubnet](api-ref/grpc/PublicSubnet/updatePublicSubnet.md)
+
+ - [DeletePublicSubnet](api-ref/grpc/PublicSubnet/deletePublicSubnet.md)
+
+ - [ListPublicSubnetOperations](api-ref/grpc/PublicSubnet/listPublicSubnetOperations.md)
+
+####### RentalPeriod
+
+ - [Overview](api-ref/grpc/RentalPeriod/index.md)
+
+ - [ListRentalPeriods](api-ref/grpc/RentalPeriod/listRentalPeriods.md)
+
+####### Server
+
+ - [Overview](api-ref/grpc/Server/index.md)
+
+ - [GetServer](api-ref/grpc/Server/getServer.md)
+
+ - [ListServers](api-ref/grpc/Server/listServers.md)
+
+ - [CreateServer](api-ref/grpc/Server/createServer.md)
+
+ - [BatchCreateServers](api-ref/grpc/Server/batchCreateServers.md)
+
+ - [UpdateServer](api-ref/grpc/Server/updateServer.md)
+
+ - [DeleteServer](api-ref/grpc/Server/deleteServer.md)
+
+ - [PowerOffServer](api-ref/grpc/Server/powerOffServer.md)
+
+ - [PowerOnServer](api-ref/grpc/Server/powerOnServer.md)
+
+ - [RebootServer](api-ref/grpc/Server/rebootServer.md)
+
+ - [ReinstallServer](api-ref/grpc/Server/reinstallServer.md)
+
+ - [RenewServerRental](api-ref/grpc/Server/renewServerRental.md)
+
+ - [ListServerOperations](api-ref/grpc/Server/listServerOperations.md)
+
+####### Vrf
+
+ - [Overview](api-ref/grpc/Vrf/index.md)
+
+ - [GetVrf](api-ref/grpc/Vrf/getVrf.md)
+
+ - [ListVrfs](api-ref/grpc/Vrf/listVrfs.md)
+
+ - [CreateVrf](api-ref/grpc/Vrf/createVrf.md)
+
+ - [UpdateVrf](api-ref/grpc/Vrf/updateVrf.md)
+
+ - [DeleteVrf](api-ref/grpc/Vrf/deleteVrf.md)
+
+ - [ListVrfOperations](api-ref/grpc/Vrf/listVrfOperations.md)
+
+####### Zone
+
+ - [Overview](api-ref/grpc/Zone/index.md)
+
+ - [GetZone](api-ref/grpc/Zone/getZone.md)
+
+ - [ListZones](api-ref/grpc/Zone/listZones.md)
+
+###### REST (англ.)
+
+ - [Overview](api-ref/index.md)
+
+####### BootImage
+
+ - [Overview](api-ref/BootImage/index.md)
+
+ - [GetBootImage](api-ref/BootImage/getBootImage.md)
+
+ - [ListBootImages](api-ref/BootImage/listBootImages.md)
+
+ - [CreateBootImage](api-ref/BootImage/createBootImage.md)
+
+ - [UpdateBootImage](api-ref/BootImage/updateBootImage.md)
+
+ - [DeleteBootImage](api-ref/BootImage/deleteBootImage.md)
+
+ - [ListBootImageOperations](api-ref/BootImage/listBootImageOperations.md)
+
+####### Configuration
+
+ - [Overview](api-ref/Configuration/index.md)
+
+ - [ListConfigurationRentalPeriods](api-ref/Configuration/listConfigurationRentalPeriods.md)
+
+ - [ResolveConfigurationDefaultStorage](api-ref/Configuration/resolveConfigurationDefaultStorage.md)
+
+ - [ResolveConfigurationsDefaultStorages](api-ref/Configuration/resolveConfigurationsDefaultStorages.md)
+
+####### HardwarePool
+
+ - [Overview](api-ref/HardwarePool/index.md)
+
+ - [GetHardwarePool](api-ref/HardwarePool/getHardwarePool.md)
+
+ - [ListHardwarePools](api-ref/HardwarePool/listHardwarePools.md)
+
+####### Image
+
+ - [Overview](api-ref/Image/index.md)
+
+ - [GetImage](api-ref/Image/getImage.md)
+
+ - [ListImages](api-ref/Image/listImages.md)
+
+ - [ResolveImages](api-ref/Image/resolveImages.md)
+
+####### Operation
+
+ - [Overview](api-ref/Operation/index.md)
+
+ - [Get](api-ref/Operation/get.md)
+
+ - [Cancel](api-ref/Operation/cancel.md)
+
+####### PrivateCloudConnection
+
+ - [Overview](api-ref/PrivateCloudConnection/index.md)
+
+ - [GetPrivateCloudConnection](api-ref/PrivateCloudConnection/getPrivateCloudConnection.md)
+
+ - [ListPrivateCloudConnections](api-ref/PrivateCloudConnection/listPrivateCloudConnections.md)
+
+ - [CreatePrivateCloudConnection](api-ref/PrivateCloudConnection/createPrivateCloudConnection.md)
+
+ - [UpdatePrivateCloudConnection](api-ref/PrivateCloudConnection/updatePrivateCloudConnection.md)
+
+ - [DeletePrivateCloudConnection](api-ref/PrivateCloudConnection/deletePrivateCloudConnection.md)
+
+####### PrivateSubnet
+
+ - [Overview](api-ref/PrivateSubnet/index.md)
+
+ - [GetPrivateSubnet](api-ref/PrivateSubnet/getPrivateSubnet.md)
+
+ - [ListPrivateSubnets](api-ref/PrivateSubnet/listPrivateSubnets.md)
+
+ - [CreatePrivateSubnet](api-ref/PrivateSubnet/createPrivateSubnet.md)
+
+ - [UpdatePrivateSubnet](api-ref/PrivateSubnet/updatePrivateSubnet.md)
+
+ - [DeletePrivateSubnet](api-ref/PrivateSubnet/deletePrivateSubnet.md)
+
+ - [ListPrivateSubnetOperations](api-ref/PrivateSubnet/listPrivateSubnetOperations.md)
+
+####### PublicPrefixPool
+
+ - [Overview](api-ref/PublicPrefixPool/index.md)
+
+ - [GetPublicPrefixPool](api-ref/PublicPrefixPool/getPublicPrefixPool.md)
+
+ - [ListPublicPrefixPools](api-ref/PublicPrefixPool/listPublicPrefixPools.md)
+
+ - [UpdatePublicPrefixPool](api-ref/PublicPrefixPool/updatePublicPrefixPool.md)
+
+####### PublicSubnet
+
+ - [Overview](api-ref/PublicSubnet/index.md)
+
+ - [GetPublicSubnet](api-ref/PublicSubnet/getPublicSubnet.md)
+
+ - [ListPublicSubnets](api-ref/PublicSubnet/listPublicSubnets.md)
+
+ - [CreatePublicSubnet](api-ref/PublicSubnet/createPublicSubnet.md)
+
+ - [UpdatePublicSubnet](api-ref/PublicSubnet/updatePublicSubnet.md)
+
+ - [DeletePublicSubnet](api-ref/PublicSubnet/deletePublicSubnet.md)
+
+ - [ListPublicSubnetOperations](api-ref/PublicSubnet/listPublicSubnetOperations.md)
+
+####### RentalPeriod
+
+ - [Overview](api-ref/RentalPeriod/index.md)
+
+ - [ListRentalPeriods](api-ref/RentalPeriod/listRentalPeriods.md)
+
+####### Server
+
+ - [Overview](api-ref/Server/index.md)
+
+ - [GetServer](api-ref/Server/getServer.md)
+
+ - [ListServers](api-ref/Server/listServers.md)
+
+ - [CreateServer](api-ref/Server/createServer.md)
+
+ - [BatchCreateServers](api-ref/Server/batchCreateServers.md)
+
+ - [UpdateServer](api-ref/Server/updateServer.md)
+
+ - [DeleteServer](api-ref/Server/deleteServer.md)
+
+ - [PowerOffServer](api-ref/Server/powerOffServer.md)
+
+ - [PowerOnServer](api-ref/Server/powerOnServer.md)
+
+ - [RebootServer](api-ref/Server/rebootServer.md)
+
+ - [ReinstallServer](api-ref/Server/reinstallServer.md)
+
+ - [RenewServerRental](api-ref/Server/renewServerRental.md)
+
+ - [ListServerOperations](api-ref/Server/listServerOperations.md)
+
+####### Vrf
+
+ - [Overview](api-ref/Vrf/index.md)
+
+ - [GetVrf](api-ref/Vrf/getVrf.md)
+
+ - [ListVrfs](api-ref/Vrf/listVrfs.md)
+
+ - [CreateVrf](api-ref/Vrf/createVrf.md)
+
+ - [UpdateVrf](api-ref/Vrf/updateVrf.md)
+
+ - [DeleteVrf](api-ref/Vrf/deleteVrf.md)
+
+ - [ListVrfOperations](api-ref/Vrf/listVrfOperations.md)
+
+####### Zone
+
+ - [Overview](api-ref/Zone/index.md)
+
+ - [GetZone](api-ref/Zone/getZone.md)
+
+ - [ListZones](api-ref/Zone/listZones.md)
 
  - [Метрики Monitoring](metrics.md)
 

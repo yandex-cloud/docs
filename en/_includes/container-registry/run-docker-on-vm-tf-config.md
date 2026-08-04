@@ -1,11 +1,11 @@
 ```hcl
-# Declaring variables for confidential parameters
+# Declaring variables with sensitive data
 
 locals {
   zone             = "<default_availability_zone>"
   username         = "<VM_user_name>"
   ssh_key_path     = "<path_to_public_SSH_key>"
-  target_folder_id = "<ID_of_folder_to_place_VM_in>"
+  target_folder_id = "<ID_of_target_folder_for_VM>"
   registry_name    = "<registry_name>"
   sa_name          = "<service_account_name>"
   network_name     = "<cloud_network_name>"
@@ -14,7 +14,7 @@ locals {
   image_id         = "<image_ID>"
 }
 
-# Configuring a provider
+# Configuring the provider
 
 terraform {
   required_providers {
@@ -76,7 +76,7 @@ resource "yandex_compute_disk" "boot-disk" {
   image_id = local.image_id
 }
 
-# Creating a VM instance
+# Creating a VM
 
 resource "yandex_compute_instance" "docker-vm" {
   name               = local.vm_name

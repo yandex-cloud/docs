@@ -6,7 +6,7 @@ description: Follow this guide to get information about existing registries.
 # Getting information about existing registries
 
 Find out how to get:
-* [Folder registry list](#registry-list).
+* [List of registries in a folder](#registry-list).
 * [Detailed information about a registry](#registry-get).
 
 ## Getting a list of registries in a folder {#registry-list}
@@ -43,7 +43,7 @@ Find out how to get:
 
 ## Getting detailed information about a registry {#registry-get}
 
-To access a registry, use the `id` or `name` parameters from the [previous](#registry-list) step.
+To access a registry, use `id` or `name` from the [previous](#registry-list) step.
 
 {% list tabs group=instructions %}
 
@@ -53,7 +53,7 @@ To access a registry, use the `id` or `name` parameters from the [previous](#reg
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  Get detailed information about the registry:
+  Get detailed information about a registry:
 
   ```bash
   yc container registry get my-reg

@@ -57,29 +57,29 @@
    kubectl -n "$NS" get pvc "$PVC" -w
    ```
 
-4. Перезапустите Loki, если pod сам не восстановился:
+4. Узнайте имя StatefulSet и удалите только его объект, оставив pod и PVC работающими. Это необходимо, потому что Kubernetes не позволяет изменять размер в `volumeClaimTemplates` существующего StatefulSet:
 
    ```bash
    STS=$(kubectl -n "$NS" get statefulset \
      -l app.kubernetes.io/name=loki,app.kubernetes.io/component=single-binary \
      -o jsonpath='{.items[0].metadata.name}')
-   kubectl -n "$NS" rollout restart statefulset/"$STS"
-   kubectl -n "$NS" rollout status statefulset/"$STS"
+   kubectl -n "$NS" delete statefulset "$STS" --cascade=orphan
    ```
 
-5. Закрепите новый размер в `LoggingConfig`, иначе следующий reconcile может вернуть старое значение:
+   Не удаляйте orphaned pod и PVC.
 
-   ```yaml
-   apiVersion: stackland.yandex.cloud/v1alpha1
-   kind: LoggingConfig
-   metadata:
-     name: main
-   spec:
-     settings:
-       logStorage:
-         storage:
-           enabled: true
-           size: 100Gi
+5. Сразу укажите новый размер в `LoggingConfig`. Контроллер пересоздаст StatefulSet с обновленным `volumeClaimTemplates` и подхватит существующие pod и PVC:
+
+   ```bash
+   kubectl patch loggingconfig main --type merge \
+     -p '{"spec":{"settings":{"logStorage":{"loki":{"singleBinary":{"storage":{"size":"100Gi"}}}}}}}'
+   ```
+
+6. Убедитесь, что StatefulSet пересоздан и Loki готов:
+
+   ```bash
+   kubectl -n "$NS" get statefulset "$STS"
+   kubectl -n "$NS" rollout status statefulset/"$STS"
    ```
 
 ## Если PVC нельзя расширить

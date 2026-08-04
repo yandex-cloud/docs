@@ -71,7 +71,7 @@ PUT /{bucket}/{key}?retention&versionId={versionId} HTTP/2
 
 * [Блокировка версии объекта (object lock)](../../../concepts/object-lock.md)
 
-* [Настройка блокировок версии объекта](../../../operations/objects/edit-object-lock.md)
+* [Блокировать версии объекта (object lock)](../../../operations/objects/edit-object-lock.md)
 
 #### Полезные ссылки {#see-also}
 

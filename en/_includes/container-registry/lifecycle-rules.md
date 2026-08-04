@@ -1,9 +1,9 @@
 Example of the contents of a file with rules, where:
 * `description`: Description of the policy rule.
 * `tag_regexp`: Docker image tag for filtering. Java regular expressions are supported. For example, the `test.*` regular expression retrieves all images with tags starting with `test`.
-* `untagged`: Flag indicating that the rule applies to Docker images without tags.
-* `expire_period`: Time after which the lifecycle policy may apply to the Docker image. This parameter is formatted as a number and a unit of measure, such as `s`, `m`, `h`, or `d` (seconds, minutes, hours, or days). `expire_period` must be a multiple of 24 hours.
-* `retained_top`: Number of Docker images that are not deleted even if they match the rule.
+* `untagged`: Flag to apply the rule to untagged Docker images.
+* `expire_period`: Time after which the lifecycle policy may apply to the Docker image. This parameter comes as a number followed by a unit of measurement: `s`, `m`, `h`, or `d` (seconds, minutes, hours, or days). `expire_period` must be a multiple of 24 hours.
+* `retained_top`: Number of Docker images that will not be deleted even if they match the rule.
 
 ```json
 [

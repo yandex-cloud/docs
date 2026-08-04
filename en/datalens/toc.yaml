@@ -738,7 +738,7 @@ items:
             href: concepts/chart/ql-charts.md
           - name: Creating a QL chart
             href: operations/chart/create-sql-chart.md
-      - name: Charts in Editor
+      - name: Editor charts
         items:
           - name: Overview
             href: charts/editor/index.md
