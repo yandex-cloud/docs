@@ -8,7 +8,7 @@ You can [back up](../../concepts/backup.md) your instances manually.
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-gitlab) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
   1. Click the instance name and select ![image](../../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.gitlab.title_backups }}**.
 
 {% endlist %}
@@ -19,7 +19,7 @@ You can [back up](../../concepts/backup.md) your instances manually.
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-gitlab) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
   1. Click the instance name and select ![image](../../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.gitlab.title_backups }}**.
   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.gitlab.action_create-backup }}**.
 
@@ -27,6 +27,6 @@ You can [back up](../../concepts/backup.md) your instances manually.
 
 ## Restoring an instance from a backup {#restore}
 
-To restore an instance from a backup, contact [support]({{ link-console-support }}).
+To restore an instance from a backup, contact [technical support]({{ link-console-support }}).
 
 You can recover a deleted instance in the same way. When you delete an instance, the system automatically creates its [backup](../../concepts/backup.md) which is stored for two weeks.

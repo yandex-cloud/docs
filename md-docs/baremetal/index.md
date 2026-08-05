@@ -1626,7 +1626,7 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [Подключение сервера BareMetal как внешнего узла к кластеру Managed Service for Kubernetes](tutorials/k8s-connect-bms-as-node.md)
 
- - [Настройка DNS-связности между сегментами Yandex BareMetal и Yandex Virtual Private Cloud для доступа к Managed Service for PostgreSQL по FQDN](tutorials/bm-vpc-dns-forwarder.md)
+ - [Настройка разрешения DNS-имен из приватной сети Yandex BareMetal](tutorials/bm-vpc-dns-forwarder.md)
 
  - [Правила тарификации](pricing.md)
 

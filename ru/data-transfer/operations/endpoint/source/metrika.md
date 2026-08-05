@@ -92,7 +92,7 @@ noIndex: true
 
 Настройте поддерживаемый приемник данных:
 
-* [{{ CH }}](../target/clickhouse.md)
+[{{ CH }}](../target/clickhouse.md)
 
 Полный список поддерживаемых источников и приемников в сервисе {{ data-transfer-full-name }} читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
 

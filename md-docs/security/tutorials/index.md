@@ -32,6 +32,9 @@
 * Jenkins
     * [Создать SAML-приложение в Yandex Identity Hub для интеграции с Jenkins](single-sign-on/saml-jenkins.md)
     * [Создать OIDC-приложение в Yandex Identity Hub для интеграции с Jenkins](single-sign-on/oidc-jenkins.md)
+* Loop
+    * [Создать SAML-приложение в Yandex Identity Hub для интеграции с Loop](single-sign-on/saml-loop.md)
+    * [Создать OIDC-приложение в Yandex Identity Hub для интеграции с Loop](single-sign-on/oidc-loop.md)
 * [Создать SAML-приложение в Yandex Identity Hub для интеграции с Managed Service for GitLab](single-sign-on/saml-managed-gitlab.md)
 * [Создать SAML-приложение в Yandex Identity Hub для интеграции с Managed Service for OpenSearch](single-sign-on/saml-opensearch.md)
 * [Создать OIDC-приложение в Yandex Identity Hub для интеграции с MWS](single-sign-on/oidc-mws.md)
@@ -42,14 +45,15 @@
 * [Создать SAML-приложение в Yandex Identity Hub для интеграции с Selectel](single-sign-on/saml-selectel.md)
 * [Создать SAML-приложение в Yandex Identity Hub для интеграции с Sentry](single-sign-on/saml-sentry.md)
 * [Создать SAML-приложение в Yandex Identity Hub для интеграции с SonarQube](single-sign-on/saml-sonarqube.md)
-* VK Cloud
-    * [Создать SAML-приложение в Yandex Identity Hub для интеграции с VK Cloud](single-sign-on/saml-vk-cloud.md)
+* Time
+    * [Создать SAML-приложение в Yandex Identity Hub для интеграции с Time](single-sign-on/saml-time.md)
+    * [Создать OIDC-приложение в Yandex Identity Hub для интеграции с Time](single-sign-on/oidc-time.md)
+* [Создать SAML-приложение в Yandex Identity Hub для интеграции с VK Cloud](single-sign-on/saml-vk-cloud.md)
 * [Создать SAML-приложение в Yandex Identity Hub для интеграции с Zabbix](single-sign-on/saml-zabbix.md)
 * [Создать SAML-приложение в Yandex Identity Hub для интеграции с Пассворк](single-sign-on/saml-passwork.md)
 * [Создать SAML-приложение в Yandex Identity Hub для интеграции с Яндекс 360](single-sign-on/saml-yandex-360.md)
 * [Создать SAML-приложение в Yandex Identity Hub для интеграции с консолью управления Яндекс Браузера для организаций](single-sign-on/saml-ya-browser-corporate.md)
 * [Использовать OIDC-приложение и OAuth2 Proxy для настройки единого входа в приложения, не поддерживающие SSO](single-sign-on/oidc-nginx-oauth2-proxy.md)
-
 
 ## Сетевая безопасность {#network-security}
 
@@ -60,7 +64,6 @@
 * [Защищенный доступ пользователей к облачным ресурсам на основе WireGuard VPN](network-security/remote-wireguard-vpn.md)
 * [Организация защищенного доступа к контенту в Yandex Cloud CDN](network-security/protected-access-to-content/index.md)
 
-
 ## Безопасная конфигурация виртуальной среды {#virtualenv-safe-config}
 
 * [Хостинг статического сайта на фреймворке Gatsby в Yandex Object Storage](virtualenv-safe-config/gatsby-static-website.md)
@@ -70,7 +73,6 @@
     * [Миграция сервисов с балансировщика NLB с целевыми ресурсами из виртуальных машин на L7-балансировщик ALB](virtualenv-safe-config/nlb-with-target-resource-vm.md)
     * [Миграция сервисов с балансировщика NLB с целевыми ресурсами из группы виртуальных машин (Instance Groups) на L7-балансировщик ALB](virtualenv-safe-config/nlb-with-target-resource-group-vm.md)
     * [Миграция сервисов с внешнего балансировщика NLB на L7-балансировщик ALB с целевым ресурсом — внутренним сетевым балансировщиком NLB](virtualenv-safe-config/nlb-as-target-resource-alb.md)
-
 
 ## Шифрование данных и управление ключами {#data-encryption-and-key-management}
 
@@ -91,7 +93,6 @@
 * [Получение значения секрета Yandex Lockbox на стороне GitLab](data-encryption-and-key-management/wlif-gitlab-integration.md)
 * [Загрузка объектов в бакет Yandex Object Storage с помощью эфемерного ключа доступа](data-encryption-and-key-management/ephemeral-key-storage.md)
 
-
 ## Сбор, мониторинг и анализ аудитных логов {#audit-logs}
 
 * [Поиск событий Yandex Cloud в Yandex Query](audit-logs/query.md)
@@ -109,7 +110,6 @@
 * [Запись логов балансировщика в PostgreSQL](audit-logs/logging.md)
 * [Передача логов с Container Optimized Image в Yandex Cloud Logging](audit-logs/coi-fluent-bit-logging.md)
 
-
 ## Защита приложений {#app-security}
 
 * [Построение пайплайна CI/CD в GitLab с использованием serverless-продуктов](app-security/ci-cd-serverless.md)
@@ -122,7 +122,6 @@
 * [Невидимая Yandex SmartCaptcha в приложении на Android](app-security/invisible-captcha-android.md)
 * [Yandex SmartCaptcha в приложении Android на Flutter](app-security/quickstart-android-flutter.md)
 * [Yandex SmartCaptcha в приложении на iOS](app-security/quickstart-ios.md)
-
 
 ## Безопасность Kubernetes {#kubernetes-security}
 

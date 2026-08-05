@@ -22,3 +22,9 @@ Yes, you can specify your {{ yandex-360 }} organization's domain in the address 
 No, creating an SPF record on your custom domain is not required. Each email sent via {{ postbox-name }} is signed with two DKIM signatures: one from `postbox.yandexcloud.net`, our technical domain (with its SPF record preconfigured), and a second from your custom domain. In most cases, such authentication is sufficient for successful email delivery.
 
 However, if the recipient has strict incoming mail screening policies, you may need to add an SPF record to your custom domain as well. For information about how to do this, see [{#T}](../concepts/dns-records.md#spf).
+
+#### Why is email delivery delayed? {#delivery-delay}
+
+One common cause of delays is [greylisting](https://en.wikipedia.org/wiki/Greylisting_(email)) (`greylisting`) on the recipient's mail server. This is an anti-spam technique where the server temporarily rejects the first email delivery attempt assuming that a legitimate mail server will repeat it later.
+
+{{ postbox-name }} will automatically retry delivery. Usually, after the delay set by the recipient's server, the email will be accepted and delivered.

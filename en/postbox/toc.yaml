@@ -39,6 +39,8 @@ items:
         href: concepts/configuration.md
       - name: Email event notifications
         href: concepts/notification.md
+      - name: Email delivery simulator
+        href: concepts/mail-simulator.md
       - name: Tracking email openings
         href: concepts/mail-opened.md
       - name: Click tracking in emails
@@ -150,6 +152,10 @@ items:
                   aws-compatible-api/api-ref/delete-configuration-set-event-destination.md
           - name: Request headers
             href: aws-compatible-api/api-ref/request-headers.md
+      - name: SMTP
+        items:
+          - name: SMTP responses
+            href: api-ref/smtp-errors.md
   - name: Metrics {{ monitoring-name }}
     href: metrics.md
   - name: '{{ at-name }} events'

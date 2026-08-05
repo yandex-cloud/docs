@@ -65,3 +65,8 @@ You can apply a configuration to an email using the following methods:
 The configuration settings are applied to the email the moment you send it. If you change the configuration settings after sending, the change will not affect the emails that are sent but not yet delivered.
 
 {% endnote %}
+
+
+#### Useful links {#see-also}
+
+* [{#T}](../operations/create-configuration.md)

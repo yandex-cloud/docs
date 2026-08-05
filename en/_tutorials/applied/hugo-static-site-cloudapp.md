@@ -33,7 +33,7 @@ The cost of support for the new infrastructure includes:
 
 ## Install Hugo using {{ cloud-apps-name }} {#install-hugo}
 
-Install a [static website](marketplace/products/yc/static-site) on Hugo using {{ cloud-apps-name }}. The application will deploy the website to [{{ objstorage-name }}](../../storage/) and configure domain access.
+Install a [static website](/marketplace/products/yc/static-site) on Hugo using {{ cloud-apps-name }}. The application will deploy the website to [{{ objstorage-name }}](../../storage/) and configure domain access.
 
 {% list tabs group=instructions %}
 
@@ -119,7 +119,7 @@ Open the `README` file in the repository root and complete the steps from that f
 
       Where:
       * `<service_connection>`: Service connection name.
-      * `<domain>`: Domain for access to the website. It usually matches the name of the bucket created when installing the application.
+      * `<domain>`: Domain where the website will be available. It usually matches the name of the bucket created when installing the application.
       * `scope`: Service connection level. The possible values are:
          * `repo`: For repository-level connections.
          * `org`: For organization-level connections.

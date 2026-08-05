@@ -1,5 +1,6 @@
 # Загрузка данных из {{ mos-full-name }} в {{ objstorage-full-name }} с помощью {{ data-transfer-full-name }}
 
+
 С помощью сервиса {{ data-transfer-name }} вы можете перенести данные из кластера {{ mos-name }} в объектное хранилище {{ objstorage-name }}.
 
 Чтобы перенести данные:

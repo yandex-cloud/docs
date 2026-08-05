@@ -29,6 +29,10 @@ To get a list of [supported](../../concepts/access-control/access-policies.md#su
   +----------------------------------------------------+---------------------------------------------------------+--------------------------------+
   |                         ID                         |                          NAME                           |          DESCRIPTION           |
   +----------------------------------------------------+---------------------------------------------------------+--------------------------------+
+  | aistudio.responses.restrictNetworkAccess           | aistudio-responses-restrict-network-access              | Restrict Foundation Models     |
+  |                                                    |                                                         | Responses network access by    |
+  |                                                    |                                                         | source IP addresses and VPC    |
+  |                                                    |                                                         | network IDs                    |
   | backup.denyActivation                              | backup-deny-activation                                  | Restrict Cloud Backup          |
   |                                                    |                                                         | activation and backup policies |
   |                                                    |                                                         | changes                        |

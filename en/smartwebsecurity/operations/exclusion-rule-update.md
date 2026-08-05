@@ -14,24 +14,17 @@ description: Follow this guide to edit a WAF exclusion rule.
   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}**.
   1. Select the profile where you want to edit an [exclusion rule](../concepts/waf.md#exclusion-rules).
   1. In the left-hand menu, go to the ![image](../../_assets/console-icons/file-xmark.svg) **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rules }}** tab.
-  1. In the rule row, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**. In the window that opens:
-      1. Edit the exclusion rule name and description as needed.
-      1. Optionally, enable **{{ ui-key.yacloud.smart-web-security.waf.field_logging }}** to log exception rule triggering.
-      1. In the **{{ ui-key.yacloud.smart-web-security.waf.label_exclusion-rule-exclude-rules }}** field, select:
-          * **All rules**: Exclusion will apply to all rules.
-          * **Selected rules**: Exclusion will apply to selected rules. Click **{{ ui-key.yacloud.smart-web-security.waf.action_exclusion-rule-add-rules }}** to select rules.
+  1. Next to the rule in question, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+  1. Edit the exclusion rule name and description as needed.
+  1. Optionally, enable **{{ ui-key.yacloud.smart-web-security.waf.field_logging }}** to log exception rule triggering.
+  
+  1. {% include [waf-rule-rules-section](../../_includes/smartwebsecurity/waf-rule-rules-section.md) %}
+  
+  1. {% include [waf-rule-request-condition](../../_includes/smartwebsecurity/waf-rule-request-condition.md) %}
 
-      1. Under **{{ ui-key.yacloud.smart-web-security.waf.label_request-condition_33CzA }}**, select:
-          * **Entire request**: Exception will apply to entire HTTP request.
-          * **Request part**: Exception will apply only to the request part specified in the parameters. The rest of the request will be checked according to the WAF profile settings.
+  1. {% include [waf-rule-traffic-conditions](../../_includes/smartwebsecurity/waf-rule-traffic-conditions.md) %}
 
-             In the **Exception parameters** field, select one or more of the following: `HTTP body`, `Cookie`, `HTTP header`, or `Query params`. Set a value for each parameter. Enable **Case sensitive** as needed.
-
-             To add one more value for a parameter, click ![plus-sign](../../_assets/console-icons/plus.svg) **or**.
-
-      1. {% include [waf-rule-traffic-conditions](../../_includes/smartwebsecurity/waf-rule-traffic-conditions.md) %}
-
-      1. Click **{{ ui-key.yacloud.common.save }}**.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - {{ TF }} {#tf}
 

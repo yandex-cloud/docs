@@ -11,8 +11,8 @@ If the instance has deletion protection enabled, [disable](instance-update.md) i
 
 - Management console {#console}
 
-  1. In the management console, select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to delete a [{{ GL }} instance](../../concepts/index.md#instance).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder you want to delete a [{{ GL }} instance](../../concepts/index.md#instance) from.
+  1. [Navigate]({{ link-console-main }}/link/managed-gitlab) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) for the instance and select **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 

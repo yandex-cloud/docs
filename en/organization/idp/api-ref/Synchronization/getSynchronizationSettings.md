@@ -79,7 +79,19 @@ The maximum string length in characters is 50. ||
   ],
   "createdAt": "string",
   "replacementDomain": "string",
-  "enablePasswordWriteback": "boolean"
+  "enablePasswordWriteback": "boolean",
+  "ldapSettings": {
+    "externalIdAttribute": "string",
+    "dnAttribute": "string",
+    "userObjectClass": "string",
+    "groupObjectClass": "string",
+    "accountDisabledAttribute": "string",
+    "accountDisabledValue": "string",
+    "accountEnabledValue": "string",
+    "passwordAttribute": "string",
+    "deltaSyncMode": "string",
+    "useRecursiveMembershipFilter": "boolean"
+  }
 }
 ```
 
@@ -130,6 +142,12 @@ Domain replacement configuration. ||
 || enablePasswordWriteback | **boolean**
 
 Enables password writeback feature. ||
+|| ldapSettings | **[LdapSettings](#yandex.cloud.organizationmanager.v1.idp.LdapSettings)**
+
+Settings for generic LDAP synchronization source.
+
+Empty for Active Directory source. Required and fully populated for
+generic LDAP source. ||
 |#
 
 ## SynchronizationFilter {#yandex.cloud.organizationmanager.v1.idp.SynchronizationFilter}
@@ -185,7 +203,8 @@ Required field. Target attribute to map to.
 Required field. Type of mapping.
 
 - `DIRECT`: Direct mapping from source to target.
-- `EMPTY`: Empty mapping (no source attribute). ||
+- `EMPTY`: Empty mapping (no source attribute).
+- `DIRECT_ARBITRARY_ATTRIBUTE`: Direct mapping from an arbitrary `source` attribute ||
 |#
 
 ## GroupAttributeMapping {#yandex.cloud.organizationmanager.v1.idp.GroupAttributeMapping}
@@ -210,5 +229,48 @@ Required field. Target attribute to map to.
 Required field. Type of mapping.
 
 - `DIRECT`: Direct mapping from source to target.
-- `EMPTY`: Empty mapping (no source attribute). ||
+- `EMPTY`: Empty mapping (no source attribute).
+- `DIRECT_ARBITRARY_ATTRIBUTE`: Direct mapping from an arbitrary `source` attribute ||
+|#
+
+## LdapSettings {#yandex.cloud.organizationmanager.v1.idp.LdapSettings}
+
+Settings for generic LDAP synchronization source.
+
+#|
+||Field | Description ||
+|| externalIdAttribute | **string**
+
+Name of the LDAP attribute that holds the unique entry identifier. ||
+|| dnAttribute | **string**
+
+Name of the LDAP attribute that holds the DN of the entry. ||
+|| userObjectClass | **string**
+
+ObjectClass of users. ||
+|| groupObjectClass | **string**
+
+ObjectClass of groups. ||
+|| accountDisabledAttribute | **string**
+
+Name of the LDAP attribute that stores the account status. ||
+|| accountDisabledValue | **string**
+
+Value of `account_disabled_attribute` meaning the account is disabled. ||
+|| accountEnabledValue | **string**
+
+Value of `account_disabled_attribute` meaning the account is enabled. ||
+|| passwordAttribute | **string**
+
+Name of the LDAP attribute the agent writes the new password to during
+password writeback. ||
+|| deltaSyncMode | **enum** (LdapDeltaSyncMode)
+
+Delta synchronization mode.
+
+- `LDAP_DELTA_SYNC_MODE_FULL_SYNC`: Every run is a full sync; no replication token is used. ||
+|| useRecursiveMembershipFilter | **boolean**
+
+Enables the AD-extension matching rule
+1.2.840.113556.1.4.1941 for the group-DN membership filter. ||
 |#

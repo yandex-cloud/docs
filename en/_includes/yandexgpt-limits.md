@@ -65,5 +65,13 @@ Maximum number of files per search index | 10,000
 Maximum number of search indexes | 1,000
 Maximum number of indexing operations to run | 10
 Maximum length of user chunks | 8,000 characters
-**MCP servers**
+**MCP servers** |
 Number of active cloud connections per [availability zone]({{ link-docs }}/overview/concepts/geo-scope) | 500
+**Operation timeouts** ^1^ |
+Synchronous request execution timeout | 20 minutes
+Container code execution timeout | 20 minutes
+Container lifetime timeout | 20 minutes
+Background (asynchronous) request execution timeout from the start of execution ^2^ | 2 hours
+
+^1^ As soon as a timeout is exceeded, the operation will be terminated with an error.
+^2^ The execution of a background request may be delayed due to queuing. The maximum queue time is 24 hours.

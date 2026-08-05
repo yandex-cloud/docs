@@ -59,9 +59,16 @@ To learn more about {{ metastore-name }} clusters in {{ metadata-hub-name }}, se
         1. Select the minimum logging level.
 
             The execution log will contain logs of this level or higher. The available levels are `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`. The default is `INFO`.
-    1. If required, enable protection of the cluster from accidental deletion by a user.
+    
+    1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
+        
+        1. If required, enable protection of the cluster from accidental deletion by a user.
 
-        {% include [Cluster deletion protection limits](../../../_includes/mdb/deletion-protection-limits-data.md) %}
+            {% include [Cluster deletion protection limits](../../../_includes/mdb/deletion-protection-limits-data.md) %}
+        
+        1. Select cluster [maintenance](../../concepts/metastore-maintenance.md) time:
+
+            {% include [Maintenance window](../../../_includes/metadata-hub/metastore-maintenance-window-console.md) %}
 
     1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -95,7 +102,7 @@ To learn more about {{ metastore-name }} clusters in {{ metadata-hub-name }}, se
          --resource-preset-id <ID_of_computing_resources> \
          --maintenance-window type=<maintenance_type>,`
                               `day=<day_of_week>,`
-                              `hour=<hour> \
+                              `hour=<sequence_number_of_hour_interval> \
          --deletion-protection \
          --log-enabled \
          --log-folder-id <folder_ID> \
@@ -154,7 +161,7 @@ To learn more about {{ metastore-name }} clusters in {{ metadata-hub-name }}, se
           maintenance_window = {
             type = "<maintenance_type>"
             day  = "<day_of_week>"
-            hour = <hour>
+            hour = <sequence_number_of_hour_interval>
           }
 
           logging = {
@@ -251,7 +258,7 @@ To learn more about {{ metastore-name }} clusters in {{ metadata-hub-name }}, se
           "maintenanceWindow": {
             "weeklyMaintenanceWindow": {
             "day": "<day_of_week>",
-            "hour": "<hour>"
+            "hour": "<sequence_number_of_hour_interval>"
             }
           }
         }
@@ -322,7 +329,7 @@ To learn more about {{ metastore-name }} clusters in {{ metadata-hub-name }}, se
           "maintenance_window": {
             "weekly_maintenance_window": {
               "day": "<day_of_week>",
-              "hour": "<hour>"
+              "hour": "<sequence_number_of_hour_interval>"
             }
           }
         }

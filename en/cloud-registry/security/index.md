@@ -10,7 +10,7 @@ description: Access management in {{ cloud-registry-full-name }}, a secure stora
 In this section, you will learn about:
 
 * [Resources you can assign a role for](#resources).
-* [Roles this service has](#roles-list).
+* [Roles available in this service](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
@@ -30,7 +30,7 @@ For more information about role inheritance, see [Inheritance of access permissi
 
 You can also assign a role for [{{ cloud-registry-name }} registries](../concepts/registry.md) as well as directories inside them.
 
-## Roles this service has {#roles-list}
+## Roles available in the service {#roles-list}
 
 In {{ cloud-registry-name }}, you can manage access using both service and primitive roles.
 
@@ -61,6 +61,10 @@ In {{ cloud-registry-name }}, you can manage access using both service and primi
 #### cloud-registry.artifacts.pusher {#cloud-registry-artifacts-pusher}
 
 {% include [cloud-registry-artifacts-pusher](../../_roles/cloud-registry/artifacts/pusher.md) %}
+
+#### cloud-registry.artifacts.scanner {#cloud-registry-artifacts-scanner}
+
+{% include [cloud-registry-artifacts-scanner](../../_roles/cloud-registry/artifacts/scanner.md) %}
 
 ### Primitive roles {#primitive-roles}
 

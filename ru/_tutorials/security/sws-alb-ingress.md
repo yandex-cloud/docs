@@ -1,3 +1,5 @@
+
+
 Приложения в кластере {{ managed-k8s-full-name }} можно защитить от DDoS-атак и ботов с помощью сервиса [{{ sws-full-name }}](../../smartwebsecurity/concepts/index.md). Для этого опубликуйте приложения через ресурс Ingress, которому назначен [профиль безопасности](../../smartwebsecurity/concepts/profiles.md) {{ sws-name }} и который использует [контроллер Gwin](../../application-load-balancer/tools/gwin/index.md) или [Ingress-контроллер {{ alb-name }}](../../application-load-balancer/tools/k8s-ingress-controller/index.md).
 
 {% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}

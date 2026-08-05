@@ -7,6 +7,7 @@
 * [Организация сетевой связности в приватной подсети Yandex BareMetal](bms-simple-subnet.md)
 * [Назначение публичного IP-адреса серверу BareMetal вручную](bms-public-subnet.md)
 * [Организация сетевой связности между приватными подсетями BareMetal и Yandex Virtual Private Cloud с помощью Yandex Cloud Interconnect](bm-vrf-and-vpc-interconnect.md)
+* [Настройка разрешения DNS-имен из приватной сети Yandex BareMetal](bm-vpc-dns-forwarder.md)
 * [Доставка USB-устройств на сервер BareMetal или виртуальную машину Compute Cloud](usb-over-ip.md)
 * [Настройка межсетевого экрана OPNsense в режиме кластера высокой доступности на серверах Yandex BareMetal](opnsense-failover-cluster.md)
 * [Развертывание веб-приложения на серверах BareMetal с L7-балансировщиком и защитой Yandex Smart Web Security](webapp-on-bms-behind-sws.md)

@@ -26,7 +26,8 @@ Request to list supported attributes.
 
 Required field. Flavor of attributes to list.
 
-- `ACTIVE_DIRECTORY`: Active Directory attributes. ||
+- `ACTIVE_DIRECTORY`: Active Directory attributes.
+- `GENERIC_LDAP`: Generic LDAP attributes. ||
 |#
 
 ## ListSupportedAttributesResponse {#yandex.cloud.organizationmanager.v1.idp.ListSupportedAttributesResponse}
@@ -110,7 +111,8 @@ Source attribute configuration.
 Type of mapping.
 
 - `DIRECT`: Direct mapping from source to target.
-- `EMPTY`: Empty mapping (no source attribute). ||
+- `EMPTY`: Empty mapping (no source attribute).
+- `DIRECT_ARBITRARY_ATTRIBUTE`: Direct mapping from an arbitrary `source` attribute ||
 || attributes[] | **string**
 
 List of source attribute names. Empty for EMPTY type. ||

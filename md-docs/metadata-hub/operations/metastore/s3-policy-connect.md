@@ -2,6 +2,7 @@
 
 # Подключение к бакету Yandex Object Storage с политикой доступа
 
+
 В сервисе Apache Hive™ Metastore вы можете работать с бакетом Yandex Object Storage, для которого настроены [политики доступа](../../../storage/security/policy.md). Доступ к бакету осуществляется из отдельной DNS-зоны через внутренний балансировщик, который распределяет трафик по ВМ с NAT. Схема такого подключения приведена ниже. Вместо ВМ `test-s3-vm` будет использоваться кластер Apache Hive™ Metastore.
 
 ![Storage VPC Access](../../../_assets/metadata-hub/storage-vpc-access-metastore.svg)

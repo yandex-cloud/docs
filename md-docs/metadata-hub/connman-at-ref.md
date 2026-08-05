@@ -2,6 +2,7 @@
 
 # Справочник аудитных логов Yandex Connection Manager
 
+
 В Audit Trails для Yandex Connection Manager поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane).
 
 Общий вид значения поля `event_type` (_тип события_):

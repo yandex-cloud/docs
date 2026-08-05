@@ -2,7 +2,7 @@
 title: MLOps lifecycle support in {{ yandex-cloud }}
 description: In this tutorial, you will set up the lifecycle of machine learning models in the {{ yandex-cloud }} infrastructure using {{ mgl-full-name }} and ML Registry.
 keywords:
-  - machine learning
+  - Machine learning
   - Managed GitLab
   - MLOps
 ---
@@ -235,7 +235,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
 {% endlist %}
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [Machine Learning Model Experiments]({{ gl.docs }}/user/project/ml/experiment_tracking/)
 * [Model Registry]({{ gl.docs }}/user/project/ml/model_registry/)

@@ -5,6 +5,8 @@ description: Follow this guide to add sending messages to a {{ message-queue-ful
 
 # Sending messages to a {{ message-queue-full-name }} queue
 
+{% include [templating-note](../../../../_includes/serverless-integrations/templating-note.md) %}
+
 {% list tabs %}
 
 - Management console {#console}

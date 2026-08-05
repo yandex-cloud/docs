@@ -2603,7 +2603,7 @@ default:
         label_credit-volumeIncentiveCredit: Скидка за объём потребления
         label_deselected-all: Очистить
         label_selected-all: Выбрать все
-        value_empty_clouds_folders: Все облака и каталоги
+        value_empty_folders: Все каталоги
         value_empty_service_instances: Все рабочие пространства
       billing-widget:
         activate_promocode: Активировать промокод
@@ -3328,11 +3328,14 @@ default:
           oauth_idp_section_title: Конфигурация поставщика удостоверений (IdP)
           oauth_security_section_title: Безопасность OAuth/OIDC
           oauth_service_section_title: Конфигурация поставщика услуг (SP)
+          saml_field_encrypt_response_data_algo: Алгоритм шифрования данных
+          saml_field_encrypt_response_key_algo: Алгоритм шифрования ключа
           saml_field_issuer: Issuer / IdP EntityID
           saml_field_login: Login URL
           saml_field_logout: Logout URL
           saml_field_metadata: Metadata URL
           saml_field_request_signing_enabled: Принимать только подписанные запросы
+          saml_field_security_mode: Режим подписи
           saml_field_sp_entity: SP EntityID
           secret_section_add_new_secret_action: Добавить секрет
           secret_section_title: Секреты приложения
@@ -3407,6 +3410,7 @@ default:
           column_id: Идентификатор
         confirm: Подтвердить
         create: Создать
+        delete: Удалить
         more: Ещё
         operations: Операции
         overview: Обзор
@@ -3451,7 +3455,7 @@ default:
         scan-resource-group:
           button_select_bucket: Выбрать бакет
           button_select_cloud_catalog: Выбрать облако или каталог
-          file_type_all: Все файлы
+          file_type_all: Все форматы
           file_type_custom: Свой фильтр
           file_type_docx_txt: DOC / TXT
           file_type_html_xml: HTML / XML
@@ -3547,6 +3551,8 @@ default:
           create:
             action:
               create: Создать федерацию
+          note:
+            tab-domains: Домены
         group-mapping:
           create:
             add: Добавить группу
@@ -3704,6 +3710,8 @@ default:
           SamlAppAcsUrlsField:
             add-acs-url_eMunC: Добавить URL
           SamlAppEditForm:
+            encrypt-key-algo-sha1: RSA-OAEP-SHA1
+            encrypt-key-algo-sha256: RSA-OAEP-SHA256 (рекомендуется)
             EncryptResponseSection:
               add-cert-action: Добавить сертификат
               field-encode-data-algo: Алгоритм шифрования данных
@@ -3717,7 +3725,9 @@ default:
             field-sp-entity-id_snAsX: SP EntityID
             field-sp-logout-url_sLuRl: SP Logout URL
             RequestSigningSection:
+              add-cert-action: Добавить сертификат
               field-request-signing: Принимать только подписанные запросы
+            section-service-provider_83p1J: Конфигурация поставщика услуг (SP)
             signature-mode-assertions_thJgN: Assertions
             signature-mode-response_x7SKD: Response
             signature-mode-response-and-assertions_u2j6T: Assertions and Response
@@ -3762,6 +3772,9 @@ default:
             backgroundName: Фоновое изображение
             faviconName: Фавиконка
             logoName: Логотип
+        federations:
+          action:
+            add_domain: Добавить домен
         idp:
           PasswordDialog:
             action_save-password_gaB2s: Сохранить пароль
@@ -3778,9 +3791,16 @@ default:
             action-deactivate: Деактивировать
           AuthPolicyForm:
             section_title_scope_b9vbe: Условия
+          i18n:
+            ts:
+              sspr_two-any_16pJs: Последовательный ввод двух любых аутентификаторов
           mfa-overview-action-activate: Активировать
           mfa-overview-action-suspend: Деактивировать
           mfa-policies-create-policy-action: Создать политику
+          MfaPolicyForm:
+            caption_sspr_enabled_dXFne: Разрешить сброс пароля
+            caption_sspr_methods_7Xw6F: Способ сброса
+            sspr-section_4HP7w: Самостоятельный сброс пароля
           MfaPolicyPageLayout:
             policies_title: Политики MFA
             tab_exclusions: Исключения
@@ -4120,7 +4140,7 @@ default:
             create-exception: Новое исключение
           InvestigationPageLayout:
             fieldDescription_wiAxw: Описание
-            fieldModified: Изменено
+            fieldModified: Дата изменения
             information_cZr8L: Информация
             newQuery_mzeBV: Новый запрос
           InvestigationsPage:
@@ -10176,45 +10196,38 @@ default:
         transfer-selected-projects: Перенести выбранные проекты
     yc-ui-talkanalytics:
       assistants:
-        applying: Использование
-        assistants: Ассистенты
-        prompt: Инструкция
+        applying_T3ZVB: Использование
+        assistants_vsZCd: Ассистенты
+        prompt_4hIv3: Инструкция
       common:
-        add: Добавить
-        create: Создать
-        more: Еще
+        add_694qE: Добавить
+        create_JTJlL: Создать
+        more_Dnm3Y: Еще
       connections:
-        add-key: Добавить ключ
-        column:
-          name: Название в системе
-        connection: Подключение
-        connections: Подключения
-        create-connection-key-value: Создать подключение
-        fields:
-          metadata: Общие метаданные
-        template:
-          amo-crm:
-            name: AmoCRM
-          bitrix24:
-            name: Bitrix24
-          default:
-            name: Пустая форма
-        type:
-          chat-key-value: Чат
-          two-channel-key-value: Двухканальное аудио
+        add-key_rKBwZ: Добавить ключ
+        column_zUZH9: Название в системе
+        connection_SezJG: Подключение
+        connections_q5X2U: Подключения
+        create-connection_kemb1: Создать подключение
+        fields_QO3t6: Общие метаданные
+        template_0duY8: Пустая форма
+        template_GOsRJ: Bitrix24
+        template_vfToG: AmoCRM
+        type_13ZZh: Двухканальное аудио
+        type_NWiH4: Чат
       dialogs:
-        bot: Бот
-        client: Клиент
-        dialogs: Диалоги
-        operator: Оператор
+        bot_ySBIh: Бот
+        client_qq11P: Клиент
+        dialogs_ouB03: Диалоги
+        operator_aKjP0: Оператор
       projects:
-        add-connection: Добавить подключение
-        add-participant: Добавить участника
-        create-project: Создать проект
+        add-connection_bxENx: Добавить подключение
+        add-participant_MeT49: Добавить участника
+        create-project_buUAo: Создать проект
       spaces:
-        create-space: Создать пространство
+        create-space_FvLT9: Создать пространство
       team:
-        add-from-organization-key-value: Добавить из организации
+        add-from-organization_2PoId: Добавить из организации
     yql:
       yq-audit-trails:
         audit-trails-type-toggle:

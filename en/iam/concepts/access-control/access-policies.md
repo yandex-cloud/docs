@@ -131,6 +131,7 @@ For more information on how to create access policies based on templates with pa
 
 {% endnote %}
 
+* [aistudio.responses.restrictNetworkAccess](#aistudio-responses-restrictNetworkAccess)
 * [serverless.containers.restrictNetworkAccess](#serverless-containers-restrictNetworkAccess)
 * [serverless.containers.restrictResourceVPCNetwork](#serverless-containers-restrictResourceVPCNetwork)
 * [serverless.functions.restrictNetworkAccess](#serverless-functions-restrictNetworkAccess)
@@ -140,6 +141,15 @@ For more information on how to create access policies based on templates with pa
 * [serverless.responses.restrictNetworkAccess](#serverless-responses-restrictNetworkAccess)
 * [serverless.workflows.restrictNetworkAccess](#serverless-workflows-restrictNetworkAccess)
 * [serverless.workflows.restrictResourceVPCNetwork](#serverless-workflows-restrictResourceVPCNetwork)
+
+#### aistudio.responses.restrictNetworkAccess {#aistudio-responses-restrictNetworkAccess}
+
+The policy prohibits sending [Responses API]({{ link-docs-ai }}ai-studio/api/Responses/) requests in {{ ai-studio-full-name }} and managing them from any addresses except explicitly specified IP addresses or {{ vpc-full-name }} [cloud networks](../../../vpc/concepts/network.md#network).
+
+Customizable parameters (applied using the `OR` logic):
+
+* `allowed_src_ips`: List of IP addresses or IP address ranges in [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation you can call and manage functions from.
+* `allowed_vpc_network_ids`: List of IDs of cloud networks that allow calling and managing functions via a configured [service connection](../../../vpc/concepts/private-endpoint.md).
 
 #### serverless.containers.restrictNetworkAccess {#serverless-containers-restrictNetworkAccess}
 

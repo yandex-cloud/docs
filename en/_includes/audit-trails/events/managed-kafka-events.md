@@ -11,6 +11,7 @@ Event name | Description
 `GrantUserPermission` | Granting permissions to a cluster user
 `MoveCluster` | Moving a cluster
 `PauseConnector` | Pausing a connector
+`RescheduleMaintenance` | Changing scheduled maintenance date and time
 `ResumeConnector` | Resuming a connector
 `RevokeUserPermission` | Revoking a cluster user's permissions
 `SetClusterAccessBindings` | Assigning access permissions for a cluster

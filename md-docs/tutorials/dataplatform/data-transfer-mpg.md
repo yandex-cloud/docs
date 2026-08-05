@@ -4,6 +4,7 @@
 
 # Поставка данных из Yandex Managed Service for PostgreSQL в Yandex Managed Service for Apache Kafka® с помощью Yandex Data Transfer
 
+
 Вы можете отслеживать изменения данных в _кластере-источнике_ Managed Service for PostgreSQL и отправлять их в _кластер-приемник_ Managed Service for Apache Kafka® с помощью технологии Change Data Capture (CDC).
 
 Чтобы настроить CDC с использованием сервиса Data Transfer:

@@ -54,7 +54,7 @@ We do not recommend using access to the serial console unless it is absolutely n
 - Performing a check in the management console {#console}
 
   1. In the management console, select the folder to check the VMs in.
-  1. In the list of services, select **{{ compute-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Open the settings of all the necessary VMs.
   1. Under **Access**, find the **Additional** parameter.
   1. **Serial console access** must be disabled.
@@ -105,7 +105,7 @@ When deploying virtual machines, we recommend:
 - Performing a check in the management console {#console}
 
   1. In the management console, select the folder to check the VMs in.
-  1. In the list of services, select **{{ compute-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Go to the **Disks** tab.
   1. Open the settings of all disks.
   1. Under **Source**, find the **Identifier** parameter.
@@ -292,7 +292,7 @@ With ACLs, you can grant access to an object bypassing {{ iam-short-name }} veri
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the buckets in.
-  1. In the list of services, select **{{ objstorage-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click the three dots next to each bucket and check its ACL for `allUsers` and `allAuthenticatedUsers`.
   1. Open the bucket and check the ACL of each of its objects for `allUsers` and `allAuthenticatedUsers`.
   1. Check that the object **Read access** section has the **Public** parameter enabled. Otherwise, proceed to "Guides and solutions to use".
@@ -334,7 +334,7 @@ We recommend making sure that your {{ objstorage-name }} bucket uses at least on
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the bucket policies in.
-  1. In the list of services, select {{ objstorage-name }}.
+  1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Go to **Bucket policy**.
   1. Make sure that at least one policy is enabled. Otherwise, proceed to "Guides and solutions to use".
 
@@ -378,7 +378,7 @@ The storage period of critical data in a bucket is determined by the customer's 
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the buckets in.
-  1. In the list of services, select **{{ objstorage-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Open the settings of all buckets.
   1. Go to the **Versioning** tab and make sure it is enabled. Otherwise, proceed to "Guides and solutions to use".
 
@@ -438,7 +438,7 @@ If you need [cross-domain requests](https://en.wikipedia.org/wiki/Cross-origin_r
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the buckets in.
-  1. In the list of services, select **{{ objstorage-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Open the settings of all buckets.
   1. Go to the **CORS** tab and make sure that the configuration is set up. Otherwise, proceed to "Guides and solutions to use".
 
@@ -472,7 +472,7 @@ Temporary {{ sts-name }} keys inherit the access permissions of the service acco
 
 #### 3.14 Pre-signed URLs are generated for one-off accesses to specific objects in {{ objstorage-name }} private buckets {#use-presigned-urls}
 
-{{ objstorage-name }} incorporates several access management mechanisms. To learn how these mechanisms interact, see [{#T}](../../../storage/security/overview.md).
+{{ objstorage-name }} incorporates several access management methods. To learn how these mechanisms interact, see [{#T}](../../../storage/security/overview.md).
 
 With pre-signed URLs, any web user can perform various operations in Object Storage, such as:
 * Downloading an object
@@ -842,7 +842,7 @@ You can only specify a single network for functions, containers, and API gateway
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the functions in.
-  1. In the list of services, select {{ sf-name }}.
+  1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Open all the functions.
   1. In the object settings, go to the **Edit function version** tab.
   1. If the parameters of each object have **Network — {{ vpc-short-name }}** set, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
@@ -980,7 +980,7 @@ When setting up database permissions, use the principle of least privilege.
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the database in. 
-  1. In the list of services, select **{{ ydb-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/ydb) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Open all the databases.
   1. In the database settings, go to the **Network** tab.
   1. If the parameters of each object have the **Public IP addresses** option disabled, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
@@ -1038,7 +1038,7 @@ We recommend that you limit access to your {{ container-registry-short-name }} t
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the registry in.
-  1. In the list of services, select **{{ container-registry-short-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/container-registry) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. In the settings of the specific registry, go to the **Access for IP address** tab.
   1. If specific IPs to allow access for are set in the parameters, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
@@ -1161,7 +1161,7 @@ We do not recommend that you use privileged containers to run loads that process
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the VMs in.
-  1. In the list of services, select **{{ compute-short-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Open the settings of a specific VM with a **Container Optimized Image**.
   1. In the Docker container's **Settings**, find the **Privileged mode** parameter.
   1. If it is disabled, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
@@ -1194,7 +1194,7 @@ We do not recommend that you use privileged containers to run loads that process
 **Guides and solutions to use**:
 
 1. In the management console, select the cloud or folder to check the VMs in.
-1. In the list of services, select **{{ compute-short-name }}**.
+1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. Open the settings of a specific VM with a **Container Optimized Image**.
 1. In the Docker container's Settings, disable the **Privileged mode** parameter.
 
@@ -1217,7 +1217,7 @@ We recommend that you update certificates in advance if they are not [updated au
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the VMs in.
-  1. In the list of services, select **{{ certificate-manager-full-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/certificate-manager) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
   1. Open the settings of each certificate and find the **End date** parameter.
   1. If the parameter shows that the certificate will be valid for at least 30 days more, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
@@ -1303,7 +1303,7 @@ If you manually resolve the thread, it will be recreated. If the merge request i
 - Performing a check in the management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where your {{ GL }} instance is located.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-gitlab) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
   1. Select the instance you need and click **{{ ui-key.yacloud.common.edit }}** in the top-right corner of the page.
   1. Make sure to select a configured approval rule [configuration](../../../managed-gitlab/concepts/approval-rules.md#packages) in the **{{ ui-key.yacloud.gitlab.field_approval-rules }}** field.
 
@@ -1410,9 +1410,9 @@ Make sure to back up all VMs in your organization using one of these options:
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the VMs in.
-  1. In the list of services, select {{ compute-short-name }}.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Make sure that the scheduled snapshot policy is set up on the VMs.
-  1. In the list of services, select {{ backup-short-name }}.
+  1. [Navigate]({{ link-console-main }}/link/backup) to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. Make sure that it is enabled.
 
 {% endlist %}
@@ -1471,7 +1471,7 @@ If you specify a network in the API gateway settings, this will create an auxili
 - Performing a check in the management console {#console}
 
   1. In the management console, select the folder containing the API gateway.
-  1. In the list of services, select **{{ api-gw-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/api-gateway) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Select the API gateway you need from the list.
   1. Make sure the cloud network is specified in the **Overview** section.
 
@@ -1525,7 +1525,7 @@ We recommend that you use the following when connecting to the API gateway via W
 - Performing a check in the management console {#console}
 
   1. In the management console, select the folder containing the API gateway.
-  1. In the list of services, select **{{ api-gw-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/api-gateway) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Select the API gateway you need from the list.
   1. Set up integrations in the OpenAPI specification using the following operations: `x-yc-apigateway-websocket-message`, `x-yc-apigateway-websocket-connect`, or `x-yc-apigateway-websocket-disconnect`.
 
@@ -1546,7 +1546,7 @@ Make sure that security enhancement extensions were added to the {{ api-gw-name 
 - Performing a check in the management console {#console}
 
   1. In the management console, select the folder containing the API gateway.
-  1. In the list of services, select **{{ api-gw-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/api-gateway) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Select the API gateway you need from the list.
   1. OpenAPI 3.0 is used in the **Specification** section.
 
@@ -1569,7 +1569,7 @@ The `x-yc-apigateway:smartWebSecurity` extension uses [{{ sws-full-name }} profi
 - Performing a check in the management console {#console}
 
   1. In the management console, select the folder containing the API gateway.
-  1. In the list of services, select **{{ api-gw-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/api-gateway) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Select the API gateway you need from the list.
   1. Make sure the **Specification** section uses the `x-yc-apigateway:smartWebSecurity` extension, which protects the API gateway as well as your application, function, or container from DDoS attacks based on the {{ sws-full-name }} profile rules.
 
@@ -1591,7 +1591,7 @@ We recommend using the OpenAPI 3.0 authentication and authorization mechanisms t
 - Performing a check in the management console {#console}
 
   1. In the management console, select the folder containing the API gateway.
-  1. In the list of services, select **{{ api-gw-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/api-gateway) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Select the API gateway you need from the list.
   1. Make sure that the **Specification** section has the `x-yc-apigateway-authorizer:jwt` or `x-yc-apigateway-authorizer:function` extension configured.
 
@@ -1626,7 +1626,7 @@ We recommend to keep logging enabled when creating an API gateway. For more info
 - Performing a check in the management console {#console}
 
   1. In the management console, select the folder containing the API gateway.
-  1. In the list of services, select **{{ api-gw-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/api-gateway) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Select the API gateway you need from the list.
   1. Make sure that the **Write logs** option is enabled in the **Logging** section and that the gateway logging level and destination are set up.
 

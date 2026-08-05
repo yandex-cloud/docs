@@ -62,7 +62,7 @@ It can represent an account with a unique ID or several accounts with a system i
 || id | **string**
 
 Required field. ID of the subject.
-It can contain one of the following values:oauth
+It can contain one of the following values:
 * `allAuthenticatedUsers`: A special public group that represents anyone
 who is authenticated. It can be used only if the `type` is `system`.
 * `allUsers`: A special public group that represents anyone. No authentication is required.
@@ -72,17 +72,20 @@ It can be used only if the `type` is `system`.
 with given &lt;id&gt;. It can be used only if the `type` is `system`.
 * `group:federation:<id>:users`: A special system group that represents all users of federation
 with given &lt;id&gt;. It can be used only if the `type` is `system`.
-* `<cloud generated id>`: An identifier that represents a user account.
-It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`.
+* `group:userpool:<id>:users`: A special system group that represents all users of userpool
+with given &lt;id&gt;. It can be used only if the `type` is `system`.
+* `<cloud generated id>`: An identifier that represents a subject.
+It can be used only if the `type` is `group`, `invitee`, `serviceAccount` or `userAccount`.
 
 The maximum string length in characters is 100. ||
 || type | **string**
 
 Required field. Type of the subject.
 It can contain one of the following values:
-* `userAccount`: An account on Yandex or Yandex Connect, added to Yandex Cloud.
+* `invitee`: An existing or new user who has been invited to the organization but has not yet accepted the invitation.
+* `group`: A group of users. This type represents the [yandex.cloud.organizationmanager.v1.Group](../../../../../../../organization/api-ref/grpc/Group/get.md#yandex.cloud.organizationmanager.v1.Group) resource.
+* `userAccount`: An account on Yandex ID. This type represents the [yandex.cloud.iam.v1.UserAccount](../../../../../../api-ref/grpc/UserAccount/get.md#yandex.cloud.iam.v1.UserAccount) resource.
 * `serviceAccount`: A service account. This type represents the [yandex.cloud.iam.v1.ServiceAccount](../../../../../../api-ref/grpc/ServiceAccount/get.md#yandex.cloud.iam.v1.ServiceAccount) resource.
-* `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
 * `system`: System group. This type represents several accounts with a common system identifier.
 For more information, see [Subject to which the role is assigned](../../../../../../concepts/access-control/index.md#subject).
 

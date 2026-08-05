@@ -288,7 +288,7 @@ https://<FQDN_любого_хоста_ClickHouse®>:8443/play
 
 {% note info %}
 
-[Yandex Managed Service for Trino](../../../managed-trino/index.md) находится на стадии [Preview](../../../overview/concepts/launch-stages.md). В интерфейсе Yandex WebSQL пока нельзя создавать подключения к Yandex Managed Service for Trino, но если в текущем каталоге есть кластер Yandex Managed Service for Trino и у пользователя есть к нему доступ, подключение отобразится в WebSQL и будет доступно для использования. 
+В интерфейсе Yandex WebSQL пока нельзя создавать подключения к Yandex Managed Service for Trino, но если в текущем каталоге есть кластер Yandex Managed Service for Trino и у пользователя есть к нему доступ, подключение отобразится в WebSQL и будет доступно для использования. 
 
 {% endnote %}
 

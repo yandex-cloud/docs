@@ -38,6 +38,8 @@ Certificate ID for the specified listener. ||
 || `--client-certificates-trusted-ca-file` | `string`
 
 Trusted CA filename (PEM) for the specified listener. ||
+|| `--client-certificates-accept-untrusted` | Don't check client certificates' trusted chain. It is additionally allows expired client certificates ||
+|| `--client-certificates-allow-expired` | Accept expired client certificates. ||
 || `--external-ipv4-endpoint` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
 
 External IPv4 endpoint settings for the specified listener.

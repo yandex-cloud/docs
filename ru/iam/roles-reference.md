@@ -347,9 +347,9 @@ description: В статье приведен полный справочник 
 
 {% include [baremetal-editor](../_roles/baremetal/editor.md) %}
 
-{% note warning %}
+{% note info %}
 
-С 1 августа 2026 года роль `baremetal.editor` получает новый набор разрешений от роли [backup.user](../backup/security/index.md#backup-user), позволяющий подключать серверы к сервису [{{ backup-full-name }}](../backup/index.yaml), а также привязывать и отвязывать их от [политик резервного копирования](../backup/concepts/policy.md).
+Роль `baremetal.editor` включает разрешения роли [backup.user](../backup/security/index.md#backup-user), позволяющие подключать серверы к сервису [{{ backup-full-name }}](../backup/index.yaml), а также привязывать и отвязывать их от [политик резервного копирования](../backup/concepts/policy.md).
 
 {% include [denyActivation-iam-policy-pre-notice](../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
 
@@ -359,9 +359,9 @@ description: В статье приведен полный справочник 
 
 {% include [baremetal-admin](../_roles/baremetal/admin.md) %}
 
-{% note warning %}
+{% note info %}
 
-С 1 августа 2026 года роль `baremetal.admin` получает новый набор разрешений от роли [backup.user](../backup/security/index.md#backup-user), позволяющий подключать серверы к сервису [{{ backup-full-name }}](../backup/index.yaml), а также привязывать и отвязывать их от [политик резервного копирования](../backup/concepts/policy.md).
+Роль `baremetal.admin` включает разрешения роли [backup.user](../backup/security/index.md#backup-user), позволяющие подключать серверы к сервису [{{ backup-full-name }}](../backup/index.yaml), а также привязывать и отвязывать их от [политик резервного копирования](../backup/concepts/policy.md).
 
 {% include [denyActivation-iam-policy-pre-notice](../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
 
@@ -893,9 +893,9 @@ description: В статье приведен полный справочник 
 
 {% include [compute.editor](../_roles/compute/editor.md) %}
 
-{% note warning %}
+{% note info %}
 
-С 1 августа 2026 года роль `compute.editor` получает новый набор разрешений от роли [backup.user](../backup/security/index.md#backup-user), позволяющий подключать виртуальные машины к сервису [{{ backup-full-name }}](../backup/index.yaml), а также привязывать и отвязывать их от [политик резервного копирования](../backup/concepts/policy.md).
+Роль `compute.editor` включает разрешения роли [backup.user](../backup/security/index.md#backup-user), позволяющие подключать виртуальные машины к сервису [{{ backup-full-name }}](../backup/index.yaml), а также привязывать и отвязывать их от [политик резервного копирования](../backup/concepts/policy.md).
 
 {% include [denyActivation-iam-policy-pre-notice](../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
 
@@ -905,9 +905,9 @@ description: В статье приведен полный справочник 
 
 {% include [compute.admin](../_roles/compute/admin.md) %}
 
-{% note warning %}
+{% note info %}
 
-С 1 августа 2026 года роль `compute.admin` получает новый набор разрешений от роли [backup.user](../backup/security/index.md#backup-user), позволяющий подключать виртуальные машины к сервису [{{ backup-full-name }}](../backup/index.yaml), а также привязывать и отвязывать их от [политик резервного копирования](../backup/concepts/policy.md).
+Роль `compute.admin` включает разрешения роли [backup.user](../backup/security/index.md#backup-user), позволяющие подключать виртуальные машины к сервису [{{ backup-full-name }}](../backup/index.yaml), а также привязывать и отвязывать их от [политик резервного копирования](../backup/concepts/policy.md).
 
 {% include [denyActivation-iam-policy-pre-notice](../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
 

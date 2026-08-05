@@ -53,7 +53,7 @@
        1. Создайте бакет для исходных данных и предоставьте сервисному аккаунту кластера разрешение `READ` для этого бакета.
        1. Создайте бакет для результатов обработки и предоставьте сервисному аккаунту кластера разрешение `READ и WRITE` для этого бакета.
     1. [Создайте облачную сеть](../../vpc/operations/network-create.md) с именем `dataproc-network`.
-    1. В сети `dataproc-network` [создайте подсеть](../../vpc/operations/subnet-create.md) в любой зоне доступности.
+    1. В сети `dataproc-network` [создайте подсеть](../../vpc/operations/subnet-create.md) в любой [зоне доступности](../../overview/concepts/geo-scope.md).
     1. [Настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md) для созданной подсети.
     1. [Создайте два кластера Yandex Data Processing](../../data-proc/operations/cluster-create.md) с именами `dataproc-source` и `dataproc-target`, с любой [подходящей конфигурацией хостов](../../data-proc/concepts/instance-types.md) и следующими настройками:
 

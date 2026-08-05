@@ -24,7 +24,7 @@ Debian artifacts are used to distribute software you can install and manage usin
 
 When creating a registry with a metadata signature:
 
-* The secret part of the GPG key is stored in [{{ lockbox-full-name }}](../../../../lockbox/).
+* The secret part of the GPG key is stored in [{{ lockbox-full-name }}](../../../lockbox/).
 * {{ cloud-registry-name }} automatically signs registry metadata on every update.
 * Clients use the public part of the GPG key to verify the signature.
 

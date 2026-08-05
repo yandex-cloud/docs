@@ -14,31 +14,31 @@ To set up {{ speechsense-name }} integration with [{{ amocrm-name }}](https://ww
 - {{ speechsense-name }} UI {#speechsense}
 
   1. In the {{ speechsense-name }} [UI]({{ link-speechsense-main }}), go to the space of your choice.
-  1. Go to the **{{ ui-key.yc-ui-talkanalytics.connections.connections }}** tab and select a template to create a connection or click **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
+  1. Go to the **{{ ui-key.yc-ui-talkanalytics.connections.connections_q5X2U }}** tab and select a template to create a connection or click **{{ ui-key.yc-ui-talkanalytics.connections.create-connection_kemb1 }}**.
 
      {% include [metadata](../../../_includes/speechsense/data/templates-connection.md) %}
  
   1. Enter the connection name.
-  1. Select the `{{ ui-key.yc-ui-talkanalytics.connections.type.two-channel-key-value }}` data type.
-  1. Under **{{ ui-key.yc-ui-talkanalytics.dialogs.operator }}** and **{{ ui-key.yc-ui-talkanalytics.dialogs.client }}**, specify:
+  1. Select the `{{ ui-key.yc-ui-talkanalytics.connections.type_13ZZh }}` data type.
+  1. Under **{{ ui-key.yc-ui-talkanalytics.dialogs.operator_aKjP0 }}** and **{{ ui-key.yc-ui-talkanalytics.dialogs.client_qq11P }}**, specify:
 
       1. Channels with the agent's and customer's voices.
       1. Agent and customer keys from the metadata file. This file contains the call information collected from CRM systems, PBXs, or other sources.
 
-        By default, connections include keys with the name and ID of the agent and the customer. In the **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** field, enter the name the key will have in {{ speechsense-name }}.
+        By default, connections include keys with the name and ID of the agent and the customer. In the **{{ ui-key.yc-ui-talkanalytics.connections.column_zUZH9 }}** field, enter the name the key will have in {{ speechsense-name }}.
 
-        To specify additional metadata for the agent and the customer, click **{{ ui-key.yc-ui-talkanalytics.connections.add-key }}**.
+        To specify additional metadata for the agent and the customer, click **{{ ui-key.yc-ui-talkanalytics.connections.add-key_rKBwZ }}**.
 
-  1. Under **{{ ui-key.yc-ui-talkanalytics.connections.fields.metadata }}**, provide the keys from the metadata file that are not related to the agent or the customer:
+  1. Under **{{ ui-key.yc-ui-talkanalytics.connections.fields_QO3t6 }}**, provide the keys from the metadata file that are not related to the agent or the customer:
 
       * In the **Key** field, enter the field name to use when mapping fields in the exchange module settings. For example: `Call date` → `call_date`. Also, specify the name used in the system and add a description to display in {{ speechsense-name }} forms and reports.
       * Currently, the **Type** field only supports the `String` value.
 
-      By default, connections include keys with the date, direction, and language of the call. In addition, you can specify the keys you want to receive from the external system. In the **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** field, enter the name the key will have in {{ speechsense-name }}.
+      By default, connections include keys with the date, direction, and language of the call. In addition, you can specify the keys you want to receive from the external system. In the **{{ ui-key.yc-ui-talkanalytics.connections.column_zUZH9 }}** field, enter the name the key will have in {{ speechsense-name }}.
 
-      To provide additional metadata, click **{{ ui-key.yc-ui-talkanalytics.connections.add-key }}**.
+      To provide additional metadata, click **{{ ui-key.yc-ui-talkanalytics.connections.add-key_rKBwZ }}**.
 
-  1. Click **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
+  1. Click **{{ ui-key.yc-ui-talkanalytics.connections.create-connection_kemb1 }}**.
   1. Click **ID** ![image](../../../_assets/console-icons/copy-transparent.svg) in the top-left corner of the connection page to copy the connection ID. Save it as you will need it later.
 
 {% endlist %}

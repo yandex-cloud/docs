@@ -75,7 +75,7 @@
   1. На странице [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления](https://console.yandex.cloud) нажмите кнопку ![plus](../../../_assets/console-icons/plus.svg) **Создать ресурс** и выберите пункт `Виртуальная машина`.
   1. В блоке **Образ загрузочного диска** в поле **Поиск продукта** введите `Ubuntu 22.04 LTS` и выберите публичный образ [Ubuntu 22.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-22-04-lts).
   1. В блоке **Расположение** выберите [зону доступности](../../../overview/concepts/geo-scope.md): `ru-central1-a`.
-  1. В блоке **Диски и файловые хранилища** выберите [тип диска](../../../compute/concepts/disk.md#disks_types) `SSD` и задайте размер `24 ГБ`.
+  1. В блоке **Диски и файловые хранилища** выберите [тип диска](../../../compute/concepts/disk.md#disks-types) `SSD` и задайте размер `24 ГБ`.
   1. В блоке **Вычислительные ресурсы** перейдите на вкладку `Своя конфигурация` и укажите необходимую [платформу](../../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
 
       * **Платформа** — `Intel Ice Lake`.

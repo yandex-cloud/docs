@@ -2,6 +2,7 @@
 
 # Создание продукта BareMetal на базе Linux для загрузки в Cloud Marketplace
 
+
 Чтобы добавить в Cloud Marketplace продукт для Yandex BareMetal, нужно загрузить образ в Yandex Cloud. Продукты могут быть созданы на базе ОС Linux. Этот раздел поможет создать образ на базе ОС Linux.
 
 ## Создание образа {#create}

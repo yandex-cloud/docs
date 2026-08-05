@@ -34,7 +34,16 @@ description: Follow this guide to update a {{ metastore-full-name }} cluster.
       * Select the minimum logging level. 
       
       For more information, see [Transferring cluster logs](logging.md).
-  1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**, enable or disable cluster deletion protection.
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
+      
+      1. Enable or disable cluster deletion protection. 
+          
+          {% include [deletion-protection-limits-data](../../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+      1. Update cluster [maintenance](../../concepts/metastore-maintenance.md) time:
+
+          {% include [Maintenance window](../../../_includes/metadata-hub/metastore-maintenance-window-console.md) %}
+
   1. Click **{{ ui-key.yacloud.common.edit }}**.
 
 - CLI {#cli}
@@ -66,7 +75,7 @@ description: Follow this guide to update a {{ metastore-full-name }} cluster.
          --resource-preset-id <ID_of_computing_resources> \
          --maintenance-window type=<maintenance_type>,`
                               `day=<day_of_week>,`
-                              `hour=<hour> \
+                              `hour=<sequence_number_of_hour_interval> \
          --deletion-protection \
          --log-enabled \
          --log-folder-id <folder_ID> \
@@ -121,7 +130,7 @@ description: Follow this guide to update a {{ metastore-full-name }} cluster.
           "maintenanceWindow": {
             "weeklyMaintenanceWindow": {
             "day": "<day_of_week>",
-            "hour": "<hour>"
+            "hour": "<sequence_number_of_hour_interval>"
             }
           }
         }
@@ -200,7 +209,7 @@ description: Follow this guide to update a {{ metastore-full-name }} cluster.
           "maintenance_window": {
             "weekly_maintenance_window": {
               "day": "<day_of_week>",
-              "hour": "<hour>"
+              "hour": "<sequence_number_of_hour_interval>"
             }
           }
         }

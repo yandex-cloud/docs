@@ -160,3 +160,4 @@ Certificates are not renewed automatically. Keep track of the lifecycle of your 
 * [{#T}](../concepts/managed-certificate.md)
 * [{#T}](../concepts/challenges.md)
 * [Configuring HTTPS in a bucket](../../storage/operations/hosting/certificate.md)
+* [{#T}](../../architecture/static-website-in-yc.md)

@@ -12,6 +12,7 @@ A set of methods for managing synchronization settings.
 ||Method | Description ||
 || [SetReplicationToken](setReplicationToken.md) | Sets the replication token for synchronization. ||
 || [ResetReplicationToken](resetReplicationToken.md) | Resets the replication token for synchronization. ||
+|| [GetReplicationToken](getReplicationToken.md) | Returns the replication token for synchronization. ||
 || [CreateSynchronizationSettings](createSynchronizationSettings.md) | Creates synchronization settings for a subject container. ||
 || [UpdateSynchronizationSettings](updateSynchronizationSettings.md) | Updates synchronization settings for a subject container. ||
 || [DeleteSynchronizationSettings](deleteSynchronizationSettings.md) | Deletes synchronization settings for a subject container. ||

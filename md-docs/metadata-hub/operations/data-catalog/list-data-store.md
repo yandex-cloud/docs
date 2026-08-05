@@ -2,11 +2,13 @@
 
 # Получение списка хранилищ данных
 
+
 {% note info %}
 
 Эта функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md).
 
 {% endnote %}
+
 
 {% list tabs group=instructions %}
 

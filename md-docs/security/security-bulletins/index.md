@@ -1150,7 +1150,7 @@ PoC-код в разработке.
 
 ## 3.11.2023 — CVE-2023-5043 Nginx ingress controller for Kubernetes vulnerabilities {#CVE-2023-5043}
 
-CVE ID: CVE-2023-5043 , CVE-2023-5044 и CVE-2022-4886
+CVE ID: CVE-2023-5043, CVE-2023-5044 и CVE-2022-4886
 
 Ссылки на CVE:
 
@@ -2923,7 +2923,7 @@ Yandex Managed Service for Kubernetes не поддерживает аноним
 
 Yandex Managed Service for Valkey™ использует 64-битную версию Redis и не подвержен уязвимости.
 
-## 26.01.2021 — CVE-2021-3156 — повышение привилегий через уязвимости в sudo.
+## 26.01.2021 — CVE-2021-3156 — повышение привилегий через уязвимости в sudo
 
 ### Описание
 

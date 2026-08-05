@@ -5,11 +5,14 @@ description: Следуя данной инструкции, вы получит
 
 # Получение информации о загрузке
 
+
+
 {% note info %}
 
 {% include [preview-pp](../../../_includes/preview-pp.md) %}
 
 {% endnote %}
+
 
 ## Получить информацию о загрузке {#ingestion-info}
 

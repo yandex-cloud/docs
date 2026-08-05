@@ -1,0 +1,1 @@
+Если вы используете роли [compute.editor](../../compute/security/index.md#compute-editor) и выше или [baremetal.editor](../../baremetal/security/index.md#baremetal-editor) и выше, роль `backup.user` можно не назначать. Эти роли уже включают разрешения, предоставляемые `backup.user`.

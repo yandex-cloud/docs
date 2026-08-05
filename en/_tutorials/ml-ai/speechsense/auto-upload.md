@@ -207,9 +207,9 @@ Create an API key for the `speechsense-sa` service account.
 - {{ speechsense-name }} UI {#speechsense}
 
   1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
-  1. Click **{{ ui-key.yc-ui-talkanalytics.spaces.create-space }}**.
+  1. Click **{{ ui-key.yc-ui-talkanalytics.spaces.create-space_FvLT9 }}**.
   1. Enter a name for the space.
-  1. Click **{{ ui-key.yc-ui-talkanalytics.common.create }}**.
+  1. Click **{{ ui-key.yc-ui-talkanalytics.common.create_JTJlL }}**.
 
 {% endlist %}
 
@@ -223,10 +223,10 @@ Add the `speechsense-sa` service account to the {{ speechsense-name }} space.
 
   1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
   1. Go to your [new space](#create-space).
-  1. Click ![image](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yc-ui-talkanalytics.projects.add-participant }}** → ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yc-ui-talkanalytics.team.add-from-organization-key-value }}**.
+  1. Click ![image](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yc-ui-talkanalytics.projects.add-participant_MeT49 }}** → ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yc-ui-talkanalytics.team.add-from-organization_2PoId }}**.
   1. Copy the ID of the `speechsense-sa` service account you [created earlier](#create-sa) and paste it to the search bar.
   1. Select the `speechsense-sa` service account and specify the [{{ roles-speechsense-data-editor }}]({{ link-docs-ai }}speechsense/security/#speechsense-data-editor) role. This role will allow `speechsense-sa` to upload data to {{ speechsense-name }}.
-  1. Click **{{ ui-key.yc-ui-talkanalytics.common.add }}**.
+  1. Click **{{ ui-key.yc-ui-talkanalytics.common.add_694qE }}**.
 
 {% endlist %}
 
@@ -242,25 +242,25 @@ Depending on the type of files to be uploaded to {{ speechsense-name }}, create 
 
   1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
   1. Go to the space of your choice.
-  1. In the top-right corner, click **{{ ui-key.yc-ui-talkanalytics.common.more }}** → ![create](../../../_assets/console-icons/thunderbolt.svg) **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
+  1. In the top-right corner, click **{{ ui-key.yc-ui-talkanalytics.common.more_Dnm3Y }}** → ![create](../../../_assets/console-icons/thunderbolt.svg) **{{ ui-key.yc-ui-talkanalytics.connections.create-connection_kemb1 }}**.
   1. Enter the connection name.
-  1. Select the **{{ ui-key.yc-ui-talkanalytics.connections.type.two-channel-key-value }}** data type.
-  1. Under **{{ ui-key.yc-ui-talkanalytics.dialogs.operator }}**, **{{ ui-key.yc-ui-talkanalytics.dialogs.client }}**:
+  1. Select the **{{ ui-key.yc-ui-talkanalytics.connections.type_13ZZh }}** data type.
+  1. Under **{{ ui-key.yc-ui-talkanalytics.dialogs.operator_aKjP0 }}**, **{{ ui-key.yc-ui-talkanalytics.dialogs.client_qq11P }}**:
 
       1. Specify the channels with the agent's voice and customer's voice.
       1. Specify agent and customer keys from the metadata file. This file contains the call information collected from CRM systems, PBXs, or other sources.
 
-        By default, connections include keys with the name and ID of the agent and the customer. In the **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** field, enter a name the key will have in {{ speechsense-name }}.
+        By default, connections include keys with the name and ID of the agent and the customer. In the **{{ ui-key.yc-ui-talkanalytics.connections.column_zUZH9 }}** field, enter a name the key will have in {{ speechsense-name }}.
 
-        To specify additional metadata for the agent and the customer, click **{{ ui-key.yc-ui-talkanalytics.connections.add-key }}**.
+        To specify additional metadata for the agent and the customer, click **{{ ui-key.yc-ui-talkanalytics.connections.add-key_rKBwZ }}**.
 
-  1. Under **{{ ui-key.yc-ui-talkanalytics.connections.fields.metadata }}**, provide the keys from the metadata file that are not related to the agent or the customer.
+  1. Under **{{ ui-key.yc-ui-talkanalytics.connections.fields_QO3t6 }}**, provide the keys from the metadata file that are not related to the agent or the customer.
 
-      By default, connections include keys with the date, direction, and language of the call. In the **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** field, enter a name the key will have in {{ speechsense-name }}.
+      By default, connections include keys with the date, direction, and language of the call. In the **{{ ui-key.yc-ui-talkanalytics.connections.column_zUZH9 }}** field, enter a name the key will have in {{ speechsense-name }}.
 
-      To specify additional metadata, click **{{ ui-key.yc-ui-talkanalytics.connections.add-key }}**.
+      To specify additional metadata, click **{{ ui-key.yc-ui-talkanalytics.connections.add-key_rKBwZ }}**.
 
-  1. Click **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
+  1. Click **{{ ui-key.yc-ui-talkanalytics.connections.create-connection_kemb1 }}**.
 
 {% endlist %}
 
@@ -272,22 +272,22 @@ Depending on the type of files to be uploaded to {{ speechsense-name }}, create 
 
   1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
   1. Go to the space of your choice.
-  1. In the top-right corner, click **{{ ui-key.yc-ui-talkanalytics.common.more }}** → ![create](../../../_assets/console-icons/thunderbolt.svg) **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
+  1. In the top-right corner, click **{{ ui-key.yc-ui-talkanalytics.common.more_Dnm3Y }}** → ![create](../../../_assets/console-icons/thunderbolt.svg) **{{ ui-key.yc-ui-talkanalytics.connections.create-connection_kemb1 }}**.
   1. Enter the connection name.
-  1. Select the **{{ ui-key.yc-ui-talkanalytics.connections.type.chat-key-value }}** data type.
-  1. Under **{{ ui-key.yc-ui-talkanalytics.dialogs.operator }}**, **{{ ui-key.yc-ui-talkanalytics.dialogs.client }}**, **{{ ui-key.yc-ui-talkanalytics.dialogs.bot }}**, specify the keys from the metadata file. This file contains the dialog information collected from chats, CRM systems, or other sources.
+  1. Select the **{{ ui-key.yc-ui-talkanalytics.connections.type_NWiH4 }}** data type.
+  1. Under **{{ ui-key.yc-ui-talkanalytics.dialogs.operator_aKjP0 }}**, **{{ ui-key.yc-ui-talkanalytics.dialogs.client_qq11P }}**, **{{ ui-key.yc-ui-talkanalytics.dialogs.bot_ySBIh }}**, specify the keys from the metadata file. This file contains the dialog information collected from chats, CRM systems, or other sources.
 
-      By default, connections include keys with agent's, customer's, and bot's names and IDs. In the **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** field, enter a name the key will have in {{ speechsense-name }}.
+      By default, connections include keys with agent's, customer's, and bot's names and IDs. In the **{{ ui-key.yc-ui-talkanalytics.connections.column_zUZH9 }}** field, enter a name the key will have in {{ speechsense-name }}.
 
-      To specify additional agent, customer, and bot metadata, click **{{ ui-key.yc-ui-talkanalytics.connections.add-key }}**.
+      To specify additional agent, customer, and bot metadata, click **{{ ui-key.yc-ui-talkanalytics.connections.add-key_rKBwZ }}**.
 
-  1. Under **{{ ui-key.yc-ui-talkanalytics.connections.fields.metadata }}**, provide the keys from the metadata file that are not related to the agent, customer, and bot.
+  1. Under **{{ ui-key.yc-ui-talkanalytics.connections.fields_QO3t6 }}**, provide the keys from the metadata file that are not related to the agent, customer, and bot.
 
-      By default, keys with date, direction, and dialog language are added to the connection. In the **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** field, enter a name the key will have in {{ speechsense-name }}.
+      By default, keys with date, direction, and dialog language are added to the connection. In the **{{ ui-key.yc-ui-talkanalytics.connections.column_zUZH9 }}** field, enter a name the key will have in {{ speechsense-name }}.
 
-      To specify additional metadata, click **{{ ui-key.yc-ui-talkanalytics.connections.add-key }}**.
+      To specify additional metadata, click **{{ ui-key.yc-ui-talkanalytics.connections.add-key_rKBwZ }}**.
 
-  1. Click **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
+  1. Click **{{ ui-key.yc-ui-talkanalytics.connections.create-connection_kemb1 }}**.
 
 {% endlist %}
 
@@ -299,10 +299,10 @@ Depending on the type of files to be uploaded to {{ speechsense-name }}, create 
 
   1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
   1. Go to the space of your choice.
-  1. Click ![create](../../../_assets/console-icons/folder-plus.svg) **{{ ui-key.yc-ui-talkanalytics.projects.create-project }}**.
+  1. Click ![create](../../../_assets/console-icons/folder-plus.svg) **{{ ui-key.yc-ui-talkanalytics.projects.create-project_buUAo }}**.
   1. Enter a name for your project.
-  1. Under **{{ ui-key.yc-ui-talkanalytics.connections.connection }}**, click **{{ ui-key.yc-ui-talkanalytics.projects.add-connection }}** and select the connection you [created earlier](#create-connection).
-  1. Click **{{ ui-key.yc-ui-talkanalytics.projects.create-project }}**.
+  1. Under **{{ ui-key.yc-ui-talkanalytics.connections.connection_SezJG }}**, click **{{ ui-key.yc-ui-talkanalytics.projects.add-connection_bxENx }}** and select the connection you [created earlier](#create-connection).
+  1. Click **{{ ui-key.yc-ui-talkanalytics.projects.create-project_buUAo }}**.
 
 {% endlist %}
 

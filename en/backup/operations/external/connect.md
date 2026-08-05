@@ -18,7 +18,7 @@ To connect an external VM or server running a Linux Ubuntu OS to {{ backup-name 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to connect your external resource to {{ backup-name }}.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. [Navigate]({{ link-console-main }}/link/backup) to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. In the left-hand panel, select ![resources](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.backup.label_connected-resources }}**.
   1. In the top-right corner, click ![image](../../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.backup.button_connect-external-resource }}**.
   1. In the **{{ ui-key.yacloud.backup.dialog_connect-external-resource_title }}** window that opens:
@@ -149,7 +149,7 @@ To connect an external VM or server running a Linux Ubuntu OS to {{ backup-name 
 
   1. Get the command for installing the {{ backup-name }} agent on an external resource. To do this, use the [getAgentInstallCommand](../../backup/api-ref/Setup/getAgentInstallCommand.md) REST API method for the [Setup](../../backup/api-ref/Setup/index.md) resource or the [SetupService/GetAgentInstallCommand](../../backup/api-ref/grpc/Setup/getAgentInstallCommand.md) gRPC API call. In the request parameters, specify the target resource type: `EXTERNAL_VM` or `EXTERNAL_SERVER`.
   1. Connect to the external VM or server and run the command with administrator privileges.
-  1. Once the agent is installed, the external resource is automatically registered in {{ backup-name }}. To get a list of connected resources, use the [list](../../backup/api-ref/Resource/list.md) REST API method for the [Resource](../../backup/api-ref/Resource/index.md) resource or the [ResourceService/List](../../backup/api-ref/grpc/Resource/list.md) gRPC API call.
+  1. Once the agent is installed, the external resource gets automatically registered in {{ backup-name }}. To get a list of connected resources, use the [list](../../backup/api-ref/Resource/list.md) REST API method for the [Resource](../../backup/api-ref/Resource/index.md) resource or the [ResourceService/List](../../backup/api-ref/grpc/Resource/list.md) gRPC API call.
 
 {% endlist %}
 

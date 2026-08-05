@@ -5,6 +5,7 @@ description: Следуя данной инструкции, вы сможете
 
 # Подключение {{ dataproc-name }} к {{ metastore-name }}
 
+
 {% note info %}
 
 Для использования кластера {{ metastore-name }} [кластер {{ dataproc-full-name }}](../../../data-proc/concepts/index.md) должен содержать компоненты `SPARK` и `YARN`.

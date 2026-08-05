@@ -196,8 +196,6 @@
 
     В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
-{% endlist %}
-
 ## Подготовка кластера-источника {#prepare}
 
 1. [Подключитесь к базе данных](../../managed-postgresql/operations/connect/index.md) `db1` кластера Managed Service for PostgreSQL от имени пользователя `user1`.

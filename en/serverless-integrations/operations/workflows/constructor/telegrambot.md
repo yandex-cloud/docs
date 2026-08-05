@@ -5,6 +5,8 @@ description: Follow this guide to add the step of accessing the Telegram Bot API
 
 # Accessing the Telegram Bot API
 
+{% include [templating-note](../../../../_includes/serverless-integrations/templating-note.md) %}
+
 {% list tabs %}
 
 - Management console {#console}

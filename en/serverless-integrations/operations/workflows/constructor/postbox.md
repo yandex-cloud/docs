@@ -5,6 +5,8 @@ description: Follow this guide to add sending emails with {{ postbox-full-name }
 
 # Sending emails with {{ postbox-full-name }}
 
+{% include [templating-note](../../../../_includes/serverless-integrations/templating-note.md) %}
+
 {% list tabs %}
 
 - Management console {#console}

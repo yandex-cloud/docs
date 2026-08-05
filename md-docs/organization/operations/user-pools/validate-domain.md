@@ -44,15 +44,13 @@
   1. Выполните команду:
 
       ```bash
-      yc organization-manager idp userpool domain validate <идентификатор_пула> <домен> \
-        --name <домен>
+      yc organization-manager idp userpool domain validate <идентификатор_пула> <домен>
       ```
 
-      Например, подтвердите домен `my-domain.ru` в федерации `my-federation`:
+      Например, подтвердите домен `my-domain.ru` в пуле `ek05kcb9vm2d********`:
 
       ```bash
-      yc organization-manager federation saml validate-domain my-federation \
-        --domain my-domain.ru
+      yc organization-manager idp userpool domain validate ek05kcb9vm2d******** my-domain.ru
       ```
 
 - API {#api}
@@ -64,6 +62,14 @@
 ## Подтвердить домен в федерации удостоверений {#federation}
 
 {% list tabs group=instructions %}
+
+- Интерфейс Cloud Center {#cloud-center}
+
+  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization) с учетной записью администратора или владельца организации.
+  1. На панели слева нажмите ![icon-federation](../../../_assets/organization/icon-federation.svg) **Федерации** и выберите нужную [федерацию](../../concepts/add-federation.md).
+  1. Нажмите на название домена, который необходимо подтвердить.
+  1. В открывшемся блоке будет указана информация для прохождения процедуры проверки прав на домен.
+  1. После прохождения процедуры нажмите **Подтвердить**.
 
 - CLI {#cli}
 

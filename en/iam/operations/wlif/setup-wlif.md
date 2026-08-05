@@ -41,7 +41,7 @@ To create a workload identity federation, the user needs the `iam.workloadIdenti
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder where you want to create a workload identity federation.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![cpus](../../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.iam.label_federations }}**.
   1. Click **{{ ui-key.yacloud.iam.label_create-wli-federation }}** and in the form that opens, proceed as follows:
       1. In the **{{ ui-key.yacloud.iam.federations.field_issuer }}** field, enter the OIDC provider's URL.
@@ -148,7 +148,7 @@ To create a workload identity federation, the user needs the `iam.workloadIdenti
 
           To get this value, refer to the OIDC provider's documentation or contact their support.
 
-      For more on the properties of the `yandex_iam_workload_identity_oidc_federation` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_workload_identity_oidc_federation).
+      For more on `yandex_iam_workload_identity_oidc_federation` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_workload_identity_oidc_federation).
 
   1. Create the resources:
 
@@ -191,7 +191,7 @@ To create federated credentials, the user needs the following:
   1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder containing the service account.
   
       [Create](../sa/create.md) a new service account if you need to.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Select the appropriate service account from the list.
   1. In the top panel, click ![image](../../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.action_connect-federation }}**.
   1. In the **{{ ui-key.yacloud.iam.connected-federation.field_federation }}** field, select the federation you created earlier.
@@ -261,7 +261,7 @@ To create federated credentials, the user needs the following:
 
           To get this value, refer to the OIDC provider's documentation or contact their support.
 
-      For more on the properties of the `yandex_iam_workload_identity_federated_credential` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_workload_identity_federated_credential).
+      For more on `yandex_iam_workload_identity_federated_credential` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_workload_identity_federated_credential).
 
   1. Create the resources:
 

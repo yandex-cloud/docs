@@ -34,12 +34,12 @@ _Организация_ — это высший ресурс в иерархи�
 
 Большинство сервисов Yandex Cloud хранят свои ресурсы в [каталогах](../../resource-manager/concepts/resources-hierarchy.md#folder) внутри [организации](organization.md). Однако некоторые сервисы обособлены от общей ресурсно-ролевой модели. Они работают на уровне организации и могут обмениваться данными с другими сервисами в рамках одной организации. К таким сервисам относятся:
 
-* [Яндекс Трекер](https://tracker.yandex.ru/);
-* [Yandex DataLens](https://datalens.ru/promo);
-* [Яндекс Вики](https://wiki.yandex.ru/);
-* [Яндекс Формы](https://forms.yandex.ru/cloud/admin);
-* [Yandex DataSphere](https://datasphere.yandex.cloud);
-* [Yandex SpeechSense](https://speechsense.yandex.cloud/).
+* [Яндекс Трекер](https://tracker.yandex.ru/)
+* [Yandex DataLens](https://datalens.ru/promo)
+* [Яндекс Вики](https://wiki.yandex.ru/)
+* [Яндекс Формы](https://forms.yandex.ru/cloud/admin)
+* [Yandex DataSphere](https://datasphere.yandex.cloud)
+* [Yandex SpeechSense](https://speechsense.yandex.cloud/)
 
 Чтобы перейти к управлению сервисами:
 

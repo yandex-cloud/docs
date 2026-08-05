@@ -57,7 +57,7 @@ Password hash information.
 
 Required field. The password hash string.
 
-The maximum string length in characters is 256. ||
+The maximum string length in characters is 512. ||
 || passwordHashType | **enum** (PasswordHashType)
 
 Required field. Type of the password hash.

@@ -16,7 +16,7 @@ Yandex WebSQL поддерживает работу со следующими в
 * ClickHouse®: 23 и выше.
 * Redis/Valkey™ (только нешардированные кластеры): 6 и выше.
 * MongoDB/Yandex StoreDoc: 6 и выше.
-* [Yandex Managed Service for Trino](../managed-trino/index.md) (сервис находится на стадии [Preview](../overview/concepts/launch-stages.md)): 454 и выше.
+* [Yandex Managed Service for Trino](../managed-trino/index.md): 454 и выше.
 * Greenplum®: 6 и выше.
 
 В этом разделе вы научитесь подключаться:
@@ -39,7 +39,7 @@ Yandex WebSQL поддерживает работу со следующими в
 
 {% note info %}
 
-[Yandex Managed Service for Trino](../managed-trino/index.md) находится на стадии [Preview](../overview/concepts/launch-stages.md). В интерфейсе Yandex WebSQL пока нельзя создавать подключения к Yandex Managed Service for Trino, но если в текущем каталоге есть кластер Yandex Managed Service for Trino и у пользователя есть к нему доступ, подключение отобразится в WebSQL и будет доступно для использования. 
+В интерфейсе Yandex WebSQL пока нельзя создавать подключения к Yandex Managed Service for Trino, но если в текущем каталоге есть кластер Yandex Managed Service for Trino и у пользователя есть к нему доступ, подключение отобразится в WebSQL и будет доступно для использования. 
 
 {% endnote %}
 

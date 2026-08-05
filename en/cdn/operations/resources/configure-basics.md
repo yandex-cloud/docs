@@ -13,7 +13,7 @@ To update the basic settings of a [resource](../../concepts/resource.md):
 
   1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Navigate]({{ link-console-main }}/link/cdn) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
   1. Click the resource name.
 

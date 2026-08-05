@@ -61,7 +61,7 @@ Apache Hive™ Metastore обеспечивает:
 
     1. [Создайте облачную сеть](../../vpc/operations/network-create.md) с именем `integration-network`.
 
-        Вместе с ней будут автоматически созданы три подсети в разных зонах доступности.
+        Вместе с ней будут автоматически созданы три подсети в разных [зонах доступности](../../overview/concepts/geo-scope.md).
 
     1. Для кластера Yandex Managed Service for Apache Spark™ [создайте группу безопасности](../../vpc/operations/security-group-create.md) `spark-sg` в сети `integration-network`. Добавьте в группу следующее правило:
 

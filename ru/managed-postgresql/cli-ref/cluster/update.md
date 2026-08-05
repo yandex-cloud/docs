@@ -91,7 +91,9 @@ Possible property names:
 
 - `sessions-sampling-interval`: pg_stat_activity sampling interval
 
-- `statements-sampling-interval`: pg_stat_statements sampling interval ||
+- `statements-sampling-interval`: pg_stat_statements sampling interval
+
+- `advanced-mode`: Use advanced performance diagnostics mode ||
 || `--disk-size-autoscaling` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
 
 Disk size autoscaling settings

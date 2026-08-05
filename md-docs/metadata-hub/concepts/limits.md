@@ -8,6 +8,7 @@
 
 ## Квоты Connection Manager {#connection-manager-quota}
 
+
 #|
 || Квота | Значение ||
 || Общее количество подключений в облаке 
@@ -24,6 +25,7 @@
 
 ## Квоты Schema Registry {#schema-registry-quota}
 
+
 Эта функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
 
 #|
@@ -35,6 +37,7 @@
 |#
 
 ## Квоты Data Catalog {#data-catalog-quota}
+
 
 Эта функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
 

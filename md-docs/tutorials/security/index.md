@@ -91,6 +91,9 @@
 * Jenkins
     * [Создать SAML-приложение в Yandex Identity Hub для интеграции с Jenkins](single-sign-on/jenkins/saml-jenkins.md)
     * [Создать OIDC-приложение в Yandex Identity Hub для интеграции с Jenkins](single-sign-on/jenkins/oidc-jenkins.md)
+* Loop
+    * [Создать SAML-приложение в Yandex Identity Hub для интеграции с Loop](single-sign-on/loop/saml-loop.md)
+    * [Создать OIDC-приложение в Yandex Identity Hub для интеграции с Loop](single-sign-on/loop/oidc-loop.md)
 * [Managed Service for GitLab](single-sign-on/saml-managed-gitlab.md)
 * [Managed Service for OpenSearch](single-sign-on/saml-opensearch.md)
 * [MWS](single-sign-on/oidc-mws.md)
@@ -101,8 +104,10 @@
 * [Selectel](single-sign-on/saml-selectel.md)
 * [Sentry](single-sign-on/saml-sentry.md)
 * [SonarQube](single-sign-on/saml-sonarqube.md)
-* VK Cloud
-    * [Создать SAML-приложение в Yandex Identity Hub для интеграции с VK Cloud](single-sign-on/vk-cloud/saml-vk-cloud.md)
+* Time
+    * [Создать SAML-приложение в Yandex Identity Hub для интеграции с Time](single-sign-on/time/saml-time.md)
+    * [Создать OIDC-приложение в Yandex Identity Hub для интеграции с Time](single-sign-on/time/oidc-time.md)
+* [Создать SAML-приложение в Yandex Identity Hub для интеграции с VK Cloud](single-sign-on/saml-vk-cloud.md)
 * [Zabbix](single-sign-on/saml-zabbix.md)
 * [Пассворк](single-sign-on/saml-passwork.md)
 * [Яндекс 360](single-sign-on/saml-yandex-360.md)

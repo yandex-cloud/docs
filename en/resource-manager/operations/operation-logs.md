@@ -10,7 +10,7 @@ The system logs all actions with {{ resmgr-name }} resources as a list of operat
 
   To view operations with a cloud or a folder:
   
-  1. Go to the appropriate cloud or folder.
+  1. In the [management console]({{ link-console-main }}), select the cloud or folder.
   1. At the top of the screen, navigate to the **{{ ui-key.yacloud.common.operations-key-value }}** tab.
 
 - CLI {#cli}

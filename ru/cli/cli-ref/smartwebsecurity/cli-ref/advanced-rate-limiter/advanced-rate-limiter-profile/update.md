@@ -1168,6 +1168,8 @@ Characteristic based on key match in the Query params, HTTP header, and HTTP coo
 Type of key characteristic.
 >>>>>> - value (string)\
 String value of the key.
+>>> - ban-period (integer)\
+Duration of the temporary ban, in seconds.
 
 {% endcut %}
 
@@ -1182,6 +1184,7 @@ String value of the key.
     priority = integer,
     rule-specifier = dynamic-quota={
       action = DENY,
+      ban-period = integer,
       characteristics = [
         {
           case-insensitive = boolean,
@@ -1804,6 +1807,7 @@ String value of the key.
     "rule-specifier": {
       "dynamic-quota": {
         "action": "DENY",
+        "ban-period": "integer",
         "characteristics": [
           {
             "case-insensitive": "boolean",

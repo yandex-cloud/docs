@@ -29,6 +29,7 @@ Event name | Description
 `EpisodePerformAction` | Performing actions with an episode
 `InitializeChannelAdminChat` | Initializing a channel admin chat
 `InitializeEpisodeChat` | Initializing an episode chat
+`RenewVideoSource` | Updating a video source
 `ResetChannelAdminChat` | Resetting a channel admin chat
 `ResyncEpisodeChatAdmins` | Synchronizing episode chat admins
 `SetChannelAccessBindings` | Assigning access permissions for a channel

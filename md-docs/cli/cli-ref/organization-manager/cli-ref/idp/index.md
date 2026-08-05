@@ -20,6 +20,26 @@ Aliases:
 
 
 
+- [yc organization-manager idp synchronization-session](synchronization-session/index.md) — Manage synchronization sessions
+
+  - [yc organization-manager idp synchronization-session get](synchronization-session/get.md) — Show information about the specified synchronization session
+
+  - [yc organization-manager idp synchronization-session list](synchronization-session/list.md) — List synchronization sessions for the specified subject container
+
+- [yc organization-manager idp synchronization-settings](synchronization-settings/index.md) — Manage synchronization settings
+
+  - [yc organization-manager idp synchronization-settings create](synchronization-settings/create.md) — Create synchronization settings for the specified subject container
+
+  - [yc organization-manager idp synchronization-settings delete](synchronization-settings/delete.md) — Delete synchronization settings for the specified subject container
+
+  - [yc organization-manager idp synchronization-settings get](synchronization-settings/get.md) — Show synchronization settings for the specified subject container
+
+  - [yc organization-manager idp synchronization-settings list-supported-attributes](synchronization-settings/list-supported-attributes.md) — List supported attributes for synchronization mappings
+
+  - [yc organization-manager idp synchronization-settings reset-replication-token](synchronization-settings/reset-replication-token.md) — Reset the replication token for the specified subject container
+
+  - [yc organization-manager idp synchronization-settings update](synchronization-settings/update.md) — Update synchronization settings for the specified subject container
+
 - [yc organization-manager idp user](user/index.md) — Manage users
 
   - [yc organization-manager idp user convert-to-external](user/convert-to-external.md) — Convert a user to use external authentication

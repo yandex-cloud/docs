@@ -5,6 +5,8 @@ description: Follow this guide to add an HTTP request to a specified endpoint in
 
 # HTTP request
 
+{% include [templating-note](../../../../_includes/serverless-integrations/templating-note.md) %}
+
 {% list tabs %}
 
 - Management console {#console}

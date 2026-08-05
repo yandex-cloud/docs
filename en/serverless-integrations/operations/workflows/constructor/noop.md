@@ -7,6 +7,8 @@ description: Follow this guide to add the No op (no operations) step to a {{ sw-
 
 The No op control step does not involve any actions. You may need to use this step, e.g., to successfully complete a pipeline if the default condition is met in the [Switch](./switch.md) step or if you need a placeholder step when prototyping your workflow.
 
+{% include [templating-note](../../../../_includes/serverless-integrations/templating-note.md) %}
+
 {% list tabs %}
 
 - Management console {#console}

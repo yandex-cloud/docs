@@ -1,12 +1,12 @@
 ---
 title: Getting started with {{ connection-manager-name }}
-description: Manage connections to {{ PG }}, {{ MY }}, {{ CH }}, {{ RD }}, {{ VLK }}, {{ OS }}, {{ MG }}, {{ TR }}, {{ KF }}, and {{ SD }} data sources using {{ connection-manager-full-name }}.
+description: Manage connections to {{ PG }}, {{ MY }}, {{ CH }}, {{ RD }}, {{ VLK }}, {{ OS }}, {{ MG }}, {{ KF }}, {{ SD }}, and {{ TR }} data sources using {{ connection-manager-full-name }}.
 ---
 
 # Getting started with {{ connection-manager-name }}
 
 
-Manage connections to {{ PG }}, {{ MY }}, {{ CH }}, {{ RD }}, {{ VLK }}, {{ OS }}, {{ MG }}, {{ TR }}, {{ KF }}, and {{ SD }} data sources using {{ connection-manager-full-name }}.
+Manage connections to {{ PG }}, {{ MY }}, {{ CH }}, {{ RD }}, {{ VLK }}, {{ OS }}, {{ MG }}, {{ KF }}, {{ SD }}, and {{ TR }} data sources using {{ connection-manager-full-name }}.
 
 ## Integrating with managed database services {#mdb-integration}
 

@@ -20,6 +20,16 @@
 
           {% include [saml-app-assertion-list](./saml-app-assertion-list.md) %}
 
+      1. Optionally, click **{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.action_add_transformation_bc8Cd }}** to add an [attribute transformation](*transform). Select one of the transformation types:
+
+         * `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_extract_after_q4x8n }}`: Returns the part of the value which follows the specified substring. Specify the substring in the **{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.field_substring_siBpY }}** field. For example, `user@site.com` + `@` → `site.com`.
+         * `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_extract_before_ju2PE }}`: Returns the part of the value which precedes the specified substring. Specify the substring in the **{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.field_substring_siBpY }}** field. For example, `user@example.com` + `@` → `user`.
+         * `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_to_lowercase_vRG6c }}`: Converts all attribute value characters to lowercase.
+         * `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_to_lowercase_vRG6c }}`: Converts all attribute value characters to uppercase.
+         * `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_trim_3SF6q }}`: Deletes spaces in the beginning and end of the attribute value.
+         * `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_if_empty_e5unh }}`: Replaces the current attribute value if it is empty. You can select a replacement value from the list of attribute values or provide your own one. For example, you can use `email` if `username` is empty.
+         * `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_constant_tvJWi }}`: Replaces the current value with a specified constant. Provide the constant in the **{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.field_if_empty_value_1K7py }}** field. For example, `<attribute_value>` → `User`.
+
       1. Click **{{ ui-key.yacloud.common.add }}**.
   1. To modify an existing attribute, click its row and do the following in the window that opens:
   
@@ -155,7 +165,7 @@
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     You can check the changes to the resources and their settings in the [{{ cloud-center }} interface]({{ link-org-cloud-center }}).
+     You can check the changes you have made to the resources and their settings in the [{{ cloud-center }} interface]({{ link-org-cloud-center }}).
 
 - API {#api}
 
@@ -164,3 +174,5 @@
 {% endlist %}
 
 Make sure the attributes you added are also added to the SAML app's integration settings and can be processed correctly on the service provider's side.
+
+[*transform]: Transformations change the attribute value before sending it in a SAML response, e.g., convert text to lowercase, delete spaces, or extract a part of the string. Transformations apply one by one, from top to bottom.

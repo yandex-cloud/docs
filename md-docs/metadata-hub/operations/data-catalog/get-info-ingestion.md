@@ -2,11 +2,14 @@
 
 # Получение информации о загрузке
 
+
+
 {% note info %}
 
 Эта функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md).
 
 {% endnote %}
+
 
 ## Получить информацию о загрузке {#ingestion-info}
 

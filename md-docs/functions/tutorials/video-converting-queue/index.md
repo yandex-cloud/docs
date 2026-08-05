@@ -4,6 +4,7 @@
 
 
 
+
 Вы создадите видеоконвертер с использованием утилиты [FFmpeg](https://ffmpeg.org/) и сервиса [Yandex Message Queue](../../../message-queue/index.md). Руководство предназначено для пользователей Linux и macOS.
 
 

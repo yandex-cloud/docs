@@ -14,8 +14,8 @@ During [instance type](../../concepts/index.md#config) or disk size update, your
 
 - Management console {#console}
 
-  1. In the management console, select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) with your [{{ GL }} instance](../../concepts/index.md#instance).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder with your [{{ GL }} instance](../../concepts/index.md#instance).
+  1. [Navigate]({{ link-console-main }}/link/managed-gitlab) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
   1. Select the instance and click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** at the top of the page.
   1. At the top of the page:
 

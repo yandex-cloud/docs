@@ -88,7 +88,7 @@ There are at least two controller options you can use in {{ yandex-cloud }}:
 
 #### Restricting access to the metadata of VMs in the node group {#metadata-access-restriction}
 
-For all pods, create a network policy to block network traffic to port 169.254.169.254 or use the default-deny policy from the [example](../../managed-kubernetes/operations/calico#enable-isolation). The policy must block workload node group metadata access because these node groups contain sensitive data, such as the token of the service account assigned to the node.
+For all pods, create a network policy to block network traffic to port 169.254.169.254 or use the default-deny policy from the [example](../../managed-kubernetes/operations/calico.md#enable-isolation). The policy must block workload node group metadata access because these node groups contain sensitive data, such as the token of the service account assigned to the node.
 
 ## {{ managed-k8s-name }} authentication and access management {#authentication-and-access-control}
 
@@ -174,12 +174,10 @@ We recommend that you use SecretManager solutions to work with {{ k8s }} secrets
 
  {{ lockbox-name }} was integrated with {{ k8s }} using the [External Secrets](https://external-secrets.io/latest/) open-source project. In {{ marketplace-name }}, the solution is available in the basic simplified scenario: [External Secrets Operator with Yandex Lockbox support](/marketplace/products/yc/external-secrets).
 
-
 Useful instructions on working with External Secrets:
 
 * [Guide](https://external-secrets.io/latest/provider/yandex-lockbox/) on External Secrets and {{ lockbox-name }} from the project description.
 * [Guide](../../lockbox/tutorials/kubernetes-lockbox-secrets.md) on External Secrets and {{ lockbox-name }} from the {{ yandex-cloud }} documentation.
-
 
 Many methods to differentiate access to secrets using this tool have been [described](https://external-secrets.io/latest/guides/multi-tenancy/#eso-as-a-service).
 

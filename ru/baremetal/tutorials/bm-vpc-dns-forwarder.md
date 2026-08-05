@@ -1,362 +1,182 @@
 ---
-title: Настройка DNS-связности между сегментами {{ baremetal-full-name }} и {{ vpc-full-name }} для доступа к {{ mpg-name }} по FQDN
-description: Следуя данной инструкции, вы настроите DNS-форвардер на базе Bind9 для разрешения FQDN {{ mpg-name }} из приватного сегмента {{ baremetal-name }}.
+title: Настройка разрешения DNS-имен из приватной сети {{ baremetal-full-name }}
+description: Следуя данной инструкции, вы настроите разрешение DNS-имен облачных ресурсов на сервере {{ baremetal-name }} с помощью входящего DNS-подключения.
 canonical: '{{ link-docs }}/tutorials/routing/bm-vpc-dns-forwarder'
 ---
 
-# Настройка DNS-связности между сегментами {{ baremetal-full-name }} и {{ vpc-full-name }} для доступа к {{ mpg-name }} по FQDN
+# Настройка разрешения DNS-имен из приватной сети {{ baremetal-full-name }}
 
-Использование полных доменных имен (FQDN) для подключения к облачным сервисам, таким как {{ mpg-full-name }}, является рекомендуемой практикой: это обеспечивает абстракцию от инфраструктуры и автоматизацию процессов. FQDN остается стабильным, в то время как IP-адреса могут изменяться при масштабировании, восстановлении или миграции сервисов.
+Сервер {{ baremetal-name }}, подключенный к облачной сети {{ vpc-name }} с помощью {{ interconnect-full-name }}, находится за пределами {{ vpc-name }} и не может обращаться к [DNS-резолверу](../../dns/concepts/dns-resolver.md) облачной сети напрямую.
 
-Однако если сервер в сегменте {{ baremetal-name }} подключен к облаку через {{ interconnect-full-name }}, возникает проблема с разрешением FQDN облачных сервисов: прямые DNS-запросы из внешней подсети блокируются.
+Чтобы разрешать на сервере {{ baremetal-name }} доменные имена из [внутренних DNS-зон](../../dns/concepts/dns-zone.md#private-zones) {{ yandex-cloud }}, создайте в облачной сети [входящее DNS-подключение](../../dns/concepts/dns-connection.md#dns-inbound) и укажите его IP-адрес в качестве DNS-сервера на сервере {{ baremetal-name }}. Разворачивать для этого отдельную виртуальную машину с DNS-форвардером не требуется.
 
-Для решения этой задачи предлагается развернуть промежуточную виртуальную машину в той же подсети, что и кластер {{ mpg-name }}, в роли DNS-форвардера на базе Bind9. Этот сервер будет принимать DNS-запросы от сервера {{ baremetal-name }}, перенаправлять их в {{ dns-full-name }} и возвращать ответы клиенту, обеспечивая корректное разрешение FQDN облачных сервисов.
+В качестве примера вы настроите разрешение [FQDN](../../glossary/fqdn.md) хоста кластера {{ mpg-full-name }} из приватной сети {{ baremetal-name }}.
 
-Чтобы настроить DNS-связность:
+Чтобы настроить разрешение DNS-имен:
 
-1. [Подготовьте инфраструктуру](#prepare-infra).
-1. [Настройте DNS-форвардер на виртуальной машине](#configure-forwarder).
-1. [Настройте DNS-клиент на сервере {{ baremetal-name }}](#configure-baremetal).
-1. [Проверьте доступ к кластеру {{ mpg-name }} по FQDN](#check-postgresql).
-1. [Проверьте результат](#check-result).
+1. [Подготовьте инфраструктуру](#prepare-infrastructure).
+1. [Создайте входящее DNS-подключение](#create-inbound-endpoint).
+1. [Настройте DNS на сервере {{ baremetal-name }}](#configure-baremetal).
+1. [Проверьте разрешение DNS-имен](#check-dns).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
-## Подготовьте инфраструктуру {#prepare-infra}
+## Подготовьте инфраструктуру {#prepare-infrastructure}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки решения входят:
+В стоимость поддержки инфраструктуры входят:
 
-* плата за использование виртуальной машины и диска ([тарифы {{ compute-full-name }}](../../compute/pricing.md));
-* плата за использование кластера {{ mpg-name }} ([тарифы {{ mpg-full-name }}](../../managed-postgresql/pricing.md));
-* плата за аренду серверов {{ baremetal-name }} ([тарифы {{ baremetal-full-name }}](../../baremetal/pricing.md));
-* плата за использование ресурсов {{ interconnect-full-name }} ([тарифы {{ interconnect-full-name }}](../../interconnect/pricing.md)).
+* плата за аренду сервера {{ baremetal-name }} ([тарифы {{ baremetal-full-name }}](../pricing.md));
+* плата за ресурсы кластера {{ mpg-name }} ([тарифы {{ mpg-full-name }}](../../managed-postgresql/pricing.md)), если вы используете кластер для проверки разрешения DNS-имен.
 
-### Создайте кластер {{ mpg-name }} {#create-postgresql-cluster}
+### Настройте сетевую связность {#configure-connectivity}
 
-1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать кластер.
-1. [Перейдите]({{ link-console-main }}/link/managed-postgresql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
-1. Задайте параметры кластера:
-   * **{{ ui-key.yacloud.mdb.forms.base_field_name }}** — укажите имя кластера.
-   * **{{ ui-key.yacloud.mdb.forms.section_database }}** — задайте имя базы данных, имя пользователя и пароль.
-   * **{{ ui-key.yacloud.mdb.forms.section_network }}** — выберите зоны доступности и подсети.
-1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
+Если между приватной подсетью {{ baremetal-name }} и облачной сетью {{ vpc-name }} еще нет сетевой связности, [настройте ее](./bm-vrf-and-vpc-interconnect.md) с помощью {{ interconnect-name }}.
 
-   {% note info %}
-
-   При создании кластера {{ mpg-name }} автоматически создается приватная DNS-зона `{{ dns-zone }}`, в которой появляются DNS-записи для хостов кластера. FQDN хостов имеют формат `c-<идентификатор_кластера>-<номер_хоста>.mdb.yandexcloud.net`. Внутри зоны автоматически создаются DNS-записи для базы данных — например, мастер: `10.129.0.29` и реплика: `10.130.0.15`.
-
-   {% endnote %}
-
-Подробнее о создании кластера читайте в [инструкции](../../managed-postgresql/operations/cluster-create.md).
-
-### Создайте виртуальную машину для DNS-форвардера {#create-dns-forwarder-vm}
-
-1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать виртуальную машину.
-1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
-1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя виртуальной машины.
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите образ **Ubuntu 22.04 LTS**.
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
-   * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите подсеть, в которой размещены хосты кластера {{ mpg-name }} (например, `10.129.0.0/24`).
-   * Укажите внутренний IP-адрес виртуальной машины (например, `10.129.0.10`).
-   * Убедитесь, что зона доступности совпадает с зоной размещения кластера {{ mpg-name }} (например, `ru-central1-b`).
-1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
-
-Подробнее о создании виртуальной машины читайте в [инструкции](../../compute/operations/vm-create/create-linux-vm.md).
-
-### Арендуйте сервер {{ baremetal-name }} {#lease-baremetal-server}
-
-1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите арендовать сервер.
-1. [Перейдите]({{ link-console-main }}/link/baremetal) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
-1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-server }}**.
-1. Выберите параметры сервера:
-   * Выберите подходящую [конфигурацию](../../baremetal/concepts/server-configurations.md) сервера.
-   * Присвойте или получите по DHCP приватный IP-адрес (например, `172.16.2.2`).
-1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-server }}**.
-
-Подробнее об аренде сервера читайте в [инструкции](../../baremetal/operations/servers/server-lease.md).
-
-### Настройте сетевую связность {#configure-network-connectivity}
-
-Настройте связность между подсетями {{ baremetal-name }} и {{ vpc-name }} через {{ interconnect-full-name }}:
-
-1. Создайте сеть {{ vpc-name }} с подсетями в нужных зонах доступности.
-1. Создайте приватную подсеть {{ baremetal-name }}.
-1. Настройте подключение через {{ interconnect-full-name }} между подсетью {{ baremetal-name }} и подсетью {{ vpc-name }}, в которой размещен кластер {{ mpg-name }}.
-
-Подробнее о настройке сетевой связности читайте в [инструкции](../../baremetal/tutorials/bm-vrf-and-vpc-interconnect.md).
+Убедитесь, что в виртуальном маршрутизаторе анонсирован префикс подсети {{ vpc-name }}, в которой будет находиться IP-адрес входящего DNS-подключения. Сервер {{ baremetal-name }} должен иметь маршрут до этого префикса.
 
 В примерах ниже используются:
 
-* подсеть {{ baremetal-name }}: `172.16.2.0/24`;
-* IP-адрес сервера {{ baremetal-name }}: `172.16.2.2`;
-* подсеть {{ vpc-name }} с хостами {{ mpg-name }}: `10.129.0.0/24`;
-* IP виртуальной машины с Bind9: `10.129.0.10`;
-* DNS-резолверы {{ vpc-name }}: `10.129.0.2` и `10.130.0.2`.
+* CIDR приватной подсети {{ baremetal-name }} — `172.16.2.0/24`;
+* IP-адрес сервера {{ baremetal-name }} — `172.16.2.2`;
+* CIDR подсети {{ vpc-name }} — `192.168.1.0/24`;
+* IP-адрес входящего DNS-подключения — `192.168.1.200`.
 
-   {% note info %}
+### Создайте кластер {{ mpg-name }} {#create-postgresql-cluster}
 
-   DNS-резолверы {{ vpc-name }} имеют адреса вида `10.X.0.2`, где `X` — номер подсети. Для каждой подсети в {{ vpc-name }} доступен свой DNS-резолвер.
+Если у вас еще нет облачного ресурса с FQDN во внутренней DNS-зоне, для проверки создайте [кластер {{ mpg-name }}](../../managed-postgresql/operations/cluster-create.md) в облачной сети, связанной с приватной подсетью {{ baremetal-name }}.
 
-   {% endnote %}
+Сохраните FQDN одного из хостов кластера. Он понадобится для проверки разрешения DNS-имен.
 
-### Создайте группу безопасности для DNS-форвардера {#configure-sg}
+## Создайте входящее DNS-подключение {#create-inbound-endpoint}
 
-{% list tabs group=instructions %}
+[Создайте входящее DNS-подключение](../../dns/operations/connection-inbound-create.md) в облачной сети, связанной с приватной подсетью {{ baremetal-name }}.
 
-- Консоль управления {#console}
+При создании подключения:
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-  1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}** и нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
-  1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** задайте имя `dns-forwarder-sg`.
-  1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** выберите сеть, в которой размещена виртуальная машина с Bind9.
-  1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.label_section-rules }}** [создайте](../../vpc/operations/security-group-add-rule.md) следующие правила для управления трафиком:
+1. Выберите облачную сеть, подключенную к виртуальному маршрутизатору.
+1. Зарезервируйте для подключения внутренний IP-адрес в подсети, префикс которой анонсирован виртуальным маршрутизатором. Например, `192.168.1.200`.
+1. Дождитесь, когда входящее DNS-подключение перейдет в статус `AVAILABLE`.
+1. Сохраните IP-адрес подключения. Он понадобится для настройки сервера {{ baremetal-name }}.
 
-      | Направление<br/>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }} |
-      | --- | --- | --- | --- | --- | --- |
-      | Входящий | `dns-udp` | `53` | `UDP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `172.16.2.0/24` |
-      | Входящий | `dns-tcp` | `53` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `172.16.2.0/24` |
-      | Исходящий | `dns-udp-forward` | `53` | `UDP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.129.0.0/24` |
-      | Исходящий | `dns-tcp-forward` | `53` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.129.0.0/24` |
-      | Исходящий | `dns-udp-forward` | `53` | `UDP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.130.0.0/24` |
-      | Исходящий | `dns-tcp-forward` | `53` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.130.0.0/24` |
+{% note info %}
 
-      {% note info %}
-
-      В примере используются подсети `10.129.0.0/24` и `10.130.0.0/24`, в которых находятся DNS-резолверы `10.129.0.2` и `10.130.0.2`. Замените их на подсети, в которых находятся DNS-резолверы ваших подсетей {{ vpc-name }}. DNS-резолверы {{ vpc-name }} имеют адреса вида `10.X.0.2`, где `X` — номер подсети.
-
-      {% endnote %}
-
-  1. При необходимости добавьте правило для SSH-доступа к виртуальной машине:
-
-      | Направление<br/>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }} |
-      | --- | --- | --- | --- | --- | --- |
-      | Входящий | `ssh` | `22` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<CIDR_административной_подсети>` |
-
-  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
-
-{% endlist %}
-
-## Настройте DNS-форвардер на виртуальной машине {#configure-forwarder}
-
-1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к виртуальной машине по SSH.
-
-1. Установите Bind9:
-
-   ```bash
-   sudo apt update
-   sudo apt install -y bind9 bind9-utils dnsutils
-   ```
-
-1. Откройте файл `/etc/bind/named.conf.options` и укажите параметры форвардинга:
-
-   ```bash
-   sudo nano /etc/bind/named.conf.options
-   ```
-
-   Пример конфигурации:
-
-   ```text
-   options {
-     directory "/var/cache/bind";
-
-     recursion yes;
-     allow-recursion {
-       172.16.2.0/24;
-       localhost;
-     };
-     allow-query {
-       172.16.2.0/24;
-       localhost;
-     };
-
-     forwarders {
-       10.129.0.2;
-       10.130.0.2;
-     };
-
-     dnssec-validation auto;
-     listen-on { any; };
-     listen-on-v6 { any; };
-   };
-   ```
-
-1. Проверьте конфигурацию и перезапустите сервис:
-
-   ```bash
-   sudo named-checkconf
-   sudo systemctl restart bind9
-   sudo systemctl enable bind9
-   ```
-
-1. Убедитесь, что сервис запущен:
-
-   ```bash
-   sudo systemctl status bind9 --no-pager
-   ```
-
-1. Если на виртуальной машине запущен локальный резолвер `systemd-resolved`, который перезаписывает `/etc/resolv.conf`, настройте его для работы с Bind9:
-
-   ```bash
-   sudo systemctl stop systemd-resolved
-   sudo systemctl disable systemd-resolved
-   sudo mv /etc/resolv.conf /etc/resolv.conf.backup
-   ```
-
-   Создайте статический файл `/etc/resolv.conf`:
-
-   ```bash
-   sudo nano /etc/resolv.conf
-   ```
-
-   Добавьте запись:
-
-   ```text
-   nameserver 127.0.0.1
-   ```
-
-1. Настройте nameserver в Ubuntu. Отредактируйте файл `/run/systemd/resolve/stub-resolv.conf`:
-
-   ```bash
-   sudo nano /run/systemd/resolve/stub-resolv.conf
-   ```
-
-   Измените значение параметра `nameserver` на `127.0.0.1`.
-
-1. Проверьте работу форвардера локально:
-
-   ```bash
-   dig @127.0.0.1 NS {{ dns-zone }} +short
-   ```
-
-   В ответе должны появиться адреса DNS-серверов зоны.
-
-   Альтернативная проверка:
-
-   ```bash
-   dig @127.0.0.1 yandex.ru +short
-   ```
-
-   Команда должна вернуть IP-адрес домена, что подтверждает работу форвардинга.
-
-## Настройте DNS-клиент на сервере {{ baremetal-name }} {#configure-baremetal}
-
-1. [Подключитесь по SSH](../../compute/operations/vm-connect/ssh.md) к серверу {{ baremetal-name }}.
-
-1. Назначьте DNS-сервером IP виртуальной машины с Bind9:
-
-   ```bash
-   sudo nano /etc/resolv.conf
-   ```
-
-   Пример:
-
-   ```text
-   nameserver 10.129.0.10
-   ```
-
-1. Если `/etc/resolv.conf` управляется системным сервисом, задайте DNS постоянным способом.
-
-   **Вариант 1:** Используйте команду `systemd-resolve` для конкретного интерфейса:
-
-   ```bash
-   sudo systemd-resolve --interface ethXX --set-dns 10.129.0.10
-   ```
-
-   где `ethXX` — интерфейс приватной сети.
-
-   **Вариант 2:** Отредактируйте файл `/etc/systemd/resolved.conf`:
-
-   ```bash
-   sudo nano /etc/systemd/resolved.conf
-   ```
-
-   Укажите:
-
-   ```text
-   [Resolve]
-   DNS=10.129.0.10
-   Domains=~.
-   ```
-
-   Примените настройки:
-
-   ```bash
-   sudo systemctl restart systemd-resolved
-   ```
-
-1. Проверьте DNS-разрешение:
-
-   ```bash
-   dig {{ dns-zone }} +short
-   ```
-
-   Проверьте разрешение FQDN хоста кластера {{ mpg-name }}:
-
-   ```bash
-   dig c-<идентификатор_кластера>-<номер_хоста>.mdb.yandexcloud.net +short
-   ```
-
-   Команды должны вернуть IP-адреса хостов кластера из подсети {{ vpc-name }} (например, `10.129.0.29` — для мастера, `10.130.0.15` — для реплики).
-
-## Проверьте доступ к кластеру {{ mpg-name }} по FQDN {#check-postgresql}
-
-1. Установите сертификат центра сертификации:
-
-   ```bash
-   mkdir -p ~/.postgresql && \
-   wget "{{ crt-web-path }}" \
-     --output-document ~/.postgresql/root.crt && \
-   chmod 0600 ~/.postgresql/root.crt
-   ```
-
-1. Установите клиент PostgreSQL:
-
-   ```bash
-   sudo apt update && sudo apt install -y postgresql-client
-   ```
-
-1. Подключитесь к базе по FQDN:
-
-   ```bash
-   psql "host=<FQDN_мастера>,<FQDN_реплики> port={{ port-mpg }} sslmode=verify-full dbname=<имя_БД> user=<имя_пользователя> target_session_attrs=read-write"
-   ```
-
-   Параметры подключения для вашего кластера можно взять в консоли управления на странице кластера {{ mpg-name }}.
-
-## Проверьте результат {#check-result}
-
-После настройки:
-
-1. Сервер в сегменте {{ baremetal-name }} успешно разрешает доменные имена зоны `{{ dns-zone }}`.
-1. FQDN хостов кластера {{ mpg-name }} разрешаются в приватные IP-адреса {{ vpc-name }}.
-1. Подключение к PostgreSQL выполняется по FQDN без указания IP-адресов вручную.
-
-{% note warning %}
-
-* Используйте статические IP-адреса для виртуальной машины с DNS-форвардером и сервера {{ baremetal-name }}, чтобы избежать проблем с DNS-разрешением при перезапуске.
-* Регулярно проверяйте логи Bind9 для выявления проблем с DNS-запросами:
-
-  ```bash
-  sudo journalctl -u bind9 -f
-  ```
-
-* При изменении подсети, в которой размещен кластер {{ mpg-name }}, обновите адреса DNS-резолверов в параметре `forwarders` конфигурации Bind9.
+В одной облачной сети можно создать только одно входящее DNS-подключение. Если в выбранной сети уже есть такое подключение, используйте его IP-адрес.
 
 {% endnote %}
 
+## Настройте DNS на сервере {{ baremetal-name }} {#configure-baremetal}
+
+В примере используется сервер с Ubuntu 24.04 и конфигурацией сети через [Netplan](https://netplan.io/).
+
+1. [Подключитесь](../operations/servers/server-kvm.md) к KVM-консоли сервера {{ baremetal-name }} или подключитесь к серверу по SSH.
+1. Узнайте имя файла с конфигурацией Netplan:
+
+    ```bash
+    ls /etc/netplan/
+    ```
+
+    Результат:
+
+    ```text
+    50-cloud-init.yaml
+    ```
+
+1. Откройте файл конфигурации:
+
+    ```bash
+    sudo nano /etc/netplan/50-cloud-init.yaml
+    ```
+
+1. В настройках приватного сетевого интерфейса отключите использование DNS-серверов, получаемых по DHCP, и добавьте IP-адрес входящего DNS-подключения:
+
+    ```yaml
+    network:
+      version: 2
+      ethernets:
+        etx1:
+          match:
+            macaddress: "90:e2:ba:a2:30:de"
+          dhcp4: true
+          dhcp4-overrides:
+            use-dns: false
+          set-name: "etx1"
+          nameservers:
+            addresses:
+              - 192.168.1.200
+            search:
+              - "~."
+    ```
+
+    Сохраните остальные настройки сетевых интерфейсов без изменений. В конфигурации укажите:
+
+    * вместо `etx1` — имя приватного сетевого интерфейса сервера;
+    * вместо `90:e2:ba:a2:30:de` — MAC-адрес приватного сетевого интерфейса;
+    * вместо `192.168.1.200` — IP-адрес входящего DNS-подключения.
+
+    Значение `~.` в параметре `nameservers.search` направляет все DNS-запросы через входящее DNS-подключение.
+
+1. Проверьте корректность конфигурации:
+
+    ```bash
+    sudo netplan try
+    ```
+
+    Если в конфигурации нет ошибок, подтвердите изменения.
+
+1. Примените конфигурацию:
+
+    ```bash
+    sudo netplan apply
+    ```
+
+1. Убедитесь, что для приватного интерфейса используется IP-адрес входящего DNS-подключения:
+
+    ```bash
+    resolvectl status etx1
+    ```
+
+    Результат должен содержать IP-адрес подключения:
+
+    ```text
+    Link 2 (etx1)
+        Current DNS Server: 192.168.1.200
+               DNS Servers: 192.168.1.200
+                DNS Domain: ~.
+    ```
+
+{% note warning %}
+
+Не изменяйте файл `/etc/resolv.conf` вручную: сервис `systemd-resolved` может перезаписать внесенные изменения.
+
+{% endnote %}
+
+## Проверьте разрешение DNS-имен {#check-dns}
+
+1. Проверьте доступность входящего DNS-подключения, отправив на его IP-адрес запрос к FQDN облачного ресурса:
+
+    ```bash
+    dig @192.168.1.200 <FQDN_облачного_ресурса>
+    ```
+
+    В секции `ANSWER` должен появиться внутренний IP-адрес облачного ресурса.
+
+1. Проверьте разрешение того же FQDN с помощью системных настроек DNS:
+
+    ```bash
+    resolvectl query <FQDN_облачного_ресурса>
+    ```
+
+1. Если для проверки вы создали кластер {{ mpg-name }}, [подключитесь к нему](../../managed-postgresql/operations/connect/clients.md) по FQDN с сервера {{ baremetal-name }}.
+
 ## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы остановить использование ресурсов и избежать лишних затрат:
+Чтобы остановить использование ресурсов:
 
-1. [Удалите](../../compute/operations/vm-control/vm-delete.md) виртуальную машину с DNS-форвардером.
-1. [Удалите](../../vpc/operations/security-group-delete.md) группу безопасности, созданную для DNS-форвардера.
-1. Если тестовый кластер больше не нужен, [удалите](../../managed-postgresql/operations/cluster-delete.md) кластер {{ mpg-name }}.
-1. Если связность через {{ interconnect-full-name }} была создана только для теста, удалите соответствующие сетевые настройки и ресурсы {{ interconnect-name }}.
+1. Удалите IP-адрес входящего DNS-подключения из конфигурации Netplan на сервере {{ baremetal-name }} и примените изменения.
+1. [Удалите входящее DNS-подключение](../../dns/operations/connection-inbound-delete.md).
+1. [Удалите зарезервированный внутренний IP-адрес](../../vpc/operations/private-ip-delete.md).
+1. Если для проверки вы создали кластер {{ mpg-name }}, [удалите его](../../managed-postgresql/operations/cluster-delete.md).

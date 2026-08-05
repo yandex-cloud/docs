@@ -16,7 +16,7 @@
 
 * [Where can I monitor my disk space usage?](#disk-space)
 
-* [How can I configure an alert for when disk usage reaches a certain percentage?](#alert-for-disk-space)
+* [How do I configure an alert for when disk space usage reaches a certain percentage?](#alert-for-disk-space)
 
 * [Why are backups not created?](#backup-failed)
 
@@ -25,3 +25,5 @@
 * [What should I do if I cannot connect to the system hook on `localhost`?](#system-hooks-localhost)
 
 * [What should I do to fix the `EOF fatal` error on a worker?](#eof-fatal-error)
+
+* [What should I do if my SSH certificate expires?](#ssl-certificate-expired)

@@ -1,0 +1,4 @@
+Under **{{ ui-key.yacloud.smart-web-security.WafProfileExclusionRuleForm.RulesSection.title_exclusion-rule-rules-section_cdWEW }}**, select:
+  * **{{ ui-key.yacloud.smart-web-security.waf.value_exclude-all-yes }}**: Exclusion will apply to all rules.
+    Use this option if you need to completely disable WAF rules for the selected traffic. For example, use it if a certain endpoint accepts data formats that consistently trigger false positives.
+  * **{{ ui-key.yacloud.smart-web-security.waf.value_exclude-all-no }}**: Exclusion will apply to the specified rules. Click **{{ ui-key.yacloud.smart-web-security.waf.action_exclusion-rule-add-rules }}** and select the rules that trigger false positives.

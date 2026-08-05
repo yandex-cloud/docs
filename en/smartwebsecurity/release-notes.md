@@ -5,6 +5,18 @@ description: This section contains the {{ sws-name }} release notes.
 
 # {{ sws-full-name }} release notes
 
+## Q2 2026 {#q2-2026}
+
+* Updated the [address list](concepts/lists.md) features: now you can create traffic filtering rules based on groups of IP addresses, ASNs, regular expressions, and string values.
+
+* {{ sws-name }} logging has entered the [General Availability](../overview/concepts/launch-stages.md) stage. The native UI now provides more analysis options than logging via an L7 {{ alb-name }}.
+
+* [WAF exception rules](concepts/waf.md#exclusion-rules) now support excluding individual parts of the request from WAF rule analysis: `HTTP body`, `Cookie`, `HTTP header`, or `Query params`. This allows you to selectively disable checks for specific parameters and get rid of false positives on legitimate traffic.
+
+* Added a [service rule](concepts/rules.md#service-rule) to enhance protection during attacks. Now {{ sws-name }} can block malicious requests even if the user's security profile lets them through. Service rule trigger events get logged with the `sws_service_rule` label.
+
+* Starting June 9, 2026, {{ sws-full-name }} migrated to a new condition and field name format in the API, CLI, and {{ TF }}. Multiple values in the same condition are now joined into one text field separated by `|`. The `http_methods`, `authorities`, `ja3_ranges`, and `ja4_ranges` fields got new names. All existing rules will be automatically migrated to the new format. For more information, see [Migrating to new condition format](operations/api-migration.md).
+
 ## Q1 2026 {#q1-2026}
 
 * Added [response page templates](concepts/response-templates.md), i.e., customizable pages {{ sws-name }} returns to the client if the request is blocked. With a template, you can set page response code, format (HTML, JSON, XML), and content. You can assign a template to a security profile, ARL profile, or specific rule.

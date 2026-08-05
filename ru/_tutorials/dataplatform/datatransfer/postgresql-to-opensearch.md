@@ -1,5 +1,6 @@
 ## Поставка данных из {{ mpg-full-name }} в {{ mos-full-name }} с помощью {{ data-transfer-full-name }}
 
+
 Вы можете перенести базу данных из {{ mpg-full-name }} в {{ mos-full-name }} с помощью сервиса {{ data-transfer-full-name }}. Для этого:
 
 1. [Подготовьте инфраструктуру](#prepare-infrastructure).

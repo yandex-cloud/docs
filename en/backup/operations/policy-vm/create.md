@@ -25,7 +25,7 @@ You cannot create backup policies with some advanced settings in the {{ yandex-c
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a [backup policy](../../../backup/concepts/policy.md).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. [Navigate]({{ link-console-main }}/link/backup) to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. In the left-hand panel, select ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}**.
   1. Click **{{ ui-key.yacloud.backup.button_create-policy }}**.
   1. On the backup policy creation page:
@@ -93,7 +93,7 @@ You cannot create backup policies with some advanced settings in the {{ yandex-c
 
       Save the configuration to a `.json` file.
 
-      The example presents a backup policy configuration that will create [incremental](../../concepts/backup.md#types) [backups](../../concepts/backup.md) of the [resource](../../concepts/index.md#protected-resources) every Monday at 00:05 (UTC+0). Only the last 10 backups will be stored.
+      The example describes a configuration for a backup policy that will create [incremental](../../concepts/backup.md#types) [backups](../../concepts/backup.md) for a [backed up resource](../../concepts/index.md#protected-resources) every Monday at 00:05 (UTC+0). Only the last 10 backups will be stored.
 
       The full specification is described in [{#T}](../../concepts/policy.md#specification).
 
@@ -273,7 +273,7 @@ You cannot create backup policies with some advanced settings in the {{ yandex-c
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources. You can check the new resources in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
+     {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
      ```bash
      yc backup policy list
@@ -287,5 +287,5 @@ You cannot create backup policies with some advanced settings in the {{ yandex-c
 
 #### Useful links {#see-also}
 
-* [{#T}](update.md).
-* [{#T}](delete.md).
+* [{#T}](update.md)
+* [{#T}](delete.md)

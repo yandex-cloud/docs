@@ -71,9 +71,9 @@ The user must have the `billing.accounts.editor`, `billing.accounts.admin`, or `
 - {{ speechsense-name }} UI {#speechsense}
 
     1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
-    1. Click **{{ ui-key.yc-ui-talkanalytics.spaces.create-space }}**.
+    1. Click **{{ ui-key.yc-ui-talkanalytics.spaces.create-space_FvLT9 }}**.
     1. Enter a name for the [space]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#space).
-    1. Click **{{ ui-key.yc-ui-talkanalytics.common.create }}**.
+    1. Click **{{ ui-key.yc-ui-talkanalytics.common.create_JTJlL }}**.
     1. [Link a billing account]({{ link-docs-ai }}speechsense/operations/space/link-ba) to the space to pay for {{ speechsense-name }}.
 
 {% endlist %}
@@ -90,11 +90,11 @@ The user must have the `billing.accounts.editor`, `billing.accounts.admin`, or `
 
     1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
     1. Go to the space of your choice.
-    1. Navigate to the **{{ ui-key.yc-ui-talkanalytics.connections.connections }}** tab.
-    1. Click **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}** → **{{ ui-key.yc-ui-talkanalytics.connections.template.default.name }}**.
+    1. Navigate to the **{{ ui-key.yc-ui-talkanalytics.connections.connections_q5X2U }}** tab.
+    1. Click **{{ ui-key.yc-ui-talkanalytics.connections.create-connection_kemb1 }}** → **{{ ui-key.yc-ui-talkanalytics.connections.template_0duY8 }}**.
     1. Specify a connection name, e.g., `chats-default-metadata`.
-    1. Select the **{{ ui-key.yc-ui-talkanalytics.connections.type.chat-key-value }}** data type.
-    1. Click **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
+    1. Select the **{{ ui-key.yc-ui-talkanalytics.connections.type_NWiH4 }}** data type.
+    1. Click **{{ ui-key.yc-ui-talkanalytics.connections.create-connection_kemb1 }}**.
     1. On the page that opens, click **ID** in the top-left corner to copy the ID of the connection you created. Save this ID as you will need it later to [upload data to the project](#load-data).
 
 {% endlist %}
@@ -107,10 +107,10 @@ The user must have the `billing.accounts.editor`, `billing.accounts.admin`, or `
 
     1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
     1. Go to the space of your choice.
-    1. Click ![create](../../../_assets/console-icons/folder-plus.svg) **{{ ui-key.yc-ui-talkanalytics.projects.create-project }}**.
+    1. Click ![create](../../../_assets/console-icons/folder-plus.svg) **{{ ui-key.yc-ui-talkanalytics.projects.create-project_buUAo }}**.
     1. Enter a project name, e.g., `chats-travel-agency`.
-    1. Under **{{ ui-key.yc-ui-talkanalytics.connections.connection }}**, click **{{ ui-key.yc-ui-talkanalytics.projects.add-connection }}** and select the `chats-default-metadata` connection.
-    1. Click **{{ ui-key.yc-ui-talkanalytics.projects.create-project }}**.
+    1. Under **{{ ui-key.yc-ui-talkanalytics.connections.connection_SezJG }}**, click **{{ ui-key.yc-ui-talkanalytics.projects.add-connection_bxENx }}** and select the `chats-default-metadata` connection.
+    1. Click **{{ ui-key.yc-ui-talkanalytics.projects.create-project_buUAo }}**.
     1. On the page that opens, click **ID** in the top-left corner to copy the ID of the project you created. Save this ID as you will need it later to [work with the API](#result-api).
 
 {% endlist %}
@@ -123,12 +123,12 @@ The user must have the `billing.accounts.editor`, `billing.accounts.admin`, or `
 
     1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
     1. Go to the space you need and select the `chats-travel-agency` project.
-    1. Select the **{{ ui-key.yc-ui-talkanalytics.assistants.assistants }}** tab.
+    1. Select the **{{ ui-key.yc-ui-talkanalytics.assistants.assistants_vsZCd }}** tab.
     1. Click **Create assistant**.
     1. Configure the new assistant:
 
         1. Enter `Dialog subject` as the name.
-        1. Under **{{ ui-key.yc-ui-talkanalytics.assistants.prompt }}**, enter this prompt:
+        1. Under **{{ ui-key.yc-ui-talkanalytics.assistants.prompt_4hIv3 }}**, enter this prompt:
 
             ```text
             You are analyzing a dialog between a call center agent and a customer. Pay close attention when generating a response.
@@ -144,7 +144,7 @@ The user must have the `billing.accounts.editor`, `billing.accounts.admin`, or `
             * Field type: `String`.
             * Description: `Most suitable subject`.
 
-    1. Enable the **{{ ui-key.yc-ui-talkanalytics.assistants.applying }}** section to activate the assistant.
+    1. Enable the **{{ ui-key.yc-ui-talkanalytics.assistants.applying_T3ZVB }}** section to activate the assistant.
 
     1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -321,7 +321,7 @@ To view the dialog subject selected by the AI assistant:
 
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
 1. Go to the space you need and select the `chats-travel-agency` project.
-1. On the **{{ ui-key.yc-ui-talkanalytics.dialogs.dialogs }}** tab, enable **{{ ui-key.yc-ui-talkanalytics.assistants.assistants }}**.
+1. On the **{{ ui-key.yc-ui-talkanalytics.dialogs.dialogs_ouB03 }}** tab, enable **{{ ui-key.yc-ui-talkanalytics.assistants.assistants_vsZCd }}**.
 
 Below the dialog line, you will see a line indicating the `Guided Tours` subject. This is the subject the AI assistant has selected as the most suitable one for the dialog.
 

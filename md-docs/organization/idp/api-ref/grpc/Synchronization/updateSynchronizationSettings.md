@@ -42,7 +42,19 @@ Updates synchronization settings for a subject container.
     }
   ],
   "update_mask": "google.protobuf.FieldMask",
-  "enable_password_writeback": "bool"
+  "enable_password_writeback": "bool",
+  "ldap_settings": {
+    "external_id_attribute": "string",
+    "dn_attribute": "string",
+    "user_object_class": "string",
+    "group_object_class": "string",
+    "account_disabled_attribute": "string",
+    "account_disabled_value": "string",
+    "account_enabled_value": "string",
+    "password_attribute": "string",
+    "delta_sync_mode": "LdapDeltaSyncMode",
+    "use_recursive_membership_filter": "bool"
+  }
 }
 ```
 
@@ -94,6 +106,9 @@ Field mask that specifies which fields are going to be updated. ||
 || enable_password_writeback | **bool**
 
 Enables password writeback feature. ||
+|| ldap_settings | **[UpdateLdapSettingsRequest](#yandex.cloud.organizationmanager.v1.idp.UpdateLdapSettingsRequest)**
+
+Settings for generic LDAP source. Empty for Active Directory source. ||
 |#
 
 ## SynchronizationFilter {#yandex.cloud.organizationmanager.v1.idp.SynchronizationFilter}
@@ -149,7 +164,8 @@ Required field. Target attribute to map to.
 Required field. Type of mapping.
 
 - `DIRECT`: Direct mapping from source to target.
-- `EMPTY`: Empty mapping (no source attribute). ||
+- `EMPTY`: Empty mapping (no source attribute).
+- `DIRECT_ARBITRARY_ATTRIBUTE`: Direct mapping from an arbitrary `source` attribute ||
 |#
 
 ## GroupAttributeMapping {#yandex.cloud.organizationmanager.v1.idp.GroupAttributeMapping}
@@ -174,7 +190,64 @@ Required field. Target attribute to map to.
 Required field. Type of mapping.
 
 - `DIRECT`: Direct mapping from source to target.
-- `EMPTY`: Empty mapping (no source attribute). ||
+- `EMPTY`: Empty mapping (no source attribute).
+- `DIRECT_ARBITRARY_ATTRIBUTE`: Direct mapping from an arbitrary `source` attribute ||
+|#
+
+## UpdateLdapSettingsRequest {#yandex.cloud.organizationmanager.v1.idp.UpdateLdapSettingsRequest}
+
+#|
+||Field | Description ||
+|| external_id_attribute | **string**
+
+Name of the LDAP attribute that holds the unique entry identifier.
+
+The maximum string length in characters is 256. ||
+|| dn_attribute | **string**
+
+Name of the LDAP attribute that holds the DN of the entry.
+
+The maximum string length in characters is 256. ||
+|| user_object_class | **string**
+
+ObjectClass of users.
+
+The maximum string length in characters is 256. ||
+|| group_object_class | **string**
+
+ObjectClass of groups.
+
+The maximum string length in characters is 256. ||
+|| account_disabled_attribute | **string**
+
+Name of the LDAP attribute that stores the account status.
+
+The maximum string length in characters is 256. ||
+|| account_disabled_value | **string**
+
+Value of `account_disabled_attribute` meaning the account is disabled.
+
+The maximum string length in characters is 256. ||
+|| account_enabled_value | **string**
+
+Value of `account_disabled_attribute` meaning the account is enabled.
+
+The maximum string length in characters is 256. ||
+|| password_attribute | **string**
+
+Name of the LDAP attribute the agent writes the new password to during
+password writeback.
+
+The maximum string length in characters is 256. ||
+|| delta_sync_mode | enum **LdapDeltaSyncMode**
+
+Delta synchronization mode.
+
+- `LDAP_DELTA_SYNC_MODE_FULL_SYNC`: Every run is a full sync; no replication token is used. ||
+|| use_recursive_membership_filter | **bool**
+
+Enables the AD-extension matching rule
+1.2.840.113556.1.4.1941 for the group-DN membership filter. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
