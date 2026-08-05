@@ -47,6 +47,8 @@ description: Из статьи вы узнаете, как подключить�
      
      {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level.md) %}
 
+     ![image](../../../_assets/datalens/operations/connection/connection-greenplum-org.png)
+
    - Указать вручную {#manual}
 
      {% include [datalens-db-specify-mannualy](../../../_includes/datalens/datalens-db-specify-mannualy.md) %}
@@ -60,6 +62,8 @@ description: Из статьи вы узнаете, как подключить�
       
       {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level.md) %}
 
+      ![image](../../../_assets/datalens/operations/connection/connection-greenplum.png)
+      
    {% endlist %}
 
 
@@ -67,8 +71,6 @@ description: Из статьи вы узнаете, как подключить�
 1. Нажмите кнопку **Создать подключение**.
 1. Выберите [воркбук](../../workbooks-collections/index.md), в котором сохранится подключение, или создайте новый. Если вы пользуетесь старой навигацией по папкам, выберите папку для сохранения подключения. Нажмите кнопку **Создать**.
 1. Укажите название подключения и нажмите кнопку **Создать**.
-
-![image](../../../_assets/datalens/connection/greenplum.png)
 
 
 

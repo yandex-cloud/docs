@@ -5,6 +5,12 @@ description: Follow this guide to create a virtual registry in {{ cloud-registry
 
 # Creating a virtual registry
 
+{% note info %}
+
+You can create a virtual registry in any format except Debian and Go.
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -22,6 +28,7 @@ description: Follow this guide to create a virtual registry in {{ cloud-registry
         * `Read only` to grant read-only access to the added registries.
         * `Read and upload` to grant both read and upload access to the registries. You can only use one registry for uploads. Specify it in the **Deployment registry** field.
 
+    1. Specify the [filtering patterns](../../concepts/filtering-patterns.md).
     1. Enter a name and description for the registry.
     1. Add labels in `key: value` format.
     1. Click **{{ ui-key.yacloud.common.create }}**.

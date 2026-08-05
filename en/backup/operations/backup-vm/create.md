@@ -17,7 +17,7 @@ To create an out-of-schedule backup:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your backup policy.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. [Navigate]({{ link-console-main }}/link/backup) to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. In the left-hand panel, select ![resources](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.backup.label_connected-resources }}**.
   1. Depending on the type of resource you want to back up, open the following tab:
 

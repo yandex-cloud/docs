@@ -127,6 +127,12 @@ items:
                 href: tutorials/single-sign-on/saml-jenkins.md
               - name: Настройка единого входа в Jenkins по стандарту OIDC
                 href: tutorials/single-sign-on/oidc-jenkins.md
+          - name: Loop
+            items:
+              - name: Настройка единого входа в Loop по стандарту SAML
+                href: tutorials/single-sign-on/saml-loop.md
+              - name: Настройка единого входа в Loop по стандарту OIDC
+                href: tutorials/single-sign-on/oidc-loop.md
           - name: Настройка единого входа в {{ mgl-name }} по стандарту SAML
             href: tutorials/single-sign-on/saml-managed-gitlab.md
           - name: Настройка единого входа в {{ mos-name }} по стандарту SAML
@@ -153,10 +159,14 @@ items:
             href: tutorials/single-sign-on/saml-sentry.md
           - name: Настройка единого входа в SonarQube по стандарту SAML
             href: tutorials/single-sign-on/saml-sonarqube.md
-          - name: VK Cloud
+          - name: Time
             items:
-              - name: Настройка единого входа в VK Cloud по стандарту SAML
-                href: tutorials/single-sign-on/saml-vk-cloud.md
+              - name: Настройка единого входа в Time по стандарту SAML
+                href: tutorials/single-sign-on/saml-time.md
+              - name: Настройка единого входа в Time по стандарту OIDC
+                href: tutorials/single-sign-on/oidc-time.md
+          - name: Настройка единого входа в VK Cloud по стандарту SAML
+            href: tutorials/single-sign-on/saml-vk-cloud.md
           - name: Настройка единого входа в Zabbix по стандарту SAML
             href: tutorials/single-sign-on/saml-zabbix.md
           - name: Настройка единого входа в Пассворк по стандарту SAML

@@ -5,6 +5,7 @@ description: На этой странице приведен справочни�
 
 # Справочник аудитных логов {{ connection-manager-full-name }}
 
+
 В {{ at-name }} для {{ connection-manager-full-name }} поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane).
 
 Общий вид значения поля `event_type` (_тип события_):

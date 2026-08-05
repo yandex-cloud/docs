@@ -54,6 +54,12 @@ The `compute.admin` role allows you to manage instances, instance groups, disks,
 * View lists of resource operations for {{ compute-name }} and information on operations, as well as abort such operations.
 * View information on available [platforms](../../compute/concepts/vm-platforms.md) and use them.
 * View a list of [availability zones](../../overview/concepts/geo-scope.md), information on availability zones and on access permissions assigned to them.
+* View info on connected backup [providers](../../backup/concepts/index.md#providers), as well as connect providers available in {{ backup-name }}.
+* View info on resources [connected](../../backup/concepts/vm-connection/index.md) to {{ backup-name }}, as well as connect and disconnect resources to and from it.
+* View info on [backup policies](../../backup/concepts/policy.md) as well as on resources linked to such policies.
+* Link backup policies to target resources and unlink them.
+* View info on access permissions granted for backup policies.
+* View info on {{ backup-name }} [quotas](../../backup/concepts/limits.md#backup-quotas).
 * View information on the relevant [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud).
 * View information on the relevant [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 

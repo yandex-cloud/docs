@@ -2,6 +2,7 @@
 
 
 
+
 Вы создадите видеоконвертер с использованием утилиты [FFmpeg](https://ffmpeg.org/) и сервиса [{{ message-queue-full-name }}](../../../message-queue/). Руководство предназначено для пользователей Linux и macOS.
 
 

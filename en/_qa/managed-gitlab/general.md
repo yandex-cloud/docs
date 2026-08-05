@@ -95,3 +95,9 @@ sysctl -w net.core.wmem_default=6250000
 sysctl -w net.ipv4.tcp_rmem='4096 6250000 26214400'
 sysctl -w net.ipv4.tcp_wmem='4096 6250000 26214400'
 ```
+
+#### What should I do if my SSH certificate expires? {#ssl-certificate-expired}
+
+Usually, the SSL certificate on {{ mgl-name }} instances is renewed automatically. If this does not happen, [restart](../../managed-gitlab/operations/instance/instance-stop.md) the instance.
+
+If restarting does not resolve the issue, contact [support]({{ link-console-support }}).

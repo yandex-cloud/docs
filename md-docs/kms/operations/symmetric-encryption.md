@@ -132,8 +132,6 @@
      ```
      "strong password"
      ```
-  
-     {% endnote %}
 
 - API {#api}
 

@@ -49,6 +49,7 @@ description: This page contains a list of references for {{ yandex-cloud }} metr
 * [{{ serverless-containers-full-name }}](serverless-containers-ref.md)
 * [{{ captcha-full-name }}](captcha-ref.md)
 * [{{ sws-full-name }}](smartwebsecurity-ref.md)
+* [{{ vpc-full-name }}](vpc-ref.md)
 * [{{ unified-agent-full-name }}](unifiedagent-ref.md)
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

@@ -13,7 +13,7 @@ You can only link [resources](../../concepts/index.md#protected-resources) to a 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to link a resource to a backup policy.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. [Navigate]({{ link-console-main }}/link/backup) to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. Navigate to the ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud_billing.backup.label_policies }}** tab.
   1. Select the policy you want to link the VM or server to.
   1. Under **{{ ui-key.yacloud.backup.title_linked-recourses }}**, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.backup.button_attach-instance }}**, and in the window that opens:
@@ -47,7 +47,7 @@ You can only link [resources](../../concepts/index.md#protected-resources) to a 
 
       ```bash
       yc backup policy apply <policy_ID> \
-        --instance-ids <IDs_of_resources_to_back_up>
+        --instance-ids <resource_IDs>
       ```
 
       Where `--instance-ids` are the IDs of the [{{ compute-name }} VMs](../../concepts/vm-connection/compute.md), [{{ baremetal-name }} servers](../../concepts/vm-connection/baremetal.md), or [external resources](../../concepts/vm-connection/external-resources.md) connected to {{ backup-name }} which you need to link to the backup policy. Multiple IDs should be comma-separated.
@@ -83,7 +83,7 @@ You can only link [resources](../../concepts/index.md#protected-resources) to a 
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources. You can check the new resources in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
+     {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
      ```bash
       yc backup policy list-applications

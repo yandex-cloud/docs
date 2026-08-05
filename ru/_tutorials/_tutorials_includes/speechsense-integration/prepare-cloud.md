@@ -60,9 +60,9 @@
 - Интерфейс {{ speechsense-name }} {#speechsense}
 
   1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
-  1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.spaces.create-space }}**.
+  1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.spaces.create-space_FvLT9 }}**.
   1. Введите название [пространства]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#space).
-  1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.common.create }}**.
+  1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.common.create_JTJlL }}**.
   1. [Привяжите платежный аккаунт]({{ link-docs-ai }}speechsense/operations/space/link-ba) к пространству для оплаты {{ speechsense-name }}.
 
       {% include [manage-ba-note](../../../_includes/speechsense/manage-ba-note.md) %}
@@ -77,9 +77,9 @@
 - Интерфейс {{ speechsense-name }} {#speechsense}
 
   1. В [интерфейсе]({{ link-speechsense-main }}) {{ speechsense-name }} перейдите в [новое пространство](#create-space).
-  1. Нажмите кнопку ![image](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yc-ui-talkanalytics.projects.add-participant }}** → ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yc-ui-talkanalytics.team.add-from-organization-key-value }}**.
+  1. Нажмите кнопку ![image](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yc-ui-talkanalytics.projects.add-participant_MeT49 }}** → ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yc-ui-talkanalytics.team.add-from-organization_2PoId }}**.
   1. Скопируйте идентификатор [созданного ранее сервисного аккаунта](#create-sa) `speechsense` и вставьте в строку поиска.
   1. Выберите сервисный аккаунт `speechsense` и укажите роль [{{ roles-speechsense-data-editor }}]({{ link-docs-ai }}speechsense/security/#speechsense-data-editor). Эта роль позволит сервисному аккаунту загружать данные в {{ speechsense-name }}.
-  1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.common.add }}**.
+  1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.common.add_694qE }}**.
 
 {% endlist %}

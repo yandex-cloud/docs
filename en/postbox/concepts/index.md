@@ -19,6 +19,7 @@ You can integrate {{ postbox-name }} with other services to:
 * Send emails from any of your apps.
 * Send out newsletters using the [AWS CLI](../tools/aws-cli.md) or [API](../aws-compatible-api/api-ref/) calls.
 * Send emails via [SMTP](https://{{ lang }}.wikipedia.org/wiki/SMTP).
+* Check the processing of different email delivery results using the [delivery simulator](mail-simulator.md).
 * Collect notification [statistics](../operations/logs-write.md) on emails received by {{ postbox-name }}, delivered/not delivered emails.
 * Set up email authentication using [DKIM](https://{{ lang }}.wikipedia.org/wiki/DomainKeys_Identified_Mail).
 * Create service DNS records in [{{ dns-full-name }}](../../dns/) or with your internet provider.

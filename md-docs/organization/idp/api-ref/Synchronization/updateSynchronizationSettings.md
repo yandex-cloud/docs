@@ -56,7 +56,19 @@ The maximum string length in characters is 50. ||
     }
   ],
   "updateMask": "string",
-  "enablePasswordWriteback": "boolean"
+  "enablePasswordWriteback": "boolean",
+  "ldapSettings": {
+    "externalIdAttribute": "string",
+    "dnAttribute": "string",
+    "userObjectClass": "string",
+    "groupObjectClass": "string",
+    "accountDisabledAttribute": "string",
+    "accountDisabledValue": "string",
+    "accountEnabledValue": "string",
+    "passwordAttribute": "string",
+    "deltaSyncMode": "string",
+    "useRecursiveMembershipFilter": "boolean"
+  }
 }
 ```
 
@@ -110,6 +122,9 @@ The rest of the fields will be reset to the default. ||
 || enablePasswordWriteback | **boolean**
 
 Enables password writeback feature. ||
+|| ldapSettings | **[UpdateLdapSettingsRequest](#yandex.cloud.organizationmanager.v1.idp.UpdateLdapSettingsRequest)**
+
+Settings for generic LDAP source. Empty for Active Directory source. ||
 |#
 
 ## SynchronizationFilter {#yandex.cloud.organizationmanager.v1.idp.SynchronizationFilter}
@@ -165,7 +180,8 @@ Required field. Target attribute to map to.
 Required field. Type of mapping.
 
 - `DIRECT`: Direct mapping from source to target.
-- `EMPTY`: Empty mapping (no source attribute). ||
+- `EMPTY`: Empty mapping (no source attribute).
+- `DIRECT_ARBITRARY_ATTRIBUTE`: Direct mapping from an arbitrary `source` attribute ||
 |#
 
 ## GroupAttributeMapping {#yandex.cloud.organizationmanager.v1.idp.GroupAttributeMapping}
@@ -190,7 +206,64 @@ Required field. Target attribute to map to.
 Required field. Type of mapping.
 
 - `DIRECT`: Direct mapping from source to target.
-- `EMPTY`: Empty mapping (no source attribute). ||
+- `EMPTY`: Empty mapping (no source attribute).
+- `DIRECT_ARBITRARY_ATTRIBUTE`: Direct mapping from an arbitrary `source` attribute ||
+|#
+
+## UpdateLdapSettingsRequest {#yandex.cloud.organizationmanager.v1.idp.UpdateLdapSettingsRequest}
+
+#|
+||Field | Description ||
+|| externalIdAttribute | **string**
+
+Name of the LDAP attribute that holds the unique entry identifier.
+
+The maximum string length in characters is 256. ||
+|| dnAttribute | **string**
+
+Name of the LDAP attribute that holds the DN of the entry.
+
+The maximum string length in characters is 256. ||
+|| userObjectClass | **string**
+
+ObjectClass of users.
+
+The maximum string length in characters is 256. ||
+|| groupObjectClass | **string**
+
+ObjectClass of groups.
+
+The maximum string length in characters is 256. ||
+|| accountDisabledAttribute | **string**
+
+Name of the LDAP attribute that stores the account status.
+
+The maximum string length in characters is 256. ||
+|| accountDisabledValue | **string**
+
+Value of `account_disabled_attribute` meaning the account is disabled.
+
+The maximum string length in characters is 256. ||
+|| accountEnabledValue | **string**
+
+Value of `account_disabled_attribute` meaning the account is enabled.
+
+The maximum string length in characters is 256. ||
+|| passwordAttribute | **string**
+
+Name of the LDAP attribute the agent writes the new password to during
+password writeback.
+
+The maximum string length in characters is 256. ||
+|| deltaSyncMode | **enum** (LdapDeltaSyncMode)
+
+Delta synchronization mode.
+
+- `LDAP_DELTA_SYNC_MODE_FULL_SYNC`: Every run is a full sync; no replication token is used. ||
+|| useRecursiveMembershipFilter | **boolean**
+
+Enables the AD-extension matching rule
+1.2.840.113556.1.4.1941 for the group-DN membership filter. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

@@ -23,7 +23,7 @@
 
 {% list tabs group=instructions %}
 
-* Бакет Object Storage {#obj-storage}
+- Бакет Object Storage {#obj-storage}
 
     1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с именем `bucket-yq-sa`.
     1. [Назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту `bucket-yq-sa` роль `storage.viewer` на каталог, в котором находится бакет с логами.
@@ -41,7 +41,7 @@
 
     1. Выполните нужный [запрос](../../../audit-trails/tutorials/search-events-audit-logs/examples.md).
 
-* Поток данных Data Streams {#data-streams}
+- Поток данных Data Streams {#data-streams}
 
     1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с именем `bucket-yq-sa`.
     1. [Назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту `bucket-yq-sa` роль `yds.editor`.

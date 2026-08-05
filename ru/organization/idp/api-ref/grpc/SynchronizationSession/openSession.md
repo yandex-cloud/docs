@@ -40,7 +40,8 @@ Required field. Type of synchronization session.
 
 - `AD_SYNC`: Active Directory synchronization session.
 - `AD_PASSWORD_HASH`: Active Directory password hash session.
-- `AD_USER_CONTROL`: Active Directory user control session. ||
+- `AD_USER_CONTROL`: Active Directory user control session.
+- `LDAP_SYNC`: Generic LDAP synchronization session. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

@@ -9,4 +9,5 @@ description: В этом разделе собраны инструкции дл
 
 * [{#T}](first-login.md).
 * [{#T}](../manage-account.md).
+* [{#T}](reset-password.md).
 * [{#T}](troubleshooting.md).

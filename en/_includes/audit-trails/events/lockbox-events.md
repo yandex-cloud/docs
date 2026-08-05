@@ -7,7 +7,8 @@ Event name | Description
 `DeactivateSecret` | Deactivating a secret
 `DeleteSecret` | Destroying a secret
 `RotateSecret` | Rotating a secret
-`ScheduleVersionDestruction` | Scheduling the destruction of a secret version
+`ScheduleVersionDestruction` | Scheduled destruction of a secret version
+`SetCurrentVersion` | Setting the current secret version
 `SetSecretAccessBindings` | Assigning access permissions for a secret
 `UpdateSecret` | Updating a secret
 `UpdateSecretAccessBindings` | Updating access permissions for a secret

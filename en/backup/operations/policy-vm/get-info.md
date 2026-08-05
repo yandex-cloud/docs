@@ -14,7 +14,7 @@ Information on policies becomes available for viewing after you [activate](../..
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) your [backup policy](../../../backup/concepts/policy.md) is in.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. [Navigate]({{ link-console-main }}/link/backup) to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. In the left-hand panel, select ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}**.
   1. Select the backup policy you want to view.
   1. The **Overview** page shows the backup policy details.
@@ -110,7 +110,7 @@ Information on policies becomes available for viewing after you [activate](../..
 
       You can replace `scheduling` with any other [policy parameter]({{ tf-provider-resources-link }}/backup_policy) to get the information you need.
 
-      For more on the properties of the `yandex_backup_policy` data source, see [this provider guide]({{ tf-provider-datasources-link }}/backup_policy).
+      For more information about the properties of the `yandex_backup_policy` data source, see [this provider guide]({{ tf-provider-datasources-link }}/backup_policy).
 
   1. Create the resources:
 

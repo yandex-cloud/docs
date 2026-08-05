@@ -33,7 +33,7 @@ The cost of support for the new infrastructure includes:
 
 ## Install Gatsby using {{ cloud-apps-name }} {#install-gatsby}
 
-Install a [static website](marketplace/products/yc/static-site) on Gatsby using {{ cloud-apps-name }}. The application will deploy the website to [{{ objstorage-name }}](../../storage/) and configure domain access.
+Install a [static website](/marketplace/products/yc/static-site) on Gatsby using {{ cloud-apps-name }}. The application will deploy the website to [{{ objstorage-name }}](../../storage/) and configure domain access.
 
 {% list tabs group=instructions %}
 

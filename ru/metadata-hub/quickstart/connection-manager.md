@@ -62,4 +62,3 @@ description: Управляйте подключениями к источник
 
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}
-

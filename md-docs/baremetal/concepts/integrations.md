@@ -102,19 +102,17 @@ Yandex BareMetal интегрируется с другими сервисами
 
 ## Yandex Cloud DNS {#cloud-dns}
 
-[Yandex Cloud DNS](../../dns/index.md) используется при настройке DNS-форвардера в подсети Virtual Private Cloud. DNS-форвардер принимает запросы из приватного сегмента BareMetal и перенаправляет их к DNS-резолверам Virtual Private Cloud.
+[Yandex Cloud DNS](../../dns/index.md) позволяет разрешать доменные имена из внутренних DNS-зон Yandex Cloud на серверах BareMetal. Для этого в облачной сети Virtual Private Cloud создается [входящее DNS-подключение](../../dns/concepts/dns-connection.md#dns-inbound), а его IP-адрес указывается в качестве DNS-сервера на сервере BareMetal.
 
-Такой форвардер нужен, чтобы разрешать FQDN облачных сервисов из приватной сети BareMetal.
-
-Руководство: [Настройка DNS-связности между сегментами Yandex BareMetal и Yandex Virtual Private Cloud для доступа к Managed Service for PostgreSQL по FQDN](../tutorials/bm-vpc-dns-forwarder.md).
+Руководство: [Настройка разрешения DNS-имен из приватной сети Yandex BareMetal](../tutorials/bm-vpc-dns-forwarder.md).
 
 ## Yandex Managed Service for PostgreSQL {#managed-postgresql}
 
-[Yandex Managed Service for PostgreSQL](../../managed-postgresql/index.md) может быть доступен из приватной сети BareMetal по FQDN после настройки сетевой связности с Virtual Private Cloud и DNS-форвардера.
+[Yandex Managed Service for PostgreSQL](../../managed-postgresql/index.md) может быть доступен из приватной сети BareMetal по FQDN после настройки сетевой связности с Virtual Private Cloud и входящего DNS-подключения.
 
 Это позволяет подключать приложения на физических серверах к управляемой базе данных без привязки к изменяемым IP-адресам хостов кластера.
 
-Руководство: [Настройка DNS-связности между сегментами Yandex BareMetal и Yandex Virtual Private Cloud для доступа к Managed Service for PostgreSQL по FQDN](../tutorials/bm-vpc-dns-forwarder.md).
+Руководство: [Настройка разрешения DNS-имен из приватной сети Yandex BareMetal](../tutorials/bm-vpc-dns-forwarder.md).
 
 ## Yandex Object Storage {#object-storage}
 

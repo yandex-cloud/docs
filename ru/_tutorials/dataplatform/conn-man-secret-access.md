@@ -1,5 +1,6 @@
 # Настройка прав доступа к секрету, созданному {{ connection-manager-full-name }}, для пользователя {{ mpg-full-name }}
 
+
 Вы можете получить пароль пользователя [{{ mpg-full-name }}](../../managed-postgresql/index.yaml) из [секрета {{ lockbox-name }}](../../lockbox/concepts/secret.md). Это можно сделать через [{{ yandex-cloud }} CLI](../../cli/index.yaml). Для этого [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), под которым вы авторизованы в {{ yandex-cloud }} CLI, нужно настроить права доступа к секрету пользователя. Информацию о секрете, необходимую для настройки прав, можно получить из подключения [{{ connection-manager-name }}](../../metadata-hub/concepts/connection-manager.md).
 
 Чтобы настроить права доступа к секрету пользователя:

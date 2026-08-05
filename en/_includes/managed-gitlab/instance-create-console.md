@@ -1,5 +1,5 @@
-1. In the management console, select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a [{{ GL }} instance](../../managed-gitlab/concepts/index.md#instance).
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [{{ GL }} instance](../../managed-gitlab/concepts/index.md#instance).
+1. [Navigate]({{ link-console-main }}/link/managed-gitlab) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
 1. Click **{{ ui-key.yacloud.gitlab.button_create-instance }}**.
 1. At the top of the page:
 

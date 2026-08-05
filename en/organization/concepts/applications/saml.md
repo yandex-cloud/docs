@@ -76,6 +76,18 @@ After you create a SAML application, you can [add, modify, and delete](../../ope
 
 {% include [saml-app-nameid-assertion](../../../_includes/organization/saml-app-nameid-assertion.md) %}
 
+For attributes, you can specify transformations that change the attribute value before providing it in a SAML response, e.g., convert text to lowercase, delete spaces, or extract a part of the string. Transformations apply one by one, from top to bottom.
+
+The following transformation types are available:
+
+* `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_extract_after_q4x8n }}`: Returns the part of the value which follows the specified substring. For example, instead of `user@site.com`, it returns `site.com` if you declare `@` as the substring.
+* `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_extract_before_ju2PE }}`: Returns the part of the value which precedes the specified substring. For example, instead of `user@example.com`, it returns `user` if you declare `@` as the substring.
+* `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_to_lowercase_vRG6c }}`: Converts all attribute value characters to lowercase.
+* `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_to_lowercase_vRG6c }}`: Converts all attribute value characters to uppercase.
+* `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_trim_3SF6q }}`: Deletes spaces in the beginning and end of the attribute value.
+* `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_if_empty_e5unh }}`: Replaces the current attribute value if it is empty. You can select a replacement value from the list of attribute values or provide your own one. For example, you can use `email` if `username` is empty.
+* `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_constant_tvJWi }}`: Replaces the current value with a specified constant. For example, returns `User` instead of any initial attribute value.
+
 In addition to the user attributes mentioned above, the SAML response may contain the group attribute whose value is the list of [groups](../groups.md) the user is a member of. You can specify any name and one of the following values for this attribute:
 
 {% include [saml-app-group-assertion](../../../_includes/organization/saml-app-group-assertion.md) %}

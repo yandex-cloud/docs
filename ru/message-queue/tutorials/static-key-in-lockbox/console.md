@@ -10,4 +10,4 @@ canonical: '{{ link-docs }}/tutorials/security/static-key-in-lockbox/console'
 
 #### Полезные ссылки {#see-also}
 
-* [{#T}](terraform.md)
+[{#T}](terraform.md)

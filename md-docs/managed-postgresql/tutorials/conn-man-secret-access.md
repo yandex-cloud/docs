@@ -4,6 +4,7 @@
 
 # Настройка прав доступа к секрету, созданному Yandex Connection Manager, для пользователя Yandex Managed Service for PostgreSQL
 
+
 Вы можете получить пароль пользователя [Yandex Managed Service for PostgreSQL](../index.md) из [секрета Yandex Lockbox](../../lockbox/concepts/secret.md). Это можно сделать через [Yandex Cloud CLI](../../cli/index.md). Для этого [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), под которым вы авторизованы в Yandex Cloud CLI, нужно настроить права доступа к секрету пользователя. Информацию о секрете, необходимую для настройки прав, можно получить из подключения [Connection Manager](../../metadata-hub/concepts/connection-manager.md).
 
 Чтобы настроить права доступа к секрету пользователя:

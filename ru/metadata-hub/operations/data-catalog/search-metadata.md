@@ -5,11 +5,13 @@ description: Следуя данной инструкции, вы сможете
 
 # Поиск метаданных
 
+
 {% note info %}
 
 {% include [preview-pp](../../../_includes/preview-pp.md) %}
 
 {% endnote %}
+
 
 {% list tabs group=instructions %}
 

@@ -37,6 +37,7 @@ To make sure your website is displayed correctly, e.g., so that when entering `h
 
 * [{#T}](../tutorials/protected-access-to-content/index.md)
 * [{#T}](../tutorials/cdn-hosting/index.md)
+* [{#T}](../../architecture/static-website-in-yc.md)
 
 
 ## Origin response time {#timeout}
@@ -50,7 +51,7 @@ To reduce both the load of CDN servers on origins and the response time, you can
 
 ## Origin groups {#groups}
 
-To distribute the load between origins hosting the same content, you can combine them into an origin _group_.
+To distribute the load between origins with the same content, you can _group_ them.
 
 Origins in the group can be active or backup. Requests from CDN servers are distributed among active origins in a circular manner.
 

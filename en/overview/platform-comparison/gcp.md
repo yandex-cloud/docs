@@ -32,6 +32,7 @@ description: This article establishes the equivalence between {{ yandex-cloud }}
 | Cloud Memorystore | [{{ mrd-full-name }}](../../managed-valkey/) |
 | Cloud Pub/Sub | [{{ postbox-full-name }}](../../postbox/)<br/>[{{ yds-full-name }}](../../data-streams/)<br/>[{{ message-queue-full-name }}](../../message-queue/)<br/>[{{ cns-full-name }}](../../notifications/) |
 | Cloud Quotas | [{{ quota-manager-full-name }}](../../quota-manager/) |
+| Cloud Router | [{{ cr-full-name }}](../../cloud-router/) |
 | Cloud Run | [{{ cos-full-name }}](../../cos/)<br/>[{{ serverless-containers-full-name }}](../../serverless-containers/) |
 | Cloud SDK | [{{ yandex-cloud }} CLI](../../cli/) |
 | Cloud Search | [{{ search-api-full-name }}]({{ link-docs-ai }}search-api/concepts) |

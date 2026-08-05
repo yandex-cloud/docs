@@ -5,6 +5,7 @@
 # Миграция данных из Elasticsearch в Yandex Managed Service for OpenSearch с помощью Yandex Data Transfer
 
 
+
 Вы можете настроить перенос данных из индексов Elasticsearch в индексы Managed Service for OpenSearch с помощью сервиса Data Transfer. Для этого:
 
 1. [Настройте кластер-источник](#configure-source).

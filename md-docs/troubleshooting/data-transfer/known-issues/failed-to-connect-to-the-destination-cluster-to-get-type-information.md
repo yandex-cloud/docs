@@ -3,18 +3,20 @@
 # Устранение ошибки `failed to connect to the destination cluster to get type information`
 
 
-## Описание проблемы {#issue-description}
+### Ошибка hostname resolving error {#hostname-resolving-error}
 
-При запуске трансфера отображается текст сообщения об ошибке: 
-```
+Текст ошибки:
+
+```text
 Cannot retrieve table information from the source database: failed to resolve storage: failed to connect to the destination cluster to get type information: unable to get master host: unable to create имя-сервиса service client: All hosts are unavailable
 hostname resolving error (lookup имя-хоста.mdb.yandexcloud.net on 127.0.0.1:53) failed to connect to `host=имя-хоста.mdb.yandexcloud.net user= database=`: hostname resolving error
 ```
 
-## Решение {#issue-resolution}
+Ошибка возникает, если в параметрах облачной подсети кластера-приемника или источника в трансфере указаны адреса сторонних DNS-серверов. В этом случае во время выполнения трансфера может возникнуть ошибка `hostname resolving error`.
 
-Вероятно, в параметрах облачной подсети кластера-приемника или источника в данном трансфере указаны адреса сторонних DNS-серверов. В этом случае во время выполнения трансфера возникнет ошибка `hostname resolving error`.
+Подробнее о сетевых настройках сервиса в разделе [Сеть в Yandex Data Transfer](../../../data-transfer/concepts/network.md).
 
-Подробнее об этом пишем в разделе [**Сеть в Yandex Data Transfer**](../../../data-transfer/concepts/network.md) нашей документации.
+**Решение:**
 
-В качестве решения проблемы можно либо настроить сторонние DNS-серверы таким образом, чтобы они разрешали имена хостов кластера, либо добавить эндпоинт кластера по IP как внешнюю инсталляцию.
+* Настройте сторонние DNS-серверы так, чтобы они разрешали имена хостов кластера.
+* Если это невозможно, добавьте эндпоинт кластера по IP-адресу как внешнюю инсталляцию.

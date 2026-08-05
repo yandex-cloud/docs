@@ -5,6 +5,8 @@ description: Follow this guide to add execution of SQL queries against databases
 
 # Running SQL queries against databases
 
+{% include [templating-note](../../../../_includes/serverless-integrations/templating-note.md) %}
+
 {% list tabs %}
 
 - Management console {#console}

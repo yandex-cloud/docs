@@ -4,6 +4,7 @@
 
 # Загрузка данных из Yandex Managed Service for YDB в Yandex Managed Service for PostgreSQL с помощью Yandex Data Transfer
 
+
 С помощью сервиса Data Transfer вы можете загружать данные из базы данных Managed Service for YDB в кластер Managed Service for PostgreSQL.
 
 Чтобы загрузить данные:

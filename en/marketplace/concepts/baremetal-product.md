@@ -39,11 +39,13 @@ Create an image in one of the following ways:
    * For the RedHat family: `dracut --regenerate-all -f`.
 
 * Automatic assembly of software RAID arrays is enabled in the kernel parameters. To enable it, add the `rd.auto` parameter.
-* Packages have been installed for working with `UEFI`:
+* The image must support legacy booting. Most distributions support this mode by default.
+* The image must support UEFI booting, for example:
 
-   * For the Debian family: `grub-efi-amd64-bin` and `dosfstools`.
-   * For the RedHat family: `grub2-efi-x64` and `shim-x64`.
+   * For the Debian family, add the `grub-efi-amd64-bin` and `dosfstools` packages.
+   * For the RedHat family, add the `grub2-efi-x64` and `shim-x64` packages.
 
+* The image must support LACP (IEEE 802.3ad) network interface aggregation.
 * The system firewall is configured to only allow the minimum ports required for your applications to run securely and the SSH port (by default, 22/TCP).
 * The SSH server starts automatically at server startup.
 * SSH password-based access is disabled for all users and is only allowed via key-based authentication.

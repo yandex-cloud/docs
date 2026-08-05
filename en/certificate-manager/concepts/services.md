@@ -62,3 +62,4 @@ You can store a {{ certificate-manager-name }} user certificate's private key in
 
 * [Static website in {{ objstorage-name }}](../../tutorials/web/static/index.md)
 * [{{ api-gw-full-name }}](../../api-gateway/)
+* [{#T}](../../architecture/static-website-in-yc.md)

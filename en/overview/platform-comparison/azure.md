@@ -41,6 +41,7 @@ description: This article establishes the equivalence between {{ yandex-cloud }}
 | Azure Stack Hub | [{{ stackland-full-name }}](../../stackland/) |
 | Azure Synapse Analytics | [{{ mgp-full-name }}](../../managed-greenplum/) |
 | Azure Virtual Desktop | [{{ cloud-desktop-full-name }}](../../cloud-desktop/) |
+| Azure Virtual WAN | [{{ cr-full-name }}](../../cloud-router/) |
 | Blob Storage | [{{ objstorage-full-name }}](../../storage/) |
 | Cognitive Services: Language | [{{ translate-full-name }}]({{ link-docs-ai }}translate/concepts/index) |
 | Cognitive Services: Speech | [{{ speechkit-full-name }}]({{ link-docs-ai }}speechkit/overview) |

@@ -40,6 +40,8 @@ Certificate ID for the SNI match. ||
 || `--client-certificates-trusted-ca-file` | `string`
 
 Trusted CA filename (PEM) for the specified listener. ||
+|| `--client-certificates-accept-untrusted` | Don't check client certificates' trusted chain for the SNI match. It is additionally allows expired client certificates. ||
+|| `--client-certificates-allow-expired` | Accept expired client certificates for the SNI match. ||
 || `--backend-group-id` | `string`
 
 HTTP router id for the SNI match. ||

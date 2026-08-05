@@ -11,6 +11,8 @@ items:
           Deploying a web app in a fault-tolerant configuration in {{
           yandex-cloud }}
         href: app-in-k8s.md
+      - name: Hosting a static website in {{ yandex-cloud }}
+        href: static-website-in-yc.md
       - name: Fault tolerance testing in {{ yandex-cloud }}
         items:
           - name: Testing an {{ alb-name }}-based infrastructure

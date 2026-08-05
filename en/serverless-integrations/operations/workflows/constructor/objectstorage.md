@@ -5,6 +5,8 @@ description: Follow this guide to add interaction with {{ objstorage-full-name }
 
 # Interacting with {{ objstorage-full-name }} objects
 
+{% include [templating-note](../../../../_includes/serverless-integrations/templating-note.md) %}
+
 {% list tabs %}
 
 - Management console {#console}

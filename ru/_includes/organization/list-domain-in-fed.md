@@ -1,5 +1,12 @@
 {% list tabs group=instructions %}
 
+- Интерфейс {{ cloud-center }} {#cloud-center}
+
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) с учетной записью администратора или владельца организации.
+  1. На панели слева нажмите ![icon-federation](../../_assets/organization/icon-federation.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
+  1. В списке [федераций](../../organization/concepts/add-federation.md) выберите нужную федерацию.
+  1. Перейдите на вкладку **{{ ui-key.yacloud_org.form.federation.note.tab-domains }}**. Отобразится список всех доступных доменов.
+
 - CLI {#cli}
 
   {% include [cli-install](../cli-install.md) %}

@@ -390,7 +390,7 @@ To control access more selectively and implement the principle of least privileg
 - Performing a check in the management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. Click the **Access permissions** tab.
+  1. Select the **Access permissions** tab.
   1. Click **Assign roles**.
   1. In the **Configure access bindings** window, click **Select user**.
   1. Select a user from the list or use the user search option.
@@ -452,7 +452,7 @@ To control access more selectively and implement the principle of least privileg
 
 #### 1.7 Cloud entities with service accounts are registered and limited {#sa}
 
-A [service account](../../../iam/concepts/users/service-accounts.md) is an account that can be used by a program to manage resources in {{ yandex-cloud }}. A service account is used to make requests as an application.
+A [service account](../../../iam/concepts/users/service-accounts.md) is an account that can be used by a program to manage resources in {{ yandex-cloud }}. A service account is used to make requests on behalf of an application.
 
 * Do not use employee accounts instead of service accounts. If, for example, an employee quits or moves to a different department, their account permissions are disabled, which may lead to an application failure.
 * Do not write service account keys directly to your application's code, configuration files, or environment variables.
@@ -529,7 +529,7 @@ Follow the principle of least privilege and [assign to the service account](../.
 
   1. Open the {{ yandex-cloud }} console in your browser.
   1. Go to the appropriate folder.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Check the list of service accounts.
   1. Repeat the steps for other folders.
@@ -612,7 +612,7 @@ Each service account with extended permissions should be placed as a resource in
 
   1. Open the {{ yandex-cloud }} console in your browser.
   1. Go to the appropriate folder.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Click the service account you need and go to the **Access permissions** tab.
   1. Check the access permissions assigned to the service account.
@@ -671,7 +671,7 @@ You need to rotate keys with unlimited validity yourself: delete and generate ne
 
   1. Open the {{ yandex-cloud }} console in your browser.
   1. Go to the appropriate folder.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Click the service account you need and see the date of each key's generation under **Access key properties**.
   1. Repeat the steps for each of your folders.
@@ -826,7 +826,7 @@ In addition to service account access permissions, you can define [scopes](../..
 - Performing a check in the management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and then select the required service account.
   1. Under **{{ ui-key.yacloud.iam.folder.service-account.overview.section_api_keys }}**, check the **{{ ui-key.yacloud.iam.folder.service-account.overview.column_key_scope }}** field in the table with your API keys’ details.
   1. If all API keys have their minimum required scopes specified, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
@@ -1909,7 +1909,7 @@ For example, to tag resources which handle personal data under Federal Law No. F
   The example below shows how to check if there is a label to a [{{ vpc-full-name }}](../../../vpc/) cloud network. You can perform similar checks for other resource labels.
 
   1. In the [management console]({{ link-console-main }}), select a folder.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Check it for labels.
 
 {% endlist %}
@@ -1960,7 +1960,7 @@ For more information, see [{#T}](../../../iam/concepts/users/service-accounts.md
 - Performing a check in the management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder the service account with access keys belongs to.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. In the list that opens, select the service account you need.
   1. You can see the time of the last key use in the table with key info under **{{ ui-key.yacloud.iam.folder.service-account.overview.column_key_last-used-at }}**.

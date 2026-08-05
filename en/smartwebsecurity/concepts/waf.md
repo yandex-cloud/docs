@@ -105,7 +105,7 @@ To protect resources with different security requirements, create multiple WAF p
 
 Each rule from the set is assigned a numeric _anomaly_ value, i.e., a potential attack indicator. The higher this value, the more likely it is that the request that satisfies this rule is in fact an attack.
 
-_Anomaly threshold_ is the total anomaly score of triggered rules that results in blocking the request. The anomaly threshold level depends on the rule set:
+The _anomaly threshold_ is the total anomaly score of triggered rules that results in blocking the request. The anomaly threshold level depends on the rule set:
 
 * In the OWASP Core Rule Set, you specify a threshold for the whole rule set. The possible values range ​​from `2` to `10 000`. We recommend that you start with a threshold of `25` and gradually reduce it to `5`.
 * In Yandex Ruleset, you specify a threshold individually for each rule group. The recommend value is `7`.
@@ -123,18 +123,30 @@ In the basic rule set settings, you can configure the overall paranoia level and
 
 ## Exclusion rules {#exclusion-rules}
 
-An _exclusion rule_ disables WAF rules for requests that satisfy the specified conditions. Use exclusion rules to prevent false positives triggered by legitimate traffic.
+An _exclusion rule_ disables selected WAF rules for requests or parts of requests that satisfy the specified conditions. Use exclusion rules to get rid of false positives on legitimate traffic without disabling the WAF profile altogether.
 
-An exclusion rule offer these blocks of settings:
+An exclusion rule offers these blocks of settings:
 
-* **Logging**.
-* **Skip checks**: Which WAF rules to cover by the exclusion – all or selected ones.
-* **Scope**: Which part of the request to exclude when applying WAF rules:
+* **{{ ui-key.yacloud.smart-web-security.waf.field_logging }}**: Logs requests to which the exclusion rule was applied. Use logging to make sure that the exclusion is triggered by expected traffic only and does not expand the scope of excluded WAF checks. We recommend enabling this after you create or update a rule.
 
-    * Whole request.
-    * Individual request parameters: `HTTP body`, `Cookie`, `HTTP header`, or `Query params`.
+* **{{ ui-key.yacloud.smart-web-security.WafProfileExclusionRuleForm.RulesSection.title_exclusion-rule-rules-section_cdWEW }}**: Sets WAF rules that will not apply to traffic covered by the exclusion. To keep your application protected, we recommended disabling only rules that cause false positives.
 
-* [**Traffic conditions**](conditions.md): Which requests are subject to the exclusion. If you set several conditions of different types, the exclusion will apply only if all conditions are met at the same time. If no conditions are set, the exclusion will apply to all traffic.
+* **Exclusion condition**: Decides which part of the HTTP request to exclude from WAF rule analysis:
+
+  * **Whole request**: Selected WAF rules will ignore the request entirely. Use this option if false positives cannot be localized within a particular part of the request.
+
+  * **Part of request**: Selected WAF rules will ignore only specified parts of the request. The rest of the request will continue to be monitored as per the WAF profile settings.
+
+    Available request parts:
+
+    * `HTTP body`: HTTP request body. Use if you get a false positive when parsing the request body, e.g., JSON, XML, forms, or other playloads.
+    * `Cookie`: `Cookie` header values.
+    * `HTTP header`: HTTP header. Use if you get a false positive in a specific header's value, e.g., `User-Agent`, `Referer`, `Authorization`, or a custom header.
+    * `Query params`: Query string parameters.
+
+    You can set one or more value for each parameter except `HTTP body`. Value matching can be either case-sensitive or insensitive.
+
+* [Traffic conditions](conditions.md): Decides which requests are subject to the exclusion. If you set several conditions of different types, the exclusion will apply only if all conditions are met at the same time. If no conditions are set, the exclusion will apply to all traffic.
 
 ## WAF setup recommendations {#waf-tuning-recommendation}
 

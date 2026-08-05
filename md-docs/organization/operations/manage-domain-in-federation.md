@@ -9,6 +9,17 @@
 
 {% list tabs group=instructions %}
 
+- Интерфейс Cloud Center {#cloud-center}
+
+  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization) с учетной записью администратора или владельца организации.
+  1. На панели слева нажмите ![icon-federation](../../_assets/organization/icon-federation.svg) **Федерации** и выберите нужную федерацию.
+  1. Перейдите на вкладку **Домены**.
+  1. В верхнем правом углу нажмите **Добавить домен**.
+  1. Введите имя домена.
+  1. Нажмите **Добавить**.
+
+  Чтобы использовать домен для добавления новых пользователей, [подтвердите](user-pools/validate-domain.md) его.
+
 - CLI {#cli}
 
   Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
@@ -63,6 +74,13 @@
 
 {% list tabs group=instructions %}
 
+- Интерфейс Cloud Center {#cloud-center}
+
+  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization) с учетной записью администратора или владельца организации.
+  1. На панели слева нажмите ![icon-federation](../../_assets/organization/icon-federation.svg) **Федерации**.
+  1. В списке [федераций](../concepts/add-federation.md) выберите нужную федерацию.
+  1. Перейдите на вкладку **Домены**. Отобразится список всех доступных доменов.
+
 - CLI {#cli}
 
   Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
@@ -90,6 +108,14 @@
 ## Посмотреть информацию о домене {#get}
 
 {% list tabs group=instructions %}
+
+- Интерфейс Cloud Center {#cloud-center}
+
+  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization) с учетной записью администратора или владельца организации.
+  1. На панели слева нажмите ![icon-federation](../../_assets/organization/icon-federation.svg) **Федерации**.
+  1. В списке [федераций](../concepts/add-federation.md) выберите нужную федерацию.
+  1. Перейдите на вкладку **Домены**. 
+  1. Нажмите на название нужного [домена](../concepts/domains.md).
 
 - CLI {#cli}
 
@@ -123,6 +149,13 @@
 Нельзя удалить домен по умолчанию или домен, к которому привязаны пользователи.
 
 {% list tabs group=instructions %}
+
+- Интерфейс Cloud Center {#cloud-center}
+
+  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization) с учетной записью администратора или владельца организации.
+  1. На панели слева нажмите ![icon-federation](../../_assets/organization/icon-federation.svg) **Федерации** и выберите нужную [федерацию](../concepts/add-federation.md).
+  1. Перейдите на вкладку **Домены**. 
+  1. В блоке с нужным доменом нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../_assets/console-icons/trash-bin.svg) **Удалить**.
 
 - CLI {#cli}
 

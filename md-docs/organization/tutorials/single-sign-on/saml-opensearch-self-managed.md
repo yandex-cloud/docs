@@ -2,7 +2,8 @@
 
 # Создать SAML-приложение в Yandex Identity Hub для интеграции с OpenSearch
 
-[OpenSearch](https://opensearch.org/) — это легко масштабируемая система поисковых и аналитических инструментов с открытым исходным кодом. OpenSearch включает в себя пользовательский интерфейс визуализации данных [OpenSearch Dashboards](https://docs.opensearch.org/latest/dashboards/). 
+
+[OpenSearch](https://opensearch.org/) — это легко масштабируемая система поисковых и аналитических инструментов с открытым исходным кодом. OpenSearch включает в себя пользовательский интерфейс визуализации данных [OpenSearch Dashboards](https://docs.opensearch.org/latest/dashboards/).
 
 Чтобы пользователи вашей [организации](../../concepts/organization.md) могли аутентифицироваться в OpenSearch с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../concepts/applications/saml.md) в Yandex Identity Hub, настройте его на стороне Yandex Identity Hub и на стороне OpenSearch.
 

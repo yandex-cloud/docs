@@ -1710,7 +1710,7 @@ ID of WAF profile to use in this rule.
     name = string,
     priority = integer,
     rule-specifier = rule-condition={
-      action = ALLOW|DENY,
+      action = ALLOW|DENY|CAPTCHA,
       condition = {
         authority = {
           authorities = [
@@ -2614,7 +2614,7 @@ ID of WAF profile to use in this rule.
     "priority": "integer",
     "rule-specifier": {
       "rule-condition": {
-        "action": "ALLOW|DENY",
+        "action": "ALLOW|DENY|CAPTCHA",
         "condition": {
           "authority": {
             "authorities": [
@@ -4277,7 +4277,7 @@ List of verdicts for which requests will be logged.
 > - discard-allow-percentage (integer)\
 Percentage of ALLOW verdicts to discard from logging (0-100).
 > - outputs ([]structure)\
-List of log destinations: Cloud Logging and/or Audit Trails.
+List of log destinations: Cloud Logging, Audit Trails, and/or Monium.
 
 {% endcut %}
 
@@ -4295,7 +4295,7 @@ List of log destinations: Cloud Logging and/or Audit Trails.
   ],
   log-group-id = string,
   outputs = [
-    CLOUD_LOGGING|AUDIT_TRAILS, ...
+    CLOUD_LOGGING|AUDIT_TRAILS|MONIUM, ...
   ]
 }
 ```
@@ -4316,7 +4316,7 @@ List of log destinations: Cloud Logging and/or Audit Trails.
   ],
   "log-group-id": "string",
   "outputs": [
-    "CLOUD_LOGGING|AUDIT_TRAILS", ...
+    "CLOUD_LOGGING|AUDIT_TRAILS|MONIUM", ...
   ]
 }
 ```

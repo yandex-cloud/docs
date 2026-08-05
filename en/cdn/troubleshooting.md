@@ -1,6 +1,11 @@
-# Troubleshooting in {{ cdn-name }}
+---
+title: FAQ about {{ cdn-full-name }}
+description: This page covers questions and answers about {{ cdn-name }}.
+---
 
-Below is the list of common issues with {{ cdn-name }} and ways to fix them.
+# General questions about {{ cdn-full-name }}
+
+The section below covers the frequently asked questions related to {{ cdn-name }}, plus common issues and fixes.
 
 * [CDN responds to file requests with 3xx codes (redirect)](#responses-3xx)
 * [CDN responds to file requests with 4xx codes (client error)](#responses-4xx)
@@ -8,12 +13,13 @@ Below is the list of common issues with {{ cdn-name }} and ways to fix them.
 * [Requests with the POST, PUT, PATCH, and DELETE methods are not available to users](#post-responses)
 * [Updated settings failed to apply to the resource](#changes-not-applied)
 * [CDN resource has the `Not active` status, preventing content delivery to users](#resource-not-active)
-* [What happens to a CDN resource when the billing account is suspended due to non-payment](#billing-account-blocked)
+* [What happens to a CDN resource if the billing account is suspended due to non-payment?](#billing-account-blocked)
 * [Unable to configure the TLS certificate](#tls-certificate)
 * [CDN sends compressed files to users who do not request compressed content](#compressed-files)
-* [How to enable WebSocket support](#websocket-support)
+* [How do I enable WebSocket support?](#websocket-support)
+* [How do I update access policy settings for specific IP addresses in a created CDN resource?](#access-policy-update)
 
-## The CDN responds to file requests with 3xx codes (redirect) {#responses-3xx}
+## CDN responds to file requests with 3xx codes (redirect) {#responses-3xx}
 
 Make sure to specify the following [resource](concepts/resource.md) settings:
 
@@ -22,7 +28,7 @@ Make sure to specify the following [resource](concepts/resource.md) settings:
   
   > For example, if the header value is set to `www.example.com`, and origins redirect requests with this value to `example.com`, change the value in the settings to `example.com`.
 
-## The CDN responds to file requests with 4xx codes (client error) {#responses-4xx}
+## CDN responds to file requests with 4xx codes (client error) {#responses-4xx}
 
 Make sure that:
 
@@ -33,7 +39,7 @@ Make sure that:
   * Over the specified protocol: HTTP or HTTPS.
   * With the specified value of the `Host` HTTP header and other headers. 
 
-## The CDN responds to file requests with 5xx codes (server error) {#responses-5xx}
+## CDN responds to file requests with 5xx codes (server error) {#responses-5xx}
 
 {% include [ipv4-note](../_includes/cdn/ipv4-note.md) %}
 
@@ -59,13 +65,13 @@ Also, check the {{ cdn-name }} status [here](https://status.yandex.cloud/en/dash
 
 Resources can show as `Not active` due to receiving no user requests for 90 days or being deactivated manually. To make them active again, [enable](operations/resources/configure-basics.md) **{{ ui-key.yacloud.cdn.field_access }}** in the basic resource settings. To enable or disable resources, you need the `cdn.editor` role or higher.
 
-## What happens to a CDN resource when the billing account is suspended due to non-payment {#billing-account-blocked}
+## What happens to a CDN resource if the billing account is suspended due to non-payment? {#billing-account-blocked}
 
-If your [billing account]({{ link-docs }}/billing/concepts/billing-account) is suspended due to non-payment, access to content via the CDN resource gets [disabled](operations/resources/disable-resource.md#disable-resource).
+If your [billing account]({{ link-docs }}/billing/concepts/billing-account) is suspended due to non-payment, access to content via the CDN resource gets [halted](operations/resources/disable-resource.md#disable-resource).
 
 {% note warning "**Important note**" %}
 
-Lifting the suspension of a billing account does not restore access to content. [Enable](operations/resources/disable-resource.md#enable-resource) it on your own.
+Unsuspending a billing account does not restore access to content. [Restore](operations/resources/disable-resource.md#enable-resource) it by yourself.
 
 {% endnote %}
 
@@ -96,9 +102,13 @@ In this case, the CDN cache saves the compressed file, which all clients will re
 
 To avoid this, [enable file compression](./operations/resources/enable-compression.md). This way, {{ cdn-short-name }} will always request non-compressed content from the origin, and if the client request has the `Accept-Encoding: gzip` header, it will compress files on its own without sending the header to the origin.
 
-## How to enable WebSocket protocol support {#websocket-support}
+## How do I enable WebSocket support? {#websocket-support}
 
 To enable the [WebSocket](https://{{ lang }}.wikipedia.org/wiki/WebSocket) protocol, contact [support]({{ link-console-support }}). Specify the following:
 * Your use case for WebSocket.
 * Tasks you plan to address.
 * Approximate traffic size.
+
+#### How do I update access policy settings for specific IP addresses in a created CDN resource? {#access-policy-update}
+
+Navigate to the **{{ ui-key.yacloud.cdn.label_resource-security }}** tab of the CDN resource and click **{{ ui-key.yacloud.common.edit }}**.

@@ -238,6 +238,12 @@
 
  - [OpenID Connect](security/single-sign-on/jenkins/oidc-jenkins.md)
 
+#### Loop
+
+ - [SAML](security/single-sign-on/loop/saml-loop.md)
+
+ - [OpenID Connect](security/single-sign-on/loop/oidc-loop.md)
+
  - [Managed Service for GitLab](security/single-sign-on/saml-managed-gitlab.md)
 
  - [Managed Service for OpenSearch](security/single-sign-on/saml-opensearch.md)
@@ -260,9 +266,13 @@
 
  - [SonarQube](security/single-sign-on/saml-sonarqube.md)
 
-#### VK Cloud
+#### Time
 
- - [SAML](security/single-sign-on/vk-cloud/saml-vk-cloud.md)
+ - [SAML](security/single-sign-on/time/saml-time.md)
+
+ - [OpenID Connect](security/single-sign-on/time/oidc-time.md)
+
+ - [VK Cloud](security/single-sign-on/saml-vk-cloud.md)
 
  - [Zabbix](security/single-sign-on/saml-zabbix.md)
 

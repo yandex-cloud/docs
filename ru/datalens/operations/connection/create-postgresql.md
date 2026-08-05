@@ -43,6 +43,8 @@ description: Из статьи вы узнаете, как подключить�
 
      {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level.md) %}
 
+     ![connection-postgresql](../../../_assets/datalens/operations/connection/connection-postgresql-org.png)
+
        Чтобы проверить корректность введенных параметров, нажмите кнопку **Проверить подключение**.
 
    - Указать вручную {#manual}
@@ -50,6 +52,8 @@ description: Из статьи вы узнаете, как подключить�
      {% include [datalens-db-specify-mannualy](../../../_includes/datalens/datalens-db-specify-mannualy.md) %}
 
      {% include [datalens-db-connection-parameters-postgresql](../../../_includes/datalens/datalens-db-connection-parameters-postgresql.md) %}
+
+     ![connection-postgresql](../../../_assets/datalens/operations/connection/connection-postgresql-manual.png)
 
      Чтобы проверить корректность введенных параметров, нажмите кнопку **Проверить подключение**.
 
@@ -68,6 +72,8 @@ description: Из статьи вы узнаете, как подключить�
      * **Время жизни кеша в секундах**. Укажите время жизни кеша или оставьте значение по умолчанию. Рекомендованное значение — 300 секунд (5 минут).
      
      {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level.md) %}
+
+     ![connection-postgresql](../../../_assets/datalens/operations/connection/connection-postgresql-manager.png)
 
    {% endlist %}
 

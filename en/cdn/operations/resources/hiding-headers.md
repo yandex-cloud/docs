@@ -9,7 +9,7 @@ You can set up [hiding of origin headers](../../concepts/hiding-headers.md) usin
 
 {% note warning %}
 
-Hiding important headers may be disruptive for your web application.
+Hiding important headers may disrupt the operation of the web application.
 
 {% endnote %}
 
@@ -34,7 +34,7 @@ Hiding important headers may be disruptive for your web application.
       * `true` enables the option.
       * `false` disables the option.
 
-  * `headers`: List of HTTP headers the client will see. All other origin headers will be hidden.
+  * `headers`: A list of HTTP headers to be passed to the client. All other origin headers will be hidden.
 
 - gRPC API {#grpc-api}
 
@@ -55,14 +55,14 @@ Hiding important headers may be disruptive for your web application.
       * `true` enables the option.
       * `false` disables the option.
 
-  * `headers`: List of HTTP headers the client will see. All other origin headers will be hidden.
+  * `headers`: A list of HTTP headers to be passed to the client. All other origin headers will be hidden.
 
 {% endlist %}
 
 
 ## Example {#example}
 
-In this example, you create a CDN resource for a corporate portal that should hide technical origin headers for better security. Only the main headers are allowed the web application needs to work correctly.
+In this example, a CDN resource is created for a corporate portal that should hide technical headers from the source to enhance security. Only the main headers required for the correct functioning of the web application are allowed.
 
 1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and write it into a variable:
 
@@ -70,7 +70,7 @@ In this example, you create a CDN resource for a corporate portal that should hi
     export IAM_TOKEN=`yc iam create-token`
     ```
 
-1. Create a CDN resource with header hiding configured:
+1. Create a CDN resource with a configured header hiding:
 
     {% list tabs group=instructions %}
 
@@ -194,3 +194,4 @@ In this example, you create a CDN resource for a corporate portal that should hi
       ```
 
     {% endlist %}
+    

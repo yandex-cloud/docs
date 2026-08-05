@@ -618,7 +618,7 @@ Sharded PostgreSQL обеспечивает атомарность на уров
 ALTER TABLE ... /* __spqr__multishard_ddl: true */;
 ```
 
-{% note warning}
+{% note warning %}
 
 Действие не транзакционно. Переименование таблиц требует осторожности.
 

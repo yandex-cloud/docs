@@ -385,9 +385,3 @@ _Объем данных_ — это единица тарификации ус�
 #### {{ backup-full-name }} {#backup-traffic}
 
 {% include [bms-backup-free-traffic](../_includes/baremetal/bms-backup-free-traffic.md) %}
-
-
-
-
-
-

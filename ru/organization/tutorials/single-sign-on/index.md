@@ -17,6 +17,9 @@ description: Настройка интеграции {{ org-full-name }} с вн
 * Jenkins
     * [SAML](./jenkins/saml-jenkins.md)
     * [OpenID Connect](./jenkins/oidc-jenkins.md)
+* Loop
+    * [SAML](./loop/saml-loop.md)
+    * [OpenID Connect](./loop/oidc-loop.md)
 * [{{ mgl-name }}](./saml-managed-gitlab.md)
 * [{{ mos-name }}](./saml-opensearch.md)
 * [MWS](./oidc-mws.md)
@@ -28,8 +31,10 @@ description: Настройка интеграции {{ org-full-name }} с вн
 * [Selectel](./saml-selectel.md)
 * [Sentry](./saml-sentry.md)
 * [SonarQube](./saml-sonarqube.md)
-* VK Cloud
-    * [SAML](./vk-cloud/saml-vk-cloud.md)
+* Time
+    * [SAML](./time/saml-time.md)
+    * [OpenID Connect](./time/oidc-time.md)
+* [VK Cloud](./saml-vk-cloud.md)
 * [Zabbix](./saml-zabbix.md)
 * [Пассворк](./saml-passwork.md)
 * [{{ yandex-360 }}](./saml-yandex-360.md)

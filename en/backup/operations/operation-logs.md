@@ -56,4 +56,4 @@ The system logs all actions with {{ backup-name }} resources as a list of operat
 
 #### Useful links {#see-also}
 
-* [{#T}](../../api-design-guide/concepts/about-async.md)
+[{#T}](../../api-design-guide/concepts/about-async.md)

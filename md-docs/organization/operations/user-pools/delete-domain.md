@@ -3,7 +3,9 @@
 # Удалить домен
 
 
-Нельзя удалить [домен](../../concepts/domains.md) по умолчанию или домен, к которому привязаны пользователи.
+Нельзя удалить [домен](../../concepts/domains.md), если:
+* домен является доменом по умолчанию;
+* к домену привязаны пользователи — то есть в пуле пользователей или федерации существуют учётные записи, использующие адреса электронной почты с этим доменом.
 
 ## Удалить домен из пула пользователей {#userpool}
 
@@ -34,6 +36,12 @@
      yc organization-manager idp userpool domain delete <идентификатор_пула> <домен>
      ```
 
+     Например, удалите домен `my-domain.ru` из пула `ek05kcb9vm2d********`:
+
+      ```bash
+      yc organization-manager idp userpool domain delete ek05kcb9vm2d******** my-domain.ru
+      ```
+
 - API {#api}
 
   Воспользуйтесь методом REST API [Userpool.DeleteDomain](../../idp/api-ref/Userpool/deleteDomain.md) для ресурса [Userpool](../../idp/api-ref/Userpool/index.md) или вызовом gRPC API [UserpoolService/DeleteDomain](../../idp/api-ref/grpc/Userpool/deleteDomain.md).
@@ -43,6 +51,13 @@
 ## Удалить домен из федерации {#federation}
 
 {% list tabs group=instructions %}
+
+- Интерфейс Cloud Center {#cloud-center}
+
+  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization) с учетной записью администратора или владельца организации.
+  1. На панели слева нажмите ![icon-federation](../../../_assets/organization/icon-federation.svg) **Федерации** и выберите нужную [федерацию](../../concepts/add-federation.md).
+  1. Перейдите на вкладку **Домены**. 
+  1. В блоке с нужным доменом нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/trash-bin.svg) **Удалить**.
 
 - CLI {#cli}
 

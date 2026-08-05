@@ -9,8 +9,8 @@ description: Follow this guide to find out the status of a {{ backup-full-name }
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where {{ backup-name }} is connected. 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where {{ backup-name }} is connected.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, click ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
 
   In the **{{ ui-key.yacloud.compute.instances.column_cloud-backup }}** column, you will see the statuses of {{ backup-name }}'s connection to the VM.

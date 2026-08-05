@@ -4,6 +4,7 @@
 
 # Копирование данных из Managed Service for OpenSearch в Managed Service for ClickHouse® с помощью Yandex Data Transfer
 
+
 С помощью сервиса Data Transfer вы можете перенести данные из кластера-источника Managed Service for OpenSearch в Managed Service for ClickHouse®.
 
 Чтобы перенести данные:

@@ -41,5 +41,5 @@
 Что тарифицируется | За запросы на запись и чтение сообщений | За сегменты, их скорость и объем хранимых данных
 Поддерживаемый протокол | [Amazon SQS API](../../message-queue/api-ref/index.md) | [Amazon Kinesis Data Streams API](../../data-streams/kinesisapi/api-ref.md)
 С какими сервисами {{ yandex-cloud }} есть интеграция | [{{ sf-full-name }}](../../functions/), [{{ api-gw-full-name }}](../../api-gateway/) | [{{ sf-full-name }}](../../functions/), [{{ api-gw-full-name }}](../../api-gateway/), [{{ data-transfer-full-name }}](../../data-transfer/)
-Надежность | Данные хранятся во всех зонах доступности | Данные хранятся во всех зонах доступности
+Надежность | Данные хранятся во всех [зонах доступности](../../overview/concepts/geo-scope.md) | Данные хранятся во всех [зонах доступности](../../overview/concepts/geo-scope.md)
 Масштабируемость на чтение | Серверная | Клиентская ([KCL](https://docs.aws.amazon.com/streams/latest/dev/shared-throughput-kcl-consumers.html)). Поддерживаются версии KCL 1.x

@@ -11,6 +11,12 @@ In {{ postbox-name }}, you can send an email:
 * Using the [AWS SDK](#aws-sdk).
 * Using [cURL](#curl).
 
+{% note tip %}
+
+To test delivery without an actual recipient, send an email to one of the [delivery simulator](../concepts/mail-simulator.md) addresses.
+
+{% endnote %}
+
 {% include [tls](../../_includes/postbox/tls.md) %}
 
 ## Getting started {#before-begin}

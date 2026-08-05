@@ -4,6 +4,7 @@
 
 # Поставка данных из очереди Data Streams в Managed Service for Apache Kafka® с помощью Data Transfer
 
+
 С помощью сервиса Data Transfer можно поставлять данные из потока Data Streams в кластер Managed Service for Apache Kafka®.
 
 Чтобы перенести данные:

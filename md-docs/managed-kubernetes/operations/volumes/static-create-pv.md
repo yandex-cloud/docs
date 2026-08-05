@@ -61,7 +61,7 @@
 
    {% note info %}
 
-   Не путайте [классы хранилищ Kubernetes](manage-storage-class.md) и [типы дисков Yandex Compute Cloud](../../../compute/concepts/disk.md#disks_types).
+   Не путайте [классы хранилищ Kubernetes](manage-storage-class.md) и [типы дисков Yandex Compute Cloud](../../../compute/concepts/disk.md#disks-types).
 
    {% endnote %}
 

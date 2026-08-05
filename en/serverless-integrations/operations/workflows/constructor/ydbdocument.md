@@ -5,6 +5,8 @@ description: Follow this guide to add interaction with document tables in {{ ydb
 
 # Interacting with document tables in {{ ydb-full-name }}
 
+{% include [templating-note](../../../../_includes/serverless-integrations/templating-note.md) %}
+
 {% list tabs %}
 
 - Management console {#console}

@@ -1754,6 +1754,20 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [remove-access-binding](cli-ref/cloud-registry/cli-ref/artifact/remove-access-binding.md)
 
+##### scanner
+
+ - [Overview](cli-ref/cloud-registry/cli-ref/artifact/scanner/index.md)
+
+ - [get-last-scan-result](cli-ref/cloud-registry/cli-ref/artifact/scanner/get-last-scan-result.md)
+
+ - [get-scan-result](cli-ref/cloud-registry/cli-ref/artifact/scanner/get-scan-result.md)
+
+ - [list-scan-results](cli-ref/cloud-registry/cli-ref/artifact/scanner/list-scan-results.md)
+
+ - [list-vulnerabilities](cli-ref/cloud-registry/cli-ref/artifact/scanner/list-vulnerabilities.md)
+
+ - [scan](cli-ref/cloud-registry/cli-ref/artifact/scanner/scan.md)
+
  - [set-access-bindings](cli-ref/cloud-registry/cli-ref/artifact/set-access-bindings.md)
 
  - [update-access-bindings](cli-ref/cloud-registry/cli-ref/artifact/update-access-bindings.md)
@@ -1819,6 +1833,20 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [remove-access-binding](cli-ref/cloud-registry/cli-ref/registry/remove-access-binding.md)
 
  - [remove-ip-permissions](cli-ref/cloud-registry/cli-ref/registry/remove-ip-permissions.md)
+
+##### scan-policy
+
+ - [Overview](cli-ref/cloud-registry/cli-ref/registry/scan-policy/index.md)
+
+ - [create](cli-ref/cloud-registry/cli-ref/registry/scan-policy/create.md)
+
+ - [delete](cli-ref/cloud-registry/cli-ref/registry/scan-policy/delete.md)
+
+ - [get](cli-ref/cloud-registry/cli-ref/registry/scan-policy/get.md)
+
+ - [get-by-registry](cli-ref/cloud-registry/cli-ref/registry/scan-policy/get-by-registry.md)
+
+ - [update](cli-ref/cloud-registry/cli-ref/registry/scan-policy/update.md)
 
  - [set-access-bindings](cli-ref/cloud-registry/cli-ref/registry/set-access-bindings.md)
 
@@ -1976,6 +2004,20 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [remove-access-binding](cli-ref/cloud-registry/cli-ref/v1/artifact/remove-access-binding.md)
 
+###### scanner
+
+ - [Overview](cli-ref/cloud-registry/cli-ref/v1/artifact/scanner/index.md)
+
+ - [get-last-scan-result](cli-ref/cloud-registry/cli-ref/v1/artifact/scanner/get-last-scan-result.md)
+
+ - [get-scan-result](cli-ref/cloud-registry/cli-ref/v1/artifact/scanner/get-scan-result.md)
+
+ - [list-scan-results](cli-ref/cloud-registry/cli-ref/v1/artifact/scanner/list-scan-results.md)
+
+ - [list-vulnerabilities](cli-ref/cloud-registry/cli-ref/v1/artifact/scanner/list-vulnerabilities.md)
+
+ - [scan](cli-ref/cloud-registry/cli-ref/v1/artifact/scanner/scan.md)
+
  - [set-access-bindings](cli-ref/cloud-registry/cli-ref/v1/artifact/set-access-bindings.md)
 
  - [update-access-bindings](cli-ref/cloud-registry/cli-ref/v1/artifact/update-access-bindings.md)
@@ -2041,6 +2083,20 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [remove-access-binding](cli-ref/cloud-registry/cli-ref/v1/registry/remove-access-binding.md)
 
  - [remove-ip-permissions](cli-ref/cloud-registry/cli-ref/v1/registry/remove-ip-permissions.md)
+
+###### scan-policy
+
+ - [Overview](cli-ref/cloud-registry/cli-ref/v1/registry/scan-policy/index.md)
+
+ - [create](cli-ref/cloud-registry/cli-ref/v1/registry/scan-policy/create.md)
+
+ - [delete](cli-ref/cloud-registry/cli-ref/v1/registry/scan-policy/delete.md)
+
+ - [get](cli-ref/cloud-registry/cli-ref/v1/registry/scan-policy/get.md)
+
+ - [get-by-registry](cli-ref/cloud-registry/cli-ref/v1/registry/scan-policy/get-by-registry.md)
+
+ - [update](cli-ref/cloud-registry/cli-ref/v1/registry/scan-policy/update.md)
 
  - [set-access-bindings](cli-ref/cloud-registry/cli-ref/v1/registry/set-access-bindings.md)
 
@@ -9078,6 +9134,30 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [update](cli-ref/organization-manager/cli-ref/idp/application/saml/signature-certificate/update.md)
 
+##### synchronization-session
+
+ - [Overview](cli-ref/organization-manager/cli-ref/idp/synchronization-session/index.md)
+
+ - [get](cli-ref/organization-manager/cli-ref/idp/synchronization-session/get.md)
+
+ - [list](cli-ref/organization-manager/cli-ref/idp/synchronization-session/list.md)
+
+##### synchronization-settings
+
+ - [Overview](cli-ref/organization-manager/cli-ref/idp/synchronization-settings/index.md)
+
+ - [create](cli-ref/organization-manager/cli-ref/idp/synchronization-settings/create.md)
+
+ - [delete](cli-ref/organization-manager/cli-ref/idp/synchronization-settings/delete.md)
+
+ - [get](cli-ref/organization-manager/cli-ref/idp/synchronization-settings/get.md)
+
+ - [list-supported-attributes](cli-ref/organization-manager/cli-ref/idp/synchronization-settings/list-supported-attributes.md)
+
+ - [reset-replication-token](cli-ref/organization-manager/cli-ref/idp/synchronization-settings/reset-replication-token.md)
+
+ - [update](cli-ref/organization-manager/cli-ref/idp/synchronization-settings/update.md)
+
 ##### user
 
  - [Overview](cli-ref/organization-manager/cli-ref/idp/user/index.md)
@@ -9471,6 +9551,30 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [list](cli-ref/organization-manager/cli-ref/v0/idp/application/saml/signature-certificate/list.md)
 
  - [update](cli-ref/organization-manager/cli-ref/v0/idp/application/saml/signature-certificate/update.md)
+
+###### synchronization-session
+
+ - [Overview](cli-ref/organization-manager/cli-ref/v0/idp/synchronization-session/index.md)
+
+ - [get](cli-ref/organization-manager/cli-ref/v0/idp/synchronization-session/get.md)
+
+ - [list](cli-ref/organization-manager/cli-ref/v0/idp/synchronization-session/list.md)
+
+###### synchronization-settings
+
+ - [Overview](cli-ref/organization-manager/cli-ref/v0/idp/synchronization-settings/index.md)
+
+ - [create](cli-ref/organization-manager/cli-ref/v0/idp/synchronization-settings/create.md)
+
+ - [delete](cli-ref/organization-manager/cli-ref/v0/idp/synchronization-settings/delete.md)
+
+ - [get](cli-ref/organization-manager/cli-ref/v0/idp/synchronization-settings/get.md)
+
+ - [list-supported-attributes](cli-ref/organization-manager/cli-ref/v0/idp/synchronization-settings/list-supported-attributes.md)
+
+ - [reset-replication-token](cli-ref/organization-manager/cli-ref/v0/idp/synchronization-settings/reset-replication-token.md)
+
+ - [update](cli-ref/organization-manager/cli-ref/v0/idp/synchronization-settings/update.md)
 
 ###### user
 

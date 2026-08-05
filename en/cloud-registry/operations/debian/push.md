@@ -1,5 +1,5 @@
 ---
-title: Pushing a Debian package to a {{ cloud-registry-full-name }}
+title: Pushing a Debian package to a {{ cloud-registry-full-name }} registry
 description: Follow this guide to push a Debian package to a registry in {{ cloud-registry-full-name }}.
 ---
 
@@ -7,7 +7,7 @@ description: Follow this guide to push a Debian package to a registry in {{ clou
 
 This guide describes how to push a [Debian package](../../concepts/artifacts/debian.md) to a [local registry](../../concepts/registry.md#local-registry).
 
-To push a Debian package to a registry, you need the `cloud-registry.artifacts.pusher` [role](../../security/index.md#cloud-registry-artifacts-pusher) or higher.
+To push a Debian package to the registry, you need the `cloud-registry.artifacts.pusher` [role](../../security/index.md#cloud-registry-artifacts-pusher) or higher.
 
 {% list tabs group=debian_tools %}
 
@@ -15,7 +15,7 @@ To push a Debian package to a registry, you need the `cloud-registry.artifacts.p
 
     1. {% include [auth-env-vars](../../../_includes/cloud-registry/auth-env-vars.md) %}
 
-    1. Run this HTTP request to push your package:
+    1. Push the project using an HTTP request:
 
         ```bash
         curl \
@@ -34,18 +34,31 @@ To push a Debian package to a registry, you need the `cloud-registry.artifacts.p
 
   1. Add the following registry configuration to the `/etc/dput.cf` file:
 
-      ```ini
-      [ycr]
-      fqdn = {{ cloud-registry }}
-      incoming = /debian/<registry_ID>/upload/
-      login = <login>
-      method = https
-      allow_unsigned_uploads = 1
-      ```
+      {% list tabs %}
 
-      Where:
-      * `<registry_ID>`: Your registry ID.
-      * `login`: Authentication method, `iam` or `api_key`.
+      - IAM token
+
+          ```ini
+          [ycr]
+          fqdn = {{ cloud-registry }}
+          incoming = /debian/<registry_ID>/upload/
+          login = iam
+          method = https
+          allow_unsigned_uploads = 1
+          ```
+
+      - API key
+
+          ```ini
+          [ycr]
+          fqdn = {{ cloud-registry }}
+          incoming = /debian/<registry_ID>/upload/
+          login = api_key
+          method = https
+          allow_unsigned_uploads = 1
+          ```
+
+      {% endlist %}
 
   1. Upload the package:
 
@@ -53,7 +66,7 @@ To push a Debian package to a registry, you need the `cloud-registry.artifacts.p
       dput ycr <package>.changes
       ```
 
-      Where `<package>.changes` is the package change file generated during the compilation.
+      Where `<package>.changes` is the package changes file generated during the build.
 
 {% endlist %}
 

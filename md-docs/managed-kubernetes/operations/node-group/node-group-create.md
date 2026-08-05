@@ -244,7 +244,7 @@
      * `--core-fraction` — [гарантированная доля vCPU](../../../compute/concepts/performance-levels.md) для узлов Managed Service for Kubernetes.
      * `--daily-maintenance-window` — начало и длительность интервала времени в UTC, в течение которого запустится [обновление](../../concepts/release-channels-and-updates.md#updates). Параметр не связан с длительностью самого обновления и временем его окончания.
      * `--disk-size` — [размер диска](../../../compute/concepts/disk.md#maximum-disk-size) узла Managed Service for Kubernetes.
-     * `--disk-type` — [тип диска](../../../compute/concepts/disk.md#disks_types) узла Managed Service for Kubernetes: `network-nvme` или `network-hdd`.
+     * `--disk-type` — [тип диска](../../../compute/concepts/disk.md#disks-types) узла Managed Service for Kubernetes: `network-nvme` или `network-hdd`.
      * Тип масштабирования:
 
        * `--fixed-size` — фиксированное количество узлов в группе узлов Managed Service for Kubernetes.
@@ -802,7 +802,7 @@
     
     Если вы назначили узлам кластера публичные IP-адреса и затем настроили NAT-шлюз или NAT-инстанс, доступ в интернет через публичные адреса пропадет. Подробнее читайте в [документации Yandex Virtual Private Cloud](../../../vpc/concepts/routing.md#internet-routes).
 
-  * Чтобы узлы использовали [нереплицируемые диски](../../../compute/concepts/disk.md#disks_types), передайте значение `network-ssd-nonreplicated` для параметра `nodeTemplate.bootDiskSpec.diskTypeId`.
+  * Чтобы узлы использовали [нереплицируемые диски](../../../compute/concepts/disk.md#disks-types), передайте значение `network-ssd-nonreplicated` для параметра `nodeTemplate.bootDiskSpec.diskTypeId`.
 
     Размер нереплицируемых дисков можно менять только с шагом 93 ГБ. Максимальный размер такого диска — 4 ТБ.
 
@@ -905,7 +905,7 @@
 * Количество vCPU для узлов — два.
 * [Гарантированная доля vCPU](../../../compute/concepts/performance-levels.md) — 50%.
 * [Размер диска](../../../compute/concepts/disk.md#maximum-disk-size) — 64 ГБ.
-* [Тип диска](../../../compute/concepts/disk.md#disks_types) — `network-ssd`.
+* [Тип диска](../../../compute/concepts/disk.md#disks-types) — `network-ssd`.
 * Количество узлов — один.
 * [Политика развертывания](../../concepts/node-group/deploy-policy.md):
     * Максимальное количество узлов, на которое можно расширить группу при ее изменении или обновлении — `3`.

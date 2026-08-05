@@ -24,6 +24,7 @@ description: Следуя данной инструкции, вы сможете
       1. {% include [mfa-create-policy-step4](../../../_includes/organization/mfa-create-policy-step4.md) %}
       1. {% include [mfa-create-policy-step5](../../../_includes/organization/mfa-create-policy-step5.md) %}
       1. {% include [mfa-create-policy-step6](../../../_includes/organization/mfa-create-policy-step6.md) %}
+      1. {% include [mfa-create-policy-step7](../../../_includes/organization/mfa-create-policy-step7.md) %}
       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}

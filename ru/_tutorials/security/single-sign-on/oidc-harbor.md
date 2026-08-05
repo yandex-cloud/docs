@@ -1,5 +1,6 @@
 # Создать OIDC-приложение в {{ org-full-name }} для интеграции с Harbor
 
+
 [Harbor](https://goharbor.io/) — open source-реестр артефактов контейнерной разработки: образов контейнеров, Helm-чартов и других типов данных. Harbor поддерживает аутентификацию по [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC), что позволяет использовать внешний поставщик удостоверений для единого входа пользователей.
 
 Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) входили в Harbor с помощью OpenID Connect, создайте [OIDC-приложение](../../../organization/concepts/applications/oidc.md) в {{ org-full-name }} и настройте интеграцию на стороне {{ org-full-name }} и Harbor.

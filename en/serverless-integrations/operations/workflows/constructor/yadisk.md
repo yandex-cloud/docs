@@ -5,6 +5,8 @@ description: Follow this guide to add interaction with Yandex Disk files to your
 
 # Interaction with Yandex Disk files
 
+{% include [templating-note](../../../../_includes/serverless-integrations/templating-note.md) %}
+
 {% list tabs %}
 
 - Management console {#console}

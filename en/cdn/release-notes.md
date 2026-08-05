@@ -5,6 +5,28 @@ description: This section contains the {{ cdn-name }} release notes.
 
 # {{ cdn-full-name }} release notes
 
+## Q2 2026 {#q2-2026}
+
+* {{ cdn-name }} is now available in the Kazakhstan [region](../overview/concepts/region.md).
+* Updated the [pricing](./pricing.md) model.
+* Added resource-based pricing for [dedicated IP addressing](./concepts/dedicated-ip-addressing.md). 
+* Introduced a [limit](./concepts/limits.md#cdn-limits) on the number of dedicated IP addresses for CDN resources per billing account.
+* Extended the list of HTTP methods blocked by default in client requests: aside from `POST`, now `PUT`, `PATCH`, and `DELETE` are also blocked. For more on activating methods, see [{#T}](./troubleshooting.md#post-responses).
+* Extended the network of our [points of presence](./concepts/points-of-presence.md): the Russia [region](../overview/concepts/region.md) now has 65 PoPs with a total throughput exceeding 7 Tbps.
+* Fixed errors related to the [{{ TF }} provider](../terraform/release-notes.md).
+* Improved the [management console]({{ link-console-main }}) interface:
+    * Moved the following fields to the origin settings section:
+      * **{{ ui-key.yacloud.cdn.label_protocol }}**
+      * **{{ ui-key.yacloud.cdn.field_origin }}**
+      * **{{ ui-key.yacloud.cdn.label_host-header }}**
+    * Moved these fields to a dedicated tab, **{{ ui-key.yacloud.cdn.label_section-security }}**:
+      * **{{ ui-key.yacloud.cdn.label_redirect }}**
+      * **{{ ui-key.yacloud.cdn.field_secure-key-enabled }}**
+      * **{{ ui-key.yacloud.cdn.field_secure-key-type }}**
+      * **{{ ui-key.yacloud.cdn.field_address-acl }}**
+    * Improved error display in wizard steps when creating a CDN resource and origin group. Now you see each error on the actual step where it occurred.
+    * If you select an L7 load balancer as an origin, the drop-down list now displays only load balancers that have public IP addresses linked.
+
 ## Q1 2026 {#q1-2026}
 
 * Now you can specify a different [origin](./concepts/origins.md) for a [CDN resource](./concepts/resource.md) in [location rules](./concepts/location-rules.md) without inheriting settings from the main configuration.

@@ -47,5 +47,5 @@ Yandex Data Streams предназначен для того, чтобы пер�
 Что тарифицируется | За запросы на запись и чтение сообщений | За сегменты, их скорость и объем хранимых данных
 Поддерживаемый протокол | [Amazon SQS API](../api-ref/index.md) | [Amazon Kinesis Data Streams API](../../data-streams/kinesisapi/api-ref.md)
 С какими сервисами Yandex Cloud есть интеграция | [Yandex Cloud Functions](../../functions/index.md), [Yandex API Gateway](../../api-gateway/index.md) | [Yandex Cloud Functions](../../functions/index.md), [Yandex API Gateway](../../api-gateway/index.md), [Yandex Data Transfer](../../data-transfer/index.md)
-Надежность | Данные хранятся во всех зонах доступности | Данные хранятся во всех зонах доступности
+Надежность | Данные хранятся во всех [зонах доступности](../../overview/concepts/geo-scope.md) | Данные хранятся во всех [зонах доступности](../../overview/concepts/geo-scope.md)
 Масштабируемость на чтение | Серверная | Клиентская ([KCL](https://docs.aws.amazon.com/streams/latest/dev/shared-throughput-kcl-consumers.html)). Поддерживаются версии KCL 1.x

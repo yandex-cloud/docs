@@ -124,7 +124,7 @@
         "value": "string",
         "transformations": [
           {
-            // Includes only one of the fields `extractBefore`, `extractAfter`, `ifEmpty`, `constant`
+            // Includes only one of the fields `extractBefore`, `extractAfter`, `ifEmpty`, `constant`, `replace`
             "extractBefore": {
               "value": "string"
             },
@@ -139,6 +139,10 @@
             },
             "constant": {
               "value": "string"
+            },
+            "replace": {
+              "pattern": "string",
+              "replacement": "string"
             }
             // end of the list of possible fields
           }
@@ -150,7 +154,7 @@
           "value": "string",
           "transformations": [
             {
-              // Includes only one of the fields `extractBefore`, `extractAfter`, `ifEmpty`, `constant`
+              // Includes only one of the fields `extractBefore`, `extractAfter`, `ifEmpty`, `constant`, `replace`
               "extractBefore": {
                 "value": "string"
               },
@@ -165,6 +169,10 @@
               },
               "constant": {
                 "value": "string"
+              },
+              "replace": {
+                "pattern": "string",
+                "replacement": "string"
               }
               // end of the list of possible fields
             }
@@ -458,16 +466,19 @@ Includes only one of the fields `groupAttributeValue`.
 ||Field | Description ||
 || extractBefore | **[ExtractBefore](#yandex.cloud.audit.organizationmanager.application.saml.AttributeMappingDetails.Transformation.ExtractBefore)**
 
-Includes only one of the fields `extractBefore`, `extractAfter`, `ifEmpty`, `constant`. ||
+Includes only one of the fields `extractBefore`, `extractAfter`, `ifEmpty`, `constant`, `replace`. ||
 || extractAfter | **[ExtractAfter](#yandex.cloud.audit.organizationmanager.application.saml.AttributeMappingDetails.Transformation.ExtractAfter)**
 
-Includes only one of the fields `extractBefore`, `extractAfter`, `ifEmpty`, `constant`. ||
+Includes only one of the fields `extractBefore`, `extractAfter`, `ifEmpty`, `constant`, `replace`. ||
 || ifEmpty | **[IfEmpty](#yandex.cloud.audit.organizationmanager.application.saml.AttributeMappingDetails.Transformation.IfEmpty)**
 
-Includes only one of the fields `extractBefore`, `extractAfter`, `ifEmpty`, `constant`. ||
+Includes only one of the fields `extractBefore`, `extractAfter`, `ifEmpty`, `constant`, `replace`. ||
 || constant | **[Constant](#yandex.cloud.audit.organizationmanager.application.saml.AttributeMappingDetails.Transformation.Constant)**
 
-Includes only one of the fields `extractBefore`, `extractAfter`, `ifEmpty`, `constant`. ||
+Includes only one of the fields `extractBefore`, `extractAfter`, `ifEmpty`, `constant`, `replace`. ||
+|| replace | **[Replace](#yandex.cloud.audit.organizationmanager.application.saml.AttributeMappingDetails.Transformation.Replace)**
+
+Includes only one of the fields `extractBefore`, `extractAfter`, `ifEmpty`, `constant`, `replace`. ||
 |#
 
 ## ExtractBefore {#yandex.cloud.audit.organizationmanager.application.saml.AttributeMappingDetails.Transformation.ExtractBefore}
@@ -501,6 +512,14 @@ Includes only one of the fields `attributeName`, `constant`. ||
 #|
 ||Field | Description ||
 || value | **string** ||
+|#
+
+## Replace {#yandex.cloud.audit.organizationmanager.application.saml.AttributeMappingDetails.Transformation.Replace}
+
+#|
+||Field | Description ||
+|| pattern | **string** ||
+|| replacement | **string** ||
 |#
 
 ## Attribute {#yandex.cloud.audit.organizationmanager.application.saml.AttributeMappingDetails.Attribute}

@@ -9,6 +9,8 @@ You can use the While control step to set a sequence of steps to apply within a 
 
 Each execution branch within the While step (including all [Switch](./switch.md) steps) must contain an [integration](./index.md#integration-steps) step or a [Success](./success.md), [Fail](./fail.md), or [Wait](./wait.md) step.
 
+{% include [templating-note](../../../../_includes/serverless-integrations/templating-note.md) %}
+
 {% list tabs %}
 
 - Management console {#console}

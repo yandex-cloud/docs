@@ -285,7 +285,7 @@ To quickly restore a service and address faults, you need to have action plans r
 
 Any fault tolerance solutions require regular testing in various fault scenarios. Learn more about testing fault tolerance in a cloud from this webinar: [Disabling a data center, or How to test fault tolerance in a cloud](https://yandex.cloud/ru/events/841).
 
-## See also {#see-also}
+#### See also {#see-also}
 
 * [{#T}](../tutorials/infrastructure-management/fault-tolerance.md)
 * [{#T}](../managed-clickhouse/concepts/high-availability.md)

@@ -29,9 +29,11 @@ description: '{{ cloud-registry-name }}Follow this guide to create a local regis
             * `Release`: For stable versions.
             * `Snapshot`: For development with frequent updates.
 
-        * `Debian`, optionally, configure registry metadata signing:
+        * `Debian`, if required, configure registry metadata signing:
 
-            Enable **Registry signing** and specify the [{{ lockbox-full-name }}](../../../lockbox/) secret containing the GPG key for signing. For more information on preparing a GPG key and creating a secret, see [{#T}](../debian/installation.md#prepare-gpg-key).
+            Enable the **Registry signing** and specify the [{{ lockbox-full-name }}](../../../lockbox/) secret containing the GPG key for signing. For more information on preparing a GPG key and creating a secret, see [{#T}](../debian/installation.md#prepare-gpg-key).
+
+    1. Specify the [filtering patterns](../../concepts/filtering-patterns.md).
 
     1. Under **Registry information**:
 
@@ -56,7 +58,7 @@ description: '{{ cloud-registry-name }}Follow this guide to create a local regis
     Where:
     * `--name`: Registry name.
     * `--description`: Registry description.
-    * `--registry-kind`: Registry format. Available formats: `maven`, `npm`, `docker`, `nuget`, `pypi`, `binary`, `debian`.
+    * `--registry-kind`: Registry format. Available formats: `maven`, `npm`, `docker`, `debian`, `nuget`, `pypi`, `binary`, `go`.
     * `--registry-type`: Registry [type](../../concepts/registry.md#registry-types).
     * `--properties`: Registry properties. Provide them as a string in `name1=value1,name2=value2` format. The available properties for local registries are as follows:
 

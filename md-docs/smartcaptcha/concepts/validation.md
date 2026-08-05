@@ -35,7 +35,7 @@ SmartCaptcha, проверив запрос, присваивает ему ид�
 
 После проверки токен загружается в элемент `<input type="hidden" name="smart-token" value="<токен>" ...>` на странице пользователя. Например:
 
-```HTML
+```html
 <div id="captcha-container" class="smart-captcha" ...>
     <input type="hidden" name="smart-token" value="dD0xNjYyNDU3NDMzO2k9MmEwMjo2Yjg6YjA4MTpiNTk3OjoxOjFiO0Q9MjVCREY1RDgzMDBERjQ3QjExNkUyMDJDNjJFNEI3Q0Y0QjYzRkRDNzJEMkV********DNjMxODgzMUM0REZBNzI1QUE1QzUwO3U9MTY2MjQ1NzQzMzk5MTEwNjQxNTtoPTg4MWRjMDc2YzE3MjkxNGUwNDgwMTVkYzhl********">
     ...
@@ -133,7 +133,7 @@ secret=<ключ_сервера>&token=<токен>&ip=<IP-адрес_польз
 
 1. Запрос без ключа сервера:
 
-    ```JSON
+    ```json
     {
         "status": "failed",
         "message": "Authentication failed. Secret has not provided."
@@ -142,7 +142,7 @@ secret=<ключ_сервера>&token=<токен>&ip=<IP-адрес_польз
 
 1. Запрос без токена или с поврежденным токеном:
 
-    ```JSON
+    ```json
     {
         "status": "failed",
         "message": "Invalid or expired Token."

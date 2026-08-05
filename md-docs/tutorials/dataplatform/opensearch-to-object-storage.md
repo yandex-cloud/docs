@@ -4,6 +4,7 @@
 
 # Загрузка данных из Yandex Managed Service for OpenSearch в Yandex Object Storage с помощью Yandex Data Transfer
 
+
 С помощью сервиса Data Transfer вы можете перенести данные из кластера Managed Service for OpenSearch в объектное хранилище Object Storage.
 
 Чтобы перенести данные:

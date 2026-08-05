@@ -8,7 +8,7 @@ A set of methods for managing Artifacts.
 
 Syntax:
 
-`yc cloud-registry v1 artifact <command>`
+`yc cloud-registry v1 artifact <group|command>`
 
 #### Command Tree
 
@@ -31,6 +31,18 @@ Syntax:
 - [yc cloud-registry v1 artifact update-access-bindings](update-access-bindings.md) — Updates access bindings for the specified artifact (folder, package, artifact, etc).
 
 - [yc cloud-registry v1 artifact upsert](upsert.md) — Upserts a folder at the specified path within the registry.
+
+- [yc cloud-registry v1 artifact scanner](scanner/index.md) — A set of methods for scanning artifacts.
+
+  - [yc cloud-registry v1 artifact scanner get-last-scan-result](scanner/get-last-scan-result.md) — Returns the last finished ScanResult for the specified artifact.
+
+  - [yc cloud-registry v1 artifact scanner get-scan-result](scanner/get-scan-result.md) — Returns the specified ScanResult resource.
+
+  - [yc cloud-registry v1 artifact scanner list-scan-results](scanner/list-scan-results.md) — List scan results for an artifact.
+
+  - [yc cloud-registry v1 artifact scanner list-vulnerabilities](scanner/list-vulnerabilities.md) — List vulnerabilities found in a scan result.
+
+  - [yc cloud-registry v1 artifact scanner scan](scanner/scan.md) — Executes scanning of specified artifact.
 
 #### Global Flags
 

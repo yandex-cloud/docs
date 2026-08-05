@@ -68,7 +68,7 @@ description: Следуя данной инструкции, вы сможете
 
 - По каталогам облака {#folders}
 
-  Детализацию можно посмотреть по одному или нескольким каталогам, в том числе в разных облаках. Для этого в списке **{{ ui-key.yacloud_billing_account.billing-account-detail.value_empty_clouds_folders }}** выберите каталоги, данные по которым нужно отобразить.
+  Детализацию можно посмотреть по одному или нескольким каталогам, в том числе в разных облаках. Для этого в списке **{{ ui-key.yacloud_billing_account.billing-account-detail.value_empty_folders }}** выберите каталоги, данные по которым нужно отобразить.
 
   Чтобы получить детализацию для выбранных каталогов по определенным продуктам или меткам, нажмите **{{ ui-key.yacloud_billing_account.billing-account-detail.filter_label-products-all }}** или **{{ ui-key.yacloud_billing_account.billing-account-detail.filter_label-labels-all }}** и выберите необходимые значения.
 
@@ -76,7 +76,7 @@ description: Следуя данной инструкции, вы сможете
 
 - По сервисам {#services}
 
-  Детализацию можно посмотреть по одному или нескольким сервисам в разных облаках или в разных каталогах выбранного облака. Для этого в списках **{{ ui-key.yacloud_billing_account.billing-account-detail.filter_label-services-all }}** и **{{ ui-key.yacloud_billing_account.billing-account-detail.value_empty_clouds_folders }}** выберите элементы, данные по которым нужно отобразить.
+  Детализацию можно посмотреть по одному или нескольким сервисам в разных облаках или в разных каталогах выбранного облака. Для этого в списках **{{ ui-key.yacloud_billing_account.billing-account-detail.filter_label-services-all }}** и **{{ ui-key.yacloud_billing_account.billing-account-detail.value_empty_folders }}** выберите элементы, данные по которым нужно отобразить.
 
   Также вы можете получить детализацию по [меткам ресурсов сервисов](../../resource-manager/concepts/labels.md). Для этого нажмите **{{ ui-key.yacloud_billing_account.billing-account-detail.filter_label-labels-all }}** и укажите необходимые значения.
 
@@ -96,7 +96,7 @@ description: Следуя данной инструкции, вы сможете
 
   Чтобы посмотреть детализацию по выбранным меткам для одного или нескольких продуктов в разных каталогах выбранного облака:
 
-  1. Нажмите **{{ ui-key.yacloud_billing_account.billing-account-detail.value_empty_clouds_folders }}** и отметьте продукты и сервисы, данные по которым нужно отображать в детализации.
+  1. Нажмите **{{ ui-key.yacloud_billing_account.billing-account-detail.value_empty_folders }}** и отметьте продукты и сервисы, данные по которым нужно отображать в детализации.
   1. Нажмите **{{ ui-key.yacloud_billing_account.billing-account-detail.filter_label-labels-all }}**. В открывшемся списке:
 
      * Выберите ключ метки и ее значения.
@@ -111,7 +111,7 @@ description: Следуя данной инструкции, вы сможете
   
   {% include [usage-details-change-period](../../billing/_includes/usage-details-change-period.md) %}
 
-  Для получения детализации в указанный период по определенным облакам и каталогам в списке **{{ ui-key.yacloud_billing_account.billing-account-detail.value_empty_clouds_folders }}** отметьте необходимые пространства.
+  Для получения детализации в указанный период по определенным облакам и каталогам в списке **{{ ui-key.yacloud_billing_account.billing-account-detail.value_empty_folders }}** отметьте необходимые пространства.
 
   Чтобы получить детализацию по определенным продуктам и [меткам](../../resource-manager/concepts/labels.md), нажмите **{{ ui-key.yacloud_billing_account.billing-account-detail.filter_label-products-all }}** или **{{ ui-key.yacloud_billing_account.billing-account-detail.filter_label-labels-all }}** и укажите необходимые значения.
 

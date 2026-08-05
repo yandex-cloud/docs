@@ -16,7 +16,7 @@ To change a service account's roles, follow [this guide](assign-role-for-sa.md).
   To update a service account:
 
   1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder the service account belongs to.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. In the row with the service account you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.iam.folder.service-accounts.button_action-edit }}**.
   1. Change the name of your service account.
@@ -86,12 +86,12 @@ To change a service account's roles, follow [this guide](assign-role-for-sa.md).
       }
      ...
      ```
-  1. Check the configuration using this command:
+  1. Validate your configuration using this command:
      ```bash
      terraform validate
      ```
      
-     If the configuration is correct, you will get this message:
+     If the configuration is valid, you will get this message:
      
      ```text
      Success! The configuration is valid.
@@ -102,9 +102,9 @@ To change a service account's roles, follow [this guide](assign-role-for-sa.md).
      terraform plan
      ```
   
-     You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
-  1. Apply the changes:
+  1. Apply the configuration changes:
      ```bash
      terraform apply
      ```

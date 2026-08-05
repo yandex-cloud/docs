@@ -1,6 +1,6 @@
 ---
 title: How to recover an external resource from a backup
-description: Follow this guide to recover a VM or server located outside of your {{ yandex-cloud }} infrastructure from a backup.
+description: Use this guide to recover a VM or server located outside of your {{ yandex-cloud }} infrastructure from a backup.
 ---
 
 # Recovering an external VM or server from a backup
@@ -14,10 +14,10 @@ description: Follow this guide to recover a VM or server located outside of your
 
 {% include [avoid-errors-when-restoring-from-backup.md](../../../_includes/backup/avoid-errors-when-restoring-from-backup.md) %}
 
-To recover a VM or server located in your infrastructure or a third-party provider's infrastructure from a backup:
+To recover a VM or server located on your infrastructure or a third-party provider's infrastructure from a backup:
 
 1. [Start the recovery process on the {{ yandex-cloud }} side](#initiate-recovery).
-1. [Make sure you have network access on the resource side](#validate-access).
+1. [Make sure you have network access on the resource you recover](#validate-access).
 
 ## Start the recovery process on the {{ yandex-cloud }} side {#initiate-recovery}
 
@@ -26,11 +26,11 @@ To recover a VM or server located in your infrastructure or a third-party provid
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the backup.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. [Navigate]({{ link-console-main }}/link/backup) to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. In the left-hand panel, select ![backups](../../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.backup.label_backups }}**.
-  1. Depending on the type of resource you want to recover, open the **{{ ui-key.yacloud.backup.label_external-vm-instances }}** or **{{ ui-key.yacloud.backup.label_external-server-instances }}** tab.
-  1. In the line with the backup you want to use to recover an external VM or server, click ![options](../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../_assets/console-icons/clock-arrow-rotate-left.svg) **{{ ui-key.yacloud.backup.action_recovery }}**.
-  1. In the **{{ ui-key.yacloud.backup.title_recovery-dialog_external }}** window that opens, select the external resource the backup will be recovered to in the **{{ ui-key.yacloud.backup.field_recover-to-resource }}** field.
+  1. Depending on the resource type you want to recover from the backup, open the **{{ ui-key.yacloud.backup.label_external-vm-instances }}** or **{{ ui-key.yacloud.backup.label_external-server-instances }}** tab.
+  1. In the line with the backup to recover the external VM or server from, click ![options](../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../_assets/console-icons/clock-arrow-rotate-left.svg) **{{ ui-key.yacloud.backup.action_recovery }}**.
+  1. In the **{{ ui-key.yacloud.backup.title_recovery-dialog_external }}** window that opens, in the **{{ ui-key.yacloud.backup.field_recover-to-resource }}** field, select the external resource the backup will be recovered to.
   1. Click **{{ ui-key.yacloud.backup.action_recovery-start }}**.
 
 - CLI {#cli}
@@ -49,7 +49,7 @@ To recover a VM or server located in your infrastructure or a third-party provid
 
       {% include [get-backup-id](../../../_includes/backup/operations/get-backup-id.md) %}
 
-  1. Get the ID of the resource to restore:
+  1. Get the ID of the resource to recover:
 
       {% include [get-resource-ids](../../../_includes/backup/operations/get-resource-ids.md) %}
 
@@ -74,7 +74,7 @@ To recover a VM or server located in your infrastructure or a third-party provid
 
 {% endlist %}
 
-This will start recovery of the external resource from a backup.
+As a result, the recovery of the external resource from the backup will be launched.
 
 {% note info %}
 
@@ -82,11 +82,11 @@ This will start recovery of the external resource from a backup.
 
 {% endnote %}
 
-## Make sure you have network access on the resource side {#validate-access}
+## Make sure you have network access on the resource you recover {#validate-access}
 
-To be recovered from {{ backup-full-name }} backups, external VMs and servers need to have internet access. During the process of recovering an external resource from a backup, it will be restarted and the `Recovery Bootable Media` tool will be started on it. Make sure your VM or server has internet access in this mode.
+To recover external VMs and servers from {{ backup-full-name }} backups, these resources require internet access. During the process of recovering an external resource from a backup, it will be restarted and the `Recovery Bootable Media` tool will be launched on it. Make sure your VM or server has internet access in this mode.
 
-If necessary, configure network access in the `Recovery Bootable Media` tool. Proceed as follows:
+If required, configure network access in the `Recovery Bootable Media` tool. Proceed as follows:
 
 * In the top menu, click **Tools** and, depending on the interface you are using, select `Configure network` or `Wi-Fi settings`.
 * In the window that opens, configure the settings and make sure you have an internet connection.

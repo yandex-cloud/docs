@@ -4,6 +4,7 @@
 
 ## Поставка данных из Yandex Managed Service for PostgreSQL в Yandex Managed Service for OpenSearch с помощью Yandex Data Transfer
 
+
 Вы можете перенести базу данных из Yandex Managed Service for PostgreSQL в Yandex Managed Service for OpenSearch с помощью сервиса Yandex Data Transfer. Для этого:
 
 1. [Подготовьте инфраструктуру](#prepare-infrastructure).

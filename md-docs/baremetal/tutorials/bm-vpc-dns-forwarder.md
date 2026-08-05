@@ -1,24 +1,23 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex BareMetal](../index.md) > [Практические руководства](index.md) > Настройка DNS-связности между сегментами Yandex BareMetal и Yandex Virtual Private Cloud для доступа к Managed Service for PostgreSQL по FQDN
+[Документация Yandex Cloud](../../index.md) > [Yandex BareMetal](../index.md) > [Практические руководства](index.md) > Настройка разрешения DNS-имен из приватной сети Yandex BareMetal
 
-# Настройка DNS-связности между сегментами Yandex BareMetal и Yandex Virtual Private Cloud для доступа к Managed Service for PostgreSQL по FQDN
+# Настройка разрешения DNS-имен из приватной сети Yandex BareMetal
 
-Использование полных доменных имен (FQDN) для подключения к облачным сервисам, таким как Yandex Managed Service for PostgreSQL, является рекомендуемой практикой: это обеспечивает абстракцию от инфраструктуры и автоматизацию процессов. FQDN остается стабильным, в то время как IP-адреса могут изменяться при масштабировании, восстановлении или миграции сервисов.
+Сервер BareMetal, подключенный к облачной сети Virtual Private Cloud с помощью Yandex Cloud Interconnect, находится за пределами Virtual Private Cloud и не может обращаться к [DNS-резолверу](../../dns/concepts/dns-resolver.md) облачной сети напрямую.
 
-Однако если сервер в сегменте BareMetal подключен к облаку через Yandex Cloud Interconnect, возникает проблема с разрешением FQDN облачных сервисов: прямые DNS-запросы из внешней подсети блокируются.
+Чтобы разрешать на сервере BareMetal доменные имена из [внутренних DNS-зон](../../dns/concepts/dns-zone.md#private-zones) Yandex Cloud, создайте в облачной сети [входящее DNS-подключение](../../dns/concepts/dns-connection.md#dns-inbound) и укажите его IP-адрес в качестве DNS-сервера на сервере BareMetal. Разворачивать для этого отдельную виртуальную машину с DNS-форвардером не требуется.
 
-Для решения этой задачи предлагается развернуть промежуточную виртуальную машину в той же подсети, что и кластер Managed Service for PostgreSQL, в роли DNS-форвардера на базе Bind9. Этот сервер будет принимать DNS-запросы от сервера BareMetal, перенаправлять их в Yandex Cloud DNS и возвращать ответы клиенту, обеспечивая корректное разрешение FQDN облачных сервисов.
+В качестве примера вы настроите разрешение [FQDN](../../glossary/fqdn.md) хоста кластера Yandex Managed Service for PostgreSQL из приватной сети BareMetal.
 
-Чтобы настроить DNS-связность:
+Чтобы настроить разрешение DNS-имен:
 
-1. [Подготовьте инфраструктуру](#prepare-infra).
-1. [Настройте DNS-форвардер на виртуальной машине](#configure-forwarder).
-1. [Настройте DNS-клиент на сервере BareMetal](#configure-baremetal).
-1. [Проверьте доступ к кластеру Managed Service for PostgreSQL по FQDN](#check-postgresql).
-1. [Проверьте результат](#check-result).
+1. [Подготовьте инфраструктуру](#prepare-infrastructure).
+1. [Создайте входящее DNS-подключение](#create-inbound-endpoint).
+1. [Настройте DNS на сервере BareMetal](#configure-baremetal).
+1. [Проверьте разрешение DNS-имен](#check-dns).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
-## Подготовьте инфраструктуру {#prepare-infra}
+## Подготовьте инфраструктуру {#prepare-infrastructure}
 
 Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
 1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
@@ -30,335 +29,156 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки решения входят:
+В стоимость поддержки инфраструктуры входят:
 
-* плата за использование виртуальной машины и диска ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
-* плата за использование кластера Managed Service for PostgreSQL ([тарифы Yandex Managed Service for PostgreSQL](../../managed-postgresql/pricing.md));
-* плата за аренду серверов BareMetal ([тарифы Yandex BareMetal](../pricing.md));
-* плата за использование ресурсов Yandex Cloud Interconnect ([тарифы Yandex Cloud Interconnect](../../interconnect/pricing.md)).
+* плата за аренду сервера BareMetal ([тарифы Yandex BareMetal](../pricing.md));
+* плата за ресурсы кластера Managed Service for PostgreSQL ([тарифы Yandex Managed Service for PostgreSQL](../../managed-postgresql/pricing.md)), если вы используете кластер для проверки разрешения DNS-имен.
 
-### Создайте кластер Managed Service for PostgreSQL {#create-postgresql-cluster}
+### Настройте сетевую связность {#configure-connectivity}
 
-1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать кластер.
-1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
-1. Нажмите кнопку **Создать кластер**.
-1. Задайте параметры кластера:
-   * **Имя кластера** — укажите имя кластера.
-   * **База данных** — задайте имя базы данных, имя пользователя и пароль.
-   * **Сетевые настройки** — выберите зоны доступности и подсети.
-1. Нажмите кнопку **Создать кластер**.
+Если между приватной подсетью BareMetal и облачной сетью Virtual Private Cloud еще нет сетевой связности, [настройте ее](bm-vrf-and-vpc-interconnect.md) с помощью Cloud Interconnect.
 
-   {% note info %}
-
-   При создании кластера Managed Service for PostgreSQL автоматически создается приватная DNS-зона `mdb.yandexcloud.net`, в которой появляются DNS-записи для хостов кластера. FQDN хостов имеют формат `c-<идентификатор_кластера>-<номер_хоста>.mdb.yandexcloud.net`. Внутри зоны автоматически создаются DNS-записи для базы данных — например, мастер: `10.129.0.29` и реплика: `10.130.0.15`.
-
-   {% endnote %}
-
-Подробнее о создании кластера читайте в [инструкции](../../managed-postgresql/operations/cluster-create.md).
-
-### Создайте виртуальную машину для DNS-форвардера {#create-dns-forwarder-vm}
-
-1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать виртуальную машину.
-1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
-1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины**.
-1. Нажмите кнопку **Создать виртуальную машину**.
-1. В блоке **Общая информация** задайте имя виртуальной машины.
-1. В блоке **Образ загрузочного диска** выберите образ **Ubuntu 22.04 LTS**.
-1. В блоке **Сетевые настройки**:
-   * В поле **Подсеть** выберите подсеть, в которой размещены хосты кластера Managed Service for PostgreSQL (например, `10.129.0.0/24`).
-   * Укажите внутренний IP-адрес виртуальной машины (например, `10.129.0.10`).
-   * Убедитесь, что зона доступности совпадает с зоной размещения кластера Managed Service for PostgreSQL (например, `ru-central1-b`).
-1. Нажмите кнопку **Создать ВМ**.
-
-Подробнее о создании виртуальной машины читайте в [инструкции](../../compute/operations/vm-create/create-linux-vm.md).
-
-### Арендуйте сервер BareMetal {#lease-baremetal-server}
-
-1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите арендовать сервер.
-1. [Перейдите](https://console.yandex.cloud/link/baremetal) в сервис **BareMetal**.
-1. Нажмите кнопку **Заказать сервер**.
-1. Выберите параметры сервера:
-   * Выберите подходящую [конфигурацию](../concepts/server-configurations.md) сервера.
-   * Присвойте или получите по DHCP приватный IP-адрес (например, `172.16.2.2`).
-1. Нажмите кнопку **Заказать сервер**.
-
-Подробнее об аренде сервера читайте в [инструкции](../operations/servers/server-lease.md).
-
-### Настройте сетевую связность {#configure-network-connectivity}
-
-Настройте связность между подсетями BareMetal и Virtual Private Cloud через Yandex Cloud Interconnect:
-
-1. Создайте сеть Virtual Private Cloud с подсетями в нужных зонах доступности.
-1. Создайте приватную подсеть BareMetal.
-1. Настройте подключение через Yandex Cloud Interconnect между подсетью BareMetal и подсетью Virtual Private Cloud, в которой размещен кластер Managed Service for PostgreSQL.
-
-Подробнее о настройке сетевой связности читайте в [инструкции](bm-vrf-and-vpc-interconnect.md).
+Убедитесь, что в виртуальном маршрутизаторе анонсирован префикс подсети Virtual Private Cloud, в которой будет находиться IP-адрес входящего DNS-подключения. Сервер BareMetal должен иметь маршрут до этого префикса.
 
 В примерах ниже используются:
 
-* подсеть BareMetal: `172.16.2.0/24`;
-* IP-адрес сервера BareMetal: `172.16.2.2`;
-* подсеть Virtual Private Cloud с хостами Managed Service for PostgreSQL: `10.129.0.0/24`;
-* IP виртуальной машины с Bind9: `10.129.0.10`;
-* DNS-резолверы Virtual Private Cloud: `10.129.0.2` и `10.130.0.2`.
+* CIDR приватной подсети BareMetal — `172.16.2.0/24`;
+* IP-адрес сервера BareMetal — `172.16.2.2`;
+* CIDR подсети Virtual Private Cloud — `192.168.1.0/24`;
+* IP-адрес входящего DNS-подключения — `192.168.1.200`.
 
-   {% note info %}
+### Создайте кластер Managed Service for PostgreSQL {#create-postgresql-cluster}
 
-   DNS-резолверы Virtual Private Cloud имеют адреса вида `10.X.0.2`, где `X` — номер подсети. Для каждой подсети в Virtual Private Cloud доступен свой DNS-резолвер.
+Если у вас еще нет облачного ресурса с FQDN во внутренней DNS-зоне, для проверки создайте [кластер Managed Service for PostgreSQL](../../managed-postgresql/operations/cluster-create.md) в облачной сети, связанной с приватной подсетью BareMetal.
 
-   {% endnote %}
+Сохраните FQDN одного из хостов кластера. Он понадобится для проверки разрешения DNS-имен.
 
-### Создайте группу безопасности для DNS-форвардера {#configure-sg}
+## Создайте входящее DNS-подключение {#create-inbound-endpoint}
 
-{% list tabs group=instructions %}
+[Создайте входящее DNS-подключение](../../dns/operations/connection-inbound-create.md) в облачной сети, связанной с приватной подсетью BareMetal.
 
-- Консоль управления {#console}
+При создании подключения:
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **Группы безопасности** и нажмите кнопку **Создать группу безопасности**.
-  1. В поле **Имя** задайте имя `dns-forwarder-sg`.
-  1. В поле **Сеть** выберите сеть, в которой размещена виртуальная машина с Bind9.
-  1. В блоке **Правила** [создайте](../../vpc/operations/security-group-add-rule.md) следующие правила для управления трафиком:
+1. Выберите облачную сеть, подключенную к виртуальному маршрутизатору.
+1. Зарезервируйте для подключения внутренний IP-адрес в подсети, префикс которой анонсирован виртуальным маршрутизатором. Например, `192.168.1.200`.
+1. Дождитесь, когда входящее DNS-подключение перейдет в статус `AVAILABLE`.
+1. Сохраните IP-адрес подключения. Он понадобится для настройки сервера BareMetal.
 
-      | Направление<br/>трафика | Описание | Диапазон портов | Протокол | Источник /<br/>Назначение | IPv4 CIDR /<br/>Группа безопасности |
-      | --- | --- | --- | --- | --- | --- |
-      | Входящий | `dns-udp` | `53` | `UDP` | `Диапазон адресов` | `172.16.2.0/24` |
-      | Входящий | `dns-tcp` | `53` | `TCP` | `Диапазон адресов` | `172.16.2.0/24` |
-      | Исходящий | `dns-udp-forward` | `53` | `UDP` | `Диапазон адресов` | `10.129.0.0/24` |
-      | Исходящий | `dns-tcp-forward` | `53` | `TCP` | `Диапазон адресов` | `10.129.0.0/24` |
-      | Исходящий | `dns-udp-forward` | `53` | `UDP` | `Диапазон адресов` | `10.130.0.0/24` |
-      | Исходящий | `dns-tcp-forward` | `53` | `TCP` | `Диапазон адресов` | `10.130.0.0/24` |
+{% note info %}
 
-      {% note info %}
-
-      В примере используются подсети `10.129.0.0/24` и `10.130.0.0/24`, в которых находятся DNS-резолверы `10.129.0.2` и `10.130.0.2`. Замените их на подсети, в которых находятся DNS-резолверы ваших подсетей Virtual Private Cloud. DNS-резолверы Virtual Private Cloud имеют адреса вида `10.X.0.2`, где `X` — номер подсети.
-
-      {% endnote %}
-
-  1. При необходимости добавьте правило для SSH-доступа к виртуальной машине:
-
-      | Направление<br/>трафика | Описание | Диапазон портов | Протокол | Источник /<br/>Назначение | IPv4 CIDR /<br/>Группа безопасности |
-      | --- | --- | --- | --- | --- | --- |
-      | Входящий | `ssh` | `22` | `TCP` | `Диапазон адресов` | `<CIDR_административной_подсети>` |
-
-  1. Нажмите **Создать**.
-
-{% endlist %}
-
-## Настройте DNS-форвардер на виртуальной машине {#configure-forwarder}
-
-1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к виртуальной машине по SSH.
-
-1. Установите Bind9:
-
-   ```bash
-   sudo apt update
-   sudo apt install -y bind9 bind9-utils dnsutils
-   ```
-
-1. Откройте файл `/etc/bind/named.conf.options` и укажите параметры форвардинга:
-
-   ```bash
-   sudo nano /etc/bind/named.conf.options
-   ```
-
-   Пример конфигурации:
-
-   ```text
-   options {
-     directory "/var/cache/bind";
-
-     recursion yes;
-     allow-recursion {
-       172.16.2.0/24;
-       localhost;
-     };
-     allow-query {
-       172.16.2.0/24;
-       localhost;
-     };
-
-     forwarders {
-       10.129.0.2;
-       10.130.0.2;
-     };
-
-     dnssec-validation auto;
-     listen-on { any; };
-     listen-on-v6 { any; };
-   };
-   ```
-
-1. Проверьте конфигурацию и перезапустите сервис:
-
-   ```bash
-   sudo named-checkconf
-   sudo systemctl restart bind9
-   sudo systemctl enable bind9
-   ```
-
-1. Убедитесь, что сервис запущен:
-
-   ```bash
-   sudo systemctl status bind9 --no-pager
-   ```
-
-1. Если на виртуальной машине запущен локальный резолвер `systemd-resolved`, который перезаписывает `/etc/resolv.conf`, настройте его для работы с Bind9:
-
-   ```bash
-   sudo systemctl stop systemd-resolved
-   sudo systemctl disable systemd-resolved
-   sudo mv /etc/resolv.conf /etc/resolv.conf.backup
-   ```
-
-   Создайте статический файл `/etc/resolv.conf`:
-
-   ```bash
-   sudo nano /etc/resolv.conf
-   ```
-
-   Добавьте запись:
-
-   ```text
-   nameserver 127.0.0.1
-   ```
-
-1. Настройте nameserver в Ubuntu. Отредактируйте файл `/run/systemd/resolve/stub-resolv.conf`:
-
-   ```bash
-   sudo nano /run/systemd/resolve/stub-resolv.conf
-   ```
-
-   Измените значение параметра `nameserver` на `127.0.0.1`.
-
-1. Проверьте работу форвардера локально:
-
-   ```bash
-   dig @127.0.0.1 NS mdb.yandexcloud.net +short
-   ```
-
-   В ответе должны появиться адреса DNS-серверов зоны.
-
-   Альтернативная проверка:
-
-   ```bash
-   dig @127.0.0.1 yandex.ru +short
-   ```
-
-   Команда должна вернуть IP-адрес домена, что подтверждает работу форвардинга.
-
-## Настройте DNS-клиент на сервере BareMetal {#configure-baremetal}
-
-1. [Подключитесь по SSH](../../compute/operations/vm-connect/ssh.md) к серверу BareMetal.
-
-1. Назначьте DNS-сервером IP виртуальной машины с Bind9:
-
-   ```bash
-   sudo nano /etc/resolv.conf
-   ```
-
-   Пример:
-
-   ```text
-   nameserver 10.129.0.10
-   ```
-
-1. Если `/etc/resolv.conf` управляется системным сервисом, задайте DNS постоянным способом.
-
-   **Вариант 1:** Используйте команду `systemd-resolve` для конкретного интерфейса:
-
-   ```bash
-   sudo systemd-resolve --interface ethXX --set-dns 10.129.0.10
-   ```
-
-   где `ethXX` — интерфейс приватной сети.
-
-   **Вариант 2:** Отредактируйте файл `/etc/systemd/resolved.conf`:
-
-   ```bash
-   sudo nano /etc/systemd/resolved.conf
-   ```
-
-   Укажите:
-
-   ```text
-   [Resolve]
-   DNS=10.129.0.10
-   Domains=~.
-   ```
-
-   Примените настройки:
-
-   ```bash
-   sudo systemctl restart systemd-resolved
-   ```
-
-1. Проверьте DNS-разрешение:
-
-   ```bash
-   dig mdb.yandexcloud.net +short
-   ```
-
-   Проверьте разрешение FQDN хоста кластера Managed Service for PostgreSQL:
-
-   ```bash
-   dig c-<идентификатор_кластера>-<номер_хоста>.mdb.yandexcloud.net +short
-   ```
-
-   Команды должны вернуть IP-адреса хостов кластера из подсети Virtual Private Cloud (например, `10.129.0.29` — для мастера, `10.130.0.15` — для реплики).
-
-## Проверьте доступ к кластеру Managed Service for PostgreSQL по FQDN {#check-postgresql}
-
-1. Установите сертификат центра сертификации:
-
-   ```bash
-   mkdir -p ~/.postgresql && \
-   wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
-     --output-document ~/.postgresql/root.crt && \
-   chmod 0600 ~/.postgresql/root.crt
-   ```
-
-1. Установите клиент PostgreSQL:
-
-   ```bash
-   sudo apt update && sudo apt install -y postgresql-client
-   ```
-
-1. Подключитесь к базе по FQDN:
-
-   ```bash
-   psql "host=<FQDN_мастера>,<FQDN_реплики> port=6432 sslmode=verify-full dbname=<имя_БД> user=<имя_пользователя> target_session_attrs=read-write"
-   ```
-
-   Параметры подключения для вашего кластера можно взять в консоли управления на странице кластера Managed Service for PostgreSQL.
-
-## Проверьте результат {#check-result}
-
-После настройки:
-
-1. Сервер в сегменте BareMetal успешно разрешает доменные имена зоны `mdb.yandexcloud.net`.
-1. FQDN хостов кластера Managed Service for PostgreSQL разрешаются в приватные IP-адреса Virtual Private Cloud.
-1. Подключение к PostgreSQL выполняется по FQDN без указания IP-адресов вручную.
-
-{% note warning %}
-
-* Используйте статические IP-адреса для виртуальной машины с DNS-форвардером и сервера BareMetal, чтобы избежать проблем с DNS-разрешением при перезапуске.
-* Регулярно проверяйте логи Bind9 для выявления проблем с DNS-запросами:
-
-  ```bash
-  sudo journalctl -u bind9 -f
-  ```
-
-* При изменении подсети, в которой размещен кластер Managed Service for PostgreSQL, обновите адреса DNS-резолверов в параметре `forwarders` конфигурации Bind9.
+В одной облачной сети можно создать только одно входящее DNS-подключение. Если в выбранной сети уже есть такое подключение, используйте его IP-адрес.
 
 {% endnote %}
 
+## Настройте DNS на сервере BareMetal {#configure-baremetal}
+
+В примере используется сервер с Ubuntu 24.04 и конфигурацией сети через [Netplan](https://netplan.io/).
+
+1. [Подключитесь](../operations/servers/server-kvm.md) к KVM-консоли сервера BareMetal или подключитесь к серверу по SSH.
+1. Узнайте имя файла с конфигурацией Netplan:
+
+    ```bash
+    ls /etc/netplan/
+    ```
+
+    Результат:
+
+    ```text
+    50-cloud-init.yaml
+    ```
+
+1. Откройте файл конфигурации:
+
+    ```bash
+    sudo nano /etc/netplan/50-cloud-init.yaml
+    ```
+
+1. В настройках приватного сетевого интерфейса отключите использование DNS-серверов, получаемых по DHCP, и добавьте IP-адрес входящего DNS-подключения:
+
+    ```yaml
+    network:
+      version: 2
+      ethernets:
+        etx1:
+          match:
+            macaddress: "90:e2:ba:a2:30:de"
+          dhcp4: true
+          dhcp4-overrides:
+            use-dns: false
+          set-name: "etx1"
+          nameservers:
+            addresses:
+              - 192.168.1.200
+            search:
+              - "~."
+    ```
+
+    Сохраните остальные настройки сетевых интерфейсов без изменений. В конфигурации укажите:
+
+    * вместо `etx1` — имя приватного сетевого интерфейса сервера;
+    * вместо `90:e2:ba:a2:30:de` — MAC-адрес приватного сетевого интерфейса;
+    * вместо `192.168.1.200` — IP-адрес входящего DNS-подключения.
+
+    Значение `~.` в параметре `nameservers.search` направляет все DNS-запросы через входящее DNS-подключение.
+
+1. Проверьте корректность конфигурации:
+
+    ```bash
+    sudo netplan try
+    ```
+
+    Если в конфигурации нет ошибок, подтвердите изменения.
+
+1. Примените конфигурацию:
+
+    ```bash
+    sudo netplan apply
+    ```
+
+1. Убедитесь, что для приватного интерфейса используется IP-адрес входящего DNS-подключения:
+
+    ```bash
+    resolvectl status etx1
+    ```
+
+    Результат должен содержать IP-адрес подключения:
+
+    ```text
+    Link 2 (etx1)
+        Current DNS Server: 192.168.1.200
+               DNS Servers: 192.168.1.200
+                DNS Domain: ~.
+    ```
+
+{% note warning %}
+
+Не изменяйте файл `/etc/resolv.conf` вручную: сервис `systemd-resolved` может перезаписать внесенные изменения.
+
+{% endnote %}
+
+## Проверьте разрешение DNS-имен {#check-dns}
+
+1. Проверьте доступность входящего DNS-подключения, отправив на его IP-адрес запрос к FQDN облачного ресурса:
+
+    ```bash
+    dig @192.168.1.200 <FQDN_облачного_ресурса>
+    ```
+
+    В секции `ANSWER` должен появиться внутренний IP-адрес облачного ресурса.
+
+1. Проверьте разрешение того же FQDN с помощью системных настроек DNS:
+
+    ```bash
+    resolvectl query <FQDN_облачного_ресурса>
+    ```
+
+1. Если для проверки вы создали кластер Managed Service for PostgreSQL, [подключитесь к нему](../../managed-postgresql/operations/connect/clients.md) по FQDN с сервера BareMetal.
+
 ## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы остановить использование ресурсов и избежать лишних затрат:
+Чтобы остановить использование ресурсов:
 
-1. [Удалите](../../compute/operations/vm-control/vm-delete.md) виртуальную машину с DNS-форвардером.
-1. [Удалите](../../vpc/operations/security-group-delete.md) группу безопасности, созданную для DNS-форвардера.
-1. Если тестовый кластер больше не нужен, [удалите](../../managed-postgresql/operations/cluster-delete.md) кластер Managed Service for PostgreSQL.
-1. Если связность через Yandex Cloud Interconnect была создана только для теста, удалите соответствующие сетевые настройки и ресурсы Cloud Interconnect.
+1. Удалите IP-адрес входящего DNS-подключения из конфигурации Netplan на сервере BareMetal и примените изменения.
+1. [Удалите входящее DNS-подключение](../../dns/operations/connection-inbound-delete.md).
+1. [Удалите зарезервированный внутренний IP-адрес](../../vpc/operations/private-ip-delete.md).
+1. Если для проверки вы создали кластер Managed Service for PostgreSQL, [удалите его](../../managed-postgresql/operations/cluster-delete.md).

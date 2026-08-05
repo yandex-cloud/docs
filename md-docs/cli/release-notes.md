@@ -4,6 +4,56 @@
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.23.0 (03.08.26) {#v-1-23-0}
+
+#### Application Load Balancer {#v-1-23-0-alb-name}
+
+В команды Application Load Balancer добавлена поддержка параметров верификации клиентских сертификатов:
+  * `yc application-load-balancer add-listener`;
+  * `yc application-load-balancer add-http-listener`;
+  * `yc application-load-balancer add-stream-listener`;
+  * `yc application-load-balancer update-listener`;
+  * `yc application-load-balancer update-http-listener`;
+  * `yc application-load-balancer update-stream-listener`;
+  * `yc application-load-balancer add-sni`;
+  * `yc application-load-balancer add-http-sni`;
+  * `yc application-load-balancer add-stream-sni`;
+  * `yc application-load-balancer update-sni`;
+  * `yc application-load-balancer update-http-sni`;
+  * `yc application-load-balancer update-stream-sni`.
+
+#### Managed Service for PostgreSQL {#v-1-23-0-mpg-name}
+
+При создании и обновлении кластера теперь можно указывать параметры для управления диагностикой производительности:
+  * `yc managed-postgresql cluster create`;
+  * `yc managed-postgresql cluster update`.
+
+#### Yandex Identity Hub {#v-1-23-0-org-name}
+
+* Добавлена группа команд `yc organization-manager idp synchronization-session` для просмотра сессий синхронизации:
+  * `yc organization-manager idp synchronization-session get`;
+  * `yc organization-manager idp synchronization-session list`.
+
+* Добавлена группа команд `yc organization-manager idp synchronization-settings` для управления настройками LDAP/AD-синхронизации:
+  * `yc organization-manager idp synchronization-settings get`;
+  * `yc organization-manager idp synchronization-settings create`;
+  * `yc organization-manager idp synchronization-settings update`;
+  * `yc organization-manager idp synchronization-settings delete`;
+  * `yc organization-manager idp synchronization-settings reset-replication-token`;
+  * `yc organization-manager idp synchronization-settings list-supported-attributes`.
+
+#### Smart Web Security {#v-1-23-0-sws-name}
+
+* В правила профиля безопасности добавлено действие CAPTCHA:
+  * `yc smartwebsecurity security-profile create`;
+  * `yc smartwebsecurity security-profile update`;
+
+* В динамические квоты Advanced Rate Limiter добавлена возможность указать продолжительность временной блокировки:
+  * `yc smartwebsecurity advanced-rate-limiter-profile create`;
+  * `yc smartwebsecurity advanced-rate-limiter-profile update`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.22.0 (30.07.26) {#v-1-22-0}
 
 #### Compute Cloud {#v-1-22-0-compute-name}
@@ -12,8 +62,6 @@
   * `yc compute image create`;
   * `yc compute disk create`;
   * `yc compute snapshot create`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.21.0 (29.07.26) {#v-1-21-0}
 
@@ -2748,7 +2796,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 ##### Cloud Desktop {#cloud-desktop}
 
-* В команду `yc desktops desktop` добавлен параметр `user-account-id`. Удален праметр `subject`.
+* В команду `yc desktops desktop` добавлен параметр `user-account-id`. Удален параметр `subject`.
 * Добавлена команда `yc desktops image` для управления образами рабочих столов.
 
 ##### Container Registry {#container-registry}

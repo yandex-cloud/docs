@@ -12,13 +12,7 @@ description: Следуя данной инструкции, вы сможете
 
 Чтобы подключить сервер к {{ backup-full-name }}, необходима [роль](../../security/index.md#backup-user) `backup.user` или выше.
 
-{% note warning %}
-
-С 1 августа 2026 года роли [baremetal.editor](../../../baremetal/security/index.md#baremetal-editor) и [baremetal.admin](../../../baremetal/security/index.md#baremetal-admin) получают новый набор разрешений от роли [backup.user](../../security/index.md#backup-user), позволяющий подключать серверы {{ baremetal-name }} к сервису {{ backup-full-name }}, а также привязывать и отвязывать их от [политик резервного копирования](../../concepts/policy.md).
-
-{% include [denyActivation-iam-policy-pre-notice](../../../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
-
-{% endnote %}
+{% include [backup-user-roles-notice](../../../_includes/backup/backup-user-roles-notice.md) %}
 
 ## Аренда сервера {#server-rent}
 

@@ -290,7 +290,7 @@ We recommend that you only allow access to your cloud infrastructure through con
   * To make sure you are using DDoS protection at the application level:
 
       1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to check the {{ sws-name }} status.
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+      1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
       1. In the left-hand panel, select ![shield-check](../../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
       1. Make sure you have security profiles created.
       1. If you have security profiles, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
@@ -406,7 +406,7 @@ Use this service to:
 - Performing a check in the management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you want to check for the presence of [desktops](../../../cloud-desktop/concepts/desktops-and-groups.md).
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
+  1. [Navigate]({{ link-console-main }}/link/cloud-desktop) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/display.svg) **{{ ui-key.yacloud.vdi.label_desktops }}**.
   1. If the list contains at least one created desktop, the recommendation is fulfilled; Otherwise, proceed to "Guides and solutions to use".
 
@@ -507,7 +507,7 @@ Regardless of which option you select for setting up outbound internet access, b
 {% endlist %}
 
 **Guides and solutions to use**:
-* If any VM has public IPs, make sure they are required. Otherwise, delete an external IP address in the VM settings.
+* If a VM has public IPs, make sure they are absolutely necessary. Otherwise, delete an external IP address in the VM settings.
 * If any NAT-Gateway is found, make sure it is required. Otherwise, delete it.
 * If any NAT instance is found, make sure it is required. Otherwise, delete it.
 

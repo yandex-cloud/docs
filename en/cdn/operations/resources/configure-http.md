@@ -19,7 +19,7 @@ To configure the allowed HTTP client requests methods for a resource:
 
   1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Navigate]({{ link-console-main }}/link/cdn) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
   1. Click the resource name.
 
@@ -204,4 +204,4 @@ To configure the allowed HTTP client requests methods for a resource:
 
 #### Useful links {#see-also}
 
-* [{#T}](../../concepts/clients-to-servers.md)
+[{#T}](../../concepts/clients-to-servers.md)

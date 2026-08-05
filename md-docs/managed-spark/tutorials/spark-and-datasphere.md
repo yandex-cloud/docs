@@ -220,5 +220,3 @@
 
 1. [Кластер Managed Service for Apache Spark™](../operations/cluster-delete.md).
 1. [NAT-шлюз](../../vpc/operations/delete-nat-gateway.md#delete-nat-gateway).
-
-{% endlist %}

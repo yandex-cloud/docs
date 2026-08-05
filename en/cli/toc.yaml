@@ -1958,6 +1958,24 @@ items:
               - name: remove-access-binding
                 href: >-
                   cli-ref/cloud-registry/cli-ref/artifact/remove-access-binding.md
+              - name: scanner
+                items:
+                  - name: Overview
+                    href: cli-ref/cloud-registry/cli-ref/artifact/scanner/index.md
+                  - name: get-last-scan-result
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/artifact/scanner/get-last-scan-result.md
+                  - name: get-scan-result
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/artifact/scanner/get-scan-result.md
+                  - name: list-scan-results
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/artifact/scanner/list-scan-results.md
+                  - name: list-vulnerabilities
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/artifact/scanner/list-vulnerabilities.md
+                  - name: scan
+                    href: cli-ref/cloud-registry/cli-ref/artifact/scanner/scan.md
               - name: set-access-bindings
                 href: cli-ref/cloud-registry/cli-ref/artifact/set-access-bindings.md
               - name: update-access-bindings
@@ -2039,6 +2057,25 @@ items:
               - name: remove-ip-permissions
                 href: >-
                   cli-ref/cloud-registry/cli-ref/registry/remove-ip-permissions.md
+              - name: scan-policy
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/registry/scan-policy/index.md
+                  - name: create
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/registry/scan-policy/create.md
+                  - name: delete
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/registry/scan-policy/delete.md
+                  - name: get
+                    href: cli-ref/cloud-registry/cli-ref/registry/scan-policy/get.md
+                  - name: get-by-registry
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/registry/scan-policy/get-by-registry.md
+                  - name: update
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/registry/scan-policy/update.md
               - name: set-access-bindings
                 href: cli-ref/cloud-registry/cli-ref/registry/set-access-bindings.md
               - name: set-ip-permissions
@@ -2234,6 +2271,26 @@ items:
                   - name: remove-access-binding
                     href: >-
                       cli-ref/cloud-registry/cli-ref/v1/artifact/remove-access-binding.md
+                  - name: scanner
+                    items:
+                      - name: Overview
+                        href: >-
+                          cli-ref/cloud-registry/cli-ref/v1/artifact/scanner/index.md
+                      - name: get-last-scan-result
+                        href: >-
+                          cli-ref/cloud-registry/cli-ref/v1/artifact/scanner/get-last-scan-result.md
+                      - name: get-scan-result
+                        href: >-
+                          cli-ref/cloud-registry/cli-ref/v1/artifact/scanner/get-scan-result.md
+                      - name: list-scan-results
+                        href: >-
+                          cli-ref/cloud-registry/cli-ref/v1/artifact/scanner/list-scan-results.md
+                      - name: list-vulnerabilities
+                        href: >-
+                          cli-ref/cloud-registry/cli-ref/v1/artifact/scanner/list-vulnerabilities.md
+                      - name: scan
+                        href: >-
+                          cli-ref/cloud-registry/cli-ref/v1/artifact/scanner/scan.md
                   - name: set-access-bindings
                     href: >-
                       cli-ref/cloud-registry/cli-ref/v1/artifact/set-access-bindings.md
@@ -2320,6 +2377,26 @@ items:
                   - name: remove-ip-permissions
                     href: >-
                       cli-ref/cloud-registry/cli-ref/v1/registry/remove-ip-permissions.md
+                  - name: scan-policy
+                    items:
+                      - name: Overview
+                        href: >-
+                          cli-ref/cloud-registry/cli-ref/v1/registry/scan-policy/index.md
+                      - name: create
+                        href: >-
+                          cli-ref/cloud-registry/cli-ref/v1/registry/scan-policy/create.md
+                      - name: delete
+                        href: >-
+                          cli-ref/cloud-registry/cli-ref/v1/registry/scan-policy/delete.md
+                      - name: get
+                        href: >-
+                          cli-ref/cloud-registry/cli-ref/v1/registry/scan-policy/get.md
+                      - name: get-by-registry
+                        href: >-
+                          cli-ref/cloud-registry/cli-ref/v1/registry/scan-policy/get-by-registry.md
+                      - name: update
+                        href: >-
+                          cli-ref/cloud-registry/cli-ref/v1/registry/scan-policy/update.md
                   - name: set-access-bindings
                     href: >-
                       cli-ref/cloud-registry/cli-ref/v1/registry/set-access-bindings.md
@@ -10178,6 +10255,40 @@ items:
                           - name: update
                             href: >-
                               cli-ref/organization-manager/cli-ref/idp/application/saml/signature-certificate/update.md
+              - name: synchronization-session
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/organization-manager/cli-ref/idp/synchronization-session/index.md
+                  - name: get
+                    href: >-
+                      cli-ref/organization-manager/cli-ref/idp/synchronization-session/get.md
+                  - name: list
+                    href: >-
+                      cli-ref/organization-manager/cli-ref/idp/synchronization-session/list.md
+              - name: synchronization-settings
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/organization-manager/cli-ref/idp/synchronization-settings/index.md
+                  - name: create
+                    href: >-
+                      cli-ref/organization-manager/cli-ref/idp/synchronization-settings/create.md
+                  - name: delete
+                    href: >-
+                      cli-ref/organization-manager/cli-ref/idp/synchronization-settings/delete.md
+                  - name: get
+                    href: >-
+                      cli-ref/organization-manager/cli-ref/idp/synchronization-settings/get.md
+                  - name: list-supported-attributes
+                    href: >-
+                      cli-ref/organization-manager/cli-ref/idp/synchronization-settings/list-supported-attributes.md
+                  - name: reset-replication-token
+                    href: >-
+                      cli-ref/organization-manager/cli-ref/idp/synchronization-settings/reset-replication-token.md
+                  - name: update
+                    href: >-
+                      cli-ref/organization-manager/cli-ref/idp/synchronization-settings/update.md
               - name: user
                 items:
                   - name: Overview
@@ -10713,6 +10824,40 @@ items:
                               - name: update
                                 href: >-
                                   cli-ref/organization-manager/cli-ref/v0/idp/application/saml/signature-certificate/update.md
+                  - name: synchronization-session
+                    items:
+                      - name: Overview
+                        href: >-
+                          cli-ref/organization-manager/cli-ref/v0/idp/synchronization-session/index.md
+                      - name: get
+                        href: >-
+                          cli-ref/organization-manager/cli-ref/v0/idp/synchronization-session/get.md
+                      - name: list
+                        href: >-
+                          cli-ref/organization-manager/cli-ref/v0/idp/synchronization-session/list.md
+                  - name: synchronization-settings
+                    items:
+                      - name: Overview
+                        href: >-
+                          cli-ref/organization-manager/cli-ref/v0/idp/synchronization-settings/index.md
+                      - name: create
+                        href: >-
+                          cli-ref/organization-manager/cli-ref/v0/idp/synchronization-settings/create.md
+                      - name: delete
+                        href: >-
+                          cli-ref/organization-manager/cli-ref/v0/idp/synchronization-settings/delete.md
+                      - name: get
+                        href: >-
+                          cli-ref/organization-manager/cli-ref/v0/idp/synchronization-settings/get.md
+                      - name: list-supported-attributes
+                        href: >-
+                          cli-ref/organization-manager/cli-ref/v0/idp/synchronization-settings/list-supported-attributes.md
+                      - name: reset-replication-token
+                        href: >-
+                          cli-ref/organization-manager/cli-ref/v0/idp/synchronization-settings/reset-replication-token.md
+                      - name: update
+                        href: >-
+                          cli-ref/organization-manager/cli-ref/v0/idp/synchronization-settings/update.md
                   - name: user
                     items:
                       - name: Overview

@@ -156,7 +156,7 @@ items:
             href: concepts/follow-redirects.md
           - name: Hiding of origin headers
             href: concepts/hiding-headers.md
-      - name: Request redirect
+      - name: Request redirection
         href: concepts/http-rewrite.md
       - name: Content caching
         href: concepts/caching.md
@@ -534,6 +534,6 @@ items:
     href: at-ref.md
   - name: Release notes
     href: release-notes.md
-  - name: Troubleshooting
+  - name: FAQ
     href: troubleshooting.md
 path: en/cdn/toc.yaml

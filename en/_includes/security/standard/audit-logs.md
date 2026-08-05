@@ -52,7 +52,7 @@ You can enable {{ at-full-name }} at the folder, cloud, and organization level. 
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the functions in.
-  1. In the list of services, select {{ at-full-name }}.
+  1. [Navigate]({{ link-console-main }}/link/audit-trails) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. Make sure the Filter parameter is set to Organization.
   1. In addition, check that the destination of logs is {{ objstorage-full-name }} bucket, [{{ cloud-logging-name }}](../../../logging/) log group, and {{ yds-name }}, that they are up and running, and that the logs are available for further analysis.
 
@@ -231,7 +231,7 @@ We recommend to enable **all events** for [{{ iam-full-name }}](../../../audit-t
 - Performing a check in the management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where your [trail](../../../audit-trails/concepts/trail.md) is located.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. [Navigate]({{ link-console-main }}/link/audit-trails) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. Select the trail you need.
   1. Make sure the trail info page in **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}** lists all the services you want to collect data event logs for, specifying the correct audit log [scope](../../../audit-trails/concepts/trail.md#collecting-area) for each service.
 

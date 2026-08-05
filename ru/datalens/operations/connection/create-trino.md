@@ -27,6 +27,8 @@ description: Из статьи вы узнаете, как подключить�
 
           {% include [datalens-db-sql-level-2](../../../_includes/datalens/datalens-db-connection-sql-level-2.md) %}
 
+          ![image](../../../_assets/datalens/operations/connection/connection-trino-yc.png)
+
       1. {% include [connection-trino-cache](../../../_includes/datalens/connection-trino-cache.md) %}
       1. {% include [connection-trino-advanced](../../../_includes/datalens/connection-trino-advanced.md) %}
 
@@ -38,6 +40,9 @@ description: Из статьи вы узнаете, как подключить�
           * `JWT`
 
       1. {% include [connection-trino-manual](../../../_includes/datalens/connection-trino-manual.md) %}
+
+         ![image](../../../_assets/datalens/operations/connection/connection-trino-yc-free.png)
+
       1. {% include [connection-trino-cache](../../../_includes/datalens/connection-trino-cache.md) %}
       1. {% include [connection-trino-advanced](../../../_includes/datalens/connection-trino-advanced.md) %}
       1. (Опционально) Проверьте работоспособность подключения. Для этого нажмите кнопку **Проверить подключение**.
