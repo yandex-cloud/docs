@@ -9,7 +9,7 @@
 || Количество всех публичных IP-адресов в одном облаке
 `vpc.externalAddresses.count` | 8 ||
 || Количество статических публичных IP-адресов в одном облаке
-`vpc.externalStaticAddresses.count` | 2 ||
+`vpc.externalStaticAddresses.count` | 1 ||
 || Количество таблиц маршрутизации в одном облаке
 `vpc.routeTables.count` | 8 ||
 || Количество статических маршрутов в одном облаке

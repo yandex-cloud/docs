@@ -9,7 +9,7 @@
 || Number of all public IP addresses per cloud
 `vpc.externalAddresses.count` | 8 ||
 || Number of static public IP addresses per cloud
-`vpc.externalStaticAddresses.count` | 2 ||
+`vpc.externalStaticAddresses.count` | 1 ||
 || Number of routing tables per cloud
 `vpc.routeTables.count` | 8 ||
 || Number of static routes per cloud
