@@ -22,6 +22,8 @@ description: Перед началом работы с {{ container-registry-nam
   * С помощью OAuth-токена (срок жизни — год).
   * С помощью IAM-токена (срок жизни — не более {{ iam-token-lifetime }}).
 
+* [С помощью ключа сервисного аккаунта](#sa-json) (срок жизни не ограничен).
+
 * [С помощью хранилища учетных данных Docker credential helper](#cred-helper).
 
 ## Аутентифицироваться как пользователь {#user}
@@ -83,6 +85,39 @@ description: Перед началом работы с {{ container-registry-nam
 При выполнении команды вы можете получить сообщение об ошибке: `docker login is not supported with yc credential helper`.
 
 В этом случае [отключите Docker credential helper](#ch-not-use). Подробнее в разделе [Решение проблем в {{ container-registry-name }}](../error/index.md).
+
+## Аутентифицироваться с помощью ключа сервисного аккаунта {#sa-json}
+
+Способ подходит для автоматизации: [авторизованный ключ](../../iam/concepts/authorization/key.md) не имеет срока жизни, а доступ ограничен ролями [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), которому он выдан.
+
+1. Если у вас не установлен Docker, [установите](./configure-docker.md) его.
+1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md).
+1. [Назначьте](./roles/grant.md) сервисному аккаунту роль на [реестр](../concepts/registry.md) или [репозиторий](../concepts/repository.md):
+
+   * `container-registry.images.puller` — чтобы скачивать Docker-образы;
+   * `container-registry.images.pusher` — чтобы скачивать и загружать Docker-образы.
+
+   Роль можно назначить и на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) — тогда она распространится на все реестры в нем.
+1. [Создайте авторизованный ключ](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) сервисного аккаунта в формате JSON и сохраните его в файл.
+1. Выполните команду:
+
+   ```bash
+   cat <путь_к_файлу_с_ключом>|docker login \
+     --username json_key \
+     --password-stdin \
+     {{ registry }}
+   ```
+
+   Где:
+   * `<путь_к_файлу_с_ключом>` — путь к JSON-файлу с авторизованным ключом сервисного аккаунта. Ключ передается целиком, вместе с полями `id`, `service_account_id` и `private_key`.
+   * `--username` — тип токена: значение `json_key` указывает на то, что для аутентификации используется ключ сервисного аккаунта.
+   * `{{ registry }}` — эндпоинт, к которому будет обращаться [Docker](/blog/posts/2022/03/docker-containers) при работе с реестром образов. Если его не указать, запрос пойдет в сервис по умолчанию — [Docker Hub](https://hub.docker.com).
+
+{% note warning %}
+
+В Windows учетные данные по умолчанию сохраняются в Диспетчере учетных данных, размер секрета в котором ограничен, а JSON-ключ занимает несколько килобайт. Если при выполнении команды возникает ошибка `The stub received bad data.`, сохраните учетные данные в конфигурационном файле Docker — подробнее в разделе [{#T}](../error/index.md).
+
+{% endnote %}
 
 ## Аутентифицироваться с помощью Docker credential helper {#cred-helper}
 
