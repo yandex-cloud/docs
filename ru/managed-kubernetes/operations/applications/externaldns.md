@@ -64,9 +64,9 @@ description: Следуя данной инструкции, вы сможете
    helm install \
      --namespace <пространство_имен> \
      --create-namespace \
-     --set config.folder_id=<идентификатор_каталога_с_DNS-зоной> \
-     --set-file config.auth.json=<путь_к_файлу_с_авторизованным_ключом_сервисного_аккаунта> \
-     externaldns ./externaldns/
+     --set yc.folderId=<идентификатор_каталога_с_DNS-зоной> \
+     --set-file yc.iam.key=<путь_к_файлу_с_авторизованным_ключом_сервисного_аккаунта> \
+     external-dns ./external-dns
     ```
 
     Если вы укажете в параметре `namespace` пространство имен по умолчанию, ExternalDNS может работать некорректно. Рекомендуем указывать значение, отличное от всех существующих пространств имен (например, `externaldns-space`).
