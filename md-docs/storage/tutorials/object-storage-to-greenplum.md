@@ -4,6 +4,7 @@
 
 # Загрузка данных из Yandex Object Storage в Yandex MPP Analytics for PostgreSQL с помощью Yandex Data Transfer
 
+
 Вы можете перенести данные из Yandex Object Storage в таблицу Greenplum® в сервисе Yandex MPP Analytics for PostgreSQL с помощью Yandex Data Transfer. Для этого:
 
 1. [Подготовьте тестовые данные](#prepare-data).

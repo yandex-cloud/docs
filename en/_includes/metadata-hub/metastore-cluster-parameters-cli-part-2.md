@@ -1,6 +1,6 @@
 * `--security-group-ids`: List of [security group](../../metadata-hub/operations/metastore/configure-security-group.md) IDs.
 * `--resource-preset-id`: [Computing resource configuration](../../metadata-hub/concepts/metastore.md#presets).
-* `--maintenance-window`: Maintenance window settings (including for disabled clusters), where `type` is the maintenance type:
+* `--maintenance-window`: [Maintenance window](../../metadata-hub/concepts/metastore-maintenance.md) settings that apply to both running and stopped clusters. The `type` setting defines the maintenance type:
 
     {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 

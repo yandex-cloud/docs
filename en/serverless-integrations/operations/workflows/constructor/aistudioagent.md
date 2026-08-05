@@ -5,6 +5,8 @@ description: Follow this guide to add interaction with {{ ai-studio-name }} agen
 
 # Interacting with {{ ai-studio-name }} agents
 
+{% include [templating-note](../../../../_includes/serverless-integrations/templating-note.md) %}
+
 {% list tabs %}
 
 - Management console {#console}
@@ -18,7 +20,7 @@ description: Follow this guide to add interaction with {{ ai-studio-name }} agen
 
       1. {% include [integrations-name-the-step](../../../../_includes/serverless-integrations/workflows-constructor/integrations-name-the-step.md) %}
       1. In the **{{ ui-key.yc-serverless-workflows.dynamic-forms.ai_studio_agent_properties_prompt_template_id_view_spec_layout_title }}** field, specify the [{{ ai-studio-name }} agent]({{ link-docs-ai }}ai-studio/concepts/agents/index) ID.
-      1. Under **{{ ui-key.yc-serverless-workflows.dynamic-forms.ai_studio_agent_properties_variables_view_spec_layout_title }}**, click **{{ ui-key.yc-serverless-workflows.dynamic-forms.ai_studio_agent_properties_variables_view_spec_item_label }}** to add the names and values of the variables you will use in your prompt. [Templating](../../../concepts/workflows/templating.md) is supported for variable values.
+      1. Under **{{ ui-key.yc-serverless-workflows.dynamic-forms.ai_studio_agent_properties_variables_view_spec_layout_title }}**, click **{{ ui-key.yc-serverless-workflows.dynamic-forms.ai_studio_agent_properties_variables_view_spec_item_label }}** to add the names and values of the variables you will use in your prompt. There is [templating](../../../concepts/workflows/templating.md) support for variables.
 
           To add multiple variables, click **{{ ui-key.yc-serverless-workflows.dynamic-forms.ai_studio_agent_properties_variables_view_spec_item_label }}** as many times as needed.
 

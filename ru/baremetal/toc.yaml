@@ -1656,8 +1656,8 @@ items:
           {{ managed-k8s-name }}
         href: tutorials/k8s-connect-bms-as-node.md
       - name: >-
-          Настройка DNS-связности между сегментами {{ baremetal-full-name }} и
-          {{ vpc-full-name }} для доступа к {{ mpg-name }} по FQDN
+          Настройка разрешения DNS-имен из приватной сети {{ baremetal-full-name
+          }}
         href: tutorials/bm-vpc-dns-forwarder.md
   - name: Правила тарификации
     href: pricing.md

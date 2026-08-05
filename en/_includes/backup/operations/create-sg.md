@@ -3,7 +3,7 @@
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to connect a VM.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. Enter a name for the [security group](../../../vpc/concepts/security-groups.md), e.g., `backup-sg`.

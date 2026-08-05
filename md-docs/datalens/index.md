@@ -1022,7 +1022,7 @@ Yandex DataLens — это сервис бизнес-аналитики для �
 
  - [Пользователи](security/add-new-user.md)
 
- - [Тарифы и оплата](settings/service-plan.md)
+ - [Тарификация и оплата](settings/service-plan.md)
 
  - [Оформление](settings/appearance.md)
 

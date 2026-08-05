@@ -5,6 +5,8 @@ description: Follow this guide to add sending messages to a {{ yds-full-name }} 
 
 # Sending messages to a {{ yds-full-name }} topic
 
+{% include [templating-note](../../../../_includes/serverless-integrations/templating-note.md) %}
+
 {% list tabs %}
 
 - Management console {#console}

@@ -42,7 +42,7 @@
     1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с именем `dataproc-s3-sa` и назначьте ему роли `dataproc.agent` и `dataproc.provisioner`.
     1. {% include [basic-before-buckets](../../../_includes/data-processing/tutorials/basic-before-buckets.md) %}
     1. [Создайте облачную сеть](../../../vpc/operations/network-create.md) с именем `dataproc-network`.
-    1. В сети `dataproc-network` [создайте подсеть](../../../vpc/operations/subnet-create.md) в любой зоне доступности.
+    1. В сети `dataproc-network` [создайте подсеть](../../../vpc/operations/subnet-create.md) в любой [зоне доступности](../../../overview/concepts/geo-scope.md).
     1. [Настройте NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) для созданной подсети.
     1. [Создайте два кластера {{ dataproc-name }}](../../../data-proc/operations/cluster-create.md) с именами `dataproc-source` и `dataproc-target`, с любой [подходящей конфигурацией хостов](../../../data-proc/concepts/instance-types.md) и следующими настройками:
 

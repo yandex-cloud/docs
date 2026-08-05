@@ -1,5 +1,6 @@
 # Поставка данных из {{ mpg-full-name }} в {{ mkf-full-name }} с помощью {{ data-transfer-full-name }}
 
+
 Вы можете отслеживать изменения данных в _кластере-источнике_ {{ mpg-name }} и отправлять их в _кластер-приемник_ {{ mkf-name }} с помощью технологии Change Data Capture (CDC).
 
 Чтобы настроить CDC с использованием сервиса {{ data-transfer-name }}:

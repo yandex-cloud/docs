@@ -14,6 +14,8 @@ To get authenticated using a [Yandex account](../../iam/concepts/users/accounts.
 
 
 
+    If you run `yc init` without stating `--username`, a Yandex account selection page will open in the browser for authentication. If you specify `--username` beforehand, you will be taken to the sign-in page with the email address already filled in.
+
 1. Select the profile you want to set up authentication for or create a new one.
 
    ```text

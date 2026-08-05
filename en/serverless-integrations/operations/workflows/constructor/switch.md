@@ -9,6 +9,8 @@ With the Switch control step, you can define conditions for selecting the furthe
 
 If all conditions return `false`, the workflow will be executed for the path specified in the default condition; if there is no default condition, the workflow execution will fail.
 
+{% include [templating-note](../../../../_includes/serverless-integrations/templating-note.md) %}
+
 {% list tabs %}
 
 - Management console {#console}

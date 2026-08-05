@@ -239,3 +239,4 @@ In this example, we will create a CDN resource for an online store that uses mul
       ```
 
     {% endlist %}
+    

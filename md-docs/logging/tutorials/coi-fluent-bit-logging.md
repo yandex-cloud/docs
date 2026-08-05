@@ -4,6 +4,7 @@
 
 # Передача логов с Container Optimized Image в Yandex Cloud Logging
 
+
 Обработчик логов [Fluent Bit](https://fluentbit.io/) позволяет транслировать логи с [виртуальных машин](../../compute/concepts/vm.md), созданных из образов Container Optimized Image, в сервис [Yandex Cloud Logging](../index.md). Для передачи логов используется модуль [Fluent Bit plugin for Yandex Cloud Logging](https://github.com/yandex-cloud/fluent-bit-plugin-yandex).
 
 Чтобы настроить передачу логов с ВМ, созданной из образа Container Optimized Image:

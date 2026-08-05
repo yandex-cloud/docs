@@ -2,7 +2,6 @@
 
 # Визуализация логов в Grafana с помощью плагина Yandex Cloud Logging
 
-
 [Плагин Yandex Cloud Logging для Grafana](https://github.com/yandex-cloud/grafana-logs-plugin/tree/master) — расширение для Grafana, с помощью которого можно добавить [Cloud Logging](https://yandex.cloud/ru/services/logging) в качестве источника данных.
 
 {% note info %}

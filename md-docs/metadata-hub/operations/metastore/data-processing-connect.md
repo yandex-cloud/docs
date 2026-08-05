@@ -2,6 +2,7 @@
 
 # Подключение Yandex Data Processing к Apache Hive™ Metastore
 
+
 {% note info %}
 
 Для использования кластера Apache Hive™ Metastore [кластер Yandex Data Processing](../../../data-proc/concepts/index.md) должен содержать компоненты `SPARK` и `YARN`.

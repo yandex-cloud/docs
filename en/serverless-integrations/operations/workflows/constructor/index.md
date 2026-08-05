@@ -14,6 +14,8 @@ You can configure the following workflow steps using the constructor:
 * [{{ ai-studio-name }} models](./foundationmodelscall.md)
 * [{{ ai-studio-name }} agent](./aistudioagent.md)
 * [Vector Store](./vectorstore.md)
+* [OCR](./ocr.md)
+* [Speech recognition](./stt.md)
 * [{{ sf-short-name }}](./functioncall.md)
 * [{{ serverless-containers-name }}](./containercall.md)
 * [{{ postbox-short-name }}](./postbox.md)

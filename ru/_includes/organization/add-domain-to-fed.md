@@ -1,5 +1,16 @@
 {% list tabs group=instructions %}
 
+- Интерфейс {{ cloud-center }} {#cloud-center}
+
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) с учетной записью администратора или владельца организации.
+  1. На панели слева нажмите ![icon-federation](../../_assets/organization/icon-federation.svg) **{{ ui-key.yacloud_org.pages.federations }}** и выберите нужную федерацию.
+  1. Перейдите на вкладку **{{ ui-key.yacloud_org.form.federation.note.tab-domains }}**.
+  1. В верхнем правом углу нажмите **{{ ui-key.yacloud_org.organization.federations.action.add_domain }}**.
+  1. Введите имя домена.
+  1. Нажмите **{{ ui-key.yacloud.common.add }}**.
+
+  Чтобы использовать домен для добавления новых пользователей, [подтвердите](../../organization/operations/user-pools/validate-domain.md) его.
+
 - CLI {#cli}
 
   {% include [cli-install](../cli-install.md) %}

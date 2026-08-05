@@ -1,5 +1,3 @@
-
-
 [External Secrets Operator](https://external-secrets.io/latest/provider/yandex-lockbox/) enables you to set up syncing [secrets](../../lockbox/concepts/secret.md) in [{{ lockbox-name }}](../../lockbox/) with [those](../../managed-kubernetes/concepts/encryption.md) in a [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
 
 There are [various options for integrating](https://external-secrets.io/latest/guides/multi-tenancy/) {{ lockbox-name }} with {{ managed-k8s-name }}. As an example, we will use [ESO as a Service](https://external-secrets.io/latest/guides/multi-tenancy/#eso-as-a-service):
@@ -111,7 +109,7 @@ The cost of resources for syncing secrets includes:
 
 ## Install the External Secrets Operator and set up {{ lockbox-name }} {#install-eso-lockbox}
 
-1. Install [External Secrets Operator](/marketplace/products/yc/external-secrets) by following [this guide](../../managed-kubernetes/operations/applications/external-secrets-operator.md).
+1. Follow [this guide](/marketplace/products/yc/external-secrets) to install the [External Secrets Operator](../../managed-kubernetes/operations/applications/external-secrets-operator.md).
 1. [Assign the service account](../../lockbox/operations/secret-access.md) you created when installing the External Secrets Operator the `lockbox.payloadViewer` role for the [previously created](#deploy-infrastructure) `lockbox-secret`.
 
 ## Set up a {{ managed-k8s-name }} cluster {#configure-k8s}
@@ -122,7 +120,7 @@ The cost of resources for syncing secrets includes:
    kubectl create namespace ns
    ```
 
-1. Create a `yc-auth` secret with the `sa-key.json` key you created when [installing](#install-eso) the External Secrets Operator:
+1. Create a `yc-auth` secret with the `sa-key.json` key you created when [installing](#install-eso-lockbox) the External Secrets Operator:
 
    ```bash
    kubectl --namespace ns create secret generic yc-auth \
@@ -199,7 +197,7 @@ Delete the resources you no longer need to avoid paying for them:
 - Manually {#manual}
 
   1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-  1. [Delete](../../vpc/operations/address-delete.md) the {{ managed-k8s-name }} cluster's [public static IP address](../../vpc/concepts/address.md#public-addresses) if you had reserved one.
+  1. [Delete](../../vpc/operations/address-delete.md) the [public static IP address](../../vpc/concepts/address.md#public-addresses) for your {{ managed-k8s-name }} cluster if you reserved one.
   1. [Delete `lockbox-secret`](../../lockbox/operations/secret-delete.md).
 
 - {{ TF }} {#tf}

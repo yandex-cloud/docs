@@ -2,7 +2,7 @@
 
 # Identity Hub Audit Trails Events: DeleteApplication
 
-## Event JSON schema {#yandex.cloud.audit.organizationmanager.application.oauth.DeleteApplication2-schema}
+## Event JSON schema {#yandex.cloud.audit.organizationmanager.application.saml.DeleteApplication2-schema}
 
 ```json
 {
@@ -88,20 +88,99 @@
   "details": {
     "applicationId": "string",
     "applicationName": "string",
-    "description": "string",
     "status": "string",
-    "groupClaimsSettings": {
-      "groupDistributionType": "string",
-      // Includes only one of the fields `groupClaimValue`
-      "groupClaimValue": "string"
-      // end of the list of possible fields
-    },
-    "clientGrant": {
-      "clientId": "string",
-      "authorizedScopes": [
-        "string"
+    "serviceProvider": {
+      "entityId": "string",
+      "acsUrls": [
+        {
+          "url": "string",
+          "index": "string"
+        }
       ]
     },
+    "securitySettings": {
+      "signatureMode": "string",
+      "signatureCertificateId": "string",
+      "requestSigning": {
+        "requireRequestSigning": "boolean"
+      },
+      "responseEncryption": {
+        "requireResponseEncryption": "boolean",
+        "encryptionCertificateId": "string",
+        "dataEncryptionAlgorithm": "string",
+        "keyEncryptionAlgorithm": "string"
+      }
+    },
+    "groupClaimsSettings": {
+      "groupDistributionType": "string",
+      "groupAttributeName": "string",
+      // Includes only one of the fields `groupAttributeValue`
+      "groupAttributeValue": "string"
+      // end of the list of possible fields
+    },
+    "attributeMapping": {
+      "nameId": {
+        "format": "string",
+        "value": "string",
+        "transformations": [
+          {
+            // Includes only one of the fields `extractBefore`, `extractAfter`, `ifEmpty`, `constant`, `replace`
+            "extractBefore": {
+              "value": "string"
+            },
+            "extractAfter": {
+              "value": "string"
+            },
+            "ifEmpty": {
+              // Includes only one of the fields `attributeName`, `constant`
+              "attributeName": "string",
+              "constant": "string"
+              // end of the list of possible fields
+            },
+            "constant": {
+              "value": "string"
+            },
+            "replace": {
+              "pattern": "string",
+              "replacement": "string"
+            }
+            // end of the list of possible fields
+          }
+        ]
+      },
+      "attributes": [
+        {
+          "name": "string",
+          "value": "string",
+          "transformations": [
+            {
+              // Includes only one of the fields `extractBefore`, `extractAfter`, `ifEmpty`, `constant`, `replace`
+              "extractBefore": {
+                "value": "string"
+              },
+              "extractAfter": {
+                "value": "string"
+              },
+              "ifEmpty": {
+                // Includes only one of the fields `attributeName`, `constant`
+                "attributeName": "string",
+                "constant": "string"
+                // end of the list of possible fields
+              },
+              "constant": {
+                "value": "string"
+              },
+              "replace": {
+                "pattern": "string",
+                "replacement": "string"
+              }
+              // end of the list of possible fields
+            }
+          ]
+        }
+      ]
+    },
+    "description": "string",
     "labels": "object"
   },
   "requestParameters": "object",
@@ -109,7 +188,7 @@
 }
 ```
 
-## Field description {#yandex.cloud.audit.organizationmanager.application.oauth.DeleteApplication2}
+## Field description {#yandex.cloud.audit.organizationmanager.application.saml.DeleteApplication2}
 
 #|
 ||Field | Description ||
@@ -138,7 +217,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || error | **[Status](#google.rpc.Status)**
 
 The error result of the operation in case of failure or cancellation. ||
-|| details | **[ApplicationDetails](#yandex.cloud.audit.organizationmanager.application.oauth.ApplicationDetails)** ||
+|| details | **[ApplicationDetails](#yandex.cloud.audit.organizationmanager.application.saml.ApplicationDetails)** ||
 || requestParameters | **object** ||
 || response | **object** ||
 |#
@@ -238,84 +317,6 @@ Includes only one of the fields `impersonatorFederationType`.
 || resourceName | **string**
 
 Includes only one of the fields `resourceName`. ||
-|#
-
-## RequestMetadata {#yandex.cloud.audit.RequestMetadata}
-
-#|
-||Field | Description ||
-|| remoteAddress | **string** ||
-|| userAgent | **string** ||
-|| requestId | **string** ||
-|| remotePort | **string** (int64)
-
-Includes only one of the fields `remotePort`. ||
-|#
-
-## Status {#google.rpc.Status}
-
-The error result of the operation in case of failure or cancellation.
-
-#|
-||Field | Description ||
-|| code | **integer** (int32)
-
-Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto). ||
-|| message | **string**
-
-An error message. ||
-|| details[] | **object**
-
-A list of messages that carry the error details. ||
-|#
-
-## ApplicationDetails {#yandex.cloud.audit.organizationmanager.application.oauth.ApplicationDetails}
-
-#|
-||Field | Description ||
-|| applicationId | **string** ||
-|| applicationName | **string** ||
-|| description | **string** ||
-|| status | **enum** (Status)
-
-- `CREATING`
-- `ACTIVE`
-- `SUSPENDED`
-- `DELETING` ||
-|| groupClaimsSettings | **[GroupClaimsSettingsDetails](#yandex.cloud.audit.organizationmanager.application.oauth.GroupClaimsSettingsDetails)** ||
-|| clientGrant | **[ClientGrantDetails](#yandex.cloud.audit.organizationmanager.application.oauth.ClientGrantDetails)** ||
-|| labels | **object** (map<**string**, **string**>) ||
-|#
-
-## GroupClaimsSettingsDetails {#yandex.cloud.audit.organizationmanager.application.oauth.GroupClaimsSettingsDetails}
-
-#|
-||Field | Description ||
-|| groupDistributionType | **enum** (GroupDistributionType)
-
-- `NONE`
-- `ASSIGNED_GROUPS`
-- `ALL_GROUPS` ||
-|| groupClaimValue | **enum** (GroupClaimValue)
-
-Includes only one of the fields `groupClaimValue`.
-
-- `NAME`
-- `ID`
-- `EXTERNAL_ID` ||
-|#
-
-## ClientGrantDetails {#yandex.cloud.audit.organizationmanager.application.oauth.ClientGrantDetails}
-
-#|
-||Field | Description ||
-|| clientId | **string**
-
-The maximum string length in characters is 50. ||
-|| authorizedScopes[] | **string**
-
-The number of elements must be in the range 1-1000. The maximum string length in characters for each value is 255. ||
-|#Includes only one of the fields `resourceName`. ||
 |#
 
 ## RequestMetadata {#yandex.cloud.audit.RequestMetadata}
@@ -465,16 +466,19 @@ Includes only one of the fields `groupAttributeValue`.
 ||Field | Description ||
 || extractBefore | **[ExtractBefore](#yandex.cloud.audit.organizationmanager.application.saml.AttributeMappingDetails.Transformation.ExtractBefore)**
 
-Includes only one of the fields `extractBefore`, `extractAfter`, `ifEmpty`, `constant`. ||
+Includes only one of the fields `extractBefore`, `extractAfter`, `ifEmpty`, `constant`, `replace`. ||
 || extractAfter | **[ExtractAfter](#yandex.cloud.audit.organizationmanager.application.saml.AttributeMappingDetails.Transformation.ExtractAfter)**
 
-Includes only one of the fields `extractBefore`, `extractAfter`, `ifEmpty`, `constant`. ||
+Includes only one of the fields `extractBefore`, `extractAfter`, `ifEmpty`, `constant`, `replace`. ||
 || ifEmpty | **[IfEmpty](#yandex.cloud.audit.organizationmanager.application.saml.AttributeMappingDetails.Transformation.IfEmpty)**
 
-Includes only one of the fields `extractBefore`, `extractAfter`, `ifEmpty`, `constant`. ||
+Includes only one of the fields `extractBefore`, `extractAfter`, `ifEmpty`, `constant`, `replace`. ||
 || constant | **[Constant](#yandex.cloud.audit.organizationmanager.application.saml.AttributeMappingDetails.Transformation.Constant)**
 
-Includes only one of the fields `extractBefore`, `extractAfter`, `ifEmpty`, `constant`. ||
+Includes only one of the fields `extractBefore`, `extractAfter`, `ifEmpty`, `constant`, `replace`. ||
+|| replace | **[Replace](#yandex.cloud.audit.organizationmanager.application.saml.AttributeMappingDetails.Transformation.Replace)**
+
+Includes only one of the fields `extractBefore`, `extractAfter`, `ifEmpty`, `constant`, `replace`. ||
 |#
 
 ## ExtractBefore {#yandex.cloud.audit.organizationmanager.application.saml.AttributeMappingDetails.Transformation.ExtractBefore}
@@ -508,6 +512,14 @@ Includes only one of the fields `attributeName`, `constant`. ||
 #|
 ||Field | Description ||
 || value | **string** ||
+|#
+
+## Replace {#yandex.cloud.audit.organizationmanager.application.saml.AttributeMappingDetails.Transformation.Replace}
+
+#|
+||Field | Description ||
+|| pattern | **string** ||
+|| replacement | **string** ||
 |#
 
 ## Attribute {#yandex.cloud.audit.organizationmanager.application.saml.AttributeMappingDetails.Attribute}

@@ -1,5 +1,6 @@
 # Репликация логов в {{ objstorage-full-name }} с помощью {{ yds-full-name }}
 
+
 С помощью [{{ yds-full-name }}](../../data-streams/) можно настроить автоматическую репликацию логов сервисов и пользовательских приложений в [{{ objstorage-full-name }}](../../storage/).
 
 Решение работает по следующей схеме:
@@ -51,7 +52,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится лог группа.
-  1. [Перейдите]({{ link-console-main }}/link/logging) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
   1. Напротив лог-группы, в которую поступают логи, нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. В поле **{{ ui-key.yacloud.data-streams.label_data-stream }}** выберите поток `logs-stream`, созданный ранее.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.

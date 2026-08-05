@@ -2082,7 +2082,7 @@ default:
         label_credit-volumeIncentiveCredit: Volume incentive credit
         label_deselected-all: Clear
         label_selected-all: select all
-        value_empty_clouds_folders: All clouds and folders
+        value_empty_folders: All folders
         value_empty_service_instances: All workspaces
       billing-widget:
         activate_promocode: Activate promo code
@@ -2923,7 +2923,7 @@ default:
         scan-resource-group:
           button_select_bucket: Select bucket
           button_select_cloud_catalog: Select cloud or catalog
-          file_type_all: All files
+          file_type_all: All formats
           file_type_custom: Custom filter
           file_type_docx_txt: DOC / TXT
           file_type_html_xml: HTML / XML
@@ -3141,6 +3141,16 @@ default:
             overview_b5LJQ: Overview
           AttributeFormDialogNew:
             field_attribute_value_dgUAv: Value
+          AttributeTransformationsSection:
+            action_add_transformation_bc8Cd: Add transformation
+            field_if_empty_value_1K7py: Value
+            field_substring_siBpY: Substring
+            type_constant_tvJWi: Constant
+            type_extract_after_q4x8n: ExtractAfter
+            type_extract_before_ju2PE: ExtractBefore
+            type_if_empty_e5unh: IfEmpty
+            type_to_lowercase_vRG6c: ToLowercase
+            type_trim_3SF6q: Trim
           field_group_all_uY9US: All groups
           field_group_assigned_amGdu: Assigned groups only
           GroupAttributeFormDialog:
@@ -3199,10 +3209,23 @@ default:
             new_limit: New limit
         branding:
           AuthBrandingForm:
+            autoLoginSection:
+              federationFieldLabel: Federation
+              redirectLabel: Redirect to identity federation
+              title: Automatic login
             clearAllAction: Clear all
+            federationLoginSection:
+              addButton: Add
+              buttonTextFieldLabel: Button name
+              federationFieldLabel: Federation
             loginSection:
+              federationLabel: Identity federation
+              loginInputLabel: By login
+              placeholderInlineLabel: Hint
+              ssoLabel: Single-Sign On
               title: Login form
               welcomeLabel: Welcome text
+              yandexIdLabel: Yandex ID
             styleSection:
               colorLabel: Main color
               title: Colors and images
@@ -3350,7 +3373,7 @@ default:
           caption_assignee: Assignee
           caption_category: Threat type
           caption_classification: Classification
-          caption_created-by: Created by
+          caption_created-by: Created at
           caption_incident: Incident
           caption_modified-at: Modified at
           caption_sensor: Source
@@ -3573,7 +3596,7 @@ default:
             create-exception: New exception
           InvestigationPageLayout:
             fieldDescription_wiAxw: Description
-            fieldModified: Modified
+            fieldModified: Date modified
             information_cZr8L: Information
             newQuery_mzeBV: New query
           InvestigationsPage:
@@ -4337,6 +4360,7 @@ default:
         label_resource-http-headers-request-headers: Origin request headers
         label_resource-http-headers-response-headers: Client response headers
         label_resource-raw-logs: Export logs
+        label_resource-security: Security
         label_resources-list: CDN resources
         label_responses-hit: Responses hit
         label_responses-miss: Response miss
@@ -4346,6 +4370,7 @@ default:
         label_section-content: Content
         label_section-domain: Domain names for content distribution
         label_section-origins-list: Origin
+        label_section-security: Security
         label_shielding: Origin shielding
         label_shielding-location: Location
         label_shielding-settings-title: Shielding settings
@@ -7182,7 +7207,6 @@ default:
           label_anomaly-threshold: Anomaly threshold
           label_create-exclusion-rule: Create exception rule
           label_create-profile: Create WAF profile
-          label_exclusion-rule-exclude-rules: Skip checks
           label_paranoia-level: Paranoia level
           label_paranoia-option-1: Only 1
           label_profiles: WAF profiles
@@ -7190,7 +7214,11 @@ default:
           label_save-settings: Save settings
           title_exclusion-rule-condition-section: Traffic conditions
           title_exclusion-rules: Exclusion rules
+          value_exclude-all-no: Selected rules
           value_exclude-all-yes: All rules
+        WafProfileExclusionRuleForm:
+          RulesSection:
+            title_exclusion-rule-rules-section_cdWEW: Excluded checks
       smartcaptcha:
         button_captcha-settings-create: Create captcha
         CaptchaSettingsForm:
@@ -9485,45 +9513,38 @@ default:
         transfer-selected-projects: Transfer selected projects
     yc-ui-talkanalytics:
       assistants:
-        applying: Enable assistant
-        assistants: Assistants
-        prompt: Instructions
+        applying_T3ZVB: Enable assistant
+        assistants_vsZCd: Assistants
+        prompt_4hIv3: Instructions
       common:
-        add: Add
-        create: Create
-        more: More
+        add_694qE: Add
+        create_JTJlL: Create
+        more_Dnm3Y: More
       connections:
-        add-key: Add key
-        column:
-          name: Name in the system
-        connection: Connection
-        connections: Connections
-        create-connection-key-value: Create connection
-        fields:
-          metadata: Shared metadata
-        template:
-          amo-crm:
-            name: AmoCRM
-          bitrix24:
-            name: Bitrix24
-          default:
-            name: Blank form
-        type:
-          chat-key-value: Сhat
-          two-channel-key-value: Two-channel audio
+        add-key_rKBwZ: Add key
+        column_zUZH9: Name in the system
+        connection_SezJG: Connection
+        connections_q5X2U: Connections
+        create-connection_kemb1: Create connection
+        fields_QO3t6: Shared metadata
+        template_0duY8: Blank form
+        template_GOsRJ: Bitrix24
+        template_vfToG: AmoCRM
+        type_13ZZh: Two-channel audio
+        type_NWiH4: Сhat
       dialogs:
-        bot: Bot
-        client: Customer
-        dialogs: Dialogs
-        operator: Agent
+        bot_ySBIh: Bot
+        client_qq11P: Customer
+        dialogs_ouB03: Dialogs
+        operator_aKjP0: Agent
       projects:
-        add-connection: Add connection
-        add-participant: Add participant
-        create-project: Create project
+        add-connection_bxENx: Add connection
+        add-participant_MeT49: Add participant
+        create-project_buUAo: Create project
       spaces:
-        create-space: Create space
+        create-space_FvLT9: Create space
       team:
-        add-from-organization-key-value: Add from organization
+        add-from-organization_2PoId: Add from organization
     yql:
       yq-audit-trails:
         audit-trails-type-toggle:

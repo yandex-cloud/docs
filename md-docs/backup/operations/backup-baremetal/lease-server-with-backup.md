@@ -15,13 +15,7 @@
 
 Чтобы подключить сервер к Yandex Cloud Backup, необходима [роль](../../security/index.md#backup-user) `backup.user` или выше.
 
-{% note warning %}
-
-С 1 августа 2026 года роли [baremetal.editor](../../../baremetal/security/index.md#baremetal-editor) и [baremetal.admin](../../../baremetal/security/index.md#baremetal-admin) получают новый набор разрешений от роли [backup.user](../../security/index.md#backup-user), позволяющий подключать серверы BareMetal к сервису Yandex Cloud Backup, а также привязывать и отвязывать их от [политик резервного копирования](../../concepts/policy.md).
-
-Если вы не планируете подключать ваши ресурсы к Cloud Backup и не хотите предоставлять вашим пользователям такие разрешения, вы можете заблаговременно отключить эти возможности с помощью [политики авторизации](../../../iam/concepts/access-control/access-policies.md#backup-denyActivation) `backup.denyActivation`, назначенной на каталог, облако или организацию. Подробнее о том, как создать политику авторизации, читайте в разделе [Создание политики авторизации для ресурса](../../../iam/operations/access-policies/assign.md).
-
-{% endnote %}
+Если вы используете роли [compute.editor](../../../compute/security/index.md#compute-editor) и выше или [baremetal.editor](../../../baremetal/security/index.md#baremetal-editor) и выше, роль `backup.user` можно не назначать. Эти роли уже включают разрешения, предоставляемые `backup.user`.
 
 ## Аренда сервера {#server-rent}
 

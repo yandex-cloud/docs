@@ -58,7 +58,7 @@
   1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления](https://console.yandex.cloud) нажмите кнопку **Создать ресурс** и выберите `Виртуальная машина`.
   1. В блоке **Образ загрузочного диска** в поле **Поиск продукта** введите `OpenVPN Access Server` и выберите публичный образ [OpenVPN Access Server](https://yandex.cloud/ru/marketplace/products/yc/openvpn-access-server).
   1. В блоке **Расположение** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой уже находится тестовая ВМ.
-  1. В блоке **Диски и файловые хранилища** задайте размер загрузочного [диска](../../compute/concepts/disk.md#disks_types) `20 ГБ`.
+  1. В блоке **Диски и файловые хранилища** задайте размер загрузочного [диска](../../compute/concepts/disk.md#disks-types) `20 ГБ`.
   1. В блоке **Вычислительные ресурсы** перейдите на вкладку `Своя конфигурация` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
 
       * **Платформа** — `Intel Ice Lake`.

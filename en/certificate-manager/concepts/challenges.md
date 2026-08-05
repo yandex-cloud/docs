@@ -30,18 +30,18 @@ You cannot use the `HTTP` check type for [Wildcard certificates](https://en.wiki
 
 {% endnote %}
 
-To check the rights for the `example.com` domain:
+To pass the domain ownership verification procedure for `example.com`:
 
 1. In the [management console]({{ link-console-main }}), select the folder you added the certificate to.
 1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}** and click the certificate name.
 1. Prepare a file that will allow the Let's Encrypt certificate authority (CA) to verify your ownership of the domain specified in the certificate:
 
-    1. Use your hosting control panel to create a file on the server with the name and path matching the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-url }}** field value under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**. For example:
+    1. Use your hosting control panel to create a file on the server with the name and path matching the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-url }}** field value under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**. Here is an example:
 
         * `/.well-known/acme-challenge/`: Path to the file.
         * `di2o3VRsbS6H_eUntKnW3Xcefw_1DOSpZ1B********`: File name.
 
-    1. Add the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-content }}** field value from the **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}** section into the file you created. For example:
+    1. Add the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-content }}** field value from the **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}** section into the file you created. Here is an example:
 
         > di2o3VRsbS6H_eUntKnW3Xcefw_1DOSpZ1BLW0QUDbE._TYLpfPMbwHQZ1aEmsdpidY5bPUnVyDvqSO********
 
@@ -162,3 +162,4 @@ server {
 #### Useful links {#see-also}
 
 * [Let's Encrypt documentation: Types of challenges](https://letsencrypt.org/docs/challenge-types/)
+* [{#T}](../../architecture/static-website-in-yc.md)

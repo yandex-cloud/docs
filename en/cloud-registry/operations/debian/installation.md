@@ -1,25 +1,25 @@
 ---
-title: Configuring the APT package manager for {{ cloud-registry-full-name }}
-description: Follow this guide to configure APT for {{ cloud-registry-name }}.
+title: Configuring the APT package manager to work with the {{ cloud-registry-full-name }} registry
+description: Follow this guide to configure APT to work with the {{ cloud-registry-name }} registry.
 ---
 
 # Configuring the APT package manager
 
-This guide describes how to connect the [APT package manager](https://en.wikipedia.org/wiki/APT_(software)) (Advanced Package Tool) to a [Debian registry](../../concepts/artifacts/debian.md) in {{ cloud-registry-full-name }}.
+This guide describes how to configure the [APT package manager](https://en.wikipedia.org/wiki/APT_(software)) (Advanced Package Tool) to work with the [Debian registry](../../concepts/artifacts/debian.md) in {{ cloud-registry-full-name }}.
 
 ## Preparing a GPG key {#prepare-gpg-key}
 
-A GPG key is required for a registry with signed metadata. The signature allows clients to verify the authenticity of packages.
+A GPG key is required for a registry with signed metadata. The signature allows clients to verify the authenticity of packages using the GPG key.
 
-1. Generate a GPG key using [GnuPG](https://www.gnupg.org/download/index.html):
+1. Generate a GPG key using the [GnuPG](https://www.gnupg.org/download/index.html) utility:
 
     ```bash
     gpg --full-generate-key
     ```
 
-    When prompted for `passphrase`, leave this field empty.
+    When prompting for `passphrase`, leave this field empty.
 
-1. Retrieve the ID of the GPG key you created:
+1. Find the ID of the created GPG key:
 
     ```bash
     gpg --list-secret-keys --keyid-format=long
@@ -49,7 +49,7 @@ A GPG key is required for a registry with signed metadata. The signature allows 
       --payload "[{'key': 'gpg_secret_key_value', 'text_value': '$(gpg --armor --export-secret-keys <GPG_key_ID>)'}]"
     ```
 
-1. Grant access to the secret contents to the {{ cloud-registry-name }} service agent by assigning it the `lockbox.payloadViewer` role for this secret:
+1. Grant access to the contents of the secret to the {{ cloud-registry-name }} service agent by assigning it the `lockbox.payloadViewer` role for this secret:
 
     ```bash
     yc lockbox secret add-access-binding \
@@ -59,7 +59,7 @@ A GPG key is required for a registry with signed metadata. The signature allows 
       --cloud-id <cloud_ID>
     ```
 
-1. Save the public part of the GPG key. Registry users will need this value:
+1. Save the public part of the GPG key; the registry users will need it:
 
     ```bash
     gpg --armor --export <GPG_key_ID> > public-key.asc
@@ -67,96 +67,90 @@ A GPG key is required for a registry with signed metadata. The signature allows 
 
 ## Configuring APT {#configure-apt}
 
-### Local registry {#local-registry}
+To configure APT, add:
+* Registry to the APT sources list.
+* Authentication data to the `/etc/apt/auth.conf` file.
 
-1. Add the registry to the `APT` sources list:
+Your method of adding a registry to the APT sources list will vary depending on registry format and source type.
 
-    {% list tabs %}
+### Adding a registry to the APT sources list {#apt}
 
-    - Registry with signed metadata
+#### Local registry {#local}
 
-        1. Copy the public GPG key to the directory with APT trusted keys:
+{% list tabs %}
 
-            ```bash
-            cp /path/to/public-key.asc /usr/share/keyrings/ycr-pub.asc
-            ```
+- With metadata signing
 
-            Where `/path/to/public-key.asc` is the path to the public GPG key file.
-
-        1. Add the registry to the `APT` sources list:
-
-            ```bash
-            echo "deb [signed-by=/usr/share/keyrings/ycr-pub.asc] https://{{ cloud-registry }}/debian/<registry_ID> <distribution> <component>" \
-              >> /etc/apt/sources.list
-            ```
-
-    - Registry with unsigned metadata
-
-        Add a registry with `trusted=yes`:
+    1. Copy the public GPG key to the APT trusted keys directory:
 
         ```bash
-        echo "deb [trusted=yes] https://{{ cloud-registry }}/debian/<registry_ID> <distribution> <component>" \
+        cp /path/to/public-key.asc /usr/share/keyrings/ycr-pub.asc
+        ```
+
+        Where `/path/to/public-key.asc` is the path to the file with the public GPG key.
+
+    1. Add the registry to the `APT` sources list:
+
+        ```bash
+        echo "deb [signed-by=/usr/share/keyrings/ycr-pub.asc] https://{{ cloud-registry }}/debian/<registry_ID> <distribution> <component>" \
           >> /etc/apt/sources.list
         ```
 
-    {% endlist %}
+- Without metadata signing
 
-1. {% include [apt-auth-conf](../../../_includes/cloud-registry/apt-auth-conf.md) %}
-
-### Remote registry {#remote-registry}
-
-#### Public source {#apt-remote-debian}
-
-1. Install the package with the distribution public keys:
-
-    {% list tabs %}
-
-    - Debian
-
-        Run this command:
-
-        ```bash
-        sudo apt install debian-archive-keyring
-        ```
-
-        The key will be available at `/usr/share/keyrings/debian-archive-keyring.gpg`.
-
-    - Ubuntu
-
-        Run this command:
-
-        ```bash
-        sudo apt install ubuntu-keyring
-        ```
-
-        The key will be available at `/usr/share/keyrings/ubuntu-archive-keyring.gpg`.
-
-    {% endlist %}
-
-1. Add the registry to the `APT` sources list:
+    Add the registry with the `trusted=yes` parameter:
 
     ```bash
-    echo "deb [signed-by=<path_to_key>] https://{{ cloud-registry }}/debian/<registry_ID> <distribution> <component>" \
+    echo "deb [trusted=yes] https://{{ cloud-registry }}/debian/<registry_ID> <distribution> <component>" \
       >> /etc/apt/sources.list
     ```
 
-    Where:
-    * `<path_to_key>`: Path to the distribution key file, e.g., `/usr/share/keyrings/debian-archive-keyring.gpg` or `/usr/share/keyrings/ubuntu-archive-keyring.gpg`.
-    * `<registry_ID>`: Registry ID.
-    * `<distribution>`: Distribution, e.g., `bookworm`, `bullseye`, or `focal`.
-    * `<component>`: Repository component, e.g., `main`.
+{% endlist %}
 
-1. {% include [apt-auth-conf](../../../_includes/cloud-registry/apt-auth-conf.md) %}
+#### Remote registry {#remote}
 
-#### Custom source {#apt-remote-custom}
+{% list tabs %}
 
-1. Add the registry to the `APT` sources list:
+- Public source
+
+    1. Install the distribution public key package:
+
+        * For Debian:
+
+            ```bash
+            sudo apt install debian-archive-keyring
+            ```
+
+            The key will be available at `/usr/share/keyrings/debian-archive-keyring.gpg`.
+
+        * For Ubuntu:
+
+            ```bash
+            sudo apt install ubuntu-keyring
+            ```
+
+            The key will be available at `/usr/share/keyrings/ubuntu-archive-keyring.gpg`.
+
+    1. Add the registry to the `APT` sources list:
+
+        ```bash
+        echo "deb [signed-by=<path_to_key>] https://{{ cloud-registry }}/debian/<registry_ID> <distribution> <component>" \
+          >> /etc/apt/sources.list
+        ```
+
+        Where:
+        * `<path_to_key>`: Path to the distribution key file, for example `/usr/share/keyrings/debian-archive-keyring.gpg` or `/usr/share/keyrings/ubuntu-archive-keyring.gpg`.
+        * `<registry_ID>`: Registry ID.
+        * `<distribution>`: Distribution, e.g., `bookworm`, `bullseye`, or `focal`.
+        * `<component>`: Repository component, e.g., `main`.
+
+- Custom source
 
     {% list tabs %}
 
-    - Source signed with a GPG key
+    - Signed with a GPG key
 
-        1. Save it to the trusted keys directory:
+        1. Save a GPG key to the trusted keys directory:
 
             ```bash
             cp /path/to/upstream-public-key.asc /usr/share/keyrings/upstream-pub.asc
@@ -171,9 +165,9 @@ A GPG key is required for a registry with signed metadata. The signature allows 
               >> /etc/apt/sources.list
             ```
 
-    - Source not signed with a GPG key
+    - Not signed with a GPG key
 
-        Specify the `trusted=yes` parameter for APT to accept unauthenticated packages:
+        Specify the `trusted=yes` parameter so that APT accepts packages without authentication:
 
         ```bash
         echo "deb [trusted=yes] https://{{ cloud-registry }}/debian/<registry_ID> <distribution> <component>" \
@@ -182,9 +176,15 @@ A GPG key is required for a registry with signed metadata. The signature allows 
 
     {% endlist %}
 
-1. {% include [apt-auth-conf](../../../_includes/cloud-registry/apt-auth-conf.md) %}
+{% endlist %}
+
+### Adding authentication credentials {#auth}
 
 {% include [apt-auth-conf-warning](../../../_includes/cloud-registry/apt-auth-conf-warning.md) %}
+
+1. {% include [auth-env](../../../_includes/cloud-registry/auth-env.md) %}
+
+1. {% include [apt-auth-conf](../../../_includes/cloud-registry/apt-auth-conf.md) %}
 
 #### Useful links {#see-also}
 

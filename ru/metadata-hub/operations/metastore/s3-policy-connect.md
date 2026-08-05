@@ -5,6 +5,7 @@ description: В сервисе {{ metastore-full-name }} вы можете ра�
 
 # Подключение к бакету {{ objstorage-full-name }} с политикой доступа
 
+
 В сервисе {{ metastore-full-name }} вы можете работать с бакетом {{ objstorage-full-name }}, для которого настроены [политики доступа](../../../storage/security/policy.md). Доступ к бакету осуществляется из отдельной DNS-зоны через внутренний балансировщик, который распределяет трафик по ВМ с NAT. Схема такого подключения приведена ниже. Вместо ВМ `test-s3-vm` будет использоваться кластер {{ metastore-name }}.
 
 ![Storage VPC Access](../../../_assets/metadata-hub/storage-vpc-access-metastore.svg)

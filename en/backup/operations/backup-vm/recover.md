@@ -27,7 +27,7 @@ To restore a {{ compute-name }} VM or {{ baremetal-name }} server from a backup:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the backup.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. [Navigate]({{ link-console-main }}/link/backup) to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. In the left-hand panel, select ![backups](../../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.backup.label_backups }}**.
   1. Depending on what resource you want to restore, select the **{{ ui-key.yacloud.backup.value_vm-recourses }}** or **{{ ui-key.yacloud.backup.value_bms-recourses }}** tab.
   1. In the line with the backup to restore the VM or server from, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.backup.action_recovery }}** or **{{ ui-key.yacloud.backup.action_bms-recovery }}**, respectively.
@@ -89,4 +89,4 @@ To restore a {{ compute-name }} VM or {{ baremetal-name }} server from a backup:
 
 #### Useful links {#see-also}
 
-* [{#T}](non-native-recovery.md)
+[{#T}](non-native-recovery.md)

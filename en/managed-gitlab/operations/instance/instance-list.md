@@ -13,7 +13,7 @@ You can get detailed information about each [{{ GL }} instance](../../concepts/i
 
 - Management console {#console}
 
-  Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+  [Navigate]({{ link-console-main }}/link/managed-gitlab) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
 
 - CLI {#cli}
 
@@ -67,8 +67,8 @@ Instance details include:
 
 - Management console {#console}
 
-  1. In the management console, select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing your {{ GL }} instance.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing your {{ GL }} instance.
+  1. [Navigate]({{ link-console-main }}/link/managed-gitlab) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
   1. Click the instance name.
 
 - CLI {#cli}
@@ -193,7 +193,7 @@ All actions with {{ mgl-name }} instances are logged as a list of operations. Ea
   To get a list of operations for a specific instance:
 
   1. In the [management console]({{ link-console-main }}), open the folder containing the cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-gitlab) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.gitlab.switch_instances }}**.
   1. Select the instance you need.
   1. Navigate to the ![image](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the cluster you selected.
@@ -247,4 +247,4 @@ All actions with {{ mgl-name }} instances are logged as a list of operations. Ea
 
 #### Useful links {#see-also}
 
-* [{#T}](../../../api-design-guide/concepts/about-async.md)
+[{#T}](../../../api-design-guide/concepts/about-async.md)

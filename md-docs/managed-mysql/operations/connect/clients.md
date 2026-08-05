@@ -59,7 +59,7 @@ sudo apt update && sudo apt install --yes mysql-client
 
 - Подключение с SSL {#with-ssl}
 
-  ```PowerShell
+  ```powershell
   mysqlsh --host=<FQDN_любого_хоста_MySQL®> `
           --port=3306 `
           --ssl-ca=<абсолютный_путь_к_файлу_сертификата> `
@@ -72,7 +72,7 @@ sudo apt update && sudo apt install --yes mysql-client
 
 - Подключение без SSL {#without-ssl}
 
-  ```PowerShell
+  ```powershell
   mysqlsh --host=<FQDN_любого_хоста_MySQL®> `
           --port=3306 `
           --ssl-mode=DISABLED `

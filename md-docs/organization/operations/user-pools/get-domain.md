@@ -42,6 +42,14 @@
 
 {% list tabs group=instructions %}
 
+- Интерфейс Cloud Center {#cloud-center}
+
+  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization) с учетной записью администратора или владельца организации.
+  1. На панели слева нажмите ![icon-federation](../../../_assets/organization/icon-federation.svg) **Федерации**.
+  1. В списке [федераций](../../concepts/add-federation.md) выберите нужную федерацию.
+  1. Перейдите на вкладку **Домены**. 
+  1. Нажмите на название нужного [домена](../../concepts/domains.md).
+
 - CLI {#cli}
 
   Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).

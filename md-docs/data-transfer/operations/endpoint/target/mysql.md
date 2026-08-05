@@ -50,7 +50,7 @@
     
     1. [Создайте пользователя](../../../../managed-mysql/operations/cluster-users.md#adduser) для подключения к приемнику.
         
-        1. [Назначьте пользователю роль](../../../../managed-mysql/operations/grant.md#grant-role) `ALL_PRIVILEGES` для базы-приемника.
+        1. [Назначьте пользователю роль](../../../../managed-mysql/operations/grant.md#grant-privilege) `ALL_PRIVILEGES` для базы-приемника.
 
 - MySQL®
     

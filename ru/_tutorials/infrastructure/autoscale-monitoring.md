@@ -175,7 +175,7 @@
 
      * `--network-name` — имя сети, в которой создается подсеть: `queue-autoscale-network`.
      * `--range` — CIDR подсети.
-     * `--zone` — зона доступности, в которой создается подсеть: `{{ region-id }}-d`.
+     * `--zone` — [зона доступности](../../overview/concepts/geo-scope.md), в которой создается подсеть: `{{ region-id }}-d`.
 
      Результат:
 

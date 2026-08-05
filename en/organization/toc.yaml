@@ -371,7 +371,7 @@ items:
         href: concepts/limits.md
   - name: Error diagnostics
     items:
-      - name: Common federation errors
+      - name: Common errors
         href: diagnostics.md
       - name: Errors in SAML 2.0 federations
         href: saml-diagnostics.md
@@ -628,6 +628,32 @@ items:
                       - name: update
                         href: >-
                           cli-ref/idp/application/saml/signature-certificate/update.md
+          - name: synchronization-session
+            items:
+              - name: Overview
+                href: cli-ref/idp/synchronization-session/index.md
+              - name: get
+                href: cli-ref/idp/synchronization-session/get.md
+              - name: list
+                href: cli-ref/idp/synchronization-session/list.md
+          - name: synchronization-settings
+            items:
+              - name: Overview
+                href: cli-ref/idp/synchronization-settings/index.md
+              - name: create
+                href: cli-ref/idp/synchronization-settings/create.md
+              - name: delete
+                href: cli-ref/idp/synchronization-settings/delete.md
+              - name: get
+                href: cli-ref/idp/synchronization-settings/get.md
+              - name: list-supported-attributes
+                href: >-
+                  cli-ref/idp/synchronization-settings/list-supported-attributes.md
+              - name: reset-replication-token
+                href: >-
+                  cli-ref/idp/synchronization-settings/reset-replication-token.md
+              - name: update
+                href: cli-ref/idp/synchronization-settings/update.md
           - name: user
             items:
               - name: Overview
@@ -1063,6 +1089,32 @@ items:
                           - name: update
                             href: >-
                               cli-ref/v0/idp/application/saml/signature-certificate/update.md
+              - name: synchronization-session
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/idp/synchronization-session/index.md
+                  - name: get
+                    href: cli-ref/v0/idp/synchronization-session/get.md
+                  - name: list
+                    href: cli-ref/v0/idp/synchronization-session/list.md
+              - name: synchronization-settings
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/idp/synchronization-settings/index.md
+                  - name: create
+                    href: cli-ref/v0/idp/synchronization-settings/create.md
+                  - name: delete
+                    href: cli-ref/v0/idp/synchronization-settings/delete.md
+                  - name: get
+                    href: cli-ref/v0/idp/synchronization-settings/get.md
+                  - name: list-supported-attributes
+                    href: >-
+                      cli-ref/v0/idp/synchronization-settings/list-supported-attributes.md
+                  - name: reset-replication-token
+                    href: >-
+                      cli-ref/v0/idp/synchronization-settings/reset-replication-token.md
+                  - name: update
+                    href: cli-ref/v0/idp/synchronization-settings/update.md
               - name: user
                 items:
                   - name: Overview
@@ -1430,6 +1482,8 @@ items:
                     href: idp/api-ref/grpc/Synchronization/setReplicationToken.md
                   - name: ResetReplicationToken
                     href: idp/api-ref/grpc/Synchronization/resetReplicationToken.md
+                  - name: GetReplicationToken
+                    href: idp/api-ref/grpc/Synchronization/getReplicationToken.md
                   - name: CreateSynchronizationSettings
                     href: >-
                       idp/api-ref/grpc/Synchronization/createSynchronizationSettings.md
@@ -1894,6 +1948,8 @@ items:
                     href: idp/api-ref/Synchronization/setReplicationToken.md
                   - name: ResetReplicationToken
                     href: idp/api-ref/Synchronization/resetReplicationToken.md
+                  - name: GetReplicationToken
+                    href: idp/api-ref/Synchronization/getReplicationToken.md
                   - name: CreateSynchronizationSettings
                     href: >-
                       idp/api-ref/Synchronization/createSynchronizationSettings.md

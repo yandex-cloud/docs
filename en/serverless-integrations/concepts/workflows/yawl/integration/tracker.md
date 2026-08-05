@@ -7,10 +7,10 @@ description: This article describes the fields for the Tracker integration step.
 
 Accessing the {{ tracker-full-name }} API. The `getIssue`, `createIssue`, `updateIissue`, `listIssues`, `linkIssues`, `updateIssueStatus`, `createComment`, `updateComment`, and `listComments` fields are mutually exclusive.
 
-Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
+Field name | Type | Required | Default value | [Templating](../../templating.md) supported | Description
 --- | --- | --- | --- | --- | ---
 `endpoint` | `string` | No | `api.tracker.yandex.net` | Yes | Host for calling the {{ tracker-full-name }} API.
-`oauthToken` | `string` | Yes | No | Yes | [OAuth token]({{ link-tracker-cloudless }}concepts/access#about_OAuth) for authentication when accessing the {{ tracker-short-name }} API.
+`oauthToken` | `string` | Yes | No | Yes | [OAuth token]({{ link-tracker-cloudless }}api-ref/access#about_OAuth) for authentication when accessing the {{ tracker-short-name }} API.
 `organization` | [Organization](#tracker-organization) | Yes | No | No | Organization ID.
 `getIssue` | [TrackerGetIssue](#trackergetissue) | No | No | No | Description of the action to get an issue.
 `createIssue` | [TrackerCreateIssue](#trackercreateissue) | No | No | No | Description of the action to create an issue.
@@ -26,20 +26,20 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 
 The `yandexOrganizationId` and `cloudOrganizationId` fields are mutually exclusive.
 
-Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
+Field name | Type | Required | Default value | [Templating](../../templating.md) supported | Description
 --- | --- | --- | --- | --- | ---
 `yandexOrganizationId` | `string` | No | No | Yes | Organization ID in {{ ya-360 }}.
 `cloudOrganizationId` | `string` | No | No | Yes | [Organization](../../../../../organization/quickstart.md) ID in {{ org-full-name }}.
 
 ## TrackerGetIssue {#trackergetissue}
 
-Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
+Field name | Type | Required | Default value | [Templating](../../templating.md) supported | Description
 --- | --- | --- | --- | --- | ---
 `key` | `string` | Yes | No | Yes | Issue key.
 
 ## TrackerCreateIssue {#trackercreateissue}
 
-Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
+Field name | Type | Required | Default value | [Templating](../../templating.md) supported | Description
 --- | --- | --- | --- | --- | ---
 `queue` | `string` | Yes | No | Yes | Queue to create the issue in.
 `title` | `string` | Yes | No | Yes | Issue title.
@@ -55,7 +55,7 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 
 ## TrackerUpdateIssue {#trackerupdateissue}
 
-Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
+Field name | Type | Required | Default value | [Templating](../../templating.md) supported | Description
 --- | --- | --- | --- | --- | ---
 `key` | `string` | Yes | No | Yes | Issue key.
 `title` | `string` | No | No | Yes | Issue title.
@@ -71,7 +71,7 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 
 The `setValue`, `addValuesList`, `removeValuesList`, and `replaceValuesMap` fields are mutually exclusive.
 
-Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
+Field name | Type | Required | Default value | [Templating](../../templating.md) supported | Description
 --- | --- | --- | --- | --- | ---
 `setValue` | `string` | No | No | Yes | Replaces the issue field value. You can specify the value as a string or JSON array.
 `addValuesList` | `string` | No | No | Yes | Adds one or more values to the issue field. You can specify the value as a string or JSON array.
@@ -80,7 +80,7 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 
 ## TrackerUpdateIssue.AdditionalProperties {#trackerupdateissue-additionalproperties}
 
-Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
+Field name | Type | Required | Default value | [Templating](../../templating.md) supported | Description
 --- | --- | --- | --- | --- | ---
 `pairs` | `map[string]` [TrackerUpdateIssue.Action](#trackerupdateissue-action) | No | No | Yes | Dictionary of pairs: the name of the additional field and the action to perform on it.
 
@@ -88,14 +88,14 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 
 The `json` and `plainValue` fields are mutually exclusive.
 
-Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
+Field name | Type | Required | Default value | [Templating](../../templating.md) supported | Description
 --- | --- | --- | --- | --- | ---
 `json` | `string` | No | No | Yes | Dictionary containing a JSON array of pairs: current and new values of fields.
 `plainValue` | [MapValue](#tracker-mapvalue) | No | No | No | Dictionary containing an array of pairs: current and new values of fields as [MapValue](#tracker-mapvalue) objects.
 
 ## MapValue {#tracker-mapvalue}
 
-Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
+Field name | Type | Required | Default value | [Templating](../../templating.md) supported | Description
 --- | --- | --- | --- | --- | ---
 `pairs` | `map[string]string` | Yes | No | Yes | Dictionary containing an array of pairs: current and new values of fields.
 
@@ -103,7 +103,7 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 
 The `queue`, `keys`, `filter`, and `query` fields are mutually exclusive.
 
-Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
+Field name | Type | Required | Default value | [Templating](../../templating.md) supported | Description
 --- | --- | --- | --- | --- | ---
 `pageSize` | `string` | No | No | Yes | Maximum number of issues to be included in a response.
 `pageNumber` | `string` | No | No | Yes | Page number in the issue list output.
@@ -114,14 +114,14 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 
 ## TrackerLinkIssues.SearchOptionsFilter {#trackerlistissues-searchoptionsfilter}
 
-Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
+Field name | Type | Required | Default value | [Templating](../../templating.md) supported | Description
 --- | --- | --- | --- | --- | ---
 `issueProperties` | `map[string]string` | Yes | No | Yes | Fields to search by and the required values.
 `order` | `string` | No | No | Yes | The direction and field for sorting issues.
 
 ## TrackerLinkIssues {#trackerlinkissues}
 
-Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
+Field name | Type | Required | Default value | [Templating](../../templating.md) supported | Description
 --- | --- | --- | --- | --- | ---
 `key` | `string` | Yes | No | Yes | Issue key.
 `linkKey` | `string` | Yes | No | Yes | Key of the issue you need to link to the issue specified in the `key` field.
@@ -129,7 +129,7 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 
 ## TrackerUpdateIssueStatus {#trackerupdateissuestatus}
 
-Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
+Field name | Type | Required | Default value | [Templating](../../templating.md) supported | Description
 --- | --- | --- | --- | --- | ---
 `key` | `string` | Yes | No | Yes | Key of the issue whose status you need to change.
 `transition` | `string` | Yes | No | Yes | Transition ID.
@@ -137,7 +137,7 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 
 ## TrackerCreateComment {#trackercreatecomment}
 
-Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
+Field name | Type | Required | Default value | [Templating](../../templating.md) supported | Description
 --- | --- | --- | --- | --- | ---
 `key` | `string` | Yes | No | Yes | Key of the issue to add a comment to.
 `text` | `string` | Yes | No | Yes | Text of the comment.
@@ -145,7 +145,7 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 
 ## TrackerUpdateComment {#trackerupdatecomment}
 
-Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
+Field name | Type | Required | Default value | [Templating](../../templating.md) supported | Description
 --- | --- | --- | --- | --- | ---
 `id` | `string` | Yes | No | Yes | ID of the comment being updated.
 `issueKey` | `string` | Yes | No | Yes | Key of the issue the comment relates to.
@@ -153,7 +153,7 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 
 ## TrackerListComments {#trackerlistcomments}
 
-Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
+Field name | Type | Required | Default value | [Templating](../../templating.md) supported | Description
 --- | --- | --- | --- | --- | ---
 `key` | `string` | Yes | No | Yes | Issue key.
 `lastCommentId` | `string` | No | No | Yes | Comment's `id` parameter value after which the requested page will begin.

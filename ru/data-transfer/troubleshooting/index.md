@@ -112,6 +112,8 @@
 
 {% include [failed-to-connect-to](../../_includes/data-transfer/troubles/network/failed-to-connect-to.md) %}
 
+{% include [hostname-resolving-error](../../_includes/data-transfer/troubles/network/hostname-resolving-error.md) %}
+
 {% include [common-network](../../_includes/data-transfer/troubles/network/common-network.md) %}
 
 {% include [ip-collision](../../_includes/data-transfer/troubles/network/ip-collision.md) %}

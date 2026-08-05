@@ -207,9 +207,9 @@
 - Интерфейс {{ speechsense-name }} {#speechsense}
 
   1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
-  1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.spaces.create-space }}**.
+  1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.spaces.create-space_FvLT9 }}**.
   1. Введите название пространства.
-  1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.common.create }}**.
+  1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.common.create_JTJlL }}**.
 
 {% endlist %}
 
@@ -223,10 +223,10 @@
 
   1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
   1. Перейдите в [новое пространство](#create-space).
-  1. Нажмите кнопку ![image](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yc-ui-talkanalytics.projects.add-participant }}** → ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yc-ui-talkanalytics.team.add-from-organization-key-value }}**.
+  1. Нажмите кнопку ![image](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yc-ui-talkanalytics.projects.add-participant_MeT49 }}** → ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yc-ui-talkanalytics.team.add-from-organization_2PoId }}**.
   1. Cкопируйте идентификатор [созданного ранее сервисного аккаунта](#create-sa) `speechsense-sa` и вставьте в строку поиска.
   1. Выберите сервисный аккаунт `speechsense-sa` и укажите роль [{{ roles-speechsense-data-editor }}]({{ link-docs-ai }}speechsense/security/#speechsense-data-editor). Эта роль позволит сервисному аккаунту `speechsense-sa` загружать данные в {{ speechsense-name }}.
-  1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.common.add }}**.
+  1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.common.add_694qE }}**.
 
 {% endlist %}
 
@@ -242,25 +242,25 @@
 
   1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
   1. Перейдите в нужное пространство.
-  1. В правом верхнем углу нажмите **{{ ui-key.yc-ui-talkanalytics.common.more }}** → ![create](../../../_assets/console-icons/thunderbolt.svg) **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
+  1. В правом верхнем углу нажмите **{{ ui-key.yc-ui-talkanalytics.common.more_Dnm3Y }}** → ![create](../../../_assets/console-icons/thunderbolt.svg) **{{ ui-key.yc-ui-talkanalytics.connections.create-connection_kemb1 }}**.
   1. Укажите название подключения.
-  1. Выберите тип данных **{{ ui-key.yc-ui-talkanalytics.connections.type.two-channel-key-value }}**.
-  1. В блоках **{{ ui-key.yc-ui-talkanalytics.dialogs.operator }}**, **{{ ui-key.yc-ui-talkanalytics.dialogs.client }}**:
+  1. Выберите тип данных **{{ ui-key.yc-ui-talkanalytics.connections.type_13ZZh }}**.
+  1. В блоках **{{ ui-key.yc-ui-talkanalytics.dialogs.operator_aKjP0 }}**, **{{ ui-key.yc-ui-talkanalytics.dialogs.client_qq11P }}**:
 
       1. Укажите каналы, в которых записаны голос оператора и голос клиента.
       1. Укажите для оператора и клиента ключи из файла метаданных. Этот файл содержит информацию о звонке, полученную из CRM-систем, АТС или других источников.
 
-        По умолчанию в подключение добавлены ключи с именем и идентификатором оператора и клиента. В поле **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** введите название, под которым ключ будет отображаться в {{ speechsense-name }}.
+        По умолчанию в подключение добавлены ключи с именем и идентификатором оператора и клиента. В поле **{{ ui-key.yc-ui-talkanalytics.connections.column_zUZH9 }}** введите название, под которым ключ будет отображаться в {{ speechsense-name }}.
 
-        Чтобы указать дополнительные метаданные для оператора и клиента, нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.add-key }}**.
+        Чтобы указать дополнительные метаданные для оператора и клиента, нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.add-key_rKBwZ }}**.
 
-  1. В блоке **{{ ui-key.yc-ui-talkanalytics.connections.fields.metadata }}** укажите не связанные с оператором и клиентом ключи из файла метаданных.
+  1. В блоке **{{ ui-key.yc-ui-talkanalytics.connections.fields_QO3t6 }}** укажите не связанные с оператором и клиентом ключи из файла метаданных.
 
-      По умолчанию в подключение добавлены ключи с датой, направлением звонка и языком диалога. В поле **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** введите название, под которым ключ будет отображаться в {{ speechsense-name }}.
+      По умолчанию в подключение добавлены ключи с датой, направлением звонка и языком диалога. В поле **{{ ui-key.yc-ui-talkanalytics.connections.column_zUZH9 }}** введите название, под которым ключ будет отображаться в {{ speechsense-name }}.
 
-      Чтобы указать дополнительные метаданные, нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.add-key }}**.
+      Чтобы указать дополнительные метаданные, нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.add-key_rKBwZ }}**.
 
-  1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
+  1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.create-connection_kemb1 }}**.
 
 {% endlist %}
 
@@ -272,22 +272,22 @@
 
   1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
   1. Перейдите в нужное пространство.
-  1. В правом верхнем углу нажмите **{{ ui-key.yc-ui-talkanalytics.common.more }}** → ![create](../../../_assets/console-icons/thunderbolt.svg) **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
+  1. В правом верхнем углу нажмите **{{ ui-key.yc-ui-talkanalytics.common.more_Dnm3Y }}** → ![create](../../../_assets/console-icons/thunderbolt.svg) **{{ ui-key.yc-ui-talkanalytics.connections.create-connection_kemb1 }}**.
   1. Укажите название подключения.
-  1. Выберите тип данных **{{ ui-key.yc-ui-talkanalytics.connections.type.chat-key-value }}**.
-  1. В блоках **{{ ui-key.yc-ui-talkanalytics.dialogs.operator }}**, **{{ ui-key.yc-ui-talkanalytics.dialogs.client }}**, **{{ ui-key.yc-ui-talkanalytics.dialogs.bot }}** укажите ключи из файла метаданных. Этот файл содержит информацию о диалоге, полученную из чатов, CRM-систем или других источников.
+  1. Выберите тип данных **{{ ui-key.yc-ui-talkanalytics.connections.type_NWiH4 }}**.
+  1. В блоках **{{ ui-key.yc-ui-talkanalytics.dialogs.operator_aKjP0 }}**, **{{ ui-key.yc-ui-talkanalytics.dialogs.client_qq11P }}**, **{{ ui-key.yc-ui-talkanalytics.dialogs.bot_ySBIh }}** укажите ключи из файла метаданных. Этот файл содержит информацию о диалоге, полученную из чатов, CRM-систем или других источников.
 
-      По умолчанию в подключение добавлены ключи с именем и идентификатором оператора, клиента и бота. В поле **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** введите название, под которым ключ будет отображаться в {{ speechsense-name }}.
+      По умолчанию в подключение добавлены ключи с именем и идентификатором оператора, клиента и бота. В поле **{{ ui-key.yc-ui-talkanalytics.connections.column_zUZH9 }}** введите название, под которым ключ будет отображаться в {{ speechsense-name }}.
 
-      Чтобы указать дополнительные метаданные для оператора, клиента и бота, нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.add-key }}**.
+      Чтобы указать дополнительные метаданные для оператора, клиента и бота, нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.add-key_rKBwZ }}**.
 
-  1. В блоке **{{ ui-key.yc-ui-talkanalytics.connections.fields.metadata }}** укажите не связанные с оператором, клиентом и ботом ключи из файла метаданных.
+  1. В блоке **{{ ui-key.yc-ui-talkanalytics.connections.fields_QO3t6 }}** укажите не связанные с оператором, клиентом и ботом ключи из файла метаданных.
 
-      По умолчанию в подключение добавлены ключи с датой, направлением и языком диалога. В поле **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** введите название, под которым ключ будет отображаться в {{ speechsense-name }}.
+      По умолчанию в подключение добавлены ключи с датой, направлением и языком диалога. В поле **{{ ui-key.yc-ui-talkanalytics.connections.column_zUZH9 }}** введите название, под которым ключ будет отображаться в {{ speechsense-name }}.
 
-      Чтобы указать дополнительные метаданные, нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.add-key }}**.
+      Чтобы указать дополнительные метаданные, нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.add-key_rKBwZ }}**.
 
-  1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
+  1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.create-connection_kemb1 }}**.
 
 {% endlist %}
 
@@ -299,10 +299,10 @@
 
   1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
   1. Перейдите в нужное пространство.
-  1. Нажмите кнопку ![create](../../../_assets/console-icons/folder-plus.svg) **{{ ui-key.yc-ui-talkanalytics.projects.create-project }}**.
+  1. Нажмите кнопку ![create](../../../_assets/console-icons/folder-plus.svg) **{{ ui-key.yc-ui-talkanalytics.projects.create-project_buUAo }}**.
   1. Введите имя проекта.
-  1. В блоке **{{ ui-key.yc-ui-talkanalytics.connections.connection }}** нажмите **{{ ui-key.yc-ui-talkanalytics.projects.add-connection }}** и выберите подключение, созданное [ранее](#create-connection).
-  1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.projects.create-project }}**.
+  1. В блоке **{{ ui-key.yc-ui-talkanalytics.connections.connection_SezJG }}** нажмите **{{ ui-key.yc-ui-talkanalytics.projects.add-connection_bxENx }}** и выберите подключение, созданное [ранее](#create-connection).
+  1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.projects.create-project_buUAo }}**.
 
 {% endlist %}
 

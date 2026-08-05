@@ -7,7 +7,7 @@ description: Follow this guide to update a connection of a {{ compute-full-name 
 
 {% note info %}
 
-If you have [deleted](delete-vm.md) a {{ compute-full-name }} VM from {{ backup-name }} and want to reconnect it, follow these guides:
+If you have [deleted](delete-vm.md) a {{ compute-full-name }} VM from {{ backup-name }} and want to reconnect it, use these tutorials:
 
 * [Connecting a Linux VM](connect-vm-linux.md)
 * [Connecting a Linux VM with {{ oslogin }}](connect-vm-oslogin-linux.md)
@@ -73,7 +73,7 @@ To avoid conflicts between the two VMs when making backups, update the outdated 
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder where {{ backup-name }} is connected.
-     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+     1. [Navigate]({{ link-console-main }}/link/backup) to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
      1. On ![machines](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.backup.label_instances }}** tab, check that the outdated VM is not listed with the ![irrelevant](../../_assets/console-icons/circle-info-fill.svg) label.
 
         If the VM is still there, click ![image](../../_assets/console-icons/ellipsis.svg), select **{{ ui-key.yacloud.common.delete }}** and confirm deletion.

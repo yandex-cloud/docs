@@ -4,6 +4,7 @@
 
 # Поставка данных из очереди Data Streams в Managed Service for YDB с помощью Data Transfer
 
+
 С помощью сервиса Data Transfer можно поставлять данные из потока Data Streams в базу данных Managed Service for YDB.
 
 Чтобы перенести данные:

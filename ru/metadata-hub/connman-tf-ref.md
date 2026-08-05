@@ -5,6 +5,7 @@ description: На этой странице приведен справочни�
 
 # Справочник {{ TF }} для {{ connection-manager-name }}
 
+
 {% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}
 
 ## Ресурсы {#resources}

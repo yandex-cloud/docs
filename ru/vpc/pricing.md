@@ -92,7 +92,6 @@ editable: false
 
 
 
-
 #### Использование групп безопасности {#prices-security-groups}
 
 Использование функциональности [групп безопасности](concepts/security-groups.md) не тарифицируется.
@@ -102,7 +101,6 @@ editable: false
 {% include notitle [note-public-ip-traffic.md](../_includes/pricing/note-public-ip-traffic.md) %}
 
 {% include notitle [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
-
 
 
 

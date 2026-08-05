@@ -10,7 +10,7 @@ description: Follow this guide to learn the details of a {{ compute-full-name }}
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where {{ backup-name }} is connected.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. [Navigate]({{ link-console-main }}/link/backup) to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. In the left-hand panel, click ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud_billing.backup.label_instances }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the VM you need and select `{{ ui-key.yacloud.backup.label_navigate-to-journal-action }}`.
 

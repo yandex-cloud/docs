@@ -577,7 +577,7 @@
 
       {% note warning %}
       
-      Должно быть указано только одно место назначения: `storage_destination` , `logging_destination` или `data_stream_destination`.
+      Должно быть указано только одно место назначения: `storage_destination`, `logging_destination` или `data_stream_destination`.
       
       {% endnote %}
       

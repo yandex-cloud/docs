@@ -70,6 +70,8 @@
 
  - [Управление аккаунтом на портале «Мой аккаунт»](operations/manage-account.md)
 
+ - [Сброс пароля пользователя](operations/user-account/reset-password.md)
+
  - [Решение проблем](operations/user-account/troubleshooting.md)
 
 ### Управление группами пользователей
@@ -177,6 +179,8 @@
  - [Включить refresh-токены](operations/enable-refresh-tokens.md)
 
  - [Включить требование двухфакторной аутентификации для аккаунтов на Яндексе](operations/enable-2fa-access.md)
+
+ - [Настроить самостоятельный сброс пароля пользователями (SSPR)](operations/manage-sspr.md)
 
 #### Управление MFA
 
@@ -286,6 +290,12 @@
 
  - [OpenID Connect](tutorials/single-sign-on/jenkins/oidc-jenkins.md)
 
+#### Loop
+
+ - [SAML](tutorials/single-sign-on/loop/saml-loop.md)
+
+ - [OpenID Connect](tutorials/single-sign-on/loop/oidc-loop.md)
+
  - [Managed Service for GitLab](tutorials/single-sign-on/saml-managed-gitlab.md)
 
  - [Managed Service for OpenSearch](tutorials/single-sign-on/saml-opensearch.md)
@@ -302,15 +312,19 @@
 
  - [SonarQube](tutorials/single-sign-on/saml-sonarqube.md)
 
+#### Time
+
+ - [SAML](tutorials/single-sign-on/time/saml-time.md)
+
+ - [OpenID Connect](tutorials/single-sign-on/time/oidc-time.md)
+
 #### OpenVPN
 
  - [OpenVPN Access Server](tutorials/single-sign-on/saml-ovpn.md)
 
  - [OpenVPN Community Edition](tutorials/single-sign-on/oidc-ovpn.md)
 
-#### VK Cloud
-
- - [SAML](tutorials/single-sign-on/vk-cloud/saml-vk-cloud.md)
+ - [VK Cloud](tutorials/single-sign-on/saml-vk-cloud.md)
 
  - [Zabbix](tutorials/single-sign-on/saml-zabbix.md)
 
@@ -357,6 +371,8 @@
  - [Брендирование](concepts/branding.md)
 
  - [Портал Мой аккаунт](concepts/my-account.md)
+
+ - [Самостоятельный сброс пароля пользователем (SSPR)](concepts/sspr.md)
 
  - [Аудитные логи и логи входа](concepts/logs.md)
 
@@ -599,6 +615,30 @@
  - [list](cli-ref/idp/application/saml/signature-certificate/list.md)
 
  - [update](cli-ref/idp/application/saml/signature-certificate/update.md)
+
+#### synchronization-session
+
+ - [Overview](cli-ref/idp/synchronization-session/index.md)
+
+ - [get](cli-ref/idp/synchronization-session/get.md)
+
+ - [list](cli-ref/idp/synchronization-session/list.md)
+
+#### synchronization-settings
+
+ - [Overview](cli-ref/idp/synchronization-settings/index.md)
+
+ - [create](cli-ref/idp/synchronization-settings/create.md)
+
+ - [delete](cli-ref/idp/synchronization-settings/delete.md)
+
+ - [get](cli-ref/idp/synchronization-settings/get.md)
+
+ - [list-supported-attributes](cli-ref/idp/synchronization-settings/list-supported-attributes.md)
+
+ - [reset-replication-token](cli-ref/idp/synchronization-settings/reset-replication-token.md)
+
+ - [update](cli-ref/idp/synchronization-settings/update.md)
 
 #### user
 
@@ -994,6 +1034,30 @@
 
  - [update](cli-ref/v0/idp/application/saml/signature-certificate/update.md)
 
+##### synchronization-session
+
+ - [Overview](cli-ref/v0/idp/synchronization-session/index.md)
+
+ - [get](cli-ref/v0/idp/synchronization-session/get.md)
+
+ - [list](cli-ref/v0/idp/synchronization-session/list.md)
+
+##### synchronization-settings
+
+ - [Overview](cli-ref/v0/idp/synchronization-settings/index.md)
+
+ - [create](cli-ref/v0/idp/synchronization-settings/create.md)
+
+ - [delete](cli-ref/v0/idp/synchronization-settings/delete.md)
+
+ - [get](cli-ref/v0/idp/synchronization-settings/get.md)
+
+ - [list-supported-attributes](cli-ref/v0/idp/synchronization-settings/list-supported-attributes.md)
+
+ - [reset-replication-token](cli-ref/v0/idp/synchronization-settings/reset-replication-token.md)
+
+ - [update](cli-ref/v0/idp/synchronization-settings/update.md)
+
 ##### user
 
  - [Overview](cli-ref/v0/idp/user/index.md)
@@ -1359,6 +1423,8 @@
  - [SetReplicationToken](idp/api-ref/grpc/Synchronization/setReplicationToken.md)
 
  - [ResetReplicationToken](idp/api-ref/grpc/Synchronization/resetReplicationToken.md)
+
+ - [GetReplicationToken](idp/api-ref/grpc/Synchronization/getReplicationToken.md)
 
  - [CreateSynchronizationSettings](idp/api-ref/grpc/Synchronization/createSynchronizationSettings.md)
 
@@ -1787,6 +1853,8 @@
  - [SetReplicationToken](idp/api-ref/Synchronization/setReplicationToken.md)
 
  - [ResetReplicationToken](idp/api-ref/Synchronization/resetReplicationToken.md)
+
+ - [GetReplicationToken](idp/api-ref/Synchronization/getReplicationToken.md)
 
  - [CreateSynchronizationSettings](idp/api-ref/Synchronization/createSynchronizationSettings.md)
 

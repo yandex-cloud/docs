@@ -2,6 +2,7 @@
 
 # Начало работы с Apache Hive™ Metastore
 
+
 В сервисе Yandex MetaData Hub вы можете [создавать кластеры Apache Hive™ Metastore](#create-metastore-cluster) и [использовать их](#connect-metastore-to-dataproc) для работы с кластерами Yandex Data Processing.
 
 ## Перед началом работы {#before-you-begin}
@@ -23,7 +24,7 @@
        * первый символ — буква, последний — не дефис.
    
    1. (Опционально) Введите описание каталога.
-   1. Выберите опцию **Создать сеть по умолчанию**. Будет создана [сеть](../../vpc/concepts/network.md#network) с подсетями в каждой зоне доступности. Также в этой сети будет создана [группа безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group), внутри которой весь сетевой трафик разрешен.
+   1. Выберите опцию **Создать сеть по умолчанию**. Будет создана [сеть](../../vpc/concepts/network.md#network) с подсетями в каждой [зоне доступности](../../overview/concepts/geo-scope.md). Также в этой сети будет создана [группа безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group), внутри которой весь сетевой трафик разрешен.
    1. Нажмите кнопку **Создать**.
    
       ![create-folder2](../../_assets/resource-manager/create-folder-2.png)

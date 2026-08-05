@@ -6,4 +6,5 @@
 
 * [Первый вход в консоль](first-login.md).
 * [Управление аккаунтом на портале «Мой аккаунт»](../manage-account.md).
+* [Сбросить пароль для входа в консоль управления Yandex Cloud](reset-password.md).
 * [Решение проблем](troubleshooting.md).

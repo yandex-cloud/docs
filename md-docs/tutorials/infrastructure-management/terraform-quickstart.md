@@ -115,6 +115,8 @@ export PATH=$PATH:/path/to/terraform
   
   1. Запишите аутентификационные данные в переменные окружения, используя имперсонацию:
   
+      {% list tabs group=programming_language %}
+  
       - Bash {#bash}
   
         ```bash

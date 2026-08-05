@@ -7,6 +7,8 @@ description: Follow this guide to add parallel logic, which will run multiple co
 
 The Parallel control step executes multiple branches (sequences of steps) concurrently. The result of the step is an object in which keys and values are the names of the execution branches and their outputs, respectively. Read more about the [workflow state during the Parallel step](../../../concepts/workflows/workflow.md#state-for-Parallel).
 
+{% include [templating-note](../../../../_includes/serverless-integrations/templating-note.md) %}
+
 {% list tabs %}
 
 - Management console {#console}

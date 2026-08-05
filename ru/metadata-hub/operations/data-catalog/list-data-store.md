@@ -5,11 +5,13 @@ description: Как получить список хранилищ данных 
 
 # Получение списка хранилищ данных
 
+
 {% note info %}
 
 {% include [preview-pp](../../../_includes/preview-pp.md) %}
 
 {% endnote %}
+
 
 {% list tabs group=instructions %}
 

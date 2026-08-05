@@ -5,6 +5,8 @@ description: Follow this guide to add a synchronous execution of a {{ sw-full-na
 
 # Synchronous execution of another {{ sw-full-name }} workflow
 
+{% include [templating-note](../../../../_includes/serverless-integrations/templating-note.md) %}
+
 {% list tabs %}
 
 - Management console {#console}

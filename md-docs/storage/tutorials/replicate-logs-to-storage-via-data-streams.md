@@ -4,6 +4,7 @@
 
 # Репликация логов в Yandex Object Storage с помощью Yandex Data Streams
 
+
 С помощью [Yandex Data Streams](../../data-streams/index.md) можно настроить автоматическую репликацию логов сервисов и пользовательских приложений в [Yandex Object Storage](../index.md).
 
 Решение работает по следующей схеме:
@@ -89,7 +90,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится лог группа.
-  1. [Перейдите](https://console.yandex.cloud/link/logging) в сервис **Cloud Logging**.
+  1. Перейдите в сервис **Cloud Logging**.
   1. Напротив лог-группы, в которую поступают логи, нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
   1. В поле **Поток данных** выберите поток `logs-stream`, созданный ранее.
   1. Нажмите кнопку **Сохранить**.

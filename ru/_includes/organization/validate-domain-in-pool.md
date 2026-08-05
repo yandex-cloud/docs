@@ -33,15 +33,13 @@
   1. Выполните команду:
 
       ```bash
-      yc organization-manager idp userpool domain validate <идентификатор_пула> <домен> \
-        --name <домен>
+      yc organization-manager idp userpool domain validate <идентификатор_пула> <домен>
       ```
 
-      Например, подтвердите домен `my-domain.ru` в федерации `my-federation`:
+      Например, подтвердите домен `my-domain.ru` в пуле `ek05kcb9vm2d********`:
 
       ```bash
-      yc organization-manager federation saml validate-domain my-federation \
-        --domain my-domain.ru
+      yc organization-manager idp userpool domain validate ek05kcb9vm2d******** my-domain.ru
       ```
 
 - API {#api}

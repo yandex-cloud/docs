@@ -415,7 +415,7 @@ Docker-образ — исполняемый пакет, который соде
 
 ## Вызовите контейнер {#invoke}
 
-После создания контейнера вы получите ссылку для вызова. [Как узнать ее.](../operations/invoke.md#link) Сделайте HTTPS-запрос, передав [IAM-токен](../../iam/concepts/authorization/iam-token.md) в заголовке `Authorization`:
+После создания контейнера вы получите ссылку для вызова. [Как узнать ее.](../operations/invocation-link.md) Сделайте HTTPS-запрос, передав [IAM-токен](../../iam/concepts/authorization/iam-token.md) в заголовке `Authorization`:
 
 ```bash
 curl \

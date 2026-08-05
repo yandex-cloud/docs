@@ -264,7 +264,7 @@
      
      ```
 
-     { % endcut %}
+     {% endcut %}
 
   1. Создайте в бакете `<бакет_для_исходного_кода_PySpark_задания>` папку `scripts` и [загрузите](../../storage/operations/objects/upload.md#simple) в нее файл `job_with_table.py`.
 
@@ -322,7 +322,7 @@
      
      ```
 
-     { % endcut %}
+     {% endcut %}
 
   1. Создайте в бакете `<бакет_для_заданий_и_данных>` папку `scripts` и [загрузите](../../storage/operations/objects/upload.md#simple) в нее файл `job_with_table.py`.
 
@@ -608,7 +608,7 @@ DAG будет состоять из нескольких вершин, кото
      * `JOB_ARGS` — аргументы задания PySpark.
      * `JOB_PROPERTIES` — свойства задания PySpark.
 
-     { % endcut %}
+     {% endcut %}
 
   1. Загрузите DAG в кластер Apache Airflow™: создайте в бакете `<бакет_для_заданий_и_данных>` папку `dags` и загрузите в нее файл `dag.py`.
   1. Откройте веб-интерфейс Apache Airflow™.

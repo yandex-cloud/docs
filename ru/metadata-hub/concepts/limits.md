@@ -11,6 +11,7 @@ description: В {{ metadata-hub-full-name }} действуют квоты на 
 
 ## Квоты {{ connection-manager-name }} {#connection-manager-quota}
 
+
 {% include [connection-manager-quotas](../../_includes/metadata-hub/connection-manager-quotas.md) %}
 
 ## Квоты {{ metastore-name }} {#metastore-quota}
@@ -19,11 +20,13 @@ description: В {{ metadata-hub-full-name }} действуют квоты на 
 
 ## Квоты {{ schema-registry-name }} {#schema-registry-quota}
 
+
 {% include [preview-pp](../../_includes/preview-pp.md) %}
 
 {% include [schema-registry-quotas](../../_includes/metadata-hub/schema-registry-quotas.md) %}
 
 ## Квоты {{ data-catalog-name }} {#data-catalog-quota}
+
 
 {% include [preview-pp](../../_includes/preview-pp.md) %}
 

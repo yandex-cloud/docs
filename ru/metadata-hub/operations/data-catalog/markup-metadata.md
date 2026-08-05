@@ -5,11 +5,13 @@ description: Следуя данной инструкции, вы сможете
 
 # Разметка метаданных
 
+
 {% note info %}
 
 {% include [preview-pp](../../../_includes/preview-pp.md) %}
 
 {% endnote %}
+
 
 Для разметки метаданных вы можете:
 

@@ -5,6 +5,8 @@ description: Follow this guide to add interaction with a vector store to your {{
 
 # Interaction with a vector store
 
+{% include [templating-note](../../../../_includes/serverless-integrations/templating-note.md) %}
+
 {% list tabs %}
 
 - Management console {#console}

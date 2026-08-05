@@ -5,6 +5,7 @@ description: В сервисе {{ metadata-hub-name }} вы можете соз�
 
 # Начало работы с {{ metastore-full-name }}
 
+
 В сервисе {{ metadata-hub-name }} вы можете [создавать кластеры {{ metastore-full-name }}](#create-metastore-cluster) и [использовать их](#connect-metastore-to-dataproc) для работы с кластерами {{ dataproc-full-name }}.
 
 ## Перед началом работы {#before-you-begin}
@@ -130,4 +131,3 @@ description: В сервисе {{ metadata-hub-name }} вы можете соз�
 * [Экспортируйте или импортируйте метаданные Hive в кластере {{ metastore-name }}](../operations/metastore/export-and-import.md).
 
 {% include [metastore-trademark](../../_includes/metadata-hub/metastore-trademark.md) %}
-

@@ -5,6 +5,8 @@ description: Follow this guide to add interaction with {{ ai-studio-name }} mode
 
 # Interacting with {{ ai-studio-name }} models
 
+{% include [templating-note](../../../../_includes/serverless-integrations/templating-note.md) %}
+
 {% list tabs %}
 
 - Management console {#console}

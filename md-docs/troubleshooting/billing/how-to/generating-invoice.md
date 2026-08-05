@@ -11,7 +11,7 @@
 
 Счет автоматически отправляется в конце месяца на адрес электронной почты владельца платёжного аккаунта, указанный у этого пользователя [в параметрах Консоли управления](https://console.yandex.cloud/settings).
 
-Также имеется возможность сформировать счёт на оплату самостоятельно [в разделе **Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts). Чтобы пополнить лицевой счет, воспользуйтесь [этой инструкцией](../../../billing/operations/pay-the-bill.md#legal-entities.md).
+Также имеется возможность сформировать счёт на оплату самостоятельно [в разделе **Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts). Чтобы пополнить лицевой счет, воспользуйтесь [этой инструкцией](../../../billing/operations/pay-the-bill.md#legal-entities).
 
 {% note info %}
 

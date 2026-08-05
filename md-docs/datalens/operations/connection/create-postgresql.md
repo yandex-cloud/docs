@@ -79,6 +79,8 @@ Yandex Cloud не отвечает за настройки удаленного 
         * **Подзапросы и параметры** — описывать источники датасета с помощью SQL-запросов и использовать [параметризацию источников](../../dataset/settings.md#parametrization).
         * **SQL на чтение** — описывать источники датасета с помощью SQL-запросов, использовать параметризацию источников и [создавать QL-чарты](../../concepts/chart/ql-charts.md).
 
+     ![connection-postgresql](../../../_assets/datalens/operations/connection/connection-postgresql-org.png)
+
        Чтобы проверить корректность введенных параметров, нажмите кнопку **Проверить подключение**.
 
    - Указать вручную {#manual}
@@ -97,6 +99,8 @@ Yandex Cloud не отвечает за настройки удаленного 
         * **Только подзапросы** — описывать источники датасета с помощью [SQL-запросов](../../dataset/settings.md#sql-request-in-datatset).
         * **Подзапросы и параметры** — описывать источники датасета с помощью SQL-запросов и использовать [параметризацию источников](../../dataset/settings.md#parametrization).
         * **SQL на чтение** — описывать источники датасета с помощью SQL-запросов, использовать параметризацию источников, [создавать QL-чарты](../../concepts/chart/ql-charts.md) и выполнять SQL-запросы на чтение.
+
+     ![connection-postgresql](../../../_assets/datalens/operations/connection/connection-postgresql-manual.png)
 
      Чтобы проверить корректность введенных параметров, нажмите кнопку **Проверить подключение**.
 
@@ -123,6 +127,8 @@ Yandex Cloud не отвечает за настройки удаленного 
         * **Только подзапросы** — описывать источники датасета с помощью [SQL-запросов](../../dataset/settings.md#sql-request-in-datatset).
         * **Подзапросы и параметры** — описывать источники датасета с помощью SQL-запросов и использовать [параметризацию источников](../../dataset/settings.md#parametrization).
         * **SQL на чтение** — описывать источники датасета с помощью SQL-запросов, использовать параметризацию источников и [создавать QL-чарты](../../concepts/chart/ql-charts.md).
+
+     ![connection-postgresql](../../../_assets/datalens/operations/connection/connection-postgresql-manager.png)
 
    {% endlist %}
 

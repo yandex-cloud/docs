@@ -36,6 +36,13 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](./edit-account.md)
 * [{#T}](./leave-organization.md)
 
+## Управление аккаунтом пользователя {#manage-user-account}
+
+* [{#T}](./user-account/first-login.md)
+* [{#T}](./manage-account.md)
+* [{#T}](./user-account/reset-password.md)
+* [{#T}](./user-account/troubleshooting.md)
+
 ## Управление группами пользователей {#manage-groups}
 
 * [{#T}](./create-group.md)
@@ -109,6 +116,7 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](./delete-ssh.md)
 * [{#T}](./enable-refresh-tokens.md)
 * [{#T}](./enable-2fa-access.md)
+* [{#T}](./manage-sspr.md)
 
 ## Управление политиками аутентификации {#manage-authentication-policies}
 

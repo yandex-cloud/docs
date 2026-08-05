@@ -6,7 +6,7 @@ description: Follow this guide to view disk and partition parameters of a backup
 # Viewing the parameters of backup disks and partitions
 
 
-To avoid errors when recovering from a backup, start by comparing the parameters of the disks and partitions of the backup against those of your [resource](../../concepts/index.md#protected-resources).
+To avoid errors when recovering from a backup, start by comparing the parameters of the disks and partitions of the backup against those of the [protected resource](../../concepts/index.md#protected-resources).
 
 {% list tabs group=instructions %}
 
