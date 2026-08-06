@@ -12,8 +12,8 @@ For more information, see [Logs](../concepts/logs.md).
 
 - Management console {#console}
 
-    1. Open the [folder dashboard]({{ link-console-main }}).
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/data-proc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Click the cluster name.
     1. Under **{{ ui-key.yacloud.mdb.cluster.overview.section_configuration }}**, click the name of the cluster log group. The {{ cloud-logging-name }} page will open.
     1. Click the log group row. This will open the cluster logs.
@@ -109,8 +109,8 @@ For more information, see [Logs](../concepts/logs.md).
 
       To get the host FQDN:
 
-      1. Open the [folder dashboard]({{ link-console-main }}).
-      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+      1. In the [management console]({{ link-console-main }}), select a folder.
+      1. [Navigate]({{ link-console-main }}/link/data-proc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
       1. Click the cluster name.
       1. Navigate to the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
       1. Copy the host FQDN.

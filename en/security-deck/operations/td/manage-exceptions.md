@@ -27,10 +27,7 @@ To view the list of exceptions from the {{ td-full-name }} module's security con
       The list of exceptions for the {{ td-full-name }} module rules is provided under **{{ td-full-name }}** and contains the following fields:
 
       * **{{ ui-key.yacloud_org.security.controls.ScopeFilterTable.field_reason_qN8a7 }}**: User-specified exception reason when creating the exception.
-      * **{{ ui-key.yacloud_org.security.controls.ScopeFilterTable.field_reason_qN8a7 }}**: Action which the exception will trigger:
-
-          * `{{ ui-key.yacloud_org.security.controls.ScopeFilterTable.field_type_manual_mbKxp }}`: If the conditions specified in the exception are met, the resource will generate rule compliance signals.
-          * `{{ ui-key.yacloud_org.security.controls.ScopeFilterTable.field_type_exclude_cigcD }}`: If the conditions specified in the exception are met, the resource will not generate rule compliance signals for the inspected resources.
+      * **{{ ui-key.yacloud_org.security.controls.ControlsExceptionTable.field_status }}**: Exception status.
       * **{{ ui-key.yacloud_org.security.controls.ScopeFilterTable.field_rules_vBK4W }}**: Number of rules for which compliance checking is excluded. To view a detailed list of excluded rules, click the line with the exception.
       * **{{ ui-key.yacloud_org.security.controls.ScopeFilterTable.field_author_8hf4z }}**: Information about the user who created the exception, as well as the date and time of creation.
 

@@ -10,7 +10,7 @@ description: Follow this guide to check the health status of your targets.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder page.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. [Navigate]({{ link-console-main }}/link/network-load-balancer/) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Click the name of the load balancer in question.
 
 - CLI {#cli}

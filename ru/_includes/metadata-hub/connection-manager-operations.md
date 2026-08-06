@@ -3,9 +3,9 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ metadata-hub-full-name }}**.
+  1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}** и нажмите на имя нужного подключения.
-  1. На панели слева выберите ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
+  1. Выберите **{{ ui-key.yacloud.common.operations-key-value }}**.
 
      В списке операций вы можете просмотреть все операции выбранного подключения с момента его создания:
 

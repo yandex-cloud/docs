@@ -43,6 +43,8 @@ items:
         href: concepts/aggregates.md
       - name: VPC Stitching
         href: concepts/vpc-stitching.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
   - name: Сценарии использования
     expanded: true
     items:

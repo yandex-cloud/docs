@@ -99,7 +99,9 @@
 
   Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
   
-  По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+  По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`.
+  
+  Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
   
   1. Посмотрите описание команды [CLI](../../../cli/index.md) для активации сервиса:
   
@@ -312,7 +314,8 @@
   1. Получите список конфигураций:
      
      ```bash
-     yc baremetal configuration list
+     yc baremetal configuration list \
+       --folder-id <идентификатор_каталога>
      ```
      
      Примерный результат:
@@ -338,17 +341,38 @@
      +----------------------+---------------------+-----------+--------------------------------+--------------------------------+-------------------------+---------+
      ```
 
+  1. Получите список периодов аренды, доступных для выбранной конфигурации:
+     
+     ```bash
+     yc baremetal rental-period list \
+       --configuration-id <идентификатор_конфигурации>
+     ```
+
+  1. Получите список публичных образов ОС, доступных в Marketplace:
+     
+     ```bash
+     yc baremetal standard-image list \
+       --folder-id baremetal-standard-images
+     ```
+
+  1. Получите список приватных подсетей в каталоге:
+     
+     ```bash
+     yc baremetal private-subnet list \
+       --folder-id <идентификатор_каталога>
+     ```
+
   1. Арендуйте сервер:
      
      ```bash
      yc baremetal server create \
+       --folder-id <идентификатор_каталога> \
        --hardware-pool-id <пул> \
-       --configuration-id <идентификатор_конфигурация> \
-       --storage "partition={type=<файловая_система>,size-gib=<размер_раздела>,mount-point=<точка_монтирования>},raid-type=<уровень RAID-массива>,disk={id=<номер_диска>,size-gib=<размер_диска>,type=<тип_диска>}" \
-       --os-settings "image-id=<идентификатор_образа>,image-name=<имя_образа>,ssh-key-public=<содержимое_открытого_SSH-ключа>,ssh-key-user-id=<идентификатор_пользователя_SSH-ключа>,password-plain-text=<пароль_пользователя>,password-lockbox-secret={secret-id=<идентификатор_секрета>,version-id=<версия_секрета>,key=<ключ_секрета>}" \
+       --configuration-id <идентификатор_конфигурации> \
+       --os-settings-spec "image-id=<идентификатор_образа>,storages=[{partitions=[{type=<файловая_система>,size-gib=<размер_раздела>,mount-point=<точка_монтирования>}],storage-type={raid={type=<уровень_RAID-массива>,disks=[{id=<номер_диска>,size-gib=<размер_диска>,type=<тип_диска>}]}}}],ssh-key={ssh-public-key=<содержимое_открытого_SSH-ключа>},password={password-plain-text=<пароль_пользователя>}" \
        --rental-period-id <период_аренды> \
-       --network-interfaces private-subnet-id=<идентификатор_приватной_подсети> \
-       --network-interfaces public-subnet-id=<идентификатор_публичной_подсети> \
+       --network-interfaces '{interface={private-interface={native-subnet-id=<идентификатор_приватной_подсети>}}}' \
+       --network-interfaces '{interface={public-interface={native-subnet-config={native-subnet={subnet-id=<идентификатор_публичной_подсети>}}}}}' \
        --name <имя_сервера> \
        --description "<описание_сервера>" \
        --labels <ключ_метки>=<значение_метки>
@@ -357,20 +381,50 @@
       Где:
       * `--hardware-pool-id` — [пул](../../../baremetal/concepts/servers.md#server-pools), из которого будет арендован сервер.
       * `--configuration-id` — идентификатор [конфигурации сервера](../../../baremetal/concepts/server-configurations.md).
-      * `--storage` — настройки разметки [дисков](../../../baremetal/concepts/disks/disk-types.md). Необязательный параметр. Возможные настройки:
+      * `--os-settings-spec` — настройки операционной системы. Чтобы арендовать сервер без операционной системы, пропустите этот параметр. Возможные настройки:
         
-        * `partition` — раздел диска:
+        * `image-id` — идентификатор одного из доступных [публичных образов](../../../baremetal/concepts/images.md#marketplace-images) ОС в Yandex Cloud Marketplace.
+        * `ssh-key` — SSH-ключ для подключения к серверу:
+        
+          * `ssh-public-key` — содержимое открытого SSH-ключа. Пару SSH-ключей для подключения к серверу по [SSH](../../../glossary/ssh-keygen.md) необходимо [создать](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+          * `user-ssh-id` — идентификатор пользовательского SSH-ключа.
+        * `password` — пароль root-пользователя:
+        
+          * `password-plain-text` — пароль в открытом виде.
+        
+            {% note warning %}
+            
+            Этот вариант предусматривает ответственность пользователя за безопасность пароля. Сохраните сгенерированный пароль в надежном месте: он не сохраняется в Yandex Cloud, и после заказа сервера вы не сможете посмотреть его.
+            
+            {% endnote %}
+        
+          * `password-lockbox-secret` — [секрет](../../../lockbox/concepts/secret.md) Yandex Lockbox:
+        
+            * `secret-id` — идентификатор секрета.
+            * `version-id` — версия секрета.
+            * `key` — ключ секрета.
+
+        [Установить](../../../baremetal/operations/servers/reinstall-os-from-own-image.md) операционную систему из [собственного ISO-образа](../../../baremetal/concepts/images.md#user-images) вы сможете позднее.
+
+      * `storages` — настройки разметки [дисков](../../../baremetal/concepts/disks/disk-types.md) в параметре `--os-settings-spec`. Необязательная настройка. Возможные значения:
+        
+        * `partitions` — разделы диска:
           
-          * `type` — файловая система. Возможные значения: `Ext3`, `Ext4`, `Swap`, `Xfs`.
+          * `type` — файловая система. Возможные значения: `EXT3`, `EXT4`, `SWAP`, `XFS`.
           * `size-gib` — размер раздела в гигабайтах.
           * `mount-point` — точка монтирования.
         
-        * `disk` — диск:
-          
-          * `id` — номер диска.
-          * `size-gib` — размер диска в гигабайтах.
-          * `type` — тип диска
-        * `raid-type` — [уровень RAID-массива](../../../baremetal/concepts/disks/raid.md#levels).
+        * `storage-type` — тип хранилища:
+        
+          * `disk` — отдельный диск:
+        
+            * `id` — номер диска.
+            * `size-gib` — размер диска в гигабайтах.
+            * `type` — тип диска.
+          * `raid` — RAID-массив:
+        
+            * `type` — [уровень RAID-массива](../../../baremetal/concepts/disks/raid.md#levels).
+            * `disks` — список дисков в RAID-массиве.
 
         {% note info %}
         
@@ -378,35 +432,14 @@
         
         {% endnote %}
 
-      * `--os-settings` — настройки операционной системы. Чтобы арендовать сервер без операционной системы, пропустите этот параметр. Возможные настройки:
-        
-        * `image-id` — идентификатор одного из доступных [публичных образов](../../../baremetal/concepts/images.md#marketplace-images) ОС в Yandex Cloud Marketplace.
-        * `image-name` — имя одного из доступных публичных образов ОС в Yandex Cloud Marketplace.
-        * `ssh-key-public` — содержимое открытого SSH-ключа. Пару SSH-ключей для подключения к серверу по [SSH](../../../glossary/ssh-keygen.md) необходимо [создать](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-        * `ssh-key-user-id` — идентификатор пользователя SSH-ключа.
-        * `password-plain-text` — пароль root-пользователя.
-        
-          {% note warning %}
-          
-          Этот вариант предусматривает ответственность пользователя за безопасность пароля. Сохраните сгенерированный пароль в надежном месте: он не сохраняется в Yandex Cloud, и после заказа сервера вы не сможете посмотреть его.
-          
-          {% endnote %}
-        
-        * `password-lockbox-secret` — [секрет](../../../lockbox/concepts/secret.md) Yandex Lockbox:
-          * `secret-id` — идентификатор секрета.
-          * `version-id` — версия секрета.
-          * `key` — ключ секрета.
-
-        [Установить](../../../baremetal/operations/servers/reinstall-os-from-own-image.md) операционную систему из [собственного ISO-образа](../../../baremetal/concepts/images.md#user-images) вы сможете позднее.
-
-      * `--rental-period-id` — период аренды сервера. Возможные значения: `1 day`, `1 month`, `3 months`, `6 months` или `1 year`.
+      * `--rental-period-id` — идентификатор периода аренды сервера, полученный с помощью команды `yc baremetal rental-period list`.
 
         По окончании указанного периода аренда сервера будет автоматически продлена на такой же период. Прервать аренду в течение указанного периода аренды нельзя, но можно [отказаться](../../../baremetal/operations/servers/server-lease-cancel.md) от дальнейшего продления аренды сервера.
 
-      * `--network-interfaces` — сетевые настройки:
+      * `--network-interfaces` — сетевые интерфейсы сервера:
         
-        * `private-subnet-id` — идентификатор [приватной подсети](../../../baremetal/concepts/private-network.md#private-subnet).
-        * `public-subnet-id` — идентификатор [выделенной публичной подсети](../../../baremetal/concepts/public-network.md#public-subnet). Необязательный параметр.
+        * `private-interface` — приватный интерфейс. В параметре `native-subnet-id` укажите идентификатор [приватной подсети](../../../baremetal/concepts/private-network.md#private-subnet).
+        * `public-interface` — публичный интерфейс. В настройке `native-subnet` укажите идентификатор [выделенной публичной подсети](../../../baremetal/concepts/public-network.md#public-subnet) в параметре `subnet-id`. Необязательная настройка.
 
           {% note warning %}
 
@@ -429,6 +462,7 @@
           `8443` | `TCP` | `Диапазон адресов` | `84.47.172.0/24`
           `44445` | `TCP` | `Диапазон адресов` | `51.250.1.0/24`
 
+      * `--folder-id` — идентификатор [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создан сервер.
       * `--name` — имя сервера.
       * `--description` — описание сервера. Необязательный параметр.
       * `--labels` — метки сервера. Необязательный параметр.

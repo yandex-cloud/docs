@@ -4,6 +4,7 @@
 
 # Использование сервиса Yandex Managed Service for Apache Spark™ в DataSphere
 
+
 В DataSphere вы можете использовать кластеры [Apache Spark™](../index.md), развернутые в сервисе Yandex Managed Service for Apache Spark™. Подключение кластеров Apache Spark™ выполняется с помощью [коннекторов Spark](../../datasphere/concepts/spark-connector.md). Для выполнения вычислений в кластере запускается задание с типом `SparkConnect`.
 
 Чтобы в DataSphere настроить интеграцию с сервисом Managed Service for Apache Spark™:

@@ -22,6 +22,8 @@
 
 ### Сервисные аккаунты
 
+ - [Обзор](operations/sa/index.md)
+
  - [Создание сервисного аккаунта](operations/sa/create.md)
 
  - [Просмотр сервисных аккаунтов каталога](operations/sa/list-get.md)
@@ -38,9 +40,13 @@
 
  - [Получение ID-токена сервисного аккаунта](operations/sa/get-id-token.md)
 
+ - [Блокировка и разблокировка сервисного аккаунта](operations/sa/suspend-reactivate.md)
+
  - [Удаление сервисного аккаунта](operations/sa/delete.md)
 
 ### Политики авторизации
+
+ - [Обзор](operations/access-policies/index.md)
 
  - [Получение списка шаблонов политик](operations/access-policies/list.md)
 
@@ -52,6 +58,8 @@
 
 ### Роли
 
+ - [Обзор](operations/roles/index.md)
+
  - [Назначение роли](operations/roles/grant.md)
 
  - [Просмотр назначенных ролей](operations/roles/get-assigned-roles.md)
@@ -60,7 +68,11 @@
 
 ### Аутентификация
 
+ - [Обзор](operations/authentication/index.md)
+
 #### IAM-токены
+
+ - [Обзор](operations/iam-token/index.md)
 
  - [Получение IAM-токена для аккаунта на Яндексе](operations/iam-token/create.md)
 
@@ -72,7 +84,9 @@
 
  - [Отзыв IAM-токена](operations/iam-token/revoke-iam-token.md)
 
-##### Refresh-токены
+#### Refresh-токены
+
+ - [Обзор](operations/refresh-token/index.md)
 
  - [Получение списка refresh-токенов](operations/refresh-token/list.md)
 
@@ -90,11 +104,15 @@
 
 ### Доступ сервисов к ресурсам пользователя
 
+ - [Обзор](operations/service-control/index.md)
+
  - [Просмотр статусов сервисов](operations/service-control/list-get.md)
 
  - [Включение и выключение сервисов](operations/service-control/enable-disable.md)
 
 ### Федерации сервисных аккаунтов
+
+ - [Обзор](operations/wlif/index.md)
 
  - [Настройка федерации сервисных аккаунтов](operations/wlif/setup-wlif.md)
 

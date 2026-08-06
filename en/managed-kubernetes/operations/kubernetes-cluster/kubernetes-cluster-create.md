@@ -126,7 +126,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
         {% endnote %}
 
-     * `--daily-maintenance-window`: Settings for the [update](../../concepts/release-channels-and-updates.md#updates) window start time in UTC.
+     * `--daily-maintenance-window`: Start point and duration of the UTC time interval during which the [update](../../concepts/release-channels-and-updates.md#updates) will start. This setting is not related to the update duration or its completion time.
      * `--labels`: [Cloud labels](../../concepts/index.md#cluster-labels) for the cluster.
 
      Result:

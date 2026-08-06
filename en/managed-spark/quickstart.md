@@ -46,7 +46,7 @@ The cost of infrastructure support includes a fee for using a {{ objstorage-full
 1. Grant the service account access to the {{ objstorage-name }} that will be storing your code and data for cluster-specific jobs:
 
    1. In the [management console]({{ link-console-main }}), select the relevant folder.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. Open the bucket you [created](#create-s3-bucket).
       1. Navigate to **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
       1. Click ![image](../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
@@ -64,7 +64,7 @@ The cost of infrastructure support includes a fee for using a {{ objstorage-full
 - Management console
 
   1. In the management console, select the folder where you want to create a cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-spark) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Give the cluster a name.
   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** field, select the [previously created](#before-you-begin) service account.

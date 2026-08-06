@@ -1,4 +1,4 @@
-In this tutorial, you will deploy a [Docker image](../../cloud-registry/concepts/artifacts/docker.md) from a [registry](../../cloud-registry/concepts/registry.md) in {{ cloud-registry-full-name }} and run a container on a {{ compute-full-name }} VM instance.
+In this tutorial, you will deploy a [Docker image](../../cloud-registry/concepts/artifacts/docker.md) from a [registry](../../cloud-registry/concepts/registry.md) in {{ cloud-registry-full-name }} and run a container on a {{ compute-full-name }} [VM](../../compute/concepts/vm.md).
 
 To run a Docker image on a VM:
 
@@ -8,8 +8,8 @@ To run a Docker image on a VM:
 1. [Create an authorized key for the service account](#create-authorized-key).
 1. [Create a cloud network with a subnet](#create-network).
 1. [Create a VM](#create-vm).
-1. [Build a Docker image and push it to {{ cloud-registry-name }}](#create-image).
-1. [Push the Docker image to the VM](#run).
+1. [Build the Docker image and push it to {{ cloud-registry-name }}](#create-image).
+1. [Pull the Docker image to the VM](#run).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -24,7 +24,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The cost of resources for running a Docker image includes:
 
 * Fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for storing the created images (see [{{ cloud-registry-full-name }} pricing](../../cloud-registry/pricing.md)).
+* Fee for storing created images (see [{{ cloud-registry-full-name }} pricing](../../cloud-registry/pricing.md)).
 * Fee for outbound traffic from {{ yandex-cloud }} to the internet (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
 
@@ -46,8 +46,8 @@ Create a registry for storing Docker images.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a registry in.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-registry }}**.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a registry.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-registry }}**.
   1. Click **{{ ui-key.yacloud.cloud-registry.action_registry-create }}**.
   1. Select ![image](../../_assets/console-icons/logo-docker.svg) **{{ ui-key.yacloud.cloud-registry.registries.registry-kind_docker }}** for the format.
   1. Set the registry type to **Local**.
@@ -163,19 +163,19 @@ Create a [service account](../../iam/concepts/users/service-accounts.md) you wil
 
 ## Create an authorized key for the service account {#create-authorized-key}
 
-Create an [authorized key](../../iam/concepts/authorization/key.md) for the `docker-puller` service account An authorized key will allow the service account to get an IAM token for authentication in the {{ yandex-cloud }} API.
+Create an [authorized key](../../iam/concepts/authorization/key.md) for the `docker-puller` service account. An authorized key will allow the service account to get an IAM token for authentication in the {{ yandex-cloud }} API.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the list that opens, select the `docker-puller` service account.
   1. In the top panel, click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select `{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.iam.folder.service-account.overview.action_download-keys-file }}** and then **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_close }}**
 
-  The action will download to your computer a file named `authorized_key.json` containing the authorized key. You will need this key later to set up Docker on your VM.
+  This downloads the `authorized_key.json` file containing the authorized key to your computer. You will need this key later to set up Docker on your VM.
 
 - CLI {#cli}
 
@@ -196,7 +196,7 @@ Create an [authorized key](../../iam/concepts/authorization/key.md) for the `doc
   key_algorithm: RSA_2048
   ```
 
-  The action will download to your computer a file named `authorized_key.json` containing the authorized key. You will need this key later to set up Docker on your VM.
+  This downloads the `authorized_key.json` file containing the authorized key to your computer. You will need this key later to set up Docker on your VM.
 
 - API {#api}
 
@@ -213,12 +213,12 @@ Create a [cloud network](../../vpc/concepts/network.md) with a [subnet](../../vp
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, specify `docker-ycr-network`.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, disable **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
   1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
-  1. Select `vipnet-network`.
+  1. Select `docker-ycr-network`.
   1. Click ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}** at the top right.
   1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** field, specify `docker-ycr-subnet-{{ region-id }}-b`.
   1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** field, select `{{ region-id }}-b`.
@@ -285,16 +285,16 @@ Create a VM with a public IP address and associate it with the service account y
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an image and a Linux-based OS version.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the previously created network and subnet.
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, leave the **{{ ui-key.yacloud.component.compute.network-select.switch_auto }}** value to assign a random external IP address from the {{ yandex-cloud }} pool.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, leave the **{{ ui-key.yacloud.component.compute.network-select.switch_auto }}** value to assign the VM a random external IP address from the {{ yandex-cloud }} pool.
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the VM access credentials:
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the VM access data:
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username.
       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file.
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `docker-vm`.
@@ -379,16 +379,16 @@ Create a VM with a public IP address and associate it with the service account y
 {% endlist %}
 
 
-## Build a Docker image and push it to {{ cloud-registry-name }} {#create-image}
+## Build the Docker image and push it to {{ cloud-registry-name }} {#create-image}
 
-Build a Docker image and push it to the registry.
+Build the Docker image and push it to the registry.
 
 {% list tabs group=programming_language %}
 
 - Bash {#bash}
 
   1. [Get authenticated](../../cloud-registry/operations/docker/authentication.md) in {{ cloud-registry-name }}.
-  1. Create a file called Dockerfile:
+  1. Create a Dockerfile:
 
       ```bash
       echo "FROM ubuntu:latest" > Dockerfile
@@ -427,7 +427,7 @@ Build a Docker image and push it to the registry.
 {% endlist %}
 
 
-## Push the Docker image to the VM {#run}
+## Pull the Docker image to the VM {#run}
 
 Set up the environment on the VM, pull the Docker image, and run it.
 
@@ -500,7 +500,7 @@ Set up the environment on the VM, pull the Docker image, and run it.
       sudo chmod +x /usr/local/bin/docker-credential-yc
       ```
 
-  1. Push the Docker image to the VM:
+  1. Pull the Docker image to the VM:
 
       ```bash
       docker pull {{ cloud-registry }}/<registry_ID>/ubuntu:hello

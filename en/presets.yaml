@@ -3413,7 +3413,6 @@ default:
         alerts:
           comment_form:
             send: Send
-          filters-button: Filters
         comp:
           SetsTable:
             action_disable_5hgkz: Disable verification
@@ -3480,6 +3479,7 @@ default:
             field_author_8hf4z: Created
             field_reason_qN8a7: Exception reason
             field_rules_vBK4W: Rules
+            field_scope_kCG8J: Resource
             field_type_exclude_cigcD: No check required
             field_type_manual_mbKxp: Manually scanned
         discovery:
@@ -4604,6 +4604,7 @@ default:
         type_sms: SMS
         type_web: Push notifications in browser
       common:
+        action_show-all: Show all
         add: Add
         all: All
         apply: Apply
@@ -5923,7 +5924,6 @@ default:
             field_address-type: Public address
             field_cluster-cidr: CIDR cluster
             field_kms-key: Encryption key
-            field_maintenance-daily: Maintenance window start time in UTC
             field_master-type: Type of master
             field_master-version: Kubernetes version
             field_network: Cloud network
@@ -5935,7 +5935,6 @@ default:
             field_subnetwork: Subnet
             field_tunnel-mode: Сilium CNI
             label_logging-enabled: Write logs
-            label_maintenance-weekly: Weekly schedule
             label_master-computing-resources: Computing resources
             label_master-preset-group-cpu-optimized: CPU-optimized
             label_master-preset-group-memory-optimized: Memory-optimized
@@ -7380,6 +7379,9 @@ default:
             switch_redirect: Redirect
             title_connected-domains: Domains in Cloud DNS
             title_redirect: Redirect
+        Bucket:
+          NewerNoncurrentVersionsField:
+            field_newer_noncurrent_versions_ezq3T: Versions to store
         buckets:
           button_create: Create bucket
           button_open-multipart-uploads: Show uploads

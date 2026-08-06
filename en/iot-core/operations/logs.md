@@ -1,20 +1,20 @@
-# Viewing the connection log
+# Viewing a connection log
 
 {% include [iot-sunset-warning](../../_includes/iot-core/sunset-warning.md) %}
 
-The log contains information about connecting/disconnecting devices and errors. You can view connection logs for the [registry](#registry) and [devices](#device). Time is specified in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
+The log contains information about device connection and disconnection events, as well as any errors that occur. You can view connection logs for a [registry](#registry) and [devices](#device). The time is specified in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
 
-## View the registry connection log {#registry}
+## Viewing a registry connection log {#registry}
 
-The registry connection log contains information about operations performed with the registry certificate. Operations of devices that belong to this registry are not included in this log.
+The registry connection log shows operations performed with the registry certificate. It does not include operations performed by devices belonging to this registry.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder to view the registry connection log in.
+    1. In the [management console]({{ link-console-main }}), select the folder where you want to view the registry connection log.
     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-    1. Select the registry with the required device from the list.
+    1. Select the registry with your device from the list.
     1. Select **{{ ui-key.yacloud.common.logs }}** in the left pane of the window.
    
 - CLI {#cli}
@@ -25,7 +25,7 @@ The registry connection log contains information about operations performed with
   
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. [Get](registry/registry-list.md##registry-list) a list of registries in a folder.
+  1. [Get](registry/registry-list.md##registry-list) a list of registries in the folder.
 
   1. View the registry connection log:
   
@@ -47,17 +47,17 @@ The registry connection log contains information about operations performed with
 
 {% endlist %}
 
-## View the device connection log {#device}
+## Viewing a device connection log {#device}
 
-The device connection log contains information about operations performed with the device certificate.
+The device connection log shows operations performed with the device certificate.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder to view the device connection log in.
+    1. In the [management console]({{ link-console-main }}), select the folder where you want to view a device connection log.
     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-    1. Select the registry with the required device from the list.
+    1. Select the registry with your device from the list.
     1. Select **{{ ui-key.yacloud.iot.label_devices }}** in the left pane of the window.
     1. Select the device from the list.
     1. Select **{{ ui-key.yacloud.common.logs }}** in the left pane of the window.
@@ -70,7 +70,7 @@ The device connection log contains information about operations performed with t
   
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    1. [Get](device/device-list.md##device-list) a list of devices in a registry.
+    1. [Get](device/device-list.md##device-list) a list of devices in the registry.
 
     1. View the device connection log:
 

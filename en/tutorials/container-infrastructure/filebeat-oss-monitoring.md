@@ -1,6 +1,6 @@
 ---
 title: '{{ managed-k8s-full-name }} cluster monitoring with Filebeat OSS'
-description: Follow this guide to set up {{ managed-k8s-name }} cluster monitoring with the Filebeat OSS plugin.
+description: In this tutorial, you will learn how to configure {{ managed-k8s-name }} cluster monitoring with Filebeat OSS.
 ---
 
 # {{ managed-k8s-full-name }} cluster monitoring with Filebeat OSS

@@ -80,7 +80,7 @@ You can configure [static website hosting](../operations/hosting/setup.md#hostin
 
 All hosting settings are available through the Amazon S3-compatible [HTTP API](../s3/api-ref/hosting.md).
 
-After you configure the bucket for hosting, the website will become accessible at:
+{#bucket-url}After you configure the bucket for hosting, the website will become accessible at:
 
 
 ```
@@ -130,3 +130,4 @@ You can manage {{ dns-full-name }} domains in the bucket settings or in [{{ dns-
 * [{#T}](../tutorials/static/index.md)
 * [{#T}](../tutorials/gatsby-static-website.md)
 * [{#T}](../tutorials/alice-shareable-todolist.md)
+* [{#T}](../../architecture/static-website-in-yc.md)

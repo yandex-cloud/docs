@@ -11,41 +11,41 @@ description: Follow this guide to create a device.
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select a folder to create a device in.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your device.
    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. Select the required registry from the list.
+   1. Select the registry from the list.
    1. Select **{{ ui-key.yacloud.iot.label_devices }}** in the left pane of the window.
    1. Click **{{ ui-key.yacloud.iot.button_add-device }}**.
-   1. Under **{{ ui-key.yacloud.common.section-base }}**, add:
+   1. Under **{{ ui-key.yacloud.common.section-base }}**, specify the following:
 
       * Device **{{ ui-key.yacloud.common.name }}**, e.g., `my-device`.
-      * (Optional) **{{ ui-key.yacloud.common.description }}** with additional information about the device.
-      * (Optional) **{{ ui-key.yacloud.common.password }}** that you will use to access the device. To create a password, you can use [this password generator](https://passwordsgenerator.net/).
+      * Optionally, **{{ ui-key.yacloud.common.description }}** with additional information about the device.
+      * Optionally, **{{ ui-key.yacloud.common.password }}** to use when accessing the device. To create a password, you can use [this password generator](https://passwordsgenerator.net/).
 
          {% note info %}
 
-         Make sure to save your password, as you will need it for [authentication](../../concepts/authorization.md).
+         Make sure to save the password, as you will need it for [authentication](../../concepts/authorization.md).
 
          {% endnote %}
 
-   1. (Optional) Add [aliases](../../concepts/topic/usage.md#aliases):
+   1. Optionally, add [aliases](../../concepts/topic/usage.md#aliases):
 
       1. Click **{{ ui-key.yacloud.iot.button_add-alias }}**.
       1. Fill out the fields: enter an alias, e.g., `events`, and the topic type after `$devices/<device_ID>`, e.g., `events`. You will be able to use the `events` alias instead of the `$devices/<device_ID>/events` topic.
 
-   1. (Optional) Add a [certificate](../../operations/certificates/create-certificates.md):
+   1. Optionally, add a [certificate](../../operations/certificates/create-certificates.md):
 
       * To add a file:
 
          1. Select the `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` method.
          1. Click **Attach file**.
-         1. Select the file with the public key of the certificate and click **Open**.
+         1. Select the file with the certificate’s public key and click **Open**.
          1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
       * To add text:
 
          1. Select the `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}` method.
-         1. Paste the certificate's public key to the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
+         1. Paste the certificate’s public key into the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
          1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
    1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -54,7 +54,7 @@ description: Follow this guide to create a device.
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   1. [Review a list of the registries](../registry/registry-list.md#registry-list) where you can create a device or [create a new registry](../registry/registry-create.md).
+   1. [View the list of the registries](../registry/registry-list.md#registry-list) where you can create a device or [create a new registry](../registry/registry-create.md).
 
    1. Create a device:
 
@@ -78,16 +78,16 @@ description: Follow this guide to create a device.
       status: ACTIVE
       ```
 
-   1. (Optional) Assign the device a password for authentication with a [username and password](../../concepts/authorization.md#log-pass):
+   1. Optionally, set a password for the device for [username and password](../../concepts/authorization.md#log-pass) authentication:
 
       ```bash
       yc iot device password add --device-name <device_name>
       ```
 
-      You will be prompted to enter a password. Password requirements:
+      You will be prompted to enter a password. Follow these password requirements:
 
       * The password must contain numbers, upper-case and lower-case letters, and special characters.
-      * It must be at least 14 characters long.
+      * The password must be at least 14 characters long.
 
       Result:
 
@@ -97,7 +97,7 @@ description: Follow this guide to create a device.
       created_at: "2019-05-28T16:12:30.938Z"
       ```
 
-   1. (Optional) Add to the registry a certificate for authentication with [certificates](../../concepts/authorization.md#certs):
+   1. Optionally, add a certificate to the registry for [certificate](../../concepts/authorization.md#certs)-based authentication:
 
       ```bash
       yc iot device certificate add \
@@ -122,7 +122,7 @@ description: Follow this guide to create a device.
       created_at: "2019-05-28T16:15:30.938Z"
       ```
 
-   1. (Optional) Add [aliases](../../concepts/topic/usage.md#aliases):
+   1. Optionally, add [aliases](../../concepts/topic/usage.md#aliases):
 
       ```bash
       yc iot device add-topic-aliases \
@@ -158,32 +158,32 @@ description: Follow this guide to create a device.
    
    {% note info %}
 
-   To add certificates to a device, [generate](../certificates/create-certificates.md) them in advance.
+   To add certificates to a device, [create](../certificates/create-certificates.md) them in advance.
 
    {% endnote %}
 
    To create a device: 
    
-   1. [Review a list of the registries](../registry/registry-list.md#registry-list) where you can create a device or [create a new registry](../registry/registry-create.md).
+   1. [View the list of the registries](../registry/registry-list.md#registry-list) where you can create a device or [create a new registry](../registry/registry-create.md).
 
    1. In the configuration file, describe the resource you want to create:
 
       * `yandex_iot_core_device`: Device properties:
 
-         * `registry_id`: ID of the registry where the device will be created.
+         * `registry_id`: ID of the registry where you are creating your device.
          * `name`: Device name.
          * `description`: Device description.
-         * `aliases`: Topic aliases. Read more in [Creating an alias](../device/alias/alias-create.md).
-         * `passwords`: List of passwords for authentication with a [username and password](../../concepts/authorization.md#log-pass).
-         * `certificates`: List of certificates for authentication with [certificates](../../concepts/authorization.md#certs).
+         * `aliases`: Topic aliases. For details, see [Creating an alias](../device/alias/alias-create.md).
+         * `passwords`: List of passwords for [username and password](../../concepts/authorization.md#log-pass) authentication.
+         * `certificates`: List of certificates for [certificate](../../concepts/authorization.md#certs)-based authentication.
 
       {% note info %}
 
-      Make sure to use only one of the two authentication methods.
+      Use only one of the two authentication methods.
 
       {% endnote %}
 
-      Here is an example of the resource structure in the configuration file:
+      Here is an example of a resource structure in the configuration file:
       
       ```
       resource "yandex_iot_core_device" "my_device" {
@@ -206,7 +206,7 @@ description: Follow this guide to create a device.
       }
       ```
       
-      For more information about resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
+      For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
       
    1. Make sure the configuration files are correct.
       
@@ -215,7 +215,7 @@ description: Follow this guide to create a device.
          ```
          terraform plan
          ```
-      If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors. 
+      If the configuration is correct, the terminal will display a list of the resources and their settings. {{ TF }} will show any errors detected in the configuration. 
          
    1. Deploy the cloud resources.
 

@@ -1,5 +1,5 @@
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a {{ myt-name }} cluster.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
+1. [Navigate]({{ link-console-main }}/link/managed-ytsaurus) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 1. Select **{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.cluster-kind-card_demo_title_4B7zu }}** to create a cluster with the minimum operational configuration.
 1. Under **{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.base-params-section_title_nfKo2 }}**:

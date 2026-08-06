@@ -127,18 +127,24 @@ description: С помощью этого руководства вы может
 
   1. {% include [server-lease-cli-step2](../../_includes/baremetal/instruction-steps/server-lease-cli-step2.md) %}
 
+  1. {% include [server-lease-cli-rental-period-list](../../_includes/baremetal/instruction-steps/server-lease-cli-rental-period-list.md) %}
+
+  1. {% include [server-lease-cli-image-list](../../_includes/baremetal/instruction-steps/server-lease-cli-image-list.md) %}
+
+  1. {% include [server-lease-cli-private-subnet-list](../../_includes/baremetal/instruction-steps/server-lease-cli-private-subnet-list.md) %}
+
   1. {% include [server-lease-cli-step3](../../_includes/baremetal/instruction-steps/server-lease-cli-step3.md) %}
 
       Где:
       * {% include [server-lease-cli-pool-id](../../_includes/baremetal/instruction-steps/server-lease-cli-pool-id.md) %}
       * {% include [server-lease-cli-configuration](../../_includes/baremetal/instruction-steps/server-lease-cli-configuration.md) %}
-      * {% include [server-lease-cli-storage](../../_includes/baremetal/instruction-steps/server-lease-cli-storage.md) %}
-
-        {% include [server-lease-backup-partitioning-notice](../../_includes/baremetal/instruction-steps/server-lease-backup-partitioning-notice.md) %}
-
       * {% include [server-lease-cli-os](../../_includes/baremetal/instruction-steps/server-lease-cli-os.md) %}
 
         {% include [server-lease-step7-iso](../../_includes/baremetal/instruction-steps/server-lease-step7-iso.md) %}
+
+      * {% include [server-lease-cli-storage](../../_includes/baremetal/instruction-steps/server-lease-cli-storage.md) %}
+
+        {% include [server-lease-backup-partitioning-notice](../../_includes/baremetal/instruction-steps/server-lease-backup-partitioning-notice.md) %}
 
       * {% include [server-lease-cli-rental-period](../../_includes/baremetal/instruction-steps/server-lease-cli-rental-period.md) %}
 
