@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > [Пошаговые инструкции](../index.md) > Аутентификация > IAM-токены > Получение IAM-токена для федеративного аккаунта
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > [Пошаговые инструкции](../index.md) > Аутентификация > [IAM-токены](index.md) > Получение IAM-токена для федеративного аккаунта
 
 # Получение IAM-токена для федеративного аккаунта
 

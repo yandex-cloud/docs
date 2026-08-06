@@ -18,8 +18,8 @@ After creating a cluster, you can edit its basic and advanced settings.
 
     To change the cluster settings:
 
-    1. Open the [folder dashboard]({{ link-console-main }}).
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/managed-airflow) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
 
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
 
@@ -137,7 +137,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        Learn how to create the file in [Creating a cluster](cluster-create.md).
+        To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
 
     1. To change cluster settings, change the required field values in the configuration file.
 

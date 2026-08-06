@@ -1,12 +1,12 @@
-# Getting information about devices
+# Getting information about a device
 
 {% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}
 
-To find out the unique ID or name of a device, [get](#device-list) a list of devices in a registry.
+To find out the unique ID or name of a device, [get](#device-list) a list of devices in the registry.
 
 ## Getting a list of devices in a registry {#device-list}
 
-If you don't know the unique ID or name of the registry where your device is located, view the [list of existing registries](../registry/registry-list.md#registry-list).
+If you do not know the unique ID or name of the registry containing your device, [view a list of existing registries](../registry/registry-list.md#registry-list).
 
 {% include [device-list](../../../_includes/iot-core/device-list.md) %}
 

@@ -20,7 +20,7 @@ To create an internal network load balancer:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a load balancer.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. [Navigate]({{ link-console-main }}/link/network-load-balancer/) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Click **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the load balancer. The naming requirements are as follows:
 

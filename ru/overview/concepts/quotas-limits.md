@@ -96,6 +96,11 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 {% include [interconnect-limits.md](../../_includes/interconnect-limits.md) %}
 
 
+### {{ cloud-router-full-name }} {#cloud-router}
+
+{% include [cloud-router-limits.md](../../_includes/cloud-router-limits.md) %}
+
+
 ### {{ cloud-logging-full-name }} {#logging}
 
 {% include [logging-limits.md](../../_includes/logging/logging-limits.md) %}

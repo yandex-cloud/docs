@@ -46,6 +46,7 @@ The general configuration format is as follows:
 
         <NoncurrentVersionExpiration>
             <NoncurrentDays>Deleting versions that are older than the specified number of days</NoncurrentDays>
+            <NewerNoncurrentVersions>Number of recent non-current versions that are stored indefinitely</NewerNoncurrentVersions>
         </NoncurrentVersionExpiration>
 
         <AbortIncompleteMultipartUpload>
@@ -70,7 +71,7 @@ A configuration may contain up to 1,000 rules.
 It can contain up to 1,000 `Rule` elements.
 Path: `LifecycleConfiguration`. ||
 || `Rule` | Rule description.
-The `Filter` element specifies objects the rule applies to. The `Transition` and `Expiration` elements define actions on objects. There can be multiple actions of each type.
+The `Filter` element specifies objects that meet the rule. The `Transition` and `Expiration` elements define actions on objects. There can be multiple actions of each type.
 Path: `LifecycleConfiguration\Rule`. ||
 || `ID` | Unique rule ID.
 Any text up to 255 characters long, e.g., _Delete in 20 days_. It is an optional parameter that you can use to search for a rule in a configuration.
@@ -115,7 +116,7 @@ Path: `LifecycleConfiguration\Rule\Transition\`. ||
 || `StorageClass` | [Storage class](../../../concepts/storage-class.md) of the object It can be `COLD`, `STANDARD`, `ICE`, or `INTELLIGENT_TIERING`.
 Path: `LifecycleConfiguration\Rule\Transition\StorageClass`. ||
 || `Expiration` | Rule for deleting an object from {{ objstorage-name }}.
-Contains the `Days` or `Date` element that indicates when the action is due.<br/>It may also contain `ExpiredObjectDeleteMarker`, an expired object delete marker that indicates whether {{ objstorage-name }} will remove the delete marker if there are no non-current versions.
+Contains the `Days` or `Date` element that sets the action expiry.<br/>It may also contain `ExpiredObjectDeleteMarker`: an expired object delete marker that indicates whether {{ objstorage-name }} will remove the delete marker if there are not any non-current versions.
 For buckets with versioning enabled, the action will apply to current versions of objects.
 Path: `LifecycleConfiguration\Rule\Expiration`.||
 || `Date` | Date for the rule to apply.
@@ -126,13 +127,17 @@ It is defined by the number of days since the object was uploaded.
 The minimum value is `1`.
 Path: `LifecycleConfiguration\Rule\Expiration\Days`. ||
 || `NoncurrentVersionTransition` | Rule for changing the [storage class](../../../concepts/storage-class.md) of non-current object versions. This rule only applies to non-current versions of an object rather than the entire object.
-It contains the `StorageClass` element, which defines the target storage class and the `NoncurrentDays` element, which sets when the action expires.
 You can only move objects from the `STANDARD` storage to the `COLD`, `ICE`, or `INTELLIGENT_TIERING` one, and from the cold storage, to the ice one.
 Path: `LifecycleConfiguration\Rule\NoncurrentVersionTransition`. ||
+|| `StorageClass` | [Storage class](../../../concepts/storage-class.md) to move the object to. It can be `COLD`, `STANDARD`, `ICE`, or `INTELLIGENT_TIERING`.
+Path: `LifecycleConfiguration\Rule\NoncurrentVersionTransition\StorageClass`. ||
+|| `NoncurrentDays` | Number of days after which a non-current version is moved to a different storage class. The minimum value is `1`.
+Path: `LifecycleConfiguration\Rule\NoncurrentVersionTransition\NoncurrentDays`. ||
+|| `NewerNoncurrentVersions` | Number of recent non-current object versions retained indefinitely. Versions beyond this number are migrated to another storage class after the period specified in `NoncurrentDays`.
+Path: `LifecycleConfiguration\Rule\NoncurrentVersionTransition\NewerNoncurrentVersions`. ||
 || `NoncurrentVersionExpiration` | Rule for deleting non-current object versions from {{ objstorage-name }}. This rule only applies to non-current versions of an object rather than the entire object.
-It contains the `NoncurrentDays` element, which sets when the action expires.
 Path: `LifecycleConfiguration\Rule\NoncurrentVersionExpiration`.
- 
+
 {% note tip %}
 
 To remove [non-current delete markers](*noncurrent-delete-markers), use the `NoncurrentDeleteMarkers` lifecycle rule parameter. Only the [{{ yandex-cloud }} CLI](../../../operations/buckets/lifecycles.md#cli_1), [{{ yandex-cloud }} REST](../../../api-ref/Bucket/update.md#yandex.cloud.storage.v1.LifecycleRule.NoncurrentDeleteMarkers), and [{{ yandex-cloud }} gRPC](../../../api-ref/grpc/Bucket/update.md#yandex.cloud.storage.v1.LifecycleRule.NoncurrentDeleteMarkers) support this parameter.
@@ -140,6 +145,10 @@ To remove [non-current delete markers](*noncurrent-delete-markers), use the `Non
 {% endnote %}
 
 ||
+|| `NoncurrentDays` | Number of days after which a non-current version will be deleted. The minimum value is `1`.
+Path: `LifecycleConfiguration\Rule\NoncurrentVersionExpiration\NoncurrentDays`. ||
+|| `NewerNoncurrentVersions` | Number of recent non-current object versions retained indefinitely. Versions beyond this number get deleted after the period specified in `NoncurrentDays`.
+Path: `LifecycleConfiguration\Rule\NoncurrentVersionExpiration\NewerNoncurrentVersions`. ||
 || `AbortIncompleteMultipartUpload` | Rule for deleting uploads that were not completed within the specified number of days.
 It contains the `DaysAfterInitiation` element, which sets when the rule is to be applied.
 Path: `LifecycleConfiguration\Rule\AbortIncompleteMultipartUpload\DaysAfterInitiation`. ||

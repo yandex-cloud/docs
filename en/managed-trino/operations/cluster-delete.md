@@ -20,7 +20,7 @@ Before deleting a cluster, disable its deletion protection if it is enabled.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to delete a cluster.
-  1. Navigate to **{{ mtr-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-trino) to **{{ mtr-name }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the cluster in question and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-delete }}**.
   1. In the window that opens, confirm the deletion and click **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-delete-cluster_button }}**.
 

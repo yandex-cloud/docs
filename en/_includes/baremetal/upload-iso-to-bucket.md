@@ -13,7 +13,7 @@
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
-      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+      1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
       1. On the `create bucket` page:
 
@@ -63,7 +63,8 @@
 
       {% endnote %}
 
-      1. In the [management console]({{ link-console-main }}), navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** and then to the bucket you want to upload the image to.
+      1. In the [management console]({{ link-console-main }}), select the folder with the bucket you created.
+      1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**, then go to the bucket you want to upload the image to.
       1. In the left-hand panel, click ![image](../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}** and then ![arrow-up-from-line](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}** in the top-right corner.
       1. In the window that opens, select the image file and click **Open**.
       1. In the object upload window, click **{{ ui-key.yacloud.storage.button_upload }}** and wait for the image to upload.
@@ -103,7 +104,7 @@
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select a folder.
-      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** and select the bucket.
+      1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** and select the bucket.
       1. Click the name of the object with the uploaded ISO image.
       1. In the top-right corner, click ![link](../../_assets/storage/link.svg) **{{ ui-key.yacloud.storage.file.button_generate }}**.
       1. Click **{{ ui-key.yacloud.storage.file.button_generate }}**.

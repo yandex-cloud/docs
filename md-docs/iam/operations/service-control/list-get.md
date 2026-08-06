@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > [Пошаговые инструкции](../index.md) > Доступ сервисов к ресурсам пользователя > Просмотр статусов сервисов
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > [Пошаговые инструкции](../index.md) > [Доступ сервисов к ресурсам пользователя](index.md) > Просмотр статусов сервисов
 
 # Получение статусов сервисов
 

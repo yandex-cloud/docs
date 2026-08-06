@@ -53,9 +53,9 @@
 yc resource-manager folder list
 ```
 
-## Удалите сервисный аккаунт {#delete-sa}
+## Заблокируйте или удалите сервисный аккаунт {#disable-or-delete-sa}
 
-Если сервисный аккаунт больше не нужен, удалите его:
+Чтобы временно остановить работу сервисного аккаунта, [заблокируйте](operations/sa/suspend-reactivate.md#suspend) его. После блокировки аккаунт нельзя использовать, пока вы его не [разблокируете](operations/sa/suspend-reactivate.md#reactivate). Если аккаунт больше не нужен, удалите его:
 
 {% include [delete-sa-via-console](../_includes/iam/delete-sa-via-console.md) %}
 

@@ -53,6 +53,17 @@ index: 1
 
 ## 2026 год {#2026}
 
+### Июль {#july2026}
+
+
+* Поддержана репликация из [Apache Kafka®](../operations/endpoint/source/kafka.md) и [YDS](../operations/endpoint/source/data-streams.md) в [Apache Iceberg™](../operations/endpoint/target/iceberg.md) в консоли управления и API.
+
+
+* Реализована политика очистки для приемника [Object Storage](../operations/endpoint/target/object-storage.md): 
+
+    * `Cleanup policy Drop` для копирования — после успешного копирования старые файлы в бакете автоматически удаляются.
+    * `Cleanup policy Replace` — атомарная замена данных: старые файлы удаляются только после полной загрузки новых.
+
 ### Июнь {#june2026}
 
 

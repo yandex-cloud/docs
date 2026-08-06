@@ -1,5 +1,6 @@
 # Работа с топиками {{ KF }} с помощью PySpark-заданий в {{ dataproc-full-name }}
 
+
 Кластеры {{ dataproc-name }} поддерживают интеграцию с кластерами {{ mkf-name }}. Вы можете записывать сообщения в топики {{ KF }} и читать сообщения из топиков с помощью [PySpark-заданий](../../../data-proc/operations/jobs-pyspark.md). При чтении поддерживается пакетная обработка (batch processing) и потоковая обработка (stream processing).
 
 Чтобы настроить интеграцию между кластерами {{ mkf-name }} и {{ dataproc-name }}:
@@ -30,7 +31,7 @@
 * Вручную {#manual}
 
    1. [Создайте облачную сеть](../../../vpc/operations/network-create.md) `dataproc-network` без подсетей.
-   1. [Создайте подсеть](../../../vpc/operations/subnet-create.md) `dataproc-subnet-b` в зоне доступности `{{ region-id }}-b`.
+   1. [Создайте подсеть](../../../vpc/operations/subnet-create.md) `dataproc-subnet-b` в [зоне доступности](../../../overview/concepts/geo-scope.md) `{{ region-id }}-b`.
    1. [Настройте NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) для подсети `dataproc-subnet-b`.
    1. [Создайте группу безопасности](../../../vpc/operations/security-group-create.md) `dataproc-security-group` в сети `dataproc-network`.
    1. [Настройте группу безопасности](../../../data-proc/operations/cluster-create.md#change-security-groups).

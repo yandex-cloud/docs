@@ -17,8 +17,8 @@ When the [storage](../concepts/storage.md) usage exceeds 97%, the host automatic
 
 ## Setting up alerts in {{ monitoring-full-name }} {#set-alert}
 
-1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. In the [management console]({{ link-console-main }}), select a folder.
+1. [Navigate]({{ link-monitoring }}) to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
 1. [Create a notification channel](../../monitoring/operations/alert/create-channel.md).
 1. [Create an alert](../../monitoring/operations/alert/create-alert.md) with the following settings:
 
@@ -62,8 +62,8 @@ When the [storage](../concepts/storage.md) usage exceeds 97%, the host automatic
 
     To increase your cluster storage size:
 
-    1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/managed-kafka) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**, specify the disk size.
     1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -82,7 +82,7 @@ When the [storage](../concepts/storage.md) usage exceeds 97%, the host automatic
         {{ yc-mdb-kf }} cluster update --help
         ```
 
-    1. To change the [disk type](../concepts/storage.md) and storage size of broker hosts, run this command (the storage size must not be less than the `disk_size` cluster setting):
+    1. To change the [disk type](../concepts/storage.md) and storage size of broker hosts, run this command (the specified storage size must not be less than the `disk_size` cluster setting):
 
         ```bash
         {{ yc-mdb-kf }} cluster update <cluster_name_or_ID> \
@@ -284,8 +284,8 @@ Set up [automatic storage expansion](../concepts/storage.md#auto-rescale) to pre
 
 * Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/managed-kafka) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Under **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}**, set the storage [utilization thresholds](../concepts/storage.md#auto-rescale) that will trigger storage expansion when reached: 
     

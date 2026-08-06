@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../index.md) > Yandex Application Load Balancer > Application Load Balancer
+[Документация Yandex Cloud](../index.md) > Yandex Application Load Balancer > Yandex Application Load Balancer
 
 # Yandex Application Load Balancer
 

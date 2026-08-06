@@ -1,8 +1,8 @@
-# Getting information about registries
+# Getting information about a registry
 
 {% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}
 
-To find out the unique ID or name of a registry, [get](#registry-list) a list of registries in a folder.
+To find out the unique ID or name of a registry, [get](#registry-list) a list of registries in the folder.
 
 ## Getting a list of registries in a folder {#registry-list}
 

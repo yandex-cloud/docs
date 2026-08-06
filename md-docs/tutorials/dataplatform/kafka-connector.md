@@ -12,7 +12,7 @@
 
   Для этого потребуется самостоятельная инсталляция и настройка утилиты на промежуточной виртуальной машине. Используйте этот способ только в том случае, если перенос данных с помощью встроенного MirrorMaker-коннектора по каким-либо причинам невозможен.
 
-Оба способа подойдут в том числе для [миграции кластера](../../managed-kafka/operations/host-migration.md#one-host) Managed Service for Apache Kafka® с одним хостом в другую зону доступности.
+Оба способа подойдут в том числе для [миграции кластера](../../managed-kafka/operations/host-migration.md#one-host) Managed Service for Apache Kafka® с одним хостом в другую [зону доступности](../../overview/concepts/geo-scope.md).
 
 
 ## Перенос данных с использованием сервиса Yandex Managed Service for Apache Kafka® Connector {#kf-connector}

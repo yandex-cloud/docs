@@ -373,7 +373,7 @@ flowchart BT
 Просмотр информации о любом ресурсе | `get`, `list` | `viewer` на этот ресурс
 **Управление ресурсами** | |
 [Создание](../operations/sa/create.md) сервисных аккаунтов в каталоге | `create` | `iam.serviceAccounts.admin` на каталог
-[Изменение](../operations/sa/update.md), [удаление](../operations/sa/delete.md) сервисных аккаунтов | `update`, `delete` | `editor` на сервисный аккаунт
+[Изменение](../operations/sa/update.md), [удаление](../operations/sa/delete.md), [блокировка и разблокировка](../operations/sa/suspend-reactivate.md) сервисных аккаунтов | `update`, `delete`, `suspend`, `reactivate` | `editor` на сервисный аккаунт или `iam.serviceAccounts.admin` на каталог
 Создание и удаление ключей для сервисного аккаунта | `create`, `delete` | `iam.serviceAccounts.accessKeyAdmin`, `iam.serviceAccounts.apiKeyAdmin`, `iam.serviceAccounts.authorizedKeyAdmin`, `iam.serviceAccounts.keyAdmin`<br/> на сервисный аккаунт
 **Управление доступом к ресурсам** | |
 [Сделать нового пользователя владельцем облака](../operations/roles/grant.md) | `setAccessBindings`, `updateAccessBindings` | `resource-manager.clouds.owner` на это облако

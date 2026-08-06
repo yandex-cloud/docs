@@ -38,29 +38,30 @@ description: Следуя данной инструкции, вы сможете
 
 - CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. Посмотрите описание команды для переустановки ОС:
+  1. Посмотрите описание команды для переустановки ОС:
 
-      ```bash
-      yc baremetal server reinstall --help
-      ```
+     ```bash
+     yc baremetal server reinstall --help
+     ```
 
-   1. Переустановите ОС:
+  1. {% include [server-lease-cli-image-list](../../../_includes/baremetal/instruction-steps/server-lease-cli-image-list.md) %}
 
-      ```bash
-      yc baremetal server reinstall \
-        --name <имя_сервера> \
-        --os-settings "image-id=<идентификатор_образа>,image-name=<имя_образа>,ssh-key-public=<содержимое_открытого_SSH-ключа>,ssh-key-user-id=<идентификатор_пользователя_SSH-ключа>,password-plain-text=<пароль_пользователя>,password-lockbox-secret={secret-id=<идентификатор_секрета>,version-id=<версия_секрета>,key=<ключ_секрета>}" \
-        --storage "partition={type=<файловая_система>,size-gib=<размер_раздела>,mount-point=<точка_монтирования>},raid-type=<уровень RAID-массива>,disk={id=<номер_диска>,size-gib=<размер_диска>,type=<тип_диска>}"
-      ```
+  1. Переустановите ОС:
 
-      Где:
-      * `--name` — имя сервера.
-      * {% include [server-lease-cli-os](../../../_includes/baremetal/instruction-steps/server-lease-cli-os.md) %}
-      * {% include [server-lease-cli-storage](../../../_includes/baremetal/instruction-steps/server-lease-cli-storage.md) %}
+     ```bash
+     yc baremetal server reinstall \
+       --name <имя_сервера> \
+       --os-settings-spec "image-id=<идентификатор_образа>,storages=[{partitions=[{type=<файловая_система>,size-gib=<размер_раздела>,mount-point=<точка_монтирования>}],storage-type={raid={type=<уровень_RAID-массива>,disks=[{id=<номер_диска>,size-gib=<размер_диска>,type=<тип_диска>}]}}}],ssh-key={ssh-public-key=<содержимое_открытого_SSH-ключа>},password={password-plain-text=<пароль_пользователя>}"
+     ```
+
+     Где:
+     * `--name` — имя сервера.
+     * {% include [server-lease-cli-os](../../../_includes/baremetal/instruction-steps/server-lease-cli-os.md) %}
+     * {% include [server-lease-cli-storage](../../../_includes/baremetal/instruction-steps/server-lease-cli-storage.md) %}
 
 - API {#api}
 
@@ -79,7 +80,7 @@ description: Следуя данной инструкции, вы сможете
   ```bash
   yc baremetal server reinstall \
     --name demo-baremetal-server \
-    --os-settings "image-id=ly5vtno2mjr3k4iuecur,password-plain-text=FDrxicR********,ssh-key-public=ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGcM4tRfRHJGrlLMT+YJFr+aOdSQ********"
+    --os-settings-spec "image-id=ly5vtno2mjr3k4iuecur,ssh-key={ssh-public-key=ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGcM4tRfRHJGrlLMT+YJFr+aOdSQ********},password={password-plain-text=FDrxicR********}"
   ```
 
   Результат:

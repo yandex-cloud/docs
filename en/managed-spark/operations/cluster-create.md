@@ -32,7 +32,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a {{ SPRK }} cluster.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
+    1. [Navigate]({{ link-console-main }}/link/managed-spark) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
     1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
@@ -69,7 +69,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         
         1. **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}**: [Maintenance](../concepts/maintenance.md) window settings:
 
-           {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
+           {% include [Maintenance window](../../_includes/managed-spark/maintenance-window-console.md) %}
 
         1. **{{ ui-key.yacloud.spark.label_metastore }}**: [Metastore server](../../metadata-hub/concepts/metastore.md) connected to your cluster.
 

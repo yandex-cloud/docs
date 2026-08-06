@@ -15,8 +15,8 @@ Updates and fixes within a version are installed automatically during [maintenan
 
 - Management console {#console}
 
-    1. Open the [folder dashboard]({{ link-console-main }}).
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/managed-trino) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Select a cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** on the top panel. This will open the cluster editing page.
       
         You can see the list of available versions in the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field.
@@ -36,8 +36,8 @@ Make sure the upgrade will not disrupt your applications:
 
 - Management console {#console}
 
-    1. Open the [folder dashboard]({{ link-console-main }}).
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/managed-trino) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Select a cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** on the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, select {{ TR }}.
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -134,7 +134,7 @@ Make sure the upgrade will not disrupt your applications:
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

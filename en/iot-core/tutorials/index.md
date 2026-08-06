@@ -2,7 +2,7 @@
 
 {% include [iot-sunset-warning](../../_includes/iot-core/sunset-warning.md) %}
 
-Examples of how to use {{ iot-full-name }} on Android devices in different programming languages can be found on [GitHub](https://github.com/yandex-cloud-examples/?q=iot).
+For examples of using {{ iot-full-name }} with Android devices in different programming languages, see [GitHub](https://github.com/yandex-cloud-examples/?q=iot).
 
 ## Working with Mosquitto {#mosquitto}
 
@@ -30,7 +30,7 @@ Examples of how to use {{ iot-full-name }} on Android devices in different progr
 * [{#T}](datalens.md)
 * [{#T}](monitoring.md)
 
-## Practical tips {#practice-advices}
+## Best practices {#practice-advices}
 
 * [{#T}](message-delivery-check.md)
 * [{#T}](iot-emulation.md)

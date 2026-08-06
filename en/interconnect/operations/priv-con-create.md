@@ -16,12 +16,12 @@ You need the [cic.editor](../security/index.md#cic-editor) role to run this oper
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), click ![layout-side-content-left](../../_assets/console-icons/layout-side-content-left.svg) or ![chevron-down](../../_assets/console-icons/chevron-down.svg) in the top panel and select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.ui.constants.label_interconnect_aUMcv }}**.
+  1. [Navigate]({{ link-console-main }}/link/interconnect) to **{{ ui-key.yacloud.ui.constants.label_interconnect_aUMcv }}**.
   1. In the left-hand panel, select ![nodes-left](../../_assets/console-icons/nodes-left.svg) **{{ ui-key.yacloud.interconnect.private-connection.private-connections_daeaR }}** and click **{{ ui-key.yacloud.interconnect.private-connection.create-private-connection_6K9tP }}**. In the window that opens:
 
       1. Place your cursor in the **{{ ui-key.yacloud.interconnect.private-connection.TrunkConnectionSuggestOrCreate.title_oPBF7 }}** field and select the trunk where you want to create a private connection.
 
-          Optionally, click **{{ ui-key.yacloud.common.create }}** to create a new trunk.
+          Click **{{ ui-key.yacloud.common.create }}** to create a new trunk, if required.
       1. In the **{{ ui-key.yacloud.interconnect.vlan-id_2wghK }}** field, specify a `VLAN ID` of your choice for the private connection in the 802.1Q trunk, e.g., `123`.
       
           This value must be different from the `VLAN-ID` values of other private connections in this trunk.
@@ -103,7 +103,7 @@ You need the [cic.editor](../security/index.md#cic-editor) role to run this oper
         * `peer_ip`: Customer endpoint IP address on the point-to-point peering subnet. This value is selected by the customer.
         * `cloud_ip`: {{ yandex-cloud }} endpoint IP address on the point-to-point peering subnet. This value is selected by the customer.
         * `peer_bgp_asn`: Customer endpoint [BGP ASN](../concepts/priv-con.md#bgp-asn) in ASPlain format. This value is selected by the customer.
-        * `peer_bgp_md5_key`: Optional parameter. Encrypted BGP session key value.
+        * `peer_bgp_md5_key`: Optional setting. Encrypted BGP session key value.
       * `status`: Resource state. Target state: `ACTIVE`.
       * `created_at`: Date and time of resource creation.
       * `async`: Running the operation in asynchronous mode. This is the recommended mode for all operations that involve changes to resources.

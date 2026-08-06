@@ -22,7 +22,7 @@ You can [create an exception](../operations/alerts/work.md#create-exception) on 
 
 To streamline operations with a large number of alerts, the module [supports](../operations/alerts/view.md#search) visual grouping, search, and filtering. These features enable you to:
 
-* Quickly find alerts of a certain type.
+* Quickly find alerts of a certain type or with a certain issue.
 * Filter alerts by source to analyze threats by their impact on infrastructure.
 * Assess the scale of data for analysis and investigation.
 

@@ -13,8 +13,8 @@ You can get detailed information about each {{ ytsaurus-name }} cluster you crea
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/managed-ytsaurus) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
 
 - CLI {#cli}
 
@@ -94,8 +94,8 @@ You can get detailed information about each {{ ytsaurus-name }} cluster you crea
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/managed-ytsaurus) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
     1. Click the cluster name.
 
 - CLI {#cli}
@@ -174,12 +174,12 @@ All actions with {{ ytsaurus-name }} clusters are logged as a list of operations
     To get a list of operations for a {{ ytsaurus-name }} cluster:
 
     1. In the [management console]({{ link-console-main }}), open the folder containing the cluster.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
+    1. [Navigate]({{ link-console-main }}/link/managed-ytsaurus) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.mdb.clusters.label_title }}**.
     1. Select the cluster.
     1. Navigate to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the cluster you selected.
 
-       You will see the list of operations with the cluster.
+       This will open the list of operations with the cluster.
 
 
 {% endlist %}

@@ -72,7 +72,7 @@ description: Следуя данной инструкции, вы сможете
      {% include [autoscale-settings](../../_includes/mdb/mkf/autoscale-settings.md) %}
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**:
-     1. Выберите одну или несколько зон доступности, в которых нужно разместить хосты-брокеры {{ KF }}.
+     1. Выберите одну или несколько [зон доступности](../../overview/concepts/geo-scope.md), в которых нужно разместить хосты-брокеры {{ KF }}.
 
         
         {% include notitle [note-warning](../../_includes/mdb/mkf/create-cluster.md#note-warning) %}
@@ -158,7 +158,7 @@ description: Следуя данной инструкции, вы сможете
 
          {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
 
-     * `--zone-ids` и `--brokers-count` — зоны доступности и число хостов-брокеров в каждой зоне.
+     * `--zone-ids` и `--brokers-count` — [зоны доступности](../../overview/concepts/geo-scope.md) и число хостов-брокеров в каждой зоне.
      * `--resource-preset` — [класс хостов](../concepts/instance-types.md).
      * `--disk-type` — [тип диска](../concepts/storage.md).
 
@@ -264,7 +264,7 @@ description: Следуя данной инструкции, вы сможете
 
      * `environment` — окружение кластера: `PRESTABLE` или `PRODUCTION`.
      * `version` — версия {{ KF }}: {{ versions.tf.zookeeper }}. Дополнительно передайте [конфигурацию хостов {{ ZK }}](../concepts/index.md#zookeeper).
-     * `zones` и `brokers_count` — зоны доступности и число хостов-брокеров в каждой зоне.
+     * `zones` и `brokers_count` — [зоны доступности](../../overview/concepts/geo-scope.md) и число хостов-брокеров в каждой зоне.
      * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
        {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
@@ -443,7 +443,7 @@ description: Следуя данной инструкции, вы сможете
                     * `resources.diskTypeId` — тип диска.
 
 
-                * `zoneId` и `brokersCount` – зоны доступности и число хостов-брокеров в каждой зоне.
+                * `zoneId` и `brokersCount` – [зоны доступности](../../overview/concepts/geo-scope.md) и число хостов-брокеров в каждой зоне.
 
                 
                 * `assignPublicIp` — доступность хостов-брокеров из интернета: `true` или `false`.
@@ -640,7 +640,7 @@ description: Следуя данной инструкции, вы сможете
                     * `resources.disk_type_id` — тип диска.
 
 
-                * `zone_id` и `brokers_count` – зоны доступности и число хостов-брокеров в каждой зоне (число передается в виде объекта с полем `value`).
+                * `zone_id` и `brokers_count` – [зоны доступности](../../overview/concepts/geo-scope.md) и число хостов-брокеров в каждой зоне (число передается в виде объекта с полем `value`).
 
                 
                 * `assign_public_ip` — доступность хостов-брокеров из интернета: `true` или `false`.
@@ -747,7 +747,7 @@ description: Следуя данной инструкции, вы сможете
      {% include [autoscale-settings](../../_includes/mdb/mkf/autoscale-settings.md) %}
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**:
-     1. Выберите одну или несколько зон доступности, в которых нужно разместить хосты-брокеры {{ KF }}.
+     1. Выберите одну или несколько [зон доступности](../../overview/concepts/geo-scope.md), в которых нужно разместить хосты-брокеры {{ KF }}.
 
                 
         {% include notitle [note-warning](../../_includes/mdb/mkf/create-cluster.md#note-warning) %}
@@ -845,7 +845,7 @@ description: Следуя данной инструкции, вы сможете
 
          {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
     
-     * `--zone-ids` и `--brokers-count` — зоны доступности и число хостов-брокеров в каждой зоне. 
+     * `--zone-ids` и `--brokers-count` — [зоны доступности](../../overview/concepts/geo-scope.md) и число хостов-брокеров в каждой зоне. 
 
             
        Если вы создаете кластер с [{{ ui-key.yacloud.kafka.FormSections.value_coordination-service-type-kraft-combined-mode_c1zke }}](../concepts/kraft.md#cluster-topology), укажите одну из доступных конфигураций:
@@ -960,7 +960,7 @@ description: Следуя данной инструкции, вы сможете
 
      * `environment` — окружение кластера: `PRESTABLE` или `PRODUCTION`.
      * `version` — версия {{ KF }}. Указывайте версию 3.6 и выше.
-     * `zones` и `brokers_count` — зоны доступности и число хостов-брокеров в каждой зоне.
+     * `zones` и `brokers_count` — [зоны доступности](../../overview/concepts/geo-scope.md) и число хостов-брокеров в каждой зоне.
 
        
        Если вы создаете кластер с [{{ ui-key.yacloud.kafka.FormSections.value_coordination-service-type-kraft-combined-mode_c1zke }}](../concepts/kraft.md#cluster-topology), укажите одну из доступных конфигураций:
@@ -1149,7 +1149,7 @@ description: Следуя данной инструкции, вы сможете
                     {% include notitle [note-warning-combined-mode](../../_includes/mdb/mkf/create-cluster.md#note-warning-combined-mode) %}
 
 
-                * `zoneId` и `brokersCount` – зоны доступности и число хостов-брокеров в каждой зоне.
+                * `zoneId` и `brokersCount` – [зоны доступности](../../overview/concepts/geo-scope.md) и число хостов-брокеров в каждой зоне.
 
                   
                   Если вы создаете кластер с [{{ ui-key.yacloud.kafka.FormSections.value_coordination-service-type-kraft-combined-mode_c1zke }}](../concepts/kraft.md#cluster-topology), укажите одну из доступных конфигураций:
@@ -1357,7 +1357,7 @@ description: Следуя данной инструкции, вы сможете
                     {% include notitle [note-warning-combined-mode](../../_includes/mdb/mkf/create-cluster.md#note-warning-combined-mode) %}
 
 
-                * `zone_id` и `brokers_count` – зоны доступности и число хостов-брокеров в каждой зоне (число передается в виде объекта с полем `value`).
+                * `zone_id` и `brokers_count` – [зоны доступности](../../overview/concepts/geo-scope.md) и число хостов-брокеров в каждой зоне (число передается в виде объекта с полем `value`).
 
                   
                   Если вы создаете кластер с [{{ ui-key.yacloud.kafka.FormSections.value_coordination-service-type-kraft-combined-mode_c1zke }}](../concepts/kraft.md#cluster-topology), укажите одну из доступных конфигураций:
@@ -1479,7 +1479,7 @@ description: Следуя данной инструкции, вы сможете
 
         * Укажите новое имя кластера в строке `resource` и параметре `name`.
         * Удалите параметры `created_at`, `health`, `host`, `id` и `status`.
-        * Добавьте параметр `subnet_ids` и укажите в нем список идентификаторов подсетей для каждой зоны доступности.
+        * Добавьте параметр `subnet_ids` и укажите в нем список идентификаторов подсетей для каждой [зоны доступности](../../overview/concepts/geo-scope.md).
         * Если в блоке `maintenance_window` указано значение параметра `type = "ANYTIME"`, удалите параметр `hour`.
         * (Опционально) Внесите дополнительные изменения, если вам нужна не идентичная, а кастомизированная копия.
 

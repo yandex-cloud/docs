@@ -8,7 +8,7 @@ In addition to the cloud network in the default folder, you can create cloud net
 
   To create a [cloud network](../concepts/network.md):
   1. In the [management console]({{ link-console-main }}), select the folder where you need to create a cloud network.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the top-right corner, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, enter a name for the network. The naming requirements are as follows:
 

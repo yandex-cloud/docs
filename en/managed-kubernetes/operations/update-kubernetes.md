@@ -70,8 +70,8 @@ Select auto update mode for your {{ managed-k8s-name }} cluster and set the upda
   In the **{{ ui-key.yacloud.k8s.MaintenanceSection.maintenance-window-field-with-none-option_tx5Wn }}** field, select the {{ managed-k8s-name }} cluster update policy:
   * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-disabled }}`: Select this option to disable auto updates.
   * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-anytime }}`: Select this option for {{ managed-k8s-name }} to manage the update installation schedule.
-  * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-daily }}`: Set the start time and duration of the update.
-  * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-weekly }}`: Set the day, start time, and duration of the update. You can select multiple options using the **{{ ui-key.yacloud.k8s.clusters.create.button_add-day-of-week }}** button.
+  * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-daily }}`: Specify the start point and duration of the UTC time interval during which the update will start. This setting is not related to the update duration or its completion time.
+  * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-weekly }}`: Specify the day, start point, and duration of the UTC time interval during which the update will start. This setting is not related to the update duration or its completion time. You can select multiple options using the **{{ ui-key.yacloud.k8s.clusters.create.button_add-day-of-week }}** button.
 
 - CLI {#cli}
 
@@ -89,17 +89,17 @@ Select auto update mode for your {{ managed-k8s-name }} cluster and set the upda
   Where:
   * `--auto-upgrade`: Auto update mode for the {{ managed-k8s-name }} cluster. The default value is `true` (auto updates are enabled).
   * `--anytime-maintenance-window`: Any update window for the {{ managed-k8s-name }} cluster.
-  * `--daily-maintenance-window`: `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-daily }}` update mode.
+  * `--daily-maintenance-window`: Set the start point and duration of the UTC time interval during which the update will start.
 
-    Example of updating a {{ managed-k8s-name }} cluster daily at 22:00 UTC, with a duration of up to 10 hours:
+    Example of configuring a daily update window for a {{ managed-k8s-name }} cluster with start time 22:00 UTC, duration under ten hours:
 
     ```bash
     --daily-maintenance-window 'start=22:00,duration=10h'
     ```
 
-  * `--weekly-maintenance-window`: Auto update on specified days.
+  * `--weekly-maintenance-window`: Set the days, start point, and duration of the UTC time interval during which the update will start.
 
-    Example of updating a {{ managed-k8s-name }} cluster on Mondays and Tuesdays starting at 22:00 UTC, with a duration of up to 10 hours:
+    Example of configuring an update window for a {{ managed-k8s-name }} cluster on Mondays and Tuesdays with start time 22:00 UTC, duration under ten hours:
 
     ```bash
     --weekly-maintenance-window 'days=[monday,tuesday],start=22:00,duration=10h'
@@ -137,8 +137,8 @@ Select auto update mode for your {{ managed-k8s-name }} cluster and set the upda
          maintenance_policy {
            auto_upgrade = true
            maintenance_window {
-             start_time = "<update_start_time>"
-             duration   = "<update_duration>"
+             start_time = "<update_window_start_time>"
+             duration   = "<update_window_duration>"
            }
          }
        }
@@ -146,8 +146,8 @@ Select auto update mode for your {{ managed-k8s-name }} cluster and set the upda
 
        Where:
 
-       * `start_time`: Update start time in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) format.
-       * `duration`: Update duration, e.g., `4h30m`.
+       * `start_time`: Start time of the interval during which the update will start, in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) format.
+       * `duration`: Duration of the time interval during which the update will start, e.g., `4h30m`. This setting is not related to the update duration or its completion time.
 
      * To enable updates on selected days (multiple periods are possible):
 
@@ -158,14 +158,14 @@ Select auto update mode for your {{ managed-k8s-name }} cluster and set the upda
          maintenance_policy {
            auto_upgrade = true
            maintenance_window {
-             day        = "<update_start_day>"
-             start_time = "<update_start_time>"
-             duration   = "<update_duration>"
+             day        = "<update_window_start_day>"
+             start_time = "<update_window_start_time>"
+             duration   = "<update_window_duration>"
            }
            maintenance_window {
-             day        = "<update_start_day>"
-             start_time = "<update_start_time>"
-             duration   = "<update_duration>"
+             day        = "<update_window_start_day>"
+             start_time = "<update_window_start_time>"
+             duration   = "<update_window_duration>"
            }
          }
        }
@@ -174,8 +174,8 @@ Select auto update mode for your {{ managed-k8s-name }} cluster and set the upda
        Where:
 
        * `day`: Day of week, e.g., `monday`.
-       * `start_time`: Update start time in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) format.
-       * `duration`: Update duration, e.g., `4h30m`.
+       * `start_time`: Start time of the interval during which the update will start, in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) format.
+       * `duration`: Duration of the time interval during which the update will start, e.g., `4h30m`. This setting is not related to the update duration or its completion time.
 
      * To enable the random update time mode, do not add the `maintenance_policy` parameter section to the {{ managed-k8s-name }} cluster description. If you do not specify auto update settings in the {{ managed-k8s-name }} cluster description, updates will take place at a random time.
      * To disable auto updates:
@@ -224,20 +224,20 @@ Select auto update mode for your {{ managed-k8s-name }} cluster and set the upda
     ```json
     "dailyMaintenanceWindow": {
       "startTime": {
-        "hours": "<update_start_hour>",
-        "minutes": "<update_start_minute>",
-        "seconds": "<update_start_second>",
-        "nanos": "<update_start_fraction_of_second>"
+        "hours": "<update_window_start_hour>",
+        "minutes": "<update_window_start_minute>",
+        "seconds": "<update_window_start_second>",
+        "nanos": "<update_window_start_fraction_of_second>"
       },
-      "duration": "<duration_of_update_period>"
+      "duration": "<update_window_duration>"
     }
     ```
 
     Where:
 
-    * `hours`: Update start hour in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) format.
-    * `nanos`: Fraction of a second of the update start, in nanoseconds.
-    * `duration`: Duration of the update period, in hours.
+    * `hours`: Start hour of the interval during which the update will start, in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) format.
+    * `nanos`: Fraction of a second of the start of the interval during which the update will start, in nanoseconds.
+    * `duration`: Duration of the time interval during which the update will start, in hours. This setting is not related to the update duration or its completion time.
 
   * For updates to take place on selected days, add the `weeklyMaintenanceWindow` section:
 
@@ -249,12 +249,12 @@ Select auto update mode for your {{ managed-k8s-name }} cluster and set the upda
             "<list_of_days>"
           ],
           "startTime": {
-            "hours": "<update_start_hour>",
-            "minutes": "<update_start_minute>",
-            "seconds": "<update_start_second>",
-            "nanos": "<update_start_fraction_of_second>"
+            "hours": "<update_window_start_hour>",
+            "minutes": "<update_window_start_minute>",
+            "seconds": "<update_window_start_second>",
+            "nanos": "<update_window_start_fraction_of_second>"
           },
-          "duration": "<duration_of_update_period>"
+          "duration": "<interval_duration>"
         }
       ]
     }
@@ -263,9 +263,9 @@ Select auto update mode for your {{ managed-k8s-name }} cluster and set the upda
     Where:
 
     * `days`: List of days, e.g., `monday`, `tuesday`.
-    * `hours`: Update start hour in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) format.
-    * `nanos`: Fraction of a second of the update start, in nanoseconds.
-    * `duration`: Duration of the update period, in hours.
+    * `hours`: Start hour of the interval during which the update will start, in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) format.
+    * `nanos`: Fraction of a second of the start of the interval during which the update will start, in nanoseconds.
+    * `duration`: Duration of the time interval during which the update will start, in hours. This setting is not related to the update duration or its completion time.
 
 {% endlist %}
 
@@ -365,8 +365,8 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
   In the **{{ ui-key.yacloud.k8s.MaintenanceSection.maintenance-window-field-with-none-option_tx5Wn }}** field, select the {{ managed-k8s-name }} node group update policy:
   * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-disabled }}`: Select this option to disable auto updates.
   * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-anytime }}`: Select this option for {{ managed-k8s-name }} to manage the update installation schedule.
-  * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-daily }}`: Set the start time and duration of the update.
-  * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-weekly }}`: Set the day, start time, and duration of the update. You can select multiple options using the **{{ ui-key.yacloud.k8s.clusters.create.button_add-day-of-week }}** button.
+  * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-daily }}`: Specify the start point and duration of the UTC time interval during which the update will start. This setting is not related to the update duration or its completion time.
+  * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-weekly }}`: Specify the day, start point, and duration of the UTC time interval during which the update will start. This setting is not related to the update duration or its completion time. You can select multiple options using the **{{ ui-key.yacloud.k8s.clusters.create.button_add-day-of-week }}** button.
 
 - CLI {#cli}
 
@@ -403,17 +403,17 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
 
     `--auto-repair` is at the [Preview](../../overview/concepts/launch-stages.md) stage.
   * `--anytime-maintenance-window`: Any update time for the {{ managed-k8s-name }} node group.
-  * `--daily-maintenance-window`: `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-daily }}` update mode.
+  * `--daily-maintenance-window`: Set the start point and duration of the UTC time interval during which the update will start.
 
-    Example of updating a {{ managed-k8s-name }} node group daily at 22:00 UTC, with a duration of up to 10 hours:
+    Example of configuring a daily update window for a {{ managed-k8s-name }} node group with start time 22:00 UTC, duration under ten hours:
 
     ```bash
     --daily-maintenance-window 'start=22:00,duration=10h'
     ```
 
-  * `--weekly-maintenance-window`: Auto update on specified days.
+  * `--weekly-maintenance-window`: Set the days, start point, and duration of the UTC time interval during which the update will start.
 
-    Example of updating a {{ managed-k8s-name }} node group on Mondays and Tuesdays starting at 22:00 UTC, with a duration of up to 10 hours:
+    Example of configuring an update window for a {{ managed-k8s-name }} node group on Mondays and Tuesdays with start time 22:00 UTC, duration under ten hours:
 
     ```bash
     --weekly-maintenance-window 'days=[monday,tuesday],start=22:00,duration=10h'
@@ -453,8 +453,8 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
          maintenance_policy {
            auto_upgrade = true
            maintenance_window {
-             start_time = "<update_start_time>"
-             duration   = "<update_duration>"
+             start_time = "<update_window_start_time>"
+             duration   = "<update_window_duration>"
            }
          }
        }
@@ -462,8 +462,8 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
 
        Where:
 
-       * `start_time`: Update start time in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) format.
-       * `duration`: Update duration, e.g., `4h30m`.
+       * `start_time`: Start time of the interval during which the update will start, in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) format.
+       * `duration`: Duration of the time interval during which the update will start, e.g., `4h30m`. This setting is not related to the update duration or its completion time.
 
      * To enable updates on selected days (multiple periods are possible):
 
@@ -474,14 +474,14 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
          maintenance_policy {
            auto_upgrade = true
            maintenance_window {
-             day        = "<update_start_day>"
-             start_time = "<update_start_time>"
-             duration   = "<update_duration>"
+             day        = "<update_window_start_day>"
+             start_time = "<update_window_start_time>"
+             duration   = "<update_window_duration>"
            }
            maintenance_window {
-             day        = "<update_start_day>"
-             start_time = "<update_start_time>"
-             duration   = "<update_duration>"
+             day        = "<update_window_start_day>"
+             start_time = "<update_window_start_time>"
+             duration   = "<update_window_duration>"
            }
          }
        }
@@ -489,9 +489,9 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
 
        Where:
 
-       * `day`: Day of week, e.g., `monday`.
-       * `start_time`: Update start time in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) format.
-       * `duration`: Update duration, e.g., `4h30m`.
+       * `day`: Day of week, e.g., `monday`
+       * `start_time`: Start time of the interval during which the update will start, in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) format.
+       * `duration`: Duration of the time interval during which the update will start, e.g., `4h30m`. This setting is not related to the update duration or its completion time.
 
      * To enable the random update time mode, do not add the `maintenance_policy` parameter section to the {{ managed-k8s-name }} node group description. If you do not specify auto update settings in the {{ managed-k8s-name }} node group description, updates will take place at a random time.
      * To configure the settings for {{ managed-k8s-name }} node group deployment during updates:
@@ -566,20 +566,20 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
     ```json
     "dailyMaintenanceWindow": {
       "startTime": {
-        "hours": "<update_start_hour>",
-        "minutes": "<update_start_minute>",
-        "seconds": "<update_start_second>",
-        "nanos": "<update_start_fraction_of_second>"
+        "hours": "<update_window_start_hour>",
+        "minutes": "<update_window_start_minute>",
+        "seconds": "<update_window_start_second>",
+        "nanos": "<update_window_start_fraction_of_second>"
       },
-      "duration": "<duration_of_update_period>"
+      "duration": "<update_window_duration>"
     }
     ```
 
     Where:
 
-    * `hours`: Update start hour in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) format.
-    * `nanos`: Fraction of a second of the update start, in nanoseconds.
-    * `duration`: Duration of the update period, in hours.
+    * `hours`: Start hour of the interval during which the update will start, in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) format.
+    * `nanos`: Fraction of a second of the start of the interval during which the update will start, in nanoseconds.
+    * `duration`: Duration of the time interval during which the update will start, in hours. This setting is not related to the update duration or its completion time.
 
   * For updates to take place on selected days, add the `weeklyMaintenanceWindow` section:
 
@@ -591,12 +591,12 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
             "<list_of_days>"
           ],
           "startTime": {
-            "hours": "<update_start_hour>",
-            "minutes": "<update_start_minute>",
-            "seconds": "<update_start_second>",
-            "nanos": "<update_start_fraction_of_second>"
+            "hours": "<update_window_start_hour>",
+            "minutes": "<update_window_start_minute>",
+            "seconds": "<update_window_start_second>",
+            "nanos": "<update_window_start_fraction_of_second>"
           },
-          "duration": "<duration_of_update_period>"
+          "duration": "<update_window_duration>"
         }
       ]
     }
@@ -605,9 +605,9 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
     Where:
 
     * `days`: List of days, e.g., `monday`, `tuesday`.
-    * `hours`: Update start hour in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) format.
-    * `nanos`: Fraction of a second of the update start, in nanoseconds.
-    * `duration`: Duration of the update period, in hours.
+    * `hours`: Start hour of the interval during which the update will start, in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) format.
+    * `nanos`: Fraction of a second of the start of the interval during which the update will start, in nanoseconds.
+    * `duration`: Duration of the time interval during which the update will start, in hours. This setting is not related to the update duration or its completion time.
 
   To configure the settings for {{ managed-k8s-name }} node group deployment during updates, add the `deployPolicy` section:
 

@@ -48,6 +48,8 @@ Yandex Cloud Router — сервис для управления сетевым�
 
  - [VPC Stitching](concepts/vpc-stitching.md)
 
+ - [Квоты и лимиты](concepts/limits.md)
+
 ## Сценарии использования
 
  - [Все сценарии использования](scenarios/index.md)

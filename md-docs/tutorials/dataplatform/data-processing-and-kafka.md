@@ -4,6 +4,7 @@
 
 # Работа с топиками Apache Kafka® с помощью PySpark-заданий в Yandex Data Processing
 
+
 Кластеры Yandex Data Processing поддерживают интеграцию с кластерами Managed Service for Apache Kafka®. Вы можете записывать сообщения в топики Apache Kafka® и читать сообщения из топиков с помощью [PySpark-заданий](../../data-proc/operations/jobs-pyspark.md). При чтении поддерживается пакетная обработка (batch processing) и потоковая обработка (stream processing).
 
 Чтобы настроить интеграцию между кластерами Managed Service for Apache Kafka® и Yandex Data Processing:
@@ -40,7 +41,7 @@
 * Вручную {#manual}
 
    1. [Создайте облачную сеть](../../vpc/operations/network-create.md) `dataproc-network` без подсетей.
-   1. [Создайте подсеть](../../vpc/operations/subnet-create.md) `dataproc-subnet-b` в зоне доступности `ru-central1-b`.
+   1. [Создайте подсеть](../../vpc/operations/subnet-create.md) `dataproc-subnet-b` в [зоне доступности](../../overview/concepts/geo-scope.md) `ru-central1-b`.
    1. [Настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md) для подсети `dataproc-subnet-b`.
    1. [Создайте группу безопасности](../../vpc/operations/security-group-create.md) `dataproc-security-group` в сети `dataproc-network`.
    1. [Настройте группу безопасности](../../data-proc/operations/cluster-create.md#change-security-groups).

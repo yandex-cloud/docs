@@ -17,8 +17,8 @@ In {{ mtr-name }}, you can manage [resource group](../concepts/resource-groups.m
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/managed-trino) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Click the cluster name.
   1. Go to the **{{ ui-key.yacloud.trino.section_resource-management }}** section.
 
@@ -92,7 +92,7 @@ In {{ mtr-name }}, you can manage [resource group](../concepts/resource-groups.m
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a {{ mtr-name }} cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-trino) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}** and set the cluster parameters.
   1. Go to the **{{ ui-key.yacloud.trino.section_resource-management }}** section.
   1. In the **{{ ui-key.yacloud.trino.ClusterView.label_cpu-quota-period_tD5vD }}** field, set the CPU quota calculation period for resource groups.
@@ -379,8 +379,8 @@ In {{ mtr-name }}, you can manage [resource group](../concepts/resource-groups.m
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/managed-trino) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Click the cluster name.
   1. Go to the **{{ ui-key.yacloud.trino.section_resource-management }}** section.
   1. In the **{{ ui-key.yacloud.trino.ClusterView.label_cpu-quota-period_tD5vD }}** field, set the new CPU quota calculation period for resource groups.
@@ -713,8 +713,8 @@ In {{ mtr-name }}, you can manage [resource group](../concepts/resource-groups.m
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/managed-trino) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Click the cluster name.
   1. Go to the **{{ ui-key.yacloud.trino.section_resource-management }}** section.
   1. To delete resource groups you no longer need:

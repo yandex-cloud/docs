@@ -2,7 +2,7 @@
 
 You can create an [instance group](../../compute/concepts/instance-groups/index.md) based on a [image](../../compute/concepts/image.md) [{{ coi }}](../../cos/concepts/index.md) with multiple Docker containers inside.
 
-Docker containers are created based on the [Docker Compose](../../cos/concepts/coi-specifications.md#compose-spec) specification.
+We will use the [Docker Compose specification](../../cos/concepts/coi-specifications.md#compose-spec) to create Docker containers.
 
 {% include [warning.md](../../_includes/instance-groups/warning.md) %}
 
@@ -21,7 +21,7 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your service account.
-     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
      1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
      1. Enter the name: `group-coi`.
      1. To assign the service account the `editor` role for the current folder, click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `editor`.
@@ -65,10 +65,10 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder where you want to create your network.
-     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
      1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
-     1. Enter the network name: `yc-auto-network`.
-     1. Select the additional option: **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
+     1. Specify `yc-auto-network` as the network name.
+     1. Select the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option.
      1. Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
    - CLI {#cli}
@@ -117,19 +117,19 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
 
 1. {% include [get-latest-coi](../../_includes/container-registry/get-latest-coi.md) %}
 
-1. Save the specification of the instance group with {{ coi }} and multiple Docker containers to the `specification.yaml` file:
+1. Save the specification of the instance group created from a {{ coi }} with multiple Docker containers to the `specification.yaml` file:
 
    ```yaml
-   name: group-coi-containers # VM group name, unique within the folder.
+   name: group-coi-containers # Instance group name, unique within the folder.
    service_account_id: ajeabccde01d******** # Service account ID.
    instance_template:
-     service_account_id: ajeabccde01d******** # ID of the service account to access private Docker images.
+     service_account_id: ajeabccde01d******** # ID of the service account for accessing private Docker images.
      platform_id: standard-v3 # Platform ID.
      resources_spec:
-       memory: 2G # Amount of memory (RAM).
-       cores: 2 # Number of processor cores (vCPUs).
+       memory: 2G # Amount of RAM.
+       cores: 2 # Number of vCPUs.
      boot_disk_spec:
-       mode: READ_WRITE # Disk access mode (read and write).
+       mode: READ_WRITE # Disk access mode: read and write.
        disk_spec:
          image_id: <latest_COI_version_ID>
          type_id: network-hdd # Disk type.
@@ -144,7 +144,7 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
           }
         }
      metadata: # Values to write to the VM metadata.
-      docker-compose: |- # Key in the VM metadata that is used with the Docker Compose specification.
+      docker-compose: |- # VM metadata key that indicates the use of a Docker Compose specification.
         version: '3.7'
         services:
           app1:
@@ -159,13 +159,13 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
             restart: always
       ssh-keys: | # Parameter for providing an SSH key to the VM.
         yc-user:ssh-ed25519 ABC...d01 user@desktop.ru # Username for connecting to the VM.
-   deploy_policy: # VM deployment policy for the group.
+   deploy_policy: # Instance deployment policy for the group.
      max_unavailable: 1
      max_expansion: 0
    scale_policy: # Instance scaling policy for the group.
      fixed_scale:
        size: 2
-   allocation_policy: # Instance allocation policy between availability zones.
+   allocation_policy: # Policy for allocating instances across availability zones.
      zones:
        - zone_id: {{ region-id }}-a
    ```
@@ -206,7 +206,7 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
 
    {% endlist %}
 
-1. Make sure the instance group from the {{ coi }} and with multiple Docker containers was created:
+1. Make sure the instance group based on a {{ coi }} with multiple Docker containers has been created:
 
    {% list tabs group=instructions %}
 
@@ -240,9 +240,9 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
 
    {% endlist %}
 
-## Test the instance group based on the {{ coi }} with multiple Docker containers {#check}
+## Check the instance group with a {{ coi }} and multiple Docker containers {#check}
 
-1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to one of the instances via SSH.
+1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to one of the VM instances over SSH.
 
    {% list tabs group=instructions %}
 
@@ -265,7 +265,7 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
 
    {% endlist %}
 
-1. View a list of Docker containers running on the VM:
+1. View the list of Docker containers running on the VM:
 
    {% list tabs group=instructions %}
 

@@ -26,7 +26,9 @@ Managed Service for Apache Kafka® позволяет использовать �
   * для платформы **Intel Cascade Lake** — только с шагом 100 ГБ;
   * для платформ **Intel Ice Lake** и **AMD Zen 4** — только с шагом 368 ГБ.
 
+    
   Для кластеров, хосты которых располагаются в [зоне доступности](../../overview/concepts/geo-scope.md) `ru-central1-d`, недоступно хранилище на локальных SSD-дисках при использовании платформы Intel Cascade Lake.
+
 
 Размер [блока](https://en.wikipedia.org/wiki/Block_(data_storage)) всех типов дисков — 4 КБ.
 

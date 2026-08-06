@@ -1,19 +1,19 @@
 # Storing {{ mgl-full-name }} Docker images in {{ container-registry-full-name }}
 
 
-[{{ container-registry-name }}](https://docs.gitlab.com/ee/user/packages/container_registry/) is integrated in {{ GL }}. It enables you to store Docker images for each of your projects in {{ GL }}.
+[{{ container-registry-name }}](https://docs.gitlab.com/ee/user/packages/container_registry/) is integrated into {{ GL }}. It enables you to store Docker images on a per-project basis in {{ GL }}.
 
-You can use [{{ container-registry-full-name }}](../../container-registry/index.yaml) instead of {{ GL }} {{ container-registry-name }}. This service enables you to store Docker images in the cloud or distribute them across {{ yandex-cloud }} managed services, for example, [{{ managed-k8s-full-name }}](../../managed-kubernetes/index.yaml) or [{{ mgl-full-name }}](../../managed-gitlab/index.yaml).
+You can use [{{ container-registry-full-name }}](../../container-registry/index.yaml) instead of {{ GL }} {{ container-registry-name }}. This service allows you to store Docker images in the cloud and share them across {{ yandex-cloud }} managed services, such as [{{ managed-k8s-full-name }}](../../managed-kubernetes/index.yaml) or [{{ mgl-full-name }}](../../managed-gitlab/index.yaml).
 
-Storing images from {{ GL }} projects in {{ container-registry-full-name }} has several benefits:
+Using {{ container-registry-full-name }} to store images from {{ GL }} projects has several advantages:
 
-* {{ GL }} {{ container-registry-name }} stores images and tags on the [{{ GL }} instance](../../managed-gitlab/concepts/index.md#instance) disk. When you run out of disk space, you get the HTTP 500 error, and the instance becomes unavailable. You can recover the instance only by contacting tech support.
+* {{ GL }} {{ container-registry-name }} stores images and tags on the [{{ GL }} instance](../../managed-gitlab/concepts/index.md#instance) disk. When the instance runs out of disk space, it returns HTTP 500 errors and becomes unavailable. You can restore the instance only by contacting support.
 
-   {{ container-registry-full-name }} stores images and tags in [registries](../../container-registry/concepts/registry.md) for which [individual quotas](../../container-registry/concepts/limits.md) are allocated. Because of this, accumulating Docker images and tags does not affect the space available on the instance disk.
+   {{ container-registry-full-name }} stores images and tags in [registries](../../container-registry/concepts/registry.md), each with its [own quota](../../container-registry/concepts/limits.md). Therefore, storing large numbers of Docker images and tags does not consume the instance disk space.
 
-* The images are still available in {{ container-registry-full-name }}, even if {{ mgl-name }} is not.
+* Images stored in {{ container-registry-full-name }} remain available even if {{ mgl-name }} becomes unavailable.
 
-* {{ container-registry-full-name }} supports the [Docker image vulnerability scanner](../../container-registry/concepts/vulnerability-scanner.md). Use the scanner to detect vulnerabilities and fix them before deploying your application.
+* {{ container-registry-full-name }} supports the [Docker image vulnerability scanner](../../container-registry/concepts/vulnerability-scanner.md). Use it to detect vulnerabilities and fix them before deploying your application.
 
 To set up storage of {{ mgl-name }} Docker images in {{ container-registry-full-name }}:
 
@@ -25,15 +25,15 @@ To set up storage of {{ mgl-name }} Docker images in {{ container-registry-full-
 1. [Create a CI pipeline configuration file](#add-ci).
 1. [Check the result](#check-result).
 1. [Enable a Docker image lifecycle policy](#lifecycle-policy).
-1. (Optional) [Scan your Docker images for vulnerabilities](#vulnerability-scanner).
+1. Optionally, [scan your Docker images for vulnerabilities](#vulnerability-scanner).
 
-If you have already set up your {{ mgl-full-name }} instance for Continuous Integration (CI), check that you have prepared the [infrastructure for Docker images](#deploy-infrastructure). That done, begin the setup by [creating environment variables](#add-variables).
+If you have already configured your {{ mgl-full-name }} instance for Continuous Integration (CI), make sure to set up your [infrastructure for storing Docker images](#deploy-infrastructure). Then, proceed with the setup by [creating environment variables](#add-variables).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 {% note info %}
 
-By default, {{ GL }} {{ container-registry-name }} is disabled when creating an {{ mgl-name }} instance.
+By default, {{ GL }} {{ container-registry-name }} is disabled when creating a {{ mgl-name }} instance.
 
 {% endnote %}
 
@@ -46,7 +46,7 @@ By default, {{ GL }} {{ container-registry-name }} is disabled when creating an 
 Infrastructure support costs include fees for the following resources:
 
 * Disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Dynamic public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* Dynamic public IP address assigned (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 * Storage of the Docker images you created and vulnerability scanner, if [enabled](#vulnerability-scanner) (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
 * {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 
@@ -86,7 +86,7 @@ Infrastructure support costs include fees for the following resources:
       * {{ managed-k8s-name }} cluster with a basic master.
       * [Node group for the cluster](../../managed-kubernetes/concepts/index.md#node-group).
       * [Service account](../../iam/concepts/users/service-accounts.md) for the {{ managed-k8s-name }} cluster and node group.
-      * {{ container-registry-full-name }}.
+      * Registry in {{ container-registry-full-name }}.
 
    1. In `container-registry-and-gitlab.tf`, specify the following:
 
@@ -116,10 +116,10 @@ Infrastructure support costs include fees for the following resources:
 
 ## Create a test application {#app-create}
 
-Create a test application that can be deployed in a {{ managed-k8s-name }} cluster. To do this, add the following to the `Dockerfile` project:
+Create a test application that can be deployed in a {{ managed-k8s-name }} cluster. To do this, add a `Dockerfile` to your project:
 
    1. Log in to {{ GL }}.
-   1. Open the {{ GL }} project.
+   1. Open your {{ GL }} project.
    1. Click ![image](../../_assets/console-icons/plus.svg) in the repository navigation bar and select **New file** from the drop-down menu.
    1. Name the file `Dockerfile` and add the following code to it:
 
@@ -135,7 +135,7 @@ Create a test application that can be deployed in a {{ managed-k8s-name }} clust
 
 ## Create {{ GL }} environment variables {#add-variables}
 
-To allow {{ mgl-name }} to save Docker images and their tags in {{ container-registry-full-name }}, create the [{{ GL }} environment variables](https://docs.gitlab.com/ee/ci/variables/index.html):
+To allow {{ mgl-name }} to save Docker images and their tags to {{ container-registry-full-name }}, create [{{ GL }} environment variables](https://docs.gitlab.com/ee/ci/variables/index.html):
 
 1. {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -147,20 +147,20 @@ To allow {{ mgl-name }} to save Docker images and their tags in {{ container-reg
    yc iam key create --service-account-name account-for-container-registry -o key.json
    ```
 
-   The key is saved in the `key.json` file in the directory you ran the command in.
+   The key is saved in the `key.json` file in the current working directory.
 
 1. Open your project in {{ GL }}.
 
-1. Go to **Settings** in the left-hand panel, then select **CI/CD** from the drop-down list.
+1. Go to **Settings** in the left-hand panel and select **CI/CD** from the drop-down list.
 
 1. Expand the **Variables** section.
 
 1. Add environment variables with the protection option disabled:
 
-   | **Variable**        | **Its value**                    |
+   | **Variable**        | **Value**                    |
    | --------------------- | ---------------------------------- |
-   | `CI_REGISTRY`         | `{{ registry }}/<registry_ID>`. Specify the ID of the {{ container-registry-full-name }} registry that you created previously. |
-   | `CI_REGISTRY_KEY`     | `key.json` file contents.       |
+   | `CI_REGISTRY`         | `{{ registry }}/<registry_ID>`. Specify the ID of the registry you created earlier in {{ container-registry-full-name }}. |
+   | `CI_REGISTRY_KEY`     | `key.json` file contents       |
 
    To add a variable:
 
@@ -181,11 +181,11 @@ To allow {{ mgl-name }} to save Docker images and their tags in {{ container-reg
 
 To build images from a Dockerfile without Docker, use [kaniko](https://github.com/GoogleContainerTools/kaniko).
 
-To publish Docker images from your {{ GL }} project in {{ container-registry-full-name }}, create a CI script:
+To publish Docker images from your {{ GL }} project to {{ container-registry-full-name }}, create a CI pipeline configuration:
 
 1. Open the `gitlab-test` project.
 1. Click ![image](../../_assets/console-icons/plus.svg) in the repository navigation bar and select **New file** from the drop-down menu.
-1. Name your file `.gitlab-ci.yml`. Add to it the steps to build a Docker image and push it to {{ container-registry-full-name }}:
+1. Name your file `.gitlab-ci.yml`. Add the steps for building the Docker image and pushing it to {{ container-registry-full-name }}:
 
    {% cut ".gitlab-ci.yml" %}
 
@@ -209,7 +209,7 @@ To publish Docker images from your {{ GL }} project in {{ container-registry-ful
 
    {% endcut %}
 
-   This file includes the variables:
+   This file includes the following variables:
 
    * `CI_REGISTRY` and `CI_REGISTRY_KEY`: Added to GitLab in the [previous step](#add-variables).
    * `CI_PROJECT_DIR`, `CI_PROJECT_PATH`, and `CI_COMMIT_SHORT_SHA`: [Preset in GitLab](https://docs.gitlab.com/ee/ci/variables/predefined_variables.html).
@@ -219,37 +219,37 @@ To publish Docker images from your {{ GL }} project in {{ container-registry-ful
 
 ## Check the result {#check-result}
 
-Each commit is followed by a build script. To check the script execution results:
+Each commit triggers a build pipeline. To verify that it completed successfully:
 
-1. Select **Build** on the left-hand panel in the `gitlab-test` project and select **Pipelines** from the drop-down menu.
+1. Select **Build** in the left-hand panel in the `gitlab-test` project, and then select **Pipelines** from the drop-down menu.
 
-1. Make sure the `build` step gets the `passed` status. This means that the CI script has been executed successfully.
+1. Make sure the `build` stage has the `passed` status. This means that the CI pipeline completed successfully.
 
-1. Go to the [management console]({{ link-console-main }}/), then open the {{ container-registry-full-name }} registry.
+1. Go to the [management console]({{ link-console-main }}/) and open your {{ container-registry-full-name }}.
 
-   If the script completes successfully, a new repository is added to the registry. New Docker images from the {{ GL }} project are added to this repository at each commit.
+   If the CI pipeline completes successfully, your registry will contain a new repository. New Docker images from the {{ GL }} project will be added to this repository at each commit.
 
 ## Enable a Docker image lifecycle policy {#lifecycle-policy}
 
-To avoid storing outdated Docker images and their tags, configure a [Docker image lifecycle policy](../../container-registry/concepts/lifecycle-policy.md). The policy manages the images stored in your [{{ container-registry-name }} repository](../../container-registry/concepts/repository.md) to free up its space in a timely manner. This way, you no longer pay for [storing outdated images](../../container-registry/pricing.md#prices-storage).
+To avoid storing outdated Docker images and their tags, configure a [Docker image lifecycle policy](../../container-registry/concepts/lifecycle-policy.md). It applies to images in your [{{ container-registry-name }} repository](../../container-registry/concepts/repository.md) and enables timely cleanup of the repository. This way, you do not pay extra for [storing outdated images](../../container-registry/pricing.md#prices-storage).
 
-To create a policy, [follow the guide](../../container-registry/operations/lifecycle-policy/lifecycle-policy-create.md).
+To create a policy, [follow this guide](../../container-registry/operations/lifecycle-policy/lifecycle-policy-create.md).
 
-When using the policy:
+When using a policy:
 
-* External {{ container-registry-name }} and Docker image lifecycle policies [affect CI script performance](https://docs.gitlab.com/ee/user/packages/container_registry/reduce_container_registry_storage.html#use-with-external-container-registries).
+* External {{ container-registry-name }} and Docker image lifecycle policy [affect CI pipeline performance](https://docs.gitlab.com/ee/user/packages/container_registry/reduce_container_registry_storage.html#use-with-external-container-registries).
 
-* The policy imposes a [limit](../../container-registry/concepts/limits.md#container-registry-limits) on the maximum number of images that you can check per policy run. If the number of images in your {{ container-registry-name }} repository exceeds this limit, run the policy several times. You can check all your images in this manner.
+* The policy has a [limit](../../container-registry/concepts/limits.md#container-registry-limits) on the maximum number of images that can be checked per policy run. If the number of images in your {{ container-registry-name }} repository exceeds this limit, run the policy several times. This way, all your images will be checked.
 
 ## Scan your Docker images for vulnerabilities {#vulnerability-scanner}
 
-To detect vulnerabilities in your Docker images, you can additionally activate a [vulnerability scanner](../../container-registry/concepts/vulnerability-scanner.md) in {{ container-registry-full-name }}. The scanner checks the versions of packages installed in your images against [CVE](https://cve.mitre.org/) vulnerability databases.
+To detect vulnerabilities in your Docker images, you can additionally enable a [vulnerability scanner](../../container-registry/concepts/vulnerability-scanner.md) in {{ container-registry-full-name }}. The scanner checks the versions of packages installed in your images against [CVE](https://cve.mitre.org/) vulnerability databases.
 
-To enable scanning, expand your {{ GL }} project's CI script:
+To enable scanning, update the CI pipeline in your {{ GL }} project:
 
 1. Open the `gitlab-test` project.
 1. Open the `.gitlab-ci.yml` file.
-1. Add to it the steps for vulnerability scanning of your Docker image:
+1. Add the steps to scan the Docker image for vulnerabilities:
 
    {% cut ".gitlab-ci.yml" %}
 
@@ -262,7 +262,7 @@ To enable scanning, expand your {{ GL }} project's CI script:
 
    container_scanning_free_yc:
       stage: test
-      # Using the jq utility to search for ID and write logs.
+      # Using jq to search for ID and write logs.
       image: 
          name: pindar/jq
          entrypoint: [""]
@@ -275,7 +275,7 @@ To enable scanning, expand your {{ GL }} project's CI script:
          CI_REGISTRY_ID: "<registry_ID>"
       script:
          - export CI_COMMIT_SHORT_SHA=${CI_COMMIT_SHORT_SHA}
-         # Installing Yandex Cloud CLI.
+         # Installing the Yandex Cloud CLI.
          - curl https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash -s -- -a && cp /root/yandex-cloud/bin/yc /usr/bin/
          # Start of scanning.
          - echo "Scanning image ${CI_REGISTRY}/${CI_PROJECT_PATH}:${CI_COMMIT_SHORT_SHA}..."
@@ -295,19 +295,19 @@ To enable scanning, expand your {{ GL }} project's CI script:
    {% endcut %}
 
 1. Add a comment in the **Commit message** field: `Turn on a vulnerability scanner`.
-1. Click **Commit changes**. After that, the updated script will run.
+1. Click **Commit changes**. After that, the updated pipeline will run.
 
-To make sure that the image scan was successful:
+To make sure the image scan completed successfully:
 
-1. Select **Build** on the left-hand panel in the `gitlab-test` project, and then select **Pipelines** from the drop-down menu.
-1. Make sure that the `build` and `test` steps got the `passed` status. This means that the CI script has been executed successfully.
-1. Go to the [management console]({{ link-console-main }}/), then open the {{ container-registry-full-name }} registry.
-1. Open your repository with Docker images from the {{ GL }} project.
-1. Go to the directory with the {{ GL }} project name.
-1. Make sure that the **{{ ui-key.yacloud.cr.image.label_scan-status }}** column includes **{{ ui-key.yacloud.cr.registry.label_scan-status-READY }}**.
+1. Select **Build** in the left-hand panel in the `gitlab-test` project, and then select **Pipelines** from the drop-down menu.
+1. Make sure the `build` and `test` stages have the `passed` status. This means that the CI pipeline completed successfully.
+1. Go to the [management console]({{ link-console-main }}/) and open your {{ container-registry-full-name }}.
+1. Open the repository with Docker images from the {{ GL }} project.
+1. Go to the directory named after the {{ GL }} project.
+1. Make sure the **{{ ui-key.yacloud.cr.image.label_scan-status }}** column shows **{{ ui-key.yacloud.cr.registry.label_scan-status-READY }}**.
 1. In the **{{ ui-key.yacloud.cr.image.label_last-scan-time }}** column, click the link with the scan time.
 
-   You will see the scan results. If vulnerabilities were found in the images, you will see them in the results.
+   This will open the scan result page. Any vulnerabilities found in the image will be displayed there.
 
 ## Delete the resources you created {#clear-out}
 
@@ -316,14 +316,14 @@ If you no longer need the resources you created, delete them:
 1. [Delete the {{ mgl-name }} instance](../../managed-gitlab/operations/instance/instance-delete.md) or the [{{ GL }} VM](../../compute/operations/vm-control/vm-delete.md).
 1. [Delete all Docker images](../../container-registry/operations/docker-image/docker-image-delete.md) from the {{ container-registry-name }} registry.
 
-Delete the rest of the resources depending on how you created them:
+Delete the other resources depending on how you created them:
 
 {% list tabs group=instructions %}
 
 - Manually {#manual}
 
    1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-   1. If you reserved a public IP address for the {{ managed-k8s-name }} cluster, [delete it](../../vpc/operations/address-delete.md).
+   1. [Delete](../../vpc/operations/address-delete.md) the public IP address of the {{ managed-k8s-name }} cluster if you reserved one.
    1. [Delete the service accounts](../../iam/operations/sa/delete.md).
    1. [Delete the {{ container-registry-name }}](../../container-registry/operations/registry/registry-delete.md).
    1. [Delete the subnets](../../vpc/operations/subnet-delete.md) and the [network](../../vpc/operations/network-delete.md).

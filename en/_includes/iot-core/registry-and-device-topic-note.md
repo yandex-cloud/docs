@@ -1,6 +1,5 @@
 {% note warning %}
 
-Registry and device topics are not interconnected. If a device sends data to the device topic for telemetry data, you can only receive it by subscribing to this topic. The same is true for registry topics.
+Registry topics and device topics are independent of each other. If a device sends data to a device telemetry topic, you can only receive this data by subscribing to that topic. The same applies to registry topics.
 
 {% endnote %}
-

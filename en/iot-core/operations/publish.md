@@ -7,31 +7,31 @@ description: Follow this guide to send messages to {{ iot-full-name }} resources
 
 {% include [iot-sunset-warning](../../_includes/iot-core/sunset-warning.md) %}
 
-The service provides two resource management models:
-* When using a broker, you can send and receive messages in random topics that do not start with `$`.
-* When registries and devices are used, the selection of topics is limited.
+{{ iot-full-name }} provides two resource management models:
+* When using a broker, you can send and receive messages in any topics that do not start with `$`.
+* When using registries and devices, the available topics are limited.
 
 For more information about the differences between brokers and device registries, see [{#T}](../concepts/index.md).
 
 When using registries and devices, you can send messages of the following types:
 - Send data from a device to a registry using the `$devices/<device_ID>/events` or `$registries/<registry_ID>/events` topics.
-- Send data from a device to a registry using the permanent `$devices/<device_ID>/state` or `$registries/<registry_ID>/state` topics.
-- Send registry commands to a device using the `$devices/<device_ID>/commands` or `$registries/<registry_ID>/commands` topics.
-- Send registry commands to a device using the permanent `$devices/<device_ID>/config` or `$registries/<registry_ID>/config` topics.
+- Send data from a device to a registry using the `$devices/<device_ID>/state` or `$registries/<registry_ID>/state` persistent topics.
+- Send commands from a registry to a device using the `$devices/<device_ID>/commands` or `$registries/<registry_ID>/commands` topics.
+- Send commands from a registry to a device using the `$devices/<device_ID>/config` or `$registries/<registry_ID>/config` persistent topics.
 
-To receive messages, you need to subscribe to the sender. For information about how to do this, see [{#T}](subscribe.md).
+To receive messages, you need to subscribe to the sender. Learn how to do this in [{#T}](subscribe.md).
 
-On how to make sure a message has been successfully sent and delivered, see [{#T}](../tutorials/message-delivery-check.md).
+To learn how to verify that the message was successfully sent and delivered, see [{#T}](../tutorials/message-delivery-check.md).
 
 {% include [registry-and-device-topic-note](../../_includes/iot-core/registry-and-device-topic-note.md) %}
 
 {% include [iot-before-you-begin](../../_includes/iot-core/iot-before-you-begin.md) %}
 
-## Sending a message with data {#pub-events}
+## Sending a data message {#pub-events}
 
 {% include [debug-note](../../_includes/iot-core/debug-note.md) %}
 
-### Send data from a device to a device topic {#to-device-topic}
+### Sending data from a device to a device topic {#to-device-topic}
 
 A registry subscribed to this topic will know which device sent the data because the topic contains a unique device ID.
 
@@ -43,7 +43,7 @@ A registry subscribed to this topic will know which device sent the data because
     
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
     
-    - Send data to a device topic using certificate-based authorization:
+    - Send data to a device topic using certificate-based authentication:
           
         ```
         yc iot mqtt publish \
@@ -53,7 +53,7 @@ A registry subscribed to this topic will know which device sent the data because
           --message 'Test data' \
           --qos 1
         ```
-    - Send data to the permanent topic of a device using certificate-based authorization:
+    - Send data to a device’s persistent topic using certificate-based authentication:
           
         ```
         yc iot mqtt publish \
@@ -66,12 +66,12 @@ A registry subscribed to this topic will know which device sent the data because
 		
         Where:
 
-        - `--cert` and `--key`: Parameters for authentication with a certificate.
+        - `--cert` and `--key`: Certificate-based authentication parameters.
         - `--topic`: Device topic for sending data.
         - `--message`: Message text.
         - `--qos`: [Quality of service (QoS) level](../concepts/index.md#qos).
 
-	- Send data to a device topic using username and password authorization:
+	- Send data to a device topic using username and password authentication:
     
         ```
         yc iot mqtt publish \
@@ -82,7 +82,7 @@ A registry subscribed to this topic will know which device sent the data because
           --qos 1
         ```
 
-	- Send data to the permanent topic of a device using username and password authorization:
+	- Send data to a device’s persistent topic using username and password authentication:
     
         ```
         yc iot mqtt publish \
@@ -95,7 +95,7 @@ A registry subscribed to this topic will know which device sent the data because
 		
         Where:
 
-        - `--username` and `--password`: Credentials for authentication with a username and password.
+        - `--username` and `--password`: Username and password authentication parameters.
         - `--topic`: Device topic for sending data.
         - `--message`: Message text.
         - `--qos`: [Quality of service (QoS) level](../concepts/index.md#qos).
@@ -106,7 +106,7 @@ A registry subscribed to this topic will know which device sent the data because
 
 {% endlist %}
 
-### Send data from a device to a registry topic {#to-registry-topic}
+### Sending data from a device to a registry topic {#to-registry-topic}
 
 A registry subscribed to this topic will not know which device sent the data because the topic does not contain a unique device ID.
 
@@ -114,7 +114,7 @@ A registry subscribed to this topic will not know which device sent the data bec
 
 - CLI {#cli}
     
-  - Send data to a registry topic using certificate-based authorization:
+  - Send data to a registry topic using certificate-based authentication: 
         
         ```
         yc iot mqtt publish \
@@ -125,7 +125,7 @@ A registry subscribed to this topic will not know which device sent the data bec
           --qos 1
         ```
 
-	- Send data to the permanent topic of a registry using certificate-based authorization:
+	- Send data to a registry’s persistent topic using certificate-based authentication: 
         
         ```
         yc iot mqtt publish \
@@ -138,12 +138,12 @@ A registry subscribed to this topic will not know which device sent the data bec
 		
         Where:
 
-        - `--cert` and `--key`: Parameters for authentication with a certificate.
+        - `--cert` and `--key`: Certificate-based authentication parameters.
         - `--topic`: Registry topic for receiving data.
         - `--message`: Message text.
         - `--qos`: [Quality of service (QoS) level](../concepts/index.md#qos).
 
-	- Send data to a registry topic using username and password authorization:
+	- Send data to a registry topic using username and password authentication:
     
         ```
         yc iot mqtt publish \
@@ -154,7 +154,7 @@ A registry subscribed to this topic will not know which device sent the data bec
           --qos 1
         ```
 
-	- Send data to the permanent topic of a registry using username and password authorization:
+	- Send data to a registry’s persistent topic using username and password authentication:
 	
         ```
         yc iot mqtt publish \
@@ -167,30 +167,30 @@ A registry subscribed to this topic will not know which device sent the data bec
 		
         Where:
 
-        - `--username` and `--password`: Credentials for authentication with a username and password.
+        - `--username` and `--password`: Username and password authentication parameters.
         - `--topic`: Registry topic for receiving data.
         - `--message`: Message text.
         - `--qos`: [Quality of service (QoS) level](../concepts/index.md#qos).
 
 - API {#api}
 
-  To send device data to a registry topic, use the [publish](../api-ref/DeviceData/publish.md) REST API method for the [DeviceData](../api-ref/DeviceData/index.md) resource or the [DeviceDataService/Publish](../api-ref/grpc/DeviceData/publish.md) gRPC API call.
+  To send data from a device to a registry topic, use the [publish](../api-ref/DeviceData/publish.md) REST API method for the [DeviceData](../api-ref/DeviceData/index.md) resource or the [DeviceDataService/Publish](../api-ref/grpc/DeviceData/publish.md) gRPC API call.
 
 {% endlist %}
 
-## Sending messages with commands {#pub-commands}
+## Sending a command message {#pub-commands}
 
-A registry can send messages with commands to one, multiple, or all devices added to it. Let's look at all the options.
+A registry can send a command message to one, multiple, or all devices added to it. Let’s consider all options.
 
 {% include [debug-note](../../_includes/iot-core/debug-note.md) %}
 
-### Send a command to a single device {#one-device}
+### Sending a command to one device {#one-device}
 
 {% list tabs group=instructions %}
 
 - CLI {#cli}
 
-    - Send a command using certificate-based authorization:
+    - Send a command using certificate-based authentication:
 
         ```
         yc iot mqtt publish \
@@ -201,7 +201,7 @@ A registry can send messages with commands to one, multiple, or all devices adde
           --qos 1
         ```
 		
-    - Send a command using a permanent topic and certificate-based authorization:
+    - Send a command using a persistent topic and certificate-based authentication:
 
         ```
         yc iot mqtt publish \
@@ -214,12 +214,12 @@ A registry can send messages with commands to one, multiple, or all devices adde
       
         Where:
 
-        - `--cert` and `--key`: Parameters for authentication with a certificate.
+        - `--cert` and `--key`: Certificate-based authentication parameters.
         - `--topic`: Device topic for receiving commands.
         - `--message`: Message text.
         - `--qos`: [Quality of service (QoS) level](../concepts/index.md#qos).
 
-	- Send a command using username and password authorization:
+	- Send a command using username and password authentication:
 
         ```
         yc iot mqtt publish \
@@ -229,7 +229,7 @@ A registry can send messages with commands to one, multiple, or all devices adde
           --message 'Test command for first device' \
           --qos 1
         ```
-	- Send a command using a permanent topic and username and password authorization:
+	- Send a command using a persistent topic and username and password authentication: 
 
         ```
         yc iot mqtt publish \
@@ -242,7 +242,7 @@ A registry can send messages with commands to one, multiple, or all devices adde
 
         Where:
 
-        - `--username` and `--password`: Credentials for authentication with a username and password.
+        - `--username` and `--password`: Username and password authentication parameters.
         - `--topic`: Device topic for receiving commands.
         - `--message`: Message text.
         - `--qos`: [Quality of service (QoS) level](../concepts/index.md#qos).
@@ -253,12 +253,12 @@ A registry can send messages with commands to one, multiple, or all devices adde
 
 {% endlist %}
 
-### Send a command to all devices added to the registry {#all-device}
+### Sending a command to all devices added to the registry {#all-device}
 {% list tabs group=instructions %}
 
 - CLI {#cli}
           
-    - Send a command to all devices using certificate-based authorization:
+    - Send a command to all devices using certificate-based authentication:
     
         ```
         yc iot mqtt publish \
@@ -269,7 +269,7 @@ A registry can send messages with commands to one, multiple, or all devices adde
           --qos 1
         ```
 
-    - Send a command to all devices using a permanent topic and certificate-based authorization:
+    - Send a command to all devices using a persistent topic and certificate-based authentication:
     
         ```
         yc iot mqtt publish \
@@ -282,12 +282,12 @@ A registry can send messages with commands to one, multiple, or all devices adde
 		
         Where:
 
-        - `--cert` and `--key`: Parameters for authentication with a certificate.
+        - `--cert` and `--key`: Certificate-based authentication parameters.
         - `--topic`: Registry topic for sending commands.
         - `--message`: Message text.
         - `--qos`: [Quality of service (QoS) level](../concepts/index.md#qos).
 
-	- Send a command to all devices using username and password authorization:
+	- Send a command to all devices using username and password authentication:
     
         ```
         yc iot mqtt publish \
@@ -298,7 +298,7 @@ A registry can send messages with commands to one, multiple, or all devices adde
           --qos 1
         ```
 
-	- Send a command to all devices using a permanent topic and username and password authorization:
+	- Send a command to all devices using a persistent topic and username and password authentication:
     
         ```
         yc iot mqtt publish \
@@ -311,7 +311,7 @@ A registry can send messages with commands to one, multiple, or all devices adde
 		
         Where:
 
-        - `--username` and `--password`: Credentials for authentication with a username and password.
+        - `--username` and `--password`: Username and password authentication parameters.
         - `--topic`: Registry topic for sending commands.
         - `--message`: Message text.
         - `--qos`: [Quality of service (QoS) level](../concepts/index.md#qos).
@@ -324,13 +324,13 @@ A registry can send messages with commands to one, multiple, or all devices adde
 
 ## Sending a message in a broker {#broker}
 
-When using a broker, you can send a message to a random topic using your username and password or any certificate assigned to the broker for authentication.
+When using a broker, you can send a message to any topic using your username and password or any certificate assigned to the broker for authentication.
 
 {% list tabs group=instructions %}
 
 - CLI {#cli}
 
-    - Send a message using your username and password for authorization:
+    - Send a message using username and password authentication:
 
         ```
         yc iot mqtt publish \
@@ -343,12 +343,12 @@ When using a broker, you can send a message to a random topic using your usernam
 
         Where:
 
-        - `--username` and `--password`: Credentials for authentication with a username and password.
-        - `--topic`: Random topic name that matches the MQTT specification and does not start with `$`.
+        - `--username` and `--password`: Username and password authentication parameters.
+        - `--topic`: Topic name that matches the MQTT specification and does not start with `$`.
         - `--message`: Message text.
         - `--qos`: [Quality of service (QoS) level](../concepts/index.md#qos).
 
-    - Send a message using certificate-based authorization:
+    - Send a message using certificate-based authentication:
 
         ```
         yc iot mqtt publish \
@@ -361,8 +361,8 @@ When using a broker, you can send a message to a random topic using your usernam
 
         Where:
 
-        - `--cert` and `--key`: Parameters for authentication with a certificate.
-        - `--topic`: Random topic name that matches the MQTT specification and does not start with `$`.
+        - `--cert` and `--key`: Certificate-based authentication parameters.
+        - `--topic`: Topic name that matches the MQTT specification and does not start with `$`.
         - `--message`: Message text.
         - `--qos`: [Quality of service (QoS) level](../concepts/index.md#qos).
 

@@ -56,6 +56,7 @@ Specifies the minimum number of instances for the auto-scaling executor. ||
 || `--executor-max-size` | `int`
 
 Specifies the maximum number of instances for the auto-scaling executor. ||
+|| `--executor-preemptible` | Run executor nodes on preemptible (interruptible) VMs. ||
 || `--history-server-enabled` | Enables History Server instance creation. ||
 || `--metastore-cluster-id` | `string`
 

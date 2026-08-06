@@ -2,7 +2,7 @@
 
 {% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}
 
-You can disable or enable a [registry](../../concepts/index.md#registry). Once disabled, the registry gets the `DISABLED` status, after which the registry itself and all [devices](../../concepts/index.md#device) in it stop accepting inbound connections.
+You can disable or enable a [registry](../../concepts/index.md#registry). When disabled, the registry changes its status to `DISABLED`, and both the registry and all [devices](../../concepts/index.md#device) within it stop accepting incoming connections.
 
 {% include [registry-get-id-name](../../../_includes/iot-core/registry-get-id-name.md) %}
 

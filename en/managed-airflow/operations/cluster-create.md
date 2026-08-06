@@ -34,7 +34,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-airflow) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
   1. Click **{{ ui-key.yacloud.airflow.button_create-cluster }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 

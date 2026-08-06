@@ -18,7 +18,7 @@ VMs with public IP addresses use the default static route (`0.0.0.0/0`). If you 
   To create a route table with [static routes](../concepts/routing.md):
 
   1. In the [management console]({{ link-console-main }}), select the folder where you need to create a static route.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
   1. Click **{{ ui-key.yacloud.common.create }}**.
   1. Enter a name for the route table. Follow these naming requirements:
@@ -175,7 +175,7 @@ VMs with public IP addresses use the default static route (`0.0.0.0/0`). If you 
 
      To add, update, or delete a route table, use the `yandex_vpc_route_table` resource indicating the network in the `network_id` field, e.g., `network_id = yandex_vpc_network.test_route_table.id`.
 
-     For more information about the `yandex_vpc_route_table` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/vpc_route_table).
+     For more information about `yandex_vpc_route_table` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/vpc_route_table).
 
   1. Make sure the configuration files are correct.
 

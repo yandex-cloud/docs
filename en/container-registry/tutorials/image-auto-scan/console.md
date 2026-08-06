@@ -8,7 +8,7 @@ description: Follow this guide to run automatic Docker image scans on push to {{
 
 {% note info %}
 
-You can enable auto [scans](../../concepts/vulnerability-scanner.md) of [Docker images](../../concepts/docker-image.md) for vulnerabilities on push to [{{ container-registry-full-name }}](../../../container-registry/) in the [vulnerability scanner settings](../../operations/scanning-docker-image.md#automatically) without creating any [{{ sf-full-name }}](../../../functions/) [functions](../../../functions/concepts/function.md) and [triggers](../../../functions/concepts/trigger/index.md).
+You can enable automatic vulnerability [scans](../../concepts/vulnerability-scanner.md) of [Docker images](../../concepts/docker-image.md) on push to [{{ container-registry-full-name }}](../../../container-registry/) in the [vulnerability scanner settings](../../operations/scanning-docker-image.md#automatically) without creating any [{{ sf-full-name }}](../../../functions/) [functions](../../../functions/concepts/function.md) and [triggers](../../../functions/concepts/trigger/index.md).
 
 {% endnote %}
 
@@ -18,7 +18,7 @@ To configure automatic vulnerability [scans](../../concepts/vulnerability-scanne
 1. [Set up your environment](#prepare).
 1. [Create a function](#create-function).
 1. [Create a trigger](#create-trigger).
-1. [Push the Docker image](#download-image).
+1. [Push your Docker image](#download-image).
 1. [Check the result](#check-result).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -45,7 +45,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
      1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to create a registry in.
      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
      1. Click **{{ ui-key.yacloud.cr.overview.button_create }}**.
-     1. Specify a name for the registry.
+     1. Name the registry.
      1. Click **{{ ui-key.yacloud.cr.overview.popup-create_button_create }}**.
 
    - CLI {#cli}
@@ -121,22 +121,22 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Create a function {#create-function}
 
-In {{ sf-name }}, create a function named `scan-on-push` that will run the Docker image scan:
+In {{ sf-name }}, create a function named `scan-on-push` that will run a Docker image scan:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create your function.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
-  1. Enter a name, e.g., `scan-on-push`, and description for the function.
+  1. Name the function `scan-on-push` and provide a description.
   1. Click **{{ ui-key.yacloud.common.create }}**.
-  1. Go to **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** and create a version of the function:
+  1. Go to **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** and create a function version:
      1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}**:
-        * Select the `Bash` runtime environment and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+        * Select the `Bash` runtime and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
         * Select how you want to edit the function: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}`.
-        * In the function edit window, click **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}**. In the window that opens, enter `handler.sh` as the file name and click **{{ ui-key.yacloud.common.create }}**.
+        * In the function edit window, click **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}**. In the window that opens, enter `handler.sh` for the file name and click **{{ ui-key.yacloud.common.create }}**.
         * Paste the following code to the `handler.sh` file:
 
           ```bash
@@ -174,7 +174,7 @@ In {{ sf-name }}, create a function named `scan-on-push` that will run the Docke
      status: ACTIVE
      ```
 
-  1. Create the `handler.sh` file and paste the following code to it:
+  1. Create the `handler.sh` file and paste the following code into it:
 
      {% include [handler-sh-function](../../../_tutorials/_tutorials_includes/handler-sh-function.md) %}
 
@@ -214,7 +214,7 @@ In {{ sf-name }}, create a function named `scan-on-push` that will run the Docke
 
 - API {#api}
 
-  Use the [create](../../../functions/functions/api-ref/Function/create.md) and the [createVersion](../../../functions/functions/api-ref/Function/createVersion.md) methods for the [Function](../../../functions/functions/api-ref/Function/) resource.
+  Use the [create](../../../functions/functions/api-ref/Function/create.md) and [createVersion](../../../functions/functions/api-ref/Function/createVersion.md) methods for the [Function](../../../functions/functions/api-ref/Function/) resource.
 
 {% endlist %}
 
@@ -226,7 +226,7 @@ Create a trigger that will invoke your function when creating a Docker image [ta
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Navigate to the **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}** tab.
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
@@ -235,11 +235,11 @@ Create a trigger that will invoke your function when creating a Docker image [ta
      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_container-registry }}`.
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_container-registry }}**:
      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_container-registry }}** field, select the registry to push the Docker image to.
-     * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_event-types }}** field, select the [event `{{ ui-key.yacloud.serverless-functions.triggers.form.value_event-type-create-image-tag }}`](../../../functions/concepts/trigger/cr-trigger.md#event).
+     * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_event-types }}** field, select the `{{ ui-key.yacloud.serverless-functions.triggers.form.value_event-type-create-image-tag }}` [event](../../../functions/concepts/trigger/cr-trigger.md#event).
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**:
-     * Select the `scan-on-push` function.
-     * Specify the `$latest` [function version tag](../../../functions/concepts/function.md#tag).
-     * Specify the `invoker` service account which will invoke the function.
+     * Select `scan-on-push`.
+     * Specify the [function version tag](../../../functions/concepts/function.md#tag): `$latest`.
+     * Specify the service account that will invoke the function: `invoker`.
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 - CLI {#cli}
@@ -258,7 +258,7 @@ Create a trigger that will invoke your function when creating a Docker image [ta
   Where:
   * `--name`: Trigger name.
   * `--registry-id`: [ID of the registry](../../operations/registry/registry-list.md) to push the Docker image to.
-  * `--events`: [Events](../../../functions/concepts/trigger/cr-trigger.md#event) to set off the trigger.
+  * `--events`: [Events](../../../functions/concepts/trigger/cr-trigger.md#event) that set off the trigger.
   * `--invoke-function-id`: Function ID.
   * `--invoke-function-service-account-id`: ID of the service account with permissions to invoke the function.
 

@@ -12,7 +12,7 @@
   
   {% include [default-catalogue](../default-catalogue.md) %}
 
-  1. View the description of the CLI command to get a list of registries:
+  1. See the description of the CLI command for getting a list of registries:
 	
       ```bash
       yc iot registry list --help

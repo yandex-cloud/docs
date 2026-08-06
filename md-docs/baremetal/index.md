@@ -726,7 +726,29 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [Overview](cli-ref/v2/index.md)
 
- - [configuration](cli-ref/v2/configuration.md)
+###### boot-image
+
+ - [Overview](cli-ref/v2/boot-image/index.md)
+
+ - [create](cli-ref/v2/boot-image/create.md)
+
+ - [delete](cli-ref/v2/boot-image/delete.md)
+
+ - [get](cli-ref/v2/boot-image/get.md)
+
+ - [list](cli-ref/v2/boot-image/list.md)
+
+ - [list-operations](cli-ref/v2/boot-image/list-operations.md)
+
+ - [update](cli-ref/v2/boot-image/update.md)
+
+###### configuration
+
+ - [Overview](cli-ref/v2/configuration/index.md)
+
+ - [resolve-configuration-default-storage](cli-ref/v2/configuration/resolve-configuration-default-storage.md)
+
+ - [resolve-configurations-default-storages](cli-ref/v2/configuration/resolve-configurations-default-storages.md)
 
 ###### extend
 
@@ -756,6 +778,30 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [list](cli-ref/v2/hardware-pool/list.md)
 
+###### image
+
+ - [Overview](cli-ref/v2/image/index.md)
+
+ - [get](cli-ref/v2/image/get.md)
+
+ - [list](cli-ref/v2/image/list.md)
+
+ - [resolve](cli-ref/v2/image/resolve.md)
+
+###### private-cloud-connection
+
+ - [Overview](cli-ref/v2/private-cloud-connection/index.md)
+
+ - [create](cli-ref/v2/private-cloud-connection/create.md)
+
+ - [delete](cli-ref/v2/private-cloud-connection/delete.md)
+
+ - [get](cli-ref/v2/private-cloud-connection/get.md)
+
+ - [list](cli-ref/v2/private-cloud-connection/list.md)
+
+ - [update](cli-ref/v2/private-cloud-connection/update.md)
+
 ###### private-subnet
 
  - [Overview](cli-ref/v2/private-subnet/index.md)
@@ -767,6 +813,8 @@ Yandex BareMetal предоставляет возможность арендо�
  - [get](cli-ref/v2/private-subnet/get.md)
 
  - [list](cli-ref/v2/private-subnet/list.md)
+
+ - [list-operations](cli-ref/v2/private-subnet/list-operations.md)
 
  - [update](cli-ref/v2/private-subnet/update.md)
 
@@ -792,6 +840,8 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [list](cli-ref/v2/public-subnet/list.md)
 
+ - [list-operations](cli-ref/v2/public-subnet/list-operations.md)
+
  - [update](cli-ref/v2/public-subnet/update.md)
 
 ###### rental-period
@@ -812,6 +862,8 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [list](cli-ref/v2/server/list.md)
 
+ - [list-operations](cli-ref/v2/server/list-operations.md)
+
  - [power-off](cli-ref/v2/server/power-off.md)
 
  - [power-on](cli-ref/v2/server/power-on.md)
@@ -821,6 +873,8 @@ Yandex BareMetal предоставляет возможность арендо�
  - [reinstall](cli-ref/v2/server/reinstall.md)
 
  - [renew-rental](cli-ref/v2/server/renew-rental.md)
+
+ - [skip-quarantine](cli-ref/v2/server/skip-quarantine.md)
 
  - [update](cli-ref/v2/server/update.md)
 
@@ -835,6 +889,8 @@ Yandex BareMetal предоставляет возможность арендо�
  - [get](cli-ref/v2/vrf/get.md)
 
  - [list](cli-ref/v2/vrf/list.md)
+
+ - [list-operations](cli-ref/v2/vrf/list-operations.md)
 
  - [update](cli-ref/v2/vrf/update.md)
 

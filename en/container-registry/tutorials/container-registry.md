@@ -1,6 +1,6 @@
 ---
 title: Integration with {{ managed-k8s-full-name }}
-description: Follow this guide to configure integration with {{ managed-k8s-name }}.
+description: Follow this tutorial to configure integration with {{ managed-k8s-name }}.
 canonical: '{{ link-docs }}/tutorials/container-infrastructure/container-registry'
 ---
 

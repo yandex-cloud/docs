@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > [Пошаговые инструкции](../index.md) > Доступ сервисов к ресурсам пользователя > Включение и выключение сервисов
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > [Пошаговые инструкции](../index.md) > [Доступ сервисов к ресурсам пользователя](index.md) > Включение и выключение сервисов
 
 # Включение и выключение сервиса
 

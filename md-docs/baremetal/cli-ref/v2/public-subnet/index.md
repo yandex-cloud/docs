@@ -20,6 +20,8 @@ Syntax:
 
 - [yc baremetal v2 public-subnet list](list.md) — Retrieves the list of PublicSubnet resources in the specified folder.
 
+- [yc baremetal v2 public-subnet list-operations](list-operations.md) — Lists operations for the specified public subnet.
+
 - [yc baremetal v2 public-subnet update](update.md) — Updates the specified public subnet.
 
 #### Global Flags

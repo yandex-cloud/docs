@@ -117,7 +117,7 @@ To create a {{ dataproc-name }} cluster in a different availability zone with th
    To view a list of running operations and jobs:
 
    1. Open the [management console]({{ link-console-main }}).
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+   1. [Navigate]({{ link-console-main }}/link/data-proc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
    1. Click the source cluster name and select the **{{ ui-key.yacloud.dataproc.switch_operations }}** tab, then select **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}**.
 
    {% note info %}
@@ -188,7 +188,7 @@ To create a {{ dataproc-name }} cluster in a different availability zone with th
    You can check the data amount you copy in the HDFS web UI. To open it:
 
    1. Open the [management console]({{ link-console-main }}).
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+   1. [Navigate]({{ link-console-main }}/link/data-proc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
    1. Click the source cluster name.
    1. On the cluster page, click the **HDFS Namenode UI** link under **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**.
 

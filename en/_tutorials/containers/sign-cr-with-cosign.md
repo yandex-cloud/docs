@@ -1,11 +1,11 @@
 # Signing and verifying {{ container-registry-full-name }} Docker images in {{ managed-k8s-full-name }}
 
 
-This scenario describes how to sign [Docker images](../../container-registry/concepts/docker-image.md) using [Cosign](https://docs.sigstore.dev/cosign/overview/) in [{{ container-registry-full-name }}](../../container-registry/) and then set up signature verification in [{{ managed-k8s-full-name }}](../../managed-kubernetes/) using {{ kms-full-name }} keys.
+In this tutorial, you will learn how to sign [Docker images](../../container-registry/concepts/docker-image.md) using [Cosign](https://docs.sigstore.dev/cosign/overview/) in [{{ container-registry-full-name }}](../../container-registry/) and then set up signature verification in [{{ managed-k8s-full-name }}](../../managed-kubernetes/) using {{ kms-full-name }} keys.
 
 To sign Docker images and set up their verification:
 1. [Sign a Docker image using Cosign](#cosign).
-1. [Create a policy for signature verification](#kyverno).
+1. [Create a policy to verify signatures](#kyverno).
 1. [Check the result](#check-result).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -15,10 +15,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost for this solution includes:
 
-* Fee for a {{ managed-k8s-name }} cluster: using the master and outbound traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for cluster nodes (VMs): using computing resources, OS, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for public IP addresses if assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* Fee for {{ container-registry-name }} [storage](../../container-registry/pricing.md).
+* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for public IP addresses assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* Fee for {{ container-registry-name }} [storage](../../container-registry/pricing).
 
 
 ## Getting started {#before-begin}
@@ -30,8 +30,8 @@ The support cost for this solution includes:
 - Manually {#manual}
 
   1. [Create these service accounts](../../iam/operations/sa/create.md):
-     * [Service account](../../iam/concepts/users/service-accounts.md) for the resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) is being created. This service account will be used to create {{ managed-k8s-name }} cluster resources.
-     * Service account for nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#required-roles) role for the folder with the Docker image [registry](../../container-registry/concepts/registry.md). Nodes will use this account to pull the required Docker images from the registry.
+     * [Service account](../../iam/concepts/users/service-accounts.md) for the resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) that will host the new [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster). This service account will be used to create {{ managed-k8s-name }} cluster resources.
+     * Service account for nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#required-roles) role for the Docker image [registry](../../container-registry/concepts/registry.md) folder. Nodes will use this account to pull the required Docker images from the registry.
 
      You can use the same service account for both operations.
 
@@ -39,7 +39,7 @@ The support cost for this solution includes:
 
         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-  1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) and [node group](../../managed-kubernetes/operations/node-group/node-group-create.md). When creating a cluster, specify the previously created service accounts for resources and nodes and the security group.
+  1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) and [node group](../../managed-kubernetes/operations/node-group/node-group-create.md). When creating a cluster, specify the previously created service accounts for resources and nodes, as well as the security groups.
   1. [Create a registry in {{ container-registry-name }}](../../container-registry/operations/registry/registry-create.md).
 
 - {{ TF }} {#tf}
@@ -86,19 +86,19 @@ The support cost for this solution includes:
 1. {% include [install-kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. [Install Helm](https://helm.sh/docs/intro/install).
 
-### Add multiple Docker images to the {{ container-registry-name }} registry {#add-docker-images}
+### Add multiple Docker images to {{ container-registry-name }} {#add-docker-images}
 
 1. [Configure](../../container-registry/operations/configure-docker.md) Docker and [get authenticated in {{ container-registry-name }}](../../container-registry/operations/authentication.md).
 1. [Create multiple Docker images](../../container-registry/operations/docker-image/docker-image-create.md). One image will be signed using Cosign, while others will remain unsigned.
-1. [Push Docker images](../../container-registry/operations/docker-image/docker-image-push.md) to the {{ container-registry-name }} registry.
+1. [Push Docker images](../../container-registry/operations/docker-image/docker-image-push.md) to {{ container-registry-name }}.
 
 ## Sign a Docker image using Cosign {#cosign}
 
 {% list tabs %}
 
-- Image signature based on asymmetric keys {{ kms-name }}
+- Signing an image with {{ kms-name }} asymmetric keys
 
-  1. Install a special Cosign build for your OS:
+  1. Install the appropriate version of Cosign for your operating system:
 
      {% include [install-cosign](../../_includes/kms/install-cosign.md) %}
 
@@ -143,7 +143,7 @@ The support cost for this solution includes:
 
      {% note info %}
 
-     To stop using a credential helper for authentication, remove the `{{ registry }}` domain line from `credHelpers` in the `${HOME}/.docker/config.json` configuration file.
+     To stop using a credential helper for authentication, delete the `{{ registry }}` domain line from the `credHelpers` section in the `${HOME}/.docker/config.json` configuration file.
 
      {% endnote %}
 
@@ -166,7 +166,7 @@ The support cost for this solution includes:
      Public key written to cosign.pub
      ```
 
-     The utility will return the ID of the created signature key pair and save a public signature key to a local file. Save the key pair ID, you will need it in the next steps.
+     The utility will return the ID of the created signature key pair and save the public signature key to a local file. Save the key pair ID, as you will need it in the next steps.
       
      You can always get the ID of your signature key pair in the [management console]({{ link-console-main }}) or using a [CLI command](../../cli/cli-ref/kms/cli-ref/asymmetric-signature-key/list.md).
   1. Sign the image in {{ container-registry-name }}:
@@ -179,8 +179,8 @@ The support cost for this solution includes:
      ```
 
      Where:
-     * `<key_pair_ID>`: ID of the signature key pair you got in the previous step.
-     * `<registry_ID>`: ID of the {{ container-registry-name }} [registry](../../container-registry/operations/registry/registry-list.md#registry-list) the image for signing is in.
+     * `<key_pair_ID>`: Signature key pair ID you got in the previous step.
+     * `<registry_ID>`: [ID of the {{ container-registry-name }}](../../container-registry/operations/registry/registry-list.md#registry-list) that contains the image being signed.
      * `<Docker_image_name>`: Name of the [Docker image](../../container-registry/operations/docker-image/docker-image-list.md#docker-image-list) you are signing in {{ container-registry-name }}.
      * `<tag>`: Tag of the image version to sign.
 
@@ -190,8 +190,8 @@ The support cost for this solution includes:
      Pushing signature to: {{ registry }}/<registry_ID>/<Docker_image_name>
      ```
 
-     A second object with the `sha256-....sig` tag and `{{ registry }}/<registry_ID>/<Docker_image_name>@sha256:...` hash should appear in the {{ container-registry-name }} registry.
-  1. Check manually that the Docker image signature is correct:
+     A second object with the `sha256-....sig` tag and `{{ registry }}/<registry_ID>/<Docker_image_name>@sha256:...` digest should appear in the {{ container-registry-name }}.
+  1. Manually verify the Docker image signature:
 
      ```bash
      cosign verify \
@@ -202,8 +202,8 @@ The support cost for this solution includes:
 
      Where:
      * `<key_pair_ID>`: Signature key pair ID you got earlier.
-     * `<registry_ID>`: ID of the {{ container-registry-name }} [registry](../../container-registry/operations/registry/registry-list.md#registry-list) the image is in.
-     * `<Docker_image_name>`: [Docker image name](../../container-registry/operations/docker-image/docker-image-list.md#docker-image-list) in the {{ container-registry-name }} registry.
+     * `<registry_ID>`: ID of the [{{ container-registry-name }}](../../container-registry/operations/registry/registry-list.md#registry-list) containing the image.
+     * `<Docker_image_name>`: [Docker image name](../../container-registry/operations/docker-image/docker-image-list.md#docker-image-list) in the {{ container-registry-name }}.
      * `<tag>`: Tag of the image version to verify the signature for.
 
      Result:
@@ -217,7 +217,7 @@ The support cost for this solution includes:
      [{"critical":{"identity":{"docker-reference":"{{ registry }}/<registry_ID>/<Docker_image_name>"},"image":{"docker-manifest-digest":"sha256:..."},"type":"cosign container image signature"},"optional":null}]
      ```
 
-- Image signature based on local keys
+- Signing an image with local keys
 
   1. [Install Cosign](https://docs.sigstore.dev/cosign/installation).
   1. Generate a key pair using Cosign:
@@ -226,7 +226,7 @@ The support cost for this solution includes:
      cosign generate-key-pair
      ```
 
-     Set a private key's password and enter it twice.
+     Set a private key password and enter it twice.
 
      Result:
 
@@ -237,7 +237,7 @@ The support cost for this solution includes:
      Public key written to cosign.pub
      ```
 
-  1. Sign the Docker image in the {{ container-registry-name }} registry:
+  1. Sign the Docker image in the {{ container-registry-name }}:
 
      ```bash
      cosign sign \
@@ -254,8 +254,8 @@ The support cost for this solution includes:
      Pushing signature to: {{ registry }}/<registry_ID>/<Docker_image_name>
      ```
 
-     A second object with the `sha256-....sig` tag and `{{ registry }}/<registry_ID>/<Docker_image_name>@sha256:...` hash should appear in the {{ container-registry-name }} registry.
-  1. Check manually that the Docker image signature is correct:
+     A second object with the `sha256-....sig` tag and `{{ registry }}/<registry_ID>/<Docker_image_name>@sha256:...` digest should appear in the {{ container-registry-name }}.
+  1. Manually verify the Docker image signature:
 
      ```bash
      cosign verify \
@@ -276,9 +276,9 @@ The support cost for this solution includes:
 
 {% endlist %}
 
-## Create a policy for signature verification {#kyverno}
+## Create a policy to verify signatures {#kyverno}
 
-1. Create an [authorized key](../../iam/concepts/authorization/key.md) for the service account with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#required-roles) role and save it to the file:
+1. Create an [authorized key](../../iam/concepts/authorization/key.md) for the service account with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#required-roles) role and save it to a file:
 
    ```bash
    yc iam key create \
@@ -286,9 +286,9 @@ The support cost for this solution includes:
      --output authorized-key.json
    ```
 
-   Where `--service-account-name`: Name of the service account with the {{ roles-cr-puller }} role.
-1. Install the [Kyverno](https://kyverno.io/docs/) app in the {{ managed-k8s-name }} cluster. You need it to create a policy for verifying Docker image signatures.
-   1. Add a repository named `kyverno`:
+   Where `--service-account-name` is the name of the service account with the {{ roles-cr-puller }} role.
+1. Install [Kyverno](https://kyverno.io/docs/) in the {{ managed-k8s-name }} cluster. You need it to create a policy for verifying Docker image signatures.
+   1. Add a `kyverno` repository:
 
       ```bash
       helm repo add kyverno https://kyverno.github.io/kyverno/
@@ -390,7 +390,7 @@ The support cost for this solution includes:
 
       {% note info %}
 
-      By default, when you create a policy, a signature verification request is made to the Transparency Log immutable record storage. You can disable it by adding the `rekor: ignoreTlog: true` parameter to the `keys` element of the policy specification. For more information, see the [Kyverno guide](https://kyverno.io/docs/writing-policies/verify-images/sigstore/#ignoring-tlogs-and-sct-verification).
+      By default, when you create a policy, a signature verification request is made to the immutable Transparency Log storage. You can disable this behavior by adding the `rekor: ignoreTlog: true` parameter to the `keys` element in the policy specification. For more information, see [this Kyverno guide](https://kyverno.io/docs/writing-policies/verify-images/sigstore/#ignoring-tlogs-and-sct-verification).
 
       {% endnote %}
 
@@ -447,7 +447,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
 - Manually {#manual}
 
   1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-  1. If you reserved a public static IP address for the cluster, [delete it](../../vpc/operations/address-delete.md).
+  1. [Delete](../../vpc/operations/address-delete.md) the cluster’s public static IP address if you reserved one.
   1. [Delete the service accounts](../../iam/operations/sa/delete.md).
   1. [Delete all Docker images](../../container-registry/operations/docker-image/docker-image-delete.md) from the {{ container-registry-name }} registry.
   1. [Delete the {{ container-registry-name }}](../../container-registry/operations/registry/registry-delete.md).
