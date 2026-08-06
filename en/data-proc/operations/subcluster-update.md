@@ -26,8 +26,8 @@ You can change the number of hosts in data storage and processing subclusters:
 
 - Management console {#console}
 
-    1. Open the [folder dashboard]({{ link-console-main }}).
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/data-proc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}** tab.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the subcluster you need and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Enter or select the required number of hosts in the **{{ ui-key.yacloud.mdb.forms.base_field_hosts-count }}** field.
@@ -64,7 +64,7 @@ You can change the number of hosts in data storage and processing subclusters:
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
+        Learn how to create this file in [Creating a cluster](cluster-create.md).
 
     1. In the description of the {{ dataproc-name }} cluster, edit the `hosts_count` value under `subcluster_spec` for your data storage or data processing subcluster:
 
@@ -99,7 +99,7 @@ You can change the compute capacity of hosts in a specific subcluster. It depend
     To change the [host class](../concepts/instance-types.md) for a subcluster:
 
     1. In the [management console]({{ link-console-main }}), select the folder with the cluster whose subcluster you want to change.
-    1. Go to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** and select the cluster.
+    1. [Navigate]({{ link-console-main }}/link/data-proc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** and select the cluster.
     1. Navigate to **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}**.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the subcluster you need and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Select the platform and configuration under **{{ ui-key.yacloud.mdb.forms.section_resource }}**.
@@ -152,7 +152,7 @@ You can change the compute capacity of hosts in a specific subcluster. It depend
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
+        Learn how to create this file in [Creating a cluster](cluster-create.md).
 
     1. In the description of the {{ dataproc-name }} cluster, edit the `resource_preset_id` value under `subcluster_spec.resources` for your subcluster:
 
@@ -176,7 +176,7 @@ You can change the compute capacity of hosts in a specific subcluster. It depend
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -208,8 +208,8 @@ To enable autoscaling, [assign](../../iam/operations/sa/assign-role-for-sa.md) t
 
     To configure autoscaling for subclusters:
 
-    1. Open the [folder dashboard]({{ link-console-main }}).
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/data-proc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Select the cluster and open the **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}** tab.
     1. Click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) for the subcluster you need and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_scaling }}**, enable **{{ ui-key.yacloud.mdb.forms.label_autoscaling-activated }}** if it is disabled.
@@ -265,7 +265,7 @@ To enable autoscaling, [assign](../../iam/operations/sa/assign-role-for-sa.md) t
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
+        Learn how to create this file in [Creating a cluster](cluster-create.md).
 
     1. In the description of the {{ dataproc-name }} cluster, add a section named `subcluster_spec.autoscaling_config` with the required autoscaling settings for your subcluster:
 
@@ -304,7 +304,7 @@ To enable autoscaling, [assign](../../iam/operations/sa/assign-role-for-sa.md) t
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -337,7 +337,7 @@ Make sure the cloud quota is sufficient to increase the VM resources. Open the [
   To change the storage size for a subcluster:
 
     1. In the [management console]({{ link-console-main }}), select the folder with the cluster whose subcluster you want to change.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** and select the cluster.
+    1. [Navigate]({{ link-console-main }}/link/data-proc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** and select the cluster.
     1. Navigate to **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}**.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the subcluster you need and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Enter or select the storage size you need under **{{ ui-key.yacloud.mdb.forms.section_disk }}**.
@@ -377,7 +377,7 @@ Make sure the cloud quota is sufficient to increase the VM resources. Open the [
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
+        Learn how to create this file in [Creating a cluster](cluster-create.md).
 
     1. In the description of the {{ dataproc-name }} cluster, edit the `disk_size` value under `subcluster_spec.resources` for your subcluster:
 
@@ -402,7 +402,7 @@ Make sure the cloud quota is sufficient to increase the VM resources. Open the [
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -416,8 +416,8 @@ Make sure the cloud quota is sufficient to increase the VM resources. Open the [
 
 - Management console {#console}
 
-    1. Open the [folder dashboard]({{ link-console-main }}).
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/data-proc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
     1. Click the host name.
     1. Under **{{ ui-key.yacloud.compute.instance.overview.section_network }}**, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.instance.overview.button_edit-network-interface }}**.
@@ -428,7 +428,7 @@ Make sure the cloud quota is sufficient to increase the VM resources. Open the [
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
+        Learn how to create this file in [Creating a cluster](cluster-create.md).
 
     1. Edit the `security_group_ids` value in the cluster description:
 
@@ -443,7 +443,7 @@ Make sure the cloud quota is sufficient to increase the VM resources. Open the [
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

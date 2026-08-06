@@ -24,12 +24,13 @@ To view the list of exceptions from the {{ cspm-name }} module's security contro
 
       The list of exceptions for the {{ cspm-name }} module rules is provided under **{{ ui-key.yacloud_org.security.controls.ExceptionOverview.header_caption_cspm_9dTJt }}** and contains the following fields:
 
-      * **{{ ui-key.yacloud_org.security.controls.ScopeFilterTable.field_reason_qN8a7 }}**: User-specified exception reason when creating the exception.
-      * **{{ ui-key.yacloud_org.security.controls.ScopeFilterTable.field_reason_qN8a7 }}**: Action option for the exception you are creating:
-
-          * `{{ ui-key.yacloud_org.security.controls.ScopeFilterTable.field_type_manual_mbKxp }}`: If the conditions specified in the exception are met, the resource will generate only rule compliance signals.
-          * `{{ ui-key.yacloud_org.security.controls.ScopeFilterTable.field_type_exclude_cigcD }}`: If the conditions specified in the exception are met, the resource will not generate any signals, neither on compliance nor on violation.
       * **{{ ui-key.yacloud_org.security.controls.ScopeFilterTable.field_rules_vBK4W }}**: Number of rules for which compliance checking is excluded. To view a detailed list of excluded rules, click the line with the exception.
+      * **{{ ui-key.yacloud_org.security.controls.ScopeFilterTable.field_scope_kCG8J }}**: Resource excluded from the check.
+      * **{{ ui-key.yacloud_org.security.controls.ScopeFilterTable.field_reason_qN8a7 }}**: Action which the exception will trigger:
+
+          * `{{ ui-key.yacloud_org.security.controls.ScopeFilterTable.field_type_manual_mbKxp }}`: If the conditions specified in the exception are met, the resource will generate rule compliance signals.
+          * `{{ ui-key.yacloud_org.security.controls.ScopeFilterTable.field_type_exclude_cigcD }}`: If the conditions specified in the exception are met, the resource will not generate rule compliance signals for the resources in question.
+
       * **{{ ui-key.yacloud_org.security.controls.ScopeFilterTable.field_author_8hf4z }}**: Information about the user who created the exception, as well as the date and time of creation.
 
 {% endlist %}

@@ -1,8 +1,10 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > [Пошаговые инструкции](../index.md) > Сервисные аккаунты > Изменение сервисного аккаунта
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > [Пошаговые инструкции](../index.md) > [Сервисные аккаунты](index.md) > Изменение сервисного аккаунта
 
 # Изменение сервисного аккаунта
 
 Вы можете изменить имя и описание сервисного аккаунта. Через API Yandex Cloud также можно назначить [метки](../../../resource-manager/concepts/labels.md) на сервисный аккаунт.
+
+Чтобы задать или изменить срок жизни аккаунта, используйте параметр `--expires-at`. По истечении срока жизни система автоматически [заблокирует](../../concepts/users/service-accounts.md#sa-suspend) его.
 
 Если вы хотите изменить роли сервисного аккаунта, обратитесь к [инструкции](assign-role-for-sa.md).
 
@@ -124,5 +126,47 @@
 - API {#api}
 
   Чтобы изменить сервисный аккаунт, воспользуйтесь методом REST API [update](../../api-ref/ServiceAccount/update.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Update](../../api-ref/grpc/ServiceAccount/update.md).
+
+{% endlist %}
+
+## Примеры {#examples}
+
+### Изменить срок жизни сервисного аккаунта {#update-expires-at}
+
+Укажите новый срок жизни сервисного аккаунта. По истечении срока жизни система автоматически [заблокирует](../../concepts/users/service-accounts.md#sa-suspend) его. Чтобы снять блокировку, обратитесь к [инструкции](suspend-reactivate.md#reactivate).
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  ```bash
+  yc iam service-account update my-robot \
+    --expires-at 2027-01-01T00:00:00Z
+  ```
+
+  Значение параметра `--expires-at` задается в формате [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339).
+
+  Чтобы убрать ограничение по сроку жизни, передайте пустое значение:
+
+  ```bash
+  yc iam service-account update my-robot \
+    --expires-at ""
+  ```
+
+- API {#api}
+
+  ```bash
+  curl \
+    --request PATCH \
+    --header 'Content-Type: application/json' \
+    --header "Authorization: Bearer <IAM-токен>" \
+    --data '{
+      "updateMask": "expiresAt",
+      "expiresAt": "2027-01-01T00:00:00Z"
+    }' \
+    https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/<идентификатор_сервисного_аккаунта>
+  ```
+
+  Значение поля `expiresAt` задается в формате [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339). Чтобы убрать ограничение по сроку жизни, передайте пустое значение: `"expiresAt": ""`.
 
 {% endlist %}

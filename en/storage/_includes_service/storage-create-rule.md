@@ -24,10 +24,13 @@ To create a rule:
 
      For buckets with versioning enabled, the action will apply to current versions of objects. To work with non-current versions of objects, use the `NoncurrentVersionTransition` parameter.
 
-   * `{{ ui-key.yacloud.storage.bucket.lifecycle.label_version-expiration-type }}`: Removes non-current object versions from the bucket. It triggers as many days after an object's version became non-current as specified in the **{{ ui-key.yacloud.storage.bucket.lifecycle.field_days }}** field.
+   * `{{ ui-key.yacloud.storage.bucket.lifecycle.label_version-expiration-type }}`: Removes non-current object versions from the bucket:
+      * **{{ ui-key.yacloud.storage.bucket.lifecycle.field_days }}**: Number of days left until the non-current version is deleted.
+      * **{{ ui-key.yacloud.storage.Bucket.NewerNoncurrentVersionsField.field_newer_noncurrent_versions_ezq3T }}**: Number of recent non-current versions that are stored indefinitely. Versions in excess of this number will be deleted based on when the rule triggers.
    * `{{ ui-key.yacloud.storage.bucket.lifecycle.label_version-transition-type }}`: Moves non-current versions of objects from `STANDARD` storage to `COLD`, `ICE`, intelligent (`INTELLIGENT_TIERING`) storage, and from cold storage to ice:
-     * **{{ ui-key.yacloud.storage.bucket.lifecycle.field_days }}**: Number of days to pass before the rule triggers after an object's version becomes non-current.
-     * **{{ ui-key.yacloud.storage.bucket.lifecycle.column_storage_class }}**: Type of storage to move the objects to.
+      * **{{ ui-key.yacloud.storage.bucket.lifecycle.field_days }}**: Number of days left until the non-current version is migrated to another storage class.
+      * **{{ ui-key.yacloud.storage.bucket.lifecycle.column_storage_class }}**: Type of storage to move the objects to.
+      * **{{ ui-key.yacloud.storage.Bucket.NewerNoncurrentVersionsField.field_newer_noncurrent_versions_ezq3T }}**: Number of recent non-current versions that are stored in the original storage class indefinitely. Versions in excess of this number will be migrated to another storage class based on when the rule triggers.
 
    * `{{ ui-key.yacloud.storage.bucket.lifecycle.label_abort-incomplete-multipart-upload-type }}`: Removes all parts of failed multipart uploads from the bucket. It triggers as many days after an object was uploaded as specified in the **{{ ui-key.yacloud.storage.bucket.lifecycle.field_days }}** field.
 

@@ -8,7 +8,7 @@ You can request detailed information about each network load balancer you create
 
 - Management console {#console}
 
-    Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+    [Navigate]({{ link-console-main }}/link/network-load-balancer/) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
 
 - CLI {#cli}
 
@@ -46,7 +46,7 @@ You can request detailed information about each network load balancer you create
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), go to the folder housing the [network load balancer](../concepts/index.md).
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+    1. [Navigate]({{ link-console-main }}/link/network-load-balancer/) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
     1. Click the name of the load balancer in question.
     1. The **Overview** page shows the load balancer details.
 

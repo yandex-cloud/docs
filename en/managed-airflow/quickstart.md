@@ -52,7 +52,7 @@ To get started with {{ maf-name }}:
 ## Create a cluster {#cluster-create}
 
 1. In the management console, select the folder where you want to create a {{ maf-name }} cluster.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
+1. [Navigate]({{ link-console-main }}/link/managed-airflow) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
 1. Click **{{ ui-key.yacloud.airflow.button_create-cluster }}**.
 1. Configure your cluster and click **{{ ui-key.yacloud.common.create }}**. For more information, see [Creating a cluster](operations/cluster-create.md).
 1. Wait until the cluster is ready to work: its status will change to **Running**, and its state to **Alive**. This may take a while. To check its state, hover over the cluster status in the **{{ ui-key.yacloud.common.availability }}** column.
@@ -69,4 +69,4 @@ In addition to the web interface, you can use the [{{ AF }} API](https://airflow
 
 * Read about the [{{ maf-name }} concepts](concepts/index.md).
 * Learn more about [creating a cluster](operations/cluster-create.md) and [using {{ AF }} interfaces](operations/af-interfaces.md).
-* Create DAG files and [upload them](operations/upload-dags.md) to the {{ maf-name }} cluster. For a DAG file example, check [this {{ AF }} tutorial](https://airflow.apache.org/docs/apache-airflow/stable/tutorial/fundamentals.html).
+* Create DAG files and [upload them](operations/upload-dags.md) to the {{ maf-name }} cluster. For a DAG file example, check [this {{ AF }} guide](https://airflow.apache.org/docs/apache-airflow/stable/tutorial/fundamentals.html).

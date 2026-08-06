@@ -1,4 +1,4 @@
-# Managing subclusters {{ dataproc-name }}
+# Managing {{ dataproc-name }} subclusters
 
 In addition to [updating the settings](subcluster-update.md) of a particular subcluster, you can create new and delete existing subclusters.
 
@@ -14,8 +14,8 @@ Each cluster can only have one subcluster with a master host, so you cannot crea
 
 - Management console {#console}
 
-  1. Open the [folder dashboard]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/data-proc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}** tab.
 
 - CLI {#cli}
@@ -43,7 +43,7 @@ The number of hosts in {{ dataproc-name }} clusters is limited by [quotas]({{ li
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the relevant folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** and select the cluster.
+  1. [Navigate]({{ link-console-main }}/link/data-proc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** and select the cluster.
   1. Navigate to **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}**.
   1. Click **{{ ui-key.yacloud.mdb.cluster.subclusters.action_add-subclaster }}**.
   1. Specify the subcluster settings:
@@ -111,7 +111,7 @@ The number of hosts in {{ dataproc-name }} clusters is limited by [quotas]({{ li
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-     To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
+     Learn how to create this file in [Creating a cluster](cluster-create.md).
   1. In the {{ dataproc-name }} cluster description, add a `subcluster_spec` section containing the settings for the new subcluster:
 
      ```hcl
@@ -141,11 +141,11 @@ The number of hosts in {{ dataproc-name }} clusters is limited by [quotas]({{ li
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more detailed information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/dataproc_cluster).
+  For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/dataproc_cluster).
 
 {% endlist %}
 
@@ -163,7 +163,7 @@ You cannot delete data storage subclusters.
 
   To delete a subcluster:
   1. In the [management console]({{ link-console-main }}), select the relevant folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** and select the cluster.
+  1. [Navigate]({{ link-console-main }}/link/data-proc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** and select the cluster.
   1. Navigate to **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the subcluster in question and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
   1. Optionally, specify the [decommissioning](../concepts/decommission.md) timeout.
@@ -188,7 +188,7 @@ You cannot delete data storage subclusters.
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-     To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
+     Learn how to create this file in [Creating a cluster](cluster-create.md).
   1. Delete the `subcluster_spec` section of the relevant subcluster from the {{ dataproc-name }} cluster description.
   1. Make sure the settings are correct.
 
@@ -198,6 +198,6 @@ You cannot delete data storage subclusters.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more detailed information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/dataproc_cluster).
+  For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/dataproc_cluster).
 
 {% endlist %}

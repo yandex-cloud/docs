@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > [Пошаговые инструкции](../index.md) > Политики авторизации > Просмотр политик, созданных для ресурса
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > [Пошаговые инструкции](../index.md) > [Политики авторизации](index.md) > Просмотр политик, созданных для ресурса
 
 # Просмотр политик авторизации, созданных для ресурса
 

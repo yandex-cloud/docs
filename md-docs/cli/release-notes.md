@@ -4,6 +4,28 @@
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.24.0 (06.08.26) {#v-1-24-0}
+
+#### BareMetal {#v-1-24-0-baremetal-name}
+
+* Добавлена команда `yc baremetal v2 server skip-quarantine` для досрочного завершения карантина.
+* Добавлены новые группы команд `boot-image`, `image` и `private-cloud-connection` в `v2`:
+  * `yc baremetal v2 image`;
+  * `yc baremetal v2 boot-image`;
+  * `yc baremetal v2 private-cloud-connection`.
+
+#### Managed Service for Apache Spark™ {#v-1-24-0-msp-name}
+
+Добавлен параметр `--executor-preemptible` для запуска узлов исполнителей на прерываемых ВМ:
+  * `yc managed-spark cluster create`;
+  * `yc managed-spark cluster update`.
+
+#### Yandex Identity Hub {#v-1-24-0-org-name}
+
+Исправлен формат вывода `yc organization-manager idp synchronization-settings list-supported-attributes` при `--format text`, теперь возвращаются таблицы.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.23.0 (03.08.26) {#v-1-23-0}
 
 #### Application Load Balancer {#v-1-23-0-alb-name}
@@ -51,8 +73,6 @@
 * В динамические квоты Advanced Rate Limiter добавлена возможность указать продолжительность временной блокировки:
   * `yc smartwebsecurity advanced-rate-limiter-profile create`;
   * `yc smartwebsecurity advanced-rate-limiter-profile update`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.22.0 (30.07.26) {#v-1-22-0}
 

@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ iot-full-name }}
-description: Managing access to a {{ iot-full-name }} cloud MQTT server. This section describes the resources for which you can assign a role and the roles existing in the service.
+description: Managing access to a {{ iot-full-name }} cloud MQTT server. This section describes the resources you can assign a role for and the roles existing in the service.
 ---
     
 # Access management in {{ iot-name }}
@@ -9,16 +9,16 @@ description: Managing access to a {{ iot-full-name }} cloud MQTT server. This se
 
 In this section, you will learn about:
 
-* [Resources supporting role assignment](#resources).
-* [Roles available in the service](#roles-list).
+* [Resources you can assign a role for](#resources).
+* [Roles this service has](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
 {% include [roles-assign](../../_includes/iam/roles-assign.md) %}
 
-## Resources supporting role assignment {#resources}
+## Resources you can assign a role for {#resources}
 
-You can assign a role for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) or [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). These roles also apply to nested resources.
+You can assign a role for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) or [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). These roles will also apply to nested resources.
 
 ## Roles this service has {#roles-list}
 
@@ -48,7 +48,7 @@ The list below shows all the roles used for access control in {{ iot-short-name 
 
 {% include [iot-editor](../../_roles/iot/editor.md) %}
 
-For more information about service roles, see [{#T}](../../iam/concepts/access-control/roles.md) in the {{ iam-full-name }} documentation.
+To learn more about service roles, see [{#T}](../../iam/concepts/access-control/roles.md) in the {{ iam-full-name }} guides.
 
 ### Primitive roles {#primitive-roles}
 

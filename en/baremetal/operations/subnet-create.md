@@ -10,7 +10,7 @@ description: In this tutorial, you will learn how to create a private subnet and
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [private subnet](../concepts/private-network.md#private-subnet).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. [Navigate]({{ link-console-main }}/link/baremetal) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.baremetal.label_subnetworks_uU4LH }}**.
   1. At the top right, click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
   1. In the **{{ ui-key.yacloud.baremetal.field_zone-id }}** field, select the [availability zone](../../overview/concepts/geo-scope.md) where your server will be located.

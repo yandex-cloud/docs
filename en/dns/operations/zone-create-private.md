@@ -12,7 +12,7 @@ To create a private [DNS zone](../concepts/dns-zone.md):
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your DNS zone.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. [Navigate]({{ link-console-main }}/link/dns) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Click **{{ ui-key.yacloud.dns.button_zone-create }}**.
   1. Specify zone settings:
      1. **{{ ui-key.yacloud.dns.label_zone }}**: Domain zone name. Note that it must end with a trailing dot. You cannot create top-level domain (TLD) zones. To create a domain zone with non-Latin characters, use [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding.
@@ -97,7 +97,7 @@ To create a private [DNS zone](../concepts/dns-zone.md):
      * `public`: Zone visibility, public or private. This is an optional setting.
      * `private_networks`: IDs of the networks that will have access to the new zone’s DNS records. This is an optional setting.
    
-     For more information about the `yandex_dns_zone` resource properties, see [this provider guide]({{ tf-provider-resources-link }}/dns_zone).
+     For more on the properties of the `yandex_dns_zone` resource, see [this provider guide]({{ tf-provider-resources-link }}/dns_zone).
 
   1. Create the resources:
 

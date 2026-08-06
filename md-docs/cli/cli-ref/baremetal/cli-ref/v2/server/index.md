@@ -20,6 +20,8 @@ Syntax:
 
 - [yc baremetal v2 server list](list.md) — Retrieves the list of Server resources in the specified folder.
 
+- [yc baremetal v2 server list-operations](list-operations.md) — Lists operations for the specified server.
+
 - [yc baremetal v2 server power-off](power-off.md) — Powers off the specified server.
 
 - [yc baremetal v2 server power-on](power-on.md) — Powers on the specified server.
@@ -29,6 +31,8 @@ Syntax:
 - [yc baremetal v2 server reinstall](reinstall.md) — Reinstalls the specified server.
 
 - [yc baremetal v2 server renew-rental](renew-rental.md) — Enable prolongation after rental period end
+
+- [yc baremetal v2 server skip-quarantine](skip-quarantine.md) — Skips the quarantine for the specified server.
 
 - [yc baremetal v2 server update](update.md) — Updates the specified server.
 

@@ -4,6 +4,7 @@
 
 # Использование секрета Yandex Lockbox в PySpark-задании для подключения к Yandex Managed Service for PostgreSQL
 
+
 Вы можете использовать секрет [Yandex Lockbox](../concepts/secret.md) для подключения к кластеру [Yandex Managed Service for PostgreSQL](../../managed-postgresql/index.md) из PySpark-задания в [Yandex Managed Service for Apache Spark™](../../managed-spark/index.md). Для этого [сервисному аккаунту](../../iam/concepts/users/service-accounts.md) кластера Yandex Managed Service for Apache Spark™ необходимо предоставить доступ к секрету. Секрет создается сервисом Yandex Connection Manager автоматически при создании пользователя Managed Service for PostgreSQL.
 
 Для PySpark-задания используется Python-скрипт, который хранится в бакете Yandex Object Storage. Скрипт получает пароль пользователя из секрета и использует его для подключения к кластеру Managed Service for PostgreSQL.
@@ -51,7 +52,7 @@
 
 1. [Создайте облачную сеть](../../vpc/operations/network-create.md) с именем `spark-network`.
 
-    Вместе с ней автоматически будут созданы три подсети в разных зонах доступности.
+    Вместе с ней автоматически будут созданы три подсети в разных [зонах доступности](../../overview/concepts/geo-scope.md).
 
 1. В сети `spark-network` [создайте группу безопасности](../../vpc/operations/security-group-create.md) `spark-sg` для кластера Yandex Managed Service for Apache Spark™, разрешающую исходящие TCP-подключения:
     
@@ -99,7 +100,9 @@
 
   Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
-  По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+  По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`.
+  
+  Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы настроить права доступа к секрету пользователя Managed Service for PostgreSQL:
   

@@ -19,8 +19,8 @@ You can set up regular collection of {{ maf-name }} cluster performance logs. Lo
 
    * Management console {#console}
 
-      1. Open the [folder dashboard]({{ link-console-main }}).
-      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
+      1. In the [management console]({{ link-console-main }}), select a folder.
+      1. [Navigate]({{ link-console-main }}/link/managed-airflow) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
       1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
       1. Under **{{ ui-key.yacloud.logging.label_title }}**, enable **{{ ui-key.yacloud.logging.field_logging }}**.
       1. To write logs to the default log group, select **{{ ui-key.yacloud.common.folder }}** in the **{{ ui-key.yacloud.logging.label_destination }}** field.
@@ -91,8 +91,8 @@ You can set up regular collection of {{ maf-name }} cluster performance logs. Lo
 
    * Management console {#console}
 
-      1. In the management console, navigate to the relevant folder.
-      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+      1. In the [management console]({{ link-console-main }}), select a folder.
+      1. [Navigate]({{ link-console-main }}/link/logging) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
       1. Click the row with the `default` log group.
 
       The page that opens will show the log group entries.
@@ -151,8 +151,8 @@ You can set up regular collection of {{ maf-name }} cluster performance logs. Lo
 
    * Management console {#console}
 
-      1. Open the [folder dashboard]({{ link-console-main }}).
-      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
+      1. In the [management console]({{ link-console-main }}), select a folder.
+      1. [Navigate]({{ link-console-main }}/link/managed-airflow) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
       1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
       1. Under **{{ ui-key.yacloud.logging.label_title }}**, enable **{{ ui-key.yacloud.logging.field_logging }}**.
       1. To write logs to a custom log group, select **{{ ui-key.yacloud.logging.label_loggroup }}** in the **{{ ui-key.yacloud.logging.label_destination }}** field.
@@ -217,8 +217,8 @@ You can set up regular collection of {{ maf-name }} cluster performance logs. Lo
 
    * Management console {#console}
 
-      1. In the management console, navigate to the relevant folder.
-      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+      1. In the [management console]({{ link-console-main }}), select a folder.
+      1. [Navigate]({{ link-console-main }}/link/logging) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
       1. Click the row with the `airflow-log-group` log group.
 
       The page that opens will show the records.

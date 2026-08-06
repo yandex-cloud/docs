@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > [Пошаговые инструкции](../index.md) > Политики авторизации > Получение списка шаблонов политик
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > [Пошаговые инструкции](../index.md) > [Политики авторизации](index.md) > Получение списка шаблонов политик
 
 # Получение списка поддерживаемых шаблонов политик авторизации
 

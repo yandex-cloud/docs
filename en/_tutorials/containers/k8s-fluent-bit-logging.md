@@ -1,8 +1,8 @@
 # Transferring {{ managed-k8s-full-name }} cluster logs to {{ cloud-logging-full-name }}
 
 
-You can send [{{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) cluster logs to {{ cloud-logging-name }}:
-* To enable sending [{{ managed-k8s-name }} master](../../managed-kubernetes/concepts/index.md#master) logs, use the `master logging` setting when [creating](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) or [updating](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-update.md) a cluster. The setting is only available in the API, CLI, and {{ TF }}.
+You can send [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) logs to {{ cloud-logging-name }}:
+* To enable sending [{{ managed-k8s-name }} master](../../managed-kubernetes/concepts/index.md#master) logs, use the `master logging` setting when [creating](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) or [updating](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-update.md) the cluster. The setting is only available in the API, CLI, and {{ TF }}.
 * To send [pod](../../managed-kubernetes/concepts/index.md#pod) and [service](../../managed-kubernetes/concepts/index.md#service) logs, use the [Fluent Bit application with the {{ cloud-logging-name }} plugin](/marketplace/products/yc/fluent-bit) in the {{ managed-k8s-name }} cluster.
 
 
@@ -10,15 +10,15 @@ You can send [{{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md
 
 The support cost for this solution includes:
 
-* Fee for a {{ managed-k8s-name }} cluster: using the master and outbound traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for cluster nodes (VMs): using computing resources, OS, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for a public IP address if assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* {{ cloud-logging-name }} fee: data logging and storage (see [{{ cloud-logging-name }} pricing](../../logging/pricing.md)).
+* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for a public IP address assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* {{ cloud-logging-name }} fee for data logging and storage (see [{{ cloud-logging-name }} pricing](../../logging/pricing.md)).
 
 
 ## Sending {{ managed-k8s-name }} master logs to {{ cloud-logging-name }} using master logging {#master-logging}
 
-To set up the transfer of {{ managed-k8s-name }} master logs to {{ cloud-logging-name }}:
+To set up transferring {{ managed-k8s-name }} master logs to {{ cloud-logging-name }}:
 1. [Enable the master logging setting](#enable-master-logging).
 1. [Check the result](#check-result-master-logging).
 
@@ -26,14 +26,14 @@ If you no longer need the resources you created, [delete them](#clear-out-master
 
 ### Getting started {#before-you-begin-master-logging}
 
-Set up the infrastructure:
+Set up your infrastructure:
 
 {% list tabs group=instructions %}
 
 - Manually {#manual}
 
   1. If you do not have a [network](../../vpc/concepts/network.md#network) yet, [create one](../../vpc/operations/network-create.md).
-  1. If you do not have any [subnets](../../vpc/concepts/network.md#subnet) yet, [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) the new {{ managed-k8s-name }} cluster and [node group](../../managed-kubernetes/concepts/index.md#node-group) will be created in.
+  1. If you do not have any [subnets](../../vpc/concepts/network.md#subnet) yet, [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) the new {{ managed-k8s-name }} cluster and [node group](../../managed-kubernetes/concepts/index.md#node-group) will reside in.
   1. [Create these service accounts](../../iam/operations/sa/create.md#create-sa):
      * [Service account](../../iam/concepts/users/service-accounts.md) for the {{ managed-k8s-name }} resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ managed-k8s-name }} cluster is being created.
      * Service account for {{ managed-k8s-name }} nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) role for the folder containing the [Docker image](../../container-registry/concepts/docker-image.md) [registry](../../container-registry/concepts/registry.md). The {{ managed-k8s-name }} nodes will use this account to pull the required Docker images from the registry.
@@ -45,7 +45,7 @@ Set up the infrastructure:
        {% endnote %}
 
   1. [Assign](../../iam/operations/sa/assign-role-for-sa.md#binding-role-resource) the [{{ roles-logging-writer }}](../../logging/security/index.md#logging-writer) role to the service account for resources. This role is required by the {{ managed-k8s-name }} cluster to send logs to {{ cloud-logging-name }}.
-  1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md). When creating a {{ managed-k8s-name }} cluster, specify the previously created service accounts for the resources and nodes.
+  1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) and [node group](../../managed-kubernetes/operations/node-group/node-group-create.md). When creating your {{ managed-k8s-name }} cluster, specify the previously created service accounts for the resources and nodes.
   1. [Configure security groups](../../managed-kubernetes/operations/connect/security-groups.md) for the {{ managed-k8s-name }} cluster.
   1. [Create a log group](../../logging/operations/create-group.md).
 
@@ -71,7 +71,7 @@ Set up the infrastructure:
      * [{{ k8s }} version](../../managed-kubernetes/concepts/release-channels-and-updates.md) for the {{ managed-k8s-name }} cluster and node groups.
      * Name of the service account for resources and {{ managed-k8s-name }} nodes and for sending cluster logs to {{ cloud-logging-name }}.
      * {{ cloud-logging-name }} log group name.
-  1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use its resources and data sources.
+  1. Run the `terraform init` command in the directory with configuration files. This command initializes the provider specified in the configuration files and enables you to use its resources and data sources.
   1. Validate your {{ TF }} configuration files using this command:
 
      ```bash
@@ -108,7 +108,7 @@ If you created the infrastructure manually, enable the `master logging` setting:
 
    Where:
    * `enabled`: Flag that enables sending logs.
-   * `log-group-id`: ID of the [previously created](#before-you-begin-master-logging) log group to send the logs to.
+   * `log-group-id`: ID of the [previously created](#before-you-begin-master-logging) log group to send logs to.
    * `kube-apiserver-enabled`: Flag that enables sending [kube-apiserver](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/) logs, `true` or `false`.
    * `cluster-autoscaler-enabled`: Flag that enables sending `cluster-autoscaler` logs, `true` or `false`.
    * `events-enabled`: Flag that enables sending {{ k8s }} events, `true` or `false`.
@@ -129,7 +129,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
   1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
   1. If you reserved a static [public IP address](../../vpc/concepts/address.md#public-addresses) for your {{ managed-k8s-name }} cluster, release and [delete it](../../vpc/operations/address-delete.md).
   1. [Delete the created subnets](../../vpc/operations/subnet-delete.md) and [networks](../../vpc/operations/network-delete.md).
-  1. [Delete service accounts you created](../../iam/operations/sa/delete.md).
+  1. [Delete the created service accounts](../../iam/operations/sa/delete.md).
   1. [Delete the log group](../../logging/operations/delete-group.md).
 
 - {{ TF }} {#tf}

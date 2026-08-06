@@ -21,8 +21,8 @@ To view detailed information on the health state of a {{ mkf-name }} cluster:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/managed-kafka) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}** tab.
   
   1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
@@ -55,8 +55,8 @@ To view detailed information on the state of individual {{ mkf-name }} hosts:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/managed-kafka) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}** tab.
   1. Navigate to the **Hosts** tab and select the host.
 
@@ -131,8 +131,8 @@ You can check the current storage size in the [cluster details](cluster-list.md#
 
 To view the health state and status of a cluster:
 
-1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+1. In the [management console]({{ link-console-main }}), select a folder.
+1. [Navigate]({{ link-console-main }}/link/managed-kafka) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
 1. In the cluster row, hover over the indicator in the **{{ ui-key.yacloud.common.availability }}** column.
 
 ### Cluster health states {#cluster-health}

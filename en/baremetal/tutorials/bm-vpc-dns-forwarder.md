@@ -38,7 +38,7 @@ The solution support costs include:
 ### Create a {{ mpg-name }} cluster {#create-postgresql-cluster}
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 1. Configure the cluster:
    * **{{ ui-key.yacloud.mdb.forms.base_field_name }}**: Specify the cluster name.
@@ -57,8 +57,8 @@ For more information on creating a cluster, see [this guide](../../managed-postg
 ### Create a VM for a DNS forwarder {#create-dns-forwarder-vm}
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a VM.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
 1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, enter the VM name.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the **Ubuntu 22.04 LTS** image.
@@ -73,7 +73,7 @@ For more information on creating a VM, see [this guide](../../compute/operations
 ### Rent a {{ baremetal-name }} server {#lease-baremetal-server}
 
 1. In the [management console]({{ link-console-main }}), select the folder for the server you want to rent.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+1. [Navigate]({{ link-console-main }}/link/baremetal) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
 1. Click **{{ ui-key.yacloud.baremetal.label_create-server }}**.
 1. Set up the server:
    * Select the appropriate server [configuration](../../baremetal/concepts/server-configurations.md).
@@ -113,20 +113,20 @@ The examples below use the following parameters:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}** and click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
+  1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}** and click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, specify `dns-forwarder-sg`.
   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select the network the Bind9 VM resides in.
   1. Under **{{ ui-key.yacloud.vpc.network.security-groups.label_section-rules }}**, [create](../../vpc/operations/security-group-add-rule.md) the following traffic management rules:
 
       | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }} |
       | --- | --- | --- | --- | --- | --- |
-      | Inbound | `dns-udp` | `53` | `UDP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `172.16.2.0/24` |
-      | Inbound | `dns-tcp` | `53` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `172.16.2.0/24` |
-      | Outbound | `dns-udp-forward` | `53` | `UDP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.129.0.0/24` |
-      | Outbound | `dns-tcp-forward` | `53` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.129.0.0/24` |
-      | Outbound | `dns-udp-forward` | `53` | `UDP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.130.0.0/24` |
-      | Outbound | `dns-tcp-forward` | `53` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.130.0.0/24` |
+      | Ingress | `dns-udp` | `53` | `UDP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `172.16.2.0/24` |
+      | Ingress | `dns-tcp` | `53` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `172.16.2.0/24` |
+      | Egress | `dns-udp-forward` | `53` | `UDP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.129.0.0/24` |
+      | Egress | `dns-tcp-forward` | `53` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.129.0.0/24` |
+      | Egress | `dns-udp-forward` | `53` | `UDP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.130.0.0/24` |
+      | Egress | `dns-tcp-forward` | `53` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.130.0.0/24` |
 
       {% note info %}
 

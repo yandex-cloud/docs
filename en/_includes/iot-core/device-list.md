@@ -2,7 +2,7 @@
 
 - Management console {#console}
 
-	1. In the [management console]({{ link-console-main }}), select the folder where the registry is located.
+	1. In the [management console]({{ link-console-main }}), select the folder containing the registry.
 	1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
 	1. Select the registry.
 	1. Navigate to the **{{ ui-key.yacloud.iot.label_devices }}** tab.
@@ -13,13 +13,13 @@
 
 	{% include [default-catalogue](../default-catalogue.md) %}
     
-	1. View the description of the CLI command to get a list of devices:
+	1. See the description of the CLI command for getting a list of devices:
 	
         ```bash
 		yc iot device list --help
 		```
     
-	1. Get a list of devices in the registry by specifying its name or ID:
+	1. Get a list of devices in a registry by specifying the registry name or ID:
 
         ```bash
         yc iot device list --registry-name <registry_name>

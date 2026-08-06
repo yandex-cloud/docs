@@ -1,5 +1,5 @@
 {% note info %}
 
-If you activate an update, either daily or on particular days, it may start later than specified.  
+The start time and duration parameters set the UTC time interval during which the update will start. They are not related to the duration and completion time of the actual update.
 
 {% endnote %}

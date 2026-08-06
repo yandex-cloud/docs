@@ -16,7 +16,7 @@ Canceling the rent cancels only further automatic renewal. It is not possible to
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your server.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. [Navigate]({{ link-console-main }}/link/baremetal) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. Find the server you need in the list, click ![image](../../../_assets/console-icons/ellipsis.svg) in its row, then select **{{ ui-key.yacloud.baremetal.action_stop-prolongation-server }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.baremetal.action_stop-prolongation-server-dialog }}**.
 

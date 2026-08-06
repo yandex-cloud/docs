@@ -1,12 +1,12 @@
-# Creating a VM from a {{ coi }} and an additional volume for a Docker container
+# Creating a VM from a {{ coi }} with an additional volume for a Docker container
 
-In this tutorial, you will create a [VM](../../compute/concepts/vm.md) from a [{{ coi }}](../../cos/concepts/index.md) that contains a Docker container with a running MongoDB instance and an additional [volume](../../container-registry/concepts/docker-volume.md) of 10 GB.
+In this tutorial, you will create a [VM](../../compute/concepts/vm.md) from a [{{ coi }}](../../cos/concepts/index.md) that contains a Docker container with MongoDB running and a 10 GB [volume](../../container-registry/concepts/docker-volume.md) attached.
 
 ## Getting started {#before-you-begin}
 
-If the required Docker image has been pushed to {{ container-registry-full-name }}, create a [service account](../../iam/operations/sa/create.md) with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the [registry](../../container-registry/concepts/registry.md) in use. A {{ coi }} VM will pull the Docker image from the registry under this account.
+If the Docker image you need is stored in {{ container-registry-full-name }}, create a [service account](../../iam/operations/sa/create.md) with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the [registry](../../container-registry/concepts/registry.md) in question. Your {{ coi }} VM will use this account to pull the Docker image from the registry.
 
-## Create a VM from a {{ coi }} with an additional volume for a Docker container {#create-vm}
+## Create a VM from a {{ coi }}, with an additional Docker container volume {#create-vm}
 
 {% list tabs group=instructions %}
 
@@ -16,13 +16,13 @@ If the required Docker image has been pushed to {{ container-registry-full-name 
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI command to create a VM:
+  1. See the description of the CLI command for creating a VM:
 
      ```bash
      yc compute instance create-with-container --help
      ```
 
-  1. Prepare the [Docker Compose specification](../../cos/concepts/coi-specifications.md#compose-spec). Save the following data to the `docker-compose.yaml` file:
+  1. Set up a [Docker Compose specification](../../cos/concepts/coi-specifications.md#compose-spec). Save the following data to the `docker-compose.yaml` file:
 
      ```yaml
      version: '3.4'
@@ -41,7 +41,7 @@ If the required Docker image has been pushed to {{ container-registry-full-name 
          host_path: /home/yc-user/coi-data
      ```
 
-     When creating a VM through the CLI, the system creates a default user: `yc-user`.
+     When you create a VM via the CLI, the system creates a default user: `yc-user`.
   1. Create a VM with multiple disks:
 
      ```bash
@@ -59,12 +59,12 @@ If the required Docker image has been pushed to {{ container-registry-full-name 
      Where:
      * `--name`: VM name.
      * `--zone`: [Availability zone](../../overview/concepts/geo-scope.md).
-     * `--create-boot-disk`: VM [disk](../../compute/concepts/disk.md) parameters.
+     * `--create-boot-disk`: VM [disk](../../compute/concepts/disk.md) properties.
 
         {% include [min-disk-size](../../_includes/cos/min-disk-size.md) %}
 
-     * `--network-interface`: [Network](../../vpc/concepts/network.md#network) parameters:
-       * `subnet-name`: Name of the [subnet](../../vpc/concepts/network.md#subnet) where the VM will reside.
+     * `--network-interface`: [Network](../../vpc/concepts/network.md#network) properties:
+       * `subnet-name`: Name of the [subnet](../../vpc/concepts/network.md#subnet) the VM will reside in.
        * `nat-ip-version`: [Public IPv4 address](../../vpc/concepts/ips.md) assignment method.
      * `--ssh-key`: Path to the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file.
      * `--service-account-name`: Name of the service account you created [earlier](#before-you-begin).

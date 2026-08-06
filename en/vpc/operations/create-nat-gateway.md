@@ -15,7 +15,7 @@ To create and set up a NAT gateway:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you need to create a gateway.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select **{{ ui-key.yacloud.vpc.switch_gateways }}**.
   1. Click **{{ ui-key.yacloud.common.create }}**.
   1. Enter a name for the gateway. The naming requirements are as follows:

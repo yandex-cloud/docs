@@ -72,14 +72,11 @@ Secrets are decrypted in a similar way.
 
 * [{#T}](../tutorials/kms-k8s.md)
 * [{#T}](../operations/volumes/encrypted-disks.md)
-
-
 * [{#T}](../tutorials/kubernetes-lockbox-secrets.md)
+
 
 ## Useful links {#see-also}
 
 * [{#T}](../operations/applications/hashicorp-vault.md)
 * [{#T}](../tutorials/marketplace/hashicorp-vault.md)
-* [{#T}](../tutorials/kms-k8s.md)
 * [{#T}](../operations/applications/external-secrets-operator.md)
-* [{#T}](../tutorials/kubernetes-lockbox-secrets.md)

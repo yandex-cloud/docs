@@ -1,6 +1,6 @@
 ---
 title: Setting up NodeLocal DNS in {{ managed-k8s-full-name }}
-description: Follow this guide to set up NodeLocal DNS in {{ managed-k8s-name }}.
+description: Follow this tutorial to set up NodeLocal DNS in {{ managed-k8s-name }}.
 ---
 
 # Setting up NodeLocal DNS in {{ managed-k8s-full-name }}
@@ -15,7 +15,7 @@ If your {{ managed-k8s-name }} cluster has more than 50 [nodes](../../managed-ku
 
 {% note warning %}
 
-If the {{ managed-k8s-name }} cluster uses a Cilium network policy controller, the setup will have some unique features. Use [this guide](../../managed-kubernetes/operations/cilium-node-local-dns.md).
+If your {{ managed-k8s-name }} cluster uses the Cilium network policy controller, the setup has some specific considerations. Use [this guide](../../managed-kubernetes/operations/cilium-node-local-dns.md).
 
 {% endnote %}
 

@@ -1,19 +1,19 @@
 # Configuring data output from a Docker container to a serial port
 
-To create a [VM](../../compute/concepts/vm.md) from an [image](../../compute/concepts/image.md), such as a [{{ coi }}](../../cos/concepts/index.md), and set up a redirect of the application output stream to the VM's [serial port](../../compute/concepts/serial-console.md):
+To create a [VM](../../compute/concepts/vm.md) from an [image](../../compute/concepts/image.md), such as a [{{ coi }}](../../cos/concepts/index.md), and set up a redirect of the application output stream to the VM [serial port](../../compute/concepts/serial-console.md):
 
 1. [Get your cloud ready](#before-you-begin).
 1. [Create a VM specification file](#prepare-specification-vm).
 1. [Create a Docker container specification file](#prepare-specification-docker).
 1. [Get the ID of the image for creating the VM](#get-id).
-1. [Create your VM](#create-vm).
+1. [Create the VM](#create-vm).
 1. [Check the result](#check-result).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Get your cloud ready {#before-you-begin}
 
-If the required [Docker image](../../container-registry/concepts/docker-image.md) has been pushed to [{{ container-registry-name }}](../../container-registry/), create a [service account](../../iam/operations/sa/create.md) with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the [registry](../../container-registry/concepts/registry.md) in use. A {{ coi }} VM will pull the Docker image from the registry under this account.
+If the [Docker image](../../container-registry/concepts/docker-image.md) you need is stored in [{{ container-registry-name }}](../../container-registry/), create a [service account](../../iam/operations/sa/create.md) with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the [registry](../../container-registry/concepts/registry.md) in question. Your {{ coi }} VM will use this account to pull the Docker image from the registry.
 
 {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -25,7 +25,7 @@ If you do not have a [network](../../vpc/operations/network-create.md) or [subne
 
 The infrastructure support cost includes:
 * Fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for using a dynamic or static [external IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for a dynamic or static [external IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 ## Create a VM specification file {#prepare-specification-vm}
 
@@ -33,7 +33,7 @@ The infrastructure support cost includes:
 
 - CLI {#cli}
 
-  Create a VM specification file named `cloud-config-ports.yaml` and populate it with the following data:
+  Create a VM specification file named `cloud-config-ports.yaml` and paste the following into it:
 
   ```yaml
   #cloud-config
@@ -48,17 +48,17 @@ The infrastructure support cost includes:
     - <public_SSH_key_for_connecting_to_VM>
   ```
 
-  In the file configuration, set the username and specify the public part of the [SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) required to connect to the VM. You will need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) an SSH key pair on your own.
+  In the file configuration, set the username and specify the public part of the [SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) required to connect to the VM. You will need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) an SSH key pair by yourself.
 
 {% endlist %}
 
-## Create a Docker container spec file {#prepare-specification-docker}
+## Create a Docker container specification file {#prepare-specification-docker}
 
 {% list tabs group=instructions %}
 
 - CLI {#cli}
 
-  Create the specification for a Docker container as a file named `container-spec-ports.yaml` and populate it with the following data:
+  Create a Docker container specification file named `container-spec-ports.yaml` and paste the following into it:
 
   ```yaml
   spec:
@@ -99,7 +99,7 @@ The infrastructure support cost includes:
 
         {% endlist %}
 
-     1. Create a VM:
+     1. Create the VM:
 
         ```bash
         yc compute instance create \
@@ -118,21 +118,20 @@ The infrastructure support cost includes:
         * `--metadata-from-file`: YAML [metadata](../../compute/concepts/vm-metadata.md) files for creating the VM.
 
             {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
-        * `--create-boot-disk`: ID of the image for creating a boot disk from.
+        * `--create-boot-disk`: ID of the image to create a boot disk from.
         * `--service-account-name`: Name of the service account you created [earlier](#before-you-begin).
 
         Once created, the VM will appear in the VM list under **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** in the [management console]({{ link-console-main }}).
      1. Check the result.
-        1. In the [management console]({{ link-console-main }}), navigate to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page.
-        1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-        1. Click the VM name, `coi-vm-with-sp`.
+        1. In the [management console]({{ link-console-main }}), navigate to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+        1. Click the VM name: `coi-vm-with-sp`.
         1. Under **{{ ui-key.yacloud.compute.instance.switch_service-console }}**, select the `COM2` port. In a few minutes, the screen will display `Hello world!`.
 
 {% endlist %}
 
 ## Get the ID of the image for creating the VM {#get-id}
 
-To get the ID of the latest image to create a VM, run:
+To get the ID of the latest image for creating the VM, run:
 
 {% list tabs group=operating_system %}
 
@@ -160,7 +159,7 @@ To get the ID of the latest image to create a VM, run:
 
 - CLI {#cli}
 
-  Enter a name for the [subnet](../../vpc/operations/subnet-create.md) where you will keep your VM and run:
+  Enter a name for the [subnet](../../vpc/operations/subnet-create.md) where you will create your VM and run:
 
   ```bash
   yc compute instance create \
@@ -176,7 +175,7 @@ To get the ID of the latest image to create a VM, run:
   * `--zone`: Availability zone.
   * `--network-interface`: VM network settings.
   * `--metadata-from-file`: YAML metadata files for creating the VM.
-  * `--create-boot-disk`: ID of the image for creating a boot disk from.
+  * `--create-boot-disk`: ID of the image to create a boot disk from.
 
 {% endlist %}
 
@@ -187,7 +186,7 @@ Once created, the VM will appear in the VM list under **{{ ui-key.yacloud.iam.fo
 To check whether you correctly configured data output from the Docker container to the serial port:
 1. In the [management console]({{ link-console-main }}), navigate to the folder page.
 1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-1. Click the VM name, `coi-vm-with-sp`.
+1. Click the VM name: `coi-vm-with-sp`.
 1. Under **{{ ui-key.yacloud.compute.instance.switch_service-console }}**, select the `COM2` port. In a few minutes, the screen will display `Hello world!`.
 
 For more information about working with VMs, see [our step-by-step guides](../../compute/operations/index.md).
@@ -196,4 +195,4 @@ For more information about working with VMs, see [our step-by-step guides](../..
 
 To stop paying for the resources you created:
 1. [Delete the VM](../../compute/operations/vm-control/vm-delete.md).
-1. If you reserved a public static IP address for the VM, [delete it](../../vpc/operations/address-delete.md).
+1. [Delete](../../vpc/operations/address-delete.md) the VM’s public static IP address if you reserved one.

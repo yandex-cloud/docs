@@ -8,6 +8,8 @@
 
 Создайте [сервисный аккаунт](../../concepts/users/service-accounts.md), чтобы управлять ресурсами от имени другой учетной записи.
 
+Если нужно временно остановить работу сервисного аккаунта без удаления, [заблокируйте](suspend-reactivate.md#suspend) его. После блокировки аккаунт нельзя использовать, пока вы его не [разблокируете](suspend-reactivate.md#reactivate).
+
 Чтобы создать сервисный аккаунт, у вас должна быть [роль](../../../iam/security/#iam-serviceAccounts-admin) `{{ roles-iam-sa-admin }}` или выше на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
 
 {% note info %}
@@ -143,9 +145,44 @@
 
 {% endlist %}
 
+### Задать срок жизни сервисного аккаунта {#add-expires-at}
+
+Создайте сервисный аккаунт с ограниченным сроком жизни. По истечении срока жизни система автоматически [заблокирует](../../concepts/users/service-accounts.md#sa-suspend) его.
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  ```bash
+  yc iam service-account create --name my-robot \
+    --expires-at 2026-12-02T15:04:05Z
+  ```
+
+  Значение параметра `--expires-at` задается в формате [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339).
+
+- API {#api}
+
+  ```bash
+  curl \
+    --request POST \
+    --header 'Content-Type: application/json' \
+    --header "Authorization: Bearer <IAM-токен>" \
+    --data '{
+      "folderId": "<идентификатор_каталога>",
+      "name": "<имя_сервисного_аккаунта>",
+      "expiresAt": "2026-12-02T15:04:05Z"
+    }' \
+    https://iam.{{ api-host }}/iam/v1/serviceAccounts
+  ```
+
+  Значение поля `expiresAt` задается в формате [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339).
+
+{% endlist %}
+
 #### Полезные ссылки {#see-also}
 
 * [{#T}](list-get.md)
 * [{#T}](assign-role-for-sa.md)
 * [{#T}](set-access-bindings.md)
+* [{#T}](suspend-reactivate.md)
 * [{#T}](../../concepts/users/service-accounts.md#sa-key)

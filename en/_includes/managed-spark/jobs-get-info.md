@@ -2,8 +2,8 @@
 
 - Management console {#console}
 
-    1. Open the [folder dashboard]({{ link-console-main }}).
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/managed-spark) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}** tab.
     1. Click the job name.
 

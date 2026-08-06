@@ -17,8 +17,8 @@ After creating a cluster, you can edit its basic and advanced settings.
 
     To change the cluster settings:
 
-    1. Open the [folder dashboard]({{ link-console-main }}).
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/managed-ytsaurus) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
@@ -106,7 +106,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

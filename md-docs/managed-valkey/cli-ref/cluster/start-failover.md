@@ -19,7 +19,7 @@ Syntax:
 A list of hostnames that should not be masters. ||
 || `--failover-type` | `string`
 
-Failover type for Valkey cluster. Values: 'switch-to-hostnames', 'switch-from-hostnames' ||
+Failover type for Valkey cluster. Values: 'switch-to-hostnames', 'switch-from-hostnames', 'switch-from-zone' ||
 || `--id` | `string`
 
 Redis cluster id. ||

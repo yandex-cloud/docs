@@ -1,12 +1,12 @@
 # Updating a {{ coi }} VM
 
-Change the Docker container settings on the VM you created from a [{{ coi }}](../../cos/concepts/index.md).
+Change the Docker container settings on the VM created from a [{{ coi }}](../../cos/concepts/index.md).
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you created the VM.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the VM.
   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Click the row with the VM you want to update.
   1. In the top panel, click **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**
@@ -15,7 +15,7 @@ Change the Docker container settings on the VM you created from a [{{ coi }}](..
 
 - CLI {#cli}
 
-  1. View the description of the CLI command for updating VMs:
+  1. See the description of the CLI command for updating a VM:
 
      ```bash
      yc compute instance update-container --help
@@ -39,12 +39,12 @@ Change the Docker container settings on the VM you created from a [{{ coi }}](..
 
   1. Update the VM.
 
-     Depending on how you created the VM, there are several ways to update it:
+     The way you update the VM depends on how you create it:
 
-     Creation method | Update the VM using<br>`--container-image` | Update the VM using<br>`--docker-compose-file`
+     Creation method | Update using<br>`--container-image` | Update using<br>`--docker-compose-file`
      --- | --- | ---
-     Using the `--container-*` parameters | The system deletes the old Docker container and creates a new one. | The system deletes the old Docker container  and creates new containers as per the `docker-compose.yaml` file.
-     Using the `docker-compose.yaml` file specification | The system deletes the old Docker containers as per `docker-compose.yaml` and creates a new container described using the `--container-*` parameters.| The system only creates either new Docker containers, i.e., those added to `docker-compose.yaml`, or modified containers. The system deletes the Docker containers missing from the new `docker-compose.yaml` file.
+     Using the `--container-*` parameters | The system deletes the old Docker container and creates a new one. | The system deletes the old Docker container and creates new containers as defined in the `docker-compose.yaml` file.
+     Using the `docker-compose.yaml` file specification | The system deletes the old Docker containers defined in `docker-compose.yaml` and creates a new container described using the `--container-*` parameters.| The system only creates either new Docker containers, i.e., those added to `docker-compose.yaml`, or modified Docker containers. The system deletes the Docker containers missing from the new `docker-compose.yaml` file.
     
      * Update the VM by setting new parameters:
 
@@ -60,11 +60,11 @@ Change the Docker container settings on the VM you created from a [{{ coi }}](..
 
        Where:
        * `--container-name`: Docker container name.
-       * `--container-image`: Name of the Docker image used to run the Docker container.
+       * `--container-image`: Name of the Docker image for running the Docker container.
        * `--container-env`: Environment variables available in the Docker container.
-       * `--remove-container-env`: Exclude the environment variables whose keys are specified in the parameter.
-       * `--container-command`: Command to run when you start the Docker container.
-       * `--container-stdin`: Allocate the buffer for the input stream while running the Docker container.
+       * `--remove-container-env`: Remove the environment variables whose keys are specified in the parameter.
+       * `--container-command`: Command to run when the Docker container starts.
+       * `--container-stdin`: Allocate a standard input buffer for a running Docker container.
        * `--container-restart-policy`: Parameters for the command specified in `--container-command`.
        * `--container-privileged`: Run the Docker container in privileged mode.
 
@@ -79,7 +79,7 @@ Change the Docker container settings on the VM you created from a [{{ coi }}](..
        ...
        ```
 
-     * Update the VM by setting the specifications of multiple Docker containers:
+     * Update the VM by providing a specification for multiple Docker containers:
 
        ```bash
        yc compute instance update-container epdbf646ge5q******** --docker-compose-file=<file_path>

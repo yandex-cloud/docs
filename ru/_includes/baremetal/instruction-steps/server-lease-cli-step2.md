@@ -1,7 +1,8 @@
 Получите список конфигураций:
 
 ```bash
-yc baremetal configuration list
+yc baremetal configuration list \
+  --folder-id <идентификатор_каталога>
 ```
 
 Примерный результат:

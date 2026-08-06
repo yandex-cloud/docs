@@ -1288,8 +1288,32 @@ items:
             items:
               - name: Overview
                 href: cli-ref/baremetal/cli-ref/v2/index.md
+              - name: boot-image
+                items:
+                  - name: Overview
+                    href: cli-ref/baremetal/cli-ref/v2/boot-image/index.md
+                  - name: create
+                    href: cli-ref/baremetal/cli-ref/v2/boot-image/create.md
+                  - name: delete
+                    href: cli-ref/baremetal/cli-ref/v2/boot-image/delete.md
+                  - name: get
+                    href: cli-ref/baremetal/cli-ref/v2/boot-image/get.md
+                  - name: list
+                    href: cli-ref/baremetal/cli-ref/v2/boot-image/list.md
+                  - name: list-operations
+                    href: cli-ref/baremetal/cli-ref/v2/boot-image/list-operations.md
+                  - name: update
+                    href: cli-ref/baremetal/cli-ref/v2/boot-image/update.md
               - name: configuration
-                href: cli-ref/baremetal/cli-ref/v2/configuration.md
+                items:
+                  - name: Overview
+                    href: cli-ref/baremetal/cli-ref/v2/configuration/index.md
+                  - name: resolve-configuration-default-storage
+                    href: >-
+                      cli-ref/baremetal/cli-ref/v2/configuration/resolve-configuration-default-storage.md
+                  - name: resolve-configurations-default-storages
+                    href: >-
+                      cli-ref/baremetal/cli-ref/v2/configuration/resolve-configurations-default-storages.md
               - name: extend
                 items:
                   - name: Overview
@@ -1325,6 +1349,36 @@ items:
                     href: cli-ref/baremetal/cli-ref/v2/hardware-pool/get.md
                   - name: list
                     href: cli-ref/baremetal/cli-ref/v2/hardware-pool/list.md
+              - name: image
+                items:
+                  - name: Overview
+                    href: cli-ref/baremetal/cli-ref/v2/image/index.md
+                  - name: get
+                    href: cli-ref/baremetal/cli-ref/v2/image/get.md
+                  - name: list
+                    href: cli-ref/baremetal/cli-ref/v2/image/list.md
+                  - name: resolve
+                    href: cli-ref/baremetal/cli-ref/v2/image/resolve.md
+              - name: private-cloud-connection
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/baremetal/cli-ref/v2/private-cloud-connection/index.md
+                  - name: create
+                    href: >-
+                      cli-ref/baremetal/cli-ref/v2/private-cloud-connection/create.md
+                  - name: delete
+                    href: >-
+                      cli-ref/baremetal/cli-ref/v2/private-cloud-connection/delete.md
+                  - name: get
+                    href: >-
+                      cli-ref/baremetal/cli-ref/v2/private-cloud-connection/get.md
+                  - name: list
+                    href: >-
+                      cli-ref/baremetal/cli-ref/v2/private-cloud-connection/list.md
+                  - name: update
+                    href: >-
+                      cli-ref/baremetal/cli-ref/v2/private-cloud-connection/update.md
               - name: private-subnet
                 items:
                   - name: Overview
@@ -1337,6 +1391,9 @@ items:
                     href: cli-ref/baremetal/cli-ref/v2/private-subnet/get.md
                   - name: list
                     href: cli-ref/baremetal/cli-ref/v2/private-subnet/list.md
+                  - name: list-operations
+                    href: >-
+                      cli-ref/baremetal/cli-ref/v2/private-subnet/list-operations.md
                   - name: update
                     href: cli-ref/baremetal/cli-ref/v2/private-subnet/update.md
               - name: public-prefix-pool
@@ -1361,6 +1418,9 @@ items:
                     href: cli-ref/baremetal/cli-ref/v2/public-subnet/get.md
                   - name: list
                     href: cli-ref/baremetal/cli-ref/v2/public-subnet/list.md
+                  - name: list-operations
+                    href: >-
+                      cli-ref/baremetal/cli-ref/v2/public-subnet/list-operations.md
                   - name: update
                     href: cli-ref/baremetal/cli-ref/v2/public-subnet/update.md
               - name: rental-period
@@ -1381,6 +1441,8 @@ items:
                     href: cli-ref/baremetal/cli-ref/v2/server/get.md
                   - name: list
                     href: cli-ref/baremetal/cli-ref/v2/server/list.md
+                  - name: list-operations
+                    href: cli-ref/baremetal/cli-ref/v2/server/list-operations.md
                   - name: power-off
                     href: cli-ref/baremetal/cli-ref/v2/server/power-off.md
                   - name: power-on
@@ -1391,6 +1453,8 @@ items:
                     href: cli-ref/baremetal/cli-ref/v2/server/reinstall.md
                   - name: renew-rental
                     href: cli-ref/baremetal/cli-ref/v2/server/renew-rental.md
+                  - name: skip-quarantine
+                    href: cli-ref/baremetal/cli-ref/v2/server/skip-quarantine.md
                   - name: update
                     href: cli-ref/baremetal/cli-ref/v2/server/update.md
               - name: vrf
@@ -1405,6 +1469,8 @@ items:
                     href: cli-ref/baremetal/cli-ref/v2/vrf/get.md
                   - name: list
                     href: cli-ref/baremetal/cli-ref/v2/vrf/list.md
+                  - name: list-operations
+                    href: cli-ref/baremetal/cli-ref/v2/vrf/list-operations.md
                   - name: update
                     href: cli-ref/baremetal/cli-ref/v2/vrf/update.md
               - name: zone

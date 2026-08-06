@@ -15,8 +15,8 @@ To assess the performance of Spark applications in a {{ msp-full-name }} cluster
 
 ## Checking application details {#info}
 
-1. Open the [folder dashboard]({{ link-console-main }}).
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
+1. In the [management console]({{ link-console-main }}), select a folder.
+1. [Navigate]({{ link-console-main }}/link/managed-spark) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
 1. Click the cluster name.
 1. Under **{{ ui-key.yacloud.mdb.cluster.overview.section_additional }}**, select **Spark History Server** and click the link.
 
@@ -39,8 +39,8 @@ To assess the performance of Spark applications in a {{ msp-full-name }} cluster
 
 ## Checking stage details {#stages}
 
-1. Open the [folder dashboard]({{ link-console-main }}).
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
+1. In the [management console]({{ link-console-main }}), select a folder.
+1. [Navigate]({{ link-console-main }}/link/managed-spark) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
 1. Click the cluster name.
 1. Under **{{ ui-key.yacloud.mdb.cluster.overview.section_additional }}**, select **Spark History Server** and click the link. This will open the **Spark History Server** window.
 1. In the top menu, navigate to **Stages**.
@@ -64,8 +64,8 @@ To assess the performance of Spark applications in a {{ msp-full-name }} cluster
 
 ## Checking resources allocated to the application {#resources}
 
-1. Open the [folder dashboard]({{ link-console-main }}).
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
+1. In the [management console]({{ link-console-main }}), select a folder.
+1. [Navigate]({{ link-console-main }}/link/managed-spark) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
 1. Click the cluster name.
 1. Under **{{ ui-key.yacloud.mdb.cluster.overview.section_additional }}**, select **Spark History Server** and click the link. This will open the **Spark History Server** window.
 1. In the top menu, navigate to **Executors**.
@@ -91,8 +91,8 @@ To assess the performance of Spark applications in a {{ msp-full-name }} cluster
 
 ## Checking persisted RDDs {#tables}
 
-1. Open the [folder dashboard]({{ link-console-main }}).
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
+1. In the [management console]({{ link-console-main }}), select a folder.
+1. [Navigate]({{ link-console-main }}/link/managed-spark) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
 1. Click the cluster name.
 1. Under **{{ ui-key.yacloud.mdb.cluster.overview.section_additional }}**, select **Spark History Server** and click the link. This will open the **Spark History Server** window.
 1. In the top menu, navigate to **Storage**.
@@ -103,8 +103,8 @@ To assess the performance of Spark applications in a {{ msp-full-name }} cluster
 
 ## Checking the list of SQL queries and their plans {#sql}
 
-1. Open the [folder dashboard]({{ link-console-main }}).
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
+1. In the [management console]({{ link-console-main }}), select a folder.
+1. [Navigate]({{ link-console-main }}/link/managed-spark) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
 1. Click the cluster name.
 1. Under **{{ ui-key.yacloud.mdb.cluster.overview.section_additional }}**, select **Spark History Server** and click the link. This will open the **Spark History Server** window.
 1. In the top menu, navigate to **SQL/DataFrame**.

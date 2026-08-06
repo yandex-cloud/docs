@@ -47,8 +47,8 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
 
   To create a {{ mkf-name }} cluster:
 
-  1. In the [management console]({{ link-console-main }}), go to the appropriate [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Navigate]({{ link-console-main }}/link/managed-kafka) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
      1. Enter a name and description for the {{ mkf-name }} cluster. The {{ mkf-name }} cluster name must be unique within the folder.
@@ -312,7 +312,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-     This will create all the resources you need in the specified folder, and the terminal will display the [FQDNs of the {{ mkf-name }} cluster hosts](../concepts/network.md#hostname). You can check the new resources and their settings in the [management console]({{ link-console-main }}).
+     This will create all the resources you need in the specified folder, and the terminal will display the [FQDNs of the {{ mkf-name }} cluster hosts](../concepts/network.md#hostname). You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
   For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
@@ -721,8 +721,8 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
   To create a {{ mkf-name }} cluster:
 
-  1. In the [management console]({{ link-console-main }}), go to the appropriate [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Navigate]({{ link-console-main }}/link/managed-kafka) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
      1. Enter a name and description for the {{ mkf-name }} cluster. The {{ mkf-name }} cluster name must be unique within the folder.

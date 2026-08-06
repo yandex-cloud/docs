@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ iot-full-name }}'
-description: This page lists {{ TF }} provider resources and data sources supported by {{ iot-name }}.
+description: This page gives information about the {{ TF }} provider resources and data sources supported by {{ iot-name }}.
 ---
 
 # {{ TF }} reference for {{ iot-full-name }}

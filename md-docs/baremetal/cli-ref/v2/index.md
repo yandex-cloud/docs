@@ -8,11 +8,29 @@ Manage Baremetal resources
 
 Syntax:
 
-`yc baremetal v2 <group|command>`
+`yc baremetal v2 <group>`
 
 #### Command Tree
 
-- [yc baremetal v2 configuration](configuration.md) — A set of methods to retrieve information about Configuration resources.
+- [yc baremetal v2 boot-image](boot-image/index.md) — A set of methods for managing BootImage resources.
+
+  - [yc baremetal v2 boot-image create](boot-image/create.md) — Creates a boot image in the specified folder.
+
+  - [yc baremetal v2 boot-image delete](boot-image/delete.md) — Deletes the specified boot image.
+
+  - [yc baremetal v2 boot-image get](boot-image/get.md) — Returns the specific BootImage resource.
+
+  - [yc baremetal v2 boot-image list](boot-image/list.md) — Retrieves the list of BootImage resources in the specified folder.
+
+  - [yc baremetal v2 boot-image list-operations](boot-image/list-operations.md) — Lists operations for the specified boot image.
+
+  - [yc baremetal v2 boot-image update](boot-image/update.md) — Updates the specified boot image.
+
+- [yc baremetal v2 configuration](configuration/index.md) — A set of methods to retrieve information about Configuration resources.
+
+  - [yc baremetal v2 configuration resolve-configuration-default-storage](configuration/resolve-configuration-default-storage.md) — Returns the default storage for the specified configuration.
+
+  - [yc baremetal v2 configuration resolve-configurations-default-storages](configuration/resolve-configurations-default-storages.md) — Returns the default storages for the specified configurations.
 
 - [yc baremetal v2 extend](extend/index.md) — Manage Baremetal Extend resources
 
@@ -24,6 +42,26 @@ Syntax:
 
   - [yc baremetal v2 hardware-pool list](hardware-pool/list.md) — Retrieves the list of HardwarePool resources.
 
+- [yc baremetal v2 image](image/index.md) — A set of methods to retrieve information about image.
+
+  - [yc baremetal v2 image get](image/get.md) — Returns the specific Image resource.
+
+  - [yc baremetal v2 image list](image/list.md) — Retrieves the list of Image resources.
+
+  - [yc baremetal v2 image resolve](image/resolve.md) — Resolves the latest published Image for each available family within the specified folder.
+
+- [yc baremetal v2 private-cloud-connection](private-cloud-connection/index.md) — A set of methods for managing Private cloud connection resources.
+
+  - [yc baremetal v2 private-cloud-connection create](private-cloud-connection/create.md) — Creates a private cloud connection in the specified folder.
+
+  - [yc baremetal v2 private-cloud-connection delete](private-cloud-connection/delete.md) — Removes a private cloud connection and all allocated network resouces.
+
+  - [yc baremetal v2 private-cloud-connection get](private-cloud-connection/get.md) — Returns the specific Private cloud connection resource.
+
+  - [yc baremetal v2 private-cloud-connection list](private-cloud-connection/list.md) — Retrieves the list of Private cloud connection resources in the specified folder.
+
+  - [yc baremetal v2 private-cloud-connection update](private-cloud-connection/update.md) — Updates the routing_instance_id in a private cloud connection.
+
 - [yc baremetal v2 private-subnet](private-subnet/index.md) — A set of methods for managing PrivateSubnet resources.
 
   - [yc baremetal v2 private-subnet create](private-subnet/create.md) — Creates a private subnet in the specified folder.
@@ -33,6 +71,8 @@ Syntax:
   - [yc baremetal v2 private-subnet get](private-subnet/get.md) — Returns the specific PrivateSubnet resource.
 
   - [yc baremetal v2 private-subnet list](private-subnet/list.md) — Retrieves the list of PrivateSubnet resources in the specified folder.
+
+  - [yc baremetal v2 private-subnet list-operations](private-subnet/list-operations.md) — Lists operations for the specified private subnet.
 
   - [yc baremetal v2 private-subnet update](private-subnet/update.md) — Updates the specified private subnet.
 
@@ -54,6 +94,8 @@ Syntax:
 
   - [yc baremetal v2 public-subnet list](public-subnet/list.md) — Retrieves the list of PublicSubnet resources in the specified folder.
 
+  - [yc baremetal v2 public-subnet list-operations](public-subnet/list-operations.md) — Lists operations for the specified public subnet.
+
   - [yc baremetal v2 public-subnet update](public-subnet/update.md) — Updates the specified public subnet.
 
 - [yc baremetal v2 rental-period](rental-period/index.md) — A set of methods to retrieve information about RentalPeriod resources.
@@ -70,6 +112,8 @@ Syntax:
 
   - [yc baremetal v2 server list](server/list.md) — Retrieves the list of Server resources in the specified folder.
 
+  - [yc baremetal v2 server list-operations](server/list-operations.md) — Lists operations for the specified server.
+
   - [yc baremetal v2 server power-off](server/power-off.md) — Powers off the specified server.
 
   - [yc baremetal v2 server power-on](server/power-on.md) — Powers on the specified server.
@@ -79,6 +123,8 @@ Syntax:
   - [yc baremetal v2 server reinstall](server/reinstall.md) — Reinstalls the specified server.
 
   - [yc baremetal v2 server renew-rental](server/renew-rental.md) — Enable prolongation after rental period end
+
+  - [yc baremetal v2 server skip-quarantine](server/skip-quarantine.md) — Skips the quarantine for the specified server.
 
   - [yc baremetal v2 server update](server/update.md) — Updates the specified server.
 
@@ -91,6 +137,8 @@ Syntax:
   - [yc baremetal v2 vrf get](vrf/get.md) — Returns the specific VRF resource.
 
   - [yc baremetal v2 vrf list](vrf/list.md) — Retrieves the list of VRF resources in the specified folder.
+
+  - [yc baremetal v2 vrf list-operations](vrf/list-operations.md) — Lists operations for the specified vrf.
 
   - [yc baremetal v2 vrf update](vrf/update.md) — Updates the specified VRF resource.
 

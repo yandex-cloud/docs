@@ -83,8 +83,8 @@ During an upgrade, topics may be unavailable if their [replication factor](../co
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/managed-kafka) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select the new version number.
     1. Click **{{ ui-key.yacloud.common.save }}**.

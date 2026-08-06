@@ -88,6 +88,8 @@ items:
         href: tutorials/ri-prefixes-upsert.md
   - name: Access management
     href: security/index.md
+  - name: Pricing policy
+    href: pricing.md
   - name: CLI reference
     items:
       - name: Overview

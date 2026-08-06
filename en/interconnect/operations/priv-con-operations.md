@@ -16,7 +16,7 @@ You need the [cic.viewer](../security/index.md#cic-viewer) role to run this oper
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), click ![layout-side-content-left](../../_assets/console-icons/layout-side-content-left.svg) or ![chevron-down](../../_assets/console-icons/chevron-down.svg) in the top panel and select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.ui.constants.label_interconnect_aUMcv }}**.
+  1. [Navigate]({{ link-console-main }}/link/interconnect) to **{{ ui-key.yacloud.ui.constants.label_interconnect_aUMcv }}**.
   1. In the left-hand panel, select ![nodes-left](../../_assets/console-icons/nodes-left.svg) **{{ ui-key.yacloud.interconnect.private-connection.private-connections_daeaR }}**. In the list of private connections that opens, select the connection at hand.
   1. In the connection info window that opens, select ![list-check](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** in the left-hand menu to view a list of [operations](../../api-design-guide/concepts/about-async.md) with the selected private connection.
 

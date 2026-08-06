@@ -1,7 +1,7 @@
 title: Yandex IoT Core
 href: index.yaml
 items:
-  - name: Service closure
+  - name: Service shutdown
     href: sunset.md
   - name: Getting started
     items:
@@ -21,7 +21,7 @@ items:
         href: operations/subscribe.md
       - name: Exporting messages to {{ yds-name }}
         href: operations/yds-export.md
-      - name: Viewing the connection log
+      - name: Viewing a connection log
         href: operations/logs.md
       - name: Creating a trigger for a topic
         items:
@@ -31,13 +31,13 @@ items:
             href: operations/trigger-broker-create.md
       - name: Managing registries
         items:
-          - name: Getting information about registries
+          - name: Getting information about a registry
             href: operations/registry/registry-list.md
           - name: Creating a registry
             href: operations/registry/registry-create.md
           - name: Updating a registry
             href: operations/registry/registry-update.md
-          - name: Enabling and disabling a registry
+          - name: Disabling and enabling a registry
             href: operations/registry/registry-disabling.md
           - name: Deleting a registry
             href: operations/registry/registry-delete.md
@@ -53,7 +53,7 @@ items:
                 href: operations/device/alias/alias-update.md
               - name: Deleting an alias
                 href: operations/device/alias/alias-delete.md
-          - name: Getting information about devices
+          - name: Getting information about a device
             href: operations/device/device-list.md
           - name: Creating a device
             href: operations/device/device-create.md
@@ -97,7 +97,7 @@ items:
         href: concepts/authorization.md
       - name: Resource relationships
         href: concepts/index.md
-      - name: MQTT server connection parameters
+      - name: MQTT server connection settings
         href: concepts/mqtt-properties.md
       - name: Sending messages to an MQTT server via gRPC
         href: concepts/mqtt-grpc.md
@@ -123,7 +123,7 @@ items:
         href: tutorials/index.md
       - name: Working with Mosquitto
         items:
-          - name: Sending messages
+          - name: Sending a message
             href: tutorials/mosquitto/mosquitto-publish.md
           - name: Subscribing a device or registry to receive messages
             href: tutorials/mosquitto/mosquitto-subscribe.md

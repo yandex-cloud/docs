@@ -133,6 +133,7 @@ You can also access aggregate bucket statistics [through the {{ yandex-cloud }} 
 * [{#T}](../tutorials/bucket-to-bucket.md)
 * [{#T}](../tutorials/batch-recognition-stt.md)
 * [{#T}](../tutorials/mgp-config-server-for-s3.md)
+* [{#T}](../../architecture/static-website-in-yc.md)
 
 ### Useful links {#see-also}
 

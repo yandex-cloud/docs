@@ -17,8 +17,8 @@ When creating a [{{ managed-k8s-name }} cluster](index.md#kubernetes-cluster), s
 Channel | Auto updates | Channel description
 --- | --- | ---
 `RAPID` | Auto updates cannot be disabled. You can specify a time period for auto updates. | A channel receives updates with new features and improvements first.
-`REGULAR`| Auto updates can be disabled. | New features and improvements are added shortly after they appear on `RAPID`.
-`STABLE`| Auto updates can be disabled. | New features and improvements are added shortly after they appear on `REGULAR`.
+`REGULAR`| Auto updates can be disabled. | Updates with new features and improvements get added to the channel some time after they appear on `RAPID`.
+`STABLE`| Auto updates can be disabled. | Updates with new features and improvements get added to the channel some time after they appear on `REGULAR`.
 
 _For information on supported {{ k8s }} versions in channels, see [this page](./k8s-supported-versions.md)._
 
@@ -27,11 +27,10 @@ _For information on supported {{ k8s }} versions in channels, see [this page](./
 ## Updates {#updates}
 
 When a release channel receives an update, you get a notification in the management console. You can install updates automatically or manually.
-* Auto updates are installed within the specified time period. They do not require any user actions.
 
-  Updates are initiated and should be completed within this time period. In some cases, when updating a {{ managed-k8s-name }} node group, an update may continue beyond this period.
+* Automatic updates start without any user action. You can specify the starting point and duration of the UTC time interval during which the update will start. This setting is not related to the update duration or its completion time.
 
-  Auto updates include new {{ managed-k8s-name }} features, improvements, and fixes, as well as {{ k8s }} component fixes.
+  Auto updates include new {{ managed-k8s-name }} features, improvements, and fixes as well as {{ k8s }} component fixes.
 
 * [Manual updates](../operations/update-kubernetes.md#cluster-manual-upgrade) can be initiated by the user at any time.
 

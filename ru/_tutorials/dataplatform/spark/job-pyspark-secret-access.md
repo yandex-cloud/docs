@@ -1,5 +1,6 @@
 # Использование секрета {{ lockbox-name }} в PySpark-задании для подключения к {{ mpg-full-name }}
 
+
 Вы можете использовать секрет [{{ lockbox-name }}](../../../lockbox/concepts/secret.md) для подключения к кластеру [{{ mpg-full-name }}](../../../managed-postgresql/index.yaml) из PySpark-задания в [{{ msp-full-name }}](../../../managed-spark/index.yaml). Для этого [сервисному аккаунту](../../../iam/concepts/users/service-accounts.md) кластера {{ msp-full-name }} необходимо предоставить доступ к секрету. Секрет создается сервисом {{ connection-manager-full-name }} автоматически при создании пользователя {{ mpg-name }}.
 
 Для PySpark-задания используется Python-скрипт, который хранится в бакете {{ objstorage-full-name }}. Скрипт получает пароль пользователя из секрета и использует его для подключения к кластеру {{ mpg-name }}.
@@ -41,7 +42,7 @@
 
 1. [Создайте облачную сеть](../../../vpc/operations/network-create.md) с именем `spark-network`.
 
-    Вместе с ней автоматически будут созданы три подсети в разных зонах доступности.
+    Вместе с ней автоматически будут созданы три подсети в разных [зонах доступности](../../../overview/concepts/geo-scope.md).
 
 1. В сети `spark-network` [создайте группу безопасности](../../../vpc/operations/security-group-create.md) `spark-sg` для кластера {{ msp-full-name }}, разрешающую исходящие TCP-подключения:
     

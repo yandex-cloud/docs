@@ -30,8 +30,8 @@ Learn more about other cluster updates:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/managed-kafka) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, enter a new name and description for the cluster.
     1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -205,8 +205,8 @@ We recommend changing broker host class only when your cluster has no active wor
 
   To change the class and number of hosts:
 
-  1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/managed-kafka) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Change the relevant settings:
      * To update the broker host class, select a new [**{{ ui-key.yacloud.mdb.forms.section_resource }}**](../concepts/instance-types.md).
@@ -431,8 +431,8 @@ We recommend changing broker host class only when your cluster has no active wor
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/managed-kafka) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Select a new [**{{ ui-key.yacloud.kafka.section_zookeeper-resources }}**](../concepts/instance-types.md).
   1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -637,8 +637,8 @@ The {{ kraft-short-name }} host class is only used in clusters with {{ KF }} 3.6
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/managed-kafka) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Select a new [**{{ ui-key.yacloud.kafka.section_kraft-resources }}**](../concepts/instance-types.md).
   1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -837,8 +837,8 @@ The {{ kraft-short-name }} host class is only used in clusters with {{ KF }} 3.6
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/managed-kafka) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the security groups for cluster network traffic.
   1. Enable or disable **Public access** to your cluster.
@@ -1033,8 +1033,8 @@ You may need to additionally [configure security groups](connect/index.md#config
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/managed-kafka) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Change additional cluster settings:
 
@@ -1294,8 +1294,8 @@ You may need to additionally [configure security groups](connect/index.md#config
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/managed-kafka) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_settings-kafka }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
 

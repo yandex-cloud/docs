@@ -25,7 +25,7 @@ After you create a network load balancer, you can:
 
 - Management console {#console}
 
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+    1. [Navigate]({{ link-console-main }}/link/network-load-balancer/) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
     1. Select a load balancer and click **{{ ui-key.yacloud.common.edit }}** at the top of the page.
     1. Enter a new name and description for the load balancer.
     1. Click **{{ ui-key.yacloud.common.edit }}**.
@@ -104,7 +104,7 @@ After you create a network load balancer, you can:
 
 - Management console {#console}
 
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+    1. [Navigate]({{ link-console-main }}/link/network-load-balancer/) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
     1. Select a load balancer and click **{{ ui-key.yacloud.common.edit }}** at the top of the page.
     1. Change the load balancer labels.
     1. Click **{{ ui-key.yacloud.common.edit }}**.
@@ -185,7 +185,7 @@ After you create a network load balancer, you can:
 
 - Management console {#console}
 
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+    1. [Navigate]({{ link-console-main }}/link/network-load-balancer/) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
     1. Select a load balancer and click **{{ ui-key.yacloud.common.edit }}** at the top of the page.
     1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}**, select a different target group from the drop-down list or [create a new one](target-group-create.md).
     1. To change target group health check settings:

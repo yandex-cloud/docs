@@ -8,22 +8,22 @@ description: This section contains the {{ sd-name }} release notes.
 ## June 2026 {#june-2026}
 
 * {{ sd-full-name }} has entered the [General Availability](../overview/concepts/launch-stages.md) stage. The [Threat Detection](./concepts/threat-detector.md) and Vulnerability Manager modules, along with the AI assistant, remain in [Preview](../overview/concepts/launch-stages.md).
-* Added new rules for infrastructure security compliance verification in [{{ cspm-name }}](./concepts/cspm.md). The new rules govern the use of MFA, key rotation, service account last-authenticated date tracking, and the use of Yandex ID accounts.
+* Added new rules for infrastructure security compliance verification in [{{ cspm-name }}](./concepts/cspm.md). New rules now govern using MFA, rotating keys, tracking service account last authentication dates, and using Yandex ID accounts.
 * In [{{ kspm-name }}](./concepts/kspm.md): 
-  * [Exceptions](./operations/kspm/manage-exceptions.md) now support excluding resources from checks based on their type, workload name, and labels.
+  * [Exceptions](./operations/kspm/manage-exceptions.md) now allow excluding resources from checks by resource type, workload name, and labels.
   * Implemented rule modes of the _admission_ type.
-  * Supported a new {{ k8s }}® version.
-* Added [support](./operations/alerts/work.md#update-batch) for changing the status, assigning owners, and adjusting severity for multiple alerts at once.
-* When you create a workspace, the system automatically creates a default alert sink unless the user creates a custom one. 
+  * Added support for new {{ k8s }}® version.
+* Added [support](./operations/alerts/work.md#update-batch) for changing status, assigning owners, and adjusting severity for multiple alerts at once.
+* Creating a workspace automatically creates a default alert sink unless the user creates a custom one. 
 * Added support for [activating and deactivating workspaces](./operations/workspaces/index.md) in {{ sd-name }}.
 
 ## May 2026 {#may-2026}
 
-* [{{ cspm-name }}](./concepts/cspm.md) now includes a new [rule set](./concepts/standard-compliance/yc-gost-57580.md) aligned with GOST R 57580, the national security standard for banking and financial operations. 
-* [{{ dspm-name }}](./concepts/dspm.md) now supports creating [scan scopes](./operations/dspm/create-data-source.md#change-scaning) from preliminary analysis results and continuous [monitoring](./concepts/dspm.md#change-scaning) of those scopes for new or modified sensitive data.  
+* [{{ cspm-name }}](./concepts/cspm.md) now includes a new [ruleset](./concepts/standard-compliance/yc-gost-57580.md) aligned with GOST R 57580, the national security standard for banking and financial operations. 
+* [{{ dspm-name }}](./concepts/dspm.md) now supports creating [scan scopes](./operations/dspm/create-data-source.md#change-scaning) from preliminary analysis results and continuously [monitoring](./concepts/dspm.md#change-scaning) those scopes for new or modified sensitive data.  
 * The pricing model has been expanded: you can now purchase monthly [subscriptions](pricing.md#starter-pricing) for the [{{ cspm-name }}](./concepts/cspm.md) and [Threat Detection](./concepts/threat-detector.md) modules.
-* All module [errors](./diagnostics/index.md) are now displayed in a single dedicated interface.
-* Scanning {{ yandex-360 }} disks for sensitive data using [{{ dspm-name }}](./concepts/dspm.md) is now available to all users. Previously, this feature was only available upon request.
+* All module [errors](./diagnostics/index.md) are now displayed in a unified error interface.
+* Now all users can enjoy [{{ dspm-name }}](./concepts/dspm.md)'s capability to scan {{ yandex-360 }} disks for sensitive data; previously, this feature was only available upon request.
 
 ## April 2026 {#april-2026}
 

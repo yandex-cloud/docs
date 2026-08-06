@@ -41,7 +41,7 @@ To get started:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a {{ mtr-name }} cluster.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. [Navigate]({{ link-console-main }}/link/managed-trino) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
     1. Specify a name for the cluster.
     1. In the **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** field, select the previously created service account.

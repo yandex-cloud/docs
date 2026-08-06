@@ -12,7 +12,7 @@ description: Follow this guide to add a listener to a network load balancer.
   To add a [listener](../concepts/listener.md) to a network load balancer:
   
   1. In the [management console]({{ link-console-main }}), select the folder where you need to add a listener to a load balancer.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. [Navigate]({{ link-console-main }}/link/network-load-balancer/) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Next to the load balancer to add a listener to, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-listener }}**.
   1. In the window that opens, specify these listener settings:
 

@@ -12,7 +12,7 @@ description: Follow this guide to create a {{ network-load-balancer-name }} targ
   To create a new [target group](../concepts/target-resources.md):
   
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a target group.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. [Navigate]({{ link-console-main }}/link/network-load-balancer/) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
   1. Click **{{ ui-key.yacloud.load-balancer.target-group.button_create }}**.
   1. Enter a name for the target group. The naming requirements are as follows:

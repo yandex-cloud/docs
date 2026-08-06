@@ -8,8 +8,8 @@ You can get details about each {{ dataproc-name }} cluster.
 
 - Management console {#console}
 
-    1. Open the [folder dashboard]({{ link-console-main }}).
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/data-proc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
 
 - CLI {#cli}
 
@@ -35,8 +35,8 @@ You can get details about each {{ dataproc-name }} cluster.
 
 - Management console {#console}
 
-    1. Open the [folder dashboard]({{ link-console-main }}).
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/data-proc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Click the cluster name.
 
 - CLI {#cli}
@@ -76,7 +76,7 @@ All actions with {{ dataproc-name }} clusters are logged as a list of operations
   You can get a list of operations for a specific resource. The steps below describe how you can do this for a {{ dataproc-name }} cluster.
 
   1. In the [management console]({{ link-console-main }}), open the folder containing the cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+  1. [Navigate]({{ link-console-main }}/link/data-proc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
   1. Select the cluster and open the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.dataproc.switch_operations }}** tab.
 
      This will open the list of operations with the cluster.

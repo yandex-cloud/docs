@@ -1,6 +1,6 @@
 ---
 title: '{{ managed-k8s-full-name }} integration with {{ container-registry-full-name }}'
-description: Follow this guide to configure {{ managed-k8s-name }} integration with {{ container-registry-name }}.
+description: Follow this tutorial to configure {{ managed-k8s-name }} integration with {{ container-registry-name }}.
 ---
 
 # {{ managed-k8s-name }} integration with {{ container-registry-name }}

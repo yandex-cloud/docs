@@ -13,7 +13,7 @@ The system logs all actions with {{ network-load-balancer-name }} resources as a
   You can get a list of operations for a specific resource. The steps below describe how you can do this for a network load balancer. The same steps apply to target groups as well.
 
   1. In the [management console]({{ link-console-main }}), open the folder with your network load balancer.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. [Navigate]({{ link-console-main }}/link/network-load-balancer/) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Select the network load balancer in question.
   1. Navigate to the ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel.
 

@@ -75,59 +75,76 @@ Yandex BareMetal позволяет переустановить операци�
 
 - CLI {#cli}
 
-   Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
-   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+  По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`.
+  
+  Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-   1. Посмотрите описание команды для переустановки ОС:
+  1. Посмотрите описание команды для переустановки ОС:
 
-      ```bash
-      yc baremetal server reinstall --help
-      ```
+     ```bash
+     yc baremetal server reinstall --help
+     ```
 
-   1. Переустановите ОС:
+  1. Получите список публичных образов ОС, доступных в Marketplace:
+     
+     ```bash
+     yc baremetal standard-image list \
+       --folder-id baremetal-standard-images
+     ```
 
-      ```bash
-      yc baremetal server reinstall \
-        --name <имя_сервера> \
-        --os-settings "image-id=<идентификатор_образа>,image-name=<имя_образа>,ssh-key-public=<содержимое_открытого_SSH-ключа>,ssh-key-user-id=<идентификатор_пользователя_SSH-ключа>,password-plain-text=<пароль_пользователя>,password-lockbox-secret={secret-id=<идентификатор_секрета>,version-id=<версия_секрета>,key=<ключ_секрета>}" \
-        --storage "partition={type=<файловая_система>,size-gib=<размер_раздела>,mount-point=<точка_монтирования>},raid-type=<уровень RAID-массива>,disk={id=<номер_диска>,size-gib=<размер_диска>,type=<тип_диска>}"
-      ```
+  1. Переустановите ОС:
 
-      Где:
-      * `--name` — имя сервера.
-      * `--os-settings` — настройки операционной системы. Чтобы арендовать сервер без операционной системы, пропустите этот параметр. Возможные настройки:
-        
-        * `image-id` — идентификатор одного из доступных [публичных образов](../../concepts/images.md#marketplace-images) ОС в Yandex Cloud Marketplace.
-        * `image-name` — имя одного из доступных публичных образов ОС в Yandex Cloud Marketplace.
-        * `ssh-key-public` — содержимое открытого SSH-ключа. Пару SSH-ключей для подключения к серверу по [SSH](../../../glossary/ssh-keygen.md) необходимо [создать](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-        * `ssh-key-user-id` — идентификатор пользователя SSH-ключа.
-        * `password-plain-text` — пароль root-пользователя.
-        
-          {% note warning %}
-          
-          Этот вариант предусматривает ответственность пользователя за безопасность пароля. Сохраните сгенерированный пароль в надежном месте: он не сохраняется в Yandex Cloud, и после заказа сервера вы не сможете посмотреть его.
-          
-          {% endnote %}
-        
-        * `password-lockbox-secret` — [секрет](../../../lockbox/concepts/secret.md) Yandex Lockbox:
-          * `secret-id` — идентификатор секрета.
-          * `version-id` — версия секрета.
-          * `key` — ключ секрета.
-      * `--storage` — настройки разметки [дисков](../../concepts/disks/disk-types.md). Необязательный параметр. Возможные настройки:
-        
-        * `partition` — раздел диска:
-          
-          * `type` — файловая система. Возможные значения: `Ext3`, `Ext4`, `Swap`, `Xfs`.
-          * `size-gib` — размер раздела в гигабайтах.
-          * `mount-point` — точка монтирования.
-        
-        * `disk` — диск:
-          
-          * `id` — номер диска.
-          * `size-gib` — размер диска в гигабайтах.
-          * `type` — тип диска
-        * `raid-type` — [уровень RAID-массива](../../concepts/disks/raid.md#levels).
+     ```bash
+     yc baremetal server reinstall \
+       --name <имя_сервера> \
+       --os-settings-spec "image-id=<идентификатор_образа>,storages=[{partitions=[{type=<файловая_система>,size-gib=<размер_раздела>,mount-point=<точка_монтирования>}],storage-type={raid={type=<уровень_RAID-массива>,disks=[{id=<номер_диска>,size-gib=<размер_диска>,type=<тип_диска>}]}}}],ssh-key={ssh-public-key=<содержимое_открытого_SSH-ключа>},password={password-plain-text=<пароль_пользователя>}"
+     ```
+
+     Где:
+     * `--name` — имя сервера.
+     * `--os-settings-spec` — настройки операционной системы. Чтобы арендовать сервер без операционной системы, пропустите этот параметр. Возможные настройки:
+       
+       * `image-id` — идентификатор одного из доступных [публичных образов](../../concepts/images.md#marketplace-images) ОС в Yandex Cloud Marketplace.
+       * `ssh-key` — SSH-ключ для подключения к серверу:
+       
+         * `ssh-public-key` — содержимое открытого SSH-ключа. Пару SSH-ключей для подключения к серверу по [SSH](../../../glossary/ssh-keygen.md) необходимо [создать](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+         * `user-ssh-id` — идентификатор пользовательского SSH-ключа.
+       * `password` — пароль root-пользователя:
+       
+         * `password-plain-text` — пароль в открытом виде.
+       
+           {% note warning %}
+           
+           Этот вариант предусматривает ответственность пользователя за безопасность пароля. Сохраните сгенерированный пароль в надежном месте: он не сохраняется в Yandex Cloud, и после заказа сервера вы не сможете посмотреть его.
+           
+           {% endnote %}
+       
+         * `password-lockbox-secret` — [секрет](../../../lockbox/concepts/secret.md) Yandex Lockbox:
+       
+           * `secret-id` — идентификатор секрета.
+           * `version-id` — версия секрета.
+           * `key` — ключ секрета.
+     * `storages` — настройки разметки [дисков](../../concepts/disks/disk-types.md) в параметре `--os-settings-spec`. Необязательная настройка. Возможные значения:
+       
+       * `partitions` — разделы диска:
+         
+         * `type` — файловая система. Возможные значения: `EXT3`, `EXT4`, `SWAP`, `XFS`.
+         * `size-gib` — размер раздела в гигабайтах.
+         * `mount-point` — точка монтирования.
+       
+       * `storage-type` — тип хранилища:
+       
+         * `disk` — отдельный диск:
+       
+           * `id` — номер диска.
+           * `size-gib` — размер диска в гигабайтах.
+           * `type` — тип диска.
+         * `raid` — RAID-массив:
+       
+           * `type` — [уровень RAID-массива](../../concepts/disks/raid.md#levels).
+           * `disks` — список дисков в RAID-массиве.
 
 - API {#api}
 
@@ -146,7 +163,7 @@ Yandex BareMetal позволяет переустановить операци�
   ```bash
   yc baremetal server reinstall \
     --name demo-baremetal-server \
-    --os-settings "image-id=ly5vtno2mjr3k4iuecur,password-plain-text=FDrxicR********,ssh-key-public=ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGcM4tRfRHJGrlLMT+YJFr+aOdSQ********"
+    --os-settings-spec "image-id=ly5vtno2mjr3k4iuecur,ssh-key={ssh-public-key=ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGcM4tRfRHJGrlLMT+YJFr+aOdSQ********},password={password-plain-text=FDrxicR********}"
   ```
 
   Результат:

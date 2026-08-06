@@ -13,11 +13,11 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mkf-full-name }
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_kafka }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/managed-kafka) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kafka }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
 
-    To view maintenance jobs with a specific status, click **{{ ui-key.yacloud.mdb.maintenance.label_task-status }}** above the maintenance list and select the status you want from the drop-down menu. To find a specific maintenance job, enter its ID or task name in the field above the list of maintenance sessions.
+    To view maintenance jobs with a specific status, click **{{ ui-key.yacloud.mdb.maintenance.label_task-status }}** above the list of maintenance jobs and select the status you want from the drop-down menu. To find a specific maintenance job, enter its ID or task name in the field above the list of maintenance jobs.
 
 {% endlist %}
 
@@ -27,8 +27,8 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mkf-full-name }
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_kafka }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/managed-kafka) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kafka }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
     1. Click the ID of the maintenance job you need.
     1. Click **{{ ui-key.yacloud.mdb.maintenance.label_task-logs }}**.
@@ -45,8 +45,8 @@ Maintenance jobs with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-
 
     To reschedule maintenance for a new date and time:
 
-    1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_kafka }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kafka }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the maintenance with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-planned }}** status.
     1. In the drop-down menu, select ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) **{{ ui-key.yacloud.mdb.maintenance.action_change-task-time }}**.
@@ -190,8 +190,8 @@ You can start maintenance with the **{{ ui-key.yacloud.mdb.maintenance.label_tas
 
     To start scheduled maintenance immediately, do the following:
 
-    1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_kafka }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/managed-kafka) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kafka }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the maintenance job.
     1. In the drop-down menu, select ![image](../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.mdb.maintenance.action_exec-task-now }}**.
@@ -293,8 +293,8 @@ A scheduled maintenance job will be canceled automatically if it falls outside t
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_kafka }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/managed-kafka) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kafka }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
     1. Click ![image](../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.mdb.maintenance.action_maintenance-window-setup }}**.
     1. In the window that opens:

@@ -3,7 +3,7 @@ title: Container infrastructure use cases in {{ yandex-cloud }}
 description: Various container infrastructure use cases in {{ yandex-cloud }}
 ---
 
-# Tutorials for working with a container infrastructure
+# Tutorials for container infrastructure solutions
 
 * [{#T}](container-pg-connect.md)
 * [{#T}](vm-create.md)
@@ -17,7 +17,7 @@ description: Various container infrastructure use cases in {{ yandex-cloud }}
 
 ## {{ managed-k8s-name }} {#k8s}
 
-### Creating and setting up a project {#creating-project}
+### Creating and configuring a project {#creating-project}
 
 * [{#T}](new-kubernetes-project.md)
 * [{#T}](k8s-cluster-with-no-internet.md)

@@ -51,14 +51,14 @@ You can add {{ k8s }} labels to all {{ managed-k8s-name }} nodes in a [node grou
           * `{{ ui-key.yacloud.k8s.node-groups.create.switch_none }}`: Do not assign public IP addresses.
         * Specify how {{ managed-k8s-name }} nodes should be placed across the [availability zones](../../../overview/concepts/geo-scope.md) and [networks](../../../vpc/concepts/network.md#network).
      1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_access }}**, specify the credentials to access the {{ managed-k8s-name }} node:
-        * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username.
+        * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username.
         * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../operations/node-connect-ssh.md#creating-ssh-keys) file.
      1. Under **{{ ui-key.yacloud.k8s.clusters.create.section_maintenance }}**:
         * In the **{{ ui-key.yacloud.k8s.MaintenanceSection.maintenance-window-field-with-none-option_tx5Wn }}** field, select your preferred [maintenance](../../concepts/release-channels-and-updates.md#updates) window:
           * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-disabled }}`: Automatic updates disabled.
           * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-anytime }}`: Updates allowed at any time.
-          * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-daily }}`: Updates will take place within the time interval specified in the **{{ ui-key.yacloud.k8s.clusters.create.field_maintenance-daily }}** field.
-          * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-weekly }}`: Updates will take place within the time interval specified in the **{{ ui-key.yacloud.k8s.clusters.create.label_maintenance-weekly }}** field.
+          * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-daily }}`: Specify the start point and duration of the UTC time interval during which the update will start. This setting is not related to the update duration or its completion time.
+          * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-weekly }}`: Specify the day, start point, and duration of the UTC time interval during which the update will start. This setting is not related to the update duration or its completion time.
      1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_additional }}**:
         * In the **{{ ui-key.yacloud.k8s.node-groups.create.field_node-labels }}** field, click **{{ ui-key.yacloud.k8s.node-groups.create.button_add-node-label }}** and specify its key and value. Add multiple labels if needed.
      1. Click **{{ ui-key.yacloud.common.create }}**.

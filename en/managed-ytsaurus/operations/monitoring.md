@@ -21,8 +21,8 @@ To view detailed information on the health state of a {{ myt-name }} cluster:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/managed-ytsaurus) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}** tab.
   1. To get started with metrics, dashboards, or alerts, select {{ monitoring-full-name }} in the list of services.
 
@@ -109,7 +109,7 @@ To configure [cluster](#monitoring-cluster) state indicator alerts:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder with the cluster for which you want to set up alerts.
-  1. In the list of services, select ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. [Navigate]({{ link-monitoring }}) to ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select **{{ myt-name }} — Cluster Resources**.
   1. On the chart of interest, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
   1. If the chart displays multiple metrics, select the data query for the relevant metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. Learn more about the query language in [this {{ monitoring-full-name }} guide](../../monitoring/concepts/querying.md).
@@ -128,7 +128,8 @@ _{{ ui-key.yacloud.mdb.cluster.overview.label_status }}_ shows whether the clust
 
 To view the cluster status, proceed as follows:
 
-1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
+1. In the [management console]({{ link-console-main }}), select a folder.
+1. [Navigate]({{ link-console-main }}/link/managed-ytsaurus) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
 1. In the cluster row, find the **{{ ui-key.yacloud.common.label_status }}** column.
 
 #|

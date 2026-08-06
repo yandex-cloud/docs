@@ -1,6 +1,6 @@
 # Configuring Fluent Bit for {{ cloud-logging-name }}
 
-To configure transferring [pod](../../managed-kubernetes/concepts/index.md#pod) and [service](../../managed-kubernetes/concepts/index.md#service) logs, as well as [node](../../managed-kubernetes/concepts/index.md#node-group) system logs in [{{ managed-k8s-full-name }}](../../managed-kubernetes/) to [{{ cloud-logging-full-name }}](../../logging/):
+To set up the transfer of [pod](../../managed-kubernetes/concepts/index.md#pod) and [service](../../managed-kubernetes/concepts/index.md#service) logs, as well as [node](../../managed-kubernetes/concepts/index.md#node-group) system logs in [{{ managed-k8s-full-name }}](../../managed-kubernetes/) to [{{ cloud-logging-full-name }}](../../logging/):
 1. [Install and configure Fluent Bit](#fluent-bit-install).
 1. [Check the result](#check-result).
 
@@ -11,10 +11,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost for this solution includes:
 
-* Fee for a {{ managed-k8s-name }} cluster: using the master and outbound traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for cluster nodes (VMs): using computing resources, OS, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for a public IP address if assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* {{ cloud-logging-name }} fee: data logging and storage (see [{{ cloud-logging-name }} pricing](../../logging/pricing.md)).
+* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for a public IP address assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* {{ cloud-logging-name }} fee for data logging and storage (see [{{ cloud-logging-name }} pricing](../../logging/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -28,8 +28,8 @@ Set up your infrastructure:
   1. If you do not have a [network](../../vpc/concepts/network.md#network) yet, [create one](../../vpc/operations/network-create.md).
   1. If you do not have any [subnets](../../vpc/concepts/network.md#subnet) yet, [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) the new [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and [node group](../../managed-kubernetes/concepts/index.md#node-group) will reside in.
   1. [Create service accounts](../../iam/operations/sa/create.md) for {{ managed-k8s-name }}:
-     * [Service account](../../iam/concepts/users/service-accounts.md) for the {{ managed-k8s-name }} resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ managed-k8s-name }} cluster is being created.
-     * Service account for {{ managed-k8s-name }} nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) role for the folder containing the [Docker image](../../container-registry/concepts/docker-image.md) [registry](../../container-registry/concepts/registry.md). The {{ managed-k8s-name }} nodes will use this account to pull the required Docker images from the registry.
+     * [Service account](../../iam/concepts/users/service-accounts.md) for {{ managed-k8s-name }} resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ managed-k8s-name }} cluster is being created.
+     * Service account for {{ managed-k8s-name }} nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) role for the folder containing the [Docker image](../../container-registry/concepts/docker-image.md) [registry](../../container-registry/concepts/registry.md). {{ managed-k8s-name }} nodes will use this account to pull the required Docker images from the registry.
 
      {% note tip %}
 
@@ -38,12 +38,12 @@ Set up your infrastructure:
      {% endnote %}
 
   1. Create a service account for {{ cloud-logging-name }} with the [logging.writer](../../logging/security/index.md#roles-list) and [monitoring.editor](../../monitoring/security/index.md#monitoring-editor) roles. It will be used to run Fluent Bit.
-  1. [Create an authorized key](../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the {{ cloud-logging-name }} service account and save it to the `key.json` file.
+  1. [Create an authorized key](../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the {{ cloud-logging-name }} service account and save it to a file named `key.json`.
   1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-  1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md). When creating a {{ managed-k8s-name }} cluster, specify the previously created service accounts for resources and nodes, as well as the security groups.
+  1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) and [node group](../../managed-kubernetes/operations/node-group/node-group-create.md). When creating a {{ managed-k8s-name }} cluster, specify the previously created service accounts for resources and nodes, as well as the security groups.
 
   1. [Create a log group](../../logging/operations/create-group.md).
 
@@ -67,11 +67,11 @@ Set up your infrastructure:
 
   1. Specify the following in the configuration file:
      * [Folder ID](../../resource-manager/operations/folder/get-id.md).
-     * [{{ k8s }}](../../managed-kubernetes/concepts/release-channels-and-updates.md) version for the {{ managed-k8s-name }} cluster and node groups.
+     * [{{ k8s }} version](../../managed-kubernetes/concepts/release-channels-and-updates.md) for the {{ managed-k8s-name }} cluster and node groups.
      * Name of the service account for {{ managed-k8s-name }} resources and nodes.
      * Name of the service account for {{ cloud-logging-name }}.
      * {{ cloud-logging-name }} log group name.
-  1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use its resources and data sources.
+  1. Run the `terraform init` command in the directory with configuration files. This command initializes the provider specified in the configuration files and enables you to use its resources and data sources.
   1. Validate your {{ TF }} configuration files using this command:
 
      ```bash
@@ -92,7 +92,7 @@ Set up your infrastructure:
 Select the Fluent Bit installation option depending on what logs you want to collect and send to {{ cloud-logging-name }}:
 
 * [Collect only {{ managed-k8s-name }} pod and service logs](#pod-and-service-logs).
-* [Collect {{ managed-k8s-name }} pod, service, and node system logs](#system-logs).
+* [Collect {{ managed-k8s-name }} pod and service logs, as well as node system logs](#system-logs).
 
 ### Installing Fluent Bit to collect pod and service logs {#pod-and-service-logs}
 
@@ -101,13 +101,13 @@ Select the Fluent Bit installation option depending on what logs you want to col
 
 - Using {{ marketplace-full-name }} {#marketplace}
 
-  Install Fluent Bit by following [this guide](../../managed-kubernetes/operations/applications/fluentbit.md#marketplace-install). In the application settings, specify the ID of the log group you [created earlier](#before-you-begin). You can request the log group ID with the [list of log groups in the folder](../../logging/operations/list.md).
+  Install Fluent Bit by following [this guide](../../managed-kubernetes/operations/applications/fluentbit.md#marketplace-install). In the application settings, specify the ID of the log group you [created earlier](#before-you-begin). You can get the log group ID with the [list of log groups in the folder](../../logging/operations/list.md).
 
 
 - Manually {#manual}
 
   1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
-  1. Create the objects required for Fluent Bit to run:
+  1. Create the objects required for Fluent Bit:
 
      ```bash
      kubectl create namespace logging && \
@@ -124,13 +124,13 @@ Select the Fluent Bit installation option depending on what logs you want to col
        --namespace logging
      ```
 
-  1. Download the `config.yaml` configuration file:
+  1. Download the `config.yaml` file:
 
      ```bash
      wget https://raw.githubusercontent.com/yandex-cloud-examples/yc-mk8s-fluent-bit-logging/main/config.yaml
      ```
 
-  1. Specify the ID of the log group [created earlier](#before-you-begin) and (optionally) the cluster ID in the `[OUTPUT]` section of the `config.yaml` file:
+  1. Specify the ID of the log group [created earlier](#before-you-begin) and, optionally, the cluster ID in the `[OUTPUT]` section of the `config.yaml` file:
 
      
      ```yaml
@@ -147,7 +147,7 @@ Select the Fluent Bit installation option depending on what logs you want to col
      ```
 
 
-     You can get the [log group](../../logging/concepts/log-group.md) ID with the [list of log groups in the folder](../../logging/operations/list.md), and the cluster ID [with the list of clusters in the folder](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-list.md#list).
+     You can get the [log group](../../logging/concepts/log-group.md) ID with the [list of log groups in the folder](../../logging/operations/list.md), and the cluster ID, [with the list of clusters in the folder](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-list.md#list).
 
      Specify [additional settings](https://github.com/yandex-cloud/fluent-bit-plugin-yandex#configuration-parameters) for Fluent Bit, if required.
   1. Create Fluent Bit objects:
@@ -163,7 +163,7 @@ Select the Fluent Bit installation option depending on what logs you want to col
      daemonset.apps/fluent-bit created
      ```
 
-  1. Make sure the Fluent Bit pod has entered the `Running` state:
+  1. Make sure the Fluent Bit pod is now `Running`:
 
      ```bash
      kubectl get pods -n logging
@@ -171,7 +171,7 @@ Select the Fluent Bit installation option depending on what logs you want to col
 
 {% endlist %}
 
-### Installing Fluent Bit to collect pod, service logs and node system logs {#system-logs}
+### Installing Fluent Bit to collect pod and service logs, as well as node system logs {#system-logs}
 
 {% list tabs group=instructions %}
 
@@ -197,7 +197,7 @@ Select the Fluent Bit installation option depending on what logs you want to col
           fluentbit ./fluent-bit/
         ```
 
-        See the current Helm chart version on the [{{ marketplace-full-name }} page](/marketplace/products/yc/fluent-bit).
+        For the current version of the Helm chart, see [this {{ marketplace-full-name }} page](/marketplace/products/yc/fluent-bit).
 
         This command will create a new namespace required for Fluent Bit.
 
@@ -207,7 +207,7 @@ Select the Fluent Bit installation option depending on what logs you want to col
 - Manually {#manual}
 
     1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
-    1. Create the objects required for Fluent Bit to run:
+    1. Create the objects required for Fluent Bit:
 
         ```bash
         kubectl create namespace logging && \
@@ -259,7 +259,7 @@ Select the Fluent Bit installation option depending on what logs you want to col
         ```
 
 
-        You can request the [log group](../../logging/concepts/log-group.md) ID with the [list of log groups in the folder](../../logging/operations/list.md).
+        You can get the [log group](../../logging/concepts/log-group.md) ID with the [list of log groups in the folder](../../logging/operations/list.md).
 
         Specify [additional settings](https://github.com/yandex-cloud/fluent-bit-plugin-yandex#configuration-parameters) for Fluent Bit, if required.
 
@@ -276,7 +276,7 @@ Select the Fluent Bit installation option depending on what logs you want to col
         daemonset.apps/fluent-bit created
         ```
 
-    1. Make sure the Fluent Bit pod has entered the `Running` state:
+    1. Make sure the Fluent Bit pod is now `Running`:
 
         ```bash
         kubectl get pods -n logging
@@ -286,7 +286,7 @@ Select the Fluent Bit installation option depending on what logs you want to col
 
 ## Check the result {#check-result}
 
-[Test the transfer of logs](../../logging/operations/read-logs.md) of {{ managed-k8s-name }} pods and services to your {{ cloud-logging-name }} log group.
+[Check the transfer of logs](../../logging/operations/read-logs.md) for {{ managed-k8s-name }} pods and services to your {{ cloud-logging-name }} log group.
 
 ## Delete the resources you created {#clear-out}
 
@@ -296,15 +296,15 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
 - Manually {#manual}
 
-  1. [Delete the {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md) cluster.
+  1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
   1. If you reserved a static [public IP address](../../vpc/concepts/address.md#public-addresses) for your {{ managed-k8s-name }} cluster, release and [delete it](../../vpc/operations/address-delete.md).
   1. [Delete the created subnets](../../vpc/operations/subnet-delete.md) and [networks](../../vpc/operations/network-delete.md).
-  1. [Delete service accounts you created](../../iam/operations/sa/delete.md).
+  1. [Delete the created service accounts](../../iam/operations/sa/delete.md).
   1. [Delete the log group](../../logging/operations/delete-group.md).
 
 - {{ TF }} {#tf}
 
-  1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
+  1. In the command line, navigate to the directory with the current {{ TF }} configuration file describing your infrastructure.
   1. Delete the `k8s-cluster-with-log-group.tf` configuration file.
   1. Validate your {{ TF }} configuration files using this command:
 

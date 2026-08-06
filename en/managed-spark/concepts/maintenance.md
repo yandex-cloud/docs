@@ -14,7 +14,8 @@ Maintenance includes:
 
 You can set the maintenance window when [creating a cluster](../operations/cluster-create.md) or [updating its settings](../operations/cluster-update.md#change-additional-settings):
 
-{% include [Maintenance window](../../_includes/mdb/maintenance-window.md) %}
+* The **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-anytime }}** option (default) allows performing maintenance at any time.
+* The **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}** option allows you to select the day of the week and UTC time interval for the maintenance. For example, you can choose the cluster's least busy time.
 
 In the management console, you select the maintenance start time as an hour interval. In other interfaces, you specify this interval by its sequence number, from `1` to `24`.
 

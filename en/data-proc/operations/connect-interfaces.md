@@ -12,8 +12,8 @@ You can connect to the {{ dataproc-name }} component interfaces either using [UI
 
 - Management console {#console}
 
-    1. Open the [folder dashboard]({{ link-console-main }}).
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/data-proc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Select the cluster and click ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_configuration }}**, enable **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}**.
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -51,8 +51,8 @@ You can connect to the {{ dataproc-name }} component interfaces either using [UI
 
 - Management console {#console}
 
-    1. Open the [folder dashboard]({{ link-console-main }}).
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/data-proc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Click the cluster name.
     1. You can find links for connecting to the component web interfaces under **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**.
 

@@ -129,14 +129,16 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
           For buckets with versioning enabled, the action will apply to current versions of objects. To work with non-current versions of objects, use the `noncurrent_expiration` parameter.
 
       * `noncurrent_transitions`: Parameter of a rule for changing the storage class of non-current versions of objects from standard (`STANDARD`) to cold (`COLD`, `STANDARD_IA`), ice (`ICE`), or intelligent-tiering (`INTELLIGENT_TIERING`) and from cold to ice. This is an optional setting. It may contain:
-          * `noncurrent_days`: Number of days before transition. The minimum value is `1`. This is a required setting.
+          * `noncurrent_days`: Number of days left until the non-current version is migrated to another storage class. The minimum value is `1`. This is a required setting.
           * `storage_class`: Storage class to move the object to. It can be `COLD`, `STANDARD_IA`, `ICE`, or `INTELLIGENT_TIERING`. This is a required setting.
+          * `newer_noncurrent_versions`: Number of recent non-current object versions retained in the original storage class indefinitely. Versions beyond this number get migrated to another storage class after the period specified in `noncurrent_days`. This is an optional setting.
       * `noncurrent_expiration`: Parameter of a rule for deleting non-current object versions. This is an optional setting. It may contain:
-          * `noncurrent_days`: Number of days before expiration. The minimum value is `1`. This is a required setting.
+          * `noncurrent_days`: Number of days left until the non-current version is deleted. The minimum value is `1`. This is a required setting.
+          * `newer_noncurrent_versions`: Number of recent non-current object versions retained indefinitely. Versions beyond this number get deleted after the period specified in `noncurrent_days`. This is an optional setting.
       * `abort_incomplete_multipart_upload`: Parameter of a rule for removing all parts of multipart uploads that were not complete within the specified number of days. This is an optional setting. It may contain:
           * `days_after_expiration`: Number of days after the object was uploaded. The minimum value is `1`. This is a required setting.
       * `noncurrent_delete_markers`: Parameter of a rule for deleting [non-current delete markers](*noncurrent-delete-markers). This is an optional setting. It may contain:
-          * `noncurrent_days`: Number of days that must elapse after the object version is marked with a delete marker before the rule takes effect. The minimum value is `0`. If set to `0`, all inactive delete markers within the bucket will be deleted. This is a required setting.
+          * `noncurrent_days`: Number of days that must elapse after the object version is marked with a delete marker before the rule takes effect. The minimum value is `0`. If set to `0`, all non-current delete markers currently existing in the bucket will be deleted. This is a required setting.
 
           {% include [noncurrent-delete-markers-note](../../../_includes/storage/noncurrent-delete-markers-note.md) %}
 
@@ -269,13 +271,14 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
           For buckets with versioning enabled, the action will apply to current versions of objects. To work with non-current versions of objects, use the `NoncurrentVersionExpiration` parameter.
 
       * `NoncurrentVersionTransitions`: Parameter of a rule for changing the storage class of non-current versions of objects from standard (`STANDARD`) to cold (`COLD`, `STANDARD_IA`), ice (`ICE`), or intelligent-tiering (`INTELLIGENT_TIERING`) and from cold to ice. This is an optional setting. It may contain:
-          * `NoncurrentDays`: Number of days before the storage class of a non-current object version is changed. The minimum value is `1`. This is a required setting.
+          * `NoncurrentDays`: Number of days left until the non-current version is migrated to another storage class. The minimum value is `1`. This is a required setting.
           * `StorageClass`: Storage class to move the object to. It can be `COLD`, `STANDARD_IA`, `ICE`, or `INTELLIGENT_TIERING`. This is a required setting.
+          * `NewerNoncurrentVersions`: Number of recent non-current object versions retained in the original storage class indefinitely. Versions beyond this number are migrated to another storage class after the period specified in `NoncurrentDays`. This is an optional setting.
 
           To set the `NoncurrentVersionTransitions` parameter, you must specify the `Prefix` parameter in the configuration file. The `Prefix` value may even be empty (`""`).
-      * `NoncurrentVersionExpiration`: Parameter of a rule for deleting non-current object versions. This is an optional setting. 
-
-          The rule has the required `NoncurrentDays` parameter for the number of days before non-current object version is deleted. The minimum value is `1`.
+      * `NoncurrentVersionExpiration`: Parameter of a rule for deleting non-current object versions. This is an optional setting. It may contain:
+          * `NoncurrentDays`: Number of days left until the non-current version is deleted. The minimum value is `1`. This is a required setting.
+          * `NewerNoncurrentVersions`: Number of recent non-current object versions retained indefinitely. Versions beyond this number get deleted after the period specified in `NoncurrentDays`. This is an optional setting.
       * `AbortIncompleteMultipartUpload`: Parameter of a rule for removing all parts of multipart uploads that were not complete within the specified number of days. This is an optional setting.
 
           The rule has the required `DaysAfterInitiation` parameter for the number of days since the upload started. The minimum value is `1`.
@@ -468,12 +471,14 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
      * `days`: Number of days following the object creation date after which the rule will take effect. The minimum value is `1`. You cannot use `days` together with `date`. This is an optional setting.
      * `storage_class`: Storage class to move the object to. It can be `COLD`, `STANDARD_IA`, `ICE`, or `INTELLIGENT_TIERING`. This is a required setting.
 
-     `noncurrent_version_expiration` parameters:
-     * `days`: Number of days before expiration. The minimum value is `1`. This is a required setting.
+     `noncurrent_version_expiration` settings:
+     * `days`: Number of days left until the non-current version is deleted. The minimum value is `1`. This is a required setting.
+     * `newer_noncurrent_versions`: Number of recent non-current object versions retained indefinitely. Versions beyond this number get deleted after the period specified in `days`. This is an optional setting.
 
-     `noncurrent_version_transition` parameters:
-     * `days`: Number of days before transition. The minimum value is `1`. This is a required setting.
+     `noncurrent_version_transition` settings:
+     * `days`: Number of days left until the non-current version is migrated to another storage class. The minimum value is `1`. This is a required setting.
      * `storage_class`: Storage class to move the object to. It can be `COLD`, `STANDARD_IA`, `ICE`, or `INTELLIGENT_TIERING`. This is a required setting.
+     * `newer_noncurrent_versions`: Number of recent non-current object versions retained in the original storage class indefinitely. Versions beyond this number are migrated to another storage class after the period specified in `days`. This is an optional setting.
 
      For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
 

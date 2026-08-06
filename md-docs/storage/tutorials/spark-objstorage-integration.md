@@ -54,7 +54,7 @@
 
     1. [Создайте облачную сеть](../../vpc/operations/network-create.md) с именем `spark-network`.
 
-        Вместе с ней автоматически будут созданы три подсети в разных зонах доступности.
+        Вместе с ней автоматически будут созданы три подсети в разных [зонах доступности](../../overview/concepts/geo-scope.md).
 
     1. [Создайте кластер Yandex Managed Service for Apache Spark™](../../managed-spark/operations/cluster-create.md) с параметрами:
 
