@@ -16,7 +16,7 @@
 * [{{ PG }}](#postgresql)
 * [{{ ydb-full-name }}](#ydb)
 * [{{ yds-full-name }}](#yds)
-* [{{ GP }}](#greenplum)
+* [{{ GP }}/{{ CB }}](#greenplum)
 * [Куда заявить о проблеме](#support)
 
 ## Проблемы, возникающие при работе с сервисом {{ data-transfer-name }} {#overview}
@@ -265,7 +265,7 @@
 {% include [redirects](../../_includes/data-transfer/troubles/data-streams/data-streams-redirects.md) %}
 
 
-## {{ GP }} {#greenplum}
+## {{ GP }}/{{ CB }} {#greenplum}
 
 {% include [threads_limit](../../_includes/data-transfer/troubles/greenplum/threads_limit.md) %}
 

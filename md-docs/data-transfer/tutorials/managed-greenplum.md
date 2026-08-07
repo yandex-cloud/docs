@@ -1,6 +1,6 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Data Transfer](../index.md) > [Практические руководства](index.md) > Миграция > Кластер Greenplum®
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Transfer](../index.md) > [Практические руководства](index.md) > Миграция > Кластер Greenplum®/Apache Cloudberry™
 
-# Миграция кластера Greenplum®
+# Миграция кластера Greenplum®/Apache Cloudberry™
 
 # Миграция данных из стороннего кластера Greenplum® или PostgreSQL в Yandex MPP Analytics for PostgreSQL с помощью Yandex Data Transfer
 

@@ -24,5 +24,6 @@ Yandex SIEM — это собственная _SIEM-система_ (Security In
 
 #### Полезные ссылки {#see-also}
 
+* [Как расследовать облачные инциденты в Yandex SIEM](https://yandex.cloud/ru/blog/yandex-siem-kql-rules-incident-investigation)
 * [Исследование: как рынок демонстрирует растущую потребность в облачных SIEM‑решениях](https://yandex.cloud/ru/blog/siem-kiberdom)
 * [Анализ киберугроз в облачной среде за второе полугодие 2025 года](https://yandex.cloud/ru/blog/reflected-attacks-2025)

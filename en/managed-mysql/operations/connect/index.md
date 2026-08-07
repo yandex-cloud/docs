@@ -5,9 +5,16 @@ description: In this tutorial, you will learn how to pre-configure a database co
 
 # Pre-configuring a {{ MY }} cluster connection
 
-You can connect to {{ mmy-short-name }} cluster hosts:
 
-{% include [cluster-connect-note](../../../_includes/mdb/mmy/cluster-connect-note.md) %}
+You can connect to {{ mmy-name }} cluster hosts:
+
+* Via the internet, if you [configured](../hosts.md#update) public access for the host. You can connect over the internet in the following ways:
+
+    * Use an SSL connection.
+    * Use IAM authentication.
+
+* From {{ yandex-cloud }} virtual machines located in the same [cloud network](../../../vpc/concepts/network.md). For hosts without public access, SSL is not required to connect to them from these virtual machines.
+
 
 
 {% note warning %}

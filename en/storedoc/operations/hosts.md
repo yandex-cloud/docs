@@ -43,7 +43,7 @@ You can add or remove [cluster hosts](../concepts/index.md), restart host synchr
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -113,12 +113,17 @@ You can add hosts of different types to your {{ mmg-name }} cluster. Their numbe
      * [Availability zone](../../overview/concepts/geo-scope.md).
 
      
-     * [Subnet](../../vpc/concepts/network.md#subnet) (if the required subnet is not on the list, create it).     
+     * [Subnet](../../vpc/concepts/network.md#subnet). If the required subnet is not on the list, [create it](../../vpc/operations/network-create.md).     
 
-     * To make the host accessible from outside {{ yandex-cloud }}, select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
+     * Optionally, to make the host accessible from outside {{ yandex-cloud }}, select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
 
      * Host type and shard name, if sharding is enabled for the {{ mmg-name }} cluster.
+     * Optionally, mark the host as hidden if you want to make it accessible for read-only operations via direct connections. This can be useful, for example, to create its backups without extra load on the cluster.
+     * Optionally, set a replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
+     * Optionally, specify [host priority for promotion to master](../concepts/replication.md#master-failover). The setting is available if the host is not marked as hidden.
+
+  1. Optionally, add tags in `key: value` format.
   1. Click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
 - CLI {#cli}
@@ -184,7 +189,7 @@ You can add hosts of different types to your {{ mmg-name }} cluster. Their numbe
           * `assign-public-ip`: Internet access to the host via a public IP address, `true` or `false`.
 
 
-          * `hidden`: Determines whether the host is hidden, `true` or `false`. A hidden host is still accessible for read operations, but only through direct connections. This can be useful, for example, for making backups without adding extra load to the cluster.
+          * `hidden`: Determines whether the host is hidden, `true` or `false`. A hidden host is still accessible for read operations, but only through direct connections. This can be useful, for example, when you need to create its backups without extra load on the cluster.
           * `secondary-delay-secs`: Replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
           * `priority`: [Host priority for master promotion](../concepts/replication.md#master-failover).
 
@@ -257,7 +262,7 @@ You can add hosts of different types to your {{ mmg-name }} cluster. Their numbe
        * `shard_name`: Shard name in a sharded cluster.
        * `type`: Host type in a sharded cluster, `MONGOD`, `MONGOINFRA`, `MONGOS`, or `MONGOCFG`.
        * `host_parameters`: Additional host settings:
-           * `hidden`: Determines whether the host is hidden, `true` or `false`. A hidden host is still accessible for read operations, but only through direct connections. This can be useful, for example, for making backups without adding extra load to the cluster.
+           * `hidden`: Determines whether the host is hidden, `true` or `false`. A hidden host is still accessible for read operations, but only through direct connections. This can be useful, for example, when you need to create its backups without extra load on the cluster.
            * `secondary_delay_secs`: Replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
            * `priority`: [Host priority for master promotion](../concepts/replication.md#master-failover).
 
@@ -276,7 +281,7 @@ You can add hosts of different types to your {{ mmg-name }} cluster. Their numbe
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -318,9 +323,9 @@ You can add hosts of different types to your {{ mmg-name }} cluster. Their numbe
 
       * `type`: Host type in a sharded cluster, `MONGOD`, `MONGOINFRA`, `MONGOS`, or `MONGOCFG`. For a non-sharded cluster, use `MONGOD`.
       * `shardName`: Shard name in a sharded cluster.
-      * `hidden`: Determines whether the host is hidden, `true` or `false`. A hidden host is still accessible for read operations, but only through direct connections. This can be useful, for example, for making backups without adding extra load to the cluster.
+      * `hidden`: Determines whether the host is hidden, `true` or `false`. A hidden host is still accessible for read operations, but only through direct connections. This can be useful, for example, when you need to create its backups without extra load on the cluster.
       * `secondaryDelaySecs`: Replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
-      * `priority`: Determines whether the host is hidden, `true` or `false`. A hidden host is still accessible for read operations, but only through direct connections. This can be useful, for example, for making backups without adding extra load to the cluster.
+      * `priority`: Determines whether the host is hidden, `true` or `false`. A hidden host is still accessible for read operations, but only through direct connections. This can be useful, for example, when you need to create its backups without extra load on the cluster.
       * `secondaryDelaySecs`: Replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
       * `priority`: [Host priority for master promotion](../concepts/replication.md#master-failover).
       * `tags`: Host tags.
@@ -378,7 +383,7 @@ You can add hosts of different types to your {{ mmg-name }} cluster. Their numbe
 
       * `type`: Host type in a sharded cluster, `MONGOD`, `MONGOINFRA`, `MONGOS`, or `MONGOCFG`. For a non-sharded cluster, use `MONGOD`.
       * `shard_name`: Shard name in a sharded cluster.
-      * `hidden`: Determines whether the host is hidden, `true` or `false`. A hidden host is still accessible for read operations, but only through direct connections. This can be useful, for example, for making backups without adding extra load to the cluster.
+      * `hidden`: Determines whether the host is hidden, `true` or `false`. A hidden host is still accessible for read operations, but only through direct connections. This can be useful, for example, when you need to create its backups without extra load on the cluster.
       * `secondaryDelaySecs`: Replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
       * `priority`: [Host priority for master promotion](../concepts/replication.md#master-failover).
       * `tags`: Host tags.
@@ -400,6 +405,23 @@ If you cannot [connect](connect/index.md) to the new host, check the {{ mmg-name
 ## Updating a host {#update}
 
 {% list tabs group=instructions %}
+
+- Management console {#console}
+
+    To change the cluster host settings: 
+
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+    1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mongodb.cluster.switch_hosts }}** tab.
+    1. Find the host you need in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in its row, and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
+    1. Specify new host settings: 
+
+        1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** to make the host accessible from outside of {{ yandex-cloud }}.
+        1. Mark the host as hidden if you want to make it accessible for read operations, but only via direct connections, e.g., to create its backups without extra load on the cluster.
+        1. Edit the value of the replica’s lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
+        1. Specify [host priority for promotion to master](../concepts/replication.md#master-failover). The setting is available if the host is not marked as hidden.
+        1. Add tags in `key: value` format.
+
+    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -431,7 +453,7 @@ If you cannot [connect](connect/index.md) to the new host, check the {{ mmg-name
         * `assign-public-ip`: Internet access to the host via a public IP address, `true` or `false`.
 
 
-        * `hidden`: Determines whether the host is hidden, `true` or `false`. A hidden host is still accessible for read operations, but only through direct connections. This can be useful, for example, for making backups without adding extra load to the cluster.
+        * `hidden`: Determines whether the host is hidden, `true` or `false`. A hidden host is still accessible for read operations, but only through direct connections. This can be useful, for example, when you need to create its backups without extra load on the cluster.
         * `secondary-delay-secs`: Replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
         * `priority`: [Host priority for master promotion](../concepts/replication.md#master-failover).
 
@@ -466,7 +488,7 @@ If you cannot [connect](connect/index.md) to the new host, check the {{ mmg-name
 
     * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
     * `host_parameters`: Additional host settings:
-        * `hidden`: Determines whether the host is hidden, `true` or `false`. A hidden host is still accessible for read operations, but only through direct connections. This can be useful, for example, for making backups without adding extra load to the cluster.
+        * `hidden`: Determines whether the host is hidden, `true` or `false`. A hidden host is still accessible for read operations, but only through direct connections. This can be useful, for example, when you need to create its backups without extra load on the cluster.
         * `secondary_delay_secs`: Replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
         * `priority`: [Host priority for master promotion](../concepts/replication.md#master-failover).
 
@@ -522,7 +544,7 @@ If you cannot [connect](connect/index.md) to the new host, check the {{ mmg-name
         * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
 
 
-        * `hidden`: Determines whether the host is hidden, `true` or `false`. A hidden host is still accessible for read operations, but only through direct connections. This can be useful, for example, for making backups without adding extra load to the cluster.
+        * `hidden`: Determines whether the host is hidden, `true` or `false`. A hidden host is still accessible for read operations, but only through direct connections. This can be useful, for example, when you need to create its backups without extra load on the cluster.
         * `secondaryDelaySecs`: Replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
         * `priority`: [Host priority for master promotion](../concepts/replication.md#master-failover).
 
@@ -584,7 +606,7 @@ If you cannot [connect](connect/index.md) to the new host, check the {{ mmg-name
         * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
 
 
-        * `hidden`: Determines whether the host is hidden, `true` or `false`. A hidden host is still accessible for read operations, but only through direct connections. This can be useful, for example, for making backups without adding extra load to the cluster.
+        * `hidden`: Determines whether the host is hidden, `true` or `false`. A hidden host is still accessible for read operations, but only through direct connections. This can be useful, for example, when you need to create its backups without extra load on the cluster.
         * `secondary_delay_secs`: Replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
         * `priority`: [Host priority for master promotion](../concepts/replication.md#master-failover).
 
@@ -593,6 +615,14 @@ If you cannot [connect](connect/index.md) to the new host, check the {{ mmg-name
     1. Check the [server response](../api-ref/grpc/Cluster/updateHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
+
+
+{% note warning %}
+
+If you cannot [connect](connect/index.md) to the host after the update, make sure the {{ mmg-name }} cluster [security group](../concepts/network.md#security-groups) is properly configured for the host's subnet.
+
+{% endnote %}
+
 
 ## Deleting a host {#remove-host}
 

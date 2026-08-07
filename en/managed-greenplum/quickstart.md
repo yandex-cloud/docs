@@ -101,8 +101,9 @@ Connect to the cluster you [created](#create-cluster):
 
 {% list tabs group=mgp-quickstart %}
 
-- DBeaver {#gui}
+    For connections to the cluster, use the [Database Bastion](https://docs.yandex-team.ru/bastion-db/connect/greenplum#podklyuchenie-cherez-ide) SSH tunnel.
 
+    
     1. [Install DBeaver](https://dbeaver.com/docs/dbeaver/Installation/) to the host that will be used for the connection.
 
         {% note info %}
@@ -176,6 +177,7 @@ Connect to the cluster you [created](#create-cluster):
 
         1. {% include [dbeaver-how-to-exec-query](../_includes/mdb/mgp/quickstart/dbeaver-how-to-exec-query.md) %}
 
+
 - psql {#cli}
 
     1. [Install](https://www.postgresql.org/download/) the `psql` client to the host you will use to connect to the cluster.
@@ -221,7 +223,9 @@ Connect to the cluster you [created](#create-cluster):
 
 {% endlist %}
 
+
 If your cluster connection and test query are successful, you will see the DBMS version.
+
 
 ## Create a database {#create-db}
 

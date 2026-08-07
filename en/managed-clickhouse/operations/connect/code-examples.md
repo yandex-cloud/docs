@@ -47,7 +47,6 @@ sudo apt update && sudo apt install --yes golang git
 
 {% list tabs group=connection %}
 
-
 - Connecting without SSL {#without-ssl}
 
   `connect.go`
@@ -93,7 +92,6 @@ sudo apt update && sudo apt install --yes golang git
         fmt.Println(string(data))
     }
     ```
-
 
 - Connecting with SSL {#with-ssl}
 
@@ -270,7 +268,6 @@ go run connect.go
 
 {% list tabs group=connection %}
 
-
 - Connecting without SSL {#without-ssl}
 
   `src/java/com/example/App.java`
@@ -302,7 +299,6 @@ go run connect.go
       }
     }
     ```
-
 
 - Connecting with SSL {#with-ssl}
 
@@ -359,7 +355,6 @@ npm install querystring
 
 {% list tabs group=connection %}
 
-
 - Connecting without SSL {#without-ssl}
 
   `app.js`
@@ -398,7 +393,6 @@ npm install querystring
 
     rs.end();
     ```
-
 
 - Connecting with SSL {#with-ssl}
 
@@ -509,7 +503,6 @@ Setup methods for [Linux](#odbc-linux) and [Windows](#odbc-windows) are differen
 
 {% list tabs group=connection %}
 
-
 - Connecting without SSL {#without-ssl}
 
   `/etc/odbc.ini`
@@ -524,7 +517,6 @@ Setup methods for [Linux](#odbc-linux) and [Windows](#odbc-windows) are differen
     Port = 8123
     Proto = http
     ```
-
 
 - Connecting with SSL {#with-ssl}
 
@@ -615,7 +607,6 @@ Once connected to the DBMS, run the `SELECT version();` command.
 
 {% list tabs group=connection %}
 
-
 - Connecting without SSL {#without-ssl}
 
   `connect.php`
@@ -645,7 +636,6 @@ Once connected to the DBMS, run the `SELECT version();` command.
         print_r($rs);
     ?>
     ```
-
 
 - Connecting with SSL {#with-ssl}
 
@@ -704,7 +694,6 @@ pip3 install clickhouse-driver
 
 {% list tabs group=connection %}
 
-
 - Connecting without SSL {#without-ssl}
 
   `connect.py`
@@ -719,7 +708,6 @@ pip3 install clickhouse-driver
 
     print(client.execute('SELECT version()'))
     ```
-
 
 - Connecting with SSL {#with-ssl}
 
@@ -760,7 +748,6 @@ pip3 install requests
 
 {% list tabs group=connection %}
 
-
 - Connecting without SSL {#without-ssl}
 
   `connect.py`
@@ -781,7 +768,6 @@ pip3 install requests
     response.raise_for_status()
     print(response.text)
     ```
-
 
 - Connecting with SSL {#with-ssl}
 
@@ -825,7 +811,6 @@ sudo apt update && sudo apt install --yes ruby
 
 {% list tabs group=connection %}
 
-
 - Connecting without SSL {#without-ssl}
 
   `connect.rb`
@@ -854,7 +839,6 @@ sudo apt update && sudo apt install --yes ruby
     rs = conn.request(req)
     puts rs.body
     ```
-
 
 - Connecting with SSL {#with-ssl}
 

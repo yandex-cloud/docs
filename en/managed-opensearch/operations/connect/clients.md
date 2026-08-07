@@ -5,7 +5,7 @@ description: Follow this guide to connect to an {{ OS }} cluster database using 
 
 # Connecting to an {{ OS }} cluster from applications
 
-This section provides settings for connecting to {{ mos-name }} cluster hosts using [command line tools](#command-line-tools), [{{ OS }} Dashboards](#dashboards), and from a [Docker container](#connection-docker). To learn how to connect from your application code, see [Code examples](./code-examples.md).
+This section provides settings for connecting to {{ mos-name }} cluster hosts using [command line tools](#command-line-tools), [{{ OS }} Dashboards](#dashboards), and from a [Docker container](#connection-docker). For examples of connecting from an application, see [Code examples](./code-examples.md).
 
 ## Command line tools {#command-line-tools}
 
@@ -14,6 +14,7 @@ This section provides settings for connecting to {{ mos-name }} cluster hosts us
 ### Linux (Bash) {#bash}
 
 {% list tabs group=connection %}
+
 
 - Connecting with SSL {#with-ssl}
 
@@ -26,6 +27,7 @@ This section provides settings for connecting to {{ mos-name }} cluster hosts us
 ### Windows (PowerShell) {#powershell}
 
 {% list tabs group=connection %}
+
 
 - Connecting with SSL {#with-ssl}
 
@@ -141,14 +143,12 @@ To connect to a {{ mos-name }} cluster from a Docker container, add the followin
 
 {% list tabs group=connection %}
 
-
 - Connecting without SSL {#without-ssl}
 
     ```bash
     RUN apt-get update && \
         apt-get install curl --yes
     ```
-
 
 - Connecting with SSL {#with-ssl}
 

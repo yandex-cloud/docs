@@ -18,7 +18,7 @@
 * [PostgreSQL](#postgresql)
 * [Yandex Managed Service for YDB](#ydb)
 * [Yandex Data Streams](#yds)
-* [Greenplum®](#greenplum)
+* [Greenplum®/Apache Cloudberry™](#greenplum)
 * [Куда заявить о проблеме](#support)
 
 ## Проблемы, возникающие при работе с сервисом Data Transfer {#overview}
@@ -1466,11 +1466,11 @@ redirect to SOME_URL is requested but no redirects are allowed.
 По соображениям безопасности такие редиректы запрещены. Воздержитесь от использования редиректов в Cloud Functions в трансферах.
 
 
-## Greenplum® {#greenplum}
+## Greenplum®/Apache Cloudberry™ {#greenplum}
 
 ### Почему я не могу задать количество потоков больше N в трансфере из Greenplum® в Greenplum®? {#threads_limit}
 
-Если в трансфере из Greenplum® в Greenplum® не используется прямое чтение с сегментов, количество потоков не может превышать минимальное число сегментов в участвующих кластерах.
+Если в трансфере из Greenplum®/Apache Cloudberry™ в Greenplum®/Apache Cloudberry™ не используется прямое чтение с сегментов, количество потоков не может превышать минимальное число сегментов в участвующих кластерах.
 
 [Подробнее об особенностях работы с источником Greenplum®](../operations/endpoint/source/greenplum.md#advanced).
 

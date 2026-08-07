@@ -19,8 +19,8 @@ You can connect to {{ mos-name }} cluster hosts with the `DATA` [role](../../con
 * From {{ yandex-cloud }} VMs residing in the same [virtual network](../../../vpc/concepts/network.md).
 
 
-Regardless of the connection method, {{ mos-name }} only supports cluster host connections with an [SSL certificate](#ssl-certificate).
 
+Regardless of the connection method, {{ mos-name }} only supports cluster host connections with an [SSL certificate](#ssl-certificate).
 
 ## Configuring security groups {#security-groups}
 

@@ -2637,7 +2637,7 @@ gt4.1 ^1^ | 0
 Вид ограничения | Значение
 ----- | -----
 Срок хранения пользовательских данных | 3 месяца
-Пересчет измененных и вновь созданных [словарных и смысловых тегов](https://aistudio.yandex.ru/docs/ru/speechsense/concepts/tags) за месяц | Раз в сутки ночью
+Пересчет измененных и вновь созданных [словарных и смысловых тегов](https://aistudio.yandex.ru/docs/ru/speechsense/concepts/tags) | Каждые 3 часа по расписанию (фактическое время зависит от очереди пересчета)
 Количество возвращаемых результатов поиска | 10 000
 Максимальное количество [проектов](https://aistudio.yandex.ru/docs/ru/speechsense/concepts/resources-hierarchy#project) в [пространстве](https://aistudio.yandex.ru/docs/ru/speechsense/concepts/resources-hierarchy#space) | 100
 Максимальное количество [подключений](https://aistudio.yandex.ru/docs/ru/speechsense/concepts/resources-hierarchy#connection) в [пространстве](https://aistudio.yandex.ru/docs/ru/speechsense/concepts/resources-hierarchy#space) | 20

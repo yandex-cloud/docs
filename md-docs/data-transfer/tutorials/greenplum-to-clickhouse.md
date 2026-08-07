@@ -1,6 +1,6 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Data Transfer](../index.md) > [Практические руководства](index.md) > Загрузка данных в витрины > Greenplum® в ClickHouse®
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Transfer](../index.md) > [Практические руководства](index.md) > Загрузка данных в витрины > Greenplum®/Apache Cloudberry™ в ClickHouse®
 
-# Загрузка данных из Greenplum® в витрину ClickHouse®
+# Загрузка данных из Greenplum®/Apache Cloudberry™ в витрину ClickHouse®
 
 Вы можете перенести базу данных из Greenplum® в ClickHouse® с помощью сервиса Yandex Data Transfer.
 

@@ -14,10 +14,7 @@
 
 Асинхронный фреймворк [userver](https://userver.tech/) предоставляет богатый набор абстракций для создания утилит, сервисов и микросервисов на языке C++. В том числе фреймворк предоставляет возможности для взаимодействия с {{ PG }}.
 
-Перед подключением получите доступ к фреймворку одним из способов:
-
-* [Создайте виртуальную машину](../../compute/operations/images-with-pre-installed-software/create.md) {{ compute-full-name }} из [образа userver](https://yandex.cloud/ru/marketplace/products/yc/userver). Этот образ уже содержит фреймворк и все необходимые зависимости.
-* [Вручную установите фреймворк и все необходимые зависимости](https://userver.tech/docs/v2.0/d3/da9/md_en_2userver_2tutorial_2build.html).
+Перед подключением получите доступ к фреймворку — [вручную установите фреймворк и все необходимые зависимости](https://userver.tech/docs/v2.0/d3/da9/md_en_2userver_2tutorial_2build.html).
 
 {% list tabs group=connection %}
 

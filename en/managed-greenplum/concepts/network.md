@@ -29,6 +29,12 @@ To learn how to get a host's FQDN, see [this guide](../operations/connect/fqdn.m
 
 You can use FQDNs to access master hosts from both inside and outside {{ yandex-cloud }}.
 
+## Special primary master FQDN {#fqdn-master}
+
+If you do not want to manually connect to another master host when the current one becomes unavailable, use a special FQDN in `c-<cluster_ID>.rw.{{ dns-zone }}` format. It always points to the primary master host in the cluster. Connection to this FQDN is permitted, with both read and write operations allowed.
+
+A special FQDN may temporarily point to an unavailable master host (for up to 10 minutes). This is because it takes time to update DNS records for special FQDNs. If your request returns an error, repeat it later.
+
 ## Public access to clusters {#public-access-to-a-host}
 
 To enable public access to master hosts from outside {{ yandex-cloud }}, enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** when creating or updating your cluster. To connect to a cluster, use the FQDNs of its master hosts.
@@ -47,7 +53,7 @@ Features of using security groups:
 
 * Security group settings affect the ability to connect to the cluster, its performance, and the network connectivity between its hosts.
 
-For more information, see [this {{ vpc-name }} article](../../vpc/concepts/security-groups.md).
+For more information, see [this {{ vpc-name }} guide](../../vpc/concepts/security-groups.md).
 
 
 ## Use cases {#examples}

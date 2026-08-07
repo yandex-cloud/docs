@@ -443,7 +443,7 @@ If you cannot [connect](connect/index.md) to the host you added, check that the 
 
 {% note warning %}
 
-If you cannot [connect](connect/index.md) to the host you added, check that the cluster [security group](../concepts/network.md#security-groups) is properly configured for the subnet containing your host.
+If you cannot [connect](connect/index.md) to the host after the update, check that the cluster [security group](../concepts/network.md#security-groups) is properly configured for the host's subnet.
 
 {% endnote %}
 

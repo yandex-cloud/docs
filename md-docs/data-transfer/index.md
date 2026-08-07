@@ -28,7 +28,7 @@ Data Transfer поддерживает несколько сценариев п�
 
  - [Миграция эндпоинтов в другую зону доступности](operations/endpoint/migration-to-an-availability-zone.md)
 
-#### Apache Iceberg®
+#### Apache Iceberg™
 
  - [Приемник](operations/endpoint/target/iceberg.md)
 
@@ -46,7 +46,7 @@ Data Transfer поддерживает несколько сценариев п�
 
  - [Источник](operations/endpoint/source/bigquery.md)
 
-#### ClickHouse
+#### ClickHouse®
 
  - [Источник](operations/endpoint/source/clickhouse.md)
 
@@ -58,7 +58,7 @@ Data Transfer поддерживает несколько сценариев п�
 
  - [Приемник](operations/endpoint/target/elasticsearch.md)
 
-#### Greenplum®
+#### Greenplum®/Apache Cloudberry™
 
  - [Источник](operations/endpoint/source/greenplum.md)
 
@@ -78,7 +78,7 @@ Data Transfer поддерживает несколько сценариев п�
 
  - [Приемник](operations/endpoint/target/mongodb.md)
 
-#### MySQL
+#### MySQL®
 
  - [Источник](operations/endpoint/source/mysql.md)
 
@@ -154,7 +154,7 @@ Data Transfer поддерживает несколько сценариев п�
 
  - [Кластер ClickHouse®](tutorials/managed-clickhouse.md)
 
- - [Кластер Greenplum®](tutorials/managed-greenplum.md)
+ - [Кластер Greenplum®/Apache Cloudberry™](tutorials/managed-greenplum.md)
 
  - [Миграция из AWS RDS for PostgreSQL](tutorials/rds-to-mpg.md)
 
@@ -178,11 +178,11 @@ Data Transfer поддерживает несколько сценариев п�
 
  - [PostgreSQL в MySQL®](tutorials/mpg-to-mmy.md)
 
- - [MySQL® в Greenplum®](tutorials/mmy-to-mgp.md)
+ - [MySQL® в Greenplum®/Apache Cloudberry™](tutorials/mmy-to-mgp.md)
 
  - [OpenSearch в YDB](tutorials/opensearch-to-ydb.md)
 
- - [OpenSearch в Greenplum®](tutorials/opensearch-to-greenplum.md)
+ - [OpenSearch в Greenplum®/Apache Cloudberry™](tutorials/opensearch-to-greenplum.md)
 
  - [PostgreSQL в OpenSearch](tutorials/postgresql-to-opensearch.md)
 
@@ -208,7 +208,7 @@ Data Transfer поддерживает несколько сценариев п�
 
  - [Apache Kafka® в PostgreSQL](tutorials/mkf-to-mpg.md)
 
- - [Apache Kafka® в Greenplum®](tutorials/managed-kafka-to-greenplum.md)
+ - [Apache Kafka® в Greenplum®/Apache Cloudberry™](tutorials/managed-kafka-to-greenplum.md)
 
  - [Apache Kafka® в Yandex StoreDoc](tutorials/mkf-to-mmg.md)
 
@@ -234,7 +234,7 @@ Data Transfer поддерживает несколько сценариев п�
 
 ### Загрузка данных в витрины
 
- - [Greenplum® в ClickHouse®](tutorials/greenplum-to-clickhouse.md)
+ - [Greenplum®/Apache Cloudberry™ в ClickHouse®](tutorials/greenplum-to-clickhouse.md)
 
  - [MySQL® в ClickHouse®](tutorials/mysql-to-clickhouse.md)
 
@@ -242,13 +242,13 @@ Data Transfer поддерживает несколько сценариев п�
 
  - [PostgreSQL в ClickHouse®](tutorials/rdbms-to-clickhouse.md)
 
- - [Greenplum® в PostgreSQL](tutorials/greenplum-to-postgresql.md)
+ - [Greenplum®/Apache Cloudberry™ в PostgreSQL](tutorials/greenplum-to-postgresql.md)
 
  - [Object Storage в MySQL®](tutorials/objs-mmy-migration.md)
 
  - [Object Storage в PostgreSQL](tutorials/object-storage-to-postgresql.md)
 
- - [Object Storage в Greenplum®](tutorials/object-storage-to-greenplum.md)
+ - [Object Storage в Greenplum®/Apache Cloudberry™](tutorials/object-storage-to-greenplum.md)
 
  - [Яндекс Директ в ClickHouse®](tutorials/direct-to-mch.md)
 

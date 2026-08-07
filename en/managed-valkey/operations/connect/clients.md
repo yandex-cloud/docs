@@ -115,6 +115,7 @@ For more on Sentinel, see [this article](../../concepts/replication.md) and [thi
 
 ## Connecting from graphical IDEs {#connection-ide}
 
+
 {% include [IDE environment settings](../../../_includes/mdb/mvk/ide-envs.md) %}
 
 You can only use graphical IDEs to connect to cluster hosts through an SSL tunnel using the [VM you created](./index.md). Before connecting, [prepare a certificate](./index.md#get-ssl-cert).
@@ -155,5 +156,6 @@ You can only use graphical IDEs to connect to cluster hosts through an SSL tunne
     1. Click **Done** to save the database connection settings.
 
 {% endlist %}
+
 
 {% include [How to connect from a Dockerfile](../../../_includes/mdb/mvk/connect/docker-and-redis.md) %}

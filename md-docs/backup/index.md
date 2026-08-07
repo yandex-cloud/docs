@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../index.md) > Yandex Cloud Backup > Yandex Cloud Backup
+[Документация Yandex Cloud](../index.md) > Yandex Cloud Backup > Cloud Backup
 
 # Yandex Cloud Backup
 
