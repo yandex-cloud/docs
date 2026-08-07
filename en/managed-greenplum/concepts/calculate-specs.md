@@ -15,13 +15,13 @@ Segment hosts are used to store all data and run queries, which makes them resou
 
 ### Storage size calculation {#storage}
 
-When calculating cluster storage size, consider the following factors:
+The formula for calculating the storage size considers the following factors:
 
-* _Mirroring_. This doubles the required storage size.
-* _Compression_. This reduces the required storage size. The compression rate may vary significantly depending on the data and selected compression algorithm. For calculation purposes, we will use the compression rate of 3.
-* _Free space_. When working with {{ mgp-name }}, we recommend keeping your storage utilization under 70%. Make sure to have free space for transaction logs, spill and system files.
+* Mirroring: {{ mgp-name }} stores two copies of the data.
+* Compression: In {{ mgp-name }}, the space the data occupies on disk is smaller than the data itself. The compression rate depends on data type and the compression algorithm you select. For calculation purposes, we will use the compression rate of 3.
+* Available free space: For transaction logs, spill and system files. When working with {{ mgp-name }}, we recommend keeping your storage utilization under 70%.
 
-Based on these factors, the total storage size for all segment hosts may be approximately equal to the amount of uncompressed data:
+Based on these factors, the total required storage size for all segment hosts is approximately equal to the amount of uncompressed data:
 
 ```text
 Storage size = <amount_of_uncompressed_data> × 2 ÷ 3 ÷ 0.7 = <amount_of_uncompressed_data> × 0.95

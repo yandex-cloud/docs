@@ -5,7 +5,7 @@ description: Follow this guide to connect to a {{ mgp-name }} cluster database w
 
 # Connecting to a {{ mgp-name }} cluster from applications
 
-This section provides settings for connecting to {{ mgp-name }} cluster hosts using [command line tools](#command-line-tools), [graphical IDEs](#connection-ide), [{{ pgadmin }}](#connection-pgadmin), or a [Docker container](#connection-docker). To learn how to connect from your application code, see [Code examples](code-examples.md).
+This section provides settings for connecting to {{ mgp-name }} cluster hosts using [command line tools](#command-line-tools), [graphical IDEs](#connection-ide), [{{ pgadmin }}](#connection-pgadmin), or a [Docker container](#connection-docker). To learn how to connect from the code of your application, see [Code examples](code-examples.md).
 
 Creating a {{ mgp-name }} cluster does not entail creating a user database. To test the connection, use the `postgres` service database.
 
@@ -50,7 +50,7 @@ Connect to a database:
 
 {% endlist %}
 
-After runing this command, enter the user password to complete your connection.
+After running this command, enter the user password to complete your connection.
 
 To check the connection, run the following query:
 
@@ -90,7 +90,7 @@ Connect to a database:
 
 {% endlist %}
 
-After runing this command, enter the user password to complete your connection.
+After running this command, enter the user password to complete your connection.
 
 To check the connection, run the following query:
 
@@ -159,14 +159,11 @@ To connect to a {{ mgp-name }} cluster database, run this command:
 {{ yc-mdb-gp }} connect <cluster_name_or_ID> --db <DB_name>
 ```
 
-
 ## Connecting from graphical IDEs {#connection-ide}
 
 {% include [ide-environments](../../../_includes/mdb/mdb-ide-envs.md) %}
 
-
 You can only use graphical IDEs to connect to a public cluster using SSL certificates.
-
 
 {% include [note-connection-ide](../../../_includes/mdb/note-connection-ide.md) %}
 
@@ -218,9 +215,7 @@ You can only use graphical IDEs to connect to a public cluster using SSL certifi
 
 The connection has been checked for [{{ pgadmin }}](https://www.pgadmin.org) ver. 7.1 on macOS Ventura 13.0 and Microsoft Windows 10 Pro 21H1.
 
-
 You can only use {{ pgadmin }} to connect to public cluster hosts [using an SSL certificate](#get-ssl-cert).
-
 
 Create a new server connection:
 
@@ -251,12 +246,13 @@ column "wait_event_type" does not exist LINE 10: wait_event_type || ': ' || wait
 
 This error does not occur in other {{ pgadmin }} tabs.
 
+
+
 ## Before you connect from a Docker container {#connection-docker}
 
 To connect to a {{ mgp-name }} cluster from a Docker container, add the following lines to the Dockerfile:
 
 {% list tabs group=connection %}
-
 
 - Connecting without SSL {#without-ssl}
 
@@ -264,7 +260,6 @@ To connect to a {{ mgp-name }} cluster from a Docker container, add the followin
     RUN apt-get update && \
         apt-get install postgresql-client --yes
     ```
-
 
 - Connecting with SSL {#with-ssl}
 

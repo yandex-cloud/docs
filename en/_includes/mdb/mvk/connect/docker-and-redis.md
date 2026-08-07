@@ -4,7 +4,6 @@ To connect to a {{ mrd-name }} cluster from a Docker container, add the followin
 
 {% list tabs group=connection %}
 
-
 - Connecting without SSL {#without-ssl}
 
     ```bash
@@ -18,7 +17,6 @@ To connect to a {{ mrd-name }} cluster from a Docker container, add the followin
         make install && \
         cp ./src/redis-cli /usr/bin/
     ```
-
 
 - Connecting with SSL {#with-ssl}
 

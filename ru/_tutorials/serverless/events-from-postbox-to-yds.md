@@ -79,7 +79,7 @@
 - Консоль управления {#console}
 
   1. На странице **{{ ui-key.yacloud.ydb.databases.label_title }}** выберите вновь созданную БД `postbox-events-ydb`.
-  1. Чтобы открыть корневую директорию БД, перейдите на вкладку ![image](../../_assets/console-icons/folder.svg) **{{ ui-key.yacloud.ydb.database.switch_browse }}**.
+  1. Чтобы открыть корневую директорию БД, перейдите на вкладку **{{ ui-key.yacloud.ydb.database.switch_browse }}**.
   1. Чтобы создать запрос к БД, в правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.ydb.browse.button_sql-query }}**.
   1. В открывшемся поле **{{ ui-key.yacloud.ydb.sql.label_query }}** введите:
 
@@ -271,7 +271,7 @@
           1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
           1. [Перейдите]({{ link-console-main }}/link/ydb) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
           1. Выберите базу данных `postbox-events-ydb`.
-          1. Перейдите на вкладку ![image](../../_assets/console-icons/folder.svg) **{{ ui-key.yacloud.ydb.database.switch_browse }}**
+          1. Перейдите на вкладку **{{ ui-key.yacloud.ydb.database.switch_browse }}**
           1. Выберите таблицу `postbox_events`.
 
               В таблице должны появиться записи. В некоторых столбцах может быть значение `NULL` — это зависит от [типа уведомления](../../postbox/concepts/notification.md#types), которое было получено от сервиса {{ postbox-name }}.

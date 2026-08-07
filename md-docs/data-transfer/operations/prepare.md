@@ -152,7 +152,7 @@ Yandex Data Transfer не может переносить базы данных 
         GRANT USAGE ON SCHEMA <название_схемы> TO <имя_пользователя>;
         ```
 
-- Greenplum®
+- Greenplum®/Apache Cloudberry™
     
     1. Если вы не планируете использовать для подключения к внешнему кластеру [сервис Cloud Interconnect](../../interconnect/concepts/index.md) или [VPN](../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом Data Transfer](../../overview/concepts/public-ips.md#virtual-private-cloud).
        
@@ -1235,7 +1235,7 @@ Data Transfer взаимодействует с Greenplum® по-разному 
     
        После старта трансфер подключится к приемнику от имени этого пользователя.
 
-- Greenplum®
+- Greenplum®/Apache Cloudberry™
     
     1. Если вы не планируете использовать для подключения к внешнему кластеру [сервис Cloud Interconnect](../../interconnect/concepts/index.md) или [VPN](../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом Data Transfer](../../overview/concepts/public-ips.md#virtual-private-cloud).
        

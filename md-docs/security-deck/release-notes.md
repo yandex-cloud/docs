@@ -45,7 +45,7 @@
 ## Март 2026 {#march-2026}
 * Запущен модуль [Управление уязвимостями(VM)](concepts/vulnerability-management.md). Модуль находится на стадии [Preview](../overview/concepts/launch-stages.md) и доступен только по запросу.
 * В модуле [DSPM](concepts/dspm.md) появилась возможность предварительного [анализа данных](concepts/dspm.md#discovery-mode), хранящихся в бакетах Object Storage в пределах окружения.
-* Алерты теперь можно [группировать](./operations/alerts/view.mdsearch) по типу и фильтровать по новым атрибутам.
+* Алерты теперь можно [группировать](operations/alerts/view.md#search) по типу и фильтровать по новым атрибутам.
 * В модуле [KSPM](concepts/kspm.md) в [исключениях](operations/kspm/manage-exceptions.md) теперь можно указать объекты через поиск по пространству имен.
 * В модуле [CSPM](concepts/cspm.md) появились новые правила проверки инфраструктуры на соответствие стандартам безопасности. Новые правила регламентируют [назначение](rules-reference/cspm.md#check-privileged-roles) привилегированных ролей, [защиту](rules-reference/cspm.md#appsec-ddos-protection-l3) от DDoS-атак на сетевом уровне, [доступ](rules-reference/cspm.md#access) сервисных аккаунтов к кластерам Kubernetes® и избыточные роли сервисных аккаунтов на уровне [организации](rules-reference/cspm.md#sa-privileges-org-roles) и [сервиса](rules-reference/cspm.md#sa-privileges-service-roles). 
 

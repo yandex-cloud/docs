@@ -5,9 +5,13 @@ description: In this tutorial, you will learn how to pre-configure a database co
 
 # Pre-configuring a {{ SD }} cluster connection
 
-You can connect to {{ mmg-short-name }} cluster hosts:
 
-{% include [cluster-connect-note](../../../_includes/mdb/mmg/cluster-connect-note.md) %}
+You can connect to {{ mmg-name }} cluster hosts:
+
+* Via the internet, if you configured public access for these hosts. You can do this when [creating the cluster](../cluster-create.md) or [updating host settings](../hosts.md#update). These hosts can only be accessed over SSL.
+
+* From {{ yandex-cloud }} virtual machines located in the same [cloud network](../../../vpc/concepts/network.md). For hosts without public access, SSL is not required to connect to them from these virtual machines.
+
 
 To connect to cluster hosts, use the following ports:
 

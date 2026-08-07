@@ -54,3 +54,4 @@
 * [{#T}](./network-restrictions.md)
 * [Bare metal: полный контроль и высокая производительность](https://yandex.cloud/ru/blog/bare-metal-guide)
 * [{{ baremetal-full-name }} получил сертификат высшего уровня защиты персональных данных](https://yandex.cloud/ru/blog/yandex-baremetal-certificate)
+* [Как не нужно работать с выделенными серверами](https://yandex.cloud/ru/blog/how-to-bare-metal)

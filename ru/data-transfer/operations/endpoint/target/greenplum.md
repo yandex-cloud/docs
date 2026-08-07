@@ -1,33 +1,33 @@
 ---
-title: Инструкция по настройке эндпоинта-приемника {{ GP }} в {{ data-transfer-full-name }}
-description: Из статьи вы узнаете, как задать настройки при создании или изменении эндпоинта-приемника {{ GP }} в {{ data-transfer-full-name }}.
+title: Инструкция по настройке эндпоинта-приемника {{ GP }}/{{ CB }} в {{ data-transfer-full-name }}
+description: Из статьи вы узнаете, как задать настройки при создании или изменении эндпоинта-приемника {{ GP }}/{{ CB }} в {{ data-transfer-full-name }}.
 ---
-# Передача данных в эндпоинт-приемник {{ GP }}
+# Передача данных в эндпоинт-приемник {{ GP }}/{{ CB }}
 
-С помощью сервиса {{ data-transfer-full-name }} вы можете переносить данные в базу {{ GP }} и реализовывать различные сценарии переноса, обработки и трансформации данных. Для реализации трансфера:
+С помощью сервиса {{ data-transfer-full-name }} вы можете переносить данные в базу {{ GP }}/{{ CB }} и реализовывать различные сценарии переноса, обработки и трансформации данных. Для реализации трансфера:
 
 1. [Ознакомьтесь с возможными сценариями передачи данных](#scenarios).
 1. [Настройте один из поддерживаемых источников данных](#supported-sources).
-1. [Подготовьте базу данных {{ GP }}](#prepare) к трансферу.
+1. [Подготовьте базу данных {{ GP }}/{{ CB }}](#prepare) к трансферу.
 1. [Настройте эндпоинт-приемник](#endpoint-settings) в {{ data-transfer-full-name }}.
 1. [Создайте](../../transfer.md#create) и [запустите](../../transfer.md#activate) трансфер.
 1. Выполняйте необходимые действия по работе с базой и [контролируйте трансфер](../../monitoring.md).
 1. При возникновении проблем, [воспользуйтесь готовыми решениями](../../../troubleshooting/index.md) по их устранению.
 
-## Сценарии передачи данных в {{ GP }} {#scenarios}
+## Сценарии передачи данных в {{ GP }}/{{ CB }} {#scenarios}
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
-    * [Миграция кластера {{ GP }}](../../../tutorials/managed-greenplum.md);
-    * [Миграция со сменой хранилища: {{ MY }} в {{ GP }}](../../../tutorials/mmy-to-mgp.md).
-    * [Миграция со сменой хранилища: {{ OS }} в {{ GP }}](../../../tutorials/opensearch-to-greenplum.md).
+    * [Миграция кластера {{ GP }} или {{ CB }}](../../../tutorials/managed-greenplum.md);
+    * [Миграция со сменой хранилища: {{ MY }} в {{ GP }} или {{ CB }}](../../../tutorials/mmy-to-mgp.md);
+    * [Миграция со сменой хранилища: {{ OS }} в {{ GP }} или {{ CB }}](../../../tutorials/opensearch-to-greenplum.md).
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
-    * [Поставка данных из {{ KF }} в {{ GP }}](../../../tutorials/managed-kafka-to-greenplum.md).
+    * [Поставка данных из {{ KF }} в {{ GP }} или {{ CB }}](../../../tutorials/managed-kafka-to-greenplum.md).
 
 1. {% include [data-mart](../../../../_includes/data-transfer/scenario-captions/data-mart.md) %}
 
-    * [Загрузка данных из {{ objstorage-name }} в {{ GP }}](../../../tutorials/object-storage-to-greenplum.md).
+    * [Загрузка данных из {{ objstorage-name }} в {{ GP }} или {{ CB }}](../../../tutorials/object-storage-to-greenplum.md).
 
 Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} читайте в разделе [Практические руководства](../../../tutorials/index.md).
 
@@ -37,7 +37,7 @@ description: Из статьи вы узнаете, как задать наст
 
 * [{{ PG }}](../source/postgresql.md)
 * [{{ MY }}](../source/mysql.md)
-* [{{ GP }}](../source/greenplum.md)
+* [{{ GP }}/{{ CB }}](../source/greenplum.md)
 * [{{ KF }}](../source/kafka.md)
 * [{{ AB }}](../../../transfer-matrix.md#airbyte)
 * [{{ DS }}](../source/data-streams.md)
@@ -52,7 +52,7 @@ description: Из статьи вы узнаете, как задать наст
 
 {% include [prepare db](../../../../_includes/data-transfer/endpoints/targets/greenplum-prepare.md) %}
 
-## Настройка эндпоинта-приемника {{ GP }} {#endpoint-settings}
+## Настройка эндпоинта-приемника {{ GP }} или {{ CB }} {#endpoint-settings}
 
 При [создании](../index.md#create) или [изменении](../index.md#update) эндпоинта вы можете задать:
 

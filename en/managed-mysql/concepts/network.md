@@ -1,6 +1,6 @@
 ---
 title: Networking in {{ mmy-name }}
-description: When creating a {{ MY }} cluster, you can set a network for the cluster itself and subnets for each cluster host. You can also request public access to connect to the cluster from outside {{ yandex-cloud }}.
+description: When creating a {{ MY }} cluster, you can set a network for the cluster itself and subnets for each cluster host. You can also request public access for connection to the cluster from outside {{ yandex-cloud }}.
 ---
 
 # Network and clusters in {{ mmy-name }}
@@ -33,9 +33,16 @@ When deleting a host with a public FQDN, the assigned IP address is revoked.
 
 ## Connecting to cluster hosts {#cluster-connect}
 
-You can [connect to {{ mmy-short-name }} cluster hosts](../operations/connect/index.md):
 
-{% include [cluster-connect-note](../../_includes/mdb/mmy/cluster-connect-note.md) %}
+You can [connect to {{ mmy-name }} cluster hosts](../operations/connect/index.md):
+
+* Via the internet, if you [configured](../operations/hosts.md#update) public access for the host. You can connect over the internet in the following ways:
+
+    * Use an SSL connection.
+    * Use IAM authentication.
+
+* From {{ yandex-cloud }} virtual machines located in the same [cloud network](../../vpc/concepts/network.md). For hosts without public access, SSL is not required to connect to them from these virtual machines.
+
 
 The maximum number of connections is defined by the [max_connections](./settings-list.md#setting-max-connections) setting, which [depends on the host class](./settings-list.md#settings-instance-dependent).
 
@@ -50,7 +57,7 @@ For information on how to configure security groups, see [{#T}](../operations/co
 
 {% note tip %}
 
-When connecting to a cluster from its cloud network, configure security groups both for the cluster and the connecting host.
+When connecting to a cluster from the same cloud network it resides in, configure security groups not just for the cluster but also for the host you are connecting from.
 
 {% endnote %}
 

@@ -22,7 +22,7 @@
 Вид ограничения | Значение
 ----- | -----
 Срок хранения пользовательских данных | 3 месяца
-Пересчет измененных и вновь созданных [словарных и смысловых тегов]({{ link-docs-ai }}speechsense/concepts/tags) за месяц | Раз в сутки ночью
+Пересчет измененных и вновь созданных [словарных и смысловых тегов]({{ link-docs-ai }}speechsense/concepts/tags) | Каждые 3 часа по расписанию (фактическое время зависит от очереди пересчета)
 Количество возвращаемых результатов поиска | 10 000
 Максимальное количество [проектов]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#project) в [пространстве]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#space) | 100
 Максимальное количество [подключений]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#connection) в [пространстве]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#space) | 20

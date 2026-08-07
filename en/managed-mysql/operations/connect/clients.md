@@ -5,7 +5,7 @@ description: Follow this guide to connect to a {{ MY }} cluster database with th
 
 # Connecting to a {{ MY }} cluster from applications
 
-This section provides settings for connection to {{ mmy-name }} cluster hosts with the help of [command line tools](#command-line-tools), [graphical IDEs](#connection-ide), [{{ websql-full-name }}](#websql), or a [Docker container](#connection-docker). To learn how to connect from the code of your application, see [Code examples](./code-examples.md).
+This section provides settings for connection to {{ mmy-name }} cluster hosts with the help of [command line tools](#command-line-tools), from [graphical IDEs](#connection-ide), from [{{ websql-full-name }}](#websql), or a [Docker container](#connection-docker). To learn how to connect from the code of your application, see [Code examples](./code-examples.md).
 
 ## Command line tools {#command-line-tools}
 
@@ -143,11 +143,10 @@ You can get the cluster name and ID with the [list of clusters in the folder](..
 
 ## Connecting from graphical IDEs {#connection-ide}
 
+
 {% include [ide-environments](../../../_includes/mdb/mdb-ide-envs.md) %}
 
-
 From graphical IDEs, you can only connect to public cluster hosts using an SSL certificate.
-
 
 {% include [note-connection-ide](../../../_includes/mdb/note-connection-ide.md) %}
 
@@ -191,6 +190,7 @@ From graphical IDEs, you can only connect to public cluster hosts using an SSL c
   1. Click **Done** to save the database connection settings.
 
 {% endlist %}
+
 
 ### Connecting with IAM authentication {#ide-iam}
 
@@ -284,14 +284,12 @@ To connect to a {{ mmy-name }} cluster from a Docker container, add the followin
 
 {% list tabs group=connection %}
 
-
 - Connecting without SSL {#without-ssl}
 
   ```bash
   RUN apt-get update && \
       apt-get install mysql-client --yes
   ```
-
 
 - Connecting with SSL {#with-ssl}
 

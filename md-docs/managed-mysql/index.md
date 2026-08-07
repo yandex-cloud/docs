@@ -28,9 +28,13 @@ Managed Service for MySQL<sup>®</sup> помогает разворачиват
 
  - [Изменение кластера](operations/update.md)
 
+ - [Управление алиасами кластера](operations/cluster-aliases.md)
+
  - [Остановка и запуск кластера](operations/cluster-stop.md)
 
  - [Управление хостами кластера](operations/hosts.md)
+
+ - [Управление алиасами хостов](operations/hosts-aliases.md)
 
  - [Миграция хостов в другую зону доступности](operations/host-migration.md)
 

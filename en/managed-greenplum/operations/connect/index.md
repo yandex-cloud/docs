@@ -9,9 +9,15 @@ A {{ mgp-name }} cluster can be used to deploy a {{ GP }} or {{ CB }} DBMS. Both
 
 You can only connect to a {{ mgp-name }} cluster through the [primary master host](../../concepts/index.md). To identify host roles, get a [list of hosts in the cluster](../cluster-list.md#get-hosts).
 
+
 You can connect to a cluster:
 
-{% include [cluster-connect-note-monolithic](../../../_includes/mdb/cluster-connect-note-monolithic.md) %}
+* From {{ yandex-cloud }} virtual machines located in the same [cloud network](../../../vpc/concepts/network.md). For hosts without public access, SSL is not required to connect to them from these virtual machines.
+* Over the internet if you configured public access for your cluster. You can connect over the internet in the following ways:
+
+    * Use an SSL connection.
+    * Use IAM authentication.
+
 
 
 ## Configuring security groups {#configuring-security-groups}

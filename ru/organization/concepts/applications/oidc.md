@@ -154,3 +154,5 @@ URL с конфигурацией предоставляет поставщик�
 * [{#T}](../../operations/applications/oidc-deactivate-remove.md)
 * [{#T}](../../../security/domains/iam-checklist.md)
 * [{#T}](./saml.md)
+* [Как настроить безопасную OIDC-аутентификацию в {{ org-full-name }}](https://yandex.cloud/ru/blog/secure-oidc-authentication-identity-hub)
+

@@ -28,9 +28,13 @@ Managed Service for PostgreSQL помогает разворачивать и п
 
  - [Изменение настроек кластера](operations/update.md)
 
+ - [Управление алиасами кластера](operations/cluster-aliases.md)
+
  - [Остановка и запуск кластера](operations/cluster-stop.md)
 
  - [Управление хостами PostgreSQL](operations/hosts.md)
+
+ - [Управление алиасами хостов](operations/hosts-aliases.md)
 
  - [Миграция хостов в другую зону доступности](operations/host-migration.md)
 

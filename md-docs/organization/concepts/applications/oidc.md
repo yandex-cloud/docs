@@ -191,3 +191,4 @@ URL с конфигурацией предоставляет поставщик�
 * [Деактивировать и удалить OIDC-приложение в Yandex Identity Hub](../../operations/applications/oidc-deactivate-remove.md)
 * [Чеклист безопасности аутентификации и авторизации](../../../security/domains/iam-checklist.md)
 * [SAML-приложения](saml.md)
+* [Как настроить безопасную OIDC-аутентификацию в Yandex Identity Hub](https://yandex.cloud/ru/blog/secure-oidc-authentication-identity-hub)

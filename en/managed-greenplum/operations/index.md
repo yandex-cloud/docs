@@ -11,7 +11,7 @@ description: This page features step-by-step guides for {{ mgp-name }}.
 * [Creating a cluster](cluster-create.md)
 * [Editing a cluster's configuration](cluster-config.md)
 * [Updating cluster settings](update.md)
-* [Stopping and starting a cluster](cluster-stop.md)
+* [Stopping and restarting a cluster](cluster-stop.md)
 * [{#T}](cluster-expand.md)
 * [Managing backups](cluster-backups.md)
 * [Managing cluster access](cluster-access.md)
