@@ -13,6 +13,7 @@ description: Пошаговые инструкции по работе с DNS-з
 - [{#T}](zone-access.md)
 - [{#T}](zone-move-folder.md)
 - [{#T}](operation-logs.md)
+- [{#T}](monitoring.md)
 - [{#T}](zone-delete.md)
 
 ## Получение информации о зоне DNS {#zone-info}
