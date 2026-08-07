@@ -7,17 +7,13 @@ description: Follow this guide to change a {{ GP }} cluster version.
 
 You can change the database version of your {{ mgp-name }} cluster.
 
-{% note info %}
-
 {{ GP }} upgrades from version 6.28 to 6.29 are supported.
 
-The following upgrades are not supported:
+The following are not supported:
 
-* Manual upgrades between {{ GP }} patch versions, e.g., from 6.29.1 to 6.29.2. Such upgrades are performed automatically during maintenance.
+* Manual upgrades between {{ GP }} minor versions, e.g., from 6.29.1 to 6.29.2. Such upgrades are performed automatically during maintenance.
 * {{ CB }} version upgrades.
 * Migrations between {{ GP }} and {{ CB }}.
-
-{% endnote %}
 
 To learn about upgrades within the same version and host maintenance, see [Maintenance](../concepts/maintenance.md).
 

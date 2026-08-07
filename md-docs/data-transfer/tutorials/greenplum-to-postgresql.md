@@ -1,6 +1,6 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Data Transfer](../index.md) > [Практические руководства](index.md) > Загрузка данных в витрины > Greenplum® в PostgreSQL
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Transfer](../index.md) > [Практические руководства](index.md) > Загрузка данных в витрины > Greenplum®/Apache Cloudberry™ в PostgreSQL
 
-# Загрузка данных Greenplum® в витрину PostgreSQL
+# Загрузка данных Greenplum®/Apache Cloudberry™ в витрину PostgreSQL
 
 Вы можете перенести базу данных из Greenplum® в кластер PostgreSQL с помощью сервиса Yandex Data Transfer.
 

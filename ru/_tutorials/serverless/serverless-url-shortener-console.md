@@ -98,7 +98,7 @@
   1. Нажмите на имя созданной БД.
 
      Сохраните значение поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}**, оно понадобится на следующих шагах.
-  1. На панели слева выберите вкладку **{{ ui-key.yacloud.ydb.database.switch_browse }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.ydb.database.switch_browse }}**.
   1. Выберите **{{ ui-key.yacloud.ydb.browse.button_create }}** → **{{ ui-key.yacloud.ydb.browse.menu_table }}** в правой части страницы.
   1. Настройте параметры таблицы:
      * **{{ ui-key.yacloud.ydb.table.form.field_name }}** таблицы — `links`.

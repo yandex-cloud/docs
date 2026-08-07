@@ -5,7 +5,7 @@ description: Follow this guide to connect to {{ PG }} cluster hosts with the hel
 
 # Connecting to a {{ PG }} cluster from applications
 
-You can connect to a {{ PG }} cluster using [command line tools](#command-line-tools), [graphical IDEs](#connection-ide), [{{ websql-full-name }}](#websql), [{{ pgadmin }}](#connection-pgadmin), [{{ google-looker }}](#connection-google-looker), or a [Docker container](#connection-docker). To learn how to connect from the code of your application, see [Code examples](./code-examples.md).
+You can connect to a {{ PG }} cluster using [command line tools](#command-line-tools), [graphical IDEs](#connection-ide), [{{ websql-full-name }}](#websql), [{{ pgadmin }}](#connection-pgadmin), [{{ google-looker }}](#connection-google-looker) (formerly Looker Studio), or a [Docker container](#connection-docker). To learn how to connect from the code of your application, see [Code examples](./code-examples.md).
 
 You can connect to {{ CH }} cluster hosts using [SSL certificates](index.md#get-ssl-cert). The examples below assume that the `root.crt` certificate is located in this directory:
 
@@ -40,9 +40,9 @@ sudo apt update && sudo apt install --yes postgresql-client
             user=<username> \
             target_session_attrs=read-write"
       ```
- 
+
       {% include [host lists](../../../_includes/managed-postgresql/host-list.md) %}    
- 
+
       After you run this command, enter the user password to complete connecting to the database.
 
   1. To check the connection, run the following query:
@@ -56,10 +56,10 @@ sudo apt update && sudo apt install --yes postgresql-client
   1. Connect to a database:
 
       {% include [default-connstring](../../../_includes/mdb/mpg/default-connstring.md) %}
-  
+
       {% include [host lists](../../../_includes/managed-postgresql/host-list.md) %}
 
-      After runing this command, enter the user password to complete your connection.
+      After running this command, enter the user password to complete your connection.
 
   1. To check the connection, run the following query:
 
@@ -95,7 +95,7 @@ Before connecting, install [{{ PG }} for Windows](https://www.postgresql.org/dow
 
      {% include [host lists](../../../_includes/managed-postgresql/host-list.md) %}
 
-     After runing this command, enter the user password to complete your connection.
+     After running this command, enter the user password to complete your connection.
 
   1. To check the connection, run the following query:
 
@@ -123,7 +123,7 @@ Before connecting, install [{{ PG }} for Windows](https://www.postgresql.org/dow
 
       {% include [host lists](../../../_includes/managed-postgresql/host-list.md) %}
 
-      After runing this command, enter the user password to complete your connection.
+      After running this command, enter the user password to complete your connection.
 
   1. To check the connection, run the following query:
 
@@ -272,12 +272,9 @@ Create a new server connection:
 
 Your cluster will appear in the server list located in the navigation menu.
 
-
 ## Connecting from {{ google-looker }} {#connection-google-looker}
 
-
-Connections from [{{ google-looker }}](https://lookerstudio.google.com/overview) are only permitted to publicly accessible hosts.
-
+Connections from [{{ google-looker }}](https://datastudio.google.com/overview) are only permitted to publicly accessible hosts.
 
 1. Save the `CA.pem` [server certificate]({{ crt-web-path }}) to a local directory.
 1. In the same directory, generate a client certificate with a private key:
@@ -309,10 +306,10 @@ Connections from [{{ google-looker }}](https://lookerstudio.google.com/overview)
 
 1. Click **Authenticate**.
 
+
 ## Before you connect from a Docker container {#connection-docker}
 
 To connect to a {{ mpg-name }} cluster from a Docker container, add the following lines to the Dockerfile:
-
 
 {% list tabs group=connection %}
 
@@ -323,7 +320,9 @@ To connect to a {{ mpg-name }} cluster from a Docker container, add the followin
         apt-get install postgresql-client --yes
     ```
 
+    
     See the {{ serverless-containers-full-name }} connection example in [this tutorial](../../../serverless-containers/tutorials/pg-connect.md).
+
 
 - Connecting with SSL {#with-ssl}
 
@@ -337,4 +336,3 @@ To connect to a {{ mpg-name }} cluster from a Docker container, add the followin
     ```
 
 {% endlist %}
-

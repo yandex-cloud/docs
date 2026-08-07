@@ -17,11 +17,11 @@ items:
             href: operations/endpoint/index.md
           - name: Миграция эндпоинтов в другую зону доступности
             href: operations/endpoint/migration-to-an-availability-zone.md
-          - name: Apache Iceberg®
+          - name: '{{ IBRG }}'
             items:
               - name: Приемник
                 href: operations/endpoint/target/iceberg.md
-          - name: Apache Kafka®
+          - name: '{{ KF }}'
             items:
               - name: Источник
                 href: operations/endpoint/source/kafka.md
@@ -35,19 +35,19 @@ items:
             items:
               - name: Источник
                 href: operations/endpoint/source/bigquery.md
-          - name: ClickHouse
+          - name: '{{ CH }}'
             items:
               - name: Источник
                 href: operations/endpoint/source/clickhouse.md
               - name: Приемник
                 href: operations/endpoint/target/clickhouse.md
-          - name: Elasticsearch
+          - name: '{{ ES }}'
             items:
               - name: Источник
                 href: operations/endpoint/source/elasticsearch.md
               - name: Приемник
                 href: operations/endpoint/target/elasticsearch.md
-          - name: Greenplum®
+          - name: '{{ GP }}/{{ CB }}'
             items:
               - name: Источник
                 href: operations/endpoint/source/greenplum.md
@@ -67,19 +67,19 @@ items:
                 href: operations/endpoint/source/mongodb.md
               - name: Приемник
                 href: operations/endpoint/target/mongodb.md
-          - name: MySQL
+          - name: '{{ MY }}'
             items:
               - name: Источник
                 href: operations/endpoint/source/mysql.md
               - name: Приемник
                 href: operations/endpoint/target/mysql.md
-          - name: Object Storage
+          - name: '{{ objstorage-name }}'
             items:
               - name: Источник
                 href: operations/endpoint/source/object-storage.md
               - name: Приемник
                 href: operations/endpoint/target/object-storage.md
-          - name: OpenSearch
+          - name: '{{ OS }}'
             items:
               - name: Источник
                 href: operations/endpoint/source/opensearch.md
@@ -89,7 +89,7 @@ items:
             items:
               - name: Источник
                 href: operations/endpoint/source/oracle.md
-          - name: PostgreSQL
+          - name: '{{ PG }}'
             items:
               - name: Источник
                 href: operations/endpoint/source/postgresql.md
@@ -145,7 +145,7 @@ items:
             href: tutorials/storedoc-versions.md
           - name: Кластер {{ CH }}
             href: tutorials/managed-clickhouse.md
-          - name: Кластер {{ GP }}
+          - name: Кластер {{ GP }}/{{ CB }}
             href: tutorials/managed-greenplum.md
           - name: Миграция из AWS RDS for {{ PG }}
             href: tutorials/rds-to-mpg.md
@@ -171,11 +171,11 @@ items:
             href: tutorials/mmy-to-mpg.md
           - name: '{{ PG }} в {{ MY }}'
             href: tutorials/mpg-to-mmy.md
-          - name: '{{ MY }} в {{ GP }}'
+          - name: '{{ MY }} в {{ GP }}/{{ CB }}'
             href: tutorials/mmy-to-mgp.md
           - name: '{{ OS }} в {{ ydb-short-name }}'
             href: tutorials/opensearch-to-ydb.md
-          - name: '{{ OS }} в {{ GP }}'
+          - name: '{{ OS }} в {{ GP }}/{{ CB }}'
             href: tutorials/opensearch-to-greenplum.md
           - name: '{{ PG }} в {{ OS }}'
             href: tutorials/postgresql-to-opensearch.md
@@ -201,7 +201,7 @@ items:
             href: tutorials/mkf-to-mch.md
           - name: '{{ KF }} в {{ PG }}'
             href: tutorials/mkf-to-mpg.md
-          - name: '{{ KF }} в {{ GP }}'
+          - name: '{{ KF }} в {{ GP }}/{{ CB }}'
             href: tutorials/managed-kafka-to-greenplum.md
           - name: '{{ KF }} в {{ SD }}'
             href: tutorials/mkf-to-mmg.md
@@ -228,7 +228,7 @@ items:
             href: tutorials/data-ingestion.md
       - name: Загрузка данных в витрины
         items:
-          - name: '{{ GP }} в {{ CH }}'
+          - name: '{{ GP }}/{{ CB }} в {{ CH }}'
             href: tutorials/greenplum-to-clickhouse.md
           - name: '{{ MY }} в {{ CH }}'
             href: tutorials/mysql-to-clickhouse.md
@@ -236,13 +236,13 @@ items:
             href: tutorials/metrika-to-clickhouse.md
           - name: '{{ PG }} в {{ CH }}'
             href: tutorials/rdbms-to-clickhouse.md
-          - name: '{{ GP }} в {{ PG }}'
+          - name: '{{ GP }}/{{ CB }} в {{ PG }}'
             href: tutorials/greenplum-to-postgresql.md
           - name: '{{ objstorage-name }} в {{ MY }}'
             href: tutorials/objs-mmy-migration.md
           - name: '{{ objstorage-name }} в {{ PG }}'
             href: tutorials/object-storage-to-postgresql.md
-          - name: '{{ objstorage-name }} в {{ GP }}'
+          - name: '{{ objstorage-name }} в {{ GP }}/{{ CB }}'
             href: tutorials/object-storage-to-greenplum.md
           - name: '{{ yandex-direct }} в {{ CH }}'
             href: tutorials/direct-to-mch.md

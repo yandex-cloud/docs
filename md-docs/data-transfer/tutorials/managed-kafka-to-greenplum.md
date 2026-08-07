@@ -1,8 +1,8 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Data Transfer](../index.md) > [Практические руководства](index.md) > Поставка данных из очередей > Apache Kafka® в Greenplum®
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Transfer](../index.md) > [Практические руководства](index.md) > Поставка данных из очередей > Apache Kafka® в Greenplum®/Apache Cloudberry™
 
-# Поставка данных из очереди Apache Kafka® в Greenplum®
+# Поставка данных из очереди Apache Kafka® в Greenplum®/Apache Cloudberry™
 
-Вы можете настроить перенос данных из топика Yandex Managed Service for Apache Kafka® в Greenplum® в сервисе Yandex MPP Analytics for PostgreSQL с помощью Yandex Data Transfer. Для этого:
+Вы можете настроить перенос данных из топика Yandex Managed Service for Apache Kafka® в Greenplum®/Apache Cloudberry™ в сервисе Yandex MPP Analytics for PostgreSQL с помощью Yandex Data Transfer. Для этого:
 
 1. [Подготовьте тестовые данные](#prepare-data).
 1. [Подготовьте и активируйте трансфер](#prepare-transfer).

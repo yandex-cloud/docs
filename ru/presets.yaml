@@ -7020,7 +7020,10 @@ default:
           field_thresholds: Увеличивать размер
           hosts:
             action_add-host: Создать хост
+            action_create-alias: Создать алиас
+            action_delete-alias: Удалить алиас
             action_delete-host: Удалить
+            action_move-cluster-alias: Переместить алиас
             action_restart-host: Перезагрузить
             button_add-clickhouse-keeper: Создать хост ClickHouse Keeper
             button_add-zookeeper: Создать хост ZooKeeper
@@ -7028,12 +7031,14 @@ default:
             button_manual-failover: Переключить мастер
             button_rebalance-cluster: Ребалансировать кластер
             button_rebalance-cluster-short: Ребалансировать
+            field_host_alias: Алиас хоста
             host_column_name: FQDN хоста
             host_column_public-ip: Публичный доступ
             host_column_role: Роль
             host_column_zone: Зона доступности
             label_title: Хосты
             popup-confirm_button: Подтвердить
+            section_cname-alias: Алиас CNAME
             switch_monitoring: Мониторинги
             switch_overview: Обзор
           label_mdb: Кластер

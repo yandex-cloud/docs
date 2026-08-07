@@ -195,11 +195,11 @@ Before connecting, install [MongoDB Shell](index.md#install-mongosh).
 
 ### Connecting with IAM authentication {#iam}
 
-You can connect to a {{ mmg-name }} cluster using IAM authentication. This authentication option is supported for [Yandex accounts](../../../iam/concepts/users/accounts.md#passport), [federated](../../../iam/concepts/users/accounts.md#saml-federation) accounts, and [local](../../../iam/concepts/users/accounts.md#local) accounts.
+You can connect to a {{ mmg-name }} cluster using IAM authentication. Use a [Yandex account](../../../iam/concepts/users/accounts.md#passport), a [federated](../../../iam/concepts/users/accounts.md#saml-federation) account, or a [local](../../../iam/concepts/users/accounts.md#local) account to authenticate.
 
-The connection is established via MongoDB Shell. For information on how to install MongoDB Shell, see [this guide](index.md#mongosh-install).
+The connection is established via MongoDB Shell. For more on how to install MongoDB Shell, see [this guide](index.md#mongosh-install).
 
-Before you proceed with connection, configure the [security groups](index.md#configuring-security-groups) and [enable public access](../hosts.md#update) to the cluster hosts if connecting over the internet.
+Before connecting, configure the [security groups](index.md#configuring-security-groups) and [enable public access](../hosts.md#update) to the cluster hosts if the connection is made over the internet.
 
 To connect to a cluster using IAM authentication:
 
@@ -218,7 +218,7 @@ To connect to a cluster using IAM authentication:
           1. Click **{{ ui-key.yacloud_components.acl.action.assign-roles }}** in the top-right corner of the page.
           1. In the **{{ ui-key.yacloud_components.acl.label.subject }}** field, select the account.
               
-              To find the account you need, enter its associated email address.
+              To find the account you need, enter the email address linked to the account.
           
           1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the `managed-mongodb.clusters.connector` role.
           1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
@@ -229,12 +229,12 @@ To connect to a cluster using IAM authentication:
           1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}** in the top-right corner of the page.
           1. Choose the **{{ ui-key.yacloud.mongodb.UserAddDialog.label_iam_ffBD5 }}** authorization method.
           1. Select the {{ yandex-cloud }} account with the `managed-mongodb.clusters.connector` role.
-          1. Select the databases and configure [roles](../../concepts/users-and-roles.md) for them:
+          1. Select databases and configure [roles](../../concepts/users-and-roles.md) for them:
           
               1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.dialogs.button_add-database }}** and select the database.
-              1. Assign roles for the selected database.
+              1. Assign the roles for the selected database.
               
-                  To assign a role, click ![image](../../../_assets/console-icons/plus.svg) and select the role you need.
+                  To assign a role, click ![image](../../../_assets/console-icons/plus.svg) and select the role.
           
           1. Click **{{ ui-key.yacloud.mdb.cluster.users.popup-add_button_add }}**.
 
@@ -247,7 +247,7 @@ To connect to a cluster using IAM authentication:
     * [Guide](../../../iam/operations/iam-token/create-for-local.md) for a local account.
 
 1. [Get an SSL certificate](index.md#get-ssl-cert).
-1. Connect to the cluster by running this command:
+1. Connect the cluster by running this command:
 
     For a non-sharded cluster:
 
@@ -285,11 +285,10 @@ To connect to a cluster using IAM authentication:
 
 ## Connecting from graphical IDEs {#connection-ide}
 
+
 {% include [ide-environments](../../../_includes/mdb/mmg-ide-envs.md) %}
 
-
 From graphical IDEs, you can only connect to public cluster hosts using an SSL certificate.
-
 
 {% include [note-connection-ide](../../../_includes/mdb/note-connection-ide.md) %}
 
@@ -358,6 +357,7 @@ To connect to your cluster:
       1. Under **Settings**, check **Skip hostname validation**.
 1. Click **Test connection ...**. If the connection is successful, you will see the connection status, DBMS information, and driver details.
 1. Click **Ready** to save the database connection settings.
+
 
 ## Before you connect from a Docker container {#connection-docker}
 
