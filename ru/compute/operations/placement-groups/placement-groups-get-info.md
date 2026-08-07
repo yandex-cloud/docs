@@ -4,7 +4,7 @@ title: Как получить информацию о группе размещ
 
 # Получить информацию о группе размещения
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
@@ -14,7 +14,7 @@ title: Как получить информацию о группе размещ
   1. Выберите нужную группу.
   1. На странице **{{ ui-key.yacloud.compute.placement-group.overview.label_title }}** отобразится подробная информация о группе размещения ВМ.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
