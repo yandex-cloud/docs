@@ -20,7 +20,7 @@ To access a broker, use its unique ID or name. For info on how to get the unique
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to update the broker name.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. To the right of the name of your broker, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
    1. Edit the **{{ ui-key.yacloud.common.name }}** field.
@@ -39,6 +39,7 @@ To access a broker, use its unique ID or name. For info on how to get the unique
   ```
 
   Result:
+
   ```text
   id: b91ki3851h**********
   folder_id: aoek49ghmk**********
@@ -67,7 +68,7 @@ To access a broker, use its unique ID or name. For info on how to get the unique
       }
       ```
 
-      For more information about `yandex_iot_core_broker` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_broker).
+      For more on the properties of the `yandex_iot_core_broker` resource, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_broker).
   1. In the terminal, navigate to the directory where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -87,7 +88,7 @@ To access a broker, use its unique ID or name. For info on how to get the unique
       terraform plan
       ```
 
-      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
   1. Apply the configuration changes:
 
       ```bash
@@ -117,7 +118,7 @@ To access a broker, use its unique ID or name. For info on how to get the unique
    To update a broker description:
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to update the broker description.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. To the right of the name of your broker, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
    1. Edit the **{{ ui-key.yacloud.common.description }}** field.
@@ -134,6 +135,7 @@ To access a broker, use its unique ID or name. For info on how to get the unique
   ```
 
   Result:
+
   ```text
   id: b91ki3851h**********
   folder_id: aoek49ghmk**********
@@ -165,7 +167,7 @@ To access a broker, use its unique ID or name. For info on how to get the unique
       }
       ```
 
-      For more information about `yandex_iot_core_broker` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_broker).
+      For more on the properties of the `yandex_iot_core_broker` resource, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_broker).
   1. In the terminal, navigate to the directory where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -185,7 +187,7 @@ To access a broker, use its unique ID or name. For info on how to get the unique
       terraform plan
       ```
 
-      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
   1. Apply the configuration changes:
 
       ```bash
@@ -221,10 +223,10 @@ You can manage broker labels in the following ways:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to add a broker label.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. To the right of the name of your broker, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
-   1. Fill out the **{{ ui-key.yacloud.component.key-values-input.label_key }}** and **{{ ui-key.yacloud.component.key-values-input.label_value }}** fields and click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+   1. Fill in the **{{ ui-key.yacloud.component.key-values-input.label_key }}** and **{{ ui-key.yacloud.component.key-values-input.label_value }}** fields and click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -240,6 +242,7 @@ You can manage broker labels in the following ways:
   ```
 
   Result:
+
   ```text
   id: b91ki3851h**********
   folder_id: aoek49ghmk**********
@@ -260,6 +263,7 @@ You can manage broker labels in the following ways:
   1. In the configuration file, describe the resource you want to create:
 
      * `yandex_iot_core_broker`: Broker settings:
+
        * `name`: Broker name.
        * `description`: Broker description.
        * `labels`: Broker labels in `key:value` format.
@@ -277,7 +281,7 @@ You can manage broker labels in the following ways:
       }
       ```
 
-      For more information about `yandex_iot_core_broker` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_broker).
+      For more on the properties of the `yandex_iot_core_broker` resource, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_broker).
   1. In the terminal, navigate to the directory where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -297,7 +301,7 @@ You can manage broker labels in the following ways:
       terraform plan
       ```
 
-      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
   1. Apply the configuration changes:
 
       ```bash
@@ -325,7 +329,7 @@ You can manage broker labels in the following ways:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to update a broker label.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. To the right of the name of your broker, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
    1. Edit the **{{ ui-key.yacloud.component.key-values-input.label_key }}** and **{{ ui-key.yacloud.component.key-values-input.label_value }}** fields.
@@ -346,6 +350,7 @@ You can manage broker labels in the following ways:
   ```
 
   Result:
+
   ```text
   id: b91ki3851h**********
   folder_id: aoek49ghmk**********
@@ -378,7 +383,7 @@ You can manage broker labels in the following ways:
       }
       ```
 
-      For more information about `yandex_iot_core_broker` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_broker).
+      For more on the properties of the `yandex_iot_core_broker` resource, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_broker).
   1. In the terminal, navigate to the directory where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -398,7 +403,7 @@ You can manage broker labels in the following ways:
       terraform plan
       ```
 
-      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
   1. Apply the configuration changes:
 
       ```bash
@@ -426,7 +431,7 @@ You can manage broker labels in the following ways:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to delete a broker label.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. To the right of the name of your broker, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
    1. To the right of the label to delete, click ![image](../../../_assets/console-icons/xmark.svg).
@@ -445,6 +450,7 @@ You can manage broker labels in the following ways:
   ```
 
   Result:
+  
   ```text
   id: b91ki3851h**********
   folder_id: aoek49ghmk**********
@@ -475,7 +481,7 @@ You can manage broker labels in the following ways:
       }
       ```
 
-      For more information about `yandex_iot_core_broker` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_broker).
+      For more on the properties of the `yandex_iot_core_broker` resource, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_broker).
   1. In the terminal, navigate to the directory where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -495,7 +501,7 @@ You can manage broker labels in the following ways:
       terraform plan
       ```
 
-      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
   1. Apply the configuration changes:
 
       ```bash

@@ -170,6 +170,14 @@
 
       {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
 
+  1. Настройте защиту базы данных от непреднамеренного удаления. Возможные значения:
+
+      * **Как у кластера**.
+      * **Включена**.
+      * **Выключена**.
+
+      {% include [deletion-protection-db](../../_includes/mdb/deletion-protection-db.md) %}
+
   1. [Назначьте роли](cluster-users.md#updateuser), разрешающие доступ к созданной базе данных, нужным пользователям кластера.
 
 - CLI {#cli}
@@ -196,6 +204,8 @@
 
   * `--deletion-protection` — защита базы данных от непреднамеренного удаления: `true` или `false`. По умолчанию значение не задано, и для базы данных используется значение соответствующей настройки кластера. Если защита включена (`true`), удалить базу данных нельзя.
 
+    {% include [deletion-protection-db](../../_includes/mdb/deletion-protection-db.md) %}
+
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -220,6 +230,8 @@
           {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
 
         * `--deletion-protection` — защита базы данных от непреднамеренного удаления: `true` или `false`. По умолчанию значение не задано, и для базы данных используется значение соответствующей настройки кластера. Если защита включена (`true`), удалить базу данных нельзя.
+
+          {% include [deletion-protection-db](../../_includes/mdb/deletion-protection-db.md) %}
 
     1. Проверьте корректность настроек.
 
@@ -262,6 +274,8 @@
      
      * `databaseSpec.deletionProtection` — защита базы данных от непреднамеренного удаления: `true` или `false`. По умолчанию значение не задано, и для базы данных используется значение соответствующей настройки кластера. Если защита включена (`true`), удалить базу данных нельзя.
 
+       {% include [deletion-protection-db](../../_includes/mdb/deletion-protection-db.md) %}
+
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Database/create.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
@@ -299,6 +313,8 @@
        {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
      
      * `database_spec.deletion_protection` — защита базы данных от непреднамеренного удаления: `true` или `false`. По умолчанию значение не задано, и для базы данных используется значение соответствующей настройки кластера. Если защита включена (`true`), удалить базу данных нельзя.
+
+       {% include [deletion-protection-db](../../_includes/mdb/deletion-protection-db.md) %}
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation).
 
@@ -448,7 +464,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storedoc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mongodb.cluster.switch_databases }}**.
-  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной БД и выберите пункт **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**.
+  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной БД и выберите пункт **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**.
 
 - CLI {#cli}
 

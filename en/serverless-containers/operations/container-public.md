@@ -7,7 +7,7 @@ To allow any user to invoke a container without providing an authorization heade
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder with your container.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. [Navigate]({{ link-console-main }}/link/serverless-containers) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Select the container you want to make public.
   1. On the **{{ ui-key.yacloud.common.overview }}** tab, enable **{{ ui-key.yacloud.serverless-containers.label_public-container }}**.
 
@@ -54,6 +54,7 @@ To allow any user to invoke a container without providing an authorization heade
       ```
 
       Where:
+      
       * `roleId`: Role to assign. The `serverless-containers.containerInvoker` role allows you to invoke a container.
       * `id`: Subject getting the role. `allUsers` stands for any user and requires no authentication.
       * `type`: Type of the subject getting the role. `system` stands for a [public group](../../iam/concepts/access-control/public-group.md).

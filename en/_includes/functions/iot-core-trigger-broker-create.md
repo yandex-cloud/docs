@@ -20,9 +20,9 @@ The trigger must be in the same cloud as the broker whose topic it reads message
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
+    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
 
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
     1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -124,7 +124,7 @@ The trigger must be in the same cloud as the broker whose topic it reads message
 
 {% include [check-result](check-result.md) %}
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../serverless-containers/operations/iot-core-trigger-broker-create.md)
 * [{#T}](../../api-gateway/operations/trigger/iot-core-trigger-broker-create.md)

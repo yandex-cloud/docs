@@ -66,7 +66,7 @@ GitLab Agent не исполняет конвейеры [CI/CD](https://yandex.c
    * **Токен доступа агента** — скопируйте в это поле токен доступа GitLab, [полученный ранее](#before-you-begin).
 1. Нажмите кнопку **Установить**.
 1. Дождитесь, пока статус приложения изменится на `Deployed`.
-1. Откройте ваш инстанс GitLab и перейдите на страницу **Infrastucture → Kubernetes clusters**. Убедитесь, что агент перешел в состояние `Connected`.
+1. Откройте ваш инстанс GitLab и перейдите на страницу **Infrastructure → Kubernetes clusters**. Убедитесь, что агент перешел в состояние `Connected`.
 
 ## Установка с помощью Helm-чарта {#helm-install}
 
@@ -102,7 +102,7 @@ GitLab Agent не исполняет конвейеры [CI/CD](https://yandex.c
    kubectl get pods --namespace=<пространство_имен>
    ```
 
-1. Откройте ваш инстанс GitLab и перейдите на страницу **Infrastucture → Kubernetes clusters**. Убедитесь, что агент перешел в состояние `Connected`.
+1. Откройте ваш инстанс GitLab и перейдите на страницу **Infrastructure → Kubernetes clusters**. Убедитесь, что агент перешел в состояние `Connected`.
 
 ## Примеры использования {#examples}
 

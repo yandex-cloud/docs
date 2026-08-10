@@ -6,7 +6,7 @@ Managed Service for Kubernetes позволяет выгружать метри�
 
 Из этой статьи вы узнаете, как настроить мониторинг [кластера Yandex Managed Service for Kubernetes](../concepts/index.md#kubernetes-cluster) с помощью Prometheus Operator с поддержкой Yandex Monitoring.
 
-Prometheus Operator с поддержкой Monitoring упрощает установку Prometheus Operator, популярного решения для мониторига кластеров Kubernetes, и добавляет интеграцию с системой мониторинга Yandex Monitoring. С ее помощью можно собирать, хранить и читать метрики из контейнеров, приложений и инфраструктуры. Система использует модель данных Prometheus и язык запросов [PromQL](https://prometheus.io/docs/prometheus/latest/querying/basics/).
+Prometheus Operator с поддержкой Monitoring упрощает установку Prometheus Operator, популярного решения для мониторинга кластеров Kubernetes, и добавляет интеграцию с системой мониторинга Yandex Monitoring. С ее помощью можно собирать, хранить и читать метрики из контейнеров, приложений и инфраструктуры. Система использует модель данных Prometheus и язык запросов [PromQL](https://prometheus.io/docs/prometheus/latest/querying/basics/).
 
 Чтобы настроить мониторинг кластера Managed Service for Kubernetes:
 

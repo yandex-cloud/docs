@@ -4104,8 +4104,6 @@ default:
             section-title_mode: Эффект
             title_audit: Отключить режим блокировки для правила
             title_ignore: Игнорировать правило
-          TopControlsByErrorsWidget:
-            table_controls_rJ32E: Топ правил с алертами
         settings:
           SettingsPageLayout:
             alertSinkLabel_gvxBa: Приёмники алертов
@@ -4859,7 +4857,7 @@ default:
         label_public-subnets_v16CV: Публичные адреса и подсети
         label_servers_sCNgb: Серверы
         label_subnetworks_uU4LH: Приватные подсети
-        label_vrf-interconnect-direct-type: Идентификатор соединения
+        label_vrf-interconnect-direct-type: Идентификатор виртуального маршрутизатора
         label_vrf-interconnect-select-type: Способ настройки
         message_confirm-server-prolongate-ended-rent: >-
           Время нахождения сервера в карантине оплачивается после восстановления

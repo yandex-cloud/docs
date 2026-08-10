@@ -7,6 +7,31 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.25.0 (10.08.26) {#v-1-25-0}
+
+#### {{ mch-name }} {#v-1-25-0-mch-name}
+
+* Добавлено свойство `engine` в параметр `--database` команды `yc managed-clickhouse cluster create` — позволяет выбрать движок базы данных `atomic` или `replicated`.
+* Добавлен флаг `--default-user-settings` для управления настройками, которые применяются ко всем пользователям кластера ClickHouse по умолчанию:
+  * `yc managed-clickhouse cluster create`;
+  * `yc managed-clickhouse cluster update`;
+  * `yc managed-clickhouse cluster restore`.
+* В вывод команды `yc managed-clickhouse user list` добавлен метод аутентификации.
+* Команда `yc managed-clickhouse cluster connect` поддерживает подключение к кластеру как через отдельный исполняемый файл `clickhouse-client`, так и через команду `clickhouse client`.
+* В команде `yc managed-clickhouse hosts add` поддержано значение `keeper` для свойства `type` параметра `--host` — позволяет добавлять хосты ClickHouse Keeper.
+
+#### {{ mpg-name }} {#v-1-25-0-mpg-name}
+
+* Добавлен параметр `--owner` в команду `yc managed-postgresql database update` для смены владельца базы данных.
+
+#### {{ sws-name }} {#v-1-25-0-sws-name}
+
+* Добавлены группы команд для управления балансировщиками Smart Web Security и их доменами в v2:
+  * `yc smartwebsecurity load-balancer load-balancer`;
+  * `yc smartwebsecurity load-balancer domain`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.24.0 (06.08.26) {#v-1-24-0}
 
 #### {{ baremetal-name }} {#v-1-24-0-baremetal-name}
@@ -26,8 +51,6 @@ description: На странице представлены релизы CLI, а
 #### {{ org-full-name }} {#v-1-24-0-org-name}
 
 Исправлен формат вывода `yc organization-manager idp synchronization-settings list-supported-attributes` при `--format text`, теперь возвращаются таблицы.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.23.0 (03.08.26) {#v-1-23-0}
 
@@ -178,7 +201,7 @@ description: На странице представлены релизы CLI, а
 
 #### {{ compute-name }} {#v-1-19-0-compute-name}
 
-* Добавлен параметр `--subnets` в команду `yc compute gpu-cluster create` создания пользовательски GPU кластеров.
+* Добавлен параметр `--subnets` в команду `yc compute gpu-cluster create` создания пользовательских GPU кластеров.
 
 #### {{ maf-name }} {#v-1-19-0-maf-name}
 

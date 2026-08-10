@@ -3560,8 +3560,6 @@ default:
             section-title_mode: Effect
             title_audit: Disable lock mode for rule
             title_ignore: Ignore rule
-          TopControlsByErrorsWidget:
-            table_controls_rJ32E: Top rules with alerts
         settings:
           SettingsPageLayout:
             alertSinkLabel_gvxBa: Alert Sinks
@@ -4240,7 +4238,7 @@ default:
         label_public-subnets_v16CV: Public addresses and subnets
         label_servers_sCNgb: Servers
         label_subnetworks_uU4LH: Private subnets
-        label_vrf-interconnect-direct-type: Connection ID
+        label_vrf-interconnect-direct-type: Virtual router ID
         label_vrf-interconnect-select-type: Setup method
         message_confirm-server-prolongate-ended-rent: >-
           The time spent by the server in quarantine is paid after the server is

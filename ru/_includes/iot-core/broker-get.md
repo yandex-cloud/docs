@@ -46,7 +46,7 @@
 
       ```hcl
       data "yandex_iot_core_broker" "my_broker" {
-        broker_id = "<идентификатор_брокера>"
+        broker_id = "<идентифкатор_брокера>"
       }
 
       output "broker_params" {

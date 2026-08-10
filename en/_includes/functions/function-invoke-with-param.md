@@ -11,7 +11,7 @@ To allow any user to invoke your function, [make it public](../../functions/oper
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select the function.
     1. Navigate to the ![CirclePlay](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
     1. In the **{{ ui-key.yacloud.serverless-functions.item.testing.field_tag }}** field, specify `$latest` to invoke the latest function version.
@@ -58,7 +58,7 @@ To allow any user to invoke your function, [make it public](../../functions/oper
 
 	You can find the function invocation link on the **{{ ui-key.yacloud.common.overview }}** tab, in the **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}** field.
 
-	For security reasons, you can only invoke a function via HTTPS. Invoke it as a regular HTTP request by pasting the link into the browser address bar and adding the `name` parameter to the URL:
+	For security reasons, you can only call a function via HTTPS. Call it as a regular HTTPS request by pasting the link into your browser’s address bar and adding the `name` parameter to the URL:
 
 	```
 	https://{{ sf-url }}/<function_ID>?name=Username

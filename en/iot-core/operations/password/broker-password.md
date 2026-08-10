@@ -1,6 +1,6 @@
 ---
-title: How to manage broker passwords in {{ iot-full-name }}
-description: In this guide, you will learn how to get a list of broker passwords and add or delete a broker password in {{ iot-full-name }}.
+title: How to work with broker passwords in {{ iot-full-name }}
+description: In this tutorial, you will learn how to get a list of broker passwords and add or delete a broker password in {{ iot-full-name }}.
 ---
 
 # Managing broker passwords
@@ -9,7 +9,7 @@ description: In this guide, you will learn how to get a list of broker passwords
 
 {% include [note-pp](../../../_includes/iot-core/note-pp.md) %}
 
-To start exchanging messages between broker clients, you need to [authenticate](../../concepts/authorization.md). This section describes how to manage broker passwords for the relevant authentication method.
+To start exchanging messages between broker clients, you must [log in](../../concepts/authorization.md). This section describes how to manage broker passwords for the relevant authentication method.
 
 {% include [pass-priority-note](../../../_includes/iot-core/pass-priority-note.md) %}
 
@@ -19,7 +19,7 @@ To start exchanging messages between broker clients, you need to [authenticate](
 
 ## Adding a password to a broker {#create-or-add}
 
-You can add a password to an already created broker or set it when creating a broker using the `--password` parameter.
+You can add a password to an existing broker or set it when creating a broker using the `--password` parameter.
 
 {% include [read-pass](../../../_includes/iot-core/read-pass.md) %}
 
@@ -29,12 +29,12 @@ You can add a password to an already created broker or set it when creating a br
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to add a password to an existing broker.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to add a password for an existing broker.
+   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
-   1. Select the broker from the list.
+   1. Select the appropriate broker from the list.
    1. Under **{{ ui-key.yacloud.iot.label_passwords }}**, click **{{ ui-key.yacloud.iot.button_add-password }}**.
-   1. In the **{{ ui-key.yacloud.common.password }}** field, enter a password you will use to access the broker. To create a password, you can use [this password generator](https://passwordsgenerator.net/). Make sure to save the password, as you will need it later.
+   1. In the **{{ ui-key.yacloud.common.password }}** field, enter the password you will use to access the broker. To create a password, you can use [this password generator](https://passwordsgenerator.net/). Make sure to save your password, as you will need it later.
    1. Click **{{ ui-key.yacloud.common.add }}**.
 
 - CLI {#cli}
@@ -51,13 +51,15 @@ You can add a password to an already created broker or set it when creating a br
 		```
 		
 		Result:
+        
 		```
         +----------------------+-------------------+
         |          ID          |       NAME        |
         +----------------------+-------------------+
         | arenou2oj4********** | my-broker         |
         +----------------------+-------------------+
-        ```    
+        ```
+
     1. Add a password to the broker:
     
         ```
@@ -65,6 +67,7 @@ You can add a password to an already created broker or set it when creating a br
         ```
 		
 		Result:
+
 		```
 		broker_id: arenou2oj4**********
         id: areuu2hgsv6k********
@@ -83,7 +86,7 @@ You can add a password to an already created broker or set it when creating a br
 
 - Management console {#console}
 
-   For information on how to set a password for a broker when creating it, see [{#T}](../broker/broker-create.md).
+   For information about how to set a password for a broker when creating it, see [{#T}](../broker/broker-create.md).
 
 - CLI {#cli}
   
@@ -98,6 +101,7 @@ You can add a password to an already created broker or set it when creating a br
     ```
 	
 	Result:
+
 	```
 	done (1s)
     id: areg96c8lo**********
@@ -121,9 +125,9 @@ You can add a password to an already created broker or set it when creating a br
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to get a list of broker passwords.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
-   1. Select the broker from the list.
+   1. Select the appropriate broker from the list.
    1. On the **{{ ui-key.yacloud.common.overview }}** page, go to the **{{ ui-key.yacloud.iot.label_passwords }}** section.
 
 - CLI {#cli}
@@ -132,14 +136,16 @@ You can add a password to an already created broker or set it when creating a br
     
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
     
-    To get a list of passwords:  
-    1. Get a list of brokers in the folder: 
+    To get a list of passwords:
+
+    1. Get a list of brokers in the folder:
     
         ```
         yc iot broker list
 		```
 		
 		Result:
+        
 		```
         +----------------------+--------------------+
         |          ID          |        NAME        |
@@ -148,6 +154,7 @@ You can add a password to an already created broker or set it when creating a br
         | arenou2oj4********** | my-broker          |
         +----------------------+--------------------+
         ```
+
     1. Get a list of broker passwords: 
     
         ```
@@ -155,6 +162,7 @@ You can add a password to an already created broker or set it when creating a br
         ```
 		
 		Result:
+
 		```
 		+----------------------+---------------------+
         |          ID          |     CREATED AT      |
@@ -175,10 +183,10 @@ You can add a password to an already created broker or set it when creating a br
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to delete a broker password.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. In the [management console]({{ link-console-main }}), select the folder to delete the broker password from.
+   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
-   1. Select the broker from the list.
+   1. Select the appropriate broker from the list.
    1. In the row with the password, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
@@ -188,7 +196,8 @@ You can add a password to an already created broker or set it when creating a br
     
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
     
-    To delete a password:  
+    To delete a password:
+
     1. Get a list of broker passwords: 
     
         ```
@@ -196,6 +205,7 @@ You can add a password to an already created broker or set it when creating a br
         ```
 		
 		Result:
+
 		```
 		+----------------------+---------------------+
         |          ID          |     CREATED AT      |
@@ -203,18 +213,21 @@ You can add a password to an already created broker or set it when creating a br
         | are0gffs95********** | 2019-12-16 15:34:25 |
         +----------------------+---------------------+
         ```
-    1. Delete the password: 
+
+    1. Delete the password:
     
         ```
         yc iot broker password delete --broker-name broker-with-pass --password-id are0gffs957e********
         ```
-    1. Make sure the password has been deleted: 
+
+    1. Make sure that the password was deleted: 
         
         ```
         yc iot broker password list --broker-name broker-with-pass
         ```
 		
 		Result:
+
 		```
 		+----+------------+
         | ID | CREATED AT |

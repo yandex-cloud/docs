@@ -194,6 +194,14 @@ description: Из статьи вы узнаете, как добавлять и
         Для этого способа авторизации выберите аккаунт в поле **{{ ui-key.yacloud.common.user }}**.
 
 
+  1. Выберите тип защиты пользователя от непреднамеренного удаления. Возможные значения:
+
+     * **Как у кластера**.
+     * **Включена**.
+     * **Выключена**.
+
+     {% include [deletion-protection-user](../../_includes/mdb/deletion-protection-user.md) %}
+
   1. Настройте [роли](../concepts/users-and-roles.md) пользователя:
 
      1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.button_add-database }}** и выберите БД, в которой вы хотите выдать роль.
@@ -249,6 +257,8 @@ description: Из статьи вы узнаете, как добавлять и
      
      * `--deletion-protection` — защита пользователя от непреднамеренного удаления: `true` или `false`. По умолчанию значение не задано, и для пользователя используется значение соответствующей настройки кластера. Если защита включена (`true`), удалить пользователя нельзя.
 
+       {% include [deletion-protection-user](../../_includes/mdb/deletion-protection-user.md) %}
+
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -278,7 +288,9 @@ description: Из статьи вы узнаете, как добавлять и
           {% include [user-name-and-password-limits](../../_includes/mdb/mmg/note-info-user-name-and-pass-limits.md) %}
 
         * `deletion_protection` — защита пользователя от непреднамеренного удаления: `true` или `false`. По умолчанию значение не задано, и для пользователя используется значение соответствующей настройки кластера. Если защита включена (`true`), удалить пользователя нельзя.
-        
+
+          {% include [deletion-protection-user](../../_includes/mdb/deletion-protection-user.md) %}
+
         * `permission` — разрешения пользователя для доступа к базе данных:
           
           * `database_name` — имя базы данных, к которой пользователь получает доступ.
@@ -347,6 +359,8 @@ description: Из статьи вы узнаете, как добавлять и
      
      * `userSpec.deletionProtection` — защита пользователя от непреднамеренного удаления: `true` или `false`. По умолчанию значение не задано, и для пользователя используется значение соответствующей настройки кластера. Если защита включена (`true`), удалить пользователя нельзя.
 
+       {% include [deletion-protection-user](../../_includes/mdb/deletion-protection-user.md) %}
+
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/create.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
@@ -404,6 +418,8 @@ description: Из статьи вы узнаете, как добавлять и
 
      * `user_spec.deletion_protection` — защита пользователя от непреднамеренного удаления: `true` или `false`. По умолчанию значение не задано, и для пользователя используется значение соответствующей настройки кластера. Если защита включена (`true`), удалить пользователя нельзя.
 
+       {% include [deletion-protection-user](../../_includes/mdb/deletion-protection-user.md) %}
+
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
@@ -426,7 +442,7 @@ description: Из статьи вы узнаете, как добавлять и
   1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}**.
 
   
-  1. Чтобы изменить пароль пользователя, нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**:
+  1. Чтобы изменить пароль пользователя, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**:
   
      * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}** — ввести свой пароль. Длина пароля — от 8 до 128 символов.
      * **{{ ui-key.yacloud.component.password-input.label_button-generate }}** — сгенерировать пароль с помощью сервиса [{{ connection-manager-name }}](cluster-create.md#conn-man).
@@ -436,9 +452,14 @@ description: Из статьи вы узнаете, как добавлять и
      Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
 
+  1. Чтобы настроить защиту пользователя от непреднамеренного удаления:
+
+     1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+     1. Выберите нужное значение в поле **{{ ui-key.yacloud.mdb.dialogs.field_deletion_protection }}**.
+
   1. Чтобы изменить [роли](../concepts/users-and-roles.md) пользователя:
 
-     1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+     1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
      1. Чтобы добавить роль, нажмите ![image](../../_assets/console-icons/plus.svg) напротив нужной БД и выберите роль.
      1. Чтобы удалить роль, нажмите на значок ![image](../../_assets/console-icons/xmark.svg) возле названия роли.
 
@@ -727,7 +748,7 @@ description: Из статьи вы узнаете, как добавлять и
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storedoc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}**.
-  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
+  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
   
 - CLI {#cli}
   

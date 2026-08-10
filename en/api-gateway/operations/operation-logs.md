@@ -11,7 +11,7 @@ The system logs all actions with {{ api-gw-name }} resources as a list of operat
   You can get a list of operations for a specific resource. The steps below describe how you can do this for an API gateway. The same steps apply to other resources as well.
 
   1. In the [management console]({{ link-console-main }}), open the folder containing the API gateway.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. [Navigate]({{ link-console-main }}/link/api-gateway) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/branches-right.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-gateways }}**.
   1. Select the API gateway you need.
   1. Navigate to the **{{ ui-key.yacloud.common.operations-key-value }}** tab for the selected API gateway.
@@ -132,4 +132,4 @@ The system logs all actions with {{ api-gw-name }} resources as a list of operat
 
 #### Useful links {#see-also}
 
-* [{#T}](../../api-design-guide/concepts/about-async.md)
+[{#T}](../../api-design-guide/concepts/about-async.md)

@@ -30,9 +30,9 @@ To create a trigger, you will need:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
+    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
 
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -86,7 +86,7 @@ To create a trigger, you will need:
         To find out the queue ID:
 
         1. In the [management console]({{ link-console-main }}), navigate to the folder containing the queue.
-        1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+        1. [Navigate]({{ link-console-main }}/link/message-queue) to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
         1. Select the queue.
         1. You can see the queue ID under **{{ ui-key.yacloud.ymq.queue.overview.section_base }}** in the **{{ ui-key.yacloud.ymq.queue.overview.label_queue-arn }}** field.
 
@@ -97,6 +97,7 @@ To create a trigger, you will need:
     * `--batch-cutoff`: Maximum wait time. This is an optional setting. The values may range from 0 to 20 seconds. The default value is 10 seconds. The trigger groups messages within the `batch-cutoff` period and sends them to the function. The number of messages cannot exceed `batch-size`.
 
     Result:
+
     ```text
     id: dd0cspdch6**********
     folder_id: aoek49ghmk**********
@@ -162,7 +163,7 @@ To create a trigger, you will need:
            To find out the queue ID:
 
            1. In the [management console]({{ link-console-main }}), navigate to the folder containing the queue.
-           1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+           1. [Navigate]({{ link-console-main }}/link/message-queue) to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
            1. Select the queue.
            1. You can see the queue ID under **{{ ui-key.yacloud.ymq.queue.overview.section_base }}** in the **{{ ui-key.yacloud.ymq.queue.overview.label_queue-arn }}** field.
 
@@ -200,13 +201,13 @@ To create a trigger, you will need:
 
     Check that the number of enqueued messages is decreasing. To do this, view the queue statistics:
 
-    1. In the [management console]({{ link-console-main }}), navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+    1. [Navigate]({{ link-console-main }}/link/message-queue) to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
     1. Select the queue for which you created the trigger.
     1. Go to **{{ ui-key.yacloud.common.monitoring }}**. Check the **{{ ui-key.yacloud.ymq.queue.overview.label_msg-count }}** chart.
 
 {% endlist %}
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../../serverless-containers/operations/ymq-trigger-create.md)
 * [{#T}](../../../api-gateway/operations/trigger/ymq-trigger-create.md)

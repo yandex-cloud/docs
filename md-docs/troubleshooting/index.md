@@ -742,7 +742,7 @@
 
  - [Как включить Egress NAT](vpc/how-to/activate-egress-nat.md)
 
- - [Как осуществить маршутизацию трафика между двумя облачными сетями](vpc/how-to/routing-traffic-between-two-vpcs.md)
+ - [Как осуществить маршрутизацию трафика между двумя облачными сетями](vpc/how-to/routing-traffic-between-two-vpcs.md)
 
  - [Как использовать IPv6-адреса](vpc/how-to/using-ipv6.md)
 

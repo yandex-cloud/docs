@@ -6,6 +6,7 @@ description: Follow this guide to get information about existing Docker images.
 # Getting information about existing Docker images
 
 Find out how to get:
+
 * [List of Docker images in a registry](#docker-image-list).
 * [Detailed information about a Docker image](#docker-image-get).
 

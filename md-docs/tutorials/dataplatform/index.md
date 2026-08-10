@@ -61,6 +61,7 @@
 * [Миграция базы данных из Google BigQuery в Yandex Managed Service for ClickHouse®](bigquery-to-clickhouse.md)
 * [Интеграция Yandex Managed Service for ClickHouse® с внешней базой данных Microsoft SQL Server через ClickHouse® JDBC Bridge](jdbc-ch-to-sql-server-integration.md)
 * [Интеграция Yandex Managed Service for ClickHouse® с Oracle через ClickHouse® JDBC Bridge](jdbc-ch-to-oracle-integration.md)
+* [Выполнение аналитических запросов в Yandex Managed Service for PostgreSQL с обработкой в Yandex Managed Service for ClickHouse® при помощи pg_clickhouse и Yandex Data Transfer](mpg-pg-clickhouse-extension.md)
 
 ## Greenplum® {#greenplum}
 
@@ -144,6 +145,7 @@
 * [Решение проблем с сортировкой строк в PostgreSQL после обновления glibc](postgresql-glibc-collation-issues.md)
 * [Использование секрета Yandex Lockbox в PySpark-задании для подключения к Yandex Managed Service for PostgreSQL](job-pyspark-secret-access.md)
 * [Настройка прав доступа к секрету, созданному Yandex Connection Manager, для пользователя Yandex Managed Service for PostgreSQL](conn-man-secret-access.md)
+* [Выполнение аналитических запросов в Yandex Managed Service for PostgreSQL с обработкой в Yandex Managed Service for ClickHouse® при помощи pg_clickhouse и Yandex Data Transfer](mpg-pg-clickhouse-extension.md)
 
 ## Valkey™ {#valkey}
 
@@ -219,6 +221,7 @@
 * [Миграция кластера PostgreSQL](managed-postgresql.md)
 * [Миграция кластера Yandex Managed Service for PostgreSQL на другую версию c помощью Yandex Data Transfer](postgresql-versions.md)
 * [Создание реестра схем для поставки данных в формате Debezium CDC из Apache Kafka®](schema-registry-cdc-debezium-kafka.md)
+* [Выполнение аналитических запросов в Yandex Managed Service for PostgreSQL с обработкой в Yandex Managed Service for ClickHouse® при помощи pg_clickhouse и Yandex Data Transfer](mpg-pg-clickhouse-extension.md)
 
 ## Yandex Managed Service for Apache Spark™ {#spark}
 

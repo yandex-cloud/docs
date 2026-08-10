@@ -17,7 +17,7 @@ The chart update period is 15 seconds.
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder containing the trigger.
 
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. [Navigate]({{ link-console-main }}/link/api-gateway) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
 
     1. Select a trigger for which you want to view monitoring charts.
 

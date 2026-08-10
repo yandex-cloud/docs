@@ -238,7 +238,7 @@ Workflows находится на стадии [Preview](../../overview/concepts
   1. Откройте [главную страницу](https://speechsense.yandex.cloud/) SpeechSense.
   1. Перейдите в [новое пространство](#create-space).
   1. Нажмите кнопку ![image](../../_assets/console-icons/person-plus.svg) **Добавить участника** → ![image](../../_assets/console-icons/persons.svg) **Добавить из организации**.
-  1. Cкопируйте идентификатор [созданного ранее сервисного аккаунта](#create-sa) `speechsense-sa` и вставьте в строку поиска.
+  1. Скопируйте идентификатор [созданного ранее сервисного аккаунта](#create-sa) `speechsense-sa` и вставьте в строку поиска.
   1. Выберите сервисный аккаунт `speechsense-sa` и укажите роль [Data editor](https://aistudio.yandex.ru/docs/ru/speechsense/security/#speechsense-data-editor). Эта роль позволит сервисному аккаунту `speechsense-sa` загружать данные в SpeechSense.
   1. Нажмите кнопку **Добавить**.
 

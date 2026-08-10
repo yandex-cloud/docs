@@ -57,7 +57,7 @@
 * [Встроенная поддержка веб-интерфейса Kafka UI](concepts/kafka-ui.md) стала доступна в [регионе](../overview/concepts/region.md) Казахстан.
 * Добавлены новые [роли пользователей](concepts/account-roles.md) для управления ресурсами кластера Apache Kafka®: `ACCESS_ROLE_TOPIC_PRODUCER`, `ACCESS_ROLE_TOPIC_CONSUMER`, `ACCESS_ROLE_SCHEMA_READER`, `ACCESS_ROLE_SCHEMA_WRITER`.
 * Добавлена [возможность миграции](tutorials/zk-kraft-kafka-migration.md) с хостов ZooKeeper на KRaft.
-* Добавлена возможность синхронизации даных из топиков Apache Kafka® в бакет Object Storage без использования интернета.
+* Добавлена возможность синхронизации данных из топиков Apache Kafka® в бакет Object Storage без использования интернета.
 * Изменился лимит по объему данных на брокере при использовании хранилища на сетевых SSD-дисках — 32 768 ГБ.
 
 ## Июль 2025 {#july-2025}
