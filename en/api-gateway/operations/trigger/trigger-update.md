@@ -18,7 +18,7 @@ Your changes will apply within five minutes.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder containing the trigger.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. [Navigate]({{ link-console-main }}/link/api-gateway) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
   1. Select the trigger whose settings you want to update.
   1. Click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
@@ -70,6 +70,6 @@ Your changes will apply within five minutes.
 
 - API {#api}
 
-  To update parameters of a trigger, use the [update](../../triggers/api-ref/Trigger/update.md) REST API method for the [Trigger](../../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Update](../../triggers/api-ref/grpc/Trigger/update.md) gRPC API call.
+  To update trigger settings, use the [update](../../triggers/api-ref/Trigger/update.md) REST API method for the [Trigger](../../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Update](../../triggers/api-ref/grpc/Trigger/update.md) gRPC API call.
 
 {% endlist %}

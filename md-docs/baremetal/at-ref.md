@@ -16,7 +16,7 @@ yandex.cloud.audit.baremetal.<имя_события>
 
 Имя события | Описание
 --- | ---
-`ApplyUpdatePrivateCloudConnection` | Применение измений приватного соединения с подсетями в VPC или в on-prem инфраструктуре
+`ApplyUpdatePrivateCloudConnection` | Применение изменений приватного соединения с подсетями в VPC или в on-prem инфраструктуре
 `BatchCreateServer` | Аренда одновременно нескольких [серверов](concepts/servers.md) BareMetal
 `CreateImage` | Создание загрузочного образа
 `CreatePrivateCloudConnection` | Создание [приватного соединения](concepts/private-network.md#private-connection-to-vpc) с подсетями в VPC или в on-prem инфраструктуре

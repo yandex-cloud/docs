@@ -119,7 +119,7 @@
 
 - API {#api}
 
-  Чтобы получить подробную информацию о [NAT-шлюзе](../concepts/gateways.md), воспользуйтесь методом REST API [get](../api-ref/Gateway/get.md) для ресурса [Gateway](../api-ref/Gateway/index.md), или вызовом gRPC API [GatewayService/Get](../api-ref/grpc/Gateway/get.md) и передайте в запросе идентификатор нужного NAT-шлюзa в параметре `gatewayId`.
+  Чтобы получить подробную информацию о [NAT-шлюзе](../concepts/gateways.md), воспользуйтесь методом REST API [get](../api-ref/Gateway/get.md) для ресурса [Gateway](../api-ref/Gateway/index.md), или вызовом gRPC API [GatewayService/Get](../api-ref/grpc/Gateway/get.md) и передайте в запросе идентификатор нужного NAT-шлюза в параметре `gatewayId`.
 
    Чтобы узнать идентификатор NAT-шлюза, воспользуйтесь методом REST API [list](../api-ref/Gateway/list.md) для ресурса [Gateway](../api-ref/Gateway/index.md) или вызовом gRPC API [GatewayService/List](../api-ref/grpc/Gateway/list.md) и передайте в запросе идентификатор каталога в параметре `folderId`.
 

@@ -251,6 +251,6 @@ Some resources are not free of charge. Delete the resources you no longer need t
 1. {{ datalens-name }} connection.
 1. [{{ yq-name }} binding](../../query/operations/binding.md#delete).
 1. [{{ yq-name }} connection](../../query/operations/connection.md#delete).
-1. [{{ sf-name }} function](../../functions/operations/function/function-delete.md).
+1. [Function in {{ sf-name }}](../../functions/operations/function/function-delete.md).
 1. [{{ lockbox-name }} secret](../../lockbox/operations/secret-delete.md).
 1. [{{ objstorage-name }} buckets](../../storage/operations/buckets/delete.md).

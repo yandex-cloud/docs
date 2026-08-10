@@ -7,13 +7,13 @@ description: To get started with {{ iot-name }}, create an X.509 certificate, re
 
 {% include [iot-sunset-warning](../_includes/iot-core/sunset-warning.md) %}
 
-To get started with {{ iot-name }}, create the following:
+To start using the {{ iot-name }} service, create the following:
 
 1. [X.509 certificates](#create-ca)
 1. [Registry](#create-registry)
 1. [Device](#create-device)
 
-Next, [set up message exchange](#exchange) between the device and the registry.
+Then, [set up message exchange](#exchange) between the device and the registry.
 
 ## Getting started {#before-you-begin}
 
@@ -21,10 +21,10 @@ Next, [set up message exchange](#exchange) between the device and the registry.
 
 ## Create a certificate {#create-ca}
 
-X.509 certificates are required for communication between the MQTT clients, i.e., the [registry](concepts/index.md#registry) and the [device](concepts/index.md#device). Each client requires its own certificate.
+X.509 certificates enable interaction between MQTT clients: the [registry](concepts/index.md#registry) and [device](concepts/index.md#device). Each of them needs its certificate.
 
-* If you already have certificates, add them to the MQTT clients. You can do this when creating clients.
-* If you do not have certificates, create them using [OpenSSL](https://www.openssl.org) (the command below creates only one certificate):
+* If you have certificates, add them to the MQTT clients. You can do this when creating clients.
+* If you do not have certificates, create them using the [OpenSSL](https://www.openssl.org) program (the command below creates only one certificate):
 
     ```bash
     openssl req -x509 \
@@ -38,15 +38,15 @@ X.509 certificates are required for communication between the MQTT clients, i.e.
 
     Where:
 
-    * `-x509`: Certificate type, X.509.
+    * `-x509`: Certificate type: X.509.
     * `-newkey`: Encryption algorithm.
     * `-keyout`: File with the certificate's private key.
     * `-out`: File with the certificate's public key.
-    * `-nodes`: Flag to use when you do not need to encrypt the public key.
-    * `-days`: Certificate validity period, in days.
-    * `-subj`: Request subject.
+    * `-nodes`: This flag is set when no public key encryption is required.
+    * `-days`: Certificate validity period in days.
+    * `-subj`: Request object.
 
-   Use different file names for the private and public key files of each MQTT client.
+   For each of the MQTT clients, specify different names for files with private and public keys.
 
 ## Create a registry {#create-registry}
 
@@ -54,24 +54,24 @@ X.509 certificates are required for communication between the MQTT clients, i.e.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your registry.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder you want to create a registry in.
+    1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
     1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_registries }}**.
     1. Click **{{ ui-key.yacloud.iot.button_create-registry }}**.
-    1. Under **{{ ui-key.yacloud.common.section-base }}**, specify `my-registry` as the registry name.
+    1. Under **{{ ui-key.yacloud.common.section-base }}**, add `my-registry` as the registry name.
     1. Add a certificate:
 
         * To add a file:
 
             1. Select the `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` method.
             1. Click **Attach file**.
-            1. Select the certificate’s public key file and click **Open**.
+            1. Select the file with the public key of the certificate and click **Open**.
             1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
         * To add text:
 
             1. Select the `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}` method.
-            1. Paste the certificate’s public key into the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
+            1. Paste the certificate's public key to the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
             1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
     1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -110,7 +110,7 @@ X.509 certificates are required for communication between the MQTT clients, i.e.
         Where:
 
         * `--registry-name`: Registry name.
-        * `--certificate-file`: Path to the certificate’s public key.
+        * `--certificate-file`: Path to the certificate's public key.
 
         Result:
 
@@ -132,25 +132,25 @@ X.509 certificates are required for communication between the MQTT clients, i.e.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your device.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder to create a device in.
+    1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
     1. Select `my-registry` from the list.
     1. Select **{{ ui-key.yacloud.iot.label_devices }}** in the left pane of the window.
     1. Click **{{ ui-key.yacloud.iot.button_add-device }}**.
-    1. Under **{{ ui-key.yacloud.common.section-base }}**, specify `my-device` as the device name.
+    1. Under **{{ ui-key.yacloud.common.section-base }}**, add `my-device` as the device name.
     1. Add a certificate:
 
         * To add a file:
 
             1. Select the `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` method.
             1. Click **Attach file**.
-            1. Select the certificate’s public key file and click **Open**.
+            1. Select the file with the public key of the certificate and click **Open**.
             1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
         * To add text:
 
             1. Select the `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}` method.
-            1. Paste the certificate’s public key into the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
+            1. Paste the certificate's public key to the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
             1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
     1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -167,7 +167,7 @@ X.509 certificates are required for communication between the MQTT clients, i.e.
 
         Where:
 
-        * `--registry-name`: Name of the registry the device belongs to.
+        * `--registry-name`: Name of the registry the device is part of.
         * `--name`: Device name.
 
         Result:
@@ -190,7 +190,7 @@ X.509 certificates are required for communication between the MQTT clients, i.e.
         Where:
 
         * `--device-name`: Device name.
-        * `--certificate-file`: Path to the certificate’s public key.
+        * `--certificate-file`: Path to the certificate's public key.
 
         Result:
 
@@ -208,7 +208,7 @@ X.509 certificates are required for communication between the MQTT clients, i.e.
 
 ## Set up message exchange between the device and the registry {#exchange}
 
-1. [Subscribe the device or registry to receive messages](operations/subscribe.md).
+1. [Subscribe a device or registry to receive messages](operations/subscribe.md).
 1. [Send a message](operations/publish.md).
 
 ## What's next {#what-is-next}

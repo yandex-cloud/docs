@@ -12,9 +12,9 @@ keywords:
 
 # Deploying a static website in a fault-tolerant configuration in {{ yandex-cloud }}
 
-This guide provides multiple solutions for deploying a fault-tolerant static website with dynamic elements (such as a registration or application form, etc.) in the {{ yandex-cloud }} infrastructure.
+This guide presents several options for how to deploy a fault-tolerant static website with dynamic elements, e.g., registration or application form, in the {{ yandex-cloud }} infrastructure.
 
-These solutions optimize costs and ensure high loading speeds for the website’s end users.
+These options optimize costs and ensure high website loading speeds for the end users.
 
 ## Solution architecture overview {#architecture}
 
@@ -43,7 +43,7 @@ You can find the supplemental materials in the [![image](../_assets/overview/sol
 
 Depending on your website’s requirements, the system architecture of the solutions can vary significantly. However, all hosting options require a custom domain name for the website, a correctly configured DNS for the domain, and an SSL certificate.
 
-This overview describes the following static website hosting solutions in the {{ yandex-cloud }} infrastructure:
+This overview describes the following static website hosting options for the {{ yandex-cloud }} infrastructure:
 
 * [{#T}](#simple-bucket)
 * [{#T}](#bucket-cdn)
@@ -325,7 +325,7 @@ Therefore, if your website's content is cache-friendly, which static websites us
 
       The list of these subnets is more stable and less likely to change.
 
-      For more on how to configure a bucket policy, see [{#T}](../storage/operations/buckets/policy.md).
+      For information on how to configure a bucket policy, see [{#T}](../storage/operations/buckets/policy.md).
 
 - How to configure individual settings for website objects based on their paths?
 
@@ -532,7 +532,7 @@ To host a static website using this solution, you need:
 * Domain name and its associated SSL certificate.
 * Configured public DNS zone for the domain and a resource record mapping the IP address of the L7 load balancer listener to your domain name.
 
-In this solution, you do not need to assign a name to the bucket that matches the domain name. End users will not access the bucket directly, but through an API gateway associated with your domain name.
+In this solution, you do not need to assign a name to the bucket that matches the domain name. End users will not access the bucket directly but through an L7 load balancer associated with your domain name.
 
 For more information on how to create an L7 load balancer, see [{#T}](../application-load-balancer/operations/application-load-balancer-create.md).
 

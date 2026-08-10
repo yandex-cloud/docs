@@ -29,7 +29,7 @@
 
 - отличаются возможные (граничные) значения;
 - отличаются значения по умолчанию;
-- есть параметры, cпецифичные для сборки [open-gpdb](https://github.com/open-gpdb/gpdb).
+- есть параметры, специфичные для сборки [open-gpdb](https://github.com/open-gpdb/gpdb).
 
 {% include [mgp-dbms-settings](../../_includes/mdb/mgp/dbms-settings.md) %}
 

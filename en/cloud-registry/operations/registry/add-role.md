@@ -10,12 +10,12 @@ description: Follow this tutorial to assign roles for a registry.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where the registry is located.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-registry }}**.
+  1. [Navigate]({{ link-console-main }}/link/cloud-registry) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-registry }}**.
   1. Select the registry.
   1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. Click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
   1. In the window that opens, select a group, user, or [service account](../../../iam/concepts/users/service-accounts.md).
-  1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the role from the list.
+  1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select role from the list.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -34,7 +34,7 @@ description: Follow this tutorial to assign roles for a registry.
       --user-account-id <user_ID>
     ```
 
-  * To a [service account](../../../iam/concepts/users/service-accounts.md):
+  * [To a service account](../../../iam/concepts/users/service-accounts.md):
 
     ```bash
     yc cloud-registry registry add-access-binding <registry_name_or_ID> \

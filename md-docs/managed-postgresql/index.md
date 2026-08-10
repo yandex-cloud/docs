@@ -162,6 +162,8 @@ Managed Service for PostgreSQL помогает разворачивать и п
 
  - [Настройка прав доступа к секрету, созданному Connection Manager, для пользователя Managed Service for PostgreSQL](tutorials/conn-man-secret-access.md)
 
+ - [Выполнение аналитических запросов в Managed Service for PostgreSQL с обработкой в Managed Service for ClickHouse®](tutorials/mpg-pg-clickhouse-extension.md)
+
 ### Репликация и миграция
 
  - [Логическая репликация PostgreSQL](tutorials/replication-overview.md)

@@ -12,11 +12,12 @@ Create a [configuration](../concepts/configuration.md) to set up email processin
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the address.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
+    1. [Navigate]({{ link-console-main }}/link/postbox) to **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/list-ul.svg) **{{ ui-key.yacloud.postbox.label_configuration-sets }}**.
     1. Click **{{ ui-key.yacloud.postbox.button_create-configuration-set }}**.
     1. Enter a name and (optionally) a description of the configuration.
-    1. Under **{{ ui-key.yacloud.postbox.label_event-destinations }}**, click **{{ ui-key.yacloud.common.add }}**:
+    1. To receive email operation notifications, click **{{ ui-key.yacloud.postbox.label_event-destinations }}** under **{{ ui-key.yacloud.common.add }}**:
+
         1. Enter a name for the [subscription](../concepts/glossary.md#subscription).
         1. Select the {{ yds-full-name }} [data stream](../../data-streams/concepts/glossary.md#stream-concepts) to send email operation notifications to. If you do not have a data stream, [create one](../../data-streams/operations/manage-streams.md#create-data-stream).
         1. Select the types of notifications you want to receive.

@@ -12,13 +12,13 @@ description: Follow this guide to mount an ephemeral disk to {{ serverless-conta
 - Management console {#console}
     
     1. In the [management console]({{ link-console-main }}), select the folder with your container.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. [Navigate]({{ link-console-main }}/link/serverless-containers) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. Select the container.
     1. In the left-hand menu, select ![image](../../_assets/console-icons/pencil-to-square.svg) **{{ ui-key.yacloud.serverless-containers.label_editor }}**.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.title_ephemeral-storage }}**:
 
         1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.label_add-ephemeral-storage }}**.
-        1. Specify the following:
+        1. Specify the following fields:
 
             * **{{ ui-key.yacloud.serverless-functions.item.editor.label_mount-point-path }}**: Absolute mount path. Use this path to access the directory the disk will be mounted to.
             
@@ -54,6 +54,7 @@ description: Follow this guide to mount an ephemeral disk to {{ serverless-conta
   * `--execution-timeout`: Maximum container execution time before timeout.
   * `--service-account-id`: Service account ID.
   * `--mount`: Ephemeral disk mount settings:
+    
     * `type=ephemeral-disk`: Type of the file system being mounted.
     * `mount-point`: Absolute mount path. Use this path to access the directory the disk will be mounted to. Do not use this path for anything other than an empty directory; otherwise, container initialization may fail, and the mounted ephemeral disk will become unavailable. To ensure that the ephemeral disk is mounted correctly, provide the full absolute path to the mount point.
     * `size`: Ephemeral disk size in GB, e.g., `size=5GB`.
@@ -91,6 +92,7 @@ description: Follow this guide to mount an ephemeral disk to {{ serverless-conta
       Where:
 
       * `mounts`: Ephemeral disk mount settings:
+        
         * `mount_point_path`: Absolute mount path. Use this path to access the directory the disk will be mounted to. Do not use this path for anything other than an empty directory; otherwise, container initialization may fail, and the mounted ephemeral disk will become unavailable. To ensure that the ephemeral disk is mounted correctly, provide the full absolute path to the mount point.
         * `size_gb`: Ephemeral disk size in GB, e.g., `size=5GB`.
 
@@ -112,7 +114,7 @@ description: Follow this guide to mount an ephemeral disk to {{ serverless-conta
 
 {% endlist %}
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../concepts/mounting.md)
 * [{#T}](../../functions/concepts/mounting.md)

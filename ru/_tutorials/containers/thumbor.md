@@ -51,7 +51,7 @@ Thumbor удобно использовать для подготовки изо
         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
    1. [Создайте кластер](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) {{ managed-k8s-name }} и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md) любой подходящей конфигурации. При создании укажите группы безопасности, подготовленные ранее.
-   1. [Cоздайте бакет](../../storage/operations/buckets/create.md) в {{ objstorage-full-name }}.
+   1. [Создайте бакет](../../storage/operations/buckets/create.md) в {{ objstorage-full-name }}.
    1. [Предоставьте сервисному аккаунту](../../storage/operations/objects/edit-acl.md) `thumbor-sa` разрешение `READ` на бакет.
 
 - {{ TF }} {#tf}

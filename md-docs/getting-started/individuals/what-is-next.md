@@ -20,7 +20,7 @@
 
 * [Взаимодействие пользователей и ресурсов Yandex Cloud](../../overview/roles-and-resources.md).
 
-* [Cписок сервисов Yandex Cloud](../../overview/concepts/services.md).
+* [Список сервисов Yandex Cloud](../../overview/concepts/services.md).
 
 * [Список доступных интерфейсов](../../overview/concepts/interfaces.md).
 

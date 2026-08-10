@@ -7,7 +7,7 @@
 * [Как читать график `Connections quota utilization`](connections-quota-utilization.md)
 * [Как привязать фиксированный IP-адрес к NAT-шлюзу](link-ip-address-to-nat-gateway.md)
 * [Как включить Egress NAT](activate-egress-nat.md)
-* [Как осуществить маршутизацию трафика между двумя облачными сетями](routing-traffic-between-two-vpcs.md)
+* [Как осуществить маршрутизацию трафика между двумя облачными сетями](routing-traffic-between-two-vpcs.md)
 * [Как использовать IPv6-адреса](using-ipv6.md)
 * [Как использовать отказоустойчивый VPN или NGWF](using-failsafe-vpn.md)
 * [Как вернуть IP-адрес](restore-ip-address.md)

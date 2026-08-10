@@ -17,16 +17,16 @@ description: Follow this guide to export messages to {{ yds-name }}.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing the registry.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-  1. Select the registry from the list.
+  1. In the [management console]({{ link-console-main }}), select the folder where the registry is located.
+  1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+  1. Select the required registry from the list.
   1. Navigate to the **{{ ui-key.yacloud.iot.label_yds-exports }}** tab.
   1. In the top-right corner, click **{{ ui-key.yacloud.iot.button_add-yds-export }}**.
   1. Fill out the fields as follows:
 
      * **{{ ui-key.yacloud.common.name }}**: Export name.
-     * **{{ ui-key.yacloud.iot.label_mqtt-topic-filter }}**: Specify the topic to export messages from or filter using [wildcard characters](../concepts/topic/usage.md#wildcards). If the field is empty, messages from all registry topics and all device topics within the registry will be exported.
-     * **{{ ui-key.yacloud.data-streams.label_data-stream }}**: Specify the name of the [data stream](../../data-streams/concepts/glossary.md#stream-concepts) to receive messages from MQTT topics, or [create a new one](../../data-streams/operations/manage-streams.md#create-data-stream). If you chose to create a new stream, click **Update** to refresh the list of streams once the stream is created.
+     * **{{ ui-key.yacloud.iot.label_mqtt-topic-filter }}**: Specify the topic from which you want to export messages or a filter using [wildcard characters](../concepts/topic/usage.md#wildcards). If you leave this field empty, messages will be exported from all topics within the registry, including topics from all devices within the registry.
+     * **{{ ui-key.yacloud.data-streams.label_data-stream }}**: Specify the name of the [data stream](../../data-streams/concepts/glossary.md#stream-concepts) where you want to send messages from MQTT topics, or [create a new one](../../data-streams/operations/manage-streams.md#create-data-stream). If you chose to create a new stream, click **Update** to update the list of streams.
      * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: Specify a [service account](../../iam/concepts/users/service-accounts.md) with the `yds.writer` role.
 
   1. Click **Add**.
@@ -73,7 +73,7 @@ description: Follow this guide to export messages to {{ yds-name }}.
      * `--name`: Export name.
      * `--database`: [Location of the database]({{ ydb.docs }}/concepts/connect#database) storing the stream data, the second part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (following `/?database=`), e.g., `/{{ region-id }}/r1gra875baom********/g5n22e7ejf**********`.
      * `--stream`: Name of the [data stream](../../data-streams/concepts/glossary.md#stream-concepts) to receive messages from MQTT topics.
-     * `--mqtt-topic-filter`: Topic to export messages from or filter using [wildcard characters](../concepts/topic/usage.md#wildcards). If this parameter is not specified, messages from all registry topics and all device topics within the registry will be exported.
+     * `--mqtt-topic-filter`: Topic to export messages from or filter using [wildcard characters](../concepts/topic/usage.md#wildcards). If this parameter is not specified, messages will be exported from all topics within the registry, including topics from all devices within the registry.
      * `--stream-service-account-name`: Name of the [service account](../../iam/concepts/users/service-accounts.md) with the `yds.writer` role.
 
      Result:
@@ -90,10 +90,10 @@ description: Follow this guide to export messages to {{ yds-name }}.
 
 - API {#api}
 
-  To add an export to {{ yds-name }} for a registry, use the [RegistryService/AddDataStreamExport](../api-ref/grpc/Registry/addDataStreamExport.md) gRPC API call.
+  To add the export to {{ yds-name }} for a registry, use the [RegistryService/AddDataStreamExport](../api-ref/grpc/Registry/addDataStreamExport.md) gRPC API call.
 
 {% endlist %}
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
-* [{#T}](../concepts/topic/usage.md#yds-export)
+[{#T}](../concepts/topic/usage.md#yds-export)

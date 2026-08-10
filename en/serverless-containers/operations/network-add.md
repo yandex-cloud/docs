@@ -14,7 +14,7 @@ You can specify a [cloud network](../../vpc/concepts/network.md#network) for run
 - Management console {#console}
     
     1. In the [management console]({{ link-console-main }}), select the folder with your container.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. [Navigate]({{ link-console-main }}/link/serverless-containers) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. Select the container.
     1. Navigate to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
     1. Under **{{ ui-key.yacloud.serverless-containers.section_parameters }}**, select a cloud network for running your container in the **{{ ui-key.yacloud.vpc.label_network }}** field.
@@ -26,6 +26,6 @@ You can specify a [cloud network](../../vpc/concepts/network.md#network) for run
 
 {% endlist %}
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
-* [Networking in {{ serverless-containers-name }}](../concepts/networking.md)
+[Networking in {{ serverless-containers-name }}](../concepts/networking.md)

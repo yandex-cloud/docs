@@ -87,14 +87,14 @@
 1. [Перейдите]({{ link-console-main }}/link/data-transfer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.data-transfer.button_create-transfer }}**.
 1. Введите имя трансфера.
-1. [Cоздайте](../../data-transfer/operations/endpoint/index.md#create) эндпоинт-источник:
+1. [Создайте](../../data-transfer/operations/endpoint/index.md#create) эндпоинт-источник:
     1. Укажите имя эндпоинта.
     1. В списке **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** выберите `{{ yds-full-name }}`.
     1. Выберите базу данных для источника.
     1. Введите имя созданного ранее потока данных.
     1. Выберите созданный ранее сервисный аккаунт.
     1. Нажмите кнопку **Создать**.
-1. [Cоздайте](../../data-transfer/operations/endpoint/index.md#create) эндпоинт-приемник:
+1. [Создайте](../../data-transfer/operations/endpoint/index.md#create) эндпоинт-приемник:
     1. Укажите имя эндпоинта.
     1. В списке **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** выберите `ClickHouse`.
     1. Выберите созданный ранее MDB кластер.

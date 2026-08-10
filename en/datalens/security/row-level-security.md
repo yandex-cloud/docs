@@ -130,7 +130,7 @@ To avoid this, you can move the row-level security logic to the data source side
 
    
    
-   Use [this link]({{ link-org-cloud-center }}/users) to look up your ID. If you need another user's ID, ask them to open the link and send you the ID.
+   Use [this link]({{ link-my-account }}profile) to look up your ID. If you need another user's ID, ask them to open the link and send you the ID.
 
 
 

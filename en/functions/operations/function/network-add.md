@@ -14,7 +14,7 @@ You can specify a [cloud network](../../../vpc/concepts/network.md#network) for 
 - Management console {#console}
     
     1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select the function.
     1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, select a network for running your function in the **{{ ui-key.yacloud.vpc.label_network }}** field.
@@ -38,6 +38,7 @@ You can specify a [cloud network](../../../vpc/concepts/network.md#network) for 
       --source-version-id <version_ID> \
       --network-id <network_ID>
     ```
+
     Where:
 
     * `--function-name`: Function name.
@@ -54,6 +55,6 @@ You can specify a [cloud network](../../../vpc/concepts/network.md#network) for 
 
 {% endlist %}
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
-* [Networking in {{ sf-name }}](../../concepts/networking.md)
+[Networking in {{ sf-name }}](../../concepts/networking.md)

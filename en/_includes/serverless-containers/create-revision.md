@@ -5,7 +5,7 @@
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with your [container](../../serverless-containers/concepts/container.md).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. [Navigate]({{ link-console-main }}/link/serverless-containers) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Select the container whose [revision](../../serverless-containers/concepts/container.md#revision) you want to create.
   1. Navigate to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
   1. Under **{{ ui-key.yacloud.serverless-containers.section_image }}**:
@@ -38,6 +38,7 @@
 
 
   Where:
+
   * `--cores`: Number of cores available to the container.
   * `--memory`: Required memory. The default value is 128 MB.
   * `--execution-timeout`: Timeout. The default value is 3 seconds.
@@ -71,6 +72,7 @@
   In {{ TF }}, each update to the resource settings creates a new [revision](../../serverless-containers/concepts/container.md#revision).
 
   To create a revision:
+
   1. Update the `yandex_serverless_container` resource settings in the configuration file:
 
      ```hcl

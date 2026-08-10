@@ -165,6 +165,10 @@ items:
           Настройка прав доступа к секрету, созданному {{
           connection-manager-name }}, для пользователя {{ mpg-name }}
         href: tutorials/conn-man-secret-access.md
+      - name: >-
+          Выполнение аналитических запросов в {{ mpg-name }} с обработкой в {{
+          mch-name }}
+        href: tutorials/mpg-pg-clickhouse-extension.md
       - name: Репликация и миграция
         items:
           - name: Логическая репликация {{ PG }}

@@ -11,19 +11,19 @@ description: Follow this guide to create a {{ iot-name }} registry.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to create your registry.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder you want to create a registry in.
+  1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
   1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_registries }}**.
   1. Click **{{ ui-key.yacloud.iot.button_create-registry }}**.
-  1. Under **{{ ui-key.yacloud.common.section-base }}**, specify the following:
+  1. Under **{{ ui-key.yacloud.common.section-base }}**, add:
 
       * Registry **{{ ui-key.yacloud.common.name }}**, e.g., `my-registry`.
       * Optionally, **{{ ui-key.yacloud.common.description }}** with additional information about the registry.
-      * **{{ ui-key.yacloud.common.password }}** to use when accessing the registry. To create a password, you can use [this password generator](https://passwordsgenerator.net/).
+      * **{{ ui-key.yacloud.common.password }}** that you will use to access the registry. To create a password, you can use [this password generator](https://passwordsgenerator.net/).
 
           {% include [password-save](../../../_includes/iot-core/password-save.md) %}
 
-      * Optionally, to assign a label to the registry, fill out the **{{ ui-key.yacloud.component.key-values-input.label_key }}** and **{{ ui-key.yacloud.component.key-values-input.label_value }}** fields and click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+      * Optionally, to assign a label to the registry, fill in the **{{ ui-key.yacloud.component.key-values-input.label_key }}** and **{{ ui-key.yacloud.component.key-values-input.label_value }}** fields and click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
 
   1. Optionally, add a [certificate](../certificates/create-certificates.md):
 
@@ -31,13 +31,13 @@ description: Follow this guide to create a {{ iot-name }} registry.
 
         1. Select the `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` method.
         1. Click **Attach file**.
-        1. Select the file with the certificate’s public key and click **Open**.
+        1. Select the file with the public key of the certificate and click **Open**.
         1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
       * To add text:
 
         1. Select the `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}` method.
-        1. Paste the certificate’s public key into the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
+        1. Paste the certificate's public key to the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
         1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
   1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -69,16 +69,16 @@ description: Follow this guide to create a {{ iot-name }} registry.
       log_group_id: ckghotead**********
       ```
 
-  1. Optionally, set a password for the registry for [username and password](../../concepts/authorization.md#log-pass) authentication:
+  1. Optionally, assign the registry a password for authentication with a [username and password](../../concepts/authorization.md#log-pass):
 
       ```bash
       yc iot registry password add --registry-name <registry_name>
       ```
 
-      You will be prompted to enter a password. Follow these password requirements:
+      You will be prompted to enter a password. Password requirements:
 
-      * The password must contain numbers, uppercase and lowercase letters, and special characters.
-      * The password must be at least 14 characters long.
+      * The password must contain numbers, upper-case and lower-case letters, and special characters.
+      * It must be at least 14 characters long.
 
       Result:
 
@@ -88,7 +88,7 @@ description: Follow this guide to create a {{ iot-name }} registry.
       created_at: "2019-05-27T13:44:06.923Z"
       ```
 
-  1. Optionally, add a certificate to the registry for [certificate](../../concepts/authorization.md#certs)-based authentication:
+  1. Optionally, add to the registry a certificate for authentication with [certificates](../../concepts/authorization.md#certs):
 
       ```bash
       yc iot registry certificate add \
@@ -99,7 +99,7 @@ description: Follow this guide to create a {{ iot-name }} registry.
       Where:
 
       * `--registry-name`: Registry name.
-      * `--certificate-file`: Path to the public key of the certificate, e.g., `cert.pem`.
+      * `--certificate-file`: Path to the public key of the certificate, such as `cert.pem`.
 
       Result:
 
@@ -121,7 +121,7 @@ description: Follow this guide to create a {{ iot-name }} registry.
    
   {% note info %}
 
-  To add certificates to a registry, [create](../certificates/create-certificates.md) them in advance.
+  To add certificates to a registry, [generate](../certificates/create-certificates.md) them in advance.
 
   {% endnote %}
 
@@ -134,12 +134,12 @@ description: Follow this guide to create a {{ iot-name }} registry.
         * `name`: Registry name.
         * `description`: Registry description.
         * `labels`: Registry labels in `key:value` format.
-        * `passwords`: List of registry passwords for [username and password](../../concepts/authorization.md#log-pass) authentication.
-        * `certificates`: List of registry certificates for [certificate](../../concepts/authorization.md#certs)-based authentication.
+        * `passwords`: List of registry passwords for authentication with a [username and password](../../concepts/authorization.md#log-pass).
+        * `certificates`: List of registry certificates for authentication with [certificates](../../concepts/authorization.md#certs).
 
       {% note info %}
 
-      Use only one of the two authentication methods.
+      Make sure to use only one of the two authentication methods.
 
       {% endnote %}
 
@@ -169,7 +169,7 @@ description: Follow this guide to create a {{ iot-name }} registry.
       }
       ```
 
-      For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_registry).
+      For more information about resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_registry).
       
   1. Make sure the configuration files are correct.
       1. In the terminal, navigate to the directory where you created your configuration file.
@@ -179,7 +179,7 @@ description: Follow this guide to create a {{ iot-name }} registry.
           terraform plan
           ```
 
-      If the configuration is correct, the terminal will display a list of the resources and their settings. {{ TF }} will show any errors detected in the configuration. 
+      If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors. 
          
   1. Deploy the cloud resources.
 

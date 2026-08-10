@@ -222,7 +222,7 @@
 
    * Значение `ADD` в параметре `accessBindingDeltas[].action`, чтобы добавить роль.
    * Роль в параметре `accessBindingDeltas[].accessBinding.roleId`.
-   * Идентификатор [субъекта](../../concepts/access-control/index.md#subject), которму назначается роль, в параметре `accessBindingDeltas[].accessBinding.subject.id`.
+   * Идентификатор [субъекта](../../concepts/access-control/index.md#subject), которому назначается роль, в параметре `accessBindingDeltas[].accessBinding.subject.id`.
    * Тип субъекта, которому назначается роль, в параметре `accessBindingDeltas[].accessBinding.subject.type`.
 
         {% cut "Обозначения субъектов" %}
@@ -821,7 +821,7 @@
 
           {% endcut %}
 
-      Для каждой роли передайте отдельный параметр `--access-binding`. Наример, чтобы назначить несколько ролей сервисному аккаунту на виртуальную машину:
+      Для каждой роли передайте отдельный параметр `--access-binding`. Например, чтобы назначить несколько ролей сервисному аккаунту на виртуальную машину:
 
       ```bash
       yc compute instance set-access-bindings \

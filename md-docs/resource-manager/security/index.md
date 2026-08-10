@@ -177,7 +177,7 @@ resource-manager.clouds.member --> resource-manager.clouds.owner
 [Изменение каталога](../operations/folder/update.md) | `update` | `editor` или `resource-manager.editor` на каталог
 [Удаление каталога](../operations/folder/delete.md) | `delete` | `editor` или `resource-manager.editor` на каталог
 **Управление доступом к ресурсам** | |
-Приглашение нового пользователя в организазцию | | `organization-manager.admin` |
+Приглашение нового пользователя в организацию | | `organization-manager.admin` |
 [Сделать нового пользователя владельцем облака](../operations/cloud/set-access-bindings.md) | `setAccessBindings`, `updateAccessBindings` | `resource-manager.clouds.owner` на это облако
 Просмотр назначенных ролей на ресурс | `listAccessBindings` | `viewer` на этот ресурс
 Просмотр назначенных ролей на каталог или облако | `listAccessBindings` | `resource-manager.viewer` на каталог или облако

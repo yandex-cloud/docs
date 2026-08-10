@@ -42,9 +42,9 @@ To create a trigger, you will need:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
+    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
 
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -216,7 +216,7 @@ To create a trigger, you will need:
 
 {% include [check-result](../../../_includes/functions/check-result.md) %}
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../../serverless-containers/operations/data-streams-trigger-create.md)
 * [{#T}](../../../api-gateway/operations/trigger/data-streams-trigger-create.md)

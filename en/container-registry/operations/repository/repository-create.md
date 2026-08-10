@@ -43,7 +43,7 @@ To create a repository:
 
      Where `--repository-name` is the repository name in `<registry_ID>/<repository_name>` format. You can get the [registry](../../concepts/registry.md) ID from the [list of registries in the folder](../registry/registry-list.md#registry-list).
 
-     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/container_repository).
+     For more on the properties of the `yandex_container_repository` resource, see [this provider guide]({{ tf-provider-resources-link }}/container_repository).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

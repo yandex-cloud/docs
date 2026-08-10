@@ -6,7 +6,7 @@
 
 Если вместо ручной загрузки ISO-образа через KVM-консоль вы хотите использовать сетевую загрузку, см. руководство [Установка {{ stackland-name }} на {{ baremetal-full-name }} через PXE](install-on-yc-bms-pxe.md).
 
-Для настройки окружения в данном руководстве используется [Консоль управления Yandex Cloud](http://console.yandex.cloud). Чтобы воспользоваться другим интерфейсом {{ baremetal-full-name }}, обратитесь к [документации сервисa](https://yandex.cloud/ru/services/baremetal).
+Для настройки окружения в данном руководстве используется [Консоль управления Yandex Cloud](http://console.yandex.cloud). Чтобы воспользоваться другим интерфейсом {{ baremetal-full-name }}, обратитесь к [документации сервиса](https://yandex.cloud/ru/services/baremetal).
 
 ## Введение {#introduction}
 

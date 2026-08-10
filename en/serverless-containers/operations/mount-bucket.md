@@ -14,10 +14,11 @@ To mount buckets to a container:
 - Management console {#console}
     
   1. In the [management console]({{ link-console-main }}), select the folder with your container.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. [Navigate]({{ link-console-main }}/link/serverless-containers) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Select the container.
   1. Navigate to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
   1. In the **{{ ui-key.yacloud.serverless-containers.section_parameters }}** section, select or create a [service account](../../iam/concepts/users/service-accounts) with one of these roles:
+      
       * [`storage.viewer`](../../storage/security/index.md#storage-viewer) to only read data from the mounted [bucket](../../storage/concepts/bucket.md).
       * [`storage.uploader`](../../storage/security/index.md#storage-uploader) to read and write data from/to the mounted bucket.
   1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.title_mount-files }}**:
@@ -65,6 +66,7 @@ To mount buckets to a container:
   * `--command`: Commands the container will run when started. Separate them by commas. It matches the `ENTRYPOINT` instruction in the Dockerfile.
   * `--args`: Arguments matching the `CMD` instruction in the Dockerfile. Specify them in `key = value` format separated by commas. If you skip this setting, the default `CMD` value from the Docker image will be used.
   * `--mount`: {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) mount settings:
+      
       * `type`: Mounted storage type. For a bucket, the value is always `object-storage`.
       * `mount-point`: Absolute mount path. Use this path to access the directory the bucket will be mounted to.
       * `bucket`: [Bucket](../../storage/concepts/bucket.md#naming) name.
@@ -99,9 +101,11 @@ To mount buckets to a container:
       Where:
 
       * `mounts`: {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) mount settings:
+          
           * `mount_point_path`: Absolute mount path. Use this path to access the directory the [bucket](../../storage/concepts/bucket.md) will be mounted to.
           * `mode`: Bucket mount mode, `ro` (read-only) or `rw` (read and write).
           * `object_storage`: Bucket settings:
+              
               * `bucket`: [Bucket](../../storage/concepts/bucket.md#naming) name.
               * `prefix`: Bucket [folder](../../storage/concepts/object.md#folder) that will be mounted to the container. Leave this field empty to mount the entire bucket.
 
@@ -125,7 +129,7 @@ To mount buckets to a container:
 
 {% endlist %}
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../concepts/mounting.md)
 * [{#T}](../../functions/concepts/mounting.md)

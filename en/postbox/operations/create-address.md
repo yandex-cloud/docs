@@ -6,7 +6,7 @@ description: Follow this guide to create an address.
 # Creating an address
 
 1. In the [management console]({{ link-console-main }}), select the folder you want to create an [address](../concepts/glossary.md#adress) in.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
+1. [Navigate]({{ link-console-main }}/link/postbox) to **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
 1. Click **{{ ui-key.yacloud.postbox.button_create-identity }}**.
 1. In the **{{ ui-key.yacloud.postbox.label_address }}** field, specify the domain you will use to send emails. You can use a domain of any level.
 1. (Optional) [Link the configuration to an address](bind-configuration.md).

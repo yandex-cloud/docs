@@ -40,7 +40,7 @@
       --description <описание_реестра> \
       --registry-kind <формат_реестра> \
       --registry-type virtual \
-      --properties <cвойства_реестра>
+      --properties <свойства_реестра>
     ```
 
     Где:
@@ -48,7 +48,7 @@
     * `--description` — описание реестра.
     * `--registry-kind` — формат реестра.  Доступные форматы: `maven`, `npm`, `docker`, `nuget`, `pypi`, `binary`.
     * `--registry-type` — [тип](../../concepts/registry.md#registry-types) реестра.
-    * `--properties` — cвойства реестра. Задаются строкой в формате `name1=value1,name2=value2`. Доступные свойства для виртуальных реестров:
+    * `--properties` — свойства реестра. Задаются строкой в формате `name1=value1,name2=value2`. Доступные свойства для виртуальных реестров:
 
         * `registryIds` — список идентификаторов локальных и удаленных реестров в порядке их обхода. Указывается в формате `registryIds=registry1;registry2`.
         * `readOnly` — разрешение загрузки артефактов в реестр. Доступные значения: `true` — загрузка запрещена, `false` — загрузка разрешена.

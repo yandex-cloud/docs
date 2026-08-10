@@ -1,6 +1,6 @@
 ---
-title: Как cоздать новое транковое подключение через партнера и приватное соединение в нем в {{ interconnect-full-name }}
-description: Следуя данной инструкции, вы сможете cоздать новое транковое подключение через партнера и приватное соединение в нем.
+title: Как создать новое транковое подключение через партнера и приватное соединение в нем в {{ interconnect-full-name }}
+description: Следуя данной инструкции, вы сможете создать новое транковое подключение через партнера и приватное соединение в нем.
 canonical: '{{ link-docs }}/tutorials/routing/partner-trunk-priv-add'
 ---
 
@@ -16,3 +16,4 @@ canonical: '{{ link-docs }}/tutorials/routing/partner-trunk-priv-add'
 {% include [cic-partner-trunk-add](../../_tutorials/routing/partner-trunk-add.md) %}
 
 {% include [cic-priv-add](../../_tutorials/routing/priv-add.md) %}
+

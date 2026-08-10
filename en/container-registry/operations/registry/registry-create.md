@@ -36,6 +36,7 @@ Scanning Docker images for vulnerabilities is [charged](../../pricing.md#scanner
      ```
 
      Where:
+     
      * `name`: Registry name.
      * `folder_id`: Folder ID.
      * `labels`: [Labels](../../../resource-manager/concepts/labels.md) used.

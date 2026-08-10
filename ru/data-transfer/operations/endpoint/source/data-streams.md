@@ -12,7 +12,7 @@ description: Следуя данной инструкции, вы сможете
 1. [Подготовьте базу данных {{ yds-name }}](#prepare) к трансферу.
 1. [Настройте эндпоинт-источник](#endpoint-settings) в {{ data-transfer-full-name }}.
 1. [Настройте один из поддерживаемых приемников данных](#supported-targets).
-1. [Cоздайте](../../transfer.md#create) и [запустите](../../transfer.md#activate) трансфер.
+1. [Создайте](../../transfer.md#create) и [запустите](../../transfer.md#activate) трансфер.
 1. Выполняйте необходимые действия по работе с базой и [контролируйте трансфер](../../monitoring.md).
 1. При возникновении проблем, [воспользуйтесь готовыми решениями](#troubleshooting) по их устранению.
 
@@ -135,4 +135,3 @@ description: Следуя данной инструкции, вы сможете
 {% include [overloaded](../../../../_includes/data-transfer/troubles/overloaded.md) %}
 
 {% include [redirects](../../../../_includes/data-transfer/troubles/data-streams/data-streams-redirects.md) %}
-

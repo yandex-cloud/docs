@@ -1,10 +1,10 @@
 # Creating a timer that invokes a container
 
-Create a [timer](../concepts/trigger/timer.md) that invokes a {{ serverless-containers-name }} [container](../concepts/container.md) every minute.
+Create a [timer](../concepts/trigger/timer.md) that invokes a [container](../concepts/container.md) in {{ serverless-containers-name }} every minute.
 
 ## Getting started {#before-you-begin}
 
-1. [Create a container](../operations/index.md#create-container) to be invoked by your timer. [Application and Dockerfile examples](container.md#examples).
+1. [Create a container](../operations/index.md#create-container) your timer will invoke. [Application and Dockerfile examples](container.md#examples).
 1. [Create a service account](../../iam/operations/sa/create.md) that will be used to invoke the container and assign it the `serverless-containers.containerInvoker` role.
 
 ## Create a timer {#timer-create}
@@ -17,7 +17,7 @@ Create a [timer](../concepts/trigger/timer.md) that invokes a {{ serverless-cont
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a timer.
 
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. [Navigate]({{ link-console-main }}/link/serverless-containers) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
     1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -85,9 +85,9 @@ Create a [timer](../concepts/trigger/timer.md) that invokes a {{ serverless-cont
 To make sure the timer is running properly, view the container logs. They should show that the container is invoked every minute.
 
 1. In the [management console]({{ link-console-main }}), select the folder with your container.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+1. [Navigate]({{ link-console-main }}/link/serverless-containers) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 1. Click the container to view its invocation log.
-1. In the window that opens, go to **{{ ui-key.yacloud.common.logs }}** and specify the period to view them for. The default period is one hour.
+1. In the window that opens, go to **{{ ui-key.yacloud.common.logs }}** and specify the period you want to view logs for. The default period is one hour.
 
 ## What's next {#what-is-next}
 

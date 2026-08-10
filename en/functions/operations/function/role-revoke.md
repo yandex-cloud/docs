@@ -16,35 +16,46 @@ description: Follow this guide to revoke roles assigned for a function.
     To revoke a [role](../../security/index.md#roles-list) for a function, run this command:
 
     * From a user:
+
         ```
         yc serverless function remove-access-binding \
           --id <function_ID> \
           --user-account-id <user_ID> \
           --role <role>
         ```
+
         Result:
+
         ```
         done (1s)
         ```
+
     * From a [service account](../../../iam/concepts/users/service-accounts.md):
+
         ```
         yc serverless function remove-access-binding \
           --id <function_ID> \
           --service-account-id <service_account_ID> \
           --role <role>
         ```
+
         Result:
+
         ```
         done (1s)
         ```
+
     * From all authenticated users (the `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md)):
+
         ```
         yc serverless function remove-access-binding \
           --id <function_ID> \
           --all-authenticated-users \
           --role <role>
         ```
+
         Result:
+
         ```
         done (1s)
         ```

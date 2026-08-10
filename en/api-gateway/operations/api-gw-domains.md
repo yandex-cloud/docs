@@ -26,18 +26,18 @@ To add a domain to an API gateway:
 
         To find out an API gateway's service domain:
 
-       1. Navigate to the [management console]({{ link-console-main }}).
-       1. Select the folder where the API gateway is located and go to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+       1. Navigate to the [management console]({{ link-console-main }}) and select the folder containing the API gateway.
+       1. [Navigate]({{ link-console-main }}/link/api-gateway) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
        1. Select the API gateway.
        1. You can see the service domain in the **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** field.
 
         Domain names must end in a dot.
 
-        To use a top-level domain or higher, delegate it to [{{ dns-full-name }}](../../dns/) and create an [ANAME record](../../dns/operations/resource-record-create.md) in the DNS zone. You can create a record in {{ dns-full-name }} both before and after creating the domain. For more information, see step 6.
+        To use a top-level domain or higher, delegate it to [{{ dns-full-name }}](../../dns/) and create an [ANAME record](../../dns/operations/resource-record-create.md) in the DNS zone. You can create a record in {{ dns-full-name }} both before and after creating the domain. See step 6.
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the API gateway.
 
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}** and do the following:
+    1. [Navigate]({{ link-console-main }}/link/certificate-manager) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}** and do the following:
 
         1. Add a [Let's Encrypt<sup>®</sup> certificate](../../certificate-manager/operations/managed/cert-create.md) or a [user certificate](../../certificate-manager/operations/import/cert-create.md) for the domain you are adding.
 
@@ -51,7 +51,7 @@ To add a domain to an API gateway:
     
     1. Go back to the folder page.
 
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}** and do the following:
+    1. [Navigate]({{ link-console-main }}/link/api-gateway) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}** and do the following:
 
         1. Select the API gateway.
         1. Navigate to the **{{ ui-key.yacloud.serverless-functions.gateways.item.switch_domains }}** tab.

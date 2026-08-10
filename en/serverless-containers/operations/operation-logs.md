@@ -11,7 +11,7 @@ The system logs all actions with {{ serverless-containers-name }} resources as a
   You can get a list of operations for a specific resource. The steps below describe how you can do this for a container. The same steps apply to other resources.
 
   1. In the [management console]({{ link-console-main }}), open the folder with the container.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. [Navigate]({{ link-console-main }}/link/serverless-containers) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/boxes-3.svg) **{{ ui-key.yacloud.serverless-containers.label_containers }}**.
   1. Select the container.
   1. Navigate to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the container you selected.
@@ -131,4 +131,4 @@ The system logs all actions with {{ serverless-containers-name }} resources as a
 
 #### Useful links {#see-also}
 
-* [{#T}](../../api-design-guide/concepts/about-async.md)
+[{#T}](../../api-design-guide/concepts/about-async.md)

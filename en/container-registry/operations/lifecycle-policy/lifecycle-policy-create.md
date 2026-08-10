@@ -12,10 +12,10 @@ You can only set a [lifecycle policy](../../concepts/lifecycle-policy.md) for a 
   1. Select the repository and click the row with its name.
   1. In the left-hand panel, click ![lifecycle](../../../_assets/console-icons/arrows-rotate-right.svg) **{{ ui-key.yacloud.cr.registry.label_lifecycle }}**.
   1. In the top-right corner, click **{{ ui-key.yacloud.common.create }}**.
-  1. Set the lifecycle policy parameters:
+  1. Configure the lifecycle policy settings:
      * **{{ ui-key.yacloud.common.name }}**. This is an optional setting.
      * **{{ ui-key.yacloud.common.description }}**. This is an optional setting.
-     * **{{ ui-key.yacloud.common.label_status }}**: Lifecycle policy status after its creation. We do not recommend creating an `ACTIVE` policy right away.
+     * **{{ ui-key.yacloud.common.label_status }}**: Lifecycle policy status after creation. We do not recommend creating an `ACTIVE` policy right away.
      * Under **{{ ui-key.yacloud.cr.registry.label_lifecycle-rules }}**, add rules:
        1. Click **{{ ui-key.yacloud.common.add }}**.
        1. Configure the rule:
@@ -112,6 +112,7 @@ You can only set a [lifecycle policy](../../concepts/lifecycle-policy.md) for a 
      ```
 
      Where:
+     
      * `name`: Policy name.
      * `status`: Policy status. It can be either `active` or `disabled`.
      * `repository_id`: Repository ID.
@@ -122,7 +123,7 @@ You can only set a [lifecycle policy](../../concepts/lifecycle-policy.md) for a 
        * `retained_top`: Number of Docker images that will not be deleted even if they match the lifecycle policy rules.
        * `expire_period`: Time after which the lifecycle policy applies to the Docker image. This parameter comes as a number followed by a unit of measurement: `s`, `m`, `h`, or `d` (seconds, minutes, hours, or days). `expire_period` must be a multiple of 24 hours.
 
-     For more information about `yandex_container_repository_lifecycle_policy` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/container_repository_lifecycle_policy).
+     For more on the properties of the `yandex_container_repository_lifecycle_policy` resource, see [this provider guide]({{ tf-provider-resources-link }}/container_repository_lifecycle_policy).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

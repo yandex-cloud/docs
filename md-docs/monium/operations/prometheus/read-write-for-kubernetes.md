@@ -3,7 +3,7 @@
 # Чтение и запись метрик кластера Yandex Managed Service for Kubernetes с помощью Prometheus Operator
 
 
-Prometheus Operator с поддержкой Monium Metrics упрощает установку Prometheus Operator, популярного решения для мониторига кластеров Kubernetes, и добавляет интеграцию с системой мониторинга Monium Metrics. С ее помощью можно собирать, хранить и читать метрики из контейнеров, приложений и инфраструктуры. Система использует модель данных Prometheus и язык запросов [PromQL](https://prometheus.io/docs/prometheus/latest/querying/basics/).
+Prometheus Operator с поддержкой Monium Metrics упрощает установку Prometheus Operator, популярного решения для мониторинга кластеров Kubernetes, и добавляет интеграцию с системой мониторинга Monium Metrics. С ее помощью можно собирать, хранить и читать метрики из контейнеров, приложений и инфраструктуры. Система использует модель данных Prometheus и язык запросов [PromQL](https://prometheus.io/docs/prometheus/latest/querying/basics/).
 
 ## Перед началом работы {#before-you-begin}
 

@@ -93,6 +93,7 @@ C помощью {{ data-transfer-name }} вы можете реализоват
 * [{{ MY }} в {{ CH }}](mysql-to-clickhouse.md)
 * [{{ metrika }} в {{ CH }}](metrika-to-clickhouse.md)
 * [{{ PG }} в {{ CH }}](rdbms-to-clickhouse.md)
+* [Выполнение аналитических запросов в {{ mpg-name }} с обработкой в {{ mch-name }} при помощи pg_clickhouse и {{ data-transfer-name }}](mpg-pg-clickhouse-extension.md)
 * [{{ GP }} в {{ PG }}](greenplum-to-postgresql.md)
 * [{{ yandex-direct }} в {{ CH }}](direct-to-mch.md)
 * [{{ objstorage-name }} в {{ PG }}](object-storage-to-postgresql.md)

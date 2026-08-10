@@ -90,6 +90,7 @@ C помощью Data Transfer вы можете реализовать разл
 * [MySQL® в ClickHouse®](mysql-to-clickhouse.md)
 * [Яндекс Метрика в ClickHouse®](metrika-to-clickhouse.md)
 * [PostgreSQL в ClickHouse®](rdbms-to-clickhouse.md)
+* [Выполнение аналитических запросов в Managed Service for PostgreSQL с обработкой в Managed Service for ClickHouse® при помощи pg_clickhouse и Data Transfer](mpg-pg-clickhouse-extension.md)
 * [Greenplum® в PostgreSQL](greenplum-to-postgresql.md)
 * [Яндекс Директ в ClickHouse®](direct-to-mch.md)
 * [Object Storage в PostgreSQL](object-storage-to-postgresql.md)

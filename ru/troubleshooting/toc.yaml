@@ -1018,7 +1018,7 @@ items:
         href: vpc/how-to/link-ip-address-to-nat-gateway.md
       - name: Как включить Egress NAT
         href: vpc/how-to/activate-egress-nat.md
-      - name: Как осуществить маршутизацию трафика между двумя облачными сетями
+      - name: Как осуществить маршрутизацию трафика между двумя облачными сетями
         href: vpc/how-to/routing-traffic-between-two-vpcs.md
       - name: Как использовать IPv6-адреса
         href: vpc/how-to/using-ipv6.md

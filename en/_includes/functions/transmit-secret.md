@@ -1,4 +1,5 @@
 For a [function](../../functions/concepts/function.md) to get access to a [secret](../../lockbox/concepts/secret.md), edit its parameters to specify a [service account](../../iam/concepts/users/service-accounts.md) with the following [roles](../../iam/concepts/access-control/roles.md) assigned:
+
 * `{{ roles-lockbox-payloadviewer }}` for the secret ([how to assign access permissions for a secret](../../lockbox/operations/secret-access.md)).
 * `kms.keys.encrypterDecrypter` for the encryption [key](../../kms/concepts/key.md) if the secret was created using a [{{ kms-full-name }}](../../kms/) key ([how to assign access permissions for an encryption key](../../kms/operations/key-access.md)).
 
@@ -10,20 +11,24 @@ Providing secrets creates a new function version. You cannot provide secrets to 
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the function.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the function.
+  1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Select the function to provide a {{ lockbox-name }} secret to.
   1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
   1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
+     
      * In the **{{ ui-key.yacloud.forms.label_service-account-select }}** field, the service account with the `{{ roles-lockbox-payloadviewer }}` role.
      * In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}** field:
+       
        * Name of the environment variable that will store the secret.
        * Secret ID.
        * Secret version ID.
        * Key of a key-value pair in the secret version.
+  
   1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_add-environment-variable }}**.
 
      You can provide multiple secrets to a function. To do this, click **{{ ui-key.yacloud.serverless-functions.item.editor.button_add-environment-variable }}**.
+  
   1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**. This will create a new version of the function with the specified secrets.
 
 - CLI {#cli}
@@ -53,6 +58,7 @@ Providing secrets creates a new function version. You cannot provide secrets to 
   ```
 
   Where:
+  
   * `--function-name`: Function name.
   * `--runtime`: Runtime.
   * `--entrypoint`: Entry point in `<function_file_name>`.`<handler_name>` format.
@@ -61,6 +67,7 @@ Providing secrets creates a new function version. You cannot provide secrets to 
   * `--source-version-id`: ID of the function version from which you want to copy the code.
   * `--service-account-id`: ID of the service account with the `{{ roles-lockbox-payloadviewer }}` role.
   * `--secret`:
+    
     * `environment-variable`: Name of the environment variable that will store the secret.
     * `id`: Secret ID.
     * `version-id`: Secret version ID.
@@ -105,7 +112,9 @@ Providing secrets creates a new function version. You cannot provide secrets to 
      ```
 
      Where:
+     
      * `secrets`: Section with secret configuration. It contains the following settings:
+       
        * `id`: Secret ID. This is a required setting.
        * `version_id`: Secret version ID. This is a required setting.
        * `key`: Key of a secret version’s key-value pair that will be stored in the environment variable. This is a required setting.

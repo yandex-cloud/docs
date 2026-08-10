@@ -224,7 +224,7 @@
             "sasl.mechanism": "SCRAM-SHA-512",
             "sasl.username": "user",
             "sasl.password": "<пароль_пользователя_user>",
-            "schema.registry.url": "http://<FQDN_или_IP-адреc_сервера_Confluent_Schema_Registry>:8081",
+            "schema.registry.url": "http://<FQDN_или_IP-адрес_сервера_Confluent_Schema_Registry>:8081",
         }
     )
 

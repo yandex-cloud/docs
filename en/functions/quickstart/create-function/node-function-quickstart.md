@@ -10,8 +10,8 @@ Create and run a user welcome [function](../../concepts/function.md) in Node.js.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your function.
+    1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
     1. Enter the function name: `nodejs-function`.
     1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -54,6 +54,7 @@ Create and run a user welcome [function](../../concepts/function.md) in Node.js.
 ### Prepare a ZIP archive with the function code {#create-js-zip}
 
 1. Save the following code to a file named `hello.js`:
+
     ```js
     exports.handler = async function (event, context) {
         name = event.queryStringParameters.name
@@ -77,8 +78,8 @@ Create and run a user welcome [function](../../concepts/function.md) in Node.js.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-    1. Select the `nodejs-function` function.
+    1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. Select `nodejs-function`.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}**, click **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
     1. Select the `{{ nodejs-full-ver }}` runtime.
     1. Disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.

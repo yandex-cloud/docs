@@ -10,11 +10,11 @@ description: Follow this guide to add the {{ ml-platform-full-name }} extension 
 - Management console
 
     1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) in which you created or want to create an [API gateway](../../concepts/index.md).
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. [Navigate]({{ link-console-main }}/link/api-gateway) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
     1. Select an API gateway or click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}** to create a new one.
     1. Click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
     1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** field, click ![image](../../../_assets/api-gateway/spec-constructor/cloud-datasphere.svg).
-    1. Specify the following:
+    1. Specify the following fields:
 
         {% include [common-spec-constructor](../../../_includes/api-gateway/common-spec-constructor.md) %}
 
@@ -27,6 +27,6 @@ description: Follow this guide to add the {{ ml-platform-full-name }} extension 
 
 {% include [constructor-result](../../../_includes/api-gateway/constructor-result.md) %}
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
-* [x-yc-apigateway-integration:cloud_datasphere extension](../../concepts/extensions/datasphere.md)
+[x-yc-apigateway-integration:cloud_datasphere extension](../../concepts/extensions/datasphere.md)

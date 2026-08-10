@@ -28,7 +28,7 @@ There are three ways to migrate data from a source {{ ES }} cluster to a target 
 
 * {{ mos-name }} cluster: use of computing resources, storage and backup size (see [{{ mos-name }} pricing](../../managed-opensearch/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-* {{ objstorage-full-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* {{ objstorage-full-name }} bucket: storage use and data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 
 ## Migration using snapshots {#snapshot}
 
@@ -125,7 +125,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
     {% include [connect-bucket-3p](es-mos-migration/connect-bucket-3p.md) %}
 
-    To learn more about connecting the repository, see the [relevant article on the Elastic plugin]({{ links.es.docs }}/elasticsearch/plugins/7.11/repository-s3.html).
+    To learn more about connecting the repository, see the [relevant article on the plugin]({{ links.es.docs }}/elasticsearch/plugins/7.11/repository-s3.html).
 
     {% include [mes-objstorage-snapshot](../../_includes/mdb/mes/objstorage-snapshot.md) %}
 

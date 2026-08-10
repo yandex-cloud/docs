@@ -9,7 +9,7 @@
 
 ## Решение {#case-resolution}
 
-Пользователи с сервисными ролями `storage.viewer`, `storage.configViewer`, `storage.configurer`, `storage.editor` или `storage.admin` иимеют разные полномочия и права доступа к бакетам:
+Пользователи с сервисными ролями `storage.viewer`, `storage.configViewer`, `storage.configurer`, `storage.editor` или `storage.admin` имеют разные полномочия и права доступа к бакетам:
 
 * Роли `storage.viewer`, `storage.editor` и `storage.admin` дают доступ на просмотр или редактирование файлов в бакетах; 
 * Роль `storage.configViewer` позволяет просматривать настройки безопасности бакетов и объектов в них, но не дает доступа к объектам;

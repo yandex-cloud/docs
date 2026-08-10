@@ -27,5 +27,5 @@
 
 1. Идентификатор кластера Managed Service for Kubernetes.
 1. Журнал событий кластера Managed Service for Kubernetes: вывод `kubectl get events`.
-1. Cпецификацию узла кластера: вывод `kubectl describe node $NODE_NAME`, где `$NODE_NAME` - наименование проблемной ноды.
-1. Cпецификацию затронутых проблемой подов кластера: вывод `kubectl describe node $POD_NAME` для каждого такого пода, где `$POD_NAME` - наименование пода.
+1. Спецификацию узла кластера: вывод `kubectl describe node $NODE_NAME`, где `$NODE_NAME` - наименование проблемной ноды.
+1. Спецификацию затронутых проблемой подов кластера: вывод `kubectl describe node $POD_NAME` для каждого такого пода, где `$POD_NAME` - наименование пода.

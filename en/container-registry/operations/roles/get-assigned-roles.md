@@ -55,4 +55,4 @@ description: Follow this guide to view roles assigned for a resource.
 
 {% endlist %}
 
-You can read more about role management in the {{ iam-full-name }} [documentation](../../../iam/concepts/index.md).
+For more information about managing roles, see [this {{ iam-full-name }} guide](../../../iam/concepts/index.md).

@@ -59,7 +59,7 @@
 
 - Linux/macOS {#linux-macos}
 
-  1. Установите MSP360 Backup. Для загрузки выберите опрационную систему:  
+  1. Установите MSP360 Backup. Для загрузки выберите операционную систему:
        * [macOS](https://www.msp360.com/cloudberry-backup/download/cbbmac/)
        * [Ubuntu, Debian](https://www.msp360.com/cloudberry-backup/download/cbbub1214/)
        * [SUSE, Red Hat, Fedora, CentOS](https://www.msp360.com/cloudberry-backup/download/cbbrh6/)

@@ -15,7 +15,7 @@
 
 В качестве альтернативного сценария реализовать такой пайплайн возможно при помощи сервисов API Gateway и Data Streams.
 
-1. Cоздайте шлюз API Gateway в качестве обработчика вебхука, к которому будет [подключен поток данных Data Streams](../../../api-gateway/concepts/extensions/datastreams.md).
+1. Создайте шлюз API Gateway в качестве обработчика вебхука, к которому будет [подключен поток данных Data Streams](../../../api-gateway/concepts/extensions/datastreams.md).
 1. Настройте [триггер для потока данных](../../../functions/concepts/trigger/data-streams-trigger.md), который будет вызывать контейнер или функцию.
 
 В этом случае шлюз API Gateway вернет код ответа `HTTP 200 OK`, а контейнер или функция асинхронно обработают вызов.

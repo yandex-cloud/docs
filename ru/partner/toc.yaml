@@ -26,28 +26,52 @@ items:
         href: portal.md
       - name: Пошаговые инструкции
         items:
-          - name: Создать аккаунт клиента
-            href: operations/create-account.md
-          - name: Добавить сабаккаунт клиента
-            href: operations/pin-client.md
-          - name: Предоставить доступ к партнерскому аккаунту
-            href: operations/access/partners-account.md
-          - name: Посмотреть детализацию сабаккаунтов
-            href: operations/get-client-stat.md
-          - name: Экспортировать расширенную детализацию
-            href: operations/get-partner-report.md
-          - name: Приостановить оказание услуг клиенту
-            href: operations/stop-client-services.md
-          - name: Привязать облако к сабаккаунту
-            href: operations/pin-cloud.md
-          - name: Добавить пользователя в сабаккаунт
-            href: operations/add-user-sub-account.md
-          - name: Настроить квоты для клиентов
-            href: operations/manage-quotas.md
-          - name: Зарегистрировать сделку
-            href: operations/deal-registration.md
-          - name: Зарегистрировать проект
-            href: operations/project-registration.md
+          - name: Управление аккаунтами клиентов
+            items:
+              - name: Создать аккаунт клиента
+                href: operations/create-account.md
+              - name: Добавить сабаккаунт клиента
+                href: operations/pin-client.md
+              - name: Предоставить доступ к партнерскому аккаунту
+                href: operations/access/partners-account.md
+              - name: Приостановить оказание услуг клиенту
+                href: operations/stop-client-services.md
+              - name: Привязать облако к сабаккаунту
+                href: operations/pin-cloud.md
+              - name: Добавить пользователя в сабаккаунт
+                href: operations/add-user-sub-account.md
+              - name: Настроить квоты для клиентов
+                href: operations/manage-quotas.md
+          - name: Просмотр детализации
+            items:
+              - name: Посмотреть детализацию сабаккаунтов
+                href: operations/get-client-stat.md
+              - name: Экспортировать расширенную детализацию
+                href: operations/get-partner-report.md
+          - name: Управление сделками
+            items:
+              - name: Все инструкции
+                href: operations/deals/index.md
+              - name: Создать сделку
+                href: operations/deals/create-deal.md
+              - name: Создать сделку в рамках регламентированной закупки
+                href: operations/deals/create-tender.md
+              - name: Создать проект
+                href: operations/deals/create-project.md
+              - name: Посмотреть информацию о сделке
+                href: operations/deals/deal-info.md
+              - name: Редактировать сделку
+                href: operations/deals/edit.md
+              - name: Зарегистрировать сделку
+                href: operations/deal-registration.md
+              - name: Зарегистрировать проект
+                href: operations/project-registration.md
+          - name: Управление активностями по сделкам
+            items:
+              - name: Посмотреть информацию об активности
+                href: operations/activity-info.md
+          - name: Фильтровать список сущностей
+            href: operations/filter.md
           - name: Запросить пресейл
             href: operations/presale-request.md
           - name: Получить вознаграждение

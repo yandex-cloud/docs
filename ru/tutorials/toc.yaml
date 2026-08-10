@@ -1105,6 +1105,10 @@ items:
       - name: Интеграция {{ mch-full-name }} с Oracle через {{ CH }} JDBC Bridge
         href: dataplatform/jdbc-ch-to-oracle-integration.md
       - name: >-
+          Выполнение аналитических запросов в {{ mpg-name }} с обработкой в {{
+          mch-name }}
+        href: dataplatform/mpg-pg-clickhouse-extension.md
+      - name: >-
           Настройка {{ dns-name }} для доступа к кластеру {{ mch-name }} из
           других облачных сетей
         href: dataplatform/clickhouse-dns-peering.md
@@ -1305,6 +1309,10 @@ items:
           Настройка прав доступа к секрету, созданному {{
           connection-manager-name }}, для пользователя {{ mpg-name }}
         href: dataplatform/conn-man-secret-access.md
+      - name: >-
+          Выполнение аналитических запросов в {{ mpg-name }} с обработкой в {{
+          mch-name }}
+        href: dataplatform/mpg-pg-clickhouse-extension.md
       - name: Миграция БД из {{ GP }} в {{ CH }}
         href: dataplatform/greenplum-to-clickhouse.md
       - name: Миграция БД из {{ GP }} в {{ PG }}
@@ -1395,6 +1403,10 @@ items:
           Создание реестра схем для поставки данных в формате Debezium CDC из {{
           KF }}
         href: dataplatform/schema-registry-cdc-debezium-kafka.md
+      - name: >-
+          Выполнение аналитических запросов в {{ mpg-name }} с обработкой в {{
+          mch-name }}
+        href: dataplatform/mpg-pg-clickhouse-extension.md
       - name: Автоматизация работы с помощью {{ maf-full-name }}
         href: dataplatform/airflow-and-spark.md
       - name: Работа с таблицей в {{ objstorage-name }} из PySpark-задания

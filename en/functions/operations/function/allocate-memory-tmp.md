@@ -10,7 +10,7 @@ description: In this guide, you will learn how to allocate a portion of memory i
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select the function.
     1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
     1. In the **Memory** section under **Additional settings**, enable **Allocate memory for the /tmp directory**.
@@ -109,6 +109,6 @@ description: In this guide, you will learn how to allocate a portion of memory i
 
 {% endlist %}
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
-* [User files](../../concepts/runtime/environment-variables.md#files)
+[User files](../../concepts/runtime/environment-variables.md#files)

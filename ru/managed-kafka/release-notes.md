@@ -60,7 +60,7 @@ description: В разделе представлена история изме�
 * [Встроенная поддержка веб-интерфейса {{ kafka-ui }}](concepts/kafka-ui.md) стала доступна в [регионе](../overview/concepts/region.md) Казахстан.
 * Добавлены новые [роли пользователей](concepts/account-roles.md) для управления ресурсами кластера {{ KF }}: `ACCESS_ROLE_TOPIC_PRODUCER`, `ACCESS_ROLE_TOPIC_CONSUMER`, `ACCESS_ROLE_SCHEMA_READER`, `ACCESS_ROLE_SCHEMA_WRITER`.
 * Добавлена [возможность миграции](tutorials/zk-kraft-kafka-migration.md) с хостов {{ ZK }} на {{ kraft-short-name }}.
-* Добавлена возможность синхронизации даных из топиков {{ KF }} в бакет {{ objstorage-name }} без использования интернета.
+* Добавлена возможность синхронизации данных из топиков {{ KF }} в бакет {{ objstorage-name }} без использования интернета.
 * Изменился лимит по объему данных на брокере при использовании хранилища на сетевых SSD-дисках — 32 768 ГБ.
 
 ## Июль 2025 {#july-2025}

@@ -24,7 +24,7 @@ description: Вы можете отслеживать состояние баз�
 1. Нажмите на имя нужной базы данных и выберите вкладку **{{ ui-key.yacloud.common.monitoring }}**.
 1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
-На открывшейся странице вы увидите графики состояния БД.
+На открывшейся страницы вы увидите графики состояния БД.
 
 ## Интеграция с {{ monitoring-full-name }} {#monitoring-integration}
 

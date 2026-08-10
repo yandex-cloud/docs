@@ -906,7 +906,7 @@
 
         * Для потоков от `tiefighter` к `deathstar.default.svc.cluster.local/v1/request-landing` должен быть вердикт `forwarded`.
         * Для потоков от `tiefighter` к `deathstar.default.svc.cluster.local/v1/exhaust-port` должен быть вердикт `dropped`.
-        * Для потоков от `xwing` к `deathstar.default.svc.cluster.local` должет быть вердикт `dropped`.
+        * Для потоков от `xwing` к `deathstar.default.svc.cluster.local` должен быть вердикт `dropped`.
 
 ## Удалите созданные ресурсы {#clear-out}
 

@@ -17,7 +17,7 @@ Connection to {{ PG }} clusters version 17 and above is not supported.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create your connection.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/timestamps.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-mdb-proxy }}**.
     1. Click **{{ ui-key.yacloud.serverless-mdb-proxy.list.button_create }}**.
     1. Enter a connection name and description. Follow these naming requirements:

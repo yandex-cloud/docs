@@ -116,7 +116,7 @@
 
 ### Создайте сервисные аккаунты {#create-sa}
 
-Cоздайте два [сервисных аккаунта](../../iam/concepts/users/service-accounts.md):
+Создайте два [сервисных аккаунта](../../iam/concepts/users/service-accounts.md):
 * `workflow-sa` — от его имени будет выполняться [рабочий процесс](../../serverless-integrations/concepts/workflows/workflow.md) Workflows;
 * `github-worker` — от его имени будет запускаться рабочий процесс при получении запроса от сценария GitHub Actions.
 

@@ -21,7 +21,7 @@ To get started in {{ yandex-cloud }}:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create an API gateway.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. [Navigate]({{ link-console-main }}/link/api-gateway) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter `numbers`.
   1. Optionally, in the **{{ ui-key.yacloud.common.description }}** field, provide a description.
@@ -77,7 +77,7 @@ To get started in {{ yandex-cloud }}:
 ## Access the API gateway {#api-gw-test}
 
 1. In the [management console]({{ link-console-main }}), select the folder containing the API gateway.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}** and click the API gateway you created.
+1. [Navigate]({{ link-console-main }}/link/api-gateway) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}** and click the API gateway you created.
 1. Save the value of the **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** field.
 1. Install [curl](https://curl.haxx.se).
 1. Access the API gateway using curl with one of the commands:
@@ -235,7 +235,7 @@ Add function information to the API gateway specification.
 
   To update an API gateway specification:
   1. In the [management console]({{ link-console-main }}), select the folder where you want to update an API gateway.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. [Navigate]({{ link-console-main }}/link/api-gateway) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. In the API gateway row, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Under **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}**, add an extended version of the specification.
 

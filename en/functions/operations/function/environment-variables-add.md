@@ -7,7 +7,7 @@ When adding environment variables, you create a new version of the function. You
 - Management console {#console}
     
     1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select the function whose version you want to add an environment variable to.
     1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify the environment variable and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_add-environment-variable }}**. You can add multiple environment variables.
@@ -120,6 +120,6 @@ When adding environment variables, you create a new version of the function. You
 {% endlist %}
 
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
-* [Environment variables](../../concepts/runtime/environment-variables.md#env)
+[Environment variables](../../concepts/runtime/environment-variables.md#env)

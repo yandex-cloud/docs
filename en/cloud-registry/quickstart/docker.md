@@ -47,6 +47,6 @@ To work with {{ cloud-registry-name }} and Docker images:
    {{ cloud-registry }}/<registry_ID>/ubuntu:hello
    ```
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 [Supported artifact types](../concepts/artifacts/index.md#artifacts)
