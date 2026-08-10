@@ -26,6 +26,7 @@ A dry run supports a maximum of 50,000 [Docker images](../../concepts/repository
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
   To test a lifecycle policy:
+
   1. Perform a dry run of the policy:
 
      ```bash
@@ -92,6 +93,7 @@ A dry run supports a maximum of 50,000 [Docker images](../../concepts/repository
 - API {#api}
 
   To test a lifecycle policy:
+  
   1. Perform a policy dry run using the [DryRun](../../api-ref/grpc/LifecyclePolicy/dryRun.md) method for the [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md) resource. Specify the policy ID in the `lifecycle_policy_id` parameter. You can get the list of policies using the [List](../../api-ref/grpc/LifecyclePolicy/list.md) method for the [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md) resource.
   1. Get a list of policy dry runs using the [ListDryRunResults](../../api-ref/grpc/LifecyclePolicy/listDryRunResults.md) method for the [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md) resource. Specify the policy ID in the `lifecycle_policy_id` parameter.
   1. Get information regarding a policy dry run using the [GetDryRunResult](../../api-ref/grpc/LifecyclePolicy/getDryRunResult.md) method for the [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md) resource. In the `dry_run_lifecycle_policy_result_id` parameter, specify the ID of the policy dry run results from the previous step.

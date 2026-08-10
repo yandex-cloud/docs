@@ -12,7 +12,7 @@ description: Follow this guide to configure function logging.
 - Management console {#console}
     
     1. In the [management console]({{ link-console-main }}), navigate to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing the function.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select the function you want to configure logging for.
     1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
     1. Under **{{ ui-key.yacloud.logging.label_title }}**:
@@ -70,6 +70,7 @@ description: Follow this guide to configure function logging.
     ```
 
     Where:
+
     * `--function-id`: Function ID.
     * `--runtime`: Runtime.
     * `entrypoint`: Entry point in `<file_name_without_extension>.<handler_name>` format.
@@ -79,6 +80,7 @@ description: Follow this guide to configure function logging.
     * `--min-log-level`: Minimum logging level. This is an optional setting.
 
     Result:
+
     ```
     done (4s)
     id: d4ech7qdki6r********
@@ -148,6 +150,7 @@ description: Follow this guide to configure function logging.
         ```
 
         Where:
+        
         * `name`: Function name.
         * `user_hash`: Any string to identify the function version. When you change the function, update this string as well. Updating this string triggers a function update.
         * `runtime`: Function [runtime](../../concepts/runtime/index.md).

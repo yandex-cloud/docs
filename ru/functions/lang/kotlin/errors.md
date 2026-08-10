@@ -19,7 +19,7 @@ fun handle(request: IntArray): Int {
 
 ```bash
 curl \
-     --header "Authorization: Bearer <IAM-тoкен>" \
+     --header "Authorization: Bearer <IAM-токен>" \
      --data "[1, 22, 333]" \
      "https://functions.yandexcloud.net/<идентификатор_функции>?integration=raw"
 ```
@@ -30,7 +30,7 @@ curl \
 
 ```bash
 curl \
-     --header "Authorization: Bearer <IAM-тoкен>" \
+     --header "Authorization: Bearer <IAM-токен>" \
      --data "[]" \
      "https://functions.yandexcloud.net/<идентификатор_функции>?integration=raw"
 ```
@@ -58,7 +58,7 @@ curl \
 
 ```bash
 curl \
-     --header "Authorization: Bearer <IAM-тoкен>" \
+     --header "Authorization: Bearer <IAM-токен>" \
      --data "notanarray" \
      "https://functions.yandexcloud.net/<идентификатор_функции>?integration=raw"
 ```

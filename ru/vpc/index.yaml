@@ -48,7 +48,7 @@ meta:
     - keyword: маршрутизация в {{ vpc-name }}
     - keyword: группа безопасности
     - keyword: security group
-    - keyword: сервисное подкючение
+    - keyword: сервисное подключение
     - keyword: Private Endpoint
 links:
   - title: Начало работы

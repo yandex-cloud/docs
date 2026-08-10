@@ -10,7 +10,7 @@ description: Follow this guide to delete a container.
 - Management console {#console}
 
 	1. In the [management console]({{ link-console-main }}), select the folder with your container.
-	1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+	1. [Navigate]({{ link-console-main }}/link/serverless-containers) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 	1. In the container row, click ![image](../../_assets/console-icons/ellipsis.svg).
 	1. In the menu that opens, click **{{ ui-key.yacloud.common.delete }}**.
 	1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
@@ -57,6 +57,7 @@ description: Follow this guide to delete a container.
 	 For more on the properties of the `yandex_serverless_container` resource, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
 
   1. Validate your configuration using this command:
+
      ```
      terraform validate
      ```
@@ -68,6 +69,7 @@ description: Follow this guide to delete a container.
      ```
 
   1. Run this command:
+
      ```
      terraform plan
      ```
@@ -75,6 +77,7 @@ description: Follow this guide to delete a container.
      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
   1. Apply the configuration changes:
+
      ```
      terraform apply
      ```

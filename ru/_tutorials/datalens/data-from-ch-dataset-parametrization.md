@@ -93,7 +93,7 @@
 
    1. Перейдите на вкладку **Источники**.
    1. В списке таблиц напротив **MS_SalesFacts** нажмите ![icon](../../_assets/console-icons/ellipsis.svg) → **Изменить настройки**.
-   1. Cправа от поля **Имя таблицы** со значением `MS_SalesFacts` нажмите ![icon](../../_assets/console-icons/plus.svg) и выберите параметр `table_name`. Теперь имя таблицы будет определяться указанным параметром.
+   1. Справа от поля **Имя таблицы** со значением `MS_SalesFacts` нажмите ![icon](../../_assets/console-icons/plus.svg) и выберите параметр `table_name`. Теперь имя таблицы будет определяться указанным параметром.
    
       ![image](../../_assets/datalens/dataset-parametrization/dataset-change-table-settings.png)
 

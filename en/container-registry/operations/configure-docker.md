@@ -11,4 +11,4 @@ Before you start using {{ container-registry-name }}, install and configure [Doc
 
 #### Useful links {#see-also}
 
-* [{#T}](./authentication.md)
+[{#T}](./authentication.md)

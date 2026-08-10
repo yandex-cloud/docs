@@ -18,9 +18,9 @@ Create a [trigger for a {{ message-queue-short-name }} message queue](../../conc
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
+    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
 
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. [Navigate]({{ link-console-main }}/link/api-gateway) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
 
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -118,14 +118,13 @@ Create a [trigger for a {{ message-queue-short-name }} message queue](../../conc
 
     Check that the number of enqueued messages is decreasing. To do this, view the queue statistics:
 
-   1. In the [management console]({{ link-console-main }}), navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ymq }}**.
+   1. In the management console, [navigate]({{ link-console-main }}/link/message-queue) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ymq }}**.
    1. Select the queue for which you created the trigger.
    1. Go to **{{ ui-key.yacloud.common.monitoring }}**. Check the **{{ ui-key.yacloud.ymq.queue.overview.label_msg-count }}** chart.
 
 {% endlist %}
 
-
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [Trigger for {{ message-queue-name }} that sends messages to a {{ sf-name }} function](../../../functions/operations/trigger/ymq-trigger-create.md)
 * [Trigger for {{ message-queue-name }} that sends messages to a {{ serverless-containers-name }} container](../../../serverless-containers/operations/ymq-trigger-create.md)

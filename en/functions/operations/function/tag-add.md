@@ -91,6 +91,7 @@ A newly created version gets the `$latest` [tag](../../concepts/function.md#) by
        ```
        terraform apply
        ```
+       
     1. Type `yes` and press **Enter** to confirm the changes.
       
     You can check the new tags using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:

@@ -6,13 +6,13 @@ description: Before you start using {{ container-registry-name }}, you need to g
 # Authentication in {{ container-registry-name }}
 
 Before you start using {{ container-registry-name }}, you need to [configure Docker](./configure-docker.md) and get authenticated to use the appropriate interface:
+
 * In the **management console**, the minimum required [role](../../iam/concepts/access-control/roles.md) for a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) is `viewer`.
 * In the **Docker CLI** or **{{ managed-k8s-full-name }}**, the minimum required role for a [registry](../concepts/registry.md) or [repository](../concepts/repository.md) is `container-registry.images.puller`.
 
 Assign the required role to the {{ yandex-cloud }} user. Read about [authentication methods](#method) and select the one that works best for you.
 
 For more information about roles, see [{#T}](../security/index.md).
-
 
 ## Authentication methods {#method}
 
@@ -82,13 +82,13 @@ You can get authenticated:
 
 When running the command, you may get this error message: `docker login is not supported with yc credential helper`.
 
-In such a case, [disable Docker credential helper](#ch-not-use). For more information, see [Troubleshooting in {{ container-registry-name }}](../error/index.md).
+If this occurs, [disable the Docker credential helper](#ch-not-use). For more information, see [Troubleshooting in {{ container-registry-name }}](../error/index.md).
 
-## Authenticate using a Docker credential helper {#cred-helper}
+## Authenticating with a Docker credential helper {#cred-helper}
 
-Docker Engine can keep user credentials in an external credential store. This is more secure than storing credentials in the Docker configuration file. To use a credential store, you need an external [Docker credential helper](https://docs.docker.com/engine/reference/commandline/login/#credential-helpers) utility.
+Docker Engine can keep user credentials in an external credential store. This is more secure than storing credentials in the Docker configuration file. To use a credential store, you need an external program, [Docker credential helper](https://docs.docker.com/engine/reference/commandline/login/#credential-helpers).
 
-The [{{ yandex-cloud }} CLI](../../cli/quickstart.md) uses `docker-credential-yc` as a Docker credential helper for {{ yandex-cloud }}. It stores user credentials and enables you to use private {{ yandex-cloud }} registries without running the `docker login` command.
+The [{{ yandex-cloud }} CLI](../../cli/quickstart.md) provides `docker-credential-yc` as a Docker credential helper for {{ yandex-cloud }}. It stores user credentials and enables you to use private {{ yandex-cloud }} registries without running the `docker login` command.
 
 ### Configuring a credential helper {#ch-setting}
 
@@ -126,7 +126,7 @@ The [{{ yandex-cloud }} CLI](../../cli/quickstart.md) uses `docker-credential-yc
 
 #### Using the credential helper for a different {{ yandex-cloud }} CLI profile {#ch-profile}
 
-You can use the credential helper for another profile without switching the current one by running the following command:
+You can use the credential helper for another profile, without switching from the current one, by running the following command:
 
 ```bash
 yc container registry configure-docker --profile <profile_name>
@@ -136,4 +136,4 @@ For more information about profile management, see [these {{ yandex-cloud }} CLI
 
 #### Disabling a credential helper {#ch-not-use}
 
-To stop using a credential helper for authentication, delete the `{{ registry }}` domain line from the `credHelpers` section in the `${HOME}/.docker/config.json` configuration file.
+To stop using a credential helper for authentication, remove the `{{ registry }}` domain line from `credHelpers` in the `${HOME}/.docker/config.json` configuration file.

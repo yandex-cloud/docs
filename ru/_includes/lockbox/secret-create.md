@@ -15,7 +15,7 @@
       * **{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-generated }}** — значение формируется автоматически:
   
         * В поле **{{ ui-key.yacloud.lockbox.SecretGeneratedVersion.label_key }}** введите неконфиденциальный идентификатор.
-        * (Опционально) Разверните блок **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_auto-generation_params_section }}** и задайте парамеры для конфиденциального значения (например, пароля).
+        * (Опционально) Разверните блок **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_auto-generation_params_section }}** и задайте параметры для конфиденциального значения (например, пароля).
   
       * **{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}** — значение задается вручную:
 

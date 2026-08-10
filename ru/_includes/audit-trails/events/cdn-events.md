@@ -7,7 +7,7 @@
 `gcore.OriginGroupCreate` | Создание группы источников
 `gcore.OriginGroupDelete` | Удаление группы источников
 `gcore.OriginGroupUpdate` | Изменение группы источников
-`gcore.OriginUpdate` | Измнение источника
+`gcore.OriginUpdate` | Изменение источника
 `gcore.ProviderActivate` | Активация провайдера
 `gcore.RawLogsActivate` | Включение выгрузки логов
 `gcore.RawLogsDeactivate` | Отключение выгрузки логов

@@ -23,7 +23,7 @@ description: Следуя данной инструкции, вы сможете
       1. {% include [integrations-name-the-step](../../../../_includes/serverless-integrations/workflows-constructor/integrations-name-the-step.md) %}
       1. В блоке **Токен** укажите [токен бота](https://core.telegram.org/bots/features#creating-a-new-bot) или [секрет](../../../../lockbox/concepts/secret.md) {{ lockbox-name }}, в котором сохранен этот токен. Выберите:
 
-          * `Lockbox`, чтобы хранить токен бота в секрете, и в блоке **Cекрет** выберите секрет, его [версию](../../../../lockbox/concepts/secret.md#version) и ключ, в которых сохранен токен бота.
+          * `Lockbox`, чтобы хранить токен бота в секрете, и в блоке **Секрет** выберите секрет, его [версию](../../../../lockbox/concepts/secret.md#version) и ключ, в которых сохранен токен бота.
 
               Если у вас еще нет секрета {{ lockbox-name }}, нажмите кнопку **Создать**, чтобы создать его.
 

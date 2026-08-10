@@ -183,7 +183,7 @@
    1. В верхнем меню нажмите **Git** и выберите **Clone**.
    1. В открывшемся окне введите URI репозитория `https://github.com/yandex-cloud-examples/yc-datasphere-video-recognition.git` и нажмите кнопку **Clone**.
    
-   Дождитесь окончания клонирования, это может занять некоторое время. Папка cклонированного репозитория появится в разделе ![folder](../../_assets/datasphere/jupyterlab/folder.svg) **File Browser**.
+   Дождитесь окончания клонирования, это может занять некоторое время. Папка склонированного репозитория появится в разделе ![folder](../../_assets/datasphere/jupyterlab/folder.svg) **File Browser**.
 
 В репозитории содержатся два ноутбука: 
 

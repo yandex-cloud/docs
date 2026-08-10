@@ -754,7 +754,7 @@
      created_at: "2021-11-03T10:31:41.027649223Z"
      ```
 
-     Подробнее о команде `yc alb http-router create` сомтрите в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/http-router/create.md).
+     Подробнее о команде `yc alb http-router create` смотрите в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/http-router/create.md).
 
   1. Создайте виртуальный хост `canary-vh-production`:
 

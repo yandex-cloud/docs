@@ -10,7 +10,7 @@ description: Follow this guide to delete a function label.
 - Management console {#console}
     
     1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select the function.
     1. In the top-right corner, click **{{ ui-key.yacloud.serverless-functions.list.button_action-edit }}**.
     1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, select the label and click ![cross](../../../_assets/console-icons/xmark.svg) next to its name.

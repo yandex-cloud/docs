@@ -41,7 +41,7 @@ In addition to timers, the following types of triggers are available in {{ serve
 
     Create an [email trigger](../../concepts/trigger/mail-trigger.md) that invokes a container when an email arrives.
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [Step-by-step guides on how to create triggers](../../operations/index.md#trigger-create)
 * [{{ serverless-containers-full-name }} trigger overview](../../concepts/trigger/index.md)

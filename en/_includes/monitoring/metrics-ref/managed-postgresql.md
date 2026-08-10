@@ -190,7 +190,7 @@ The consumption type goes into the `systag` label.
 | `postgres_oldest_transaction_duration`<br/>`DGAUGE`, seconds | Duration of the oldest transaction |
 | `postgres_pg_total_databases_size`<br/>`DGAUGE`, bytes | Total size of all databases |
 | `postgres_role_conn_limit`<br/>`DGAUGE`, count | Maximum number of concurrent sessions per user.<br/>Special labels:<ul><li>`database`: Database name.</li><li>`user`: Username</li></ul> |
-| `postgres_role_sessions`<br/>`DGAUGE`, count | Number of active sessions per user.<br/>Special labels:<ul><li>`database`: Database name.</li><li>`query_type`: Username</li></ul> |
+| `postgres_role_sessions`<br/>`DGAUGE`, count | Number of active sessions per user.<br/>Special labels:<ul><li>`database`: Database name.</li><li>`user`: Username</li></ul> |
 | `postgres_role_total_conn_limit`<br/>`DGAUGE`, count | Maximum possible number of concurrent sessions for all users |
 | `postgres_total_connections`<br/>`DGAUGE`, count | Number of connections |
 | `postgres_wait_event_CPU_CPU`<br/>`DGAUGE`, count | Number of {{ PG }} processes waiting for CPU time.<br/>Special labels:<ul><li>`database`: Database name</li><li>`user`: Username</li></ul> |

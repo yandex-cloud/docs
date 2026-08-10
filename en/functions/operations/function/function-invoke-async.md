@@ -14,7 +14,7 @@ description: Follow this guide to configure and run an asynchronous function inv
 - Management console {#console}
     
     1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select the function.
     1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_async }}**, select **{{ ui-key.yacloud.serverless-functions.item.editor.label_turn-on-button }}**.
@@ -135,6 +135,6 @@ description: Follow this guide to configure and run an asynchronous function inv
 
 [Call the function](function-invoke.md) via HTTPS, specifying the `?integration=async` query string parameter.
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
-* [Asynchronous function invocation](../../concepts/function-invoke-async.md)
+[Asynchronous function invocation](../../concepts/function-invoke-async.md)

@@ -14,7 +14,7 @@ To mount buckets to a function:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Select the function.
   1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
   1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** section, select or create a [service account](../../../iam/concepts/users/service-accounts) with one of these roles:
@@ -125,7 +125,7 @@ To mount buckets to a function:
 
 {% endlist %}
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/mounting.md)
 * [{#T}](../../../serverless-containers/concepts/mounting.md)

@@ -314,7 +314,7 @@ yc components update
 
     Если манифест содержит параметр `spec.nodeAffinity` и в нем указана принадлежность к зоне доступности, сохраните этот параметр. Его понадобится указать в новом `PersistentVolume`.
 
-1. Создайте [снапшот](../../glossary/snapshot.md) — копию диска `PersistentVolume` на определенный момент времени. Подробнее о механизме снапшотов смотриите в [документации Kubernetes](https://kubernetes.io/docs/concepts/storage/volume-snapshots/).
+1. Создайте [снапшот](../../glossary/snapshot.md) — копию диска `PersistentVolume` на определенный момент времени. Подробнее о механизме снапшотов смотрите в [документации Kubernetes](https://kubernetes.io/docs/concepts/storage/volume-snapshots/).
 
    1. Получите название объекта `PersistentVolumeClaim`:
 

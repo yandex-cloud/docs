@@ -17,10 +17,7 @@ If you do not use any other {{ yandex-cloud }} services except {{ datalens-short
 * You can only create new {{ datalens-short-name }} instances at the organization level. Creating a {{ datalens-short-name }} instance in an existing cloud without an organization is no longer supported. You must first create an organization, and then create {{ datalens-short-name }} within it.
 * An organization can only have a single {{ datalens-short-name }} instance.
 * To create {{ datalens-short-name }} in an organization, you need the `admin` or `owner` role for that organization.
-* Currently, technical support requests do not support organizations, therefore:
-
-  * To create a technical support ticket, you need to have a cloud. If you only have an organization, a cloud will be created automatically when you create a ticket. Moving forward, we will add the feature to create support tickets from an organization without creating a cloud.
-  * Currently, technical support plans can only be linked to a cloud rather than an organization. If you have multiple clouds linked to your organization, and each has a different technical support plan, select the cloud with the highest rate when you create your support ticket. This will provide you with the best technical support available.
+* Technical support and its service plans are associated with your organization, so creating a support ticket does not require any cloud access. You can learn more about the support terms [here](../../support/overview.md).
 
 
 #### Useful links {#see-also}

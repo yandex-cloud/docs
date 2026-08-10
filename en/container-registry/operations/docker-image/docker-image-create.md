@@ -36,6 +36,7 @@ To work with Docker images, [install and configure](../configure-docker.md) Dock
 {% endlist %}
 
 After you run these commands, a Docker image with the `hello` tag will appear in your repository. The full repository address will contain:
+
 * {{ container-registry-name }} address: `{{ registry }}`.
 * Your registry ID: `<registry_ID>`.
 * Name of your repository: `ubuntu`.

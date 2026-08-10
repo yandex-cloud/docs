@@ -2,7 +2,7 @@
 
 {% include [iot-sunset-warning](../../../../_includes/iot-core/sunset-warning.md) %}
 
-Aliases are associated with specific devices. To update an alias, you need to [get the device ID or name](../device-list.md).
+Aliases are linked to specific devices. To update an alias, you [need the device ID or name](../device-list.md).
 
 {% list tabs group=instructions %}
 
@@ -10,11 +10,11 @@ Aliases are associated with specific devices. To update an alias, you need to [g
 
    To update an alias:
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to update an alias.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. Select the registry from the list.
-   1. Select **{{ ui-key.yacloud.iot.label_devices }}** in the left pane of the window.
-   1. Click ![image](../../../../_assets/console-icons/ellipsis.svg) to the right of the device name and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
+   1. In the [management console]({{ link-console-main }}), select a folder in which to update an alias.
+   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. Select the required registry from the list.
+   1. On the left side of the window, select the **{{ ui-key.yacloud.iot.label_devices }}** section.
+   1. Click ![image](../../../../_assets/console-icons/ellipsis.svg) to the right of the appropriate device name and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
    1. Update the values of the alias fields.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -37,6 +37,7 @@ Aliases are associated with specific devices. To update an alias, you need to [g
     ```
 
     Result:
+
     ```text
     id: areqjd6un3af********
     registry_id: arenou2oj4ct********
@@ -55,7 +56,7 @@ Aliases are associated with specific devices. To update an alias, you need to [g
 
   To update an alias created with {{ TF }}:
   
-  1. Open the {{ TF }} configuration file and edit the alias value in the `aliases` section of the device description.
+  1. Open the {{ TF }} configuration file and edit the alias value in the `aliases` section, in the device description fragment.
 
       Here is an example of a device description in the {{ TF }} configuration:
 
@@ -73,7 +74,7 @@ Aliases are associated with specific devices. To update an alias, you need to [g
       }
       ```
 
-      For more information about `yandex_iot_core_device` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_device).
+      For more on the properties of the `yandex_iot_core_device` resource, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_device).
   1. In the terminal, navigate to the directory where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -93,16 +94,16 @@ Aliases are associated with specific devices. To update an alias, you need to [g
       terraform plan
       ```
 
-      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
   1. Apply the configuration changes:
 
       ```bash
       terraform apply
       ```
 
-  1. Type `yes` and press **Enter** to confirm the changes.
+  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can check device aliases using the [management console]({{ link-console-main }}) or this [CLI](../../../../cli/quickstart.md) command:
+      You can verify device aliases in the [management console]({{ link-console-main }}) or using the following [CLI](../../../../cli/quickstart.md) command:
 
       ```bash
       yc iot device get <device_name>

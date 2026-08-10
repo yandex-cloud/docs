@@ -11,7 +11,7 @@ The system logs all actions with {{ sf-name }} resources as a list of operations
   You can get a list of operations for a specific resource. The steps below describe how you can do this for a function. The same steps apply to other resources.
 
   1. In the [management console]({{ link-console-main }}), open the folder with the function.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/curly-brackets-function.svg) **{{ ui-key.yacloud.serverless-functions.switch_list }}**.
   1. Select the function.
   1. Go to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the selected function.
@@ -131,4 +131,4 @@ The system logs all actions with {{ sf-name }} resources as a list of operations
 
 #### Useful links {#see-also}
 
-* [{#T}](../../api-design-guide/concepts/about-async.md)
+[{#T}](../../api-design-guide/concepts/about-async.md)

@@ -59,7 +59,7 @@ Thumbor удобно использовать для подготовки изо
         {% endnote %}
 
    1. [Создайте кластер](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) Managed Service for Kubernetes и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md) любой подходящей конфигурации. При создании укажите группы безопасности, подготовленные ранее.
-   1. [Cоздайте бакет](../../storage/operations/buckets/create.md) в Yandex Object Storage.
+   1. [Создайте бакет](../../storage/operations/buckets/create.md) в Yandex Object Storage.
    1. [Предоставьте сервисному аккаунту](../../storage/operations/objects/edit-acl.md) `thumbor-sa` разрешение `READ` на бакет.
 
 - Terraform {#tf}

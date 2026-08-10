@@ -120,7 +120,7 @@
 
   Профиль безопасности Yandex Smart Web Security отключается от балансировщика [Yandex Application Load Balancer](../../application-load-balancer/concepts/index.md) в настройках виртуального хоста.
 
-  1. В конфигурационном файле Terraform для ресурса `yandex_alb_virtual_host`  в блокe `route_options` удалите параметр `security_profile_id` — идентификатор профиля безопасности.
+  1. В конфигурационном файле Terraform для ресурса `yandex_alb_virtual_host`  в блоке `route_options` удалите параметр `security_profile_id` — идентификатор профиля безопасности.
 
       ```hcl
       resource "yandex_alb_virtual_host" "my-virtual-host" {

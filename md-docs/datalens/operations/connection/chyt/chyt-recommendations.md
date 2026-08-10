@@ -37,7 +37,7 @@
 
 {% note warning %}
 
-Простая смена аттрибута `erasure_codec` на `optimize_for` не изменит формат данных. Чтобы форсировать изменение, запустите операцию `merge` с опцией `force_transform=%true`.
+Простая смена атрибута `erasure_codec` на `optimize_for` не изменит формат данных. Чтобы форсировать изменение, запустите операцию `merge` с опцией `force_transform=%true`.
 
 {% endnote %}
 

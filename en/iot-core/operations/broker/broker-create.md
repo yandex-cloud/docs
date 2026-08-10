@@ -13,19 +13,19 @@ description: Follow this guide to create a broker.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to create your broker.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a broker.
+  1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
   1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
   1. Click **{{ ui-key.yacloud.iot.button_create-broker }}**.
-  1. Under **{{ ui-key.yacloud.common.section-base }}**, specify the following:
+  1. Under **{{ ui-key.yacloud.common.section-base }}**, specify:
 
       * Broker **{{ ui-key.yacloud.common.name }}**, e.g., `my-broker`.
-      * Optionally, **{{ ui-key.yacloud.common.description }}** providing additional information about the broker.
+      * Optionally, **{{ ui-key.yacloud.common.description }}**: Additional information about the broker.
       * Optionally, **{{ ui-key.yacloud.common.password }}** if you are going to use it instead of a certificate to access the broker. To create a password, you can use [this password generator](https://passwordsgenerator.net/).
 
           {% note info %}
 
-          Make sure to save the password, as you will need it for [authentication](../../concepts/authorization.md).
+          Make sure to save your password, as you will need it for [authentication](../../concepts/authorization.md).
 
           {% endnote %}
 
@@ -37,13 +37,13 @@ description: Follow this guide to create a broker.
 
           1. Select the `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` method.
           1. Click **Attach file**.
-          1. Select the file with the certificate’s public key and click **Open**.
+          1. Select the file with the public key of the certificate and click **Open**.
           1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
       * To add text:
 
           1. Select the `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}` method.
-          1. Paste the certificate’s public key into the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
+          1. Paste the certificate's public key to the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
           1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
   1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -60,7 +60,7 @@ description: Follow this guide to create a broker.
       yc iot broker create --name <broker_name>
       ```
 
-      The broker naming requirements are as follows:
+      The naming requirements are as follows:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -74,16 +74,16 @@ description: Follow this guide to create a broker.
       status: ACTIVE
       ```
 
-  1. Optionally, set a password for the broker for [username and password](../../concepts/authorization.md#log-pass) authentication:
+  1. (Optional) Assign the broker a password for authentication with a [username and password](../../concepts/authorization.md#log-pass):
 
       ```bash
       yc iot broker password add --broker-name <broker_name>
       ```
 
-      You will be prompted to enter a password. Follow these password requirements:
+      You will be prompted to enter a password. Password requirements:
 
-      * The password must contain numbers, uppercase and lowercase letters, and special characters.
-      * The password must be at least 14 characters long.
+      * The password must contain numbers, upper-case and lower-case letters, and special characters.
+      * It must be at least 14 characters long.
 
       Result:
 
@@ -93,7 +93,7 @@ description: Follow this guide to create a broker.
       created_at: "2022-05-28T11:32:42.420Z"
       ```
 
-  1. Optionally, add a certificate to the broker for [certificate](../../concepts/authorization.md#certs)-based authentication:
+  1. Optionally, add to the broker a certificate for authentication with [certificates](../../concepts/authorization.md#certs):
 
       ```bash
       yc iot broker certificate add \
@@ -104,7 +104,7 @@ description: Follow this guide to create a broker.
       Where:
 
       * `--broker-name`: Broker name.
-      * `--certificate-file`: Path to the public key of the certificate, e.g., `cert.pem`.
+      * `--certificate-file`: Path to the public key of the certificate, such as `cert.pem`.
 
       Result:
 
@@ -126,7 +126,7 @@ description: Follow this guide to create a broker.
    
   {% note info %}
 
-  To add certificates to a broker, [create](../certificates/create-certificates.md) them in advance.
+  To add certificates to a broker, [generate](../certificates/create-certificates.md) them in advance.
 
   {% endnote %}
 
@@ -138,7 +138,7 @@ description: Follow this guide to create a broker.
        * `name`: Broker name.
        * `description`: Broker description.
        * `labels`: Broker labels in `key:value` format.
-       * `certificates`: List of broker certificates for [certificate](../certificates/create-certificates.md)-based authentication.
+       * `certificates`: List of broker certificates for authentication with [certificates](../certificates/create-certificates.md).
 
       Here is an example of a resource structure in the configuration file:
       
@@ -161,7 +161,7 @@ description: Follow this guide to create a broker.
       }
       ```
 
-      For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_broker).
+      For more information about resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_broker).
 
   1. Make sure the configuration files are correct.
       1. In the terminal, navigate to the directory where you created your configuration file.
@@ -171,7 +171,7 @@ description: Follow this guide to create a broker.
           terraform plan
           ```
 
-      If the configuration is correct, the terminal will display a list of the resources and their settings. {{ TF }} will show any errors detected in the configuration. 
+      If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors. 
 
   1. Deploy the cloud resources.
 

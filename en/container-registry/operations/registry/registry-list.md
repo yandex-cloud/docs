@@ -6,6 +6,7 @@ description: Follow this guide to get information about existing registries.
 # Getting information about existing registries
 
 Find out how to get:
+
 * [List of registries in a folder](#registry-list).
 * [Detailed information about a registry](#registry-get).
 

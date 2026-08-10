@@ -42,6 +42,7 @@ description: Различные сценарии использования {{ m
 * [{#T}](yq-federative-queries.md)
 * [{#T}](jdbc-ch-to-sql-server-integration.md)
 * [{#T}](jdbc-ch-to-oracle-integration.md)
+* [{#T}](mpg-pg-clickhouse-extension.md)
 
 
 О миграции хостов кластера {{ mch-name }} в другую зону доступности читайте в [инструкции](../operations/host-migration.md).

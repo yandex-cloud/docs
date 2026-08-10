@@ -12,7 +12,7 @@ You can set up a canary release only for [OpenAPI specifications](https://en.wik
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [API gateway](../concepts/index.md).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. [Navigate]({{ link-console-main }}/link/api-gateway) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. In the API gateway row, click ![image](../../_assets/options.svg) and select ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Under **{{ ui-key.yacloud.serverless-functions.gateways.form.label_section-variables }}**, enable [canary release](../concepts/extensions/canary.md).
   1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.label_canary-share }}** field, specify the percentage of requests for the canary release to process.
@@ -110,7 +110,7 @@ You can set up a canary release only for [OpenAPI specifications](https://en.wik
 
 {% endlist %}
 
-## Useful links
+#### Useful links {#see-also}
 
 * [What is a canary release?](../concepts/extensions/canary.md)
-* [Canary release of a function in {{ sf-name }}](../tutorials/canary-release.md)
+* [Canary release of a {{ sf-name }} function](../tutorials/canary-release.md)

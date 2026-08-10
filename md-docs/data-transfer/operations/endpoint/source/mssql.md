@@ -8,7 +8,7 @@
 1. [Подготовьте базу данных Microsoft SQL Server](#prepare) к трансферу.
 1. [Настройте эндпоинт-источник](#endpoint-settings) в Yandex Data Transfer.
 1. [Настройте один из поддерживаемых приемников данных](#supported-targets).
-1. [Cоздайте](../../transfer.md#create) и [запустите](../../transfer.md#activate) трансфер.
+1. [Создайте](../../transfer.md#create) и [запустите](../../transfer.md#activate) трансфер.
 1. При возникновении проблем, [воспользуйтесь готовыми решениями](../../../troubleshooting/index.md) по их устранению.
 
 ## Сценарии передачи данных из Microsoft SQL Server {#scenarios}

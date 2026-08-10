@@ -147,7 +147,7 @@
         ```hcl
         resource "yandex_function" "my-function" {
           name       = "<имя_функции>"
-          user_hash  = "<хeш_версии_функции>"
+          user_hash  = "<хеш_версии_функции>"
           runtime    = "<среда_выполнения>"
           entrypoint = "<точка_входа>"
           memory     = "<объем_RAM>"

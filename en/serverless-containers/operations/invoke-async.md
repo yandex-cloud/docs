@@ -14,7 +14,7 @@ description: Follow this guide to configure and run an asynchronous invocation f
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with your [container](../concepts/container.md).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. [Navigate]({{ link-console-main }}/link/serverless-containers) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Select the container whose [revision](../concepts/container.md#revision) you want to create.
   1. Navigate to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
   1. Under **Asynchronous invocation**:
@@ -129,6 +129,6 @@ description: Follow this guide to configure and run an asynchronous invocation f
 When [invoking](invoke.md) the container over HTTP, specify the `X-Ycf-Container-Integration-Type: async` header.
 
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
-* [{#T}](../concepts/invoke-async.md)
+[{#T}](../concepts/invoke-async.md)

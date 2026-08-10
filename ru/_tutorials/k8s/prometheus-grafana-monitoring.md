@@ -4,7 +4,7 @@
 
 Из этой статьи вы узнаете, как настроить мониторинг [кластера {{ managed-k8s-full-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) с помощью {{ prometheus-name }} Operator с поддержкой {{ monitoring-full-name }}.
 
-{{ prometheus-name }} Operator с поддержкой {{ monitoring-name }} упрощает установку {{ prometheus-name }} Operator, популярного решения для мониторига кластеров {{ k8s }}, и добавляет интеграцию с системой мониторинга {{ monitoring-full-name }}. С ее помощью можно собирать, хранить и читать метрики из контейнеров, приложений и инфраструктуры. Система использует модель данных {{ prometheus-name }} и язык запросов [{{ promql-name }}](https://prometheus.io/docs/prometheus/latest/querying/basics/).
+{{ prometheus-name }} Operator с поддержкой {{ monitoring-name }} упрощает установку {{ prometheus-name }} Operator, популярного решения для мониторинга кластеров {{ k8s }}, и добавляет интеграцию с системой мониторинга {{ monitoring-full-name }}. С ее помощью можно собирать, хранить и читать метрики из контейнеров, приложений и инфраструктуры. Система использует модель данных {{ prometheus-name }} и язык запросов [{{ promql-name }}](https://prometheus.io/docs/prometheus/latest/querying/basics/).
 
 Чтобы настроить мониторинг кластера {{ managed-k8s-name }}:
 

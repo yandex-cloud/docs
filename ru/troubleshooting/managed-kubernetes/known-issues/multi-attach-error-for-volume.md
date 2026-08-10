@@ -3,7 +3,7 @@
 
 ## Описание проблемы {#issue-description}
 
-При попытке использовать `persistent volume` на нескольких подах одновременно возникют ошибки вида:
+При попытке использовать `persistent volume` на нескольких подах одновременно возникают ошибки вида:
 * `Multi-Attach error for volume "<volume-name>" Volume is already used by pod(s) <pod1>, <pod2>`;
 * `Multi-Attach error for volume "<volume-name>" Volume is already exclusively attached to one node and can't be attached to another`.
 

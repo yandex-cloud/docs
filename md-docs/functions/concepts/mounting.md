@@ -46,7 +46,7 @@
 
 ## Полезные ссылки {#see-also}
 
-* [Cмонтировать бакеты в функцию](../operations/function/mount-bucket.md)
-* [Cмонтировать эфемерный диск в функцию](../operations/function/mount-ephemeral-disk.md)
+* [Смонтировать бакеты в функцию](../operations/function/mount-bucket.md)
+* [Смонтировать эфемерный диск в функцию](../operations/function/mount-ephemeral-disk.md)
 * [Смонтировать бакеты в контейнер](../../serverless-containers/operations/mount-bucket.md)
 * [Смонтировать эфемерный диск в контейнер](../../serverless-containers/operations/mount-ephemeral-disk.md)

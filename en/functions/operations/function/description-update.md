@@ -10,7 +10,7 @@ description: Follow this guide to update a function description.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), go to the folder where you want to update a [function](../../concepts/function.md) description.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select the function.
     1. In the top-right corner, click **{{ ui-key.yacloud.serverless-functions.list.button_action-edit }}**.
     1. In the window that opens, enter a new function description.

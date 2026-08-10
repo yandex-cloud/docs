@@ -93,7 +93,7 @@ You can set up policies for accessing a [registry](../../concepts/registry.md) f
      * `pull`: IP addresses that are allowed to pull [Docker images](../../concepts/docker-image.md) from the registry. This is an optional setting.
      * `push`: IP addresses that are allowed to push Docker images to the registry. This is an optional setting.
 
-     For more information about the `yandex_container_registry_ip_permission` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/container_registry_ip_permission).
+     For more on the properties of the `yandex_container_registry_ip_permission` resource, see [this provider guide]({{ tf-provider-resources-link }}/container_registry_ip_permission).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

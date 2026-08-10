@@ -18,7 +18,7 @@ Your changes will apply within five minutes.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder containing the trigger.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. [Navigate]({{ link-console-main }}/link/serverless-containers) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
   1. Select the trigger whose settings you want to update.
   1. In the top-right corner of the page, click **{{ ui-key.yacloud.common.edit }}**.
@@ -108,6 +108,7 @@ Your changes will apply within five minutes.
           {% include [name-format](../../_includes/name-format.md) %}
 
       * `timer`: Trigger settings:
+          
           * `cron_expression`: Container invocation schedule specified as a [cron expression](../concepts/trigger/timer.md#cron-expression).
           * `payload`: Message to send to the function when the timer fires. The string length must not exceed 4,096 characters.
 

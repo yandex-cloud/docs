@@ -7,7 +7,7 @@ The number of concurrent container instance calls (`concurrency`) cannot exceed 
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder with your container.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. [Navigate]({{ link-console-main }}/link/serverless-containers) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. Select the container.
     1. Navigate to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
     1. Set the number of concurrent container instance calls under **{{ ui-key.yacloud.serverless-containers.section_parameters }}**.
@@ -85,6 +85,7 @@ The number of concurrent container instance calls (`concurrency`) cannot exceed 
         ```
 
         Where:
+        
         * `name`: Container name.
         * `service_account_id`: [ID of the service account](../../iam/operations/sa/get-id.md) with Docker image pull permissions.
         * `memory`: Required memory. The default value is 128 MB.
@@ -99,7 +100,7 @@ The number of concurrent container instance calls (`concurrency`) cannot exceed 
         terraform plan
         ```
 
-        The terminal will display a list of resource parameters. This is a verification step: the resource will not be modified. Otherwise, {{ TF }} will show any detected errors.
+        The terminal will display a list of resource parameters. This is a verification step: the resource will not be modified. {{ TF }} will show any errors in the configuration.
 
     1. Apply the configuration changes:
 

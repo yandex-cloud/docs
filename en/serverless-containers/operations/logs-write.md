@@ -12,7 +12,7 @@ description: Follow this guide to configure container logging.
 - Management console {#console}
     
     1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with your container.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. [Navigate]({{ link-console-main }}/link/serverless-containers) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. Select the container you want to configure logging for.
     1. Navigate to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
     1. Under **{{ ui-key.yacloud.logging.label_title }}**:
@@ -67,6 +67,7 @@ description: Follow this guide to configure container logging.
     ```
 
     Where:
+
     * `--container-id`: Container ID. To find out the ID, [get](list.md) the list of containers.
     * `--image`: [Docker image](../../container-registry/concepts/docker-image.md) URL.
     * `--service-account-id`: [ID of the service account](../../iam/operations/sa/get-id.md) with Docker image pull permissions.
@@ -143,6 +144,7 @@ description: Follow this guide to configure container logging.
         ```
 
         Where:
+
         * `name`: Container name.
         * `service_account_id`: [ID of the service account](../../iam/operations/sa/get-id.md) with Docker image pull permissions.
         * `memory`: Required memory. The default value is 128 MB.

@@ -19,7 +19,7 @@ You can buy a subscription when creating a virtual machine or after creating a {
 - {{ compute-name }} {#compute}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a VM.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. At the top right, click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select a product available by [subscription](../../concepts/users/subscription.md).
   1. If the product you need is not in the list, click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**.
@@ -35,9 +35,9 @@ You can buy a subscription when creating a virtual machine or after creating a {
 
 - {{ managed-k8s-name }} {#managed-k8s}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ managed-k8s-name }} cluster is located.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Select a cluster.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing the {{ managed-k8s-name }} cluster.
+  1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Select the cluster.
   1. Navigate to the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
   1. Choose a product. To find products available by [subscription](../../concepts/users/subscription.md), use the **{{ ui-key.yacloud.marketplace-v2.label_tariff-type }}** → **{{ ui-key.yacloud_components.marketplace.product-pricing-type_license }}** filter.
   1. Read the product description and subscription terms and conditions, select the pricing type, and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
@@ -123,7 +123,7 @@ You can buy a subscription when creating a virtual machine or after creating a {
 
 - {{ managed-k8s-name }} {#managed-k8s}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ managed-k8s-name }} cluster is located.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing the {{ managed-k8s-name }} cluster.
   1. At the top of the screen, click ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.marketplace-v2.label_service-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/circles-4-square.svg) **Available products**.
   1. Choose a product. To find products available by subscription, use the **{{ ui-key.yacloud.marketplace-v2.label_tariff-type }}** → **{{ ui-key.yacloud_components.marketplace.product-pricing-type_license }}** filter.

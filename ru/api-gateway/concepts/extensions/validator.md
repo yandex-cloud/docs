@@ -8,7 +8,7 @@ description: Из статьи вы узнаете, какие расширен�
 Расширения `x-yc-apigateway-validators` и `x-yc-apigateway-validator` позволяют определить валидатор для следующих схем, описанных в спецификации API-шлюза внутри [операции](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md#operation-object):
 * схема тела HTTP-запроса (поле `content` в [Request Body Object](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md#request-body-object));
 * схема параметров HTTP-запроса (поле `schema` в [Parameter Object](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md#parameter-object));
-* cхема тела HTTP-ответа (поле `content` в [Response Object](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md#response-object));
+* схема тела HTTP-ответа (поле `content` в [Response Object](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md#response-object));
 * схема заголовков HTTP-ответа (поле `schema` в [Header Object](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md#header-object)).
 
 ## ValidatorObject {#validator_object}

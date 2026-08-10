@@ -4,7 +4,7 @@ Create a [trigger for {{ container-registry-name }}](../../functions/concepts/tr
 
 {% include [trigger-before-you-begin](trigger-before-you-begin.md) %}
 
-* [Registry](../../container-registry/concepts/registry.md) whose Docker image [events](../../functions/concepts/trigger/cr-trigger.md#event) will fire the trigger. If you do not have a registry, [create one](../../container-registry/operations/registry/registry-create.md).
+* [Registry](../../container-registry/concepts/registry.md) whose Docker image [events](../../functions/concepts/trigger/cr-trigger.md#event) will set off the trigger. If you do not have a registry, [create one](../../container-registry/operations/registry/registry-create.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -14,9 +14,9 @@ Create a [trigger for {{ container-registry-name }}](../../functions/concepts/tr
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. In the left-hand panel, select ![image](../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
+  1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. In the left-hand panel, select ![image](../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
@@ -192,7 +192,7 @@ Create a [trigger for {{ container-registry-name }}](../../functions/concepts/tr
 
 {% include [check-result](check-result.md) %}
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../serverless-containers/operations/cr-trigger-create.md)
 * [{#T}](../../api-gateway/operations/trigger/cr-trigger-create.md)

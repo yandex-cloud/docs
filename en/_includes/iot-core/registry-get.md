@@ -2,8 +2,8 @@
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder containing the registry.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. In the [management console]({{ link-console-main }}), select the folder where the registry is located.
+   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the registry.
    1. The **{{ ui-key.yacloud.common.overview }}** page will show the registry details.
 
@@ -13,13 +13,13 @@
 
   {% include [default-catalogue](../default-catalogue.md) %}
 
-  1. See the description of the CLI command for getting information about a registry:
+  1. View the description of the CLI command to get information about the registry:
 	
       ```bash
       yc iot registry get --help
       ```
 
-  1. Get detailed information about a registry by specifying its name or ID:
+  1. Get detailed information about the registry by specifying its name or ID:
 
       ```bash
       yc iot registry get <registry_name>
@@ -41,6 +41,7 @@
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   To get detailed information about a registry using {{ TF }}:
+
   1. Add the `data` and `output` sections to the {{ TF }} configuration file:
 
      ```hcl
@@ -54,12 +55,15 @@
      ```
 
      Where:
+
      * `data "yandex_iot_core_registry"`: Description of the registry as a data source:
+
        * `registry_id`: Registry ID.
      * `output "registry_params"`: Output variable that contains information about the registry creation timestamp:
+
        * `value`: Return value.
 
-     You can replace `created_at` with any other attribute to get the information you need. For more information about the `yandex_iot_core_registry` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/iot_core_registry).
+     You can replace `created_at` with another variable to get the information you need. For more on the properties of the `yandex_iot_core_registry` data source, see [this provider guide]({{ tf-provider-datasources-link }}/iot_core_registry).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

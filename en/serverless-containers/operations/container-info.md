@@ -10,7 +10,7 @@ description: Follow this guide to get information about a container.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder with your container.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. [Navigate]({{ link-console-main }}/link/serverless-containers) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. In the left-hand panel, select **{{ ui-key.yacloud.serverless-containers.label_containers }}**.
     1. Select the container.
     1. The **{{ ui-key.yacloud.common.overview }}** page will show the container details.

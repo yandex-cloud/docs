@@ -3,7 +3,7 @@
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/curly-brackets-function.svg) **{{ ui-key.yacloud.serverless-functions.switch_list }}**.
     1. Select the function for which you want to get the list of versions.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-history }}**, you will see the list of function versions and their details.
@@ -19,9 +19,11 @@
     To get detailed information about a function version by:
 
     * `ID`, run this command:
+
         ```
         yc serverless function version get <version_ID>
         ```
+
         Result:
       
         ```
@@ -41,9 +43,11 @@
         ```
 
     * `TAGS`, run this command:
+
         ```
         yc serverless function version get-by-tag --function-name <function_name> --tag <tag>
         ```
+        
         Result:
       
         ```

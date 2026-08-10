@@ -1,4 +1,5 @@
 For a container to get access to a [secret](../../lockbox/concepts/secret.md), edit its settings to specify a [service account](../../iam/concepts/users/service-accounts.md) with the following roles assigned:
+
 * `lockbox.payloadViewer` for the secret (learn how to assign access permissions for a secret [here](../../lockbox/operations/secret-access.md)).
 * `kms.keys.encrypterDecrypter` for the encryption key if the secret was created using a {{ kms-full-name }} key (learn how to assign access permissions for an encryption key [here](../../kms/operations/key-access.md)).
 
@@ -10,15 +11,17 @@ Providing {{ lockbox-name }} secrets creates a new container revision. You canno
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder with your container.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder with the container.
+    1. [Navigate]({{ link-console-main }}/link/serverless-containers) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. Select a container you want to provide a secret to.
     1. Navigate to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
     1. In the window that opens, under **{{ ui-key.yacloud.serverless-containers.section_image }}**, specify the following in the **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}** field:
+
         * Name of the environment variable to store the secret.
         * Secret ID.
         * Secret version ID.
         * Key of a key-value pair in the secret version.
+
     1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_add-environment-variable }}**.
 
         You can provide multiple secrets to a container. To do this, click **{{ ui-key.yacloud.serverless-functions.item.editor.button_add-environment-variable }}**.
@@ -57,6 +60,7 @@ Providing {{ lockbox-name }} secrets creates a new container revision. You canno
     * `--memory`: Required memory. The default value is 128 MB.
     * `--service-account-id`: ID of the service account with the `lockbox.payloadViewer` role.
     * `--secret`:
+
         * `environment-variable`: Name of the environment variable that will store the secret.
         * `id`: Secret ID.
         * `version-id`: Secret version ID.
@@ -94,7 +98,9 @@ Providing {{ lockbox-name }} secrets creates a new container revision. You canno
         ```
 
         Where:
+
           * `secrets`: Section with secret configuration. It contains the following settings:
+
             * `id`: Secret ID. This is a required setting.
             * `version_id`: Secret version ID. This is a required setting.
             * `key`: Key of a secret version’s key-value pair that will be stored in the environment variable. This is a required setting.

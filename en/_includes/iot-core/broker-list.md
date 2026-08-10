@@ -3,8 +3,8 @@
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to get a list of brokers.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-  1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**. The **{{ ui-key.yacloud.iot.label_brokers }}** page will display a list of brokers.
+  1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+  1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**. A list of brokers will be displayed on the **{{ ui-key.yacloud.iot.label_brokers }}** page.
 
 - CLI {#cli}
 
@@ -12,7 +12,7 @@
   
   {% include [default-catalogue](../default-catalogue.md) %}
 
-  1. See the description of the CLI command for getting a list of brokers:
+  1. View the description of the CLI command to get a list of brokers:
 	
       ```bash
       yc iot broker list --help

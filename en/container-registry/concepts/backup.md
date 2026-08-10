@@ -15,8 +15,8 @@ To back up your Docker images:
 
    - Management console {#console}
 
-     1. In the [management console]({{ link-console-main }}), select the folder where you want to view the list of registries.
-     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+     1. In the [management console]({{ link-console-main }}), select the folder you want to view the list of registries for.
+     1. [Navigate]({{ link-console-main }}/link/container-registry) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
      1. You can see a list of registries on the **{{ ui-key.yacloud.cr.switch_registry }}** tab.
 
    - CLI {#cli}
@@ -52,7 +52,7 @@ To back up your Docker images:
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder where you want to view information about Docker images.
-     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+     1. [Navigate]({{ link-console-main }}/link/container-registry) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
      1. On the **{{ ui-key.yacloud.cr.switch_registry }}** tab, click the name of the registry.
      1. On the **{{ ui-key.yacloud.cr.registry.overview.section_repositories }}** page, click the name of the repository.
      1. On the **{{ ui-key.yacloud.cr.registry.overview.section_images }}** page you can see the Docker images.

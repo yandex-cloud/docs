@@ -198,7 +198,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 
 Имя события | Описание
 --- | ---
-`ApplyUpdatePrivateCloudConnection` | Применение измений приватного соединения с подсетями в VPC или в on-prem инфраструктуре
+`ApplyUpdatePrivateCloudConnection` | Применение изменений приватного соединения с подсетями в VPC или в on-prem инфраструктуре
 `BatchCreateServer` | Аренда одновременно нескольких [серверов](../../baremetal/concepts/servers.md) BareMetal
 `CreateImage` | Создание загрузочного образа
 `CreatePrivateCloudConnection` | Создание [приватного соединения](../../baremetal/concepts/private-network.md#private-connection-to-vpc) с подсетями в VPC или в on-prem инфраструктуре
@@ -316,7 +316,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `gcore.OriginGroupCreate` | Создание группы источников
 `gcore.OriginGroupDelete` | Удаление группы источников
 `gcore.OriginGroupUpdate` | Изменение группы источников
-`gcore.OriginUpdate` | Измнение источника
+`gcore.OriginUpdate` | Изменение источника
 `gcore.ProviderActivate` | Активация провайдера
 `gcore.RawLogsActivate` | Включение выгрузки логов
 `gcore.RawLogsDeactivate` | Отключение выгрузки логов

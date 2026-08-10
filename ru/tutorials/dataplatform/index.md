@@ -64,6 +64,7 @@ description: На странице представлен список прак�
 * [{#T}](bigquery-to-clickhouse.md)
 * [{#T}](jdbc-ch-to-sql-server-integration.md)
 * [{#T}](jdbc-ch-to-oracle-integration.md)
+* [{#T}](mpg-pg-clickhouse-extension.md)
 
 ## {{ GP }} {#greenplum}
 
@@ -147,6 +148,7 @@ description: На странице представлен список прак�
 * [{#T}](postgresql-glibc-collation-issues.md)
 * [{#T}](job-pyspark-secret-access.md)
 * [{#T}](conn-man-secret-access.md)
+* [{#T}](mpg-pg-clickhouse-extension.md)
 
 ## {{ VLK }} {#valkey}
 
@@ -222,6 +224,7 @@ description: На странице представлен список прак�
 * [{#T}](managed-postgresql.md)
 * [{#T}](postgresql-versions.md)
 * [{#T}](schema-registry-cdc-debezium-kafka.md)
+* [{#T}](mpg-pg-clickhouse-extension.md)
 
 ## {{ msp-full-name }} {#spark}
 

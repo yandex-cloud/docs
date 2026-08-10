@@ -28,7 +28,7 @@ Before creating a connector in CHYT, prepare your table on {{ ytsaurus-name }}:
 
 {% note tip %}
 
-What we recommend:
+Recommended:
 
 * Sorting tables by the main fields used for filtering, e.g., by fields containing dates.
 * Enabling the [columnar chunk storage format](https://ytsaurus.tech/docs/ru/user-guide/storage/chunks#columns) using the `optimize_for = scan` attribute. Thus {{ datalens-short-name }} will process the table faster.

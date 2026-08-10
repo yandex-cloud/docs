@@ -8,7 +8,7 @@
 1. [Подготовьте базу данных BigQuery](#prepare) к трансферу.
 1. [Настройте эндпоинт-источник](#endpoint-settings) в {{ data-transfer-full-name }}.
 1. [Настройте один из поддерживаемых приемников данных](#supported-targets).
-1. [Cоздайте](../../transfer.md#create) и [запустите](../../transfer.md#activate) трансфер.
+1. [Создайте](../../transfer.md#create) и [запустите](../../transfer.md#activate) трансфер.
 1. При возникновении проблем, [воспользуйтесь готовыми решениями](../../../../data-transfer/troubleshooting/index.md) по их устранению.
 
 ## Сценарии передачи данных из BigQuery {#scenarios}

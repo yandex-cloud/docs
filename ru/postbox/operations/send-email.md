@@ -51,7 +51,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs %}
 
-- Cтатический ключ доступа
+- Статический ключ доступа
 
     {% include [send-email-aws](../../_includes/postbox/send-email-aws.md) %}
 
@@ -65,7 +65,7 @@ description: Следуя данной инструкции, вы сможете
 
     {% include [smtp-send-api](../../_includes/postbox/smtp-send-api.md) %}
 
-- Cтатический ключ доступа {#static-key}
+- Статический ключ доступа {#static-key}
 
     {% include [smtp-send-python](../../_includes/postbox/smtp-send-python.md) %}
 

@@ -7,7 +7,7 @@ Adding environment variables creates a new container revision. You cannot add en
 - Management console {#console}
     
     1. In the [management console]({{ link-console-main }}), select the folder with your container.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. [Navigate]({{ link-console-main }}/link/serverless-containers) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. Select the container whose version you want to add an environment variable for.
     1. Navigate to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
     1. In the window that opens, under **{{ ui-key.yacloud.serverless-containers.section_image }}**, specify the environment variable and click **{{ ui-key.yacloud.common.add }}**. You can add multiple environment variables.
@@ -74,6 +74,7 @@ Adding environment variables creates a new container revision. You cannot add en
 	 For more on the properties of the `yandex_serverless_container` resource, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
 
   1. Validate your configuration using this command:
+
      ```
      terraform validate
      ```
@@ -85,6 +86,7 @@ Adding environment variables creates a new container revision. You cannot add en
      ```
 
   1. Run this command:
+
      ```
      terraform plan
      ```
@@ -92,6 +94,7 @@ Adding environment variables creates a new container revision. You cannot add en
      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
   1. Apply the configuration changes:
+
      ```
      terraform apply
      ```
@@ -110,6 +113,6 @@ Adding environment variables creates a new container revision. You cannot add en
 
 {% endlist %}
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
-* [Environment variables](../concepts/runtime.md#environment-variables)
+[Environment variables](../concepts/runtime.md#environment-variables)

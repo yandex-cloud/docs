@@ -97,7 +97,7 @@ You can prevent a [subject](../../../iam/concepts/access-control/index.md#subjec
        }
        ```
 
-       For more information about `yandex_container_registry_iam_binding`, see [this provider guide]({{ tf-provider-resources-link }}/container_registry_iam_binding).
+       For more on the properties of the `yandex_container_registry_iam_binding` resource, see [this provider guide]({{ tf-provider-resources-link }}/container_registry_iam_binding).
   
   1. {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 

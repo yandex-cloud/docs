@@ -16,7 +16,7 @@ The chart update period is 15 seconds.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the API gateway. 
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. [Navigate]({{ link-console-main }}/link/api-gateway) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
     1. Select the API gateway whose monitoring charts you want to view.
     1. Navigate to the **{{ ui-key.yacloud.common.monitoring }}** tab.
     1. You will see the following charts:
@@ -50,3 +50,4 @@ The chart update period is 15 seconds.
 ## Custom metrics {#metrics}
 
 {% include [users-metrics](../../_includes/api-gateway/users-metrics.md) %}
+

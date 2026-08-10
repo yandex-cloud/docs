@@ -41,11 +41,11 @@ Objects in workbooks and in folders of the legacy object model are independent:
 * Folders do not support customization of user group access.
 * An object from a workbook cannot be moved to a folder.
 
-## How to enable workbooks and collections {#enable-workbooks}
-
-{% include [enable-workbooks](../../_includes/datalens/settings/enable-workbooks.md) %}
+{% note info %}
 
 To transfer any object from a folder to a workbook, perform [migration](./migrations.md). If you are not going to use folder navigation anymore, you can [disable](../settings/navigation.md#disable-folder-navigation) it.
+
+{% endnote %}
 
 
 

@@ -171,7 +171,7 @@ Terraform распространяется под лицензией [Business S
           git clone https://github.com/yandex-cloud-examples/yc-run-docker-on-vm.git
           ```
 
-      1. Перейдите в директорию с репозиторием. В ней должнен появиться файл `run-docker-on-vm-config.tf` с конфигурацией создаваемой инфраструктуры.
+      1. Перейдите в директорию с репозиторием. В ней должен появиться файл `run-docker-on-vm-config.tf` с конфигурацией создаваемой инфраструктуры.
 
     - Вручную {#manual}
 

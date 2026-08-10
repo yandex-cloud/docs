@@ -244,6 +244,8 @@ Data Transfer поддерживает несколько сценариев п�
 
  - [Greenplum®/Apache Cloudberry™ в PostgreSQL](tutorials/greenplum-to-postgresql.md)
 
+ - [Выполнение аналитических запросов в Managed Service for PostgreSQL с помощью Managed Service for ClickHouse® и Data Transfer](tutorials/mpg-pg-clickhouse-extension.md)
+
  - [Object Storage в MySQL®](tutorials/objs-mmy-migration.md)
 
  - [Object Storage в PostgreSQL](tutorials/object-storage-to-postgresql.md)

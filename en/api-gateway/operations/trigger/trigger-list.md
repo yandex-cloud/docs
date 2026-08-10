@@ -10,7 +10,7 @@ description: In this guide, you will learn how to get a list of triggers in {{ a
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), go to the folder where you want to view a list of triggers.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. [Navigate]({{ link-console-main }}/link/api-gateway) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
 - CLI {#cli}

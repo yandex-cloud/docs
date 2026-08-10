@@ -19,6 +19,7 @@ To access a [registry](../../concepts/registry.md), use its ID or name. To learn
 - Management console {#console}
 
   To update the name of a [registry](../../concepts/registry.md):
+
   1. In the [management console]({{ link-console-main }}), select the folder containing the registry.
   1. [Navigate]({{ link-console-main }}/link/container-registry) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Click ![image](../../../_assets/console-icons/ellipsis-vertical.svg) next to the registry you want to update.
@@ -90,6 +91,7 @@ To access a [registry](../../concepts/registry.md), use its ID or name. To learn
 - Management console {#console}
 
   To add or delete an [IP address](../../../vpc/concepts/address.md) and configure registry access:
+
   1. In the [management console]({{ link-console-main }}), select the folder containing the registry.
   1. [Navigate]({{ link-console-main }}/link/container-registry) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Click the registry name, select ![ip-address.svg](../../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.cr.registry.label_ip-permissions }}**, and click **{{ ui-key.yacloud.cr.registry.button_update-ip-permissions }}**.

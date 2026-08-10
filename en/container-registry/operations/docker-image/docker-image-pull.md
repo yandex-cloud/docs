@@ -65,4 +65,4 @@ To work with Docker images, [install and configure](../configure-docker.md) Dock
 
 #### See also {#see-also}
 
-* [Troubleshooting in {{ container-registry-name }}](../../error/index.md).
+[Troubleshooting in {{ container-registry-name }}](../../error/index.md).

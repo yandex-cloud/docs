@@ -47,6 +47,7 @@ To push a Helm chart:
           ```
 
      * With an {{ iam-short-name }} token:
+
        1. [Get an {{ iam-short-name }} token](../../../iam/operations/iam-token/create.md).
        1. Run this command:
 

@@ -224,7 +224,7 @@
   1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
   1. Перейдите в [новое пространство](#create-space).
   1. Нажмите кнопку ![image](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yc-ui-talkanalytics.projects.add-participant_MeT49 }}** → ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yc-ui-talkanalytics.team.add-from-organization_2PoId }}**.
-  1. Cкопируйте идентификатор [созданного ранее сервисного аккаунта](#create-sa) `speechsense-sa` и вставьте в строку поиска.
+  1. Скопируйте идентификатор [созданного ранее сервисного аккаунта](#create-sa) `speechsense-sa` и вставьте в строку поиска.
   1. Выберите сервисный аккаунт `speechsense-sa` и укажите роль [{{ roles-speechsense-data-editor }}]({{ link-docs-ai }}speechsense/security/#speechsense-data-editor). Эта роль позволит сервисному аккаунту `speechsense-sa` загружать данные в {{ speechsense-name }}.
   1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.common.add_694qE }}**.
 
