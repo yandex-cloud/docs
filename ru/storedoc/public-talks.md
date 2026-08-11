@@ -47,7 +47,7 @@ description: Видеозаписи конференций и вебинаров
 
 ### 2020: {{ yandex-cloud }} {#yc-2020}
 
-* {{ MG }} в {{ yandex-cloud }} — обзор возможностей.
+* {{ MG }} в {{ yandex-cloud }} — обзор возможностей.
 
   * [Запись трансляции](https://www.youtube.com/watch?v=QkxN2wHqycA).
 
@@ -71,7 +71,7 @@ description: Видеозаписи конференций и вебинаров
 
   * [Запись трансляции](https://www.youtube.com/watch?v=5OcUo3J4Wdc).
 
-* Внутреннее устройство платформы баз данных в {{ yandex-cloud }}.
+* Внутреннее устройство платформы баз данных в {{ yandex-cloud }}.
 
   * [Запись трансляции](https://www.youtube.com/watch?v=Cwdg425a_cw).
 

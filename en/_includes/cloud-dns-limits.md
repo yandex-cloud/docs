@@ -1,7 +1,7 @@
 #### Quotas {#cloud-dns-quotas}
 
 #|
-|| Type of limitation | Value ||
+|| Type of limit | Value ||
 || Number of zones per cloud 
 `dns.zones.count` | 100 ||
 || Number of record sets per cloud

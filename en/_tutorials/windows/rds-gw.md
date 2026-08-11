@@ -49,7 +49,7 @@ Create the `rdgw-network` cloud network with a subnet in the availability zone w
       1. In the [management console]({{ link-console-main }}), select a folder where you want to create your cloud network.
       1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
       1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
-      1. Specify the network name: `rdgw-network`.
+      1. Specify `rdgw-network` as the network name.
       1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
    
     - CLI {#cli}
@@ -137,11 +137,11 @@ Create and configure a [security group](../../vpc/concepts/security-groups.md).
       
         | Traffic</br>direction | Description | Port</br>range | Protocol | Type</br>of source | Source/Destination | 
         |---|---|---|---|---|---|
-        | Inbound | icmp | — | ICMP | CIDR | 0.0.0.0/0 |
-        | Inbound | self-security | Any | Any | Security group | Current |
-        | Inbound | tcp | 3389 | TCP | CIDR | 0.0.0.0/0 |
-        | Inbound | rdgw | 443 | TCP | CIDR | 0.0.0.0/0 |
-        | Outbound | default | Any | Any | CIDR | 0.0.0.0/0 |
+        | Ingress | icmp | — | ICMP | CIDR | 0.0.0.0/0 |
+        | Ingress | self-security | Any | Any | Security group | Current |
+        | Ingress | tcp | 3389 | TCP | CIDR | 0.0.0.0/0 |
+        | Ingress | rdgw | 443 | TCP | CIDR | 0.0.0.0/0 |
+        | Egress | default | Any | Any | CIDR | 0.0.0.0/0 |
         
         1. Select the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab.
         1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.

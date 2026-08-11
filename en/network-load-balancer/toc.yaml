@@ -81,8 +81,6 @@ items:
             href: tutorials/vm-autoscale/terraform.md
       - name: Updating an instance group under load
         href: tutorials/updating-under-load.md
-      - name: Integrating {{ dns-name }} and a corporate DNS service
-        href: tutorials/dns-integration.md
       - name: Connecting to {{ objstorage-name }} from {{ vpc-name }}
         href: tutorials/storage-vpc-access.md
       - name: Connecting to {{ container-registry-name }} from {{ vpc-name }}

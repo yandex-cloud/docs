@@ -34,7 +34,7 @@
 
   * [Запись трансляции](https://www.youtube.com/watch?v=5OcUo3J4Wdc).
 
-* Внутреннее устройство платформы баз данных в Yandex Cloud.
+* Внутреннее устройство платформы баз данных в Yandex Cloud.
 
   * [Запись трансляции](https://www.youtube.com/watch?v=Cwdg425a_cw).
 

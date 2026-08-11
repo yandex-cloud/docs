@@ -167,6 +167,10 @@ items:
               Реализация защищенной высокодоступной сетевой инфраструктуры с
               выделением DMZ на основе Смарт-Софт NGFW
             href: tutorials/high-accessible-dmz-ting.md
+          - name: >-
+              Реализация защищенной высокодоступной сетевой инфраструктуры с
+              выделением DMZ на основе UserGate NGFW
+            href: tutorials/high-accessible-dmz-usergate.md
           - name: Создание и настройка шлюза UserGate в режиме межсетевого экрана
             href: tutorials/usergate-firewall.md
       - name: '{{ baremetal-name }}'

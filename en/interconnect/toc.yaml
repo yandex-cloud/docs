@@ -57,7 +57,7 @@ items:
         href: tutorials/ri-prefixes-upsert.md
       - name: Adding a public connection to a trunk
         href: tutorials/pub-add.md
-      - name: Updating trunk capacity
+      - name: Changing the trunk capacity
         href: tutorials/trunk-capacity-change.md
       - name: Deleting a private connection
         href: tutorials/priv-del.md

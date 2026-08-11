@@ -8,7 +8,7 @@ This page explains how to enable the modules and use them to create a test infra
 To create your first infrastructure in {{ yandex-cloud }} using {{ TF }}:
 1. [Get your cloud ready](#before-you-begin).
 1. [Install {{ TF }}](#install-terraform).
-1. [Get the authentication data](#get-credentials).
+1. [Get the authentication credentials](#get-credentials).
 1. [Create a {{ TF }} configuration file](#configure-terraform).
 1. [Configure your provider](#configure-provider).
 

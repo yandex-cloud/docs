@@ -7,16 +7,7 @@ editable: false
 # Правила тарификации для режима Serverless в {{ ydb-name }}
 
 
-{% note tip %}
-
-
-Чтобы рассчитать стоимость использования сервиса, воспользуйтесь [калькулятором](https://yandex.cloud/ru/prices?state=2443a6ec26b9#calculator) на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
-
-
-
-
-
-{% endnote %}
+{% include [without-use-calculator](../../_includes/pricing/without-use-calculator.md) %}
 
 {% include [link-to-price-list](../../_includes/pricing/link-to-price-list.md) %}
 

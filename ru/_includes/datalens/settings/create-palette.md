@@ -1,11 +1,3 @@
-
-{% note warning %}
-
-Для создания палитры пользователю нужна роль [администратора](../../../datalens/security/roles.md#datalens-admin) экземпляра {{ datalens-short-name }}.
-  
-{% endnote %}
-
-
 Чтобы создать цветовую палитру:
 
 1. Перейдите на [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}.
@@ -48,4 +40,5 @@
 
 
 <iframe width="560" height="315" src="https://runtime.strm.yandex.ru/player/video/vplvxiuedcdgw4lpq4ao?autoplay=0&mute=0" allow="autoplay; fullscreen; accelerometer; gyroscope; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+
 

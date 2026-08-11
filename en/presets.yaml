@@ -5398,12 +5398,17 @@ default:
         button_add-record: Add record
         button_record-set-create: Create record
         button_zone-create: Create zone
+        DnsInboundEndpointForm:
+          network_settings_title: Network settings
+        DnsInboundEndpointsListScreen:
+          create_button: Create endpoint
         label_additional-settings: Additional settings
         label_auto-select-zone: Detect automatically
         label_create-subdomain: Create subdomain
         label_dns-internal-settings: DNS settings for internal addresses
         label_form-ttl: TTL (in seconds)
         label_fqdn-equal-to-zone: Matches zone name (@)
+        label_inbound-endpoints: Inbound endpoints
         label_networks: Networks
         label_private: Internal
         label_public: Public
@@ -5412,6 +5417,8 @@ default:
         label_zone: Zone
         label_zone-record-sets: Records
         label_zones-list: Zones
+      entity:
+        ipAddress: IP address
       forms:
         label_form-id: ID
         label_form-list: List

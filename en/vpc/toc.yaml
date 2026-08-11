@@ -161,6 +161,10 @@ items:
               Implementing a secure high-availability network infrastructure
               with a dedicated DMZ based on Smart-Soft NGFW
             href: tutorials/high-accessible-dmz-ting.md
+          - name: >-
+              Implementing a secure high-availability network infrastructure
+              with a dedicated DMZ based on the UserGate NGFW
+            href: tutorials/high-accessible-dmz-usergate.md
           - name: Setting up a UserGate firewall
             href: tutorials/usergate-firewall.md
       - name: '{{ baremetal-name }}'

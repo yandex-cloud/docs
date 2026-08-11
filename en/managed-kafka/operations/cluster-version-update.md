@@ -173,9 +173,9 @@ During an upgrade, topics may be unavailable if their [replication factor](../co
 
           Here, we only specified a single setting, `configSpec.version`.
 
-        * `configSpec.version`: Target {{ KF }} version, {{ versions.cli.str-without-latest }}.
+        * `configSpec.version`: Target {{ KF }} version, {{ versions.cli.str }}.
 
-       You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+       You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -219,7 +219,7 @@ During an upgrade, topics may be unavailable if their [replication factor](../co
 
           Here, we only specified a single setting, `config_spec.version`.
 
-        * `config_spec.version`: Target {{ KF }} version, {{ versions.cli.str-without-latest }}.
+        * `config_spec.version`: Target {{ KF }} version, {{ versions.cli.str }}.
 
         You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 

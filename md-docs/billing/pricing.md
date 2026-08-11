@@ -76,7 +76,7 @@ blocks:
         * [SpeechKit Brand Voice](https://aistudio.yandex.ru/docs/ru/speechkit/pricing#brand-voice)
         * [Распознавание речи](https://aistudio.yandex.ru/docs/ru/speechkit/pricing#prices-stt)
     * [Yandex Translate](https://aistudio.yandex.ru/docs/ru/translate/pricing)
-    * [Yandex Vision OCR](https://aistudio.yandex.ru/docs/ru/vision/pricing)
+    * [Yandex Vision OCR](https://aistudio.yandex.ru/docs/ru/ai-studio/pricing#rules-image-recognition)
 * [Yandex API Gateway](../api-gateway/pricing.md)
 * [Yandex Application Load Balancer](../application-load-balancer/pricing.md)
 * [Yandex Audit Trails](../audit-trails/pricing.md)

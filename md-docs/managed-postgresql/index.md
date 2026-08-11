@@ -242,6 +242,8 @@ Managed Service for PostgreSQL помогает разворачивать и п
 
  - [Управление доступом](security/index.md)
 
+ - [Инспекции и рекомендации](advisor.md)
+
  - [Правила тарификации](pricing.md)
 
 ## Справочник CLI (англ.)

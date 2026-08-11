@@ -16,6 +16,10 @@
 
 ![point-chart](../../_assets/datalens/visualization-ref/point-chart/point-chart.png =800x)
 
+
+DataLens использует карты и геоданные только от партнеров. Если у вас в данных есть поле с названием городов, регионов или стран, используйте [справочник геоточек/геополигонов](https://geointellect.com/files/geo_for_datalens.zip) нашего партнера Геоинтеллект.
+
+
 ## Секции в визарде {#wizard-sections}
 
 Секция<br/> в визарде| Описание

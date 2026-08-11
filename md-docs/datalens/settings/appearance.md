@@ -7,7 +7,11 @@
 * Настроить [стилизацию интерфейса](#ui-customization).
 * Добавить, изменить или удалить [цветовые палитры](#palette-settings) чартов.
 
+{% note info %}
+
 Изменить настройки может [администратор](../security/roles.md#datalens-admin) экземпляра DataLens (роль `datalens.admin`).
+
+{% endnote %}
 
 Чтобы перейти к настройкам оформления:
 
@@ -93,14 +97,11 @@
 
 В Yandex DataLens вы можете [создать](#create-palette), [изменить](#edit-palette), [удалить](#delete-palette) цветовую палитру и [настроить цветовую палитру по умолчанию](#default-palette).
 
+
+Создать, изменить и удалить палитру может [администратор](../security/roles.md#datalens-admin) экземпляра DataLens (роль `datalens.admin`).
+
+
 ### Создать цветовую палитру {#create-palette}
-
-{% note warning %}
-
-Для создания палитры пользователю нужна роль [администратора](../security/roles.md#datalens-admin) экземпляра DataLens.
-  
-{% endnote %}
-
 
 Чтобы создать цветовую палитру:
 

@@ -11,7 +11,11 @@ description: Настройки оформления в {{ datalens-full-name }}
 * Настроить [стилизацию интерфейса](#ui-customization).
 * Добавить, изменить или удалить [цветовые палитры](#palette-settings) чартов.
 
+{% note info %}
+
 Изменить настройки может [администратор](../security/roles.md#datalens-admin) экземпляра {{ datalens-short-name }} (роль `{{ roles-datalens-admin }}`).
+
+{% endnote %}
 
 Чтобы перейти к настройкам оформления:
 
@@ -96,6 +100,10 @@ description: Настройки оформления в {{ datalens-full-name }}
 ## Управление цветовой палитрой чартов {#palette-settings}
 
 В {{ datalens-full-name }} вы можете [создать](#create-palette), [изменить](#edit-palette), [удалить](#delete-palette) цветовую палитру и [настроить цветовую палитру по умолчанию](#default-palette).
+
+
+Создать, изменить и удалить палитру может [администратор](../security/roles.md#datalens-admin) экземпляра {{ datalens-short-name }} (роль `{{ roles-datalens-admin }}`).
+
 
 ### Создать цветовую палитру {#create-palette}
 

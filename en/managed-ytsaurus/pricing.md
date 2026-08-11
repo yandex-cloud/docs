@@ -6,6 +6,16 @@ editable: false
 
 # {{ myt-full-name }} pricing policy
 
+::: page-constructor
+blocks:
+  - type: card-layout-block
+    animated: false
+    colSizes:
+      all: 6
+    children: []
+:::
+
+
 
 
 This section describes the {{ myt-name }} pricing [policy](#rules) and [current prices](#prices) for its resources. For other {{ yandex-cloud }} resources consumed while using the service you pay as per their pricing plans.
@@ -14,6 +24,7 @@ This section describes the {{ myt-name }} pricing [policy](#rules) and [current 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
 
 {% include [vat](../_includes/vat.md) %}
 

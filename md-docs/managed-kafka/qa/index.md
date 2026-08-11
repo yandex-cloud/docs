@@ -183,6 +183,6 @@ Karapace разворачивается на каждом хосте-броке�
 
 Размер [блока](https://en.wikipedia.org/wiki/Block_(data_storage)) всех типов дисков — 4 КБ.
 
-#### Какая версия коннектора MirrorMaker поддерживается в Managed Service for Apache Kafka® {#mirrormaker-version}
+#### Какая версия коннектора MirrorMaker поддерживается в Managed Service for Apache Kafka®? {#mirrormaker-version}
 
 В сервисе Managed Service for Apache Kafka® поддержан **MirrorMaker** версии 2.
