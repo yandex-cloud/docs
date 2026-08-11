@@ -19,7 +19,7 @@
   
      ```bash
      aws sqs list-queues \
-       --endpoint <эндпойнт>
+       --endpoint <эндпоинт>
      ```
 
      Где `--endpoint` — эндпоинт в значении `https://message-queue.api.cloud.yandex.net/`.

@@ -392,6 +392,18 @@ default:
   mch-short-name: Managed Service for ClickHouse®
   mcp-hub-name: MCP Hub
   mdb-lb: DB Proxy
+  mdb-versions:
+    mysql-version:
+      actual: '8.4'
+      supported: 5.7, 8.0
+    postgresql-version:
+      deprecated: 14, 14-1c
+      new: 18, 18-1c
+      supported: 15, 15-1c, 16, 16-1c, 17, 17-1c
+    storedoc-version:
+      supported: '7.0'
+    valkey-version:
+      supported: 7.2-valkey, 8.0-valkey, 8.1-valkey, 9.0-valkey
   mes-full-name: Yandex Managed Service for Elasticsearch
   mes-name: Managed Service for Elasticsearch
   mes-short-name: Managed Service for Elasticsearch
@@ -7084,6 +7096,7 @@ default:
           switch_jobs: Задания
           switch_monitoring: Мониторинг
           switch_network: Сеть
+          switch_recommendations: Рекомендации
           switch_shards: Шарды
           switch_subclusters: Подкластеры
           switch_users: Пользователи
@@ -7230,6 +7243,7 @@ default:
           section_dependencies: Зависимости
           section_disk: Размер хранилища
           section_host: Хосты
+          section_host-resources: Вычислительные ресурсы хоста
           section_network: Сетевые настройки
           section_network-settings: Сетевые настройки
           section_pooler: Менеджер подключений
@@ -7311,6 +7325,7 @@ default:
             section_mongod-resources_ncXUZ: Ресурсы Mongod
             section_mongoinfra-resources_13TPT: Ресурсы Mongoinfra
             section_mongos-resources_wBGnr: Ресурсы Mongos
+            section_resources_5RLrK: Ресурсы
           sections:
             option_sharding-type-disabled_3ErMk: Выключено
             option_sharding-type-extended_9NHmb: Расширенное
@@ -7341,6 +7356,9 @@ default:
           switch_users: Пользователи
         field_backup_priority: Приоритет cоздания бэкапа
         field_priority: Приоритет мастера
+        hosts:
+          dialog:
+            button_choose: Сохранить
         switch_list: Кластеры
         switch_operations: Операции
       opensearch:
@@ -7432,6 +7450,9 @@ default:
           switch_shards: Шарды
         field_announce-hostnames: Использовать FQDN вместо IP-адресов
         field_tls-support: Поддержка TLS
+        hosts:
+          dialog:
+            button_choose: Сохранить
         local:
           valkey_modules_aQacT: Модули
           valkey_search_vfqdy: Search

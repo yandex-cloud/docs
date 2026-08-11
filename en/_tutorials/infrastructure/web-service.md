@@ -175,16 +175,16 @@ You need to allow inbound and outbound internet traffic on UDP ports `500` and `
 
        #|
        || **Traffic<br/>direction** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** ||
-       || Inbound | `udp500` | `500` | `{{ ui-key.yacloud.common.label_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<remote_VM_public_IP_address>/32` ||
-       || Inbound | `udp4500` | `4500` | `{{ ui-key.yacloud.common.label_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<remote_VM_public_IP_address>/32` ||
-       || Inbound | `internal` | `0-65535` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | 
+       || Ingress | `udp500` | `500` | `{{ ui-key.yacloud.common.label_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<remote_VM_public_IP_address>/32` ||
+       || Ingress | `udp4500` | `4500` | `{{ ui-key.yacloud.common.label_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<remote_VM_public_IP_address>/32` ||
+       || Ingress | `internal` | `0-65535` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | 
          * `192.168.5.0/24`
          * `192.168.15.0/24`
          * `192.168.25.0/24`
          * `10.129.0.0/24` ^1^ ||
-       || Outbound | `udp500` | `500` | `{{ ui-key.yacloud.common.label_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<remote_VM_public_IP_address>/32` ||
-       || Outbound | `udp4500` | `4500` | `{{ ui-key.yacloud.common.label_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<remote_VM_public_IP_address>/32` ||
-       || Outbound | `intersubnet` | `0-65535` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | 
+       || Egress | `udp500` | `500` | `{{ ui-key.yacloud.common.label_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<remote_VM_public_IP_address>/32` ||
+       || Egress | `udp4500` | `4500` | `{{ ui-key.yacloud.common.label_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<remote_VM_public_IP_address>/32` ||
+       || Egress | `intersubnet` | `0-65535` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | 
          * `192.168.5.0/24`
          * `192.168.15.0/24`
          * `192.168.25.0/24`
@@ -214,9 +214,9 @@ You need to allow inbound and outbound internet traffic on UDP ports `500` and `
        #|
        || **Traffic<br/>direction** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** /<br/>**{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** ||
        || Ingress | `ssh` | `22` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` ||
-       || Inbound | `anyself` | `0-65535` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` ||
-       || Inbound | `healthchecks` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | — ||
-       || Outbound | `self` | `0-65535` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` ||
+       || Ingress | `anyself` | `0-65535` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` ||
+       || Ingress | `healthchecks` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | — ||
+       || Egress | `self` | `0-65535` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` ||
        |#
 
     1. Click **{{ ui-key.yacloud.common.create }}**.

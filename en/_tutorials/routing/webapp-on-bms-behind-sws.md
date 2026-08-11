@@ -41,7 +41,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The infrastructure support cost for deploying a web application on {{ baremetal-name }} servers with an L7 load balancer and {{ sws-name }} protection includes:
 
-* Fee for using VM [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for a [public IP address](../../vpc/concepts/address.md#public-addresses) assigned to the VM (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for [VM](../../compute/concepts/vm.md) computing resources and disks (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for renting {{ baremetal-name }} servers (see [{{ baremetal-full-name }} pricing](../../baremetal/pricing.md)).
 * Fee for using the L7 load balancer’s computing resources (see [{{ alb-full-name }} pricing](../../application-load-balancer/pricing.md)).
@@ -106,18 +106,18 @@ Configure the infrastructure on the {{ vpc-name }} side. In this step, you will 
 
       | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }} |
       | --- | --- | --- | --- | --- | --- |
-      | Inbound | `http`            | `80`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | Inbound | `https`            | `443`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | Inbound | `ssh`            | `22`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | Ingress | `http`            | `80`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | Ingress | `https`            | `443`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | Ingress | `ssh`            | `22`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
       | Egress | `any`           | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
   1. Click **{{ ui-key.yacloud.common.create }}**.
   1. Similarly, in `sample-network`, create a [security group](../../vpc/concepts/security-groups.md) named `alb-sg` with the following rules:
 
       | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }} |
       | --- | --- | --- | --- | --- | --- |
-      | Inbound | `http`            | `80`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | Inbound | `healthchecks`            | `30080`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | — |
-      | Outbound | `any`           | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | Ingress | `http`            | `80`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | Ingress | `healthchecks`            | `30080`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | — |
+      | Egress | `any`           | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
 
 {% endlist %}
 
@@ -664,7 +664,7 @@ To stop paying for the resources you created:
 1. [Delete](../../compute/operations/vm-control/vm-delete.md) the VM.
 1. [Delete](../../application-load-balancer/operations/application-load-balancer-delete.md) the L7 load balancer; then delete the [HTTP router](../../application-load-balancer/operations/http-router-delete.md), [backend group](../../application-load-balancer/operations/backend-group-delete.md), and the load balancer's [target group](../../application-load-balancer/operations/target-group-delete.md) one by one.
 1. [Delete](../../smartwebsecurity/operations/profile-delete.md) the {{ sws-name }} profile; then delete the [WAF profile](../../smartwebsecurity/operations/waf-profile-delete.md) and [ARL profile](../../smartwebsecurity/operations/arl-profile-delete.md).
-1. You cannot delete {{ baremetal-name }} servers. Instead, [cancel](../../baremetal/operations/servers/server-lease-cancel.md) the renewal of their lease.
+1. You cannot delete {{ baremetal-name }} servers. Instead, [cancel](../../baremetal/operations/servers/server-lease-cancel.md) the renewal of their rent.
 1. If the L7 load balancer logging feature was left on, [delete](../../logging/operations/delete-group.md) the log group.
 1. Optionally, delete the [security groups](../../vpc/operations/security-group-delete.md), [subnets](../../vpc/operations/subnet-delete.md), and [cloud network](../../vpc/operations/network-delete.md) one by one.
 1. Delete the private connection if you no longer need it:

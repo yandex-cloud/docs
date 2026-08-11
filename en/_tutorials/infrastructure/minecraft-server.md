@@ -33,7 +33,7 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule all
 
    1. In the [management console]({{ link-console-main }}), select your folder.
    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-   1. In the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**. 
+   1. In the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
    1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
    1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, specify the name: `minecraft-sg`.
    1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select `default`.
@@ -48,19 +48,19 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule all
       | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** /
       **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**
       | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** ||
-      || Inbound
+      || Ingress
       | `Client access to the Minecraft server`
       | `25565`/`19132`
       | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
       | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
       | `0.0.0.0/0` ||
-      || Inbound
+      || Ingress
       | `SSH access to the VM`
       | `22`
       | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
       | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
       | `0.0.0.0/0` ||
-      || Outbound
+      || Egress
       | `VM internet access`
       | `0-65535`
       | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`

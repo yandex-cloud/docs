@@ -7,7 +7,7 @@ description: In this article, you will learn about Delta Lake in {{ dataproc-nam
 
 [Delta Lake](https://delta.io/) is open-source software that expands [{{ SPRK }}](https://spark.apache.org/) functionality:
 
-* Adds an optimized storage layer for table data with [ACID transaction](https://docs.delta.io/2.0.2/concurrency-control.html) support.
+* Adds an optimized storage layer for table data with [ACID transaction](https://docs.delta.io/concurrency-control/) support.
 * Enables scalable processing of metadata.
 * Allows updating data in analytical tables stored as Parquet files in HDFS or S3-compatible storage.
 * Allows processing batch requests and running data streaming operations.

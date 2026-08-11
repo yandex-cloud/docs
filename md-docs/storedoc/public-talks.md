@@ -44,7 +44,7 @@
 
 ### 2020: Yandex Cloud {#yc-2020}
 
-* MongoDB в Yandex Cloud — обзор возможностей.
+* MongoDB в Yandex Cloud — обзор возможностей.
 
   * [Запись трансляции](https://www.youtube.com/watch?v=QkxN2wHqycA).
 
@@ -68,7 +68,7 @@
 
   * [Запись трансляции](https://www.youtube.com/watch?v=5OcUo3J4Wdc).
 
-* Внутреннее устройство платформы баз данных в Yandex Cloud.
+* Внутреннее устройство платформы баз данных в Yandex Cloud.
 
   * [Запись трансляции](https://www.youtube.com/watch?v=Cwdg425a_cw).
 

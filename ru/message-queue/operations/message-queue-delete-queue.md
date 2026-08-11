@@ -22,7 +22,7 @@ description: Следуя данной инструкции, вы сможете
   
      ```bash
      aws sqs list-queues \
-       --endpoint <эндпойнт>
+       --endpoint <эндпоинт>
      ```
 
      Где `--endpoint` — эндпоинт в значении `https://message-queue.{{ api-host }}/`.

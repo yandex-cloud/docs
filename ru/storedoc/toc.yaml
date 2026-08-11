@@ -131,6 +131,8 @@ items:
         href: concepts/update-policy.md
   - name: Управление доступом
     href: security/index.md
+  - name: Инспекции и рекомендации
+    href: advisor.md
   - name: Правила тарификации
     href: pricing.md
   - name: Справочник CLI (англ.)

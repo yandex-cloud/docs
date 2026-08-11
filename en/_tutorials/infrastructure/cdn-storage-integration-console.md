@@ -167,7 +167,7 @@ This guide describes a scenario where the CDN resource is issued a new Let's Enc
         1. In the window that opens, under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**, select `CNAME record` and click **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}** in the section with your domain below.
         1. In the window that opens, confirm creating the resource record.
 
-        Checking rights for a domain may take from a few minutes to a few days. Wait until the check is complete. As a result, the certificate will be issued and get the `Issued` status.
+        Domain ownership verification may take from a few minutes to a few days. Wait until it successfully completes. As a result, the certificate will be issued and get the `Issued` status.
 
     - {{ yandex-cloud }} CLI {#cli}
 
@@ -218,7 +218,7 @@ This guide describes a scenario where the CDN resource is issued a new Let's Enc
 
             Save the value of the `value` field from the `CNAME` type section under `challenges.dns_challenge`. You will need this value in the next step.
 
-        1. Create a CNAME [resource record](../../dns/concepts/resource-record.md) to pass a domain rights check:
+        1. Create a CNAME [resource record](../../dns/concepts/resource-record.md) to pass domain ownership verification:
 
             ```bash
             yc dns zone add-records \
@@ -240,7 +240,7 @@ This guide describes a scenario where the CDN resource is issued a new Let's Enc
 
             For more information about the `yc dns zone add-records` command, see the [CLI reference](../../cli/cli-ref/dns/cli-ref/zone/add-records.md).
 
-            Checking rights for a domain may take from a few minutes to a few days. Wait until the check is complete. As a result, the certificate will be issued and get the `Issued` status.
+            Domain ownership verification may take from a few minutes to a few days. Wait until it successfully completes. As a result, the certificate will be issued and get the `Issued` status.
 
         1. Make sure that the certificate status has switched to `Issued`:
 
@@ -273,7 +273,7 @@ This guide describes a scenario where the CDN resource is issued a new Let's Enc
 
     - API {#api}
 
-      To get the information required to pass a domain rights check, use the [get](../../certificate-manager/api-ref/Certificate/get.md) REST API method for the [Certificate](../../certificate-manager/api-ref/Certificate/) resource or the [CertificateService/Get](../../certificate-manager/api-ref/grpc/Certificate/get.md) gRPC API call with `view=FULL`.
+      To get the information required to pass domain ownership verification, use the [get](../../certificate-manager/api-ref/Certificate/get.md) REST API method for the [Certificate](../../certificate-manager/api-ref/Certificate/) resource or the [CertificateService/Get](../../certificate-manager/api-ref/grpc/Certificate/get.md) gRPC API call with the `view=FULL` parameter.
       
       To create a CNAME resource record in a DNS zone, use the [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md) REST API method for the [DnsZone](../../dns/api-ref/DnsZone/index.md) resource or the [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/DnsZone/updateRecordSets.md) gRPC API call.
 

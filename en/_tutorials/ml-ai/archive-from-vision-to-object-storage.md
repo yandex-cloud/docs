@@ -24,7 +24,7 @@ The cost of supporting the infrastructure for image recognition and data storage
 * Fee for [VM](../../compute/concepts/vm.md) computing resources and [disks](../../compute/concepts/disk.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for [bucket](../../storage/concepts/bucket.md) data storage and data [operations](../../storage/operations/index.md) (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 * Fee for a static or dynamic [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-* Fee for using {{ vision-name }} (see [{{ vision-name }} pricing]({{ link-docs-ai }}vision/pricing)).
+* Fee for using {{ vision-name }} (see [{{ vision-name }} pricing]({{ link-docs-ai }}ai-studio/pricing#rules-image-recognition)).
 
 ## Create a bucket {#create-bucket}
 
