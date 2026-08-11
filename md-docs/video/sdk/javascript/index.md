@@ -18,7 +18,7 @@
 
 ```javascript
 var player = Ya.playerSdk.init({
-    /** @type {(string|HTMLElement)} где будет создан плеер плеер */
+    /** @type {(string|HTMLElement)} где будет создан плеер */
     element: 'video-player',
     /** @type {string} ссылка на воспроизводимый контент */
     source: 'https://runtime.video.cloud.yandex.net/player/...',

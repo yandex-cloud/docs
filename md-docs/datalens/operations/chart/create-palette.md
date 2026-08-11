@@ -4,14 +4,15 @@
 
 В Yandex DataLens вы можете [создать](#create-palette), [изменить](#edit-palette), [удалить](#delete-palette) цветовую палитру и [настроить цветовую палитру по умолчанию](#default-palette).
 
-## Создать цветовую палитру {#create-palette}
 
-{% note warning %}
+{% note info %}
 
-Для создания палитры пользователю нужна роль [администратора](../../security/roles.md#datalens-admin) экземпляра DataLens.
-  
+Создать, изменить и удалить палитру может [администратор](../../security/roles.md#datalens-admin) экземпляра DataLens (роль `datalens.admin`).
+
 {% endnote %}
 
+
+## Создать цветовую палитру {#create-palette}
 
 Чтобы создать цветовую палитру:
 

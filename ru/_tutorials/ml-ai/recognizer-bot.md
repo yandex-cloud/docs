@@ -31,7 +31,7 @@
 В стоимость поддержки Telegram-бота входят:
 
 * плата за использование {{ speechkit-name }} ([тарифы {{ speechkit-name }}]({{ link-docs-ai }}speechkit/pricing));
-* плата за использование {{ vision-name }} ([тарифы для {{ vision-name }}]({{ link-docs-ai }}vision/pricing));
+* плата за использование {{ vision-name }} ([тарифы для {{ vision-name }}]({{ link-docs-ai }}ai-studio/pricing#rules-image-recognition));
 * плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик ([тарифы для {{ sf-name }}](../../functions/pricing.md));
 * плата за количество запросов к созданному API-шлюзу и исходящий трафик ([тарифы {{ api-gw-name }}](../../api-gateway/pricing.md)).
 

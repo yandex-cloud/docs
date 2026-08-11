@@ -2,19 +2,64 @@
 
 # Правила тарификации для режима Dedicated в Managed Service for YDB
 
+::: page-constructor
+blocks:
+  - type: card-layout-block
+    animated: false
+    colSizes:
+      all: 12
+      sm: 4
+    children:
+      - type: basic-card
+        title: Калькулятор цен
+        text: Рассчитайте стоимость использования сервиса, исходя из ваших потребностей
+        icon: ../../_assets/console-icons/calculator.svg
+        urlTitle: Калькулятор цен
+        url: https://yandex.cloud/ru/prices?state=2443a6ec26b9#calculator
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+      - type: basic-card
+        title: Прайс-лист
+        text: Актуальные тарифы на все наши услуги
+        icon: ../../_assets/console-icons/circle-ruble.svg
+        urlTitle: Прайс-лист
+        url: https://yandex.cloud/ru/price-list?services=dn2ydbtgqogjqcrlbehu%2Cdn2kcipi3i3av4ej1fsv
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+      - type: basic-card
+        title: Акции и free tier
+        text: Гранты, специальные условия и программы поддержки
+        icon: ../../_assets/console-icons/flame.svg
+        urlTitle: Акции и free tier
+        url: https://yandex.cloud/ru/all-offers
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+:::
 
-{% note tip %}
+
+::: page-constructor
+blocks:
+  - type: card-layout-block
+    animated: false
+    colSizes:
+      all: 6
+    children: []
+:::
 
 
-Чтобы рассчитать стоимость использования сервиса, воспользуйтесь [калькулятором](https://yandex.cloud/ru/prices?state=2443a6ec26b9#calculator) на сайте Yandex Cloud или ознакомьтесь с тарифами в этом разделе.
 
-
-
-
-
-{% endnote %}
-
-Цены на продукты сервиса также доступны в [Прайс-листе](https://yandex.cloud/ru/price-list).
 
 
 Все цены в рублях и тенге указаны с НДС, все цены в долларах — без НДС.

@@ -158,6 +158,8 @@ Yandex Virtual Private Cloud служит для управления облач
 
  - [Реализация защищенной высокодоступной сетевой инфраструктуры с выделением DMZ на основе Смарт-Софт NGFW](tutorials/high-accessible-dmz-ting.md)
 
+ - [Реализация защищенной высокодоступной сетевой инфраструктуры с выделением DMZ на основе UserGate NGFW](tutorials/high-accessible-dmz-usergate.md)
+
  - [Создание и настройка шлюза UserGate в режиме межсетевого экрана](tutorials/usergate-firewall.md)
 
 ### BareMetal

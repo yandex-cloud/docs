@@ -32,7 +32,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The infrastructure support cost for scheduled image and document recognition includes:
 * Fee for bucket data storage and bucket data operations (see [{{ objstorage-name }} pricing]({{ link-docs }}/storage/pricing)).
-* Fee for using {{ vision-name }} (see [{{ vision-name }} pricing]({{ link-docs-ai }}vision/pricing)).
+* Fee for using {{ vision-name }} (see [{{ vision-name }} pricing]({{ link-docs-ai }}ai-studio/pricing#rules-image-recognition)).
 * Fee for the container invocation count, computing resources allocated for the application, and outgoing traffic (see [{{ serverless-containers-name }} pricing]({{ link-docs }}/serverless-containers/pricing)).
 * Fee for storing the [secret]({{ link-docs }}/lockbox/concepts/secret) and operations with it (see [{{ lockbox-name }} pricing]({{ link-docs }}/lockbox/pricing)).
 

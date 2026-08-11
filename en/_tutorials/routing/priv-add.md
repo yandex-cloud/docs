@@ -6,6 +6,28 @@ To add a private connection to an existing trunk, create a [new support ticket](
 
 Follow this request format:
 
+```s
+Subject: [CIC] Add a new private connection to an existing trunk.
+
+Request text:
+Please add a new private connection to an existing trunk.
+Connection settings:
+
+trunk_id: euus5dfgchu2********
+vlan_id: 101
+ipv4_peering:
+  peering_subnet: 192.168.10.0/30
+  peer_ip: 192.168.10.1
+  cloud_ip: 192.168.10.2
+  peer_bgp_asn: 65001
+  #cloud_bgp_asn: {{ cic-bgp-asn }}
+vpc:
+  vpc_net_id: enpdffqsg8r2********
+    vpc_subnets:
+      {{ region-id }}-a: [10.60.192.0/21]
+      {{ region-id }}-b: [10.60.200.0/21, 10.60.220.0/24]
+      {{ region-id }}-d: [10.60.208.0/20]
+```
 
 
 

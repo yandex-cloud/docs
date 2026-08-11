@@ -194,6 +194,8 @@ Managed Service for MySQL<sup>®</sup> помогает разворачиват
 
  - [Управление доступом](security/index.md)
 
+ - [Инспекции и рекомендации](advisor.md)
+
  - [Правила тарификации](pricing.md)
 
 ## Справочник CLI (англ.)

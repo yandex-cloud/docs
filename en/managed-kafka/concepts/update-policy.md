@@ -21,7 +21,7 @@ Upgrading to current versions allows you to get new features, patches, and secur
 
 Each version has the following key stages:
 
-| Version state | Description | Status transition date (starting from the open-source release date) |
+| Version status | Description | Status transition date (starting from the open-source release date) |
 |:---|:---|:---|
 | **Supported versions** |
 | Availability in {{ mkf-name }} | You can use this version to create and manage new clusters. | 0 months |
@@ -36,17 +36,17 @@ We recommend [updating clusters](../operations/cluster-version-update.md) manual
 
 {% endnote %}
 
-## Version support schedule {#version-schedule}
+## Versioning schedule {#version-schedule}
 
 Each version is supported for at least 18 months from the date it was added to {{ mkf-name }}.
 
 | Version / Status | Available in {{ mkf-name }} | Unavailable for new clusters | Support discontinued | Forced update |
 |:---|:---|:---|:---|:---|
-| 2.8 | N/A | March 1, 2025 | September 1, 2025 (estimated) | September 15, 2025 (estimated) |
-| 3.0 | Q1 2022 | March 1, 2025 | September 1, 2025 (estimated) | September 15, 2025 (estimated) |
-| 3.1 | Q2 2022 | March 1, 2025 | September 1, 2025 (estimated) | September 15, 2025 (estimated) |
-| 3.2 | Q3 2022 | March 1, 2025 | September 1, 2025 (estimated) | September 15, 2025 (estimated) |
-| 3.3 | Q1 2023 | March 1, 2025 | September 1, 2025 (estimated) | September 15, 2025 (estimated) |
+| 2.8 | N/A | March 1, 2025 | September 1, 2025 | September 15, 2025 |
+| 3.0 | Q1 2022 | March 1, 2025 | September 1, 2025 | September 15, 2025 |
+| 3.1 | Q2 2022 | March 1, 2025 | September 1, 2025 | September 15, 2025 |
+| 3.2 | Q3 2022 | March 1, 2025 | September 1, 2025 | September 15, 2025 |
+| 3.3 | Q1 2023 | March 1, 2025 | September 1, 2025 | September 15, 2025 |
 | 3.4 | Q2 2023 | September 1, 2025 | March 1, 2026 | September 1, 2026 |
 | 3.5 | Q4 2023 | September 1, 2025 | March 1, 2026 | September 1, 2026 |
 | 3.6 | Q1 2025 | March 1, 2026 | September 1, 2026 | March 1, 2027 |
@@ -54,6 +54,8 @@ Each version is supported for at least 18 months from the date it was added to {
 | 3.8 | Q2 2025 | July 1, 2026 | January 1, 2027 | July 1, 2027 |
 | 3.9 | Q2 2025 | July 1, 2026 | January 1, 2027 | July 1, 2027 |
 | 4.0 | Q4 2025 | Q4 2026 | Q2 2027 | Q4 2027 |
+| 4.1 | Q1 2026 | Q1 2027 | Q3 2027 | Q1 2028 |
+| 4.2 | Q2 2026 | Q2 2027 | Q4 2027 | Q2 2028 |
 
 {% note info "Important updates" %}
 

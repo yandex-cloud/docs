@@ -33,3 +33,5 @@ description: 'Step-by-step guide for working with DNS zones and resource records
 ## DNS connections {#dns-connection}
 
 - [{#T}](connection-inbound-create.md)
+- [{#T}](connection-inbound-update.md)
+- [{#T}](connection-inbound-delete.md)

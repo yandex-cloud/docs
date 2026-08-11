@@ -107,7 +107,7 @@ description: Следуя данной инструкции, вы сможете
      * `Задержка вычисления` — `15 секунд`.
 
 1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.no-data }}** оставьте значения по умолчанию.
-1. (опционально) В блоке [**{{ ui-key.yacloud_monitoring.monitoring-alerts.title.annotations }}**](../../monitoring/concepts/alerting/annotation.md) добавьте информацию, которую следуют записывать при срабатывании алерта.
+1. (опционально) В блоке [**{{ ui-key.yacloud_monitoring.monitoring-alerts.title.annotations }}**](../../monitoring/concepts/alerting/annotation.md) добавьте информацию, которую следует записывать при срабатывании алерта.
 1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.notification-channels }}** добавьте канал для отправки уведомления.
 1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
@@ -197,7 +197,7 @@ description: Следуя данной инструкции, вы сможете
      * `Задержка вычисления` — `15 секунд`.
 
 1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.no-data }}** оставьте значения по умолчанию.
-1. (опционально) В блоке [**{{ ui-key.yacloud_monitoring.monitoring-alerts.title.annotations }}**](../../monitoring/concepts/alerting/annotation.md) добавьте информацию, которую следуют записывать при срабатывании алерта.
+1. (опционально) В блоке [**{{ ui-key.yacloud_monitoring.monitoring-alerts.title.annotations }}**](../../monitoring/concepts/alerting/annotation.md) добавьте информацию, которую следует записывать при срабатывании алерта.
 1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.notification-channels }}** добавьте канал для отправки уведомления.
 1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 

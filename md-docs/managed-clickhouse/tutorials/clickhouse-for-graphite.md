@@ -8,7 +8,7 @@ Yandex Managed Service for ClickHouse® можно использовать ка
 
 {% note info %}
 
-Если прореживание и агрегирование или усреднение не требуется, то для хранения данных Graphite можно использовать любой [движок таблиц](https://clickhouse.com/docs/ru/engines/table-engines) ClickHouse®.
+Если прореживание, агрегация или усреднение не требуются, то для хранения данных Graphite можно использовать любой [движок таблиц](https://clickhouse.com/docs/ru/engines/table-engines) ClickHouse®.
 
 {% endnote %}
 

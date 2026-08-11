@@ -497,8 +497,8 @@
   Где:
   
   * `params` — объект с параметрами из элементов управления дашборда.
-  * `apiConnectionId` — ID подключения с типом [API Connector](../../operations/connection/create-api-connector.md), описанного на вкладке [Meta](#meta) и полученного с помощью метода [Editor.getId(arg)](methods.md#get-id).
-  * `mySourceKeyName` — имя-алиас источника данных, описанного на вкладке Meta.
+  * `apiConnectionId` — ID подключения, описанного на вкладке [Meta](#meta) и полученного с помощью метода [Editor.getId(arg)](methods.md#get-id). В качестве источников данных доступны запросы к датасетам, стандартным подключениям и подключениям [API Connector](../../operations/connection/create-api-connector.md). 
+  * `mySourceKeyName` — имя-алиас источника данных, описанного на вкладке **Meta**.
   * `path` — путь к API после хоста.
   * `method` — метод запроса.
   * `body` — данные запроса.

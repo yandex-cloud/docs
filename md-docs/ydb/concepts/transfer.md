@@ -2,7 +2,7 @@
 
 # Трансфер данных
 
-Трансфер в YDB — асинхронный механизм переноса данных из [топика](https://ydb.tech/docs/ru//concepts/glossary#topic) в [таблицу](https://ydb.tech/docs/ru//concepts/glossary#table). [Создание](https://ydb.tech/docs/ru//yql/reference/syntax/create-transfer) экземпляра трансфера, его [изменение](https://ydb.tech/docs/ru//yql/reference/syntax/alter-transfer) и [удаление](https://ydb.tech/docs/ru//yql/reference/syntax/drop-transfer) осуществляется с использованием YQL. Трансфер запускается внутри базы данных и работает в фоновом режиме. Трансфер используется для решения задачи поставки данных из топика в таблицу.
+Трансфер в YDB — асинхронный механизм переноса данных из [топика](https://ydb.tech/docs/ru//concepts/glossary#topic) в [таблицу](https://ydb.tech/docs/ru//concepts/glossary#table). [Создание](https://ydb.tech/docs/ru//yql/reference/syntax/create-transfer) экземпляра трансфера, его [изменение](https://ydb.tech/docs/ru//yql/reference/syntax/alter-transfer) и [удаление](https://ydb.tech/docs/ru//yql/reference/syntax/drop-transfer) осуществляются с использованием YQL. Трансфер запускается внутри базы данных и работает в фоновом режиме. Трансфер используется для решения задачи поставки данных из топика в таблицу.
 
 В Managed Service for YDB трансфер доступен только в [dedicated](serverless-and-dedicated.md#dedicated) режиме работы базы данных. Пример создания трансфера, который переносит данные внутри одной базы данных описан в статье [Трансфер — быстрый старт](https://ydb.tech/docs/ru//recipes/transfer/quickstart).
 

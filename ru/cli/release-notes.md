@@ -2222,7 +2222,7 @@ yc managed-clickhouse cluster add-zookeeper --host type=<host_type>
 
 #### {{ mch-name }}
 
-Добавлены параметры для управления автоматическим расширения диска. Команды, в которых можно задавать новые параметры:
+Добавлены параметры для управления автоматическим расширением диска. Команды, в которых можно задавать новые параметры:
 * `yc clickhouse cluster create`
 * `yc clickhouse cluster update`
 * `yc clickhouse restore`

@@ -61,7 +61,7 @@ The cost of billable services is calculated based on the amount of consumed reso
         * [{{ brand-voice-name }}]({{ link-docs-ai }}speechkit/pricing#brand-voice)
         * [Speech recognition]({{ link-docs-ai }}speechkit/pricing#prices-stt)
     * [{{ translate-full-name }}]({{ link-docs-ai }}translate/pricing)
-    * [{{ vision-full-name }}]({{ link-docs-ai }}vision/pricing)
+    * [{{ vision-full-name }}]({{ link-docs-ai }}ai-studio/pricing#rules-image-recognition)
 * [{{ api-gw-full-name }}](../api-gateway/pricing.md)
 * [{{ alb-full-name }}](../application-load-balancer/pricing.md)
 * [{{ at-full-name }}](../audit-trails/pricing.md)

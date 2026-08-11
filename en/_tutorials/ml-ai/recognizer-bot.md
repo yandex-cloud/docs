@@ -31,7 +31,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The cost of Telegram bot support includes:
 
 * Fee for using {{ speechkit-name }} (see [{{ speechkit-name }} pricing]({{ link-docs-ai }}speechkit/pricing)).
-* Fee for using {{ vision-name }} (see [{{ vision-name }} pricing]({{ link-docs-ai }}vision/pricing)).
+* Fee for using {{ vision-name }} (see [{{ vision-name }} pricing]({{ link-docs-ai }}ai-studio/pricing#rules-image-recognition)).
 * Fee for the number of function calls, computing resources allocated for the function, and outgoing traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
 * Fee for the number of API gateway requests and outgoing traffic (see [{{ api-gw-name }} pricing](../../api-gateway/pricing.md)).
 

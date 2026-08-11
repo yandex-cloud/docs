@@ -120,7 +120,7 @@
 
       {% note alert %}
 
-      IP-адрес и [имя хоста (FQDN)](../../compute/concepts/network.md#hostname) для подключения к ВМ назначается ей при создании. Если в поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** вы выбрали вариант `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`, вы не сможете обращаться к ВМ из интернета.
+      IP-адрес и [имя хоста (FQDN)](../../compute/concepts/network.md#hostname) для подключения к ВМ назначаются ей при создании. Если в поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** вы выбрали вариант `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`, вы не сможете обращаться к ВМ из интернета.
 
       {% endnote %}
 

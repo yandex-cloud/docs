@@ -7,6 +7,14 @@ description: Следуя данной инструкции, вы сможете
 
 В {{ datalens-full-name }} вы можете [создать](#create-palette), [изменить](#edit-palette), [удалить](#delete-palette) цветовую палитру и [настроить цветовую палитру по умолчанию](#default-palette).
 
+
+{% note info %}
+
+Создать, изменить и удалить палитру может [администратор](../../security/roles.md#datalens-admin) экземпляра {{ datalens-short-name }} (роль `{{ roles-datalens-admin }}`).
+
+{% endnote %}
+
+
 ## Создать цветовую палитру {#create-palette}
 
 {% include [create-palette](../../../_includes/datalens/settings/create-palette.md) %}

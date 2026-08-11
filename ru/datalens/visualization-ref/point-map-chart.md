@@ -19,6 +19,10 @@ description: Из статьи вы узнаете, как в {{ datalens-full-n
 
 ![point-chart](../../_assets/datalens/visualization-ref/point-chart/point-chart.png =800x)
 
+
+{% include [geointellect-using](../../_includes/datalens/visualization-ref/geointellect-using.md) %}
+
+
 ## Секции в визарде {#wizard-sections}
 
 Секция<br/> в визарде| Описание

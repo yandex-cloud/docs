@@ -47,7 +47,7 @@ Traffic path from a client application to the web service:
 1. Traffic from the `1.2.3.4:30325` client application (any socket/port number can be used) is sent as a sequence of IP packets to the load balancer, and the `158.160.0.x:443` traffic listener receives it.
 1. The listener calculates the hash function with `5-tuple` addressing based on the parameters of the received IP packet and routes the traffic to `vm-a1` in the target group. At the same time, the virtual network retains the information that the traffic bound for the `158.160.0.x:443` listener was sent to the `10.0.1.1:8443` resource.
 1. `vm-a1` processes the received request and sends the response back to the client application using its IP address, `10.0.1.1`.
-1. The virtual network is aware (see step 2) that the traffic from the client application was previously received by the load balancer's listener and sent for processing to `vm-a1`. This information allows the virtual network to change the sender's address and port (perform [source NAT](https://en.wikipedia.org/wiki/Network_address_translation)) for all packets sent from `10.0.1.1:8443` to `158.160.0.x:443`. The traffic is then sent to the destination address according to routing policies and reaches the client application.
+1. The virtual network is aware (see Step 2) that the traffic from the client application was previously received by the load balancer's listener and sent for processing to `vm-a1`. This information allows the virtual network to change the sender's address and port (perform [source NAT](https://en.wikipedia.org/wiki/Network_address_translation)) for all packets sent from `10.0.1.1:8443` to `158.160.0.x:443`. The traffic is then sent to the destination address according to routing policies and reaches the client application.
 1. Traffic goes to the destination address according to routing policies and reaches the client application.
 
 {% note info %}
@@ -65,7 +65,6 @@ To enable UDP traffic, contact our [support](../../support/overview.md).
 
 ### Use cases {#examples-udp}
 
-* [{#T}](../tutorials/dns-integration.md)
 * [{#T}](../tutorials/web-service.md)
 
 

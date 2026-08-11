@@ -147,6 +147,8 @@ Yandex Managed Service for Valkey™ часто используется, что
 
  - [Управление доступом](security/index.md)
 
+ - [Инспекции и рекомендации](advisor.md)
+
  - [Правила тарификации](pricing.md)
 
 ## Справочник CLI (англ.)

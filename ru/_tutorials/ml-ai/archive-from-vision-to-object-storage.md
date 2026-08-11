@@ -24,7 +24,7 @@
 * Плата за вычислительные ресурсы и [диски](../../compute/concepts/disk.md) [ВМ](../../compute/concepts/vm.md) ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
 * Плата за хранение данных в [бакете](../../storage/concepts/bucket.md) и [операции](../../storage/operations/index.md) с ними ([тарифы {{ objstorage-name }}](../../storage/pricing.md)).
 * Плата за использование динамического или статического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
-* Плата за использование {{ vision-name }} ([тарифы для {{ vision-name }}]({{ link-docs-ai }}vision/pricing)).
+* Плата за использование {{ vision-name }} ([тарифы для {{ vision-name }}]({{ link-docs-ai }}ai-studio/pricing#rules-image-recognition)).
 
 ## Создайте бакет {#create-bucket}
 

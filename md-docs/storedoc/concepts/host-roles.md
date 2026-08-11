@@ -2,7 +2,7 @@
 
 # Типы хостов в Yandex StoreDoc
 
-В Yandex StoreDoc есть четыре типа хостов: `MONGOD`, `MONGOINFRA`, `MONGOCFG` и `MONGOS`. Каждый тип хостов имеет собственную [роль и функции](#features) в кластере. [Тип и количество хостов](#configuration) в кластере Yandex StoreDoc зависит от выбранного типа шардирования.
+В Yandex StoreDoc есть четыре типа хостов: `MONGOD`, `MONGOINFRA`, `MONGOCFG` и `MONGOS`. Каждый тип хостов имеет собственную [роль и функции](#features) в кластере. [Тип и количество хостов](#configuration) в кластере Yandex StoreDoc зависят от выбранного типа шардирования.
 
 ## Роли и функции хостов разных типов {#features}
 

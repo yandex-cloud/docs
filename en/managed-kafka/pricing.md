@@ -6,20 +6,42 @@ editable: false
 
 # {{ mkf-name }} pricing policy
 
+::: page-constructor
+blocks:
+  - type: card-layout-block
+    animated: false
+    colSizes:
+      all: 6
+    children:
+      - type: basic-card
+        title: Price calculator
+        text: Calculate the cost of the service based on your needs
+        icon: ../_assets/console-icons/calculator.svg
+        urlTitle: Price calculator
+        url: https://yandex.cloud/en/prices?state=54df05776e9e#calculator
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+      - type: basic-card
+        title: Price list
+        text: Current prices of all our services
+        icon: ../_assets/console-icons/circle-ruble.svg
+        urlTitle: Price list
+        url: https://yandex.cloud/en/price-list?services=dn2mse6mu1meu7orkmre
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+:::
+
+
 This section describes the {{ mkf-name }} pricing [policy](#rules) and [current prices](#prices) for its resources.
 
-{% note tip %}
-
-
-
-
-For cost estimation, use [this calculator](https://yandex.cloud/en/prices?state=688ba2e0d05a#calculator) on our website or check out the pricing below.
-
-
-
-{% endnote %}
-
-{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
