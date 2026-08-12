@@ -389,7 +389,7 @@ collides with subnet <идентификатор_подсети_2> [<диапа�
 
 ### Отсутствие соединения с сервером {#subnet-without-nat}
 
-​Отсутствие соединения из-за указания подсети без настроенного NAT-шлюза.
+Отсутствие соединения из-за указания подсети без настроенного NAT-шлюза.
 
 Текст ошибки:
 
@@ -454,7 +454,7 @@ Failed permission check: No permission to use VPC Subnets: Permission denied
 
 ### Не добавляются новые таблицы {#no-new-tables}
 
-​В трансфер типа _**Копирование и репликация**_ не добавляются новые таблицы.
+В трансфер типа _**Копирование и репликация**_ не добавляются новые таблицы.
 
 **Решение:**
 
@@ -746,7 +746,7 @@ Last binlog file <имя_файла>:<размер_файла> is more than 4GB
 
 ### Не добавляются новые таблицы {#no-new-tables}
 
-​В трансфер типа _**Копирование и репликация**_ не добавляются новые таблицы.
+В трансфер типа _**Копирование и репликация**_ не добавляются новые таблицы.
 
 **Решение:**
 
@@ -1115,8 +1115,8 @@ ERROR: invalid snapshot identifier: "<идентификатор_снапшот�
 ### Превышение квоты на длительность соединения {#conn-duration-quota}
 
 В Yandex Managed Service for PostgreSQL существует квота на длительность соединения — 12 часов.
-​
-​**Решение:** если перенос базы данных требует больше времени, [измените настройку кластера](../../managed-postgresql/operations/update.md#change-postgresql-config) Yandex Managed Service for PostgreSQL [Session duration timeout](../../managed-postgresql/concepts/settings-list.md#setting-session-duration-timeout).
+
+**Решение:** если перенос базы данных требует больше времени, [измените настройку кластера](../../managed-postgresql/operations/update.md#change-postgresql-config) Yandex Managed Service for PostgreSQL [Session duration timeout](../../managed-postgresql/concepts/settings-list.md#setting-session-duration-timeout).
 
 ### Превышение количества подключений к базе данных {#conn-limit}
 
@@ -1170,7 +1170,7 @@ Push failed: ERROR: function <имя_схемы>.<имя_функции>() does 
 
 ### Низкая скорость трансфера  {#low-speed}
 
-​Может возникать у трансферов типа _**Копирование**_ или _**Копирование и репликация**_ из PostgreSQL в PostgreSQL.
+Может возникать у трансферов типа _**Копирование**_ или _**Копирование и репликация**_ из PostgreSQL в PostgreSQL.
 
 Возможные причины:
 

@@ -22,7 +22,8 @@ Updates the specified PostgreSQL database.
       "version": "string"
     }
   ],
-  "deletion_protection": "google.protobuf.BoolValue"
+  "deletion_protection": "google.protobuf.BoolValue",
+  "owner": "string"
 }
 ```
 
@@ -59,6 +60,11 @@ Therefore, to disable an active extension you should simply send the list omitti
 Deletion Protection inhibits deletion of the database
 
 Default value: `unspecified` (inherits cluster's deletion_protection) ||
+|| owner | **string**
+
+Optional. Name of the user to be assigned as the new owner of the database.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## Extension {#yandex.cloud.mdb.postgresql.v1.Extension}

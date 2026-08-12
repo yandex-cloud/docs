@@ -28,6 +28,8 @@ Yandex Cloud DNS служит для управления зонами DNS и д
 
  - [Перенести зону DNS в другой каталог](operations/zone-move-folder.md)
 
+ - [Делегировать Cloud DNS управление обратной зоной](operations/zone-delegate.md)
+
  - [Посмотреть операции с зонами DNS](operations/operation-logs.md)
 
  - [Удалить зону DNS](operations/zone-delete.md)

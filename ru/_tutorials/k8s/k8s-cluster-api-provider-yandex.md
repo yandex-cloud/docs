@@ -1,6 +1,6 @@
 # Создание управляемого пользователем (self-managed) кластера {{ k8s }} с помощью провайдера {{ yandex-cloud }} для {{ k8s }} Cluster API
 
-[Сluster-api-provider-yandex](https://github.com/yandex-cloud/cluster-api-provider-yandex) — провайдер для развертывания управляемого пользователем (self-managed) кластера {{ k8s }} в облачной инфраструктуре {{ yandex-cloud }} с помощью [{{ k8s }} Cluster API](https://cluster-api.sigs.k8s.io/).
+[Cluster-api-provider-yandex](https://github.com/yandex-cloud/cluster-api-provider-yandex) — провайдер для развертывания управляемого пользователем (self-managed) кластера {{ k8s }} в облачной инфраструктуре {{ yandex-cloud }} с помощью [{{ k8s }} Cluster API](https://cluster-api.sigs.k8s.io/).
 
 Кластер разворачивается на базе [виртуальных машин](../../compute/concepts/vm.md) {{ compute-full-name }} и [L7-балансировщика](../../application-load-balancer/concepts/application-load-balancer.md) {{ alb-full-name }}.
 

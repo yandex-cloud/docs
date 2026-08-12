@@ -1,6 +1,6 @@
 ---
 title: Как удалить целевую группу в сетевом балансировщике
-description: Перед удалением целевой группы ее необходимо отключить от сетевого балансировщика. После удаления целевую группу невозможно восстановить. Откройте раздел Load Balancer в каталоге, где требуется удалить целевую группу. В открывшемся меню нажмите кнопку Удалить.
+description: Перед удалением целевой группы ее необходимо отключить от сетевого балансировщика. После удаления целевую группу невозможно восстановить. Откройте раздел Load Balancer в каталоге, где требуется удалить целевую группу. В открывшемся меню нажмите Удалить.
 ---
 
 # Удалить целевую группу {{ network-load-balancer-name }}
@@ -19,9 +19,8 @@ description: Перед удалением целевой группы ее не
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется удалить целевую группу.
   1. [Перейдите]({{ link-console-main }}/link/network-load-balancer/) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
-  1. В строке целевой группы, которую требуется удалить, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg).
-  1. В открывшемся меню выберите **{{ ui-key.yacloud.common.delete }}**.
-  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
+  1. В строке целевой группы, которую требуется удалить, нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
+  1. В открывшемся окне нажмите **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
 

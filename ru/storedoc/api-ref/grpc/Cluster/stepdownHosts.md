@@ -18,7 +18,8 @@ Stepdown hosts.
   "cluster_id": "string",
   "host_names": [
     "string"
-  ]
+  ],
+  "zone_id": "string"
 }
 ```
 
@@ -34,6 +35,11 @@ The maximum string length in characters is 50. ||
 Required. Name of the hosts to resetup.
 
 The maximum string length in characters for each value is 253. The number of elements must be greater than 0. ||
+|| zone_id | **string**
+
+Optional. ID of the availability zone stepdown hosts from.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

@@ -25,7 +25,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог ресурсов](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан каталог метаданных.
   1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-  1. Hа панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **Data Catalog**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **Data Catalog**.
   1. В открывшемся списке выберите каталог метаданных, содержащий нужное хранилище данных.
   1. На панели слева выберите ![image](../../../_assets/console-icons/book.svg) **Хранилище данных**.
   1. Выберите нужное хранилище данных.
@@ -41,7 +41,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог ресурсов](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан каталог метаданных.
   1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-  1. Hа панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **Data Catalog**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **Data Catalog**.
   1. В открывшемся списке выберите каталог метаданных, содержащий нужное хранилище данных.
   1. На панели слева выберите ![image](../../../_assets/console-icons/book.svg) **Хранилище данных**.
   1. Выберите нужное хранилище данных.
@@ -57,7 +57,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог ресурсов](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан каталог метаданных.
   1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-  1. Hа панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **Data Catalog**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **Data Catalog**.
   1. В открывшемся списке выберите каталог метаданных, содержащий нужное хранилище данных.
   1. На панели слева выберите ![image](../../../_assets/console-icons/book.svg) **Хранилище данных**.
   1. Выберите нужное хранилище данных.
@@ -73,7 +73,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог ресурсов](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан каталог метаданных.
   1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-  1. Hа панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **Data Catalog**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **Data Catalog**.
   1. В открывшемся списке выберите каталог метаданных, содержащий нужное хранилище данных.
   1. На панели слева выберите ![image](../../../_assets/console-icons/book.svg) **Хранилище данных**.
   1. Выберите нужное хранилище данных.

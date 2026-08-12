@@ -5419,7 +5419,6 @@ default:
         internal-v4-address-field:
           button_internal-address-reserve: Зарезервировать
           field_internal-ipv4-address: Внутренний IPv4 адрес
-          label_internal-address-title: IP-адрес
         key-values-input:
           label_key: Ключ
           label_value: Значение
@@ -5571,10 +5570,8 @@ default:
           edit:
             label_title: Изменение группы виртуальных машин
           overview:
-            label_authority: Хост
             label_host: Хост
             label_instance-address: Публичный IP-адрес
-            label_service-name: Имя сервиса
             section_instances-state: Виртуальные машины
           switch_instances: Виртуальные машины
         groups:
@@ -6820,7 +6817,6 @@ default:
             field_listener-name: Имя
             field_listener-port: Порт
             field_listener-protocol: Протокол
-            field_listener-subnet-id: Подсеть
             field_listener-target-port: Целевой порт
             field_network-load-balancer-type: Тип
             label_add-listener: Добавить обработчик
@@ -6828,6 +6824,7 @@ default:
             label_address-type: Публичный адрес
             label_advanced: Дополнительно
             label_edit-health-check: Настроить
+            label_external: Внешний
             label_internal: Внутренний
             label_target-group-id: Целевая группа
             section_listeners: Обработчики
