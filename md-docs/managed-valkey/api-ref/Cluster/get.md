@@ -338,7 +338,8 @@ The maximum string length in characters is 50. ||
         "zsetMaxListpackEntries": "string",
         "aofMaxSizePercent": "string",
         "activedefrag": "boolean",
-        "auditLog": "boolean"
+        "auditLog": "boolean",
+        "rebalanceEnabled": "boolean"
       },
       "userConfig": {
         "maxmemoryPolicy": "string",
@@ -373,7 +374,8 @@ The maximum string length in characters is 50. ||
         "zsetMaxListpackEntries": "string",
         "aofMaxSizePercent": "string",
         "activedefrag": "boolean",
-        "auditLog": "boolean"
+        "auditLog": "boolean",
+        "rebalanceEnabled": "boolean"
       },
       "defaultConfig": {
         "maxmemoryPolicy": "string",
@@ -408,7 +410,8 @@ The maximum string length in characters is 50. ||
         "zsetMaxListpackEntries": "string",
         "aofMaxSizePercent": "string",
         "activedefrag": "boolean",
-        "auditLog": "boolean"
+        "auditLog": "boolean",
+        "rebalanceEnabled": "boolean"
       }
     },
     "diskSizeAutoscaling": {
@@ -433,7 +436,25 @@ The maximum string length in characters is 50. ||
         "version": "string"
       }
     },
-    "fullVersion": "string"
+    "fullVersion": "string",
+    "tieredStorageEnabled": "boolean",
+    "shardAutoscalingSettings": {
+      "enabled": "boolean",
+      "minShards": "string",
+      "maxShards": "string",
+      "cpuThreshold": {
+        "downThreshold": "string",
+        "upThreshold": "string"
+      },
+      "memoryThreshold": {
+        "downThreshold": "string",
+        "upThreshold": "string"
+      },
+      "networkThreshold": {
+        "downThreshold": "string",
+        "upThreshold": "string"
+      }
+    }
   },
   "networkId": "string",
   "health": "string",
@@ -644,6 +665,13 @@ Valkey modules settings ||
 || fullVersion | **string**
 
 Full version ||
+|| tieredStorageEnabled | **boolean**
+
+Enables tiered storage (disk + NVMe hot tier). Forces edition to 9.1-ts. ||
+|| shardAutoscalingSettings | **[ShardAutoscalingSettings](#yandex.cloud.mdb.redis.v1.ShardAutoscalingSettings)**
+
+Shard autoscaling settings. When enabled, the cluster can automatically
+add or delete shards based on resource utilization metrics. ||
 |#
 
 ## RedisConfigSet5_0 {#yandex.cloud.mdb.redis.v1.config.RedisConfigSet5_0}
@@ -1246,6 +1274,9 @@ Enable active (online) memory defragmentation ||
 || auditLog | **boolean**
 
 Enable/disable audit logs for Valkey ||
+|| rebalanceEnabled | **boolean**
+
+Enables automatic slot rebalancing when shards are added or deleted. ||
 |#
 
 ## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit}
@@ -1347,6 +1378,50 @@ Enable valkey-bloom module ||
 || version | **string**
 
 Module version ||
+|#
+
+## ShardAutoscalingSettings {#yandex.cloud.mdb.redis.v1.ShardAutoscalingSettings}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Whether shard autoscaling is enabled for the cluster. ||
+|| minShards | **string** (int64)
+
+Minimum number of shards the cluster can scale down to.
+
+The minimum value is 1. ||
+|| maxShards | **string** (int64)
+
+Maximum number of shards the cluster can scale up to.
+
+The minimum value is 1. ||
+|| cpuThreshold | **[ShardAutoscalingThreshold](#yandex.cloud.mdb.redis.v1.ShardAutoscalingThreshold)**
+
+CPU utilization threshold. ||
+|| memoryThreshold | **[ShardAutoscalingThreshold](#yandex.cloud.mdb.redis.v1.ShardAutoscalingThreshold)**
+
+Memory utilization threshold. ||
+|| networkThreshold | **[ShardAutoscalingThreshold](#yandex.cloud.mdb.redis.v1.ShardAutoscalingThreshold)**
+
+Network utilization threshold. ||
+|#
+
+## ShardAutoscalingThreshold {#yandex.cloud.mdb.redis.v1.ShardAutoscalingThreshold}
+
+#|
+||Field | Description ||
+|| downThreshold | **string** (int64)
+
+Threshold for downscaling
+
+Acceptable values are 0 to 100, inclusive. ||
+|| upThreshold | **string** (int64)
+
+Threshold for upscaling
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.redis.v1.MaintenanceWindow}

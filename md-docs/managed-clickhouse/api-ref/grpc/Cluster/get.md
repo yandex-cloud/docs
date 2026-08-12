@@ -4764,7 +4764,7 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 
 Enables or disables new query analyzer.
 
-Default value: **true** for versions 25.9 and higher, **false** for version 25.8, **true** for versions from 25.5 to 25.7, **false** for versions 25.4 and lower.
+Default value: **true**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/guides/developer/understanding-query-execution-with-the-analyzer#analyzer). ||
 || s3_use_adaptive_timeouts | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**

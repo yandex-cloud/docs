@@ -1608,7 +1608,7 @@ yc managed-clickhouse cluster add-zookeeper --host type=<host_type>
 
 ##### Application Load Balancer
 
-Добавлена поддержка поля `path` для ALB session affinity по сookie:
+Добавлена поддержка поля `path` для ALB session affinity по cookie:
   * `yc application-load-balancer backend-group update`;
   * `yc application-load-balancer backend-group create`.
 
@@ -3798,7 +3798,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 ##### Compute Cloud {#compute}
 
-* В команду создания группы размещения дисков `yc compute disk-placement-group create` добавлен параметр `--strategy` для указания стартегии размещения. Может принимать значения `SPREAD` или `PARTITION`.
+* В команду создания группы размещения дисков `yc compute disk-placement-group create` добавлен параметр `--strategy` для указания стратегии размещения. Может принимать значения `SPREAD` или `PARTITION`.
 * В команду создания группы размещения дисков `yc compute disk-placement-group create` добавлен параметр `--partition-count`. Задает количество разделов для группы со стратегией `PARTITION`.
 * В команду создания диска `yc compute disk create` добавлен параметр `--disk-placement-group-partition` для указания номера раздела в группе размещения.
 * Добавлена колонка `PLACEMENT GROUP` в таблице со списком дисков, получаемых командой `yc compute disk list`.

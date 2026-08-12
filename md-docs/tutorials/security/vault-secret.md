@@ -4,7 +4,7 @@
 
 Сборка [HashiCorp Vault](https://www.vaultproject.io/) с поддержкой Yandex Key Management Service доступна в виде [образа ВМ](https://yandex.cloud/ru/marketplace/products/yc/vault-yckms) в Cloud Marketplace и docker-образа. Она отличается от [основной](https://hub.docker.com/_/vault) только одним из бинарных файлов Vault, в который добавлена поддержка Key Management Service.
 
-Даная сборка позволяет использовать Key Management Service в качестве доверенного сервиса для шифрования секретов. Реализуется это через механизм [Auto Unseal](https://www.vaultproject.io/docs/concepts/seal#auto-unseal).
+Данная сборка позволяет использовать Key Management Service в качестве доверенного сервиса для шифрования секретов. Реализуется это через механизм [Auto Unseal](https://www.vaultproject.io/docs/concepts/seal#auto-unseal).
 
 Из этого руководства вы узнаете как настроить механизм Auto Unseal для работы с KMS.
 

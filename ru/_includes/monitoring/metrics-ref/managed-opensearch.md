@@ -551,6 +551,8 @@ subcluster_name | Имя субкластера
 | `opensearch_backup_free_space_required`<br/>`DGAUGE`, байты | Объем хранилища, необходимый для восстановления кластера из резервной копии. |
 | `opensearch_backup_incremental_size`<br/>`DGAUGE`, байты | Размер файлов, созданных в рамках инкрементной резервной копии. |
 | `opensearch_backup_total_size`<br/>`DGAUGE`, байты | Размер файлов, на которые ссылается резервная копия. |
+| `opensearch_cluster_total_shards_limit`<br/>`DGAUGE`, штуки | Ограничение на суммарное количество шардов в кластере (настройка `cluster.routing.allocation.total_shards_limit`). Значение `-1` — ограничение отключено. |
+| `opensearch_cluster_total_shards_per_node`<br/>`DGAUGE`, штуки | Ограничение на количество шардов, размещаемых на одном узле (настройка `cluster.routing.allocation.total_shards_per_node`). Значение `-1` — ограничение отключено. |
 | `opensearch_critical_watermark_bytes`<br/>`DGAUGE`, байты | Критический порог занятого места на диске. |
 | `opensearch_critical_watermark_percentage`<br/>`DGAUGE`, % | Критический порог заполнения диска. |
 | `opensearch_delayed_unassigned_shards`<br/>`DGAUGE`, штуки | Количество отложенных к назначению шардов. |
@@ -562,9 +564,14 @@ subcluster_name | Имя субкластера
 | `opensearch_is_alive`<br/>`DGAUGE`, 0/1 | Показатель работоспособности хоста.<br/>Принимает значение `1`, если хост БД работает, `0`, если нет. | 
 | `opensearch_low_watermark_bytes`<br/>`DGAUGE`, байты | Нижний порог занятого места на диске. |
 | `opensearch_low_watermark_percentage`<br/>`DGAUGE`, процент | Нижний порог заполнения диска. |
+| `opensearch_max_shards_per_cluster`<br/>`DGAUGE`, штуки | Максимально допустимое количество шардов во всем кластере (произведение `opensearch_max_shards_per_node` на количество data-узлов). |
+| `opensearch_max_shards_per_node`<br/>`DGAUGE`, штуки | Максимально допустимое количество шардов на одном узле (настройка `cluster.max_shards_per_node`). |
 | `opensearch_primary_shards_count`<br/>`DGAUGE`, штуки | Количество первичных шардов в кластере. |
 | `opensearch_relocating_shards`<br/>`DGAUGE`, штуки | Количество перемещаемых шардов. | 
 | `opensearch_shards_count`<br/>`DGAUGE`, штуки | Общее количество шардов в кластере. |
+| `opensearch_shards_store_size_avg`<br/>`DGAUGE`, байты | Средний размер шарда на узле среди пользовательских индексов. |
+| `opensearch_shards_store_size_max`<br/>`DGAUGE`, байты | Максимальный размер шарда на узле среди пользовательских индексов. |
+| `opensearch_shards_store_size_median`<br/>`DGAUGE`, байты | Медианный размер шарда на узле среди пользовательских индексов. |
 | `opensearch_status_green`<br/>`DGAUGE`, 0/1 | Индикатор зеленого (исправного) статуса кластера. |
 | `opensearch_status_red`<br/>`DGAUGE`, 0/1 | Индикатор красного (неисправного) статуса кластера. |
 | `opensearch_status_yellow`<br/>`DGAUGE`, 0/1 | Индикатор желтого (частично исправного) статуса кластера. |

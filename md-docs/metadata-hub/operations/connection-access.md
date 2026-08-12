@@ -9,7 +9,7 @@
     
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно настроить доступ к подключению.
   1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-  1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
   1. Нажмите на имя нужного подключения.
   1. Выберите **Права доступа** и нажмите **Назначить роли**.
   1. В открывшемся окне в поле **Кому выдать доступ** выберите группу, пользователя или [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), которым нужно предоставить доступ к подключению.

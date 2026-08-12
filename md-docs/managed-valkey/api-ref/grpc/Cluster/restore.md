@@ -142,7 +142,8 @@ Creates a new Redis cluster using the specified backup.
       "zset_max_listpack_entries": "google.protobuf.Int64Value",
       "aof_max_size_percent": "google.protobuf.Int64Value",
       "activedefrag": "google.protobuf.BoolValue",
-      "audit_log": "google.protobuf.BoolValue"
+      "audit_log": "google.protobuf.BoolValue",
+      "rebalance_enabled": "google.protobuf.BoolValue"
     },
     "disk_size_autoscaling": {
       "planned_usage_threshold": "google.protobuf.Int64Value",
@@ -164,6 +165,24 @@ Creates a new Redis cluster using the specified backup.
       "valkey_bloom": {
         "enabled": "bool",
         "version": "string"
+      }
+    },
+    "tiered_storage_enabled": "google.protobuf.BoolValue",
+    "shard_autoscaling_settings": {
+      "enabled": "bool",
+      "min_shards": "int64",
+      "max_shards": "int64",
+      "cpu_threshold": {
+        "down_threshold": "google.protobuf.Int64Value",
+        "up_threshold": "google.protobuf.Int64Value"
+      },
+      "memory_threshold": {
+        "down_threshold": "google.protobuf.Int64Value",
+        "up_threshold": "google.protobuf.Int64Value"
+      },
+      "network_threshold": {
+        "down_threshold": "google.protobuf.Int64Value",
+        "up_threshold": "google.protobuf.Int64Value"
       }
     }
   },
@@ -360,6 +379,12 @@ Acceptable values are 7 to 60, inclusive. ||
 || modules | **[ValkeyModules](#yandex.cloud.mdb.redis.v1.ValkeyModules)**
 
 Valkey modules settings ||
+|| tiered_storage_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables tiered storage (disk + NVMe hot tier). Forces edition to 9.1-ts. ||
+|| shard_autoscaling_settings | **[ShardAutoscalingSettings](#yandex.cloud.mdb.redis.v1.ShardAutoscalingSettings)**
+
+Shard autoscaling settings for the cluster. ||
 |#
 
 ## RedisConfig5_0 {#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0}
@@ -858,6 +883,9 @@ Enable active (online) memory defragmentation ||
 || audit_log | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enable/disable audit logs for Valkey ||
+|| rebalance_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables automatic slot rebalancing when shards are added or deleted. ||
 |#
 
 ## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit}
@@ -959,6 +987,50 @@ Enable valkey-bloom module ||
 || version | **string**
 
 Module version ||
+|#
+
+## ShardAutoscalingSettings {#yandex.cloud.mdb.redis.v1.ShardAutoscalingSettings}
+
+#|
+||Field | Description ||
+|| enabled | **bool**
+
+Whether shard autoscaling is enabled for the cluster. ||
+|| min_shards | **int64**
+
+Minimum number of shards the cluster can scale down to.
+
+The minimum value is 1. ||
+|| max_shards | **int64**
+
+Maximum number of shards the cluster can scale up to.
+
+The minimum value is 1. ||
+|| cpu_threshold | **[ShardAutoscalingThreshold](#yandex.cloud.mdb.redis.v1.ShardAutoscalingThreshold)**
+
+CPU utilization threshold. ||
+|| memory_threshold | **[ShardAutoscalingThreshold](#yandex.cloud.mdb.redis.v1.ShardAutoscalingThreshold)**
+
+Memory utilization threshold. ||
+|| network_threshold | **[ShardAutoscalingThreshold](#yandex.cloud.mdb.redis.v1.ShardAutoscalingThreshold)**
+
+Network utilization threshold. ||
+|#
+
+## ShardAutoscalingThreshold {#yandex.cloud.mdb.redis.v1.ShardAutoscalingThreshold}
+
+#|
+||Field | Description ||
+|| down_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Threshold for downscaling
+
+Acceptable values are 0 to 100, inclusive. ||
+|| up_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Threshold for upscaling
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
 
 ## HostSpec {#yandex.cloud.mdb.redis.v1.HostSpec}

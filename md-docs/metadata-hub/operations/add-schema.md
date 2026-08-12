@@ -22,7 +22,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно добавить схему в субъект.
   1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-  1. Hа панели слева выберите ![image](../../_assets/console-icons/layout-cells.svg) **Schema Registry**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/layout-cells.svg) **Schema Registry**.
   1. Выберите пространство имен, в котором находится нужный субъект.
   1. На панели слева выберите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **Субъекты**.
   1. Нажмите на имя нужного субъекта, а затем в правом верхнем углу нажмите кнопку ![add](../../_assets/console-icons/plus.svg) **Загрузить схему**.
@@ -42,7 +42,7 @@
   
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно добавить схему в субъект.
   1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-  1. Hа панели слева выберите ![image](../../_assets/console-icons/layout-cells.svg) **Schema Registry**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/layout-cells.svg) **Schema Registry**.
   1. Выберите пространство имен, в котором находится нужный субъект.
   1. На панели слева выберите ![image](../../_assets/console-icons/branches-down.svg) **Схемы**.
   1. Нажмите кнопку **Загрузить схему**.

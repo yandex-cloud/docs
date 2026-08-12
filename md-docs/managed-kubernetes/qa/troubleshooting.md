@@ -239,7 +239,7 @@ Number of elements must be less than or equal to 1"}
 kubectl get pods -n kube-system -l k8s-app=kube-dns -o wide
 ```
 
-Все поды должны находится в состоянии `Running`.
+Все поды должны находиться в состоянии `Running`.
 
 ##### Убедитесь, что кластеру достаточно ресурсов CPU {#check-cpu}
 

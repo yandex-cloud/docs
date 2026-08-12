@@ -31,20 +31,13 @@
 
 *Группа безопасности* (Security Group, SG) — это ресурс, который создается на уровне [облачной сети](../../vpc/concepts/network.md#network). После создания группа безопасности может использоваться в сервисах {{ yandex-cloud }} для разграничения сетевого доступа объекта, к которому она применяется.
 
-Созданной вами ВМ была присвоена группа безопасности по умолчанию. Чтобы разрешить подключение к ВМ по SSH, создайте в этой группе безопасности правило, разрешающее входящий трафик по протоколу TCP на порт 22:
+Созданной вами ВМ автоматически назначена [группа безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group). Она уже разрешает подключение к ВМ по `SSH` (`TCP` и `UDP` на порт `22`), поэтому для базовой работы дополнительные правила не требуются.
 
-1. Перейдите в [консоль управления]({{ link-console-main }}).
-1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** и откройте созданную ранее ВМ.
-1. На странице с информацией о ВМ в блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** откройте группу безопасности, присвоенную ВМ.
-1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.
-1. Откройте вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** и нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
-1. В открывшемся окне задайте следующие параметры:
-   1. **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `22`.
-   1. **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `TCP`.
-   1. **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-   1. **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`
-   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**. Если требуется, добавьте другие правила.
-1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+{% note warning %}
+
+Группа безопасности по умолчанию разрешает подключение к ВМ по `SSH` с любого IPv4-адреса. Для рабочих ВМ [создайте](../../vpc/operations/security-group-create.md) пользовательскую группу безопасности с более строгими правилами, например разрешите подключение только с публичного IPv4-адреса вашего компьютера с маской `/32`, и [назначьте](../../compute/operations/vm-control/vm-change-security-groups-set.md) ее сетевому интерфейсу ВМ.
+
+{% endnote %}
 
 ## Подключение к ВМ {#vm-connect}
 

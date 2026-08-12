@@ -16,7 +16,8 @@ Start a manual failover on the specified Redis cluster.
   "host_names": [
     "string"
   ],
-  "failover_type": "FailoverType"
+  "failover_type": "FailoverType",
+  "zone_id": "string"
 }
 ```
 
@@ -37,7 +38,11 @@ The maximum string length in characters for each value is 253. ||
 The type of failover request.
 
 - `SWITCH_TO_HOSTNAMES`: Switch master role to hosts identified by the provided hostnames.
-- `SWITCH_FROM_HOSTNAMES`: Switch master role away from hosts identified by the provided hostnames. ||
+- `SWITCH_FROM_HOSTNAMES`: Switch master role away from hosts identified by the provided hostnames.
+- `SWITCH_FROM_ZONE`: Switch master role away from the specified availability zone. ||
+|| zone_id | **string**
+
+ZoneID to switch hosts from. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

@@ -249,7 +249,7 @@ flowchart BT
 Просмотр информации о подключениях Valkey™ | `managed-redis.viewer` на организацию, облако или каталог
 Просмотр информации о подключениях Yandex StoreDoc | `managed-mongodb.viewer` на организацию, облако или каталог
 Просмотр информации о подключениях Greenplum® | `managed-greenplum.viewer` на организацию, облако или каталог
-Просмотр информации о подключениях [Yandex Managed Service for Trino](../../managed-trino/concepts/index.md) (сервис находится на стадии [Preview](../../overview/concepts/launch-stages.md)) | `managed-trino.viewer` на организацию, облако или каталог
+Просмотр информации о подключениях [Yandex Managed Service for Trino](../../managed-trino/concepts/index.md) | `managed-trino.viewer` на организацию, облако или каталог
 Просмотр метаданных опубликованных запросов | `websql.auditor` на организацию, облако или каталог
 Просмотр опубликованных запросов | `websql.viewer` на организацию, облако или каталог
 **Просмотр и выполнение запросов** |
@@ -260,9 +260,9 @@ flowchart BT
 Просмотр информации о подключениях Valkey™ | `managed-redis.viewer` на организацию, облако или каталог
 Просмотр информации о подключениях Yandex StoreDoc | `managed-mongodb.viewer` на организацию, облако или каталог
 Просмотр информации о подключениях Greenplum® | `managed-greenplum.viewer` на организацию, облако или каталог
-Просмотр информации о подключениях [Yandex Managed Service for Trino](../../managed-trino/concepts/index.md) (сервис находится на стадии [Preview](../../overview/concepts/launch-stages.md)) | `managed-trino.viewer` на организацию, облако или каталог
+Просмотр информации о подключениях [Yandex Managed Service for Trino](../../managed-trino/concepts/index.md) | `managed-trino.viewer` на организацию, облако или каталог
 Выполнение запросов | `websql.user` на организацию, облако или каталог
-Выполнение запросов [Yandex Managed Service for Trino](../../managed-trino/concepts/index.md) (сервис находится на стадии [Preview](../../overview/concepts/launch-stages.md)) | `managed-trino.user` на организацию, облако или каталог
+Выполнение запросов [Yandex Managed Service for Trino](../../managed-trino/concepts/index.md) | `managed-trino.user` на организацию, облако или каталог
 **Просмотр, выполнение и публикация запросов** |
 Использование подключения к БД | `connection-manager.user` на организацию, облако, каталог или подключение
 Просмотр информации о подключениях PostgreSQL | `managed-postgresql.viewer` на организацию, облако или каталог
@@ -271,9 +271,9 @@ flowchart BT
 Просмотр информации о подключениях Valkey™ | `managed-redis.viewer` на организацию, облако или каталог
 Просмотр информации о подключениях Yandex StoreDoc | `managed-mongodb.viewer` на организацию, облако или каталог
 Просмотр информации о подключениях Greenplum® | `managed-greenplum.viewer` на организацию, облако или каталог
-Просмотр информации о подключениях [Yandex Managed Service for Trino](../../managed-trino/concepts/index.md) (сервис находится на стадии [Preview](../../overview/concepts/launch-stages.md)) | `managed-trino.viewer` на организацию, облако или каталог
+Просмотр информации о подключениях [Yandex Managed Service for Trino](../../managed-trino/concepts/index.md) | `managed-trino.viewer` на организацию, облако или каталог
 Выполнение, публикация и редактирование запросов | `websql.editor` на организацию, облако или каталог
-Выполнение запросов [Yandex Managed Service for Trino](../../managed-trino/concepts/index.md) (сервис находится на стадии [Preview](../../overview/concepts/launch-stages.md)) | `managed-trino.user` на организацию, облако или каталог
+Выполнение запросов [Yandex Managed Service for Trino](../../managed-trino/concepts/index.md) | `managed-trino.user` на организацию, облако или каталог
 **Управление запросами** |
 Использование подключения к БД | `connection-manager.user` на организацию, облако, каталог или подключение
 Просмотр информации о подключениях PostgreSQL | `managed-postgresql.viewer` на организацию, облако или каталог
@@ -282,9 +282,9 @@ flowchart BT
 Просмотр информации о подключениях Valkey™ | `managed-redis.viewer` на организацию, облако или каталог
 Просмотр информации о подключениях Yandex StoreDoc | `managed-mongodb.viewer` на организацию, облако или каталог
 Просмотр информации о подключениях Greenplum® | `managed-greenplum.viewer` на организацию, облако или каталог
-Просмотр информации о подключениях [Yandex Managed Service for Trino](../../managed-trino/concepts/index.md) (сервис находится на стадии [Preview](../../overview/concepts/launch-stages.md)) | `managed-trino.viewer` на организацию, облако или каталог
+Просмотр информации о подключениях [Yandex Managed Service for Trino](../../managed-trino/concepts/index.md) | `managed-trino.viewer` на организацию, облако или каталог
 Выполнение, публикация, редактирование запросов и управление правами доступа к ним | `websql.admin` на организацию, облако или каталог
-Выполнение запросов [Yandex Managed Service for Trino](../../managed-trino/concepts/index.md) (сервис находится на стадии [Preview](../../overview/concepts/launch-stages.md)) | `managed-trino.user` на организацию, облако или каталог
+Выполнение запросов [Yandex Managed Service for Trino](../../managed-trino/concepts/index.md) | `managed-trino.user` на организацию, облако или каталог
 
 ## Что дальше {#whats-next}
 

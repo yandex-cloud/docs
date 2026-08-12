@@ -710,7 +710,7 @@
 - API {#api}
 
   Чтобы создать кластер Yandex Data Processing, воспользуйтесь методом API [create](../api-ref/Cluster/create.md) и передайте в запросе:
-  * Идентификатор [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором должен быть размещен кластера Yandex Data Processing, в параметре `folderId`.
+  * Идентификатор [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором должен быть размещен кластер Yandex Data Processing, в параметре `folderId`.
   * Имя кластера Yandex Data Processing в параметре `name`.
   * [Окружение](../concepts/environment.md#environment) кластера в параметре `environment` — `PRESTABLE` или `PRODUCTION`.
   * Конфигурацию кластера Yandex Data Processing в параметре `configSpec`, в том числе:

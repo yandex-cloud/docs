@@ -249,12 +249,12 @@ apiPlayground:
             type: string
           clientOutputBufferLimitPubsub:
             description: |-
-              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0.ClientOutputBufferLimit)**
+              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
               Redis connection output buffers limits for pubsub operations.
             $ref: '#/definitions/ClientOutputBufferLimit'
           clientOutputBufferLimitNormal:
             description: |-
-              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0.ClientOutputBufferLimit)**
+              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
               Redis connection output buffers limits for clients.
             $ref: '#/definitions/ClientOutputBufferLimit'
       RedisConfig6_0:
@@ -333,12 +333,12 @@ apiPlayground:
             type: string
           clientOutputBufferLimitPubsub:
             description: |-
-              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0.ClientOutputBufferLimit)**
+              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
               Redis connection output buffers limits for pubsub operations.
             $ref: '#/definitions/ClientOutputBufferLimit'
           clientOutputBufferLimitNormal:
             description: |-
-              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0.ClientOutputBufferLimit)**
+              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
               Redis connection output buffers limits for clients.
             $ref: '#/definitions/ClientOutputBufferLimit'
       RedisConfig6_2:
@@ -417,12 +417,12 @@ apiPlayground:
             type: string
           clientOutputBufferLimitPubsub:
             description: |-
-              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0.ClientOutputBufferLimit)**
+              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
               Redis connection output buffers limits for pubsub operations.
             $ref: '#/definitions/ClientOutputBufferLimit'
           clientOutputBufferLimitNormal:
             description: |-
-              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0.ClientOutputBufferLimit)**
+              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
               Redis connection output buffers limits for clients.
             $ref: '#/definitions/ClientOutputBufferLimit'
           maxmemoryPercent:
@@ -508,12 +508,12 @@ apiPlayground:
             type: string
           clientOutputBufferLimitPubsub:
             description: |-
-              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0.ClientOutputBufferLimit)**
+              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
               Redis connection output buffers limits for pubsub operations.
             $ref: '#/definitions/ClientOutputBufferLimit'
           clientOutputBufferLimitNormal:
             description: |-
-              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0.ClientOutputBufferLimit)**
+              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
               Redis connection output buffers limits for clients.
             $ref: '#/definitions/ClientOutputBufferLimit'
           maxmemoryPercent:
@@ -662,12 +662,12 @@ apiPlayground:
             type: string
           clientOutputBufferLimitPubsub:
             description: |-
-              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0.ClientOutputBufferLimit)**
+              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
               Redis connection output buffers limits for pubsub operations.
             $ref: '#/definitions/ClientOutputBufferLimit'
           clientOutputBufferLimitNormal:
             description: |-
-              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0.ClientOutputBufferLimit)**
+              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
               Redis connection output buffers limits for clients.
             $ref: '#/definitions/ClientOutputBufferLimit'
           maxmemoryPercent:
@@ -764,6 +764,11 @@ apiPlayground:
               **boolean**
               Enable/disable audit logs for Valkey
             type: boolean
+          rebalanceEnabled:
+            description: |-
+              **boolean**
+              Enables automatic slot rebalancing when shards are added or deleted.
+            type: boolean
       DiskSizeAutoscaling:
         type: object
         properties:
@@ -858,6 +863,60 @@ apiPlayground:
               **[ValkeyBloom](#yandex.cloud.mdb.redis.v1.ValkeyBloom)**
               valkey-bloom module settings
             $ref: '#/definitions/ValkeyBloom'
+      ShardAutoscalingThreshold:
+        type: object
+        properties:
+          downThreshold:
+            description: |-
+              **string** (int64)
+              Threshold for downscaling
+              Acceptable values are 0 to 100, inclusive.
+            type: string
+            format: int64
+          upThreshold:
+            description: |-
+              **string** (int64)
+              Threshold for upscaling
+              Acceptable values are 0 to 100, inclusive.
+            type: string
+            format: int64
+      ShardAutoscalingSettings:
+        type: object
+        properties:
+          enabled:
+            description: |-
+              **boolean**
+              Whether shard autoscaling is enabled for the cluster.
+            type: boolean
+          minShards:
+            description: |-
+              **string** (int64)
+              Minimum number of shards the cluster can scale down to.
+              The minimum value is 1.
+            type: string
+            format: int64
+          maxShards:
+            description: |-
+              **string** (int64)
+              Maximum number of shards the cluster can scale up to.
+              The minimum value is 1.
+            type: string
+            format: int64
+          cpuThreshold:
+            description: |-
+              **[ShardAutoscalingThreshold](#yandex.cloud.mdb.redis.v1.ShardAutoscalingThreshold)**
+              CPU utilization threshold.
+            $ref: '#/definitions/ShardAutoscalingThreshold'
+          memoryThreshold:
+            description: |-
+              **[ShardAutoscalingThreshold](#yandex.cloud.mdb.redis.v1.ShardAutoscalingThreshold)**
+              Memory utilization threshold.
+            $ref: '#/definitions/ShardAutoscalingThreshold'
+          networkThreshold:
+            description: |-
+              **[ShardAutoscalingThreshold](#yandex.cloud.mdb.redis.v1.ShardAutoscalingThreshold)**
+              Network utilization threshold.
+            $ref: '#/definitions/ShardAutoscalingThreshold'
       ConfigSpec:
         type: object
         properties:
@@ -931,6 +990,16 @@ apiPlayground:
               **[ValkeyModules](#yandex.cloud.mdb.redis.v1.ValkeyModules)**
               Valkey modules settings
             $ref: '#/definitions/ValkeyModules'
+          tieredStorageEnabled:
+            description: |-
+              **boolean**
+              Enables tiered storage (disk + NVMe hot tier). Forces edition to 9.1-ts.
+            type: boolean
+          shardAutoscalingSettings:
+            description: |-
+              **[ShardAutoscalingSettings](#yandex.cloud.mdb.redis.v1.ShardAutoscalingSettings)**
+              Shard autoscaling settings for the cluster.
+            $ref: '#/definitions/ShardAutoscalingSettings'
         oneOf:
           - required:
               - redisConfig_5_0
@@ -1253,7 +1322,8 @@ POST https://{{ api-host-mdb }}/managed-redis/v1/clusters:restore
       "zsetMaxListpackEntries": "string",
       "aofMaxSizePercent": "string",
       "activedefrag": "boolean",
-      "auditLog": "boolean"
+      "auditLog": "boolean",
+      "rebalanceEnabled": "boolean"
     },
     "diskSizeAutoscaling": {
       "plannedUsageThreshold": "string",
@@ -1275,6 +1345,24 @@ POST https://{{ api-host-mdb }}/managed-redis/v1/clusters:restore
       "valkeyBloom": {
         "enabled": "boolean",
         "version": "string"
+      }
+    },
+    "tieredStorageEnabled": "boolean",
+    "shardAutoscalingSettings": {
+      "enabled": "boolean",
+      "minShards": "string",
+      "maxShards": "string",
+      "cpuThreshold": {
+        "downThreshold": "string",
+        "upThreshold": "string"
+      },
+      "memoryThreshold": {
+        "downThreshold": "string",
+        "upThreshold": "string"
+      },
+      "networkThreshold": {
+        "downThreshold": "string",
+        "upThreshold": "string"
       }
     }
   },
@@ -1471,6 +1559,12 @@ Acceptable values are 7 to 60, inclusive. ||
 || modules | **[ValkeyModules](#yandex.cloud.mdb.redis.v1.ValkeyModules)**
 
 Valkey modules settings ||
+|| tieredStorageEnabled | **boolean**
+
+Enables tiered storage (disk + NVMe hot tier). Forces edition to 9.1-ts. ||
+|| shardAutoscalingSettings | **[ShardAutoscalingSettings](#yandex.cloud.mdb.redis.v1.ShardAutoscalingSettings)**
+
+Shard autoscaling settings for the cluster. ||
 |#
 
 ## RedisConfig5_0 {#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0}
@@ -1993,6 +2087,9 @@ Enable active (online) memory defragmentation ||
 || auditLog | **boolean**
 
 Enable/disable audit logs for Valkey ||
+|| rebalanceEnabled | **boolean**
+
+Enables automatic slot rebalancing when shards are added or deleted. ||
 |#
 
 ## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit}
@@ -2094,6 +2191,50 @@ Enable valkey-bloom module ||
 || version | **string**
 
 Module version ||
+|#
+
+## ShardAutoscalingSettings {#yandex.cloud.mdb.redis.v1.ShardAutoscalingSettings}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Whether shard autoscaling is enabled for the cluster. ||
+|| minShards | **string** (int64)
+
+Minimum number of shards the cluster can scale down to.
+
+The minimum value is 1. ||
+|| maxShards | **string** (int64)
+
+Maximum number of shards the cluster can scale up to.
+
+The minimum value is 1. ||
+|| cpuThreshold | **[ShardAutoscalingThreshold](#yandex.cloud.mdb.redis.v1.ShardAutoscalingThreshold)**
+
+CPU utilization threshold. ||
+|| memoryThreshold | **[ShardAutoscalingThreshold](#yandex.cloud.mdb.redis.v1.ShardAutoscalingThreshold)**
+
+Memory utilization threshold. ||
+|| networkThreshold | **[ShardAutoscalingThreshold](#yandex.cloud.mdb.redis.v1.ShardAutoscalingThreshold)**
+
+Network utilization threshold. ||
+|#
+
+## ShardAutoscalingThreshold {#yandex.cloud.mdb.redis.v1.ShardAutoscalingThreshold}
+
+#|
+||Field | Description ||
+|| downThreshold | **string** (int64)
+
+Threshold for downscaling
+
+Acceptable values are 0 to 100, inclusive. ||
+|| upThreshold | **string** (int64)
+
+Threshold for upscaling
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
 
 ## HostSpec {#yandex.cloud.mdb.redis.v1.HostSpec}

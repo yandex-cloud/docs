@@ -19,6 +19,8 @@ items:
             href: operations/zone-access.md
           - name: Перенести зону DNS в другой каталог
             href: operations/zone-move-folder.md
+          - name: Делегировать {{ dns-name }} управление обратной зоной
+            href: operations/zone-delegate.md
           - name: Посмотреть операции с зонами DNS
             href: operations/operation-logs.md
           - name: Удалить зону DNS

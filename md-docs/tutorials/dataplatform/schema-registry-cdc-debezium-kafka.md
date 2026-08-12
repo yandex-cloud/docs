@@ -42,7 +42,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете работать с реестром схем.
   1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-  1. Hа панели слева выберите ![image](../../_assets/console-icons/layout-cells.svg) **Schema Registry** / **Пространство имён**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/layout-cells.svg) **Schema Registry** / **Пространство имён**.
   1. Нажмите кнопку **Создать пространство имён**. 
   1. Укажите [настройки пространства имен](../../metadata-hub/operations/create-name-space.md). После сохранения пространства имен, вы сможете использовать его идентификатор для получения URL Schema Registry: `{namespace_id}.schema-registry.yandexcloud.net:443`.
 

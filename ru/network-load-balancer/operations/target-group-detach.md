@@ -13,9 +13,8 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется отключить целевую группу от балансировщика.
   1. [Перейдите]({{ link-console-main }}/link/network-load-balancer/) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Выберите балансировщик, от которого требуется отключить целевую группу.
-  1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.section_attached-target-groups }}** в строке с нужной целевой группой нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg).
-  1. В открывшемся меню нажмите **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_detach-action }}**.
-  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_detach-action }}**.
+  1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.section_attached-target-groups }}** в строке с нужной целевой группой нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_detach-action }}**.
+  1. В открывшемся окне нажмите **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_detach-action }}**.
 
 - CLI {#cli}
 

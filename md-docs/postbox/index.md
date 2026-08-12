@@ -48,6 +48,8 @@ Cloud Postbox позволяет не тратить бюджет и время 
 
  - [Симулятор доставки писем](concepts/mail-simulator.md)
 
+ - [Глобальный стоп-лист](concepts/gsl.md)
+
  - [Отслеживание открытия писем](concepts/mail-opened.md)
 
  - [Отслеживание переходов по ссылкам в письмах](concepts/click-tracking.md)

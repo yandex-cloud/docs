@@ -16,7 +16,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог ресурсов](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан каталог метаданных.
   1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-  1. Hа панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **Data Catalog**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **Data Catalog**.
   1. В открывшемся списке выберите каталог метаданных, в котором вы хотите удалить глоссарий.
   1. На панели слева выберите ![image](../../../_assets/console-icons/book.svg) **Термины и глоссарии**.
   1. В списке глоссариев нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке с нужным глоссарием и выберите **Удалить**.

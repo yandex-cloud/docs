@@ -26,9 +26,9 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
     1. [Перейдите]({{ link-console-main }}/link/network-load-balancer/) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
-    1. Выберите сетевой балансировщик и нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в верхней части страницы.
+    1. Выберите сетевой балансировщик и нажмите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** в верхней части страницы.
     1. Задайте новые имя и описание балансировщика.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.
+    1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -105,9 +105,9 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
     1. [Перейдите]({{ link-console-main }}/link/network-load-balancer/) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
-    1. Выберите сетевой балансировщик и нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в верхней части страницы.
+    1. Выберите сетевой балансировщик и нажмите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** в верхней части страницы.
     1. Измените метки балансировщика.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.
+    1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -186,13 +186,13 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
     1. [Перейдите]({{ link-console-main }}/link/network-load-balancer/) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
-    1. Выберите сетевой балансировщик и нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в верхней части страницы.
+    1. Выберите сетевой балансировщик и нажмите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** в верхней части страницы.
     1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}** выберите в выпадающем списке новую целевую группу или [создайте новую](target-group-create.md).
     1. Чтобы изменить настройки проверки состояния целевой группы:
-        1. В блоке нужной целевой группы нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_edit-health-check }}**.
+        1. В блоке нужной целевой группы нажмите **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_edit-health-check }}**.
         1. Укажите новые параметры проверки состояния целевой группы.
-        1. Нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.
+        1. Нажмите **{{ ui-key.yacloud.common.apply }}**.
+    1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
