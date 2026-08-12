@@ -776,17 +776,17 @@ Database Availability Group обеспечивает отказоустойчи�
   1. Задайте имя балансировщика: `exchange-lb`.
   1. В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_address-type }}** выберите **{{ ui-key.yacloud.common.label_auto }}**.
   1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_listeners }}** нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-listener }}**.
-  1. Введите имя обработчика: `yassl`
-  1. Укажите порт и целевой порт обработчика: `443` и нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+      1. Введите имя обработчика: `yassl`
+      1. Укажите порт и целевой порт обработчика: `443` и нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
   1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}** нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-target-group }}**.
-  1. В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_target-group-id }}** раскройте выпадающий список и выберите **{{ ui-key.yacloud.load-balancer.target-group.button_create }}**.
-  1. Введите имя целевой группы: `exchange-tg`.
-  1. Отметьте виртуальные машины `vm-exchange-a` и `vm-exchange-b` и нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+      1. В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_target-group-id }}** раскройте выпадающий список и выберите **{{ ui-key.yacloud.load-balancer.target-group.button_create }}**.
+      1. Введите имя целевой группы: `exchange-tg`.
+      1. Отметьте виртуальные машины `vm-exchange-a` и `vm-exchange-b` и нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_edit-health-check }}**.
-  1. Введите имя проверки состояния: `exchange-hc`.
-  1. Выберите тип проверки **{{ ui-key.yacloud.common.label_tcp }}**.
-  1. Укажите порт `443`.
-  1. Оставьте остальные параметры по умолчанию и нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.
+      1. Введите имя проверки состояния: `exchange-hc`.
+      1. Выберите тип проверки **{{ ui-key.yacloud.common.label_tcp }}**.
+      1. Укажите порт `443`.
+      1. Оставьте остальные параметры по умолчанию и нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}

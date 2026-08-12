@@ -24,6 +24,14 @@
             "messageId":"vgAyRUls8591ybPKeH-Ov",
             "subject":"Message sent using Yandex Cloud Postbox"
         },
+        "headers": [
+            { "name": "From", "value": "User <user@example.com>" },
+            { "name": "To", "value": "Recipient Name <recipient@example.com>" },
+            { "name": "Subject", "value": "Message sent using Yandex Cloud Postbox" },
+            { "name": "Date", "value": "Thu, 27 Jun 2024 14:05:45 +0000" },
+            { "name": "Content-Type", "value": "text/plain; charset=UTF-8" },
+            { "name": "X-Campaign-Id", "value": "summer-sale-2024" }
+        ],
         "tags": {
             "ses:configuration-set": [
                 "kXVCt2Vd4dvm3MDvpc5Ml"
@@ -67,6 +75,14 @@
             "messageId":"vgAyRUls8591ybPKeH-Ov",
             "subject":"Message sent using Yandex Cloud Postbox"
         },
+        "headers": [
+            { "name": "From", "value": "User <user@example.com>" },
+            { "name": "To", "value": "Recipient Name <recipient@example.com>" },
+            { "name": "Subject", "value": "Message sent using Yandex Cloud Postbox" },
+            { "name": "Date", "value": "Thu, 27 Jun 2024 14:05:45 +0000" },
+            { "name": "Content-Type", "value": "text/plain; charset=UTF-8" },
+            { "name": "X-Campaign-Id", "value": "summer-sale-2024" }
+        ],
         "tags": {
             "ses:configuration-set": [
                 "kXVCt2Vd4dvm3MDvpc5Ml"
@@ -112,6 +128,14 @@
             "messageId":"vgAyRUls8591ybPKeH-Ov",
             "subject":"Message sent using Yandex Cloud Postbox"
         },
+        "headers": [
+            { "name": "From", "value": "User <user@example.com>" },
+            { "name": "To", "value": "Recipient Name <recipient@example.com>" },
+            { "name": "Subject", "value": "Message sent using Yandex Cloud Postbox" },
+            { "name": "Date", "value": "Thu, 27 Jun 2024 14:05:45 +0000" },
+            { "name": "Content-Type", "value": "text/plain; charset=UTF-8" },
+            { "name": "X-Campaign-Id", "value": "summer-sale-2024" }
+        ],
         "tags": {
             "ses:configuration-set": [
                "kXVCt2Vd4dvm3MDvpc5Ml"
@@ -139,7 +163,6 @@
             ]
         }
     },
-    "bounce": null,
     "delivery": {
         "timestamp": "2024-04-25T18:05:14.84107+03:00",
         "processingTimeMillis": 9999,
@@ -153,7 +176,7 @@
 
 ### Уведомление о том, что письмо не доставлено {#bounce}
 
-Приходит, когда почтовый клиент получателя на попытку доставки отвечает ошибкой, которую {{ postbox-name }} считает не требующей повторной попытки доставки, или адрес получателя находится в стоп-листе.
+Приходит, когда почтовый сервер получателя на попытку доставки отвечает ошибкой, которую {{ postbox-name }} считает не требующей повторной попытки доставки, или адрес получателя находится в стоп-листе.
 
 Пример уведомления:
 
@@ -171,6 +194,14 @@
             "messageId":"QA_JPkU2fkpIWdkxAOASH",
             "subject":"Message sent using Yandex Cloud Postbox"
         },
+        "headers": [
+            { "name": "From", "value": "User <user@example.com>" },
+            { "name": "To", "value": "Recipient Name <recipient@example.com>" },
+            { "name": "Subject", "value": "Message sent using Yandex Cloud Postbox" },
+            { "name": "Date", "value": "Thu, 27 Jun 2024 14:05:45 +0000" },
+            { "name": "Content-Type", "value": "text/plain; charset=UTF-8" },
+            { "name": "X-Campaign-Id", "value": "summer-sale-2024" }
+        ],
         "tags": {
             "ses:configuration-set": [
                 "kXVCt2Vd4dvm3MDvpc5Ml"
@@ -201,8 +232,16 @@
             }
         ],
         "timestamp": "2024-04-25T18:08:04.973666+03:00",
+        "dialAttempts": [
+            {
+                "mxHost": "mx.example.com.",
+                "ip": "192.0.2.1",
+                "reason": "Smtp",
+                "error": "read response error: 554 5.7.1 Message rejected under suspicion of SPAM",
+                "negotiatedTls": "TLSv1.3"
+            }
+        ]
     },
-    "delivery": null,
     "eventId": "jdMtnVniDeHqlQX8ygwEX:0"
 }
 ```
@@ -227,6 +266,14 @@
             "messageId":"QA_JPkU2fkpIWdkxAOASH",
             "subject":"Message sent using Yandex Cloud Postbox"
         },
+        "headers": [
+            { "name": "From", "value": "User <user@example.com>" },
+            { "name": "To", "value": "Recipient Name <recipient@example.com>" },
+            { "name": "Subject", "value": "Message sent using Yandex Cloud Postbox" },
+            { "name": "Date", "value": "Thu, 27 Jun 2024 14:05:45 +0000" },
+            { "name": "Content-Type", "value": "text/plain; charset=UTF-8" },
+            { "name": "X-Campaign-Id", "value": "summer-sale-2024" }
+        ],
         "tags": {
             "ses:configuration-set": [
                 "kXVCt2Vd4dvm3MDvpc5Ml"
@@ -274,6 +321,14 @@
             "messageId":"QA_JPkU2fkpIWdkxAOASH",
             "subject":"Message sent using {{ postbox-full-name }}"
         },
+        "headers": [
+            { "name": "From", "value": "User <user@example.com>" },
+            { "name": "To", "value": "Recipient Name <recipient@example.com>" },
+            { "name": "Subject", "value": "Message sent using Yandex Cloud Postbox" },
+            { "name": "Date", "value": "Thu, 27 Jun 2024 14:05:45 +0000" },
+            { "name": "Content-Type", "value": "text/plain; charset=UTF-8" },
+            { "name": "X-Campaign-Id", "value": "summer-sale-2024" }
+        ],
         "tags": {
             "ses:configuration-set": [
                 "kXVCt2Vd4dvm3MDvpc5Ml"
@@ -314,6 +369,8 @@
 
 После того как {{ postbox-name }} успешно принял письмо, обычно оно отправляется немедленно. Однако иногда может возникнуть небольшая задержка доставки. В таком случае приходит данное уведомление.
 
+Уведомление приходит только один раз — после первой неудачной попытки доставки. Если доставить письмо так и не удалось, придет [уведомление о том, что письмо не доставлено](#bounce).
+
 Пример уведомления:
 
 ```json
@@ -330,6 +387,14 @@
             "messageId":"QA_JPkU2fkpIWdkxAOASH",
             "subject":"Message sent using Yandex Cloud Postbox"
         },
+        "headers": [
+            { "name": "From", "value": "User <user@example.com>" },
+            { "name": "To", "value": "Recipient Name <recipient@example.com>" },
+            { "name": "Subject", "value": "Message sent using Yandex Cloud Postbox" },
+            { "name": "Date", "value": "Thu, 27 Jun 2024 14:05:45 +0000" },
+            { "name": "Content-Type", "value": "text/plain; charset=UTF-8" },
+            { "name": "X-Campaign-Id", "value": "summer-sale-2024" }
+        ],
         "tags": {
             "ses:configuration-set": [
                 "kXVCt2Vd4dvm3MDvpc5Ml"
@@ -352,9 +417,12 @@
         "delayType": "General",
         "delayedRecipients": [
             {
-                "emailAddress": "recipient@example.com"
+                "emailAddress": "recipient@example.com",
+                "status": "4.4.1",
+                "diagnosticCode": "421 4.4.1 Connection timed out"
             }
         ],
+        "reportingMTA": "mx.example.com",
         "timestamp": "2024-04-25T18:10:04.973666+03:00"
     },
     "eventId": "jdMtnVniDeHqlQX8ygwEX:0"
@@ -381,6 +449,14 @@
             "messageId":"QA_JPkU2fkpIWdkxAOASH",
             "subject":"Message sent using Yandex Cloud Postbox"
         },
+        "headers": [
+            { "name": "From", "value": "User <user@example.com>" },
+            { "name": "To", "value": "Recipient Name <recipient@example.com>" },
+            { "name": "Subject", "value": "Message sent using Yandex Cloud Postbox" },
+            { "name": "Date", "value": "Thu, 27 Jun 2024 14:05:45 +0000" },
+            { "name": "Content-Type", "value": "text/plain; charset=UTF-8" },
+            { "name": "X-Campaign-Id", "value": "summer-sale-2024" }
+        ],
         "tags": {
             "ses:configuration-set": [
                 "kXVCt2Vd4dvm3MDvpc5Ml"
@@ -403,7 +479,8 @@
         "contactList": "my-list",
         "timestamp": "2024-04-25T18:08:04.973666+03:00",
         "source": "UnsubscribeHeader"
-    }
+    },
+    "eventId": "jdMtnVniDeHqlQX8ygwEX:0"
 }
 ```
 
@@ -427,6 +504,14 @@
             "messageId":"QA_JPkU2fkpIWdkxAOASH",
             "subject":"Message sent using Yandex Cloud Postbox"
         },
+        "headers": [
+            { "name": "From", "value": "User <user@example.com>" },
+            { "name": "To", "value": "Recipient Name <recipient@example.com>" },
+            { "name": "Subject", "value": "Message sent using Yandex Cloud Postbox" },
+            { "name": "Date", "value": "Thu, 27 Jun 2024 14:05:45 +0000" },
+            { "name": "Content-Type", "value": "text/plain; charset=UTF-8" },
+            { "name": "X-Campaign-Id", "value": "summer-sale-2024" }
+        ],
         "tags": {
             "ses:configuration-set": [
                 "kXVCt2Vd4dvm3MDvpc5Ml"
@@ -470,6 +555,7 @@
 --- | --- | ---
 `eventType` | Строка | [Тип уведомления](#types). Возможные значения: `Bounce`, `Click`, `Complaint`, `Delivery`, `DeliveryDelay`, `Open`, `Rendering Failure`, `Send`, `Subscription`.
 `mail` | Объект [Mail](#mail-object) | Объект, который содержит общую информацию об отправленном письме.
+`send` | Объект [Send](#send-object) | Пустой объект. Обязателен, если `eventType` — `Send`, иначе отсутствует.
 `bounce` | Объект [Bounce](#bounce-object) | Объект, который содержит информацию о том, что письмо не доставлено. Обязателен, если `eventType` — `Bounce`, иначе отсутствует.
 `delivery` | Объект [Delivery](#delivery-object) | Объект, который содержит информацию о доставке письма отдельному получателю. Обязателен, если `eventType` — `Delivery`, иначе отсутствует.
 `complaint` | Объект [Complaint](#complaint-object) | Объект, который содержит информацию о жалобе получателя на письмо. Обязателен, если `eventType` — `Complaint`, иначе отсутствует.
@@ -488,17 +574,41 @@
 `messageId` | Строка | Уникальный идентификатор письма. У одного письма может быть несколько получателей. Выдается {{ postbox-name }} при приеме письма в обработку.
 `identityId` | Строка | Идентификатор адреса {{ postbox-name }}, который используется при отправке письма.
 `commonHeaders` | Объект [CommonHeaders](#common-headers-object) | Объект, который содержит основные заголовки письма.
-`tags` | Объект | Объект, который содержит теги, добавленные к письму.
+`headers` | Массив объектов [Header](#header-object) | Полный список заголовков письма в том виде, в котором они поступили в {{ postbox-name }} (до того как сервис добавил собственные служебные заголовки). Включает пользовательские заголовки, добавленные отправителем, например `X-Campaign-Id`. Поле отсутствует, если заголовки письма не сохранены.
+`headersTruncated` | Логический | Поле присутствует, только если его значение — `true`. Если значение `true`, список `headers` неполный: его обрезали с конца, потому что суммарный размер заголовков превысил 10 КиБ.
+`tags` | Объект | Объект, который содержит теги, добавленные к письму. Значение каждого тега — массив строк. Пользовательские теги всегда содержат только один элемент.
+
+{% note info %}
+
+В `headers` попадают заголовки письма в том виде, в котором их передал отправитель, включая пользовательские заголовки (например, `X-Campaign-Id`). Заголовки, которые {{ postbox-name }} добавляет или изменяет при обработке письма (например, `List-Unsubscribe`, `List-Unsubscribe-Post`, `DKIM-Signature`), в `headers` не попадают. Порядок заголовков сохраняется.
+
+{% endnote %}
+
+{% note info %}
+
+`headers` содержит исходные заголовки письма, а `commonHeaders` — итоговые, полученные после обработки письма сервисом. Поэтому `commonHeaders.messageId` — это идентификатор, выданный {{ postbox-name }}, а в `headers` может находиться собственный заголовок `Message-Id` отправителя.
+
+Значения заголовков передаются в уведомлении без изменений — в том виде, в каком они содержались в письме. Если заголовок закодирован в соответствии с [RFC 2047](https://www.ietf.org/rfc/rfc2047.txt) (например, тема письма или отображаемое имя отправителя на кириллице), в уведомление попадет закодированное значение. Раскодировать его нужно на стороне получателя уведомления. Это касается всех элементов `headers`, а также полей `commonHeaders.from`, `commonHeaders.to` и `commonHeaders.subject`.
+
+{% endnote %}
 
 ### Объект CommonHeaders {#common-headers-object}
 
 Название | Тип | Описание
 --- | --- | ---
-`from` | Массив строк | Содержимое заголовка `From`, разбитое по адресам.
-`to` | Массив строк | Содержимое заголовка `To`, разбитое по адресам.
-`subject` | Строка | Содержимое заголовка `Subject`.
-`date` | Строка | Содержимое заголовка `Date`.
+`from` | Массив строк | Содержимое заголовка `From`, разбитое по адресам. Пустое значение, если заголовка в письме не было. Если разобрать значение по адресам не удалось, массив содержит один элемент — исходную строку заголовка целиком.
+`to` | Массив строк | Содержимое заголовка `To`, разбитое по адресам. Пустое значение, если заголовка в письме не было. Если разобрать значение по адресам не удалось, массив содержит один элемент — исходную строку заголовка целиком.
+`subject` | Строка | Содержимое заголовка `Subject`. Пустая строка, если заголовка в письме не было.
+`date` | Строка | Содержимое заголовка `Date`. Пустая строка, если заголовка в письме не было.
 `messageId` | Строка | Уникальный идентификатор письма. Выдается {{ postbox-name }} при приеме письма.
+`originalMessageId` | Строка | Значение заголовка `Original-Message-ID`, если отправитель передал его в письме. Иначе — пустая строка.
+
+### Объект Header {#header-object}
+
+Название | Тип | Описание
+--- | --- | ---
+`name` | Строка | Имя заголовка письма.
+`value` | Строка | Значение заголовка письма.
 
 ### Объект Send {#send-object}
 
@@ -508,9 +618,10 @@
 
 Название | Тип | Описание
 --- | --- | ---
-`bounceType` | Строка | Тип ошибки. Возможные значения:<ul><li>`Permenent` — письмо не доставлено.</li></ul>
-`bounceSubType` | Строка | Подтип ошибки. Возможные значения:<ul><li>`Undetermined` — неизвестная ошибка;</li><li>`Suppressed` — письмо не доставлено из-за того, что получатель находится в стоп-лист.</li></ul>
+`bounceType` | Строка | Тип ошибки. Возможные значения:<ul><li>`Permanent` — письмо не доставлено.</li></ul>
+`bounceSubType` | Строка | Подтип ошибки. Возможные значения:<ul><li>`Undetermined` — причина ошибки не определена;</li><li>`Suppressed` — письмо не доставлено, потому что получатель находится в [глобальном стоп-листе](gsl.md) {{ postbox-name }};</li><li>`OnAccountSuppressionList` — письмо не доставлено, потому что получатель находится в стоп-листе пользователя {{ postbox-name }};</li><li>`InsufficientTLS` — не удалось установить TLS-соединение нужного уровня с сервером получателя;</li><li>`StartTlsNotOffered` — сервер получателя не поддерживает команду `STARTTLS`;</li><li>`TlsCertificateUntrusted` — сертификат сервера получателя не является доверенным;</li><li>`TlsVersionTooLow` — версия TLS, которую поддерживает сервер получателя, ниже допустимой.</li></ul>
 `bouncedRecipients` | Массив объектов [BounceRecipient](#bounce-recipent-object) | Массив, который содержит информацию о получателе письма и связанной с ним ошибке доставки, если она была.
+`dialAttempts` | Массив объектов [DialAttempt](#dial-attempt-object) | Необязательное поле. Список попыток подключения к почтовым серверам получателя с описанием ошибки по каждой попытке. Отсутствует, если подключение не выполнялось, — например, когда адрес получателя находится в стоп-листе.
 `timestamp` | Строка | Дата в формате [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`). Время, когда получена ошибка от почтового клиента получателя.
 
 ### Объект BounceRecipent {#bounce-recipent-object}
@@ -520,7 +631,17 @@
 `emailAddress` | Строка | Электронный адрес получателя.
 `action` | Строка | Необязательное поле. Результат отправки. Возможные значения: `failed`.
 `status` | Строка | Необязательное поле. SMTP-код ответа.
-`diagnosticCode` | Строка | Необязательное поле. Расширенный текст ошибки. Может содержать текст ошибки от почтового клиента получателя.
+`diagnosticCode` | Строка | Необязательное поле. Расширенный текст ошибки. Для ошибки, полученной от сервера получателя, содержит текст ответа этого сервера. В остальных случаях принимает одно из фиксированных значений: `Host or MX not found`, `Too many attempts`, `Spam detected`, `Insufficient TLS`, `STARTTLS not offered by recipient MX`, `TLS certificate not trusted`, `TLS version too low`, `Blocked by Global Suppression List`, `Blocked by Account Suppression List`, `Other`, `Unknown`.
+
+### Объект DialAttempt {#dial-attempt-object}
+
+Название | Тип | Описание
+--- | --- | ---
+`mxHost` | Строка | Имя почтового сервера получателя (MX-хоста), к которому выполнялось подключение. Передается в виде полного доменного имени (FQDN) и может содержать точку в конце.
+`ip` | Строка | IP-адрес, к которому выполнялось подключение.
+`reason` | Строка | Код причины ошибки. Возможные значения: `Smtp`, `HostOrMXNotFound`, `Spam`, `TooManyAttempts`, `InsufficientTLS`, `StartTlsNotOffered`, `TlsCertUntrusted`, `TlsVersionTooLow`, `Other`.
+`error` | Строка | Текст ошибки для этой попытки подключения. Содержимое поля не имеет фиксированного формата и может меняться, поэтому опираться на него при программной обработке не следует — для этого предназначено поле `reason`.
+`negotiatedTls` | Строка | Необязательное поле. Версия TLS, согласованная с сервером получателя, например `TLSv1.2`. Отсутствует, если TLS-соединение не было установлено.
 
 ### Объект Click {#click-object}
 
@@ -562,6 +683,7 @@
 --- | --- | ---
 `delayType` | Строка | Тип задержки. Возможные значения: `General`.
 `delayedRecipients` | Массив объектов [DelayedRecipient](#delayed-recipient-object) | Массив, который содержит информацию о получателе письма и связанной с ним задержке доставки.
+`reportingMTA` | Строка | Имя почтового сервера получателя, который сообщил о задержке доставки. Может быть пустой строкой, если сервер определить не удалось.
 `timestamp` | Строка | Дата в формате [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`). Время, когда случилась задержка доставки.
 
 ### Объект DelayedRecipient {#delayed-recipient-object}
@@ -569,6 +691,8 @@
 Название | Тип | Описание
 --- | --- | ---
 `emailAddress` | Строка | Электронный адрес получателя.
+`status` | Строка | SMTP-код ответа сервера получателя. Может быть пустой строкой.
+`diagnosticCode` | Строка | Необязательное поле. Расширенный текст ошибки. Может содержать текст ответа сервера получателя.
 
 ### Объект Failure {#failure-object}
 

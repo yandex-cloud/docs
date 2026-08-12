@@ -14,13 +14,13 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется создать целевую группу.
   1. [Перейдите]({{ link-console-main }}/link/network-load-balancer/) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.load-balancer.target-group.button_create }}**.
+  1. Нажмите **{{ ui-key.yacloud.load-balancer.target-group.button_create }}**.
   1. Введите имя целевой группы. Требования к имени:
   
       {% include [name-format](../../_includes/name-format.md) %}
   
   1. Выберите [виртуальные машины](../../glossary/vm.md), которые нужно добавить в целевую группу.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
   
@@ -66,7 +66,7 @@ description: Следуя данной инструкции, вы сможете
 
      * `name` — имя целевой группы.
      * `target` — описание целевого ресурса:
-        * `subnet_id` — идентификатор подсети, к которой подключены целевые объекты. Все целевые объекты в целевой группе должны находится в пределах одной [зоны доступности](../../overview/concepts/geo-scope.md).
+        * `subnet_id` — идентификатор подсети, к которой подключены целевые объекты. Все целевые объекты в целевой группе должны находиться в пределах одной [зоны доступности](../../overview/concepts/geo-scope.md).
         * `address` — внутренний IP-адрес ресурса.
 
      Подробнее о параметрах ресурса `yandex_lb_target_group` в {{ TF }} в [документации провайдера]({{ tf-provider-resources-link }}/lb_target_group).

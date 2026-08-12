@@ -48,6 +48,10 @@ Requests to public DNS zones and requests for external DNS names from your VMs a
 
 We recommend using [caching resolvers](../tutorials/local-dns-cache.md), such as `systemd-resolved`, `dnsmasq`, or `unbound`. You can use these to reduce the number of public DNS requests, and thereby, your [costs](../pricing.md#public-dns-requests).
 
+### Zones with non-Latin characters {#zone-rf}
+
+{% include [zone-rf](../../_includes/dns/zone-rf.md) %}
+
 ## Private zones {#private-zones}
 
 Domain names from private zones can only be used in the [{{ vpc-name }}](../../vpc/) (VPC) networks specified when creating a zone. Within private zones, you can use the entire namespace in the selected network's subnets, including `internal.` and `.`.
@@ -99,7 +103,7 @@ In regular DNS records, a domain name is mapped to an IP address. For example, t
 
 Reverse DNS records reside in special DNS zones called ARPA zones. IPv4 and IPv6 blocks reside in separate zones.
 
-You can [delegate reverse zone management](../qa/index.md#dns-reverse-zone).
+You can [delegate reverse zone management](../operations/zone-delegate.md).
 
 
 ## Use cases {#examples}

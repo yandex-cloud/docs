@@ -1033,8 +1033,8 @@ ERROR: invalid snapshot identifier: "<идентификатор_снапшот�
 ### Превышение квоты на длительность соединения {#conn-duration-quota}
 
 В Yandex Managed Service for PostgreSQL существует квота на длительность соединения — 12 часов.
-​
-​**Решение:** если перенос базы данных требует больше времени, [измените настройку кластера](../../../../managed-postgresql/operations/update.md#change-postgresql-config) Yandex Managed Service for PostgreSQL [Session duration timeout](../../../../managed-postgresql/concepts/settings-list.md#setting-session-duration-timeout).
+
+**Решение:** если перенос базы данных требует больше времени, [измените настройку кластера](../../../../managed-postgresql/operations/update.md#change-postgresql-config) Yandex Managed Service for PostgreSQL [Session duration timeout](../../../../managed-postgresql/concepts/settings-list.md#setting-session-duration-timeout).
 
 ### Ошибка трансфера при переносе представлений (VIEW) {#view}
 
@@ -1082,7 +1082,7 @@ Push failed: ERROR: function <имя_схемы>.<имя_функции>() does 
 
 ### Низкая скорость трансфера  {#low-speed}
 
-​Может возникать у трансферов типа _**Копирование**_ или _**Копирование и репликация**_ из PostgreSQL в PostgreSQL.
+Может возникать у трансферов типа _**Копирование**_ или _**Копирование и репликация**_ из PostgreSQL в PostgreSQL.
 
 Возможные причины:
 

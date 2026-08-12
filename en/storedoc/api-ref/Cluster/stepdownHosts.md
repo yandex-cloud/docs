@@ -27,6 +27,12 @@ apiPlayground:
           type: array
           items:
             type: string
+        zoneId:
+          description: |-
+            **string**
+            Optional. ID of the availability zone stepdown hosts from.
+            The maximum string length in characters is 50.
+          type: string
       additionalProperties: false
     definitions: null
 ---
@@ -59,7 +65,8 @@ The maximum string length in characters is 50. ||
 {
   "hostNames": [
     "string"
-  ]
+  ],
+  "zoneId": "string"
 }
 ```
 
@@ -70,6 +77,11 @@ The maximum string length in characters is 50. ||
 Required. Name of the hosts to resetup.
 
 The maximum string length in characters for each value is 253. The number of elements must be greater than 0. ||
+|| zoneId | **string**
+
+Optional. ID of the availability zone stepdown hosts from.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

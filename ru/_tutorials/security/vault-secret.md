@@ -2,7 +2,7 @@
 
 Сборка [HashiCorp Vault](https://www.vaultproject.io/) с поддержкой {{ kms-full-name }} доступна в виде [образа ВМ](/marketplace/products/yc/vault-yckms) в {{ marketplace-name }} и docker-образа. Она отличается от [основной](https://hub.docker.com/_/vault) только одним из бинарных файлов Vault, в который добавлена поддержка {{ kms-name }}.
 
-Даная сборка позволяет использовать {{ kms-name }} в качестве доверенного сервиса для шифрования секретов. Реализуется это через механизм [Auto Unseal](https://www.vaultproject.io/docs/concepts/seal#auto-unseal).
+Данная сборка позволяет использовать {{ kms-name }} в качестве доверенного сервиса для шифрования секретов. Реализуется это через механизм [Auto Unseal](https://www.vaultproject.io/docs/concepts/seal#auto-unseal).
 
 Из этого руководства вы узнаете как настроить механизм Auto Unseal для работы с {{ kms-short-name }}.
 

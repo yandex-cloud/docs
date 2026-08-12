@@ -139,4 +139,4 @@ CDN демонстрирует все свои преимущества в сл�
 * [Обзор сервиса {{ cdn-name }}](../cdn/concepts/index.md)
 * [Документация {{ cdn-name }}](../cdn/index.yaml)
 * [Зачем игровой индустрии сервис CDN](https://yandex.cloud/ru/blog/posts/2022/08/cdn-and-gamedev)
-* [СDN и новые возможности объектного хранилища](https://www.youtube.com/watch?v=yJvJruCG7TM)
+* [CDN и новые возможности объектного хранилища](https://www.youtube.com/watch?v=yJvJruCG7TM)

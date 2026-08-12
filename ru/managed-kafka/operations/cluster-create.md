@@ -1230,7 +1230,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Воспользуйтесь вызовом [ClusterService/Сreate](../api-ref/grpc/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 

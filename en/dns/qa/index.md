@@ -16,18 +16,6 @@ We recommend using [caching resolvers](../tutorials/local-dns-cache.md), such as
 {% include [logs](../../_qa/logs.md) %}
 
 
-#### How do I register a domain name using non-Latin characters? {#dns-create-rf-zone}
-
-Cloud DNS supports any domain names, including those with local characters. To create a domain name with non-Latin characters, use [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode).
-
-#### How do I delegate reverse zone management to {{ dns-name }}? {#dns-reverse-zone}
-
-To delegate reverse zone management to {{ dns-name }}:
-
-1. Confirm that you own the domain zone (dedicated IP). To do this, just provide a copy of the document confirming ownership right transfer and registration information from the RIPE database that identifies IP ownership.
-1. The {{ yandex-cloud }} information security team will verify the data you provide and notify you of the results.
-1. After your data has been successfully verified, [contact support](../../support/overview.md).
-
 #### Why cannot I add a TXT record? {#dns-add-txt-record}
 
 You get an error when attempting to add one more TXT record of the same type next to an existing record. {{ dns-name }} only supports a single TXT record, which, however, may store multiple values.

@@ -231,7 +231,7 @@
             'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
     ```
 
-1. Определите конфигурацию ресурсов, на которой будет выполняться модель — СPU или GPU:
+1. Определите конфигурацию ресурсов, на которой будет выполняться модель — CPU или GPU:
 
     ```python
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')

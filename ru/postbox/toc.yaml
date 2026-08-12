@@ -41,6 +41,8 @@ items:
         href: concepts/notification.md
       - name: Симулятор доставки писем
         href: concepts/mail-simulator.md
+      - name: Глобальный стоп-лист
+        href: concepts/gsl.md
       - name: Отслеживание открытия писем
         href: concepts/mail-opened.md
       - name: Отслеживание переходов по ссылкам в письмах

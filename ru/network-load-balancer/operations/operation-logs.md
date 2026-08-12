@@ -15,7 +15,7 @@
   1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится сетевой балансировщик.
   1. [Перейдите]({{ link-console-main }}/link/network-load-balancer/) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Выберите нужный сетевой балансировщик.
-  1. Перейдите на панель ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
+  1. Перейдите в раздел **{{ ui-key.yacloud.common.operations-key-value }}**.
 
       В открывшемся списке отображаются операции с сетевым балансировщиком.
 

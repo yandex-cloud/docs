@@ -78,7 +78,8 @@ POST https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters:restore
   ],
   "restorePxf": "boolean",
   "restoreHba": "boolean",
-  "serviceAccountId": "string"
+  "serviceAccountId": "string",
+  "diskEncryptionKeyId": "string"
 }
 ```
 
@@ -177,6 +178,9 @@ Restore HBA settings from original cluster ||
 || serviceAccountId | **string**
 
 Service account that will be used to access a Yandex Cloud resources ||
+|| diskEncryptionKeyId | **string**
+
+ID of the key to encrypt cluster disks. ||
 |#
 
 ## GreenplumRestoreConfig {#yandex.cloud.mdb.greenplum.v1.GreenplumRestoreConfig}

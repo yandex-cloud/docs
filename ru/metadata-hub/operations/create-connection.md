@@ -38,7 +38,7 @@ description: Пошаговые инструкции по работе с {{ con
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
   1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. Нажмите **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
   1. Укажите **{{ ui-key.yacloud.common.name }}** подключения.
   1. (Опционально) Добавьте **{{ ui-key.yacloud.common.description }}** подключения и [метки](../../resource-manager/concepts/labels.md).
@@ -197,7 +197,7 @@ description: Пошаговые инструкции по работе с {{ con
 
     1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
     1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-    1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+    1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
     1. Нажмите **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
     1. Укажите **{{ ui-key.yacloud.common.name }}** подключения.
     1. (Опционально) Добавьте **{{ ui-key.yacloud.common.description }}** подключения и [метки](../../resource-manager/concepts/labels.md).
@@ -356,7 +356,7 @@ description: Пошаговые инструкции по работе с {{ con
 
    1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
    1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-   1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+   1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Нажмите **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
    1. Укажите **{{ ui-key.yacloud.common.name }}** подключения.
    1. (Опционально) Добавьте **{{ ui-key.yacloud.common.description }}** подключения и [метки](../../resource-manager/concepts/labels.md).
@@ -514,7 +514,7 @@ description: Пошаговые инструкции по работе с {{ con
     
     1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
     1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-    1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+    1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
     1. Нажмите **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
     1. Укажите **{{ ui-key.yacloud.common.name }}** подключения.
     1. (Опционально) Добавьте **{{ ui-key.yacloud.common.description }}** подключения и [метки](../../resource-manager/concepts/labels.md).
@@ -674,7 +674,7 @@ description: Пошаговые инструкции по работе с {{ con
 
    1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
    1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-   1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+   1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Нажмите **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
    1. Укажите **{{ ui-key.yacloud.common.name }}** подключения.
    1. (Опционально) Добавьте **{{ ui-key.yacloud.common.description }}** подключения и [метки](../../resource-manager/concepts/labels.md).
@@ -820,7 +820,7 @@ description: Пошаговые инструкции по работе с {{ con
 
    1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
    1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-   1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+   1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Нажмите **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
    1. Укажите **{{ ui-key.yacloud.common.name }}** подключения.
    1. (Опционально) Добавьте **{{ ui-key.yacloud.common.description }}** подключения и [метки](../../resource-manager/concepts/labels.md).
@@ -978,7 +978,7 @@ description: Пошаговые инструкции по работе с {{ con
 
    1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
    1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-   1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+   1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Нажмите **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
    1. Укажите **{{ ui-key.yacloud.common.name }}** подключения.
    1. (Опционально) Добавьте **{{ ui-key.yacloud.common.description }}** подключения и [метки](../../resource-manager/concepts/labels.md).
@@ -1162,7 +1162,7 @@ description: Пошаговые инструкции по работе с {{ con
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
   1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. Нажмите **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
   1. Укажите **{{ ui-key.yacloud.common.name }}** подключения.
   1. (Опционально) Добавьте **{{ ui-key.yacloud.common.description }}** подключения и [метки](../../resource-manager/concepts/labels.md).
@@ -1323,7 +1323,7 @@ description: Пошаговые инструкции по работе с {{ con
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
   1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. Нажмите **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
   1. Укажите **{{ ui-key.yacloud.common.name }}** подключения.
   1. (Опционально) Добавьте **{{ ui-key.yacloud.common.description }}** подключения и [метки](../../resource-manager/concepts/labels.md).
@@ -1500,7 +1500,7 @@ description: Пошаговые инструкции по работе с {{ con
 
     1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
     1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-    1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+    1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
     1. Нажмите **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
     1. Укажите **{{ ui-key.yacloud.common.name }}** подключения.
     1. (Опционально) Добавьте **{{ ui-key.yacloud.common.description }}** подключения и [метки](../../resource-manager/concepts/labels.md).
@@ -1701,7 +1701,7 @@ description: Пошаговые инструкции по работе с {{ con
 
    1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
    1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-   1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+   1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Нажмите **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
    1. Укажите **{{ ui-key.yacloud.common.name }}** подключения.
    1. (Опционально) Добавьте **{{ ui-key.yacloud.common.description }}** подключения и [метки](../../resource-manager/concepts/labels.md).
@@ -1879,7 +1879,7 @@ description: Пошаговые инструкции по работе с {{ con
     
     1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
     1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-    1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+    1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
     1. Нажмите **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
     1. Укажите **{{ ui-key.yacloud.common.name }}** подключения.
     1. (Опционально) Добавьте **{{ ui-key.yacloud.common.description }}** подключения и [метки](../../resource-manager/concepts/labels.md).
@@ -2073,7 +2073,7 @@ description: Пошаговые инструкции по работе с {{ con
     
     1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
     1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-    1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+    1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
     1. Нажмите **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
     1. Укажите **{{ ui-key.yacloud.common.name }}** подключения.
     1. (Опционально) Добавьте **{{ ui-key.yacloud.common.description }}** подключения и [метки](../../resource-manager/concepts/labels.md).
@@ -2251,7 +2251,7 @@ description: Пошаговые инструкции по работе с {{ con
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
   1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. Нажмите **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
   1. Укажите **{{ ui-key.yacloud.common.name }}** подключения.
   1. (Опционально) Добавьте **{{ ui-key.yacloud.common.description }}** подключения и [метки](../../resource-manager/concepts/labels.md).
@@ -2416,7 +2416,7 @@ description: Пошаговые инструкции по работе с {{ con
 
    1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
    1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-   1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+   1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Нажмите **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
    1. Укажите **{{ ui-key.yacloud.common.name }}** подключения.
    1. (Опционально) Добавьте **{{ ui-key.yacloud.common.description }}** подключения и [метки](../../resource-manager/concepts/labels.md).
@@ -2594,7 +2594,7 @@ description: Пошаговые инструкции по работе с {{ con
 
    1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
    1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-   1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+   1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Нажмите **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
    1. Укажите **{{ ui-key.yacloud.common.name }}** подключения.
    1. (Опционально) Добавьте **{{ ui-key.yacloud.common.description }}** подключения и [метки](../../resource-manager/concepts/labels.md).
@@ -2768,7 +2768,7 @@ description: Пошаговые инструкции по работе с {{ con
 
    1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
    1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-   1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+   1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Нажмите **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
    1. Укажите **{{ ui-key.yacloud.common.name }}** подключения.
    1. (Опционально) Добавьте **{{ ui-key.yacloud.common.description }}** подключения и [метки](../../resource-manager/concepts/labels.md).
@@ -2987,7 +2987,7 @@ description: Пошаговые инструкции по работе с {{ con
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
   1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. Нажмите **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
   1. Укажите **{{ ui-key.yacloud.common.name }}** подключения.
   1. (Опционально) Добавьте **{{ ui-key.yacloud.common.description }}** подключения и [метки](../../resource-manager/concepts/labels.md).

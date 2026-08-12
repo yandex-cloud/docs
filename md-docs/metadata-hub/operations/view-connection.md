@@ -19,7 +19,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-  1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
 
 - CLI {#cli}
 
@@ -77,7 +77,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-  1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
   1. Нажмите на строку подключения для просмотра детальной информации о нем.
 
 - CLI {#cli}

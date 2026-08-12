@@ -12,6 +12,7 @@ description: 'Step-by-step guide for working with DNS zones and resource records
 - [{#T}](zone-update.md)
 - [{#T}](zone-access.md)
 - [{#T}](zone-move-folder.md)
+- [{#T}](zone-delegate.md)
 - [{#T}](operation-logs.md)
 - [{#T}](zone-delete.md)
 

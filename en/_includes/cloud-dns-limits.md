@@ -14,4 +14,4 @@ Type of limitation | Value
 ----- | -----
 Maximum number of records per record set | 100
 Maximum number of concurrent record set updates | 1,000
-Maximum number of networks per zone | 50
+Maximum number of networks per zone | 128

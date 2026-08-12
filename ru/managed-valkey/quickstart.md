@@ -37,7 +37,7 @@ description: В этой инструкции вы научитесь созда
     * **{{ ui-key.yacloud.component.compute.network-select.field_external }}** — `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
     * **{{ ui-key.yacloud.compute.instances.create.field_security-groups }}** — оставьте поле пустым.
 
-        Виртуальной машине будет автоматически назначена [группа безопасности по умолчанию](../vpc/concepts/security-groups.md#default-security-group) (с префиксом `default-sg`). Такая группа разрешает подключение к виртуальной машине по SSH, а также разрешает любой исходящий трафик.
+        Виртуальной машине будет автоматически назначена [группа безопасности по умолчанию](../vpc/concepts/security-groups.md#default-security-group) (с префиксом `default-sg`). Такая группа разрешает подключение к виртуальной машине по `SSH` и `RDP`, входящий трафик по `ICMP`, а также любой исходящий трафик. Для рабочих ресурсов используйте пользовательскую группу безопасности с минимально необходимыми правилами.
 
     Прочие параметры выберите на свое усмотрение.
 

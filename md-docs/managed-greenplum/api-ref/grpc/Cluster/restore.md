@@ -71,7 +71,8 @@ Creates a new Greenplum® cluster using the specified backup.
   ],
   "restore_pxf": "bool",
   "restore_hba": "bool",
-  "service_account_id": "string"
+  "service_account_id": "string",
+  "disk_encryption_key_id": "google.protobuf.StringValue"
 }
 ```
 
@@ -163,6 +164,9 @@ Restore HBA settings from original cluster ||
 || service_account_id | **string**
 
 Service account that will be used to access a Yandex Cloud resources ||
+|| disk_encryption_key_id | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+
+ID of the key to encrypt cluster disks. ||
 |#
 
 ## GreenplumRestoreConfig {#yandex.cloud.mdb.greenplum.v1.GreenplumRestoreConfig}
