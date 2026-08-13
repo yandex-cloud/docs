@@ -11,7 +11,7 @@ You can stop and restart clusters if required. You are not charged for the numbe
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Find the cluster in the list, click ![options](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-stop }}**.
     1. Click **{{ ui-key.yacloud.mdb.cluster.stop-dialog.popup-confirm_button }}** to confirm stopping the cluster.
 
@@ -86,7 +86,7 @@ You can stop and restart clusters if required. You are not charged for the numbe
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Find the stopped cluster in the list, click ![options](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-start }}**.
     1. Confirm starting the cluster and click **{{ ui-key.yacloud.mdb.cluster.start-dialog.popup-confirm_button }}**.
 

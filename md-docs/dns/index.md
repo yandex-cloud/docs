@@ -2,7 +2,7 @@
 
 # Yandex Cloud DNS
 
-Yandex Cloud DNS служит для управления зонами DNS и доменными именами ваших ресурсов.
+Yandex Cloud DNS служит для управления зонами DNS (Domain Name System) и доменными именами ваших ресурсов.
 
 Инфраструктура Yandex Cloud <a href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a> в соответствии с Федеральным законом Российской Федерации «О персональных данных» № 152-ФЗ.
 

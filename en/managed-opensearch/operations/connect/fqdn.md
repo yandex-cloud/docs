@@ -19,8 +19,8 @@ There are several ways to get a {{ OS }} host's FQDN:
 
 * Look up the FQDN in the management console:
 
-    1. Navigate to the cluster page.
-    1. Navigate to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+    1. [Navigate]({{ link-console-main}}/link/managed-opensearch/clusters) to the cluster page.
+    1. Open the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** section.
     1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
 
 * In the [management console]({{ link-console-main }}), copy the cluster connection command (it contains the host’s FQDN). To get this command, navigate to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.

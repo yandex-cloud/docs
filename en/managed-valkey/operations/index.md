@@ -16,6 +16,7 @@ description: This page features step-by-step guides for {{ mrd-name }}.
 * [Managing cluster hosts](hosts.md)
 * [Migrating hosts to a different availability zone](host-migration.md)
 * [Managing backups](cluster-backups.md)
+* [Managing backup policies](backup-retention-policies.md)
 * [Managing cluster access](cluster-access.md)
 * [Deleting a cluster](cluster-delete.md)
 

@@ -16,7 +16,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to update a {{ SPQR }} cluster.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+    1. [Navigate]({{ link-console-main }}/link/managed-spqr) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 

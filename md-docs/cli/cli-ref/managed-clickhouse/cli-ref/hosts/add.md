@@ -37,7 +37,7 @@ Possible property names:
 
 - `shard-name`: Host shard name.
 
-- `type`: Type of the host to be created. Supported values: 'clickhouse', 'zookeeper'. ||
+- `type`: Type of the host to be created. Supported values: 'clickhouse', 'zookeeper', 'keeper'. ||
 |#
 
 #### Global Flags

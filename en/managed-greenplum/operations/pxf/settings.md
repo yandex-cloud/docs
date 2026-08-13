@@ -9,7 +9,7 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
     To edit PXF settings:
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Click the cluster name and select ![image](../../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.greenplum.label_pxf }}** in the left-hand panel.
     1. Click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.greenplum.cluster.pxf.action_edit-settings }}** at the top of the page.
     1. Edit the settings:

@@ -10,8 +10,8 @@
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
     1. [Перейдите]({{ link-console-main }}/link/data-proc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.dataproc.jobs.button_create }}**.
+    1. Выберите нужный кластер и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}**.
+    1. Нажмите **{{ ui-key.yacloud.dataproc.jobs.button_create }}**.
     1. (Опционально) Укажите имя задания.
     1. В поле **{{ ui-key.yacloud.dataproc.jobs.field_job-type }}** выберите `{{ ui-key.yacloud.dataproc.jobs.field_hive-job-type }}`.
     1. (Опционально) В поле **{{ ui-key.yacloud.dataproc.jobs.field_properties }}** укажите [свойства компонентов](../concepts/settings-list.md) в виде пары `ключ-значение`.
@@ -27,7 +27,7 @@
     1. Выберите один из типов драйвера и укажите, что использовать для запуска задания:
         * список запросов, которые необходимо выполнить;
         * путь к файлу с запросами, которые нужно выполнить.
-    1. Нажмите кнопку **{{ ui-key.yacloud.dataproc.jobs.button_create }}**.
+    1. Нажмите **{{ ui-key.yacloud.dataproc.jobs.button_create }}**.
 
 - CLI {#cli}
 

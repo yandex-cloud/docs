@@ -46,10 +46,9 @@ description: Следуя данной инструкции, вы сможете
 
         1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится кластер {{ managed-k8s-name }}, к узлу которого нужен доступ.
         1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-        1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
-        1. Перейдите во вкладку **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
-        1. Выберите нужную группу узлов.
-        1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
+        1. Выберите кластер {{ managed-k8s-name }}.
+        1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**, с ней откроется вкладка **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
+        1. В строке группы узлов нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
         1. Выберите опцию **{{ ui-key.yacloud.k8s.node-group.access-method.field_os-login-access-method }}**.
 
             {% include [note-oslogin-ssh-warning](../../_includes/managed-kubernetes/note-oslogin-ssh-warning.md) %}

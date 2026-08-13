@@ -17,8 +17,8 @@ You can get detailed information about each {{ mos-name }} cluster you created.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder page.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/managed-opensearch) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
 
 - CLI {#cli}
 
@@ -43,7 +43,7 @@ You can get detailed information about each {{ mos-name }} cluster you created.
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -100,8 +100,8 @@ You can get detailed information about each {{ mos-name }} cluster you created.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder page.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/managed-opensearch) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
   1. Click the cluster name.
 
 - CLI {#cli}
@@ -179,7 +179,7 @@ All actions with {{ mos-name }} clusters are logged as a list of operations. Eac
   To get a list of operations for a cluster:
 
   1. In the [management console]({{ link-console-main }}), open the folder containing the cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-opensearch) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.mdb.clusters.label_title }}**.
   1. Select the cluster and open the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** tab.
 

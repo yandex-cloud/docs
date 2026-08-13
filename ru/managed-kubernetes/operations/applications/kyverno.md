@@ -20,7 +20,8 @@
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог.
 1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-1. Нажмите на имя нужного [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
+1. Выберите [кластер {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster).
+1. Нажмите на вкладку **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) и выберите **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Kyverno & Kyverno Policies](/marketplace/products/yc/kyverno) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
    * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `kyverno-space`). Если вы оставите пространство имен по умолчанию, Kyverno может работать некорректно.
@@ -79,8 +80,9 @@
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
    1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-   1. Нажмите на имя нужного [кластера {{ k8s }}](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
-   1. В разделе **{{ ui-key.yacloud.k8s.cluster.marketplace.section_releases }}**, в строке приложения [Kyverno & Kyverno Policies](/marketplace/products/yc/kyverno), сначала нажмите кнопку ![image](../../../_assets/marketplace/three_dots.png =22x13), затем — **{{ ui-key.yacloud.k8s.cluster.marketplace.button_release-uninstall }}**.
+   1. Выберите [кластер {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster).
+   1. Нажмите на вкладку **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) и выберите **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
+   1. В разделе **{{ ui-key.yacloud.k8s.cluster.marketplace.section_releases }}** в строке приложения [Kyverno & Kyverno Policies](/marketplace/products/yc/kyverno) нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.k8s.cluster.marketplace.button_release-uninstall }}**.
    1. [Подключитесь к кластеру](../connect/index.md#kubectl-connect) с помощью kubectl.
    1. [Очистите конфигурации веб-хуков приложения](https://release-1-8-0.kyverno.io/docs/installation/#clean-up-webhook-configurations), иначе кластер будет работать некорректно.
 

@@ -198,7 +198,7 @@
     1. [Перейдите](https://console.yandex.cloud/link/managed-ytsaurus) в сервис **Managed Service for YTsaurus**.
     1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3.svg) **Кластеры**.
     1. Выберите нужный кластер.
-    1. Перейдите на панель ![image](../../_assets/console-icons/list-check.svg) **Операции** для выбранного кластера.
+    1. Перейдите на вкладку **Операции**.
 
        В открывшемся списке отображаются операции с выбранным кластером.
 

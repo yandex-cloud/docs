@@ -17,10 +17,9 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где требуется удалить [кластер {{ k8s }}](../../concepts/index.md#kubernetes-cluster).
-  1. Нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке кластера {{ k8s }}, который требуется удалить.
-  1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
-  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.k8s.clusters.popup-confirm_button_delete }}**.
+  1. В [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где нужно удалить [кластер {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster), откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. В строке кластера {{ managed-k8s-name }}, который нужно удалить, нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
+  1. В открывшемся окне подтвердите удаление кластера.
 
 - CLI {#cli}
 

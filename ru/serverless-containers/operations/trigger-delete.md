@@ -13,7 +13,7 @@ description: Из статьи вы узнаете, как удалить три
     1. [Перейдите]({{ link-console-main }}/link/serverless-containers) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
     1. Выберите триггер, который хотите удалить.
-    1. В правом верхнем углу страницы нажмите **{{ ui-key.yacloud.serverless-functions.list.button_action-delete }}**.
+    1. На панели сверху нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
     1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.popup-confirm_button_delete }}**.
     
 - CLI {#cli}

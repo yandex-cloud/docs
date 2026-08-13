@@ -8,8 +8,9 @@ There are also special FQDNs pointing to the [current master](../../managed-mysq
 
 #### Why cannot I connect from the internet? {#from-internet}
 
-Check whether your host is publicly accessible. To do this, in the [management console]({{ link-console-main }}):
-1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+Check whether your host is publicly accessible:
+1. In the [management console]({{ link-console-main }}), select a folder.
+1. [Navigate]({{ link-console-main }}/link/managed-mysql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
 1. Click the name of your cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
 1. Check the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_public-ip }}** column value for your host.
 
@@ -24,9 +25,10 @@ Additionally, consider the following:
 
 Make sure the {{ yandex-cloud }} VM you are connecting from is in the same virtual network as the {{ MY }} cluster.
 
-To do this, in the management console:
-1. Navigate to the folder dashboard, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**, and click the name of your cluster.
-1. Check the **{{ ui-key.yacloud.mdb.cluster.overview.label_network }}** value and click the network’s name to see its subnets.
+Proceed as follows:
+1. In the [management console]({{ link-console-main }}), select a folder.
+1. [Navigate]({{ link-console-main }}/link/managed-mysql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+1. Click the cluster name. Check the **{{ ui-key.yacloud.mdb.cluster.overview.label_network }}** value and click the network’s name to see its subnets.
 1. Make sure your VM is in one of the network’s subnets.
 
 Additionally, consider the following:
@@ -38,8 +40,9 @@ Additionally, consider the following:
 
 If public access in your cluster is only enabled for certain hosts, automatic master failover can make the master unreachable from the internet.
 
-Check whether your host is publicly accessible. To do this, in the [management console]({{ link-console-main }}):
-1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+Check whether your host is publicly accessible:
+1. In the [management console]({{ link-console-main }}), select a folder.
+1. [Navigate]({{ link-console-main }}/link/managed-mysql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
 1. Click the name of your cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
 1. Check the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_public-ip }}** column value for your host.
 
@@ -63,7 +66,7 @@ Complete error message:
 curl: (35) schannel: next InitializeSecurityContext failed: Unknown error (0x80092012)
 The revocation function was unable to check revocation for the certificate
 ```
-This indicates that the verification of the website’s certificate against the revocation list failed during the connection attempt.
+This means that, when connecting to the website, the function was unable to check if its certificate was listed as revoked.
 
 To fix this error:
 

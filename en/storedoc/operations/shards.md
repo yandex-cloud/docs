@@ -7,6 +7,7 @@ To ensure high availability, each shard must consist of at least three `MONGOD` 
 {% note alert %}
 
 Once [cluster sharding](../concepts/sharding.md) is enabled:
+
 * You cannot turn sharding off. The cluster will always maintain a minimum of `MONGOS`, `MONGOCFG`, or `MONGOINFRA` hosts, depending on the [sharding type](../concepts/sharding.md#shard-management).
 * All database access must go through `MONGOS` or `MONGOINFRA` hosts, which route queries to the shards. Update the host addresses in your application code accordingly.
 
@@ -19,6 +20,7 @@ Using the {{ mmg-name }} interface, you can quickly set up a [{{ SD }}](../conce
 For details on how to shard your {{ SD }} database and collections directly, see [Sharding collections](../tutorials/sharding.md).
 
 To enable sharding, you need:
+
 * At least three `MONGOINFRA` hosts for standard sharding.
 * At least two `MONGOS` and three `MONGOCFG` hosts for advanced sharding.
 
@@ -32,11 +34,12 @@ The **b1.medium** and **b2.medium** host classes [do not support](../concepts/sh
 
 - Management console {#console}
 
-  1. Open the [folder dashboard]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.shards.button_sharding-enable }}**.
   1. Select sharding type:
+
      * **{{ ui-key.yacloud.mongodb.EnableShardingForm.option_sharding-type-standard_ezqnu }}**: Based on `MONGOINFRA` hosts.
      * **{{ ui-key.yacloud.mongodb.EnableShardingForm.option_sharding-type-extended_8Vip4 }}**: Based on `MONGOS` and `MONGOCFG` hosts.
 
@@ -79,12 +82,16 @@ The **b1.medium** and **b2.medium** host classes [do not support](../concepts/sh
     ```
 
     Where:
+
     * `--cluster-name`: Cluster name. You can get it from the [list of clusters in your folder](cluster-list.md#list).
     * `--host`: Host settings:
+
       * `type`: Type (`MONGOINFRA`).
       * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
       * `subnet-name`: [Subnet name](../../vpc/concepts/network.md#subnet).
+
     * `--mongoinfra`: `MONGOINFRA` host settings:
+
       * `resource-preset`: [Host class](../concepts/instance-types.md).
       * `disk-size`: Storage size, in GB.
       * `disk-type`: [Disk type](../concepts/storage.md).
@@ -118,16 +125,22 @@ The **b1.medium** and **b2.medium** host classes [do not support](../concepts/sh
     ```
 
     Where:
+
     * `--cluster-name`: Cluster name. You can get it from the [list of clusters in your folder](cluster-list.md#list).
     * `--host`: Host settings:
+
       * `type`: Type, `MONGOS` or `MONGOCFG`.
       * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
       * `subnet-name`: [Subnet name](../../vpc/concepts/network.md#subnet).
+
     * `--mongos`: `MONGOS` host settings:
+
       * `resource-preset`: [Host class](../concepts/instance-types.md).
       * `disk-size`: Storage size, in GB.
       * `disk-type`: [Disk type](../concepts/storage.md).
+
     * `--mongocfg`: `MONGOCFG` host settings:
+
       * `resource-preset`: [Host class](../concepts/instance-types.md).
       * `disk-size`: Storage size, in GB.
       * `disk-type`: [Disk type](../concepts/storage.md).
@@ -365,8 +378,8 @@ The **b1.medium** and **b2.medium** host classes [do not support](../concepts/sh
 
 - Management console {#console}
 
-  1. Open the [folder dashboard]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
 
 - CLI {#cli}
@@ -451,8 +464,8 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
 
 - Management console {#console}
 
-  1. Open the [folder dashboard]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.shards.action_add-shard }}**.
   1. Specify the shard name and add the required number of hosts.
@@ -474,8 +487,10 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
   ```
 
   Where:
+
   * `--cluster-name`: Cluster name. You can get it from the [list of clusters in your folder](cluster-list.md#list-clusters).
   * `--host`: Host settings:
+
     * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
     * `subnet-name`: [Subnet name](../../vpc/concepts/network.md#subnet).
 
@@ -642,8 +657,8 @@ The system will invoke the `removeShard` operation for the shard slated for remo
 
 - Management console {#console}
 
-  1. Open the [folder dashboard]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
   1. Find the shard you need in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in its row, and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.mdb.cluster.shards.popup-confirm_button_delete }}**.

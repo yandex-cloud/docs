@@ -89,6 +89,8 @@ IP-адреса, FQDN и другую информацию можно узнат
 
 Для популярных дистрибутивов этих систем доступны публичные образы загрузочного диска, протестированные в {{ yandex-cloud }}.
 
+{% include [os-license](../../_includes/qa/os-license.md) %}
+
 {% include [cli-period.md](../../_qa/cli-period.md) %}
 
 {% include [fz-152.md](../../_qa/fz-152.md) %}

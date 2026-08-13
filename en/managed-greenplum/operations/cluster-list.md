@@ -9,7 +9,7 @@ You can get detailed information about each {{ mgp-name }} cluster you created.
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
 
 - CLI {#cli}
 
@@ -84,7 +84,7 @@ You can get detailed information about each {{ mgp-name }} cluster you created.
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Click the cluster name.
 
 - CLI {#cli}
@@ -157,7 +157,7 @@ You can get detailed information about each {{ mgp-name }} cluster you created.
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Click the cluster name and select the ![hosts.svg](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
 
     In the list of hosts, the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_role }}** column shows the role of each host:

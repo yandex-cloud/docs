@@ -14,7 +14,9 @@
 
 1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 
-1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
+1. Выберите [кластер {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster).
+
+1. Нажмите на вкладку **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) и выберите **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 
 1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Gatekeeper](https://yandex.cloud/ru/marketplace/products/yc/gatekeeper) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 

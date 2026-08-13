@@ -48,7 +48,7 @@ The {{ MY }} versioning policy is based on the following key principles:
 * **Increased cost**^2^. In its tenth year, the version gets the `Legacy Extra Paid` status. Clusters are subject to extra pay; support is limited.
 * **End of life**^2^. After the `EOL` date (eleventh year and onwards), no support is provided any longer. Backup recovery is not possible. Clusters are operational but subject to extra pay.
 
-^2^ Yandex will [notify](#notifications) you in advance of the changes and the upcoming billing rate increase as per the Agreement.
+^2^ Yandex will [notify](#notifications) you in advance of the changes and the start of increased rate billing as per the Agreement.
 
 ## Update policy {#update-policy}
 
@@ -86,6 +86,15 @@ Security updates (low severity) | 28 days | 120 days
 
 ^3^ Minimum number of days intervening between an upcoming operation and a notification about it from {{ yandex-cloud }}.
 ^4^ Period of time during which a user can manually reschedule the operation date via the [management console]({{ link-console-main }}).
+
+## Adding new {{ MY }} versions {#new-version-availability}
+
+The {{ yandex-cloud }} team strives to add new versions of {{ MY }} to {{ mmy-name }} shortly after they appear in the Percona repositories.
+
+The estimated time for a new {{ MY }} version to become available in the service is two months after the corresponding Percona release. The exact timeline may vary depending on the scope of changes in the version and the results of internal testing.
+
+Before making a new version available to users, we check its compatibility with the {{ mmy-name }} infrastructure and adapt the service's operational mechanisms: backup, recovery, replication, master failover, monitoring, and cluster maintenance. This helps maintain a high level of reliability and stability for the managed service.
+
 
 ## Versioning schedule {#version-schedule}
 

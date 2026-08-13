@@ -60,19 +60,10 @@ You pay for the following:
 
 * Storage allocated for clusters.
 
-* Database backup storage exceeding the cluster’s allocated space.
+{% include [pricing-backup-general](../_includes/mdb/pricing-backup-ch-os-gp.md) %} 
 
-    {% include [pricing-backup](../_includes/mdb/pricing-backup.md) %} 
+For more information, see [Backups in {{ mos-name }}](concepts/backup.md).
 
-    * Backup storage is not billable until the total volume of backups exceeds that of the cluster storage. This calculation does not count in the data volume of the database itself.
-
-    * The number of hosts in a cluster does not affect the storage size and, consequently, the free backup quota.
-  
-    * All automatic and [manual](operations/cluster-backups.md) backups are incremental. This means the initial backup contains all index segments, and all subsequent backups contain only the _increment_, i.e., changes made since the previous backup. This saves storage space and reduces the cost of using resources.
-
-    * When [requesting information about a backup](operations/cluster-backups.md#get-backup), you will get the full size of restorable data, but you only pay for the incremental part.
-
-    
 The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes is billed as 2 minutes.
 
 ### Cluster cost calculation example {#example}

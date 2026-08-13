@@ -1227,6 +1227,7 @@ default:
   roles-auditor: auditor
   roles-cloud-member: resource-manager.clouds.member
   roles-cloud-owner: resource-manager.clouds.owner
+  roles-connection-manager-editor: connection-manager.editor
   roles-connection-manager-user: connection-manager.user
   roles-connection-manager-viewer: connection-manager.viewer
   roles-cr-images-scanner: container-registry.images.scanner
@@ -6536,7 +6537,8 @@ default:
         label_yds-exports: Экспорт в Data Streams
       k8s:
         access:
-          button_create-sa: Сервисный аккаунт
+          button_filter-create-sa: Создать сервисный аккаунт
+          label_service-accounts: ServiceAccounts
           label_title: Управление доступом
           popup-add-sa_field_name: Имя
           popup-add-sa_field_namespace: Пространство имен
@@ -6550,7 +6552,6 @@ default:
           node-groups:
             button_create: Создать группу узлов
             label_type-custom: Внешняя
-            popup-confirm_button_delete: Удалить
           overview:
             label_health: Состояние
             label_master-title: Мастер
@@ -6606,7 +6607,9 @@ default:
             value_maintenance-daily: Ежедневно
             value_maintenance-disabled: Отключено
             value_maintenance-weekly: В выбранные дни
-          popup-confirm_button_delete: Удалить
+        configuration:
+          label_config-maps: ConfigMaps
+          label_secrets: Secrets
         custom-resources:
           label_tab-resources: Ресурсы
         IAMService:
@@ -6617,9 +6620,11 @@ default:
         MaintenanceSection:
           maintenance-window-field-with-none-option_tx5Wn: Частота обновлений / Отключение
         namespaces:
+          button_filter-create: Создать пространство имен
           popup-add_field_name: Имя
         network:
           label_ingress: Ingresses
+          label_services: Services
         node-group:
           access-method:
             field_os-login-access-method: Доступ по OS Login
@@ -6685,12 +6690,19 @@ default:
           button_action-add-default: Использовать по умолчанию
           button_action-remove-default: Не использовать по умолчанию
           label_pv: PersistentVolumes
+          label_pvc: PersistentVolumeClaims
           label_storage-classes: StorageClasses
         switch_operations: Операции
         workloads:
           label_cron-jobs: CronJobs
+          label_daemon-sets: DaemonSets
+          label_deployments: Deployments
+          label_hpa: HPA
+          label_jobs: Jobs
           label_pods: Pods
+          label_stateful-sets: StatefulSets
           label_tab-logs: Логи
+          label_tab-monitoring: Мониторинг
           label_tab-yaml: YAML
         WorkloadsActions:
           pod-exec_jwJ3R: Терминал
@@ -7500,6 +7512,7 @@ default:
         section_async: Асинхронный вызов
         section_general: Базовые параметры
         section_image: Параметры образа
+        section_metadata-options: Параметры сервиса метаданных
         section_parameters: Настройки
         section_resources: Ресурсы
         section-revisions: Ревизии
@@ -7759,6 +7772,8 @@ default:
         layout:
           PageActions:
             button_more_sGEBS: Еще
+          PageTabs:
+            button_other_hnYwF: Другое
       smart-web-security:
         action_empty: Создать профиль
         advanced_waf:

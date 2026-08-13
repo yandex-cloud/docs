@@ -177,7 +177,7 @@ description: Вы можете запросить детальную инфор�
     1. [Перейдите]({{ link-console-main }}/link/managed-ytsaurus) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
     1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.mdb.clusters.label_title }}**.
     1. Выберите нужный кластер.
-    1. Перейдите на панель ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** для выбранного кластера.
+    1. Перейдите на вкладку **{{ ui-key.yacloud.common.operations-key-value }}**.
 
        В открывшемся списке отображаются операции с выбранным кластером.
 

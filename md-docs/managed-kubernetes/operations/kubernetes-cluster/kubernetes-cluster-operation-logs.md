@@ -20,7 +20,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) откройте каталог, в котором находится кластер.
   1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
-  1. Выберите нужный кластер и перейдите на вкладку ![image](../../../_assets/console-icons/list-check.svg) **Операции**.
+  1. Выберите кластер Managed Service for Kubernetes и перейдите на вкладку **Операции**.
 
      В открывшемся списке отображаются операции с выбранным кластером.
 

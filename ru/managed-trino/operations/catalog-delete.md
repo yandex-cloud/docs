@@ -12,7 +12,7 @@ description: Следуя этой инструкции, вы удалите к�
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/managed-trino) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Нажмите на имя нужного кластера.
-  1. На панели слева выберите ![image](../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.trino.title_catalogs }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.trino.title_catalogs }}**.
   1. В строке с нужным каталогом {{ TR }} нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.common.delete }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 

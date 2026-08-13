@@ -83,7 +83,7 @@
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором создан нужный кластер Managed Service for Kubernetes.
   1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Выберите кластер Managed Service for Kubernetes, для которого необходимо создать группу узлов.
-  1. На странице кластера Managed Service for Kubernetes перейдите на вкладку ![nodes-management.svg](../_assets/console-icons/graph-node.svg) **Управление узлами**.
+  1. На странице кластера Managed Service for Kubernetes перейдите на вкладку **Управление узлами**.
   1. Нажмите кнопку **Создать группу узлов**.
   1. Введите имя и описание группы узлов Managed Service for Kubernetes.
   1. В поле **Версия Kubernetes** выберите версию Kubernetes для узлов Managed Service for Kubernetes.
@@ -161,7 +161,7 @@
 
      {% note tip %}
 
-     Вы также можете посмотреть команду для подключения в [консоли управления](https://console.yandex.cloud) на странице кластера в блоке **Доступ**.
+     Вы также можете посмотреть команду для подключения в [консоли управления](https://console.yandex.cloud) на странице кластера на вкладке **Обзор** в блоке **Доступ**.
 
      {% endnote %}
 

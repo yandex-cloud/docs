@@ -93,6 +93,8 @@ items:
         href: ci-cd.md
       - name: Спринт
         href: sprints.md
+      - name: Диаграмма Ганта
+        href: gantt-chart.md
   - name: Сети и доставка контента
     items:
       - name: CDN

@@ -136,4 +136,4 @@ description: Следуя данной инструкции, вы сможете
 * [{#T}](../concepts/dns-connection.md)
 * [{#T}](../tutorials/dns-integration.md)
 
-[*name]: {% include [name-format](../../_includes/_popups/name-format-general.md) %}
+[*name]: {% include [name-format](../../_popups/name-format-general.md) %}

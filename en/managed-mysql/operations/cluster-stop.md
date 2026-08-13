@@ -24,7 +24,7 @@ Stopping a cluster is not allowed if it has no backups. In order to stop it, you
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-mysql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Locate the cluster you need in the list, click ![options](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-stop }}**.
   1. Confirm that you want to stop the cluster by clicking **{{ ui-key.yacloud.mdb.cluster.stop-dialog.popup-confirm_button }}**.
 
@@ -109,7 +109,7 @@ You can restart a cluster if its status is **STOPPED**.
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-mysql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. In the list, locate the stopped cluster you want to restart, click ![options](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-start }}**.
   1. In the dialog box that opens, click **{{ ui-key.yacloud.mdb.cluster.start-dialog.popup-confirm_button }}** to confirm the cluster launch.
 
@@ -153,7 +153,7 @@ You can restart a cluster if its status is **STOPPED**.
             --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>:start'
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/start.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

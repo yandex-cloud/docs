@@ -14,7 +14,7 @@
 
     {% endnote %}
 
-* `disk_size_limit`: Maximum storage size after the increase, in gibibytes.
+* `disk_size_limit`: Maximum storage size after expansion, in GB.
 
 
 {% include [warn-storage-resize](../warn-storage-resize.md) %}

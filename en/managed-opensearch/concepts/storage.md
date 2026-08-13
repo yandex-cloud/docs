@@ -39,9 +39,10 @@ When the storage is 95% full, cluster hosts automatically enter read-only mode. 
 
 ### Monitoring the transition to read-only mode {#read-only-monitor}
 
-To monitor the cluster storage usage, set up alerts in {{ monitoring-full-name }}:
+To monitor the cluster storage utilization percentage, set up alerts in {{ monitoring-full-name }}:
 
-1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. In the [management console]({{ link-console-main }}), select a folder.
+1. [Navigate]({{ link-monitoring }}) to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
 1. [Create a notification channel](../../monitoring/operations/alert/create-channel.md).
 1. [Create an alert](../../monitoring/operations/alert/create-alert.md) with the following properties:
 

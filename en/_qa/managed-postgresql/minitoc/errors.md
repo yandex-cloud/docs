@@ -37,3 +37,5 @@
 * [Why do I get an error when trying to install multiple extensions in the CLI?](#cli-extensions-errors)
 
 * [Why do I get the `could not open extension control file "<extension_path>/vector.control": No such file or directory` error when accessing the `vector` extension?](#vector-error)
+
+* [Why do I get a `collation version mismatch` error when trying to upgrade my {{ PG }} cluster to version `18`?](#collation-version-mismatch)

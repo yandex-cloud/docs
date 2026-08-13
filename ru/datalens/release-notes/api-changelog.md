@@ -8,6 +8,8 @@ description: Версионирование Public API в {{ datalens-full-name 
 
 ## Версия 2 {#version-2}
 
+
+
 ### 28.07.2026 {#28072026}
 
 Совместимые изменения в Public API версии 2.
@@ -60,3 +62,4 @@ description: Версионирование Public API в {{ datalens-full-name 
 ### 22.01.2026 {#22012026}
 
 22 января 2026 года запущено {{ datalens-name }} Public API версии 1.
+

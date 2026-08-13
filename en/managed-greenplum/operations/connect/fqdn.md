@@ -19,13 +19,13 @@ There are several ways to get a {{ mgp-name }} host's FQDN:
 
 * Look up the FQDN in the management console:
 
-    1. Navigate to the cluster page.
+    1. [Navigate]({{ link-console-main }}/link/managed-greenplum) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** and select a cluster.
     1. Navigate to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
     1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
 
-* In the [management console]({{ link-console-main }}), copy the cluster connection command (it contains the host’s FQDN). To get this command, navigate to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
+* In the [management console]({{ link-console-main }}), copy the cluster connection command (it contains the host’s FQDN). To get this command, [navigate]({{ link-console-main }}/link/managed-greenplum) to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
 
-* [Request a list of cluster hosts](../cluster-list.md#get-hosts) using the CLI or API.
+* [Get the list of cluster hosts](../cluster-list.md#get-hosts) via the CLI or API.
 
 ## Special primary master FQDN {#fqdn-master}
 

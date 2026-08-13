@@ -6297,6 +6297,13 @@ default:
         AuthMethodColumn:
           value_iam_boWet: IAM
           value_password_gbuZC: Password
+        BackupPolicy:
+          button_create-policy_3Mpxn: Create policy
+          label_backup-policies_s4xXC: Backup policies
+          title_backups_8fQgh: Backup
+          value_type-daily_fZXQ9: Every day
+          value_type-monthly_8xt6g: Monthly
+          value_type-weekly_69MML: By day of the week
         cluster:
           backups:
             action_delete-backup: Delete

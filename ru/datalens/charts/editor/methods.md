@@ -16,6 +16,8 @@ description: Из статьи вы узнаете про доступные м�
 * [Editor.getParam(name)](#get-param)
 * [Editor.getParams()](#get-params)
 * [Editor.getSortParams()](#get-sort-params)
+* [Editor.getUserId()](#get-user-id)
+* [Editor.getUserLogin()](#get-user-login)
 * [Editor.getWidgetConfig()](#get-widget-config)
 * [Editor.resolveInterval(arg)](#resolve-interval)
 * [Editor.resolveOperation(args)](#resolve-oper)
@@ -1179,6 +1181,90 @@ JSON-объект вида:
 
 
 [Пример чарта с пагинацией и сортировкой](https://datalens.yandex/nvkfwnekf9xy9#Editor.getSortParams()%2C%20Editor.getCurrentPage())
+
+
+## Editor.getUserId() {#get-user-id}
+
+
+
+Возвращает идентификатор субъекта {{ iam-short-name }} текущего пользователя.
+
+
+
+#### Поддерживаемые виды чартов
+
+Все чарты в Editor.
+
+#### Аргументы
+
+Нет.
+
+#### Возвращаемый результат
+
+
+
+Строка с идентификатором субъекта {{ iam-short-name }}. Для публичного чарта, встраивания без пользовательской авторизации или запроса, в котором пользователь не определен, возвращается пустая строка.
+
+
+
+#### Пример
+
+```js
+const userId = Editor.getUserId();
+
+if (userId) {
+    // Пользователь определен.
+}
+```
+
+{% note warning  %}
+
+Не используйте идентификатор, полученный этим методом, для проверки прав доступа. Проверка доступа должна выполняться на стороне сервера.
+
+{% endnote %}
+
+## Editor.getUserLogin() {#get-user-login}
+
+
+
+Возвращает имя пользователя из атрибута `preferredUsername` текущей сессии {{ iam-short-name }}.
+
+
+
+#### Поддерживаемые виды чартов
+
+Все чарты в Editor.
+
+#### Аргументы
+
+Нет.
+
+#### Возвращаемый результат
+
+
+
+Строка с именем пользователя. Для федеративного пользователя значение зависит от атрибутов, переданных поставщиком удостоверений. Если атрибут `preferredUsername` отсутствует, пользователь не определен или чарт открыт без пользовательской авторизации, возвращается пустая строка.
+
+
+
+#### Пример
+
+
+```js
+const userLogin = Editor.getUserLogin();
+
+if (userLogin) {
+    // Имя пользователя доступно.
+}
+```
+
+
+
+{% note warning %}
+
+Для устойчивой идентификации пользователя используйте `Editor.getUserId()`. Имя пользователя может отсутствовать или измениться. Не используйте метод для проверки прав доступа: она должна выполняться на стороне сервера.
+
+{% endnote %}
 
 
 ## Editor.getWidgetConfig() {#get-widget-config}

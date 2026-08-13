@@ -1,6 +1,6 @@
 [Документация Yandex Cloud](../../index.md) > [Yandex DataLens](../index.md) > DataLens Public API > Как пользоваться Public API
 
-# Работа с Public API
+# Работа с Public API в Yandex DataLens
 
 
 DataLens предоставляет публичное API [https://api.datalens.tech](https://api.datalens.tech) для автоматизации операций с дашбордами, чартами, датасетами и подключениями.

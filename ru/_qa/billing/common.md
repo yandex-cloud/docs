@@ -1,8 +1,6 @@
 # Общие вопросы про сервис {{ billing-name }}
 
-#### Могу ли я использовать свою лицензию ОС на виртуальных машинах в {{ yandex-cloud }}? {#os-license}
-
-Да. Подробнее в разделе [Создание виртуальной машины](../../compute/operations/vm-create/create-linux-vm.md) документации сервиса [Yandex Compute Cloud](../../compute/).
+{% include [os-license](../../_includes/qa/os-license.md) %}
 
 #### Где можно ознакомиться с Соглашением об уровне обслуживания (SLA)? {#sla}
 

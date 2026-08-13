@@ -29,7 +29,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a {{ SPQR }} cluster.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+    1. [Navigate]({{ link-console-main }}/link/managed-spqr) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
     1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 

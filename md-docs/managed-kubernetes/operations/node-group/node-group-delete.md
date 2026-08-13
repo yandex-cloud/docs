@@ -26,14 +26,12 @@ yc managed-kubernetes node-group list
 
   Чтобы удалить [группу узлов](../../concepts/index.md#node-group):
   
-  1. Перейдите в [кластер Kubernetes](../../concepts/index.md#kubernetes-cluster), в котором требуется удалить группу узлов:
-     1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
-     1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
-     1. Откройте нужный кластер Kubernetes.
-     1. Перейдите на вкладку **Управление узлами**.
-  1. На вкладке **Группы узлов** нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке группы узлов, которую требуется удалить.
-  1. В открывшемся меню нажмите кнопку **Удалить**.
-  1. В открывшемся окне нажмите кнопку **Удалить**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
+  1. Выберите кластер Managed Service for Kubernetes.
+  1. Перейдите на вкладку **Управление узлами**, с ней откроется вкладка **Группы узлов**.
+  1. В строке группы узлов нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **Удалить**.
+  1. Подтвердите удаление.
 
 - CLI {#cli}
 

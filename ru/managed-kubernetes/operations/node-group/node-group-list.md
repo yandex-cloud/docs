@@ -12,8 +12,8 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Нажмите на имя нужного кластера {{ k8s }}.
-  1. Перейдите во вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
+  1. Выберите кластер {{ managed-k8s-name }}.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
 
 - CLI {#cli}
 
@@ -49,11 +49,11 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Нажмите на имя нужного кластера {{ k8s }}.
-  1. Перейдите во вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
-  1. Нажмите на имя нужной группы узлов.
+  1. Выберите кластер {{ managed-k8s-name }}.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
+  1. Нажмите на имя группы узлов.
 
-  Чтобы посмотреть информацию о конкретном узле, перейдите на вкладку **{{ ui-key.yacloud.k8s.node-group.overview.label_tab-nodes }}** и нажмите на имя нужного узла. {#get-node}
+  Чтобы посмотреть информацию об отдельном узле группы, перейдите на вкладку **{{ ui-key.yacloud.k8s.node-group.overview.label_tab-nodes }}** и выберите нужный узел. {#get-node}
 
 - CLI {#cli}
 

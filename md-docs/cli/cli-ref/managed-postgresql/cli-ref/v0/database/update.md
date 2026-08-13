@@ -24,6 +24,9 @@ PostgreSQL cluster name. ||
 || `--extensions` | `value[,value]`
 
 A list of extension names to update. ||
+|| `--owner` | `string`
+
+Name of the user to be assigned as the new owner of the database. ||
 |#
 
 #### Global Flags

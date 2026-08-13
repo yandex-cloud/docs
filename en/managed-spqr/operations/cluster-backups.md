@@ -23,7 +23,8 @@ You can [create](#create-backup) backups and use existing backups to [restore](#
 
   To restore an existing cluster from a backup:
 
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/managed-spqr) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. Click the name of your cluster and select the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with the backup you need and select **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
   1. Configure the new cluster.
@@ -34,7 +35,8 @@ You can [create](#create-backup) backups and use existing backups to [restore](#
 
   To restore a deleted cluster from a backup:
 
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/managed-spqr) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with the backup you need and select **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
   1. Configure the new cluster.
@@ -492,7 +494,8 @@ You can [create](#create-backup) backups and use existing backups to [restore](#
 
 - Management console {#console}
 
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/managed-spqr) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. Click the name of your cluster and select the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}** in the top-right corner of the page.
   1. Confirm the creation of a backup.
@@ -577,12 +580,14 @@ You can [create](#create-backup) backups and use existing backups to [restore](#
 
   To get a list of backups for a specific cluster:
 
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/managed-spqr) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. Click the name of your cluster and select the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}** tab.
 
   To get a list of backups for all {{ mspqr-name }} clusters in a folder:
 
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/managed-spqr) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
 
 - CLI {#cli}
@@ -724,12 +729,14 @@ You can [create](#create-backup) backups and use existing backups to [restore](#
 
   To get backup details for an existing cluster:
 
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/managed-spqr) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. Click the name of your cluster and select the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}** tab.
 
   To get backup details for a deleted cluster:
   
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/managed-spqr) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
 
 - CLI {#cli}
@@ -1137,7 +1144,8 @@ You can only delete manual backups.
 
 - Management console {#console}
 
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/managed-spqr) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. Click the name of your cluster and select the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the backup you want to delete and select **{{ ui-key.yacloud.mdb.cluster.backups.button_delete }}**.
   1. Confirm deleting the backup.

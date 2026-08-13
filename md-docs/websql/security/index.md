@@ -285,6 +285,15 @@ flowchart BT
 Просмотр информации о подключениях [Yandex Managed Service for Trino](../../managed-trino/concepts/index.md) | `managed-trino.viewer` на организацию, облако или каталог
 Выполнение, публикация, редактирование запросов и управление правами доступа к ним | `websql.admin` на организацию, облако или каталог
 Выполнение запросов [Yandex Managed Service for Trino](../../managed-trino/concepts/index.md) | `managed-trino.user` на организацию, облако или каталог
+**Создание подключений** |
+Создание подключения к БД | `connection-manager.editor` на организацию, облако или каталог
+Создание подключения к PostgreSQL | `managed-postgresql.editor` на организацию, облако или каталог
+Создание подключения к MySQL® | `managed-mysql.editor` на организацию, облако или каталог
+Создание подключения к ClickHouse® | `managed-clickhouse.editor` на организацию, облако или каталог
+Создание подключения к Valkey™ | `managed-redis.editor` на организацию, облако или каталог
+Создание подключения к Yandex StoreDoc | `managed-mongodb.editor` на организацию, облако или каталог
+Создание подключения к Greenplum® | `managed-greenplum.editor` на организацию, облако или каталог
+Создание подключения к [Yandex Managed Service for Trino](../../managed-trino/concepts/index.md) | `managed-trino.editor` на организацию, облако или каталог
 
 ## Что дальше {#whats-next}
 

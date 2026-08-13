@@ -172,7 +172,7 @@ When getting ready for an upgrade, a comprehensive approach to testing and compa
 
 - Management console {#console}
 
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+   1. [Navigate]({{ link-console-main }}/link/managed-mysql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. Select your cluster from the list and click ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
    1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select the new version number.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.

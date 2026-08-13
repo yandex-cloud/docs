@@ -22,7 +22,7 @@ description: Следуя этой инструкции, вы создадите
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/managed-trino) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Нажмите на имя нужного кластера.
-  1. На панели слева выберите ![image](../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.trino.title_catalogs }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.trino.title_catalogs }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.trino.catalogs.create_action }}**.
   1. В поле **{{ ui-key.yacloud.trino.catalogs.field_catalog-name }}** задайте имя каталога {{ TR }}.
   1. В поле **{{ ui-key.yacloud.trino.catalogs.field_catalog-type }}** выберите тип [коннектора](../concepts/index.md#connector).
