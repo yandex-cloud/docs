@@ -60,4 +60,6 @@
       --endpoint-url {{ postbox-endpoint }}
     ```
 
+    где, mail@example.com - ваша доменная почта
+
 1. Проверьте почтовый ящик, указанный в `destination.json`, — туда должно прийти письмо.
