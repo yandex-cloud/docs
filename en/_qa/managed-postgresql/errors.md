@@ -268,3 +268,25 @@ Installing multiple extensions in the CLI may fail with one of these errors:
 The error occurs because the `vector` extension name in {{ mpg-name }} is `pgvector`.
 
 Solution: when accessing the extension, use `pgvector` instead of `vector`.
+
+#### Why do I get a `collation version mismatch` error when trying to upgrade my {{ PG }} cluster to version `18`? {#collation-version-mismatch}
+
+Error message:
+
+```text
+database "<DB_name>" has a collation version mismatch
+```
+
+The error occurs because {{ PG }} `18` marked changes in the collation rules, while the database uses the old rules.
+
+Solution: as the database owner, run the following command for each database:
+
+```bash
+ALTER DATABASE <DB_name> REFRESH COLLATION VERSION;
+```
+
+If your database contains indexes that depend on collation (e.g., B-tree indexes), rebuild them after running the command. This way, they will reflect the new collation rules:
+
+```bash
+REINDEX DATABASE <DB_name>;
+```

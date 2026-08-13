@@ -11004,6 +11004,42 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [update](cli-ref/smartwebsecurity/cli-ref/custom-page/custom-page/update.md)
 
+#### load-balancer
+
+ - [Overview](cli-ref/smartwebsecurity/cli-ref/load-balancer/index.md)
+
+##### domain
+
+ - [Overview](cli-ref/smartwebsecurity/cli-ref/load-balancer/domain/index.md)
+
+ - [create](cli-ref/smartwebsecurity/cli-ref/load-balancer/domain/create.md)
+
+ - [delete](cli-ref/smartwebsecurity/cli-ref/load-balancer/domain/delete.md)
+
+ - [get](cli-ref/smartwebsecurity/cli-ref/load-balancer/domain/get.md)
+
+ - [list](cli-ref/smartwebsecurity/cli-ref/load-balancer/domain/list.md)
+
+ - [update](cli-ref/smartwebsecurity/cli-ref/load-balancer/domain/update.md)
+
+##### load-balancer
+
+ - [Overview](cli-ref/smartwebsecurity/cli-ref/load-balancer/load-balancer/index.md)
+
+ - [create](cli-ref/smartwebsecurity/cli-ref/load-balancer/load-balancer/create.md)
+
+ - [delete](cli-ref/smartwebsecurity/cli-ref/load-balancer/load-balancer/delete.md)
+
+ - [get](cli-ref/smartwebsecurity/cli-ref/load-balancer/load-balancer/get.md)
+
+ - [list](cli-ref/smartwebsecurity/cli-ref/load-balancer/load-balancer/list.md)
+
+ - [start](cli-ref/smartwebsecurity/cli-ref/load-balancer/load-balancer/start.md)
+
+ - [stop](cli-ref/smartwebsecurity/cli-ref/load-balancer/load-balancer/stop.md)
+
+ - [update](cli-ref/smartwebsecurity/cli-ref/load-balancer/load-balancer/update.md)
+
 #### match-list
 
  - [Overview](cli-ref/smartwebsecurity/cli-ref/match-list/index.md)
@@ -11093,6 +11129,42 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [list](cli-ref/smartwebsecurity/cli-ref/v1/custom-page/custom-page/list.md)
 
  - [update](cli-ref/smartwebsecurity/cli-ref/v1/custom-page/custom-page/update.md)
+
+##### load-balancer
+
+ - [Overview](cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/index.md)
+
+###### domain
+
+ - [Overview](cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/domain/index.md)
+
+ - [create](cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/domain/create.md)
+
+ - [delete](cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/domain/delete.md)
+
+ - [get](cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/domain/get.md)
+
+ - [list](cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/domain/list.md)
+
+ - [update](cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/domain/update.md)
+
+###### load-balancer
+
+ - [Overview](cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/load-balancer/index.md)
+
+ - [create](cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/load-balancer/create.md)
+
+ - [delete](cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/load-balancer/delete.md)
+
+ - [get](cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/load-balancer/get.md)
+
+ - [list](cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/load-balancer/list.md)
+
+ - [start](cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/load-balancer/start.md)
+
+ - [stop](cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/load-balancer/stop.md)
+
+ - [update](cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/load-balancer/update.md)
 
 ##### match-list
 

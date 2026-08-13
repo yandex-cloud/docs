@@ -22,7 +22,7 @@ keywords:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a shard.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+    1. [Navigate]({{ link-console-main }}/link/managed-spqr) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.shards.label_title }}** tab.
     1. Click **{{ ui-key.yacloud.mdb.cluster.shards.action_add-shard }}**.
     1. Specify a shard name and select the {{ PG }} cluster whose hosts will serve as data hosts in the {{ SPQR }} cluster.
@@ -104,8 +104,8 @@ Deleting a {{ SPQR }} shard does not affect the {{ mpg-name }} cluster.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder where you want to delete a shard. 
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder where you want to delete a shard.
+    1. [Navigate]({{ link-console-main }}/link/managed-spqr) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.shards.label_title }}** tab.
     1. Find the shard you need in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in its row, and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
     1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.

@@ -18,7 +18,7 @@
   1. [Перейдите](https://console.yandex.cloud/link/serverless-containers) в сервис **Serverless Containers**.
   1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **Триггеры**.
   1. Выберите триггер, параметры которого хотите изменить.
-  1. В правом верхнем углу страницы нажмите **Редактировать**.
+  1. На панели сверху нажмите ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать**.
   1. Измените параметры триггера и нажмите кнопку **Сохранить**.
 
 - CLI {#cli}

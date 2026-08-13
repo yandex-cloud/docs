@@ -6,6 +6,8 @@
 `dns.zones.count` | 100 ||
 || Количество наборов записей в одном облаке
 `dns.recordSets.count` | 1 000 ||
+|| Количество входящих DNS-подключений в одном облаке
+`dns.endpoints.count` | 5 ||
 |#
 
 #### Лимиты {#cloud-dns-limits}

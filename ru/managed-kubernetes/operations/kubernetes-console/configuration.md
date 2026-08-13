@@ -17,8 +17,9 @@ description: Из статьи вы узнаете, как в {{ yandex-cloud }}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Нажмите на имя нужного кластера и на панели слева выберите ![Configuration](../../../_assets/console-icons/gear.svg) **{{ ui-key.yacloud.k8s.cluster.switch_configuration }}**.
-  1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.common.create }}** и выберите тип ресурса.
+  1. Выберите кластер {{ managed-k8s-name }} и перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_configuration }}**.
+  1. Перейдите на вкладку с типом ресурса, который нужно создать: **{{ ui-key.yacloud.k8s.configuration.label_config-maps }}** или **{{ ui-key.yacloud.k8s.configuration.label_secrets }}**.
+  1. Нажмите кнопку создания для выбранного типа ресурса.
   1. В выпадающем списке выберите **{{ ui-key.yacloud.k8s.cluster.field_namespace }}**, в котором будет создан ресурс.
   1. Заполните файл манифеста в соответствии с документацией {{ k8s }}: [ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/), [Secret](https://kubernetes.io/docs/concepts/configuration/secret/).
   1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.button_create-resource }}**.
@@ -37,9 +38,9 @@ description: Из статьи вы узнаете, как в {{ yandex-cloud }}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Нажмите на имя нужного кластера и на панели слева выберите ![Configuration](../../../_assets/console-icons/gear.svg) **{{ ui-key.yacloud.k8s.cluster.switch_configuration }}**.
-  1. Выберите вкладку с типом ресурса, который нужно отредактировать.
-  1. В строке ресурса нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
+  1. Выберите кластер и перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_configuration }}**.
+  1. Перейдите на вкладку с типом ресурса, который нужно отредактировать: **{{ ui-key.yacloud.k8s.configuration.label_config-maps }}** или **{{ ui-key.yacloud.k8s.configuration.label_secrets }}**.
+  1. В строке ресурса нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Внесите изменения в файл манифеста в правой части экрана. Изменения будут выделены цветом.
   1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
@@ -59,9 +60,9 @@ description: Из статьи вы узнаете, как в {{ yandex-cloud }}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Нажмите на имя нужного кластера и на панели слева выберите ![Configuration](../../../_assets/console-icons/gear.svg) **{{ ui-key.yacloud.k8s.cluster.switch_configuration }}**.
-  1. Выберите вкладку с типом ресурса, который нужно удалить.
-  1. В строке ресурса нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
-  1. Подтвердите действие.
+  1. Выберите кластер и перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_configuration }}**.
+  1. Перейдите на вкладку с типом ресурса, который нужно удалить: **{{ ui-key.yacloud.k8s.configuration.label_config-maps }}** или **{{ ui-key.yacloud.k8s.configuration.label_secrets }}**.
+  1. В строке ресурса нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
+  1. В открывшемся окне подтвердите действие.
 
 {% endlist %}

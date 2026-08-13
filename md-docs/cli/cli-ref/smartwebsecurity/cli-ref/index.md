@@ -30,6 +30,10 @@ Aliases:
 
 
 
+- [yc smartwebsecurity load-balancer](load-balancer/index.md) — 
+
+
+
 - [yc smartwebsecurity match-list](match-list/index.md) — 
 
 

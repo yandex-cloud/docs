@@ -31,14 +31,14 @@
 
 ```bash
 X-DL-API-Version: 1
-POST api.datalens.yandex.net/rpc/createReport {key, config}
+POST https://api.datalens.tech/rpc/createReport {key, config}
 ```
 
 Стало:
 
 ```bash
 X-DL-API-Version: 1
-POST api.datalens.yandex.net/rpc/createReport {key, config, description}
+POST https://api.datalens.tech/rpc/createReport {key, config, description}
 ```
 
 Если отчет был создан до появления нового поля в Public API, то он будет сконвертирован, и новому полю будет присвоено значение по умолчанию.
@@ -51,22 +51,23 @@ POST api.datalens.yandex.net/rpc/createReport {key, config, description}
 
 ```bash
 X-DL-API-Version: 1
-POST api.datalens.yandex.net/rpc/createReport {key, config}
+POST https://api.datalens.tech/rpc/createReport {key, config}
 ```
 
 Стало:
 
 ```bash
 X-DL-API-Version: 2
-POST api.datalens.yandex.net/rpc/createReport {workbookId, config}
+POST https://api.datalens.tech/rpc/createReport {workbookId, config}
 ```
 
 Старое поведение метода можно использовать, пока поддерживается предыдущая версия API. Для этого укажите в заголовке нужную версию:
 
 ```bash
 X-DL-API-Version: 1
-POST api.datalens.yandex.net/rpc/createReport {key, config}
+POST https://api.datalens.tech/rpc/createReport {key, config}
 ```
+
 
 ## Просмотр старой версии в Swagger {#swagger-versions}
 

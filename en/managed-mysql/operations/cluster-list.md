@@ -1,6 +1,6 @@
 ---
 title: Information about clusters in {{ mmy-short-name }}
-description: You can request detailed information for each {{ mmy-short-name }} cluster you have created. To get a list of database clusters in a folder, navigate to the folder dashboard and go to {{ mmy-name }}.
+description: You can request detailed information for each {{ mmy-short-name }} cluster you have created. To get a list of database clusters in your folder, navigate to the folder dashboard and select {{ mmy-name }}.
 ---
 
 # Information about existing {{ MY }} clusters
@@ -13,7 +13,7 @@ You can get detailed information about each {{ mmy-short-name }} cluster you cre
 
 - Management console {#console}
 
-  Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  [Navigate]({{ link-console-main }}/link/managed-mysql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
 
 - CLI {#cli}
 
@@ -97,7 +97,7 @@ You can get detailed information about each {{ mmy-short-name }} cluster you cre
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-mysql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Click the cluster name.
 
 - CLI {#cli}
@@ -177,7 +177,7 @@ All actions with {{ mmy-name }} clusters are logged as a list of operations. Eac
   You can get a list of cluster operations as follows:
 
   1. In the [management console]({{ link-console-main }}), open the folder containing the cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-mysql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.mysql.switch_list }}**.
   1. Select the cluster and open the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.mysql.switch_operations }}** tab.
 

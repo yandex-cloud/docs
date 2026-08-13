@@ -1,6 +1,6 @@
 ---
 title: '{{ SPQR }} cluster and host state monitoring'
-description: You can monitor the state of a {{ SPQR }} cluster and its individual hosts using the monitoring tools in the management console. These tools display diagnostic information as charts. You can also configure {{ monitoring-full-name }} alerts for automated cluster health monitoring.
+description: You can monitor the state of a {{ SPQR }} cluster and its individual hosts using the monitoring tools in the management console. These tools display diagnostic information as charts. You can also configure {{ monitoring-full-name }} alerts for automated cluster state monitoring.
 ---
 
 # {{ SPQR }} cluster and host state monitoring
@@ -13,11 +13,11 @@ description: You can monitor the state of a {{ SPQR }} cluster and its individua
 
 {% include [alerts](../../_includes/mdb/alerts.md) %}
 
-## Cluster health state monitoring {#monitoring-cluster}
+## Cluster state monitoring {#monitoring-cluster}
 
 To view health details for a {{ mspqr-name }} cluster:
 
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+1. [Navigate]({{ link-console-main }}/link/managed-spqr) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
 
 1. Click the cluster name and open the **Monitoring** tab.
 
@@ -51,7 +51,7 @@ You will see the following charts:
 
 To view detailed information about the status of individual {{ mspqr-name }} hosts:
 
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+1. [Navigate]({{ link-console-main }}/link/managed-spqr) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
 1. Click the cluster name and open the **Monitoring** → **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
 1. Click the line of the host in the list.
 
@@ -75,11 +75,11 @@ To configure automatic monitoring of key cluster health metrics:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder with the cluster for which you want to set up alerts.
-    1. Navigate to ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+    1. [Navigate]({{ link-monitoring }}) to ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
     1. Under **{{ ui-key.yacloud_monitoring.homepage.title_service-dashboards }}**, select:
         * **{{ mspqr-name }} — Cluster Overview** to configure cluster alerts.
         * **{{ mspqr-name }} — Host Overview** to set up host alerts.
-    1. In the relevant chart, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+    1. Click ![options](../../_assets/console-icons/ellipsis.svg) on the chart of interest and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
     1. If the chart displays multiple metrics, select the data query for the relevant metric and click **{{ ui-key.yacloud.common.continue }}**. For more on the query language, see [this {{ monitoring-full-name }} guide](../../monitoring/concepts/querying.md).
     1. Set the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` and `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` alert thresholds.
     1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.

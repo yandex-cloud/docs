@@ -10,9 +10,9 @@
 
 - Management console {#console}
 
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+    1. [Navigate]({{ link-console-main }}/link/managed-mysql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
     1. Click the name of your cluster and select the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.mysql.cluster.switch_logs }}** tab.
-    1. Specify a time period for the log entries you want to view by entering it manually or selecting it in the calendar using the date input field.
+    1. Specify a time period for the log entries you want to view: enter it manually or select in the calendar using the date input field.
     1. Select the type of events to display. The default type is `MYSQL_ERROR`.
     1. Specify the hosts and logging level in the row with the date input field, if required.
 

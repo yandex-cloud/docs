@@ -17,8 +17,9 @@ description: Из статьи вы узнаете, как в {{ yandex-cloud }}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Нажмите на имя нужного кластера и на панели слева выберите ![Namespaces](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.k8s.cluster.switch_namespaces }}**.
-  1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Выберите кластер {{ managed-k8s-name }}.
+  1. Нажмите на вкладку **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) и выберите **{{ ui-key.yacloud.k8s.cluster.switch_namespaces }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.k8s.namespaces.button_filter-create }}**.
   1. В открывшемся окне введите **{{ ui-key.yacloud.k8s.namespaces.popup-add_field_name }}** пространства имен.
 
      {% include [note-namespace-kube](../../../_includes/managed-kubernetes/note-namespace-kube.md) %}
@@ -39,8 +40,9 @@ description: Из статьи вы узнаете, как в {{ yandex-cloud }}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Нажмите на имя нужного кластера и на панели слева выберите ![Namespaces](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.k8s.cluster.switch_namespaces }}**.
-  1. В строке пространства имен нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
-  1. Подтвердите действие.
+  1. Выберите кластер {{ managed-k8s-name }}.
+  1. Нажмите на вкладку **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) и выберите **{{ ui-key.yacloud.k8s.cluster.switch_namespaces }}**.
+  1. В строке пространства имен нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
+  1. В открывшемся окне подтвердите действие.
 
 {% endlist %}

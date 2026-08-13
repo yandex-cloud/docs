@@ -95,25 +95,9 @@ You pay for the following:
         * For **Intel Ice Lake** and **AMD Zen 4**: In {{ local-ssd-v3-step }} increments.
    * You can order non-replicated SSD storage (`network-ssd-nonreplicated`) only for clusters with three or more hosts, and it must be allocated in 93 GB increments.
 
-* Database backup storage exceeding the cluster’s allocated space.
- 
-   {% include [pricing-backup](../_includes/mdb/pricing-backup.md) %} 
+{% include [pricing-backup-general](../_includes/mdb/pricing-backup-ch-os-gp.md) %} 
 
-   * Backup storage is not billable until the total volume of backups exceeds that of the cluster storage. This calculation does not count in the data volume of the database itself.
-  
-   * The number of hosts in a cluster does not affect the storage size and, consequently, the free backup quota.
-
-   * If the combined size of the database and all its backups exceeds the cluster storage size, you only pay for the portion in excess of the storage size.
-
-   * When performing automatic backups, {{ mch-short-name }} does not create a new backup but saves the database changes introduced since the previous one. As a result, the storage used by automatic backups grows only in proportion to the amount of changes.
-
-* The storage size used by cold data backups of [hybrid storage](concepts/storage.md#hybrid-storage-features):
-
-   * Cold data backups are stored in the same {{ objstorage-name }} bucket as the data itself.
-
-   * The cost of using {{ objstorage-name }} includes both the space used by the backups and the space used by the data itself.
-
-   * When performing automatic backups, {{ mch-short-name }} does not create a new backup but saves the database changes introduced since the previous one. As a result, the storage used by automatic backups grows only in proportion to the amount of changes.
+For more information, see [Backups in {{ mch-name }}](concepts/backup.md).
 
 The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes is billed as 2 minutes.
 

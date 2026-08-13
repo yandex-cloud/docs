@@ -75,8 +75,8 @@ After the upgrade, it is impossible to revert the cluster to a previous version.
 
 - Management console {#console}
 
-  1. Open the [folder dashboard]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Select the cluster you need from the list and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Select the new version number in the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -236,6 +236,7 @@ After the upgrade, all non-backward-compatible {{ SD }} features will be disable
 ## Updating the cluster compatibility version {#compatibility-update}
 
 Updating the cluster compatibility version is necessary when you need to:
+
 * Upgrade your cluster to a new version (when the compatibility version does not match the current cluster version).
 * Enable the new {{ SD }} features after the cluster upgrade.
 
@@ -251,8 +252,8 @@ Updating the cluster compatibility version is irreversible.
 
 - Management console {#console}
 
-  1. Open the [folder dashboard]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Select the cluster you need from the list and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_fcv }}** field, select the required version number.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.

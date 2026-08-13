@@ -13,7 +13,7 @@ You can connect to a {{ VLK }} cluster using [command line tools](#command-line-
 
 The setup method depends on whether [sharding](../../concepts/sharding.md) is enabled in the cluster.
 
-### redis-cli {#redis-cli}
+### valkey-cli (redis-cli) {#valkey-cli}
 
 For {{ VLK }} clusters, there is support for encrypted connections on port `{{ port-mrd-tls }}` and unencrypted connections on port `{{ port-mrd }}`.
 
@@ -45,27 +45,69 @@ To always connect to the master in a non-sharded cluster, use a [special FQDN](f
                -a <password>
            ```
 
-- Connecting with SSL {#with-ssl}
+- Connecting with SSL via valkey-cli {#with-ssl}
+
+    1. **Before connecting, install the dependencies**:
+
+        1. Navigate to the directory you want to download the {{ VLK }} distribution to.
+
+        1. Download the correct {{ VLK }} [version](https://github.com/valkey-io/valkey/releases), then build and install it with TLS support:
+
+            ```bash
+            wget https://github.com/valkey-io/valkey/archive/refs/tags/<version>.tar.gz && \
+            tar -xzvf <version>.tar.gz && \
+            cd valkey-<version> && \
+            make BUILD_TLS=yes && \
+            sudo make install && \
+            sudo cp ./src/valkey-cli /usr/bin/
+            ```
+
+    1. **Connect directly to the master host**:
+
+        * In a sharded cluster:
+
+            ```bash
+            valkey-cli \
+                -h c-<cluster_ID>.rw.{{ dns-zone }} \
+                -a <password> \
+                -p {{ port-mrd-tls }} \
+                --tls \
+                --cacert ~/.redis/{{ crt-local-file }}
+            ```
+
+        * In a non-sharded cluster:
+
+            ```bash
+            valkey-cli \
+                -c \
+                -h <FQDN_of_master_host_in_target_shard> \
+                -a <password> \
+                -p {{ port-mrd-tls }} \
+                --tls \
+                --cacert ~/.redis/{{ crt-local-file }} \
+            ```
+
+- Connecting with SSL via redis-cli {#with-ssl-2}
 
     1. {% include [Install requirements SSL](../../../_includes/mdb/mvk/connect/bash/install-requirements-ssl.md) %}
 
     1. **Connect directly to the master host:**
 
-       * In a sharded cluster:
+        * In a sharded cluster:
 
-         {% include [default-connstring](../../../_includes/mdb/mvk/default-connstring.md) %}
+            {% include [default-connstring](../../../_includes/mdb/mvk/default-connstring.md) %}
 
-       * In a non-sharded cluster:
+        * In a non-sharded cluster:
 
-          ```bash
-          redis-cli \
-              -c \
-              -h <FQDN_of_master_host_in_target_shard> \
-              -a <password> \
-              -p {{ port-mrd-tls }} \
-              --tls \
-              --cacert ~/.redis/{{ crt-local-file }} \
-          ```
+            ```bash
+            redis-cli \
+                -c \
+                -h <FQDN_of_master_host_in_target_shard> \
+                -a <password> \
+                -p {{ port-mrd-tls }} \
+                --tls \
+                --cacert ~/.redis/{{ crt-local-file }} \
+            ```
 
 {% endlist %}
 

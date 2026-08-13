@@ -19,7 +19,7 @@ description: In this tutorial, you will learn how to delete a {{ mgp-name }} clu
 - Management console {#console}
 
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the cluster in question, select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**, and confirm the deletion.
 
 - CLI {#cli}

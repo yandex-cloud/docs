@@ -144,9 +144,8 @@
 1. Получите IP-адрес нового балансировщика нагрузки:
     * Запросите статус ресурса `Ingress` командой `kubectl get Ingress`.
     * В [консоли управления]({{ link-console-main }}):
-      * Перейдите на страницу кластера {{ managed-k8s-name }}.
-      * На панели слева выберите ![image](../../../_assets/console-icons/timestamps.svg) **{{ ui-key.yacloud.k8s.cluster.switch_network }}**.
-      * Перейдите на вкладку **{{ ui-key.yacloud.k8s.network.label_ingress }}**.
+      * Откройте страницу кластера {{ managed-k8s-name }}.
+      * Перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_network }}**, затем **{{ ui-key.yacloud.k8s.network.label_ingress }}**.
 1. Убедитесь, что маршрутизация работает, как ожидается. Для этого протестируйте доступность HTTP/HTTPS-эндпоинтов вашего приложения.
 1. Убедитесь, что проверки статуса бэкендов показывают их работоспособность.
 1. Проверьте наличие ошибок в [логах](../../../application-load-balancer/operations/application-load-balancer-get-logs.md) и наличие признаков проблем с производительностью в [метриках балансировщика](../../../application-load-balancer/metrics.md).

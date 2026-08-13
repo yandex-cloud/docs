@@ -37,6 +37,7 @@
 [NEXTREMUM](https://nextremum.net/ru) | TEHNO, M9 | 10 000 | - |
 [Телеком биржа](https://cirex.ru) | NORD | 1 000 | - |
 [ТаймВеб](https://timeweb.com) | M9 | 10 000 | - |
+[China Mobile](https://www.cmi.chinamobile.com) | M9 | 1 000 | - |
 
 где:
 

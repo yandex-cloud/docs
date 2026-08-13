@@ -47,9 +47,8 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   Чтобы изменить кластер {{ managed-k8s-name }}:
-  1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где требуется изменить кластер {{ managed-k8s-name }}.
-  1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
+  1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где нужно изменить кластер {{ managed-k8s-name }}.
+  1. В строке кластера {{ managed-k8s-name }} нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. В открывшемся окне измените необходимые параметры.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
@@ -171,8 +170,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
     1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где расположен кластер {{ managed-k8s-name }}.
-    1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
+    1. В строке кластера {{ managed-k8s-name }} нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
     1. В поле **{{ ui-key.yacloud.component.label-set.label_labels }}** нажмите **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
     1. Введите ключ и значение и нажмите **Enter**.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
@@ -209,8 +207,7 @@ description: Следуя данной инструкции, вы сможете
   Чтобы изменить облачную метку, потребуется удалить ее и создать заново:
 
     1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где расположен кластер {{ managed-k8s-name }}.
-    1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
+    1. В строке кластера {{ managed-k8s-name }} нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
     1. В поле **{{ ui-key.yacloud.component.label-set.label_labels }}** нажмите на крестик рядом с нужной меткой, чтобы удалить ее.
     1. Нажмите **{{ ui-key.yacloud.component.label-set.button_add-label }}** и введите ключ и/или значение новой метки.
     1. Нажмите **Enter**, а затем — **{{ ui-key.yacloud.common.save }}**.
@@ -247,8 +244,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
     1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где расположен кластер {{ managed-k8s-name }}.
-    1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
+    1. В строке кластера {{ managed-k8s-name }} нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
     1. В поле **{{ ui-key.yacloud.component.label-set.label_labels }}** нажмите на крестик рядом с нужной меткой.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
@@ -279,10 +275,9 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где требуется изменить кластер {{ managed-k8s-name }}.
-  1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
-  1. В блоке **{{ ui-key.yacloud.k8s.clusters.create.section_main-cluster }}** раскройте секцию **Вычислительные ресурсы** и выберите [конфигурацию ресурсов](../../concepts/index.md#master-resources) для мастера.
+  1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где нужно изменить кластер {{ managed-k8s-name }}.
+  1. В строке кластера {{ managed-k8s-name }} нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. В блоке **{{ ui-key.yacloud.k8s.clusters.create.section_main-cluster }}** раскройте секцию **{{ ui-key.yacloud.k8s.clusters.create.label_master-computing-resources }}** и выберите [конфигурацию ресурсов](../../concepts/index.md#master-resources) для мастера.
 
       {% include [master-autoscale](../../../_includes/managed-kubernetes/master-autoscale.md) %}
 

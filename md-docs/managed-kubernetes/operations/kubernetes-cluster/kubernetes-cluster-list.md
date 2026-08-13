@@ -12,7 +12,7 @@
 
 - Консоль управления {#console}
 
-  Чтобы получить список кластеров Kubernetes, в [консоли управления](https://console.yandex.cloud) выберите каталог и Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+  Чтобы получить список кластеров Kubernetes, в [консоли управления](https://console.yandex.cloud) выберите каталог и перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
 
 - CLI {#cli}
 
@@ -48,7 +48,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
   1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
-  1. Нажмите на имя нужного кластера Kubernetes.
+  1. Выберите кластер Managed Service for Kubernetes.
 
 - CLI {#cli}
 

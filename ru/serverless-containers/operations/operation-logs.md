@@ -14,7 +14,7 @@
   1. [Перейдите]({{ link-console-main }}/link/serverless-containers) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/boxes-3.svg) **{{ ui-key.yacloud.serverless-containers.label_containers }}**.
   1. Выберите нужный контейнер.
-  1. Перейдите на панель ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** для выбранного контейнера.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.common.operations-key-value }}** для выбранного контейнера.
 
       В открывшемся списке отображаются операции с выбранным контейнером.
 

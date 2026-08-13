@@ -17,8 +17,9 @@ description: Из статьи вы узнаете, как в {{ yandex-cloud }}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Нажмите на имя нужного кластера и на панели слева выберите ![Access](../../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.k8s.cluster.switch_access }}**.
-  1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.common.create }}** и выберите **{{ ui-key.yacloud.k8s.access.button_create-sa }}**.
+  1. Выберите кластер {{ managed-k8s-name }}.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_access }}**, затем **{{ ui-key.yacloud.k8s.access.label_service-accounts }}**.
+  3. Нажмите кнопку **{{ ui-key.yacloud.k8s.access.button_filter-create-sa }}**.
   1. В открывшемся окне введите **{{ ui-key.yacloud.k8s.access.popup-add-sa_field_name }}** сервисного аккаунта.
   1. В выпадающем списке выберите **{{ ui-key.yacloud.k8s.access.popup-add-sa_field_namespace }}**, в котором будет создан сервисный аккаунт.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
@@ -37,8 +38,9 @@ description: Из статьи вы узнаете, как в {{ yandex-cloud }}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Нажмите на имя нужного кластера и на панели слева выберите ![Access](../../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.k8s.cluster.switch_access }}**.
-  1. В строке сервисного аккаунта нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+  1. Выберите кластер {{ managed-k8s-name }}.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_access }}**, затем **{{ ui-key.yacloud.k8s.access.label_service-accounts }}**.
+  1. В строке сервисного аккаунта нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. Подтвердите действие.
 
 {% endlist %}

@@ -12569,6 +12569,56 @@ items:
                   - name: update
                     href: >-
                       cli-ref/smartwebsecurity/cli-ref/custom-page/custom-page/update.md
+          - name: load-balancer
+            items:
+              - name: Overview
+                href: cli-ref/smartwebsecurity/cli-ref/load-balancer/index.md
+              - name: domain
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/load-balancer/domain/index.md
+                  - name: create
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/load-balancer/domain/create.md
+                  - name: delete
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/load-balancer/domain/delete.md
+                  - name: get
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/load-balancer/domain/get.md
+                  - name: list
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/load-balancer/domain/list.md
+                  - name: update
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/load-balancer/domain/update.md
+              - name: load-balancer
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/load-balancer/load-balancer/index.md
+                  - name: create
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/load-balancer/load-balancer/create.md
+                  - name: delete
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/load-balancer/load-balancer/delete.md
+                  - name: get
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/load-balancer/load-balancer/get.md
+                  - name: list
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/load-balancer/load-balancer/list.md
+                  - name: start
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/load-balancer/load-balancer/start.md
+                  - name: stop
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/load-balancer/load-balancer/stop.md
+                  - name: update
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/load-balancer/load-balancer/update.md
           - name: match-list
             items:
               - name: Overview
@@ -12684,6 +12734,56 @@ items:
                       - name: update
                         href: >-
                           cli-ref/smartwebsecurity/cli-ref/v1/custom-page/custom-page/update.md
+              - name: load-balancer
+                items:
+                  - name: Overview
+                    href: cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/index.md
+                  - name: domain
+                    items:
+                      - name: Overview
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/domain/index.md
+                      - name: create
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/domain/create.md
+                      - name: delete
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/domain/delete.md
+                      - name: get
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/domain/get.md
+                      - name: list
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/domain/list.md
+                      - name: update
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/domain/update.md
+                  - name: load-balancer
+                    items:
+                      - name: Overview
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/load-balancer/index.md
+                      - name: create
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/load-balancer/create.md
+                      - name: delete
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/load-balancer/delete.md
+                      - name: get
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/load-balancer/get.md
+                      - name: list
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/load-balancer/list.md
+                      - name: start
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/load-balancer/start.md
+                      - name: stop
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/load-balancer/stop.md
+                      - name: update
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/load-balancer/update.md
               - name: match-list
                 items:
                   - name: Overview

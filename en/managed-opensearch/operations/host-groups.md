@@ -27,8 +27,8 @@ For information about migrating host groups in a {{ mos-name }} cluster to a dif
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), navigate to the folder page.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/managed-opensearch) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Locate the cluster you need in the list, click its name, and select the ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}** tab.
 
 - CLI {#cli}
@@ -114,8 +114,8 @@ To create a host group:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), navigate to the folder page.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/managed-opensearch) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Locate the cluster you need in the list, click its name, and select the ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}** tab.
     1. Click **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_add-node-group }}**.
     1. Specify the group parameters:
@@ -184,7 +184,7 @@ To create a host group:
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create such a file, see the [Creating a cluster](cluster-create.md) section.
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
         For a complete list of configurable {{ mos-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mos }}).
 
@@ -506,8 +506,8 @@ To create a host group:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), navigate to the folder page.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/managed-opensearch) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Locate the cluster you need in the list, click its name, and select the ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}** tab.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with the group you need and select **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_edit }}**.
     1. Change the host group settings:
@@ -577,7 +577,7 @@ To create a host group:
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create such a file, see the [Creating a cluster](cluster-create.md) section.
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
         For a complete list of configurable {{ mos-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mos }}).
 
@@ -911,8 +911,8 @@ The following restrictions apply when deleting a host group:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), navigate to the folder page.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/managed-opensearch) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Locate the cluster you need in the list, click its name, and select the ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}** tab.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with the group you need and select **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_delete }}**.
 
@@ -937,7 +937,7 @@ The following restrictions apply when deleting a host group:
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create such a file, see the [Creating a cluster](cluster-create.md) section.
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
         For a complete list of configurable {{ mos-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mos }}).
 
@@ -1052,13 +1052,13 @@ The following restrictions apply when deleting a host group:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), navigate to the folder page.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/managed-opensearch) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Click the cluster name and select the ![hosts](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

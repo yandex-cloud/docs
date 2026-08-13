@@ -46,7 +46,7 @@ This guide deals with connecting to the cluster from the internet.
 ## Create a cluster {#create-cluster}
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+1. [Navigate]({{ link-console-main }}/link/managed-opensearch) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**. For more information, see [Creating a cluster](operations/cluster-create.md).
 1. Configure the cluster.
 

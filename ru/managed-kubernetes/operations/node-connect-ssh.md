@@ -126,8 +126,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Выберите кластер {{ managed-k8s-name }}.
-  1. На панели слева выберите **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
+  1. Выберите кластер {{ managed-k8s-name }} и перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**.
   1. Задайте параметры группы узлов.
   1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_access }}** укажите данные для доступа на узел {{ managed-k8s-name }}:
@@ -240,9 +239,8 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Выберите кластер {{ managed-k8s-name }}.
-  1. На панели слева выберите **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
-  1. На вкладке **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** выберите группу узлов, в которой вы хотите обновить реквизиты.
-  1. На панели сверху нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**, с ней откроется вкладка **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
+  1. В строке группы узлов, в которой вы хотите обновить реквизиты, нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Раскройте блок **{{ ui-key.yacloud.common.metadata }}**.
   1. Замените текущее значение ключа `ssh-keys` на содержимое файла с реквизитами.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
@@ -365,12 +363,13 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** в каталоге, где создан ваш кластер {{ managed-k8s-name }}.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан ваш кластер {{ managed-k8s-name }}.
+  1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
-  1. Нажмите на группу ВМ, имя которой соответствует идентификатору группы узлов {{ managed-k8s-name }}.
-  1. В открывшемся окне перейдите на вкладку **{{ ui-key.yacloud.compute.group.switch_instances }}**.
-  1. Нажмите на ВМ, публичный адрес которой хотите узнать.
-  1. Публичный IP-адрес указан в блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** в строке **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}**.
+  1. Выберите группу ВМ, имя которой соответствует идентификатору группы узлов {{ managed-k8s-name }}, и перейдите на вкладку **{{ ui-key.yacloud.compute.group.switch_instances }}**.
+  1. Выберите ВМ, публичный адрес которой хотите узнать.
+
+      Публичный IP-адрес указан в блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** в строке **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}**.
 
 - CLI {#cli}
 

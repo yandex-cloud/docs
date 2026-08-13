@@ -610,14 +610,14 @@
       1. В блоке **{{ ui-key.yacloud.serverless-containers.section_image }}**:
 
           1. В поле **{{ ui-key.yacloud.serverless-containers.label_image-url }}** укажите URL Docker-образа, загруженного [ранее](#push-image).
-          1. В поле **{{ ui-key.yacloud.serverless-containers.label_environment }}** добавьте переменные:
+          1. В блоке **{{ ui-key.yacloud.serverless-containers.label_environment }}** добавьте переменные:
 
               * `ME_CONFIG_BASICAUTH_USERNAME` — оставьте значение пустым.
               * `ME_CONFIG_BASICAUTH_PASSWORD` — оставьте значение пустым.
               * `VCAP_APP_PORT` — укажите порт `8080`.
               * `ME_CONFIG_MONGODB_SERVER` — укажите публичный адрес ВМ, полученный [ранее](#create-vm).
 
-          1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}** укажите секреты:
+          1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}** укажите секреты:
 
               * `ME_CONFIG_MONGODB_AUTH_USERNAME` — укажите секрет с ключом `login`.
               * `ME_CONFIG_MONGODB_AUTH_PASSWORD` — укажите секрет с ключом `password`.

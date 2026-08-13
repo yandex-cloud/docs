@@ -10,7 +10,7 @@ You can add and remove databases, view database details, and manage some databas
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-mysql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_databases }}** tab.
 
 - CLI {#cli}
@@ -117,7 +117,7 @@ You can add and remove databases, view database details, and manage some databas
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-mysql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Click the cluster name.
   1. If you want a new user to become the database owner, [create it](cluster-users.md#adduser).
   1. Select the **{{ ui-key.yacloud.mysql.cluster.switch_databases }}** tab.
@@ -248,7 +248,7 @@ You can add and remove databases, view database details, and manage some databas
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-mysql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_databases }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with the database in question and select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**.
 
@@ -347,7 +347,7 @@ You can set or update the [sql_mode](../concepts/settings-list.md#setting-sql-mo
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-mysql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
   1. In the list of the settings, locate **sql_mode**.

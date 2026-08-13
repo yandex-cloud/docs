@@ -18,6 +18,7 @@
 
           * **{{ ui-key.yacloud.serverless-containers.label_working-directory }}** — позволяет изменить рабочую директорию контейнера. Соответствует инструкции `WORKDIR` в Dockerfile. Рекомендуется устанавливать абсолютные пути к папкам.
 
+  1. В разделе **{{ ui-key.yacloud.serverless-containers.section_parameters }}** выберите сервисный аккаунт, у которого есть права на скачивание Docker-образа.
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-containers.button_deploy-revision }}**.
 
 - CLI {#cli}

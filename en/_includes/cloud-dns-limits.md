@@ -6,6 +6,8 @@
 `dns.zones.count` | 100 ||
 || Number of record sets per cloud
 `dns.recordSets.count` | 1,000 ||
+|| Number of inbound DNS endpoints per cloud
+`dns.endpoints.count` | 5 ||
 |#
 
 #### Limits {#cloud-dns-limits}

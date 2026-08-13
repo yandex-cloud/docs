@@ -65,6 +65,7 @@
 * [CI/CD](ci-cd.md)
 * [Спринт](sprints.md)
 * [Что такое Kanban-доска](kanban.md)
+* [Диаграмма Ганта](gantt-chart.md)
 
 ## Сети и доставка контента {#networks}
 
@@ -211,6 +212,8 @@
  - [CI/CD](ci-cd.md)
 
  - [Спринт](sprints.md)
+
+ - [Диаграмма Ганта](gantt-chart.md)
 
 ## Сети и доставка контента
 

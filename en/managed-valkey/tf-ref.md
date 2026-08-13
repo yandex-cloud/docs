@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ mrd-full-name }}'
-description: This page lists the {{ TF }} provider resources and data sources supported by {{ mrd-name }}.
+description: This page lists {{ TF }} provider resources and data sources supported by {{ mrd-name }}.
 ---
 
 # {{ TF }} reference for {{ mrd-full-name }}
@@ -16,6 +16,7 @@ description: This page lists the {{ TF }} provider resources and data sources su
 | [yandex_mdb_redis_cluster_v2]({{ tf-provider-resources-link }}/mdb_redis_cluster_v2) | [Cluster](./concepts/index.md) |
 | [yandex_mdb_redis_cluster_iam_binding]({{ tf-provider-resources-link }}/mdb_redis_cluster_iam_binding) | [Configuring](../iam/concepts/access-control/index.md#access-bindings) cluster access permissions |
 | [yandex_mdb_redis_user]({{ tf-provider-resources-link }}/mdb_redis_user) | {{ VLK }} user |
+| [yandex_mdb_redis_backup_retention_policy]({{ tf-provider-resources-link }}/mdb_redis_backup_retention_policy) | Backup policy |
 
 ## Data sources {#data-sources}
 
@@ -25,3 +26,4 @@ description: This page lists the {{ TF }} provider resources and data sources su
 | --- | --- |
 | [yandex_mdb_redis_cluster_v2]({{ tf-provider-datasources-link }}/mdb_redis_cluster_v2) | [Cluster](./concepts/index.md) information |
 | [yandex_mdb_redis_user]({{ tf-provider-datasources-link }}/mdb_redis_user) | {{ VLK }} user information |
+| [yandex_mdb_redis_backup_retention_policy]({{ tf-provider-datasources-link }}/mdb_redis_backup_retention_policy) | Backup policy information |

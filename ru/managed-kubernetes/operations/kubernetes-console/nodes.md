@@ -19,10 +19,9 @@ description: Из статьи вы узнаете, как в {{ yandex-cloud }}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Нажмите на имя нужного кластера и на панели слева выберите ![Nodes](../../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
-  1. Выберите вкладку **{{ ui-key.yacloud.k8s.nodes.label_nodes }}**.
-  1. Нажмите на имя нужного узла.
-  1. В правом верхнем углу нажмите кнопку ![Cordon](../../../_assets/console-icons/lock.svg) **{{ ui-key.yacloud.k8s.nodes.button_action-cordon }}**.
+  1. Выберите кластер {{ managed-k8s-name }} и перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.nodes.label_nodes }}**.
+  1. В строке узла нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![Cordon](../../../_assets/console-icons/lock.svg) **{{ ui-key.yacloud.k8s.nodes.button_action-cordon }}**.
   1. Подтвердите действие.
 
 {% endlist %}
@@ -39,10 +38,9 @@ description: Из статьи вы узнаете, как в {{ yandex-cloud }}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Нажмите на имя нужного кластера и на панели слева выберите ![Nodes](../../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
-  1. Выберите вкладку **{{ ui-key.yacloud.k8s.nodes.label_nodes }}**.
-  1. Нажмите на имя нужного узла.
-  1. В правом верхнем углу нажмите кнопку ![Uncordon](../../../_assets/console-icons/lock-open.svg) **{{ ui-key.yacloud.k8s.nodes.button_action-uncordon }}**.
+  1. Выберите кластер {{ managed-k8s-name }} и перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.nodes.label_nodes }}**.
+  1. В строке узла нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![Uncordon](../../../_assets/console-icons/lock-open.svg) **{{ ui-key.yacloud.k8s.nodes.button_action-uncordon }}**.
   1. Подтвердите действие.
 
 {% endlist %}

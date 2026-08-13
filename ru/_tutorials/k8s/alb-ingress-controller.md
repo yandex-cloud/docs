@@ -497,9 +497,9 @@
 
      1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
      1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-     1. Нажмите на имя нужного кластера и на панели слева выберите **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}**.
+     1. Выберите кластер {{ managed-k8s-name }} и перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}**.
      1. Выберите один из подов `alb-demo-***`, в котором запущен процесс создания балансировщика.
-     1. На странице пода перейдите на вкладку **{{ ui-key.yacloud.k8s.workloads.label_tab-logs }}**.
+     1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.workloads.label_tab-logs }}**.
 
         В режиме реального времени записываются и отображаются логи о создании балансировщика. Если возникла ошибка во время создания, она появится в логах.
 
@@ -752,9 +752,9 @@
 
      1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
      1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-     1. Нажмите на имя нужного кластера и на панели слева выберите **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}**.
+     1. Выберите кластер {{ managed-k8s-name }} и перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}**.
      1. Выберите один из подов `alb-demo-***`, в котором запущен процесс создания балансировщика.
-     1. На странице пода перейдите на вкладку **{{ ui-key.yacloud.k8s.workloads.label_tab-logs }}**.
+     1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.workloads.label_tab-logs }}**.
 
         В режиме реального времени записываются и отображаются логи о создании балансировщика. Если возникла ошибка во время создания, она появится в логах.
 

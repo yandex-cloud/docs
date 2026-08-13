@@ -111,10 +111,10 @@
 
     - Консоль управления {#console}
 
-      1. На странице кластера {{ managed-k8s-name }} перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
-      1. Выберите созданную группу узлов {{ managed-k8s-name }} в списке.
-      1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.
-      1. В поле **{{ ui-key.yacloud.k8s.node-group.overview.label_secret }}** выберите в выпадающем списке имя созданного секрета.
+      1. В [консоли управления]({{ link-console-main }}) откройте страницу кластера {{ managed-k8s-name }}.
+      1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**, затем **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
+      1. В строке созданной группы узлов нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+      1. В поле **{{ ui-key.yacloud.k8s.node-group.overview.label_secret }}** в выпадающем списке выберите имя созданного секрета.
       1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
     {% endlist %}
@@ -172,12 +172,12 @@
 
 - Консоль управления {#console}
 
-  1. На странице кластера {{ managed-k8s-name }} перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
-  1. Нажмите на имя созданной группы узлов {{ managed-k8s-name }}.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.node-group.overview.label_tab-nodes }}**.
-  1. Проверьте, что созданный узел {{ managed-k8s-name }} имеет статус `Ready`.
-  1. Откройте созданный узел и перейдите на вкладку **{{ ui-key.yacloud.k8s.node.overview.label_events }}**.
-  1. Проверьте, что все этапы подключения сервера завершились успешно.
+  1. В [консоли управления]({{ link-console-main }}) откройте страницу кластера {{ managed-k8s-name }}.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**, затем **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
+  1. Выберите созданную группу узлов {{ managed-k8s-name }} и перейдите на вкладку **{{ ui-key.yacloud.k8s.node-group.overview.label_tab-nodes }}**.
+  1. Убедитесь, что созданный узел {{ managed-k8s-name }} имеет статус `Ready`.
+  1. Откройте этот узел и перейдите на вкладку **{{ ui-key.yacloud.k8s.node.overview.label_events }}**.
+  1. Убедитесь, что все этапы подключения сервера завершились успешно.
 
 {% endlist %}
 

@@ -60,7 +60,8 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
   1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![Marketplace](../../../_assets/console-icons/shopping-cart.svg) **Marketplace**.
+  1. Выберите [кластер Managed Service for Kubernetes](../../concepts/index.md#kubernetes-cluster).
+  1. Нажмите на вкладку **Другое** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) и выберите **Marketplace**.
   1. В разделе **Доступные для установки приложения** выберите [ALB Ingress Controller](https://yandex.cloud/ru/marketplace/products/yc/alb-ingress-controller) и нажмите кнопку **Перейти к установке**.
   1. Задайте настройки приложения:
 

@@ -605,8 +605,8 @@ kubectl get pods -n kube-system -l k8s-app=kube-dns -o wide
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
 1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
 1. Нажмите на имя нужного кластера Managed Service for Kubernetes и выберите вкладку **Управление узлами**.
-1. Перейдите во вкладку **Узлы** и нажмите на имя любого узла Managed Service for Kubernetes.
-1. Перейдите во вкладку **Мониторинг**.
+1. Перейдите на вкладку **Узлы** и нажмите на имя любого узла Managed Service for Kubernetes.
+1. Перейдите на вкладку **Мониторинг**.
 1. Убедитесь, что на графике **CPU, [cores]** значения используемой мощности CPU `used` не достигают значений доступной мощности CPU `total`. Проверьте это для всех узлов кластера Managed Service for Kubernetes.
 
 ##### Настройте автоматическое масштабирование {#dns-autoscaler}

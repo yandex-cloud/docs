@@ -1,7 +1,8 @@
 #### Why do cluster writes fail? {#write-failure}
 
 1. If the database storage reaches 95% capacity, the cluster will switch to read-only mode. Check the amount of free space in your storage and increase the storage size, if required. To check the amount of free space:
-   1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+   1. In the [management console]({{ link-console-main }}), select a folder.
+   1. [Navigate]({{ link-console-main }}/link/managed-mysql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mysql.cluster.switch_monitoring }}** tab.
    1. Check the **Disk usage** chart.
 1. Make sure all writes target the master host, not a [replica](../../managed-mysql/qa/mysql.md#read-only-instance).
@@ -21,11 +22,13 @@ To find out the actual size of database tables, use the `INNODB_SYS_TABLESPACES`
 #### What should I do in case of an application error? {#application-error}
 
 1. Check whether the disk hosting your cluster has enough free space:
-   1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+   1. In the [management console]({{ link-console-main }}), select a folder.
+   1. [Navigate]({{ link-console-main }}/link/managed-mysql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mysql.cluster.switch_monitoring }}** tab.
    1. Check the **Disk usage** chart.
 1. Check host monitoring charts:
-   1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+   1. In the [management console]({{ link-console-main }}), select a folder.
+   1. [Navigate]({{ link-console-main }}/link/managed-mysql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. Click the name of your cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
    1. Go to the **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}** page.
    1. Find the resource in question: its chart will be approaching or crossing the limit.

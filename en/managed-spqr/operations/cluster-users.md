@@ -13,7 +13,7 @@ You can add and remove users, as well as manage their individual settings.
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-spqr) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.spqr.cluster.switch_users }}** tab.
 
 - REST API {#api}
@@ -123,7 +123,7 @@ You can add and remove users, as well as manage their individual settings.
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-spqr) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.spqr.cluster.switch_users }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
   1. Specify the database user name.
@@ -196,7 +196,7 @@ You can add and remove users, as well as manage their individual settings.
      Where: 
 
      * {% include [cluster-id](../../_includes/managed-spqr/cluster-id.md) %}
-     * `userSpec` are the new database user settings:
+     * Where `userSpec` are the new database user settings:
 
        * `name`: Username.
 
@@ -266,7 +266,7 @@ You can add and remove users, as well as manage their individual settings.
      Where:
 
      * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
-     * `user_spec` are the new database user settings:
+     * Where `user_spec` are the new database user settings:
 
        * `name`: Username.
 
@@ -301,7 +301,7 @@ You can add and remove users, as well as manage their individual settings.
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-spqr) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.spqr.cluster.switch_users }}** tab.
   1. Locate the user you need in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in their row, and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Change the maximum number of user connections to the database.
@@ -473,7 +473,7 @@ You can add and remove users, as well as manage their individual settings.
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-spqr) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.spqr.cluster.switch_users }}** tab.
   1. Locate the user you need in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in their row, and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
   1. Specify a new password. It must be from 8 to 128 characters long.
@@ -562,7 +562,7 @@ You can add and remove users, as well as manage their individual settings.
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-spqr) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.spqr.cluster.switch_users }}** tab.
   1. Locate the user you need in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in their row, and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Change the deletion protection type in the **{{ ui-key.yacloud.mdb.dialogs.field_deletion_protection }}** field.
@@ -655,7 +655,7 @@ A user account can have deletion protection enabled. To delete such a user, [dis
 
   To delete a user:
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-spqr) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.spqr.cluster.switch_users }}** tab.
   1. Locate the user you need in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in their row, and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
   1. Confirm the deletion.

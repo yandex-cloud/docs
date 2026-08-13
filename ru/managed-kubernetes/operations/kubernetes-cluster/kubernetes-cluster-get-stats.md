@@ -29,7 +29,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу кластера {{ managed-k8s-name }}.
-  1. В разделе **{{ ui-key.yacloud.common.overview }}** перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.overview.label_master-title }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.common.overview }}**, затем **{{ ui-key.yacloud.k8s.cluster.overview.label_master-title }}**.
 
       Откроются виджеты с метриками мастера {{ managed-k8s-name }}. Метрики перечислены в [справочнике](../../metrics.md#managed-kubernetes-master-metrics).
 
@@ -46,9 +46,8 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу кластера {{ managed-k8s-name }}.
-  1. В разделе **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** перейдите на вкладку **{{ ui-key.yacloud.k8s.nodes.label_nodes }}**.
-  1. Откройте страницу узла, по которому вы хотите посмотреть статистику.
-  1. Перейдите на вкладку **Мониторинг**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**, затем **{{ ui-key.yacloud.k8s.nodes.label_nodes }}**.
+  1. Выберите узел, по которому вы хотите посмотреть статистику, и перейдите на вкладку **{{ ui-key.yacloud.k8s.node.overview.label_monitoring }}**.
 
       Откроются виджеты с метриками узла {{ managed-k8s-name }}. Метрики перечислены в [справочнике](../../metrics.md#managed-kubernetes-node-metrics).
 
@@ -67,9 +66,8 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу кластера {{ managed-k8s-name }}.
-  1. На панели слева выберите **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}**.
-  1. Откройте страницу пода, по которому хотите посмотреть статистику.
-  1. Перейдите на вкладку **Мониторинг**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}**.
+  1. В списке подов выберите под, для которого хотите посмотреть статистику, и перейдите на вкладку **{{ ui-key.yacloud.k8s.workloads.label_tab-monitoring }}**.
 
      Откроются виджеты с метриками пода {{ managed-k8s-name }}. Метрики перечислены в [справочнике](../../metrics.md#managed-kubernetes-pod-metrics).
 

@@ -2,7 +2,7 @@
 
 # Концепции Cloud DNS
 
-Yandex Cloud DNS — это сервис, который берет на себя обслуживание DNS-запросов и упрощает администрирование [DNS](../../glossary/dns.md).
+Yandex Cloud DNS — это сервис, который берет на себя обслуживание DNS-запросов и упрощает администрирование [DNS](../../glossary/dns.md) (Domain Name System).
 
 С помощью Cloud DNS вы можете:
 

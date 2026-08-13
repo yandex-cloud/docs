@@ -71,10 +71,9 @@ yc managed-kubernetes node-group list
   Чтобы изменить группу узлов Managed Service for Kubernetes:
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
-  1. Нажмите на имя нужного кластера.
-  1. Перейдите во вкладку **Группы узлов**.
-  1. Выберите нужную группу узлов.
-  1. Нажмите кнопку **Редактировать** в правом верхнем углу.
+  1. Выберите кластер Managed Service for Kubernetes.
+  1. Перейдите на вкладку **Управление узлами**, с ней откроется вкладка **Группы узлов**.
+  1. В строке группы узлов нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../../_assets/console-icons/pencil.svg) **Редактировать**.
   1. В открывшемся окне измените необходимые параметры.
   1. Нажмите кнопку **Сохранить**.
 
@@ -333,12 +332,11 @@ yc managed-kubernetes node-group list
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором требуется изменить кластер Managed Service for Kubernetes.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно изменить кластер Managed Service for Kubernetes.
   1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
-  1. Нажмите на имя нужного кластера Managed Service for Kubernetes.
-  1. Перейдите во вкладку **Группы узлов**.
-  1. Выберите нужную группу узлов.
-  1. Нажмите кнопку **Редактировать** в правом верхнем углу.
+  1. Выберите кластер Managed Service for Kubernetes.
+  1. Перейдите на вкладку **Управление узлами**, с ней откроется вкладка **Группы узлов**.
+  1. В строке группы узлов нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../../_assets/console-icons/pencil.svg) **Редактировать**.
   1. Укажите значения параметров в блоке **В процессе создания и обновления разрешено**:
 
       * **Расширение размера группы, макс.** — максимальное количество узлов, на которое можно расширить группу при ее изменении или обновлении. Значение по умолчанию — `3`.
@@ -483,10 +481,9 @@ yc managed-kubernetes node-group list
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
-  1. Нажмите на имя нужного кластера.
-  1. Перейдите на вкладку **Группы узлов**.
-  1. Выберите нужную группу узлов.
-  1. Нажмите кнопку **Редактировать** в правом верхнем углу.
+  1. Выберите кластер Managed Service for Kubernetes.
+  1. Перейдите на вкладку **Управление узлами**, с ней откроется вкладка **Группы узлов**.
+  1. В строке группы узлов нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../../_assets/console-icons/pencil.svg) **Редактировать**.
   1. В блоке **Сетевые настройки** в поле **Публичный адрес** выберите способ назначения адреса `Автоматически`. Узлам будут назначены случайные публичные IP-адреса из пула адресов Yandex Cloud.
   1. Нажмите кнопку **Сохранить**.
 
@@ -821,10 +818,9 @@ yc managed-kubernetes node-group list
 
     1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
     1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
-    1. Нажмите на имя нужного кластера.
-    1. Перейдите во вкладку **Группы узлов**.
-    1. Выберите нужную группу узлов.
-    1. Нажмите кнопку **Редактировать** в правом верхнем углу.
+    1. Выберите кластер Managed Service for Kubernetes.
+    1. Перейдите на вкладку **Управление узлами**, с ней откроется вкладка **Группы узлов**.
+    1. В строке группы узлов нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../../_assets/console-icons/pencil.svg) **Редактировать**.
     1. В поле **Метки** нажмите **Добавить метку**.
     1. Введите ключ и значение и нажмите **Enter**.
     1. Нажмите кнопку **Сохранить**.
@@ -939,10 +935,9 @@ yc managed-kubernetes node-group list
 
     1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
     1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
-    1. Нажмите на имя нужного кластера.
-    1. Перейдите во вкладку **Группы узлов**.
-    1. Выберите нужную группу узлов.
-    1. Нажмите кнопку **Редактировать** в правом верхнем углу.
+    1. Выберите кластер Managed Service for Kubernetes.
+    1. Перейдите на вкладку **Управление узлами**, с ней откроется вкладка **Группы узлов**.
+    1. В строке группы узлов нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../../_assets/console-icons/pencil.svg) **Редактировать**.
     1. В поле **Метки** нажмите на крестик рядом с нужной меткой, чтобы удалить ее.
     1. Нажмите **Добавить метку** и введите новые ключ и/или значение метки.
     1. Нажмите **Enter**, а затем — **Сохранить**.
@@ -1060,10 +1055,9 @@ yc managed-kubernetes node-group list
 
     1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
     1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
-    1. Нажмите на имя нужного кластера.
-    1. Перейдите во вкладку **Группы узлов**.
-    1. Выберите нужную группу узлов.
-    1. Нажмите кнопку **Редактировать** в правом верхнем углу.
+    1. Выберите кластер Managed Service for Kubernetes.
+    1. Перейдите на вкладку **Управление узлами**, с ней откроется вкладка **Группы узлов**.
+    1. В строке группы узлов нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../../_assets/console-icons/pencil.svg) **Редактировать**.
     1. В поле **Метки** нажмите на крестик рядом с нужной меткой.
     1. Нажмите кнопку **Сохранить**.
 
@@ -1167,10 +1161,9 @@ yc managed-kubernetes node-group list
 
     1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
     1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
-    1. Нажмите на имя нужного кластера.
-    1. Перейдите во вкладку **Группы узлов**.
-    1. Выберите нужную группу узлов.
-    1. Нажмите кнопку **Редактировать** в правом верхнем углу.
+    1. Выберите кластер Managed Service for Kubernetes.
+    1. Перейдите на вкладку **Управление узлами**, с ней откроется вкладка **Группы узлов**.
+    1. В строке группы узлов нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../../_assets/console-icons/pencil.svg) **Редактировать**.
     1. Измените настройки для способов подключения:
 
         1. Чтобы включить или выключить доступ к узлам через OS Login, используйте опцию **Доступ по OS Login**.
@@ -1306,10 +1299,9 @@ yc managed-kubernetes node-group list
 
     1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
     1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
-    1. Нажмите на имя нужного кластера.
-    1. Перейдите во вкладку **Группы узлов**.
-    1. Выберите нужную группу узлов.
-    1. Нажмите кнопку **Редактировать** в правом верхнем углу.
+    1. Выберите кластер Managed Service for Kubernetes.
+    1. Перейдите на вкладку **Управление узлами**, с ней откроется вкладка **Группы узлов**.
+    1. В строке группы узлов нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../../_assets/console-icons/pencil.svg) **Редактировать**.
     1. Раскройте блок **Метаданные** и измените, добавьте или удалите метаданные для узлов.
 
         Чтобы добавить метаданные, используйте кнопку **Добавить поле**. Укажите ключ и значение каждого элемента метаданных в отдельном наборе полей.
