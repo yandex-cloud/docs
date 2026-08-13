@@ -44,7 +44,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your database cluster.
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 
@@ -59,6 +59,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
       * Specify the DBMS version.
       * Select the sharding type:
+          
           * **{{ ui-key.yacloud.mongodb.ClusterForm.sections.option_sharding-type-disabled_3ErMk }}**: Cluster will consist only of `MONGOD` hosts.
           * **{{ ui-key.yacloud.mongodb.ClusterForm.sections.option_sharding-type-standard_afrPq }}**: Cluster will consist of `MONGOD` and `MONGOINFRA` hosts.
           * **{{ ui-key.yacloud.mongodb.ClusterForm.sections.option_sharding-type-extended_9NHmb }}**: Cluster will consist of `MONGOD`, `MONGOS`, and `MONGOCFG` hosts.
@@ -312,6 +313,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         {% endnote %}
 
       * `--host`: Host settings:
+        
         * `type`: Host type, i.e., `mongod`, `mongoinfra`, `mongos`, or `mongocfg`. The default host type is `mongod`.
         * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
         * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). To be specified if the selected availability zone has more than one subnet.
@@ -369,13 +371,13 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
       Where:
 
-      * `<host_type>`: [Host type](../concepts/host-roles.md) whose storage you want to configure. The possible values are `mongod`, `mongocfg`, `mongos`, and `mongoinfra`.
+      * `<host_type>`: [Host type](../concepts/host-roles.md) to configure a storage for. The possible values are `mongod`, `mongocfg`, `mongos`, and `mongoinfra`.
 
       * `<host_type>-planned-usage-threshold`: Storage usage percentage to trigger a storage expansion during the next [maintenance window](../concepts/maintenance.md#maintenance-window).
 
         Use a value between `0` and `100`%. The default value is `0`, i.e., automatic expansion is disabled.
 
-        If you set this option, configure the maintenance time settings.
+        If you set this option, configure the maintenance time.
 
       * `<host_type>-emergency-usage-threshold`: Storage usage percentage to trigger an immediate storage expansion.
 
@@ -650,10 +652,12 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
      * `environment`: Environment, `PRESTABLE` or `PRODUCTION`.
      * `host`: Host settings:
+       
        * `zone_id`: Availability zone.
        * `subnet_id`: ID of the subnet in the selected availability zone.
        * `assign_public_ip`: Public access to the host, `true` or `false`. In a sharded cluster, it is used only for `MONGOS` and `MONGOINFRA` hosts.
        * `host_parameters`: Additional host settings:
+         
          * `hidden`: Determines whether the host is hidden, `true` or `false`. If the host is hidden, only direct connections will be able to read from it (for example, to make backups from it without adding load to the cluster).
          * `secondary_delay_secs`: Replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
          * `priority`: [Host priority for master promotion](../concepts/replication.md#master-failover).
@@ -717,7 +721,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
          Use a value between `0` and `100`%. The default value is `0`, i.e., automatic expansion is disabled.
 
-         If you set this option, configure the maintenance time settings.
+         If you set this option, configure the maintenance time.
 
        * `emergency_usage_threshold` (optional): Storage usage percentage to trigger an immediate storage expansion.
 
@@ -1163,6 +1167,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             * `backupRetainPeriodDays`: Backup retention time in days.
 
             * `performanceDiagnostics`: [Statistics collection](performance-diagnostics.md#activate-stats-collector) settings:
+              
               * `profilingEnabled`: Enable [profiler](tools.md#explore-profiler), `true` or `false`.
 
         * `databaseSpecs`: Database settings as an array of elements, one per database. Each element contains a database `name`.
@@ -1591,6 +1596,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         * `config_spec`: Cluster settings:
 
           * `version`: {{ SD }} version, 5.0, 6.0, or 7.0.
+            
             * `mongod`, `mongoinfra`, `mongos`, `mongocfg`: [Host types](../concepts/host-roles.md).
 
               * `resources`: Cluster resources:
@@ -1631,6 +1637,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             * `backup_retain_period_days`: Backup retention time in days.
 
             * `performance_diagnostics`: [Statistics collection](performance-diagnostics.md#activate-stats-collector) settings:
+              
               * `profiling_enabled`: Enable the [profiler](tools.md#explore-profiler), `true` or `false`.
 
         * `database_specs`: Database settings as an array of elements, one per database. Each element contains a database `name`.

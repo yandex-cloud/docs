@@ -11,7 +11,7 @@
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
     1. [Перейдите](https://console.yandex.cloud/link/managed-trino) в сервис **Managed Service for&nbsp;Trino**.
     1. Нажмите на имя нужного кластера.
-    1. На панели слева выберите ![image](../../_assets/console-icons/folder-tree.svg) **Каталоги**.
+    1. Перейдите на вкладку **Каталоги**.
 
 - CLI {#cli}
 
@@ -108,7 +108,7 @@
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
     1. [Перейдите](https://console.yandex.cloud/link/managed-trino) в сервис **Managed Service for&nbsp;Trino**.
     1. Нажмите на имя нужного кластера.
-    1. На панели слева выберите ![image](../../_assets/console-icons/folder-tree.svg) **Каталоги**.
+    1. Перейдите на вкладку **Каталоги**.
     1. Нажмите на имя нужного каталога Trino.
 
 - CLI {#cli}

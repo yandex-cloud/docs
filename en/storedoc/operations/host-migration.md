@@ -14,9 +14,9 @@ description: In this tutorial, you will learn how to migrate {{ SD }} cluster ho
 
    - Management console {#console}
 
-      1. Open the [folder dashboard]({{ link-console-main }}).
-      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-      1. Click the name of your {{ mmg-name }} cluster and open the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
+      1. In the [management console]({{ link-console-main }}), select a folder.
+      1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+      1. Locate the {{ mmg-name }} cluster you need in the list, click its name, and select the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
       1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
       1. Specify the following host settings:
 
@@ -197,8 +197,8 @@ description: In this tutorial, you will learn how to migrate {{ SD }} cluster ho
 
    - Management console {#console}
 
-      1. Open the [folder dashboard]({{ link-console-main }}).
-      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+      1. In the [management console]({{ link-console-main }}), select a folder.
+      1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
       1. Locate the {{ mmg-name }} cluster you need in the list, click its name, and select the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
       1. Find the host you need in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in its row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
 
@@ -282,7 +282,7 @@ description: In this tutorial, you will learn how to migrate {{ SD }} cluster ho
 
    {% endlist %}
 
-1. Wait for the cluster state to change to **Alive**. In the [management console]({{ link-console-main }}), navigate to the folder containing your cluster. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**. You can check the cluster state in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
+1. Wait for the cluster state to change to **Alive**. In the [management console]({{ link-console-main }}), select the folder containing the cluster. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**. You can check the cluster state in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
 
 {% include [zone-d-restrictions](../../_includes/mdb/ru-central1-d-restrictions.md) %}
 

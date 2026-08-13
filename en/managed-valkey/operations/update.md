@@ -923,7 +923,7 @@ For more information about storage and autoscaling, see [Storage in {{ mrd-name 
       disk_size_autoscaling = {
         planned_usage_threshold   = "<scheduled_expansion_percentage>"
         emergency_usage_threshold = "<immediate_expansion_percentage>"
-        disk_size_limit           = "<maximum_storage_size_in_GiB>"
+        disk_size_limit           = "<maximum_storage_size_in_GB>"
       }
       ```
 

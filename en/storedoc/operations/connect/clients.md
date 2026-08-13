@@ -195,11 +195,11 @@ Before connecting, install [MongoDB Shell](index.md#install-mongosh).
 
 ### Connecting with IAM authentication {#iam}
 
-You can connect to a {{ mmg-name }} cluster using IAM authentication. Use a [Yandex account](../../../iam/concepts/users/accounts.md#passport), a [federated](../../../iam/concepts/users/accounts.md#saml-federation) account, or a [local](../../../iam/concepts/users/accounts.md#local) account to authenticate.
+You can connect to a {{ mmg-name }} cluster using IAM authentication. This authentication option is supported for [Yandex accounts](../../../iam/concepts/users/accounts.md#passport), [federated](../../../iam/concepts/users/accounts.md#saml-federation) accounts, and [local](../../../iam/concepts/users/accounts.md#local) accounts.
 
-The connection is established via MongoDB Shell. For more on how to install MongoDB Shell, see [this guide](index.md#mongosh-install).
+The connection is established via MongoDB Shell. For information on how to install MongoDB Shell, see [this guide](index.md#mongosh-install).
 
-Before connecting, configure the [security groups](index.md#configuring-security-groups) and [enable public access](../hosts.md#update) to the cluster hosts if the connection is made over the internet.
+Before you proceed with connection, configure the [security groups](index.md#configuring-security-groups) and [enable public access](../hosts.md#update) to the cluster hosts if connecting over the internet.
 
 To connect to a cluster using IAM authentication:
 
@@ -209,8 +209,8 @@ To connect to a cluster using IAM authentication:
 
     - Management console {#console}
 
-      1. Open the [folder dashboard]({{ link-console-main }}).
-      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+      1. In the [management console]({{ link-console-main }}), select a folder.
+      1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
       1. Select the cluster.
       1. Assign the {{ yandex-cloud }} account the `managed-mongodb.clusters.connector` role for the cluster:
          
@@ -218,7 +218,7 @@ To connect to a cluster using IAM authentication:
           1. Click **{{ ui-key.yacloud_components.acl.action.assign-roles }}** in the top-right corner of the page.
           1. In the **{{ ui-key.yacloud_components.acl.label.subject }}** field, select the account.
               
-              To find the account you need, enter the email address linked to the account.
+              To find the account you need, enter its associated email address.
           
           1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the `managed-mongodb.clusters.connector` role.
           1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
@@ -229,12 +229,12 @@ To connect to a cluster using IAM authentication:
           1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}** in the top-right corner of the page.
           1. Choose the **{{ ui-key.yacloud.mongodb.UserAddDialog.label_iam_ffBD5 }}** authorization method.
           1. Select the {{ yandex-cloud }} account with the `managed-mongodb.clusters.connector` role.
-          1. Select databases and configure [roles](../../concepts/users-and-roles.md) for them:
+          1. Select the databases and configure [roles](../../concepts/users-and-roles.md) for them:
           
               1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.dialogs.button_add-database }}** and select the database.
-              1. Assign the roles for the selected database.
+              1. Assign roles for the selected database.
               
-                  To assign a role, click ![image](../../../_assets/console-icons/plus.svg) and select the role.
+                  To assign a role, click ![image](../../../_assets/console-icons/plus.svg) and select the role you need.
           
           1. Click **{{ ui-key.yacloud.mdb.cluster.users.popup-add_button_add }}**.
 
@@ -247,7 +247,7 @@ To connect to a cluster using IAM authentication:
     * [Guide](../../../iam/operations/iam-token/create-for-local.md) for a local account.
 
 1. [Get an SSL certificate](index.md#get-ssl-cert).
-1. Connect the cluster by running this command:
+1. Connect to the cluster by running this command:
 
     For a non-sharded cluster:
 
@@ -295,9 +295,12 @@ From graphical IDEs, you can only connect to public cluster hosts using an SSL c
 ### DataGrip {#datagrip}
 
 1. Create a data source:
+   
    1. Select **File** → **New** → **Data Source** → **{{ MG }}**.
    1. On the **General** tab:
+      
       1. Configure the connection as follows:
+         
          * **User**, **Password**: Database user name and password.
          * **URL**: Connection string.
 
@@ -316,9 +319,12 @@ From graphical IDEs, you can only connect to public cluster hosts using an SSL c
               {% include [see-fdqn-host](../../../_includes/mdb/mmg/fqdn-host.md) %}
 
       1. Click **Download** to download the connection driver.
+   
    1. On the **SSH/SSL** tab:
+      
       1. Enable **Use SSL**.
       1. In the **CA file** field, specify the path to the [SSL certificate for your connection](./index.md#get-ssl-cert).
+
 1. Click **Test Connection**. If the connection is successful, you will see the connection status and information about the DBMS and driver.
 1. Click **OK** to save the data source.
 
@@ -329,10 +335,12 @@ Connections to {{ SD }} clusters are only available in [DBeaver commercial editi
 To connect to your cluster:
 
 1. Create a new database connection:
+   
    1. In the **Database** menu, select **New connection**.
    1. Select **{{ MG }}** from the database list.
    1. Click **Next**.
    1. On the **Main** tab, specify the connection settings:
+      
       1. Under **Address**, change **Type** to `URL` and specify the connection string.
 
            For a non-sharded cluster:
@@ -351,10 +359,13 @@ To connect to your cluster:
 
       1. In the **Device** list, select the `SCRAM-SHA-256` password encryption type for the connection.
       1. Under **Authentication**, specify the database user name and password.
+   
    1. On the **SSL** tab:
+      
       1. Enable **Use SSL**.
       1. In the **Root certificate** field, specify the path to your saved [SSL certificate](./index.md#get-ssl-cert) file.
       1. Under **Settings**, check **Skip hostname validation**.
+
 1. Click **Test connection ...**. If the connection is successful, you will see the connection status, DBMS information, and driver details.
 1. Click **Ready** to save the database connection settings.
 

@@ -345,20 +345,18 @@
   1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-containers.label_editor }}**.
 
       1. В блоке **{{ ui-key.yacloud.serverless-containers.section_resources }}** укажите нужный объем RAM, например `1024 {{ ui-key.yacloud.common.units.label_megabyte }}`.
-      1. В блоке **{{ ui-key.yacloud.serverless-containers.section_image }}**:
+      1. В блоке **{{ ui-key.yacloud.serverless-containers.section_image }}** нажмите **{{ ui-key.yacloud.component.image-field.button_custom-image }}** и в поле **{{ ui-key.yacloud.serverless-containers.label_image-url }}** укажите `{{ registry }}/yc/serverless/gitlab-runner`.
+      1. В блоке **{{ ui-key.yacloud.serverless-containers.label_environment }}** добавьте переменные:
 
-          1. Нажмите **{{ ui-key.yacloud.component.image-field.button_custom-image }}** и в поле **{{ ui-key.yacloud.serverless-containers.label_image-url }}** укажите `{{ registry }}/yc/serverless/gitlab-runner`.
-          1. В поле **{{ ui-key.yacloud.serverless-containers.label_environment }}** добавьте переменные:
+          * `CI_SERVER_URL` — `https://gitlab.com`.
+          * `WEBHOOK_PATH` — `/webhook`.
 
-              * `CI_SERVER_URL` — `https://gitlab.com`.
-              * `WEBHOOK_PATH` — `/webhook`.
+      1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}** укажите:
 
-          1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}** укажите:
-
-              * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-env-key }}** — `RUNNER_TOKEN`.
-              * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret-id }}** — `gitlab-runner-token`.
-              * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-version-id }}** — идентификатор текущей версии.
-              * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret-key }}** — `gitlab_runner_token`.
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-env-key }}** — `RUNNER_TOKEN`.
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret-id }}** — `gitlab-runner-token`.
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-version-id }}** — идентификатор текущей версии.
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret-key }}** — `gitlab_runner_token`.
 
         1. В блоке **{{ ui-key.yacloud.serverless-containers.section_parameters }}**:
 

@@ -12,7 +12,7 @@
   1. [Перейдите]({{ link-console-main }}/link/serverless-containers) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Выберите контейнер.
   1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-containers.label_editor }}**.
-  1. Разверните блок **Параметры сервиса метаданных**.
+  1. Разверните блок **{{ ui-key.yacloud.serverless-containers.section_metadata-options }}**.
   1. Настройте параметры сервиса метаданных контейнера — `{{ ui-key.yacloud.serverless-containers.label_gce_http_endpoint }}` и `{{ ui-key.yacloud.serverless-containers.label_aws_v1_http_endpoint }}`.п
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-containers.button_deploy-revision }}**.
 

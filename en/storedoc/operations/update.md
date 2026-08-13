@@ -33,8 +33,8 @@ We recommend changing the host class only when the cluster is idle.
 
 - Management console {#console}
 
-  1. Open the [folder dashboard]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
 
@@ -256,8 +256,8 @@ We recommend changing the host class only when the cluster is idle.
 
   To change the disk type and expand the storage size for a cluster:
 
-  1. Open the [folder dashboard]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Depending on the [sharding type](../concepts/sharding.md#shard-management) you select, go to the section of the cluster resources you need to update: **Resources**, **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongod-resources_ncXUZ }}**, **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongoinfra-resources_13TPT }}**, **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongocfg-resources_1cuU2 }}**, or **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongos-resources_wBGnr }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
@@ -472,18 +472,18 @@ For more information about storage and autoscaling, see the [relevant section](.
 
   To set up automatic storage expansion:
 
-  1. Open the [folder dashboard]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Depending on the [sharding type](../concepts/sharding.md#shard-management) you select, go to the section of the cluster resources you need to update: **Resources**, **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongod-resources_ncXUZ }}**, **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongoinfra-resources_13TPT }}**, **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongocfg-resources_1cuU2 }}**, or **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongos-resources_wBGnr }}**.
   1. Optionally, under **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}**, specify the following settings:
 
       * In the **{{ ui-key.yacloud.mdb.resources.DiskAutoscalingFieldGroup.field_autoscaling_fsAon }}** field, set the conditions for automatic storage expansion:
 
-          * Storage usage percentage to trigger its expansion during the next [maintenance window](../concepts/maintenance.md#maintenance-window).
+          * Storage usage percentage to trigger storage expansion during the next [maintenance window](../concepts/maintenance.md#maintenance-window).
           * Storage usage percentage to trigger its immediate expansion.
 
-          If both conditions are set, the percentage in the first condition must be lower than the percentage in the second.
+          If both conditions are set, the percentage in the first condition must be lower than in the second one.
 
           Learn more about the storage expansion criteria [here](../concepts/storage.md#auto-rescale).
 
@@ -524,7 +524,7 @@ For more information about storage and autoscaling, see the [relevant section](.
 
       Where:
 
-      * `<host_type>`: [Host type](../concepts/host-roles.md) whose storage you want to configure. The possible values are `mongod`, `mongocfg`, `mongos`, and `mongoinfra`.
+      * `<host_type>`: [Host type](../concepts/host-roles.md) to configure a storage for. The possible values are `mongod`, `mongocfg`, `mongos`, and `mongoinfra`.
 
       * `<host_type>-planned-usage-threshold`: Storage usage percentage to trigger a storage expansion during the next [maintenance window](../concepts/maintenance.md#maintenance-window).
 
@@ -553,7 +553,7 @@ For more information about storage and autoscaling, see the [relevant section](.
 
       To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-  1. Add or modify the section with settings for the required host type in the description of the {{ mmg-name }} cluster.
+  1. Add or modify the section with settings for the relevant host type in the {{ mmg-name }} cluster description.
 
      Type of host | Section name
      --- | ---
@@ -583,7 +583,7 @@ For more information about storage and autoscaling, see the [relevant section](.
 
         Use a value between `0` and `100`%. The default value is `0`, i.e., automatic expansion is disabled.
 
-        If you have set this condition, [configure](#change-additional-settings) the maintenance schedule.
+        If you set this condition, [configure](#change-additional-settings) the maintenance schedule.
 
       * `emergency_usage_threshold` (optional): Storage usage percentage to trigger an immediate storage expansion.
 
@@ -646,7 +646,7 @@ For more information about storage and autoscaling, see the [relevant section](.
 
       * `updateMask`: Comma-separated string of settings to update.
 
-      * `<host_type>`: [Host type](../concepts/host-roles.md) whose storage you want to configure. The possible values are `mongod`, `mongocfg`, `mongos`, and `mongoinfra`.
+      * `<host_type>`: [Host type](../concepts/host-roles.md) to configure a storage for. The possible values are `mongod`, `mongocfg`, `mongos`, and `mongoinfra`.
       
       * `configSpec.mongodb.<host_type>.diskSizeAutoscaling`: Parameters for automatic storage size expansion.
 
@@ -654,7 +654,7 @@ For more information about storage and autoscaling, see the [relevant section](.
 
           Use a value between `0` and `100`%. The default value is `0`, i.e., automatic expansion is disabled.
 
-          If you have set this condition, [configure](#change-additional-settings) the maintenance schedule.
+          If you set this condition, [configure](#change-additional-settings) the maintenance schedule.
 
         * `emergencyUsageThreshold`: Storage usage percentage to trigger an immediate storage expansion.
 
@@ -717,7 +717,7 @@ For more information about storage and autoscaling, see the [relevant section](.
 
       * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
-      * `<host_type>`: [Host type](../concepts/host-roles.md) whose storage you want to configure. The possible values are `mongod`, `mongocfg`, `mongos`, and `mongoinfra`.
+      * `<host_type>`: [Host type](../concepts/host-roles.md) to configure a storage for. The possible values are `mongod`, `mongocfg`, `mongos`, and `mongoinfra`.
 
       * `config_spec.mongodb.<host_type>.disk_size_autoscaling`: Parameters for automatic storage size expansion.
 
@@ -725,7 +725,7 @@ For more information about storage and autoscaling, see the [relevant section](.
 
           Use a value between `0` and `100`%. The default value is `0`, i.e., automatic expansion is disabled.
 
-          If you have set this condition, [configure](#change-additional-settings) the maintenance schedule.
+          If you set this condition, [configure](#change-additional-settings) the maintenance schedule.
 
         * `emergency_usage_threshold`: Storage usage percentage to trigger an immediate storage expansion.
 
@@ -755,8 +755,8 @@ You can change the DBMS settings for your cluster hosts.
 
 - Management console {#console}
 
-  1. Open the [folder dashboard]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. To change the [{{ SD }} settings](../concepts/settings-list.md#dbms-cluster-settings), click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** under **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -892,8 +892,8 @@ You can change the DBMS settings for your cluster hosts.
 
 - Management console {#console}
 
-  1. Open the [folder dashboard]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Configure advanced cluster settings:
 
@@ -1060,6 +1060,7 @@ You can change the DBMS settings for your cluster hosts.
         * `backupRetainPeriodDays`: Backup retention time in days.
 
         * `performanceDiagnostics`: [Statistics collection](performance-diagnostics.md#activate-stats-collector) settings:
+
           * `profilingEnabled`: Enable [profiler](tools.md#explore-profiler), `true` or `false`.
 
       * `maintenanceWindow`: [Maintenance](../concepts/maintenance.md) window settings, applying to both running and stopped clusters. In `maintenanceWindow`, provide one of these two parameters:
@@ -1197,8 +1198,8 @@ You can change the DBMS settings for your cluster hosts.
 
 - Management console {#console}
 
-    1. Open the [folder dashboard]({{ link-console-main }}).
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the cluster you want to move.
     1. Select **{{ ui-key.yacloud.mdb.dialogs.popup_button_move-cluster }}**.
     1. Select the destination folder for your cluster.
@@ -1320,8 +1321,8 @@ You can change the DBMS settings for your cluster hosts.
 
 - Management console {#console}
 
-    1. Open the [folder dashboard]({{ link-console-main }}).
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select the security groups that control the cluster’s network traffic.
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.

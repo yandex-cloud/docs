@@ -18,7 +18,7 @@ Managed Service for Trino позволяет [получить фрагмент 
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
     1. [Перейдите](https://console.yandex.cloud/link/managed-trino) в сервис **Managed Service for&nbsp;Trino**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/receipt.svg) **Логи**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **Логи**.
     1. Укажите **Уровень** логов и период времени, за который нужно отобразить лог.
 
 - CLI {#cli}

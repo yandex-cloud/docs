@@ -27,7 +27,7 @@ For more information on the {{ mrd-name }} cluster structure, see [Resource rela
 
 ## Roles for creating a cluster {#roles}
 
-To create a {{ mrd-name }} cluster and use it, your {{ yandex-cloud }} account needs the following roles:
+To create and use a {{ mrd-name }} cluster, your {{ yandex-cloud }} account needs the following roles:
 
 * {% include [roles-mrd-editor](../../_includes/mdb/mvk/roles-mrd-editor.md) %}
 * {% include [roles-vpc-user](../../_includes/mdb/roles-vpc-user.md) %}
@@ -319,7 +319,7 @@ There are no restrictions for non-sharded clusters.
          disk_size_autoscaling = {
            planned_usage_threshold   = "<scheduled_expansion_percentage>"
            emergency_usage_threshold = "<immediate_expansion_percentage>"
-           disk_size_limit           = "<maximum_storage_size_in_GiB>"
+           disk_size_limit           = "<maximum_storage_size_in_GB>"
          }
 
          config = {

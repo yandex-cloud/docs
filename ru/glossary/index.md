@@ -63,6 +63,7 @@
 * [{#T}](ci-cd.md)
 * [{#T}](sprints.md)
 * [{#T}](kanban.md)
+* [{#T}](gantt-chart.md)
 
 ## Сети и доставка контента {#networks}
 

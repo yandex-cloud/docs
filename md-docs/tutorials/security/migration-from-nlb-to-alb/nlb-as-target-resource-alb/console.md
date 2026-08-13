@@ -75,7 +75,7 @@
             controller:
               service:
                 external:
-                  enabled: true
+                  enabled: false
                 internal:
                   enabled: true
                   annotations:

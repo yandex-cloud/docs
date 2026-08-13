@@ -28,10 +28,9 @@ yc managed-kubernetes cluster list
 
 - Консоль управления {#console}
 
-  1. Откройте раздел **Managed Service for&nbsp;Kubernetes** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где требуется удалить [кластер Kubernetes](../../concepts/index.md#kubernetes-cluster).
-  1. Нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке кластера Kubernetes, который требуется удалить.
-  1. В открывшемся меню нажмите кнопку **Удалить**.
-  1. В открывшемся окне нажмите кнопку **Удалить**.
+  1. В [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где нужно удалить [кластер Managed Service for Kubernetes](../../concepts/index.md#kubernetes-cluster), откройте раздел **Managed Service for&nbsp;Kubernetes**.
+  1. В строке кластера Managed Service for Kubernetes, который нужно удалить, нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **Удалить**.
+  1. В открывшемся окне подтвердите удаление кластера.
 
 - CLI {#cli}
 

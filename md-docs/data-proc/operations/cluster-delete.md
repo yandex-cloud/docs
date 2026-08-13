@@ -18,9 +18,9 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
   1. [Перейдите](https://console.yandex.cloud/link/data-proc) в сервис **Yandex Data Processing**.
-  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужного кластера и выберите пункт **Удалить**.
+  1. В строке с нужным кластером нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
   1. (Опционально) Укажите таймаут [декомиссии](../concepts/decommission.md).
-  1. В открывшемся окне нажмите кнопку **Удалить**.
+  1. В открывшемся окне нажмите **Удалить**.
 
 - CLI {#cli}
 

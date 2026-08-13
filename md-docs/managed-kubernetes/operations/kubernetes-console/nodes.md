@@ -16,10 +16,9 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
-  1. Нажмите на имя нужного кластера и на панели слева выберите ![Nodes](../../../_assets/console-icons/graph-node.svg) **Управление узлами**.
-  1. Выберите вкладку **Узлы**.
-  1. Нажмите на имя нужного узла.
-  1. В правом верхнем углу нажмите кнопку ![Cordon](../../../_assets/console-icons/lock.svg) **Cordon**.
+  1. Выберите кластер Managed Service for Kubernetes и перейдите на вкладку **Управление узлами**.
+  1. Перейдите на вкладку **Узлы**.
+  1. В строке узла нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![Cordon](../../../_assets/console-icons/lock.svg) **Cordon**.
   1. Подтвердите действие.
 
 {% endlist %}
@@ -36,10 +35,9 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
-  1. Нажмите на имя нужного кластера и на панели слева выберите ![Nodes](../../../_assets/console-icons/graph-node.svg) **Управление узлами**.
-  1. Выберите вкладку **Узлы**.
-  1. Нажмите на имя нужного узла.
-  1. В правом верхнем углу нажмите кнопку ![Uncordon](../../../_assets/console-icons/lock-open.svg) **Uncordon**.
+  1. Выберите кластер Managed Service for Kubernetes и перейдите на вкладку **Управление узлами**.
+  1. Перейдите на вкладку **Узлы**.
+  1. В строке узла нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![Uncordon](../../../_assets/console-icons/lock-open.svg) **Uncordon**.
   1. Подтвердите действие.
 
 {% endlist %}

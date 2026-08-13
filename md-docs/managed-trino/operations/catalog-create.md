@@ -19,7 +19,7 @@
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
   1. [Перейдите](https://console.yandex.cloud/link/managed-trino) в сервис **Managed Service for&nbsp;Trino**.
   1. Нажмите на имя нужного кластера.
-  1. На панели слева выберите ![image](../../_assets/console-icons/folder-tree.svg) **Каталоги**.
+  1. Перейдите на вкладку **Каталоги**.
   1. Нажмите кнопку **Создать каталог**.
   1. В поле **Имя каталога** задайте имя каталога Trino.
   1. В поле **Тип коннектора** выберите тип [коннектора](../concepts/index.md#connector).

@@ -288,6 +288,6 @@
 * [удалите подсеть](../../vpc/operations/subnet-delete.md);
 * [удалите облачную сеть](../../vpc/operations/network-delete.md).
 
-[*name]: {% include [name-format](../../_includes/_popups/name-format-general.md) %}
+[*name]: {% include [name-format](../../_popups/name-format-general.md) %}
 
 [*dns_forwarder]: DNS-форвардер — это специальный DNS-сервер, который по-разному перенаправляет DNS-запросы в зависимости от доменного имени, указанного в запросе.
