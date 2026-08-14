@@ -295,7 +295,7 @@ Apache Hive™ Metastore находится на стадии [Preview](../../ov
 
 1. [Добавьте в настройки кластера](../../data-proc/operations/cluster-update.md) `dataproc-target` свойство `spark:spark.hive.metastore.uris` со значением `thrift://<IP-адрес_кластера_Apache Hive™ Metastore>:9083`.
 
-    Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в консоли управления выберите сервис **Yandex MetaData Hub** и на левой панели выберите страницу ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**. Для нужного кластера скопируйте значение из колонки **IP-адрес**.
+    Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в консоли управления выберите сервис **Yandex MetaData Hub** и в блоке **Управляйте метаданными** выберите **Metastore-сервер**. Для нужного кластера скопируйте значение из колонки **IP-адрес**.
 
 ## Импортируйте данные {#import-data}
 

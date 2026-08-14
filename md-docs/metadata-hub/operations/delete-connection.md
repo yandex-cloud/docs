@@ -13,7 +13,7 @@
 
     1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно удалить подключение.
     1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-    1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
+    1. В блоке **Управляйте метаданными** выберите **Connection manager**.
     1. Справа в строке подключения, которое хотите удалить, нажмите ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/trash-bin.svg) **Удалить** и подтвердите удаление.
 
 - CLI {#cli}

@@ -41,9 +41,9 @@ description: Следуя данному руководству, вы начне
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в ваш рабочий каталог ресурсов.
   1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. На панели слева выберите сервис ![image](../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
+  1. В блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
   1. Выберите нужный каталог метаданных.
-  1. Чтобы просмотреть доступные в каталоге метаданные, перейдите на вкладку ![image](../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}**.
+  1. Чтобы просмотреть доступные в каталоге метаданные, перейдите на вкладку **{{ ui-key.yacloud.data-catalog.layout.label.search-new-layout_Y7pK2 }}**.
 
 {% endlist %}
 
@@ -54,7 +54,7 @@ description: Следуя данному руководству, вы начне
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в ваш рабочий каталог метаданных.
-  1. Перейдите на вкладку ![image](../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}** и выберите нужный набор данных.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.data-catalog.layout.label.search-new-layout_Y7pK2 }}** и выберите нужный набор данных.
   1. Чтобы просмотреть общую информацию о наборе данных, перейдите на вкладку **{{ ui-key.yacloud.common.overview }}** и разверните список с нужными параметрами.
   1. Чтобы просмотреть схему объекта, перейдите на вкладку **Схема** и выберите в выпадающем списке нужную версию схемы.
   1. Чтобы просмотреть связи с другими объектами, перейдите на вкладку **Связи**.
@@ -74,7 +74,7 @@ description: Следуя данному руководству, вы начне
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в ваш рабочий каталог метаданных.
-  1. Перейдите на вкладку ![image](../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.data-catalog.layout.label.search-new-layout_Y7pK2 }}**.
   1. По умолчанию поиск ведется по всем типам данных. Если вам нужны только определенные типы данных, в выпадающем списке слева от поисковой строки выберите нужные типы данных.
   1. В поле **{{ ui-key.yacloud.data-catalog.label_search-placeholder }}** введите поисковый запрос.
   1. Чтобы повысить релевантность поисковой выдачи, уточните поисковый запрос и [настройте фильтры метаданных](#create-filters).
@@ -94,7 +94,7 @@ description: Следуя данному руководству, вы начне
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в ваш рабочий каталог метаданных.
-  1. Перейдите на вкладку ![image](../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.data-catalog.layout.label.search-new-layout_Y7pK2 }}**.
   1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.data-catalog.label_search-button-add-filter }}**.
   1. Отфильтруйте метаданные по одному или нескольким созданным в каталоге тегам.
 
@@ -113,9 +113,9 @@ description: Следуя данному руководству, вы начне
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в ваш рабочий каталог метаданных.
-  1. Перейдите на вкладку ![image](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.data-catalog.label_domains }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.data-catalog.label_domains }}**.
   1. Выберите в списке нужный домен или поддомен.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.data-catalog.title_search-data }}**. На ней отобразится список наборов данных, которые размечены текущим доменом или содержат поля, размеченные текущим доменом.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.data-catalog.layout.label.search-new-layout_Y7pK2 }}**. На ней отобразится список наборов данных, которые размечены текущим доменом или содержат поля, размеченные текущим доменом.
   1. Чтобы найти в списке конкретные данные, введите запрос в поисковой строке над списком данных.
   1. Чтобы перейти в набор данных, нажмите на его имя в списке.
 
@@ -128,10 +128,10 @@ description: Следуя данному руководству, вы начне
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в ваш рабочий каталог метаданных.
-  1. Перейдите на вкладку ![image](../../_assets/console-icons/book.svg) **{{ ui-key.yacloud.data-catalog.label_terms-and-glossaries }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.data-catalog.label_terms-and-glossaries }}**.
   1. Выберите в списке глоссарий, которому принадлежит нужный термин.
   1. Выберите в списке нужный термин.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.data-catalog.title_search-data }}**. На ней отобразится список наборов данных, которые размечены текущим термином или содержат поля, размеченные текущим термином.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.data-catalog.layout.label.search-new-layout_Y7pK2 }}**. На ней отобразится список наборов данных, которые размечены текущим термином или содержат поля, размеченные текущим термином.
   1. Чтобы найти в списке конкретные данные, введите запрос в поисковой строке над списком данных.
   1. Чтобы перейти в набор данных, нажмите на его имя в списке.
 
@@ -144,7 +144,7 @@ description: Следуя данному руководству, вы начне
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в ваш рабочий каталог метаданных.
-  1. Перейдите на вкладку ![image](../../_assets/console-icons/tag.svg) **{{ ui-key.yacloud.data-catalog.label_tags-and-classification }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.data-catalog.label_tags-and-classification }}**.
   1. Выберите в списке классификацию, которой принадлежит нужный тег.
   1. Выберите в списке нужный тег. На странице тега отобразится список наборов данных, которые размечены текущим тегом или содержат поля, размеченные текущим тегом.
   1. Чтобы найти в списке конкретные данные, введите запрос в поисковой строке над списком данных.

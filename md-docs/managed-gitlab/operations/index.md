@@ -7,7 +7,7 @@
 * [Настройка групп безопасности и ограничение доступа к инстансу](configure-security-group.md)
 * [Остановка и запуск инстанса](instance/instance-stop.md)
 * [Изменение настроек инстанса](instance/instance-update.md)
-* [Управление резервными копиями](instance/instance-backups.md)
+* [Работа с резервными копиями в Yandex Managed Service for GitLab](instance/instance-backups.md)
 * [Миграция из GitLab в Managed Service for GitLab](instance/migration.md)
 * [Миграция инстанса в другую зону доступности](instance/zone-migration.md)
 * [Очистка переполненного дискового пространства инстанса](instance/clean-up-disk-space.md)

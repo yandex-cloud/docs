@@ -42,6 +42,7 @@
 ## Хранение и обработка данных {#data}
 
 * [{#T}](bigdata.md)
+* [{#T}](data-center.md)
 * [{#T}](datavault.md)
 * [{#T}](s3.md)
 * [{#T}](snapshot.md)

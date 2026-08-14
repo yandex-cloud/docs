@@ -63,6 +63,8 @@ items:
     items:
       - name: Big Data
         href: bigdata.md
+      - name: Дата-центр
+        href: data-center.md
       - name: Data Vault
         href: datavault.md
       - name: S3

@@ -2,6 +2,7 @@
 
 # Развертывание сервиса на основе Docker-образа с FastAPI
 
+
 В этом практическом руководстве вы развернете сервис FastAPI на основе [Docker-образа](../concepts/deploy/index.md#docker-node). Сервис передает метрики в текстовом формате [Prometheus](https://prometheus.io/docs/instrumenting/exposition_formats/#text-based-format). Сервис будет запускаться на IP-адресе `0.0.0.0` и порте `9875`.
 
 Чтобы развернуть сервис на основе Docker-образа с FastAPI:

@@ -7,6 +7,29 @@ description: На странице представлены релизы аге�
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.48.0 (13.08.26) {#version0.48.0}
+
+#### Изменения в {{ org-sync-agent-name }} {#changes-version0.48.0}
+
+* Добавлена поддержка аутентификации в AD через Windows identity (gMSA/sMSA) — параметр `use_windows_identity` для LDAP/DRSR.
+* Добавлена опциональная проверка прав доступа к файлам конфигурации и статических учетных данных; установщики Linux и Windows теперь ограничивают доступ к конфигурации.
+* Добавлена поддержка синхронизации из произвольных LDAP-каталогов.
+* Добавлена обратная синхронизация изменений паролей из Identity Hub в Active Directory и LDAP-каталоги (`password writeback`).
+
+{% cut "Контрольные суммы" %}
+
+#|
+|| **Платформа** | **Контрольная сумма (SHA-256)** ||
+|| `linux/amd64` | `06d1d27f39481212c67363c663d5c7a9527b89a49067cc5afeba5c5ea0acc72b` ||
+|| `linux/arm64` | `a1aaee2c7c440940a772ae080da273f9ceabacbece52b553c33c0b452158e9a2` ||
+|| `darwin/amd64` | `5819df2483e6b613ebf1daa5c7e1e2f9f067e79d6399f78cd4d82de033d83f91` ||
+|| `darwin/arm64` | `5984eafaf1e8a22ef33b544302f2cc2e0390e2b0bd426cdf61eee23573831227` ||
+|| `windows/amd64` | `4ffe061999027a5688013898d4f44e95a68070323d234a75c25be82bbe01d0c8` ||
+|| `windows/arm64` | `7ed7ff939611883a9c7e598f8c9270f3d25b8a5a368b3f9699711b78b959257c` ||
+|#
+
+{% endcut %}
+
 ### Версия 0.47.0 (10.07.26) {#version0.47.0}
 
 #### Изменения в {{ org-sync-agent-name }} {#changes-version0.47.0}

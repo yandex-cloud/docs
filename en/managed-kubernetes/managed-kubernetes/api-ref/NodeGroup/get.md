@@ -23,7 +23,6 @@ apiPlayground:
 # Managed Services for Kubernetes API, REST: NodeGroup.Get
 
 Returns the specified node group.
-
 To get the list of available node group, make a [List](/docs/managed-kubernetes/managed-kubernetes/api-ref/NodeGroup/list#List) request.
 
 ## HTTP request

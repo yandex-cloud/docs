@@ -59,7 +59,10 @@ This field is required. ||
     "legacyFeatures": {
       "pciTopology": "string"
     },
-    "generation2Features": "object"
+    "generation2Features": {
+      "secureBootTemplateId": "string",
+      "vtpmEnabled": "boolean"
+    }
     // end of the list of possible fields
   },
   "kmsKey": {
@@ -170,8 +173,12 @@ These features significantly determine how the instance is created, thus cannot 
 ||Field | Description ||
 || legacyFeatures | **[LegacyHardwareFeatures](#yandex.cloud.compute.v1.LegacyHardwareFeatures)**
 
+A first hardware generation, by default compatible with all legacy images.
+
 Includes only one of the fields `legacyFeatures`, `generation2Features`. ||
-|| generation2Features | **object**
+|| generation2Features | **[Generation2HardwareFeatures](#yandex.cloud.compute.v1.Generation2HardwareFeatures)**
+
+A second hardware generation, which by default assumes PCI_TOPOLOGY_V2 and UEFI boot.
 
 Includes only one of the fields `legacyFeatures`, `generation2Features`. ||
 |#
@@ -185,8 +192,26 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
 ||Field | Description ||
 || pciTopology | **enum** (PCITopology)
 
-- `PCI_TOPOLOGY_V1`
-- `PCI_TOPOLOGY_V2` ||
+PCI topology of the instance.
+
+- `PCI_TOPOLOGY_V1`: Legacy PCI topology.
+- `PCI_TOPOLOGY_V2`: Modern PCI topology. ||
+|#
+
+## Generation2HardwareFeatures {#yandex.cloud.compute.v1.Generation2HardwareFeatures}
+
+A second hardware generation, which by default assumes PCI_TOPOLOGY_V2
+and UEFI boot (with UEFI related features).
+
+#|
+||Field | Description ||
+|| secureBootTemplateId | **string**
+
+ID of the secure boot template containing the UEFI key databases used to verify boot components.
+If empty, secure boot is disabled. ||
+|| vtpmEnabled | **boolean**
+
+Whether the virtual Trusted Platform Module (vTPM) is enabled for the instance. ||
 |#
 
 ## KMSKey {#yandex.cloud.compute.v1.KMSKey}

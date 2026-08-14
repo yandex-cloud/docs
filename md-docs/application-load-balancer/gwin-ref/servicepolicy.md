@@ -54,6 +54,10 @@ spec:
       node:
         onlyWithPods: true  # only nodes with pods
         addressType: InternalIP  # address type
+
+    # Pod-route next-hop selection (when targets.type is Pod)
+    podRoutes:
+      cidrs: ["10.0.0.0/8"]  # allowed Node InternalIP networks
     
     # Attach to existing ALB infrastructure
     attach:
@@ -132,8 +136,19 @@ Service policy configuration that applies to Service targets.
 | Field | Description |
 |-------|-------------|
 | targets | **[ServiceTargets](#servicetargets)** <br> Configures how ALB should select and address Service endpoints |
+| podRoutes | **[ServicePodRoutes](#servicepodroutes)** <br> Configures route next-hop selection for Pod-type targets |
 | attach | **[ServiceAttach](#serviceattach)** <br> Configures service attachment to existing cloud resources |
 | albTargetGroupName | **string** <br> Custom name for the ALB target group created for this service. By default, the controller generates the name automatically. <br> Example: `my-target-group` |
+
+## ServicePodRoutes
+
+*Appears in:* [Service](#service)
+
+Configures Node InternalIP selection for routes to Pod-type targets.
+
+| Field | Description |
+|-------|-------------|
+| cidrs | **[]string** <br> Limits Node InternalIP addresses that can be used as route next hops. Configure it when nodes have multiple addresses of the same IP family. <br> Example: `["10.0.0.0/8"]` |
 
 ## ServiceTargets
 

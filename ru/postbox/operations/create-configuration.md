@@ -32,11 +32,11 @@
 
         {% endnote %}
 
-    1. Чтобы собирать статистику открытия писем и переходов по ссылкам в письмах, в блоке **Настройки сбора статистики** включите опцию **Статистика вовлечённости**. Вся остальная [статистика](../concepts/statistics.md), кроме открытия писем и переходов по ссылкам, собирается по умолчанию.
+    1. Чтобы собирать статистику открытия писем и переходов по ссылкам в письмах, в блоке **{{ ui-key.yacloud.postbox.section_tracking-options }}** включите опцию **{{ ui-key.yacloud.postbox.field_engagement-metrics }}**. Вся остальная [статистика](../concepts/statistics.md), кроме открытия писем и переходов по ссылкам, собирается по умолчанию.
 
         {% note info %}
 
-        Включение опции **Статистика вовлечённости** приведет к модификации тела письма. Подробнее в разделах [{#T}](../concepts/mail-opened.md) и [{#T}](../concepts/click-tracking.md).
+        Включение опции **{{ ui-key.yacloud.postbox.field_engagement-metrics }}** приведет к модификации тела письма. Подробнее в разделах [{#T}](../concepts/mail-opened.md) и [{#T}](../concepts/click-tracking.md).
 
         {% endnote %}
 
@@ -77,7 +77,6 @@
            --configuration-set-name $CONFIGSET_NAME \
            --event-destination-name <имя_подписки> \
            --event-destination "{\"Enabled\":true,\"KinesisFirehoseDestination\":{\"DeliveryStreamArn\":\"arn:aws:keenesis:::$KINESIS_ENDPOINT:$TOPIC\",\"IamRoleArn\":\"arn:\"}}"
-
         ```
 
         Можно добавить несколько подписок.
