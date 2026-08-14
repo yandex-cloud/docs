@@ -27,7 +27,7 @@ description: Следуя данной инструкции, вы сможете
 
       1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
       1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-      1. На панели слева выберите ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
+      1. В блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.metastore.label_metastore }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
       1. Укажите имя кластера `metastore-cluster`.
       1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** выберите `metastore-logging-sa`.
@@ -259,7 +259,7 @@ description: Следуя данной инструкции, вы сможете
 
       1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
       1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-      1. На панели слева выберите ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
+      1. В блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.metastore.label_metastore }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
       1. Укажите имя кластера `metastore-cluster`.
       1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** выберите `metastore-logging-sa`.

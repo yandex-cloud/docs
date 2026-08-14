@@ -23,7 +23,7 @@ description: Следуя данной инструкции, вы сможете
         spark:spark.hive.metastore.uris : thrift://<IP-адрес_кластера_{{ metastore-name }}>:{{ port-metastore }}
         ```
 
-        Чтобы узнать IP-адрес кластера {{ metastore-name }}, в [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** и на панели слева выберите ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**. Для нужного кластера скопируйте значение из колонки **{{ ui-key.yacloud.metastore.field_metastore-endpoint-ip }}**.
+        Чтобы узнать IP-адрес кластера {{ metastore-name }}, в [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** и в блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.metastore.label_metastore }}**. Для нужного кластера скопируйте значение из колонки **{{ ui-key.yacloud.metastore.field_metastore-endpoint-ip }}**.
 
     1. Если кластеры {{ metastore-name }} и {{ dataproc-name }} расположены в разных облачных сетях, настройте маршрутизацию между этими сетями таким образом, чтобы подсеть {{ metastore-name }} была доступна из подсети {{ dataproc-name }}.
 

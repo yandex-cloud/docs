@@ -153,7 +153,7 @@ Apache Hive™ Metastore доступен только по внутреннем
        Чтобы узнать IP-адрес:
        1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
        1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-       1. На панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
+       1. В блоке **Управляйте метаданными** выберите **Metastore-сервер**.
 
     * `<db-name>` — имя базы данных.
     * `<table-name>` — имя таблицы.

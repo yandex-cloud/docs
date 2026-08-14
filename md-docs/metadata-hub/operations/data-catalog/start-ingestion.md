@@ -20,8 +20,8 @@
   
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог ресурсов](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно запустить загрузку.
   1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **Data Catalog**.
-  1. Выберите каталог метаданных, в котором нужно запустить загрузку, затем на панели слева выберите ![image](../../../_assets/console-icons/arrow-up-from-square.svg) **Загрузки**.
+  1. В блоке **Управляйте метаданными** выберите **Data Catalog**.
+  1. Выберите каталог метаданных, в котором нужно запустить загрузку, затем перейдите на вкладку **Загрузки**.
   1. В списке загрузок нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке с нужной загрузкой и выберите пункт **Запустить**.
   
   После успешного завершения загрузка примет статус **Success**, а загруженные данные будут [доступны для просмотра](#see-ingested-data).
@@ -36,8 +36,8 @@
   
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог ресурсов](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан каталог метаданных.
   1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **Data Catalog**.
-  1. Выберите каталог, в котором нужно остановить загрузку, затем на панели слева выберите ![image](../../../_assets/console-icons/arrow-up-from-square.svg) **Загрузки**.
+  1. В блоке **Управляйте метаданными** выберите **Data Catalog**.
+  1. Выберите каталог, в котором нужно остановить загрузку, затем перейдите на вкладку **Загрузки**.
   1. В списке загрузок нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке с нужной загрузкой в статусе **Running** и выберите пункт **Остановить**.
 
 {% endlist %}
@@ -50,8 +50,8 @@
   
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог ресурсов](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором была создана загрузка.
   1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **Data Catalog**.
-  1. Выберите каталог метаданных, в котором создана загрузка, затем на панели слева выберите ![image](../../../_assets/console-icons/database-magnifier.svg) **Поиск по метаданным**.
+  1. В блоке **Управляйте метаданными** выберите **Data Catalog**.
+  1. Выберите каталог метаданных, в котором создана загрузка, затем перейдите на вкладку **Поиск**.
 
   На странице отображается информация о загруженных данных — [источники данных](../../concepts/data-catalog.md#metadata-upload) (кластеры и пользовательские инсталляции), базы данных и таблицы. Здесь вы можете [найти нужные метаданные](search-metadata.md) и [разметить их](markup-metadata.md), а также [проанализировать их структуру и связи между ними](analysis-metadata.md).
 

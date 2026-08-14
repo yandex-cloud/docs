@@ -302,7 +302,7 @@ WebSQL — это сервис Yandex Cloud, который позволяет �
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите в каталог с нужным кластером.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог с нужным кластером.
   1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL**.
   1. Нажмите на имя нужного кластера и перейдите на вкладку **WebSQL**.
   1. Выберите нужное подключение.

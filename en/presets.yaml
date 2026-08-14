@@ -509,7 +509,7 @@ default:
     yc_gwin:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/gwin/charts/gwin-chart
-        tag: v1.8.2
+        tag: v1.9.1
     yc_istio:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/istio/istio
@@ -535,7 +535,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/metric-provider/charts/metric-provider
-        tag: 0.1.14
+        tag: 0.1.14-2
     yc_node-local-dns:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/node-local-dns
@@ -562,7 +562,7 @@ default:
   ml-platform-name: DataSphere
   ml-platform-short-name: DataSphere
   ml-project-size: 10 GB
-  ml-sdk-full-name: Yandex Cloud ML SDK
+  ml-sdk-full-name: Yandex AI Studio SDK
   ml-sdk-name: ML SDK
   mmg-backup-retention: 7
   mmg-backup-retention-max: 35

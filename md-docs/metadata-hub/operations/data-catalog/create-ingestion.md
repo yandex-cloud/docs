@@ -21,9 +21,9 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог ресурсов](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан каталог метаданных.
   1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **Data Catalog**.
+  1. В блоке **Управляйте метаданными** выберите **Data Catalog**.
   1. В открывшемся списке выберите каталог метаданных, в котором вы хотите создать загрузку.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/arrow-up-from-square.svg) **Загрузки**.
+  1. Перейдите на вкладку **Загрузки**.
   1. Нажмите кнопку **Создать загрузку**.
   1. Задайте параметры загрузки:
 

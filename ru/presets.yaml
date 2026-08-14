@@ -526,7 +526,7 @@ default:
     yc_gwin:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/gwin/charts/gwin-chart
-        tag: v1.8.2
+        tag: v1.9.1
     yc_istio:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/istio/istio
@@ -552,7 +552,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/metric-provider/charts/metric-provider
-        tag: 0.1.14
+        tag: 0.1.14-2
     yc_node-local-dns:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/node-local-dns
@@ -5955,7 +5955,6 @@ default:
         label_create-source-button: Создать источник данных
         label_create-tag-action: Создать тег
         label_create-term-action: Создать термин
-        label_data-store: Хранилище данных
         label_domains: Домены
         label_empty-ingestion-count-short: Нет загрузки
         label_ingestion-count: Количество загрузок
@@ -5970,14 +5969,17 @@ default:
         label_search-placeholder: Поиск данных
         label_source-data-tab: Выгруженные данные
         label_source-database-type: Тип источника данных
-        label_sources: Источники данных
         label_subterms: Дочерние термины
         label_tag-mutual-exclusion: Взаимоисключение
         label_tags-and-classification: Теги и классификации
         label_term-synonyms: Синонимы
         label_term-synonyms-add: Добавить
         label_terms-and-glossaries: Термины и глоссарии
-        title_search-data: Поиск по метаданным
+        layout:
+          label:
+            search-new-layout_Y7pK2: Поиск
+            sources-new-layout_N6vT1: Источники
+            storage-new-layout_L4xQ8: Хранилище
       data-streams:
         button_connect: Подключиться
         button_create-stream: Создать поток
@@ -6070,6 +6072,10 @@ default:
         label_service-account-select: Сервисный аккаунт
       gitlab:
         action_create-backup: Создать резервную копию
+        action_create-instance-from-backup: Создать инстанс из резервной копии
+        action_delete-backup: Удалить резервную копию
+        action_download-backup: Скачать резервную копию
+        action_restore-backup: Восстановить инстанс
         button_configure-data-types: Настроить хранение данных в Object Storage
         button_create-instance: Создать инстанс
         button_finish-migration: Завершить миграцию
@@ -6077,11 +6083,19 @@ default:
         button_runners_empty-create: Создать раннер
         button_setup-omniauth: Настроить
         button_start-migration: Перенести инстанс
+        components:
+          DownloadBackupModal:
+            button_generate: Получить ссылку
+            label_backup-link: Резервная копия
+            label_lifetime: Время жизни
+            label_secrets-link: Секреты GitLab
         field_admin-email: Электронная почта
         field_admin-login: Логин
         field_approval-rules: Правила ревью кода
         field_approval-rules-token: Gitlab токен
         field_capacity-per-instance: Количество параллельных задач на воркер
+        field_copy-object-storage: Перенести данные из Object Storage
+        field_copy-omniauth-config: Перенести параметры OmniAuth
         field_delete-untagged: Удалять образы без тегов при обслуживании
         field_domain: Домен
         field_idle-time-minutes: Лимит простоя воркера, в минутах
@@ -6093,6 +6107,7 @@ default:
         label_autoscale-section: Настройки масштабирования
         label_configuration-section: Конфигурация
         label_instances-title: Список инстансов
+        label_restore-section: Настройки восстановления
         runners_popup-confirm_button_delete: Удалить
         switch_instances: Инстансы
         title_backups: Резервные копии
@@ -7298,6 +7313,7 @@ default:
           AssetProfiling:
             ProfileHeader:
               title_profile-parameters_26kSu: Параметры профилирования
+        label_manage-metadata: Управляйте метаданными
       metastore:
         action_export: Экспорт
         action_import: Импорт
@@ -7401,6 +7417,7 @@ default:
         button_create-configuration-set: Создать конфигурацию
         button_create-identity: Создать адрес
         button_run-verification: Запустить проверку
+        field_engagement-metrics: Статистика вовлечённости
         field_secure-connection: Доставлять письмо только по защищённому соединению
         label_address: Домен
         label_allowed-senders: Разрешённые отправители
@@ -7431,6 +7448,7 @@ default:
         label_statistics_sent-event: Отправлено
         label_statistics_unsubscribes-event: Отписки
         section_dkim: Настройка подписи писем (DKIM)
+        section_tracking-options: Настройки сбора статистики
       postgresql:
         cluster:
           additional-field-pooling_mode: Режим работы менеджера подключений

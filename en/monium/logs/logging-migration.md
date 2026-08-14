@@ -41,7 +41,7 @@ To search for logs, specify a request like:
 
    After migration, logs will be billed according to the {{ monium-name }} pricing and all platform features will become available.
 
-1. Optionally, rename the projects, clusters, and services. You can leave the current structure: `folder__<folder_ID>` → `default` → `log group name` or provide your own naming. For more information, see [{#T}](../concepts/data-model.md).
+1. Optionally, rename the projects, clusters, and services. You can leave the current structure: `folder__<folder_ID>` → `default` → `log group name` or provide your own naming. For more information, see [Types of telemetry and general concepts](../concepts/data-model.md#telemetry-common).
 
 ## Configuring your agent for OTel delivery {#agent-setup}
 

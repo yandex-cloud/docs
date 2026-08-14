@@ -2,7 +2,7 @@
 
 # Managed Services for Kubernetes Audit Trails Events: UninstallHelmRelease
 
-## Event JSON schema {#yandex.cloud.audit.k8s.UninstallHelmRelease2-schema}
+## Event JSON schema {#yandex.cloud.audit.k8s.marketplace.v1.UninstallHelmRelease2-schema}
 
 ```json
 {
@@ -86,20 +86,37 @@
     ]
   },
   "details": {
-    "helmReleaseId": "string",
     "clusterId": "string",
+    // Includes only one of the fields `clusterName`
+    "clusterName": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `helmReleaseId`
+    "helmReleaseId": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `helmReleaseNamespace`
+    "helmReleaseNamespace": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `helmReleaseName`
+    "helmReleaseName": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `productId`
     "productId": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `productName`
     "productName": "string",
+    // end of the list of possible fields
     "productVersionId": "string",
-    "appNamespace": "string",
-    "appName": "string"
+    // Includes only one of the fields `status`
+    "status": "string",
+    // end of the list of possible fields
+    "createdAt": "string"
   },
   "requestParameters": "object",
   "response": "object"
 }
 ```
 
-## Field description {#yandex.cloud.audit.k8s.UninstallHelmRelease2}
+## Field description {#yandex.cloud.audit.k8s.marketplace.v1.UninstallHelmRelease2}
 
 #|
 ||Field | Description ||
@@ -128,7 +145,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || error | **[Status](#google.rpc.Status)**
 
 The error result of the operation in case of failure or cancellation. ||
-|| details | **[EventDetails](#yandex.cloud.audit.k8s.UninstallHelmRelease.EventDetails)** ||
+|| details | **[HelmReleaseDetails](#yandex.cloud.audit.k8s.marketplace.v1.HelmReleaseDetails)** ||
 || requestParameters | **object** ||
 || response | **object** ||
 |#
@@ -259,15 +276,49 @@ An error message. ||
 A list of messages that carry the error details. ||
 |#
 
-## EventDetails {#yandex.cloud.audit.k8s.UninstallHelmRelease.EventDetails}
+## HelmReleaseDetails {#yandex.cloud.audit.k8s.marketplace.v1.HelmReleaseDetails}
 
 #|
 ||Field | Description ||
-|| helmReleaseId | **string** ||
 || clusterId | **string** ||
-|| productId | **string** ||
-|| productName | **string** ||
+|| clusterName | **string**
+
+Includes only one of the fields `clusterName`. ||
+|| helmReleaseId | **string**
+
+Includes only one of the fields `helmReleaseId`. ||
+|| helmReleaseNamespace | **string**
+
+Includes only one of the fields `helmReleaseNamespace`. ||
+|| helmReleaseName | **string**
+
+Includes only one of the fields `helmReleaseName`. ||
+|| productId | **string**
+
+Includes only one of the fields `productId`. ||
+|| productName | **string**
+
+Includes only one of the fields `productName`. ||
 || productVersionId | **string** ||
-|| appNamespace | **string** ||
-|| appName | **string** ||
+|| status | **enum** (Status)
+
+Includes only one of the fields `status`.
+
+- `UNKNOWN`
+- `DEPLOYED`
+- `UNINSTALLED`
+- `SUPERSEDED`
+- `FAILED`
+- `UNINSTALLING`
+- `PENDING_INSTALL`
+- `PENDING_UPGRADE`
+- `PENDING_ROLLBACK` ||
+|| createdAt | **string** (date-time)
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 |#

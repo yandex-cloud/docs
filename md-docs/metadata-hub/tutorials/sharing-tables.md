@@ -138,7 +138,7 @@
 
 1. [Добавьте в настройки кластеров](../../data-proc/operations/cluster-update.md) Yandex Data Processing свойство `spark:spark.hive.metastore.uris` со значением `thrift://<IP-адрес_кластера_Apache Hive™ Metastore>:9083`.
 
-   Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, откройте [консоль управления](https://console.yandex.cloud), затем [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub** и на левой панели выберите страницу ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**. Для нужного кластера скопируйте значение из колонки **IP-адрес**.
+   Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, откройте [консоль управления](https://console.yandex.cloud), затем [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub** и в блоке **Управляйте метаданными** выберите **Metastore-сервер**. Для нужного кластера скопируйте значение из колонки **IP-адрес**.
 
 ## Создайте тестовую таблицу {#create-table}
 

@@ -5,7 +5,6 @@ editable: false
 # Managed Services for Kubernetes API, gRPC: NodeGroupService.Get
 
 Returns the specified node group.
-
 To get the list of available node group, make a [List](/docs/managed-kubernetes/managed-kubernetes/api-ref/grpc/NodeGroup/list#List) request.
 
 ## gRPC request

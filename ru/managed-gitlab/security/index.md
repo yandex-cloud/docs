@@ -46,6 +46,18 @@ description: Управление доступом в веб-инструмен�
 
 {% include [gitlab.admin](../../_roles/gitlab/admin.md) %}
 
+#### gitlab.backupAdmin {#gitlab-backup-admin}
+
+{% include [gitlab.backupAdmin](../../_roles/gitlab/backupAdmin.md) %}
+
+#### gitlab.backupRestorer {#gitlab-backup-restorer}
+
+{% include [gitlab.backupRestorer](../../_roles/gitlab/backupRestorer.md) %}
+
+#### gitlab.backupDownloader {#gitlab-backup-downloader}
+
+{% include [gitlab.backupDownloader](../../_roles/gitlab/backupDownloader.md) %}
+
 ### Примитивные роли {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}

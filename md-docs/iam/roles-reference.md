@@ -5361,9 +5361,10 @@
 Пользователи с этой ролью могут:
 * просматривать информацию об [инстансах](../managed-gitlab/concepts/index.md#instance) Managed Service for GitLab, а также создавать, изменять и удалять инстансы;
 * переносить инстансы в другую [зону доступности](../overview/concepts/geo-scope.md);
-* просматривать информацию о [квотах](../managed-gitlab/concepts/limits.md#quotas) сервиса Managed Service for GitLab.
+* просматривать информацию о [квотах](../managed-gitlab/concepts/limits.md#quotas) сервиса Managed Service for GitLab;
+* восстанавливать инстансы из резервных копий.
 
-Включает разрешения, предоставляемые ролью `gitlab.viewer`.
+Включает разрешения, предоставляемые ролями `gitlab.viewer` и `gitlab.backupRestorer`.
 
 Для создания инстансов Managed Service for GitLab дополнительно необходима роль `vpc.user`.
 
@@ -5374,9 +5375,10 @@
 Пользователи с этой ролью могут:
 * просматривать информацию об [инстансах](../managed-gitlab/concepts/index.md#instance) Managed Service for GitLab, а также создавать, изменять и удалять инстансы;
 * переносить инстансы в другую [зону доступности](../overview/concepts/geo-scope.md);
-* просматривать информацию о [квотах](../managed-gitlab/concepts/limits.md#quotas) сервиса Managed Service for GitLab.
+* просматривать информацию о [квотах](../managed-gitlab/concepts/limits.md#quotas) сервиса Managed Service for GitLab;
+* полностью управлять резервными копиями инстанса: создавать, скачивать и удалять их, а также восстанавливать инстансы и создавать новые из резервных копий.
 
-Включает разрешения, предоставляемые ролью `gitlab.editor`.
+Включает разрешения, предоставляемые ролями `gitlab.editor` и `gitlab.backupAdmin`.
 
 Для создания инстансов Managed Service for GitLab дополнительно необходима роль `vpc.user`.
 

@@ -28,7 +28,7 @@ description: В {{ postbox-full-name }} можно отслеживать пер
 Способ | Сбор [метрики](statistics.md#metrics) `Переходы` | Отправка уведомлений в поток данных {{ yds-name }}
 --- | --- | ---
 Выбрать тип уведомления **Переход по ссылкам** в блоке **{{ ui-key.yacloud.postbox.label_event-destinations }}** | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg)
-Включить опцию **Статистика вовлечённости** в блоке **Настройки сбора статистики** | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg)
+Включить опцию **{{ ui-key.yacloud.postbox.field_engagement-metrics }}** в блоке **{{ ui-key.yacloud.postbox.section_tracking-options }}** | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg)
 
 {% note info %}
 
