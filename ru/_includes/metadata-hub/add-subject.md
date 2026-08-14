@@ -1,4 +1,4 @@
-1. На панели слева выберите ![image](../../_assets/console-icons/branches-down.svg) **{{ ui-key.yacloud.schema-registry.label_schemas }}**.
+1. Перейдите на вкладку **{{ ui-key.yacloud.schema-registry.label_schemas }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.schema-registry.label_upload-schema-action }}**.
 1. Выберите способ загрузки схемы в новый субъект и укажите следующие параметры:
     * **Имя** — уникальное имя субъекта;

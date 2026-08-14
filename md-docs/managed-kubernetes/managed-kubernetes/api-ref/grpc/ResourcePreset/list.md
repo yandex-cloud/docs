@@ -73,15 +73,23 @@ A ResourcePreset resource for describing hardware configuration presets.
 ||Field | Description ||
 || id | **string**
 
-Human-readable ID of the preset. ||
+Human-readable ID of the preset.
+
+The minimum string length in characters is 1. ||
 || cores | **int64**
 
-Number of CPU cores for an instance created with the preset. ||
+Number of CPU cores for an instance created with the preset.
+
+The minimum value is 1. ||
 || core_fraction | **int64**
 
 Baseline level of CPU performance with the possibility to burst performance above that baseline level.
-This field sets baseline performance for each core. ||
+This field sets baseline performance for each core.
+
+Acceptable values are 1 to 100, inclusive. ||
 || memory | **int64**
 
-RAM volume for an instance created with the preset, in bytes. ||
+RAM volume for an instance created with the preset, in bytes.
+
+The minimum value is 1. ||
 |#

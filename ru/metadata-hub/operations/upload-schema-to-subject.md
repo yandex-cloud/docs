@@ -17,9 +17,9 @@ description: Следуя данной инструкции, вы сможете
   
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно загрузить схему в субъект.
   1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/layout-cells.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_schema-registry }}**.
+  1. В блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_schema-registry }}**.
   1. Выберите пространство имен, для которого вы хотите загрузить схему.
-  1. На панели слева выберите ![image](../../_assets/console-icons/branches-down.svg) **{{ ui-key.yacloud.schema-registry.label_schemas }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.schema-registry.label_schemas }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.schema-registry.label_upload-schema-action }}**.
   1. Выберите способ загрузки схемы в новый субъект и укажите следующие параметры:
       * **Имя** — уникальное имя субъекта;

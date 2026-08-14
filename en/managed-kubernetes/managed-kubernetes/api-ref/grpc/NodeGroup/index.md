@@ -12,9 +12,9 @@ A set of methods for managing node groups.
 ||Method | Description ||
 || [Get](get.md) | Returns the specified node group. ||
 || [List](list.md) | Retrieves the list of node group in the specified Kubernetes cluster. ||
+|| [ListNodes](listNodes.md) | Retrieves the list of nodes in the specified Kubernetes cluster. ||
 || [Create](create.md) | Creates a node group in the specified Kubernetes cluster. ||
 || [Update](update.md) | Updates the specified node group. ||
 || [Delete](delete.md) | Deletes the specified node group. ||
 || [ListOperations](listOperations.md) | Lists operations for the specified node group. ||
-|| [ListNodes](listNodes.md) | Retrieves the list of nodes in the specified Kubernetes cluster. ||
 |#

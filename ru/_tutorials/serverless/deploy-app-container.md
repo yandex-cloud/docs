@@ -149,7 +149,7 @@
   1. На панели слева выберите ![subnets](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
   1. Нажмите **{{ ui-key.yacloud.vpc.subnetworks.button_action-create }}**.
   1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** укажите `mongo-express-subnet-{{ region-id }}-b`.
-  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** выберите зону доступности `{{ region-id }}-b`.
+  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-b`.
   1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_network }}** выберите облачную сеть `mongo-express-network`.
   1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** укажите `192.168.1.0/24`.
   1. Нажмите **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
@@ -188,7 +188,7 @@
       Где:
 
       * `--name` — название подсети.
-      * `--zone` — зона доступности.
+      * `--zone` — [зона доступности](../../overview/concepts/geo-scope.md).
       * `--network-id` — идентификатор сети `mongo-express-network`.
       * `--range` — список IPv4-адресов, откуда или куда будет поступать трафик.
 

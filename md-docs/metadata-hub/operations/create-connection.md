@@ -35,7 +35,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
   1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
+  1. В блоке **Управляйте метаданными** выберите **Connection manager**.
   1. Нажмите **Создать подключение**.
   1. Укажите **Имя** подключения.
   1. (Опционально) Добавьте **Описание** подключения и [метки](../../resource-manager/concepts/labels.md).
@@ -230,7 +230,7 @@
 
     1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
     1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-    1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
+    1. В блоке **Управляйте метаданными** выберите **Connection manager**.
     1. Нажмите **Создать подключение**.
     1. Укажите **Имя** подключения.
     1. (Опционально) Добавьте **Описание** подключения и [метки](../../resource-manager/concepts/labels.md).
@@ -425,7 +425,7 @@
 
    1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
    1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-   1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
+   1. В блоке **Управляйте метаданными** выберите **Connection manager**.
    1. Нажмите **Создать подключение**.
    1. Укажите **Имя** подключения.
    1. (Опционально) Добавьте **Описание** подключения и [метки](../../resource-manager/concepts/labels.md).
@@ -619,7 +619,7 @@
     
     1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
     1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-    1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
+    1. В блоке **Управляйте метаданными** выберите **Connection manager**.
     1. Нажмите **Создать подключение**.
     1. Укажите **Имя** подключения.
     1. (Опционально) Добавьте **Описание** подключения и [метки](../../resource-manager/concepts/labels.md).
@@ -811,7 +811,7 @@
 
    1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
    1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-   1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
+   1. В блоке **Управляйте метаданными** выберите **Connection manager**.
    1. Нажмите **Создать подключение**.
    1. Укажите **Имя** подключения.
    1. (Опционально) Добавьте **Описание** подключения и [метки](../../resource-manager/concepts/labels.md).
@@ -993,7 +993,7 @@
 
    1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
    1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-   1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
+   1. В блоке **Управляйте метаданными** выберите **Connection manager**.
    1. Нажмите **Создать подключение**.
    1. Укажите **Имя** подключения.
    1. (Опционально) Добавьте **Описание** подключения и [метки](../../resource-manager/concepts/labels.md).
@@ -1187,7 +1187,7 @@
 
    1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
    1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-   1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
+   1. В блоке **Управляйте метаданными** выберите **Connection manager**.
    1. Нажмите **Создать подключение**.
    1. Укажите **Имя** подключения.
    1. (Опционально) Добавьте **Описание** подключения и [метки](../../resource-manager/concepts/labels.md).
@@ -1403,7 +1403,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
   1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
+  1. В блоке **Управляйте метаданными** выберите **Connection manager**.
   1. Нажмите **Создать подключение**.
   1. Укажите **Имя** подключения.
   1. (Опционально) Добавьте **Описание** подключения и [метки](../../resource-manager/concepts/labels.md).
@@ -1600,7 +1600,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
   1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
+  1. В блоке **Управляйте метаданными** выберите **Connection manager**.
   1. Нажмите **Создать подключение**.
   1. Укажите **Имя** подключения.
   1. (Опционально) Добавьте **Описание** подключения и [метки](../../resource-manager/concepts/labels.md).
@@ -1831,7 +1831,7 @@
 
     1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
     1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-    1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
+    1. В блоке **Управляйте метаданными** выберите **Connection manager**.
     1. Нажмите **Создать подключение**.
     1. Укажите **Имя** подключения.
     1. (Опционально) Добавьте **Описание** подключения и [метки](../../resource-manager/concepts/labels.md).
@@ -2068,7 +2068,7 @@
 
    1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
    1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-   1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
+   1. В блоке **Управляйте метаданными** выберите **Connection manager**.
    1. Нажмите **Создать подключение**.
    1. Укажите **Имя** подключения.
    1. (Опционально) Добавьте **Описание** подключения и [метки](../../resource-manager/concepts/labels.md).
@@ -2300,7 +2300,7 @@
     
     1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
     1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-    1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
+    1. В блоке **Управляйте метаданными** выберите **Connection manager**.
     1. Нажмите **Создать подключение**.
     1. Укажите **Имя** подключения.
     1. (Опционально) Добавьте **Описание** подключения и [метки](../../resource-manager/concepts/labels.md).
@@ -2530,7 +2530,7 @@
     
     1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
     1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-    1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
+    1. В блоке **Управляйте метаданными** выберите **Connection manager**.
     1. Нажмите **Создать подключение**.
     1. Укажите **Имя** подключения.
     1. (Опционально) Добавьте **Описание** подключения и [метки](../../resource-manager/concepts/labels.md).
@@ -2758,7 +2758,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
   1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
+  1. В блоке **Управляйте метаданными** выберите **Connection manager**.
   1. Нажмите **Создать подключение**.
   1. Укажите **Имя** подключения.
   1. (Опционально) Добавьте **Описание** подключения и [метки](../../resource-manager/concepts/labels.md).
@@ -2959,7 +2959,7 @@
 
    1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
    1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-   1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
+   1. В блоке **Управляйте метаданными** выберите **Connection manager**.
    1. Нажмите **Создать подключение**.
    1. Укажите **Имя** подключения.
    1. (Опционально) Добавьте **Описание** подключения и [метки](../../resource-manager/concepts/labels.md).
@@ -3173,7 +3173,7 @@
 
    1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
    1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-   1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
+   1. В блоке **Управляйте метаданными** выберите **Connection manager**.
    1. Нажмите **Создать подключение**.
    1. Укажите **Имя** подключения.
    1. (Опционально) Добавьте **Описание** подключения и [метки](../../resource-manager/concepts/labels.md).
@@ -3401,7 +3401,7 @@
 
    1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
    1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-   1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
+   1. В блоке **Управляйте метаданными** выберите **Connection manager**.
    1. Нажмите **Создать подключение**.
    1. Укажите **Имя** подключения.
    1. (Опционально) Добавьте **Описание** подключения и [метки](../../resource-manager/concepts/labels.md).
@@ -3652,7 +3652,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
   1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
+  1. В блоке **Управляйте метаданными** выберите **Connection manager**.
   1. Нажмите **Создать подключение**.
   1. Укажите **Имя** подключения.
   1. (Опционально) Добавьте **Описание** подключения и [метки](../../resource-manager/concepts/labels.md).

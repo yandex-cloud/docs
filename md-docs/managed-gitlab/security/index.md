@@ -33,10 +33,13 @@
 ## Какие роли действуют в сервисе {#roles-list}
 
 ```mermaid
+%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
+
 flowchart BT
-    gitlab.auditor --> gitlab.viewer
-    gitlab.viewer --> gitlab.editor
-    gitlab.editor --> gitlab.admin
+    gitlab.backupRestorer["gitlab.backupRestorer"] --> gitlab.backupAdmin["gitlab.backupAdmin"] --> gitlab.admin
+    gitlab.backupDownloader["gitlab.backupDownloader"] --> gitlab.backupAdmin
+    gitlab.backupRestorer --> gitlab.editor["gitlab.editor"] --> gitlab.admin["gitlab.admin"]
+    gitlab.auditor --> gitlab.viewer --> gitlab.editor
 ```
 
 ### Сервисные роли {#service-roles}
@@ -58,9 +61,10 @@ flowchart BT
 Пользователи с этой ролью могут:
 * просматривать информацию об [инстансах](../concepts/index.md#instance) Managed Service for GitLab, а также создавать, изменять и удалять инстансы;
 * переносить инстансы в другую [зону доступности](../../overview/concepts/geo-scope.md);
-* просматривать информацию о [квотах](../concepts/limits.md#quotas) сервиса Managed Service for GitLab.
+* просматривать информацию о [квотах](../concepts/limits.md#quotas) сервиса Managed Service for GitLab;
+* восстанавливать инстансы из резервных копий.
 
-Включает разрешения, предоставляемые ролью `gitlab.viewer`.
+Включает разрешения, предоставляемые ролями `gitlab.viewer` и `gitlab.backupRestorer`.
 
 Для создания инстансов Managed Service for GitLab дополнительно необходима роль `vpc.user`.
 
@@ -71,11 +75,26 @@ flowchart BT
 Пользователи с этой ролью могут:
 * просматривать информацию об [инстансах](../concepts/index.md#instance) Managed Service for GitLab, а также создавать, изменять и удалять инстансы;
 * переносить инстансы в другую [зону доступности](../../overview/concepts/geo-scope.md);
-* просматривать информацию о [квотах](../concepts/limits.md#quotas) сервиса Managed Service for GitLab.
+* просматривать информацию о [квотах](../concepts/limits.md#quotas) сервиса Managed Service for GitLab;
+* полностью управлять резервными копиями инстанса: создавать, скачивать и удалять их, а также восстанавливать инстансы и создавать новые из резервных копий.
 
-Включает разрешения, предоставляемые ролью `gitlab.editor`.
+Включает разрешения, предоставляемые ролями `gitlab.editor` и `gitlab.backupAdmin`.
 
 Для создания инстансов Managed Service for GitLab дополнительно необходима роль `vpc.user`.
+
+#### gitlab.backupAdmin {#gitlab-backup-admin}
+
+Роль `gitlab.backupAdmin` позволяет полностью управлять резервными копиями инстансов Managed Service for GitLab. Пользователи с этой ролью могут создавать и удалять резервные копии, восстанавливать из них инстансы, а также скачивать резервные копии, в том числе секреты GitLab из этих резервных копий.
+
+Включает разрешения, предоставляемые ролями `gitlab.backupRestorer` и `gitlab.backupDownloader`.
+
+#### gitlab.backupRestorer {#gitlab-backup-restorer}
+
+Роль `gitlab.backupRestorer` позволяет восстанавливать инстансы Managed Service for GitLab из резервных копий.
+
+#### gitlab.backupDownloader {#gitlab-backup-downloader}
+
+Роль `gitlab.backupDownloader` позволяет скачивать резервные копии инстансов Managed Service for GitLab, в том числе секреты GitLab из этих резервных копий.
 
 ### Примитивные роли {#primitive-roles}
 

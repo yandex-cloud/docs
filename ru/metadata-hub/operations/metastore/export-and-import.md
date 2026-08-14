@@ -22,7 +22,7 @@ description: Следуя данной инструкции, вы научите
 
    1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
    1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-   1. На панели слева выберите ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
+   1. В блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.metastore.label_metastore }}**.
    1. Нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) для нужного кластера и выберите пункт ![image](../../../_assets/console-icons/arrow-up-from-square.svg) **{{ ui-key.yacloud.metastore.action_export }}**.
    1. В открывшемся окне укажите:
 
@@ -129,7 +129,7 @@ description: Следуя данной инструкции, вы научите
 
    1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
    1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-   1. На панели слева выберите ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
+   1. В блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.metastore.label_metastore }}**.
    1. Нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) для нужного кластера и выберите пункт ![image](../../../_assets/console-icons/arrow-down-to-square.svg) **{{ ui-key.yacloud.metastore.action_import }}**.
    1. В открывшемся окне выберите [созданный ранее](#before-you-begin) бакет и файл, откуда будут импортированы данные кластера.
    1. Нажмите кнопку **{{ ui-key.yacloud.metastore.dialog.import-export.action_import }}**.

@@ -1,3 +1,5 @@
+
+
 В этом руководстве вы развернете [Docker-образ](../../cloud-registry/concepts/artifacts/docker.md) из [реестра](../../cloud-registry/concepts/registry.md) {{ cloud-registry-full-name }} и запустите контейнер на [виртуальной машине](../../compute/concepts/vm.md) {{ compute-full-name }}.
 
 Чтобы запустить Docker-образ на виртуальной машине:

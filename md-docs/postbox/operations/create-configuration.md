@@ -79,7 +79,6 @@
            --configuration-set-name $CONFIGSET_NAME \
            --event-destination-name <имя_подписки> \
            --event-destination "{\"Enabled\":true,\"KinesisFirehoseDestination\":{\"DeliveryStreamArn\":\"arn:aws:keenesis:::$KINESIS_ENDPOINT:$TOPIC\",\"IamRoleArn\":\"arn:\"}}"
-
         ```
 
         Можно добавить несколько подписок.
