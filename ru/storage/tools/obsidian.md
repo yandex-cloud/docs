@@ -1,11 +1,11 @@
 ---
 title: Remotely Save
-description: Remotely Save — плагин для Obsidian, обеспечивающий синхронизацию хранилища заметок с облачными хранилищами, совместимыми с Amazon S3 API, в том числе с {{ objstorage-name }}.
+description: Remotely Save — плагин для Obsidian, который синхронизирует хранилище заметок с облачными хранилищами, совместимыми с Amazon S3 API, в том числе с {{ objstorage-name }}.
 ---
 
 # Remotely Save
 
-[Remotely Save](https://github.com/remotely-save/remotely-save) — плагин для [Obsidian](https://obsidian.md/), обеспечивающий синхронизацию хранилища заметок с облачными хранилищами, совместимыми с [Amazon S3 API](../../glossary/s3.md), в том числе с {{ objstorage-name }}.
+[Remotely Save](https://github.com/remotely-save/remotely-save) — плагин для [Obsidian](https://obsidian.md/), который синхронизирует хранилище заметок с облачными хранилищами, совместимыми с [Amazon S3 API](../../glossary/s3.md), в том числе с {{ objstorage-name }}.
 
 ## Подготовка к работе {#before-you-begin}
 
@@ -25,10 +25,10 @@ description: Remotely Save — плагин для Obsidian, обеспечив�
 1. В Obsidian откройте **Settings** → **Remotely Save**.
 1. В поле **Choose a remote service** выберите **S3 or compatible**.
 1. Укажите параметры подключения:
-    * **Endpoint** — `https://{{ s3-storage-host }}`.
-    * **Region** — `{{ region-id }}`.
-    * **Access Key ID** — идентификатор статического ключа, [полученный ранее](#before-you-begin).
-    * **Secret Access Key** — содержимое статического ключа, [полученное ранее](#before-you-begin).
+    * **Endpoint** — `https://{{ s3-storage-host }}`;
+    * **Region** — `{{ region-id }}`;
+    * **Access Key ID** — идентификатор статического ключа, [полученный ранее](#before-you-begin);
+    * **Secret Access Key** — содержимое статического ключа, [полученное ранее](#before-you-begin);
     * **Bucket Name** — имя бакета, [созданного ранее](#before-you-begin).
 1. Нажмите **Check** для проверки подключения.
 1. После успешной проверки нажмите **Save settings**.
@@ -39,7 +39,7 @@ description: Remotely Save — плагин для Obsidian, обеспечив�
 
 {% note info %}
 
-Remotely Save работает с {{ objstorage-name }} как с иерархической файловой системой. Ключи объектов, загруженных через плагин, будут иметь вид пути к файлу, например `folder/subfolder/note.md`.
+Remotely Save работает с {{ objstorage-name }} как с иерархической файловой системой. Ключи объектов, которые загружены через плагин, будут иметь вид пути к файлу, например `folder/subfolder/note.md`.
 
 {% endnote %}
 
