@@ -33,7 +33,7 @@ data "yandex_sws_security_profile" "by-name" {
 - `custom_page_id` (String). ID of the default custom page shown to the user when a request is denied.
 - `default_action` (**Required**)(String). Action to perform if none of rules matched.
 - `description` (String). Optional description of the security profile.
-- `disallow_data_processing` (Bool). Disables the use of HTTP request data for training and improving the service's ML models.
+- `disallow_data_processing` (**Required**)(Bool). Disables the use of HTTP request data for training and improving the service's ML models.
 - `folder_id` (String). ID of the folder that the security profile belongs to.
 - `id` (String). ID of the SecurityProfile resource to return.
 - `labels` (Map Of String). Labels as `` key:value `` pairs. Maximum of 64 per resource.
@@ -44,7 +44,7 @@ data "yandex_sws_security_profile" "by-name" {
   - `enabled_actions` (List Of String). List of verdicts for which requests will be logged.
   - `enabled_modules` (List Of String). List of modules whose requests will be logged.
   - `log_group_id` (String). ID of the Cloud Logging log group to write SWS logs to.
-  - `outputs` (List Of String). List of log destinations: Cloud Logging and/or Audit Trails.
+  - `outputs` (List Of String). List of log destinations: Cloud Logging, Audit Trails, and/or Monium.
 - `name` (**Required**)(String). Name of the security profile. The name is unique within the folder. 1-50 characters long.
 - `security_profile_id` (String). ID of the SecurityProfile resource to return.
 - `security_rule` [Block]. List of security rules.

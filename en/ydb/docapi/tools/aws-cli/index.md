@@ -17,8 +17,8 @@ This section describes how to perform the following operations in {{ ydb-short-n
 
    {% cut "Where to find the Document API endpoint of a database" %}
 
-   1. Navigate to the [management console]({{ link-console-main }}).
-   1. Select the folder and go to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+   1. In the [management console]({{ link-console-main }}), select the relevant folder.
+   1. [Navigate]({{ link-console-main }}/link/ydb) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
    1. Select the database you want to query.
    1. In the menu on the left, go to the **{{ ui-key.yacloud.common.overview }}** section.
    1. The **{{ ui-key.yacloud.ydb.overview.label_document-endpoint }}** line shows the endpoint value.

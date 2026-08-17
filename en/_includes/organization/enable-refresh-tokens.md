@@ -11,6 +11,12 @@
 
       With this option disabled, you can use DPoP keys saved both on a YubiKey and the user's local file system to ensure refresh token security.
 
+      {% note warning %}
+
+      The strictest refresh token setting always applies for users with a [Yandex account](../../iam/concepts/users/accounts.md#passport) in multiple organizations. If one organizations allows storing DpoP keys in the file system while another requires only YubiKey, the user will be able to use only YubiKey when logging in to any of these organizations.
+
+      {% endnote %}
+
 {% endlist %}
 
 To use refresh tokens in the {{ yandex-cloud }} CLI, each user must [initialize DPoP](../../iam/concepts/authorization/refresh-token.md#enabling-dpop) after you enable this option at the organization level.

@@ -156,7 +156,7 @@ To create an [instance group](../../compute/concepts/instance-groups/index.md) f
       * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username.
       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
 
-        You need to create a key pair for the SSH connection [by yourself](../../compute/operations/vm-connect/ssh.md).
+        You need to create a key pair for the SSH connection [on your own](../../compute/operations/vm-connect/ssh.md).
 
       {% note alert %}
 

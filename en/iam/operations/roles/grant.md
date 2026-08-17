@@ -36,7 +36,7 @@ To select roles, look them up in the [role reference](../../roles-reference.md).
    1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the cloud or folder.
    1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
    1. Click **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
-   1. Select the group, user, or service account you want to grant access to a cloud or folder.
+   1. Select the group, user, or service account you need to grant access to a cloud or folder.
    1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required roles.
    1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
@@ -63,61 +63,80 @@ To select roles, look them up in the [role reference](../../roles-reference.md).
       ```
 
    1. Get the [ID of the user](../../../organization/operations/users-get.md), [service account](../sa/get-id.md), user group, organization, or identity federation to which or the users of which you are assigning a role.
-   1. Use one of these commands to assign a role:
+   1. To assign a role, run this command:
 
-      * To a Yandex account user or local user:
+      ```bash
+      yc resource-manager <cloud_or_folder> add-access-binding \
+        --id <cloud_or_folder_ID> \
+        --role <role_ID> \
+        --subject <subject_type>:<subject_ID>
+      ```
 
-         ```bash
-         yc resource-manager <cloud_or_folder> add-access-binding \
-            --id <cloud_or_folder_ID> \
-            --role <role> \
-            --user-account-id <user_ID>
-         ```
+      Where:
 
-      * To a federated user:
+      * `--id`: ID of the resource to assign the role for.
+      * `--role`: ID of the role you need to assign, e.g., `{{ roles-cloud-owner }}`.
+      * `--subject`: [Subject](../../concepts/access-control/index.md#subject) getting the role.
 
-         ```bash
-         yc resource-manager <cloud_or_folder> add-access-binding \
-            --id <cloud_or_folder_ID> \
-            --role <role> \
-            --subject federatedUser:<user_ID>
-         ```
+          {% cut "Subject designations" %}
 
-      * To a service account:
+          {% include [subjects-designations-cli](../../../_includes/iam/subjects-designations-cli.md) %}
 
-         ```bash
-         yc resource-manager <cloud_or_folder> add-access-binding \
-            --id <cloud_or_folder_ID> \
-            --role <role> \
-            --service-account-id <service_account_ID>
-         ```
+          {% endcut %}
 
-      * To a user group:
+      For example, to assign a service account the `viewer` role for the folder:
 
-         ```bash
-         yc resource-manager <cloud_or_folder> add-access-binding \
-            --id <cloud_or_folder_ID> \
-            --role <role> \
-            --subject group:<group_ID>
-         ```
+      ```bash
+      yc resource-manager folder add-access-binding \
+        --id b1g672qpemb4******** \
+        --role viewer \
+        --subject serviceAccount:aje8m5luj4qf********
+      ```
 
-      * To all users of an organization:
+- {{ TF }} {#tf}
 
-         ```bash
-         yc resource-manager <cloud_or_folder> add-access-binding \
-            --id <cloud_or_folder_ID> \
-            --role <role> \
-            --organization-users <organization_ID>
-         ```
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-      * To all users of an identity federation:
+  1. Describe the roles you are assigning in the configuration file:
 
-         ```bash
-         yc resource-manager <cloud_or_folder> add-access-binding \
-            --id <cloud_or_folder_ID> \
-            --role <role> \
-            --federation-users <federation_ID>
-         ```
+      Here is an example of the configuration file structure:
+
+      ```hcl
+      // Assigning a role for the cloud
+      resource "yandex_resourcemanager_cloud_iam_member" "cloud_member" {
+        cloud_id = "<cloud_ID>"
+        role     = "<role>"
+        member   = "<subject>"
+      }
+
+      // Assigning a role for the folder
+      resource "yandex_resourcemanager_folder_iam_member" "folder_member" {
+        folder_id = "<folder_ID>"
+        role      = "<role>"
+        member    = "<subject>"
+      }
+      ```
+
+      Where:
+
+      * `cloud_id`: Cloud ID. You can get a list of available clouds using the [CLI](../../../cli/quickstart.md) command: `yc resource-manager cloud list`. This is a required setting.
+      * `folder_id`: Folder ID You can get the list of available folders using the `yc resource-manager cloud list` [CLI](../../../cli/quickstart.md) command. This is a required setting.
+      * `role`: Role you need to assign. You can get a list of roles using the [CLI](../../../cli/quickstart.md) command: `yc iam role list`. In one resource, only one role can be assigned. This is a required setting.
+      * `member`: [Subject](../../concepts/access-control/index.md#subject) getting the role. This is a required setting.
+
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-terraform](../../../_includes/iam/subjects-designations-terraform.md) %}
+
+          {% endcut %}
+
+      For more on the properties of {{ TF }} resources, see [this provider guide]({{ tf-docs-link }}/tf-ref/overview).
+
+  1. Create the resources:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+      This will create the necessary resources in the organization.
 
 - API {#api}
 
@@ -129,8 +148,14 @@ To select roles, look them up in the [role reference](../../roles-reference.md).
 
    * `ADD` value in the `accessBindingDeltas[].action` parameter to add a role.
    * Role in the `accessBindingDeltas[].accessBinding.roleId` parameter.
-   * ID of the subject you are assigning the role to in the `accessBindingDeltas[].accessBinding.subject.id` parameter.
-   * Type of the subject you are assigning the role to in the `accessBindingDeltas[].accessBinding.subject.type` parameter.
+   * ID of the [subject](../../concepts/access-control/index.md#subject) getting the role in the `accessBindingDeltas[].accessBinding.subject.id` parameter.
+   * Type of the subject getting the role in the `accessBindingDeltas[].accessBinding.subject.type` parameter.
+
+        {% cut "Subject designations" %}
+
+        {% include [subjects-designations-api](../../../_includes/iam/subjects-designations-api.md) %}
+
+        {% endcut %}
 
 {% endlist %}
 
@@ -179,53 +204,35 @@ To assign a role for an organization:
       ```
 
    1. Get the [ID of the user](../../../organization/operations/users-get.md), [service account](../sa/get-id.md), user group, organization, or identity federation to which or the users of which you are assigning a role.
-   1. Use one of these commands to assign a role:
+   1. To assign a role, run this command:
 
-      * To a Yandex account user or local user:
+      ```bash
+      yc organization-manager organization add-access-binding \
+        --id <organization_ID> \
+        --role <role_ID> \
+        --subject <subject_type>:<subject_ID>
+      ```
 
-         ```bash
-         yc organization-manager organization add-access-binding \
-            --id <organization_ID> \
-            --role <role> \
-            --user-account-id <user_ID>
-         ```
+      Where:
 
-      * To a federated user:
+      * `--id`: ID of the resource to assign the role for.
+      * `--role`: ID of the role you need to assign, e.g., `{{ roles-cloud-owner }}`.
+      * `--subject`: [Subject](../../concepts/access-control/index.md#subject) getting the role.
 
-         ```bash
-         yc organization-manager organization add-access-binding \
-            --id <organization_ID> \
-            --role <role> \
-            --subject federatedUser:<user_ID>
-         ```
+          {% cut "Subject designations" %}
 
-      * To a service account:
+          {% include [subjects-designations-cli](../../../_includes/iam/subjects-designations-cli.md) %}
 
-         ```bash
-         yc organization-manager organization add-access-binding \
-            --id <organization_ID> \
-            --role <role> \
-            --service-account-id <service_account_ID>
-         ```
+          {% endcut %}
 
-      * To all users of an organization:
+      For example, to assign a service account the `viewer` role for the organization:
 
-         ```bash
-         yc organization-manager organization add-access-binding \
-            --id <organization_ID> \
-            --role <role> \
-            --organization-users <organization_ID>
-         ```
-
-      * To all users of an identity federation:
-
-         ```bash
-         yc organization-manager organization add-access-binding \
-            --id <organization_ID> \
-            --role <role> \
-            --federation-users <federation_ID>
-         ```
-
+      ```bash
+      yc organization-manager organization add-access-binding \
+        --id org672qpemb4******** \
+        --role viewer \
+        --subject serviceAccount:aje8m5luj4qf********
+      ```
 
 - {{ TF }} {#tf}
 
@@ -242,32 +249,27 @@ To assign a role for an organization:
       resource "yandex_organizationmanager_organization_iam_binding" "<resource_name>" {
         organization_id = "<organization_ID>"
         role            = "<role>"
-        members         = [<users>]
+        member          = "<subject>"
       }
       ```
 
       Where:
 
       * `organization_id`: [Organization ID](../../../organization/operations/organization-get-id.md). This is a required setting.
-      * `role`: Role to assign. For each role, you can only use one `yandex_organizationmanager_organization_iam_binding` resource. This is a required setting.
-      * `members`: Users getting the role. Specify the following:
+      * `role`: Role. For each role, you can only use one `yandex_organizationmanager_organization_iam_binding` resource. This is a required setting.
+      * `member`: [Subject](../../concepts/access-control/index.md#subject) getting the role. This is a required setting.
 
-         * `members = ["userAccount:<user_ID>"]`: For a Yandex account user or local user.
-         * `members = ["federatedUser:<user_ID>"]`: For a federated user.
-         * `members = ["serviceAccount:<user_ID>"]`: For a service account.
-         * `members = ["group:<user_ID>"]`: For a user group.
-         * `members = ["system:group:organization:<organization_ID>:users"]`: For all [organization](../../../organization/quickstart.md) users.
-         * `members = ["system:group:federation:<organization_ID>:users"]`: For all [identity federation](../../../organization/concepts/add-federation.md) users.
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-terraform](../../../_includes/iam/subjects-designations-terraform.md) %}
+
+          {% endcut %}
 
       For more information, see [this provider guide]({{ tf-provider-link }}).
 
-   1. Make sure the settings are correct.
+  1. Create the resources:
 
-      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
-
-   1. Assign the role.
-
-      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
       This will create the necessary resources in the organization. You can check the new resources using the [management console]({{ link-console-main }}) or this CLI command:
 
@@ -281,8 +283,14 @@ To assign a role for an organization:
 
    * `ADD` value in the `accessBindingDeltas[].action` parameter to add a role.
    * Role in the `accessBindingDeltas[].accessBinding.roleId` parameter.
-   * ID of the subject you are assigning the role to in the `accessBindingDeltas[].accessBinding.subject.id` parameter.
-   * Type of the subject you are assigning the role to in the `accessBindingDeltas[].accessBinding.subject.type` parameter.
+   * ID of the [subject](../../concepts/access-control/index.md#subject) getting the role in the `accessBindingDeltas[].accessBinding.subject.id` parameter.
+   * Type of the subject getting the role in the `accessBindingDeltas[].accessBinding.subject.type` parameter.
+
+        {% cut "Subject designations" %}
+
+        {% include [subjects-designations-api](../../../_includes/iam/subjects-designations-api.md) %}
+
+        {% endcut %}
 
 {% endlist %}
 
@@ -299,7 +307,7 @@ You can assign a role not only for an organization, cloud, or folder but their c
    1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder containing the resource.
    1. Open its page.
    1. Navigate to ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
-   1. Select the group, user, or service account you want to grant access to a resource.
+   1. Select the group, user, or service account you need to grant access to a resource.
    1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required roles.
    1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
@@ -330,61 +338,74 @@ You can assign a role not only for an organization, cloud, or folder but their c
       ```
 
    1. Get the [ID of the user](../../../organization/operations/users-get.md), [service account](../sa/get-id.md), user group, organization, or identity federation to which or the users of which you are assigning a role.
-   1. Use one of these commands to assign a role:
+   1. To assign a role, run this command:
 
-      * To a Yandex account user or local user:
+      ```bash
+      yc <service_name> <resource> add-access-binding \
+        --id <resource_ID> \
+        --role <role_ID> \
+        --subject <subject_type>:<subject_ID>
+      ```
 
-         ```bash
-         yc <service_name> <resource> add-access-binding \
-            --id <resource_ID> \
-            --role <role> \
-            --user-account-id <user_ID>
-         ```
+      Where:
 
-      * To a federated user:
+      * `--id`: ID of the resource to assign the role for.
+      * `--role`: ID of the role you need to assign, e.g., `{{ roles-cloud-owner }}`.
+      * `--subject`: [Subject](../../concepts/access-control/index.md#subject) getting the role.
 
-         ```bash
-         yc <service_name> <resource> add-access-binding \
-            --id <resource_ID> \
-            --role <role> \
-            --subject federatedUser:<user_ID>
-         ```
+          {% cut "Subject designations" %}
 
-      * To a service account:
+          {% include [subjects-designations-cli](../../../_includes/iam/subjects-designations-cli.md) %}
 
-         ```bash
-         yc <service_name> <resource> add-access-binding \
-            --id <resource_ID> \
-            --role <role> \
-            --service-account-id <service_account_ID>
-         ```
+          {% endcut %}
 
-      * To a user group:
+      For example, to assign a service account the `viewer` role for the VM:
 
-         ```bash
-         yc <service_name> <resource> add-access-binding \
-            --id <resource_ID> \
-            --role <role> \
-            --subject group:<group_ID>
-         ```
+      ```bash
+      yc compute instance add-access-binding \
+        --id ins672qpemb4******** \
+        --role viewer \
+        --subject serviceAccount:aje8m5luj4qf********
+      ```
 
-      * To all users of an organization:
+- {{ TF }} {#tf}
 
-         ```bash
-         yc <service_name> <resource> add-access-binding \
-            --id <resource_ID> \
-            --role <role> \
-            --organization-users <organization_ID>
-         ```
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-      * To all users of an identity federation:
+   To assign a role for an organization:
 
-         ```bash
-         yc <service_name> <resource> add-access-binding \
-            --id <resource_ID> \
-            --role <role> \
-            --federation-users <federation_ID>
-         ```
+   1. Get the [ID of the user](../../../organization/operations/users-get.md), [service account](../sa/get-id.md), or user group you are assigning a role to.
+   1. Describe the resource with the role for the organization in the configuration file.
+
+      Sample configuration file structure for assigning a role to a folder:
+
+      ```hcl
+      resource "yandex_resourcemanager_folder_iam_member" "admin-account-iam" {
+        folder_id   = "<folder_ID>"
+        role        = "<role>"
+        member      = "<subject>"
+      }
+      ```
+
+      Where:
+
+      * `folder_id`: [Folder ID](../../../resource-manager/operations/folder/get-id.md). This is a required setting.
+      * `role`: Role. For each role, you can only use one `yandex_organizationmanager_organization_iam_binding` resource. This is a required setting.
+      * `member`: [Subject](../../concepts/access-control/index.md#subject) getting the role. This is a required setting.
+
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-terraform](../../../_includes/iam/subjects-designations-terraform.md) %}
+
+          {% endcut %}
+
+      For more information, see [this provider guide]({{ tf-provider-link }}).
+
+  1. Create the resources:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+      This will create the necessary resources in the organization. You can check the new resources using the [management console]({{ link-console-main }}) or CLI commands.
 
 - API {#api}
 
@@ -392,8 +413,14 @@ You can assign a role not only for an organization, cloud, or folder but their c
 
    * `ADD` value in the `accessBindingDeltas[].action` parameter to add a role.
    * Role in the `accessBindingDeltas[].accessBinding.roleId` parameter.
-   * ID of the subject you are assigning the role to in the `accessBindingDeltas[].accessBinding.subject.id` parameter.
-   * Type of the subject you are assigning the role to in the `accessBindingDeltas[].accessBinding.subject.type` parameter.
+   * ID of the [subject](../../concepts/access-control/index.md#subject) getting the role in the `accessBindingDeltas[].accessBinding.subject.id` parameter.
+   * Type of the subject getting the role in the `accessBindingDeltas[].accessBinding.subject.type` parameter.
+
+        {% cut "Subject designations" %}
+
+        {% include [subjects-designations-api](../../../_includes/iam/subjects-designations-api.md) %}
+
+        {% endcut %}
 
 {% endlist %}
 
@@ -406,7 +433,7 @@ You can assign a role not only for an organization, cloud, or folder but their c
    1. In the [management console]({{ link-console-main }}), select the folder the resource resides in.
    1. Open its page.
    1. Navigate to ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
-   1. Select the group, user, or service account you want to grant access to a resource.
+   1. Select the group, user, or service account you need to grant access to a resource.
    1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required roles.
    1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
@@ -447,65 +474,78 @@ You can assign a role not only for an organization, cloud, or folder but their c
       ```
 
    1. Get the [ID of the user](../../../organization/operations/users-get.md), [service account](../sa/get-id.md), user group, organization, or identity federation to which or the users of which you are assigning a role.
-   1. Use one of the commands below to assign roles:
 
-      * To a Yandex account user or local user:
-
-         ```bash
-         yc <service_name> <resource> set-access-bindings \
-            --id <resource_ID> \
-            --access-binding role=<role>,user-account-id=<user_ID>
-         ```
-
-      * To a federated user:
-
-         ```bash
-         yc <service_name> <resource> set-access-bindings \
-            --id <resource_ID> \
-            --access-binding role=<role>,subject=federatedUser:<user_ID>
-         ```
-
-      * To a service account:
-
-         ```bash
-         yc <service_name> <resource> set-access-bindings \
-            --id <resource_ID> \
-            --access-binding role=<role>,service-account-id=<service_account_ID>
-         ```
-
-      * To a user group:
-
-         ```bash
-         yc <service_name> <resource> set-access-bindings \
-            --id <resource_ID> \
-            --access-binding role=<role>,subject=group:<group_ID>
-         ```
-
-      * To all users of an organization:
-
-         ```bash
-         yc <service_name> <resource> set-access-bindings \
-            --id <resource_ID> \
-            --access-binding role=<role>,subject=system:group:organization:<organization_ID>:users
-         ```
-
-      * To all users of an identity federation:
-
-         ```bash
-         yc <service_name> <resource> set-access-bindings \
-            --id <resource_ID> \
-            --access-binding role=<role>,subject=system:group:federation:<federation_ID>:users
-         ```
-
-      Provide a separate `--access-binding` parameter for each role. Here is an example:
+   1. To assign a role, run this command:
 
       ```bash
       yc <service_name> <resource> set-access-bindings \
-         --id <resource_ID> \
-         --access-binding role=<role_1>,service-account-id=<service_account_ID> \
-         --access-binding role=<role_2>,service-account-id=<service_account_ID> \
-         --access-binding role=<role_3>,service-account-id=<service_account_ID>
+        --id <resource_ID> \
+        --access-binding role=<role>,subject=<subject_type>:<subject_ID>
       ```
+
+      Where:
+
+      * `--id`: ID of the resource to assign the role for.
+      * `role`: ID of the role you need to assign, e.g., `{{ roles-cloud-owner }}`.
+      * `subject`: [Subject](../../concepts/access-control/index.md#subject) getting the role.
+
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-cli](../../../_includes/iam/subjects-designations-cli.md) %}
+
+          {% endcut %}
+
+      Provide a separate `--access-binding` parameter for each role. For example, to assign a service account multiple roles for a VM:
+
+      ```bash
+      yc compute instance set-access-bindings \
+         --id ins672qpemb4******** \
+         --access-binding role=compute.disks.user,subject=<subject_type>:aje8m5luj4qf******** \
+         --access-binding role=compute.images.user,subject=<subject_type>:aje8m5luj4qf******** \
+         --access-binding role=compute.operator,subject=<subject_type>:aje8m5luj4qf********
+      ```
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Describe the roles you are assigning in the configuration file:
+
+      Sample configuration file structure for assigning multiple roles for a cloud:
+
+      ```hcl
+      resource "yandex_resourcemanager_cloud_iam_member" "cloud_member_1" {
+        cloud_id = "<cloud_ID>"
+        role     = "<role_1>"
+        members  = ["<subject_1>","<subject_2>,...,<subject_n>"]
+      }
+
+      resource "yandex_resourcemanager_cloud_iam_member" "cloud_member_2" {
+        cloud_id  = "<cloud_ID>"
+        role      = "<role_2>"
+        members   = ["<subject_1>","<subject_2>,...,<subject_n>"]
+      }
+      ```
+
+      Where:
+
+      * `cloud_id`: Cloud ID. You can get a list of available clouds using the [CLI](../../../cli/quickstart.md) command: `yc resource-manager cloud list`. This is a required setting.
+      * `role`: Role you need to assign. You can get a list of roles using the [CLI](../../../cli/quickstart.md) command: `yc iam role list`. In one `yandex_resourcemanager_cloud_iam_member` resource, only one role can be assigned. This is a required setting.
+      * `members`: Designations of [subjects](../../concepts/access-control/index.md#subject) getting the role. This is a required setting.
+
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-terraform](../../../_includes/iam/subjects-designations-terraform.md) %}
+
+          {% endcut %}
+
+      For more on the properties of {{ TF }} resources, see [this provider guide]({{ tf-docs-link }}/tf-ref/overview).
+
+  1. Create the resources:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+      This will create the necessary resources in the organization.
 
 - API {#api}
 
@@ -514,7 +554,13 @@ You can assign a role not only for an organization, cloud, or folder but their c
    To assign multiple roles for a resource, use the `setAccessBindings` REST API method or gRPC API call for the resource. In your request, provide an array of objects, each one matching a particular role and containing the following data:
 
    * Role in the `accessBindings[].roleId` parameter.
-   * ID of the subject getting the roles in the `accessBindings[].subject.id` parameter.
+   * ID of the [subject](../../concepts/access-control/index.md#subject) getting the roles in the `accessBindings[].subject.id` parameter.
    * Type of the subject getting the roles in the `accessBindings[].subject.type` parameter.
+
+        {% cut "Subject designations" %}
+
+        {% include [subjects-designations-api](../../../_includes/iam/subjects-designations-api.md) %}
+
+        {% endcut %}
 
 {% endlist %}

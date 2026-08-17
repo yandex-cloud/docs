@@ -83,13 +83,13 @@ Configure a certificate to sign outgoing requests.
 
 Configure a link between Grafana Cloud and {{ org-full-name }}:
 
-1. Under **Configure IdP using Grafana metadata**, copy and save the endpoint addresses for receiving metadata (*Metadata URL*) and sending user authentication requests (*Assertion Consumer Service URL*). You will need the latter in later steps when setting up integration in {{ org-full-name }}.
+1. Under **Configure IdP using Grafana metadata**, copy and save the endpoint addresses for receiving metadata (*Metadata URL*) and sending user authentication requests (*Assertion Consumer Service URL*). You will need both these addresses later when setting up integration in {{ org-full-name }}.
 1. Configure the endpoint address to receive metadata from {{ org-full-name }}:
 
     1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
     1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and then, the SAML app.
     1. On the **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** tab, under **{{ ui-key.yacloud_org.application.overview.idp_section_title }}**, copy the **{{ ui-key.yacloud_org.application.overview.saml_field_metadata }}** field value.
-    1. Return to Grafana Cloud and under **Finish configuring Grafana using IdP data**, paste the copied address into the **Metadata URL** field.
+    1. Return to Grafana Cloud and, under **Finish configuring Grafana using IdP data**, paste the address you copied into the **Metadata URL** field.
 
 #### Mapping user attributes {#user-mapping}
 
@@ -109,7 +109,7 @@ Set up mapping between user object fields in Grafana Cloud and {{ org-full-name 
 
     {% endnote %}
 
-    Next, under **Role mapping**, specify the names of the groups whose users will receive the appropriate roles. For example:
+    Next, under **Role mapping**, specify the names of the groups whose users will receive the appropriate roles. Here is an example:
 
     - Under **Viewer**: `grafana-viewer`
     - Under **Editor**: `grafana-editor`
@@ -133,9 +133,9 @@ Set up mapping between user object fields in Grafana Cloud and {{ org-full-name 
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
   1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and then, the SAML app.
-  1. At the top right, click ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** and in the window that opens:  
-      1. In the **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-sp-entity-id_snAsX }}** field, paste the endpoint address you copied from the **Metadata URL** field in the third step when setting up the integration in Grafana Cloud.
-      1. In the **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-acs-urls_eQcJr }}** field, paste the endpoint address you copied from the **Assertion Consumer Service URL** field in the third step of setting up the integration in Grafana Cloud.
+  1. At the top right, click ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** and in the window that opens:
+      1. In the **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-sp-entity-id_snAsX }}** field, paste into the **Metadata URL** field the endpoint address you copied at the first step of setting up an IdP connection in Grafana Cloud.
+      1. In the **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-acs-urls_eQcJr }}** field, paste into the **Assertion Consumer Service URL** field the endpoint address you copied at the first step of setting up an IdP connection in Grafana Cloud.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
@@ -197,7 +197,7 @@ For your organization's users to be able to authenticate in Grafana Cloud with {
         1. Enter a name, e.g., `grafana-viewer`.
         1. Click **{{ ui-key.yacloud_org.groups.action_create-group }}**.
         1. Add users to the group:
-            1. Navigate to the **{{ ui-key.yacloud_org.entity.group.title_tab-members }}** tab.  
+            1. Navigate to the **{{ ui-key.yacloud_org.entity.group.title_tab-members }}** tab.
             1. Click **{{ ui-key.yacloud_org.entity.group.action_add-member }}**.
             1. In the window that opens, select the required users.
             1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -230,7 +230,7 @@ To make sure both your SAML app and Grafana Cloud integration work correctly, au
 1. In your browser, navigate to the address of your Grafana Cloud instance, e.g., `https://your-org.grafana.net`.
 1. If you were logged in to Grafana Cloud, log out.
 1. On the Grafana Cloud sign in page, click **Sign in with SAML**.
-1. On the {{ yandex-cloud }} sign in page, enter the user email and password. The user or group they belong to must be added to the application.
+1. On the {{ yandex-cloud }} sign-in page, enter the user email address and password. The user or group they belong to must be added to the application.
 1. Make sure you have authenticated in Grafana Cloud.
 1. If you have configured role mapping, go to the user profile in Grafana Cloud and make sure the appropriate role is displayed under **Organization**.
 

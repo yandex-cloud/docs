@@ -6,8 +6,8 @@ To assign the service account a role for a cloud or folder, use the `updateAcces
 1. Get a list of folder service accounts to find out their IDs:
 
     ```bash
-    export FOLDER_ID=b1gvmob95yys********
-    export IAM_TOKEN=CggaATEVAgA...
+    export FOLDER_ID=<folder_ID>
+    export IAM_TOKEN=<IAM_token>
     curl \
       --header "Authorization: Bearer ${IAM_TOKEN}" \
       "https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=${FOLDER_ID}"
@@ -30,21 +30,32 @@ To assign the service account a role for a cloud or folder, use the `updateAcces
     }
     ```
 
-1. Create the request body, e.g., in the `body.json` file. Set the `action` property to `ADD` and `roleId` to the appropriate role, such as `{{ roles-editor }}`, and specify the `serviceAccount` type and service account ID in the `subject` property:
+1. Create the request body, e.g., in the `body.json` file. Specify `ADD` in the `action` property:
 
-    **body.json:**
     ```json
     {
       "accessBindingDeltas": [{
         "action": "ADD",
         "accessBinding": {
-          "roleId": "editor",
+          "roleId": "<role>",
           "subject": {
-            "id": "ajebqtreob2d********",
+            "id": "<service_account_ID>",
             "type": "serviceAccount"
           }
         }
       }]
     }
     ```
+
+    Where:
+
+    * `roleId`: Role.
+    * `subject`: [Subject](../../iam/concepts/access-control/index.md#subject) getting the role.
+
+        {% cut "Subject designations" %}
+
+        {% include [subjects-designations-api](subjects-designations-api.md) %}
+
+        {% endcut %}
+
 1. {% include [grant-role-folder-via-curl-step](grant-role-folder-via-curl-step.md) %}

@@ -15,7 +15,7 @@ To view a {{ sd-name }} [workspace dashboard](../../concepts/workspace.md#dashbo
 
   1. Go to [{{ sd-full-name }}]({{ link-sd-main }}).
   1. In the left-hand panel, select ![vector-circle](../../../_assets/console-icons/vector-circle.svg) **{{ ui-key.yacloud_org.app.security.label_workspace_12Kax }}**.
-  1. At the top of the window, select the [workspace](../../concepts/workspace.md).
+  1. At the top of the window, select the correct [workspace](../../concepts/workspace.md).
   1. Navigate to the **{{ ui-key.yacloud_org.security.workspaces.WorkspacePageLayout.overview_tab }}** tab.
 
       The dashboard that opens shows key information about security check results for the selected workspace. The dashboard shows cards with general information depending on the {{ sd-name }} modules configured in the workspace:
@@ -34,7 +34,7 @@ To view a list of operations with a {{ sd-name }} [workspace](../../concepts/wor
 
   1. Go to [{{ sd-full-name }}]({{ link-sd-main }}).
   1. In the left-hand panel, select ![vector-circle](../../../_assets/console-icons/vector-circle.svg) **{{ ui-key.yacloud_org.app.security.label_workspace_12Kax }}**.
-  1. At the top of the window, select the workspace.
+  1. At the top of the window, select the correct workspace.
   1. Navigate to the **{{ ui-key.yacloud_org.security.workspaces.WorkspacePageLayout.operations_tab }}** tab.
 
       The page that opens shows the list of all completed and ongoing operations for the selected workspace. The list of operations contains the following operation details:
@@ -55,4 +55,5 @@ To view a list of operations with a {{ sd-name }} [workspace](../../concepts/wor
 * [{#T}](./create.md)
 * [{#T}](./update.md)
 * [{#T}](./manage-access.md)
+* [{#T}](./deactivate-activate.md)
 * [{#T}](./delete.md)

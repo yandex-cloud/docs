@@ -21,7 +21,7 @@ To create a correlation rule:
 
 - {{ cloud-center }} UI {#cloud-center}
 
-  1. Go to [{{ sd-name }}]({{ link-sd-main }}).
+  1. Navigate to [{{ sd-name }}]({{ link-sd-main }}).
   1. In the left-hand panel, select **{{ yandex-siem-full-name }}**.
   1. Navigate to **{{ ui-key.yacloud_org.security.siem.SiemPageLayout.correlationRules }}**.
   1. Click **{{ ui-key.yacloud_org.security.siem.CorrelationRulesPage.create-correlation-rule }}**.
@@ -41,7 +41,7 @@ To change edit a correlation rule:
 
 - {{ cloud-center }} UI {#cloud-center}
 
-  1. Go to [{{ sd-name }}]({{ link-sd-main }}).
+  1. Navigate to [{{ sd-name }}]({{ link-sd-main }}).
   1. In the left-hand panel, select **{{ yandex-siem-full-name }}**.
   1. Navigate to **{{ ui-key.yacloud_org.security.siem.SiemPageLayout.correlationRules }}**.
   1. In the rule's row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_org.security.controls.ExceptionDrawer.header_action_edit }}**.
@@ -58,7 +58,7 @@ To disable a correlation rule:
 
 - {{ cloud-center }} UI {#cloud-center}
 
-  1. Go to [{{ sd-name }}]({{ link-sd-main }}).
+  1. Navigate to [{{ sd-name }}]({{ link-sd-main }}).
   1. In the left-hand panel, select **{{ yandex-siem-full-name }}**.
   1. Navigate to **{{ ui-key.yacloud_org.security.siem.SiemPageLayout.correlationRules }}**.
   1. In the rule's row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_org.security.siem.action_switch-off_kYx8w }}**.
@@ -75,7 +75,7 @@ To reset the changes you made to the rule to the last deployed version:
 
 - {{ cloud-center }} UI {#cloud-center}
 
-  1. Go to [{{ sd-name }}]({{ link-sd-main }}).
+  1. Navigate to [{{ sd-name }}]({{ link-sd-main }}).
   1. In the left-hand panel, select **{{ yandex-siem-full-name }}**.
   1. Navigate to **{{ ui-key.yacloud_org.security.siem.SiemPageLayout.correlationRules }}**.
   1. In the rule's row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_org.security.siem.action_reset-changes_eXJka }}**.
@@ -94,7 +94,7 @@ To delete a custom correlation rule:
 
 - {{ cloud-center }} UI {#cloud-center}
 
-  1. Go to [{{ sd-name }}]({{ link-sd-main }}).
+  1. Navigate to [{{ sd-name }}]({{ link-sd-main }}).
   1. In the left-hand panel, select **{{ yandex-siem-full-name }}**.
   1. Navigate to **{{ ui-key.yacloud_org.security.siem.SiemPageLayout.correlationRules }}**.
   1. In the rule's row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_org.security.controls.ExceptionDrawer.header_action_delete }}**.

@@ -431,6 +431,8 @@ resource "yandex_vpc_subnet" "baz" {
 ## Arguments & Attributes Reference
 
 - `admin_password` (String). A password used to authorize as user `admin` when `sql_user_management` enabled.
+- `admin_password_wo` (String). A password used to authorize as user `admin` when `sql_user_management` enabled. This attribute is write-only and is not stored in state. Requires `admin_password_wo_version` to trigger updates. Write-only arguments are only supported in Terraform v1.11 or higher.
+- `admin_password_wo_version` (Number). A version number for the write-only password. Increment this to trigger a password update.
 - `backup_retain_period_days` (Number). The period in days during which backups are stored.
 - `cluster_id` (String). The cluster identifier.
 - `copy_schema_on_new_hosts` (Bool). Whether to copy schema on new ClickHouse hosts.

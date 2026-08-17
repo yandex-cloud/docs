@@ -211,7 +211,7 @@ Terraform распространяется под лицензией [Business S
             zone = local.zone
           }
           
-          # Создание репозитория Сontainer Registry
+          # Создание репозитория Container Registry
           
           resource "yandex_container_registry" "my-registry" {
             name       = local.registry_name

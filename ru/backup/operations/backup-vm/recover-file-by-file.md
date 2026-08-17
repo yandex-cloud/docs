@@ -17,7 +17,7 @@ description: Следуя данной инструкции, вы сможете
   1. На панели слева выберите ![backups](../../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.backup.label_backups }}**.
   1. В зависимости от того, для какого ресурса вы хотите восстановить из резервной копии файлы и директории, выберите вкладку **{{ ui-key.yacloud.backup.value_vm-recourses }}** или **{{ ui-key.yacloud.backup.value_bms-recourses }}**.
   1. Выберите резервную копию, из которой вы хотите восстановить отдельные файлы или директории.
-  1. В открывшемся файловом менеджере отметьте файлы и директории, которые вы хотите восстановить.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.common.objects }}** и в открывшемся файловом менеджере отметьте файлы и директории, которые вы хотите восстановить.
   1. На нижней панели нажмите кнопку ![file](../../../_assets/console-icons/file-plus.svg) **{{ ui-key.yacloud.backup.action_add-to-recovery-list }}**.
   1. Последовательно добавьте в список **{{ ui-key.yacloud.component.files-recovery-container.title_recovery-container }}** все файлы и директории, которые вы хотите восстановить.
   1. Нажмите кнопку **{{ ui-key.yacloud.component.files-recovery-container.action_start-recovery }}** и в открывшемся окне:
@@ -50,6 +50,6 @@ description: Следуя данной инструкции, вы сможете
       * `{{ ui-key.yacloud.backup.files-recovery.value_overwrite-none }}` — файлы, которых нет в исходной директории, также не будут записаны.
   1. Нажмите кнопку **{{ ui-key.yacloud.backup.action_recovery-start }}**.
 
-  Вы можете посмотреть прогресс восстановления файлов из резервной копии на вкладке ![operations](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** в столбце **{{ ui-key.yacloud.common.operations.column_status }}**.
+  Вы можете посмотреть прогресс восстановления файлов из резервной копии в разделе ![operations](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** в столбце **{{ ui-key.yacloud.common.operations.column_status }}**.
 
 {% endlist %}

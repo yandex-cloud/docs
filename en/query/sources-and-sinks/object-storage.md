@@ -1,3 +1,8 @@
+---
+title: Reading data from {{ objstorage-full-name }} via {{ yq-full-name }} connections
+description: In this article, you will learn how to set up a connection and read data from {{ objstorage-full-name }} using {{ yq-full-name }}.
+---
+
 # Reading data from {{ objstorage-name }} via {{ yq-name }} connections
 
 Using {{ objstorage-full-name }} connections is convenient for prototyping and initial data access configuration.
@@ -20,13 +25,13 @@ WITH
 );
 ```
 
-## Setting up a connection {#create_connection}
+## Setting up a connection {#create-connection}
 
 To create a connection to {{ objstorage-short-name }}:
 
 {% include [!](../_includes/create-object-storage-connection.md) %}
 
-## Data model {#data_model}
+## Data model {#data-model}
 
 {{ objstorage-short-name }} stores data as binary files. To read data, use the following SQL statement:
 
@@ -45,19 +50,21 @@ WHERE
 
 Where:
 
-* `<connection>`: Storage [connection](#create_connection) name.
-* `<path>`: Path to file(s) within the bucket. Supports the `*` wildcard.
+* `<statement>`: Statement that determines the result of the query.
+* `<connection>`: Storage [connection](#create-connection) name.
+* `<path>`: Path to file(s) within the bucket. `*` templates are supported.
 * `<data_format>`: File [data format](formats.md#formats).
-* `<compression_format>`: File [compression format](formats.md#compression_formats).
-* `<data_schema>`: [Description of data](#schema) stored in files.
+* `<compression_format>`: [Data compression](formats.md#compression) algorithm.
+* `<schema_description>`: [Data schema description](#schema) in the files.
+* `<filter>`: Data filtering condition.
 
 ### Data schema {#schema}
 
 The data schema includes the following fields:
 
-- Field name
-- Field type
-- Required flag
+* Field name
+* Field type
+* Required flag
 
 For example, the schema below describes a required field `Year` of type `Int32`:
 
@@ -86,21 +93,23 @@ WHERE
 
 Where:
 
-* `<connection>`: Storage [connection](#create_connection) name.
+* `<statement>`: Statement that determines the result of the query.
+* `<connection>`: Storage [connection](#create-connection) name.
 * `<path>`: Path to file(s) within the bucket. Supports the `*` wildcard.
 * `<data_format>`: File [data format](formats.md#formats).
-* `<compression_format>`: File [compression format](formats.md#compression_formats).
+* `<compression_format>`: [Data compression](formats.md#compression) algorithm.
+* `<filter>`: Data filtering condition.
 
 
 This query will automatically infer field names and types.
 
-### Data path formats {#path_format}
+### Data path formats {#path-format}
 
 {{ yq-full-name }} supports the following data path formats:
 
 {% include [!](../_includes/object-storage-path-format.md) %}
 
-## Example of reading data via connections {#read_example}
+## Example of reading data via connections {#read-example}
 
 Query example for reading data from {{ objstorage-short-name }}:
 

@@ -1,10 +1,15 @@
+---
+title: Reading data from {{ monitoring-full-name }} via {{ yq-full-name }} connections
+description: In this article, you will learn how to set up a connection and read metrics from {{ monitoring-name }} using {{ yq-full-name }}.
+---
+
 # Reading data from {{ monitoring-name }} via {{ yq-name }} connections
 
 {% include [public-preview](../../_includes/preview-pp.md) %}
 
-[{{ monitoring-name }}](../../monitoring/concepts/index.md) allows you to collect and store metrics, as well as display them as charts on dashboards. Data sent to {{ monitoring-name }} includes `metrics` and their descriptive `labels`. 
+[{{ monitoring-name }}](../../monitoring/concepts/index.md) is a service that collects, stores, and presents metrics on dashboards. The data in {{ monitoring-name }} contains the measured values ​​(metrics) and labels describing them.
 
-For example, to track application failures, you can use the failure count per time interval as a metric. Data describing a failure, e.g., a host name and application version, serve as labels. The {{ monitoring-name }} interface allows you to aggregate metrics by label.
+For example, to count app failures, you can use _failure count during time interval_ as the metric. _Host name_ and _application version at the time of failure_ are labels. In the {{ monitoring-name }} interface, you can aggregate metrics by labels.
 
 Query example for reading metrics from {{ monitoring-name }}:
 
@@ -23,15 +28,18 @@ WITH (
 
 ## Setting up a connection {#setup-connection}
 
-To read metrics from {{ monitoring-name }}, do the following:
-1. [Navigate](../../console/operations/select-service.md#select-service) to the **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** section of the **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}** interface and click **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
+To set up metric reading from {{ monitoring-name }}:
+
+1. [Navigate]({{ link-console-yq }}) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
+1. Click **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
 1. In the window that opens, specify the {{ monitoring-name }} connection name in the **{{ ui-key.yql.yq-connection-form.connection-name.input-label }}** field.
-1. In the **{{ ui-key.yql.yq-connection-form.connection-type.input-label }}** dropdown, select `{{ ui-key.yql.yq-connection.action_monitoring }}`.
-1. In the **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** field, select an existing service account that will be used for reading metrics, or create a new one, granting it the [`monitoring.viewer`](../../monitoring/security/index.md#monitoring-viewer) role for the cloud.
+1. In the **{{ ui-key.yql.yq-connection-form.connection-type.input-label }}** field, select `{{ ui-key.yql.yq-connection.action_monitoring }}`.
+1. In the **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** field, select the service account you will use to read metrics or create a new one and assign the [`monitoring.viewer`](../../monitoring/security/index.md#monitoring-viewer) role for the cloud to it.
 
    {% include [service accounts role](../../_includes/query/service-accounts-role.md) %}
 
-1. Click **{{ ui-key.yql.yq-connection-form.create.button-text }}** to create a connection.
+1. Click **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
 
 ## Data model {#data-model}
 
@@ -82,7 +90,7 @@ You do not need to specify the `folderId` and `service` labels in the list of se
 
 {% endnote %}
 
-### Query parameter format {#parameters_format}
+### Query parameter format {#parameters-format}
 
 | Parameter name | Format | Example |
 | --- | --- | --- |
@@ -91,7 +99,7 @@ You do not need to specify the `folderId` and `service` labels in the list of se
 | `labels` | `"label1 [as alias1], label2 [as alias2], ..."` | `"database.dedicated as db, database_path, api_service as api"` |
 | `from / to` | Time in ISO 8601 format | `"2025-05-20T12:00:00Z"` |
 
-### Downsampling parameters {#downsampling_parameters}
+### Downsampling parameters {#downsampling-parameters}
 
 {{ yq-full-name }} supports the following [downsampling parameters](../../monitoring/concepts/decimation.md#decimation-methods):
 

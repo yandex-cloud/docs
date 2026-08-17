@@ -183,7 +183,7 @@ To start syncing users and groups:
       ```powershell
       Start-Service yc-identityhub-sync-agent
       ```
-  1. To make sure syncing is in progress, look up the agent's log file. For example:
+  1. To make sure syncing is in progress, look up the agent's log file. Here is an example:
 
       ```bash
       cat C:\ProgramData\YcIdentityHubSyncAgent\identity_hub.log
@@ -278,6 +278,12 @@ To dry-run an agent:
           ```
 
 {% endlist %}
+
+{% note info %}
+
+{% include [ad-sync-account-expires-solution](../../_includes/organization/ad-sync-account-expires-solution.md) %}
+
+{% endnote %}
 
 #### Useful links {#see-also}
 

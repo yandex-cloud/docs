@@ -2,7 +2,7 @@ The service currently supports the following formats for writing data:
 
 |Data format|Name in {{ yq-name }}|
 |--|--|
-|[CSV](https://en.wikipedia.org/wiki/Comma-separated_values)|[csv_with_names](../sources-and-sinks/formats.md#csv_with_names)|
+|[CSV](https://en.wikipedia.org/wiki/Comma-separated_values)|[csv_with_names](../sources-and-sinks/formats.md#csv-with-names)|
 |[Parquet](https://en.wikipedia.org/wiki/Apache_Parquet)|[parquet](../sources-and-sinks/formats.md#parquet)|
 
 {{ yq-name }} supports the following compression algorithms for writing data:

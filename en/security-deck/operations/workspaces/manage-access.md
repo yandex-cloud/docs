@@ -13,7 +13,7 @@ To configure the {{ sd-name }} [workspace](../../concepts/workspace.md) access p
 
   1. Go to [{{ sd-full-name }}]({{ link-sd-main }}).
   1. In the left-hand panel, select ![vector-circle](../../../_assets/console-icons/vector-circle.svg) **{{ ui-key.yacloud_org.app.security.label_workspace_12Kax }}**.
-  1. At the top of the window, select the workspace.
+  1. At the top of the window, select the correct workspace.
   1. Navigate to the **{{ ui-key.yacloud_org.security.workspaces.WorkspacePageLayout.acl_tab }}** tab.
   1. To assign workspace access permissions to a new user, click ![person-plus](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud_org.security.workspaces.WorkspaceParticipantsForm.action_add-user }}** and in the window that opens:
 
@@ -40,4 +40,5 @@ To configure the {{ sd-name }} [workspace](../../concepts/workspace.md) access p
 * [{#T}](./create.md)
 * [{#T}](./view-dashboard.md)
 * [{#T}](./update.md)
+* [{#T}](./deactivate-activate.md)
 * [{#T}](./delete.md)

@@ -285,7 +285,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Вычислите MD5-хэш файла и закодируйте его по схеме [Base64](https://{{ lang }}.wikipedia.org/wiki/Base64):
+  1. Вычислите MD5-хеш файла и закодируйте его по схеме [Base64](https://{{ lang }}.wikipedia.org/wiki/Base64):
 
      ```bash
      md5=($(md5sum <путь_к_локальному_файлу>))
@@ -325,7 +325,7 @@ description: Следуя данной инструкции, вы сможете
 
 - AWS CLI {#aws-cli}
 
-  1. Вычислите MD5-хэш файла и закодируйте его по схеме [Base64](https://{{ lang }}.wikipedia.org/wiki/Base64):
+  1. Вычислите MD5-хеш файла и закодируйте его по схеме [Base64](https://{{ lang }}.wikipedia.org/wiki/Base64):
 
      ```bash
      md5=($(md5sum <путь_к_локальному_файлу>))

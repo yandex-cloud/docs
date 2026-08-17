@@ -41,7 +41,7 @@
 --- | --- | --- | ---
 `connection_state_up_down` | N/A | bool | Текущий операционный статус физического порта или LAG.
 `lag_health` | Процент | Uint64 | Соотношение активных портов в LAG к общему количеству портов в составе LAG.
-`light_level_to_cloud_current_dbm` | дБм | float | Уровень входящего оптического сигнала на порту оборудования Yandex Cloud.
+`light_level_to_cloud_current_dbm` | дБм | float | Уровень входящего оптического сигнала на порте оборудования Yandex Cloud.
 `light_level_to_cloud_min_dbm` | дБм | float | Минимально допустимый для корректной работы физического порта уровень входящего оптического сигнала на оборудования Yandex Cloud.
 `light_level_to_cloud_max_dbm` | дБм | float | Максимально допустимый для корректной работы физического порта уровень входящего оптического сигнала на оборудования Yandex Cloud.
 `light_level_from_cloud_current_dbm` | дБм | float | Уровень исходящего оптического сигнала от порта оборудования Yandex Cloud.

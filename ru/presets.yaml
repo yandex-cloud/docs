@@ -2624,8 +2624,6 @@ default:
         activate_promocode: Активировать промокод
         details: Детализация
         grant: Гранты
-      cloud-billing-account:
-        label_card-add: Добавить карту
       create-account:
         label_option_card: Пополнение вручную
         label_payment_invoice: Банковский перевод
@@ -2793,6 +2791,8 @@ default:
         units:
           label_time-sec_many: секунд
       component:
+        bank-card:
+          label_add: Добавить карту
         iam-delete-folder-or-cloud-dialog:
           label_delete-now: Удалить сейчас
         key-values-input:
@@ -4192,7 +4192,7 @@ default:
           TriggeredRunsControl:
             action_check-environment_k3mP9: Проверить окружение на соответствие правилам контроля
             action_download-check-report_q7nR2: Скачать отчёт о проверке
-          workload-labels-checkbox_Wl4Cb: Метки подов
+          workload-labels-checkbox_Wl4Cb: Метки рабочих нагрузок
           workload-names-checkbox_Wn4Cb: Имена рабочих нагрузок
           workload-types-checkbox_Wt4Cb: Типы рабочих нагрузок
           WorkspaceActionsMenu:
@@ -4714,6 +4714,7 @@ default:
         action_add-to-recovery-list: Добавить к списку файлов для восстановления
         action_bms-recovery: Восстановить сервер BareMetal
         action_detach-baremetal-instance: Отвязать сервер от политики
+        action_detach-external-resource: Отвязать ресурс
         action_detach-vm-instance: Отвязать ВМ от политики
         action_recovery: Восстановить ВМ
         action_recovery-start: Восстановить
@@ -4722,15 +4723,15 @@ default:
         button_attach-instance: Привязать ресурс
         button_connect-external-resource: Подключить внешний ресурс
         button_create-policy: Создать политику
-        column_baremetal-instance-status: Статус сервера
+        column_operation-status: Статус операции
         context_current-bms: текущий
         context_current-vm: текущая
         dialog_connect-external-resource_title: Подключение внешнего ресурса
+        field_add-resource_resource-type: Тип ресурса
         field_connect-external-resource_policies: Политики резервного копирования
         field_connect-external-resource_resource-type: Тип ресурса
         field_delete-old-vm: Удалить неактуальную ВМ
         field_recover-to-resource: Целевой ресурс
-        field_vm-instances: Cloud Backup
         files-recovery:
           value_location-custom: Пользовательское
           value_location-original: Исходное
@@ -4919,8 +4920,6 @@ default:
         button_resource-deactivate-raw-logs: Выключить
         button_resource-locations-empty-action: Добавить правило
         button_wizard-create: Создать и продолжить
-        CdnResourceFormWizard:
-          section_wizard-static-response_6DKzY: Настройки ответа
         column_location-rule-pattern: Регулярное выражение
         column_name: Название
         colunm_location-weight: Вес правила
@@ -5304,6 +5303,7 @@ default:
         move: Переместить
         name: Имя
         not-selected: Не выбрано
+        objects: Объекты
         open: Открыть
         operations-key-value: Операции
         operations:
@@ -5675,6 +5675,8 @@ default:
             button_update: Сохранить изменения
           overview:
             backup-overview:
+              cloud-backup-card:
+                label_connection-status: Статус подключения
               title_backup-section: Резервное копирование
             button_action-edit: Изменить ВМ
             button_action-ssh: Подключиться в Cloud Shell
@@ -6074,7 +6076,7 @@ default:
         action_create-backup: Создать резервную копию
         action_create-instance-from-backup: Создать инстанс из резервной копии
         action_delete-backup: Удалить резервную копию
-        action_download-backup: Скачать резервную копию
+        action_get-backup-link: Получить ссылку
         action_restore-backup: Восстановить инстанс
         button_configure-data-types: Настроить хранение данных в Object Storage
         button_create-instance: Создать инстанс

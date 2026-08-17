@@ -21,11 +21,29 @@ To view a list of correlation rules:
 
 - {{ cloud-center }} UI {#cloud-center}
 
-  1. Go to [{{ sd-name }}]({{ link-sd-main }}).
+  1. Navigate to [{{ sd-name }}]({{ link-sd-main }}).
   1. In the left-hand panel, select **{{ yandex-siem-full-name }}**.
   1. Navigate to **{{ ui-key.yacloud_org.security.siem.SiemPageLayout.correlationRules }}**.
 
   You will see a list of all available rules and their statuses. Click a column header to sort the list by that column.
+
+{% endlist %}
+
+## Viewing rule history {#history}
+
+To view a correlation rule's history:
+
+{% list tabs group=instructions %}
+
+- {{ cloud-center }} UI {#cloud-center}
+
+  1. Navigate to [{{ sd-name }}]({{ link-sd-main }}).
+  1. In the left-hand panel, select **{{ yandex-siem-full-name }}**.
+  1. Navigate to **{{ ui-key.yacloud_org.security.siem.SiemPageLayout.correlationRules }}**.
+  1. Select a rule.
+  1. In the window that opens, go to the **{{ ui-key.yacloud_org.security.siem.tab_history }}** tab.
+
+  This will open the correlation rule's history.
 
 {% endlist %}
 
@@ -37,7 +55,7 @@ To filter correlation rules based on specific criteria:
 
 - {{ cloud-center }} UI {#cloud-center}
 
-  1. Go to [{{ sd-name }}]({{ link-sd-main }}).
+  1. Navigate to [{{ sd-name }}]({{ link-sd-main }}).
   1. In the left-hand panel, select **{{ yandex-siem-full-name }}**.
   1. Navigate to **{{ ui-key.yacloud_org.security.siem.SiemPageLayout.correlationRules }}**.
   1. Use filters above the list:
@@ -58,7 +76,7 @@ To apply changes to a rule, stage it for deployment:
 
 - {{ cloud-center }} UI {#cloud-center}
 
-  1. Go to [{{ sd-name }}]({{ link-sd-main }}).
+  1. Navigate to [{{ sd-name }}]({{ link-sd-main }}).
   1. In the left-hand panel, select **{{ yandex-siem-full-name }}**.
   1. Navigate to **{{ ui-key.yacloud_org.security.siem.SiemPageLayout.correlationRules }}**.
   1. In the rule's row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_org.security.siem.action_mark-for-deployment_sUf3V }}**.
@@ -75,7 +93,7 @@ To cancel a scheduled rule deployment:
 
 - {{ cloud-center }} UI {#cloud-center}
 
-  1. Go to [{{ sd-name }}]({{ link-sd-main }}).
+  1. Navigate to [{{ sd-name }}]({{ link-sd-main }}).
   1. In the left-hand panel, select **{{ yandex-siem-full-name }}**.
   1. Navigate to **{{ ui-key.yacloud_org.security.siem.SiemPageLayout.correlationRules }}**.
   1. In the rule's row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_org.security.siem.action_not-deploy_sPzwj }}**.

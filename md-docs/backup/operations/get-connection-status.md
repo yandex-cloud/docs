@@ -8,9 +8,9 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором подключен Cloud Backup.
   1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
-  1. На панели слева нажмите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины**.
 
-  В столбце **Cloud Backup** вы увидите статусы подключения Cloud Backup к ВМ.
+  В столбце **Cloud Backup** вы увидите статусы подключения виртуальных машин к Cloud Backup.
 
 - CLI {#cli}
 

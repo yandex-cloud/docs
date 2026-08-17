@@ -31,7 +31,7 @@
 
 * [Управление ключевыми парами электронной подписи](asymmetric-signature-key.md)
 * [Настройка прав доступа к ключевой паре электронной подписи](asymmetric-signature-key-access.md)
-* [Электронная подпись и проверка подписи по хэшу данных](signature-verification.md)
+* [Электронная подпись и проверка подписи по хешу данных](signature-verification.md)
 * [Электронная подпись файлов и артефактов с помощью утилиты Cosign](signature-verification-cosign.md)
 
 ## Получение дополнительной информации {#get-additional-info}

@@ -51,7 +51,9 @@ To complete this tutorial, you may need a valid [1C:ITS agreement](https://its.1
      ```bash
      yc iam oauth-client create \
        --name enterprise-1c-oauth-client \
-       --scopes openid,email,profile
+       --scopes openid,email,profile \
+       --profile-id web \
+       --pkce-required=false
      ```
 
      Where:
@@ -61,6 +63,8 @@ To complete this tutorial, you may need a valid [1C:ITS agreement](https://its.1
        * `openid`: User ID. Required attribute.
        * `email`: User email address.
        * `profile`: Additional user details, such as first name, last name, and avatar.
+     * {% include [org-oidc-app-select-web-type-legend-cli](../../../_tutorials/_tutorials_includes/org-oidc-app-select-web-type-legend-cli.md) %}
+     * {% include [org-oidc-app-disable-pkce-legend-cli](../../../_tutorials/_tutorials_includes/org-oidc-app-disable-pkce-legend-cli.md) %}
 
      Result:
 
@@ -68,7 +72,11 @@ To complete this tutorial, you may need a valid [1C:ITS agreement](https://its.1
      id: ajeqqip130i1********
      name: enterprise-1c-oauth-client
      folder_id: b1g500m2195v********
+     authentication_methods:
+       - client_secret_basic
+       - client_secret_post
      status: ACTIVE
+     profile_id: web
      ```
 
      Save the `id` field value for when you need to create and configure your app.
@@ -211,7 +219,7 @@ Set up the 1C:Enterprise integration with the OIDC app you created in {{ org-ful
 {% endlist %}
 
 
-#### Configure the redirect URI {#setup-redirect}
+#### Configure a redirect URI {#setup-redirect}
 
 {% list tabs group=instructions %}
 
@@ -258,7 +266,11 @@ Set up the 1C:Enterprise integration with the OIDC app you created in {{ org-ful
        - email
        - profile
      folder_id: b1gkd6dks6i1********
+     authentication_methods:
+       - client_secret_basic
+       - client_secret_post
      status: ACTIVE
+     profile_id: web
      ```
 
 {% endlist %}

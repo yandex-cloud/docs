@@ -1,0 +1,40 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Cloud Registry > Resources > cloudregistry_registry_iam_member
+
+# yandex_cloudregistry_registry_iam_member (Resource)
+
+Allows creation and management of a single binding within IAM policy for an existing `registry`.
+
+
+## Arguments & Attributes Reference
+
+- `id` (String). The ID of this resource.
+- `member` (**Required**)(String). An identity that will be granted the privilege in the `role`. It can have one of the following values:
+ * **userAccount:{user_id}**: A unique user ID that represents a specific Yandex account.
+ * **serviceAccount:{service_account_id}**: A unique service account ID.
+ * **federatedUser:{federated_user_id}**: A unique federated user ID.
+ * **group:{group_id}**: A unique group ID.
+ * **system:group:federation:{federation_id}:users**: All users in federation.
+ * **system:group:organization:{organization_id}:users**: All users in organization.
+ * **system:allAuthenticatedUsers**: All authenticated users.
+ * **system:allUsers**: All users, including unauthenticated ones.
+
+{% note warning %}
+
+for more information about system groups, see [Cloud Documentation](../../iam/concepts/access-control/system-group.md).
+
+{% endnote %}
+
+
+
+- `registry_id` (**Required**)(String). The ID of the `registry` to attach the policy to.
+- `role` (**Required**)(String). The role that should be assigned to the member.
+- `sleep_after` (Number). For test purposes, to compensate IAM operations delay
+
+## Import
+
+The resource can be imported by using their `resource ID`. For getting it you can use Yandex Cloud [Web Console](https://console.yandex.cloud) or Yandex Cloud [CLI](../../cli/quickstart.md).
+
+```shell
+# terraform import yandex_cloudregistry_registry_iam_member.<resource Name> "<registry_id>,<role>,<member>"
+terraform import yandex_cloudregistry_registry_iam_member.puller "crps9**********k9psn,cloud-registry.artifacts.puller,serviceAccount:aje**********i3j"
+```

@@ -13,12 +13,6 @@
 
 Чтобы удалить резервную копию:
 
-{% note info %}
-
-В настоящее время удалить резервную копию [внешнего ресурса](../../concepts/vm-connection/external-resources.md) можно с помощью [Yandex Cloud CLI](../../../cli/cli-ref/backup/cli-ref/backup/delete.md) и [API](../../backup/api-ref/Backup/delete.md).
-
-{% endnote %}
-
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
@@ -26,9 +20,14 @@
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится резервная копия.
   1. [Перейдите](https://console.yandex.cloud/link/backup) в сервис **Cloud Backup**.
   1. На панели слева выберите ![backups](../../../_assets/console-icons/archive.svg) **Резервные копии**.
-  1. В зависимости от того, резервную копию какого ресурса вы хотите удалить, выберите вкладку **Виртуальные машины** или **Серверы BareMetal**.
-  1. В строке с резервной копией, которую нужно удалить, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **Удалить**.
-  1. Подтвердите удаление.
+  1. В зависимости от того, резервную копию какого ресурса вы хотите удалить, перейдите на вкладку:
+
+      * **Виртуальные машины** — для виртуальных машин Compute Cloud.
+      * **Серверы BareMetal** — для серверов BareMetal.
+      * **Внешние виртуальные машины** — для внешних виртуальных машин.
+      * **Внешние серверы** — для внешних серверов.
+  1. В строке с резервной копией, которую нужно удалить, нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **Удалить**.
+  1. В открывшемся окне подтвердите удаление.
 
 - CLI {#cli}
 

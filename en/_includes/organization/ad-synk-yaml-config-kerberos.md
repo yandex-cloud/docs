@@ -17,6 +17,10 @@ cloud_credentials_file_path: "<path_to_file_with_authorized_key>"
 # If `true`, the cloud_credentials_file_path parameter will be ignored.
 use_metadata_service: true|false
 
+# Enable Password Writeback so the agent can synchronize password changes
+# back from {{ org-full-name }} to {{ microsoft-idp.ad-short }}.
+enable_password_writeback: true|false
+
 # Enable the Dry Run mode.
 # If `true`, no changes will be applied to users or groups in {{ org-full-name }}.
 # Instead, all pending operations will be saved to the current log file location.

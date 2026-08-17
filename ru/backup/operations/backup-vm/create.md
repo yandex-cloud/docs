@@ -19,7 +19,7 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится политика резервного копирования.
   1. [Перейдите]({{ link-console-main }}/link/backup) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. На панели слева выберите ![resources](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.backup.label_connected-resources }}**.
-  1. В зависимости от типа ресурса, для которого вы хотите создать резервную копию, откройте вкладку:
+  1. В зависимости от типа ресурса, для которого вы хотите создать резервную копию, перейдите на вкладку:
 
       * **{{ ui-key.yacloud.backup.label_instances }}** — для виртуальных машин {{ compute-name }}.
       * **{{ ui-key.yacloud.backup.label_baremetal-instances }}** — для серверов {{ baremetal-name }}.
@@ -29,7 +29,7 @@ description: Следуя данной инструкции, вы сможете
   1. В строке с нужным ресурсом нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.backup.action_start_backup }}**.
   1. В открывшемся окне выберите политику резервного копирования, в соответствии с которой будет создана резервная копия, и нажмите **{{ ui-key.yacloud.common.create }}**.
 
-  Запустится процесс создания резервной копии. Прогресс создания копии будет отображаться в строке соответствующего ресурса в поле **{{ ui-key.yacloud.backup.column_baremetal-instance-status }}**.
+  Запустится процесс создания резервной копии. Прогресс создания копии будет отображаться в строке соответствующего ресурса в поле **{{ ui-key.yacloud.backup.column_operation-status }}**.
 
 - CLI {#cli}
 

@@ -317,6 +317,7 @@ default:
   link-console-quotas: https://console.yandex.cloud/cloud?section=quotas
   link-console-settings: https://console.yandex.cloud/settings
   link-console-support: https://center.yandex.cloud/support
+  link-console-yq: https://yq.yandex.cloud
   link-datalens-main: https://datalens.ru
   link-datalens-main-promo: https://datalens.ru/promo
   link-datalens-main-skip-promo: https://datalens.ru/?skipPromo=true
@@ -2088,8 +2089,6 @@ default:
         activate_promocode: Activate promo code
         details: Details
         grant: Grants
-      cloud-billing-account:
-        label_card-add: Add card
       create-account:
         label_option_card: Manual top-up
         label_payment_invoice: Bank transfer
@@ -2257,6 +2256,8 @@ default:
         units:
           label_time-sec_many: seconds
       component:
+        bank-card:
+          label_add: Add card
         iam-delete-folder-or-cloud-dialog:
           label_delete-now: Delete now
         key-values-input:
@@ -3294,10 +3295,17 @@ default:
           field_full-name: Full name
           field_password: Password
           field_username: Username
+          password_check_gP9tG: Password check
+          password_uniqueness_13P78: Uniqueness
+          reject_common_passwords_9bpqu: >-
+            You cannot use passwords included in the database of common
+            passwords
           title_password_policy: Password policy
           title_personal-info: Personal information
           title_userpool_members: Users
           title_userpool_overview: Overview
+          UserForm:
+            field_expires-at_2bdWC: Deactivation date
           UserpoolOverviewPage:
             action_set_password_policy_aaDns: Set password policy
           UserpoolPageLayout:
@@ -3370,15 +3378,6 @@ default:
         alert:
           action_alert_analysis: Alert analysis
         alerts:
-          caption_assignee: Assignee
-          caption_category: Threat type
-          caption_classification: Classification
-          caption_created-by: Created at
-          caption_incident: Incident
-          caption_modified-at: Modified at
-          caption_sensor: Source
-          caption_status: Status
-          caption_title: Alert
           sink:
             action_create: Create sink
           title_alert_comments: Comments
@@ -3590,6 +3589,8 @@ default:
           detect-deployment_deployed_ejgvu: Deployed
           detect-overview:
             title-actions-on-trigger_j8dE3: Actions on trigger
+          exception-drawer:
+            tab_history: History
           ExceptionsPage:
             create-exception: New exception
           InvestigationPageLayout:
@@ -3605,6 +3606,7 @@ default:
           SiemPageLayout:
             correlationRules: Correlation rules
             exceptions: Exceptions
+          tab_history: History
           template_type_global_qSrVE: Global
           template_type_local_77J2t: Instance
           title_ap766: Save query as template
@@ -3633,9 +3635,11 @@ default:
           TriggeredRunsControl:
             action_check-environment_k3mP9: Check environment for compliance with control rules
             action_download-check-report_q7nR2: Download check report
-          workload-labels-checkbox_Wl4Cb: Pod labels
+          workload-labels-checkbox_Wl4Cb: Workload labels
           workload-names-checkbox_Wn4Cb: Workload names
           workload-types-checkbox_Wt4Cb: Workload types
+          WorkspaceActionsMenu:
+            stop_wvkkb: Deactivate
           WorkspaceEditPageLayout:
             tabGeneralParams_xc2v2: Main parameters
             tabResources_vJuSN: Resources
@@ -3645,6 +3649,8 @@ default:
             billing_account_title_sU1Tj: Payment for resources
             folder_title_px1re: Resource storage folder
             workspace_title_365xt: Workspace name
+          WorkspaceInactiveAlert:
+            activate_Y5mCr: Activate
           WorkspaceKspmResourcesForm:
             section-title_iYCNY: Scope of control
           WorkspaceModuleErrorsTable:
@@ -4287,8 +4293,6 @@ default:
         button_resource-deactivate-raw-logs: Deactivate
         button_resource-locations-empty-action: Add rule
         button_wizard-create: Create and continue
-        CdnResourceFormWizard:
-          section_wizard-static-response_6DKzY: Response settings
         column_location-rule-pattern: Regular expression
         column_name: Name
         colunm_location-weight: Rule weight
@@ -7085,6 +7089,9 @@ default:
         workflow-viewer_node-output-label: Output
         workflow-viewer_node-settings-label: Settings
         workflow-viewer_trigger-settings-label: Start
+      shared:
+        iam:
+          action_assign-roles_8vkmR: Assign roles
       smart-web-security:
         action_empty: Create profile
         advanced_waf:

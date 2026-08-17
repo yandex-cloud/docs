@@ -90,7 +90,7 @@ description: В {{ objstorage-name }} вы можете выгрузить ме�
 
 * `SIZE` — размер в байтах, кроме размера незавершенных частей [составных загрузок](./multipart.md), метаданных объекта и маркеров удаления;
 * `LAST_MODIFIED_DATE` — дата создания или последнего изменения;
-* `ETAG` — хэш;
+* `ETAG` — хеш;
 * `STORAGE_CLASS` — [класс хранилища](./storage-class.md);
 * `INTELLIGENT_TIERING_ACCESS_TIER` — уровень доступа объекта в [умном хранилище](./storage-class.md#features-intelligent-tiering);
 * `IS_MULTIPART_UPLOADED` — маркер составной загрузки;

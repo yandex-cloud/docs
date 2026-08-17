@@ -67,7 +67,9 @@ If you do not have an MWS account, create one:
      ```bash
      yc iam oauth-client create \
        --name mws-oauth-client \
-       --scopes openid,email,profile
+       --scopes openid,email,profile \
+       --profile-id web \
+       --pkce-required=false
      ```
 
      Where:
@@ -77,6 +79,8 @@ If you do not have an MWS account, create one:
        * `openid`: User ID. Required attribute.
        * `email`: User email address.
        * `profile`: Additional user details, such as first name, last name, and avatar.
+     * {% include [org-oidc-app-select-web-type-legend-cli](../../../_tutorials/_tutorials_includes/org-oidc-app-select-web-type-legend-cli.md) %}
+     * {% include [org-oidc-app-disable-pkce-legend-cli](../../../_tutorials/_tutorials_includes/org-oidc-app-disable-pkce-legend-cli.md) %}
 
      Result:
 
@@ -84,7 +88,11 @@ If you do not have an MWS account, create one:
      id: ajeqqip130i1********
      name: mws-oauth-client
      folder_id: b1g500m2195v********
+     authentication_methods:
+       - client_secret_basic
+       - client_secret_post
      status: ACTIVE
+     profile_id: web
      ```
 
      Save the `id` field value for when you need to create and configure your app.
@@ -243,7 +251,7 @@ To set up OIDC authentication in MWS, create and configure an [identity federati
 1. Check the configuration and click **Create**.
 1. After completing the setup, select the added IdP again in the **Federations** section, then save the provider ID, e.g., `-testprov`; you will need it to configure the integration.
 
-### Configure the redirect URI {#setup-redirect}
+### Configure a redirect URI {#setup-redirect}
 
 {% list tabs group=instructions %}
 
@@ -301,7 +309,11 @@ To set up OIDC authentication in MWS, create and configure an [identity federati
     - email
     - profile
   folder_id: b1gkd6dks6i1********
+  authentication_methods:
+    - client_secret_basic
+    - client_secret_post
   status: ACTIVE
+  profile_id: web
   ```
 
 {% endlist %}
@@ -312,7 +324,7 @@ For your organization's users to be able to authenticate in MWS with {{ org-full
 
 {% note info %}
 
-Users and groups added to an OIDC application can be managed by a user with the `organization-manager.oidcApplications.userAdmin` [role](../../../organization/security/index.md#organization-manager-oidcApplications-userAdmin) or higher.
+Users and groups added to an OIDC application can be managed by any user with the `organization-manager.oidcApplications.userAdmin` [role](../../../organization/security/index.md#organization-manager-oidcApplications-userAdmin) or higher.
 
 {% endnote %}
 

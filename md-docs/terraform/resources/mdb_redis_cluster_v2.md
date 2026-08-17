@@ -129,7 +129,9 @@ resource "yandex_vpc_subnet" "baz" {
   - `maxmemory_percent` (Number). Redis maxmemory percent
   - `maxmemory_policy` (String). Redis key eviction policy for a dataset that reaches maximum memory, available to the host.
   - `notify_keyspace_events` (String). String setting for pub\sub functionality.
-  - `password` (**Required**)(String). Authentication password.
+  - `password` (String). Authentication password.
+  - `password_wo` (String). Authentication password. This attribute is write-only and is not stored in state. Requires `password_wo_version` to trigger updates. Write-only arguments are supported in Terraform 1.11 and later.
+  - `password_wo_version` (Number). A version number for the write-only password. Increment this to trigger a password update.
   - `repl_backlog_size_percent` (Number). Replication backlog size as a percentage of flavor maxmemory.
   - `slowlog_log_slower_than` (Number). Threshold for logging slow requests to server in microseconds (log only slower than it).
   - `slowlog_max_len` (Number). Max slow requests number to log.

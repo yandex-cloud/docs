@@ -26,8 +26,8 @@
 
 Поле | Тип | Описание
 ----- | ----- | -----
-`MD5OfMessageAttributes` | **string** | MD5-хэш строки атрибута.
-`MD5OfMessageBody` | **string** | MD5-хэш тела сообщения.
+`MD5OfMessageAttributes` | **string** | MD5-хеш строки атрибута.
+`MD5OfMessageBody` | **string** | MD5-хеш тела сообщения.
 `MessageId` | **string** | Идентификатор отправленного сообщения.
 `SequenceNumber` | **string** | Номер сообщения, используется в очередях FIFO в рамках группы сообщений с одинаковым `MessageGroupId`. Длина номера — 128 бит, `SequenceNumber` наращивается в пределах группы с одинаковым `MessageGroupId`.
 

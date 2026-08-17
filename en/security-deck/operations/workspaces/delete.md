@@ -34,3 +34,4 @@ This will irrevocably delete the workspace. All checks in line with the control 
 * [{#T}](./view-dashboard.md)
 * [{#T}](./update.md)
 * [{#T}](./manage-access.md)
+* [{#T}](./deactivate-activate.md)

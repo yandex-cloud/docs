@@ -21,7 +21,7 @@ To create an exception from a correlation rule:
 
 - {{ cloud-center }} UI {#cloud-center}
 
-  1. Go to [{{ sd-name }}]({{ link-sd-main }}).
+  1. Navigate to [{{ sd-name }}]({{ link-sd-main }}).
   1. In the left-hand panel, select **{{ yandex-siem-full-name }}**.
   1. Navigate to **{{ ui-key.yacloud_org.security.siem.SiemPageLayout.correlationRules }}**.
   1. In the rule's row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_org.security.siem.action_create-exception_bLSu4 }}**.
@@ -41,7 +41,7 @@ To create an exception from the exceptions section:
 
 - {{ cloud-center }} UI {#cloud-center}
 
-  1. Go to [{{ sd-name }}]({{ link-sd-main }}).
+  1. Navigate to [{{ sd-name }}]({{ link-sd-main }}).
   1. In the left-hand panel, select **{{ yandex-siem-full-name }}**.
   1. Navigate to **{{ ui-key.yacloud_org.security.siem.SiemPageLayout.exceptions }}**.
   1. Click **{{ ui-key.yacloud_org.security.siem.ExceptionsPage.create-exception }}**.
@@ -60,7 +60,7 @@ To edit exception settings:
 
 - {{ cloud-center }} UI {#cloud-center}
 
-  1. Go to [{{ sd-name }}]({{ link-sd-main }}).
+  1. Navigate to [{{ sd-name }}]({{ link-sd-main }}).
   1. In the left-hand panel, select **{{ yandex-siem-full-name }}**.
   1. Navigate to **{{ ui-key.yacloud_org.security.siem.SiemPageLayout.exceptions }}**.
   1. In the exception row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_org.security.controls.ExceptionDrawer.header_action_edit }}**.
@@ -77,7 +77,7 @@ To disable an exception:
 
 - {{ cloud-center }} UI {#cloud-center}
 
-  1. Go to [{{ sd-name }}]({{ link-sd-main }}).
+  1. Navigate to [{{ sd-name }}]({{ link-sd-main }}).
   1. In the left-hand panel, select **{{ yandex-siem-full-name }}**.
   1. Navigate to **{{ ui-key.yacloud_org.security.siem.SiemPageLayout.exceptions }}**.
   1. In the exception row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_org.security.siem.action_switch-off_kYx8w }}**.
@@ -94,7 +94,7 @@ To reset the changes you made to the exception to the last deployed version:
 
 - {{ cloud-center }} UI {#cloud-center}
 
-  1. Go to [{{ sd-name }}]({{ link-sd-main }}).
+  1. Navigate to [{{ sd-name }}]({{ link-sd-main }}).
   1. In the left-hand panel, select **{{ yandex-siem-full-name }}**.
   1. Navigate to **{{ ui-key.yacloud_org.security.siem.SiemPageLayout.exceptions }}**.
   1. In the exception row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_org.security.siem.action_reset-changes_eXJka }}**.
@@ -111,7 +111,7 @@ To delete an exception:
 
 - {{ cloud-center }} UI {#cloud-center}
 
-  1. Go to [{{ sd-name }}]({{ link-sd-main }}).
+  1. Navigate to [{{ sd-name }}]({{ link-sd-main }}).
   1. In the left-hand panel, select **{{ yandex-siem-full-name }}**.
   1. Navigate to **{{ ui-key.yacloud_org.security.siem.SiemPageLayout.exceptions }}**.
   1. In the exception row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_org.security.controls.ExceptionDrawer.header_action_delete }}**.

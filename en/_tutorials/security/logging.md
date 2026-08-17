@@ -184,7 +184,7 @@ To create a cluster and a database:
      * Select `alb-logging-network`.
      * Select the `alb-logging-sg-cluster` security group.
    
-  1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, add a host to be accessible from outside {{ yandex-cloud }}. To do this, enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, add a host to be accessible from outside {{ yandex-cloud }}. Do it by enabling **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**, enable **Access from the management console** and **{{ ui-key.yacloud.mdb.forms.additional-field-serverless }}**.
   1. Leave the default values in all other fields.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
@@ -270,7 +270,7 @@ To create an instance group:
      - In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username.
      - In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
         
-       You need to create a key pair for the SSH connection [by yourself](../../compute/operations/vm-connect/ssh.md).
+       You need to create a key pair for the SSH connection [on your own](../../compute/operations/vm-connect/ssh.md).
         
      {% note alert %}
       
@@ -511,7 +511,7 @@ To create a trigger:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
+    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
 
     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 

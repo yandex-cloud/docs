@@ -40,7 +40,7 @@
 
 ## Подключите Яндекс Трекер {#enable-tracker}
 
-[Подключите Трекер](https://yandex.ru/support/tracker/ru/enable-tracker) к вашей [организации Yandex Cloud](../../organization/index.md).
+[Подключите Трекер](https://yandex.ru/support/tracker/ru/enable-tracker) к вашей [организации Yandex Cloud](../../organization/concepts/organization.md).
 
 ## Создайте инстанс GitLab {#create-gitlab}
 

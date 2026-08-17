@@ -20,10 +20,15 @@ description: Из статьи вы узнаете, как отвязать ви
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите отвязать защищаемый ресурс от политики.
   1. [Перейдите]({{ link-console-main }}/link/backup) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
-  1. Перейдите на вкладку ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud_billing.backup.label_policies }}**.
+  1. На панели слева выберите ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud_billing.backup.label_policies }}**.
   1. Выберите политику, от которой вы хотите отвязать ресурс.
-  1. В зависимости от того, какой ресурс вы хотите отвязать от политики резервного копирования, в блоке **{{ ui-key.yacloud.backup.title_linked-recourses }}** выберите вкладку **{{ ui-key.yacloud.backup.value_vm-recourses }}** или **{{ ui-key.yacloud.backup.value_bms-recourses }}**.
-  1. В строке с ВМ или сервером, которые нужно отвязать от политики, нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите соответственно **{{ ui-key.yacloud.backup.action_detach-vm-instance }}** или **{{ ui-key.yacloud.backup.action_detach-baremetal-instance }}**.
+  1. В зависимости от того, какой ресурс вы хотите отвязать от политики резервного копирования, в блоке **{{ ui-key.yacloud.backup.title_linked-recourses }}** перейдите на вкладку:
+
+      * **{{ ui-key.yacloud.backup.label_instances }}** — для виртуальных машин {{ compute-name }}.
+      * **{{ ui-key.yacloud.backup.label_baremetal-instances }}** — для серверов {{ baremetal-name }}.
+      * **{{ ui-key.yacloud.backup.label_external-vm-instances }}** — для внешних виртуальных машин.
+      * **{{ ui-key.yacloud.backup.label_external-server-instances }}** — для внешних серверов.
+  1. В строке с ресурсом, который нужно отвязать от политики, нажмите значок ![options](../../../_assets/console-icons/ellipsis.svg) и выберите соответственно **{{ ui-key.yacloud.backup.action_detach-vm-instance }}**, **{{ ui-key.yacloud.backup.action_detach-baremetal-instance }}** или **{{ ui-key.yacloud.backup.action_detach-external-resource }}**.
   1. В открывшемся окне подтвердите это действие.
 
 - CLI {#cli}

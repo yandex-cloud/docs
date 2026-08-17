@@ -11,9 +11,9 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором подключен {{ backup-name }}.
   1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева нажмите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
 
-  В столбце **{{ ui-key.yacloud.compute.instances.column_cloud-backup }}** вы увидите статусы подключения {{ backup-name }} к ВМ.
+  В столбце **{{ ui-key.yacloud.compute.instances.column_cloud-backup }}** вы увидите статусы подключения виртуальных машин к {{ backup-name }}.
 
 - CLI {#cli}
 

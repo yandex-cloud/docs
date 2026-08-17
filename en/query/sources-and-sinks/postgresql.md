@@ -1,10 +1,16 @@
+---
+title: Working with {{ mpg-full-name }} databases
+description: In this tutorial, you will learn how to connect to a {{ mpg-name }} database and run queries against it from {{ yq-full-name }}.
+---
+
 # Working with {{ mpg-name }} databases
 
 This section covers the basics of working with [{{ mpg-name }}](https://yandex.cloud/en/services/managed-postgresql).
 
 To start working with a {{ mpg-name }} database, follow these steps:
+
 1. Create a [connection](../concepts/glossary.md#connection) containing your database access credentials.
-1. [Run a query](#query) against the database.
+1. [Run a query](#query) to the database.
 
 Query example for reading data from {{ mpg-name }}:
 
@@ -13,16 +19,17 @@ SELECT * FROM postgresql_mdb_connection.my_table
 ```
 
 Where:
+
 * `postgresql_mdb_connection`: Your database connection name.
 * `my_table`: Database table name.
 
-
-## Setting up a connection {#create_connection}
+## Setting up a connection {#create-connection}
 
 To create a connection to {{ mpg-name }}:
+
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a connection.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
-1. In the left-hand panel, switch to the **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** tab.
+1. [Navigate]({{ link-console-yq }}) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
 1. Click ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
 1. Specify the connection settings:
 
@@ -34,27 +41,27 @@ To create a connection to {{ mpg-name }}:
    1. Under **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**:
 
       * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}**: Select an existing {{ mpg-name }} cluster or create a new one.
-      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: Select an existing {{ mpg-name }} [service account](../../iam/concepts/users/service-accounts.md) or create a new one. Assign it the [`{{ roles.mpg.viewer }}`](../../managed-postgresql/security/index.md#mpg-viewer) role allowing it to connect to `{{ mpg-name }}` clusters.
+      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: Select an existing {{ mpg-name }} [service account](../../iam/concepts/users/service-accounts.md) or create a new one. Assign it the [`{{ roles.mpg.viewer }}`](../../managed-postgresql/security/index.md#mpg-viewer) role allowing it to connect to {{ mpg-name }} clusters.
 
         {% include [service accounts role](../../_includes/query/service-accounts-role.md) %}
 
-      * **{{ ui-key.yql.yq-connection-form.database.input-label }}**: Select the database you will use when working with the {{ PG }} cluster.
-      * **{{ ui-key.yql.yq-connection-form.schema.input-label }}**: Specify the [namespace](https://www.postgresql.org/docs/current/catalog-pg-namespace.html) you will use when working with the {{ PG }} database.
-      * **{{ ui-key.yql.yq-connection-form.login.input-label }}**: Username you will use to connect to {{ PG }} databases.
-      * **{{ ui-key.yql.yq-connection-form.password.input-label }}**: Password you will use to connect to {{ PG }} databases.
-
+      * **{{ ui-key.yql.yq-connection-form.database.input-label }}**: Select the database you will use to work with the {{ PG }} cluster.
+      * **{{ ui-key.yql.yq-connection-form.schema.input-label }}**: Specify the [namespace](https://www.postgresql.org/docs/current/catalog-pg-namespace.html) you will be using when working with the {{ PG }} database.
+      * **{{ ui-key.yql.yq-connection-form.login.input-label }}**: Username for connecting to the {{ PG }} database.
+      * **{{ ui-key.yql.yq-connection-form.password.input-label }}**: User password for connecting to the {{ PG }} database.
 
 1. Click **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
 
-A service account is necessary to detect {{ mpg-name }} cluster connection endpoints inside {{ yandex-cloud }}. To access data, you need a separate username and password.
+You need a service account to detect {{ mpg-name }} cluster connection endpoints inside {{ yandex-cloud }}. To work with data, set a username and password separately.
 
 {% note warning %}
 
-First, grant network access from {{ yq-full-name }} to {{ mpg-name }} clusters. To do this, enable **Access from {{ yq-full-name }}** in your target database settings.
+Allow network access from {{ yq-full-name }} to {{ mpg-name }} clusters. Do it by enabling _Access from {{ yq-full-name }}_ in your target database settings.
 
 {% endnote %}
 
 ## Query syntax {#query}
+
 {{ PG }} uses the following SQL syntax:
 
 ```sql
@@ -62,19 +69,19 @@ SELECT * FROM <connection>.<table_name>
 ```
 
 Where:
+
 * `<connection>`: Your database connection name.
 * `<table_name>`: Database table name.
 
 ## Limits {#limits}
 
-Working with {{ PG }} clusters comes with certain limitations.
+Working with {{ PG }} clusters, the following restrictions apply:
 
-The following limitations apply:
 1. {% include [!](_includes/supported_requests.md) %}
 1. {{ yq-short-name }} uses the {{ ydb-full-name }} [type system]({{ ydb.docs }}/yql/reference/types/primitive). However, the valid value ranges for {{ ydb-short-name }} date and time types, i.e., `Date`, `Datetime`, and `Timestamp`, are often too narrow to accommodate the values of the corresponding {{ PG }} types, i.e., `date` and `timestamp`.
 Therefore, {{ yq-short-name }} returns date and time values read from {{ PG }} as plain strings (`Optional<Utf8>`) in [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
 
-## Filter pushdown {#predicate_pushdown}
+## Filter pushdown {#predicate-pushdown}
 
 {% include [!](_includes/predicate_pushdown_preamble.md) %}
 
@@ -93,7 +100,7 @@ Supported data types for filter pushdown:
 |`Double`|
 |`Decimal`|
 
-## Supported data types {#supported_types}
+## Supported data types {#supported-types}
 
 In {{ PG }} databases, the column nullability flag, i.e., whether or not the column can contain `NULL` values, is not part of the type system. The `NOT NULL` constraint for each column is implemented via an `attnotnull` attribute in the [pg_attribute](https://www.postgresql.org/docs/current/catalog-pg-attribute.html) system catalog, i.e., at the table metadata level. Therefore, all {{ PG }} base types may contain `NULL` values by default, and within the {{ yq-short-name }} type system they must be mapped to [optional]({{ ydb.docs }}/yql/reference/types/optional) types.
 

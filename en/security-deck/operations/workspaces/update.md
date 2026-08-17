@@ -5,6 +5,12 @@ description: In this guide, you will learn how to update a workspace in {{ sd-fu
 
 # Updating a {{ sd-name }} workspace and its components
 
+{% note info %}
+
+ To make changes, [activate](./deactivate-activate.md#acticate) the workspace.
+
+{% endnote %}
+
 ## Updating a {{ sd-full-name }} workspace
 
 To update a {{ sd-name }} [workspace](../../concepts/workspace.md):
@@ -128,6 +134,7 @@ To update a {{ sd-name }} [alert sink](../../concepts/workspace.md#alert-sinks):
 
 * [{#T}](../../concepts/workspace.md)
 * [{#T}](./create.md)
+* [{#T}](./deactivate-activate.md)
 * [{#T}](./view-dashboard.md)
 * [{#T}](./manage-access.md)
 * [{#T}](./delete.md)

@@ -17,23 +17,6 @@ description: In this section, you will learn how to view alerts in {{ sd-full-na
 
       The section that opens displays a list of [alerts](../../concepts/alerts.md).
 
-      For each alert, the table displays the following information:
-
-      * ![traffic-light](../../../_assets/console-icons/traffic-light.svg): Alert criticality level:
-          * ![cspm-rule-notice-icon](../../../_assets/security-deck/cspm-rule-notice-icon.svg): {{ ui-key.yacloud_org.shared.components.severity_info_biSRh }}
-          * ![cspm-low-severity-icon](../../../_assets/security-deck/cspm-low-severity-icon.svg): {{ ui-key.yacloud_org.shared.components.severity_low_tqf9A }}
-          * ![cspm-moderate-severity-icon](../../../_assets/security-deck/cspm-moderate-severity-icon.svg): {{ ui-key.yacloud_org.shared.components.severity_medium_8LZ4w }}
-          * ![cspm-high-severity-icon](../../../_assets/security-deck/cspm-high-severity-icon.svg): {{ ui-key.yacloud_org.shared.components.severity_high_cahHH }}
-
-      * **{{ ui-key.yacloud_org.security-center.alerts.caption_title }}**: Alert header.
-      * **{{ ui-key.yacloud_org.security-center.alerts.caption_category }}**: Threat associated with the alert.
-      * **{{ ui-key.yacloud_org.security-center.alerts.caption_sensor }}**: Module which sent the alert.
-      * **{{ ui-key.yacloud_org.security-center.alerts.caption_status }}**: Alert status.
-      * **{{ ui-key.yacloud_org.security-center.alerts.caption_classification }}**: Activity classification.
-      * **{{ ui-key.yacloud_org.security-center.alerts.caption_assignee }}**: User responsible for the alert.
-      * **{{ ui-key.yacloud_org.security-center.alerts.caption_created-by }}** and **{{ ui-key.yacloud_org.security-center.alerts.caption_modified-at }}**: Date and time the alert was created and last modified.
-      * **{{ ui-key.yacloud_org.security-center.alerts.caption_incident }}**: Incident associated with the alert.
-
   1. Optionally, [configure](#configure) alert display.
 
 

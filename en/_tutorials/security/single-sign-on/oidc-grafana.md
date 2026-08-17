@@ -72,7 +72,8 @@ To configure OIDC in Grafana Cloud, you need organization administrator permissi
      ```bash
      yc iam oauth-client create \
        --name grafana-cloud-oauth-client \
-       --scopes openid,email,profile
+       --scopes openid,email,profile \
+       --profile-id web
      ```
 
      Where:
@@ -82,6 +83,7 @@ To configure OIDC in Grafana Cloud, you need organization administrator permissi
        * `openid`: User ID. Required attribute.
        * `email`: User email address.
        * `profile`: Additional user details, such as first name, last name, and avatar.
+     * {% include [org-oidc-app-select-web-type-legend-cli](../../../_tutorials/_tutorials_includes/org-oidc-app-select-web-type-legend-cli.md) %}
 
      Result:
 
@@ -89,7 +91,12 @@ To configure OIDC in Grafana Cloud, you need organization administrator permissi
      id: ajeqqip130i1********
      name: grafana-cloud-oauth-client
      folder_id: b1g500m2195v********
+     authentication_methods:
+       - client_secret_basic
+       - client_secret_post
      status: ACTIVE
+     profile_id: web
+     pkce_required: true
      ```
 
      Save the `id` field value for when you need to create and configure your app.
@@ -233,7 +240,7 @@ To integrate Grafana Cloud with the OIDC app you created in {{ org-full-name }},
 
 {% endlist %}
 
-#### Configure the redirect URI {#setup-redirect}
+#### Configure a redirect URI {#setup-redirect}
 
 {% list tabs group=instructions %}
 
@@ -283,7 +290,12 @@ To integrate Grafana Cloud with the OIDC app you created in {{ org-full-name }},
        - email
        - profile
      folder_id: b1gkd6dks6i1********
+     authentication_methods:
+       - client_secret_basic
+       - client_secret_post
      status: ACTIVE
+     profile_id: web
+     pkce_required: true
      ```
 
 {% endlist %}
@@ -309,7 +321,7 @@ For your organization's users to be able to authenticate in Grafana Cloud with {
 
 {% note info %}
 
-Users and groups added to an OIDC application can be managed by a user with the `organization-manager.oidcApplications.userAdmin` [role](../../../organization/security/index.md#organization-manager-oidcApplications-userAdmin) or higher.
+Users and groups added to an OIDC application can be managed by any user with the `organization-manager.oidcApplications.userAdmin` [role](../../../organization/security/index.md#organization-manager-oidcApplications-userAdmin) or higher.
 
 {% endnote %}
 

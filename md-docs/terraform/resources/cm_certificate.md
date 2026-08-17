@@ -20,6 +20,13 @@ Only one type `managed` or `self_managed` should be specified.
 {% endnote %}
 
 
+{% note warning %}
+
+Please be informed that imported certificate will have DNS_CNAME type for DNS challenges.
+
+{% endnote %}
+
+
 ## Example usage
 
 ```terraform

@@ -84,8 +84,12 @@ description: Следуя данной инструкции, вы сможете
 
 1. Очистите содержимое вкладок **Params** и **Config**: они содержат шаблон, не относящийся к нашему примеру.
 
-1. На вкладке **Prepare** сформируйте таблицу:
-
+1. На вкладке **Prepare** сформируйте таблицу. Вы можете предварительно обработать полученные данные и вывести их с разными уровнями группировки и детализации, добавить форматирование и визуализацию. Например:
+   
+   * С графиками — данные со сгруппированными строками по полю **Тип оплаты** и сгруппированными колонками по полю **Год заявки** с графиком по значениям продаж по месяцам.
+   * Без графиков — данные со сгруппированными строками по полю **Тип оплаты** и сгруппированными колонками по полю **Год заявки** без дополнительной визуализации.
+   * Простая таблица — агрегированные данные в виде простой таблицы.
+  
    {% note info %}
 
    В примере используется служебный модуль `const Dataset = require('libs/dataset/v2')` — для более удобной работы с датасетами. Метод `Dataset.getDatasetRows()` извлекает данные из источника, переданного в параметре `datasetName`, и предоставляет их в удобном компактном виде.
@@ -94,167 +98,348 @@ description: Следуя данной инструкции, вы сможете
 
    {% endnote %}
 
-   ```javascript
-   const Dataset = require('libs/dataset/v2');
+   {% list tabs group=difficulty %}
 
-   // Получаем данные из датасета в удобном формате с помощью служебного модуля
-   // datasetName — имя датасета на вкладке Sources
-   const data = Dataset.getDatasetRows({datasetName: 'salesSourceData'});
-   
-   // Вспомогательная функция для группировки данных по заданному имени поля датасета 
-   function groupBy(arr, field) {
-       return arr.reduce((acc, item) => {
-           const key = item[field];
-           if (!acc[key]) {
-               acc[key] = [];
-           }
-           acc[key].push(item);
-           
-           return acc;
-       }, {});
-   }
-   
-   // Массив с уникальными значениями из поля "Год заявки", отсортированное по возрастанию чисел
-   const years = Array.from(new Set(data.map(d => String(d['Год заявки'])))).sort();
-   
-   // Общие стили для ячеек-заголовков таблицы
-   const headStyles = {background: 'var(--g-color-base-misc-light)', verticalAlign: 'middle'};
-   
-   // Конфигурация ячеек-заголовков таблицы
-   const head = [
-       {
-           name: 'Тип оплаты',
-           formattedName: Editor.generateHtml({
-               tag: 'span',
-               content: [
-                   {tag: 'span', content: 'Тип оплаты'},
-   				// всплывающая подсказка для заголовка ячейки
-                   {
-                       tag: 'dl-tooltip',
-                       content: ' ℹ',
-                       style: {
-                           display: 'inline-block',
-                           margin: '0px 0px 0px 4px',
-                           'line-height': '12px',
-                           'text-align': 'center',
-                           width: '16px',
-                           height: '16px',
-                           border: '1px solid #ccc',
-                           'border-radius': '50%',
-                       },
-                       attributes : {
-                           'data-tooltip-content': {
-                               tag: 'i',
-                               content: 'Tooltip content',
-                           },
-                       },
-                   }
-               ],
-           }),
-           css: headStyles,
-           pinned: true,
-       },
-       // Формируем колонки по полученному выше массиву со значениями из поля "Год заявки"
-       ...years.map(year => ({
-           name: year,
-           css: headStyles,
-       })),
-       {
-           name: 'Продажи, все года',
-           css: headStyles,
-       },
-   ];
-   
-   // Вспомогательная функция для отрисовки линии чарта
-   function createChart(chartData) {
-       const chartWidth = 80;
-       const chartHeight = 40;
-   
-       // Вычисляем минимальное и максимальное значение координат
-       const minX = Math.min(...chartData.map(d => d.x));
-       const maxX = Math.max(...chartData.map(d => d.x));
-       const minY = Math.min(...chartData.map(d => d.y));
-       const maxY = Math.max(...chartData.map(d => d.y));
-   
-       // Вычисляем координаты в зависимости от размеров контейнера чарта (chartWidth, chartHeight)
-       const coords = chartData.sort((d1, d2) => d1.x - d2.x).map(d => ([
-           (d.x - minX) / (maxX - minX) * chartWidth, 
-           (d.y - minY) / (maxY - minY) * chartHeight,
-       ]));
-       // Создаем путь для svg-линии по сформированным выше координатам
-       let d = "";
-       coords.forEach((_, x) => {
-           d += d === "" ? "M" : " L";
-           d += `${coords[x][0]} ${coords[x][1]}`;
-       });
-       // Создаем svg с цветом линии var(--g-color-base-brand) и толщиной 2px
-       return `
-           <svg width="${chartWidth}" height="${chartHeight}">
-               <path 
-                   d="${d}" 
-                   style="fill: none; stroke: var(--g-color-base-brand); stroke-width: 2;"
-               />
-           </svg>`;
-   }
-   
-   const rows = [];
-   
-   // Вспомогательная функция форматирования чисел
-   const formatSalesValue = new Intl.NumberFormat('ru-RU').format;
-   const postfix = ', ₽';
-   
-   // Сгруппированные строки по полю "Тип оплаты"
-   const groupedData = groupBy(data, 'Тип  оплаты');
-   // Формируем и наполняем строки таблицы для каждого сгруппированного типа оплаты
-   Object.entries(groupedData).forEach(([key, items]) => {
-       // Сгруппированные строки по полю "Год заявки"
-       const salesByYears = groupBy(items, 'Год заявки');
-       // Вычисляем сумму по полю "Продажа, ₽" по всем годам 
-       const totalSales = items.reduce((sum, d) => sum + d['Продажа, ₽'], 0);
-       rows.push({
-           cells: [
-               {
-                   value: key,
-               },
-               // Формируем колонки по подготовленным ранее значениям "Год заявки"
-               ...years.map(year => {
-                   const salesByYear = salesByYears[year] ?? [];
-                   const yearSales = salesByYear.map(d => ({
-                       x: new Date(d['Месяц заявки']).getTime(), 
-                       y: d['Продажа, ₽'],
-                   }));
-                   const maxSales = Math.max(...salesByYear.map(d => d['Продажа, ₽']));
-                   const minSales = Math.min(...salesByYear.map(d => d['Продажа, ₽']));
-   
-                   return {
-                       value: maxSales, 
-                       formattedValue: Editor.generateHtml(`
-                           <div>
-                               ${createChart(yearSales)}
-                               <div style="margin-top: 8px;">Min: <b>${formatSalesValue(minSales)}${postfix}<b></div>
-                               <div>Max: <b>${formatSalesValue(maxSales)}${postfix}</b></div>
-                           </div>
-                       `),   
-                   };
-               }),
-               {
-                   value: totalSales,
-                   formattedValue: formatSalesValue(totalSales) + postfix,
-                   css: {
-                       verticalAlign: 'middle',
-                       textAlign: 'center',
-                       fontSize: '16px',
-                   },
-               },
-           ],
-       });
-   });
-   
-   module.exports = {head, rows};
-   ```
+   - С графиками {#visualization}
 
-1. Вверху чарта нажмите **Выполнить**. В области предпросмотра отобразится таблица с данными из датасета со сгруппированными строками по полю **Тип  оплаты** и сгруппированными колонками по полю **Год заявки** с графиком по значениям продаж по месяцам:
+     ```javascript
+     const Dataset = require('libs/dataset/v2');
+     const loadedData = Editor.getLoadedData();
 
-   ![image.png](../../../../_assets/datalens/editor/quick-start-1.png)
+     // Получаем данные из датасета в удобном формате с помощью служебного модуля
+     // datasetName — имя датасета на вкладке Sources
+     const data = Dataset.getDatasetRows({datasetName: 'salesSourceData'});
+     
+     // Вспомогательная функция для группировки данных по заданному имени поля датасета 
+     function groupBy(arr, field) {
+         return arr.reduce((acc, item) => {
+             const key = item[field];
+             if (!acc[key]) {
+                 acc[key] = [];
+             }
+             acc[key].push(item);
+             
+             return acc;
+         }, {});
+     }
+     
+     // Массив с уникальными значениями из поля "Год заявки", отсортированное по возрастанию чисел
+     const years = Array.from(new Set(data.map(d => String(d['Год заявки'])))).sort();
+     
+     // Общие стили для ячеек-заголовков таблицы
+     const headStyles = {background: 'var(--g-color-base-misc-light)', verticalAlign: 'middle'};
+     
+     // Конфигурация ячеек-заголовков таблицы
+     const head = [
+         {
+             name: 'Тип оплаты',
+             formattedName: Editor.generateHtml({
+                 tag: 'span',
+                 content: [
+                     {tag: 'span', content: 'Тип оплаты'},
+     				// всплывающая подсказка для заголовка ячейки
+                     {
+                         tag: 'dl-tooltip',
+                         content: ' ℹ',
+                         style: {
+                             display: 'inline-block',
+                             margin: '0px 0px 0px 4px',
+                             'line-height': '12px',
+                             'text-align': 'center',
+                             width: '16px',
+                             height: '16px',
+                             border: '1px solid #ccc',
+                             'border-radius': '50%',
+                         },
+                         attributes : {
+                             'data-tooltip-content': {
+                                 tag: 'i',
+                                 content: 'Tooltip content',
+                             },
+                         },
+                     }
+                 ],
+             }),
+             css: headStyles,
+             pinned: true,
+         },
+         // Формируем колонки по полученному выше массиву со значениями из поля "Год заявки"
+         ...years.map(year => ({
+             name: year,
+             css: headStyles,
+         })),
+         {
+             name: 'Продажи, все года',
+             css: headStyles,
+         },
+     ];
+     
+     // Вспомогательная функция для отрисовки линии чарта
+     function createChart(chartData) {
+         const chartWidth = 80;
+         const chartHeight = 40;
+     
+         // Вычисляем минимальное и максимальное значение координат
+         const minX = Math.min(...chartData.map(d => d.x));
+         const maxX = Math.max(...chartData.map(d => d.x));
+         const minY = Math.min(...chartData.map(d => d.y));
+         const maxY = Math.max(...chartData.map(d => d.y));
+     
+         // Вычисляем координаты в зависимости от размеров контейнера чарта (chartWidth, chartHeight)
+         const coords = chartData.sort((d1, d2) => d1.x - d2.x).map(d => ([
+             (d.x - minX) / (maxX - minX) * chartWidth, 
+             (d.y - minY) / (maxY - minY) * chartHeight,
+         ]));
+         // Создаем путь для svg-линии по сформированным выше координатам
+         let d = "";
+         coords.forEach((_, x) => {
+             d += d === "" ? "M" : " L";
+             d += `${coords[x][0]} ${coords[x][1]}`;
+         });
+         // Создаем svg с цветом линии var(--g-color-base-brand) и толщиной 2px
+         return `
+             <svg width="${chartWidth}" height="${chartHeight}">
+                 <path 
+                     d="${d}" 
+                     style="fill: none; stroke: var(--g-color-base-brand); stroke-width: 2;"
+                 />
+             </svg>`;
+     }
+     
+     const rows = [];
+     
+     // Вспомогательная функция форматирования чисел
+     const formatSalesValue = new Intl.NumberFormat('ru-RU').format;
+     const postfix = ', ₽';
+     
+     // Сгруппированные строки по полю "Тип оплаты"
+     const groupedData = groupBy(data, 'Тип  оплаты');
+     // Формируем и наполняем строки таблицы для каждого сгруппированного типа оплаты
+     Object.entries(groupedData).forEach(([key, items]) => {
+         // Сгруппированные строки по полю "Год заявки"
+         const salesByYears = groupBy(items, 'Год заявки');
+         // Вычисляем сумму по полю "Продажа, ₽" по всем годам 
+         const totalSales = items.reduce((sum, d) => sum + d['Продажа, ₽'], 0);
+         rows.push({
+             cells: [
+                 {
+                     value: key,
+                 },
+                 // Формируем колонки по подготовленным ранее значениям "Год заявки"
+                 ...years.map(year => {
+                     const salesByYear = salesByYears[year] ?? [];
+                     const yearSales = salesByYear.map(d => ({
+                         x: new Date(d['Месяц заявки']).getTime(), 
+                         y: d['Продажа, ₽'],
+                     }));
+                     const maxSales = Math.max(...salesByYear.map(d => d['Продажа, ₽']));
+                     const minSales = Math.min(...salesByYear.map(d => d['Продажа, ₽']));
+     
+                     return {
+                         value: maxSales, 
+                         formattedValue: Editor.generateHtml(`
+                             <div>
+                                 ${createChart(yearSales)}
+                                 <div style="margin-top: 8px;">Min: <b>${formatSalesValue(minSales)}${postfix}<b></div>
+                                 <div>Max: <b>${formatSalesValue(maxSales)}${postfix}</b></div>
+                             </div>
+                         `),   
+                     };
+                 }),
+                 {
+                     value: totalSales,
+                     formattedValue: formatSalesValue(totalSales) + postfix,
+                     css: {
+                         verticalAlign: 'middle',
+                         textAlign: 'center',
+                         fontSize: '16px',
+                     },
+                 },
+             ],
+         });
+     });
+     
+     module.exports = {head, rows};
+     ```
+
+   - Без графиков {#formatting}
+
+     ```javascript
+     const Dataset = require('libs/dataset/v2');
+     const loadedData = Editor.getLoadedData();
+     
+     // Получаем данные из датасета в удобном формате с помощью служебного модуля
+     // datasetName — имя датасета на вкладке Sources
+     const data = Dataset.getDatasetRows({datasetName: 'salesSourceData'});
+     
+     // Вспомогательная функция для группировки данных по заданному имени поля датасета 
+     function groupBy(arr, field) {
+         return arr.reduce((acc, item) => {
+             const key = item[field];
+             if (!acc[key]) {
+                 acc[key] = [];
+             }
+             acc[key].push(item);
+             
+             return acc;
+         }, {});
+     }
+     
+     // Массив с уникальными значениями из поля "Год заявки", отсортированное по возрастанию чисел
+     const years = Array.from(new Set(data.map(d => String(d['Год заявки'])))).sort();
+     
+     // Общие стили для ячеек-заголовков таблицы
+     const headStyles = {background: 'var(--g-color-base-misc-light)', verticalAlign: 'middle'};
+     
+     // Конфигурация ячеек-заголовков таблицы
+     const head = [
+         {
+             name: 'Тип оплаты',
+             formattedName: Editor.generateHtml({
+                 tag: 'span',
+                 content: [
+                     {tag: 'span', content: 'Тип оплаты'},
+                 ],
+             }),
+             css: headStyles,
+             pinned: true,
+         },
+         // Формируем колонки по полученному выше массиву со значениями из поля "Год заявки"
+         ...years.map(year => ({
+             name: year,
+             css: headStyles,
+         })),
+         {
+             name: 'Продажи, все года',
+             css: headStyles,
+         },
+     ];
+     
+     
+     const rows = [];
+     
+     // Вспомогательная функция форматирования чисел
+     const formatSalesValue = new Intl.NumberFormat('ru-RU').format;
+     const postfix = ', ₽';
+     
+     // Сгруппированные строки по полю "Тип оплаты"
+     const groupedData = groupBy(data, 'Тип  оплаты');
+     // Формируем и наполняем строки таблицы для каждого сгруппированного типа оплаты
+     Object.entries(groupedData).forEach(([key, items]) => {
+              // Сгруппированные строки по полю "Год заявки"
+              const salesByYears = groupBy(items, 'Год заявки');
+              // Вычисляем сумму по полю "Продажа, ₽" по всем годам 
+              const totalSales = items.reduce((sum, d) => sum + d['Продажа, ₽'], 0);
+              rows.push({
+                  cells: [
+                      {
+                          value: key,
+                      },
+                      // Формируем колонки по подготовленным ранее значениям "Год заявки"
+                      ...years.map(year => {
+                          const salesByYear = salesByYears[year] ?? [];
+                          const yearSales = salesByYear.map(d => ({
+                              x: new Date(d['Месяц заявки']).getTime(), 
+                              y: d['Продажа, ₽'],
+                          }));
+                          const maxSales = Math.max(...salesByYear.map(d => d['Продажа, ₽']));
+                          const minSales = Math.min(...salesByYear.map(d => d['Продажа, ₽']));
+                          
+                          return {
+                              value: maxSales, 
+                              formattedValue: Editor.generateHtml(`
+                                  <div>
+                                      <div style="margin-top: 8px;">Min: <b>${formatSalesValue(minSales)}${postfix}<b></div>
+                                      <div>Max: <b>${formatSalesValue(maxSales)}${postfix}</b></div>
+                                  </div>
+                              `),   
+                          };
+                      }),
+                      {
+                     value: totalSales,
+                     formattedValue: formatSalesValue(totalSales) + postfix,
+                     css: {
+                         verticalAlign: 'middle',
+                         textAlign: 'center',
+                         fontSize: '16px',
+                     },
+                 },
+             ],
+         });
+     });
+     
+     module.exports = {head, rows};
+     ```
+   
+   - Простая таблица {#table}
+
+     ```javascript     
+     const Dataset = require('libs/dataset/v2');
+
+     // Получаем данные из датасета в удобном формате с помощью служебного модуля
+     // datasetName — имя датасета на вкладке Sources
+     const data = Dataset.getDatasetRows({datasetName: 'salesSourceData'});
+
+     // Конфигурация ячеек-заголовков таблицы
+     const head = [
+         {
+             name: 'Тип оплаты',
+             type: 'text',
+         },
+         {
+             name: 'Год заявки',
+             type: 'text',
+         },
+         {
+             name: 'Продажа, ₽',
+             type: 'number',
+         },
+     ];
+
+     const rows = [];
+     data.forEach(dataItem => {
+         rows.push({
+             cells: [
+                 {
+                     value: dataItem['Тип  оплаты'],
+                 },
+                 {
+                     value: dataItem['Год заявки'],
+                 },
+                 {
+                     value: dataItem['Продажа, ₽'],
+                 },
+             ],
+         });
+     });
+
+     module.exports = {head, rows};
+     ```
+
+   {% endlist %}
+
+1. Вверху чарта нажмите **Выполнить**. В области предпросмотра отобразится таблица со сгруппированными данными из датасета:
+
+   {% list tabs group=difficulty %}
+
+   - С графиками {#visualization}
+
+     Таблица с данными из датасета со сгруппированными строками по полю **Тип оплаты** и сгруппированными колонками по полю **Год заявки** с графиком по значениям продаж по месяцам.
+
+     ![image.png](../../../../_assets/datalens/editor/quick-start-1.png)
+
+   - Без графиков {#formatting}
+
+     Таблица с данными из датасета со сгруппированными строками по полю **Тип оплаты** и сгруппированными колонками по полю **Год заявки**.
+     
+     ![image.png](../../../../_assets/datalens/editor/quick-start-1-formatting.png)
+   
+   - Простая таблица {#table}
+
+     Простая таблица с данными из датасета со сгруппированными колонками по полям **Тип оплаты** и **Год заявки**.
+     
+     ![image.png](../../../../_assets/datalens/editor/quick-start-1-table.png)
+
+   {% endlist %}
 
 1. Чтобы сохранить чарт, в правом верхнем углу нажмите **Сохранить** и введите название чарта.

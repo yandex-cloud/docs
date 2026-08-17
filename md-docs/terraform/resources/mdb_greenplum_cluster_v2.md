@@ -293,7 +293,9 @@ filename: yandex/cloud/mdb/greenplum/v1/cluster.proto
   - `read` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
   - `update` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 - `user_name` (**Required**)(String). Owner user name.
-- `user_password` (**Required**)(String). Owner user password.
+- `user_password` (String). Owner user password.
+- `user_password_wo` (String). Owner user password. This attribute is write-only and is not stored in state. Requires `user_password_wo_version` to trigger updates. Write-only arguments are supported in Terraform 1.11 and later.
+- `user_password_wo_version` (Number). A version number for the write-only password. Increment this to trigger a password update.
 
 ## Import
 

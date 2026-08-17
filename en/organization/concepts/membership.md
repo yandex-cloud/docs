@@ -18,6 +18,12 @@ Organization membership may be held by:
 
 A user can be an owner or member of multiple organizations at the same time. You can [switch](../operations/manage-organizations.md#switch-to-another-org) between organizations in the [management console]({{ link-console-main }}) or the [{{ cloud-center }}]({{ cloud-center-link }}) interface.
 
+{% note info %}
+
+If a [Yandex account](../../iam/concepts/users/accounts.md#passport) user is a member of several organizations with different [refresh token settings](../../iam/concepts/authorization/refresh-token.md#dpop-verification), the strictest one of these settings will apply, no matter which organization the user is currently in.
+
+{% endnote %}
+
 {% note tip %}
 
 By default, all {{ org-full-name }} users can view information about all other users in the same organization. You can [restrict](../operations/hide-user-info.md) this feature by reserving it for specially authorized users only.
