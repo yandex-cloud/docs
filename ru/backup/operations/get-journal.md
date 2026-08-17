@@ -11,7 +11,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором подключен {{ backup-name }}.
   1. [Перейдите]({{ link-console-main }}/link/backup) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
-  1. На панели слева нажмите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud_billing.backup.label_instances }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.backup.label_connected-resources }}** и перейдите на вкладку **{{ ui-key.yacloud_billing.backup.label_instances }}**.
   1. В строке с нужной ВМ нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите `{{ ui-key.yacloud.backup.label_navigate-to-journal-action }}`.
 
       Также чтобы открыть журнал резервного копирования, вы можете навести указатель мыши на статус последней операции и перейти по ссылке во всплывающем окне.

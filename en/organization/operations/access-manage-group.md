@@ -26,91 +26,71 @@ To do this, assign [roles](../../iam/concepts/access-control/roles.md) for the g
 - {{ cloud-center }} UI {#cloud-center}
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) as the organization administrator or owner.
-
   1. In the left-hand panel, select ![groups](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.groups }}** and click the line with the [group](../../organization/concepts/groups.md) name.
-  
   1. Navigate to the **{{ ui-key.yacloud_org.entity.group.title_tab-access }}** tab.
-
   1. Click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
-  
-  1. Select the user or [service account](../../iam/concepts/users/service-accounts.md) you want to grant access to the group. Use search, if required.
-  
+  1. Select the user, group, or [service account](../../iam/concepts/users/service-accounts.md) you need to grant access to the group. Use search, if required.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the roles that you need to assign to the group.
-
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-   {% include [set-access-bindings-cli](../../_includes/iam/set-access-bindings-cli.md) %}
+  {% include [set-access-bindings-cli](../../_includes/iam/set-access-bindings-cli.md) %}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To assign multiple roles for a user group:
+  To assign multiple roles for a user group:
 
-   1. Make sure the resource has no important roles assigned before proceeding:
+  1. Make sure the resource has no important roles assigned before proceeding:
 
       ```bash
       yc organization-manager group list-access-bindings \
         --id <group_ID>
       ```
 
-   1. View the description of the CLI command for assigning roles:
+  1. View the description of the CLI command for assigning roles:
 
       ```bash
       yc organization-manager group set-access-bindings --help
       ```
- 
-   1. Get a list of user groups with their IDs:
+
+  1. Get a list of user groups with their IDs:
 
       ```bash
       yc organization-manager group list
       ```
-   1. Get the [ID of the user](../../organization/operations/users-get.md), [service account](../../iam/operations/sa/get-id.md), or [user group](group-get-id.md) you are assigning roles to.
 
-   1. Using the `yc organization-manager group set-access-bindings` command, assign the following roles:
+  1. Get the [ID of the user](../../organization/operations/users-get.md), [service account](../../iam/operations/sa/get-id.md), or [user group](group-get-id.md) you need to grant access to the group.
+  1. Use the `yc organization-manager group set-access-bindings` command to assign the following roles:
 
-      * To a Yandex account user or local user:
+      ```bash
+      yc organization-manager group set-access-bindings \
+        --id <group_ID> \
+        --access-binding role=<role>,subject=<subject_type>:<subject_ID>
+      ```
 
-         ```bash
-         yc organization-manager group set-access-bindings \
-           --id <group_ID> \
-           --access-binding role=<role>,user-account-id=<user_ID>
-         ```
+      Where:
 
-      * To a federated user:
+      * `--id`: ID of the user group to grant access to.
+      * `role`: ID of the role you need to assign.
+      * `subject`: [Subject](../../iam/concepts/access-control/index.md#subject) getting the role.
 
-         ```bash
-         yc organization-manager group set-access-bindings \
-           --id <group_ID> \
-           --access-binding role=<role>,subject=federatedUser:<user_ID>
-         ```
+          {% cut "Subject designations" %}
 
-      * To a service account:
+          {% include [subjects-designations-terraform](../../_includes/iam/subjects-designations-terraform.md) %}
 
-         ```bash
-         yc organization-manager group set-access-bindings \
-           --id <group_ID> \
-           --access-binding role=<role>,service-account-id=<service_account_ID>
-         ```
-
-      * To a user group:
-
-         ```bash
-         yc organization-manager group set-access-bindings \
-           --id <group_ID> \
-           --access-binding role=<role>,subject=group:<group_ID>
-         ```
+          {% endcut %}
 
       Provide a separate `--access-binding` parameter for each role. Here is an example:
 
       ```bash
       yc organization-manager group set-access-bindings \
-        --id <group_ID> \
-        --access-binding role=<role_1>,service-account-id=<service_account_ID> \
-        --access-binding role=<role_2>,service-account-id=<service_account_ID> \
-        --access-binding role=<role_3>,service-account-id=<service_account_ID>
+        --id ins672qpemb4******** \
+        --access-binding role=<role1>,subject=serviceAccount:<service_account_ID> \
+        --access-binding role=<role2>,subject=serviceAccount:<service_account_ID> \
+        --access-binding role=<role3>,subject=serviceAccount:<service_account_ID>
       ```
 
 - {{ TF }} {#tf}
@@ -122,53 +102,61 @@ To do this, assign [roles](../../iam/concepts/access-control/roles.md) for the g
   1. Describe the parameters of the roles you assign in the configuration file:
 
       ```hcl
-      resource "yandex_organizationmanager_group_iam_binding" "role1" {
+      resource "yandex_organizationmanager_group_iam_member" "role1" {
         group_id = "<group_ID>"
         role     = "<role1>"
-        members  = ["<subject_type>:<subject_ID>"]
+        member   = "<subject_type>:<subject_ID>"
       }
 
-      resource "yandex_organizationmanager_group_iam_binding" "role2" {
+      resource "yandex_organizationmanager_group_iam_member" "role2" {
         group_id = "<group_ID>"
         role     = "<role2>"
-        members  = ["<subject_type>:<subject_ID>"]
+        member   = "<subject_type>:<subject_ID>"
       }
 
-      resource "yandex_organizationmanager_group_iam_binding" "role3" {
+      resource "yandex_organizationmanager_group_iam_member" "role3" {
         group_id = "<group_ID>"
         role     = "<role3>"
-        members  = ["<subject_type>:<subject_ID>"]
+        member   = "<subject_type>:<subject_ID>"
       }
       ```
 
       Where:
 
       * `group_id`: [User group ID](group-get-id.md).
-      * `role`: Role you want to assign. For each role, you can only use one `yandex_organizationmanager_group_iam_binding` resource.
-      * `members`: Array of the IDs of users to assign the role to:
+      * `role`: Role you want to assign.
+      * `member`: [Subject](../../iam/concepts/access-control/index.md#subject) getting the role.
 
-        * `userAccount:<user_ID>`: ID of the user Yandex account or local user ID.
-        * `federatedUser:<user_ID>`: Federated user ID.
-        * `serviceAccount:<service_account_ID>`: Service account ID.
-        * `group:<group_ID>`: User group ID.
+          {% cut "Subject designations" %}
 
-      For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
+          {% include [subjects-designations-terraform](../../_includes/iam/subjects-designations-terraform.md) %}
+
+          {% endcut %}
+
+      For more on the properties of the `yandex_organizationmanager_group_iam_member` resource, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_group_iam_member).
 
   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
-   
-  After that, the specified user will be assigned multiple roles for the user group. You can check the new roles using the [{{ cloud-center }} UI]({{ link-org-cloud-center }}).
+
+  With this done, the specified subject will get several roles for the user group. You can check role assignments using the [{{ cloud-center }} UI]({{ link-org-cloud-center }}).
 
 - API {#api}
 
-   {% include [set-access-bindings-api](../../_includes/iam/set-access-bindings-api.md) %}
+  {% include [set-access-bindings-api](../../_includes/iam/set-access-bindings-api.md) %}
 
-   Use the [setAccessBindings](../api-ref/Group/setAccessBindings.md) method for the [Group](../api-ref/Group/index.md) resource or the [GroupService/SetAccessBindings](../api-ref/grpc/Group/setAccessBindings.md) gRPC API call. In your request, provide an array of objects, each one matching a particular role and containing the following data:
+  To assign several roles for a user group to a subject, use the [setAccessBindings](../api-ref/Group/setAccessBindings.md) REST API method for the [Group](../api-ref/Group/index.md) resource or the [GroupService/SetAccessBindings](../api-ref/grpc/Group/setAccessBindings.md) gRPC API call. In your request, provide an array of objects, each one matching a particular role and containing the following data:
 
-   * Role in the `accessBindings[].roleId` parameter.
-   * ID of the subject getting the roles in the `accessBindings[].subject.id` parameter.
-   * Type of the subject getting the roles in the `accessBindings[].subject.type` parameter.
+  * Role in the `accessBindings[].roleId` parameter.
+  * ID of the [subject](../../iam/concepts/access-control/index.md#subject) getting the roles in the `accessBindings[].subject.id` parameter.
+  * Type of the subject getting the roles in the `accessBindings[].subject.type` parameter.
+
+      {% cut "Subject designations" %}
+
+      {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+      {% endcut %}
+
 
 {% endlist %}
 

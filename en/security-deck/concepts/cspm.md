@@ -21,6 +21,8 @@ You can [view](../operations/cspm/view-rules.md) the information about {{ cspm-n
 
 ### General information about rules {#general-info}
 
+To filter rules, use the panel above the table. In drop-down lists, select the required values.
+
 {% include [cspm-view-general-info](../../_includes/security-deck/cspm-view-general-info.md) %}
 
 ### Detailed information about a rule {#detailed-info}

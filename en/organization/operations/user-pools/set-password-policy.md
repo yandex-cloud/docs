@@ -35,7 +35,11 @@ To set up a [password policy](../../concepts/password-policy.md):
 
        In the **{{ ui-key.yacloud_org.organization.userpools.UserpoolPasswordPolicyForm.min_length_title_mvmiQ }}** field, specify the minimum number of characters in the password but not less than seven.
        
-  1. Optionally, under **Password uniqueness**, in the **Password verification** field, enable **You cannot use passwords included in the database of common passwords**. This will protect users from using passwords that can be easily guessed using a dictionary.
+  1. Under **{{ ui-key.yacloud_org.organization.userpools.password_uniqueness_13P78 }}**:
+
+     * In the **{{ ui-key.yacloud_org.organization.userpools.password_check_gP9tG }}** field, enable **{{ ui-key.yacloud_org.organization.userpools.reject_common_passwords_9bpqu }}** if required. This will protect users from using passwords that can be easily guessed using a dictionary.
+     * In the **Password history** field, specify how many recent user passwords cannot be reused. The default value is `1`; the maximum value is `10`. 
+
   1. Under **{{ ui-key.yacloud_org.organization.userpools.UserpoolPasswordPolicyForm.lifetime_hnEhW }}**, set the minimum and maximum password lifetime (up to 730 days) or select **{{ ui-key.yacloud_org.organization.userpools.UserpoolPasswordPolicyForm.unlimited_cSfYU }}**.
   1. Under **{{ ui-key.yacloud_org.organization.userpools.UserpoolPasswordPolicyForm.brute_force_protection_msHno }}**, specify:
      * **{{ ui-key.yacloud_org.organization.userpools.UserpoolPasswordPolicyForm.attempts_before_lockout_ay7Le }}**: From 1 to 100.
@@ -240,7 +244,7 @@ To set up a [password policy](../../concepts/password-policy.md):
        * `window`: Interval for counting wrong entries (e.g., `10m` for 10 minutes or `600s` for 600 seconds).
        * `block`: Lockout duration after exceeding the wrong entry limit (e.g., `10m` or `600s`).
 
-     For more on the properties of the `yandex_organizationmanager_idp_userpool` resource, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_userpool).
+     For more on `yandex_organizationmanager_idp_userpool` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_userpool).
 
   1. Create the resources:
 

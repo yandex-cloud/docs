@@ -27,7 +27,7 @@ Managed Service for GitLab обеспечивает автоматическое
 - Консоль управления {#console}
 
   1. [Перейдите](https://console.yandex.cloud/link/managed-gitlab) в сервис **Managed Service for&nbsp;GitLab**.
-  1. Нажмите на имя нужного инстанса и выберите вкладку ![image](../../../_assets/console-icons/archive.svg) **Резервные копии**.
+  1. Нажмите на имя нужного инстанса и выберите вкладку **Резервные копии**.
 
 {% endlist %}
 
@@ -38,8 +38,8 @@ Managed Service for GitLab обеспечивает автоматическое
 - Консоль управления {#console}
 
   1. [Перейдите](https://console.yandex.cloud/link/managed-gitlab) в сервис **Managed Service for&nbsp;GitLab**.
-  1. Нажмите на имя нужного инстанса и выберите вкладку ![image](../../../_assets/console-icons/archive.svg) **Резервные копии**.
-  1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **Создать резервную копию**.
+  1. Нажмите на имя нужного инстанса и выберите вкладку **Резервные копии**.
+  1. Нажмите кнопку **Создать резервную копию**.
 
 {% endlist %}
 
@@ -101,7 +101,7 @@ Managed Service for GitLab обеспечивает автоматическое
 
   1. [Перейдите](https://console.yandex.cloud/link/managed-gitlab) в сервис **Managed Service for&nbsp;GitLab**.
   1. Нажмите на имя нужного инстанса и выберите вкладку ![image](../../../_assets/console-icons/archive.svg) **Резервные копии**.
-  1. В строке с нужной резервной копией нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Скачать резервную копию**.
+  1. В строке с нужной резервной копией нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Получить ссылку**.
   1. В поле **Время жизни** укажите срок действия подписанных ссылок — от одного часа до семи дней.
   1. Нажмите **Получить ссылку**.
   1. Скопируйте подписанные ссылки из полей **Резервная копия** и **Секреты GitLab**.

@@ -34,18 +34,17 @@ You do not pay for:
 
 #|
 || **Name** | **Description** | **Terms** ||
-|| {{ sd-name }}. Starter package | Configuration checks for compliance with standards in the [configuration control module](./concepts/cspm.md) and suspicious activity and threat alerts in the [threat detection module](./concepts/threat-detector.md).</br>There are several plans for different numbers of resources per environment. | The prices based on resources per month are fixed and do not depend on the number of days in the month. ||
-|| Package-based subscription to {{ dspm-name }} | It is a special offer that includes all DSPM’s features. Four plans are available for different amounts of scanned data per month.
+|| {{ sd-name }}. Starter package | Configuration checks for compliance with standards in the [configuration control module](./concepts/cspm.md) and suspicious activity and threat alerts in the [threat detection module](./concepts/threat-detector.md).</br>There are several plans for different numbers of resources per environment. | Prices for the number of monthly resources are fixed and do not depend on the number of days in the month.</br>To start using the service plan, [accept the offer](../billing/operations/get-offers.md) in [{{ billing-name }}]({{ link-console-billing }}). ||
+|| Package-based subscription to {{ dspm-name }} | This is a special offer that covers all DSPM features. There are four plans for different amounts of scan data per month.
 What monthly subscription includes:
-* Data scanning.
+* Data scans.
 * Operations with files.
-* Detecting sensitive information in various file formats.
-* Storing information on detected objects. |
-The amount of data provided herein is approximate.
-To activate this subscription, contact [support]({{ link-console-support }}).
+* Detection of sensitive information in various file formats.
+* Storing information pertaining to detected objects. |
+To subscribe, [accept the offer](../billing/operations/get-offers.md) in [{{ billing-name }}]({{ link-console-billing }}).
 |#
 
-The package prices and subscriptions below are per calendar month. A calendar month is a period from 00:00 on the first day of the month to 23:59 on the last day of the same month, UTC+3. The cost is fixed and does not depend on the number of days in the month.
+The package plans and subscriptions are priced per calendar month. A calendar month is a period from 00:00 on the first day of the month to 23:59 on the last day of the same month, UTC+3. The cost is fixed and does not depend on the number of days in the month.
 
 ### Module pricing {#modules-rules}
 

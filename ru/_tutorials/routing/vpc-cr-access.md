@@ -306,7 +306,7 @@
    | `cr_registry_id` | Идентификатор реестра в {{ container-registry-short-name }}. | `crp1r4h00mj*********` |
    | `path_for_private_ssh_key` | Файл с приватным ключом для подключения по протоколу SSH к ВМ с NAT и тестовой ВМ. | `./pt_key.pem` |
    | `s3_nlb_ip_address` | IP-адрес внутреннего балансировщика для {{ objstorage-short-name }}. | `10.10.1.200` |
-   | `test_vm_password` | Пароль пользователя `admin` для тестовой ВМ. | `v3RСqUrQN?x)` |
+   | `test_vm_password` | Пароль пользователя `admin` для тестовой ВМ. | `v3RCqUrQN?x)` |
    | `vm_username` | Имя пользователя для ВМ с NAT и тестовой ВМ. | `admin` |
 
    {% endcut %}

@@ -1,12 +1,12 @@
 # Setting up cloud access permissions
 
-{% note info %}
+{% note warning %}
 
 {% include [access-control-vs-roles-notice](../../../_includes/iam/access-control-vs-roles-notice.md) %}
 
 {% endnote %}
 
-To grant a user access to cloud resources, assign the user a role for the cloud.
+To grant a user access to [cloud](../../concepts/resources-hierarchy.md#cloud) resources, assign the user a [role](../../../iam/concepts/access-control/roles.md) for the cloud.
 
 ## Assigning a role for a cloud {#access-to-user}
 
@@ -17,6 +17,10 @@ To grant a user access to cloud resources, assign the user a role for the cloud.
   {% include [set-access-binding-user-cloud-console](../../../_includes/resource-manager/set-access-binding-user-cloud-console.md) %}
 
 - CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
   1. View a description of the command to assign a role for a cloud:
 
@@ -40,7 +44,7 @@ To grant a user access to cloud resources, assign the user a role for the cloud.
       +----------------------+----------+
       ```
 
-  1. Get a list of available [roles](../../../iam/concepts/access-control/roles.md):
+  1. Get a list of available roles:
 
       ```bash
       yc iam role list
@@ -74,7 +78,7 @@ To grant a user access to cloud resources, assign the user a role for the cloud.
           default_email: test-user@yandex.ru
       ```
 
-  1. Assign the `editor` role for `my-cloud` to `test-user`. In the subject, specify the `userAccount` type and user ID:
+  1. Assign the user a role for the cloud. In the subject, specify the `userAccount` type and user ID:
 
       ```bash
       yc resource-manager cloud add-access-binding my-cloud \
@@ -82,21 +86,24 @@ To grant a user access to cloud resources, assign the user a role for the cloud.
         --subject userAccount:<user_ID>
       ```
 
+      Where:
+
+      * `--role`: ID of the role you need to assign, e.g., `{{ roles-cloud-owner }}`.
+      * `--subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
+
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-cli](../../../_includes/iam/subjects-designations-cli.md) %}
+
+          {% endcut %}
+
   To assign a role to a [service account](../../../iam/concepts/users/service-accounts.md), [user group](../../../organization/concepts/groups.md), or [system group](../../../iam/concepts/access-control/system-group.md) instead of a user, see [these examples](../../../iam/operations/roles/grant.md#cloud-or-folder).
 
 - {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. Describe the cloud access permission parameters in the configuration file:
-      * `cloud_id`: Cloud ID. You can get a list of available clouds using the [CLI](../../../cli/quickstart.md) command: `yc resource-manager cloud list`.
-      * `role`: Role to assign. You can get a list of roles using the [CLI](../../../cli/quickstart.md) command: `yc iam role list`. In one `yandex_resourcemanager_cloud_iam_member` resource, only one role can be assigned.
-      * `member`: User or group to assign the role to. Each `yandex_resourcemanager_cloud_iam_member` resource may have one of the following values:
-        * `userAccount:<user_ID>`: [User ID](../../../organization/operations/users-get.md).
-        * `serviceAccount:<service_account_ID>`: [Service account ID](../../../iam/operations/sa/get-id.md).
-        * `federatedUser:<federated_account_ID>`: [Federated account ID](../../../organization/operations/users-get.md).
-        * `system:group:organization:<organization_ID>:users`: [Organization ID](../../../organization/quickstart.md) to assign a role to the `All users in organization X` [system group](../../../iam/concepts/access-control/system-group.md#allOrganizationUsers).
-        * `system:group:federation:<federation_ID>:users`: [Identity federation ID](../../../organization/concepts/add-federation.md) to assign a role to the `All users in federation N` [system group](../../../iam/concepts/access-control/system-group.md#allFederationUsers).
+  1. Describe the roles you are assigning in the configuration file:
 
       Here is an example of the configuration file structure:
 
@@ -107,39 +114,28 @@ To grant a user access to cloud resources, assign the user a role for the cloud.
 
       resource "yandex_resourcemanager_cloud_iam_member" "editor" {
         cloud_id = "${data.yandex_resourcemanager_cloud.project1.id}"
-        role     = "editor"
+        role     = "<role>"
         member   = "userAccount:<user_ID>"
       }
       ```
 
-      For more on `yandex_resourcemanager_cloud_iam_member` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/resourcemanager_cloud_iam_member).
-  1. In the terminal, navigate to the directory where you created your configuration file.
-  1. Make sure the configuration file is correct using this command:
+      Where:
 
-      ```bash
-      terraform validate
-      ```
+      * `cloud_id`: Cloud ID. You can get a list of available clouds using the [CLI](../../../cli/quickstart.md) command: `yc resource-manager cloud list`. This is a required setting.
+      * `role`: Role you need to assign. You can get a list of roles using the [CLI](../../../cli/quickstart.md) command: `yc iam role list`. In one `yandex_resourcemanager_cloud_iam_member` resource, only one role can be assigned. This is a required setting.
+      * `member`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role. This is a required setting.
 
-      If the configuration is valid, you will get this message:
+          {% cut "Subject designations" %}
 
-      ```bash
-      Success! The configuration is valid.
-      ```
+          {% include [subjects-designations-terraform](../../../_includes/iam/subjects-designations-terraform.md) %}
 
-  1. Run this command:
+          {% endcut %}
 
-      ```bash
-      terraform plan
-      ```
+      For more on the properties of the `yandex_resourcemanager_cloud_iam_member` in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/resourcemanager_cloud_iam_member).
 
-      The terminal displays a list of resources to be created and their parameters. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
-  1. Apply the configuration changes:
+  1. Create the resources:
 
-      ```bash
-      terraform apply
-      ```
-
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
       This will assign access permissions for the cloud.
 
@@ -191,7 +187,7 @@ To grant a user access to cloud resources, assign the user a role for the cloud.
       }
       ```
 
-  1. Assign the `editor` role for `my-cloud` to the user. In the `action` property, enter `ADD` and specify the `userAccount` type and user ID under `subject`.
+  1. Assign the user a role for the cloud. In the `action` property, enter `ADD` and specify the `userAccount` type and user ID under `subject`.
 
       ```bash
       curl \
@@ -199,16 +195,32 @@ To grant a user access to cloud resources, assign the user a role for the cloud.
         --header 'Content-Type: application/json' \
         --header "Authorization: Bearer <IAM_token>" \
         --data '{
-        "accessBindingDeltas": [{
-            "action": "ADD",
-            "accessBinding": {
-                "roleId": "editor",
+          "accessBindingDeltas": [
+            {
+              "action": "ADD",
+              "accessBinding": {
+                "roleId": "<role>",
                 "subject": {
-                    "id": "<user_ID>",
-                    "type": "userAccount"
-        }}}]}' \
-        https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7********:updateAccessBindings
+                  "id": "<user_ID>",
+                  "type": "userAccount"
+                }
+              }
+            }
+          ]
+        }' \
+        https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/<cloud_ID>:updateAccessBindings
       ```
+
+      Where:
+
+      * `roleId`: Role.
+      * `subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
+
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-api](../../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
 
 {% endlist %}
 
@@ -223,85 +235,96 @@ To grant a user access to cloud resources, assign the user a role for the cloud.
 
 - CLI {#cli}
 
-  The `add-access-binding` command allows you to add only one role. You can assign multiple roles using the `set-access-binding` command.
+  The `add-access-binding` command allows you to add only one role. You can assign multiple roles using the `set-access-bindings` command.
 
-  {% note alert %}
+  {% include [set-access-bindings-cli](../../../_includes/iam/set-access-bindings-cli.md) %}
 
-  The `set-access-binding` command completely overwrites access permissions for the resource! All roles previously assigned for this resource will be deleted.
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  {% endnote %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
   1. Make sure the resource has no important roles assigned before proceeding:
 
       ```bash
-      yc resource-manager cloud list-access-binding my-cloud
+      yc resource-manager cloud list-access-bindings <cloud_name_or_ID>
       ```
 
-  1. For example, assign a role to multiple users:
+  1. To assign a role, run this command:
+
+      ```bash
+      yc resource-manager cloud set-access-bindings <cloud_name_or_ID> \
+        --access-binding role=<role>,subject=<subject_type>:<subject_ID>
+      ```
+
+      Where:
+
+      * `role`: ID of the role you need to assign.
+      * `subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
+
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-terraform](../../../_includes/iam/subjects-designations-terraform.md) %}
+
+          {% endcut %}
+
+      Provide a separate `--access-binding` parameter for each role. Here is an example:
 
       ```bash
       yc resource-manager cloud set-access-bindings my-cloud \
-        --access-binding role=editor,subject=userAccount:<user_1_ID>
-        --access-binding role=viewer,subject=userAccount:<user_2_ID>
+        --access-binding role=editor,subject=userAccount:gfei8n54hmfh******** \
+        --access-binding role=viewer,subject=userAccount:helj89sfj80a********
       ```
 
   To assign a role to a [service account](../../../iam/concepts/users/service-accounts.md), [user group](../../../organization/concepts/groups.md), or [system group](../../../iam/concepts/access-control/system-group.md) instead of a user, see [these examples](../../../iam/operations/roles/grant.md#multiple-roles).
 
 - {{ TF }} {#tf}
 
-  1. Describe the cloud access permission parameters in the configuration file. Assign the `editor` role to one user and the `viewer` role to another user:
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Describe the cloud access permission parameters in the configuration file.
+
+      Here is an example of the configuration file structure:
 
       ```hcl
       data "yandex_resourcemanager_cloud" "project1" {
         name = "Project 1"
       }
 
-      resource "yandex_resourcemanager_cloud_iam_member" "editor" {
+      resource "yandex_resourcemanager_cloud_iam_member" "member1" {
         cloud_id = "${data.yandex_resourcemanager_cloud.project1.id}"
-        role     = "editor"
-        member   = "userAccount:<user_1_ID>"
+        role     = "<role_1>"
+        member   = "userAccount:<user_ID>"
       }
 
-      resource "yandex_resourcemanager_cloud_iam_member" "viewer" {
+      resource "yandex_resourcemanager_cloud_iam_member" "member2" {
         cloud_id = "${data.yandex_resourcemanager_cloud.project1.id}"
-        role     = "viewer"
-        member   = "userAccount:<user_2_ID>"
+        role     = "<role_2>"
+        member   = "userAccount:<user_ID>"
       }
       ```
 
-  1. In the terminal, navigate to the directory where you created your configuration file.
-  1. Make sure the configuration file is correct using this command:
+      Where:
 
-      ```bash
-      terraform validate
-      ```
+      * `cloud_id`: Cloud ID. You can get a list of available clouds using the [CLI](../../../cli/quickstart.md) command: `yc resource-manager cloud list`. This is a required setting.
+      * `role`: Role you need to assign. You can get a list of roles using the [CLI](../../../cli/quickstart.md) command: `yc iam role list`. In one `yandex_resourcemanager_cloud_iam_member` resource, only one role can be assigned. This is a required setting.
+      * `member`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role. This is a required setting.
 
-      If the configuration is valid, you will get this message:
+          {% cut "Subject designations" %}
 
-      ```bash
-      Success! The configuration is valid.
-      ```
+          {% include [subjects-designations-terraform](../../../_includes/iam/subjects-designations-terraform.md) %}
 
-  1. Run this command:
+          {% endcut %}
 
-      ```bash
-      terraform plan
-      ```
+  1. Create the resources:
 
-      The terminal displays a list of resources to be created and their parameters. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
-  1. Apply the configuration changes:
-
-      ```bash
-      terraform apply
-      ```
-
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
       This will assign access permissions for the cloud.
 
 - API {#api}
 
-  Assign the `editor` role to one user and the `viewer` role to another user:
+  Assign roles to the users:
+
 
   ```bash
   curl \
@@ -309,49 +332,46 @@ To grant a user access to cloud resources, assign the user a role for the cloud.
     --header 'Content-Type: application/json' \
     --header "Authorization: Bearer <IAM_token>" \
     --data '{
-    "accessBindingDeltas": [{
-        "action": "ADD",
-        "accessBinding": {
-            "roleId": "editor",
+      "accessBindingDeltas": [
+        {
+          "action": "ADD",
+          "accessBinding": {
+            "roleId": "<role_1>",
             "subject": {
-                "id": "<user_1_ID>",
-                "type": "userAccount"
+              "id": "<user_ID>",
+              "type": "userAccount"
             }
-        }
-    },{
-        "action": "ADD",
-        "accessBinding": {
-            "roleId": "viewer",
+          }
+        },
+        {
+          "action": "ADD",
+          "accessBinding": {
+            "roleId": "<role_2>",
             "subject": {
-                "id": "<user_2_ID>",
-                "type": "userAccount"
-    }}}]}' \
-    https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7********:updateAccessBindings
+              "id": "<user_ID>",
+              "type": "userAccount"
+            }
+          }
+        }
+      ]
+    }' \
+    https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/<cloud_ID>:updateAccessBindings
   ```
+
+  Where:
+
+  * `roleId`: Role.
+  * `subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
+
+      {% cut "Subject designations" %}
+
+      {% include [subjects-designations-api](../../../_includes/iam/subjects-designations-api.md) %}
+
+      {% endcut %}
 
   You can also assign roles using the [setAccessBindings](../../api-ref/Cloud/setAccessBindings.md) REST API method for the [Cloud](../../api-ref/Cloud/index.md) resource or the [CloudService/SetAccessBindings](../../api-ref/grpc/Cloud/setAccessBindings.md) gRPC API call.
 
-  {% note alert %}
-
-  The `setAccessBindings` method completely overwrites access permissions for the resource! All roles previously assigned for this resource will be deleted.
-
-  {% endnote %}
-
-  ```bash
-  curl \
-    --request POST \
-    --header 'Content-Type: application/json' \
-    --header "Authorization: Bearer <IAM_token>" \
-    --data '{
-    "accessBindings": [{
-        "roleId": "editor",
-        "subject": { "id": "<user_1_ID>", "type": "userAccount" }
-    },{
-        "roleId": "viewer",
-        "subject": { "id": "<user_2_ID>", "type": "userAccount" }
-    }]}' \
-    https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7********:setAccessBindings
-  ```
+  {% include [set-access-bindings-api](../../../_includes/iam/set-access-bindings-api.md) %}
 
 {% endlist %}
 
@@ -374,7 +394,7 @@ Allow the `test-sa` service account to manage `my-cloud` and its resources:
 
 - CLI {#cli}
 
-  1. Find out the ID of the `test-sa` service account you want to assign the role to. To do this, get a list of available service accounts:
+  1. Find out the ID of the service account you want to assign the role to. To do this, get a list of available service accounts:
 
       ```bash
       yc iam service-account list
@@ -390,68 +410,61 @@ Allow the `test-sa` service account to manage `my-cloud` and its resources:
       +----------------------+----------+------------------+
       ```
 
-  1. Assign the `editor` role to the `test-sa` service account by specifying its ID. In the subject type, specify `serviceAccount`:
+  1. Assign the role to the service account using its ID:
 
       ```bash
       yc resource-manager cloud add-access-binding my-cloud \
-        --role editor \
-        --subject serviceAccount:<service_account_ID>
+        --role <role> \
+        --service-account-id <service_account_ID>
       ```
+
+      Where:
+
+      * `--role`: ID of the role you need to assign, e.g., `{{ roles-cloud-owner }}`.
+      * `--service-account-id`: Service account ID. You can also use the `--service-account-name` parameter and specify the service account name instead of the ID.
 
 - {{ TF }} {#tf}
 
-  1. Assign the `editor` role to the service account:
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. In the configuration file, describe the resources you want to create:
+
+      Here is an example of the configuration file structure:
 
       ```hcl
-      data "yandex_resourcemanager_cloud" "project1" {
-        name = "Project 1"
-      }
-
       resource "yandex_resourcemanager_cloud_iam_member" "editor" {
-        cloud_id = "${data.yandex_resourcemanager_cloud.project1.id}"
-        role     = "editor"
+        cloud_id = "<cloud_ID>"
+        role     = "<role>"
         member   = "serviceAccount:<service_account_ID>"
       }
       ```
 
-  1. In the terminal, navigate to the directory where you created your configuration file.
-  1. Make sure the configuration file is correct using this command:
+      Where:
 
-      ```bash
-      terraform validate
-      ```
+      * `cloud_id`: Cloud ID. This is a required setting.
+      * `role`: Role. You can find the description of the roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../../iam/roles-reference.md). This is a required setting.
+      * `member`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role. For a service account, specify `serviceAccount:<service_account_ID>`. This is a required setting.
 
-      If the configuration is valid, you will get this message:
+          {% cut "Subject designations" %}
 
-      ```bash
-      Success! The configuration is valid.
-      ```
+          {% include [subjects-designations-terraform](../../../_includes/iam/subjects-designations-terraform.md) %}
 
-  1. Run this command:
+          {% endcut %}
 
-      ```bash
-      terraform plan
-      ```
+  1. Create the resources:
 
-      The terminal displays a list of resources to be created and their parameters. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
-  1. Apply the configuration changes:
-
-      ```bash
-      terraform apply
-      ```
-
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
       This will assign access permissions for the cloud.
 
 - API {#api}
 
-  1. Find out the ID of the `test-sa` service account you want to assign the role to. To do this, get a list of available service accounts:
+  1. Find out the ID of the service account you want to assign the role to. To do this, get a list of available service accounts:
 
       ```bash
       curl \
         --header "Authorization: Bearer <IAM_token>" \
-        https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=b1gvmob95yys********
+        https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=<folder_ID>
       ```
 
       Result:
@@ -470,7 +483,7 @@ Allow the `test-sa` service account to manage `my-cloud` and its resources:
       }
       ```
 
-  1. Assign the `editor` role for `my-cloud` to the `test-sa` service account. In the `subject` property, specify the `serviceAccount` type and `test-sa` ID. In the request URL, specify the `my-cloud` ID as the resource:
+  1. Assign the role for the cloud to the service account. In the `subject` property, specify the `serviceAccount` type and the service account ID. In the request URL, specify the cloud ID as the resource:
 
       ```bash
       curl \
@@ -478,16 +491,32 @@ Allow the `test-sa` service account to manage `my-cloud` and its resources:
         --header 'Content-Type: application/json' \
         --header "Authorization: Bearer <IAM_token>" \
         --data '{
-        "accessBindingDeltas": [{
-            "action": "ADD",
-            "accessBinding": {
-                "roleId": "editor",
+          "accessBindingDeltas": [
+            {
+              "action": "ADD",
+              "accessBinding": {
+                "roleId": "<role>",
                 "subject": {
-                    "id": "<service_account_ID>",
-                    "type": "serviceAccount"
-        }}}]}' \
-        https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7********:updateAccessBindings
+                  "id": "<service_account_ID>",
+                  "type": "serviceAccount"
+                }
+              }
+            }
+          ]
+        }' \
+        https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/<cloud_ID>:updateAccessBindings
       ```
+
+      Where:
+
+      * `roleId`: Role.
+      * `subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
+
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-api](../../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
 
 {% endlist %}
 

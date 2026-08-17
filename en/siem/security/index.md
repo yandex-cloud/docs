@@ -5,9 +5,9 @@ description: Access management in {{ yandex-siem-full-name }}, a monitoring and 
 
 # Access management in {{ yandex-siem-full-name }}
 
-In this section, you will learn about the following:
+In this section, you will learn about:
 * [Resources you can assign a role for](#resources).
-* [Roles this service has](#roles-list).
+* [Roles available in this service](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 

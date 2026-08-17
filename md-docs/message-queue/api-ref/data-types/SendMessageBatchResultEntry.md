@@ -7,7 +7,7 @@
 Параметр | Тип | Обязательный параметр | Описание
 ----- | ----- | ----- | -----
 `Id` | **string** | Да | Идентификатор сообщения в группе.
-`MD5OfMessageAttributes` | **string**| Нет | MD5-хэш атрибутов сообщения.
-`MD5OfMessageBody` | **string**| Да | MD5-хэш тела сообщения.
+`MD5OfMessageAttributes` | **string**| Нет | MD5-хеш атрибутов сообщения.
+`MD5OfMessageBody` | **string**| Да | MD5-хеш тела сообщения.
 `MessageId` | **string**| Да | Идентификатор сообщения.
 `SequenceNumber` | **string**| Нет | Номер сообщения, используется в очередях FIFO в рамках группы сообщений с одинаковым MessageGroupId. Длина параметра `SequenceNumber` — 128 бит.

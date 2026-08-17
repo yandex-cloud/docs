@@ -54,8 +54,13 @@ The role can be revoked by a user with the [`organization-manager.admin`](add-or
       Where:
 
       * `--role`: ID of the role to revoke, e.g., `organization-manager.admin`.
-      * `<subject_type>`: [Subject](../../iam/concepts/access-control/index.md#subject) type to revoke a role from.
-      * `<subject_ID>`: Subject ID.
+      * `--subject`: [Subject](../../iam/concepts/access-control/index.md#subject) to revoke the role from.
+
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
+
+          {% endcut %}
 
       For example, to revoke a role from a user with the `aje6o61dvog2********` ID:
 
@@ -67,7 +72,7 @@ The role can be revoked by a user with the [`organization-manager.admin`](add-or
 
 - API {#api}
 
-  1. View the roles and assignees for the resource using the `listAccessBindings` method. For example, to view the roles in the organization with the `bpf3crucp1v2********` ID:
+  1. View the roles and assignees for the resource using the [listAccessBindings](../api-ref/Organization/listAccessBindings.md) REST API method for the [Organization](../api-ref/Organization/index.md) resource or the [OrganizationService/ListAccessBindings](../api-ref/grpc/Organization/listAccessBindings.md) gRPC API call. For example, to view the roles in the organization with the `bpf3crucp1v2********` ID:
 
       ```bash
       export ORGANIZATION_ID=bpf3crucp1v2********
@@ -81,19 +86,21 @@ The role can be revoked by a user with the [`organization-manager.admin`](add-or
 
       ```text
       {
-      "accessBindings": [
-      {
-        "subject": {
-        "id": "aje6o61dvog2********",
-        "type": "userAccount"
-        },
-        "roleId": "organization-manager.admin"
-      }
-      ]
+        "accessBindings": [
+          {
+            "subject": {
+              "id": "aje6o61dvog2********",
+              "type": "userAccount"
+            },
+            "roleId": "organization-manager.admin"
+          }
+        ]
       }
       ```
 
-  1. Create the request body, e.g., in the `body.json` file. In the request body, specify access permissions to delete. For example, revoke the `organization-manager.admin` role from the `aje6o61dvog2********` user:
+  1. Create the request body, e.g., in the `body.json` file. In the request body, specify the access permissions to delete. For example, revoke the `organization-manager.admin` role from the `aje6o61dvog2********` user:
+
+      **body.json:**
 
       ```json
       {
@@ -110,7 +117,20 @@ The role can be revoked by a user with the [`organization-manager.admin`](add-or
       }
       ```
 
-  1. Revoke a role by deleting the specified permissions:
+      Where:
+
+      * `REMOVE` in the `accessBindingDeltas[].action` parameter indicates you need to revoke a role.
+      * `accessBindingDeltas[].accessBinding.roleId`: ID of the role you want to revoke.
+      * `accessBindingDeltas[].accessBinding.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) to revoke the role from.
+      * `accessBindingDeltas[].accessBinding.subject.type`: Subject type to revoke a role from.
+
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
+
+  1. Revoke the role using the [updateAccessBindings](../api-ref/Organization/updateAccessBindings.md) REST API method for the [Organization](../api-ref/Organization/index.md) resource or the [OrganizationService/UpdateAccessBindings](../api-ref/grpc/Organization/updateAccessBindings.md) gRPC API call.
 
       ```bash
       export ORGANIZATION_ID=bpf3crucp1v2********

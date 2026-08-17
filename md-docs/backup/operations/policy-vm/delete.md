@@ -8,7 +8,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно удалить [политику резервного копирования](../../concepts/policy.md).
   1. [Перейдите](https://console.yandex.cloud/link/backup) в сервис **Cloud Backup**.
-  1. Перейдите на вкладку ![policies](../../../_assets/console-icons/calendar.svg) **Политики копирования**.
+  1. На панели слева выберите ![policies](../../../_assets/console-icons/calendar.svg) **Политики копирования**.
   1. Напротив политики резервного копирования, которую нужно удалить, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**. 
   1. Подтвердите удаление политики резервного копирования.
 

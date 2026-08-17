@@ -61,14 +61,16 @@ resource "yandex_vpc_subnet" "foo" {
 - `enabled` (Bool). Is redis user enabled.
 - `id` (*Read-Only*) (String). The resource identifier.
 - `name` (**Required**)(String). The name of the user.
-- `passwords` (**Required**)(Set Of String). Set of user passwords
+- `password_wo` (String). User password. This attribute is write-only and is not stored in state. Requires `password_wo_version` to trigger updates. Write-only arguments are supported in Terraform 1.11 and later.
+- `password_wo_version` (Number). A version number for the write-only password. Increment this to trigger a password update.
+- `passwords` (Set Of String). Set of user passwords
 - `permissions` [Block]. Set of permissions granted to the user.
   - `categories` (String). Command categories user has permissions to.
   - `commands` (String). Commands user can execute.
   - `databases` (String). Databases user has access to. Accepts "alldbs", "resetdbs", or comma-separated list of database numbers (e.g. "0,1,5").
   - `patterns` (String). Keys patterns user has permission to.
   - `pub_sub_channels` (String). Channel patterns user has permissions to.
-  - `sanitize_payload` (String). SanitizePayload parameter.
+  - `sanitize_payload` (String). Deprecated. This parameter no longer affects user permissions.
 - `timeouts` [Block]. 
   - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
   - `delete` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.

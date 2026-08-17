@@ -150,7 +150,7 @@ description: Следуя данной инструкции, вы сможете
 
         [Подробнее о настройке HTTP-методов](configure-http.md)
 
-      * В блоке **{{ ui-key.yacloud.cdn.CdnResourceFormWizard.section_wizard-static-response_6DKzY }}** настройте HTTP-ответ, если необходимо.
+      * В блоке **{{ ui-key.yacloud.cdn.sections.StaticResponseSection.section_static-response_v3GRn }}** настройте HTTP-ответ, если необходимо.
 
           [Подробнее о настройке HTTP-ответа](configure-response.md).
 

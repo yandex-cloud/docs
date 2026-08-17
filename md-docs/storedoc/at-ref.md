@@ -30,7 +30,7 @@ yandex.cloud.audit.mdb.mongodb.<имя_события>
 `RestoreCluster` | Создание нового кластера из резервной копии
 `SetClusterAccessBindings` | Назначение прав доступа к кластеру
 `StartCluster` | Запуск кластера
-`StepdownHosts` | Смена мастера хоста
+`StepdownHosts` | Смена первичной реплики
 `StopCluster` | Остановка кластера
 `UpdateCluster` | Изменение кластера
 `UpdateClusterAccessBindings` | Изменение прав доступа к кластеру

@@ -18,9 +18,11 @@ Electronic document management is used for the electronic exchange of documents 
 
 ## Electronic document management operators {#operator}
 
-Documents are exchanged through electronic document management operators. They confirm that a document has been issued or received. {{ yandex-cloud }} works with the following providers:
+Documents are exchanged through electronic document management operators. The operators confirm that a document has been issued or received. {{ yandex-cloud }} works with the following operators:
 * [Kontur.Diadoc (SKB Kontur)](https://www.diadoc.ru/)
 * [SBIS (Tensor)](https://sbis.ru/)
+
+To exchange documents with other operators, set up [roaming](../operations/edo.md#roaming).
 
 ## What documents can be received via electronic document management {#document}
 

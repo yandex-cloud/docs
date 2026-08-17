@@ -111,6 +111,7 @@ resource "yandex_vpc_subnet" "foo" {
   - `managed_repack` [Block]. Managed pg_repack settings.
     - `enabled` (Bool). Enable managed pg_repack for the cluster
   - `performance_diagnostics` [Block]. Cluster performance diagnostics settings. The structure is documented below.
+    - `advanced_mode` (Bool). Switch performance diagnostics from standard to advanced mode
     - `enabled` (Bool). Enable performance diagnostics
     - `sessions_sampling_interval` (**Required**)(Number). Interval (in seconds) for pg_stat_activity sampling. Acceptable values are 1 to 86400, inclusive.
     - `statements_sampling_interval` (**Required**)(Number). Interval (in seconds) for pg_stat_statements sampling. Acceptable values are 60 to 86400, inclusive.

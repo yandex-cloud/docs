@@ -34,7 +34,7 @@ Yandex Managed Service for Prometheus® поддерживает [Prometheus dat
 
 ## Текущие ограничения {#restrictions}
 
-Yandex Managed Service for Prometheus® работает на порту TCP 443. Его публичный IP-адрес — 158.160.59.216. Со временем адрес может измениться. Чтобы не потерять доступ к сервису, рекомендуем использовать дополнительные адреса [из списка доступных](../../../../overview/concepts/public-ips.md).
+Yandex Managed Service for Prometheus® работает на порте TCP 443. Его публичный IP-адрес — 158.160.59.216. Со временем адрес может измениться. Чтобы не потерять доступ к сервису, рекомендуем использовать дополнительные адреса [из списка доступных](../../../../overview/concepts/public-ips.md).
 
 В реализации Prometheus [HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/) поддерживаются только следующие эндпоинты:
 

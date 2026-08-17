@@ -8,7 +8,7 @@ description: In this tutorial, you will learn how to upload a data schema.
 To streamline the repetitive steps when configuring schemas for [data bindings](../concepts/glossary.md#binding), you can prepare a file with schemas and then upload it. To do this, follow these steps:
 
 1. In the [management console]({{ link-console-main }}), select the folder containing the data binding you want to update.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. [Navigate]({{ link-console-yq }}) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.bindings.tab-text }}**.
 1. Locate the binding you need in the list, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) in its row, and select **{{ ui-key.yql.yq-binding-actions.edit-binding.menu-item-text }}**.
 1. Click **{{ ui-key.yql.yq-binding-form.action_upload-schema-file }}** and select your [schema](#schema) file.
@@ -37,7 +37,7 @@ SCHEMA=(
 Where:
 * `billing_account_id`: Field name.
 * `String`: Field type.
-* `NOT NULL`: Flag indicating a required field in the source data.
+* `NOT NULL`: Required field.
 
 ### JSON {#json_schema}
 
@@ -64,11 +64,11 @@ Here is an example of a schema in JSON format:
 Where:
 * `billing_account_id`: Field name.
 * `String`: Field type.
-* `required: true`: Flag indicating a required field in the source data.
+* `required: true`: Required field.
 
 ### {{ data-transfer-name }}-compatible JSON format {#json_schema_data_transfer}
 
-This format is intended for compatible description of data schemas across various systems. This JSON format consists of a set of records defining fields and their types, with all fields considered optional in the source data.
+This format allows you to describe schemas in a way that ensures compatibility across different systems. A schema in this format is a set of properties defining field names and data types. All fields are considered optional.
 
 Schema example:
 

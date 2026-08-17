@@ -37,7 +37,7 @@ data "yandex_function" "my_function" {
     - `arn` (**Required**)(String). YMQ ARN.
     - `service_account_id` (**Required**)(String). Service account used for writing result to queue.
 - `concurrency` (Number). The maximum number of requests processed by a function instance at the same time.
-- `created_at` (*Read-Only*) (String). 
+- `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
 - `description` (String). The resource description.
 - `entrypoint` (**Required**)(String). Entrypoint for Yandex Cloud Function.
 - `environment` (Map Of String). A set of key/value environment variables for Yandex Cloud Function. Each key must begin with a letter (A-Z, a-z).

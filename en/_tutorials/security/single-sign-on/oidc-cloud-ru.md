@@ -2,7 +2,7 @@
 
 [Cloud.ru](https://cloud.ru/) is a Russian provider of cloud services, spanning IaaS, PaaS, AI/ML tools, and solutions for public, private, and hybrid cloud deployments, including support for infrastructure migration and operation. Cloud.ru supports [OpenID Connect](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) (OIDC) authentication to provide secure SSO for your organization's users.
 
-For the users of your [organization](../../../organization/concepts/organization.md) to be able to authenticate in Cloud.ru via OpenID Connect SSO, create an [OIDC app](../../../organization/concepts/applications/oidc.md) in {{ org-full-name }} and configure it both in {{ org-full-name }} and Cloud.ru.
+For your [organization's](../../../organization/concepts/organization.md) users to be able to authenticate in Cloud.ru via OpenID Connect SSO, create an [OIDC app](../../../organization/concepts/applications/oidc.md) in {{ org-full-name }} and configure it both in {{ org-full-name }} and Cloud.ru.
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
 
@@ -50,7 +50,9 @@ To give access to Cloud.ru to the users of your organization:
      ```bash
      yc iam oauth-client create \
        --name cloud-ru-oauth-client \
-       --scopes openid,email,profile
+       --scopes openid,email,profile \
+       --profile-id web \
+       --pkce-required=false
      ```
 
      Where:
@@ -60,6 +62,9 @@ To give access to Cloud.ru to the users of your organization:
        * `openid`: User ID. Required attribute.
        * `email`: User email address.
        * `profile`: Additional user details, such as first name, last name, and avatar.
+     * {% include [org-oidc-app-select-web-type-legend-cli](../../../_tutorials/_tutorials_includes/org-oidc-app-select-web-type-legend-cli.md) %}
+     * {% include [org-oidc-app-disable-pkce-legend-cli](../../../_tutorials/_tutorials_includes/org-oidc-app-disable-pkce-legend-cli.md) %}
+
 
      Result:
 
@@ -67,7 +72,11 @@ To give access to Cloud.ru to the users of your organization:
      id: ajeqqip130i1********
      name: cloud-ru-oauth-client
      folder_id: b1g500m2195v********
+     authentication_methods:
+       - client_secret_basic
+       - client_secret_post
      status: ACTIVE
+     profile_id: web
      ```
 
      Save the `id` field value for when you need to create and configure your app.
@@ -291,7 +300,11 @@ To configure Cloud.ru integration with the OIDC app you created in {{ org-full-n
        - email
        - profile
      folder_id: b1gkd6dks6i1********
+     authentication_methods:
+       - client_secret_basic
+       - client_secret_post
      status: ACTIVE
+     profile_id: web
      ```
 
 {% endlist %}
@@ -302,7 +315,7 @@ To enable your organization's users to authenticate to Cloud.ru using the {{ org
 
 {% note info %}
 
-Users and groups added to an OIDC application can be managed by a user with the `organization-manager.oidcApplications.userAdmin` [role](../../../organization/security/index.md#organization-manager-oidcApplications-userAdmin) or higher.
+Users and groups added to an OIDC application can be managed by any user with the `organization-manager.oidcApplications.userAdmin` [role](../../../organization/security/index.md#organization-manager-oidcApplications-userAdmin) or higher.
 
 {% endnote %}
 

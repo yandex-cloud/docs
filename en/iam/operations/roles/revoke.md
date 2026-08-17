@@ -40,15 +40,22 @@ If you want to prevent a [subject](../../concepts/access-control/index.md#subjec
     1. To delete access permissions, run this command:
 
         ```bash
-        yc <service_name> <resource_category> remove-access-binding <resource_name_or_ID> \
+        yc <service_name> <resource_category> remove-access-binding \
+            --id <resource_ID> \
             --role <role_ID> \
             --subject <subject_type>:<subject_ID>
         ```
 
         Where:
+        * `--id`: ID of the resource to revoke the role from.
         * `--role`: ID of the role to revoke, e.g., `{{ roles-cloud-owner }}`.
-        * `<subject_type>`: [Subject](../../concepts/access-control/index.md#subject) type to revoke a role from.
-        * `<subject_ID>`: Subject ID.
+        * `--subject`: [Subject](../../concepts/access-control/index.md#subject) to revoke the role from.
+
+            {% cut "Subject designations" %}
+
+            {% include [subjects-designations-cli](../../../_includes/iam/subjects-designations-cli.md) %}
+
+            {% endcut %}
 
 - {{ TF }} {#tf}
 
@@ -60,14 +67,17 @@ If you want to prevent a [subject](../../concepts/access-control/index.md#subjec
         resource "yandex_resourcemanager_cloud_iam_binding" "admin" {
             cloud_id    = "<cloud_ID>"
             role        = "<role>"
-            members     = [
-            "serviceAccount:<service_account_ID>",
-            "userAccount:<user_ID>",
-            ]
+            members     = ["<subject_1>","<subject_2>,...,<subject_n>"]
         }
         ```
 
-    1. Delete the record with information about the subject whose permissions you need to revoke from the `members` list of users.
+    1. Delete the record with information about the subject whose permissions you need to revoke from the list of [subjects](../../concepts/access-control/index.md#subject) titled `members`.
+
+        {% cut "Subject designations" %}
+
+        {% include [subjects-designations-terraform](../../../_includes/iam/subjects-designations-terraform.md) %}
+
+        {% endcut %}
 
        For more on the properties of the `yandex_resourcemanager_cloud_iam_binding` resource, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
 

@@ -19,7 +19,7 @@
 - Консоль управления {#console}
 
   1. [Перейдите]({{ link-console-main }}/link/managed-gitlab) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
-  1. Нажмите на имя нужного инстанса и выберите вкладку ![image](../../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.gitlab.title_backups }}**.
+  1. Нажмите на имя нужного инстанса и выберите вкладку **{{ ui-key.yacloud.gitlab.title_backups }}**.
 
 {% endlist %}
 
@@ -30,8 +30,8 @@
 - Консоль управления {#console}
 
   1. [Перейдите]({{ link-console-main }}/link/managed-gitlab) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
-  1. Нажмите на имя нужного инстанса и выберите вкладку ![image](../../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.gitlab.title_backups }}**.
-  1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.gitlab.action_create-backup }}**.
+  1. Нажмите на имя нужного инстанса и выберите вкладку **{{ ui-key.yacloud.gitlab.title_backups }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.gitlab.action_create-backup }}**.
 
 {% endlist %}
 
@@ -93,7 +93,7 @@
 
   1. [Перейдите]({{ link-console-main }}/link/managed-gitlab) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
   1. Нажмите на имя нужного инстанса и выберите вкладку ![image](../../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.gitlab.title_backups }}**.
-  1. В строке с нужной резервной копией нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.gitlab.action_download-backup }}**.
+  1. В строке с нужной резервной копией нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.gitlab.action_get-backup-link }}**.
   1. В поле **{{ ui-key.yacloud.gitlab.components.DownloadBackupModal.label_lifetime }}** укажите срок действия подписанных ссылок — от одного часа до семи дней.
   1. Нажмите **{{ ui-key.yacloud.gitlab.components.DownloadBackupModal.button_generate }}**.
   1. Скопируйте подписанные ссылки из полей **{{ ui-key.yacloud.gitlab.components.DownloadBackupModal.label_backup-link }}** и **{{ ui-key.yacloud.gitlab.components.DownloadBackupModal.label_secrets-link }}**.

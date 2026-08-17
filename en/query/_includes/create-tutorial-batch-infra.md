@@ -1,5 +1,5 @@
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a connection.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. [Navigate]({{ link-console-yq }}) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. In the left-hand panel, select ![study](../../_assets/console-icons/graduation-cap.svg) **{{ ui-key.yql.yq-navigation.tutorial.menu-text }}**.
 1. Under **{{ ui-key.yql.yq-tutorial.create-tutorial-infrastructure.label }}**, click **{{ ui-key.yql.yq-tutorial.create-connection.button-label }}**.
 

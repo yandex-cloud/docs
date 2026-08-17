@@ -28,6 +28,7 @@ data "yandex_sws_advanced_rate_limiter_profile" "by-name" {
  Requests will not be blocked in this mode.
   - `dynamic_quota` [Block]. Dynamic quota. Grouping requests by a certain attribute and limiting the number of groups.
     - `action` (**Required**)(String). Action in case of exceeding this quota.
+    - `ban_period` (Number). Duration of the temporary ban, in seconds.
     - `characteristic` [Block]. List of characteristics.
       - `case_insensitive` (Bool). Desired maximum number of requests per period.
  Enter an integer within the range of 1 and 9999999999999.

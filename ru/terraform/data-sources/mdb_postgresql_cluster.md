@@ -53,6 +53,7 @@ output "fqdn" {
   - `managed_repack` [Block]. Managed pg_repack settings.
     - `enabled` (Bool). Enable managed pg_repack for the cluster.
   - `performance_diagnostics` [Block]. Cluster performance diagnostics settings. [YC Documentation](https://yandex.cloud/docs/managed-postgresql/api-ref/grpc/cluster_service#PerformanceDiagnostics).
+    - `advanced_mode` (Bool). Switch performance diagnostics from standard to advanced mode.
     - `enabled` (Bool). Enable performance diagnostics.
     - `sessions_sampling_interval` (**Required**)(Number). Interval (in seconds) for pg_stat_activity sampling. Acceptable values are 1 to 86400, inclusive.
     - `statements_sampling_interval` (**Required**)(Number). Interval (in seconds) for pg_stat_statements sampling. Acceptable values are 1 to 86400, inclusive.
@@ -68,7 +69,7 @@ output "fqdn" {
     - `disk_size` (**Required**)(Number). Volume of the storage available to a PostgreSQL host, in gigabytes.
     - `disk_type_id` (String). Type of the storage of PostgreSQL hosts.
     - `resource_preset_id` (**Required**)(String). The ID of the preset for computational resources available to a PostgreSQL host (CPU, memory etc.). For more information, see [the official documentation](https://yandex.cloud/docs/managed-postgresql/concepts/instance-types).
-  - `version` (**Required**)(String). Version of the PostgreSQL cluster. (allowed versions are: 14, 14-1c, 15, 15-1c, 16, 16-1c, 17, 17-1c, 18, 18-1c).
+  - `version` (**Required**)(String). Version of the PostgreSQL cluster. (allowed versions are: 15, 15-1c, 16, 16-1c, 17, 17-1c, 18, 18-1c).
 - `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
 - `database` [Block]. 
 

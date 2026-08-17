@@ -2,7 +2,7 @@
 
 # Поля и аннотации ресурса Service
 
-Ресурс `Service` определяет [сервис Kubernetes](../concepts/index.md#service). Для Network Load Balancer для Managed Service for Kubernetes сервисы представляют собой балансировщики входящего трафика.
+Ресурс `Service` определяет [сервис Kubernetes](../concepts/index.md#service). В Network Load Balancer для Managed Service for Kubernetes сервисы представляют собой балансировщики входящего трафика.
 
 `Service` — стандартный ресурс Kubernetes. В этом справочнике описаны поля и аннотации ресурса, которые поддерживаются Network Load Balancer для Managed Service for Kubernetes. Полный справочник ресурса приведен в [документации Kubernetes](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/service-v1/).
 

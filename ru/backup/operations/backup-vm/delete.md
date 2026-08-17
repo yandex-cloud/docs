@@ -16,12 +16,6 @@ description: Из статьи вы узнаете, как удалить рез
 
 Чтобы удалить резервную копию:
 
-{% note info %}
-
-В настоящее время удалить резервную копию [внешнего ресурса](../../concepts/vm-connection/external-resources.md) можно с помощью [{{ yandex-cloud }} CLI](../../../cli/cli-ref/backup/cli-ref/backup/delete.md) и [API](../../backup/api-ref/Backup/delete.md).
-
-{% endnote %}
-
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
@@ -29,9 +23,14 @@ description: Из статьи вы узнаете, как удалить рез
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится резервная копия.
   1. [Перейдите]({{ link-console-main }}/link/backup) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. На панели слева выберите ![backups](../../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.backup.label_backups }}**.
-  1. В зависимости от того, резервную копию какого ресурса вы хотите удалить, выберите вкладку **{{ ui-key.yacloud.backup.value_vm-recourses }}** или **{{ ui-key.yacloud.backup.value_bms-recourses }}**.
-  1. В строке с резервной копией, которую нужно удалить, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
-  1. Подтвердите удаление.
+  1. В зависимости от того, резервную копию какого ресурса вы хотите удалить, перейдите на вкладку:
+
+      * **{{ ui-key.yacloud.backup.value_vm-recourses }}** — для виртуальных машин {{ compute-name }}.
+      * **{{ ui-key.yacloud.backup.value_bms-recourses }}** — для серверов {{ baremetal-name }}.
+      * **{{ ui-key.yacloud.backup.label_external-vm-instances }}** — для внешних виртуальных машин.
+      * **{{ ui-key.yacloud.backup.label_external-server-instances }}** — для внешних серверов.
+  1. В строке с резервной копией, которую нужно удалить, нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
+  1. В открывшемся окне подтвердите удаление.
 
 - CLI {#cli}
 

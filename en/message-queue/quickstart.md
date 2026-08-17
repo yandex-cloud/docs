@@ -41,10 +41,10 @@ Let's perform the basic actions using the [AWS CLI](https://aws.amazon.com/cli/)
 
      Save the obtained queue URL. You will need it at the next steps.
 
-   - Management console
+   - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder to create the queue in.
-     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+     1. [Navigate]({{ link-console-main }}/link/message-queue) to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
      1. Click **{{ ui-key.yacloud.ymq.queues.button_create }}**.
      1. Enter a name for the queue: `sample-queue`.
 
@@ -171,10 +171,10 @@ Let's perform the basic actions using the [AWS CLI](https://aws.amazon.com/cli/)
      * `--endpoint`: Endpoint in the `https://message-queue.{{ api-host }}/` value.
      * `--queue-url`: URL of the queue you need to delete.
 
-   - Management console
+   - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder the queue belongs to.
-     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+     1. [Navigate]({{ link-console-main }}/link/message-queue) to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
      1. Click ![image](../_assets/console-icons/ellipsis.svg) next to the appropriate queue and select **{{ ui-key.yacloud.common.delete }}**.
      1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 

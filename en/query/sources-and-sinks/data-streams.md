@@ -1,10 +1,15 @@
+---
+title: Reading data from {{ yds-full-name }} via {{ yq-full-name }} connections
+description: In this article, you will learn how to set up a connection and read data from {{ yds-full-name }} using {{ yq-full-name }}.
+---
+
 # Reading data from {{ yds-name }} via {{ yq-name }} connections
 
-Using {{ yds-full-name }} connections is convenient for prototyping and initial data access configuration.
+Connections are useful for prototyping and initial setup of {{ yds-full-name }} data connections.
 
-[{{ yds-full-name }}](../../data-streams/concepts/index.md) enables you to transfer data streams to multiple applications for processing, with each handling the data independently of the others.
+[{{ yds-full-name }}](../../data-streams/concepts/index.md): Service for transmitting data streams to multiple applications. Each application processes data independently from the others.
 
-Query example for reading `Json`-formatted data from {{ yds-full-name }}:
+Example of reading JSON data from {{ yds-full-name }}:
 
 ```sql
 SELECT
@@ -24,13 +29,13 @@ LIMIT 10;
 
 ## Setting up a connection {#create_connection}
 
-To read data from {{ yds-full-name }}:
+To set up reading from {{ yds-full-name }}:
 
 {% include [create-connection](../_includes/create-connection.md) %}
 
-## Data model
+## Data model {#data-model}
 
-Data is transmitted via {{ yds-full-name }} in binary format and is read via SQL statements.
+Data is transmitted via {{ yds-full-name }} in binary format. To read data, use an SQL statement of the following format:
 
 ```sql
 SELECT
@@ -45,17 +50,20 @@ WITH
         Data String
     )
 )
-WHERE <filter>;
+WHERE
+    <filter>;
 ```
 
 Where:
 
-- `<connection>`: Name of the {{ yds-short-name }} data stream connection created in the previous step.
-- `<stream_name>`: {{ yds-short-name }} data stream name.
+* `<statement>`: Statement that determines the result of the query.
+* `<connection>`: Name of the {{ yds-short-name }} data stream connection created in the previous section.
+* `<stream_name>`: {{ yds-short-name }} data stream name.
+* `<filter>`: Data filtering condition.
 
-## Data reading example
+## Data reading example {#example}
 
-Query example for reading data from {{ yds-full-name }} and writing the results to {{ yds-full-name }}
+Query example for reading data from {{ yds-full-name }}:
 
 ```sql
 $data =
@@ -89,9 +97,12 @@ LIMIT 10;
 
 Where:
 
-|Field|Type|Description|
-|--|---|---|
-|`yds`| |{{ yds-full-name }} connection name|
-|`input_stream`| |Name of the source data stream in the SQL query|
-|`host`|String|Query string parameter|
-|`raw`|String|Data format. Support is currently limited to the `raw` format|
+#|
+|| **Field** | **Type** | **Description** ||
+|| `yds` |  | {{ yds-full-name }} connection name. ||
+|| `input_stream` |  | Name of the source data stream. ||
+|| `host` | String | Host name. ||
+|| `count` | String | Number of events. ||
+|| `tag` | String | Event tag. ||
+|| `raw` | String | Data format Currently, only the `raw` data format is supported. ||
+|#

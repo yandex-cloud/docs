@@ -23,7 +23,8 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно удалить ВМ.
   1. [Перейдите](https://console.yandex.cloud/link/backup) в сервис **Cloud Backup**.
-  1. Напротив ВМ, которую вы хотите удалить, нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
+  1. На панели слева выберите ![server](../../_assets/console-icons/server.svg) **Подключённые ресурсы** и перейдите на вкладку **Виртуальные машины**.
+  1. Напротив ВМ, которую вы хотите удалить, нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../_assets/console-icons/trash-bin.svg) **Удалить**.
   1. Подтвердите удаление.
 
 - CLI {#cli}

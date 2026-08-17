@@ -22,7 +22,7 @@ To get the database connection credentials:
 - Management console {#console}
 
   1. Navigate to the [management console]({{ link-console-main }}) and select a folder containing your database.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. [Navigate]({{ link-console-main }}/link/ydb) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Select the database for which you need to get the endpoint and path.
       
       * The database endpoint is specified under **{{ ui-key.yacloud.ydb.overview.section_connection }}** in the first part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (preceding `/?database=`):

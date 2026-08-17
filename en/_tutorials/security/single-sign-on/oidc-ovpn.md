@@ -288,6 +288,7 @@ sudo cp /etc/openvpn/easy-rsa/pki/dh.pem /etc/openvpn/
      yc iam oauth-client create \
        --name openvpn-oauth-client \
        --scopes openid,email,profile \
+       --profile-id web \
        --redirect-uris "https://<domain_name>:9000/oauth2/callback"
      ```
 
@@ -298,6 +299,7 @@ sudo cp /etc/openvpn/easy-rsa/pki/dh.pem /etc/openvpn/
        * `openid`: User ID. Required attribute.
        * `email`: User email address.
        * `profile`: Additional user details.
+     * {% include [org-oidc-app-select-web-type-legend-cli](../../../_tutorials/_tutorials_includes/org-oidc-app-select-web-type-legend-cli.md) %}
      * `--redirect-uris`: Redirect URI after authentication.
 
      Result:
@@ -305,8 +307,19 @@ sudo cp /etc/openvpn/easy-rsa/pki/dh.pem /etc/openvpn/
      ```text
      id: ajeqqip130i1********
      name: openvpn-oauth-client
+     redirect_uris:
+       - https://<domain_name>:9000/oauth2/callback
+     scopes:
+       - openid
+       - email
+       - profile
      folder_id: b1g500m2195v********
+     authentication_methods:
+       - client_secret_basic
+       - client_secret_post
      status: ACTIVE
+     profile_id: web
+     pkce_required: true
      ```
 
      Save the `id` field value; you will need it later to create the app.
@@ -374,7 +387,7 @@ For the users of your organization to be able to authenticate to OpenVPN through
 
 {% note info %}
 
-Users and groups added to an OIDC application can be managed by a user with the `organization-manager.oidcApplications.userAdmin` [role](../../../organization/security/index.md#organization-manager-oidcApplications-userAdmin) or higher.
+Users and groups added to an OIDC application can be managed by any user with the `organization-manager.oidcApplications.userAdmin` [role](../../../organization/security/index.md#organization-manager-oidcApplications-userAdmin) or higher.
 
 {% endnote %}
 

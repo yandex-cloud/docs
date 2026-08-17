@@ -239,7 +239,7 @@ resource "yandex_vpc_subnet" "foo" {
 - `config` [Block]. Configuration of the PostgreSQL cluster.
   - `backup_retain_period_days` (Number). The period in days during which backups are stored.
   - `postgresql_config` (Map Of String). PostgreSQL cluster configuration. For detailed information specific to your PostgreSQL version, please refer to the [API proto specifications](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/mdb/postgresql/v1/config).
-  - `version` (**Required**)(String). Version of the PostgreSQL cluster. (allowed versions are: 14, 14-1c, 15, 15-1c, 16, 16-1c, 17, 17-1c, 18, 18-1c).
+  - `version` (**Required**)(String). Version of the PostgreSQL cluster. (allowed versions are: 15, 15-1c, 16, 16-1c, 17, 17-1c, 18, 18-1c).
   - `access` [Block]. Access policy to the PostgreSQL cluster.
     - `data_lens` (Bool). Allow access for [Yandex DataLens](https://yandex.cloud/services/datalens).
     - `data_transfer` (Bool). Allow access for [DataTransfer](https://yandex.cloud/services/data-transfer).
@@ -260,6 +260,7 @@ resource "yandex_vpc_subnet" "foo" {
   - `managed_repack` [Block]. Managed pg_repack settings.
     - `enabled` (Bool). Enable managed pg_repack for the cluster.
   - `performance_diagnostics` [Block]. Cluster performance diagnostics settings. [YC Documentation](../../managed-postgresql/api-ref/grpc/cluster_service#PerformanceDiagnostics).
+    - `advanced_mode` (Bool). Switch performance diagnostics from standard to advanced mode.
     - `enabled` (Bool). Enable performance diagnostics.
     - `sessions_sampling_interval` (**Required**)(Number). Interval (in seconds) for pg_stat_activity sampling. Acceptable values are 1 to 86400, inclusive.
     - `statements_sampling_interval` (**Required**)(Number). Interval (in seconds) for pg_stat_statements sampling. Acceptable values are 1 to 86400, inclusive.

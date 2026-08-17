@@ -123,7 +123,7 @@ GET /{bucket}?list-type=2&continuation-token=ContinuationToken&delimiter=Delimit
 Ответ будет содержать столько элементов `Contents`, сколько ключей попало под условия запроса.
 
 Путь: `/ListBucketResult/Contents`. ||
-|| `ETag` | MD5-хэш объекта. Метаданные в расчете хэша не участвуют.
+|| `ETag` | MD5-хеш объекта. Метаданные в расчете хеша не участвуют.
 
 Путь: `/ListBucketResult/Contents/ETag`. ||
 || `Key` | Ключ объекта.
@@ -282,7 +282,7 @@ GET /{bucket}?delimiter=Delimiter&encoding-type=EncodingType&marker=Marker&max-k
 Ответ будет содержать столько элементов `Contents`, сколько ключей попало под условия запроса.
 
 Путь: `/ListBucketResult/Contents`. ||
-|| `ETag` | MD5-хэш объекта. Метаданные в расчете хэша не участвуют.
+|| `ETag` | MD5-хеш объекта. Метаданные в расчете хеша не участвуют.
 
 Путь: `/ListBucketResult/Contents/ETag`. ||
 || `Key` | Ключ объекта.

@@ -59,6 +59,7 @@ resource "yandex_sws_advanced_rate_limiter_profile" "demo-profile" {
  A lower numeric value means a higher priority.
   - `dynamic_quota` [Block]. Dynamic quota. Grouping requests by a certain attribute and limiting the number of groups.
     - `action` (**Required**)(String). Action in case of exceeding this quota.
+    - `ban_period` (Number). Duration of the temporary ban, in seconds.
     - `limit` (Number). Desired maximum number of requests per period.
  Enter an integer within the range of 1 and 9999999999999.
     - `period` (Number). Period of time in seconds.

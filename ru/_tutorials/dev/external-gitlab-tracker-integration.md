@@ -30,7 +30,7 @@
 
 ## Подключите {{ tracker-full-name }} {#enable-tracker}
 
-[Подключите {{ tracker-name }}]({{ link-tracker-cloudless }}enable-tracker) к вашей [организации {{ yandex-cloud }}](../../organization/).
+[Подключите {{ tracker-name }}]({{ link-tracker-cloudless }}enable-tracker) к вашей [организации {{ yandex-cloud }}](../../organization/concepts/organization.md).
 
 ## Создайте инстанс {{ GL }} {#create-gitlab}
 

@@ -47,8 +47,8 @@
     * `type` — тип хоста в шардированном кластере: `MONGOD`, `MONGOINFRA`, `MONGOS` или `MONGOCFG`. Если кластер нешардированный, укажите `MONGOD`.
     * `shard_name` — имя шарда в шардированном кластере.
     * `hidden` — будет ли хост виден (`false`) или скрыт (`true`).
-    * `secondary_delay_secs` — время отставания хоста от мастера.
-    * `priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../../../storedoc/concepts/replication.md#master-failover).
+    * `secondary_delay_secs` — время отставания хоста от первичной реплики.
+    * `priority` — приоритет назначения хоста [первичной репликой](../../../storedoc/concepts/replication.md#master-failover).
     * `tags` — метки хоста.
 
 * {% include [maintenance-window](../api/maintenance-window-grpc.md)%}

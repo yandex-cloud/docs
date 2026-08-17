@@ -5,6 +5,7 @@ description: Следуя данной инструкции, вы сможете
 
 # Подключить к {{ backup-name }} виртуальную машину или сервер, расположенные за пределами {{ yandex-cloud }}
 
+
 С помощью сервиса {{ backup-full-name }} вы можете выполнять резервное копирование и восстановление из резервных копий виртуальных машин и серверов, расположенных в вашей собственной инфраструктуре или инфраструктуре стороннего провайдера.
 
 Чтобы [подключить](../../concepts/vm-connection/external-resources.md) внешнюю ВМ или сервер к {{ backup-name }}, эти ресурсы должны работать под управлением одной из [поддерживаемых операционных систем](../../concepts/vm-connection/external-resources.md#supported-oss).
@@ -20,7 +21,7 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно подключить внешний ресурс к {{ backup-name }}.
   1. [Перейдите]({{ link-console-main }}/link/backup) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. На панели слева выберите ![resources](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.backup.label_connected-resources }}**.
-  1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.backup.button_connect-external-resource }}**.
+  1. На панели сверху нажмите кнопку ![image](../../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.backup.button_connect-external-resource }}**.
   1. В открывшемся окне **{{ ui-key.yacloud.backup.dialog_connect-external-resource_title }}**:
 
       1. В поле **{{ ui-key.yacloud.backup.field_connect-external-resource_resource-type }}** выберите тип внешнего ресурса, который хотите подключить: **{{ ui-key.yacloud.backup.value_external-vm }}** или **{{ ui-key.yacloud.backup.value_external-server }}**.

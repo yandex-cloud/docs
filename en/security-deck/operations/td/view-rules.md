@@ -22,7 +22,14 @@ To view general information about {{ td-full-name }}'s active security control r
   1. At the top of the window, select the [workspace](../../concepts/workspace.md) for which you want to view the rule info.
   1. On the **{{ ui-key.yacloud_org.security.controls.ControlsPage.security_control_r4yn7 }}** page that opens, go to the **{{ td-full-name }}** tab. The section that opens lists {{ td-full-name }} control rules for the current workspace.
 
+      {% note tip %}
+
+      {% include [rules-display-settings](../../../_includes/security-deck/rules-display-settings.md) %}
+
+      {% endnote %}
+
       {% include [td-view-general-info](../../../_includes/security-deck/td-view-general-info.md) %}
+  1. {% include [rules-display-settings](../../../_includes/security-deck/rules-display-settings.md) %}
 
 {% endlist %}
 

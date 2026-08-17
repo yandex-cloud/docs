@@ -31,7 +31,15 @@
     * `true`: Synchronization agent will use the VM metadata service to obtain the service account IAM tokens for authentication in the {{ yandex-cloud }} API The `cloud_credentials_file_path` value will be ignored.
 
         To obtain IAM tokens, the agent must run on a {{ compute-full-name }} VM instance to which a service account with the [relevant access permissions](../../organization/concepts/ad-sync.md#yc-setup) is attached.
-    * `false`: Synchronization agent will not obtain IAM tokens; to authenticate in the {{ yandex-cloud }} API, it will use the authorized key specified in `cloud_credentials_file_path`.
+    * `false`: The synchronization agent will not obtain IAM tokens; to authenticate in the {{ yandex-cloud }} API, it will use the authorized key specified in `cloud_credentials_file_path`.
+* `enable_password_writeback`: Manages user [password writeback](../../organization/concepts/ad-sync.md#password-writeback) in {{ microsoft-idp.ad-short }}.
+
+    {% include [pw-writeback-preview-notice](./pw-writeback-preview-notice.md) %}
+
+    The possible values are:
+
+    * `true`: When attempting to change the password of a synchronized user in {{ org-full-name }} ([password change](../../organization/operations/manage-account.md#edit-password) by the user or [password reset](../../organization/operations/user-pools/reset-user-password.md#reset) by the administrator), the agent first attempts to change the password of the corresponding user in {{ microsoft-idp.ad-short }}; only if this operation is successful will the password be changed in {{ org-full-name }}.
+    * `false`: When changing the password of a synchronized user in {{ org-full-name }}, the user's password remains unchanged in {{ microsoft-idp.ad-short }}. If you perform a [full sync](../../organization/concepts/ad-sync.md#full-sync) after changing the password, the agent replaces the updated password in {{ org-full-name }} with the one from {{ microsoft-idp.ad-short }}. This is also the default behavior where writeback is not enabled.
 * `dry_run`: [Dry run](../../organization/concepts/ad-sync.md#dry-run) settings for the agent:
 
     * `enabled: true`: Dry run mode on. The agent does not make any changes to {{ org-full-name }} user or group data. Instead, it tests all operations from the agent’s configuration, and [logs](../../organization/concepts/ad-sync.md#logging) the results of these tests.

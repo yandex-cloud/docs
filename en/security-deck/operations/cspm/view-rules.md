@@ -20,6 +20,12 @@ To view [general information](../../concepts/cspm.md#general-info) about the {{ 
   1. At the top of the window, select the [workspace](../../concepts/workspace.md) for which you want to view the rule info.
   1. On the **{{ ui-key.yacloud_org.security.controls.ControlsPage.security_control_r4yn7 }}** page that opens, go to the **{{ ui-key.yacloud_org.security.controls.ControlsPageLayout.configuration_w7Kw7 }}** tab. The section that opens lists the control rules that form a part of the [security standards](../../concepts/workspace.md#standards) specified for the current workspace.
 
+      {% note tip %}
+
+      {% include [rules-display-settings](../../../_includes/security-deck/rules-display-settings.md) %}
+
+      {% endnote %}
+
       {% include [cspm-view-general-info](../../../_includes/security-deck/cspm-view-general-info.md) %}
 
 {% endlist %}

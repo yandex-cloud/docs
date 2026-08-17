@@ -86,7 +86,7 @@
         captcha_id = "<идентификатор_капчи>"
       }
 
-      output "my-сlient-key" {
+      output "my-client-key" {
         value = data.yandex_smartcaptcha_captcha.my-captcha.client_key
       }
       ```
@@ -142,7 +142,7 @@
       Результат:
 
       ```text
-      my-сlient-key = ysc1_MtyvvAUieCSUfHb6tugqFAbTyesgGzXWU50sZq0E********
+      my-client-key = ysc1_MtyvvAUieCSUfHb6tugqFAbTyesgGzXWU50sZq0E********
       ...
       ```
 

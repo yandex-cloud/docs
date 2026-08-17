@@ -63,7 +63,7 @@ description: Из статьи вы узнаете, как создать пол
 
           {% include [policy-options-extra](../../../_includes/backup/policy-options-extra.md) %}
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 

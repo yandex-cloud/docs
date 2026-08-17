@@ -1,0 +1,1 @@
+`--pkce-required=false` is a setting that allows you to disable the {{ org-full-name }} requirement for an external application to use the [PKCE](../../organization/concepts/applications/oidc.md#pkce) security extension.

@@ -1,0 +1,3 @@
+If there is a value in the **accountExpires** field on the {{ microsoft-idp.ad-short }} side for a user account, the agent will synchronize this value with the **{{ ui-key.yacloud_org.organization.userpools.UserForm.field_expires-at_2bdWC }}** (`expires_at`) field in the local {{ org-full-name }} user's settings. Once the time set in this field is reached, the local {{ org-full-name }} user will be automatically [deactivated](../../organization/operations/user-pools/deactivate-user.md).
+
+In which case, to reactivate the user, update or delete the **accountExpires** field value for the user’s account on the {{ microsoft-idp.ad-short }} side.

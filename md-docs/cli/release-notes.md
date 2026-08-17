@@ -6495,7 +6495,7 @@ Key Management Service позволяет создавать ключи шифр
 
 * Команды `yc load-balancer network-load-balancer create` и `yc load-balancer network-load-balancer update`.
 
-  Для параметра `--listener` появилась возможность задать свойство `target-port`, позволяющее настроить NAT так, чтобы целевые ресурсы принимали трафик на порту, отличном от порта `listener`.
+  Для параметра `--listener` появилась возможность задать свойство `target-port`, позволяющее настроить NAT так, чтобы целевые ресурсы принимали трафик на порте, отличном от порта `listener`.
 
 
 #### Сервисы управляемых баз данных {#managed-db}
