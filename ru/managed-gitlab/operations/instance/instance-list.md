@@ -192,11 +192,11 @@ description: Из статьи вы узнаете, как получить сп
 
   Чтобы получить список операций для конкретного инстанса:
 
-  1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится кластер.
+  1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится инстанс.
   1. [Перейдите]({{ link-console-main }}/link/managed-gitlab) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.gitlab.switch_instances }}**.
   1. Выберите нужный инстанс.
-  1. Перейдите на панель ![image](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** для выбранного кластера.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.common.operations-key-value }}**.
 
      В открывшемся списке отображаются операции с выбранным инстансом.
 

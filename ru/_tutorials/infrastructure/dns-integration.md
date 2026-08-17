@@ -257,13 +257,13 @@
     Например:
 
     ```bash
-    host rc1d-oсfgp28n0k358fj1.{{ dns-zone }}
+    host rc1d-ocfgp28n0k358fj1.{{ dns-zone }}
     ```
 
     Результат:
 
     ```text
-    rc1d-oсfgp28n0k358fj1.{{ dns-zone }} has address 192.168.1.20
+    rc1d-ocfgp28n0k358fj1.{{ dns-zone }} has address 192.168.1.20
     ```
 1. Убедитесь, что на компьютере в корпоративной сети выполняется разрешение имен в публичных зонах, например:
 

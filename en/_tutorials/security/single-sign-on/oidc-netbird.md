@@ -66,10 +66,14 @@ The examples below use the following NetBird address: `https://netbird.example.c
 
      ```bash
      yc iam oauth-client create \
-       --name netbird-oauth-client
+       --name netbird-oauth-client \
+       --profile-id web
      ```
 
-     Where `--name` is the OAuth client name.
+     Where:
+     
+     * `--name`: OAuth client name.
+     * {% include [org-oidc-app-select-web-type-legend-cli](../../../_tutorials/_tutorials_includes/org-oidc-app-select-web-type-legend-cli.md) %}
 
      Result:
 
@@ -77,7 +81,12 @@ The examples below use the following NetBird address: `https://netbird.example.c
      id: aje9rrbpcndp********
      name: netbird-oauth-client
      folder_id: b1g07hj5r6i4********
+     authentication_methods:
+       - client_secret_basic
+       - client_secret_post
      status: ACTIVE
+     profile_id: web
+     pkce_required: true
      ```
 
      Where `id` is the new OAuth client ID. Save its value for later to create an OIDC application and secret.
@@ -360,7 +369,7 @@ NetBird uses a callback URL to complete OIDC authentication. Its typical format 
 https://<NetBird_domain>/oauth2/callback
 ```
 
-For example:
+Here is an example:
 
 ```text
 https://netbird.example.com/oauth2/callback

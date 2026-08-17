@@ -41,6 +41,8 @@ resource "yandex_vpc_subnet" "foo" {
 - `id` (*Read-Only*) (String). The resource identifier.
 - `name` (**Required**)(String). The name of the user.
 - `password` (String). The password of the user.
+- `password_wo` (String). The password of the user. This attribute is write-only and is not stored in state. Requires `password_wo_version` to trigger updates. Write-only arguments are supported in Terraform 1.11 and later.
+- `password_wo_version` (Number). A version number for the write-only password. Increment this to trigger a password update.
 - `resource_group` (String). The resource group of the user.
 - `timeouts` [Block]. 
   - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).

@@ -104,7 +104,7 @@ POST /{bucket}/{key}?uploadId=UploadId HTTP/2
 `Location` | URI созданного в результате загрузки объекта.<br/><br/>Путь: `/CompleteMultipartUploadResult/Location`.
 `Bucket` | Имя бакета, в котором находится объект.<br/><br/>Путь: `/CompleteMultipartUploadResult/Bucket`.
 `Key` | Ключ созданного объекта.<br/><br/>Путь: `/CompleteMultipartUploadResult/Key`.
-`ETag` | Хэш объекта.<br/><br/>ETag может быть, а может и не быть MD5.<br/><br/>Путь: `/CompleteMultipartUploadResult/ETag`.
+`ETag` | Хеш объекта.<br/><br/>ETag может быть, а может и не быть MD5.<br/><br/>Путь: `/CompleteMultipartUploadResult/ETag`.
 
 #### Связанные статьи {#related-articles}
 

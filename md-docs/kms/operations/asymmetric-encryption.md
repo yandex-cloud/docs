@@ -108,7 +108,7 @@
 
     {% note info %}
     
-    [Размер](../concepts/asymmetric-encryption.md#encryption) шифруемого сообщения зависит от длины ключа шифрования и длины хэш-функции. 
+    [Размер](../concepts/asymmetric-encryption.md#encryption) шифруемого сообщения зависит от длины ключа шифрования и длины хеш-функции.
     
     {% endnote %}
 

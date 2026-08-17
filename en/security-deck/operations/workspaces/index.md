@@ -9,4 +9,5 @@ description: This section contains step-by-step guides on how to use workspaces 
 * [{#T}](view-dashboard.md).
 * [{#T}](update.md).
 * [{#T}](manage-access.md).
+* [{#T}](deactivate-activate.md).
 * [{#T}](delete.md).

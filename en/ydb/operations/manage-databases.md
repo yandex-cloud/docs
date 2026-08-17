@@ -18,7 +18,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder for your database.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. [Navigate]({{ link-console-main }}/link/ydb) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
   1. Enter a **{{ ui-key.yacloud.ydb.forms.label_field_name }}** for your database. The naming requirements are as follows:
 
@@ -159,7 +159,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to update the database settings.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. [Navigate]({{ link-console-main }}/link/ydb) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Find the database you need in the list, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) in its row, and select **{{ ui-key.yacloud.ydb.overview.button_action-edit }}**.
   1. Configure the database:
       1. Change the database name, if required.
@@ -283,7 +283,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder for your database.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. [Navigate]({{ link-console-main }}/link/ydb) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
   1. Specify a **{{ ui-key.yacloud.ydb.forms.label_field_name }}** for the database. The naming requirements are as follows:
 
@@ -482,7 +482,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to update the database settings.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. [Navigate]({{ link-console-main }}/link/ydb) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Find the database you need in the list, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) in its row, and select **{{ ui-key.yacloud.ydb.overview.button_action-edit }}**.
   1. Configure the database:
       1. Change the database name, if required.
@@ -569,7 +569,7 @@ To move a database to a different availability zone, follow [this guide](migrati
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to get a list of databases for.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. [Navigate]({{ link-console-main }}/link/ydb) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -598,10 +598,10 @@ You can grant access to a {{ ydb-name }} database to a user, service account, or
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the database resides in.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. [Navigate]({{ link-console-main }}/link/ydb) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click the name of the database.
   1. Navigate to ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
-  1. Select the group, user, or service account you want to grant access to the database to.
+  1. Select the group, user, or service account you need to grant access to the database.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required roles.
   1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
@@ -670,8 +670,8 @@ You can grant access to a {{ ydb-name }} database to a user, service account, or
 
   * `ADD` value in the `access_binding_deltas[].action` parameter to add a role.
   * Role in the `access_binding_deltas[].access_binding.role_id` parameter.
-  * ID of the subject you are assigning the role to in the `access_binding_deltas[].access_binding.subject.id` parameter.
-  * Type of the subject you are assigning the role to in the `access_binding_deltas[].access_binding.subject.type` parameter.
+  * ID of the subject getting the role in the `access_binding_deltas[].access_binding.subject.id` parameter.
+  * Type of the subject getting the role in the `access_binding_deltas[].access_binding.subject.type` parameter.
 
 {% endlist %}
 
@@ -682,10 +682,10 @@ You can grant access to a {{ ydb-name }} database to a user, service account, or
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the database resides in.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. [Navigate]({{ link-console-main }}/link/ydb) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click the name of the database.
   1. Navigate to ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
-  1. Select the group, user, or service account you want to grant access to the database to.
+  1. Select the group, user, or service account you need to grant access to the database.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required roles.
   1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
@@ -782,7 +782,7 @@ You can grant access to a {{ ydb-name }} database to a user, service account, or
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to delete the database from.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. [Navigate]({{ link-console-main }}/link/ydb) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Find the database you need in the list, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) in its row, and select **{{ ui-key.yacloud.ydb.overview.button_action-delete }}**.
   1. Confirm the deletion.
 

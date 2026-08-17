@@ -201,7 +201,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно подключить ВМ к Cloud Backup.
   1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud** и в открывшемся списке выберите нужную ВМ.
-  1. В правом верхнем углу страницы нажмите ![image](../../_assets/console-icons/pencil.svg) **Изменить ВМ**.
+  1. На панели сверху нажмите кнопку ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать**.
   1. В блоке **Дополнительно** выберите сервисный аккаунт с ролью `backup.user` или выше.
   1. Нажмите **Сохранить изменения**.
 

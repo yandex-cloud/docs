@@ -1,10 +1,16 @@
+---
+title: Working with {{ ydb-full-name }} databases
+description: In this tutorial, you will learn how to connect to a {{ ydb-name }} database and run queries against it from {{ yq-full-name }}.
+---
+
 # Working with {{ ydb-name }} databases
 
 This section covers the basics of working with [{{ ydb-name }}](https://yandex.cloud/ru/services/ydb).
 
-To start working with a {{ ydb-name }} database, follow these steps:
+To start using a {{ ydb-name }} database from {{ yq-full-name }}, follow these steps:
+
 1. Create a [connection](../concepts/glossary.md#connection) containing your database access credentials.
-1. [Run a query](#query) against the database.
+1. [Run a query](#query) to the database.
 
 Query example for reading data from {{ ydb-name }}:
 
@@ -13,17 +19,18 @@ SELECT * FROM ydb_connection.my_table
 ```
 
 Where:
+
 * `ydb_connection`: Your database connection name.
 * `my_table`: Database table name.
 
 
-## Setting up a connection {#create_connection}
+## Setting up a connection {#create-connection}
 
 To create a connection to {{ ydb-name }}:
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a connection.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
-1. In the left-hand panel, switch to the **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** tab.
+1. [Navigate]({{ link-console-yq }}) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
 1. Click ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
 1. Specify the connection settings:
 
@@ -33,7 +40,7 @@ To create a connection to {{ ydb-name }}:
       * **{{ ui-key.yql.yq-connection-form.connection-type.input-label }}**: `{{ ui-key.yql.yq-connection.action_ydb }}`.
    1. Under **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**:
       * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}**: Select an existing {{ ydb-name }} database or create a new one.
-      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: Select the {{ ydb-name }} [service account](../../iam/concepts/users/service-accounts.md) you will use for `{{ ydb-name }}` cluster connections and database authentication. If you do not have a service account, create one and assign the `ydb.viewer` [role](../../ydb/security/index.md#ydb-viewer) to it.
+      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: Select the {{ ydb-name }} [service account](../../iam/concepts/users/service-accounts.md) you will use for connection and database authentication. If you do not have a service account, create one and assign the [`ydb.viewer`](../../ydb/security/index.md#ydb-viewer) role to it.
 
         {% include [service accounts role](../../_includes/query/service-accounts-role.md) %}
 
@@ -56,7 +63,7 @@ Where:
 
 {% include [!](_includes/supported_requests.md) %}
 
-## Filter pushdown {#predicate_pushdown}
+## Filter pushdown {#predicate-pushdown}
 
 {% include [!](_includes/predicate_pushdown_preamble.md) %}
 
@@ -88,11 +95,11 @@ Supported data types for filter pushdown:
 |`String`|
 |`Utf8`|
 
-## Supported data types {#supported_types}
+## Supported data types {#supported-types}
 
 The tables below show type mapping between {{ ydb-name }} and {{ yq-full-name }}. Only the listed types are supported.
 
-### Primitive data types {#supported_types_default}
+### Primitive data types {#supported-types-default}
 
 | {{ ydb-name }} data type | {{ yq-full-name }} data type |
 | :---: | :----: |
@@ -115,7 +122,7 @@ The tables below show type mapping between {{ ydb-name }} and {{ yq-full-name }}
 | `Json` | `Json` |
 | `JsonDocument` | `Json` |
 
-### Optional data types {#supported_types_nullable}
+### Optional data types {#supported-types-nullable}
 
 | {{ ydb-name }} data type | {{ yq-full-name }} data type |
 | :---: | :----: |

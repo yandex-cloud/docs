@@ -6474,10 +6474,10 @@
 
 #### managed-mongodb.switcher {#managed-mongodb-switcher}
 
-Роль `managed-mongodb.switcher` позволяет переназначать хост-мастер в кластерах Yandex StoreDoc, просматривать информацию о кластерах, хостах, шардах, базах данных и пользователях Yandex StoreDoc, логи работы кластеров, а также данные о квотах и операциях с ресурсами сервиса.
+Роль `managed-mongodb.switcher` позволяет переназначать первичную реплику в кластерах Yandex StoreDoc, просматривать информацию о кластерах, хостах, шардах, базах данных и пользователях Yandex StoreDoc, логи работы кластеров, а также данные о квотах и операциях с ресурсами сервиса.
 
 Пользователи с этой ролью могут:
-* переназначать хост-мастер в [кластерах Yandex StoreDoc](../storedoc/concepts/index.md);
+* переназначать первичную реплику в [кластерах Yandex StoreDoc](../storedoc/concepts/index.md);
 * просматривать информацию о кластерах Yandex StoreDoc и назначенных [правах доступа](concepts/access-control/index.md) к ним;
 * просматривать информацию о заданиях на [техническое обслуживание](../storedoc/concepts/maintenance.md) кластеров Yandex StoreDoc;
 * просматривать информацию о [хостах](../storedoc/concepts/instance-types.md) кластеров Yandex StoreDoc;
@@ -6502,7 +6502,7 @@
 * просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к кластерам Yandex StoreDoc;
 * просматривать информацию о заданиях на [техническое обслуживание](../storedoc/concepts/maintenance.md) кластеров Yandex StoreDoc и изменять такие задания;
 * создавать, изменять и удалять [хосты](../storedoc/concepts/instance-types.md) кластеров Yandex StoreDoc и просматривать информацию о них;
-* переназначать хост-мастер в кластерах Yandex StoreDoc;
+* переназначать первичную реплику в кластерах Yandex StoreDoc;
 * создавать и удалять [шарды](../storedoc/concepts/sharding.md) кластеров Yandex StoreDoc и просматривать информацию о них;
 * создавать и удалять базы данных Yandex StoreDoc и просматривать информацию о них;
 * создавать, изменять и удалять [пользователей](../storedoc/concepts/users-and-roles.md) Yandex StoreDoc и просматривать информацию о них;
@@ -6526,7 +6526,7 @@
 * создавать, использовать, изменять, удалять, запускать и останавливать кластеры Yandex StoreDoc и просматривать информацию о них;
 * просматривать информацию о заданиях на [техническое обслуживание](../storedoc/concepts/maintenance.md) кластеров Yandex StoreDoc и изменять такие задания;
 * создавать, изменять и удалять [хосты](../storedoc/concepts/instance-types.md) кластеров Yandex StoreDoc и просматривать информацию о них;
-* переназначать хост-мастер в кластерах Yandex StoreDoc;
+* переназначать первичную реплику в кластерах Yandex StoreDoc;
 * создавать и удалять [шарды](../storedoc/concepts/sharding.md) кластеров Yandex StoreDoc и просматривать информацию о них;
 * создавать и удалять базы данных Yandex StoreDoc и просматривать информацию о них;
 * создавать, изменять и удалять [пользователей](../storedoc/concepts/users-and-roles.md) Yandex StoreDoc и просматривать информацию о них;

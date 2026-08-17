@@ -120,7 +120,7 @@ To update the [OIDC app's](../../concepts/applications/oidc.md) basic settings:
       
       client_grant = {
         client_id         = "<OAuth_client_ID>"
-        authorized_scopes = ["<attribute_1>", "<attribute_2>"]
+        authorized_scopes = ["<attribute1>", "<attribute2>"]
       }
       
       group_claims_settings = {
@@ -128,8 +128,8 @@ To update the [OIDC app's](../../concepts/applications/oidc.md) basic settings:
       }
       
       labels = {
-        "<key_1>" = "<value_1>"
-        "<key_2>" = "<value_2>"
+        "<key1>" = "<value1>"
+        "<key2>" = "<value2>"
       }
     }
     ```
@@ -195,56 +195,45 @@ To update the service provider configuration in an OIDC app:
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command for setting up the OAuth client:
+  1. See the description of the CLI command for updating an OAuth client:
 
-     ```bash
-     yc iam oauth-client update --help
-     ```
+      ```bash
+      yc iam oauth-client update --help
+      ```
 
   1. Run this command:
 
-     ```bash
-     yc iam oauth-client update \
-       --id <OAuth_client_ID> \
-       --new-name <new_name_for_OAuth_client> \
-       --redirect-uris <address>[,<address>] \
-       --scopes <attribute>[,<attribute>]
-     ```
+      ```bash
+      yc iam oauth-client update \
+        --id <OAuth_client_ID> \
+        --new-name <new_name_for_OAuth_client> \
+        --redirect-uris <address>[,<address>] \
+        --scopes <attribute>[,<attribute>]
+      ```
 
-     Where:
+      Where:
 
-     * `--id`: OAuth client ID.
-     * `--new-name`: New name for the OAuth client.
-     * `--scopes`: New user attributes that will be available to the service provider. Specify one or more attributes, comma-separated, in `<attribute1>,<attribute2>` format. Possible attributes:
-       * `openid`: User ID. Required attribute.
-       * `profile`: Additional user details, such as first name, last name, and avatar.
-       * `email`: User email address.
-       * `address`: User home address.
-       * `phone`: User phone number.
-       * `groups`: [User groups](../../concepts/groups.md) in the organization.
+      * `--id`: OAuth client ID.
+      * `--new-name`: New name for the OAuth client.
+      * `--scopes`: New user attributes that will be available to the service provider. Specify one or more attributes, comma-separated, in `<attribute1>,<attribute2>` format. Possible attributes:
+          * `openid`: User ID. Required attribute.
+          * `profile`: Additional user details, such as first name, last name, and avatar.
+          * `email`: User email address.
+          * `address`: User home address.
+          * `phone`: User phone number.
+          * `groups`: [User groups](../../concepts/groups.md) in the organization.
 
-         {% note warning %}
-         
-         You also need to specify the new user attributes in the [app's basic settings](#update-basic-settings) using the `--authorized-scopes` parameters.
-         
-         {% endnote %}
+              {% note warning %}
+              
+              You also need to specify the new user attributes in the [app's basic settings](#update-basic-settings) using the `--authorized-scopes` parameters.
+              
+              {% endnote %}
 
-     * `--redirect-uris`: Specify the new address or addresses you got from the service provider in `<address1>,<address2>` format.
+      * `--redirect-uris`: Specify the new address or addresses you got from the service provider in `<address1>,<address2>` format.
 
-     Result:
+      Result:
 
-     ```text
-     id: ajejklv8g9kh********
-     name: my-oauth-client
-     redirect_uris:
-       - https://example2.com
-       - https://example2.ru
-     scopes:
-       - openid
-       - profile
-     folder_id: b1g500m2195v********
-     status: ACTIVE
-     ```
+      {% include [oauth-client-cli-result-redirect-uris](../../../_includes/organization/oauth-client-cli-result-redirect-uris.md) %}
 
 - {{ TF }} {#tf}
 
@@ -258,8 +247,8 @@ To update the service provider configuration in an OIDC app:
     resource "yandex_iam_oauth_client" "example_oauth_client" {
       oauth_client_id = "<OAuth_client_ID>"
       name           = "<new_name_for_OAuth_client>"
-      redirect_uris  = ["<address_1>", "<address_2>"]
-      scopes         = ["<attribute_1>", "<attribute_2>"]
+      redirect_uris  = ["<address1>", "<address2>"]
+      scopes         = ["<attribute1>", "<attribute2>"]
     }
     ```
 
@@ -292,7 +281,6 @@ To update the service provider configuration in an OIDC app:
 
   Use the [OAuthClient.Update](../../../iam/api-ref/OAuthClient/update.md) REST API method for the [OAuthClient](../../../iam/api-ref/grpc/OAuthClient/index.md) resource or the [OAuthClientService/Update](../../../iam/api-ref/grpc/OAuthClient/update.md) gRPC API call.
 
-
 {% endlist %}
 
 ## Update the application security settings {#update-secret}
@@ -314,6 +302,49 @@ To update an OIDC app's security settings:
   1. At the top right, click ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. {% include [oidc-app-update-security-settings](../../../_includes/organization/oidc-app-update-security-settings.md) %}
   1. Click **{{ ui-key.yacloud.common.save }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. See the description of the CLI command for updating an OAuth client:
+
+      ```bash
+      yc iam oauth-client update --help
+      ```
+
+  1. Run this command:
+
+      ```bash
+      yc iam oauth-client update \
+        --id <OAuth_client_ID> \
+        --auth-methods <secret_provisioning_method> \
+        --pkce-required
+      ```
+
+      Where:
+
+      * `--id`: OAuth client ID.
+      * `--auth-methods`: Application [secret provisioning methods](../../concepts/applications/oidc.md#secret-delivery). The possible values are:
+
+          * `client_secret_basic`: Application secret is provided in the `Authorization: Basic` HTTP header.
+          * `{{ ui-key.yacloud_org.application.overview.oauth_field_auth_method_client_secret_basic }}`: Application secret is provided in the body of the POST request.
+
+          To allow your OIDC app to use both secret provisioning methods, specify both values separated by commas in `--auth-methods`.
+      * `--pkce-required`: Manages the use of [PKCE](../../concepts/applications/oidc.md#pkce) by the service provider:
+
+          * To enable the PKCE requirement, provide `--pkce-required` in the command.
+          * To disable the PKCE requirement, provide `--pkce-required=false` in the command.
+
+      Result:
+
+      {% include [oauth-client-cli-result](../../../_includes/organization/oauth-client-cli-result.md) %}
+
+- API {#api}
+
+  Use the [OAuthClient.Update](../../../iam/api-ref/OAuthClient/update.md) REST API method for the [OAuthClient](../../../iam/api-ref/grpc/OAuthClient/index.md) resource or the [OAuthClientService/Update](../../../iam/api-ref/grpc/OAuthClient/update.md) gRPC API call.
 
 {% endlist %}
 
@@ -344,28 +375,29 @@ There is no way you can view or update an app’s [secret](../../concepts/applic
 
   1. See the description of the CLI command for creating a new OIDC app secret:
 
-     ```bash
-     yc iam oauth-client-secret create --help
-     ```
+      ```bash
+      yc iam oauth-client-secret create --help
+      ```
 
   1. Run this command:
 
-     ```bash
-     yc iam oauth-client-secret create --oauth-client-id <OAuth_client_ID>
-     ```
+      ```bash
+      yc iam oauth-client-secret create \
+        --oauth-client-id <OAuth_client_ID>
+      ```
 
-     Result:
+      Result:
 
-     ```text
-     oauth_client_secret:
-       id: aje0hjqp68u6********
-       oauth_client_id: ajejklv8g9kh********
-       masked_secret: yccs__9e1d5f6d5c****
-       created_at: "2025-10-23T11:44:50.739768533Z"
-     secret_value: yccs__9e1d5f6d5c********
-     ```
+      ```text
+      oauth_client_secret:
+        id: aje0hjqp68u6********
+        oauth_client_id: ajejklv8g9kh********
+        masked_secret: yccs__9e1d5f6d5c****
+        created_at: "2025-10-23T11:44:50.739768533Z"
+      secret_value: yccs__9e1d5f6d5c********
+      ```
 
-     Remember to provide the new secret in the settings on the service provider side. If you need help, refer to your service provider's documentation or support team.
+      Remember to provide the new secret in the settings on the service provider side. If you need help, refer to your service provider's documentation or support team.
 
 - {{ TF }} {#tf}
 
@@ -396,7 +428,6 @@ There is no way you can view or update an app’s [secret](../../concepts/applic
     ```bash
     yc iam oauth-client-secret list --oauth-client-id <OAuth_client_ID>
     ```
-
 
 - API {#api}
 

@@ -111,14 +111,14 @@ Create a [security group](../../vpc/concepts/security-groups.md) that allows inb
   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**. 
   1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, specify the name: `webserver-sg`.
-  1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select `webserver-network`, which you created earlier.
+  1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select `webserver-network` you created earlier.
   1. Under **{{ ui-key.yacloud.vpc.network.security-groups.label_section-rules }}**, [create](../../vpc/operations/security-group-add-rule.md) the following traffic management rules:
 
       | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
       | --- | --- | --- | --- | --- | --- |
-      | Inbound | `http`           | `80` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | Inbound | `https`            | `443`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | Inbound | `ssh`            | `22`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | Ingress | `http`           | `80` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | Ingress | `https`            | `443`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | Ingress | `ssh`            | `22`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
       | Egress | `any`           | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
 
   1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -467,7 +467,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
 
     A new certificate with the `Validating` status will appear in the certificate list. This status means that a Let's Encrypt® certificate was requested and you need to pass [domain ownership verification](../../certificate-manager/operations/managed/cert-validate.md) for it to be successfully processed.
 
-1. For the certificate to be issued successfully, pass domain ownership verification:
+1. For the certificate to be issued successfully, pass a domain rights check:
 
     {% list tabs group=instructions %}
 
@@ -815,7 +815,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
         * In the **{{ ui-key.yacloud.cdn.label_certificate-type }}** field, select `{{ ui-key.yacloud.cdn.value_certificate-custom }}` and then the `mymanagedcert` certificate you created earlier from the list that opens.
         * In the **{{ ui-key.yacloud.cdn.label_host-header }}** field, select `{{ ui-key.yacloud.cdn.value_host-header-custom }}`. Then, in the **{{ ui-key.yacloud.cdn.label_custom-host-header }}** field that opens, specify `<bucket_name>.{{ s3-web-host }}`, where `<bucket_name>` is the name of the bucket you created earlier, which the CDN resource uses as a source.
         * Enable **{{ ui-key.yacloud.cdn.field_secure-key-enabled }}**:
-          1. In the **{{ ui-key.yacloud.cdn.field_secure-key }}** fieled that appears, specify a secret key, a string of 6 to 32 characters. It will be transmitted to the CDN resource configuration and used to generate and check signed links.
+          1. In the **{{ ui-key.yacloud.cdn.field_secure-key }}** fieled that appears, specify a secret key, a string of 6 to 32 characters. It will be transmitted to the CDN resource configuration and used to generate and check signed URLs.
           1. In the **{{ ui-key.yacloud.cdn.field_secure-key-type }}** field, select `{{ ui-key.yacloud.cdn.value_secure-key-type-enable }}`.
   1. Click **{{ ui-key.yacloud.common.continue }}**.
   1. Under **{{ ui-key.yacloud.cdn.label_resource-cache }}**, **{{ ui-key.yacloud.cdn.label_resource-http-headers }}**, and **Advanced**, leave the default settings, then click **Continue**.
@@ -838,7 +838,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
       * `<subdomain_name>`: Domain name for which the TLS certificate was created earlier and which the CDN resource will use, e.g., `cdn.example.com`.
       * `<bucket_name>`: Name of the {{ objstorage-name }} bucket you created earlier, e.g., `cdn-source-bucket`.
       * `--cert-manager-ssl-cert-id`: TLS certificate ID that you saved earlier when creating the certificate.
-      * `--secure-key`: Secret key, a string of 6 to 32 characters. The secret key will be transmitted to the CDN resource configuration and used to generate and check signed links.
+      * `--secure-key`: Secret key, a string of 6 to 32 characters. The secret key will be transmitted to the CDN resource configuration and used to generate and check signed URLs.
 
       Result:
 

@@ -217,7 +217,7 @@ resource "yandex_vpc_security_group" "db_sg" {
 
 #### Группы безопасности и Network Load Balancer {#security-groups-and-network-load-balancer}
 
-Следует помнить, что группы безопасности нельзя применять к [обработчику трафика](../../network-load-balancer/concepts/listener.md) сетевого балансировщика нагрузки. Для ВМ в [целевых группах](../../network-load-balancer/concepts/target-resources.md), размещенных за балансировщиком нагрузки, группы безопасности могут применяться к сетевым интерфейсам этих ВМ. В группах безопасности таких ВМ обязательно должно быть правило `Health Сhecks` для разрешения трафика [проверок доступности](../../network-load-balancer/concepts/health-check.md#target-statuses) со стороны балансировщика.
+Следует помнить, что группы безопасности нельзя применять к [обработчику трафика](../../network-load-balancer/concepts/listener.md) сетевого балансировщика нагрузки. Для ВМ в [целевых группах](../../network-load-balancer/concepts/target-resources.md), размещенных за балансировщиком нагрузки, группы безопасности могут применяться к сетевым интерфейсам этих ВМ. В группах безопасности таких ВМ обязательно должно быть правило `Health Checks` для разрешения трафика [проверок доступности](../../network-load-balancer/concepts/health-check.md#target-statuses) со стороны балансировщика.
 
 
 #### Группы безопасности и сервисы DNS и метаданных ВМ {#security-groups-and-metadata-dns}

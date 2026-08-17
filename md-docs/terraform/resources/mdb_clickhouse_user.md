@@ -87,7 +87,7 @@ resource "yandex_mdb_clickhouse_user" "foo" {
 
 {% note warning %}
 
-**For password authentication, must specify exactly one of password or generate_password**.
+**For password authentication, must specify exactly one of password, password_wo, or generate_password**.
 
 {% endnote %}
 
@@ -95,6 +95,8 @@ resource "yandex_mdb_clickhouse_user" "foo" {
 - `id` (*Read-Only*) (String). The resource identifier.
 - `name` (**Required**)(String). Name of the ClickHouse user. Provided by the client when the user is created.
 - `password` (String). Password of the ClickHouse user. Provided by the client when the user is created.
+- `password_wo` (String). Password of the ClickHouse user. This attribute is write-only and is not stored in state. Requires `password_wo_version` to trigger updates. Write-only arguments are supported in Terraform 1.11 and later.
+- `password_wo_version` (Number). A version number for the write-only password. Increment this to trigger a password update.
 - `timeouts` [Block]. 
   - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
   - `delete` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.

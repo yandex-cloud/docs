@@ -73,7 +73,7 @@ Create a database in [serverless mode](../../ydb/concepts/serverless-and-dedicat
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder to create a database in.
-     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+     1. [Navigate]({{ link-console-main }}/link/ydb) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
      1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
      1. Specify a **{{ ui-key.yacloud.ydb.forms.label_field_name }}** for the database. The naming requirements are as follows:
 
@@ -107,7 +107,7 @@ If working with a local Docker container, skip this step.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. In the list that opens, select the service account you created.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.
@@ -222,7 +222,7 @@ Without MCP, the LLM would have only the source code and error text. In this cas
 
 To simulate an error, rename the table:
 1. In the [management console]({{ link-console-main }}), select the folder the database resides in.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}** and open your database.
+1. [Navigate]({{ link-console-main }}/link/ydb) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}** and open your database.
 1. Click **{{ ui-key.yacloud.ydb.database.switch_browse }}**, then **{{ ui-key.yacloud.ydb.browse.button_sql-query }}**, and run this query to [rename the table](https://ydb.tech/docs/en/yql/reference/syntax/alter_table/rename?version=v25.2):
 
 ```

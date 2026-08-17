@@ -120,7 +120,9 @@ resource "yandex_vpc_security_group" "test-sg-x" {
 - `status` (*Read-Only*) (String). Status of the cluster.
 - `subnet_id` (**Required**)(String). The ID of the subnet, to which the hosts belongs. The subnet must be a part of the network to which the cluster belongs.
 - `user_name` (**Required**)(String). Greenplum cluster admin user name.
-- `user_password` (**Required**)(String). Greenplum cluster admin password name.
+- `user_password` (String). Greenplum cluster admin password.
+- `user_password_wo` (String). Greenplum cluster admin password. This attribute is write-only and is not stored in state. Requires `user_password_wo_version` to trigger updates. Write-only arguments are only supported in Terraform v1.11 or higher.
+- `user_password_wo_version` (Number). A version number for the write-only password. Increment this to trigger a password update.
 - `version` (**Required**)(String). Version of the Greenplum cluster.
 - `zone` (**Required**)(String). The [availability zone](../../overview/concepts/geo-scope.md) where resource is located. If it is not provided, the default provider zone will be used.
 - `access` [Block]. Access policy to the Greenplum cluster.

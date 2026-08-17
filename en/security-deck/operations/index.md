@@ -11,6 +11,7 @@ description: In this article, you will learn how to work with {{ sd-name }} in {
 * [{#T}](./workspaces/view-dashboard.md)
 * [{#T}](./workspaces/update.md)
 * [{#T}](./workspaces/manage-access.md)
+* [{#T}](./workspaces/deactivate-activate.md)
 * [{#T}](./workspaces/delete.md)
 
 ## Alerts {#alerts}

@@ -50,7 +50,8 @@ To grant access to Harbor to organization users:
      ```bash
      yc iam oauth-client create \
        --name harbor-oauth-client \
-       --scopes openid,email,profile,groups
+       --scopes openid,email,profile,groups \
+       --profile-id web
      ```
 
      Where:
@@ -61,6 +62,7 @@ To grant access to Harbor to organization users:
        * `email`: User email address.
        * `profile`: Additional user details, such as first name, last name, and avatar.
        * `groups`: [User groups](../../../organization/concepts/groups.md) in the organization.
+     * {% include [org-oidc-app-select-web-type-legend-cli](../../../_tutorials/_tutorials_includes/org-oidc-app-select-web-type-legend-cli.md) %}
 
      Result:
 
@@ -68,7 +70,12 @@ To grant access to Harbor to organization users:
      id: ajeqqip130i1********
      name: harbor-oauth-client
      folder_id: b1g500m2195v********
+     authentication_methods:
+       - client_secret_basic
+       - client_secret_post
      status: ACTIVE
+     profile_id: web
+     pkce_required: true
      ```
 
      Save the `id` field value for when you need to create and configure your app.
@@ -216,7 +223,7 @@ Check that the Harbor URL (portal and registry) is accessible via HTTPS with a t
 
 {% endlist %}
 
-#### Configure the redirect URI {#setup-redirect}
+#### Configure a redirect URI {#setup-redirect}
 
 {% list tabs group=instructions %}
 
@@ -263,7 +270,12 @@ Check that the Harbor URL (portal and registry) is accessible via HTTPS with a t
     - profile
     - groups
   folder_id: b1gkd6dks6i1********
+  authentication_methods:
+    - client_secret_basic
+    - client_secret_post
   status: ACTIVE
+  profile_id: web
+  pkce_required: true
   ```
 
 {% endlist %}
@@ -350,7 +362,7 @@ Before configuring OIDC, make sure the web interface is accessible via HTTPS. Th
 
 1. Click **Save**.
 
-For more information on OIDC mode fields and limitations, see [this official Harbor guide](https://goharbor.io/docs/latest/administration/configure-authentication/oidc-auth/).
+For more information on fields and limitations in OIDC mode, see [this official Harbor guide](https://goharbor.io/docs/latest/administration/configure-authentication/oidc-auth/).
 
 ### Add a user {#add-user}
 
@@ -358,7 +370,7 @@ For the organization users to sign in to Harbor through the {{ org-full-name }} 
 
 {% note info %}
 
-Users and groups added to an OIDC application can be managed by a user with the `organization-manager.oidcApplications.userAdmin` [role](../../../organization/security/index.md#organization-manager-oidcApplications-userAdmin) or higher.
+Users and groups added to an OIDC application can be managed by any user with the `organization-manager.oidcApplications.userAdmin` [role](../../../organization/security/index.md#organization-manager-oidcApplications-userAdmin) or higher.
 
 {% endnote %}
 

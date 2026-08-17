@@ -144,7 +144,7 @@ To create a [resource](../../concepts/resource.md):
 
         [Learn more about configuring HTTP methods](configure-http.md).
 
-      * Optionally, under **{{ ui-key.yacloud.cdn.CdnResourceFormWizard.section_wizard-static-response_6DKzY }}**, set up the HTTP response.
+      * Optionally, under **{{ ui-key.yacloud.cdn.sections.StaticResponseSection.section_static-response_v3GRn }}**, set up the HTTP response.
 
           [Learn more about setting up an HTTP response](configure-response.md).
 
