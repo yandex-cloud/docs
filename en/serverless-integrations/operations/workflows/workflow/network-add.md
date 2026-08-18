@@ -5,6 +5,8 @@ description: Follow this guide to specify a cloud network in which to run a work
 
 # Specifying a cloud network in which to run a workflow
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 You can specify a cloud network in which to run a workflow.
 
 {% include [network](../../../../_includes/functions/network.md) %}

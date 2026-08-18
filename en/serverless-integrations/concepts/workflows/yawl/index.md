@@ -10,6 +10,8 @@ keywords:
 
 # Overview
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 ## Workflow {#workflow}
 
 For a JSON schema of a workflow, visit [this GitHub repository](https://raw.githubusercontent.com/yandex-cloud/json-schema-store/refs/heads/master/serverless/workflows/yawl.json).
@@ -18,15 +20,15 @@ Field name | Type | Required | Description
 --- | --- | --- | ---
 `yawl` | `string` | Yes | Specification language version. The possible value is `0.1`.
 `start` | `string` | Yes | ID of the [step](#step) to start off the workflow execution.
-`defaultRetryPolicy` | [RetryPolicy](#retrypolicy) | No | Retry policy applied by default to any step throwing an error during execution.
+`defaultRetryPolicy` | [RetryPolicy](#retrypolicy) | None | Retry policy applied by default to any step throwing an error during execution.
 `steps` | `map<string, Step>` | Yes | Description of workflow steps. Object where key is the step ID selected by the user, and value is the object describing the step parameters.
 
 ## Step object {#step}
 
 Field name | Type | Required | Description
 --- | --- | --- | ---
-`title` | `string` | No | Step name.
-`description` | `string` | No | Step description.
+`title` | `string` | None | Step name.
+`description` | `string` | None | Step description.
 `<step_type>` | string([FunctionCall](integration/functioncall.md)\|<br/>[ContainerCall](integration/containercall.md)\|<br/>[HTTPCall](integration/httpcall.md)\|<br/>[GRPCCall](integration/grpccall.md)\|<br/>[YDBDocument](integration/ydbdocument.md)\|<br/>[YDS](integration/yds.md)\|<br/>[YMQ](integration/ymq.md)\|<br/>[FoundationModelsCall](integration/foundationmodelscall.md)\|<br/>[ObjectStorage](integration/objectstorage.md)\|<br/>[Disk](integration/disk.md)\|<br/>[Tracker](integration/tracker.md)\|<br/>[Postbox](integration/postbox.md)\|<br/>[Workflow](integration/workflow.md)\|<br/>[TelegramBot](integration/telegrambot.md)\|<br/>[AIStudioAgent](integration/aistudioagent.md)\|<br/>[VectorStore](integration/vectorstore.md)\|<br/>[DatabaseQuery](integration/databasequery.md)\|<br/>[OCR](integration/ocr.md)\|<br/>[STT](integration/stt.md)\|<br/>[Switch](management/switch.md)\|<br/>[Foreach](management/foreach.md)\|<br/>[Parallel](management/parallel.md)\|<br/>[Success](management/success.md)\|<br/>[Fail](management/fail.md)\|<br/>[NoOp](management/noop.md)\|<br/>[Wait](management/wait.md)\|<br/>[While](management/while.md)) | Yes | Step specification. Possible parameters depend on selected `<step_type>`.
 
 ## Integration steps {#integration-steps}
@@ -57,32 +59,32 @@ The fields described herein are available for all integration steps.
 
 Field name | Type | Required | Default value | Description
 --- | --- | --- | --- | ---
-`input` | `string` | No | [Overall state of the workflow](../workflow.md#state) | jq template to filter the workflow state fed into the step.
-`output` | `string` | No | Step output data | A jq template to filter the step outputs added into the workflow state.
-`next` | `string` | No | No | ID of the next step.
-`retryPolicy` | [RetryPolicy](#retrypolicy) | No | `defaultRetryPolicy`, if set on the [workflow](#workflow) level | Retry policy applied if a step throws an error during execution.
-`timeout` | `Duration` | No | 15 minutes | Maximum step execution time.
-`catch` | [CatchRule[]](#catchrule) | No | `[]` | Transition rules for errors encountered during a step. The rules are applied one by one following the `retryPolicy`.
+`input` | `string` | None | [Overall state of the workflow](../workflow.md#state) | jq template to filter the workflow state fed into the step.
+`output` | `string` | None | Step output data | A jq template to filter the step outputs added into the workflow state.
+`next` | `string` | None | None | ID of the next step.
+`retryPolicy` | [RetryPolicy](#retrypolicy) | None | `defaultRetryPolicy`, if set on the [workflow](#workflow) level | Retry policy applied if a step throws an error during execution.
+`timeout` | `Duration` | None | 15 minutes | Maximum step execution time.
+`catch` | [CatchRule[]](#catchrule) | None | `[]` | Transition rules for errors encountered during a step. The rules are applied one by one following the `retryPolicy`.
 
 ### RetryPolicy object {#retrypolicy}
 
 Field name | Type | Required | Default value | Threshold value | Description
 --- | --- | --- | --- | --- | ---
 `errorList` | `WorkflowError[]` | Yes | `[]` | — | List of errors for which the step will be retried. Read more in [{#T}](../execution.md#errors).
-`errorListMode` | `INCLUDE/EXCLUDE` | No | `INCLUDE` | — | Error selection mode: `INCLUDE` to retry on errors listed in `error_list`; `EXCLUDE` to retry on any error other than those listed in `error_list`.
-`initialDelay` | `Duration` | No | `1s` | `1s` | Initial value for a delay between retries.
-`backoffRate` | `double` | No | `1.0` | `1.0` | Multiplier for time between each next retry.
-`retryCount` | `int` | No | `0` | `100` | Maximum number of reattempts.
-`maxDelay` | `Duration` | No | `1s` | `1h` | Maximum delay between retries.
+`errorListMode` | `INCLUDE/EXCLUDE` | None | `INCLUDE` | — | Error selection mode: `INCLUDE` to retry on errors listed in `error_list`; `EXCLUDE` to retry on any error other than those listed in `error_list`.
+`initialDelay` | `Duration` | None | `1s` | `1s` | Initial value for a delay between retries.
+`backoffRate` | `double` | None | `1.0` | `1.0` | Multiplier for time between each next retry.
+`retryCount` | `int` | None | `0` | `100` | Maximum number of reattempts.
+`maxDelay` | `Duration` | None | `1s` | `1h` | Maximum delay between retries.
 
 ### CatchRule object {#catchrule}
 
 Field name | Type | Required | Default value | Threshold value | Description
 --- | --- | --- | --- |---| ---
 `errorList` | `WorkflowError[]` | Yes | `[]` | — | List of errors to apply the transition rule to. For more information, see [{#T}](../execution.md#errors).
-`errorListMode` | `INCLUDE/EXCLUDE` | No | `INCLUDE` | — | Error selection mode: `INCLUDE` to apply the transition rule to errors from `error_list`; `EXCLUDE`, to any error except those from `error_list`.
-`output` | `string` | Yes | No | — | A jq template to filter the step outputs added into the workflow state. Input data for filtering: an [ErrorInfo](#errorinfo) object. If a step throws an error covered by a transition rule (`catch`), the jq template specified in the `output` field of the entire step is not applied.
-`next` | `string` | Yes | No | — | ID of the next step.
+`errorListMode` | `INCLUDE/EXCLUDE` | None | `INCLUDE` | — | Error selection mode: `INCLUDE` to apply the transition rule to errors from `error_list`; `EXCLUDE`, to any error except those from `error_list`.
+`output` | `string` | Yes | None | — | A jq template to filter the step outputs added into the workflow state. Input data for filtering: an [ErrorInfo](#errorinfo) object. If a step throws an error covered by a transition rule (`catch`), the jq template specified in the `output` field of the entire step is not applied.
+`next` | `string` | Yes | None | — | ID of the next step.
 
 ### ErrorInfo object {#errorinfo}
 

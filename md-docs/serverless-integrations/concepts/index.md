@@ -13,16 +13,6 @@ Serverless Integrations позволяет:
 
 ## Доступные функциональности {#instruments}
 
-### Workflows {#workflows}
-
-{% note info %}
-
-Workflows находится на стадии [Preview](../../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
-Выстраивайте и автоматизируйте рабочие процессы при помощи декларативной спецификации Yandex Workflows Language (YaWL).
-
 ### EventRouter {#eventrouter}
 
 {% note info %}

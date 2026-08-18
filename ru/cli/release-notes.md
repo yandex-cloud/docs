@@ -7,6 +7,20 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.27.0 (17.08.26) {#v-1-27-0}
+
+#### {{ mgp-name }} {#v-1-27-0-mgp-name}
+
+* Исправлено обновление пользователей командой `yc managed-greenplum users update`: теперь изменяются только поля, явно заданные параметрами.
+
+#### {{ mrd-name }} {#v-1-27-0-mrd-name}
+
+* Добавлен параметр `--shard-autoscaling` в команды для настройки автоскейлинга шардов Valkey:
+  * `yc managed-redis cluster create`;
+  * `yc managed-redis cluster update`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.25.0 (10.08.26) {#v-1-25-0}
 
 #### {{ mch-name }} {#v-1-25-0-mch-name}
@@ -29,8 +43,6 @@ description: На странице представлены релизы CLI, а
 * Добавлены группы команд для управления балансировщиками Smart Web Security и их доменами в v2:
   * `yc smartwebsecurity load-balancer load-balancer`;
   * `yc smartwebsecurity load-balancer domain`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.24.0 (06.08.26) {#v-1-24-0}
 

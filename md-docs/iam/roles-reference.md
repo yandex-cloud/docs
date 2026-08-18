@@ -556,7 +556,7 @@
 
 #### ai.playground.user {#ai-playground-user}
 
-Роль `ai.playground.user` позволяет создавать эксперименты, получать список всех доступных моделей и использовать их в AI Playground в консоли управления Yandex Cloud. Для работы с поисковыми индексами в консоли управления дополнительно необходима роль `ai.assistants.editor`.
+Роль `ai.playground.user` позволяет создавать эксперименты, получать список всех доступных моделей и использовать их в Playground в интерфейсе AI Studio. Для работы с поисковыми индексами в консоли управления дополнительно необходима роль `ai.assistants.editor`.
 
 #### ai.languageModels.user {#languageModels-user}
 
@@ -7720,28 +7720,28 @@
 
 #### serverless.workflows.auditor {#serverless-workflows-auditor}
 
-Роль `serverless.workflows.auditor` позволяет просматривать информацию о [рабочих процессах](../serverless-integrations/concepts/workflows/workflow.md) и назначенных [правах доступа](concepts/access-control/index.md) к ним, просматривать историю [запусков](../serverless-integrations/concepts/workflows/execution.md) рабочих процессов, а также информацию о [квотах](../serverless-integrations/concepts/limits.md#workflows) Yandex Workflows.
+Роль `serverless.workflows.auditor` позволяет просматривать информацию о [рабочих процессах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow) и назначенных [правах доступа](concepts/access-control/index.md) к ним, просматривать историю [запусков](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/execution) рабочих процессов, а также информацию о [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits) Yandex Workflows.
 
 #### serverless.workflows.viewer {#serverless-workflows-viewer}
 
-Роль `serverless.workflows.viewer` позволяет просматривать информацию о [рабочих процессах](../serverless-integrations/concepts/workflows/workflow.md) и назначенных [правах доступа](concepts/access-control/index.md) к ним, просматривать историю [запусков](../serverless-integrations/concepts/workflows/execution.md) рабочих процессов, а также информацию о [квотах](../serverless-integrations/concepts/limits.md#workflows) Yandex Workflows.
+Роль `serverless.workflows.viewer` позволяет просматривать информацию о [рабочих процессах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow) и назначенных [правах доступа](concepts/access-control/index.md) к ним, просматривать историю [запусков](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/execution) рабочих процессов, а также информацию о [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits) Yandex Workflows.
 
 Включает разрешения, предоставляемые ролью `serverless.workflows.auditor`.
 
 #### serverless.workflows.executor {#serverless-workflows-executor}
 
-Роль `serverless.workflows.executor` позволяет запускать, приостанавливать, возобновлять и останавливать [рабочие процессы](../serverless-integrations/concepts/workflows/workflow.md) Yandex Workflows.
+Роль `serverless.workflows.executor` позволяет запускать, приостанавливать, возобновлять и останавливать [рабочие процессы](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow) Yandex Workflows.
 
 #### serverless.workflows.editor {#serverless-workflows-editor}
 
 Роль `serverless.workflows.editor` позволяет управлять рабочими процессами.
 
 Пользователи с этой ролью могут:
-* просматривать информацию о [рабочих процессах](../serverless-integrations/concepts/workflows/workflow.md) и назначенных [правах доступа](concepts/access-control/index.md) к ним;
+* просматривать информацию о [рабочих процессах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow) и назначенных [правах доступа](concepts/access-control/index.md) к ним;
 * создавать, изменять и удалять рабочие процессы;
 * запускать, приостанавливать, возобновлять и останавливать рабочие процессы;
-* просматривать историю [запусков](../serverless-integrations/concepts/workflows/execution.md) рабочих процессов;
-* просматривать информацию о [квотах](../serverless-integrations/concepts/limits.md#workflows) Yandex Workflows.
+* просматривать историю [запусков](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/execution) рабочих процессов;
+* просматривать информацию о [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits) Yandex Workflows.
 
 Включает разрешения, предоставляемые ролями `serverless.workflows.viewer` и `serverless.workflows.executor`.
 
@@ -7750,15 +7750,15 @@
 Роль `serverless.workflows.admin` позволяет управлять рабочими процессами.
 
 Пользователи с этой ролью могут:
-* просматривать информацию о [рабочих процессах](../serverless-integrations/concepts/workflows/workflow.md), а также создавать, изменять и удалять их;
+* просматривать информацию о [рабочих процессах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow), а также создавать, изменять и удалять их;
 * просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к рабочим процессам, а также изменять такие права доступа;
 * запускать, приостанавливать, возобновлять и останавливать рабочие процессы;
-* просматривать историю [запусков](../serverless-integrations/concepts/workflows/execution.md) рабочих процессов;
-* просматривать информацию о [квотах](../serverless-integrations/concepts/limits.md#workflows) Yandex Workflows.
+* просматривать историю [запусков](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/execution) рабочих процессов;
+* просматривать информацию о [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits) Yandex Workflows.
 
 Включает разрешения, предоставляемые ролью `serverless.workflows.editor`.
 
-Подробнее в [Управление доступом в Workflows](../serverless-integrations/security/workflows.md).
+Подробнее в [Управление доступом в Workflows](https://aistudio.yandex.ru/docs/ru/ai-studio/security/index#workflows-roles).
 
 
 ## Yandex SIEM {#yandex-siem-roles}

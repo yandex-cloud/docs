@@ -44,7 +44,7 @@ You will need the ID and secret key in the next steps.
 ## Create a bucket for storing logs {#create-bucket}
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
 1. Click **Create bucket**.
 1. Name the bucket.
 1. In the **Object read access**, **Object listing access**, and **Read access to settings** fields, select **Limited**.
@@ -54,7 +54,7 @@ You will need the ID and secret key in the next steps.
 ## Create a data stream {#create-stream}
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a data stream.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
+1. [Navigate]({{ link-console-main }}/link/data-streams) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
 1. Click **Create stream**.
 1. Specify an existing [serverless](../../ydb/concepts/serverless-and-dedicated.md#serverless) database in {{ ydb-short-name }} or [create](../../ydb/quickstart.md#serverless) a new one. If you chose to create a new database, click ![refresh-button](../../_assets/data-streams/refresh-button.svg) **Refresh** after creating it to refresh the list of databases.
 1. Enter a name for the stream.

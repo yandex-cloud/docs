@@ -7,6 +7,115 @@ description: This page presents CLI releases and their updates.
 
 ## Current version {#latest-release}
 
+### Version 1.20.0 (23/07/26) {#v-1-20-0}
+
+#### {{ cloud-registry-name }} {#v-1-20-0-cloud-registry-name}
+
+* Added the `yc cloud-registry registry lifecycle-policy` command group for checking lifecycle policy rules: getting results by ID, list of policy results, and list of artifacts subject to deletion:
+  * `yc cloud-registry registry lifecycle-policy get-dry-run-result`
+  * `yc cloud-registry registry lifecycle-policy list-dry-run-results`
+  * `yc cloud-registry registry lifecycle-policy list-dry-run-artifacts`
+* Fixed the absence of the `yc cloud-registry tools debian reindex-packages` command in the command tree.
+
+#### {{ cr-name }} {#v-1-20-0-cr-name}
+
+* Added the `--folder-id` parameter to the `yc cloudrouter routing-instance create` command.
+
+#### {{ mmg-name }} {#v-1-20-0-mmg-name}
+
+* Added the `--votes` parameter to these commands:
+  * `yc managed-mongodb hosts add`
+  * `yc managed-mongodb hosts update`
+
+#### Changes to the CLI system commands {#v-1-20-0-yc}
+
+* Added signing of macOS binaries with the `com.apple.security.smartcard` entitlement.
+
+## Previous releases {#previous-release}
+
+### Version 1.19.0 (21/07/26) {#v-1-19-0}
+
+#### {{ baremetal-name }} {#v-1-19-0-baremetal-name}
+
+* Added a description for the `yc baremetal v2 extend` command.
+
+#### {{ captcha-name }} {#v-1-19-0-captcha-name}
+
+* Added the `yc smartcaptcha captcha get-keys` command for getting keys.
+
+#### {{ cloud-desktop-name }} {#v-1-19-0-cloud-desktop-name}
+
+* Added the `time-zone`, `cron-start`, and `cron-stop` for the `group-config` attribute:
+  * `yc desktops group create`
+  * `yc desktops group update`
+
+#### {{ cloud-registry-name }} {#v-1-19-0-cloud-registry-name}
+
+* Added the `--include-patterns` and `--exclude-patterns` parameters for managing filtering patterns to these commands:
+  * `yc cloud-registry registry create`
+  * `yc cloud-registry registry update`
+* Command version v1 for `cloud-registry` is used by default.
+
+#### {{ iam-name }} {#v-1-19-0-iam-name}
+
+* Added the `expires-at` parameter to these commands:
+  * `yc iam service-account create`
+  * `yc iam service-account update`
+
+#### {{ compute-name }} {#v-1-19-0-compute-name}
+
+* Added the `--subnets` parameter to the `yc compute gpu-cluster create` command for creating custom GPU clusters.
+
+#### {{ maf-name }} {#v-1-19-0-maf-name}
+
+* Added the `--datacatalog-enabled` parameter for enabling integration with {{ data-catalog-name }}:
+  * `yc managed-airflow cluster create`
+  * `yc managed-airflow cluster update`
+
+#### {{ mmy-name }} {#v-1-19-0-mmy-name}
+
+* Added the `yc managed-mysql cluster stream-logs` command, which is identical to the existing `yc managed-mysql cluster list-logs` command.
+* The `yc managed-mysql cluster list-logs` command is deprecated; use the new `yc managed-mysql cluster stream-logs` command.
+
+#### {{ mos-name }} {#v-1-19-0-mos-name}
+
+* Added the `--read-admin-password` parameter to the `yc managed-opensearch cluster update` command for getting the generated password.
+* Added the `--log-authenticated-requests`, `--log-index-events`, and `--log-bad-headers` flags for granular management of additional events displayed in audit logs to the following commands:
+  * `yc managed-opensearch cluster create`
+  * `yc managed-opensearch cluster update`
+* Fixed the assignment of a new random password in the `yc managed-opensearch cluster update --generate-admin-password` command.
+
+#### {{ mpg-name }} {#v-1-19-0-mpg-name}
+
+* Added the `yc managed-postgresql cluster stream-logs` command, which is identical to the existing `yc managed-postgresql cluster list-logs` command.
+* The `yc managed-postgresql cluster list-logs` command is deprecated; use the new `yc managed-postgresql cluster stream-logs` command.
+
+#### {{ mtr-name }} {#v-1-19-0-mtr-name}
+
+* Added the `--metastore-hive-cluster-id` parameter to the commands for connecting {{ metastore-name }} by {{ metastore-name }} cluster ID:
+  * `yc managed-trino catalog create hive`
+  * `yc managed-trino catalog create iceberg`
+  * `yc managed-trino catalog create delta-lake`
+  * `yc managed-trino catalog create hudi`
+  * `yc managed-trino catalog update hive`
+  * `yc managed-trino catalog update iceberg`
+  * `yc managed-trino catalog update delta-lake`
+  * `yc managed-trino catalog update hudi`
+* Added the `--metastore-rest-uri` parameter to the commands for connecting an Iceberg catalog to the {{ metastore-name }} REST Catalog:
+  * `yc managed-trino catalog create iceberg`
+  * `yc managed-trino catalog update iceberg`
+* Added the `--metastore-hive-protocol` parameter to the commands for selecting a connection protocol to {{ metastore-name }} (Thrift or Iceberg REST) in an Iceberg catalog:
+  * `yc managed-trino catalog create iceberg`
+  * `yc managed-trino catalog update iceberg`
+
+#### {{ objstorage-name }} {#v-1-19-0-objstorage-name}
+
+* Added the `--validate-same-s3-paths` flag to the `yc storage s3 mv` command, which checks that the source and destination do not point to the same object, preventing accidental deletion when moving an object to itself.
+
+#### Changes to the CLI system commands {#v-1-19-0-yc}
+
+* Fixed the appearance of service escape sequences in the terminal output when running commands in `screen`.
+
 ### Version 1.18.0 (09/07/26) {#v-1-18-0}
 
 #### {{ interconnect-name }} {#v-1-18-0-cic}
@@ -51,8 +160,6 @@ description: This page presents CLI releases and their updates.
 #### {{ cloud-registry-name }} {#v-1-18-0-cloud-registry}
 
 * Added parameters for filtering by registry name, type, and status to the `yc cloud-registry registry list` command.
-
-## Previous releases {#previous-release}
 
 ### Version 1.17.0 (06/07/26) {#v-1-17-0}
 
@@ -114,8 +221,6 @@ Fixed content type detection in the `yc storage s3 cp` command.
 
 Removed the `yc loadtesting` command group since {{ load-testing-name }} is being discontinued.
 
-## Previous releases {#previous-release}
-
 ### Version 1.14.0 (18/06/26) {#v-1-14-0}
 
 #### {{ mrd-name }} {#v-1-14-0-mrd-name}
@@ -138,7 +243,7 @@ Added the `yc cloud-registry tools debian reindex-packages` command to invoke to
 
 #### {{ baremetal-name }} {#v-1-14-0-baremetal-name}
 
-Added a command branch in the new `yc baremetal v2` syntax.
+Added a command branch with the new `yc baremetal v2` syntax.
 
 #### {{ mtr-name }} {#v-1-14-0-mtr-name}
 

@@ -5,6 +5,8 @@ description: Follow this guide to configure an error transition rule for an inte
 
 # Configuring an error transition rule
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 For each [integration step](../../../concepts/workflows/yawl/index.md#integration-steps) in your workflow, you can configure [error transition rules](../../../concepts/workflows/yawl/index.md#catchrule) to handle errors encountered during that step. The rules will apply one by one after the retry policy.
 
 To configure an error transition rule for a workflow integration step, do the following:

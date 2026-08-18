@@ -7,29 +7,6 @@
 Имя метрики пишется в метку `name`.
 
 
-## Метрики Yandex Workflows {#workflows}
-
-Общая метка для всех метрик Workflows: `workflow` — идентификатор рабочего процесса.
-
-Имя метрики<br>Тип, единицы измерения | Описание<br>Метки
---- | ---
-`step_completed_per_second`<br>`DGAUGE`, шаги/с | Количество завершенных шагов в секунду.<br>Метка `step` — имя шага.
-`step_failed_per_second`<br>`DGAUGE`, шаги/с | Количество шагов в секунду, завершившихся с ошибкой.<br>Метки:<ul><li>`step` — имя шага.</li><li>`error_code` — код ошибки.</li></ul>
-`step_inflight_count`<br>`DGAUGE`, шаги | Количество шагов в процессе выполнения в данный момент.<br>Метка `step` — имя шага.
-`step_started_per_second`<br>`DGAUGE`, шаги/с | Количество запущенных шагов в секунду.<br>Метка `step` — имя шага.
-`step_time_milliseconds`<br>`DGAUGE`, миллисекунды | Время выполнения шага.<br>Метки:<ul><li>`bin` — бакеты гистограммы.</li><li>`step` — имя шага.</li></ul>
-`step_time_milliseconds_count`<br>`DGAUGE`, количество шагов | Общее количество измерений времени выполнения шагов.<br>Метка `step` — имя шага.
-`step_time_milliseconds_sum`<br>`DGAUGE`, миллисекунды | Суммарное время выполнения всех шагов.<br>Метка `step` — имя шага.
-`workflow_completed_per_second`<br>`DGAUGE`, рабочие процессы/с | Количество завершенных рабочих процессов в секунду.
-`workflow_failed_per_second`<br>`DGAUGE`, рабочие процессы/с | Количество рабочих процессов в секунду, завершившихся с ошибкой.<br>Метка `error_code` — код ошибки.
-`workflow_inflight_count`<br>`DGAUGE`, рабочие процессы | Количество рабочих процессов в процессе выполнения в данный момент.
-`workflow_scheduled_per_second`<br>`DGAUGE`, рабочие процессы/с | Количество рабочих процессов, запланированных в секунду.
-`workflow_started_per_second`<br>`DGAUGE`, рабочие процессы/с | Количество рабочих процессов, начатых в секунду.
-`workflow_time_milliseconds`<br>`DGAUGE`, миллисекунды | Время выполнения одного рабочего процесса.<br>Метка `bin` — бакеты гистограммы.
-`workflow_time_milliseconds_count`<br>`DGAUGE`, штуки | Общее количество измерений времени выполнения рабочих процессов.
-`workflow_time_milliseconds_sum`<br>`DGAUGE`, миллисекунды | Суммарное время выполнения всех рабочих процессов.
-
-
 ## Метрики Yandex EventRouter {#eventrouter}
 
 Все метрики EventRouter имеют общую метку `bus` — идентификатор [шины](../../serverless-integrations/concepts/eventrouter/bus.md).

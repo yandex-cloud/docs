@@ -10,6 +10,7 @@ Number of Docker images per community<br>`platform.dockerImages.count` | 3
 Project [storage](../datasphere/concepts/project.md#storage) size ([can be increased per project](../datasphere/operations/projects/storage-resize.md)) | 10 GB
 Number of communities linked to a single [billing account](../billing/concepts/billing-account.md) | 100
 Number of communities per [organization](../organization/) | 10
+Number of active [jobs](../datasphere/concepts/jobs/index.md) | 10
 **VM usage restrictions** |
 c1.32 ^1^ | 0
 c1.80 ^2^ | 0

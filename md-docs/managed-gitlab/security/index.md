@@ -84,17 +84,17 @@ flowchart BT
 
 #### gitlab.backupAdmin {#gitlab-backup-admin}
 
-Роль `gitlab.backupAdmin` позволяет полностью управлять резервными копиями инстансов Managed Service for GitLab. Пользователи с этой ролью могут создавать и удалять резервные копии, восстанавливать из них инстансы, а также скачивать резервные копии, в том числе секреты GitLab из этих резервных копий.
+Роль `gitlab.backupAdmin` позволяет полностью управлять резервными копиями [инстансов](../concepts/index.md#instance) Managed Service for GitLab. Пользователи с этой ролью могут создавать и удалять резервные копии, восстанавливать из них инстансы, а также скачивать резервные копии, в том числе секреты GitLab из этих резервных копий.
 
 Включает разрешения, предоставляемые ролями `gitlab.backupRestorer` и `gitlab.backupDownloader`.
 
 #### gitlab.backupRestorer {#gitlab-backup-restorer}
 
-Роль `gitlab.backupRestorer` позволяет восстанавливать инстансы Managed Service for GitLab из резервных копий.
+Роль `gitlab.backupRestorer` позволяет восстанавливать [инстансы](../concepts/index.md#instance) Managed Service for GitLab из резервных копий.
 
 #### gitlab.backupDownloader {#gitlab-backup-downloader}
 
-Роль `gitlab.backupDownloader` позволяет скачивать резервные копии инстансов Managed Service for GitLab, в том числе секреты GitLab из этих резервных копий.
+Роль `gitlab.backupDownloader` позволяет скачивать резервные копии [инстансов](../concepts/index.md#instance) Managed Service for GitLab, в том числе секреты GitLab из этих резервных копий.
 
 ### Примитивные роли {#primitive-roles}
 

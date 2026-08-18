@@ -241,6 +241,15 @@ the replica does not have a chunk written with the quorum and will not read the 
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#alter_sync).
 
+- `lightweight_deletes_sync`: Wait mode for lightweight **DELETE** queries on replicated tables.
+* **0** - do not wait for replicas.
+* **1** - only wait for own execution.
+* **2** - wait for all replicas.
+
+  Default value: **2**.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#lightweight_deletes_sync).
+
 - `max_replica_delay_for_distributed_queries`: Max replica delay in milliseconds. If a replica lags more than the set value, this replica is not used and becomes a stale one.
 
   Default value: **300000** (5 minutes).
@@ -1295,7 +1304,7 @@ Only Keeper requests which failed due to network error, Keeper session timeout o
 
 - `enable_analyzer`: Enables or disables new query analyzer.
 
-  Default value: **true** for versions 25.9 and higher, **false** for version 25.8, **true** for versions from 25.5 to 25.7, **false** for versions 25.4 and lower.
+  Default value: **true**.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/guides/developer/understanding-query-execution-with-the-analyzer#analyzer).
 

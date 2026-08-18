@@ -74,10 +74,6 @@
 
   Сконфигурируйте API-шлюз и настройте интеграцию для вызова функции.
 
-* [Yandex Workflows](../../serverless-integrations/quickstart/workflows.md).
-
-  Создайте рабочий процесс и запустите его.
-
 * [Yandex Serverless Containers](../../serverless-containers/quickstart/index.md).
 
   Создайте контейнер и триггер для него.

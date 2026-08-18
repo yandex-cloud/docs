@@ -9,6 +9,12 @@ In the [CDN resource](../../concepts/resource.md) settings, you can [enable cont
 
 {% include [cdn-content-caching-prgrph](../../../_includes/cdn/cdn-content-caching-prgrph.md) %}
 
+{% note info %}
+
+Caching settings affect the percentage of requests CDN servers can process from the cache (cache hits). {{ cdn-name }} does not guarantee any particular percentage of such requests. If the CDN server cannot respond from the cache, it requests contents from the origin. Factor in possible traffic increases when assessing the origin's acceptable load and operating costs.
+
+{% endnote %}
+
 To configure the caching parameters of a resource:
 
 {% list tabs group=instructions %}

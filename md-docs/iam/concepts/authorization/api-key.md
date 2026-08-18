@@ -60,7 +60,7 @@ _API-ключ_ — секретный ключ, используемый тол�
 * `yc.serverless.containers.invoke` — для вызова контейнеров через [API Serverless Containers](../../../serverless-containers/containers/api-ref/index.md).
 * `yc.serverless.functions.invoke` — для вызова функций через [API Cloud Functions](../../../functions/functions/api-ref/index.md).
 * `yc.serverless.mcpGateways.invoke` — для вызова [MCP-серверов](../../../glossary/mcp.md) через [Yandex AI Studio MCP Hub](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/mcp-hub/index).
-* `yc.serverless.workflows.execute` — для запуска [рабочих процессов](../../../serverless-integrations/concepts/workflows/execution.md) и получения информации о запуске через [API Workflows](../../../serverless-integrations/concepts/index.md#workflows).
+* `yc.serverless.workflows.execute` — для запуска [рабочих процессов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/execution) и получения информации о запуске через [API Workflows](../../../serverless-integrations/concepts/index.md#workflows).
 * `yc.speech-sense.use` — для работы с [ресурсами](https://aistudio.yandex.ru/docs/ru/speechsense/concepts/resources-hierarchy) SpeechSense через [API Yandex SpeechSense](https://aistudio.yandex.ru/docs/ru/speechsense/api-ref/authentication).
 * `yc.ydb.tables.manage` — для работы с YDB в режиме совместимости с PostgreSQL.
 * `yc.ydb.topics.manage` — для работы с [Kafka API](../../../data-streams/kafkaapi/auth.md) в Yandex Data Streams.
@@ -105,7 +105,7 @@ API-ключи в качестве способа аутентификации �
 * [Yandex Cloud Postbox](../../../postbox/api-ref/authentication.md)
 * [Yandex Search API](https://aistudio.yandex.ru/docs/ru/search-api/api-ref/authentication)
 * [Yandex Serverless Containers](../../../serverless-containers/index.md)
-* [Yandex Serverless Integrations](../../../serverless-integrations/index.md) — в рамках [Yandex Workflows](../../../serverless-integrations/concepts/workflows/workflow.md).
+* [Yandex Serverless Integrations](../../../serverless-integrations/index.md) — в рамках [Yandex Workflows](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow).
 * [Yandex SpeechKit](https://aistudio.yandex.ru/docs/ru/speechkit/concepts/auth)
 * [Yandex SpeechSense](https://aistudio.yandex.ru/docs/ru/speechsense/api-ref/authentication)
 * [Yandex Translate](https://aistudio.yandex.ru/docs/ru/translate/api-ref/authentication)

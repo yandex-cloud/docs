@@ -8,6 +8,7 @@ description: In this article, you will learn how to work with the command line i
 - [{#T}](install-cli.md) 
 - [{#T}](update-cli.md)
 - [{#T}](remove-cli.md)
+- [{#T}](command-versioning.md)
 
 ## Managing a profile {#profile}
 

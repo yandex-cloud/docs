@@ -1338,6 +1338,9 @@ items:
                       - name: list
                         href: >-
                           cli-ref/baremetal/cli-ref/v2/extend/stackland-cluster/list.md
+                      - name: list-stackland-cluster-operations
+                        href: >-
+                          cli-ref/baremetal/cli-ref/v2/extend/stackland-cluster/list-stackland-cluster-operations.md
                       - name: update
                         href: >-
                           cli-ref/baremetal/cli-ref/v2/extend/stackland-cluster/update.md
@@ -9804,6 +9807,70 @@ items:
                     href: cli-ref/managed-ytsaurus/cli-ref/v0/cluster/start.md
                   - name: stop
                     href: cli-ref/managed-ytsaurus/cli-ref/v0/cluster/stop.md
+      - name: managed-zonalshift
+        items:
+          - name: Overview
+            href: cli-ref/managed-zonalshift/cli-ref/index.md
+          - name: config
+            items:
+              - name: Overview
+                href: cli-ref/managed-zonalshift/cli-ref/config/index.md
+              - name: create
+                href: cli-ref/managed-zonalshift/cli-ref/config/create.md
+              - name: delete
+                href: cli-ref/managed-zonalshift/cli-ref/config/delete.md
+              - name: get
+                href: cli-ref/managed-zonalshift/cli-ref/config/get.md
+              - name: list
+                href: cli-ref/managed-zonalshift/cli-ref/config/list.md
+              - name: update
+                href: cli-ref/managed-zonalshift/cli-ref/config/update.md
+          - name: drill-type
+            items:
+              - name: Overview
+                href: cli-ref/managed-zonalshift/cli-ref/drill-type/index.md
+              - name: list
+                href: cli-ref/managed-zonalshift/cli-ref/drill-type/list.md
+          - name: task
+            items:
+              - name: Overview
+                href: cli-ref/managed-zonalshift/cli-ref/task/index.md
+              - name: cancel
+                href: cli-ref/managed-zonalshift/cli-ref/task/cancel.md
+              - name: list
+                href: cli-ref/managed-zonalshift/cli-ref/task/list.md
+          - name: v0
+            items:
+              - name: Overview
+                href: cli-ref/managed-zonalshift/cli-ref/v0/index.md
+              - name: config
+                items:
+                  - name: Overview
+                    href: cli-ref/managed-zonalshift/cli-ref/v0/config/index.md
+                  - name: create
+                    href: cli-ref/managed-zonalshift/cli-ref/v0/config/create.md
+                  - name: delete
+                    href: cli-ref/managed-zonalshift/cli-ref/v0/config/delete.md
+                  - name: get
+                    href: cli-ref/managed-zonalshift/cli-ref/v0/config/get.md
+                  - name: list
+                    href: cli-ref/managed-zonalshift/cli-ref/v0/config/list.md
+                  - name: update
+                    href: cli-ref/managed-zonalshift/cli-ref/v0/config/update.md
+              - name: drill-type
+                items:
+                  - name: Overview
+                    href: cli-ref/managed-zonalshift/cli-ref/v0/drill-type/index.md
+                  - name: list
+                    href: cli-ref/managed-zonalshift/cli-ref/v0/drill-type/list.md
+              - name: task
+                items:
+                  - name: Overview
+                    href: cli-ref/managed-zonalshift/cli-ref/v0/task/index.md
+                  - name: cancel
+                    href: cli-ref/managed-zonalshift/cli-ref/v0/task/cancel.md
+                  - name: list
+                    href: cli-ref/managed-zonalshift/cli-ref/v0/task/list.md
       - name: marketplace
         items:
           - name: Overview

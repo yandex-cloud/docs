@@ -1156,6 +1156,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [list](cli-ref/baremetal/cli-ref/v2/extend/stackland-cluster/list.md)
 
+ - [list-stackland-cluster-operations](cli-ref/baremetal/cli-ref/v2/extend/stackland-cluster/list-stackland-cluster-operations.md)
+
  - [update](cli-ref/baremetal/cli-ref/v2/extend/stackland-cluster/update.md)
 
 ##### hardware-pool
@@ -8801,6 +8803,70 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [start](cli-ref/managed-ytsaurus/cli-ref/v0/cluster/start.md)
 
  - [stop](cli-ref/managed-ytsaurus/cli-ref/v0/cluster/stop.md)
+
+### managed-zonalshift
+
+ - [Overview](cli-ref/managed-zonalshift/cli-ref/index.md)
+
+#### config
+
+ - [Overview](cli-ref/managed-zonalshift/cli-ref/config/index.md)
+
+ - [create](cli-ref/managed-zonalshift/cli-ref/config/create.md)
+
+ - [delete](cli-ref/managed-zonalshift/cli-ref/config/delete.md)
+
+ - [get](cli-ref/managed-zonalshift/cli-ref/config/get.md)
+
+ - [list](cli-ref/managed-zonalshift/cli-ref/config/list.md)
+
+ - [update](cli-ref/managed-zonalshift/cli-ref/config/update.md)
+
+#### drill-type
+
+ - [Overview](cli-ref/managed-zonalshift/cli-ref/drill-type/index.md)
+
+ - [list](cli-ref/managed-zonalshift/cli-ref/drill-type/list.md)
+
+#### task
+
+ - [Overview](cli-ref/managed-zonalshift/cli-ref/task/index.md)
+
+ - [cancel](cli-ref/managed-zonalshift/cli-ref/task/cancel.md)
+
+ - [list](cli-ref/managed-zonalshift/cli-ref/task/list.md)
+
+#### v0
+
+ - [Overview](cli-ref/managed-zonalshift/cli-ref/v0/index.md)
+
+##### config
+
+ - [Overview](cli-ref/managed-zonalshift/cli-ref/v0/config/index.md)
+
+ - [create](cli-ref/managed-zonalshift/cli-ref/v0/config/create.md)
+
+ - [delete](cli-ref/managed-zonalshift/cli-ref/v0/config/delete.md)
+
+ - [get](cli-ref/managed-zonalshift/cli-ref/v0/config/get.md)
+
+ - [list](cli-ref/managed-zonalshift/cli-ref/v0/config/list.md)
+
+ - [update](cli-ref/managed-zonalshift/cli-ref/v0/config/update.md)
+
+##### drill-type
+
+ - [Overview](cli-ref/managed-zonalshift/cli-ref/v0/drill-type/index.md)
+
+ - [list](cli-ref/managed-zonalshift/cli-ref/v0/drill-type/list.md)
+
+##### task
+
+ - [Overview](cli-ref/managed-zonalshift/cli-ref/v0/task/index.md)
+
+ - [cancel](cli-ref/managed-zonalshift/cli-ref/v0/task/cancel.md)
+
+ - [list](cli-ref/managed-zonalshift/cli-ref/v0/task/list.md)
 
 ### marketplace
 

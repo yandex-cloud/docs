@@ -5,6 +5,8 @@ description: Follow this guide to add sending emails with {{ postbox-full-name }
 
 # Sending emails with {{ postbox-full-name }}
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 {% include [templating-note](../../../../_includes/serverless-integrations/templating-note.md) %}
 
 {% list tabs %}

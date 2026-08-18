@@ -108,7 +108,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 
 ## Yandex AI Studio {#ai-studio}
 
-Имя сервиса — `ai`.
+Имя сервиса — `ai` для всех событий, кроме событий Yandex Workflows. Для событий Yandex Workflows имя сервиса — `serverless.workflows`.
 
 Имя события | Описание
 --- | ---
@@ -122,6 +122,10 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `searchindex.DeleteSearchIndex` | Удаление поискового индекса
 `searchindex.UploadFilesToSearchIndex` | Загрузка файлов в поисковый индекс
 `responses.GetResponse` | Получение ответа
+`executionFinished` | Завершение выполнения запуска рабочего процесса
+`startExecution` | Запуск рабочего процесса
+`stopExecution` | Остановка запуска рабочего процесса
+`terminateExecution` | Прекращение запуска рабочего процесса
 
 ## Yandex Identity Hub {#organization}
 
@@ -563,14 +567,3 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `Execute` | Выполнение запроса
 `GenerateSql` | Генерация запроса
 `GetDatabaseStructure` | Получение структуры базы данных
-
-## Yandex Workflows {#workflows}
-
-Имя сервиса — `serverless.workflows`.
-
-Имя события | Описание
---- | ---
-`ExecutionFinished` | Завершение выполнения запуска рабочего процесса
-`StartExecution` | Запуск рабочего процесса
-`StopExecution` | Остановка запуска рабочего процесса
-`TerminateExecution` | Прекращение запуска рабочего процесса

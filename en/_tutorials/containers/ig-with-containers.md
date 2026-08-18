@@ -21,7 +21,7 @@ We will use the [Docker Compose specification](../../cos/concepts/coi-specificat
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your service account.
-     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+     1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
      1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
      1. Enter the name: `group-coi`.
      1. To assign the service account the `editor` role for the current folder, click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `editor`.
@@ -65,7 +65,7 @@ We will use the [Docker Compose specification](../../cos/concepts/coi-specificat
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder where you want to create your network.
-     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+     1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
      1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
      1. Specify `yc-auto-network` as the network name.
      1. Select the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option.
@@ -213,8 +213,8 @@ We will use the [Docker Compose specification](../../cos/concepts/coi-specificat
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder where you created the instance group.
-     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-     1. Navigate to **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
+     1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+     1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
      1. Click `group-coi-containers`.
 
    - CLI {#cli}

@@ -106,7 +106,7 @@ Create an [API gateway](../../api-gateway/concepts/index.md) for interaction bet
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. [Navigate]({{ link-console-main }}/link/api-gateway) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter `gate-1`.
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
@@ -126,7 +126,7 @@ Create a {{ ydb-short-name }} database in [Serverless mode](../../ydb/concepts/s
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you created the bucket.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. [Navigate]({{ link-console-main }}/link/ydb) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
   1. Specify a **{{ ui-key.yacloud.ydb.forms.label_field_name }}** for the database. The naming requirements are as follows:
 
@@ -461,7 +461,7 @@ To upload the current specification to {{ api-gw-name }}, run this command:
 - Yandex Dialogs console
 
   1. Go to the **Settings** tab.
-  1. Go to the **Intents** tab and click **Create**.
+  1. Open the **Intents** tab and click **Create**.
   1. Add intents for every action possible in the dialog. The intents you make reside in the project's `yc-serverless-alice-shareable-todolist/intents` folder.
   1. Enter the following:
 

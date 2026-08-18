@@ -39,7 +39,7 @@ Set of categories permissions grant access to ||
 Set of commands permissions grant access to ||
 || `--sanitize-payload` | `string`
 
-Sanitize payload setting. Possible values: sanitize-payload, skip-sanitize-payload ||
+[DEPRECATED] Sanitize payload setting. Possible values: sanitize-payload, skip-sanitize-payload. This parameter is ignored. ||
 || `--patterns` | `string`
 
 Set of patterns permissions grant access to ||

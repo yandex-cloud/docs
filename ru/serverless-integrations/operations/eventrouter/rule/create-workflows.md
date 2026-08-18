@@ -20,7 +20,7 @@ description: Следуя данной инструкции, вы сможете
   1. В блоке **{{ ui-key.yacloud.serverless-event-router.label_targets }}** нажмите **{{ ui-key.yacloud.common.add }}** и настройте приемник:
 
       1. Укажите тип приемника `{{ sw-full-name }}`.
-      1. Выберите [рабочий процесс](../../../concepts/workflows/workflow.md), на вход которого будут отправляться сообщения, соответствующие правилу.
+      1. Выберите [рабочий процесс]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow), на вход которого будут отправляться сообщения, соответствующие правилу.
       1. Выберите [сервисный аккаунт](../../../../iam/concepts/users/service-accounts.md), которому назначена роль `serverless.workflows.executor` или выше на выбранный процесс, или [создайте](../../../../iam/operations/sa/create.md) новый.
       1. {% include [target-retry-console](../../../../_includes/serverless-integrations/target-retry-console.md) %}
       1. {% include [target-grouping-console](../../../../_includes/serverless-integrations/target-grouping-console.md) %}
@@ -71,7 +71,7 @@ description: Следуя данной инструкции, вы сможете
 
       * `--workflow-target` — параметр для настройки приемника с типом `{{ sw-full-name }}` и его свойства:
 
-          * `workflow-id` — идентификатор [рабочего процесса](../../../concepts/workflows/workflow.md), на вход которого будут отправляться сообщения, соответствующие правилу.
+          * `workflow-id` — идентификатор [рабочего процесса]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow), на вход которого будут отправляться сообщения, соответствующие правилу.
           * `service-account-id` — идентификатор [сервисного аккаунта](../../../../iam/concepts/users/service-accounts.md), которому назначена роль `serverless.workflowsExecutor` или выше на выбранный процесс.
 
 
@@ -165,7 +165,7 @@ description: Следуя данной инструкции, вы сможете
       * `jq_filter` — [jq-шаблон](https://jqlang.github.io/jq/manual/) для [фильтрации](../../../concepts/eventrouter/rule.md#filter) событий.
       * `workflow` — блок для настройки приемника с типом `{{ sw-full-name }}` и его параметры:
 
-          * `workflow_id` — идентификатор [рабочего процесса](../../../concepts/workflows/workflow.md), в которую будут отправляться сообщения, соответствующие правилу.
+          * `workflow_id` — идентификатор [рабочего процесса]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow), в которую будут отправляться сообщения, соответствующие правилу.
           * `service_account_id` — идентификатор [сервисного аккаунта](../../../../iam/concepts/users/service-accounts.md), которому назначена роль `serverless.workflowsExecutor` или выше на выбранный процесс.
 
           {% include [target-grouping-tf](../../../../_includes/serverless-integrations/target-grouping-tf.md) %}
