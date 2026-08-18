@@ -31,12 +31,6 @@ keywords:
 
 ## Доступные функциональности {#instruments}
 
-### {{ sw-name }} {#workflows}
-
-{% include [workflows-preview-note](../../_includes/serverless-integrations/workflows-preview-note.md) %}
-
-Выстраивайте и автоматизируйте рабочие процессы при помощи декларативной спецификации Yandex Workflows Language (YaWL).
-
 ### {{ er-name }} {#eventrouter}
 
 {% include [event-router-preview-note](../../_includes/serverless-integrations/event-router-preview-note.md) %}

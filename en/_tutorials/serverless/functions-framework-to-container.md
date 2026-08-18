@@ -59,7 +59,7 @@ The cost of support for the new infrastructure includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you are going to create your infrastructure.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**, and in the window that opens:
       1. Name the [service account](../../iam/concepts/users/service-accounts.md): `serverless-containers-sa`.
       1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select [`container-registry.images.puller`](../../container-registry/security/index.md#container-registry-images-puller).
@@ -129,7 +129,7 @@ The cost of support for the new infrastructure includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you created the service account.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. [Navigate]({{ link-console-main }}/link/container-registry) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Click **{{ ui-key.yacloud.cr.overview.button_create }}**.
   1. In the **{{ ui-key.yacloud.cr.overview.popup-create_field_name }}** field, enter the registry name: `functions-framework-registry`.
   1. Click **{{ ui-key.yacloud.cr.overview.popup-create_button_create }}**.
@@ -505,8 +505,8 @@ Use the Docker image pushed to {{ container-registry-name }} to create a contain
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing the resources you created.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the previously created resources.
+  1. [Navigate]({{ link-console-main }}/link/serverless-containers) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Click **{{ ui-key.yacloud.serverless-containers.button_create-container }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify the container name: `my-first-function`.
   1. Click **{{ ui-key.yacloud.common.create }}**.

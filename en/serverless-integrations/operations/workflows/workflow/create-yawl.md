@@ -5,6 +5,8 @@ description: Follow this guide to create a workflow using a YaWL specification.
 
 # Creating a workflow using a YaWL specification
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 ## Preparing a YaWL specification {#prepare-spec}
 
 Save the workflow [YaWL specification](../../../concepts/workflows/yawl/index.md) to a YAML file, e.g., `yawl-spec.yaml`.

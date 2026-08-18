@@ -5,6 +5,8 @@ description: Follow this guide to use the workflow step constructor to add a seq
 
 # Adding the Foreach loop
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 You can use the Foreach control step to set a sequence of steps to apply to each input data item. The output is an array of execution results for all steps in the sequence. Read more about the [workflow state during the Foreach step](../../../concepts/workflows/workflow.md#state-for-Foreach).
 
 {% include [templating-note](../../../../_includes/serverless-integrations/templating-note.md) %}

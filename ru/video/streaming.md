@@ -109,7 +109,7 @@ description: Чтобы запустить видеотрансляцию {{ vid
 
 1. Вернитесь на вкладку ![streams](../_assets/console-icons/antenna-signal.svg) **{{ ui-key.yacloud_video.streams.title_streams }}** сервиса {{ video-name }}.
 1. Выберите трансляцию, созданную ранее.
-1. Включите опцию **Принимать сигнал**.
+1. Включите опцию **{{ ui-key.yacloud_video.streams.label_enable-broadcast }}**.
 1. В OBS Studio на панели справа снизу **Управление** нажмите **Начать трансляцию**.
 1. Дождитесь начала трансляции.
 

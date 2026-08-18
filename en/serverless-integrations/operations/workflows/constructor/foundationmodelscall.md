@@ -5,6 +5,8 @@ description: Follow this guide to add interaction with {{ ai-studio-name }} mode
 
 # Interacting with {{ ai-studio-name }} models
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 {% include [templating-note](../../../../_includes/serverless-integrations/templating-note.md) %}
 
 {% list tabs %}

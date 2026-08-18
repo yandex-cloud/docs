@@ -2,6 +2,7 @@ For partial purging, you can specify paths to individual files and folders. Each
 
 {% note info %}
 
+* The number of file paths per cache purging request is [limited](../../cdn/concepts/limits.md#cdn-limits).
 * The `*` wildcard character can only be used at the end of the path. If you specify `*` at the beginning or middle of a path, the cache for matching files will not be purged.
 * If [file segmentation](../../cdn/operations/resources/enable-segmentation.md) is enabled for the resource, keep in mind that when you perform a selective cache purge for a specific file, the file is stored in parts across the CDN servers. Use one of the following options:
 

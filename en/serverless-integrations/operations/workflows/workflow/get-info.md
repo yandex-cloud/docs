@@ -5,6 +5,8 @@ description: Follow this guide to get information about a {{ sw-full-name }} wor
 
 # Getting workflow info
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}

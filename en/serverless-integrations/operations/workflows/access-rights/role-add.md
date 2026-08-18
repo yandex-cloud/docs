@@ -5,6 +5,8 @@ description: Follow this tutorial to assign roles for a {{ sw-name }} workflow.
 
 # Assigning roles for a workflow
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 {% list tabs group=instructions %}
 
 - CLI {#cli}
@@ -23,7 +25,7 @@ description: Follow this tutorial to assign roles for a {{ sw-name }} workflow.
         --role <role>
       ```
 
-  * To a [service account](../../../../iam/concepts/users/service-accounts.md):
+  * [To a service account](../../../../iam/concepts/users/service-accounts.md):
 
       ```bash
       yc serverless workflow add-access-binding <workflow_name_or_ID> \

@@ -5,6 +5,8 @@ description: You can view a monitoring chart in {{ sw-full-name }} using the man
 
 # Viewing workflow monitoring charts
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}

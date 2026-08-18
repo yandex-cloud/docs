@@ -10,3 +10,7 @@
 `searchindex.DeleteSearchIndex` | Удаление поискового индекса
 `searchindex.UploadFilesToSearchIndex` | Загрузка файлов в поисковый индекс
 `responses.GetResponse` | Получение ответа
+`executionFinished` | Завершение выполнения запуска рабочего процесса
+`startExecution` | Запуск рабочего процесса
+`stopExecution` | Остановка запуска рабочего процесса
+`terminateExecution` | Прекращение запуска рабочего процесса

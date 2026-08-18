@@ -5,11 +5,13 @@ description: This article describes the fields for the FoundationModelsCall inte
 
 # FoundationModelsCall
 
+{% include [workflows-ai-studio-note](../../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 Integration with [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/).
 
 The `generate`, `classify`, `fewShotClassify`, and `vision` fields are mutually exclusive: you can use only one of them.
 
-Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
+Field name | Type | Required | Default value | [Templating](../../templating.md) supported | Description
 --- | --- | --- | --- | --- | ---
 `modelUrl` | `string` | Yes | None | None | ID of the model to call.
 `generate` | [FoundationModelsGenerate](#FoundationModelsGenerate) | None | None | None | Configuring a `generate` action to generate a text.
@@ -22,7 +24,7 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 
 The `json` and `messages` fields are mutually exclusive: you can use only one of them. The `jsonSchema` and `jsonObject` fields are mutually exclusive: you can use only one of them.
 
-Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
+Field name | Type | Required | Default value | [Templating](../../templating.md) supported | Description
 --- | --- | --- | --- | --- | ---
 `temperature` | `number` | Yes | `0.3` | None | With a higher temperature, you get a more creative and randomized response from the model. This parameter accepts values between 0 and 1, inclusive. 
 `maxTokens` | `integer` | Yes | `5.0` | None | Maximum number of tokens to generate. Allows limiting the model's response if needed.
@@ -34,13 +36,13 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 
 ## FoundationModelsGenerate.Messages object {#FoundationModelsGenerateMessages}
 
-Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
+Field name | Type | Required | Default value | [Templating](../../templating.md) supported | Description
 --- | --- | --- | --- | --- | ---
 `messages` | [FoundationModelsGenerate.Message](#FoundationModelsGenerateMessage) | Yes | None | Yes | Input messages
 
 ## FoundationModelsGenerate.Message object {#FoundationModelsGenerateMessage}
 
-Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
+Field name | Type | Required | Default value | [Templating](../../templating.md) supported | Description
 --- | --- | --- | --- | --- | ---
 `role` | `string` | Yes | None | None | Message sender ID. The available values are `system`, `assistant`, and `user`. Read more in [TextGeneration.completion]({{ link-docs-ai }}ai-studio/text-generation/api-ref/TextGeneration/completion).
 `text` | `string` | Yes | None | Yes | Message text. Read more in [TextGeneration.completion]({{ link-docs-ai }}ai-studio/text-generation/api-ref/TextGeneration/completion).
@@ -48,7 +50,7 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 ## FoundationModelsGenerate.ReasoningOptions object {#FoundationModelsGenerateReasoningOptions}
 
 #|
-|| **Field name** | **Type** | **This is a required field** | **Default value** | **[Templating](../../templating.md) is supported** | **Description** ||
+|| **Field name** | **Type** | **This is a required field** | **Default value** | **[Templating](../../templating.md) supported** | **Description** ||
 || `mode` | `string` | Yes | `REASONING_MODE_UNSPECIFIED` | None | Possible statuses of the reasoning mode:
 * `REASONING_MODE_UNSPECIFIED`: Not specified.
 * `DISABLED`: Disabled.
@@ -57,7 +59,7 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 
 ## FoundationModelsClassify object {#FoundationModelsClassify}
 
-Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
+Field name | Type | Required | Default value | [Templating](../../templating.md) supported | Description
 --- | --- | --- | --- | --- | ---
 `text` | `string` | Yes | None | Yes | Text description of the message
 
@@ -65,7 +67,7 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 
 The `labelsJson` and `labelsArray` fields are mutually exclusive: you can use only one of them. The `samplesJson` and `samplesArray` fields are mutually exclusive: you can use only one of them.
 
-Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
+Field name | Type | Required | Default value | [Templating](../../templating.md) supported | Description
 --- | --- | --- | --- | --- | ---
 `taskDescription` | `string` | Yes | None | Yes | Text description of the task for the classifier
 `text`            | `string` | Yes | None | Yes | Text description of the message
@@ -76,19 +78,19 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 
 ## FoundationModelsFewShotClassify.Labels object {#FoundationModelsFewShotClassifyLabels}
 
-Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
+Field name | Type | Required | Default value | [Templating](../../templating.md) supported | Description
 --- | --- | --- | --- | --- | ---
 `labels` | `string` | Yes | None | Yes | Classes
 
 ## FoundationModelsFewShotClassify.Samples object {#FoundationModelsFewShotClassifySamples}
 
-Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
+Field name | Type | Required | Default value | [Templating](../../templating.md) supported | Description
 --- | --- | --- | --- | --- | ---
 `samples` | [FoundationModelsFewShotClassify.Sample](#FoundationModelsFewShotClassifySample) | Yes | None | None | Request examples
 
 ## FoundationModelsFewShotClassify.Sample object {#FoundationModelsFewShotClassifySample}
 
-Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
+Field name | Type | Required | Default value | [Templating](../../templating.md) supported | Description
 --- | --- | --- | --- | --- | ---
 `text` | `string` | Yes | None | Yes | Text description of the message
 `label` | `string` | Yes | None | Yes | Class
@@ -97,7 +99,7 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 
 The `json` and `messages` fields are mutually exclusive: you can use only one of them.
 
-Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
+Field name | Type | Required | Default value | [Templating](../../templating.md) supported | Description
 --- | --- | --- | --- | --- | ---
 `temperature` | `number` | Yes | `0.3` | None | With a higher temperature, you get a more creative and randomized response from the model. This parameter accepts values between 0 and 1, inclusive. 
 `maxTokens` | `integer` | Yes | `5.0` | None | Maximum number of tokens to generate. Allows limiting the model's response if needed.
@@ -106,13 +108,13 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 
 ## FoundationModelsVision.Messages object {#FoundationModelsVisionMessages}
 
-Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
+Field name | Type | Required | Default value | [Templating](../../templating.md) supported | Description
 --- | --- | --- | --- | --- | ---
 `messages` | [FoundationModelsVision.Message](#FoundationModelsVisionMessage) | Yes | None | Yes | Input messages
 
 ## FoundationModelsVision.Message object {#FoundationModelsVisionMessage}
 
-Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
+Field name | Type | Required | Default value | [Templating](../../templating.md) supported | Description
 --- | --- | --- | --- | --- | ---
 `role` | `string` | Yes | None | None | Message sender ID. The available values are `system`, `assistant`, and `user`. Read more in [TextGeneration.completion]({{ link-docs-ai }}ai-studio/text-generation/api-ref/TextGeneration/completion). If the `images` field is not empty, specify `role: user`.
 `text` | `string` | Yes | None | Yes | Message text. Read more in [TextGeneration.completion]({{ link-docs-ai }}ai-studio/text-generation/api-ref/TextGeneration/completion).
@@ -122,7 +124,7 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 
 The `base64` and `file` fields are mutually exclusive: you can use only one of them.
 
-Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
+Field name | Type | Required | Default value | [Templating](../../templating.md) supported | Description
 --- | --- | --- | --- | --- | ---
 `base64` | `string` | None | None | Yes | Image in [Base64](https://{{ lang }}.wikipedia.org/wiki/Base64) format
 `file` | [FoundationModelsVision.File](#FoundationModelsVisionFile) | None | None | None | Image from the provided source
@@ -131,14 +133,14 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 
 The `url` and `objectStorage` fields are mutually exclusive: you can use only one of them.
 
-Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
+Field name | Type | Required | Default value | [Templating](../../templating.md) supported | Description
 --- | --- | --- | --- | --- | ---
 `url` | `string` | None | None | Yes | Publicly accessible image URL
 `objectStorage` | [FoundationModelsVision.ObjectStorage](#FoundationModelsVisionObjectStorage) | None | None | None | Image from an {{ objstorage-name }} [bucket](../../../../../storage/concepts/bucket.md)
 
 ## FoundationModelsVision.ObjectStorage {#FoundationModelsVisionObjectStorage}
 
-Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
+Field name | Type | Required | Default value | [Templating](../../templating.md) supported | Description
 --- | --- | --- | --- | --- | ---
 `bucket` | `string` | Yes | None | None | Name of the {{ objstorage-name }} bucket containing the image
 `object` | `string` | Yes | None | Yes | Name of the image object, e.g., `prefix/subprefix/image.png`

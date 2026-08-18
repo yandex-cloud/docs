@@ -5,6 +5,8 @@ description: Follow this guide to add sending messages to a {{ message-queue-ful
 
 # Sending messages to a {{ message-queue-full-name }} queue
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 {% include [templating-note](../../../../_includes/serverless-integrations/templating-note.md) %}
 
 {% list tabs %}

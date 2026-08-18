@@ -18,8 +18,8 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [common-spec-constructor](../../../_includes/api-gateway/common-spec-constructor.md) %}
 
-      * **{{ ui-key.yc-serverless-apigw.dynamic-forms.service_account_id_name }}** — сервисный аккаунт с ролью `serverless.workflows.executor` для [запуска рабочего процесса](../../../serverless-integrations/concepts/workflows/execution.md). Если у вас нет сервисного аккаунта, [создайте](../../../iam/operations/sa/create.md) его.
-      * **Рабочий процесс** — имя [рабочего процесса](../../../serverless-integrations/concepts/workflows/workflow.md).
+      * **{{ ui-key.yc-serverless-apigw.dynamic-forms.service_account_id_name }}** — сервисный аккаунт с ролью `serverless.workflows.executor` для [запуска рабочего процесса]({{ link-docs-ai }}ai-studio/concepts/workflows/execution). Если у вас нет сервисного аккаунта, [создайте](../../../iam/operations/sa/create.md) его.
+      * **Рабочий процесс** — имя [рабочего процесса]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow).
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 

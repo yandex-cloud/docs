@@ -5,6 +5,8 @@ description: Follow this guide to use the workflow step constructor to add the S
 
 # Adding the Success step
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 The Success control step successfully completes the workflow execution. If the step is inside the [Foreach](./foreach.md) or [Parallel](./parallel.md) steps, it terminates the entire workflow execution, not just the current execution branch.
 
 {% list tabs %}

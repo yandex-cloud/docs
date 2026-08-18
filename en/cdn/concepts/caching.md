@@ -8,6 +8,14 @@ In the CDN resource settings, you can enable _content caching_ to temporarily st
 
 {% include [cdn-content-caching-prgrph](../../_includes/cdn/cdn-content-caching-prgrph.md) %}
 
+{% note info %}
+
+{{ cdn-name }} does not guarantee any particular percentage of cached requests hitting the cache (cache hits). If the CDN server cannot respond to a request from the cache, it requests the content from the origin. Depending on caching settings, the frequency of publishing new content, and the nature of user requests, the amount of traffic to the origin can be comparable to the outgoing traffic of the CDN.
+
+Tale this traffic into account when assessing the origin's acceptable load and operating costs. For more information, see [{#T}](../troubleshooting.md#origin-load-growth).
+
+{% endnote %}
+
 ### Cache lifetime {#server-side-cache-age}
 
 Until the cache lifetime expires, the CDN server returns a cached copy of the file to the clients without accessing origins.
@@ -54,12 +62,6 @@ There are technical [limits](limits.md) on cache prefetching.
 ## Purging cache {#purge}
 
 You can delete cached file copies from CDN servers by _purging the cache_. This lets you quickly update in the CDN the content that has changed in the origins.
-
-{% note warning %}
-
-{% include [purge-cache-limits-notice](../../_includes/cdn/purge-cache-limits-notice.md) %}
-
-{% endnote %}
 
 You can [purge](../operations/resources/purge-cache.md) cache either fully or partially. Partial purge is recommended: if you delete copies of all files from the cache, CDN servers will significantly increase the load on the origins, having to access them at every file request.
 

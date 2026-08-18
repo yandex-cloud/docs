@@ -8,6 +8,7 @@ The authentication process from inside a VM is simplified for a service account:
       yc config profile create my-robot-profile
       ```
 
+
 1. Configure your profile to run commands.
 
     {% include [add-folder](../cli-add-folder.md) %}

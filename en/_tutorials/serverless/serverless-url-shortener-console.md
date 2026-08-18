@@ -67,7 +67,7 @@ To create a service account to enable interaction between the shortener componen
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the relevant folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Name the [service account](../../iam/concepts/users/service-accounts.md): `serverless-shortener`.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `editor`.
@@ -225,7 +225,7 @@ To publish your URL shortener via {{ api-gw-name }}:
 ## How to delete the resources you created {#clear-out}
 
 To stop paying for the resources you created:
-1. [Delete](../../api-gateway/operations/api-gw-delete.md) `for-serverless-shortener`.
+1. [Delete](../../api-gateway/operations/api-gw-delete.md) the `for-serverless-shortener` API gateway.
 1. [Delete](../../functions/operations/function/function-delete.md) the function in `for-serverless-shortener`.
 1. [Delete](../../ydb/operations/manage-databases.md#delete-db) the `for-serverless-shortener` YDB database.
 1. [Delete](../../storage/operations/buckets/delete.md) the bucket.

@@ -690,7 +690,7 @@ During project deployment, the system created these service accounts:
 1. Inject new values into the secret named `game-secrets`:
 
     1. In the [management console]({{ link-console-main }}), select your working folder.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+    1. [Navigate]({{ link-console-main }}/link/message-queue) to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
     1. Select `capturing-queue`.
     1. Copy the value from the **{{ ui-key.yacloud.ymq.queue.overview.label_url }}** field and save it to the `YMQ_CAPTURE_QUEUE_URL` variable:
 

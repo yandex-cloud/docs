@@ -5,24 +5,26 @@ description: This article describes the fields for the OCR integration step.
 
 # OCR
 
+{% include [workflows-ai-studio-note](../../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 Image-to-text recognition with [{{ vision-full-name }}]({{ link-docs-ai }}vision/concepts/ocr/).
 
 The `base64`, `url`, `objectStorage`, and `disk` fields are mutually exclusive: you can use only one of them.
 
 Field name | Type | Required | Default value | [Templating](../../templating.md) supported | Description
 --- | --- | --- | --- | --- | ---
-`recognizeText` | [OCR.RecognizeText](#OCR-RecognizeText) | Yes | No | No | Text recognition settings.
-`base64` | `string` | No | No | Yes | Base64-encoded image.
-`url` | `string` | No | No | Yes | Image via a public URL.
-`objectStorage` | [OCR.ObjectStorage](#OCR-ObjectStorage) | No | No | No | Image from an {{ objstorage-name }} [bucket](../../../../../storage/concepts/bucket.md).
-`disk` | [OCR.Disk](#OCR-Disk) | No | No | No | Image on Yandex Disk.
+`recognizeText` | [OCR.RecognizeText](#OCR-RecognizeText) | Yes | None | None | Text recognition settings.
+`base64` | `string` | None | None | Yes | Base64-encoded image.
+`url` | `string` | None | None | Yes | Image via a public URL.
+`objectStorage` | [OCR.ObjectStorage](#OCR-ObjectStorage) | None | None | None | Image from an {{ objstorage-name }} [bucket](../../../../../storage/concepts/bucket.md).
+`disk` | [OCR.Disk](#OCR-Disk) | None | None | None | Image on Yandex Disk.
 
 ## OCR.RecognizeText {#OCR-RecognizeText}
 
 #|
 || **Field name** | **Type** | **This is a required field** | **Default value** | **[Templating](../../templating.md) supported** | **Description** ||
-|| `mimeType` | `string` | Yes | No | No | Image file format. Available formats: `pdf`, `jpeg`, `png`. ||
-|| `languageCodes` | `string[]` | Yes | No | No | Text recognition languages.
+|| `mimeType` | `string` | Yes | None | None | Image file format. Available formats: `pdf`, `jpeg`, `png`. ||
+|| `languageCodes` | `string[]` | Yes | None | None | Text recognition languages. 
 
 {% cut "Available languages" %}
 
@@ -75,7 +77,7 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 {% endcut %}
 
 ||
-|| `model` | `string` | Yes | No | No | Text recognition model.
+|| `model` | `string` | Yes | None | None | Text recognition model. 
 
 {% cut "Available models" %}
 
@@ -101,13 +103,13 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 
 Field name | Type | Required | Default value | [Templating](../../templating.md) supported | Description
 --- | --- | --- | --- | --- | ---
-`bucket` | `string` | Yes | No| No | Name of the {{ objstorage-name }} bucket the image file is in.
-`object` | `string` | Yes | No | Yes | Object name, e.g., `prefix/subprefix/data.png`.
+`bucket` | `string` | Yes | None| None | Name of the {{ objstorage-name }} bucket the image file is in.
+`object` | `string` | Yes | None | Yes | Object name, e.g., `prefix/subprefix/data.png`.
 
 ## OCR.Disk {#OCR-Disk}
 
 Field name | Type | Required | Default value | [Templating](../../templating.md) supported | Description |
 --- | --- | --- | --- | --- | ---
-`oauthToken` | `string` | Yes | No | No | [OAuth token]({{ link-yadisk-doc }}concepts/quickstart#oauth) for authentication when accessing Yandex Disk. |
-`path` | `string` | Yes | No | Yes | Image file path. |
-`sharedDiskId` | `string` | No | No | Yes | Shared disk [label]({{ link-yadisk-doc }}reference/content_shd#query). |
+`oauthToken` | `string` | Yes | None | None | [OAuth token]({{ link-yadisk-doc }}concepts/quickstart#oauth) for authentication when accessing Yandex Disk. |
+`path` | `string` | Yes | None | Yes | Image file path. |
+`sharedDiskId` | `string` | None | None | Yes | Shared disk [label]({{ link-yadisk-doc }}reference/content_shd#query). |

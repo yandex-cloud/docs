@@ -258,8 +258,8 @@ yc compute instance create \
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder with the `default` log group whose ID you specified in the `spec.yaml` file.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the `default` log group whose ID you specified in the `spec.yaml` file.
+  1. [Navigate]({{ link-console-main }}/link/logging) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
   1. Select the `default` log group. The page that opens will show the log group entries.
 
 - CLI {#cli}

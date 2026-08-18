@@ -67,12 +67,16 @@ items:
             href: operations/streams/obs-config-help.md
           - name: Начать трансляцию
             href: operations/streams/start.md
+          - name: Проверить состояние трансляции
+            href: operations/streams/monitoring.md
           - name: Получить код вставки или ссылку
             href: operations/streams/get-link.md
           - name: Отозвать доступ к трансляции
             href: operations/streams/revoke-access.md
           - name: Добавить завершенную трансляцию в плейлист
             href: operations/streams/add-to-playlist.md
+          - name: Посмотреть статистику просмотров трансляции
+            href: operations/streams/get-statistics.md
           - name: Удалить трансляцию
             href: operations/streams/delete.md
       - name: Плейлисты
@@ -91,6 +95,10 @@ items:
     items:
       - name: Готовые решения по оформлению видео в IFrame
         href: tutorials/video-iframe.md
+      - name: Интеграции
+        items:
+          - name: Плагин для Moodle LMS
+            href: tutorials/moodle-plugin.md
   - name: Концепции
     items:
       - name: Обзор

@@ -40,7 +40,7 @@ The support cost for this solution includes:
 
       * Service account for the resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../managed-kubernetes/security/index.md#yc-api) for the folder that will host the new {{ managed-k8s-name }} cluster. This service account will be used to create resources for the {{ managed-k8s-name }} cluster.
 
-      * Service account for nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#required-roles) role for the Docker image [registry](../../container-registry/concepts/registry.md) folder. The nodes will use this account to pull Docker images from the registry.
+      * Service account for nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#required-roles) role for the folder with the Docker image [registry](../../container-registry/concepts/registry.md). The nodes will use this account to pull Docker images from the registry.
 
          You can use the same service account for both operations.
 
@@ -50,7 +50,7 @@ The support cost for this solution includes:
 
         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-   1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) with any suitable configuration. When creating, specify the preconfigured security groups.
+   1. [Create](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) a {{ managed-k8s-name }} cluster and [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) with any suitable configuration. When creating, specify the preconfigured security groups.
    1. [Create a bucket](../../storage/operations/buckets/create.md) in {{ objstorage-full-name }}.
    1. [Grant the `thumbor-sa` service account](../../storage/operations/objects/edit-acl.md) the `READ` permission for the bucket.
 
@@ -117,7 +117,7 @@ The support cost for this solution includes:
 
 {% include [certificate-usage](../../_includes/cdn/certificate-usage.md) %}
 
-For a Let's Encrypt® certificate, [verify ownership](../../certificate-manager/operations/managed/cert-validate.md) of the domain specified in the certificate.
+For a Let's Encrypt® certificate, pass [ownership verification](../../certificate-manager/operations/managed/cert-validate.md) for the domain specified in the certificate.
 
 
 ## Install Thumbor {#install}
@@ -152,7 +152,7 @@ For a Let's Encrypt® certificate, [verify ownership](../../certificate-manager/
    - Manually {#manual}
 
       1. In the [management console]({{ link-console-main }}), select the folder to upload an object to.
-      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+      1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. Click the bucket name.
       1. Click **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
       1. In the window that opens, select the files and click **Open**.
@@ -172,14 +172,14 @@ For a Let's Encrypt® certificate, [verify ownership](../../certificate-manager/
          * `poster_bunny_bunnysize.jpg`
          * `cc.xlarge.png`
 
-      1. Run the `terraform init` command in the directory with configuration files. This command initializes the provider specified in the configuration files and enables you to use its resources and data sources.
+      1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use its resources and data sources.
       1. Make sure the {{ TF }} configuration file is correct using this command:
 
          ```bash
          terraform validate
          ```
 
-         {{ TF }} will display any configuration errors detected in the file.
+         If the file contains any errors, {{ TF }} will point them out.
 
       1. Start uploading the images to the bucket:
 
@@ -236,7 +236,7 @@ For a Let's Encrypt® certificate, [verify ownership](../../certificate-manager/
 
    Resource domain name example: `{{ domain-name-example }}`
 
-   Result example:
+   Example of the result:
 
    ```text
    id: bc855oumelrq********

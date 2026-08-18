@@ -5,6 +5,8 @@ description: Follow this guide to add interaction with a vector store to your {{
 
 # Interaction with a vector store
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 {% include [templating-note](../../../../_includes/serverless-integrations/templating-note.md) %}
 
 {% list tabs %}

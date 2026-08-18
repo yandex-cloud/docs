@@ -5,6 +5,8 @@ description: This page lists the service roles required to control access to the
 
 # Service roles for {{ sw-name }}
 
+{% include [workflows-ai-studio-note](../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 With [{{ sw-name }}](../concepts/index.md#workflows) service roles, you can manage user access to {{ sw-name }} [workflows](../concepts/workflows/workflow.md).
 
 {% note info %}

@@ -18,7 +18,7 @@ _Приемник_ — это получатель события. Поддер�
 * [потоки данных](../../../data-streams/concepts/glossary.md#stream-concepts) Data Streams;
 * [очереди](../../../message-queue/concepts/queue.md) Message Queue;
 * [контейнеры](../../../serverless-containers/concepts/container.md) Serverless Containers;
-* [рабочие процессы](../workflows/workflow.md) Workflows.
+* [рабочие процессы](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow) Workflows.
 
 EventRouter поддерживает гарантию доставки `At least once`. Если временно невозможно доставить или получить подтверждение о доставке, EventRouter будет повторно пытаться отправить событие до истечения времени жизни события. Количество повторных попыток и максимальное время жизни события задаются в настройках приемника. Событие, которое не удалось обработать, перемещается в указанную клиентом очередь Dead Letter Queue.
 

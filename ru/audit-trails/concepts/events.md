@@ -33,7 +33,7 @@ description: В данном разделе приведены описания 
 
 ## {{ ai-studio-full-name }} {#ai-studio}
 
-Имя сервиса — `ai`.
+Имя сервиса — `ai` для всех событий, кроме событий {{ sw-full-name }}. Для событий {{ sw-full-name }} имя сервиса — `serverless.workflows`.
 
 {% include [ai-studio-events](../../_includes/audit-trails/events/ai-studio-events.md) %}
 
@@ -421,11 +421,5 @@ description: В данном разделе приведены описания 
 Имя сервиса — `websql`.
 
 {% include [websql-events](../../_includes/audit-trails/events/websql-events.md) %}
-
-## {{ sw-full-name }} {#workflows}
-
-Имя сервиса — `serverless.workflows`.
-
-{% include [workflows-events](../../_includes/audit-trails/events/workflows-events.md) %}
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

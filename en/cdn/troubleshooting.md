@@ -10,6 +10,7 @@ The section below covers the frequently asked questions related to {{ cdn-name }
 * [CDN responds to file requests with 3xx codes (redirect)](#responses-3xx)
 * [CDN responds to file requests with 4xx codes (client error)](#responses-4xx)
 * [CDN responds to file requests with 5xx codes (server error)](#responses-5xx)
+* [Why are the origin workload and its operation costs increasing?](#origin-load-growth)
 * [Requests with the POST, PUT, PATCH, and DELETE methods are not available to users](#post-responses)
 * [Updated settings failed to apply to the resource](#changes-not-applied)
 * [CDN resource has the `Not active` status, preventing content delivery to users](#resource-not-active)
@@ -52,6 +53,10 @@ Make sure that:
   * With the specified value of the `Host` HTTP header and other headers. 
   
 Also, check the {{ cdn-name }} status [here](https://status.yandex.cloud/en/dashboard?service=cloud%20cdn).
+
+## Why are the origin workload and its operation costs increasing? {#origin-load-growth}
+
+{% include [origin-cdn-traffic](../_includes/cdn/origin-cdn-traffic.md) %}
 
 ## Requests with the POST, PUT, PATCH, and DELETE methods are not available to users {#post-responses}
 

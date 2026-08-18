@@ -756,6 +756,8 @@
 
  - [Оформление контента из Cloud Video в IFrame](web/video-iframe.md)
 
+ - [Управление видеоконтентом для курсов Moodle](web/video-moodle-plugin.md)
+
 ### 1С
 
 #### Интернет-магазин на «1С-Битрикс»

@@ -135,8 +135,8 @@ After creating the infrastructure, [test the service](#test).
 ## Test the service {#test}
 
 Make sure the address was successfully created and send a test email:
-1. In the [management console]({{ link-console-main }}), select the folder where you created the address.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
+1. In the [management console]({{ link-console-main }}), select the folder you created the address in.
+1. [Navigate]({{ link-console-main }}/link/postbox) to **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
 1. Select the address you created and make sure the test status on the address page has changed to `Success`.
 1. [Send](../../postbox/operations/send-email.md) a test email.
 

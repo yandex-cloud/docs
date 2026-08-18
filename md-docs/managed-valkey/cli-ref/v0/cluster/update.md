@@ -72,6 +72,29 @@ Possible property names:
 - `enable-valkey-json`: Enable valkey-json module
 
 - `enable-valkey-bloom`: Enable valkey-bloom module ||
+|| `--shard-autoscaling` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+
+Shard autoscaling settings
+
+Possible property names:
+
+- `enabled`: Enable shard autoscaling
+
+- `min-shards`: Minimum number of shards
+
+- `max-shards`: Maximum number of shards
+
+- `cpu-down-threshold`: CPU downscaling threshold
+
+- `cpu-up-threshold`: CPU upscaling threshold
+
+- `memory-down-threshold`: Memory downscaling threshold
+
+- `memory-up-threshold`: Memory upscaling threshold
+
+- `network-down-threshold`: Network downscaling threshold
+
+- `network-up-threshold`: Network upscaling threshold ||
 || `--redis-version` | `string`
 
 Version of Redis used in the cluster. Values: 7.2 ||

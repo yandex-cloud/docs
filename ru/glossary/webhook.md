@@ -132,6 +132,6 @@ keywords:
 * [{{ sf-full-name }}](/services/functions/) — сервис для создания и управления функциями, которые можно использовать в качестве вебхуков. Подробнее в [документации](../functions).
 * [{{ postbox-full-name }}](/services/postbox/) — сервис для отправки почтовых сообщений, которые можно отслеживать с помощью вебхуков. Подробнее в [документации](../tutorials/serverless/postbox-webhook.md).
 * [{{ monitoring-full-name }}](/services/monitoring/) — сервис для сбора метрик и отслеживания работы приложений, события из которого можно получать с помощью вебхуков. Подробнее в [документации](../monitoring/operations/alert/alert-call-function.md).
-* [{{ api-gw-full-name }}](/services/api-gateway/) — сервис для создания и управления API-шлюзами, которые можно использовать в качестве вебхуков. Подробнее в [документации](../serverless-integrations/tutorials/telegram-ai-bot-workflows.md).
+* [{{ api-gw-full-name }}](/services/api-gateway/) — сервис для создания и управления API-шлюзами, которые можно использовать в качестве вебхуков. Подробнее в [документации](../tutorials/serverless/telegram-ai-bot-workflows.md).
 
 Вы также можете настроить отслеживание событий в облачных ресурсах в {{ yandex-cloud }} с помощью вебхуков. Подробнее в [документации](../support/notify.md#webhook).

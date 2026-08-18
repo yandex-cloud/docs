@@ -64,5 +64,5 @@ description: В этой статье сопоставляются сервис�
 | Secret Manager | [{{ lockbox-name }}](../../lockbox/) |
 | Vertex AI Platform | [{{ ml-platform-full-name }}](../../datasphere/) |
 | Virtual Private Cloud | [{{ vpc-full-name }}](../../vpc/) |
-| Workflows | [{{ si-full-name }}: {{ sw-name }}](../../serverless-integrations/quickstart/workflows.md) |
+| Workflows | [{{ ai-studio-full-name }}: {{ sw-name }}]({{ link-docs-ai }}ai-studio/quickstart/workflows.md) |
 | Образы GitLab для ВМ в Google Cloud Marketplace, Google Cloud Developer Tools | [{{ mgl-full-name }}](../../managed-gitlab/) |

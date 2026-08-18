@@ -5,6 +5,8 @@ description: Follow this guide to delete a workflow label.
 
 # Deleting a workflow label
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}

@@ -1,20 +1,22 @@
 # TelegramBot
 
+{% include [workflows-ai-studio-note](../../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 Accessing the Telegram Bot API
 
-Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
+Field name | Type | Required | Default value | [Templating](../../templating.md) supported | Description
 --- | --- |--- | --- | --- | ---
-`token`| `string` | Yes | No | Yes | Bot token. For more information, see [this Telegram Bot Features guide](https://core.telegram.org/bots/features#creating-a-new-bot).
-`sendMessage`| [TelegramBotSendMessage](#TelegramBotSendMessage) | Yes | No | No | Description of the message sending action.
+`token`| `string` | Yes | None | Yes | Bot token. For more information, see [this Telegram Bot Features guide](https://core.telegram.org/bots/features#creating-a-new-bot).
+`sendMessage`| [TelegramBotSendMessage](#TelegramBotSendMessage) | Yes | None | None | Description of the message sending action.
 
 ### TelegramBotSendMessage {#TelegramBotSendMessage}
 
-Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
+Field name | Type | Required | Default value | [Templating](../../templating.md) supported | Description
 --- | --- |--- | --- | --- | ---
-`chatId`| `string` | Yes | No | Yes | Chat ID or channel name in `@channelusername` format.
-`text`| `string` | Yes | No | Yes | Text of the message you need to send.
-`parseMode`| `string` | No | No | No | Message formatting mode. Available modes: `UNSPECIFIED`, `MARKDOWN`, `MARKDOWNV2`, and `HTML`. For more information, see [this Telegram Bot API guide](https://core.telegram.org/bots/api#formatting-options).
-`replyTo`| `string` | No | No | Yes | ID of the message to reply to.
+`chatId`| `string` | Yes | None | Yes | Chat ID or channel name in `@channelusername` format.
+`text`| `string` | Yes | None | Yes | Text of the message you need to send.
+`parseMode`| `string` | None | None | None | Message formatting mode. Available modes: `UNSPECIFIED`, `MARKDOWN`, `MARKDOWNV2`, and `HTML`. For more information, see [this Telegram Bot API guide](https://core.telegram.org/bots/api#formatting-options).
+`replyTo`| `string` | None | None | Yes | ID of the message to reply to.
 
 ## Specification example
 

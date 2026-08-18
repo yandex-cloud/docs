@@ -5,6 +5,8 @@ description: Follow this guide to terminate a workflow execution.
 
 # Terminating a workflow execution
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 If you terminate a [workflow](../../../concepts/workflows/workflow.md) execution, this will interrupt the current active step. To stop a workflow after the current active step is complete, see [{#T}](stop.md).
 
 {% list tabs group=instructions %}

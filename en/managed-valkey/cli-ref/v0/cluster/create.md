@@ -70,7 +70,7 @@ Possible property names:
 
 - `commands`: Set of commands permissions grant access to
 
-- `sanitize-payload`: Sanitize payload setting. Possible values: sanitize-payload, skip-sanitize-payload
+- `sanitize-payload`: [DEPRECATED] Sanitize payload setting. Possible values: sanitize-payload, skip-sanitize-payload. This parameter is ignored.
 
 - `patterns`: Set of patterns permissions grant access to
 
@@ -102,6 +102,29 @@ Possible property names:
 - `planned-usage-threshold`: Planned usage threshold
 
 - `emergency-usage-threshold`: Emergency usage threshold ||
+|| `--shard-autoscaling` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+
+Shard autoscaling settings
+
+Possible property names:
+
+- `enabled`: Enable shard autoscaling
+
+- `min-shards`: Minimum number of shards
+
+- `max-shards`: Maximum number of shards
+
+- `cpu-down-threshold`: CPU downscaling threshold
+
+- `cpu-up-threshold`: CPU upscaling threshold
+
+- `memory-down-threshold`: Memory downscaling threshold
+
+- `memory-up-threshold`: Memory upscaling threshold
+
+- `network-down-threshold`: Network downscaling threshold
+
+- `network-up-threshold`: Network upscaling threshold ||
 || `--maintenance-window` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
 
 Maintenance window settings

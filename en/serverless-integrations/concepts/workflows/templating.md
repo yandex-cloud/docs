@@ -5,7 +5,6 @@ keywords:
   - workflows
   - workflow
   - WF
-  - runtime process
   - YaWL specification
   - templating
   - templater
@@ -14,6 +13,8 @@ keywords:
 
 
 # Templating
+
+{% include [workflows-ai-studio-note](../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
 
 For fields that support templating, values can be generated dynamically using the data obtained from the workflow state. The templating language is `jq`. For more information, see [this jq guide](https://jqlang.github.io/jq/manual/).
 
@@ -100,7 +101,7 @@ Argument order | Type | Required | Description
 --- | --- | --- | ---
 1 | `string` | Yes | Secret ID.
 2 | `string` | Yes | Secret key.
-3 | `string` | No | Secret version ID.
+3 | `string` | None | Secret version ID.
 
 #### Examples of using the `lockboxPayload` jq function {#lockbox-examples}
 

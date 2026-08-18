@@ -5,6 +5,8 @@ description: You can view monitoring charts in {{ sw-full-name }} using the mana
 
 # Viewing workflow logs
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 All times in the log are [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
 
 {% list tabs group=instructions %}

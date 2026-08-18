@@ -30,7 +30,7 @@ description: В этой статье сопоставляются сервис�
 | Azure IoT Hub | [{{ iot-full-name }}](../../iot-core/) |
 | Azure Key Vault | [{{ certificate-manager-full-name }}](../../certificate-manager/) |
 | Azure Kubernetes Service (AKS) | [{{ managed-k8s-full-name }}](../../managed-kubernetes/) |
-| Azure Logic Apps | [{{ si-full-name }}: {{ sw-name }}](../../serverless-integrations/quickstart/workflows.md) |
+| Azure Logic Apps | [{{ ai-studio-full-name }}: {{ sw-name }}]({{ link-docs-ai }}ai-studio/quickstart/workflows.md) |
 | Azure Machine Learning, Azure Databricks, ONNX Runtime | [{{ ml-platform-full-name }}](../../datasphere/) |
 | Azure Monitor | [{{ monitoring-full-name }}](../../monitoring/) |
 | Azure Monitor Logs | [{{ cloud-logging-full-name }}](../../logging/) |

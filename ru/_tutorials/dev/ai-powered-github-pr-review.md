@@ -2,7 +2,7 @@
 
 В этом руководстве вы воспользуетесь возможностями [моделей генерации текста]({{ link-docs-ai }}ai-studio/concepts/generation/models) {{ ai-studio-full-name }} для реализации сценария автоматического [ревью](https://docs.github.com/en/get-started/learning-about-github/github-glossary#review) предлагаемых изменений в программном коде на [GitHub](https://github.com/).
 
-Предлагаемое решение использует сценарий [GitHub Actions](https://docs.github.com/en/actions/get-started/understand-github-actions), чтобы запросить в {{ yandex-cloud }} ИИ-ревью изменений в [пул-реквесте](https://docs.github.com/en/get-started/learning-about-github/github-glossary#pull-request). Процесс получения изменений, запрос формирования ревью генеративной моделью и последующая публикация ревью на GitHub выполняются [рабочим процессом](../../serverless-integrations/concepts/workflows/workflow.md) {{ sw-full-name }}.
+Предлагаемое решение использует сценарий [GitHub Actions](https://docs.github.com/en/actions/get-started/understand-github-actions), чтобы запросить в {{ yandex-cloud }} ИИ-ревью изменений в [пул-реквесте](https://docs.github.com/en/get-started/learning-about-github/github-glossary#pull-request). Процесс получения изменений, запрос формирования ревью генеративной моделью и последующая публикация ревью на GitHub выполняются [рабочим процессом]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow) {{ sw-full-name }}.
 
 ![ai-powered-github-pr-review](../../_assets/tutorials/ai-powered-github-pr-review.svg)
 
@@ -10,10 +10,10 @@
 
 1. Пользователь добавляет [коммит](https://docs.github.com/en/get-started/learning-about-github/github-glossary#commit) в пул-реквест на GitHub.
 1. После появления нового коммита в пул-реквесте запускается сценарий GitHub Actions.
-1. Сценарий GitHub Actions получает [авторизованный ключ](../../iam/concepts/authorization/key.md) сервисного аккаунта {{ yandex-cloud }}, сохраненный в [секрете репозитория](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets) на GitHub.
-1. Сценарий GitHub Actions запрашивает [IAM-токен](../../iam/concepts/authorization/iam-token.md) в обмен на авторизованный ключ [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) в сервисе {{ iam-full-name }}. IAM-токен необходим для аутентификации в API {{ si-full-name }}.
+1. Сценарий GitHub Actions получает [авторизованный ключ]({{ link-docs }}/iam/concepts/authorization/key) сервисного аккаунта {{ yandex-cloud }}, сохраненный в [секрете репозитория](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets) на GitHub.
+1. Сценарий GitHub Actions запрашивает [IAM-токен]({{ link-docs }}/iam/concepts/authorization/iam-token) в обмен на авторизованный ключ [сервисного аккаунта]({{ link-docs }}/iam/concepts/users/service-accounts) в сервисе {{ iam-full-name }}. IAM-токен необходим для аутентификации в API {{ si-full-name }}.
 1. Сценарий GitHub Actions с использованием полученного IAM-токена отправляет рабочему процессу {{ sw-full-name }} HTTP-запрос на формирование ревью. При этом в рабочий процесс {{ sw-name }} передается номер пул-реквеста.
-1. Рабочий процесс {{ sw-name }} получает в [секрете](../../lockbox/concepts/secret.md) {{ lockbox-full-name }} [токен доступа](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#about-personal-access-tokens) `personal access token (classic)` к репозиторию на GitHub.
+1. Рабочий процесс {{ sw-name }} получает в [секрете]({{ link-docs }}/lockbox/concepts/secret) {{ lockbox-full-name }} [токен доступа](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#about-personal-access-tokens) `personal access token (classic)` к репозиторию на GitHub.
 1. Рабочий процесс {{ sw-name }} с использованием токена доступа получает в репозитории на GitHub изменения, предлагаемые в пул-реквесте.
 1. Рабочий процесс {{ sw-name }} запрашивает у [модели]({{ link-docs-ai }}ai-studio/concepts/generation/models) {{ ai-studio-full-name }} формирование ревью изменений, предлагаемых в пул-реквесте. Модель возвращает сгенерированное ревью с комментариями и собственными предложениями по улучшению кода.
 1. Рабочий процесс {{ sw-name }} с использованием токена доступа публикует полученное ревью в пул-реквесте на GitHub.
@@ -42,12 +42,12 @@
 
 В стоимость поддержки инфраструктуры для реализации сценария автоматического ИИ-ревью пул-реквестов входят:
 * плата за генерацию текста ([тарифы {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/pricing));
-* плата за хранение секрета и операции с ним ([тарифы {{ lockbox-full-name }}](../../lockbox/pricing.md));
-* плата за запись и хранение данных в [лог-группе](../../logging/concepts/log-group.md), если вы используете сервис [{{ cloud-logging-name }}](../../logging/) ([тарифы {{ cloud-logging-full-name }}](../../logging/pricing.md)).
+* плата за хранение секрета и операции с ним ([тарифы {{ lockbox-full-name }}]({{ link-docs }}/lockbox/pricing));
+* плата за запись и хранение данных в [лог-группе]({{ link-docs }}/logging/concepts/log-group), если вы используете сервис [{{ cloud-logging-name }}]({{ link-docs }}/logging/) ([тарифы {{ cloud-logging-full-name }}]({{ link-docs }}/logging/pricing)).
 
 ### Создайте секрет {{ lockbox-name }} {#create-secret}
 
-Создайте [секрет](../../lockbox/concepts/secret.md) {{ lockbox-full-name }}, в котором будет безопасно храниться токен доступа GitHub.
+Создайте [секрет]({{ link-docs }}/lockbox/concepts/secret) {{ lockbox-full-name }}, в котором будет безопасно храниться токен доступа GitHub.
 
 {% list tabs group=instructions %}
 
@@ -100,17 +100,17 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [create](../../lockbox/api-ref/Secret/create.md) для ресурса [Secret](../../lockbox/api-ref/Secret/index.md) или вызовом gRPC API [SecretService/Create](../../lockbox/api-ref/grpc/Secret/create.md).
+  Воспользуйтесь методом REST API [create]({{ link-docs }}/lockbox/api-ref/Secret/create) для ресурса [Secret]({{ link-docs }}/lockbox/api-ref/Secret/index) или вызовом gRPC API [SecretService/Create]({{ link-docs }}/lockbox/api-ref/grpc/Secret/create).
 
 {% endlist %}
 
 ### Создайте сервисные аккаунты {#create-sa}
 
-Создайте два [сервисных аккаунта](../../iam/concepts/users/service-accounts.md):
-* `workflow-sa` — от его имени будет выполняться [рабочий процесс](../../serverless-integrations/concepts/workflows/workflow.md) {{ sw-name }};
+Cоздайте два [сервисных аккаунта]({{ link-docs }}/iam/concepts/users/service-accounts):
+* `workflow-sa` — от его имени будет выполняться [рабочий процесс]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow) {{ sw-name }};
 * `github-worker` — от его имени будет запускаться рабочий процесс при получении запроса от сценария GitHub Actions.
 
-1. Создайте сервисный аккаунт `workflow-sa` и назначьте ему [роли](../../iam/concepts/access-control/roles.md) [`{{ roles-lockbox-payloadviewer }}`](../../lockbox/security/index.md#lockbox-payloadViewer) и [`ai.languageModels.user`]({{ link-docs-ai }}ai-studio/security/index#languageModels-user):
+1. Создайте сервисный аккаунт `workflow-sa` и назначьте ему [роли]({{ link-docs }}/iam/concepts/access-control/roles) [`{{ roles-lockbox-payloadviewer }}`]({{ link-docs }}/lockbox/security/index#lockbox-payloadViewer) и [`ai.languageModels.user`]({{ link-docs-ai }}ai-studio/security/index#languageModels-user):
 
     {% list tabs group=instructions %}
 
@@ -120,7 +120,7 @@
         1. [Перейдите]({{ link-console-main }}/link/iam) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
         1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
         1. Введите имя сервисного аккаунта `workflow-sa`.
-        1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** и выберите роли [`{{ roles-lockbox-payloadviewer }}`](../../lockbox/security/index.md#lockbox-payloadViewer) и [`ai.languageModels.user`]({{ link-docs-ai }}ai-studio/security/index#languageModels-user).
+        1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** и выберите роли [`{{ roles-lockbox-payloadviewer }}`]({{ link-docs }}/lockbox/security/index#lockbox-payloadViewer) и [`ai.languageModels.user`]({{ link-docs-ai }}ai-studio/security/index#languageModels-user).
         1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
     - CLI {#cli}
@@ -154,7 +154,7 @@
 
           Где:
 
-          * `<идентификатор_каталога>` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором вы создаете инфраструктуру.
+          * `<идентификатор_каталога>` — [идентификатор каталога]({{ link-docs }}/resource-manager/operations/folder/get-id), в котором вы создаете инфраструктуру.
           * `<идентификатор_сервисного_аккаунта>` — сохраненный на предыдущем шаге идентификатор сервисного аккаунта.
 
           Результат:
@@ -173,17 +173,17 @@
 
     - API {#api}
 
-      Чтобы создать сервисный аккаунт, воспользуйтесь методом REST API [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md).
+      Чтобы создать сервисный аккаунт, воспользуйтесь методом REST API [create]({{ link-docs }}/iam/api-ref/ServiceAccount/create) для ресурса [ServiceAccount]({{ link-docs }}/iam/api-ref/ServiceAccount/index) или вызовом gRPC API [ServiceAccountService/Create]({{ link-docs }}/iam/api-ref/grpc/ServiceAccount/create).
 
-      Чтобы назначить сервисному аккаунту роль на каталог, воспользуйтесь методом REST API [updateAccessBindings](../../resource-manager/api-ref/Folder/updateAccessBindings.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/UpdateAccessBindings](../../resource-manager/api-ref/grpc/Folder/updateAccessBindings.md).
+      Чтобы назначить сервисному аккаунту роль на каталог, воспользуйтесь методом REST API [updateAccessBindings]({{ link-docs }}/resource-manager/api-ref/Folder/updateAccessBindings) для ресурса [Folder]({{ link-docs }}/resource-manager/api-ref/Folder/index) или вызовом gRPC API [FolderService/UpdateAccessBindings]({{ link-docs }}/resource-manager/api-ref/grpc/Folder/updateAccessBindings).
 
     {% endlist %}
 
-1. Аналогичным образом создайте сервисный аккаунт `github-worker` и назначьте ему [роль](../../iam/concepts/access-control/roles.md) `serverless.workflows.executor`.
+1. Аналогичным образом создайте сервисный аккаунт `github-worker` и назначьте ему [роль]({{ link-docs }}/iam/concepts/access-control/roles) `serverless.workflows.executor`.
 
 ### Создайте авторизованный ключ сервисного аккаунта {#create-authorized-key}
 
-Создайте [авторизованный ключ](../../iam/concepts/authorization/key.md) для сервисного аккаунта `github-worker`. Авторизованный ключ позволит сценарию GitHub Actions получать IAM-токен для аутентификации в API {{ yandex-cloud }}.
+Создайте [авторизованный ключ]({{ link-docs }}/iam/concepts/authorization/key) для сервисного аккаунта `github-worker`. Авторизованный ключ позволит сценарию GitHub Actions получать IAM-токен для аутентификации в API {{ yandex-cloud }}.
 
 
 {% list tabs group=instructions %}
@@ -213,19 +213,19 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [create](../../iam/api-ref/Key/create.md) для ресурса [Key](../../iam/api-ref/Key/index.md) или вызовом gRPC API [KeyService/Create](../../iam/api-ref/grpc/Key/create.md).
+  Воспользуйтесь методом REST API [create]({{ link-docs }}/iam/api-ref/Key/create) для ресурса [Key]({{ link-docs }}/iam/api-ref/Key/index) или вызовом gRPC API [KeyService/Create]({{ link-docs }}/iam/api-ref/grpc/Key/create).
 
 {% endlist %}
 
 ## Создайте рабочий процесс {{ sw-name }} {#create-si-workflow}
 
-Создайте [рабочий процесс](../../serverless-integrations/concepts/workflows/workflow.md) {{ sw-name }} на стороне {{ yandex-cloud }}.
+Создайте [рабочий процесс]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow) {{ sw-name }} на стороне {{ yandex-cloud }}.
 
 {% include [workflow-constructor-tip](../../_includes/serverless-integrations/workflow-constructor-tip.md) %}
 
 ![ai-powered-github-pr-review-workflow](../../_assets/tutorials/ai-powered-github-pr-review-workflow.png)
 
-1. Создайте файл `yawl-spec.yaml` со следующей [YaWL-спецификацией](../../serverless-integrations/concepts/workflows/yawl/index.md) рабочего процесса:
+1. Создайте файл `yawl-spec.yaml` со следующей [YaWL-спецификацией]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/index) рабочего процесса:
 
     **yawl-spec.yaml**
 
@@ -303,7 +303,7 @@
       1. Раскройте блок **{{ ui-key.yacloud.serverless-workflows.label_additional-parameters }}**:
       1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя рабочего процесса. Например: `github-ai-review-workflow`.
       1. В поле **{{ ui-key.yacloud.serverless-workflows.label_service-account }}** выберите созданный ранее сервисный аккаунт `workflow-sa`.
-      1. (Опционально) [Настройте](../../serverless-integrations/operations/workflows/workflow/logs-write.md) логирование запусков рабочего процесса.
+      1. (Опционально) [Настройте]({{ link-docs-ai }}ai-studio/operations/workflows/workflow/logs-write) логирование запусков рабочего процесса.
       1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
       В результате откроется окно с таблицей, содержащей информацию о созданном рабочем процессе. Сохраните его идентификатор — он понадобится позднее при настройке сценария GitHub Actions.
@@ -325,7 +325,7 @@
       * `--yaml-spec` — путь к созданному ранее файлу с YaWL-спецификацией. Например: `./yawl-spec.yaml`.
       * `--name` — имя создаваемого рабочего процесса. Например: `github-ai-review-workflow`.
       * `--service-account-id` — сохраненный ранее идентификатор сервисного аккаунта `workflow-sa`.
-      * `--no-logging` — параметр, отключающий логирование запусков рабочего процесса. Необязательный параметр. Если параметр не задан, логи запусков рабочего процесса записываются в [лог-группу](../../logging/concepts/log-group.md) по умолчанию того каталога, в котором создан рабочий процесс.
+      * `--no-logging` — параметр, отключающий логирование запусков рабочего процесса. Необязательный параметр. Если параметр не задан, логи запусков рабочего процесса записываются в [лог-группу]({{ link-docs }}/logging/concepts/log-group) по умолчанию того каталога, в котором создан рабочий процесс.
 
       Результат:
 
@@ -348,7 +348,7 @@
 
     - API {#api}
 
-      Чтобы создать рабочий процесс, воспользуйтесь методом REST API [Create](../../serverless-integrations/workflows/api-ref/Workflow/create.md) для ресурса [Workflows](../../serverless-integrations/workflows/api-ref/Workflow/index.md) или вызовом gRPC API [WorkflowService/Create](../../serverless-integrations/workflows/api-ref/grpc/Workflow/create.md).
+      Чтобы создать рабочий процесс, воспользуйтесь методом REST API [Create]({{ link-docs-ai }}ai-studio/workflows/api-ref/Workflow/create) для ресурса [Workflows]({{ link-docs-ai }}ai-studio/workflows/api-ref/Workflow/index) или вызовом gRPC API [WorkflowService/Create]({{ link-docs-ai }}ai-studio/workflows/api-ref/grpc/Workflow/create).
 
     {% endlist %}
 
@@ -410,7 +410,7 @@
 
 Чтобы перестать платить за созданные ресурсы:
 
-1. [Удалите](../../lockbox/operations/secret-delete.md) секрет {{ lockbox-name }}.
-1. [Удалите](../../serverless-integrations/operations/workflows/workflow/delete.md) рабочий процесс {{ sw-name }}.
-1. [Удалите](../../logging/operations/delete-group.md) лог-группу, если вы включали логирование запусков рабочего процесса.
-1. При необходимости [удалите](../../iam/operations/sa/delete.md) сервисные аккаунты.
+1. [Удалите]({{ link-docs }}/lockbox/operations/secret-delete) секрет {{ lockbox-name }}.
+1. [Удалите]({{ link-docs-ai }}ai-studio/operations/workflows/workflow/delete) рабочий процесс {{ sw-name }}.
+1. [Удалите]({{ link-docs }}/logging/operations/delete-group) лог-группу, если вы включали логирование запусков рабочего процесса.
+1. При необходимости [удалите]({{ link-docs }}/iam/operations/sa/delete) сервисные аккаунты.

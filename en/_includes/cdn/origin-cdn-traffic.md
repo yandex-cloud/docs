@@ -1,0 +1,9 @@
+{{ cdn-name }} does not guarantee any particular percentage of cached requests hitting the cache (cache hits). If the CDN server cannot respond to a request from the cache, it accesses and gets content from the origin. Depending on your settings for caching, cache cleanup, new content publication, or the nature of user requests, the number of requests to the origin and the amount of data it sends back may increase. At the same time, the amount of data the origin sends to CDN servers may be comparable to the amount of outgoing CDN traffic.
+
+{{ cdn-name }} does not charge for incoming traffic CDN servers are getting from origins, even when the origin is outside of {{ yandex-cloud }}. Outgoing traffic from {{ yandex-cloud }} resources to CDN servers is treated as internal and {{ yandex-cloud }} services do not charge you for it. For example, if the origin is an [{{ objstorage-name }} bucket](../../storage/concepts/bucket.md), transferring data from the bucket to {{ cdn-name }} is not billed on the {{ objstorage-name }} side.
+
+At the same time, the origin's operating costs may depend on the number of incoming requests. For example, if requests are handled by a [function](../../functions/concepts/function.md), the number of its calls will be factored in. If there is a traffic filtering or DDoS protection service upstream of the origin, its costs may depend on the amount of processed traffic, bandwidth, or request count.
+
+Make sure the origin can withstand potential peak loads, and its pricing conditions do not imply substantial extra costs. If required, protect the origin at the application layer (L7) of the OSI model, e.g., using [{{ sws-full-name }}](../../smartwebsecurity/quickstart.md).
+
+{{ yandex-cloud }} does not compensate for consequential losses due to increased load on the origin.

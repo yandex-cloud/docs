@@ -135,14 +135,14 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 
 ## Yandex AI Studio {#ai-studio}
 
-Имя сервиса — `ai`.
+Имя сервиса — `ai` для всех событий, кроме событий Yandex Workflows. Для событий Yandex Workflows имя сервиса — `serverless.workflows`.
 
 Имя события | Описание
 --- | ---
 `batch_inference.CancelBatchInference` | Остановка работы модели в пакетном режиме
 `batch_inference.DeleteBatchInference` | Удаление результата обработки в пакетном режиме
 `batch_inference.StartBatchInference` | Запуск модели в пакетном режиме
-`dedicated_instance.CreateDedicatedInstance` | Создание [выделенного инстанса](https://aistudio.yandex.ru/docs/ru//ai-studio/concepts/generation/dedicated-instance)
+`dedicated_instance.CreateDedicatedInstance` | Создание [выделенного инстанса](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/dedicated-instance)
 `dedicated_instance.DeleteDedicatedInstance` | Удаление выделенного инстанса
 `dedicated_instance.StartDedicatedInstance` | Запуск выделенного инстанса
 `dedicated_instance.StopDedicatedInstance` | Остановка выделенного инстанса
@@ -152,7 +152,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `guardrails.BlockContentByDictionary` | Блокировка контента по словарю
 `guardrails.ChangeDefaultGuardrail` | Изменение правила модерации по умолчанию
 `guardrails.CompleteContentCheck` | Завершение проверки контента
-`guardrails.CreateDictionary` | Создание [словаря](https://aistudio.yandex.ru/docs/ru//ai-studio/concepts/security/guardrails#dictionaries) фраз и регулярных выражений в [правиле модерации](https://aistudio.yandex.ru/docs/ru//ai-studio/concepts/security/guardrails#rules)
+`guardrails.CreateDictionary` | Создание [словаря](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/security/guardrails#dictionaries) фраз и регулярных выражений в [правиле модерации](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/security/guardrails#rules)
 `guardrails.CreateGuardrail` | Создание правила модерации
 `guardrails.DeleteDictionary` | Удаление словаря фраз и регулярных выражений из правила модерации
 `guardrails.DeleteGuardrail` | Удаление правила модерации
@@ -177,8 +177,13 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `responses.McpToolList` | Получение списка MCP-инструментов
 `responses.WebSearchToolSearch` | Поиск через инструмент веб-поиска (Web Search)
 `settings.SetFolderSettings` | Изменение настроек сервиса в каталоге
-`tuning.CancelTuning` | Остановка [дообучения](https://aistudio.yandex.ru/docs/ru//ai-studio/concepts/tuning/index) модели
+`tuning.CancelTuning` | Остановка [дообучения](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/tuning/index) модели
 `tuning.StartTuning` | Запуск дообучения модели
+`createWorkflow` | Создание рабочего процесса
+`deleteWorkflow` | Удаление рабочего процесса
+`setWorkflowAccessBindings` | Назначение прав доступа к рабочему процессу
+`updateWorkflow` | Изменение рабочего процесса
+`updateWorkflowAccessBindings` | Изменение прав доступа к рабочему процессу
 
 ## Yandex Audit Trails {#audit-trails}
 
@@ -1758,17 +1763,5 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `PublishSavedQuery` | Публикация сохраненного запроса
 `UpdateExecutedQueryAccessBindings` | Обновление прав доступа к выполненному запросу
 `UpdateSavedQueryAccessBindings` | Обновление прав доступа к сохраненному запросу
-
-## Yandex Workflows {#workflows}
-
-Имя сервиса — `serverless.workflows`.
-
-Имя события | Описание
---- | ---
-`CreateWorkflow` | Создание рабочего процесса
-`DeleteWorkflow` | Удаление рабочего процесса
-`SetWorkflowAccessBindings` | Назначение прав доступа к рабочему процессу
-`UpdateWorkflow` | Изменение рабочего процесса
-`UpdateWorkflowAccessBindings` | Изменение прав доступа к рабочему процессу
 
 _ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

@@ -5,6 +5,8 @@ description: Follow this guide to add invocation of a function from {{ sf-full-n
 
 # Calling a function in {{ sf-full-name }}
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 {% list tabs %}
 
 - Management console {#console}

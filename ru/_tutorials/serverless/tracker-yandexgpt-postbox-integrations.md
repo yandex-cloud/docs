@@ -3,7 +3,7 @@
 
 {% include [workflows-preview-note](../../_includes/serverless-integrations/workflows-preview-note.md) %}
 
-В данном руководстве вы создадите [рабочие процессы](../../serverless-integrations/concepts/workflows/workflow.md) {{ sw-full-name }} и настроите их интеграцию с [{{ tracker-full-name }}]({{ link-tracker-cloudless }}), [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/generation/index) и [{{ postbox-full-name }}](../../postbox/index.yaml).
+В данном руководстве вы создадите [рабочие процессы]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow) {{ sw-full-name }} и настроите их интеграцию с [{{ tracker-full-name }}]({{ link-tracker-cloudless }}), [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/generation/index) и [{{ postbox-full-name }}]({{ link-docs }}/postbox/index.yaml).
 
 Созданные рабочие процессы будут получать информацию о задачах в указанной [очереди]({{ link-tracker-cloudless }}about-tracker#ochered) {{ tracker-name }}, с помощью модели {{ gpt-pro }} анализировать проделанную в этих задачах работу, статусы задач и выставленные оценки. Результаты анализа и краткий отчет о проделанной работе будут сохраняться в комментарии к одной из задач в {{ tracker-name }}, а также дублироваться письмом на заданный адрес электронной почты с помощью сервиса {{ postbox-name }}.
 
@@ -22,23 +22,23 @@
 ## Перед началом работы {#before-you-begin}
 
 1. [Войдите]({{ link-passport-login }}) в ваш аккаунт на Яндексе. Если у вас еще нет аккаунта, [создайте]({{ support-passport-create }}) его.
-1. Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт]({{ link-docs }}/billing/concepts/billing-account):
     1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-    1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+    1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе]({{ link-docs }}/billing/concepts/billing-account-statuses) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его]({{ link-docs }}/billing/quickstart/index) и [привяжите]({{ link-docs }}/billing/operations/pin-cloud) к нему облако.
 
-    Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+    Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог]({{ link-docs }}/resource-manager/concepts/resources-hierarchy#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
-    [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md). 
+    [Подробнее об облаках и каталогах]({{ link-docs }}/resource-manager/concepts/resources-hierarchy). 
 1. Установите утилиту [cURL](https://curl.haxx.se), она понадобится для отправки запроса на получение OAuth-токена приложения Яндекс ID.
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки создаваемой инфраструктуры входят:
 
-* плата за хранение [секрета](../../lockbox/concepts/secret.md) и запросы к нему ([тарифы {{ lockbox-name }}](../../lockbox/pricing.md));
+* плата за хранение [секрета]({{ link-docs }}/lockbox/concepts/secret) и запросы к нему ([тарифы {{ lockbox-name }}]({{ link-docs }}/lockbox/pricing));
 * плата за использование {{ ai-studio-full-name }} ([тарифы {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/pricing));
 * плата за использование {{ tracker-full-name }} ([тарифы {{ tracker-name }}]({{ link-tracker-cloudless }}pricing));
-* плата за использование {{ postbox-full-name }} ([тарифы {{ postbox-name }}](../../postbox/pricing.md)).
+* плата за использование {{ postbox-full-name }} ([тарифы {{ postbox-name }}]({{ link-docs }}/postbox/pricing)).
 
 ## Создайте сервисный аккаунт {#service-account}
 
@@ -49,9 +49,9 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать рабочие процессы.
   1. [Перейдите]({{ link-console-main }}/link/iam) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}** и в открывшемся окне:
-      1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md): `workflow-sa`.
-      1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роль](../../iam/concepts/access-control/roles.md) `serverless.workflows.executor`.
-      1. Повторите предыдущее действие, чтобы добавить роли [`postbox.sender`](../../postbox/security/index.md#postbox-sender) и [`ai.languageModels.user`]({{ link-docs-ai }}ai-studio/security/index#languageModels-user).
+      1. Введите имя [сервисного аккаунта]({{ link-docs }}/iam/concepts/users/service-accounts): `workflow-sa`.
+      1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роль]({{ link-docs }}/iam/concepts/access-control/roles) `serverless.workflows.executor`.
+      1. Повторите предыдущее действие, чтобы добавить роли [`postbox.sender`]({{ link-docs }}/postbox/security/index#postbox-sender) и [`ai.languageModels.user`]({{ link-docs-ai }}ai-studio/security/index#languageModels-user).
       1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}
@@ -133,13 +133,13 @@
 
 ### Создайте секрет {{ lockbox-full-name }} {#create-secret}
 
-Создайте [секрет](../../lockbox/quickstart.md) {{ lockbox-name }} для хранения OAuth-токена и назначьте сервисному аккаунту права доступа к созданному секрету.
+Создайте [секрет]({{ link-docs }}/lockbox/quickstart) {{ lockbox-name }} для хранения OAuth-токена и назначьте сервисному аккаунту права доступа к созданному секрету.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором ранее создали сервисный аккаунт.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог]({{ link-docs }}/resource-manager/concepts/resources-hierarchy#folder), в котором ранее создали сервисный аккаунт.
   1. [Перейдите]({{ link-console-main }}/link/lockbox) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}** и в открывшемся окне:
 
@@ -153,14 +153,14 @@
       1. Скопируйте и сохраните значение поля **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-id }}**. Оно понадобится позднее при создании спецификации рабочего процесса.
       1. Перейдите на вкладку ![persons](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
       1. В поисковой строке введите имя созданного ранее сервисного аккаунта `workflow-sa` и выберите найденный сервисный аккаунт.
-      1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите [роль](../../lockbox/security/index.md#lockbox-payloadViewer) `lockbox.payloadViewer`.
+      1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите [роль]({{ link-docs }}/lockbox/security/index#lockbox-payloadViewer) `lockbox.payloadViewer`.
       1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
 
 ## Создайте адрес и пройдите проверку прав владения доменом в {{ postbox-name }} {#setup-postbox}
 
-Чтобы рабочий процесс мог отправлять письма, создайте [адрес](../../postbox/concepts/glossary.md#adress) {{ postbox-name }} и подтвердите владение доменом, с которого будут отправляться письма.
+Чтобы рабочий процесс мог отправлять письма, создайте [адрес]({{ link-docs }}/postbox/concepts/glossary#adress) {{ postbox-name }} и подтвердите владение доменом, с которого будут отправляться письма.
 
 ### Создайте адрес {{ postbox-name }} {#create-address}
 
@@ -183,7 +183,7 @@
         1. Нажмите кнопку **{{ ui-key.yacloud.postbox.button_create-identity }}**.
         1. В поле **{{ ui-key.yacloud.postbox.label_address }}** укажите домен, с которого будете отправлять письма. Например: `example.com`.
 
-            Домен может быть любого уровня. У вас должны быть права на добавление [ресурсных записей](../../dns/concepts/resource-record.md) в публичную [зону DNS](../../dns/concepts/dns-zone.md) указанного домена — это необходимо для подтверждения ваших прав на его использование.
+            Домен может быть любого уровня. У вас должны быть права на добавление [ресурсных записей]({{ link-docs }}/dns/concepts/resource-record) в публичную [зону DNS]({{ link-docs }}/dns/concepts/dns-zone) указанного домена — это необходимо для подтверждения ваших прав на его использование.
         1. В поле **{{ ui-key.yacloud.postbox.label_selector }}** укажите селектор. Например: `tracker_workflow`. 
 
             Имя указанного селектора будет использовано для создания ресурсной записи TXT, поэтому каждый создаваемый селектор должен быть уникальным в пределах вашего домена.
@@ -195,7 +195,7 @@
 
 ### Пройдите проверку прав владения доменом {#validate-domain}
 
-1. В публичной зоне DNS вашего домена создайте [ресурсную запись TXT](../../dns/concepts/resource-record.md#txt) со следующими значениями:
+1. В публичной зоне DNS вашего домена создайте [ресурсную запись TXT]({{ link-docs }}/dns/concepts/resource-record#txt) со следующими значениями:
 
     * **Имя записи**: скопированное на предыдущем шаге значение поля **{{ ui-key.yacloud.postbox.label_dns-record-name }}**.
 
@@ -361,10 +361,10 @@
 
       Где:
 
-      * `<идентификатор_организации>` — [идентификатор](../../organization/operations/organization-get-id.md) вашей организации {{ org-full-name }}.
-      * `<идентификатор_секрета>` — сохраненный ранее идентификатор [секрета](../../lockbox/concepts/secret.md) с OAuth-токеном приложения.
+      * `<идентификатор_организации>` — [идентификатор]({{ link-docs }}/organization/operations/organization-get-id) вашей организации {{ org-full-name }}.
+      * `<идентификатор_секрета>` — сохраненный ранее идентификатор [секрета]({{ link-docs }}/lockbox/concepts/secret) с OAuth-токеном приложения.
       * `<ключ_очереди_в_{{ tracker-name }}>` — [ключ]({{ link-tracker-cloudless }}glossary#rus-k) очереди {{ tracker-name }}, в которой вы создали тестовые задачи.
-      * `<идентификатор_каталога>` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога, в котором вы создаете рабочий процесс.
+      * `<идентификатор_каталога>` — [идентификатор]({{ link-docs }}/resource-manager/operations/folder/get-id) каталога, в котором вы создаете рабочий процесс.
       * `<ключ_задачи_с_отчетом>` — ключ [задачи]({{ link-tracker-cloudless }}glossary#rus-z) {{ tracker-name }}, в комментарий к которой будет выгружена сводка по проанализированным тестовым задачам.
       * `<ваш_домен>` — домен, который вы указали при создании адреса {{ postbox-name }}. В качестве адреса отправителя `fromAddress` вы можете указать любой адрес на этом домене. Например: `tracker-robot@example.com` или `noreply@example.com`.
       * `<адрес_получателя>` — адрес электронной почты, на который рабочий процесс отправит письмо со сводкой по проанализированным тестовым задачам {{ tracker-name }}.
@@ -498,9 +498,9 @@
 
       Где:
 
-      * `<идентификатор_организации>` — [идентификатор](../../organization/operations/organization-get-id.md) вашей организации {{ org-full-name }}.
-      * `<идентификатор_секрета>` — сохраненный ранее идентификатор [секрета](../../lockbox/concepts/secret.md) с OAuth-токеном приложения.
-      * `<идентификатор_каталога>` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога, в котором вы создаете рабочий процесс.
+      * `<идентификатор_организации>` — [идентификатор]({{ link-docs }}/organization/operations/organization-get-id) вашей организации {{ org-full-name }}.
+      * `<идентификатор_секрета>` — сохраненный ранее идентификатор [секрета]({{ link-docs }}/lockbox/concepts/secret) с OAuth-токеном приложения.
+      * `<идентификатор_каталога>` — [идентификатор]({{ link-docs }}/resource-manager/operations/folder/get-id) каталога, в котором вы создаете рабочий процесс.
       * `<ключ_задачи_с_отчетом>` — ключ [задачи]({{ link-tracker-cloudless }}glossary#rus-z) {{ tracker-name }}, в комментарий к которой будет выгружена сводка по проанализированным тестовым задачам.
       * `<ваш_домен>` — домен, который вы указали при создании адреса {{ postbox-name }}. В качестве адреса отправителя `fromAddress` вы можете указать любой адрес на этом домене. Например: `tracker-robot@example.com` или `noreply@example.com`.
       * `<адрес_получателя>` — адрес электронной почты, на который рабочий процесс направит письмо со сводкой по проанализированным тестовым задачам {{ tracker-name }}.
@@ -567,7 +567,7 @@
         1. Подтвердите удаление.
 
     {% endlist %}
-1. [Удалите секрет](../../lockbox/operations/secret-delete.md).
+1. [Удалите секрет]({{ link-docs }}/lockbox/operations/secret-delete).
 1. Удалите [задачи]({{ link-tracker-cloudless }}user/ticket-cancel) и [очередь]({{ link-tracker-cloudless }}manager/delete-queue) {{ tracker-name }}.
 1. При необходимости удалите адрес {{ postbox-name }}:
 

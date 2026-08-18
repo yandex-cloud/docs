@@ -1,1 +1,0 @@
-(Опционально) Перейдите на вкладку **{{ ui-key.yacloud.serverless-workflows.workflow-viewer_node-input-label }}** и задайте [jq-шаблон](../../../serverless-integrations/concepts/workflows/templating.md) для фильтрации [состояния рабочего процесса](../../../serverless-integrations/concepts/workflows/workflow.md#state), которое передается в шаг.

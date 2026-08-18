@@ -5,6 +5,8 @@ description: Follow this guide to view the {{ sw-full-name }} workflow execution
 
 # Getting workflow execution info
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}

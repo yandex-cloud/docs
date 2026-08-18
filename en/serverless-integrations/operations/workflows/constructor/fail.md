@@ -5,6 +5,8 @@ description: Follow this guide to use the workflow step constructor to add the F
 
 # Adding the Fail step
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 The Fail control step terminates a workflow execution with an error. If the step is inside the [Foreach](./foreach.md) or [Parallel](./parallel.md) steps, it terminates the entire workflow execution, not just the current execution branch.
 
 {% include [templating-note](../../../../_includes/serverless-integrations/templating-note.md) %}

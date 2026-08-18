@@ -25,6 +25,8 @@ Once you go through the installation successfully, the extension page will show 
 
 ## Get authenticated in {{ ds-jobs }} {#authentication}
 
+{% include [oaut-unavailable](../../../_includes/iam/oauth-unavailable.md) %}
+
 To start working with {{ ds-jobs }}, get authenticated using a Yandex or federated account.
 
 {% list tabs group=authentication %}

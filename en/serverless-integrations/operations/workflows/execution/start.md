@@ -5,6 +5,8 @@ description: Follow this guide to start a workflow.
 
 # Starting a workflow execution
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 Make the workflow [public](../workflow/make-public.md) so that any user can run it.
 
 {% list tabs group=instructions %}

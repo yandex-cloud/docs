@@ -5,13 +5,15 @@ description: This article describes the fields for the ContainerCall integration
 
 # ContainerCall
 
-Invoking the [{{ serverless-containers-full-name }}](../../../../../serverless-containers/) container.
+{% include [workflows-ai-studio-note](../../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
 
-Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
+Invoking a container from [{{ serverless-containers-full-name }}](../../../../../serverless-containers/).
+
+Field name | Type | Required | Default value | [Templating](../../templating.md) supported | Description
 --- | --- | --- | --- | --- | ---
-`containerId` | `string` | Yes | No | No | Container ID.
-`path` | `string` | No | `""` | Yes | Request path.
-`method` | `enum` | No | `GET` | Yes | HTTP method of the request.
-`body` | `string` | No | `""` | Yes | Request body.
-`headers` | `map<string, string>` | No | `{}` | Yes: in header values | Request headers.
-`query` | `map<string, string>` | No | `{}` | Yes: in query parameter values | Request query parameters.
+`containerId` | `string` | Yes | None | None | Container ID.
+`path` | `string` | None | `""` | Yes | Request path.
+`method` | `enum` | None | `GET` | Yes | Request HTTP method.
+`body` | `string` | None | `""` | Yes | Request body.
+`headers` | `map<string, string>` | None | `{}` | Yes: in header values | Request headers.
+`query` | `map<string, string>` | None | `{}` | Yes: in query parameter values | Request query parameters.

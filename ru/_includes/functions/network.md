@@ -1,5 +1,5 @@
 Облачная сеть должна соответствовать следующим условиям:
-* Имеет [подсети](../../vpc/concepts/network#subnet) во всех [зонах доступности](../../overview/concepts/geo-scope.md).
+* Имеет [подсети]({{ link-docs }}/vpc/concepts/network#subnet) во всех [зонах доступности]({{ link-docs }}/overview/concepts/geo-scope).
 * Есть хотя бы один ресурс, IP-адрес которого находится в указанной облачной сети.
 
 {% note info %}

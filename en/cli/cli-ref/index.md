@@ -95,6 +95,8 @@ Syntax:
 
 - [yc managed-ytsaurus](managed-ytsaurus/cli-ref/index.md) — Manage YTsaurus clusters.
 
+- [yc managed-zonalshift](managed-zonalshift/cli-ref/index.md) — Manage zonal shift configurations and tasks for Managed Databases.
+
 - [yc marketplace](marketplace/cli-ref/index.md) — Manage Yandex Marketplace resources
 
 - [yc metadata-hub](metadata-hub/cli-ref/index.md) — Manage Metadata Hub resources.
