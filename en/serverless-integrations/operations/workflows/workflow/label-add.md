@@ -5,6 +5,8 @@ description: Follow this guide to add label to a workflow.
 
 # Adding a label to a workflow
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}

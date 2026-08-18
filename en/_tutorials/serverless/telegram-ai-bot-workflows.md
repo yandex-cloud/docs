@@ -61,7 +61,7 @@ Create a [secret](../../lockbox/concepts/secret.md) to store the Telegram API ac
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you are going to create your infrastructure.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. [Navigate]({{ link-console-main }}/link/lockbox) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Click **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the secret.
   1. Select the `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}` secret type.
@@ -130,7 +130,7 @@ Create a [bucket](../../storage/concepts/bucket.md) to store your chat history w
 - Management console {#console}
 
   1. Open the [management console]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. In the top panel, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. Specify a bucket name that meets [these naming conventions](../../storage/concepts/bucket.md#naming).
   1. Specify the maximum bucket size: `5 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
@@ -207,9 +207,9 @@ Create a [service account](../../iam/concepts/users/service-accounts.md) named `
 - Management console {#console}
 
   1. Open the [management console]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Enter the service account name: `sa-workflows`.
+  1. Name the service account: `sa-workflows`.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign these [roles](../../iam/roles-reference.md):
 
       * `storage.uploader`
@@ -467,7 +467,7 @@ Where:
 - Management console {#console}
 
   1. Open the [management console]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. [Navigate]({{ link-console-main }}/link/serverless-integrations) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, click ![image](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
   1. In the top-right corner, click **{{ ui-key.yacloud.serverless-workflows.button_create-workflow }}**.
   1. Select the `{{ ui-key.yacloud.serverless-workflows.spec-editor-type_label_text-editor }}` method.
@@ -539,8 +539,8 @@ Make the workflow public so it can be executed via a link without authentication
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing the [workflow](../../serverless-integrations/concepts/workflows/workflow.md).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing your [workflow](../../serverless-integrations/concepts/workflows/workflow.md).
+  1. [Navigate]({{ link-console-main }}/link/serverless-integrations) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, click ![image](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
   1. Select the workflow.
   1. Enable **{{ ui-key.yacloud.serverless-workflows.label_public-access }}**.
@@ -595,8 +595,8 @@ Set up a webhook for your bot for it to send workflow execution requests via a l
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing the workflow.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing your workflow.
+  1. [Navigate]({{ link-console-main }}/link/serverless-integrations) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, click ![image](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
   1. Select a workflow. The execution link will appear in the **{{ ui-key.yacloud.serverless-workflows.label_execution-url }}** field.
 
@@ -712,7 +712,7 @@ Also, you can:
 
 ## How to delete the resources you created {#clear-out}
 
-To stop [paying](#paid-resources) for the resources you no longer need, delete them:
+Delete the resources you no longer need to avoid [paying](#paid-resources) for them:
 
 1. [Delete](../../serverless-integrations/operations/workflows/workflow/delete.md) the workflow.
 1. [Delete](../../storage/operations/buckets/delete.md) the bucket.

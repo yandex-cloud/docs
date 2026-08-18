@@ -49,7 +49,7 @@ yc config list
 
 {% note tip %}
 
-If using the resource ID, there is no need to specify the folder because their IDs are unique.
+If using a resource ID, you do not need to specify the folder because their IDs are unique.
 
 {% endnote %}
 
@@ -117,3 +117,9 @@ If the password contains special characters, replace them with hexadecimal ASCII
     ```
 
 {% endlist %}
+
+## Command versioning {#versioning}
+
+{% include [command-ver-intro](../../_includes/cli/command-ver-intro.md) %}
+
+For more information, see [{#T}](../operations/command-versioning.md).

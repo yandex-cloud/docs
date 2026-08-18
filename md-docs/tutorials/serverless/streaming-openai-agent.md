@@ -40,7 +40,7 @@
 
 {% note tip %}
 
-Если вы не хотите привязывать AI-агент к вендору, разверните функцию в Yandex Serverless Containers, как описано в руководстве [Разработка функций в Functions Framework и их развертывание в Yandex Serverless Containers](functions-framework-to-container.md).
+Если вы не хотите привязывать AI-агент к вендору, разверните функцию в Yandex Serverless Containers, как описано в руководстве [{#T}](functions-framework-to-container.md).
 
 {% endnote %}
 

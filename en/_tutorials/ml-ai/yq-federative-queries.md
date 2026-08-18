@@ -194,7 +194,7 @@ To create a data binding:
   1. Under **{{ ui-key.yql.yq-binding-form.binding-parameters.title }}**:
   
      1. Enter a name for the binding, e.g., `visits`.
-     1. In the **{{ ui-key.yql.yq-binding-form.binding-path-pattern.title }}** field, specify the [path to the table](../../query/sources-and-sinks/object-storage.md#path_format) in the bucket: `/visits.csv`.
+     1. In the **{{ ui-key.yql.yq-binding-form.binding-path-pattern.title }}** field, specify the [path to the table](../../query/sources-and-sinks/object-storage.md#path-format) in the bucket: `/visits.csv`.
   
   1. Under **{{ ui-key.yql.yq-binding-form.binding-format-settings.title }}**:
      
@@ -300,7 +300,7 @@ The {{ mch-name }} table will contain the item names.
 
 {% endlist %}
 
-To check the connection, run a query in the notebook cell. For example:
+To check the connection, run a query in the notebook cell. Here is an example:
 
 ```sql
 %yq SELECT * FROM clickhouse.items
@@ -380,7 +380,7 @@ The {{ mpg-name }} table will contain the names of the customers.
 
 {% endlist %}
 
-To check the connection, run a query in the notebook cell. For example:
+To check the connection, run a query in the notebook cell. Here is an example:
 
 ```sql
 %yq SELECT * FROM postgresql.persons

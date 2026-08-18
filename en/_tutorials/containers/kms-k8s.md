@@ -1,13 +1,13 @@
 # Encrypting secrets in {{ managed-k8s-full-name }}
 
-Use a [{{ kms-full-name }} key](../../kms/concepts/key.md) to encrypt [secrets](../../lockbox/concepts/secret.md), i.e., confidential information, such as passwords, OAuth tokens, and SSH keys, in [{{ managed-k8s-full-name }}](../../managed-kubernetes/). To do this, specify a {{ kms-name }} key when creating your [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster). This key will be used for encryption and decryption.
+Use a {{ kms-full-name }} [key](../../kms/concepts/key.md) to encrypt [secrets](../../lockbox/concepts/secret.md), i.e., confidential information, such as passwords and SSH keys, in [{{ managed-k8s-full-name }}](../../managed-kubernetes/). To do this, specify a {{ kms-name }} key when creating your [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster). This key will be used for encryption and decryption.
 
 Make sure to specify this key when creating the {{ managed-k8s-name }} cluster, as you cannot add it later when updating the cluster.
 
 
 ## Required paid resources {#paid-resources}
 
-The cost of support for the described solution includes a {{ kms-name }} fee, which covers the number of active key versions (with `Active` or `Scheduled For Destruction` status) and completed cryptographic operations (see [{{ kms-name }} pricing](../../kms/pricing.md)).
+The cost of support for the described solution includes a {{ kms-name }} fee: number of active key versions (with `Active` or `Scheduled For Destruction` status) and completed cryptographic operations (see [{{ kms-name }} pricing](../../kms/pricing.md)).
 
 
 {% list tabs group=instructions %}
@@ -16,7 +16,7 @@ The cost of support for the described solution includes a {{ kms-name }} fee, wh
 
   Specify a key when creating your {{ managed-k8s-name }} cluster:
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a {{ managed-k8s-name }} cluster.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click **{{ ui-key.yacloud.k8s.clusters.button_create }}**.
   1. In the **{{ ui-key.yacloud.k8s.clusters.create.field_kms-key }}** field, enter a key or [create a new one](../../kms/operations/key.md#create).
   1. Specify all other settings to [create your cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md).

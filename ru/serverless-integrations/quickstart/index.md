@@ -2,17 +2,9 @@
 title: Как начать работать с {{ si-full-name }}
 description: Следуя данным инструкциям, вы сможете настраивать интеграции и управлять ими с помощью serverless-технологий в {{ yandex-cloud }}.
 keywords:
-  - workflows
-  - workflow
-  - воркфлоу
   - eventrouter
   - event router
-  - рабочий процесс
-  - спецификация YaWL
-  - parallel
-  - integration
   - glue
-  - интеграции
   - API Gateway
   - шина
   - коннектор
@@ -24,9 +16,6 @@ keywords:
 {{ si-full-name }} позволяет настраивать интеграции и управлять ими с помощью serverless-технологий в {{ yandex-cloud }}.
 
 Начните работу с функциональностями {{ si-name }}:
-* [{{ sw-full-name }}](workflows.md) — создайте рабочий процесс, который вызывает функцию {{ sf-name }}, и запустите его. Подробнее о возможностях {{ sw-name }} в [Концепциях](../concepts/workflows/workflow.md).
-
-    {% include [workflows-preview-note](../../_includes/serverless-integrations/workflows-preview-note.md) %}
 
 * [{{ er-full-name }}](eventrouter.md) — создайте шину и передайте через нее данные. Подробнее о возможностях {{ er-name }} в [Концепциях](../concepts/eventrouter/bus.md).
 

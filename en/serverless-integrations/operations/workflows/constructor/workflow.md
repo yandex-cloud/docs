@@ -5,6 +5,8 @@ description: Follow this guide to add a synchronous execution of a {{ sw-full-na
 
 # Synchronous execution of another {{ sw-full-name }} workflow
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 {% include [templating-note](../../../../_includes/serverless-integrations/templating-note.md) %}
 
 {% list tabs %}

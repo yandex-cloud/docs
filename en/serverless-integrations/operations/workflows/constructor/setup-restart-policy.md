@@ -5,6 +5,8 @@ description: Follow this guide to configure a retry policy for an entire {{ sw-f
 
 # Configuring a retry policy for a workflow
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 {% list tabs %}
 
 - Management console {#console}

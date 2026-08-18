@@ -2907,7 +2907,7 @@ description: В статье приведен полный справочник 
 
 {% include [serverless.workflows.admin](../_roles/serverless/workflows/admin.md) %}
 
-Подробнее в [Управление доступом в {{ sw-name }}](../serverless-integrations/security/workflows.md).
+Подробнее в [Управление доступом в {{ sw-name }}]({{ link-docs-ai }}ai-studio/security/index#workflows-roles).
 
 
 ## {{ yandex-siem-full-name }} {#yandex-siem-roles}

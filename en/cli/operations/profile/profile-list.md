@@ -8,6 +8,11 @@ To get a list of profiles, run the command:
 
 ```bash
 yc config profile list
+```
+
+Result:
+
+```text
 prod ACTIVE
 test
 ```
@@ -20,6 +25,11 @@ Get the details of the profile named `prod`:
 
 ```bash
 yc config profile get prod
+```
+
+Result:
+
+```text
 subject-id: ajea53egl28l********
 cloud-id: b15jlj22h4ct********
 folder-id: b1grb2jo7g7o********

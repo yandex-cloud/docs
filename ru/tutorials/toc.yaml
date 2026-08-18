@@ -867,6 +867,8 @@ items:
             href: web/user-agent-statistics.md
           - name: Оформление контента из {{ video-name }} в IFrame
             href: web/video-iframe.md
+          - name: Управление видеоконтентом для курсов Moodle
+            href: web/video-moodle-plugin.md
       - name: 1С
         items:
           - name: Интернет-магазин на «1С-Битрикс»

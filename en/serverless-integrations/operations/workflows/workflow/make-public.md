@@ -5,6 +5,8 @@ description: Follow this guide to make a workflow public.
 
 # Making a workflow public
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 Make a workflow public so any user can run it.
 
 {% list tabs group=instructions %}

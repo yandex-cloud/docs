@@ -5,6 +5,8 @@ description: Follow this guide to schedule a workflow to start on a timer.
 
 # Scheduling a workflow to start on a timer
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 You can add a schedule when [creating](../workflow/create-yawl.md) or [updating](../workflow/update.md) a workflow.
 
 

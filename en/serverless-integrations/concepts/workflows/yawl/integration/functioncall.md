@@ -5,8 +5,10 @@ description: This article describes the fields for the FunctionCall integration 
 
 # FunctionCall
 
-Invoking the [{{ sf-full-name }}](../../../../../functions/) function.
+{% include [workflows-ai-studio-note](../../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
 
-Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
+Invoking a function from [{{ sf-full-name }}](../../../../../functions/).
+
+Field name | Type | Required | Default value | [Templating](../../templating.md) supported | Description
 --- | --- | --- | --- | --- | ---
-`functionId` | `string` | Yes | No | No | Function ID.
+`functionId` | `string` | Yes | None | None | Function ID.

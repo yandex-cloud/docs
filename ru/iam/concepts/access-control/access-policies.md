@@ -213,7 +213,7 @@ _Политики авторизации_ (политики) — это меха
 
 #### serverless.workflows.restrictNetworkAccess {#serverless-workflows-restrictNetworkAccess}
 
-Политика запрещает запуск [рабочих процессов](../../../serverless-integrations/concepts/workflows/workflow.md) {{ si-full-name }} и управление ими с любых адресов, за исключением заданных явно IP-адресов или [облачных сетей](../../../vpc/concepts/network.md#network) {{ vpc-full-name }}.
+Политика запрещает запуск [рабочих процессов]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow) {{ si-full-name }} и управление ими с любых адресов, за исключением заданных явно IP-адресов или [облачных сетей](../../../vpc/concepts/network.md#network) {{ vpc-full-name }}.
 
 Настраиваемые параметры (применяются с логикой `ИЛИ`):
 
@@ -222,7 +222,7 @@ _Политики авторизации_ (политики) — это меха
 
 #### serverless.workflows.restrictResourceVPCNetwork {#serverless-workflows-restrictResourceVPCNetwork}
 
-Политика запрещает привязку к [рабочим процессам](../../../serverless-integrations/concepts/workflows/workflow.md) {{ si-full-name }} любых [облачных сетей](../../../vpc/concepts/network.md#network) за исключением заданных явно.
+Политика запрещает привязку к [рабочим процессам]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow) {{ si-full-name }} любых [облачных сетей](../../../vpc/concepts/network.md#network) за исключением заданных явно.
 
 Настраиваемый параметр:
 

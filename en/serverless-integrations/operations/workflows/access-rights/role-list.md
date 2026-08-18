@@ -5,6 +5,8 @@ description: Follow this guide to view roles assigned for {{ sw-name }}.
 
 # Viewing roles assigned for a workflow
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 {% note info %}
 
 {{ sw-name }} automatically [inherit](../../../../iam/concepts/access-control/index.md#inheritance) roles assigned for the relevant folder, cloud, or organization. However, they are not displayed in the list of assigned roles. You can learn more about viewing roles [here](../../../../iam/operations/roles/get-assigned-roles.md).

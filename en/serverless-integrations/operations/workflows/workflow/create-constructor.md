@@ -5,6 +5,8 @@ description: Follow this guide to create a workflow using the constructor.
 
 # Creating a workflow using the constructor
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}

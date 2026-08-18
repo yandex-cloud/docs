@@ -9,6 +9,18 @@ description: Follow this guide to learn how to use the command line interface.
 
 The _{{ yandex-cloud }} command line interface (CLI)_ is downloadable software you can use to manage your cloud resources via the command line.
 
+The CLI is convenient for automating processes, which includes bash scripts or CI/CD pipelines. You can also use the CLI to manage {{ yandex-cloud }} resources from environments without a graphical interface, such as from inside a {{ compute-full-name }} [VM](../compute/concepts/vm.md).
+
+Most {{ yandex-cloud }} services are supported in the CLI. For details on the availability of interfaces for each service, see [{#T}](../overview/concepts/interfaces.md).
+
+{% note info %}
+
+Some services, such as [{{ message-queue-full-name }}](../message-queue/concepts/index.md), [{{ postbox-full-name }}](../postbox/concepts/index.md), and [{{ cns-full-name }}](../notifications/concepts/index.md), feature an HTTP API compatible with the Amazon API to support various third-party tools and SDKs. These services are not supported in the {{ yandex-cloud }} CLI. To work with them, use third-party tools, such as the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
+
+[{{ objstorage-full-name }}](../storage/concepts/index.md) supports operation both through the {{ yandex-cloud }} CLI and through the AWS CLI.
+
+{% endnote %}
+
 
 ## Installation {#install}
 

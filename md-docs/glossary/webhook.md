@@ -126,6 +126,6 @@
 * [Yandex Cloud Functions](https://yandex.cloud/ru/services/functions/) — сервис для создания и управления функциями, которые можно использовать в качестве вебхуков. Подробнее в [документации](../functions/index.md).
 * [Yandex Cloud Postbox](https://yandex.cloud/ru/services/postbox/) — сервис для отправки почтовых сообщений, которые можно отслеживать с помощью вебхуков. Подробнее в [документации](../tutorials/serverless/postbox-webhook.md).
 * [Yandex Monitoring](https://yandex.cloud/ru/services/monitoring/) — сервис для сбора метрик и отслеживания работы приложений, события из которого можно получать с помощью вебхуков. Подробнее в [документации](../monitoring/operations/alert/alert-call-function.md).
-* [Yandex API Gateway](https://yandex.cloud/ru/services/api-gateway/) — сервис для создания и управления API-шлюзами, которые можно использовать в качестве вебхуков. Подробнее в [документации](../serverless-integrations/tutorials/telegram-ai-bot-workflows.md).
+* [Yandex API Gateway](https://yandex.cloud/ru/services/api-gateway/) — сервис для создания и управления API-шлюзами, которые можно использовать в качестве вебхуков. Подробнее в [документации](../tutorials/serverless/telegram-ai-bot-workflows.md).
 
 Вы также можете настроить отслеживание событий в облачных ресурсах в Yandex Cloud с помощью вебхуков. Подробнее в [документации](../support/notify.md#webhook).

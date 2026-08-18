@@ -37,7 +37,7 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Сервис SpeechSense: количество символов в каждом текстовом диалоге и анализ диалогов с помощью AI-ассистента ([тарифы SpeechSense](https://aistudio.yandex.ru/docs/ru//speechsense/pricing)).
+* Сервис SpeechSense: количество символов в каждом текстовом диалоге и анализ диалогов с помощью AI-ассистента ([тарифы SpeechSense](https://aistudio.yandex.ru/docs/ru/speechsense/pricing)).
 
 ## Подготовьте инфраструктуру {#infrastructure-prepare}
 

@@ -59,7 +59,7 @@ _API-ключ_ — секретный ключ, используемый тол�
 * `yc.serverless.containers.invoke` — для вызова контейнеров через [API {{ serverless-containers-short-name }}](../../../serverless-containers/containers/api-ref/index.md).
 * `yc.serverless.functions.invoke` — для вызова функций через [API {{ sf-short-name }}](../../../functions/functions/api-ref/index.md).
 * `yc.serverless.mcpGateways.invoke` — для вызова [MCP-серверов](../../../glossary/mcp.md) через [{{ ai-studio-full-name }} {{ mcp-hub-name }}]({{ link-docs-ai }}ai-studio/concepts/mcp-hub/index).
-* `yc.serverless.workflows.execute` — для запуска [рабочих процессов](../../../serverless-integrations/concepts/workflows/execution.md) и получения информации о запуске через [API {{ sw-name }}](../../../serverless-integrations/concepts/index.md#workflows).
+* `yc.serverless.workflows.execute` — для запуска [рабочих процессов]({{ link-docs-ai }}ai-studio/concepts/workflows/execution) и получения информации о запуске через [API {{ sw-name }}](../../../serverless-integrations/concepts/index.md#workflows).
 * `yc.speech-sense.use` — для работы с [ресурсами]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy) {{ speechsense-name }} через [API {{ speechsense-full-name }}]({{ link-docs-ai }}speechsense/api-ref/authentication).
 * `yc.ydb.tables.manage` — для работы с {{ ydb-short-name }} в режиме совместимости с {{ PG }}.
 * `yc.ydb.topics.manage` — для работы с [Kafka API](../../../data-streams/kafkaapi/auth.md) в {{ yds-full-name }}.
@@ -95,7 +95,7 @@ API-ключи в качестве способа аутентификации �
 * [{{ postbox-full-name }}](../../../postbox/api-ref/authentication.md)
 * [{{ search-api-full-name }}]({{ link-docs-ai }}search-api/api-ref/authentication)
 * [{{ serverless-containers-full-name }}](../../../serverless-containers/)
-* [{{ si-full-name }}](../../../serverless-integrations) — в рамках [{{ sw-full-name }}](../../../serverless-integrations/concepts/workflows/workflow.md).
+* [{{ si-full-name }}](../../../serverless-integrations) — в рамках [{{ sw-full-name }}]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow).
 * [{{ speechkit-full-name }}]({{ link-docs-ai }}{{ speechkit-slug }}/concepts/auth)
 * [{{ speechsense-full-name }}]({{ link-docs-ai }}speechsense/api-ref/authentication)
 * [{{ translate-full-name }}]({{ link-docs-ai }}translate/api-ref/authentication)

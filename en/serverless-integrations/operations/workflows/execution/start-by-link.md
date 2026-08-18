@@ -5,6 +5,8 @@ description: Follow this guide to execute a workflow via a link.
 
 # Executing a workflow via a link
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 ## Getting a link for workflow execution {#get-link}
 
 {% list tabs group=instructions %}

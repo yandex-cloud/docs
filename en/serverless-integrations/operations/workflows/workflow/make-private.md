@@ -5,6 +5,8 @@ description: Follow this guide to make a workflow private.
 
 # Making a workflow private
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 By default, all workflows are private and can only be run by users who have permissions to run them. If you have made a workflow [public](make-public.md) and want to make it private again:
 
 {% list tabs group=instructions %}

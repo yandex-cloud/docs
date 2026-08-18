@@ -8,7 +8,7 @@ EventRouter находится на стадии [Preview](../../overview/concep
 
 {% endnote %}
 
-С помощью этой инструкции вы, используя [шину](../concepts/eventrouter/bus.md) EventRouter, перенаправите сообщение из очереди [Message Queue](../../message-queue/index.md) в [рабочий процесс](../concepts/workflows/workflow.md) Workflows.
+С помощью этой инструкции вы, используя [шину](../concepts/eventrouter/bus.md) EventRouter, перенаправите сообщение из очереди [Message Queue](../../message-queue/index.md) в [рабочий процесс](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow) Workflows.
 
 Сообщение, которое поступает в очередь, будет перенаправляться в рабочий процесс, если соответствует фильтру, заданному в правиле внутри шины. Рабочий процесс при этом будет автоматически запускаться. Перед отправкой в него сообщение будет преобразовываться по шаблону, заданному в том же правиле, что и фильтр.
 
@@ -34,22 +34,6 @@ EventRouter находится на стадии [Preview](../../overview/concep
 
 {% endlist %}
 
-## Создайте очередь {#create-queue}
-
-{% list tabs group=instructions %}
-
-- Консоль управления {#console}
-
-    1. Откройте [консоль управления](https://console.yandex.cloud) и Перейдите в сервис **Message Queue**.
-    1. Нажмите кнопку **Создать очередь**.
-    1. Введите имя очереди: `sample-queue`.
-    1. Выберите тип `Стандартная`. Не изменяйте другие настройки.
-    1. Нажмите кнопку **Создать**.
-    1. Откройте созданную очередь.
-    1. На вкладке **Обзор** в блоке **Общая информация** скопируйте URL очереди, он понадобится позднее.
-
-{% endlist %}
-
 ## Создайте рабочий процесс {#create-workflow}
 
 {% note info %}
@@ -60,12 +44,13 @@ Workflows находится на стадии [Preview](../../overview/concepts
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Интерфейс AI Studio {#console}
 
-    1. Откройте [консоль управления](https://console.yandex.cloud) и Перейдите в сервис **Serverless Integrations**.
-    1. На панели слева выберите ![GraphNode](../../_assets/console-icons/graph-node.svg) **Workflows**.
-    1. В правом верхнем углу нажмите кнопку **Создать рабочий процесс**.
-    1. В поле **YaML-спецификация** добавьте следующую спецификацию:
+    1. Перейдите в [интерфейс AI Studio](https://aistudio.yandex.ru/platform).
+    1. На панели слева разверните раздел ![atom](../../_assets/ai-studio/atom.svg) **Agent Atelier** и выберите ![graph-node](../../_assets/console-icons/graph-node.svg) **Workflows**.
+    1. Нажмите **Создать рабочий процесс**.
+    1. Выберите способ `YaML-спецификация`.
+    1. Добавьте следующую спецификацию:
         ```
         yawl: "0.1"
         start: noopstep
@@ -75,10 +60,24 @@ Workflows находится на стадии [Preview](../../overview/concepts
               output: |-
                 \(.)
         ```
-    1. Разверните блок **Дополнительные параметры**.
-    1. В поле **Имя** введите имя рабочего процесса: `sample-workflow`.
-    1. В поле **Сервисный аккаунт** выберите сервисный аккаунт `sa-for-eventrouter`.
+    1. Нажмите ![sliders](../../_assets/console-icons/sliders.svg) **Дополнительные параметры** и в поле **Сервисный аккаунт** выберите сервисный аккаунт `sa-for-eventrouter`.
     1. Нажмите кнопку **Создать**.
+
+{% endlist %}
+
+## Создайте очередь {#create-queue}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    1. Откройте [консоль управления](https://console.yandex.cloud) и перейдите в сервис **Message Queue**.
+    1. Нажмите кнопку **Создать очередь**.
+    1. Введите имя очереди: `sample-queue`.
+    1. Выберите тип `Стандартная`. Не изменяйте другие настройки.
+    1. Нажмите кнопку **Создать**.
+    1. Откройте созданную очередь.
+    1. На вкладке **Обзор** в блоке **Общая информация** скопируйте URL очереди, он понадобится позднее.
 
 {% endlist %}
 
@@ -88,7 +87,7 @@ Workflows находится на стадии [Preview](../../overview/concepts
 
 - Консоль управления {#console}
 
-    1. Откройте [консоль управления](https://console.yandex.cloud) и Перейдите в сервис **Serverless Integrations**.
+    1. Откройте [консоль управления](https://console.yandex.cloud) и перейдите в сервис **Serverless Integrations**.
     1. На панели слева выберите ![ObjectAlignCenterVertical](../../_assets/console-icons/object-align-center-vertical.svg) **EventRouter**.
     1. В правом верхнем углу нажмите кнопку **Создать шину**.
     1. Введите имя шины: `sample-bus`.
@@ -127,7 +126,7 @@ Workflows находится на стадии [Preview](../../overview/concepts
         ```
     1. В блоке **Приёмники** нажмите кнопку **Добавить**.
     1. В поле **Тип** выберите `Yandex Workflows`.
-    1. В поле **Рабочий процесс** укажите `sample-workflow`.
+    1. В поле **Рабочий процесс** укажите созданный ранее рабочий процесс.
     1. В поле **Сервисный аккаунт** укажите `sa-for-eventrouter`.
     1. Разверните блок **Шаблон** и укажите jq-шаблон для преобразования сообщений:
         ```
@@ -218,9 +217,11 @@ Workflows находится на стадии [Preview](../../overview/concepts
          ```
     1. Убедитесь, что фильтр, который вы указали в правиле, не пропустил сообщение через шину:
 
-        1. Откройте [консоль управления](https://console.yandex.cloud) и Перейдите в сервис **Serverless Integrations**.
-        1. На панели слева выберите ![GraphNode](../../_assets/console-icons/graph-node.svg) **Workflows**.
+        1. Перейдите в [интерфейс AI Studio](https://aistudio.yandex.ru/platform).
+        1. На панели слева разверните раздел ![atom](../../_assets/ai-studio/atom.svg) **Agent Atelier** и выберите ![graph-node](../../_assets/console-icons/graph-node.svg) **Workflows**.
+        1. Выберите рабочий процесс.
         1. Перейдите на вкладку **Запуски**. На странице не должно быть выполненных запусков.
+
 
     1. Отправьте второе сообщение в очередь `sample-queue`, используя сохраненный ранее URL очереди:
 
@@ -242,8 +243,9 @@ Workflows находится на стадии [Preview](../../overview/concepts
          ```
     1. Убедитесь, что фильтр, который вы указали в правиле, пропустил сообщение через шину, оно преобразовалось по шаблону и перенаправилось в рабочий процесс:
 
-        1. Откройте [консоль управления](https://console.yandex.cloud) и Перейдите в сервис **Serverless Integrations**.
-        1. На панели слева выберите ![GraphNode](../../_assets/console-icons/graph-node.svg) **Workflows**.
+        1. Перейдите в [интерфейс AI Studio](https://aistudio.yandex.ru/platform).
+        1. На панели слева разверните раздел ![atom](../../_assets/ai-studio/atom.svg) **Agent Atelier** и выберите ![graph-node](../../_assets/console-icons/graph-node.svg) **Workflows**.
+        1. Выберите рабочий процесс.
         1. Перейдите на вкладку **Запуски**. На странице должен отобразиться выполненный запуск.
         1. Выберите выполненный запуск.
         1. Убедитесь, что в блоке **Данные на входе** отображается преобразованное сообщение:

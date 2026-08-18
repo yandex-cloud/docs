@@ -5,7 +5,7 @@
 
 В этом руководстве вы создадите [бота](../../glossary/chat-bot.md) для Telegram, который умеет:
 
-* [синтезировать речь](https://aistudio.yandex.ru/docs/ru//speechkit/tts/index) из текста сообщения и [распознавать речь](https://aistudio.yandex.ru/docs/ru//speechkit/stt/index) в голосовых сообщениях с помощью [Python SDK](https://pypi.org/project/yandex-speechkit/) сервиса Yandex SpeechKit;
+* [синтезировать речь](https://aistudio.yandex.ru/docs/ru/speechkit/tts/index) из текста сообщения и [распознавать речь](https://aistudio.yandex.ru/docs/ru/speechkit/stt/index) в голосовых сообщениях с помощью [Python SDK](https://pypi.org/project/yandex-speechkit/) сервиса Yandex SpeechKit;
 * [распознавать текст](https://aistudio.yandex.ru/docs/ru/vision/concepts/ocr/index) на изображениях с помощью сервиса Yandex Vision OCR.
 
 Аутентификация в сервисах Yandex Cloud выполняется от имени сервисного аккаунта с помощью [IAM-токена](../../iam/concepts/authorization/iam-token.md). IAM-токен содержится в контексте [обработчика функции](../operations/function-sa.md), которая программирует диалог пользователя с ботом.

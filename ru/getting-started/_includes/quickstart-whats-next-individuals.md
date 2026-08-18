@@ -70,10 +70,6 @@
 
   Сконфигурируйте API-шлюз и настройте интеграцию для вызова функции.
 
-* [{{ sw-full-name }}](../../serverless-integrations/quickstart/workflows.md).
-
-  Создайте рабочий процесс и запустите его.
-
 * [{{ serverless-containers-full-name }}](../../serverless-containers/quickstart/index.md).
 
   Создайте контейнер и триггер для него.

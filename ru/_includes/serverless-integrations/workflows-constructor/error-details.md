@@ -1,1 +1,0 @@
-Подробная информация о возможных ошибках приведена в разделе [{#T}](../../../serverless-integrations/concepts/workflows/execution.md#errors).

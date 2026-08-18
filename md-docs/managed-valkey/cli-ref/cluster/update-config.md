@@ -85,7 +85,9 @@ If no new command is sent during that time, the connection is closed.
 
 - `activedefrag`: Enable active (online) memory defragmentation
 
-- `audit_log`: Enable/disable audit logs for Valkey ||
+- `audit_log`: Enable/disable audit logs for Valkey
+
+- `rebalance_enabled`: Enables automatic slot rebalancing when shards are added or deleted. ||
 |#
 
 #### Global Flags

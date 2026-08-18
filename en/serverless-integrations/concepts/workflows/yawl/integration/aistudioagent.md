@@ -5,9 +5,11 @@ description: This article describes the fields for the AIStudioAgent integration
 
 # AIStudioAgent
 
+{% include [workflows-ai-studio-note](../../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 Interacting with [{{ ai-studio-name }}]({{ link-docs-ai }}ai-studio/concepts/agents/index) agents.
 
-Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
+Field name | Type | Required | Default value | [Templating](../../templating.md) supported | Description
 --- | --- | --- | --- | --- | ---
 `promptTemplateId`  | `string`              | Yes  | None | None | Agent ID.
 `message`           | `string`              | None | None | Yes  | Incoming message to provide to the agent together with the prompt. To provide full [workflow status](../../workflow.md#state), specify `\(.)`.

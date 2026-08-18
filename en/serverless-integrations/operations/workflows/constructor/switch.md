@@ -5,6 +5,8 @@ description: Follow this guide to add the Switch step for selecting the further 
 
 # Adding the Switch step for selecting a further execution path
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 With the Switch control step, you can define conditions for selecting the further execution path in your workflow. This way, only one path can be selected: the one where the defined condition first returns `true`.
 
 If all conditions return `false`, the workflow will be executed for the path specified in the default condition; if there is no default condition, the workflow execution will fail.

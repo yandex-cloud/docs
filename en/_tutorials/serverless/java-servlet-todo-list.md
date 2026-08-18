@@ -51,7 +51,7 @@ Create a [bucket](*bucket) and upload `index.html` to it:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**, and in the window that opens:
 
       1. Enter a bucket name consistent with the [naming conventions](*bucket_name).
@@ -126,7 +126,7 @@ Create a [bucket](*bucket) and upload `index.html` to it:
   1. Create a database in [serverless mode](*ydb_modes):
 
       1. In the [management console]({{ link-console-main }}), select the folder where you created the bucket.
-      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+      1. [Navigate]({{ link-console-main }}/link/ydb) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
       1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
       1. Specify the database **[{{ ui-key.yacloud.ydb.forms.label_field_name }}](*name)**.
       1. Under **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}**, select `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}`.
@@ -228,8 +228,8 @@ Create a [function](*functions) for each servlet:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder where you created the bucket and the database.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder in which you created the bucket and database.
+  1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
   1. Specify `add-task` for the function **{{ ui-key.yacloud.common.name }}** and, optionally, add a **{{ ui-key.yacloud.common.description }}**.
   1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -332,7 +332,7 @@ To enable interaction between services, create an [API gateway](*api_gw):
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you created your bucket, database, and functions.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. [Navigate]({{ link-console-main }}/link/api-gateway) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
   1. Specify the gateway **[{{ ui-key.yacloud.common.name }}](*name)** and, optionally, add a **{{ ui-key.yacloud.common.description }}**.
   1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** field, add this specification:

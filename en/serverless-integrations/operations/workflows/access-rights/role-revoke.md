@@ -5,6 +5,8 @@ description: Follow this guide to revoke roles assigned for a workflow in {{ sw-
 
 # Revoking roles assigned for a workflow
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 {% list tabs group=instructions %}
 
 - CLI {#cli}

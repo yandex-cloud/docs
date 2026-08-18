@@ -13,7 +13,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Get your cloud ready {#before-you-begin}
 
-If the [Docker image](../../container-registry/concepts/docker-image.md) you need is stored in [{{ container-registry-name }}](../../container-registry/), create a [service account](../../iam/operations/sa/create.md) with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the [registry](../../container-registry/concepts/registry.md) in question. Your {{ coi }} VM will use this account to pull the Docker image from the registry.
+If the [Docker image](../../container-registry/concepts/docker-image.md) you need is stored in [{{ container-registry-name }}](../../container-registry/), create a [service account](../../iam/operations/sa/create.md) with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the [registry](../../container-registry/concepts/registry.md) in question. A {{ coi }} VM will pull the Docker image from the registry under this account.
 
 {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -25,7 +25,7 @@ If you do not have a [network](../../vpc/operations/network-create.md) or [subne
 
 The infrastructure support cost includes:
 * Fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for a dynamic or static [external IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for using a dynamic or static [external IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 ## Create a VM specification file {#prepare-specification-vm}
 
@@ -123,7 +123,8 @@ The infrastructure support cost includes:
 
         Once created, the VM will appear in the VM list under **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** in the [management console]({{ link-console-main }}).
      1. Check the result.
-        1. In the [management console]({{ link-console-main }}), navigate to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+        1. Select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page in the [management console]({{ link-console-main }}).
+        1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
         1. Click the VM name: `coi-vm-with-sp`.
         1. Under **{{ ui-key.yacloud.compute.instance.switch_service-console }}**, select the `COM2` port. In a few minutes, the screen will display `Hello world!`.
 
@@ -175,7 +176,7 @@ To get the ID of the latest image for creating the VM, run:
   * `--zone`: Availability zone.
   * `--network-interface`: VM network settings.
   * `--metadata-from-file`: YAML metadata files for creating the VM.
-  * `--create-boot-disk`: ID of the image to create a boot disk from.
+  * `--create-boot-disk`: ID of the image for creating a boot disk from.
 
 {% endlist %}
 
@@ -184,8 +185,8 @@ Once created, the VM will appear in the VM list under **{{ ui-key.yacloud.iam.fo
 ## Check the result {#check-result}
 
 To check whether you correctly configured data output from the Docker container to the serial port:
-1. In the [management console]({{ link-console-main }}), navigate to the folder page.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. In the [management console]({{ link-console-main }}), select the relevant folder.
+1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. Click the VM name: `coi-vm-with-sp`.
 1. Under **{{ ui-key.yacloud.compute.instance.switch_service-console }}**, select the `COM2` port. In a few minutes, the screen will display `Hello world!`.
 

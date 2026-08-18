@@ -205,9 +205,9 @@
   * [Managed Service for YDB](../../ydb/quickstart.md#create-db).
   * [Копируйте и реплицируйте данные из одной базы в другую с помощью Data Transfer](../../data-transfer/quickstart.md).
 * Искусственный интеллект:
-  * [Преобразуйте текст в речь и наоборот с помощью SpeechKit](https://aistudio.yandex.ru/docs/ru//speechkit/quickstart/index).
-  * [Переведите текст в Translate](https://aistudio.yandex.ru/docs/ru//translate/quickstart).
-  * [Анализируйте изображение с помощью компьютерного зрения в Vision OCR](https://aistudio.yandex.ru/docs/ru//vision/quickstart).
+  * [Преобразуйте текст в речь и наоборот с помощью SpeechKit](https://aistudio.yandex.ru/docs/ru/speechkit/quickstart/index).
+  * [Переведите текст в Translate](https://aistudio.yandex.ru/docs/ru/translate/quickstart).
+  * [Анализируйте изображение с помощью компьютерного зрения в Vision OCR](https://aistudio.yandex.ru/docs/ru/vision/quickstart).
   * [Обучайте и запускайте модели машинного обучения в DataSphere](../../datasphere/quickstart.md).
   * [Создайте AI-агента для своего бизнеса](https://aistudio.yandex.ru/docs/ru/)
 

@@ -5,6 +5,8 @@ description: To perform operations in {{ sw-name }} via the API, get an IAM toke
 
 # Authentication with the {{ sw-name }} API
 
+{% include [workflows-ai-studio-note](../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 To work via the API, you can use an [IAM token](../../../iam/concepts/authorization/iam-token.md) or an [API key](../../../iam/concepts/authorization/api-key.md).
 
 {% note info %}

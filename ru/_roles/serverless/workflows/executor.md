@@ -1,1 +1,1 @@
-Роль `serverless.workflows.executor` позволяет запускать, приостанавливать, возобновлять и останавливать [рабочие процессы](../../../serverless-integrations/concepts/workflows/workflow.md) {{ sw-full-name }}.
+Роль `serverless.workflows.executor` позволяет запускать, приостанавливать, возобновлять и останавливать [рабочие процессы]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow) {{ sw-full-name }}.

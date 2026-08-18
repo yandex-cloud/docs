@@ -13,7 +13,7 @@ keywords:
 
 {% include [event-router-preview-note](../../_includes/serverless-integrations/event-router-preview-note.md) %}
 
-С помощью этой инструкции вы, используя [шину](../concepts/eventrouter/bus.md) {{ er-name }}, перенаправите сообщение из очереди [{{ message-queue-name }}](../../message-queue/) в [рабочий процесс](../concepts/workflows/workflow.md) {{ sw-name }}.
+С помощью этой инструкции вы, используя [шину](../concepts/eventrouter/bus.md) {{ er-name }}, перенаправите сообщение из очереди [{{ message-queue-name }}](../../message-queue/) в [рабочий процесс]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow) {{ sw-name }}.
 
 Сообщение, которое поступает в очередь, будет перенаправляться в рабочий процесс, если соответствует фильтру, заданному в правиле внутри шины. Рабочий процесс при этом будет автоматически запускаться. Перед отправкой в него сообщение будет преобразовываться по шаблону, заданному в том же правиле, что и фильтр.
 
@@ -39,34 +39,19 @@ keywords:
 
 {% endlist %}
 
-## Создайте очередь {#create-queue}
-
-{% list tabs group=instructions %}
-
-- Консоль управления {#console}
-
-    1. Откройте [консоль управления]({{ link-console-main }}) и Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.ymq.queues.button_create }}**.
-    1. Введите имя очереди: `sample-queue`.
-    1. Выберите тип `{{ ui-key.yacloud.ymq.queue.form.type_switch_standard }}`. Не изменяйте другие настройки.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-    1. Откройте созданную очередь.
-    1. На вкладке **{{ ui-key.yacloud.common.overview }}** в блоке **{{ ui-key.yacloud.ymq.queue.overview.section_base }}** скопируйте URL очереди, он понадобится позднее.
-
-{% endlist %}
-
 ## Создайте рабочий процесс {#create-workflow}
 
 {% include [workflows-preview-note](../../_includes/serverless-integrations/workflows-preview-note.md) %}
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Интерфейс {{ ai-studio-name }} {#console}
 
-    1. Откройте [консоль управления]({{ link-console-main }}) и Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
-    1. На панели слева выберите ![GraphNode](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
-    1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.serverless-workflows.button_create-workflow }}**.
-    1. В поле **{{ ui-key.yacloud.serverless-workflows.spec-editor-type_label_text-editor }}** добавьте следующую спецификацию:
+    1. Перейдите в [интерфейс {{ ai-studio-name }}]({{ link-console-ai }}).
+    1. На панели слева разверните раздел ![atom](../../_assets/ai-studio/atom.svg) **{{ agents-atelier-name }}** и выберите ![graph-node](../../_assets/console-icons/graph-node.svg) **{{ sw-name }}**.
+    1. Нажмите **{{ ui-key.yacloud.serverless-workflows.button_create-workflow }}**.
+    1. Выберите способ `YaML-спецификация`.
+    1. Добавьте следующую спецификацию:
         ```
         yawl: "0.1"
         start: noopstep
@@ -76,10 +61,24 @@ keywords:
               output: |-
                 \(.)
         ```
-    1. Разверните блок **{{ ui-key.yacloud.serverless-workflows.label_additional-parameters }}**.
-    1. В поле **{{ ui-key.yacloud.common.name }}** введите имя рабочего процесса: `sample-workflow`.
-    1. В поле **{{ ui-key.yacloud.serverless-workflows.label_service-account }}** выберите сервисный аккаунт `sa-for-eventrouter`.
+    1. Нажмите ![sliders](../../_assets/console-icons/sliders.svg) **{{ ui-key.yacloud.serverless-workflows.label_additional-parameters }}** и в поле **{{ ui-key.yacloud.serverless-workflows.label_service-account }}** выберите сервисный аккаунт `sa-for-eventrouter`.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+
+{% endlist %}
+
+## Создайте очередь {#create-queue}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    1. Откройте [консоль управления]({{ link-console-main }}) и перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.ymq.queues.button_create }}**.
+    1. Введите имя очереди: `sample-queue`.
+    1. Выберите тип `{{ ui-key.yacloud.ymq.queue.form.type_switch_standard }}`. Не изменяйте другие настройки.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+    1. Откройте созданную очередь.
+    1. На вкладке **{{ ui-key.yacloud.common.overview }}** в блоке **{{ ui-key.yacloud.ymq.queue.overview.section_base }}** скопируйте URL очереди, он понадобится позднее.
 
 {% endlist %}
 
@@ -89,7 +88,7 @@ keywords:
 
 - Консоль управления {#console}
 
-    1. Откройте [консоль управления]({{ link-console-main }}) и Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+    1. Откройте [консоль управления]({{ link-console-main }}) и перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
     1. На панели слева выберите ![ObjectAlignCenterVertical](../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}**.
     1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.serverless-event-router.button_create-bus }}**.
     1. Введите имя шины: `sample-bus`.
@@ -128,7 +127,7 @@ keywords:
         ```
     1. В блоке **{{ ui-key.yacloud.serverless-event-router.label_targets }}** нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
     1. В поле **{{ ui-key.yacloud.serverless-event-router.label_target-type }}** выберите `{{ sw-full-name }}`.
-    1. В поле **Рабочий процесс** укажите `sample-workflow`.
+    1. В поле **Рабочий процесс** укажите созданный ранее рабочий процесс.
     1. В поле **Сервисный аккаунт** укажите `sa-for-eventrouter`.
     1. Разверните блок **{{ ui-key.yacloud.serverless-event-router.label_target-transformer }}** и укажите jq-шаблон для преобразования сообщений:
         ```
@@ -174,9 +173,11 @@ keywords:
          ```
     1. Убедитесь, что фильтр, который вы указали в правиле, не пропустил сообщение через шину:
 
-        1. Откройте [консоль управления]({{ link-console-main }}) и Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
-        1. На панели слева выберите ![GraphNode](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
+        1. Перейдите в [интерфейс {{ ai-studio-name }}]({{ link-console-ai }}).
+        1. На панели слева разверните раздел ![atom](../../_assets/ai-studio/atom.svg) **{{ agents-atelier-name }}** и выберите ![graph-node](../../_assets/console-icons/graph-node.svg) **{{ sw-name }}**.
+        1. Выберите рабочий процесс.
         1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-workflows.label_workflow-executions }}**. На странице не должно быть выполненных запусков.
+
 
     1. Отправьте второе сообщение в очередь `sample-queue`, используя сохраненный ранее URL очереди:
 
@@ -198,8 +199,9 @@ keywords:
          ```
     1. Убедитесь, что фильтр, который вы указали в правиле, пропустил сообщение через шину, оно преобразовалось по шаблону и перенаправилось в рабочий процесс:
 
-        1. Откройте [консоль управления]({{ link-console-main }}) и Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
-        1. На панели слева выберите ![GraphNode](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
+        1. Перейдите в [интерфейс {{ ai-studio-name }}]({{ link-console-ai }}).
+        1. На панели слева разверните раздел ![atom](../../_assets/ai-studio/atom.svg) **{{ agents-atelier-name }}** и выберите ![graph-node](../../_assets/console-icons/graph-node.svg) **{{ sw-name }}**.
+        1. Выберите рабочий процесс.
         1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-workflows.label_workflow-executions }}**. На странице должен отобразиться выполненный запуск.
         1. Выберите выполненный запуск.
         1. Убедитесь, что в блоке **{{ ui-key.yacloud.serverless-workflows.label_input_data }}** отображается преобразованное сообщение:

@@ -1,4 +1,4 @@
-# Canary release of a function in {{ sf-name }}
+# Canary release of a {{ sf-name }} function
 
 
 Create a canary release of a function in {{ sf-name }} using {{ api-gw-short-name }}.
@@ -30,7 +30,7 @@ The web application support cost includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter a name for the service account: `canary-sa`.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `editor`.
@@ -100,7 +100,7 @@ The web application support cost includes:
       * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md). This is an optional setting. It defaults to the value specified in the provider settings.
       * `role`: Role being assigned.
 
-      For more on the properties of the `yandex_iam_service_account` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account).
+      For more on `yandex_iam_service_account` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account).
 
   1. Make sure the configuration files are correct.
 
@@ -201,7 +201,7 @@ Tag the first function version as `stable` and the second one as `canary`.
         }
         ``` 
 
-        For more on the properties of the `yandex_function` resource, see [this provider guide]({{ tf-provider-resources-link }}/function).
+        For more on `yandex_function` properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
     1. Validate your configuration using this command:
         
@@ -221,7 +221,7 @@ Tag the first function version as `stable` and the second one as `canary`.
        terraform plan
        ```
         
-       You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration. 
+       You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration. 
          
     1. Apply the configuration changes:
 
@@ -249,7 +249,7 @@ Tag the first function version as `stable` and the second one as `canary`.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create an API gateway.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. [Navigate]({{ link-console-main }}/link/api-gateway) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
     1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
     1. In the **{{ ui-key.yacloud.common.name }}** field, enter `canary`.
     1. Under **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}**, add the following specification:
@@ -393,7 +393,7 @@ Tag the first function version as `stable` and the second one as `canary`.
      * `canary.0.variables`: Variables for the canary release.
      * `spec`: API gateway specification.
 
-     For more information about resource properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/api_gateway).
+     For more on the properties of resources in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/api_gateway).
 
   1. Make sure the configuration files are correct.
 

@@ -23,7 +23,7 @@ Workflows находится на стадии [Preview](../../overview/concepts
 На схеме:
 
 1. [Триггер](../../functions/concepts/trigger/os-trigger.md) для Object Storage отслеживает появление новых JSON-файлов с метаданными в выделенной папке [бакета](../../storage/concepts/bucket.md) или любой из ее подпапок.
-1. Когда в папке появляются новые файлы, триггер вызывает [функцию](../../functions/concepts/function.md) `workflow-call`, которая запускает [рабочий процесс Workflows](../../serverless-integrations/concepts/workflows/workflow.md).
+1. Когда в папке появляются новые файлы, триггер вызывает [функцию](../../functions/concepts/function.md) `workflow-call`, которая запускает [рабочий процесс Workflows](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow).
 1. Рабочий процесс получает содержимое JSON-файлов с метаданными и проверяет их синтаксис с помощью функции `verify-file`.
 1. Рабочий процесс получает параметры подключения SpeechSense из [секрета Yandex Lockbox](../../lockbox/concepts/secret.md).
 1. Путь к аудиозаписи или текстовому файлу, а также их метаданные передаются в функцию загрузки `speechsense-upload`.
@@ -240,8 +240,8 @@ Workflows находится на стадии [Preview](../../overview/concepts
   1. Откройте [главную страницу](https://speechsense.yandex.cloud/) SpeechSense.
   1. Перейдите в [новое пространство](#create-space).
   1. Нажмите кнопку ![image](../../_assets/console-icons/person-plus.svg) **Добавить участника** → ![image](../../_assets/console-icons/persons.svg) **Добавить из организации**.
-  1. Скопируйте идентификатор [созданного ранее сервисного аккаунта](#create-sa) `speechsense-sa` и вставьте в строку поиска.
-  1. Выберите сервисный аккаунт `speechsense-sa` и укажите роль [Data editor](https://aistudio.yandex.ru/docs/ru/speechsense/security/#speechsense-data-editor). Эта роль позволит сервисному аккаунту `speechsense-sa` загружать данные в SpeechSense.
+  1. Cкопируйте идентификатор [созданного ранее сервисного аккаунта](#create-sa) `speechsense-sa` и вставьте в строку поиска.
+  1. Выберите сервисный аккаунт `speechsense-sa` и укажите роль [Data editor](https://aistudio.yandex.ru/docs/ru/speechsense/security/index#speechsense-data-editor). Эта роль позволит сервисному аккаунту `speechsense-sa` загружать данные в SpeechSense.
   1. Нажмите кнопку **Добавить**.
 
 {% endlist %}

@@ -86,7 +86,7 @@ The infrastructure support cost for this tutorial includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your service account.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Name the service account: `sa-function`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `{{ roles-editor }}`.
@@ -176,7 +176,7 @@ The infrastructure support cost for this tutorial includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. In the list that opens, select the `sa-function` service account.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.
@@ -249,7 +249,7 @@ The infrastructure support cost for this tutorial includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a database.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. [Navigate]({{ link-console-main }}/link/ydb) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
   1. Name the database. The naming requirements are as follows:
 
@@ -345,8 +345,8 @@ Before creating a function, make sure the `.env` file and the `create-func.sh` a
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the function.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. Select the `func-test-ydb` function.
+  1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Select `func-test-ydb`.
   1. Navigate to the **{{ ui-key.yacloud.common.overview }}** tab.
   1. In the **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}** field, click the link.
   1. In your browser address bar, add the `api_key` parameter to the link, e.g., `?api_key=b95`:
