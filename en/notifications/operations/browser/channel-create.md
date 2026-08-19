@@ -10,12 +10,14 @@ description: Follow this guide to create an in-browser push notification channel
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you want to create a notification channel in.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. [Navigate]({{ link-console-main }}/link/cns) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Click **{{ ui-key.yacloud.cns.action_create-channel }}**.
   1. Select the **{{ ui-key.yacloud.cns.type_web }}** tab.
   1. Optionally, under **{{ ui-key.yacloud.cns.section_logging }}**, enable **{{ ui-key.yacloud.cns.field_logging }}**.
+     
      1. In the **{{ ui-key.yacloud.cns.field_logging-folder }}** list, select the folder the [log group](../../../logging/concepts/log-group.md) will reside in.
      1. In the **{{ ui-key.yacloud.cns.field_log-group }}** field, select an existing log group or create a new one.
+  
   1. Enter a name for your notification channel. The channel name must be unique within {{ cns-name }}.
   1. Optionally, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.cns.button_add-description }}** and enter a description for your notification channel.
   1. Click **{{ ui-key.yacloud.common.create }}**.

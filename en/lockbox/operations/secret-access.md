@@ -10,7 +10,7 @@ description: Follow this guide to configure access to a secret.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. [Navigate]({{ link-console-main }}/link/lockbox) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Click the name of the secret you need.
   1. On the left-hand panel, select ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
   1. In the **{{ ui-key.yacloud_components.acl.label.subject }}** field of the window that opens, select a group, user, or [service account](../../iam/concepts/users/service-accounts.md) to provide with access to the secret.
@@ -37,6 +37,7 @@ description: Follow this guide to configure access to a secret.
         ```
 
         Where:
+        
         * `--id`: Secret ID.
         * `--user-account-id`: [User ID](../../organization/operations/users-get.md).
         * `--role`: [Role](../security/index.md#roles-list) to assign.
@@ -51,6 +52,7 @@ description: Follow this guide to configure access to a secret.
         ```
 
         Where:
+        
         * `--id`: Secret ID.
         * `--service-account-id`: [Service account ID](../../iam/operations/sa/get-id.md).
         * `--role`: [Role](../security/index.md#roles-list) to assign.

@@ -22,4 +22,3 @@ description: Следуя данной инструкции, вы сможете
   {% include [conditions-for-deleting-records](../../_includes/vpc/conditions-for-deleting-records.md) %}
 
 {% endlist %}
-

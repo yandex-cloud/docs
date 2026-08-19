@@ -19,19 +19,8 @@ description: Следуя данной инструкции, вы сможете
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. Введите имя группы безопасности.
   1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** выберите сеть, которой будет назначена группа безопасности.
-  1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.label_section-rules }}** создайте правила для управления трафиком: 
-     1. Выберите вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** или **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}**.
-     1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
-     1. В открывшемся окне в поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** укажите один порт или диапазон портов, куда или откуда будет поступать трафик.
-     1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** укажите нужный протокол или оставьте `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`, чтобы разрешить передачу трафика по всем протоколам.
-     1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** или **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** выберите назначение правила:
-        1. `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` — правило будет применено к диапазону IP-адресов. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** укажите CIDR и маски подсетей, в которые или из которых будет поступать трафик. Чтобы добавить несколько CIDR, нажимайте кнопку **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
-        1. `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` — альтернатива полю `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`. Выберите:
-           * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` — чтобы разрешить сетевое взаимодействие между ресурсами, на которые применена текущая группа безопасности.
-           * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-list }}` — чтобы разрешить сетевое взаимодействие с ресурсами, на которые применена выбранная группа.
-        1. `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**. Если требуется, добавьте другие правила.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  1. {% include [security-group-add-rule](../../_includes/vpc/security-group-add-rule.md) %}
+  1. Повторно нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
   
@@ -54,12 +43,12 @@ description: Следуя данной инструкции, вы сможете
     * `v4-cidrs` — список CIDR IPv4 и масок подсетей, откуда или куда будет поступать трафик.
     * `network-id` — идентификатор сети, к которой будет подключена группа безопасности.
 
-  Чтобы создать группу с правилом разрешающим трафик от всех ресурсов другой группы безопасности, выполните команду:
+  Чтобы создать группу с правилом, разрешающим трафик от всех ресурсов другой группы безопасности, выполните команду:
 
   ```bash
   yc vpc security-group create \
     --name allow-connection-from-app \
-    --rule "direction=ingress,port=5642,protocol=tcp,security-group-id=enp099cqehlfvabec36d" \
+    --rule "direction=ingress,port=443,protocol=tcp,security-group-id=enp099cqehlf********" \
     --network-name infra2
   ```
 
@@ -81,15 +70,15 @@ description: Следуя данной инструкции, вы сможете
     
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
-     * `name` – имя группы безопасности.
-     * `description` – опциональное описание группы безопасности.
-     * `network_id` – идентификатор сети, которой будет назначена группа безопасности.
-     * `ingress` и `egress` – параметры правил для входящего и исходящего трафика:
-       * `protocol` – протокол передачи трафика. Возможные значения: `tcp`, `udp`, `icmp`, `esp`, `ah`, `any`.
-       * `description` – опциональное описание правила.
+     * `name` — имя группы безопасности.
+     * `description` — опциональное описание группы безопасности.
+     * `network_id` — идентификатор сети, которой будет назначена группа безопасности.
+     * `ingress` и `egress` — параметры правил для входящего и исходящего трафика:
+       * `protocol` — протокол передачи трафика. Возможные значения: `tcp`, `udp`, `icmp`, `esp`, `ah`, `any`.
+       * `description` — опциональное описание правила.
        * `v4_cidr_blocks` — список CIDR и масок подсетей, откуда или куда будет поступать трафик.
-       * `port` – порт для трафика.
-       * `from-port` — первый порт из диапазона портов для трафика. 
+       * `port` — порт для трафика.
+       * `from-port` — первый порт из диапазона портов для трафика.
        * `to-port` — последний порт из диапазона портов для трафика.
 
      Пример структуры конфигурационного файла:
@@ -100,13 +89,21 @@ description: Следуя данной инструкции, вы сможете
        description = "Description for security group"
        network_id  = "<идентификатор_сети>"
 
+       egress {
+         protocol       = "ANY"
+         description    = "Rule description 2"
+         v4_cidr_blocks = ["10.0.1.0/24", "10.0.2.0/24"]
+         from_port      = 8090
+         to_port        = 8099
+       }
+
        ingress {
          protocol       = "TCP"
          description    = "Rule description 1"
          v4_cidr_blocks = ["10.0.1.0/24", "10.0.2.0/24"]
          port           = 8080
        }
-     
+
        ingress {
          protocol          = "ANY"
          description       = "Разрешает взаимодействие между ресурсами текущей группы безопасности"
@@ -116,40 +113,19 @@ description: Следуя данной инструкции, вы сможете
        }
 
        ingress {
-         protocol           = "TCP"
-         description        = "Разрешает подключение по порту 27017 со стороны ресурсов с группой безопасности sg-frontend"
-         security_group_id  = yandex_vpc_security_group.sg-frontend.id
-         port               = 27017
-       }
-
-       egress {
-         protocol       = "ANY"
-         description    = "Rule description 2"
-         v4_cidr_blocks = ["10.0.1.0/24", "10.0.2.0/24"]
-         from_port      = 8090
-         to_port        = 8099
+         protocol = "TCP"
+         description       = "Разрешает подключение по порту 27017 со стороны ресурсов с группой безопасности sg-frontend"
+         security_group_id = yandex_vpc_security_group.sg-frontend.id
+         port = 27017
        }
      }
      ```
 
      Подробнее о ресурсах, которые вы можете создать с помощью {{ TF }}, в [документации провайдера]({{ tf-provider-link }}).
      
-  1. Проверьте корректность конфигурационных файлов.
-     
-     1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
-     1. Выполните проверку с помощью команды:
-        ```
-        terraform plan
-        ```
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
-        
-  1. Разверните облачные ресурсы.
+  1. Примените конфигурацию:
 
-     1. Если в конфигурации нет ошибок, выполните команду:
-        ```
-        terraform apply
-        ```
-     1. Подтвердите создание ресурсов.
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
      
      После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 

@@ -11,7 +11,9 @@
 
         * For `LDAPS`: `ldaps://` is the schema and `636` is the port number.
         * For `LDAP`: `ldap://` is the schema and `389` is the port number.
-    * `certificate_path`: Path to the public key certificate file required to decrypt traffic from the domain controller. This is a required setting when using `LDAPS`.
+    * `certificate_path`: Path to the file containing the root certificate of the certification authority (CA) which signed the domain controller's certificate. This is an optional setting.
+
+        Specify this option if you are using the `LDAPS` protocol, and the root certificate is not in the system trusted certificate store.
 
         If the `working_directory` parameter specifies the path to the working directory, you can simply specify the certificate file name instead of its full path.
     * `insecure_skip_verify`: Controls whether to ignore public key certificate validation errors when connecting to a domain controller. This is an optional setting. The possible values are:

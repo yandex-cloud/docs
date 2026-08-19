@@ -10,7 +10,7 @@
   1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **Группы безопасности**.
   1. Выберите нужную группу безопасности.
-  1. На странице **Обзор** отобразится подробная информация о группе безопасности.
+  1. На вкладке **Обзор** отобразится подробная информация о группе безопасности.
 
 - CLI {#cli}
 
@@ -73,6 +73,7 @@
      ```
 
      Где:
+
      * `data "yandex_vpc_security_group"` — описание группы безопасности в качестве источника данных:
        * `security_group_id` — идентификатор группы безопасности.
      * `output "group"` — выходная переменная, которая содержит информацию о правилах входящего трафика:
@@ -138,7 +139,7 @@
 
 - API {#api}
 
-  Чтобы получить подробную информацию о [группе безопасности](../concepts/security-groups.md), воспользуйтесь методом REST API [get](../api-ref/SecurityGroup/get.md) для ресурса [SecurityGroup](../api-ref/SecurityGroup/index.md), или вызовом gRPC API [SecurityGroupService/Get](../api-ref/grpc/SecurityGroup/get.md).
+  Чтобы получить подробную информацию о [группе безопасности](../concepts/security-groups.md), воспользуйтесь методом REST API [get](../api-ref/SecurityGroup/get.md) для ресурса [SecurityGroup](../api-ref/SecurityGroup/index.md) или вызовом gRPC API [SecurityGroupService/Get](../api-ref/grpc/SecurityGroup/get.md).
 
 {% endlist %}
 
@@ -175,6 +176,7 @@
      ```
 
      Где:
+
      * `data "yandex_vpc_security_group_rule"` — описание правила группы безопасности в качестве источника данных:
        * `security_group_binding` — идентификатор группы безопасности, которая содержит правило.
        * `rule_id` — идентификатор правила.

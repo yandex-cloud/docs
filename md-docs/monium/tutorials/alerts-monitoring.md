@@ -163,7 +163,7 @@
       1. [Перейдите](https://console.yandex.cloud/link/audit-trails) в сервис **Audit Trails**.
       1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **Трейлы**.
       1. Выберите нужный трейл.
-      1. Перейдите на панель ![image](../../_assets/console-icons/display-pulse.svg) **Мониторинг** для выбранного трейла.
+      1. Перейдите на вкладку **Мониторинг** для выбранного трейла.
       1. Справа вверху нажмите **Открыть в Monium**.
 
           Откроется интерфейс Monium Metrics.

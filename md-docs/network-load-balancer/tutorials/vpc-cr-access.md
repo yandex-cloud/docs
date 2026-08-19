@@ -152,7 +152,7 @@ Container Registry для хранения Docker-образов в реестр
    - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится сервисный аккаунт.
-      1. Перейдите на вкладку ![image](../../_assets/console-icons/persons-lock.svg) **Права доступа**.
+      1. Нажмите ![image](../../_assets/console-icons/persons-lock.svg) **Права доступа**.
       1. В списке аккаунтов выберите `sa-terraform` и нажмите значок ![image](../../_assets/options.svg) → ![image](../../_assets/console-icons/pencil.svg) **Изменить роли**.
       1. В открывшемся диалоге нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль `admin`.
 
@@ -329,9 +329,9 @@ Container Registry для хранения Docker-образов в реестр
 
 1. В списке виртуальных машин выберите ВМ `test-cr-vm`.
 
-1. В меню слева выберите ![image](../../_assets/console-icons/terminal.svg) **Серийная консоль**.
+1. Перейдите на вкладку **Серийная консоль**.
 
-1. Нажмите кнопку **Подключиться**.
+1. Нажмите кнопку **Подключиться в Cloud Shell**.
 
 1. Введите логин `admin` и пароль из вывода команды `terraform output test_vm_password` (укажите значение без кавычек).
 

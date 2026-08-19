@@ -13,8 +13,8 @@ To create an endpoint:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder containing your endpoint.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the endpoint.
+  1. [Navigate]({{ link-console-main }}/link/cns) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Select a push notification channel.
   1. Navigate to the ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.cns.label_endpoints }}** tab.
   1. Click **{{ ui-key.yacloud.cns.action_create-endpoint }}**.

@@ -12,7 +12,7 @@ To pass [domain ownership verification](../../concepts/challenges.md):
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) you added the [certificate](../../concepts/managed-certificate.md) to.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+  1. [Navigate]({{ link-console-main }}/link/certificate-manager) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
   1. Select and click the certificate you need checked.
   1. Under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**, you will see the details required to pass the domain rights check.
   1. As soon as you successfully pass the domain ownership verification procedure, its status under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}** will change to `Valid`.
@@ -39,6 +39,7 @@ To pass [domain ownership verification](../../concepts/challenges.md):
      ```
 
      Where:
+     
      * `--id`: [Certificate](../../concepts/managed-certificate.md) ID.
      * `--full`: Show the list of active domain ownership verification procedures.
 
@@ -110,6 +111,7 @@ To pass [domain ownership verification](../../concepts/challenges.md):
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   With {{ TF }}, you can create a [DNS record](../../../dns/concepts/resource-record.md) required to have domain ownership verified. Follow these steps:
+  
   1. In the {{ TF }} configuration file, describe the resources you want to create:
 
      ```hcl
@@ -145,24 +147,32 @@ To pass [domain ownership verification](../../concepts/challenges.md):
      ```
 
      Where:
+     
      * `yandex_cm_certificate` resource properties:
+       
        * `domains`: Domain you need to create a certificate for.
        * `challenge_type`: Domain owner check method. The possible values are:
+         
          * `DNS_CNAME`: Create a DNS record in [CNAME](../../../dns/concepts/resource-record.md#cname-cname) format with the specified value. We recommend this method for automatic certificate renewal.
          * `DNS_TXT`: Create a DNS record in [TXT](../../../dns/concepts/resource-record.md#txt) format with the specified value.
+     
      * `yandex_dns_recordset` resource properties:
+       
        * `zone_id`: ID of the DNS zone to add the owner verification record to.
        * `name`: Record name.
        * `type`: DNS record type.
        * `data`: Record value.
        * `ttl`: Record time to live (TTL) in seconds before refreshing the record value.
        * `description`: Record set description. This is an optional setting.
+     
      * `yandex_cm_certificate` data source properties:
+       
        * `depends_on`: Indicates the dependence on another {{ TF }} resource.
        * `certificate_id`: Certificate ID.
        * `wait_validation`: Certificate validation wait flag. If `true`, the operation will not be completed until the certificate is `VALIDATING`. The default value is `false`.
 
      For more on the properties of resources, see [this {{ TF }} provider guide]({{ tf-provider-link }}).
+  
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

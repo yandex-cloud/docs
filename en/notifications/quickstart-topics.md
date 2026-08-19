@@ -30,7 +30,7 @@ To get started with topics:
 
 {% include [before-you-begin](../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-## Create the topic {#create-topic}
+## Create a topic {#create-topic}
 
 {% list tabs group=instructions %}
 

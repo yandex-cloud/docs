@@ -4,7 +4,10 @@ Get a list of service accounts that exist in your cloud:
 yc iam service-account --folder-id <folder_ID> list
 ```
 
+Where `--folder-id` is the [folder ID](../../resource-manager/operations/folder/get-id.md).
+
 Result:
+
 ```text
 +----------------------+------------+--------+---------------------+-----------------------+
 |          ID          |    NAME    | LABELS |     CREATED AT      | LAST AUTHENTICATED AT |

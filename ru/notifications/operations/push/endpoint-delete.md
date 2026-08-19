@@ -12,7 +12,7 @@ description: Следуя этой инструкции, вы сможете у�
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится эндпоинт.
   1. [Перейдите]({{ link-console-main }}/link/cns) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Выберите канал push-уведомлений.
-  1. Перейдите на вкладку ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.cns.label_endpoints }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.cns.label_endpoints }}**.
   1. Напротив нужного эндпоинта нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
   1. В открывшемся окне нажмите **{{ ui-key.yacloud.common.delete }}**.
 

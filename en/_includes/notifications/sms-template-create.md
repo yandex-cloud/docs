@@ -5,7 +5,7 @@ To create an SMS template:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create the template.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. [Navigate]({{ link-console-main }}/link/cns) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. In the left-hand panel, select ![route](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.cns.label_channels }}** and select a channel with an [individual sender](../../notifications/concepts/sms.md#individual-sender) you want to create a template in.
   1. In the left-hand menu, select ![square-chart-bar](../../_assets/console-icons/square-chart-bar.svg) **{{ ui-key.yacloud.cns.local.label_templates_26VqM }}** and click **{{ ui-key.yacloud.cns.SMSChannel.Templates.action_create-sms-template_e6hBJ }}**. In the window that opens:
 

@@ -12,7 +12,7 @@ To update HTTP router parameters:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder with your HTTP router.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Navigate]({{ link-console-main }}/link/application-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
   1. Click your router name.
   1. Click **{{ ui-key.yacloud.common.edit }}**.
@@ -145,7 +145,7 @@ To change the route timeout for an HTTP router:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder with your HTTP router.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Navigate]({{ link-console-main }}/link/application-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
   1. Click your router name.
   1. Click **{{ ui-key.yacloud.common.edit }}**.

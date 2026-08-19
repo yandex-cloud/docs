@@ -10,10 +10,10 @@ description: In this guide, you will learn how to create a log sink in {{ cloud-
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a log sink.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+    1. [Navigate]({{ link-console-main }}/link/logging) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
     1. Navigate to the **{{ ui-key.yacloud.logging.label_sinks }}** tab.
     1. Click **{{ ui-key.yacloud.logging.button_create-sink }}**.
-    1. Optionally, enter a name and description for your sink. Follow these naming requirements:
+    1. Optionally, enter a name and description for your sink. The name format is as follows:
 
         {% include [name-format](../../_includes/name-format.md) %}
 
@@ -27,6 +27,7 @@ description: In this guide, you will learn how to create a log sink in {{ cloud-
 - CLI {#cli}
 
     To create a log sink, run the following command:
+    
     ```
     yc logging sink create \
       --name <sink_name> \
@@ -35,11 +36,13 @@ description: In this guide, you will learn how to create a log sink in {{ cloud-
     ```
 
     Where:
+    
     * `--name`: Log sink name. This is an optional setting.
     * `--service-account-id`: ID of the service account authorized to upload objects to the bucket.
     * `bucket`: Name of the bucket to upload logs to.
 
     Result:
+    
     ```
     id: e23s5s2jsr78********
     folder_id: b1gc1t4cb638********

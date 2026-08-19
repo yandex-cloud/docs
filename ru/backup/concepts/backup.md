@@ -5,8 +5,8 @@ description: В статье содержится информация о рез
 
 # Резервные копии
 
-{% include [vm-running](../../_includes/backup/vm-running.md) %}
 
+{% include [vm-running](../../_includes/backup/vm-running.md) %}
 
 ## Типы копий {#types}
 

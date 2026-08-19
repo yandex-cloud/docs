@@ -61,7 +61,7 @@ description: Следуя этой инструкции, вы сможете с�
   1. [Перейдите]({{ link-console-main }}/link/cns) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Выберите вкладку **{{ ui-key.yacloud.cns.type_web }}**.
   1. Выберите канал уведомлений.
-  1. Выберите вкладку ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.cns.label_endpoints }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.cns.label_endpoints }}**.
   1. Нажмите **{{ ui-key.yacloud.cns.action_create-endpoint }}**.
   1. Введите **{{ ui-key.yacloud.cns.field_web-push-endpoint_params }}**, которые были получены при подписке пользователя.
   1. (опционально) Введите **{{ ui-key.yacloud.cns.field_endpoint-user-data }}** — текст длиной до 2048 символов в кодировке [UTF-8](https://ru.wikipedia.org/wiki/UTF-8).

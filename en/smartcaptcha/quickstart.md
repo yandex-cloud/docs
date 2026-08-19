@@ -34,13 +34,14 @@ If you are having problems configuring {{ captcha-name }}:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select a folder.
-    1. [Navigate](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
+    1. [Navigate]({{ link-console-main }}/link/smartcaptcha) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
     1. Click **{{ ui-key.yacloud.smartcaptcha.button_captcha-settings-create }}**.
 
     1. Specify the CAPTCHA name, e.g., `sm-captcha`.
     1. List the sites where you want your CAPTCHA to appear, e.g., `my-shop.com`.
     1. Do not change **{{ ui-key.yacloud.smartcaptcha.label_section-style }}**.
     1. Specify the default CAPTCHA settings or keep the existing ones:
+       
        1. [Main challenge](./concepts/tasks.md#main-task): The first challenge given to the user.
        1. [Additional challenge](./concepts/tasks.md#additional-task): This challenge appears if the first challenge results are suspicious, or if the CAPTCHA is set to maximum difficulty.
        1. Select the [difficulty level](./concepts/tasks.md#task-difficulty), `{{ ui-key.yacloud.smartcaptcha.value_complexity-medium }}`.
@@ -61,6 +62,7 @@ If you are having problems configuring {{ captcha-name }}:
 - Management console {#console}
     
     Once you have created a CAPTCHA, select it in the list and copy its two keys:
+    
     * **{{ ui-key.yacloud.smartcaptcha.label_client-key }}**: Required for adding a {{ captcha-name }} widget to the your website or HTML page.
     * **{{ ui-key.yacloud.smartcaptcha.label_server-key }}**: Required to [check the user’s response](#check-answer).
 
@@ -302,7 +304,7 @@ See [Advanced widget settings](./concepts/widget-methods.md).
 
 Make sure the domain is listed among allowed websites in the CAPTCHA settings.
 
-## Useful links {#links}
+#### Useful links {#see-also}
 
 * [Widget integration methods](./concepts/widget-methods.md)
 * [Style customization options](./concepts/captcha-variants.md)

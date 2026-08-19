@@ -58,7 +58,7 @@ Only a project owner can create an identity federation in VK Cloud.
 1. Create an identity federation in VK Cloud using {{ org-full-name }} metadata:
 
     1. Go to your [VK Cloud account](https://cloud.vk.com/account).
-    1. Open the **Identity federation** section and navigate to the **Federations** tab.
+    1. Open the **Identity federation** section and select the **Federations** tab.
     1. Click **Create**.
     1. Click **Upload IdP metadata** and upload the XML metadata file you downloaded from {{ org-full-name }}.
     1. Click **Upload**.
@@ -145,7 +145,7 @@ For the users of your organization to be able to authenticate in VK Cloud via a 
 To define federated users' access permissions in VK Cloud, configure mappings between IdP groups and VK Cloud roles.
 
 1. Go to your [VK Cloud account](https://cloud.vk.com/account).
-1. Open the **Identity federation** section and navigate to the **Groups** tab.
+1. Open the **Identity federation** section and select the **Groups** tab.
 1. Select the project you want to configure the federation for.
 1. Click **Add** (or **Add group** if groups already exist).
 1. Specify the IdP group name in lowercase and select the scope of permissions (**Domain** or **Project**), then proceed to assign roles.

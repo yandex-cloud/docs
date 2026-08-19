@@ -9,8 +9,8 @@ description: Follow this guide to get a list of log groups.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the folder where you want to view a list of log groups.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder you want to view the list of log groups for.
+    1. [Navigate]({{ link-console-main }}/link/logging) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/tray.svg) **{{ ui-key.yacloud.logging.label_groups }}**.
 
 - CLI {#cli}

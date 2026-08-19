@@ -1,3 +1,8 @@
+---
+title: Изменить имя и описание группы безопасности
+description: Следуя данной инструкции, вы сможете изменить имя и описание группы безопасности.
+---
+
 # Изменить имя и описание
 
 После создания [группы безопасности](../concepts/security-groups.md) вы можете изменить ее имя и описание, а также [добавить](security-group-add-rule.md) или [удалить](security-group-delete-rule.md) правила.
@@ -6,20 +11,20 @@
 
 - Консоль управления {#console}
 
-  Чтобы изменить имя или описание группы:
+  Чтобы изменить имя или описание группы безопасности:
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется изменить группу безопасности.
   1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
-  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке группы, которую требуется изменить.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке группы безопасности, которую требуется изменить.
   1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.
-  1. Внесите изменения в имя и описание группы и нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  1. Внесите изменения в имя и описание группы безопасности и нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
   
   Чтобы изменить группу безопасности, выполните команду:
 
-  ```
+  ```bash
   yc vpc security-group update <идентификатор_группы> --new-name test-sg-renamed
   ```
 
@@ -36,7 +41,7 @@
      resource "yandex_vpc_security_group" "test-sg" {
        name        = "Test security group"
        description = "Description for security group"
-       network_id  = "${yandex_vpc_network.lab-net.id}"
+       network_id  = yandex_vpc_network.lab-net.id
      }
      ...
      ```
@@ -45,41 +50,17 @@
 
      {% note info %}
 
-     Для управления [группой безопасности по умолчанию](../../vpc/concepts/security-groups#default-security-group) используйте ресурс [vpc_default_security_group]({{ tf-provider-resources-link }}/vpc_default_security_group).
+     Для управления [группой безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group) используйте ресурс [vpc_default_security_group]({{ tf-provider-resources-link }}/vpc_default_security_group).
 
      {% endnote %}
 
-  1. Проверьте конфигурацию командой:
+  1. Примените конфигурацию:
 
-     ```
-     terraform validate
-     ```
-     
-     Если конфигурация является корректной, появится сообщение:
-     
-     ```
-     Success! The configuration is valid.
-     ```
-
-  1. Выполните команду:
-
-     ```
-     terraform plan
-     ```
-  
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
-
-  1. Примените изменения конфигурации:
-
-     ```
-     terraform apply
-     ```
-     
-  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
      Проверить изменение группы безопасности можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
-     ```
+     ```bash
      yc vpc security-group get <имя_группы_безопасности>
      ```
 

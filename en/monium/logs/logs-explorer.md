@@ -15,7 +15,7 @@ The log UI allows you to:
 To view logs, configure their delivery:
 
 * Set up data transfer in OpenTelemetry format for your application or service, e.g., with the help of [OTel Collector](../collector/opentelemetry.md) or [Fluent Bit](../collector/fluentbit.md).
-* Turn on logging for {{ yandex-cloud }} resources. As a general rule, you can set up logging when creating or updating a resource. For more information, see the guides for the relevant service.
+* Turn on logging for {{ yandex-cloud }} resources. As a general rule, you can set up logging when creating or updating a resource. For more information, see the relevant service guides.
 
   For the list of services that support automated logging, see [{#T}](../../overview/concepts/monitoring-logging-tools.md).
 
@@ -25,7 +25,7 @@ To view logs, configure their delivery:
 
 - {{ monium-name }} UI {#console}
 
-  1. On the [{{ monium-name }}]({{ link-monium }}) home page, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.logs.title }}** on the left.
+  1. On the [{{ monium-name }}]({{ link-monium }}) home page, select ![alt](../../_assets/console-icons/compass.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.all-panel.menu.category.explore }}** → **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.logs.title }}** on the left.
   1. At the top, specify the data search interval using one of the following methods:
      * Select an interval: `5m`, `30m`, etc., to search for data for the last 5, 30 minutes, etc.
      * Enter a time interval manually.

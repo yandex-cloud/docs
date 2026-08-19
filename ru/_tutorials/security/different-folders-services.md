@@ -263,11 +263,11 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог СИБ.
   1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Выберите созданный L7-балансировщик.
-  1. Слева выберите **{{ ui-key.yacloud.alb.label_healthchecks }}**. 
-   
+  1. Перейдите на вкладку **{{ ui-key.yacloud.alb.label_healthchecks }}**.
+
      Убедитесь, что все проверки состояния L7-балансировщика для вашей группы бэкендов находятся в состоянии `HEALTHY`.
 
-  1. Слева выберите **{{ ui-key.yacloud.alb.label_map }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.alb.label_map }}**.
    
      Проверьте корректность настройки по схеме: **Обработчик** > **HTTP-роутер** > **Группа бэкендов** > **Целевая группа**.
 

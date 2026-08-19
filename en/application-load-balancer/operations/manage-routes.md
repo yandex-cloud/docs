@@ -22,7 +22,7 @@ To update a route in a [virtual host](../concepts/http-router.md#virtual-host) o
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you are going to update a virtual host route in.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Navigate]({{ link-console-main }}/link/application-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, click ![route](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}** and select the [HTTP router](../concepts/http-router.md) that contains the route you need.
   1. On the page that opens, under **{{ ui-key.yacloud.alb.label_virtual-hosts }}**, locate the route in the virtual host section, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to its name, and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. In the window that opens, depending on the [type](../concepts/http-router.md#routes-types) of your route:
 
@@ -62,6 +62,7 @@ To update a route in a [virtual host](../concepts/http-router.md#virtual-host) o
         ```bash
         yc alb virtual-host update-http-route --help
         ```
+    
     1. {% include [cli-vh-list-http-routers](../../_includes/application-load-balancer/instruction-steps/cli-vh-list-http-routers.md) %}
     1. {% include [cli-vh-list-vhs](../../_includes/application-load-balancer/instruction-steps/cli-vh-list-vhs.md) %}
     1. To get a list of a virtual host's routes, run this command by substituting the virtual host name and the HTTP router name or ID in the `--http-router-name` or `--http-router-id` parameter, respectively:
@@ -128,9 +129,10 @@ To update a route in a [virtual host](../concepts/http-router.md#virtual-host) o
 
             Instead of the HTTP router name, you can provide its ID in the `--http-router-id` parameter.
         * `--virtual-host-name`: Name of the virtual host the route is in.
-        * `--match-http-method`: List of HTTP [methods](https://en.wikipedia.org/wiki/HTTP#Request_methods) for which to route the requests. For example, `--match-http-method GET,POST,OPTIONS`.
+        * `--match-http-method`: List of HTTP [methods](https://en.wikipedia.org/wiki/HTTP#Request_methods) for which to route the requests. Here is an example: `--match-http-method GET,POST,OPTIONS`.
 
             To clear the list of HTTP methods set for the route, provide the `--clear-method-match` parameter in the command.
+        
         * Path-based routing condition parameters:
 
             * `--exact-path-match`: Route requests with the same path as the specified one. For example, to route all requests, specify the `/` path.
@@ -148,15 +150,19 @@ To update a route in a [virtual host](../concepts/http-router.md#virtual-host) o
         * `--backend-group-name`: Name of the [backend group](../concepts/backend-group.md) located in the same folder as the [HTTP router](../concepts/http-router.md), virtual host, and route.
         
             Instead of the backend group name, you can provide its ID in the `--backend-group-id` parameter.
+        
         * `--request-timeout`: Maximum connection time in seconds for a connection on request.
 
             To clear the request timeout set for the route, provide the `--clear-request-timeout` parameter in the command.
+        
         * `--request-idle-timeout`: Maximum connection idle time in seconds.
 
             To clear the idle timeout set for the route, provide the `--clear-idle-timeout` parameter in the command.
+        
         * {% include [cli-route-creation-rate-limit](../../_includes/application-load-balancer/instruction-steps/cli-route-creation-rate-limit.md) %}
 
             To clear the route's request rate limits settings, provide the `--clear-rate-limit` parameter in the command.
+        
         * {% include [cli-route-creation-disable-security-profile](../../_includes/application-load-balancer/instruction-steps/cli-route-creation-disable-security-profile.md) %}
 
             To re-enable the security profile previously disabled for the route, provide the `--disable-security-profile=false` parameter in the command.
@@ -212,6 +218,7 @@ To update a route in a [virtual host](../concepts/http-router.md#virtual-host) o
         ```bash
         yc alb virtual-host update-grpc-route --help
         ```
+    
     1. {% include [cli-vh-list-http-routers](../../_includes/application-load-balancer/instruction-steps/cli-vh-list-http-routers.md) %}
     1. {% include [cli-vh-list-vhs](../../_includes/application-load-balancer/instruction-steps/cli-vh-list-vhs.md) %}
     1. To get a list of a virtual host's routes, run this command by substituting the virtual host name and the HTTP router name or ID in the `--http-router-name` or `--http-router-id` parameter, respectively:
@@ -282,6 +289,7 @@ To update a route in a [virtual host](../concepts/http-router.md#virtual-host) o
         * `--http-router-name`: Name of the HTTP router the route is in.
 
             Instead of the HTTP router name, you can provide its ID in the `--http-router-id` parameter.
+        
         * `--virtual-host-name`: Name of the virtual host the route is in.
         * Parameters of routing conditions based on FQMN:
 
@@ -298,18 +306,23 @@ To update a route in a [virtual host](../concepts/http-router.md#virtual-host) o
             {% endnote %}
 
             To clear the FQMN-based routing conditions set for the route, provide the `--clear-fqmn-match` parameter in the command.
+        
         * `--backend-group-name`: Name of the [backend group](../concepts/backend-group.md) located in the same folder as the [HTTP router](../concepts/http-router.md), virtual host, and route.
         
             Instead of the backend group name, you can provide its ID in the `--backend-group-id` parameter.
+        
         * `--request-max-timeout`: Maximum connection time. You can specify a shorter timeout in the `grpc-timeout` request HTTP header.
 
             To clear the connection timeout set for the route, provide the `--clear-max-timeout` parameter in the command.
+        
         * `--request-idle-timeout`: Maximum connection idle time, in seconds.
 
             To clear the idle timeout set for the route, provide the `--clear-idle-timeout` parameter in the command.
+        
         * {% include [cli-route-creation-rate-limit](../../_includes/application-load-balancer/instruction-steps/cli-route-creation-rate-limit.md) %}
 
             To clear the route's request rate limits settings, provide the `--clear-rate-limit` parameter in the command.
+        
         * {% include [cli-route-creation-disable-security-profile](../../_includes/application-load-balancer/instruction-steps/cli-route-creation-disable-security-profile.md) %}
 
             To re-enable the security profile previously disabled for the route, provide the `--disable-security-profile=false` parameter in the command.
@@ -396,6 +409,7 @@ To update a route in a [virtual host](../concepts/http-router.md#virtual-host) o
       {% endlist %}
 
       The properties of the resources are covered in this {{ TF }} provider guide: [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host).
+  
   1. Update the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -539,6 +553,7 @@ Requests to the old API continue to arrive at `/api/users`. In which case, you c
               * `path`: Parameter for filtering the incoming request path:
 
                   * `prefix`: Filter specifying the path prefix to match requests for the route you are creating.
+          
           * `http_route_action`: Action to apply to HTTP traffic.
 
               * `backend_group_id`: ID of the backend group serving the old API.
@@ -586,7 +601,7 @@ To delete a route from a [virtual host](../concepts/http-router.md#virtual-host)
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to delete a virtual host route from.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Navigate]({{ link-console-main }}/link/application-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, click ![route](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}** and select the [HTTP router](../concepts/http-router.md) that contains the route you need.
   1. On the page that opens, under **{{ ui-key.yacloud.alb.label_virtual-hosts }}**, locate the route in the virtual host section, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to its name, and select ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, confirm the deletion.
@@ -608,6 +623,7 @@ To delete a route from a [virtual host](../concepts/http-router.md#virtual-host)
         ```bash
         yc alb virtual-host remove-http-route --help
         ```
+    
     1. {% include [cli-vh-list-http-routers](../../_includes/application-load-balancer/instruction-steps/cli-vh-list-http-routers.md) %}
     1. {% include [cli-vh-list-vhs](../../_includes/application-load-balancer/instruction-steps/cli-vh-list-vhs.md) %}
     1. To get a list of a virtual host's routes, run this command by substituting the virtual host name and the HTTP router name or ID in the `--http-router-name` or `--http-router-id` parameter, respectively:
@@ -633,6 +649,7 @@ To delete a route from a [virtual host](../concepts/http-router.md#virtual-host)
         * `--http-router-name`: Name of the HTTP router the route is in.
 
             Instead of the HTTP router name, you can provide its ID in the `--http-router-id` parameter.
+        
         * `--virtual-host-name`: Name of the virtual host the route is in.
 
         {% cut "Result:" %}
@@ -683,6 +700,7 @@ To delete a route from a [virtual host](../concepts/http-router.md#virtual-host)
         ```bash
         yc alb virtual-host remove-grpc-route --help
         ```
+    
     1. {% include [cli-vh-list-http-routers](../../_includes/application-load-balancer/instruction-steps/cli-vh-list-http-routers.md) %}
     1. {% include [cli-vh-list-vhs](../../_includes/application-load-balancer/instruction-steps/cli-vh-list-vhs.md) %}
     1. To get a list of a virtual host's routes, run this command by substituting the virtual host name and the HTTP router name or ID in the `--http-router-name` or `--http-router-id` parameter, respectively:
@@ -708,6 +726,7 @@ To delete a route from a [virtual host](../concepts/http-router.md#virtual-host)
         * `--http-router-name`: Name of the HTTP router the route is in.
 
             Instead of the HTTP router name, you can provide its ID in the `--http-router-id` parameter.
+        
         * `--virtual-host-name`: Name of the virtual host the route is in.
 
         {% cut "Result:" %}
@@ -768,6 +787,7 @@ To delete a route from a [virtual host](../concepts/http-router.md#virtual-host)
       {% include [tf-route-reorder-delete-route](../../_includes/application-load-balancer/instruction-steps/tf-route-reorder-delete-route.md) %}
 
       The properties of the resources are covered in this {{ TF }} provider guide: [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host).
+  
   1. Update the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

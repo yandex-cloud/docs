@@ -12,7 +12,7 @@ To delete a secret:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. [Navigate]({{ link-console-main }}/link/lockbox) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. In the left-hand menu, select **{{ ui-key.yacloud.lockbox.routes.label_section-secrets }}**.
   1. Next to the secret you need, click ![image](../../_assets/console-icons/ellipsis.svg).
   1. In the menu that opens, select **{{ ui-key.yacloud.common.delete }}**.

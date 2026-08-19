@@ -74,7 +74,7 @@ Add users to the IdP server:
 
 - {{ cloud-center }} UI {#cloud-center}
 
-  1. Go to [{{ org-full-name }}]({{ link-org-cloud-center }}).
+  1. [Navigate]({{ link-org-cloud-center }}) to **{{ org-full-name }}**.
 
   1. In the left-hand panel, select ![icon-federation](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
 
@@ -173,7 +173,7 @@ Add users to the IdP server:
 
   1. Describe the federation parameters in the configuration file.
 
-      Here is an example of the configuration file structure:
+      Configuration file structure example:
 
       ```hcl
       resource "yandex_organizationmanager_saml_federation" federation {
@@ -234,18 +234,18 @@ Add users to the IdP server:
 
   1. Make sure the configuration files are correct.
 
-      1. In the command line, navigate to the directory where you created the configuration file.
+      1. In the terminal, navigate to the directory where you created your configuration file.
       1. Run a check using this command:
 
           ```bash
           terraform plan
           ```
 
-      If the configuration is described correctly, the terminal displays the federation parameters. {{ TF }} will show any errors in the configuration.
+      If the configuration is described correctly, the terminal displays the federation parameters. {{ TF }} will show any errors detected in the configuration.
 
   1. Create a federation.
 
-      1. If the configuration does not contain any errors, run this command:
+      1. If the configuration is correct, run this command:
 
           ```bash
           terraform apply

@@ -1,6 +1,6 @@
 [Документация Yandex Cloud](../../index.md) > [Yandex Cloud DNS](../index.md) > [Пошаговые инструкции](index.md) > Зоны > Удалить зону DNS
 
-# Удалить зону
+# Удалить зону DNS
 
 Чтобы удалить [зону DNS](../concepts/dns-zone.md):
 
@@ -11,8 +11,7 @@
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, где требуется удалить зону DNS.
   1. [Перейдите](https://console.yandex.cloud/link/dns) в сервис **Cloud DNS**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке зоны, которую требуется удалить.
-  1. В открывшемся меню нажмите кнопку **Удалить**.
-  1. В открывшемся окне нажмите кнопку **Удалить**.
+  1. В меню нажмите **Удалить** и подтвердите удаление.
 
 - CLI {#cli}
 
@@ -54,15 +53,15 @@
 
      ```hcl
      resource "yandex_vpc_network" "foo" {}
-     
+
      resource "yandex_dns_zone" "zone1" {
        name        = "my-public-zone"
        description = "Test public zone"
-     
+
        labels = {
          label1 = "test-public"
        }
-     
+
        zone    = "test.example-public2.com."
      }
      ```
@@ -75,9 +74,9 @@
      ```
      terraform validate
      ```
-     
+
      Если конфигурация является корректной, появится сообщение:
-     
+
      ```
      Success! The configuration is valid.
      ```
@@ -86,15 +85,15 @@
      ```
      terraform plan
      ```
-  
+
      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
 
   1. Примените изменения конфигурации:
      ```
      terraform apply
      ```
-     
-  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+  1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
      Проверить удаление зоны DNS можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../cli/quickstart.md):
 

@@ -19,7 +19,7 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется удалить подсеть.
   1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-  1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной подсети и выберите **{{ ui-key.yacloud.common.delete }}**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной подсети и выберите **{{ ui-key.yacloud.common.delete }}**.
   1. В открывшемся окне нажмите **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
@@ -30,19 +30,19 @@ description: Следуя данной инструкции, вы сможете
 
   1. Посмотрите описание команды CLI для удаления подсети:
 
-      ```
+      ```bash
       yc vpc subnet delete --help
       ```
 
   1. Получите список всех подсетей в каталоге по умолчанию:
 
-      ```
+      ```bash
       yc vpc subnet list
       ```
 
       Результат:
 
-      ```
+      ```text
       +----------------------+-----------------------+------------------------+
       |          ID          |         NAME          | ... |       RANGE      |
       +----------------------+-----------------------+------------------------+
@@ -55,7 +55,7 @@ description: Следуя данной инструкции, вы сможете
   1. Выберите идентификатор (`ID`) или имя (`NAME`) нужной подсети.
   1. Удалите подсеть из каталога по умолчанию:
 
-      ```
+      ```bash
       yc vpc subnet delete test-subnet-1
       ```
 
@@ -75,49 +75,23 @@ description: Следуя данной инструкции, вы сможете
      ...
      resource "yandex_vpc_subnet" "lab-subnet-a" {
        name           = "subnet-1"
-	   description    = "My first subnet"
+	     description    = "My first subnet"
        v4_cidr_blocks = ["10.2.0.0/16"]
        zone           = "{{ region-id }}-a"
-       network_id     = "${yandex_vpc_network.lab-net.id}"
+       network_id     = yandex_vpc_network.lab-net.id
      }
      ...
      ```
 
      {% endcut %}
 
-  1. В командной строке перейдите в папку, где расположен файл конфигурации {{ TF }}.
+  1. Примените конфигурацию:
 
-  1. Проверьте конфигурацию командой:
-
-     ```
-     terraform validate
-     ```
-     
-     Если конфигурация является корректной, появится сообщение:
-     
-     ```
-     Success! The configuration is valid.
-     ```
-
-  1. Выполните команду:
-
-     ```
-     terraform plan
-     ```
-  
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
-
-  1. Примените изменения конфигурации:
-
-     ```
-     terraform apply
-     ```
-
-  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
      Проверить изменения можно в [консоли управления]({{ link-console-main }}) или с помощью команд [CLI](../../cli/quickstart.md):
 
-     ```
+     ```bash
      yc vpc subnet list
      ```
 
@@ -141,25 +115,25 @@ description: Следуя данной инструкции, вы сможете
 
   Удалите подсеть из другого каталога:
 
-  ```
+  ```bash
   yc vpc subnet delete test-subnet-2 --folder-id b1gnbfd11bq5********
   ```
 
-  Где `--folder-id` – идентификатор каталога.
+  Где `--folder-id` — идентификатор каталога.
 
-  ```
+  ```bash
   yc vpc subnet delete test-subnet-2 --folder-name test-folder
   ```
 
-  Где `--folder-name` – имя каталога.
+  Где `--folder-name` — имя каталога.
 
   Идентификатор и имя можно передавать не только как позиционный аргумент, но и с помощью параметров `--id` и `--name`:
 
-  ```
+  ```bash
   yc vpc subnet delete --id enpavfmgapum********
   ```
-  
-  ```
+
+  ```bash
   yc vpc subnet delete --name test-network-1
   ```
 

@@ -41,8 +41,8 @@ Let's set up our alerts:
 
 ### Creating a notification channel {#create-channel}
 
-1. In the [management console]({{ link-console-main }}), select the folder on the left.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. In the [management console]({{ link-console-main }}), select a folder.
+1. [Navigate]({{ link-monitoring }}) to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
 1. Select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.channels.title }}**.
 1. Click **{{ ui-key.yacloud_monitoring.channel.button_new-channel }}**.
 1. Specify the channel name, notification method, and recipients.
@@ -66,31 +66,39 @@ Let's set up our alerts:
 1. On the **{{ monitoring-short-name }}** home page, click **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}**.
 1. Name your alert, e.g., `exceeding-blocked-requests`.
 1. Under **{{ ui-key.yacloud_monitoring.alert.title_alerts-config }}**, describe your query to get the `A` value:
+   
    1. Click ![image](../../_assets/monitoring/plus.svg) next to ![image](../../_assets/monitoring/chart-lines2.svg) and add these settings:
+     
      * `service` = `Application Load Balancer`
      * `name` = `load_balancer.smart_web_security.requests_per_second`
      * `antirobot_verdict` = `allow`
      * `load_balancer` = `<load_balancer_name>`.
+   
    1. Click ![image](../../_assets/monitoring/plus.svg) next to ![image](../../_assets/monitoring/function.svg).
    1. Set the `replace_nan(0)` function to replace missing data with `0`, ensuring a continuous chart.
 
 1. Click **{{ ui-key.yacloud_monitoring.querystring.action.add-query }}**.
 
 1. Describe your query to get the `B` value:
+   
    1. Specify the data to collect:
+     
      * `service` = `Application Load Balancer`
      * `name` = `load_balancer.smart_web_security.requests_per_second`
      * `antirobot_verdict` = `deny`
      * `load_balancer` = `<load_balancer_name>`
+   
    1. Set the `replace_nan(0)` function.
 
 1. Click **{{ ui-key.yacloud_monitoring.querystring.action.add-query }}**.
    
 1. Describe you query for `C` to get the `B` to `A` ratio in percent:
+   
    1. Click ![image](../../_assets/monitoring/raw.svg) to switch to text mode to edit the query.
    1. Enter `100 * B / A` in the query string.
 
 1. Under **{{ ui-key.yacloud_monitoring.alert.section_alert-conditions }}**, specify:
+     
      * `Query to evaluate`: `C`
      * `Aggregation function`: `All values`
      * `Warning`: `30`
@@ -121,8 +129,8 @@ Let's set up alerts to detect exceeded rate limits:
 
 ### Creating a notification channel {#create-channel}
 
-1. In the [management console]({{ link-console-main }}), select the folder on the left.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. In the [management console]({{ link-console-main }}), select a folder.
+1. [Navigate]({{ link-monitoring }}) to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
 1. Select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.channels.title }}**.
 1. Click **{{ ui-key.yacloud_monitoring.channel.button_new-channel }}**.
 1. Specify the channel name, notification method, and recipients.
@@ -146,32 +154,41 @@ Let's set up alerts to detect exceeded rate limits:
 1. On the **{{ monitoring-short-name }}** home page, click **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}**.
 1. Name your alert, e.g., `inbound-over-ARL`.
 1. Under **{{ ui-key.yacloud_monitoring.alert.title_alerts-config }}**, describe your query to get the `A` value:
+   
    * Click ![image](../../_assets/monitoring/plus.svg) next to ![image](../../_assets/monitoring/chart-lines2.svg) and add these settings:
+     
      * `service` = `Application Load Balancer`
      * `name` = `load_balancer.smart_web_security.requests_per_second`
      * `antirobot_verdict` = `allow`
      * `load_balancer` = `<load_balancer_name>`.
+   
    * Click ![image](../../_assets/monitoring/plus.svg) next to ![image](../../_assets/monitoring/function.svg) and set the data processing functions:
+     
      * `series_sum()`: Sum of metrics with different labels for a particular point. In our example, there is one label (`antirobot_verdict`), but this function will be useful for other metrics.
      * `replace_nan(0)`: Replaces missing data with `0` for a continuous chart.
 
 1. Click **{{ ui-key.yacloud_monitoring.querystring.action.add-query }}**.
 
 1. Describe your query to get the `B` value:
+   
    * Specify the data to collect:
+     
      * `service` = `Application Load Balancer`
      * `name` = `load_balancer.smart_web_security.arl_requests_per_second`
      * `arl_verdict` = `allow`
      * `load_balancer` = `<load_balancer_name>`
+   
    * Set the `series_sum()` and `replace_nan(0)` functions.
 
 1. Click **{{ ui-key.yacloud_monitoring.querystring.action.add-query }}**.
    
 1. Describe your query for `C` to get the difference between `A` and `B` in percent:
+   
    1. Click ![image](../../_assets/monitoring/raw.svg) to switch to text mode to edit the query.
    1. Enter `100 * abs(A - B) / B` in the query string.
 
 1. Under **{{ ui-key.yacloud_monitoring.alert.section_alert-conditions }}**, specify:
+     
      * `Query to evaluate`: `C`
      * `Aggregation function`: `All values`
      * `Warning`: `30`

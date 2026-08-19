@@ -1,3 +1,8 @@
+---
+title: Посмотреть операции с ресурсами сервиса {{ vpc-full-name }}
+description: Следуя данной инструкции, вы сможете посмотреть операции с ресурсами сервиса {{ vpc-name }}.
+---
+
 # Посмотреть операции с ресурсами сервиса {{ vpc-name }}
 
 Все действия с ресурсами сервиса {{ vpc-name }} сохраняются в виде списка операций. Каждой операции присваивается уникальный идентификатор.
@@ -15,7 +20,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где находится облачная сеть.
   1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Выберите нужную сеть.
-  1. Перейдите на панель ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
+  1. Перейдите на вкладку ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
 
      В открывшемся списке отображаются операции с облачной сетью.
 
@@ -86,46 +91,46 @@
 1. Скопируйте идентификатор нужной операции.
 1. Получите подробную информацию об операции:
 
-    {% list tabs group=instructions %}
+   {% list tabs group=instructions %}
 
-    - CLI {#cli}
+   - CLI {#cli}
 
-      {% include [cli-install](../../_includes/cli-install.md) %}
+     {% include [cli-install](../../_includes/cli-install.md) %}
 
-      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-      Выполните команду:
+     Выполните команду:
 
-      ```bash
-      yc operation get <идентификатор_операции>
-      ```
+     ```bash
+     yc operation get <идентификатор_операции>
+     ```
 
-      Результат:
+     Результат:
 
-      ```text
-      id: enp75021agjg********
-      description: Create network
-      created_at: "2024-02-01T10:16:51.955Z"
-      created_by: ajego134p5h1********
-      modified_at: "2024-02-01T10:16:53.389Z"
-      done: true
-      metadata:
-        '@type': type.googleapis.com/yandex.cloud.vpc.v1.CreateNetworkMetadata
-        network_id: enpgl5o8te3k********
-      response:
-        '@type': type.googleapis.com/yandex.cloud.vpc.v1.Network
-        id: enpgl5o8te3kke6q3psa
-        folder_id: b1gmit33ngp3********
-        created_at: "2024-02-01T10:16:51Z"
-        name: test-network
-        default_security_group_id: enp0catll8gm********
-        ```
+     ```text
+     id: enp75021agjg********
+     description: Create network
+     created_at: "2024-02-01T10:16:51.955Z"
+     created_by: ajego134p5h1********
+     modified_at: "2024-02-01T10:16:53.389Z"
+     done: true
+     metadata:
+       '@type': type.googleapis.com/yandex.cloud.vpc.v1.CreateNetworkMetadata
+       network_id: enpgl5o8te3k********
+     response:
+       '@type': type.googleapis.com/yandex.cloud.vpc.v1.Network
+       id: enpgl5o8te3kke6q3psa
+       folder_id: b1gmit33ngp3********
+       created_at: "2024-02-01T10:16:51Z"
+       name: test-network
+       default_security_group_id: enp0catll8gm********
+     ```
 
-    - API {#api}
+   - API {#api}
 
-      Воспользуйтесь методом REST API [get](../api-ref/Operation/get.md) для ресурса [Operation](../api-ref/Operation/index.md) или вызовом gRPC API [OperationService/Get](../api-ref/grpc/Operation/get.md).
+     Воспользуйтесь методом REST API [get](../api-ref/Operation/get.md) для ресурса [Operation](../api-ref/Operation/index.md) или вызовом gRPC API [OperationService/Get](../api-ref/grpc/Operation/get.md).
 
-    {% endlist %}
+   {% endlist %}
 
 #### Полезные ссылки {#see-also}
 

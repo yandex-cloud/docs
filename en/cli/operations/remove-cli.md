@@ -3,7 +3,7 @@ title: How to uninstall the {{ yandex-cloud }} CLI
 description: Follow this guide to uninstall the {{ yandex-cloud }} CLI.
 ---
 
-# Uninstalling the CLI
+# Uninstalling the {{ yandex-cloud }} CLI
 
 To fully uninstall the CLI, delete the installation directory, user settings, and environment variables.
 

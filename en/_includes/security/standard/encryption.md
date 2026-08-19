@@ -210,7 +210,7 @@ Support for legacy TLS protocols in {{ yandex-cloud }} services will [gradually 
 #### 4.3 HTTPS for static website hosting is enabled in {{ objstorage-full-name }} {#storage-https}
 
 [{{ objstorage-name }}](../../../storage/) supports secure connections over HTTPS. You can upload your own security certificate if a connection to your {{ objstorage-name }} website requires HTTPS access. Integration with [{{ certificate-manager-name }}](../../../certificate-manager/) is also supported. See the instructions in the {{ objstorage-name }} guides:
-* [Configuring HTTPS](../../../storage/operations/hosting/certificate.md)
+* [{#T}](../../../storage/operations/hosting/certificate.md)
 * [Bucket](../../../storage/concepts/bucket.md)
 
 When using [{{ objstorage-name }}](../../../storage/), make sure that support for TLS protocols below version 1.2 is disabled at the client level. Use the [`aws:securetransport`](../../../storage/s3/api-ref/policy/conditions.md) bucket policy to make sure running without TLS is disabled for the bucket.

@@ -10,7 +10,7 @@ description: Follow this guide to edit basic settings of a {{ sws-full-name }} s
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [security profile](../concepts/profiles.md).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. In the row with the profile you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.smart-web-security.overview.action_edit-profile }}**.
   1. In the window that opens, edit the following parameters:
@@ -23,6 +23,7 @@ description: Follow this guide to edit basic settings of a {{ sws-full-name }} s
       * Select or create a [{{ captcha-name }}](../../smartcaptcha/) to verify suspicious requests.
       * {% include [choose-or-create-template](../../_includes/smartwebsecurity/choose-or-create-template.md) %}
       * {% include [profile-inspect-request](../../_includes/smartwebsecurity/profile-inspect-request.md) %}
+  
   1. Enable or disable the use of HTTP request info to improve your machine learning models under **{{ ui-key.yacloud.component.disallow-data-processing.title_ml-model-training }}**.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 

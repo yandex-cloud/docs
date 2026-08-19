@@ -17,6 +17,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   Чтобы удалить [облачную сеть](../concepts/network.md#network):
+
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется удалить облачную сеть.
   1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной сети и выберите **{{ ui-key.yacloud.common.delete }}**.
@@ -30,32 +31,33 @@ description: Следуя данной инструкции, вы сможете
 
   1. Посмотрите описание команды CLI для удаления [облачных сетей](../concepts/network.md#network):
 
-      ```
-      yc vpc network delete --help
-      ```
+     ```bash
+     yc vpc network delete --help
+     ```
 
   1. Получите список всех сетей в каталоге по умолчанию:
 
-      ```
-      yc vpc network list
-      ```
-      
-      Результат:
-      ```
-      +----------------------+----------------+
-      |          ID          |      NAME      |
-      +----------------------+----------------+
-      | enpiuvhhd4t8******** | test-network-1 |
-      | enplom7a98s1******** | default        |
-      +----------------------+----------------+
-      ```
+     ```bash
+     yc vpc network list
+     ```
+
+     Результат:
+
+     ```text
+     +----------------------+----------------+
+     |          ID          |      NAME      |
+     +----------------------+----------------+
+     | enpiuvhhd4t8******** | test-network-1 |
+     | enplom7a98s1******** | default        |
+     +----------------------+----------------+
+     ```
 
   1. Выберите идентификатор (`ID`) или имя (`NAME`) нужной сети.
   1. Удалите сеть:
 
-      ```
-      yc vpc network delete test-network-1
-      ```
+     ```bash
+     yc vpc network delete test-network-1
+     ```
 
 - {{ TF }} {#tf}
 
@@ -73,7 +75,7 @@ description: Следуя данной инструкции, вы сможете
      ...
      resource "yandex_vpc_network" "default" {
        name        = "network-1"
-	   description = "My first network"
+       description = "My first network"
        labels = {
          tf-label    = "tf-label-value"
          empty-label = ""
@@ -84,49 +86,22 @@ description: Следуя данной инструкции, вы сможете
 
      {% endcut %}
 
-  1. В командной строке перейдите в папку, где расположен файл конфигурации {{ TF }}.
+  1. Примените изменения:
 
-  1. Проверьте конфигурацию командой:
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     ```
-     terraform validate
-     ```
-     
-     Если конфигурация является корректной, появится сообщение:
-     
-     ```
-     Success! The configuration is valid.
-     ```
+  Проверить изменения можно в [консоли управления]({{ link-console-main }}) или с помощью команд [CLI](../../cli/quickstart.md):
 
-  1. Выполните команду:
-
-     ```
-     terraform plan
-     ```
-  
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
-
-  1. Примените изменения конфигурации:
-
-     ```
-     terraform apply
-     ```
-
-  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
-
-     Проверить изменения можно в [консоли управления]({{ link-console-main }}) или с помощью команд [CLI](../../cli/quickstart.md):
-
-     ```
-     yc vpc network list
-     ```
+  ```bash
+  yc vpc network list
+  ```
 
 - API {#api}
 
-   Чтобы удалить [облачную сеть](../concepts/network.md), воспользуйтесь методом REST API [delete](../api-ref/Network/delete.md) для ресурса [Network](../api-ref/Network/index.md) или вызовом gRPC API [NetworkService/Delete](../api-ref/grpc/Network/delete.md) и передайте в запросе идентификатор удаляемой облачной сети в параметре `networkId`.
+  Чтобы удалить [облачную сеть](../concepts/network.md), воспользуйтесь методом REST API [delete](../api-ref/Network/delete.md) для ресурса [Network](../api-ref/Network/index.md) или вызовом gRPC API [NetworkService/Delete](../api-ref/grpc/Network/delete.md) и передайте в запросе идентификатор удаляемой облачной сети в параметре `networkId`.
 
-   {% include [get-network-id](../../_includes/vpc/get-network-id.md) %}
+  {% include [get-network-id](../../_includes/vpc/get-network-id.md) %}
 
-   {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
+  {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
 
 {% endlist %}
-

@@ -388,6 +388,26 @@
 
 {% endlist %}
 
+## Получить номера шардов {#shard-update}
+
+{% list tabs group=instructions %}
+
+- SQL {#sql}
+
+  Номера шардов в {{ CH }} (`shard_num`) соответствуют лексикографическому порядку имен шардов в {{ mch-name }} (например, `A-shard`, `B-shard`, `shard10`, `shard100`).
+
+  Чтобы получить номер и имя каждого шарда, выполните запрос:
+
+  ```sql
+  SELECT DISTINCT
+      shard_num,
+      shard_name
+  FROM system.clusters
+  WHERE cluster = getMacro('cluster')
+  ```
+
+{% endlist %}
+
 ## Изменить шард {#shard-update}
 
 Вы можете изменить вес шарда, а также [класс хоста](../concepts/instance-types.md), [тип диска](../concepts/storage.md) и размер хранилища.

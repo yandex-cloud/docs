@@ -3,7 +3,7 @@ title: How to delete a profile
 description: Follow this guide to delete a profile.
 ---
 
-# Deleting a profile
+# Deleting a {{ yandex-cloud }} CLI profile
 
 {% note warning %}
 

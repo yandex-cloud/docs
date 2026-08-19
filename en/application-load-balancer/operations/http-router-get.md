@@ -12,8 +12,8 @@ To get HTTP router information:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing your router.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the router.
+  1. [Navigate]({{ link-console-main }}/link/application-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
   1. Select your HTTP router.
   1. The **{{ ui-key.yacloud.common.overview }}** page will show the HTTP router details.
@@ -83,11 +83,14 @@ To get HTTP router information:
       Where:
 
       * `data "yandex_alb_http_router"`: Description of the HTTP router as a data source:
+         
          * `http_router_id`: HTTP router ID.
+      
       * `output "tf-router-name"`: Output variable with the HTTP router name:
+         
          * `value`: Return value.
 
-     You can replace `name` with another variable to get the information you need. For more on the properties of the `yandex_alb_http_router` data source, see [this provider guide]({{ tf-provider-datasources-link }}/alb_http_router).
+     You can replace `name` with another variable to get the information you need. For more information about the properties of the `yandex_alb_http_router` data source, see [this provider guide]({{ tf-provider-datasources-link }}/alb_http_router).
 
   1. Create the resources:
 

@@ -10,11 +10,12 @@ The chart update period is 15 seconds.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder with the log group.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the log group.
+  1. [Navigate]({{ link-console-main }}/link/logging) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
   1. Select the log group whose monitoring charts you want to view.
   1. Navigate to the **{{ ui-key.yacloud.common.monitoring }}** tab.
   1. The following charts will appear on the page:
+      
       * **Records successfully ingested**: Number of records delivered to the {{ cloud-logging-name }} system. This only includes user logs.
       * **Records saved**: Number of records saved to the {{ cloud-logging-name }} system. This includes both service and user logs.
       * **Records read**: Number of records read.

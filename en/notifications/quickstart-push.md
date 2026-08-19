@@ -12,12 +12,14 @@ description: 'With {{ cns-name }}, you can send push notifications to apps regis
 {% include [about-service](../_includes/notifications/about-service.md) %}
 
 With {{ cns-name }}, you can send push notifications to apps registered in the following services:
+
 * [Apple Push Notification service](https://developer.apple.com/notifications/) (APNs).
 * [Firebase Cloud Messaging](https://firebase.google.com/) (FCM).
 * [Huawei Mobile Services](https://developer.huawei.com/consumer/) (HMS).
 * [RuStore](https://www.rustore.ru/help/sdk/push-notifications/).
 
 To get started with push notifications:
+
 1. [Get your cloud ready](#before-you-begin).
 1. [Create a push notification channel](#create-channel).
 1. [Create an endpoint](#create-endpoint).

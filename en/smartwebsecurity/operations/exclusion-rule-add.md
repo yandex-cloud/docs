@@ -10,7 +10,7 @@ description: Follow this guide to create a WAF exclusion rule.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [WAF profile](../concepts/waf.md).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}**.
   1. Select the profile where you want to add an [exclusion rule](../concepts/waf.md#exclusion-rules).
   1. In the left-hand menu, select ![image](../../_assets/console-icons/file-xmark.svg) **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rules }}** and click **{{ ui-key.yacloud.smart-web-security.waf.label_create-exclusion-rule }}**.
@@ -87,12 +87,16 @@ description: Follow this guide to create a WAF exclusion rule.
       ```
 
       Where:
+      
       * `exclusion_rule`:
+         
          * `name`: Exclusion rule name.
          * `condition`: [Conditions](../concepts/conditions.md) for the exception rule to trigger. The above example uses a condition based on the traffic source IP address.
 
             Under `condition`, you can specify multiple different condition types at the same time.
+         
          * `exclude_rules`: Exclusion rule settings:
+            
             * `exclude_all`: Exclusion will apply to all rules. It can be either `false` or `true`.
             * `rule_ids`: List of IDs of rules from the basic set to which the exclusion will apply. To specify individual rules, set `exclude_all` to `false`.
 

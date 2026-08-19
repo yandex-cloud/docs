@@ -10,7 +10,7 @@ description: Follow this guide to configure rule sets for a WAF profile.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [WAF profile](../concepts/waf.md).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}**.
   1. Select the profile where you want to configure rule sets.
   1. Next to the set, click ![image](../../_assets/console-icons/gear.svg) **Configure**.
@@ -38,6 +38,7 @@ description: Follow this guide to configure rule sets for a WAF profile.
         In Yandex Ruleset, you can configure each rule group individually.
      
      1. Expand and specify the parameters for each rule group you enabled:
+        
         1. Optionally, change **Anomaly threshold** from `1` to `10000`. The default value is `7`, since the Yandex Ruleset produces the fewest false positives.
 
         1. Select the **When threshold is exceeded** action to perform on a request in this case. Currently, only request blocking is available.
@@ -45,6 +46,7 @@ description: Follow this guide to configure rule sets for a WAF profile.
         1. If you want a rule to immediately block the request regardless of its total anomaly, click ![image](../../_assets/console-icons/ban.svg) to the right of the rule.
 
   1. To configure your Yandex ML Ruleset:
+     
      1. Enable the rules you want to apply as part of the set.
      1. Optionally, change **Anomaly threshold** from `1` to `100`. The default value is `90`. A low anomaly threshold may result in frequent false positives.
      
@@ -122,7 +124,9 @@ description: Follow this guide to configure rule sets for a WAF profile.
       ```
 
       Where:
+      
       * `dynamic "rule"`: Dynamically enabling the rules in the basic set if their paranoia level is not higher than the value defined in the `waf_paranoia_level` variable. You can manually edit the settings of dynamically configured rules. For example, you can turn a rule into a blocking one or enable a rule with the paranoia level higher than the one defined in the variable.
+         
          * `rule_id`: Rule ID.
          * `is_enabled`: Flag to enable or disable a rule.
          * `is_blocking`: [Blocking](../concepts/waf.md#anomaly) rule flag.

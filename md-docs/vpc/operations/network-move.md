@@ -34,42 +34,45 @@
 
   1. Посмотрите описание команды CLI для перемещения облачной сети:
 
-      ```bash
-      yc vpc network move --help
-      ```
+     ```bash
+     yc vpc network move --help
+     ```
 
   1. Узнайте имя или идентификатор облачной сети, которую требуется переместить:
 
-      ```bash
-      yc vpc network list
-      ```
-      Результат:
-      ```text
-      +----------------------+-----------+
-      |          ID          |   NAME    |
-      +----------------------+-----------+
-      | encb4ubvmief******** | default   |
-      | enc39op1vq9m******** | network-1 |
-      | enc772aa2rgq******** | network-2 |
-      +----------------------+-----------+
-      ```
+     ```bash
+     yc vpc network list
+     ```
+
+     Результат:
+
+     ```text
+     +----------------------+-----------+
+     |          ID          |   NAME    |
+     +----------------------+-----------+
+     | encb4ubvmief******** | default   |
+     | enc39op1vq9m******** | network-1 |
+     | enc772aa2rgq******** | network-2 |
+     +----------------------+-----------+
+     ```
 
   1. Получите список доступных каталогов:
 
-      ```bash
-      yc resource-manager folder list
-      ```
+     ```bash
+     yc resource-manager folder list
+     ```
 
-      Результат:
-      ```text
-      +----------------------+------------------------+--------+--------+
-      |          ID          |          NAME          | LABELS | STATUS |
-      +----------------------+------------------------+--------+--------+
-      | b1cs8ie21pk1******** | default                |        | ACTIVE |
-      | b1chgf288nvg******** | my-folder-1            |        | ACTIVE |
-      | b1cu6g9ielh6******** | my-folder-2            |        | ACTIVE |
-      +----------------------+------------------------+--------+--------+
-      ```
+     Результат:
+
+     ```text
+     +----------------------+------------------------+--------+--------+
+     |          ID          |          NAME          | LABELS | STATUS |
+     +----------------------+------------------------+--------+--------+
+     | b1cs8ie21pk1******** | default                |        | ACTIVE |
+     | b1chgf288nvg******** | my-folder-1            |        | ACTIVE |
+     | b1cu6g9ielh6******** | my-folder-2            |        | ACTIVE |
+     +----------------------+------------------------+--------+--------+
+     ```
 
   1. Переместите сеть, указав имя или идентификатор сети и каталога назначения:
 
@@ -78,6 +81,7 @@
        --destination-folder-name <имя_каталога_назначения> \
        --destination-folder-id <идентификатор_каталога_назначения>
      ```
+
      Используйте либо параметр `--destination-folder-name`, либо `--destination-folder-id`.
 
      Если сеть находится не в текущем каталоге (каталоге по умолчанию), укажите исходный каталог с помощью опции `--folder-name` или `--folder-id`.
@@ -86,10 +90,10 @@
 
      ```text
      id: enc39op1vq9m********
-      folder_id: b1chgf288nvg********
-      created_at: "2022-10-06T14:54:48Z"
-      name: network-1
-      default_security_group_id: enc2ta63h3q2********
+     folder_id: b1chgf288nvg********
+     created_at: "2022-10-06T14:54:48Z"
+     name: network-1
+     default_security_group_id: enc2ta63h3q2********
      ```
 
      Подробнее о команде `yc vpc network move` в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/network/move.md).

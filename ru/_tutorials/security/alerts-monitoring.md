@@ -161,7 +161,7 @@
       1. [Перейдите]({{ link-console-main }}/link/audit-trails) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
       1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.audit-trails.label_trails }}**.
       1. Выберите нужный трейл.
-      1. Перейдите на панель ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** для выбранного трейла.
+      1. Перейдите на вкладку **{{ ui-key.yacloud.common.monitoring }}** для выбранного трейла.
       1. Справа вверху нажмите **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}**.
 
           Откроется интерфейс {{ monitoring-short-name }}.

@@ -11,43 +11,60 @@ For more convenient operations with dashboards, use [labels](#labels). They help
 
 ## Creating a dashboard {#create}
 
-1. On the [{{ monium-name }}]({{ link-monium }}) home page, select **Dashboards** on the left.
-1. In the top-left corner, select the project of the folder containing the resource you need.
-1. At the top right, click **Create**.
-1. Add a [widget](../../concepts/visualization/widget.md) to your dashboard. For example, the **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-title }}** widget.
-    1. Click **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-title }}**.
-    1. Enter text in the input field.
-    1. Select the title size.
-    1. Click **{{ ui-key.yacloud_monitoring.actions.common.add }}**. You will now see the titled widget on the dashboard.
-1. Click **{{ ui-key.yacloud_monitoring.actions.common.save }}** in the top-right corner.
-1. Name your dashboard and click **{{ ui-key.yacloud_monitoring.actions.common.save }}**.
+{% list tabs group=instructions %}
 
+- {{ monium-name }} UI {#console}
+
+  1. On the [{{ monium-name }}]({{ link-monium }}) home page, select ![alt](../../../_assets/console-icons/layout-cells-large.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}** on the left.
+  1. In the top-left corner, select the project of the folder containing the resource you need.
+  1. At the top right, click **Create**.
+  1. Add a [widget](../../concepts/visualization/widget.md) to your dashboard. For example, the **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-title }}** widget.
+      1. Click **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-title }}**.
+      1. Enter text in the input field.
+      1. Select the title size.
+      1. Click **{{ ui-key.yacloud_monitoring.actions.common.add }}**. You will now see the titled widget on the dashboard.
+  1. Click **{{ ui-key.yacloud_monitoring.actions.common.save }}** in the top-right corner.
+  1. Name your dashboard and click **{{ ui-key.yacloud_monitoring.actions.common.save }}**.
+
+{% endlist %}
+  
 ## Setting up a dashboard {#settings}
 
-1. Go to **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}**.
-1. Select the dashboard you need.
-1. At the top right, click ![image](../../../_assets/console-icons/gear.svg) **{{ ui-key.yacloud_monitoring.header.action.settings }}** and select one of the following options:
-   * **{{ ui-key.yacloud_monitoring.dashboard.settings.tab.general }}**. In this window, you can set:
-     * **Title**: It is displayed at the top of the dashboard.
-     * **Name**: It is used in the dashboard URL. If the name is not specified, the dashboard title will be used instead.
-     * **Description**: Additional dashboard information.
-     * **{{ ui-key.yacloud_monitoring.dashboard.settings.general.labels.title }}**: [Labels](#labels) for more flexible dashboard search.
-   * **{{ ui-key.yacloud_monitoring.dashboard.settings.tab.json }}**: Editing the dashboard in JSON format.
-   * **{{ ui-key.yacloud_monitoring.component.parametrizer.parameters }}**: In this window, you can add [parameters](add-parameters.md) for interactive dashboards.
-   * **{{ ui-key.yacloud_monitoring.wizard.tab.links-key-value }}**: Here you can add a link to an external resource or another dashboard.
-1. Click ![image](../../../_assets/console-icons/floppy-disk.svg) **{{ ui-key.yacloud_monitoring.dashboard.dash.save }}** at the top right.
+{% list tabs group=instructions %}
+
+- {{ monium-name }} UI {#console}
+  
+  1. Go to ![alt](../../../_assets/console-icons/layout-cells-large.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}**.
+  1. Select the dashboard you need.
+  1. At the top right, click ![image](../../../_assets/console-icons/gear.svg) **{{ ui-key.yacloud_monitoring.header.action.settings }}** and select one of the following options:
+     * **{{ ui-key.yacloud_monitoring.dashboard.settings.tab.general }}**. In this window, you can set:
+       * **Title**: It is displayed at the top of the dashboard.
+       * **Name**: It is used in the dashboard URL. If the name is not specified, the dashboard title will be used instead.
+       * **Description**: Additional dashboard information.
+       * **{{ ui-key.yacloud_monitoring.dashboard.settings.general.labels.title }}**: [Labels](#labels) for more flexible dashboard search.
+     * **{{ ui-key.yacloud_monitoring.dashboard.settings.tab.json }}**: Editing the dashboard in JSON format.
+     * **{{ ui-key.yacloud_monitoring.component.parametrizer.parameters }}**: In this window, you can add [parameters](add-parameters.md) for interactive dashboards.
+     * **{{ ui-key.yacloud_monitoring.wizard.tab.links-key-value }}**: Here you can add a link to an external resource or another dashboard.
+  1. Click ![image](../../../_assets/console-icons/floppy-disk.svg) **{{ ui-key.yacloud_monitoring.dashboard.dash.save }}** at the top right.
+
+{% endlist %}
 
 ## Configuring dashboard labels {#labels}
 
-To configure dashboard labels:
+{% list tabs group=instructions %}
 
-1. Go to **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}**.
-1. Select the dashboard you need.
-1. At the top right, click ![image](../../../_assets/console-icons/gear.svg) **{{ ui-key.yacloud_monitoring.header.action.settings }}** and select **{{ ui-key.yacloud_monitoring.dashboard.settings.tab.general }}**.
-1. In the window that opens, enter the label values in `key=value` format under **{{ ui-key.yacloud_monitoring.dashboard.settings.general.labels.title }}**.
-1. Click **{{ ui-key.yacloud_monitoring.navigation.dialogs.button_save }}**.
-1. Click ![image](../../../_assets/console-icons/floppy-disk.svg) **{{ ui-key.yacloud_monitoring.dashboard.dash.save }}** at the top right.
+- {{ monium-name }} UI {#console}
 
+  To configure dashboard labels:
+  
+  1. Go to ![alt](../../../_assets/console-icons/layout-cells-large.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}**.
+  1. Select the dashboard you need.
+  1. At the top right, click ![image](../../../_assets/console-icons/gear.svg) **{{ ui-key.yacloud_monitoring.header.action.settings }}** and select **{{ ui-key.yacloud_monitoring.dashboard.settings.tab.general }}**.
+  1. In the window that opens, enter the label values in `key=value` format under **{{ ui-key.yacloud_monitoring.dashboard.settings.general.labels.title }}**.
+  1. Click **{{ ui-key.yacloud_monitoring.navigation.dialogs.button_save }}**.
+  1. Click ![image](../../../_assets/console-icons/floppy-disk.svg) **{{ ui-key.yacloud_monitoring.dashboard.dash.save }}** at the top right.
+
+{% endlist %}
 
 ## Searching for dashboards {#search}
 
@@ -55,8 +72,14 @@ You can search for dashboards in the list by their main parameters: **ID**, **Ti
 
 To search for dashboards:
 
-1. Go to **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}**.
-1. In the **{{ ui-key.yacloud_monitoring.component.entities-list.common-filter-placeholder }}** field, enter the label key or value, title, name, or description.
+{% list tabs group=instructions %}
+
+- {{ monium-name }} UI {#console}
+
+  1. Go to ![alt](../../../_assets/console-icons/layout-cells-large.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}**.
+  1. In the **{{ ui-key.yacloud_monitoring.component.entities-list.common-filter-placeholder }}** field, enter the label key or value, title, name, or description.
+
+{% endlist %}
 
 #### What's next {#what-is-next}
 - [{#T}](add-widget.md)

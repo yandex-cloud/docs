@@ -1,5 +1,6 @@
 ---
 title: Как получить информацию о зоне DNS в {{ dns-full-name }}
+description: Следуя данной инструкции, вы сможете получить информацию о зоне DNS.
 ---
 
 # Получить информацию о зоне DNS
@@ -11,8 +12,8 @@ title: Как получить информацию о зоне DNS в {{ dns-fu
   1. В [консоли управления]({{ link-console-main }}) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [зона DNS](../concepts/dns-zone.md).
   1. [Перейдите]({{ link-console-main }}/link/dns) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/compass.svg) **{{ ui-key.yacloud.dns.label_zones-list }}**.
-  1. Выберите нужную зону DNS.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.common.overview }}**
+  1. Нажмите на нужную зону DNS.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.common.overview }}**.
   1. На странице **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация о зоне DNS.
 
 - CLI {#cli}
@@ -53,6 +54,7 @@ title: Как получить информацию о зоне DNS в {{ dns-fu
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   Чтобы получить информацию о [зоне DNS](../concepts/dns-zone.md) с помощью {{ TF }}:
+
   1. Добавьте в конфигурационный файл {{ TF }} блоки `data` и `output`:
 
      ```hcl
@@ -66,12 +68,14 @@ title: Как получить информацию о зоне DNS в {{ dns-fu
      ```
 
      Где:
+
      * `data "yandex_dns_zone"` — описание зоны DNS в качестве источника данных:
        * `dns_zone_id` — идентификатор зоны DNS.
-     * `output "zone"` — выходная переменная, которая содержит информацию о типе зоне DNS:
+     * `output "zone"` — выходная переменная, которая содержит информацию о типе зоны DNS:
        * `value` — возвращаемое значение.
 
      Вместо `public` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_dns_zone` в [документации провайдера]({{ tf-provider-datasources-link }}/dns_zone).
+
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

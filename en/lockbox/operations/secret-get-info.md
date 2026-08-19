@@ -13,7 +13,7 @@ You can get detailed [information about a secret](#secret-info) and [secret cont
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Navigate]({{ link-console-main }}/link/lockbox) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. In the left-hand menu, select **{{ ui-key.yacloud.lockbox.routes.label_section-secrets }}**.
     1. Click the name of the secret you need.
 
@@ -60,6 +60,7 @@ You can get detailed [information about a secret](#secret-info) and [secret cont
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   To get information about a [secret](../concepts/secret.md) using {{ TF }}:
+  
   1. Add the `data` and `output` sections to the {{ TF }} configuration file:
 
      ```hcl
@@ -73,12 +74,17 @@ You can get detailed [information about a secret](#secret-info) and [secret cont
      ```
 
      Where:
+     
      * `data "yandex_lockbox_secret"`: Description of the secret as a data source:
+       
        * `secret_id`: Secret ID.
+     
      * `output "current_version"`: Output variable that contains information about the current secret version:
+       
        * `value`: Return value.
 
-     You can replace `current_version` with another variable to get the information you need. For more on the properties of the `yandex_lockbox_secret` data source, see [this provider guide]({{ tf-provider-datasources-link }}/lockbox_secret).
+     You can replace `current_version` with another variable to get the information you need. For more information about the properties of the `yandex_lockbox_secret` data source, see [this provider guide]({{ tf-provider-datasources-link }}/lockbox_secret).
+  
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -120,7 +126,7 @@ You can get detailed [information about a secret](#secret-info) and [secret cont
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Navigate]({{ link-console-main }}/link/lockbox) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. In the left-hand menu, select **{{ ui-key.yacloud.lockbox.routes.label_section-secrets }}**.
     1. Click the name of the secret you need.
     1. Under **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-versions-section }}**, click the secret version you need.
@@ -176,13 +182,17 @@ You can get detailed [information about a secret](#secret-info) and [secret cont
      ```
 
      Where:
+     
      * `data "yandex_lockbox_secret_version"`: Description of the secret as a data source:
+       
        * `secret_id`: Secret ID.
        * `version_id`: Secret version ID. This is an optional setting. Defaults to the current secret version.
+     
      * `output "my_secret_entries"`: Output variable which stores the contents of the secret:
+       
        * `value`: Return value.
 
-     For more on the properties of the `yandex_lockbox_secret_version` data source, see [this provider guide]({{ tf-provider-datasources-link }}/lockbox_secret_version).
+     For more information about the properties of the `yandex_lockbox_secret_version` data source, see [this provider guide]({{ tf-provider-datasources-link }}/lockbox_secret_version).
 
   1. Create the resources:
 
@@ -224,7 +234,7 @@ You can get detailed [information about a secret](#secret-info) and [secret cont
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Navigate]({{ link-console-main }}/link/lockbox) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. In the left-hand menu, select **{{ ui-key.yacloud.lockbox.routes.label_section-secrets }}**.
     1. Click the name of the secret you need.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.

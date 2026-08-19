@@ -50,7 +50,7 @@ The infrastructure support cost includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [bucket](../../storage/concepts/bucket.md).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. On the bucket creation page:
       1. Enter a name for the bucket by following the [naming conventions](../../storage/concepts/bucket.md#naming).
@@ -73,8 +73,8 @@ The infrastructure support cost includes:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing your bucket.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder with the bucket.
+  1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. Click **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** and set the key attributes:
 
      * Any name and optional description.
@@ -109,8 +109,8 @@ The infrastructure support cost includes:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create your service account.
+  1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter a name for the service account. The naming requirements are as follows:
 
@@ -186,8 +186,8 @@ To create the trail, make sure you have the following roles:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to create the trail.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trail.
+  1. [Navigate]({{ link-console-main }}/link/audit-trails) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}** and specify:
 
      * **{{ ui-key.yacloud.common.name }}**: Name of the new trail.
@@ -234,8 +234,8 @@ Enable `HTTPEventCollector` and follow this [guide](https://docs.splunk.com/Docu
 - Management console {#console}
 
   1. Create a NAT gateway:
-      1. In the [management console]({{ link-console-main }}), select the folder containing the subnet for the intermediate VM.
-      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+      1. In the [management console]({{ link-console-main }}), select the folder containing the subnet for the jump host VM.
+      1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
       1. In the left-hand panel, select **{{ ui-key.yacloud.vpc.switch_gateways }}**.
       1. Click **{{ ui-key.yacloud.common.create }}**.
       1. Enter a name for the gateway. The naming requirements are as follows:

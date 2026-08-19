@@ -32,7 +32,7 @@ The map shows each service as a node and each service call as a connection betwe
 
 - {{ monium-name }} UI {#console}
 
-  1. On the [{{ monium-name }}]({{ link-monium }}) home page, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.services-map.title }}** on the left.
+  1. On the [{{ monium-name }}]({{ link-monium }}) home page, select ![alt](../../../_assets/console-icons/compass.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.all-panel.menu.category.explore }}** → ![alt](../../../_assets/console-icons/hierarchy.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.traces.title }}** on the left.
   1. At the top, set the data search period on the timeline.
   1. Enter the following query in the search bar:
           

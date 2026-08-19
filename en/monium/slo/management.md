@@ -1,6 +1,14 @@
 # Managing SLOs in {{ monium-name }}
 
-To work with SLOs, on the [{{ monium-name }} home page]({{ link-monium }}), select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.slo.title }}** on the left.
+To work with SLO:
+
+{% list tabs group=instructions %}
+
+- {{ monium-name }} UI {#console}
+
+  On the [{{ monium-name }}]({{ link-monium }}) home page, select ![alt](../../_assets/console-icons/shield-exclamation.svg) **Alerts and SLOs** → ![alt](../../_assets/console-icons/calculator.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.slo.title }}** on the left.
+
+{% endlist %}
 
 ## SLO statuses {#status}
 

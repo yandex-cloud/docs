@@ -12,7 +12,7 @@ To change L7 load balancer settings:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the load balancer is in.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Navigate]({{ link-console-main }}/link/application-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Click your load balancer's name.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
   1. Edit the load balancer settings:
@@ -116,6 +116,7 @@ To change L7 load balancer settings:
 
           * `--log-group-id`: [Log group](../../logging/concepts/log-group.md) ID.
           * `--discard`: [Log discard rule](../concepts/application-load-balancer.md#discard-logs-rules). Rule options:
+            
             * `codes`: HTTP codes, HTTP code classes, or gRPC codes.
             * `percent`: Log discard rate.
 
@@ -331,7 +332,7 @@ To delete a listener from your L7 load balancer:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the load balancer is in.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Navigate]({{ link-console-main }}/link/application-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the load balancer and select **{{ ui-key.yacloud.common.edit }}**.
   1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, next to the appropriate listener name, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
   1. Click **{{ ui-key.yacloud.common.save }}**.

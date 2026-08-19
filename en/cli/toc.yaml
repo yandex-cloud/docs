@@ -1,52 +1,58 @@
 title: Command line interface
 href: index.yaml
 items:
-  - name: Getting started with the CLI
+  - name: Getting started
     href: quickstart.md
   - name: Step-by-step guides
     expanded: true
     items:
       - name: All guides
         href: operations/index.md
-      - name: CLI installation
+      - name: Installation
         href: operations/install-cli.md
-      - name: CLI update
+      - name: Updates
         href: operations/update-cli.md
-      - name: Uninstalling the CLI
+      - name: Deletion
         href: operations/remove-cli.md
-      - name: Working with CLI command versions
+      - name: Working with command versions
         href: operations/command-versioning.md
       - name: Profile management
         items:
-          - name: Creating a profile
+          - name: Creation
             href: operations/profile/profile-create.md
-          - name: Managing profile parameters
+          - name: Property management
             href: operations/profile/manage-properties.md
-          - name: Getting profile information
+          - name: Getting information
             href: operations/profile/profile-list.md
-          - name: Activating a profile
+          - name: Activation
             href: operations/profile/profile-activate.md
-          - name: Deleting a profile
+          - name: Deletion
             href: operations/profile/profile-delete.md
       - name: Authentication
         items:
-          - name: Authenticating as a user
+          - name: Yandex account
             href: operations/authentication/user.md
-          - name: Authenticating as a service account
+          - name: Service account
             href: operations/authentication/service-account.md
-          - name: Authenticating as a federated user
+          - name: Federated user
             href: operations/authentication/federated-user.md
-          - name: Authenticating as a local user
+          - name: Local user
             href: operations/authentication/local-user.md
+          - name: IAM token from an environment variable
+            href: operations/authentication/iam-token-env.md
+          - name: Without a GUI and browser
+            href: operations/authentication/auth-without-gui.md
   - name: Concepts
     items:
       - name: Running commands
         href: concepts/index.md
-      - name: CLI configuration
+      - name: Endpoints
+        href: concepts/endpoints.md
+      - name: Configuration
         href: concepts/core-properties.md
       - name: Synchronous and asynchronous command execution modes
         href: concepts/mode.md
-  - name: CLI reference
+  - name: Reference
     items:
       - name: Overview
         href: cli-ref/index.md
@@ -13642,7 +13648,7 @@ items:
                     href: cli-ref/ydb/cli-ref/v0/storage-type/get.md
                   - name: list
                     href: cli-ref/ydb/cli-ref/v0/storage-type/list.md
-  - name: CLI releases
+  - name: Releases
     href: release-notes.md
   - name: Troubleshooting
     href: error.md

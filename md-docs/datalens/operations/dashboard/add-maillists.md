@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Дашборды > Рассылки
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Рассылки > Рассылки для дашборда
 
 # Рассылки
 
@@ -7,8 +7,8 @@
 
 {% note info %}
 
-* Рассылки доступны только для дашбордов, расположенных в [воркбуках](../../workbooks-collections/index.md).
 * Добавить и изменить рассылку может пользователь с ролью `datalens.admin`.
+* Рассылки доступны только для дашбордов, расположенных в [воркбуках](../../workbooks-collections/index.md).
 
 {% endnote %}
 

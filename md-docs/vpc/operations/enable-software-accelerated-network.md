@@ -2,7 +2,7 @@
 
 # Включить программно ускоренную сеть
 
-Вы можете включить [программно ускоренную сеть](../concepts/software-accelerated-network.md) при создании или изменении [виртуальной машины](../../glossary/vm.md).
+Вы можете включить [программно ускоренную сеть](../concepts/software-accelerated-network.md) при создании или изменении [виртуальной машины](../../glossary/vm.md) (ВМ).
 
 {% note warning %}
 
@@ -18,8 +18,8 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, которому принадлежит ВМ.
   1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud** и выберите нужную ВМ.
-  1. На панели сверху нажмите ![image](../../_assets/console-icons/stop.svg) **Остановить** и подтвердите остановку ВМ.
-  1. Подождите, пока ВМ перейдет в статус `Stopped`, и на панели сверху нажмите ![image](../../_assets/console-icons/pencil.svg) **Редактировать**.
+  1. На панели сверху нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Остановить**. В открывшемся окне подтвердите остановку ВМ.
+  1. Подождите, пока ВМ перейдет в статус `Stopped`, и нажмите ![image](../../_assets/console-icons/pencil.svg) **Редактировать**.
   1. В блоке **Вычислительные ресурсы** выберите опцию **Программное ускорение сети**.
   1. Нажмите **Сохранить изменения**.
   1. На панели сверху нажмите ![image](../../_assets/console-icons/play.svg) **Запустить** и подтвердите запуск.
@@ -34,75 +34,75 @@
 
   1. Посмотрите описание команды CLI для обновления параметров ВМ:
 
-      ```bash
-      yc compute instance update --help
-      ```
+     ```bash
+     yc compute instance update --help
+     ```
 
   1. Получите список ВМ в каталоге по умолчанию:
 
-      ```bash
-      yc compute instance list
-      ```
-      
-      Результат:
-      ```text
-      +----------------------+-----------------+---------------+---------+----------------------+
-      |          ID          |       NAME      |    ZONE ID    | STATUS  |     DESCRIPTION      |
-      +----------------------+-----------------+---------------+---------+----------------------+
-      | fhm0b28lgfp4******** | first-instance  | ru-central1-a | RUNNING | my first vm via CLI  |
-      | fhm9gk85nj7g******** | second-instance | ru-central1-a | RUNNING | my second vm via CLI |
-      +----------------------+-----------------+---------------+---------+----------------------+
-      ```
+     ```bash
+     yc compute instance list
+     ```
+     
+     Результат:
+     ```text
+     +----------------------+-----------------+---------------+---------+----------------------+
+     |          ID          |       NAME      |    ZONE ID    | STATUS  |     DESCRIPTION      |
+     +----------------------+-----------------+---------------+---------+----------------------+
+     | fhm0b28lgfp4******** | first-instance  | ru-central1-a | RUNNING | my first vm via CLI  |
+     | fhm9gk85nj7g******** | second-instance | ru-central1-a | RUNNING | my second vm via CLI |
+     +----------------------+-----------------+---------------+---------+----------------------+
+     ```
 
   1. Выберите идентификатор (`ID`) или имя (`NAME`) нужной ВМ и остановите ее. Например, чтобы остановить ВМ с именем `first-instance`, выполните команду:
 
-      ```bash
-      yc compute instance stop first-instance
-      ```
+     ```bash
+     yc compute instance stop first-instance
+     ```
 
   1. Включите программно ускоренную сеть:
 
-      1. Выполните команду:
+     1. Выполните команду:
 
-          ```bash
-          yc compute instance update first-instance \
-            --network-settings type=software-accelerated
-          ```
+        ```bash
+        yc compute instance update first-instance \
+          --network-settings type=software-accelerated
+        ```
 
-          Где `--network-settings` — параметр, который переключает тип сети.
+        Где `--network-settings` — параметр, который переключает тип сети.
 
-          Результат:
+        Результат:
 
-          ```text
-          id: fhm0b28lgfp4********
-          folder_id: b1gbnv36zqf5********
-          created_at: "2023-05-24T09:28:11Z"
-          name: first-instance
-          zone_id: ru-central1-a
-          platform_id: standard-v3
-          resources:
-            memory: "2147483648"
-            cores: "2"
-            core_fraction: "100"
-          status: STOPPED
-          ...
-          network_settings:
-            type: SOFTWARE_ACCELERATED
-          placement_policy: {}
-          ```
+        ```text
+        id: fhm0b28lgfp4********
+        folder_id: b1gbnv36zqf5********
+        created_at: "2023-05-24T09:28:11Z"
+        name: first-instance
+        zone_id: ru-central1-a
+        platform_id: standard-v3
+        resources:
+          memory: "2147483648"
+          cores: "2"
+          core_fraction: "100"
+        status: STOPPED
+        ...
+        network_settings:
+          type: SOFTWARE_ACCELERATED
+        placement_policy: {}
+        ```
 
-      1. Запустите ВМ:
+     1. Запустите ВМ:
 
-          ```bash
-          yc compute instance start first-instance
-          ```
+        ```bash
+        yc compute instance start first-instance
+        ```
 
   Чтобы выключить программно ускоренную сеть, остановите ВМ и выполните команду:
 
-    ```bash
-    yc compute instance update first-instance \
-      --network-settings type=standard
-    ```
+  ```bash
+  yc compute instance update first-instance \
+    --network-settings type=standard
+  ```
 
 - Terraform {#tf}
 
@@ -167,8 +167,8 @@
 
 - API {#api}
 
-    Воспользуйтесь методом REST API [update](../../compute/api-ref/Instance/update.md) для ресурса [Instance](../../compute/api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/Update](../../compute/api-ref/grpc/Instance/update.md).
+  Воспользуйтесь методом REST API [update](../../compute/api-ref/Instance/update.md) для ресурса [Instance](../../compute/api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/Update](../../compute/api-ref/grpc/Instance/update.md).
 
-    Для включения программно ускоренной сети передайте в теле запроса параметр `networkSettings.type` со значением `SOFTWARE_ACCELERATED`, для выключения — со значением `STANDARD`.
+  Для включения программно ускоренной сети передайте в теле запроса параметр `networkSettings.type` со значением `SOFTWARE_ACCELERATED`, для выключения — со значением `STANDARD`.
 
 {% endlist %}

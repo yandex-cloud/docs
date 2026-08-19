@@ -79,7 +79,7 @@ description: С помощью {{ cns-name }} вы можете отправля
 - Консоль управления {#console}
 
   1. Выберите созданный канал уведомлений.
-  1. Выберите вкладку ![image](../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.cns.label_endpoints }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.cns.label_endpoints }}**.
   1. Нажмите **{{ ui-key.yacloud.cns.action_create-endpoint }}**.
   1. Введите **{{ ui-key.yacloud.cns.field_web-push-endpoint_params }}**, которые были получены в браузере пользователя.
   1. Нажмите **{{ ui-key.yacloud.common.create }}**.

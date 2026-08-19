@@ -11,7 +11,7 @@
 ## Перед началом работы {#before-begin}
 
 1. Войдите в [консоль управления]({{ link-console-main }}) или зарегистрируйтесь. Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
-1. Перейдите в сервис [{{ billing-name }}]({{ link-console-billing }}) и убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
+1. [Перейдите]({{ link-console-billing }}) в сервис {{ billing-name }} и убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
 1. Если у вас еще нет каталога, [создайте его](../resource-manager/operations/folder/create.md). Во время создания каталога вы можете создать виртуальную сеть по умолчанию с подсетями во всех зонах доступности.
 
 ## Создайте облачную сеть {#create-network}
@@ -22,6 +22,7 @@
 1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 1. Задайте имя сети, например, `test-network`.
+1. Отключите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
 ## Создайте подсеть {#create-subnet}
@@ -29,7 +30,7 @@
 Создайте подсеть, в которой облачные ресурсы будут получать [внутренние IP-адреса](concepts/address.md#internal-addresses):
 
 1. Нажмите на имя созданной облачной сети.
-1. Нажмите кнопку ![image](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
+1. Нажмите кнопку ![image](../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
 1. Задайте имя подсети, например, `test-subnet-1`.
 1. Выберите зону доступности из выпадающего списка. Для первой подсети подойдет любая зона из списка.
 1. Введите CIDR подсети: IP-адрес и маску подсети, например, `10.10.0.0/24`. Подробнее про диапазоны IP-адресов в подсетях читайте в разделе [Облачные сети и подсети](concepts/network.md).
@@ -37,7 +38,7 @@
 
 ## Зарезервируйте статический публичный IP-адрес {#reserve-address}
 
-Зарезервируйте статический публичный IP-адрес для вашей виртуальной машины. Такой адрес можно назначить любой виртуальной машине, и он не изменится при остановке ВМ. 
+Зарезервируйте статический публичный IP-адрес для вашей виртуальной машины. Такой адрес можно назначить любой виртуальной машине, и он не изменится при остановке ВМ.
 
 {% note warning %}
 
@@ -48,7 +49,7 @@
 Чтобы зарезервировать IP-адрес:
 
 1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-1. Перейдите в раздел **{{ ui-key.yacloud.vpc.switch_addresses }}**.
+1. На панели слева выберите **{{ ui-key.yacloud.vpc.switch_addresses }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
 1. В открывшемся окне выберите зону доступности, в которой вы создали подсеть на предыдущем шаге.
 1. Выберите опцию **{{ ui-key.yacloud.common.field_ddos-protection-provider }}**, если хотите [защитить ваши облачные ресурсы от DDoS-атак](ddos-protection/index.md).
@@ -56,9 +57,9 @@
 
 ## Удалите подсеть и статический публичный IP-адрес {#delete-resources}
 
-Если вам больше не нужна подсеть, [удалите ее](operations/subnet-delete.md). 
+Если вам больше не нужна подсеть, [удалите ее](operations/subnet-delete.md).
 
-Если зарезервированный адрес не привязан ни к какому ресурсу, его можно [удалить](operations/address-delete.md). 
+Если зарезервированный адрес не привязан ни к какому ресурсу, его можно [удалить](operations/address-delete.md).
 
 ## Что дальше {#what-is-next}
 

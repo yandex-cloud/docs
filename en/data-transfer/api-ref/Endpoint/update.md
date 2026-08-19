@@ -689,6 +689,69 @@ apiPlayground:
             type: array
             items:
               type: string
+      ServiceAccount:
+        type: object
+        properties:
+          serviceAccountId:
+            description: |-
+              **string**
+              Service account ID for interaction with database
+            type: string
+      AuthenticationMethod:
+        type: object
+        properties:
+          serviceAccount:
+            description: |-
+              **[ServiceAccount](#yandex.cloud.datatransfer.v1.endpoint.AuthenticationMethod.ServiceAccount)**
+              Includes only one of the fields `serviceAccount`.
+            $ref: '#/definitions/ServiceAccount'
+        oneOf:
+          - required:
+              - serviceAccount
+      OnPremiseYDB:
+        type: object
+        properties:
+          database:
+            description: |-
+              **string**
+              Database path in YDB where tables are stored.
+              Example: `/ru/transfer_manager/prod/data-transfer`
+            type: string
+          instance:
+            description: |-
+              **string**
+              Instance of YDB. example: ydb-ru-prestable.yandex.net:2135.
+            type: string
+          tlsMode:
+            description: |-
+              **[TLSMode](#yandex.cloud.datatransfer.v1.endpoint.TLSMode)**
+              TLS settings for server connection. Disabled by default.
+            $ref: '#/definitions/TLSMode'
+          subnetId:
+            description: |-
+              **string**
+              Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database.
+              If omitted, the server has to be accessible via Internet
+            type: string
+      YDBConnection:
+        type: object
+        properties:
+          databaseId:
+            description: |-
+              **string**
+              Managed Service for YDB database ID
+              Includes only one of the fields `databaseId`, `onPremise`.
+            type: string
+          onPremise:
+            description: |-
+              **[OnPremiseYDB](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseYDB)**
+              Includes only one of the fields `databaseId`, `onPremise`.
+            $ref: '#/definitions/OnPremiseYDB'
+        oneOf:
+          - required:
+              - databaseId
+          - required:
+              - onPremise
       YdbSource:
         type: object
         properties:
@@ -697,12 +760,14 @@ apiPlayground:
               **string**
               Database path in YDB where tables are stored.
               Example: `/ru/transfer_manager/prod/data-transfer-yt`
+            deprecated: true
             type: string
           instance:
             description: |-
               **string**
               Instance of YDB. example: ydb-ru-prestable.yandex.net:2135.
               If not specified, will be determined by database
+            deprecated: true
             type: string
           paths:
             description: |-
@@ -716,12 +781,14 @@ apiPlayground:
             description: |-
               **string**
               Service account ID for interaction with database
+            deprecated: true
             type: string
           subnetId:
             description: |-
               **string**
               Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
               database. If omitted, the server has to be accessible via Internet
+            deprecated: true
             type: string
           saKeyContent:
             description: |-
@@ -746,6 +813,12 @@ apiPlayground:
               **string**
               Consumer for pre-created change feed if any
             type: string
+          authentication:
+            description: '**[AuthenticationMethod](#yandex.cloud.datatransfer.v1.endpoint.AuthenticationMethod)**'
+            $ref: '#/definitions/AuthenticationMethod'
+          ydbConnection:
+            description: '**[YDBConnection](#yandex.cloud.datatransfer.v1.endpoint.YDBConnection)**'
+            $ref: '#/definitions/YDBConnection'
       ColSchema:
         type: object
         properties:
@@ -902,6 +975,79 @@ apiPlayground:
               - cloudLoggingParser
           - required:
               - tskvParser
+      YDSAuthenticationMethod:
+        type: object
+        properties:
+          serviceAccountId:
+            description: |-
+              **string**
+              Service account ID for interaction with database
+              Includes only one of the fields `serviceAccountId`.
+            type: string
+        oneOf:
+          - required:
+              - serviceAccountId
+      ManagedYDS:
+        type: object
+        properties:
+          databaseId:
+            description: |-
+              **string**
+              Managed Service for YDB database ID
+            type: string
+          stream:
+            description: |-
+              **string**
+              Stream to read
+            type: string
+      OnPremiseYDS:
+        type: object
+        properties:
+          database:
+            description: |-
+              **string**
+              Database path in YDB where tables are stored.
+              Example: `/ru/transfer_manager/prod/data-transfer`
+            type: string
+          stream:
+            description: |-
+              **string**
+              Stream to read
+            type: string
+          instance:
+            description: |-
+              **string**
+              Instance of YDB. example: ydb-ru-prestable.yandex.net:2135.
+            type: string
+          tlsMode:
+            description: |-
+              **[TLSMode](#yandex.cloud.datatransfer.v1.endpoint.TLSMode)**
+              TLS settings for server connection. Disabled by default.
+            $ref: '#/definitions/TLSMode'
+          subnetId:
+            description: |-
+              **string**
+              Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database.
+              If omitted, the server has to be accessible via Internet
+            type: string
+      YDSConnection:
+        type: object
+        properties:
+          managedYds:
+            description: |-
+              **[ManagedYDS](#yandex.cloud.datatransfer.v1.endpoint.ManagedYDS)**
+              Includes only one of the fields `managedYds`, `onPremise`.
+            $ref: '#/definitions/ManagedYDS'
+          onPremise:
+            description: |-
+              **[OnPremiseYDS](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseYDS)**
+              Includes only one of the fields `managedYds`, `onPremise`.
+            $ref: '#/definitions/OnPremiseYDS'
+        oneOf:
+          - required:
+              - managedYds
+          - required:
+              - onPremise
       YDSSource:
         type: object
         properties:
@@ -910,16 +1056,19 @@ apiPlayground:
               **string**
               Database path in YDB for streams
               Example: `/ru/transfer_manager/prod/data-transfer`
+            deprecated: true
             type: string
           stream:
             description: |-
               **string**
               Stream to read
+            deprecated: true
             type: string
           serviceAccountId:
             description: |-
               **string**
               Service account ID which has read access to the stream.
+            deprecated: true
             type: string
           supportedCodecs:
             description: |-
@@ -954,12 +1103,14 @@ apiPlayground:
             description: |-
               **string**
               YDS Endpoint for dedicated db
+            deprecated: true
             type: string
           subnetId:
             description: |-
               **string**
               Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
               database. If omitted, the server has to be accessible via Internet
+            deprecated: true
             type: string
           securityGroups:
             description: |-
@@ -974,6 +1125,16 @@ apiPlayground:
               **string**
               Custom consumer - for important streams
             type: string
+          authentication:
+            description: |-
+              **[YDSAuthenticationMethod](#yandex.cloud.datatransfer.v1.endpoint.YDSAuthenticationMethod)**
+              Choose one of authentication methods, right now only service account is avaiable
+            $ref: '#/definitions/YDSAuthenticationMethod'
+          ydbConnection:
+            description: |-
+              **[YDSConnection](#yandex.cloud.datatransfer.v1.endpoint.YDSConnection)**
+              Connection settings for managed YDB or for on premise
+            $ref: '#/definitions/YDSConnection'
       OnPremiseKafka:
         type: object
         properties:
@@ -1740,12 +1901,14 @@ apiPlayground:
               **string**
               Database path in YDB where tables are stored.
               Example: `/ru/transfer_manager/prod/data-transfer`
+            deprecated: true
             type: string
           instance:
             description: |-
               **string**
               Instance of YDB. example: ydb-ru-prestable.yandex.net:2135.
               If not specified, will be determined by database
+            deprecated: true
             type: string
           path:
             description: |-
@@ -1756,6 +1919,7 @@ apiPlayground:
             description: |-
               **string**
               Service account ID for interaction with database
+            deprecated: true
             type: string
           cleanupPolicy:
             description: |-
@@ -1775,6 +1939,7 @@ apiPlayground:
               Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
               database.
               If omitted, the server has to be accessible via Internet
+            deprecated: true
             type: string
           saKeyContent:
             description: |-
@@ -1813,6 +1978,12 @@ apiPlayground:
               **boolean**
               Whether can change table schema if schema changed on source
             type: boolean
+          authentication:
+            description: '**[AuthenticationMethod](#yandex.cloud.datatransfer.v1.endpoint.AuthenticationMethod)**'
+            $ref: '#/definitions/AuthenticationMethod'
+          ydbConnection:
+            description: '**[YDBConnection](#yandex.cloud.datatransfer.v1.endpoint.YDBConnection)**'
+            $ref: '#/definitions/YDBConnection'
       KafkaTargetTopic:
         type: object
         properties:
@@ -2037,16 +2208,19 @@ apiPlayground:
               **string**
               Database path in YDB for streams
               Example: `/ru/transfer_manager/prod/data-transfer`
+            deprecated: true
             type: string
           stream:
             description: |-
               **string**
               Stream to write to
+            deprecated: true
             type: string
           serviceAccountId:
             description: |-
               **string**
               Service account ID which has read access to the stream
+            deprecated: true
             type: string
           saveTxOrder:
             description: |-
@@ -2080,12 +2254,14 @@ apiPlayground:
             description: |-
               **string**
               YDS Endpoint for dedicated db
+            deprecated: true
             type: string
           subnetId:
             description: |-
               **string**
               Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
               database. If omitted, the server has to be accessible via Internet
+            deprecated: true
             type: string
           securityGroups:
             description: |-
@@ -2095,6 +2271,16 @@ apiPlayground:
             type: array
             items:
               type: string
+          authentication:
+            description: |-
+              **[YDSAuthenticationMethod](#yandex.cloud.datatransfer.v1.endpoint.YDSAuthenticationMethod)**
+              Choose one of authentication methods, right now only service account is avaiable
+            $ref: '#/definitions/YDSAuthenticationMethod'
+          ydbConnection:
+            description: |-
+              **[YDSConnection](#yandex.cloud.datatransfer.v1.endpoint.YDSConnection)**
+              Connection settings for managed YDB or for on premise
+            $ref: '#/definitions/YDSConnection'
       EndpointSettings:
         type: object
         properties:
@@ -2360,7 +2546,31 @@ Required field. Identifier of the endpoint to be updated. ||
         "string"
       ],
       "changefeedCustomName": "string",
-      "changefeedCustomConsumerName": "string"
+      "changefeedCustomConsumerName": "string",
+      "authentication": {
+        // Includes only one of the fields `serviceAccount`
+        "serviceAccount": {
+          "serviceAccountId": "string"
+        }
+        // end of the list of possible fields
+      },
+      "ydbConnection": {
+        // Includes only one of the fields `databaseId`, `onPremise`
+        "databaseId": "string",
+        "onPremise": {
+          "database": "string",
+          "instance": "string",
+          "tlsMode": {
+            // Includes only one of the fields `enabled`
+            "enabled": {
+              "caCertificate": "string"
+            }
+            // end of the list of possible fields
+          },
+          "subnetId": "string"
+        }
+        // end of the list of possible fields
+      }
     },
     "ydsSource": {
       "database": "string",
@@ -2423,7 +2633,33 @@ Required field. Identifier of the endpoint to be updated. ||
       "securityGroups": [
         "string"
       ],
-      "consumer": "string"
+      "consumer": "string",
+      "authentication": {
+        // Includes only one of the fields `serviceAccountId`
+        "serviceAccountId": "string"
+        // end of the list of possible fields
+      },
+      "ydbConnection": {
+        // Includes only one of the fields `managedYds`, `onPremise`
+        "managedYds": {
+          "databaseId": "string",
+          "stream": "string"
+        },
+        "onPremise": {
+          "database": "string",
+          "stream": "string",
+          "instance": "string",
+          "tlsMode": {
+            // Includes only one of the fields `enabled`
+            "enabled": {
+              "caCertificate": "string"
+            }
+            // end of the list of possible fields
+          },
+          "subnetId": "string"
+        }
+        // end of the list of possible fields
+      }
     },
     "kafkaSource": {
       "connection": {
@@ -2796,7 +3032,31 @@ Required field. Identifier of the endpoint to be updated. ||
       ],
       "isTableColumnOriented": "boolean",
       "defaultCompression": "string",
-      "isSchemaMigrationDisabled": "boolean"
+      "isSchemaMigrationDisabled": "boolean",
+      "authentication": {
+        // Includes only one of the fields `serviceAccount`
+        "serviceAccount": {
+          "serviceAccountId": "string"
+        }
+        // end of the list of possible fields
+      },
+      "ydbConnection": {
+        // Includes only one of the fields `databaseId`, `onPremise`
+        "databaseId": "string",
+        "onPremise": {
+          "database": "string",
+          "instance": "string",
+          "tlsMode": {
+            // Includes only one of the fields `enabled`
+            "enabled": {
+              "caCertificate": "string"
+            }
+            // end of the list of possible fields
+          },
+          "subnetId": "string"
+        }
+        // end of the list of possible fields
+      }
     },
     "kafkaTarget": {
       "connection": {
@@ -2946,7 +3206,33 @@ Required field. Identifier of the endpoint to be updated. ||
       "subnetId": "string",
       "securityGroups": [
         "string"
-      ]
+      ],
+      "authentication": {
+        // Includes only one of the fields `serviceAccountId`
+        "serviceAccountId": "string"
+        // end of the list of possible fields
+      },
+      "ydbConnection": {
+        // Includes only one of the fields `managedYds`, `onPremise`
+        "managedYds": {
+          "databaseId": "string",
+          "stream": "string"
+        },
+        "onPremise": {
+          "database": "string",
+          "stream": "string",
+          "instance": "string",
+          "tlsMode": {
+            // Includes only one of the fields `enabled`
+            "enabled": {
+              "caCertificate": "string"
+            }
+            // end of the list of possible fields
+          },
+          "subnetId": "string"
+        }
+        // end of the list of possible fields
+      }
     }
     // end of the list of possible fields
   },
@@ -3518,6 +3804,60 @@ Pre-created change feed if any ||
 || changefeedCustomConsumerName | **string**
 
 Consumer for pre-created change feed if any ||
+|| authentication | **[AuthenticationMethod](#yandex.cloud.datatransfer.v1.endpoint.AuthenticationMethod)** ||
+|| ydbConnection | **[YDBConnection](#yandex.cloud.datatransfer.v1.endpoint.YDBConnection)** ||
+|#
+
+## AuthenticationMethod {#yandex.cloud.datatransfer.v1.endpoint.AuthenticationMethod}
+
+#|
+||Field | Description ||
+|| serviceAccount | **[ServiceAccount](#yandex.cloud.datatransfer.v1.endpoint.AuthenticationMethod.ServiceAccount)**
+
+Includes only one of the fields `serviceAccount`. ||
+|#
+
+## ServiceAccount {#yandex.cloud.datatransfer.v1.endpoint.AuthenticationMethod.ServiceAccount}
+
+#|
+||Field | Description ||
+|| serviceAccountId | **string**
+
+Service account ID for interaction with database ||
+|#
+
+## YDBConnection {#yandex.cloud.datatransfer.v1.endpoint.YDBConnection}
+
+#|
+||Field | Description ||
+|| databaseId | **string**
+
+Managed Service for YDB database ID
+
+Includes only one of the fields `databaseId`, `onPremise`. ||
+|| onPremise | **[OnPremiseYDB](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseYDB)**
+
+Includes only one of the fields `databaseId`, `onPremise`. ||
+|#
+
+## OnPremiseYDB {#yandex.cloud.datatransfer.v1.endpoint.OnPremiseYDB}
+
+#|
+||Field | Description ||
+|| database | **string**
+
+Database path in YDB where tables are stored.
+Example: `/ru/transfer_manager/prod/data-transfer` ||
+|| instance | **string**
+
+Instance of YDB. example: ydb-ru-prestable.yandex.net:2135. ||
+|| tlsMode | **[TLSMode](#yandex.cloud.datatransfer.v1.endpoint.TLSMode)**
+
+TLS settings for server connection. Disabled by default. ||
+|| subnetId | **string**
+
+Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database.
+If omitted, the server has to be accessible via Internet ||
 |#
 
 ## YDSSource {#yandex.cloud.datatransfer.v1.endpoint.YDSSource}
@@ -3567,6 +3907,12 @@ use ||
 || consumer | **string**
 
 Custom consumer - for important streams ||
+|| authentication | **[YDSAuthenticationMethod](#yandex.cloud.datatransfer.v1.endpoint.YDSAuthenticationMethod)**
+
+Choose one of authentication methods, right now only service account is avaiable ||
+|| ydbConnection | **[YDSConnection](#yandex.cloud.datatransfer.v1.endpoint.YDSConnection)**
+
+Connection settings for managed YDB or for on premise ||
 |#
 
 ## Parser {#yandex.cloud.datatransfer.v1.endpoint.Parser}
@@ -3674,6 +4020,64 @@ Mark field as required ||
 || path | **string**
 
 Path to the field ||
+|#
+
+## YDSAuthenticationMethod {#yandex.cloud.datatransfer.v1.endpoint.YDSAuthenticationMethod}
+
+#|
+||Field | Description ||
+|| serviceAccountId | **string**
+
+Service account ID for interaction with database
+
+Includes only one of the fields `serviceAccountId`. ||
+|#
+
+## YDSConnection {#yandex.cloud.datatransfer.v1.endpoint.YDSConnection}
+
+#|
+||Field | Description ||
+|| managedYds | **[ManagedYDS](#yandex.cloud.datatransfer.v1.endpoint.ManagedYDS)**
+
+Includes only one of the fields `managedYds`, `onPremise`. ||
+|| onPremise | **[OnPremiseYDS](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseYDS)**
+
+Includes only one of the fields `managedYds`, `onPremise`. ||
+|#
+
+## ManagedYDS {#yandex.cloud.datatransfer.v1.endpoint.ManagedYDS}
+
+#|
+||Field | Description ||
+|| databaseId | **string**
+
+Managed Service for YDB database ID ||
+|| stream | **string**
+
+Stream to read ||
+|#
+
+## OnPremiseYDS {#yandex.cloud.datatransfer.v1.endpoint.OnPremiseYDS}
+
+#|
+||Field | Description ||
+|| database | **string**
+
+Database path in YDB where tables are stored.
+Example: `/ru/transfer_manager/prod/data-transfer` ||
+|| stream | **string**
+
+Stream to read ||
+|| instance | **string**
+
+Instance of YDB. example: ydb-ru-prestable.yandex.net:2135. ||
+|| tlsMode | **[TLSMode](#yandex.cloud.datatransfer.v1.endpoint.TLSMode)**
+
+TLS settings for server connection. Disabled by default. ||
+|| subnetId | **string**
+
+Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database.
+If omitted, the server has to be accessible via Internet ||
 |#
 
 ## KafkaSource {#yandex.cloud.datatransfer.v1.endpoint.KafkaSource}
@@ -4278,6 +4682,8 @@ One of `YDB_DEFAULT_COMPRESSION_UNSPECIFIED`,
 || isSchemaMigrationDisabled | **boolean**
 
 Whether can change table schema if schema changed on source ||
+|| authentication | **[AuthenticationMethod](#yandex.cloud.datatransfer.v1.endpoint.AuthenticationMethod)** ||
+|| ydbConnection | **[YDBConnection](#yandex.cloud.datatransfer.v1.endpoint.YDBConnection)** ||
 |#
 
 ## KafkaTarget {#yandex.cloud.datatransfer.v1.endpoint.KafkaTarget}
@@ -4494,6 +4900,12 @@ database. If omitted, the server has to be accessible via Internet ||
 
 List of security groups that the transfer associated with this endpoint should
 use ||
+|| authentication | **[YDSAuthenticationMethod](#yandex.cloud.datatransfer.v1.endpoint.YDSAuthenticationMethod)**
+
+Choose one of authentication methods, right now only service account is avaiable ||
+|| ydbConnection | **[YDSConnection](#yandex.cloud.datatransfer.v1.endpoint.YDSConnection)**
+
+Connection settings for managed YDB or for on premise ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

@@ -14,11 +14,13 @@ A Linux image is created from a {{ compute-name }} [instance](../../../compute/c
 To add a custom Linux image to {{ cloud-desktop-name }}:
 
 1. [Create](../../../compute/operations/vm-create/create-linux-vm.md) or select a previously created VM instance with the following parameters:
+   
    * Access: Via an **SSH key**. {{ cloud-desktop-name }} does not support {{ oslogin }} access.
    * Connecting to the internet to install additional software.
 
 1. Configure the instance to create the image you need.
 1. Configure remote [RDP](https://ru.wikipedia.org/wiki/Remote_Desktop_Protocol) access:
+   
    1. Install `xrdp` and `xorgxrdp` or other relevant software.
    
         {% note info %}
@@ -39,6 +41,7 @@ To add a custom Linux image to {{ cloud-desktop-name }}:
     ```
 
 1. Set the incoming connections on all network interfaces for:
+   
    * RDP: To TCP port `3389`.
    * {{ yandex-cloud }} Desktop Agent: To TCP port `5050`.
 
@@ -99,8 +102,8 @@ To add a custom Linux image to {{ cloud-desktop-name }}:
 
     - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), navigate to the folder containing the VM.
-      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+      1. In the [management console]({{ link-console-main }}), select the folder the VM is located in.
+      1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. Next to your instance, click ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.common.stop }}**.
       1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
       1. In the line with the instance boot disk, click ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.compute.disks.button_action-image }}**.
@@ -116,7 +119,7 @@ To add a custom Linux image to {{ cloud-desktop-name }}:
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder that contains the VM and a desktop will be created in. 
-      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
+      1. [Navigate]({{ link-console-main }}/link/cloud-desktop) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
       1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.vdi.label_desktop-images }}**.
       1. Click **{{ ui-key.yacloud.vdi.button_add-image }}**.
       1. In the **{{ ui-key.yacloud.vdi.label_image-source }}** field, select `{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}`.

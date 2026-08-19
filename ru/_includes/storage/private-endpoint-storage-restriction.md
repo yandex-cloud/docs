@@ -2,7 +2,7 @@
 
 {% note warning %}
 
-После включения данной опции доступ в бакет из публичной сети будет невозможен. Доступ в бакет с помощью [консоли управления]({{ link-console-main }}) можно включить отдельной опцией. Смотрите также [Особенности копирования объектов на стороне сервера (Server Side Copy)](#server-side-copy).
+После включения данной опции доступ в бакет из публичной сети будет невозможен. Доступ в бакет с помощью [консоли управления]({{ link-console-main }}) можно включить отдельной опцией. Подробнее об особенностях копирования в разделе [Копирование объектов на стороне сервера (Server Side Copy)](#server-side-copy).
 
 {% endnote %}
 
@@ -15,7 +15,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы настроили сервисное подключение {{ vpc-short-name }}.
   1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите бакет в списке.
-  1. На панели слева выберите ![image](../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. В блоке **{{ ui-key.yacloud.storage.form.BucketSettingsFormSection.field_label-strict-mode_2ttnd }}** активируйте опцию **{{ ui-key.yacloud.storage.form.BucketSettingsFormSection.field_description-strict-mode_9cpMe }}**.
   1. В поле **{{ ui-key.yacloud.storage.form.Service_onnectionsField.field_lable-service-connections_iGyHa }}** укажите идентификатор созданного сервисного подключения.
   1. (Опционально) Активируйте опцию **{{ ui-key.yacloud.storage.form.BucketSettingsFormSection.field_force-cloud-console-access_5bS8y }}**. Опция позволяет при включенном доступе только через сервисные подключения {{ vpc-short-name }} работать с бакетом с помощью консоли управления. При отключенной опции доступ к бакету остается только через API и CLI.
@@ -73,7 +73,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы настроили сервисное подключение {{ vpc-short-name }}.
   1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите бакет в списке.
-  1. На панели слева выберите ![image](../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. В блоке **{{ ui-key.yacloud.storage.form.BucketSettingsFormSection.field_label-strict-mode_2ttnd }}** деактивируйте опцию **{{ ui-key.yacloud.storage.form.BucketSettingsFormSection.field_description-strict-mode_9cpMe }}**.
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
@@ -84,7 +84,7 @@
   ```bash
   yc storage bucket update \
     --name <имя_бакета> \
-    --enable-private-endpoints false    
+    --enable-private-endpoints false
   ```
 
   Где:
@@ -99,6 +99,6 @@
 
 - API {#api}
 
-  Чтобы разрешить доступ в бакет только из сервисных подключений {{ vpc-short-name }} на уровне сервиса, воспользуйтесь методом REST API [update](../../storage/api-ref/Bucket/update.md) для ресурса [Bucket](../../storage/api-ref/grpc/Bucket/index.md) или вызовом gRPC API [Bucket/Update](../../storage/api-ref/grpc/Bucket/update.md).
+  Чтобы восстановить доступ к бакету из публичной сети, воспользуйтесь методом REST API [update](../../storage/api-ref/Bucket/update.md) для ресурса [Bucket](../../storage/api-ref/grpc/Bucket/index.md) или вызовом gRPC API [Bucket/Update](../../storage/api-ref/grpc/Bucket/update.md).
 
 {% endlist %}

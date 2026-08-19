@@ -9,8 +9,8 @@ description: Follow this guide to get a list of log sinks.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder where you want to view a list of log sinks.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the target log sinks you want to view.
+  1. [Navigate]({{ link-console-main }}/link/logging) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/folder-arrow-down.svg) **{{ ui-key.yacloud.logging.label_sinks }}**.
 
 - CLI {#cli}

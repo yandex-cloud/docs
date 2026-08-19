@@ -1,3 +1,5 @@
+{% include [cli-prepare-step-tip](cli-prepare-step-tip.md) %}
+
 This section provides a guide for interactive CLI installation using a script that:
 1. Identifies your OS and architecture.
 1. Downloads the executable with the latest stable CLI version for your environment.

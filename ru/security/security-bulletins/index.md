@@ -2,6 +2,8 @@
 
 На этой странице приводятся рекомендации специалистов {{ yandex-cloud }} по вопросам безопасности.
 
+{% include [12.08.2026 — CVE-2026-64564 – SCTPhantom](../../_includes/security/security-bulletins/cve-2026-64564-sctphantom.md) %}
+
 {% include [07.07.2026 — CVE-2026-53359 – Januscape](../../_includes/security/security-bulletins/CVE-2026-53359-januscape.md) %}
 
 {% include [25.06.2026 — Целевые атаки с шифрованием данных в Linux-инфраструктуре](../../_includes/security/security-bulletins/targeted-ransomware-attacks-linux-infrastructure.md) %}

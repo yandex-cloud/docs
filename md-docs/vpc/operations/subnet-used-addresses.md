@@ -52,7 +52,7 @@
 
 - API {#api}
 
-   Воспользуйтесь методом REST API [listUsedAddresses](../api-ref/Subnet/listUsedAddresses.md) для ресурса [Subnet](../api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/ListUsedAddresses](../api-ref/grpc/Subnet/listUsedAddresses.md) и передайте в запросе идентификатор изменяемой подсети в параметре `subnetId`.
+   Воспользуйтесь методом REST API [listUsedAddresses](../api-ref/Subnet/listUsedAddresses.md) для ресурса [Subnet](../api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/ListUsedAddresses](../api-ref/grpc/Subnet/listUsedAddresses.md) и передайте в запросе идентификатор подсети в параметре `subnetId`.
 
    Чтобы узнать идентификатор подсети, воспользуйтесь методом REST API [list](../api-ref/Subnet/list.md) для ресурса [Subnet](../api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/List](../api-ref/grpc/Subnet/list.md) и передайте в запросе идентификатор каталога в параметре `folderId`.
 

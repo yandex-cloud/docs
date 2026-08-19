@@ -64,9 +64,9 @@ The alert comes with the `severity: critical` label, which is used to route noti
 
 {% list tabs group=instructions %}
 
-- Management console {#console}
+- {{ monium-name }} UI {#console}
 
-   1. On the [{{ monium-name }}]({{ link-monium }}) home page, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}** on the left.
+   1. On the [{{ monium-name }}]({{ link-monium }}) home page, select ![alt](../../../_assets/console-icons/box.svg) **Delivery and storage** → ![alt](../../../_assets/console-icons/flame.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}** on the left.
    1. Select or create a workspace.
    1. Navigate to the **{{ ui-key.yacloud_monitoring.prometheus.managing-rule.tabs.rules }}** tab.
    1. If you have not uploaded any files yet, click **{{ ui-key.yacloud_monitoring.prometheus.recording-rules.action_add-file }}** and select a `.yml` file with rules.
@@ -174,15 +174,15 @@ receivers:
     - channel_names: [ 'telegram', 'sms-channel' ]
 ```
 
-For more information on setting up dynamic notification routing, see [this Prometheus guide](https://prometheus.io/docs/alerting/latest/configuration/#route).
+For setting up dynamic notification routing, see [this Prometheus guide](https://prometheus.io/docs/alerting/latest/configuration/#route).
 
 ### Adding or replacing a configuration file {#alert-manager-create}
 
 {% list tabs group=instructions %}
 
-- Management console {#console}
+- {{ monium-name }} UI {#console}
 
-   1. On the [{{ monium-name }}]({{ link-monium }}) home page, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}** on the left.
+   1. On the [{{ monium-name }}]({{ link-monium }}) home page, select ![alt](../../../_assets/console-icons/box.svg) **Delivery and storage** → ![alt](../../../_assets/console-icons/flame.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}** on the left.
    1. Select or create a workspace.
    1. Navigate to the **{{ ui-key.yacloud_monitoring.prometheus.tab.alert-manager-key-value }}** tab.
    1. If you have no uploaded configuration files yet, click **{{ ui-key.yacloud_monitoring.prometheus.alert-manager.upload-config }}** and select a `.yml` file.
@@ -259,9 +259,9 @@ To view alerts:
 
 {% list tabs group=instructions %}
 
-- Management console {#console}
+- {{ monium-name }} UI {#console}
 
-   1. On the [{{ monium-name }}]({{ link-monium }}) home page, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}** on the left.
+   1. On the [{{ monium-name }}]({{ link-monium }}) home page, select ![alt](../../../_assets/console-icons/box.svg) **Delivery and storage** → ![alt](../../../_assets/console-icons/flame.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}** on the left.
    1. Select or [create a workspace](index.md#access).
    1. Go to the **{{ ui-key.yacloud_monitoring.prometheus.managing-rule.tabs.alerts }}** tab and view the list of alert rules.
    1. Optionally, set up alert filtering by name and status.

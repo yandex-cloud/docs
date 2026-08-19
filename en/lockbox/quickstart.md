@@ -9,6 +9,7 @@ description: In this tutorial, you will learn how to create secrets and get thei
 Create your first secret and get its contents.
 
 A secret is a set of versions that store your data. A version contains sets of keys and values:
+
 * A key is a non-secret name that identifies a value.
 * The value is your secret data.
 
@@ -31,7 +32,7 @@ Versions cannot be changed. Whenever you need to change the number of key-value 
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Navigate]({{ link-console-main }}/link/lockbox) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. In the left-hand menu, select **{{ ui-key.yacloud.lockbox.routes.label_section-secrets }}**.
     1. Click the name of the secret you need.
     1. Under **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-versions-section }}**, click the secret version you need.
@@ -95,6 +96,7 @@ Versions cannot be changed. Whenever you need to change the number of key-value 
     You can use this logic in scripts, services, and applications where you need to use the contents of your secret.
 
     To get the contents of the secret:
+    
     1. [Get an IAM token](../iam/operations/iam-token/create.md) required for authentication and save it to the variable:
 
         ```

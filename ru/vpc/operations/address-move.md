@@ -1,3 +1,8 @@
+---
+title: Переместить публичный IP-адрес в другой каталог
+description: Следуя данной инструкции, вы сможете переместить публичный IP-адрес в другой каталог.
+---
+
 # Переместить публичный IP-адрес в другой каталог
 
 [Публичный адрес](../concepts/address.md) можно переносить между каталогами в пределах одного [облака](../../resource-manager/concepts/resources-hierarchy.md).
@@ -21,42 +26,45 @@
 
   1. Посмотрите описание команды CLI для перемещения адреса:
 
-      ```bash
-      yc vpc address move --help
-      ```
+     ```bash
+     yc vpc address move --help
+     ```
 
   1. Узнайте имя или идентификатор адреса, который требуется переместить:
 
-      ```bash
-      yc vpc address list
-      ```
-      Результат:
-      ```text
-      +----------------------+------+---------------+----------+-------+
-      |          ID          | NAME |    ADDRESS    | RESERVED | USED  |
-      +----------------------+------+---------------+----------+-------+
-      | e2l50m7qo8gp******** |      | 84.252.137.20 | true     | false |
-      | e9b0qnmuh2cb******** |      | 51.250.65.244 | true     | false |
-      | e9br252il3ce******** |      | 51.250.68.195 | false    | true  |
-      +----------------------+------+---------------+----------+-------+
-      ```
+     ```bash
+     yc vpc address list
+     ```
+
+     Результат:
+
+     ```text
+     +----------------------+------+---------------+----------+-------+
+     |          ID          | NAME |    ADDRESS    | RESERVED | USED  |
+     +----------------------+------+---------------+----------+-------+
+     | e2l50m7qo8gp******** |      | 84.252.137.20 | true     | false |
+     | e9b0qnmuh2cb******** |      | 51.250.65.244 | true     | false |
+     | e9br252il3ce******** |      | 51.250.68.195 | false    | true  |
+     +----------------------+------+---------------+----------+-------+
+     ```
 
   1. Получите список доступных каталогов:
 
-      ```bash
-      yc resource-manager folder list
-      ```
+     ```bash
+     yc resource-manager folder list
+     ```
 
-      Результат:
-      ```text
-      +----------------------+------------------------+--------+--------+
-      |          ID          |          NAME          | LABELS | STATUS |
-      +----------------------+------------------------+--------+--------+
-      | b1cs8ie21pk1******** | default                |        | ACTIVE |
-      | b1chgf288nvg******** | my-folder-1            |        | ACTIVE |
-      | b1cu6g9ielh6******** | my-folder-2            |        | ACTIVE |
-      +----------------------+------------------------+--------+--------+
-      ```
+     Результат:
+
+     ```text
+     +----------------------+------------------------+--------+--------+
+     |          ID          |          NAME          | LABELS | STATUS |
+     +----------------------+------------------------+--------+--------+
+     | b1cs8ie21pk1******** | default                |        | ACTIVE |
+     | b1chgf288nvg******** | my-folder-1            |        | ACTIVE |
+     | b1cu6g9ielh6******** | my-folder-2            |        | ACTIVE |
+     +----------------------+------------------------+--------+--------+
+     ```
 
   1. Переместите адрес, указав имя или идентификатор адреса и каталога назначения:
 
@@ -65,6 +73,7 @@
        --destination-folder-name <имя_каталога_назначения> \
        --destination-folder-id <идентификатор_каталога_назначения>
      ```
+
      Используйте либо параметр `--destination-folder-name`, либо `--destination-folder-id`.
 
      Если адрес находится не в текущем каталоге (каталоге по умолчанию), укажите исходный каталог с помощью опции `--folder-name` или `--folder-id`.
@@ -88,15 +97,15 @@
 
 - API {#api}
 
-  Чтобы переместить [публичный адрес](../concepts/address.md#public-addresses) в другой каталог, воспользуйтесь методом REST API [move](../api-ref/Address/move) для ресурса [Address](../api-ref/Address/index.md) или вызовом gRPC API [AddressService/Move](../api-ref/grpc/Address/move.md) и передайте в запросе:
+  Чтобы переместить [публичный адрес](../concepts/address.md#public-addresses) в другой каталог, воспользуйтесь методом REST API [move](../api-ref/Address/move.md) для ресурса [Address](../api-ref/Address/index.md) или вызовом gRPC API [AddressService/Move](../api-ref/grpc/Address/move.md) и передайте в запросе:
 
-    * Идентификатор адреса, который нужно перенести, в параметре `addressId`.
+  * Идентификатор адреса, который нужно перенести, в параметре `addressId`.
 
-      {% include [get-address-id](../../_includes/vpc/get-adress-id.md) %}
+    {% include [get-address-id](../../_includes/vpc/get-adress-id.md) %}
 
-    * Идентификатор каталога, в который будет перенесен адрес, в параметре `destinationFolderId`.
+  * Идентификатор каталога, в который будет перенесен адрес, в параметре `destinationFolderId`.
 
-      {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
+    {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
 
 {% endlist %}
 

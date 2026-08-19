@@ -1,10 +1,10 @@
-# Synchronous and asynchronous command execution modes
+# Synchronous and asynchronous {{ yandex-cloud }} CLI command modes
 
-The CLI provides two command execution modes: synchronous and asynchronous.
+The CLI supports two command modes: synchronous and asynchronous.
 
-By default, all commands are executed in **synchronous mode**. After you run a command in this mode, the CLI waits for the corresponding operation to be completed in {{ yandex-cloud }}. If the command takes a long time to execute, dots are displayed indicating the execution process.
+By default, all commands run in **synchronous mode**. When you run a command in this mode, the CLI waits for the operation to complete in {{ yandex-cloud }}. If a command takes a long time, the CLI will display loading dots to indicate background progress.
 
-Commands that run for a long time are more convenient to execute in **asynchronous mode**. After running a command in this mode, the CLI immediately outputs information about the corresponding operation in {{ yandex-cloud }} and lets the user continue working. To use this mode, run a command with the `--async` flag. In response to this call, the CLI returns the operation ID, which is then used for getting information about the operation.
+For long-running commands, the **asynchronous mode** is often more convenient. When you run a command in this mode, the CLI instantly returns info on the relevant operation in {{ yandex-cloud }} and returns control back to you. To use this mode, run a command with the `--async` flag. In response to this call, the CLI returns the operation ID, which is then used for getting information about the operation.
 
 To get information about an operation run asynchronously, use the following commands:
 

@@ -16,7 +16,7 @@
   1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. На панели слева выберите ![image](../../_assets/console-icons/branches-down.svg) **Балансировщики**.
   1. Выберите нужный балансировщик.
-  1. Перейдите на панель ![image](../../_assets/console-icons/list-check.svg) **Операции** для выбранного балансировщика.
+  1. Перейдите на вкладку **Операции**.
 
      В открывшемся списке отображаются операции с выбранным балансировщиком.
 

@@ -31,5 +31,3 @@ Get started with {{ si-name }} features:
 * [{{ er-full-name }}](eventrouter.md): Create a bus and use it to transmit data. For more information about {{ er-name }} features, see [Concepts](../concepts/eventrouter/bus.md).
 
     {% include [event-router-preview-note](../../_includes/serverless-integrations/event-router-preview-note.md) %}
-
-* {{ api-gw-full-name }}: Set up an API gateway for getting static responses, then add an integration to call a function in {{ sf-name }}. For more on available features, refer to [{{ api-gw-name }} guides](../../api-gateway/quickstart/index.md).

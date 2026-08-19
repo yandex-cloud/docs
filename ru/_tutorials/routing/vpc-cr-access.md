@@ -142,7 +142,7 @@
    - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится сервисный аккаунт.
-      1. Перейдите на вкладку ![image](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+      1. Нажмите ![image](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
       1. В списке аккаунтов выберите `sa-terraform` и нажмите значок ![image](../../_assets/options.svg) → ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
       1. В открывшемся диалоге нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль `admin`.
 
@@ -319,9 +319,9 @@
 
 1. В списке виртуальных машин выберите ВМ `test-cr-vm`.
 
-1. В меню слева выберите ![image](../../_assets/console-icons/terminal.svg) **{{ ui-key.yacloud.compute.instance.switch_console }}**.
+1. Перейдите на вкладку **{{ ui-key.yacloud.compute.instance.switch_console }}**.
 
-1. Нажмите кнопку **{{ ui-key.yacloud.compute.instance.console.connect }}**.
+1. Нажмите кнопку **{{ ui-key.yacloud.compute.instance.overview.button_action-ssh }}**.
 
 1. Введите логин `admin` и пароль из вывода команды `terraform output test_vm_password` (укажите значение без кавычек).
 

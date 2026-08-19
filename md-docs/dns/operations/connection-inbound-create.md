@@ -14,9 +14,10 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога, в котором нужно создать входящее DNS-подключение.
-  1. Перейдите в сервис **Cloud DNS**.
-  1. На панели слева выберите ![nodes-down](../../_assets/console-icons/nodes-down.svg) **Входящие подключения** и нажмите кнопку **Создать подключение**. В открывшемся окне:
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать входящее DNS-подключение.
+  1. [Перейдите](https://console.yandex.cloud/link/dns) в сервис **Cloud DNS**.
+  1. На панели слева выберите ![nodes-down](../../_assets/console-icons/nodes-down.svg) **Входящие подключения**.
+  1. Нажмите кнопку **Создать подключение**. В открывшемся окне:
 
       1. В поле **Имя** задайте [имя](*name) создаваемого DNS-подключения.
       1. (Опционально) В поле **Описание** задайте произвольное описание DNS-подключения.
@@ -50,7 +51,7 @@
 
       ```bash
       yc dns inbound-endpoint create --help
-      ```   
+      ```
   1. Зарезервируйте IP-адрес для входящего DNS-подключения в нужной подсети:
 
       ```bash
@@ -125,7 +126,7 @@
       Подробнее о команде `yc dns inbound-endpoint create` читайте в [справочнике CLI](../../cli/cli-ref/dns/cli-ref/inbound-endpoint/create.md).
 
   1. (Опционально) После создания входящего DNS-подключения проверьте разрешение FQDN-имен через это подключение. Для этого выполните команду `dig`, указав IP-адрес входящего DNS-подключения и FQDN ресурса в Yandex Cloud.
-  
+
       Например:
 
       ```bash
@@ -248,7 +249,7 @@
 
 - API {#api}
 
-  Чтобы зарезервировать статический публичный IP-адрес, воспользуйтесь методом REST API [create](../../vpc/api-ref/Address/create.md) для ресурса [Address](../../vpc/api-ref/Address/index.md) или вызовом gRPC API [AddressService/Create](../../vpc/api-ref/grpc/Address/create.md).
+  Чтобы зарезервировать внутренний IP-адрес, воспользуйтесь методом REST API [create](../../vpc/api-ref/Address/create.md) для ресурса [Address](../../vpc/api-ref/Address/index.md) или вызовом gRPC API [AddressService/Create](../../vpc/api-ref/grpc/Address/create.md).
 
   Чтобы создать входящее DNS-подключение, воспользуйтесь методом REST API [create](../api-ref/DnsInboundEndpoint/create.md) для ресурса [DnsInboundEndpoint](../api-ref/DnsInboundEndpoint/index.md) или вызовом gRPC API [DnsInboundEndpointService/Create](../api-ref/grpc/DnsInboundEndpoint/create.md).
 

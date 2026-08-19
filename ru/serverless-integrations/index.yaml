@@ -15,13 +15,6 @@ description:
   - >-
     {{ er-name }} находятся на стадии <a
     href="https://yandex.cloud/ru/docs/overview/concepts/launch-stages">Preview</a>.
-  - >-
-    О том, как управлять API-шлюзами, которые поддерживают <a
-    href="https://github.com/OAI/OpenAPI-Specification">спецификацию OpenAPI
-    3.0</a> и  набор расширений для взаимодействия с сервисами {{ yandex-cloud
-    }},  читайте в <a
-    href="https://yandex.cloud/ru/docs/api-gateway/">документации {{
-    api-gw-full-name }}</a>.
 meta:
   title: '{{ si-full-name }}'
   description: >-

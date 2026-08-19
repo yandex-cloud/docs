@@ -221,8 +221,8 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
 
    * Management console {#console}
 
-      1. In the management console, navigate to the relevant folder.
-      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+      1. In the [management console]({{ link-console-main }}), select the relevant folder.
+      1. [Navigate]({{ link-console-main }}/link/logging) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
       1. Click the row with the `default` log group.
 
       The page that opens will show the log group entries.
@@ -484,7 +484,7 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
 
    * Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
+      1. In the [management console]({{ link-console-main }}), select the relevant folder.
       1. [Navigate]({{ link-console-main }}/link/logging) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
       1. Click the row with the `my-log-group` log group.
 

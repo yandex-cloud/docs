@@ -7,12 +7,15 @@ To get the contents of a certificate:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the certificate.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+    1. [Navigate]({{ link-console-main }}/link/certificate-manager) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
     1. In the row with the certificate, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![arrow](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_export }}**.
 
        You can only export certificates with the `Issued` status.
+    
     1. Select one of the export options. The `certificate.pem` file will contain the following data in Base64 encoded text format:
+       
        * **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_full }}**: Certificate chain (end-user and intermediate certificate) and private key with standard framing:
+          
           ```text
           -----BEGIN CERTIFICATE-----
           MIIE5zCCA8+gAwI...
@@ -26,6 +29,7 @@ To get the contents of a certificate:
           ```
 
        * **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_no_private_key }}**: Certificate chain (end-user and intermediate certificate):
+         
          ```text
           -----BEGIN CERTIFICATE-----
           MIIE5zCCA8+gAwI...
@@ -36,12 +40,15 @@ To get the contents of a certificate:
           ```
 
        * **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_leaf_only }}**:
-           ```text
+          
+          ```text
           -----BEGIN CERTIFICATE-----
           MIIFFjCCAv6gAwIBAg...
           -----END CERTIFICATE-----`
           ```
+       
        * **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_private_key_only }}**:
+          
           ```text
           -----BEGIN PRIVATE KEY-----
           MIIEvgIBADANBgk...
@@ -53,6 +60,7 @@ To get the contents of a certificate:
 - CLI {#cli}
 
   The command will display a certificate chain and a private key and save their contents to the `--chain` and `--key` files, respectively.
+  
   * `--id`: Certificate ID; make sure you set either the `--id` or `--name` flag.
   * `--name`: Certificate name; make sure you set either the `--id` or `--name` flag.
   * `--chain`: File to save the certificate chain to, in PEM format. This is an optional flag.
@@ -72,6 +80,7 @@ To get the contents of a certificate:
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   To get the contents of a custom certificate using {{ TF }}:
+  
   1. In the {{ TF }} configuration file, describe the resources you want to create:
 
      ```hcl
@@ -90,18 +99,24 @@ To get the contents of a certificate:
      ```
 
      Where:
+     
      * `data "yandex_cm_certificate_content"`: Description of the data source for the certificate contents:
+       
        * `certificate_id`: Certificate ID.
+     
      * `output` sections: `certificate_chain` output variables with the certificate chain and the `certificate_key` private key:
+       
        * `value`: Return value.
        * `sensitive`: Label data as sensitive.
 
      For more information about the `yandex_cm_certificate_content` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/cm_certificate_content).
+  
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
      {{ TF }} will create all the required resources. To check the result, run these commands:
+     
      * Get the certificate chain:
 
        ```bash

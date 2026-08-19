@@ -3,7 +3,7 @@ title: Creating a topic in {{ cns-full-name }}
 description: Follow this guide to create a topic.
 ---
 
-# Create topic
+# Creating a topic
 
 {% list tabs group=instructions %}
 

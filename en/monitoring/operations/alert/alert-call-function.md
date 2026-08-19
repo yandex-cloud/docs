@@ -29,8 +29,8 @@ To send POST requests when an alert triggers:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder containing the resources you need to track in {{ monitoring-name }}.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the resources you need to track in {{ monitoring-name }}.
+  1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Specify the service account **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}**, e.g., `sa-alert-webhook`.
   1. Add the `{{ roles-functions-invoker }}` and `{{ roles-functions-viewer }}` roles.
@@ -44,13 +44,15 @@ To send POST requests when an alert triggers:
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
   1. Enter the function **{{ ui-key.yacloud.common.name }}**, e.g., `alert-webhook`.
   1. Click **{{ ui-key.yacloud.common.create }}**.
   1. Create a [function version](../../../functions/concepts/function.md#version):
+     
      1. Select the **Python** runtime environment, disable the **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** option, and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
      1. Choose the **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}** method.
+      
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}** and specify a file name, e.g., `index`.
       1. Enter the function code by specifying the URL for processing POST requests and the token:
     
@@ -109,9 +111,12 @@ To send POST requests when an alert triggers:
             ```
   
   1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, set the version parameters:
+      
       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`.
       * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `sa-alert-webhook`.
+  
   1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-additional-parameters }}**:
+      
       1. Enable **{{ ui-key.yacloud.serverless-functions.item.editor.label_async }}**.
       1. Select **{{ ui-key.yacloud.forms.label_service-account-select }}** `sa-alert-webhook`.
       
@@ -131,7 +136,7 @@ To send POST requests when an alert triggers:
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. [Navigate]({{ link-monitoring }}) to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. Select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.channels.title }}**.
   1. Click **{{ ui-key.yacloud_monitoring.channel.button_create }}**.
   1. Enter your notification channel's **{{ ui-key.yacloud_monitoring.channel.field_name }}**, e.g., `channel-function`.
@@ -166,8 +171,8 @@ To send POST requests when an alert triggers:
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. Select the `alert-webhook` function.
+  1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Select `alert-webhook`.
   1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
   1. As input data, enter:
 

@@ -12,7 +12,7 @@ description: In this tutorial, you will learn how to change access permissions f
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the desktop group.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
+  1. [Navigate]({{ link-console-main }}/link/cloud-desktop) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
   1. Select the desktop group to update access permissions for.
   1. In the left-hand panel, select ![persons](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.label_access-rights }}**.
   1. Click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
@@ -58,7 +58,7 @@ description: In this tutorial, you will learn how to change access permissions f
       * `role`: [Role](../../security/index.md#roles-list).
       * `subject`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
-      For example, assign roles to several users and one service account:
+      For example, assign roles to several users and a service account:
 
       ```bash
       yc desktops group set-access-bindings my-desktop-group \

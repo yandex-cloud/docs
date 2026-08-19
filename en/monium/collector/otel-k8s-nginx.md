@@ -9,7 +9,7 @@ You will set up an Nginx server in a {{ k8s }} cluster and send its metrics and 
 
 To set up web server telemetry collection in a cluster:
 
-1. [Configure the {{ k8s }}](#cluster-settings) cluster.
+1. [Configure your {{ k8s }}](#cluster-settings) cluster.
 1. [Set up authentication](#auth-settings): Create a service account and API key to send data to {{ monium-name }}.
 1. [Install and configure Nginx](#nginx-install): Deploy a web server with a metric exporter.
 1. [Install OpenTelemetry Collector](#install-otel-collector): Set up metric collection and sending.
@@ -26,6 +26,7 @@ To set up web server telemetry collection in a cluster:
 ### Required paid resources {#paid-resources}
 
 The cost of resources you need for {{ monium-name }} includes:
+
 * Fee for using a [{{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master) master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 * Fee for the [{{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#node-group) node group's [computing resources](../../compute/concepts/vm-platforms.md) and [disks](../../compute/concepts/disk.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using {{ monium-name }} (see [{{ monium-name }} pricing](../pricing.md)).
@@ -52,13 +53,15 @@ In this step, you need to get and save the API key and folder ID to use them to 
 - Management console {#console}
 
   1. Create a [service account](../../iam/operations/sa/create.md) with the `monium.telemetry.writer` role.
-     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+     
+     1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
      1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
      1. Name your service account, e.g., `monium-ca`.
      1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select `monium.telemetry.writer`.
      1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
   
   1. Create an [API key](../../iam/operations/authentication/manage-api-keys.md) with the `yc.monium.telemetry.write` scope:
+     
      1. Select the service account you created from the list.
      1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
      1. In the **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-scope }}** field, select `yc.monium.telemetry.write`.
@@ -133,6 +136,7 @@ In this step, you need to get and save the API key and folder ID to use them to 
     ```
 
     Result:
+    
     ```bash
     NAME        TYPE           CLUSTER-IP      EXTERNAL-IP     PORT(S)        AGE
     nginx-web   LoadBalancer   10.96.238.139   158.260.329.4   80:32761/TCP   104s
@@ -173,6 +177,7 @@ In this step, you will install [OpenTelemetry Collector Contrib](https://github.
     ```
 
     Result:
+    
     ```bash
     NAME                              READY   STATUS    RESTARTS   AGE
     nginx-server-949d9f98b-kzlrd      2/2     Running   0          2d2h
@@ -187,9 +192,9 @@ In this step, you will install [OpenTelemetry Collector Contrib](https://github.
 
 - {{ monium-name }} UI {#console}
 
-  1. On the [{{ monium-name }}]({{ link-monium }}) home page, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}** on the left.
-       
-  1. In the query string, select the following one by one
+  1. On the [{{ monium-name }}]({{ link-monium }}) home page, select ![alt](../../_assets/console-icons/compass.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.all-panel.menu.category.explore }}** → ![alt](../../_assets/console-icons/rectangle-pulse.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}** on the left.       
+  1. In the query string, select the following one by one:
+
      * `project=folder__<folder_ID>`
      * `cluster=default`
      * `service=nginx`
@@ -216,6 +221,7 @@ By combining various metrics in queries, you can check if the web server is hand
 ### Number of active connections {#active-connections}
 
 To estimate the number of active connections, specify the following value for the `name` metric:
+
 * `nginx_connections_accepted`: Number of accepted connections since Nginx startup. It is used to monitor the general load.
 * `nginx_connections_reading`: Number of connections Nginx reads client requests from. Shows how active incoming requests are.
 * `nginx_connections_writing`: Number of connections where Nginx sends responses to clients. Shows how active outgoing requests are.
@@ -223,6 +229,7 @@ To estimate the number of active connections, specify the following value for th
 ### Number of unprocessed connections {#unprocessed-connections}
 
 To estimate the number of connections unprocessed by Nginx, use these metrics:
+
 * `nginx_connections_accepted`: Number of accepted connections.
 * `nginx_connections_handled`: Number of processed connections.
 
@@ -231,11 +238,13 @@ The difference between processed and accepted connections will be the number of 
 Create three queries: `Query A` for `nginx_connections_accepted`, `Query B` for `nginx_connections_handled`, and `Query C` to calculate the difference between these metrics. To create an extra query, click **{{ ui-key.yacloud_monitoring.querystring.action.add-query }}**.
 
 * Query A:
+  
   ```text
   `project=folder__<folder_ID>; cluster=default; service=nginx; name=nginx_connections_accepted`.
   ```
 
 * Query B:
+  
   ```text
   `project=folder__<folder_ID>; cluster=default; service=nginx; name=nginx_connections_handled`.
   ```
@@ -287,9 +296,10 @@ In the test example, there are no unprocessed connections, so all query `C` valu
 
 - {{ monium-name }} UI {#console}
 
-  1. On the [{{ monium-name }}]({{ link-monium }}) home page, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.logs.title }}** on the left.
+  1. On the [{{ monium-name }}]({{ link-monium }}) home page, select ![alt](../../_assets/console-icons/compass.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.all-panel.menu.category.explore }}** → **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.logs.title }}** on the left.
        
   1. In the query string, specify the following:
+
      * `project=folder__<folder_ID>`
      * `service=nginx`
 
@@ -388,6 +398,7 @@ This configuration is updated with the following components:
    ```
 
 Once you apply the configuration, new metrics will be available in {{ monium-name }}:
+
 * `nginx_http_2xx_total`: Number of successful responses.
 * `nginx_http_4xx_total`: Number of client errors.
 * `nginx_http_5xx_total`: Number of server errors.

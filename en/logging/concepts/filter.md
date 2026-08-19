@@ -6,6 +6,7 @@ description: "You can filter log group records using the filter expression langu
 # Filter expression language
 
 You can filter log group records using the filter expression language. With the filter expression language, you can:
+
 * Search for records by [one](#parameters) or [multiple](#multiple-values) parameter values.
 * Use the [comparison operations](#comparison-operations) and [logical operators](#multiple-conditions) in filters.
 
@@ -15,8 +16,8 @@ You can filter log group records using the filter expression language. With the 
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder with the log group.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder containing the log group.
+    1. [Navigate]({{ link-console-main }}/link/logging) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
     1. Navigate to the **{{ ui-key.yacloud.logging.label_groups }}** tab.
     1. Click the row with the log group you want to filter.
     1. Navigate to the **{{ ui-key.yacloud.common.logs }}** tab.
@@ -87,17 +88,22 @@ Parameter | Filter format | Description | Sample filter
 ### Parameter value requirements {#requirements}
 
 It is not required to enclose a value in quotation marks if:
+
 * It starts with a Latin letter and only contains Latin letters, numbers, and underscores.
 * It is an unsigned integer.
 
 `TRUE`, `FALSE`, `true`, and `false` are used for boolean values. Enclose them in quotation marks to find them in the text.
 
 Available value types for the `timestamp`, `ingested_at`, and `saved_at` parameters:
+
 * A string in RFC3339 format:
+    
     ```bash
     saved_at > "2023-05-28T15:20:31Z"
     ```    
+
 * Number of seconds after 00:00 1970-01-01:
+    
     ```
     saved_at >= 1622198048
     ```
@@ -105,13 +111,15 @@ Available value types for the `timestamp`, `ingested_at`, and `saved_at` paramet
 ### Searching for occurrences {#multiple-values}
 
 To filter records by multiple values of the same parameter, list the values one by one:
+
 ```
 parameter: "value1" "value2" "value3"
 ```
 
 For case-sensitive search, use the `:!` operator:
+
 ```
-parameter:! "value1" "value2"
+parameter:! "vaLuE1" "vAlUe2"
 ```
 
 Searching for boolean values and floating-point and fixed-point numbers works as search for substring matching across multiple strings.
@@ -150,25 +158,31 @@ You can combine multiple conditions in a single filter using logical operators:
 * `AND`: Logical operator **AND**. Conditions combined with this operator must all be met at the same time.
 
     Here is an example:
+    
     ```
     parameter1: "value1" AND parameter2: "value2"
+    
     ```
     This request returns records with `parameter1` set to `value1` and `parameter2` set to `value2`.
 
 * `OR`: Logical operator **OR**. At least one of the conditions must be fulfilled.
 
     Here is an example:
+    
     ```
     parameter1: "value1" OR parameter2 > "value2"
     ```
+    
     This request returns records that have at least one of the conditions met: `parameter1` is set to `value1` or `parameter2` is greater than `value2`.
 
 * `NOT`: Logical operator **NOT**, a condition that is inverse of the specified one must be fulfilled.
 
     Here is an example:
+    
     ```
     NOT parameter1: "value1"
     ```
+    
     This request returns records with `parameter1` not equal to `value1`.
 
 You can create complex filters by combining multiple operators in a single request:

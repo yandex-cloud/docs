@@ -16,7 +16,7 @@ The metrics are aggregated into a service dashboard named **Logs overview**:
 
 - {{ monium-name }} UI {#console}
 
-  1. On the [{{ monium-name }}]({{ link-monium }}) home page, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}** on the left.
+  1. On the [{{ monium-name }}]({{ link-monium }}) home page, select ![alt](../../_assets/console-icons/layout-cells-large.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}** on the left.
   1. Navigate to the **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}** tab.
   1. Find and select **Logs overview** from the list.
 

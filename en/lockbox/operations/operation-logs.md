@@ -9,7 +9,7 @@ The system logs all actions with {{ lockbox-name }} resources as a list of opera
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Navigate]({{ link-console-main }}/link/lockbox) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. In the left-hand menu, select **{{ ui-key.yacloud.lockbox.routes.label_section-secrets }}**.
     1. Click the name of the secret you need.
     1. In the left-hand panel, select ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
@@ -137,4 +137,4 @@ The system logs all actions with {{ lockbox-name }} resources as a list of opera
 
 #### Useful links {#see-also}
 
-* [{#T}](../../api-design-guide/concepts/about-async.md)
+[{#T}](../../api-design-guide/concepts/about-async.md)
