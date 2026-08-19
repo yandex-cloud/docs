@@ -7,6 +7,9 @@ Some commands require that you specify unique IDs for your cloud and folder. You
     ```
 
     You can also use the `--cloud-id` parameter to [run commands](../cli/concepts/index.md#manage-properties).
+
+    For more information, see [{#T}](../resource-manager/operations/cloud/get-id.md).
+
 1. Specify a folder in the profile:
 
     ```bash
@@ -14,5 +17,7 @@ Some commands require that you specify unique IDs for your cloud and folder. You
     ```
 
     You can also use the `--folder-id` parameter to [run commands](../cli/concepts/index.md#manage-properties).
+
+    For more information, see [{#T}](../resource-manager/operations/folder/get-id.md).
 
 All operations in this profile will be performed on behalf of the linked service account. You can [change the profile parameters](../cli/operations/profile/manage-properties.md) or [switch to another profile](../cli/operations/profile/profile-activate.md).

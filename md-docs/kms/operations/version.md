@@ -22,7 +22,7 @@
   1. [Перейдите](https://console.yandex.cloud/link/kms) в сервис **Key Management Service**.
   1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **Симметричные ключи**.
   1. Нажмите на нужный ключ в списке, чтобы открыть страницу с его атрибутами.
-  1. В строке нужной версии нажмите значок ![menu](../../_assets/console-icons/ellipsis.svg) и выберите **Сделать основной**.
+  1. В строке нужной версии нажмите значок ![menu](../../_assets/console-icons/ellipsis.svg) и выберите ![flag](../../_assets/console-icons/flag.svg) **Сделать основной**.
 
 - CLI {#cli}
 
@@ -80,7 +80,7 @@
   1. [Перейдите](https://console.yandex.cloud/link/kms) в сервис **Key Management Service**.
   1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **Симметричные ключи**.
   1. Нажмите на нужный ключ в списке, чтобы открыть страницу с его атрибутами.
-  1. В строке нужной версии нажмите значок ![menu](../../_assets/console-icons/ellipsis.svg) и выберите **Запланировать удаление**.
+  1. В строке нужной версии нажмите значок ![menu](../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../_assets/console-icons/trash-bin.svg) **Запланировать удаление**.
 
   Версия перейдет в статус `Scheduled for destruction`, а в столбце **Дата удаления** будет указан срок, на который запланировано удаление.
 
@@ -140,7 +140,7 @@
   1. [Перейдите](https://console.yandex.cloud/link/kms) в сервис **Key Management Service**.
   1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **Симметричные ключи**.
   1. Нажмите на нужный ключ в списке, чтобы открыть страницу с его атрибутами.
-  1. В строке нужной версии нажмите значок ![menu](../../_assets/console-icons/ellipsis.svg) и выберите **Отменить удаление**.
+  1. В строке нужной версии нажмите значок ![menu](../../_assets/console-icons/ellipsis.svg) и выберите ![arrow-rotate-left](../../_assets/console-icons/arrow-rotate-left.svg) **Отменить удаление**.
   
   Версия вернется в статус `Active`.
 

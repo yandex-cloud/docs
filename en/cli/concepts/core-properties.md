@@ -1,4 +1,4 @@
-# CLI configuration
+# {{ yandex-cloud }} CLI configuration
 
 You can [set the parameters](../operations/profile/manage-properties.md) in the profile to quickly switch the command execution context. Use global parameters for a single run of a command with a specific parameter value.
 

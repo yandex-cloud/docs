@@ -38,65 +38,49 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите разместить трейл.
   1. [Перейдите]({{ link-console-main }}/link/audit-trails) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
-  1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя создаваемого трейла.
+  1. Нажмите **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
   1. В блоке **{{ ui-key.yacloud.audit-trails.label_destination }}** задайте параметры объекта назначения:
       
       * **{{ ui-key.yacloud.audit-trails.label_destination }}** — `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
-      * **{{ ui-key.yacloud.audit-trails.label_bucket }}** — выберите бакет, в который будут загружаться аудитные логи. Если бакета нет, нажмите кнопку **{{ ui-key.yacloud.common.create }}** и [создайте новый бакет](../storage/quickstart.md#the-first-bucket) с ограниченным доступом.
+      * **{{ ui-key.yacloud.audit-trails.label_bucket }}** — выберите бакет, в который будут загружаться аудитные логи. Если бакета нет, нажмите **{{ ui-key.yacloud.common.create }}** и [создайте новый бакет](../storage/quickstart.md#the-first-bucket) с ограниченным доступом.
       * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}** — необязательный параметр, участвует в [полном имени](./concepts/format.md#log-file-name) файла аудитного лога.
       
       {% include [note-bucket-prefix](../_includes/audit-trails/note-bucket-prefix.md) %}
       
       * **{{ ui-key.yacloud.audit-trails.title_kms-key }}** — если выбранный бакет [зашифрован](../storage/concepts/encryption.md), укажите ключ шифрования.
-      
+
+  1. {% include [control-plane-on-console](../_includes/audit-trails/control-plane-on-console.md) %}
+  1. {% include [data-plane-on-console](../_includes/audit-trails/data-plane-on-console.md) %}
   1. В блоке **{{ ui-key.yacloud.audit-trails.label_service-account }}** выберите существующий [сервисный аккаунт](../iam/concepts/users/service-accounts.md) или создайте новый. От имени этого аккаунта трейл будет загружать файлы аудитного лога в бакет.
-      Если вы создаете новый аккаунт, нажмите кнопку **{{ ui-key.yacloud.common.create }}**, укажите имя и назначьте ему роли:
+      Если вы создаете новый аккаунт, нажмите **{{ ui-key.yacloud.common.create }}**, укажите имя и назначьте ему роли:
       
       * `storage.uploader` на бакет;
       * `audit-trails.viewer` на каталог, если планируете собирать события с каталога;
       * `kms.keys.encrypter` на ключ шифрования, если бакет зашифрован.
 
-  1. В блоке **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}** задайте параметры:
-      
-      * **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}** — `{{ ui-key.yacloud.common.enabled }}`.
-      * **{{ ui-key.yacloud.audit-trails.label_resource-type }}** — уровень сбора событий: `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}`, `{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}` или `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
-      * В зависимости от выбранного уровня сбора событий:
-          
-          * Назначьте сервисному аккаунту соответствующие роли. Например, при выборе уровня **Каталог** понадобится роль `audit-trails.viewer` на этот каталог.
-          * Укажите организацию, облако или каталог, с которых будут собираться аудитные логи.
-
-  1. {% include [data-plane-on-console](../_includes/audit-trails/data-plane-on-console.md) %}
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя создаваемого трейла.
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - Лог-группа {#log-group}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите разместить трейл.
   1. [Перейдите]({{ link-console-main }}/link/audit-trails) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
+  1. Нажмите **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя создаваемого трейла.
   1. В блоке **{{ ui-key.yacloud.audit-trails.label_destination }}** задайте параметры объекта назначения:
       
       * **{{ ui-key.yacloud.audit-trails.label_destination }}** — `{{ ui-key.yacloud.audit-trails.label_cloudLogging }}`.
-      * **{{ ui-key.yacloud.audit-trails.label_log-group }}** — выберите лог-группу, в которую будут загружаться аудитные логи. Если лог-группы нет, нажмите кнопку **{{ ui-key.yacloud.common.create }}** и [создайте новую лог-группу](../logging/quickstart.md).
+      * **{{ ui-key.yacloud.audit-trails.label_log-group }}** — выберите лог-группу, в которую будут загружаться аудитные логи. Если лог-группы нет, нажмите **{{ ui-key.yacloud.common.create }}** и [создайте новую лог-группу](../logging/quickstart.md).
 
+  1. {% include [control-plane-on-console](../_includes/audit-trails/control-plane-on-console.md) %}
+  1. {% include [data-plane-on-console](../_includes/audit-trails/data-plane-on-console.md) %}
   1. В блоке **{{ ui-key.yacloud.audit-trails.label_service-account }}** выберите существующий [сервисный аккаунт](../iam/concepts/users/service-accounts.md) или создайте новый. От имени этого аккаунта трейл будет загружать файлы аудитного лога в лог-группу.
-      Если вы создаете новый аккаунт, нажмите кнопку **{{ ui-key.yacloud.common.create }}**, укажите имя и назначьте ему роли:
+      Если вы создаете новый аккаунт, нажмите **{{ ui-key.yacloud.common.create }}**, укажите имя и назначьте ему роли:
       
       * `logging.writer` на лог-группу;
       * `audit-trails.viewer` на каталог, если планируете собирать события с каталога.
 
-  1. В блоке **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}** задайте параметры сбора аудитных логов уровня конфигурации:
-      
-      * **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}** — выберите `{{ ui-key.yacloud.common.enabled }}`.
-      * **{{ ui-key.yacloud.audit-trails.label_resource-type }}** — выберите уровень сбора событий: `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}`, `{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}` или `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
-      * В зависимости от выбранного уровня сбора событий:
-          
-          * Назначьте сервисному аккаунту соответствующие роли. Например, при выборе уровня **Каталог** понадобится роль `audit-trails.viewer` на этот каталог.
-          * Укажите организацию, облако или каталог, с которых будут собираться аудитные логи.
-
-  1. {% include [data-plane-on-console](../_includes/audit-trails/data-plane-on-console.md) %}
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 

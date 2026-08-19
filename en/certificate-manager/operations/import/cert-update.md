@@ -9,18 +9,24 @@ To get a new version of a custom certificate:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) you added the certificate to.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+  1. [Navigate]({{ link-console-main }}/link/certificate-manager) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
   1. Select the certificate you need to renew.
   1. Click ![arrows-rotate](../../../_assets/console-icons/arrows-rotate-right.svg) **{{ ui-key.yacloud.certificate-manager.overview.action_reimport }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.certificate-manager.import.button_add-certificate }}** in the **{{ ui-key.yacloud.certificate-manager.import.field_certificate }}** field.
+     
      1. Choose how to add it: `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` or `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}`.
      1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
+  
   1. In the **{{ ui-key.yacloud.certificate-manager.import.field_chain }}** field, click **{{ ui-key.yacloud.certificate-manager.import.button_add-chain }}**.
+     
      1. Choose how to add it: `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` or `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}`.
      1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
+  
   1. In the **{{ ui-key.yacloud.certificate-manager.import.field_privateKey }}** field, click **{{ ui-key.yacloud.certificate-manager.import.button_add-privateKey }}**.
+     
      1. Choose how to add it: `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` or `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}`.
      1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
+  
   1. Click **{{ ui-key.yacloud.common.button_update }}**.
 
 - CLI {#cli}
@@ -61,6 +67,7 @@ To get a new version of a custom certificate:
      ```
 
      Where:
+     
      * `--id`: ID of the certificate you need to renew.
      * `--chain`: Path to the new certificate chain file.
      * `--key`: Path to the certificate's new private key file.

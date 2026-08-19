@@ -440,6 +440,10 @@
 1. Вверху датасета нажмите ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/trash-bin.svg) **Удалить**.
 1. Нажмите кнопку **Удалить**.
 
+
+Вы можете [восстановить](../workbooks-collections/workbooks-operations.md#restore-objects) датасет, удаленный из воркбука.
+
+
 #### Полезные ссылки {#see-also}
 
 * [Настройки датасета в Yandex DataLens](settings.md)

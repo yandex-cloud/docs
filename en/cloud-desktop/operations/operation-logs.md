@@ -11,7 +11,7 @@ The system logs all actions with {{ cloud-desktop-name }} resources as a list of
   You can get a list of operations for a specific resource. The steps below explain how to do this for a [desktop](../concepts/desktops-and-groups.md). The same steps apply to other resources as well.
 
   1. In the [management console]({{ link-console-main }}), open the folder containing the desktop.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
+  1. [Navigate]({{ link-console-main }}/link/cloud-desktop) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/display.svg) **{{ ui-key.yacloud.vdi.label_desktops }}**.
   1. Select the desktop you need.
   1. Navigate to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the selected desktop.

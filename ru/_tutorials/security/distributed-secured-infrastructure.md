@@ -618,7 +618,7 @@
 ### Посмотрите проверки состояний {#check-healthchecking}
 
 1. Перейдите на страницу балансировщика `app-load-balancer`.
-1. Слева выберите ![healthcheck](../../_assets/application-load-balancer/healthchecks.svg) **{{ ui-key.yacloud.alb.label_healthchecks }}**.
+1. Выберите вкладку **{{ ui-key.yacloud.alb.label_healthchecks }}**.
 1. Убедитесь, что целевые ресурсы имеют во всех подсетях балансировщика статусы `HEALTHY`.
 
 
@@ -655,7 +655,7 @@ http://<публичный_IP-адрес_балансировщика>/<преф
         ```
 
     1. На другой вкладке браузера перейдите на страницу балансировщика `app-load-balancer`.
-    1. Слева выберите ![logs](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}**.
+    1. Выберите вкладку **{{ ui-key.yacloud.common.logs }}**.
     1. В поле **{{ ui-key.yacloud.logging.label_filter-query }}** укажите [фильтрующее выражение](../../logging/concepts/filter.md):
 
         ```text
@@ -693,7 +693,7 @@ http://<публичный_IP-адрес_балансировщика>/<преф
         ```
 
     1. На другой вкладке браузера перейдите на страницу балансировщика `app-load-balancer`.
-    1. Слева выберите ![logs](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}**.
+    1. Выберите вкладку **{{ ui-key.yacloud.common.logs }}**.
     1. В поле **{{ ui-key.yacloud.logging.label_filter-query }}** укажите фильтрующее выражение:
 
         ```text

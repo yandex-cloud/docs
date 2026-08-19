@@ -97,7 +97,7 @@ description: Из статьи вы узнаете, что такое трейл
 * **{{ ui-key.yacloud.common.name }}** — обязательный параметр.
 * **{{ ui-key.yacloud.common.description }}** — опциональный параметр.
 * Блок **{{ ui-key.yacloud.audit-trails.label_destination }}**:
-    * **{{ ui-key.yacloud.audit-trails.label_destination }}** — значения `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`, `{{ ui-key.yacloud.audit-trails.label_cloudLogging }}`, `{{ ui-key.yacloud.audit-trails.label_dataStream }}` или `{{ ui-key.yacloud.audit-trails.label_eventRouter }}`.
+    * **{{ ui-key.yacloud.audit-trails.label_destination }}** — значения `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`, `{{ ui-key.yacloud.audit-trails.label_cloudLogging }}`, `{{ ui-key.yacloud.audit-trails.label_dataStream }}`.
     * Для значения `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`:
         * **{{ ui-key.yacloud.audit-trails.label_bucket }}** — бакет.
         * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}** — необязательный параметр, участвует в [полном имени](./format.md#log-file-name) файла аудитного лога.
@@ -109,10 +109,8 @@ description: Из статьи вы узнаете, что такое трейл
         * **Кодек** — метод сжатия событий при записи в поток данных {{ yds-name }}.
 
             {% include [yds-compressing-events](../../_includes/audit-trails/yds-compressing-events.md) %}
-    * Для значения `{{ ui-key.yacloud.audit-trails.label_eventRouter }}`:
-        * **Коннектор** — [коннектор](../../serverless-integrations/concepts/eventrouter/connector.md) шины {{ er-name }} с типом источника `{{ at-name }}`.
 * Блок **{{ ui-key.yacloud.audit-trails.label_service-account }}** — сервисный аккаунт, от имени которого будет выполняться загрузка аудитных логов в бакет, лог-группу или поток данных. Если аккаунту нужны дополнительные роли, появится предупреждение с перечнем ролей.
-* Блок **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**:
+* Блок **{{ ui-key.yacloud.audit-trails.label_control-plane-collection-new }}**:
     * **Статус** — включение и выключение сбора аудитных логов уровня конфигурации.
     * **{{ ui-key.yacloud.audit-trails.label_resource-type }}** — значения `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}`, `{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}` или `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
     * Для значения `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}`:
@@ -122,7 +120,7 @@ description: Из статьи вы узнаете, что такое трейл
         * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}** — каталоги, для ресурсов в которых трейл будет собирать аудитные логи уровня конфигурации. Если не указать ни один каталог, то трейл будет собирать аудитные логи всех ресурсов в облаке.
     * Для параметра `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`:
         * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}** — имя каталога, в котором находится трейл. Значение подставляется автоматически.
-* Блок **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}**:
+* Блок **{{ ui-key.yacloud.audit-trails.label_data-plane-collection-new }}**:
     * **Статус** — включение и выключение сбора аудитных логов уровня сервисов.
     * Список [сервисов](events-data-plane.md#services), для каждого из которых отдельно настраивается:
         * [Область](trail.md#collecting-area) сбора аудитных логов уровня сервисов.

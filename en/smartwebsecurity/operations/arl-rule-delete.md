@@ -5,14 +5,14 @@ description: Follow this guide to delete a rule from an ARL profile.
 
 # Deleting a rule from an ARL profile
 
-Basic rules, as well as Smart Protection and WAF rules, are [deleted from a security profile](rule-delete.md).
+Basic rules, as well as Smart Protection and WAF rules, are [deleted from a security profile](rule-delete.md). 
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with the [ARL profile](../concepts/arl.md).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/arl.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_profiles }}**.
   1. Select the profile to delete a rule from.
   1. Under **{{ ui-key.yacloud.smart-web-security.arl.section_rules }}**, next the rule in question, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.

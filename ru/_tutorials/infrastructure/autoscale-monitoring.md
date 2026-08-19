@@ -250,11 +250,11 @@
      1. В поле **{{ ui-key.yacloud.common.name }}** укажите `queue-autoscale-queue`.
      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   
-  1. Сохраните URL очереди в файл `queue`:
+  1. Сохраните {{ ui-key.yacloud.ymq.queue.overview.label_url }} очереди в файл `queue`:
   
      1. В списке очередей выберите `queue-autoscale-queue`.
      1. Скопируйте **{{ ui-key.yacloud.ymq.queue.overview.label_url }}** очереди.
-     1. Вставьте URL в файл `queue` в следующем формате:
+     1. Вставьте {{ ui-key.yacloud.ymq.queue.overview.label_url }} в файл `queue` в следующем формате:
      
         ```yaml
         QueueUrl: <URL_очереди>

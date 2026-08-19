@@ -12,7 +12,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your HTTP router.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Navigate]({{ link-console-main }}/link/application-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
   1. Click **{{ ui-key.yacloud.alb.button_http-router-create }}**.
   1. Specify your HTTP router name.
@@ -21,6 +21,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
   1. Optionally, in the **{{ ui-key.yacloud.alb.label_authority }}** field, specify the HTTP/1.1 `Host` (HTTP/2 `:authority`) header value for virtual host selection.
 
       {% include [console-no-authority-notice](../../_includes/application-load-balancer/instruction-steps/console-no-authority-notice.md) %}
+  
   1. {% include [console-vh-form-sws-step](../../_includes/application-load-balancer/instruction-steps/console-vh-form-sws-step.md) %}
   1. {% include [console-vh-form-albnative-rl-step](../../_includes/application-load-balancer/instruction-steps/console-vh-form-albnative-rl-step.md) %}
   1. {% include [console-vh-form-header-mods-step](../../_includes/application-load-balancer/instruction-steps/console-vh-form-header-mods-step.md) %}
@@ -31,6 +32,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
       1. {% include [console-update-http-route-ss2](../../_includes/application-load-balancer/instruction-steps/console-update-http-route-ss2.md) %}
       1. {% include [console-update-http-route-ss3](../../_includes/application-load-balancer/instruction-steps/console-update-http-route-ss3.md) %}
       1. {% include [console-update-http-route-ss4](../../_includes/application-load-balancer/instruction-steps/console-update-http-route-ss4.md) %}
+  
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -44,6 +46,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
       ```bash
       yc alb http-router create --help
       ```
+  
   1. Run this command:
 
       ```bash
@@ -58,6 +61,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
       folder_id: aoerb349v3h4********
       created_at: "2021-02-11T21:04:59.438292069Z"
       ```
+  
   1. {% include [cli-vh-create-help](../../_includes/application-load-balancer/instruction-steps/cli-vh-create-help.md) %}
   1. {% include [cli-vh-create](../../_includes/application-load-balancer/instruction-steps/cli-vh-create.md) %}
   1. {% include [cli-vh-append-http-route-help](../../_includes/application-load-balancer/instruction-steps/cli-vh-append-http-route-help.md) %}
@@ -160,11 +164,13 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
       Where:
 
       * `yandex_alb_http_router`: HTTP router description.
+          
           * `name`: HTTP router name. Follow these naming requirements:
 
               {% include [name-format](../../_includes/name-format.md) %}
 
           * `labels`: HTTP router [labels](../../resource-manager/concepts/labels.md). Specify a key-value pair.
+      
       * `yandex_alb_virtual_host`: Virtual host description:
 
           {% include [tf-vh-create-legend-part1](../../_includes/application-load-balancer/instruction-steps/tf-vh-create-legend-part1.md) %}
@@ -178,8 +184,10 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
           {% include [tf-vh-create-legend-last-part](../../_includes/application-load-balancer/instruction-steps/tf-vh-create-legend-last-part.md) %}
 
       The properties of the resources are covered in this {{ TF }} provider guide:
+      
       * [yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router)
       * [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host)
+  
   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

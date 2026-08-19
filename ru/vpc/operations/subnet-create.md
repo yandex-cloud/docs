@@ -15,16 +15,16 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется создать подсеть.
   1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-  1. Справа сверху нажмите **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите **{{ ui-key.yacloud.vpc.subnetworks.button_action-create }}**.
   1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** укажите название подсети. Требования к названию:
 
      {% include [name-format](../../_includes/name-format.md) %}
 
-  1. (Опционально) В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_description }}** добавьте описание.
+  1. (Опционально) Добавьте описание и метки подсети.
   1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** выберите зону доступности из выпадающего списка.
-  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_network }}** укажите облачную сеть. Она должна быть создана заранее.
-  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** введите IP-адрес и маску подсети. 
-     Подробнее про диапазоны IP-адресов в подсетях читайте в разделе [Облачные сети и подсети](../concepts/network.md). 
+  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_network }}** выберите или создайте облачную сеть.
+  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** введите IP-адрес и маску подсети.
+     Подробнее про диапазоны IP-адресов в подсетях — в разделе [Облачные сети и подсети](../concepts/network.md).
      Если нужно указать еще один или несколько CIDR, нажмите **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
   1. (Опционально) Задайте **{{ ui-key.yacloud.vpc.subnetworks.create.section_dhcp-options }}**. Для этого:
       1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_domain-name }}** укажите домен DNS для поиска неквалифицированных имен.
@@ -43,19 +43,19 @@ description: Следуя данной инструкции, вы сможете
 
   1. Посмотрите описание команды CLI для создания подсети:
 
-      ```
+      ```bash
       yc vpc subnet create --help
       ```
 
   1. Получите список облачных сетей в требуемом каталоге:
 
-      ```
+      ```bash
       yc vpc network list --folder-id b1g6ci08ma55********
       ```
 
       Результат:
 
-      ```
+      ```text
       +----------------------+----------------+
       |          ID          |      NAME      |
       +----------------------+----------------+
@@ -66,7 +66,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Выберите `NAME` или `ID` требуемой облачной сети. Создайте подсеть в каталоге по умолчанию:
 
-      ```
+      ```bash
       yc vpc subnet create \
         --name test-subnet-1 \
         --description "My test subnet" \
@@ -85,7 +85,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [name-format](../../_includes/name-format.md) %}
 
-      ```
+      ```bash
       yc vpc subnet create \
         --name test-subnet-1 \
         --description "My test subnet" \
@@ -98,13 +98,13 @@ description: Следуя данной инструкции, вы сможете
 
   1. Получите список всех подсетей в каталоге по умолчанию:
 
-      ```
+      ```bash
       yc vpc subnet list
       ```
 
       Результат:
 
-      ```
+      ```text
       +----------------------+-----------------------+------------------------+
       |          ID          |         NAME          | ... |       RANGE      |
       +----------------------+-----------------------+------------------------+
@@ -116,13 +116,13 @@ description: Следуя данной инструкции, вы сможете
 
       Получите тот же список с большим количеством деталей в формате YAML:
 
-      ```
+      ```bash
       yc vpc subnet list --format yaml
       ```
 
       Результат:
-      
-      ```
+
+      ```text
       ...
 
       - id: e2l0psbfoloe********
@@ -160,7 +160,7 @@ description: Следуя данной инструкции, вы сможете
      ```hcl
      resource "yandex_vpc_subnet" "lab-subnet-a" {
        name           = "<имя_подсети>"
-	   description    = "<описание_подсети>"
+       description    = "<описание_подсети>"
        v4_cidr_blocks = ["<IPv4-адрес>"]
        zone           = "<зона_доступности>"
        network_id     = "<идентификатор_сети>"
@@ -171,32 +171,15 @@ description: Следуя данной инструкции, вы сможете
 
      Подробнее о параметрах ресурса `yandex_vpc_subnet` в {{ TF }} в [документации провайдера]({{ tf-provider-resources-link }}/vpc_subnet).
 
-  1. Проверьте корректность конфигурационных файлов.
+  1. Примените конфигурацию:
 
-     1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
-     1. Выполните проверку с помощью команды:
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-        ```
-        terraform plan
-        ```
+     После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команд [CLI](../../cli/quickstart.md):
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
-
-  1. Разверните облачные ресурсы.
-
-     1. Если в конфигурации нет ошибок, выполните команду:
-
-        ```
-        terraform apply
-        ```
-
-     1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
-
-        После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команд [CLI](../../cli/quickstart.md):
-
-        ```
-        yc vpc subnet list
-        ```
+     ```bash
+     yc vpc subnet list
+     ```
 
 - API {#api}
 
@@ -221,7 +204,7 @@ description: Следуя данной инструкции, вы сможете
 
   Создайте подсеть с именем и описанием в выбранном каталоге:
 
-    ```
+    ```bash
     yc vpc subnet create \
       --name test-subnet-1 \
       --description "My test subnet" \
@@ -232,7 +215,8 @@ description: Следуя данной инструкции, вы сможете
     ```
 
     Создайте подсеть с настройками DHCP:
-    ```
+
+    ```bash
     yc vpc subnet create \
       --name test-subnet-1 \
       --description "My test subnet" \
@@ -260,7 +244,7 @@ description: Следуя данной инструкции, вы сможете
        description    = "My first subnet"
        v4_cidr_blocks = ["10.2.0.0/16"]
        zone           = "{{ region-id }}-a"
-       network_id     = "${yandex_vpc_network.lab-net.id}"
+       network_id     = yandex_vpc_network.lab-net.id
      }
      ```
 
@@ -271,17 +255,17 @@ description: Следуя данной инструкции, вы сможете
      1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
      1. Выполните проверку с помощью команды:
 
-        ```
+        ```bash
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Разверните облачные ресурсы.
 
      1. Если в конфигурации нет ошибок, выполните команду:
 
-        ```
+        ```bash
         terraform apply
         ```
 
@@ -289,7 +273,7 @@ description: Следуя данной инструкции, вы сможете
 
         После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команд [CLI](../../cli/quickstart.md):
 
-        ```
+        ```bash
         yc vpc subnet list
         ```
 

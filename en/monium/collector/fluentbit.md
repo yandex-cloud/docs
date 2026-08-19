@@ -35,7 +35,9 @@ Fluent Bit cuts the `startTimestampNanos` field off the metrics. Do not use Flue
 
 1. Run Fluent Bit stating the configuration:
 
-1. Check that logs are fed into [{{ monium-name }}]({{ link-monium }}).
+1. Check that the data is fed into [{{ monium-name }}]({{ link-monium }}).
+
+   For more information on viewing data, see [{#T}](../metrics/metric-explorer.md), [{#T}](../logs/logs-explorer.md), and [{#T}](../traces/operations/traces-explorer.md).
 
 For a simple scenario of using Fluent Bit to send all types of telemetry from a Java application to {{ monium-name }}, see [Example for a Java demo application with Fluent Bit](otel-clinic-fluentbit-example.md).
 

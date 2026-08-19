@@ -18,9 +18,9 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится трейл.
   1. [Перейдите]({{ link-console-main }}/link/audit-trails) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
-  1. В строке с нужным трейлом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. В строке с нужным трейлом нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Измените параметры трейла. Список настроек трейла, которые можно изменить, приведен в разделе [{#T}](../concepts/trail.md#trail-settings).
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -142,7 +142,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится трейл.
   1. [Перейдите]({{ link-console-main }}/link/audit-trails) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
-  1. В строке с нужным трейлом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
+  1. В строке с нужным трейлом нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. В открывшемся окне подтвердите удаление.
 
 - CLI {#cli}

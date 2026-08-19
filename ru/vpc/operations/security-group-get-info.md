@@ -1,5 +1,6 @@
 ---
 title: Как получить информацию о группе безопасности в {{ vpc-full-name }}
+description: Следуя данной инструкции, вы сможете получить информацию о группе безопасности.
 ---
 
 # Получить информацию о группе безопасности
@@ -12,7 +13,7 @@ title: Как получить информацию о группе безопа
   1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Выберите нужную группу безопасности.
-  1. На странице **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация о группе безопасности.
+  1. На вкладке **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация о группе безопасности.
 
 - CLI {#cli}
 
@@ -66,6 +67,7 @@ title: Как получить информацию о группе безопа
      ```
 
      Где:
+
      * `data "yandex_vpc_security_group"` — описание группы безопасности в качестве источника данных:
        * `security_group_id` — идентификатор группы безопасности.
      * `output "group"` — выходная переменная, которая содержит информацию о правилах входящего трафика:
@@ -105,7 +107,7 @@ title: Как получить информацию о группе безопа
 
 - API {#api}
 
-  Чтобы получить подробную информацию о [группе безопасности](../concepts/security-groups.md), воспользуйтесь методом REST API [get](../api-ref/SecurityGroup/get) для ресурса [SecurityGroup](../api-ref/SecurityGroup/index.md), или вызовом gRPC API [SecurityGroupService/Get](../api-ref/grpc/SecurityGroup/get.md).
+  Чтобы получить подробную информацию о [группе безопасности](../concepts/security-groups.md), воспользуйтесь методом REST API [get](../api-ref/SecurityGroup/get.md) для ресурса [SecurityGroup](../api-ref/SecurityGroup/index.md) или вызовом gRPC API [SecurityGroupService/Get](../api-ref/grpc/SecurityGroup/get.md).
 
 {% endlist %}
 
@@ -135,6 +137,7 @@ title: Как получить информацию о группе безопа
      ```
 
      Где:
+
      * `data "yandex_vpc_security_group_rule"` — описание правила группы безопасности в качестве источника данных:
        * `security_group_binding` — идентификатор группы безопасности, которая содержит правило.
        * `rule_id` — идентификатор правила.

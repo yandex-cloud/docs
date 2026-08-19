@@ -10,7 +10,7 @@ description: Follow this tutorial to get {{ at-full-name }} trail info.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the [trail](../concepts/trail.md).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. [Navigate]({{ link-console-main }}/link/audit-trails) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. Select the trail. The **{{ ui-key.yacloud.audit-trails.label_trail }}** page will display detailed information about the trail.
 
 - CLI {#cli}
@@ -99,11 +99,14 @@ description: Follow this tutorial to get {{ at-full-name }} trail info.
       Where:
 
       * `data "yandex_audit_trails_trail"`: Trail description as a data source:
-         * `resource_id`: Resource ID.
+         
+         * `resource_id`: Resource identifier.
+      
       * `output "my-trail-status"`: Output variable that contains information about the current trail `status`:
+
          * `value`: Return value.
 
-     You can replace `status` with another variable to get the information you need. For more on the properties of the `yandex_audit_trails_trail` data source, see [this provider guide]({{ tf-provider-datasources-link }}/audit_trails_trail).
+     You can replace `status` with another variable to get the information you need. For more information about the properties of the `yandex_audit_trails_trail` data source, see [this provider guide]({{ tf-provider-datasources-link }}/audit_trails_trail).
 
   1. Create the resources:
 

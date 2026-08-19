@@ -4687,6 +4687,8 @@ default:
         label_bucket: Бакет
         label_cloudLogging: Cloud Logging
         label_collecting-logs: Сбор событий
+        label_control-plane-collection-new: Сбор логов с управляющего слоя
+        label_data-plane-collection-new: Сбор логов со слоя данных
         label_dataStream: Data Streams
         label_destination: Назначение
         label_event-filter-section: Сбор событий с уровня сервисов
@@ -4697,6 +4699,9 @@ default:
         label_organization-manager:
           organization: Организация
         label_path-filter-section: Сбор событий c уровня конфигурации
+        label_resource-manager_events-filter_all: Получать все
+        label_resource-manager_events-filter_exclude: Исключить
+        label_resource-manager_events-filter_include: Выбранные
         label_resource-manager:
           cloud: Облако
           folder: Каталог
@@ -6061,7 +6066,6 @@ default:
         label_records: Значение
         label_ttl: TTL
         label_zone: Зона
-        label_zone-record-sets: Записи
         label_zones-list: Зоны
       entity:
         ipAddress: IP-адрес
@@ -6436,6 +6440,7 @@ default:
             label_message-queue: Message Queue
             label_metadata-hub: Yandex MetaData Hub
             label_monitoring: Monitoring
+            label_monium: Monium
             label_postbox: Cloud Postbox
             label_schema-registry: Schema Registry
             label_serverless-containers: Serverless Containers
@@ -7750,6 +7755,8 @@ default:
         layout:
           PageActions:
             button_more_sGEBS: Еще
+          PageContentActions:
+            button_more_axqoH: Еще
           PageTabs:
             button_other_hnYwF: Другое
       smart-web-security:
@@ -8023,6 +8030,7 @@ default:
             field_resource: Ресурс
             field_user: Пользователь
             field_value: Значение
+            label_all-actions: Все&nbsp;действия
             label_if-exists: Применить, если поле существует
             label_select-users: Выбрать пользователей
           popup-create-folder_button_create: Создать
@@ -8265,6 +8273,7 @@ default:
           overview:
             button_create_route-table: Создать таблицу маршрутизации
             button_create_subnetwork: Создать подсеть
+            column_route-table_network: Сеть
             column_subnetwork_route-table-id: Таблица маршрутизации
             section_subnetworks: Подсети
           security-groups:
@@ -8281,6 +8290,7 @@ default:
               field_sg-rule-cidr-blocks: IPv4 CIDR
               field_sg-rule-description: Описание
               field_sg-rule-destination: Назначение
+              field_sg-rule-direction: Направление трафика
               field_sg-rule-port-range: Диапазон портов
               field_sg-rule-protocol: Протокол
               field_sg-rule-sg-type: Группа безопасности
@@ -8296,6 +8306,8 @@ default:
             label_destination-type-security-group: Группа безопасности
             label_egress: Исходящий трафик
             label_ingress: Входящий трафик
+            label_rules-egress: Правила для исходящего трафика
+            label_rules-ingress: Правила для входящего трафика
             label_section-rules: Правила
             label_title: Группы безопасности
           switch_overview: Обзор
@@ -8332,6 +8344,10 @@ default:
             button_create: Создать таблицу маршрутизации
           edit:
             button_edit: Сохранить
+        route-tables:
+          column_static-routes: Статические маршруты
+        subnet-used-addresses:
+          label_resource-type-vpc_virtualGateway: Шлюз
         subnet:
           add-route-table:
             button_add: Привязать
@@ -8362,7 +8378,6 @@ default:
             button_update: Сохранить изменения
         switch_addresses: Публичные IP-адреса
         switch_gateways: Шлюзы
-        switch_list: Облачные сети
         switch_networks: Подсети
         switch_private-endpoints: Сервисные подключения
         switch_route-tables: Таблицы маршрутизации

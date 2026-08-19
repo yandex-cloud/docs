@@ -1,13 +1,13 @@
 ---
-title: Просмотр метрик Cloud DNS
+title: Мониторинг зон DNS
 description: Следуя данной инструкции, вы сможете посмотреть метрики зон и запросов.
 ---
 
-# Просмотр метрик зон
+# Мониторинг зон DNS
 
 {{ dns-name }} автоматически отправляет метрики зон и запросов в сервис [{{ monitoring-full-name }}](../../monitoring).
 
-Вы можете посмотреть общую статистику работы на [странице зоны](#storage-ui) или подробную в [интерфейсе {{ monitoring-name }}](#monitoring).
+Вы можете посмотреть общую статистику работы на [странице зоны](#zone-ui) или подробную статистику в [интерфейсе {{ monium-full-name }}](#monitoring).
 
 Полный список метрик представлен в [справочнике](../metrics.md).
 
@@ -19,26 +19,28 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится нужная зона.
   1. [Перейдите]({{ link-console-main }}/link/dns) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
-  1. Выберите зону, статистику которой вы хотите посмотреть.
+  1. Нажмите на зону, статистику которой вы хотите посмотреть.
   1. Перейдите на вкладку **{{ ui-key.yacloud.common.monitoring }}**.
-  1. Выберите временной промежуток, за который хотите посмотреть статистику: 1 час, 3 часа, 1 день, 1 неделя или 1 месяц. 
+  1. Выберите временной промежуток, за который хотите посмотреть статистику: 1 час, 3 часа, 1 день, 1 неделя или 1 месяц.
 
       На вкладке отобразится дашборд **Zone requests** — количество запросов, пришедших в выбранную зону, за выбранный промежуток времени.
 
 {% endlist %}
 
-## Посмотреть подробную статистику в {{ monitoring-name }} {#monitoring}
+## Посмотреть подробную статистику в {{ monium-full-name }} {#monitoring}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
+  Для перехода в [{{ monium-name }}]({{ link-monium }}) на странице зоны нажмите **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}** ![image](../../_assets/console-icons/arrow-up-right-from-square.svg) или воспользуйтесь пошаговой инструкцией:
+
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создана зона.
-  1. [Перейдите]({{ link-console-main }}/link/monitoring) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-  1. На панели слева выберите ![image](../../_assets/monitoring/concepts/visualization/legend-goto-chart.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.
-  1. В строке запроса выберите параметры:
-      1. Сервис **{{ dns-name }}**.
-      1. Метрику, значения которой вы хотите визуализировать.
-      1. Метку для метрики.
+  1. [Перейдите]({{ link-monium }}) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monium }}**.
+  1. На панели слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**.
+  1. В списке сервисов нажмите **DNS — Zone overview**.
+  1. В поле **DNS Zone** укажите идентификатор нужной зоны.
+  1. Выберите временной промежуток, за который хотите посмотреть статистику.
 
 {% endlist %}

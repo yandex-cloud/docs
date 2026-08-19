@@ -14,6 +14,7 @@ description: With {{ cns-name }}, you can send push notifications to users' brow
 With {{ cns-name }}, you can send push notifications to users' browsers.
 
 To get started with push notifications:
+
 1. [Get your cloud ready](#before-you-begin).
 1. [Create an in-browser push notification channel](#create-channel).
 1. [Get the data you need to send to notifications to a user](#subscribe-notifications).
@@ -35,7 +36,7 @@ To create a channel:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you want to create a notification channel in.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. [Navigate]({{ link-console-main }}/link/cns) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Click **{{ ui-key.yacloud.cns.action_create-channel }}**.
   1. Select the **{{ ui-key.yacloud.cns.type_web }}** tab.
   1. Enter a name for your notification channel. The channel name must be unique within {{ cns-name }}.

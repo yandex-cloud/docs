@@ -22,13 +22,15 @@ To get started with {{ kms-name }}:
     
     Create a symmetric encryption key: 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a key.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+    1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
     1. Click **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** and set the key parameters:
+       
        * In the **{{ ui-key.yacloud.common.name }}** field, specify `my-first-key`.
        * In the **{{ ui-key.yacloud.kms.symmetric-key.form.field_algorithm }}** field, specify `AES-256`.
        * In the **{{ ui-key.yacloud.kms.symmetric-key.form.field_rotation }}** field, leave `{{ ui-key.yacloud.kms.symmetric-key.form.value_no-rotation }}`.
        * Click **{{ ui-key.yacloud.common.create }}**.
+    
     1. Click the line with the key name and make sure the **{{ ui-key.yacloud.kms.symmetric-key.overview.label_title-versions }}** section contains the first key version.
 
 {% endlist %}
@@ -45,9 +47,11 @@ Come up with a secret text, for example: <q>The launch is scheduled for Marchemb
     
     1. Save the secret text to the `plaintext.txt` file.
     1. Copy the ID of the previously created key from the management console.
-        1. In the [management console]({{ link-console-main }}), go to the folder the key was created in.
-        1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+        
+        1. In the [management console]({{ link-console-main }}), select the folder the key was created in.
+        1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
         1. In the window that opens, copy the key from the **{{ ui-key.yacloud.common.id }}** field.
+    
     1. Encrypt the text:
     
        ```

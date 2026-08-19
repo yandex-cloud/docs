@@ -39,9 +39,9 @@ To start running requests:
 
 {% list tabs group=instructions %}
 
-- Management console {#console}
+- {{ monium-name }} UI {#console}
 
-   1. On the [{{ monium-name }}]({{ link-monium }}) home page, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}** on the left.
+   1. On the [{{ monium-name }}]({{ link-monium }}) home page, select ![alt](../../../_assets/console-icons/box.svg) **Delivery and storage** → ![alt](../../../_assets/console-icons/flame.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}** on the left.
    1. Select or create a workspace.
    1. Navigate to the **{{ ui-key.yacloud_monitoring.prometheus.managing-rule.tabs.rules }}** tab.
    1. If you have not uploaded any files yet, click **{{ ui-key.yacloud_monitoring.prometheus.recording-rules.action_add-file }}** and select a `.yml` file with rules.
@@ -100,9 +100,9 @@ If any rules or rule groups are deleted when replacing a file, they will no long
 
 {% list tabs group=instructions %}
 
-- Management console {#console}
+- {{ monium-name }} UI {#console}
 
-   1. On the [{{ monium-name }}]({{ link-monium }}) home page, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}** on the left.
+   1. On the [{{ monium-name }}]({{ link-monium }}) home page, select ![alt](../../../_assets/console-icons/box.svg) **Delivery and storage** → ![alt](../../../_assets/console-icons/flame.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}** on the left.
    1. Select a workspace.
    1. Navigate to the **{{ ui-key.yacloud_monitoring.prometheus.approved.tab.recording-rules }}** tab. 
 
@@ -135,9 +135,9 @@ If any rules or rule groups are deleted when replacing a file, they will no long
 
 {% list tabs group=instructions %}
 
-- Management console {#console}
+- {{ monium-name }} UI {#console}
 
-   1. On the [{{ monium-name }}]({{ link-monium }}) home page, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}** on the left.
+   1. On the [{{ monium-name }}]({{ link-monium }}) home page, select ![alt](../../../_assets/console-icons/box.svg) **Delivery and storage** → ![alt](../../../_assets/console-icons/flame.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}** on the left.
    1. Select a workspace.
    1. Go to the **{{ ui-key.yacloud_monitoring.prometheus.approved.tab.recording-rules }}** tab. 
    1. To the right of the file, click **![options](../../../_assets/horizontal-ellipsis.svg)** > **{{ ui-key.yacloud_monitoring.prometheus.common.action_code }}**.
@@ -170,9 +170,9 @@ If any rules or rule groups are deleted when replacing a file, they will no long
 
 {% list tabs group=instructions %}
 
-- Management console {#console}
+- {{ monium-name }} UI {#console}
 
-   1. On the [{{ monium-name }}]({{ link-monium }}) home page, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}** on the left.
+   1. On the [{{ monium-name }}]({{ link-monium }}) home page, select ![alt](../../../_assets/console-icons/box.svg) **Delivery and storage** → ![alt](../../../_assets/console-icons/flame.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}** on the left.
    1. Select a workspace.
    1. Go to the **{{ ui-key.yacloud_monitoring.prometheus.approved.tab.recording-rules }}** tab. 
    1. Select the file with rules. On the page that opens, you will see the status of the latest evaluations for this rule.
@@ -224,9 +224,9 @@ If any rules or rule groups are deleted when replacing a file, they will no long
 
 {% list tabs group=instructions %}
 
-- Management console {#console}
+- {{ monium-name }} UI {#console}
 
-   1. On the [{{ monium-name }}]({{ link-monium }}) home page, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}** on the left.
+   1. On the [{{ monium-name }}]({{ link-monium }}) home page, select ![alt](../../../_assets/console-icons/box.svg) **Delivery and storage** → ![alt](../../../_assets/console-icons/flame.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}** on the left.
    1. Select a workspace.
    1. Go to the **{{ ui-key.yacloud_monitoring.prometheus.approved.tab.recording-rules }}** tab. 
    1. To the right of the file, click **![options](../../../_assets/horizontal-ellipsis.svg)** > **{{ ui-key.yacloud_monitoring.prometheus.common.action_destroy }}**.
@@ -250,9 +250,9 @@ If any rules or rule groups are deleted when replacing a file, they will no long
 
 {% list tabs group=instructions %}
 
-- Management console {#console}
+- {{ monium-name }} UI {#console}
 
-   1. On the [{{ monium-name }}]({{ link-monium }}) home page, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}** on the left.
+   1. On the [{{ monium-name }}]({{ link-monium }}) home page, select ![alt](../../../_assets/console-icons/box.svg) **Delivery and storage** → ![alt](../../../_assets/console-icons/flame.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}** on the left.
    1. Select a workspace.
    1. Go to the **{{ ui-key.yacloud_monitoring.prometheus.approved.tab.recording-rules }}** tab. 
    1. To the left of the file, click **![options](../../../_assets/horizontal-ellipsis.svg)** > **{{ ui-key.yacloud_monitoring.prometheus.common.action_download }}**.

@@ -10,6 +10,12 @@ To authenticate using a [SAML-compatible identity federation](../../organization
 
 
 
+   {% note info %}
+
+   {% include [federated-auth-without-gui](federated-auth-without-gui.md) %}
+
+   {% endnote %}
+
 1. Select the profile you want to set up authentication for or create a new one.
 
    ```text

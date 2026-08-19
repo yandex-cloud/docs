@@ -9,7 +9,7 @@ You can only use a [certificate](../../concepts/managed-certificate.md) from {{ 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to add your certificate to.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+  1. [Navigate]({{ link-console-main }}/link/certificate-manager) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
   1. Click **{{ ui-key.yacloud.certificate-manager.button_empty-action }}**.
   1. In the menu that opens, select **{{ ui-key.yacloud.certificate-manager.action_request }}**.
   1. In the window that opens, enter a name for your certificate in the **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** field.
@@ -17,6 +17,7 @@ You can only use a [certificate](../../concepts/managed-certificate.md) from {{ 
   1. In the **{{ ui-key.yacloud.certificate-manager.request.field_domains }}** field, list the domains to issue a certificate for.
 
      Domain names may contain a mask, e.g., `*.example.com`. If so, select `DNS` as domain ownership verification type. For more, see [Domain ownership verification](../../concepts/challenges.md#dns).
+  
   1. Select the [type of domain ownership verification](../../concepts/challenges.md): `{{ ui-key.yacloud.certificate-manager.request.challenge-type_label_dns }}` or `{{ ui-key.yacloud.certificate-manager.request.challenge-type_label_http }}`.
   1. Click **{{ ui-key.yacloud.certificate-manager.request.button_request }}**.
 
@@ -41,6 +42,7 @@ You can only use a [certificate](../../concepts/managed-certificate.md) from {{ 
      ```
 
      Where:
+     
      * `--name`: Certificate name
      * `--domains`: Certificate domains
 
@@ -74,13 +76,16 @@ You can only use a [certificate](../../concepts/managed-certificate.md) from {{ 
      ```
 
      Where:
+     
      * `domains`: List of domains you need to create a certificate for.
      * `challenge_type`: [Type of domain ownership verification](../../concepts/challenges.md) the domain owner has to [pass](cert-validate.md). The possible values are:
+       
        * `DNS_CNAME`: Create a [DNS record](../../../dns/concepts/resource-record.md) in [CNAME](../../../dns/concepts/resource-record.md#cname-cname) format with the specified value. We recommend this method for automatic certificate renewal.
        * `DNS_TXT`: Create a DNS record in [TXT](../../../dns/concepts/resource-record.md#txt) format with the specified value.
        * `HTTP`: Place the specified value in the specified URL.
 
      For more on the properties of the `yandex_cm_certificate` resource, see [this provider guide]({{ tf-provider-resources-link }}/cm_certificate).
+  
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -109,10 +114,11 @@ A new certificate with the `Validating` status will appear in the certificate li
 
 You can view the certificate issue status and possible issue errors in the [management console]({{ link-console-main }}):
 
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+1. [Navigate]({{ link-console-main }}/link/certificate-manager) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
 1. Select the certificate from the list.
    
    You can find the certificate's current issue status next to the **{{ ui-key.yacloud.certificate-manager.overview.general_label_validation }}** field.
+
 1. To view the status description and outcome, click ![receipt](../../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.certificate-manager.overview.button_validation_show-logs }}**.
 
    For more information about the certificate issue stages, see [Let's Encrypt certificate](../../concepts/managed-certificate.md#issue-statuses).

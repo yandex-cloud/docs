@@ -10,7 +10,7 @@ description: Follow this guide to get information about a security profile in {{
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [security profile](../concepts/profiles.md).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. Select the security profile in question.
   1. The **{{ ui-key.yacloud.common.overview }}** page will show the profile details.
@@ -81,9 +81,13 @@ description: Follow this guide to get information about a security profile in {{
      ```
 
      Where:
+     
      * `data "yandex_sws_security_profile"`: Description of the security profile as a data source:
+       
        * `security_profile_id`: Security profile ID.
+     
      * `output "profile-created"`: Output variable that contains information about the security profile creation timestamp:
+       
        * `value`: Return value.
 
      You can replace `created_at` with another variable to get the information you need. For more on the properties of the `yandex_sws_security_profile` data source, see [this provider guide]({{ tf-provider-datasources-link }}/sws_security_profile).

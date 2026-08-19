@@ -11,7 +11,7 @@
 - [Перенести зону DNS в другой каталог](zone-move-folder.md)
 - [Делегировать Cloud DNS управление обратной зоной](zone-delegate.md)
 - [Посмотреть операции с зонами](operation-logs.md)
-- [Удалить зону](zone-delete.md)
+- [Удалить зону DNS](zone-delete.md)
 
 ## Получение информации о зоне DNS {#zone-info}
 

@@ -1,4 +1,4 @@
-# Managing profile parameters
+# Managing {{ yandex-cloud }} CLI profile parameters
 
 You can manage your profile parameters in the following ways: 
 - [Add or change a profile parameter](#set).
@@ -65,7 +65,7 @@ For example, unlink the default organization from a profile:
     ```
     yc config unset organization-id
     ```
-1.  Make sure the parameter has been actually deleted:
+1. Make sure the parameter has been actually deleted:
     
     ```bash
     yc config list

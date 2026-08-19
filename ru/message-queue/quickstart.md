@@ -53,7 +53,7 @@ description: В этой инструкции вы научитесь выпол
      1. Выберите тип `{{ ui-key.yacloud.ymq.queue.form.type_switch_standard }}`. Не изменяйте другие настройки.
      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
      1. Откройте созданную очередь.
-     1. На вкладке **{{ ui-key.yacloud.common.overview }}** в блоке **{{ ui-key.yacloud.ymq.queue.overview.section_base }}** скопируйте URL очереди, он понадобится позднее.
+     1. На вкладке **{{ ui-key.yacloud.common.overview }}** в блоке **{{ ui-key.yacloud.ymq.queue.overview.section_base }}** скопируйте значения поля **{{ ui-key.yacloud.ymq.queue.overview.label_url }}** — оно понадобится позднее.
 
 
    {% endlist %}
@@ -143,7 +143,7 @@ description: В этой инструкции вы научитесь выпол
      ```bash
      aws sqs delete-message \
        --endpoint <эндпоинт> \
-       --queue-url <URL_очереди>
+       --queue-url <URL_очереди> \
        --receipt-handle <идентификатор_получения>
      ```
      Где:
@@ -176,6 +176,6 @@ description: В этой инструкции вы научитесь выпол
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит очередь.
      1. [Перейдите]({{ link-console-main }}/link/message-queue) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
      1. Нажмите значок ![image](../_assets/console-icons/ellipsis.svg) напротив нужной очереди и выберите **{{ ui-key.yacloud.common.delete }}**.
-     1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
+     1. В открывшемся окне нажмите кнопку ![image](../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
 
    {% endlist %}

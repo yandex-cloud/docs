@@ -10,7 +10,7 @@
   1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. На панели слева выберите ![image](../../_assets/console-icons/nodes-right.svg) **Подсети**.
   1. Выберите нужную подсеть.
-  1. На странице **Обзор** отобразится подробная информация о подсети.
+  1. На вкладке **Обзор** отобразится подробная информация о подсети.
 
 - CLI {#cli}
 
@@ -74,12 +74,14 @@
      ```
 
      Где:
+
      * `data "yandex_vpc_subnet"` — описание подсети в качестве источника данных:
        * `subnet_id` — идентификатор подсети.
      * `output "subnet"` — выходная переменная, которая содержит название зоны доступности подсети:
        * `value` — возвращаемое значение.
 
      Вместо `zone` вы можете выбрать любой другой параметр для получения информации. Подробнее о параметрах источника данных `yandex_vpc_subnet` в [документации провайдера](../../terraform/data-sources/vpc_subnet.md).
+
   1. Создайте ресурсы:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -124,7 +126,7 @@
 
 - API {#api}
 
-  Чтобы получить подробную информацию о [подсети](../concepts/network.md#subnet), воспользуйтесь методом REST API [get](../api-ref/Subnet/get.md) для ресурса [Subnet](../api-ref/Subnet/index.md), или вызовом gRPC API [SubnetService/Get](../api-ref/grpc/Subnet/get.md).
+  Чтобы получить подробную информацию о [подсети](../concepts/network.md#subnet), воспользуйтесь методом REST API [get](../api-ref/Subnet/get.md) для ресурса [Subnet](../api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Get](../api-ref/grpc/Subnet/get.md).
 
 {% endlist %}
 

@@ -5,12 +5,13 @@ To create a [secret](../../lockbox/concepts/secret.md):
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your secret.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. [Navigate]({{ link-console-main }}/link/lockbox) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Click **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the secret.
   1. Optionally, to break down resources into logical groups, add a [label](../../resource-manager/concepts/labels.md).
   1. Optionally, enable **{{ ui-key.yacloud.lockbox.BaseInfoSection.field_deletion-protection }}**. You cannot delete a secret with this option enabled. This does not protect the contents of the secret against modification.
   1. Select **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}**:
+      
       * **{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-generated }}**: To generate the value automatically:
   
         * In the **{{ ui-key.yacloud.lockbox.SecretGeneratedVersion.label_key }}** field, enter a non-secret ID.
@@ -22,6 +23,7 @@ To create a [secret](../../lockbox/concepts/secret.md):
         * In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** field, enter the confidential data you want to store.
 
           To add more data, click **{{ ui-key.yacloud.lockbox.SecretVersionsList.button_add-pair }}** and repeat the steps.
+  
   1. (Optional) Under **{{ ui-key.yacloud.lockbox.EncryptionInfoSection.title_kms-key }}**, specify an existing [key](../../kms/concepts/key.md) or [create a new one](../../kms/operations/key.md#create).
 
      The specified [{{ kms-full-name }}](../../kms/) key is used to encrypt your secret. If you do not specify a key, the secret will be encrypted with a special system key.
@@ -59,6 +61,7 @@ To create a [secret](../../lockbox/concepts/secret.md):
      ```
 
      Where:
+
      * `--name`: Secret name. This is a required setting.
      * `--description`: Secret description. This is an optional setting.
      * `--payload`: Secret content in YAML or JSON format.
@@ -68,6 +71,7 @@ To create a [secret](../../lockbox/concepts/secret.md):
        >For instance, to save the `username` key with the `myusername` text value and the `avatar` key with a binary value loaded from the `avatar.jpg` file, you can specify:
        >
        >`[{'key': 'username', 'text_value': 'myusername'},{'key': 'avatar', 'binary_value': $(base64 -w 0 ./avatar.jpg)}]`
+
      * `--cloud-id`: [ID of the cloud](../../resource-manager/operations/cloud/get-id.md) where you want to create your secret.
      * `--folder-id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) where you want to create your secret.
      * `--deletion-protection`: Secret deletion protection. You cannot delete a secret with this option enabled. This does not protect the secret's contents. This is an optional setting.
@@ -104,7 +108,7 @@ To create a [secret](../../lockbox/concepts/secret.md):
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, specify the properties of the resources you want to create:
 
      ```hcl
      resource "yandex_lockbox_secret" "my_secret" {
@@ -121,6 +125,7 @@ To create a [secret](../../lockbox/concepts/secret.md):
      ```
 
      Where:
+
      * `name`: Secret name. This is a required setting.
      * `description`: Secret description. This is an optional setting.
      * `folder_id`: [ID](../../resource-manager/operations/folder/get-id.md) of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a secret. This is an optional setting.
@@ -128,7 +133,8 @@ To create a [secret](../../lockbox/concepts/secret.md):
      * `deletion_protection`: Deletion protection flag. To enable protection, set to `true`. To disable protection, set to `false`. The default value is `false`. This is an optional setting.
      * `labels`: Resource [label](../../overview/concepts/services.md#labels) in `<key>:"<value>"` format. This is an optional setting.
 
-     For more information about `yandex_lockbox_secret` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/lockbox_secret).
+     For more information about the properties of the `yandex_lockbox_secret` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/lockbox_secret).
+
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

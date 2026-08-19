@@ -16,7 +16,7 @@ To save a certificate:
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the certificate.
-     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+     1. [Navigate]({{ link-console-main }}/link/certificate-manager) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
      1. Copy the **{{ ui-key.yacloud.common.id }}** field data for the certificate you want to save.
 
    - CLI {#cli}
@@ -97,19 +97,23 @@ To restore a user certificate from the certificate chain and key files:
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder the certificate will be restored to.
-     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+     1. [Navigate]({{ link-console-main }}/link/certificate-manager) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
      1. Click **{{ ui-key.yacloud.certificate-manager.button_empty-action }}**.
      1. In the menu that opens, select **{{ ui-key.yacloud.certificate-manager.action_import }}**.
      1. In the window that opens, enter a name for your certificate in the **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** field.
      1. Optionally, in the **Description** field, describe the certificate.
      1. In the **{{ ui-key.yacloud.certificate-manager.import.field_chain }}** field, click **{{ ui-key.yacloud.certificate-manager.import.button_add-chain }}**.
+        
         1. Choose how to add it: `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}`.
         1. Click **Attach file** and specify the certificate chain file.
         1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
+     
      1. In the **{{ ui-key.yacloud.certificate-manager.import.field_privateKey }}** field, click **{{ ui-key.yacloud.certificate-manager.import.button_add-privateKey }}**.
+        
         1. Choose how to add it: `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` or `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}`.
         1. Click **Attach file** and specify the private key file.
         1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
+     
      1. Click **{{ ui-key.yacloud.common.create }}**.
 
    - CLI {#cli}

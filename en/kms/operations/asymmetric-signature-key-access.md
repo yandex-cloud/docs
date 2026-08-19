@@ -14,11 +14,11 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a folder containing an asymmetric encryption key pair.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+   1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
    1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
    1. On the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_signature }}** tab, click the name of the key pair.
    1. Navigate to ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
-   1. Select the group, user, or service account you want to grant access to the key pair.
+   1. Select the group, user, or service account you need to grant access to the key pair.
    1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required roles.
    1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
@@ -124,8 +124,8 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
 
    * `ADD` value in the `access_binding_deltas[].action` parameter to add a role.
    * Role in the `access_binding_deltas[].access_binding.role_id` parameter.
-   * ID of the subject you are assigning the role to in the `access_binding_deltas[].access_binding.subject.id` parameter.
-   * Type of the subject you are assigning the role to in the `access_binding_deltas[].access_binding.subject.type` parameter.
+   * ID of the subject getting the role in the `access_binding_deltas[].access_binding.subject.id` parameter.
+   * Type of the subject getting the role in the `access_binding_deltas[].access_binding.subject.type` parameter.
 
 {% endlist %}
 
@@ -136,11 +136,11 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a folder containing an asymmetric encryption key pair.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+   1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
    1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
    1. On the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_signature }}** tab, click the name of the key pair.
    1. Navigate to ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
-   1. Select the group, user, or service account you want to grant access to the key pair.
+   1. Select the group, user, or service account you need to grant access to the key pair.
    1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required roles.
    1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
@@ -213,9 +213,9 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
       ```bash
       yc kms asymmetric-signature-key set-access-bindings \
         --id <key_pair_ID> \
-        --access-binding role=<role_1>,service-account-id=<service_account_ID> \
-        --access-binding role=<role_2>,service-account-id=<service_account_ID> \
-        --access-binding role=<role_3>,service-account-id=<service_account_ID>
+        --access-binding role=<role1>,service-account-id=<service_account_ID> \
+        --access-binding role=<role2>,service-account-id=<service_account_ID> \
+        --access-binding role=<role3>,service-account-id=<service_account_ID>
       ```
 
 - {{ TF }} {#tf}

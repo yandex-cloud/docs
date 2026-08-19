@@ -10,6 +10,8 @@ DNS filters support the following list types:
 * Allowlist (whitelist): Contains FQDNs that will resolve successfully.
 * Blocklist (blacklist): Contains FQDNs that will not resolve.
 
+Each list of a single DNS filter can contain up to 255 FQDNs. For more information, see [{#T}](./limits.md#cloud-dns-limits).
+
 When creating FQDN lists, follow these rules:
 * Each FQDN in the list must end with a dot (`.`).
 * You may specify a domain name or its subdomains. You can use the `*` wildcard as a mask to represent any value but only at the beginning of a mask, e.g., `*.mydom.net.`.
@@ -32,7 +34,7 @@ Examples of FQDN lists:
 
 1. You can create multiple filters for a single resource type.
 
-1. When creating a filter, you can specify cloud resources to which it will apply.
+1. When creating a filter, you can specify cloud resources to which it will apply. A single DNS filter can be attached to up to 100 resources. For more information, see [{#T}](./limits.md#cloud-dns-limits).
 
 1. A single filter can contain both allowlists and blocklists. You can explicitly allow a specific FQDN even if its parent domain is in the blocklist. Also, you can apply different list types to different cloud resources, e.g., use a blocklist at the cloud level and an allowlist for a specific network located in one of the cloud's folders.
 

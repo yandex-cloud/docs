@@ -1,4 +1,7 @@
-# CLI installation
+# Installing the {{ yandex-cloud }} CLI
+
+
+{% include [supported-os](../../_includes/cli/supported-os.md) %}
 
 
 You can install the CLI in any of the following ways: 

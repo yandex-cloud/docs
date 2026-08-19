@@ -15,9 +15,9 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится трейл.
   1. [Перейдите](https://console.yandex.cloud/link/audit-trails) в сервис **Audit Trails**.
-  1. В строке с нужным трейлом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать**.
+  1. В строке с нужным трейлом нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать**.
   1. Измените параметры трейла. Список настроек трейла, которые можно изменить, приведен в разделе [Настройки трейла](../concepts/trail.md#trail-settings).
-  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите **Сохранить**.
 
 - CLI {#cli}
 
@@ -337,7 +337,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится трейл.
   1. [Перейдите](https://console.yandex.cloud/link/audit-trails) в сервис **Audit Trails**.
-  1. В строке с нужным трейлом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../_assets/console-icons/trash-bin.svg) **Удалить**.
+  1. В строке с нужным трейлом нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../_assets/console-icons/trash-bin.svg) **Удалить**.
   1. В открывшемся окне подтвердите удаление.
 
 - CLI {#cli}

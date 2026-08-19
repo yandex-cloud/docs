@@ -63,7 +63,7 @@ Make sure to meet the following prerequisites:
 
 - {{ cloud-center }} UI {#cloud-center}
 
-  1. Go to [{{ org-full-name }}]({{ link-org-cloud-center }}).
+  1. [Navigate]({{ link-org-cloud-center }}) to **{{ org-full-name }}**.
 
   1. In the left-hand panel, select ![icon-federation](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
 
@@ -427,7 +427,7 @@ To configure such a policy:
 
          {% include [adfs-group-note](../../_includes/organization/adfs-group-note.md) %}
 
-      For more information, see the descriptions of the [yandex_organizationmanager_group_mapping]({{ tf-provider-resources-link }}/organizationmanager_group_mapping) and [yandex_organizationmanager_group_mapping_item]({{ tf-provider-resources-link }}/organizationmanager_group_mapping_item) resources in the {{ TF }} provider guides.
+      For more information, see [yandex_organizationmanager_group_mapping]({{ tf-provider-resources-link }}/organizationmanager_group_mapping) and [yandex_organizationmanager_group_mapping_item]({{ tf-provider-resources-link }}/organizationmanager_group_mapping_item) in the {{ TF }} provider guides.
 
   1. Create the resources:
 

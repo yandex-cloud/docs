@@ -12,15 +12,18 @@ To create a [backend group](../concepts/backend-group.md):
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a backend group.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Navigate]({{ link-console-main }}/link/application-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. Click **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
   1. Specify the backend group name.
   1. Select the [backend group type](../concepts/backend-group.md#group-types):
+     
      * `{{ ui-key.yacloud.alb.label_proto-http }}`: For HTTP or HTTPS traffic.
      * `{{ ui-key.yacloud.alb.label_proto-grpc }}`: For HTTP or HTTPS traffic with [gRPC](https://{{ lang }}.wikipedia.org/wiki/GRPC).
      * `{{ ui-key.yacloud.alb.label_proto-stream }}`: For unencrypted TCP traffic or TCP traffic with TLS encryption support.
+  
   1. Optinally, enable [session affinity](../concepts/backend-group.md#session-affinity). `{{ ui-key.yacloud.alb.label_proto-http-plain }}` and `{{ ui-key.yacloud.alb.label_proto-grpc }}` backend groups support the following session affinity modes:
+     
      * `{{ ui-key.yacloud.alb.label_affinity-connection }}`.
      * `{{ ui-key.yacloud.alb.label_affinity-header }}`.
      * `{{ ui-key.yacloud.alb.label_affinity-cookie }}`.
@@ -234,7 +237,9 @@ To create a [backend group](../concepts/backend-group.md):
      ```
 
      Where:
+     
      * `yandex_alb_backend_group`: Backend group settings:
+       
        * `name`: Backend group name.
        * `session_affinity`: Optional [session affinity](../../application-load-balancer/concepts/backend-group.md#session-affinity) settings.
 
@@ -246,6 +251,7 @@ To create a [backend group](../concepts/backend-group.md):
      {% include [TF-backend-settings](../../_includes/application-load-balancer/TF-backend-settings.md) %}
 
      For more on the properties of the `yandex_alb_backend_group` resource, see [this provider guide]({{ tf-provider-alb-backendgroup }}).
+  
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

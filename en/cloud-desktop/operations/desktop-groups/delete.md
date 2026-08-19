@@ -10,7 +10,7 @@ description: In this tutorial, you will learn how to delete a desktop group in {
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the desktop group.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
+  1. [Navigate]({{ link-console-main }}/link/cloud-desktop) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the desktop group you want to delete, then select **{{ ui-key.yacloud.common.delete }}**.
   
       {% note tip %}

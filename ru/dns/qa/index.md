@@ -23,8 +23,8 @@ description: На странице представлены вопросы и о
 Чтобы добавить новое значение:
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет изменена запись зоны DNS.
-1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
-1. Выберите зону из списка.
+1. [Перейдите]({{ link-console-main }}/link/dns) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+1. Нажмите на нужную зону.
 1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) напротив имени нужной записи и выберите ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
 1. На открывшейся странице нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 1. В появившемся поле введите новое **{{ ui-key.yacloud.dns.label_records }}** записи.

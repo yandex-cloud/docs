@@ -144,7 +144,7 @@ description: Следуя данной инструкции, вы сможете
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится балансировщик.
      1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
      1. Выберите нужный балансировщик.
-     1. Перейдите на вкладку ![image](../../_assets/console-icons/heart-pulse.svg) **{{ ui-key.yacloud.alb.label_healthchecks }}**.
+     1. Перейдите на вкладку **{{ ui-key.yacloud.alb.label_healthchecks }}**.
      1. Раскройте список целевых ресурсов. ВМ, привязанные к целевой группе, должны иметь [статус](../../compute/concepts/vm-statuses.md) `HEALTHY`.
 
    - API {#api}

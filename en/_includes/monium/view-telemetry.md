@@ -2,7 +2,7 @@
 
 - {{ monium-name }} UI {#console}
 
-  1. On the [{{ monium-name }}]({{ link-monium }}) home page, select a data type section on the left:
+  1. On the [{{ monium-name }}]({{ link-monium }}) home page, hover over ![alt](../../_assets/console-icons/compass.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.all-panel.menu.category.explore }}** on the left and select the correct data type section:
 
       {% list tabs group=monium_telemetry_type %}
 

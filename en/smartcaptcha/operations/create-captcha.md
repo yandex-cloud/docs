@@ -21,7 +21,7 @@ When creating a CAPTCHA, you can:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
+  1. [Navigate]({{ link-console-main }}/link/smartcaptcha) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
   1. Click **{{ ui-key.yacloud.smartcaptcha.button_captcha-settings-create }}**.
 
   1. Specify the **{{ ui-key.yacloud.common.name }}** of the CAPTCHA you are creating:
@@ -33,12 +33,14 @@ When creating a CAPTCHA, you can:
      1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
      1. Add a label in `key: value` format.
      1. Press **Enter**.
+  
   1. Optionally, select [**{{ ui-key.yacloud.smartcaptcha.label_no-hostname-check }}**](../concepts/domain-validation.md).
   1. Specify **{{ ui-key.yacloud.smartcaptcha.label_allowed-sites }}** as IP addresses or domain names without `http`/`https` at the beginning and `/` at the end, e.g., `example.com`.
 
      The CAPTCHA will also work on all subdomains of the specified domains.
 
   1. Set up the **{{ ui-key.yacloud.smartcaptcha.label_section-style }}** of the **I'm not a robot** button and the challenge window:
+     
      * Optionally, enable **{{ ui-key.yacloud.smartcaptcha.CaptchaSettingsForm.PresetsSection.label_enable-dynamic-theme_tme9P }}** if you want to automatically adjust the CAPTCHA’s color theme according to your browser’s theme.
 
      * Under **{{ ui-key.yacloud.smartcaptcha.CaptchaSettingsForm.StyleSection.label_section-customization-light_tL96w }}** and **{{ ui-key.yacloud.smartcaptcha.CaptchaSettingsForm.StyleSection.label_section-customization-dark_dMJ2m }}**, you can add custom properties for various CAPTCHA elements, e.g., the challenge window, either via the form or by describing styles in `JSON` format.
@@ -50,6 +52,7 @@ When creating a CAPTCHA, you can:
   1. Configure the **Challenge options**. You can either specify the default CAPTCHA, or add extra [challenge options](../concepts/captcha-variants.md) if you want to show different CAPTCHAs for different requests.
   
   1. For the **Default** option, specify:
+      
       * **{{ ui-key.yacloud.smartcaptcha.label_main-challenge }}**: Type of the [main challenge](../concepts/tasks.md#main-task) shown to the user.
       * **{{ ui-key.yacloud.smartcaptcha.label_additional-challenge }}**: Type of the [additional challenge](../concepts/tasks.md#additional-task) shown to the user.
       * **{{ ui-key.yacloud.smartcaptcha.label_complexity }}**: [Difficulty level](../concepts/tasks.md#task-difficulty) of the challenge shown to the user:
@@ -63,11 +66,13 @@ When creating a CAPTCHA, you can:
         {% include [note-preview-captcha-variants](../../_includes/smartcaptcha/note-preview-captcha-variants.md) %}
 
   1. To show different CAPTCHAs for different requests:
+     
      1. Click **Add option** and configure the settings the same way as you did for the default CAPTCHA.
 
         To delete an option, click ![options](../../_assets/console-icons/trash-bin.svg). If this option is used in a display rule, you cannot delete it.
 
      1. Add [incoming traffic rules](../concepts/captcha-variants.md#captcha-view-rules) that will determine which CAPTCHA option to display:
+         
          * Click **Add rule**.
          * Specify the rule name and description.
          * Select a CAPTCHA option.
@@ -76,6 +81,7 @@ When creating a CAPTCHA, you can:
             Rules are processed from lowest to highest priority, e.g., `1`, `2`, etc. If the request matches multiple rules, the first matching rule will apply.
           
          * Specify one or more [conditions for the incoming traffic](../concepts/captcha-variants.md#traffic-conditions):
+            
             * `IP`: IP address, CIDR, or IP region.
             * `HTTP header`: HTTP header string.
             * `URI`: Requested website path.
@@ -126,18 +132,24 @@ When creating a CAPTCHA, you can:
      ```
  
      Where:
+     
      * `--name`: CAPTCHA name.
-     * `--turn-off-hostname-check`: [Disable domain check](../concepts/domain-validation.md). This is an optional setting.
+     * `--turn-off-hostname-check`: [Disable domain check](../concepts/domain-validation.md). This is an optional argument.
      * `--allowed-site`: List of hosts, specified as IP addresses or domain names without `http`/`https` at the beginning and `/` at the end, e.g., `example.com`. The CAPTCHA will also work on all subdomains of the specified domains. This is an optional setting.
      * `--pre-check-type`: Type of the default [main challenge](../concepts/tasks.md#main-task) given to the user. The possible values are:
+       
        * `CHECKBOX`: Checkbox.
        * `SLIDER`: Slider.
+     
      * `--challenge-type`: Type of the default [additional challenge](../concepts/tasks.md#additional-task) shown to the user. The possible values are:
+       
        * `IMAGE_TEXT`: Text recognition.
        * `SILHOUETTES`: Silhouettes.
        * `KALEIDOSCOPE`: Kaleidoscope.
+     
      * `--style-json`: Color theme settings in `JSON` format. To set a dynamic color scheme, use the `light` and `dark` keys with values as separate JSON objects. You can configure the color scheme for both types in the [management console]({{ link-console-main }}) and copy it in JSON format on the `JSON` tab. This is an optional setting. For more information, see [this example](#with-rules).
      * `--complexity`: Default challenge [difficulty](../concepts/tasks.md#task-difficulty). The possible values are:
+       
        * `EASY`: Easy challenge.
        * `MEDIUM`: Medium challenge.
        * `HARD`: Hard challenge.
@@ -163,6 +175,7 @@ When creating a CAPTCHA, you can:
        ```
  
        Where:
+       
        * `uuid`: Challenge option’s unique identifier.
        * `description`: Challenge option description. 
        * `complexity`: Difficulty level of the challenge shown to the user.
@@ -198,6 +211,7 @@ When creating a CAPTCHA, you can:
        ```
  
        Where:
+       
        * `name`: Rule name.
        * `priority`: Rule priority, from `1` to `999999`.
          
@@ -224,9 +238,11 @@ When creating a CAPTCHA, you can:
      {% include [tf-creation-configuration](../../_includes/smartcaptcha/tf-creation-configuration.md) %}
 
      Where:
+     
      * `name`: CAPTCHA name.
      * `turn_off_hostname_check`: [Disable domain check](../concepts/domain-validation.md). This is an optional setting.     
      * `complexity`: [Difficulty](../concepts/tasks.md#task-difficulty) level of the default challenge shown to the user. The possible values are:
+       
        * `EASY`: Easy challenge.
        * `MEDIUM`: Medium challenge.
        * `HARD`: Hard challenge.
@@ -235,21 +251,28 @@ When creating a CAPTCHA, you can:
        {% include [note-preview-captcha-variants](../../_includes/smartcaptcha/note-preview-captcha-variants.md) %}
 
      * `pre_check_type`: Type of the default [main challenge](../concepts/tasks.md#main-task) shown to the user. The possible values are:
+       
        * `CHECKBOX`: Checkbox.
        * `SLIDER`: Slider.
+     
      * `challenge_type`: Type of the default [additional challenge](../concepts/tasks.md#additional-task) shown to the user. The possible values are:
+       
        * `IMAGE_TEXT`: Text recognition.
        * `SILHOUETTES`: Silhouettes.
        * `KALEIDOSCOPE`: Kaleidoscope.
+     
      * `style_json`: Color theme settings in `JSON` format. To set a dynamic color scheme, use the `light` and `dark` keys with values as separate JSON objects. You can configure the color scheme for both types in the [management console]({{ link-console-main }}) and copy it in JSON format on the `JSON` tab. This is an optional setting.
      * `allowed_sites`: List of hosts, specified as IP addresses or domain names without `http`/`https` at the beginning and `/` at the end, e.g., `example.com`. The CAPTCHA will also work on all subdomains of the specified domains. This is an optional setting.
      * `override_variant`: Section containing the challenge [option](../concepts/captcha-variants.md) description. This is an optional setting.
+       
        * `uuid`: Unique challenge option ID.
        * `description`: Challenge option description. This is an optional setting.
        * `complexity`: Difficulty level of the challenge shown to the user:
        * `pre_check_type`: Type of the main challenge shown to the user.
        * `challenge_type`: Type of the additional challenge shown to the user.
+     
      * `security_rule`: Section describing [incoming traffic rules](../concepts/captcha-variants.md#captcha-view-rules) that determine which CAPTCHA option to display. This is an optional setting.
+       
        * `name`: Rule name.
        * `priority`: Rule priority, from `1` to `999999`.
 
@@ -294,6 +317,7 @@ Create a CAPTCHA named `simple-captcha` that does not use any incoming traffic r
   ```
 
   Result:
+  
   ```text
   id: bpn7pri980fs********
   folder_id: b1g0ijbfaqsn********
@@ -382,28 +406,37 @@ Create a CAPTCHA with incoming traffic rules using the following test specificat
 
 * List of hosts: `example.ru`, `example.kz`.
 * The default challenge settings are as follows:
+  
   * Challenge difficulty: `HARD`.
   * Main challenge type: `SLIDER`.
   * Additional challenge type: `IMAGE_TEXT`.
+
 * First challenge option settings:
+  
   * Challenge option ID: `variant-1`.
   * Challenge option description: `Simple variant`.
   * Challenge difficulty: `EASY`.
   * Main challenge type: `CHECKBOX`.
   * Additional challenge type: `SILHOUETTES`.
+
 * Second challenge option settings:
+  
   * Challenge option ID: `variant-2`.
   * Challenge option description: `Hard variant`.
   * Challenge difficulty: `HARD`.
   * Main challenge type: `SLIDER`.
   * Additional challenge type: `KALEIDOSCOPE`.
+
 * Settings for the first incoming traffic rule:
+  
   * Rule name: `rule-1`.
   * Rule priority: `11`.
   * Rule description: `My first security rule`.
   * Challenge option ID: `variant-1`.
   * Incoming traffic conditions: host matches `example.com` or `example.net`.
+
 * Settings for the second incoming traffic rule:
+  
   * Rule name: `rule-2`.
   * Rule priority: `12`.
   * Rule description: `My second security rule`.

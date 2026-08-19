@@ -1,4 +1,4 @@
-# Getting profile information
+# Getting {{ yandex-cloud }} CLI profile information
 
 Use the profile name to access the profile. You can get the profile name from the list of profiles.
 

@@ -1,4 +1,4 @@
-# Activating a profile
+# Activating a {{ yandex-cloud }} profile
 
 Multiple profiles let you quickly switch your command execution context. 
 

@@ -10,10 +10,10 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) откройте каталог, в котором находится зона DNS.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится зона DNS.
   1. [Перейдите](https://console.yandex.cloud/link/dns) в сервис **Cloud DNS**.
-  1. Выберите нужную зону.
-  1. Перейдите на панель ![image](../../_assets/operations.svg) **Операции** для выбранной зоны.
+  1. Нажмите на нужную зону.
+  1. Перейдите на вкладку **Операции**.
 
       В открывшемся списке отображаются операции с выбранной зоной и записями в ней.
 
@@ -61,7 +61,7 @@
 
 - API {#api}
 
-  Чтобы получить список операций с зоной, воспользуйтесь методом REST API [listOperations](../api-ref/DnsZone/listOperations.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md), или вызовом gRPC API [DnsZoneService/ListOperations](../api-ref/grpc/DnsZone/listOperations.md).
+  Чтобы получить список операций с зоной, воспользуйтесь методом REST API [listOperations](../api-ref/DnsZone/listOperations.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/ListOperations](../api-ref/grpc/DnsZone/listOperations.md).
 
 {% endlist %}
 
@@ -110,7 +110,7 @@
 
     - API {#api}
 
-      Воспользуйтесь методом REST API [get](../../api-design-guide/concepts/operation.md#monitoring), или вызовом gRPC API [OperationService/Get](../api-ref/grpc/Operation/get.md).
+      Воспользуйтесь методом REST API [get](../../api-design-guide/concepts/operation.md#monitoring) или вызовом gRPC API [OperationService/Get](../api-ref/grpc/Operation/get.md).
 
     {% endlist %}
 

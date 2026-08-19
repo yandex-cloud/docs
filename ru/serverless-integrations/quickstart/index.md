@@ -5,7 +5,6 @@ keywords:
   - eventrouter
   - event router
   - glue
-  - API Gateway
   - шина
   - коннектор
   - правило
@@ -20,5 +19,3 @@ keywords:
 * [{{ er-full-name }}](eventrouter.md) — создайте шину и передайте через нее данные. Подробнее о возможностях {{ er-name }} в [Концепциях](../concepts/eventrouter/bus.md).
 
     {% include [event-router-preview-note](../../_includes/serverless-integrations/event-router-preview-note.md) %}
-
-* {{ api-gw-full-name }} — сконфигурируйте API-шлюз для получения статического ответа, а затем добавьте интеграцию для вызова функции {{ sf-name }}. Подробнее о возможностях в [документации {{ api-gw-name }}](../../api-gateway/quickstart/index.md).

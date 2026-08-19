@@ -17,7 +17,7 @@ You can only manage [custom lists](../concepts/lists.md#user-rules). [Preset {{ 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/files.svg) **{{ ui-key.yacloud.smart-web-security.match-lists.label_match-lists }}** and click **{{ ui-key.yacloud.smart-web-security.match-lists.label_create-list }}**.
   1. Select the list type:
 
@@ -86,7 +86,7 @@ Now you will be able to select this list when adding a rule to a [security](rule
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/files.svg) **{{ ui-key.yacloud.smart-web-security.match-lists.label_match-lists }}**.
   1. Click the row with the list you need.
   1. Navigate to the **{{ ui-key.yacloud.smart-web-security.label_match-list_ip_qG1ho }}** tab.
@@ -104,7 +104,7 @@ Now you will be able to select this list when adding a rule to a [security](rule
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/files.svg) **{{ ui-key.yacloud.smart-web-security.match-lists.label_match-lists }}**.
   1. Next to the list, click ![options](../../_assets/console-icons/ellipsis.svg) and select ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Update the name and/or description for the list, add or delete labels as needed.
@@ -119,7 +119,7 @@ Now you will be able to select this list when adding a rule to a [security](rule
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/files.svg) **{{ ui-key.yacloud.smart-web-security.match-lists.label_match-lists }}**.
   1. Click the row with the list you need.
   1. Navigate to the **{{ ui-key.yacloud.smart-web-security.label_match-list_ip_qG1ho }}** tab.
@@ -141,7 +141,7 @@ Now you will be able to select this list when adding a rule to a [security](rule
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/files.svg) **{{ ui-key.yacloud.smart-web-security.match-lists.label_match-lists }}**.
   1. Next to the list, click ![options](../../_assets/console-icons/ellipsis.svg) and select ![image](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
 

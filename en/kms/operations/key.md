@@ -10,8 +10,8 @@ To create a key:
 
 - Management console {#console}
 
-  1. Log in to the [management console]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. Click **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** and set the key attributes:
 
@@ -69,8 +69,8 @@ To edit a key:
 
 - Management console {#console}
 
-  1. Log in to the [management console]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. In the line with the key, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
   1. Change the key attributes and click **{{ ui-key.yacloud.common.save }}**.
@@ -171,8 +171,8 @@ To change key status:
 
 - Management console {#console}
 
-  1. Log in to the [management console]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. To deactivate a key, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.symmetric-keys.button_action-deactivate }}** next to an `Active` key.
   1. To activate a key, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.symmetric-keys.button_action-activate }}** next to an `Inactive` key.
@@ -262,8 +262,8 @@ To rotate a key:
 
 - Management console {#console}
 
-  1. Log in to the [management console]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. In the line with the key, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.symmetric-keys.button_action-rotate }}**.
   1. Confirm the rotation (make sure that changing the default version will not affect your work).
@@ -300,8 +300,8 @@ To destroy a key:
 
 - Management console {#console}
 
-  1. Log in to the [management console]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. In the line with the key, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.

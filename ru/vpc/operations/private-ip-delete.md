@@ -13,12 +13,13 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога, в котором находится нужный адрес.
+   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится нужный адрес.
    1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. На панели слева выберите ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
    1. Выберите подсеть, в которой находится зарезервированный адрес.
-   1. Перейдите на вкладку ![addresses](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.subnetworks.switch_ip-addresses }}**.
-   1. Рядом с IP-адресом, который нужно удалить, нажмите кнопку ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+   1. Перейдите на вкладку **{{ ui-key.yacloud.vpc.subnetworks.switch_ip-addresses }}**.
+   1. В строке с IP-адресом, который нужно удалить, нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+   1. Подтвердите удаление.
 
 - CLI {#cli}
 
@@ -78,45 +79,19 @@ description: Следуя данной инструкции, вы сможете
      ...
      ```
 
-  1. В командной строке перейдите в папку, где расположен файл конфигурации {{ TF }}.
+  1. Примените изменения:
 
-  1. Проверьте конфигурацию командой:
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     ```
-     terraform validate
-     ```
+  1. Проверить изменения можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
-     Если конфигурация является корректной, появится сообщение:
-
-     ```
-     Success! The configuration is valid.
-     ```
-
-  1. Выполните команду:
-
-     ```
-     terraform plan
-     ```
-
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
-
-  1. Примените изменения конфигурации:
-
-     ```
-     terraform apply
-     ```
-
-  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
-
-     Проверить изменения можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
-
-     ```
+     ```bash
      yc vpc address list
      ```
 
 - API {#api}
 
-  Чтобы удалить внутренний IP-адрес, воспользуйтесь методом REST API [delete](../api-ref/Address/delete.md) для ресурса [Address](../api-ref/Address/index.md) или вызовом gRPC API [AddressService/Delete](../api-ref/grpc/Address/delete.md) и передайте в запросе идентификатор удаляемого адреса в параметре `addressId` для REST API или `adress_id` для gRPC API.
+  Чтобы удалить внутренний IP-адрес, воспользуйтесь методом REST API [delete](../api-ref/Address/delete.md) для ресурса [Address](../api-ref/Address/index.md) или вызовом gRPC API [AddressService/Delete](../api-ref/grpc/Address/delete.md) и передайте в запросе идентификатор удаляемого адреса в параметре `addressId` для REST API или `address_id` для gRPC API.
 
   {% include [get-address-id](../../_includes/vpc/get-adress-id.md) %}
 

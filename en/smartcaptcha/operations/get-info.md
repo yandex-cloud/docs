@@ -9,8 +9,8 @@ description: In this tutorial, you will learn how to get {{ captcha-full-name }}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing your [CAPTCHA](../concepts/validation.md).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the [captcha](../concepts/validation.md).
+  1. [Navigate]({{ link-console-main }}/link/smartcaptcha) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
   1. Select the CAPTCHA you need. You can check the CAPTCHA details on the **{{ ui-key.yacloud.common.overview }}** page.
 
 - CLI {#cli}
@@ -72,11 +72,14 @@ description: In this tutorial, you will learn how to get {{ captcha-full-name }}
       Where:
 
       * `data "yandex_smartcaptcha_captcha"`: Description of the CAPTCHA as a data source:
+         
          * `resource_id`: Resource identifier.
+      
       * `output "ref_description"`: Output variable with the [client key](../concepts/keys.md) (`client_key`) details:
+         
          * `value`: Return value.
 
-     You can replace `client_key` with another variable to get the information you need. For more on the properties of the `yandex_smartcaptcha_captcha` data source, see [this provider guide]({{ tf-provider-datasources-link }}/smartcaptcha_captcha).
+     You can replace `client_key` with another variable to get the information you need. For more information about the properties of the `yandex_smartcaptcha_captcha` data source, see [this provider guide]({{ tf-provider-datasources-link }}/smartcaptcha_captcha).
 
   1. Create the resources:
 

@@ -27,8 +27,14 @@ The critical path is only calculated for traces with a single root span. If the 
 
 ## Viewing the critical path {#critical-path-view}
 
-1. Navigate to [{{ monium-name }}]({{ link-monium }}) → **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.traces.title }}**.
-1. Enter your query and select a trace.
-1. At the top, click **{{ ui-key.yacloud_monitoring.traces.trace-tabs.crit-path }}**.
+{% list tabs group=instructions %}
 
-![traces-critical-path](../../../_assets/monium/traces-critical-path.png)
+- {{ monium-name }} UI {#console}
+
+  1. On the [{{ monium-name }}]({{ link-monium }}) home page, select ![alt](../../../_assets/console-icons/compass.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.all-panel.menu.category.explore }}** → ![alt](../../../_assets/console-icons/hierarchy.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.traces.title }}** on the left.
+  1. Enter your query and select a trace.
+  1. At the top, click **{{ ui-key.yacloud_monitoring.traces.trace-tabs.crit-path }}**.
+
+     ![traces-critical-path](../../../_assets/monium/traces-critical-path.png)
+
+{% endlist %}

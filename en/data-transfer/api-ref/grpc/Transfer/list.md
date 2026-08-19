@@ -193,7 +193,32 @@ with the `next_page_token` from the previous `ListTransfersResponse`. ||
               "string"
             ],
             "changefeed_custom_name": "string",
-            "changefeed_custom_consumer_name": "string"
+            "changefeed_custom_consumer_name": "string",
+            "authentication": {
+              // Includes only one of the fields `service_account`
+              "service_account": {
+                "service_account_id": "string"
+              }
+              // end of the list of possible fields
+            },
+            "ydb_connection": {
+              // Includes only one of the fields `database_id`, `on_premise`
+              "database_id": "string",
+              "on_premise": {
+                "database": "string",
+                "instance": "string",
+                "tls_mode": {
+                  // Includes only one of the fields `disabled`, `enabled`
+                  "disabled": "google.protobuf.Empty",
+                  "enabled": {
+                    "ca_certificate": "string"
+                  }
+                  // end of the list of possible fields
+                },
+                "subnet_id": "string"
+              }
+              // end of the list of possible fields
+            }
           },
           "yds_source": {
             "database": "string",
@@ -256,7 +281,34 @@ with the `next_page_token` from the previous `ListTransfersResponse`. ||
             "security_groups": [
               "string"
             ],
-            "consumer": "string"
+            "consumer": "string",
+            "authentication": {
+              // Includes only one of the fields `service_account_id`
+              "service_account_id": "string"
+              // end of the list of possible fields
+            },
+            "ydb_connection": {
+              // Includes only one of the fields `managed_yds`, `on_premise`
+              "managed_yds": {
+                "database_id": "string",
+                "stream": "string"
+              },
+              "on_premise": {
+                "database": "string",
+                "stream": "string",
+                "instance": "string",
+                "tls_mode": {
+                  // Includes only one of the fields `disabled`, `enabled`
+                  "disabled": "google.protobuf.Empty",
+                  "enabled": {
+                    "ca_certificate": "string"
+                  }
+                  // end of the list of possible fields
+                },
+                "subnet_id": "string"
+              }
+              // end of the list of possible fields
+            }
           },
           "kafka_source": {
             "connection": {
@@ -637,7 +689,32 @@ with the `next_page_token` from the previous `ListTransfersResponse`. ||
             ],
             "is_table_column_oriented": "bool",
             "default_compression": "YdbDefaultCompression",
-            "is_schema_migration_disabled": "bool"
+            "is_schema_migration_disabled": "bool",
+            "authentication": {
+              // Includes only one of the fields `service_account`
+              "service_account": {
+                "service_account_id": "string"
+              }
+              // end of the list of possible fields
+            },
+            "ydb_connection": {
+              // Includes only one of the fields `database_id`, `on_premise`
+              "database_id": "string",
+              "on_premise": {
+                "database": "string",
+                "instance": "string",
+                "tls_mode": {
+                  // Includes only one of the fields `disabled`, `enabled`
+                  "disabled": "google.protobuf.Empty",
+                  "enabled": {
+                    "ca_certificate": "string"
+                  }
+                  // end of the list of possible fields
+                },
+                "subnet_id": "string"
+              }
+              // end of the list of possible fields
+            }
           },
           "kafka_target": {
             "connection": {
@@ -789,7 +866,34 @@ with the `next_page_token` from the previous `ListTransfersResponse`. ||
             "subnet_id": "string",
             "security_groups": [
               "string"
-            ]
+            ],
+            "authentication": {
+              // Includes only one of the fields `service_account_id`
+              "service_account_id": "string"
+              // end of the list of possible fields
+            },
+            "ydb_connection": {
+              // Includes only one of the fields `managed_yds`, `on_premise`
+              "managed_yds": {
+                "database_id": "string",
+                "stream": "string"
+              },
+              "on_premise": {
+                "database": "string",
+                "stream": "string",
+                "instance": "string",
+                "tls_mode": {
+                  // Includes only one of the fields `disabled`, `enabled`
+                  "disabled": "google.protobuf.Empty",
+                  "enabled": {
+                    "ca_certificate": "string"
+                  }
+                  // end of the list of possible fields
+                },
+                "subnet_id": "string"
+              }
+              // end of the list of possible fields
+            }
           }
           // end of the list of possible fields
         }
@@ -930,7 +1034,32 @@ with the `next_page_token` from the previous `ListTransfersResponse`. ||
               "string"
             ],
             "changefeed_custom_name": "string",
-            "changefeed_custom_consumer_name": "string"
+            "changefeed_custom_consumer_name": "string",
+            "authentication": {
+              // Includes only one of the fields `service_account`
+              "service_account": {
+                "service_account_id": "string"
+              }
+              // end of the list of possible fields
+            },
+            "ydb_connection": {
+              // Includes only one of the fields `database_id`, `on_premise`
+              "database_id": "string",
+              "on_premise": {
+                "database": "string",
+                "instance": "string",
+                "tls_mode": {
+                  // Includes only one of the fields `disabled`, `enabled`
+                  "disabled": "google.protobuf.Empty",
+                  "enabled": {
+                    "ca_certificate": "string"
+                  }
+                  // end of the list of possible fields
+                },
+                "subnet_id": "string"
+              }
+              // end of the list of possible fields
+            }
           },
           "yds_source": {
             "database": "string",
@@ -993,7 +1122,34 @@ with the `next_page_token` from the previous `ListTransfersResponse`. ||
             "security_groups": [
               "string"
             ],
-            "consumer": "string"
+            "consumer": "string",
+            "authentication": {
+              // Includes only one of the fields `service_account_id`
+              "service_account_id": "string"
+              // end of the list of possible fields
+            },
+            "ydb_connection": {
+              // Includes only one of the fields `managed_yds`, `on_premise`
+              "managed_yds": {
+                "database_id": "string",
+                "stream": "string"
+              },
+              "on_premise": {
+                "database": "string",
+                "stream": "string",
+                "instance": "string",
+                "tls_mode": {
+                  // Includes only one of the fields `disabled`, `enabled`
+                  "disabled": "google.protobuf.Empty",
+                  "enabled": {
+                    "ca_certificate": "string"
+                  }
+                  // end of the list of possible fields
+                },
+                "subnet_id": "string"
+              }
+              // end of the list of possible fields
+            }
           },
           "kafka_source": {
             "connection": {
@@ -1374,7 +1530,32 @@ with the `next_page_token` from the previous `ListTransfersResponse`. ||
             ],
             "is_table_column_oriented": "bool",
             "default_compression": "YdbDefaultCompression",
-            "is_schema_migration_disabled": "bool"
+            "is_schema_migration_disabled": "bool",
+            "authentication": {
+              // Includes only one of the fields `service_account`
+              "service_account": {
+                "service_account_id": "string"
+              }
+              // end of the list of possible fields
+            },
+            "ydb_connection": {
+              // Includes only one of the fields `database_id`, `on_premise`
+              "database_id": "string",
+              "on_premise": {
+                "database": "string",
+                "instance": "string",
+                "tls_mode": {
+                  // Includes only one of the fields `disabled`, `enabled`
+                  "disabled": "google.protobuf.Empty",
+                  "enabled": {
+                    "ca_certificate": "string"
+                  }
+                  // end of the list of possible fields
+                },
+                "subnet_id": "string"
+              }
+              // end of the list of possible fields
+            }
           },
           "kafka_target": {
             "connection": {
@@ -1526,7 +1707,34 @@ with the `next_page_token` from the previous `ListTransfersResponse`. ||
             "subnet_id": "string",
             "security_groups": [
               "string"
-            ]
+            ],
+            "authentication": {
+              // Includes only one of the fields `service_account_id`
+              "service_account_id": "string"
+              // end of the list of possible fields
+            },
+            "ydb_connection": {
+              // Includes only one of the fields `managed_yds`, `on_premise`
+              "managed_yds": {
+                "database_id": "string",
+                "stream": "string"
+              },
+              "on_premise": {
+                "database": "string",
+                "stream": "string",
+                "instance": "string",
+                "tls_mode": {
+                  // Includes only one of the fields `disabled`, `enabled`
+                  "disabled": "google.protobuf.Empty",
+                  "enabled": {
+                    "ca_certificate": "string"
+                  }
+                  // end of the list of possible fields
+                },
+                "subnet_id": "string"
+              }
+              // end of the list of possible fields
+            }
           }
           // end of the list of possible fields
         }
@@ -2359,6 +2567,60 @@ Pre-created change feed if any ||
 || changefeed_custom_consumer_name | **string**
 
 Consumer for pre-created change feed if any ||
+|| authentication | **[AuthenticationMethod](#yandex.cloud.datatransfer.v1.endpoint.AuthenticationMethod)** ||
+|| ydb_connection | **[YDBConnection](#yandex.cloud.datatransfer.v1.endpoint.YDBConnection)** ||
+|#
+
+## AuthenticationMethod {#yandex.cloud.datatransfer.v1.endpoint.AuthenticationMethod}
+
+#|
+||Field | Description ||
+|| service_account | **[ServiceAccount](#yandex.cloud.datatransfer.v1.endpoint.AuthenticationMethod.ServiceAccount)**
+
+Includes only one of the fields `service_account`. ||
+|#
+
+## ServiceAccount {#yandex.cloud.datatransfer.v1.endpoint.AuthenticationMethod.ServiceAccount}
+
+#|
+||Field | Description ||
+|| service_account_id | **string**
+
+Service account ID for interaction with database ||
+|#
+
+## YDBConnection {#yandex.cloud.datatransfer.v1.endpoint.YDBConnection}
+
+#|
+||Field | Description ||
+|| database_id | **string**
+
+Managed Service for YDB database ID
+
+Includes only one of the fields `database_id`, `on_premise`. ||
+|| on_premise | **[OnPremiseYDB](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseYDB)**
+
+Includes only one of the fields `database_id`, `on_premise`. ||
+|#
+
+## OnPremiseYDB {#yandex.cloud.datatransfer.v1.endpoint.OnPremiseYDB}
+
+#|
+||Field | Description ||
+|| database | **string**
+
+Database path in YDB where tables are stored.
+Example: `/ru/transfer_manager/prod/data-transfer` ||
+|| instance | **string**
+
+Instance of YDB. example: ydb-ru-prestable.yandex.net:2135. ||
+|| tls_mode | **[TLSMode](#yandex.cloud.datatransfer.v1.endpoint.TLSMode)**
+
+TLS settings for server connection. Disabled by default. ||
+|| subnet_id | **string**
+
+Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database.
+If omitted, the server has to be accessible via Internet ||
 |#
 
 ## YDSSource {#yandex.cloud.datatransfer.v1.endpoint.YDSSource}
@@ -2408,6 +2670,12 @@ use ||
 || consumer | **string**
 
 Custom consumer - for important streams ||
+|| authentication | **[YDSAuthenticationMethod](#yandex.cloud.datatransfer.v1.endpoint.YDSAuthenticationMethod)**
+
+Choose one of authentication methods, right now only service account is avaiable ||
+|| ydb_connection | **[YDSConnection](#yandex.cloud.datatransfer.v1.endpoint.YDSConnection)**
+
+Connection settings for managed YDB or for on premise ||
 |#
 
 ## Parser {#yandex.cloud.datatransfer.v1.endpoint.Parser}
@@ -2529,6 +2797,64 @@ Path to the field ||
 #|
 ||Field | Description ||
 || Empty | > ||
+|#
+
+## YDSAuthenticationMethod {#yandex.cloud.datatransfer.v1.endpoint.YDSAuthenticationMethod}
+
+#|
+||Field | Description ||
+|| service_account_id | **string**
+
+Service account ID for interaction with database
+
+Includes only one of the fields `service_account_id`. ||
+|#
+
+## YDSConnection {#yandex.cloud.datatransfer.v1.endpoint.YDSConnection}
+
+#|
+||Field | Description ||
+|| managed_yds | **[ManagedYDS](#yandex.cloud.datatransfer.v1.endpoint.ManagedYDS)**
+
+Includes only one of the fields `managed_yds`, `on_premise`. ||
+|| on_premise | **[OnPremiseYDS](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseYDS)**
+
+Includes only one of the fields `managed_yds`, `on_premise`. ||
+|#
+
+## ManagedYDS {#yandex.cloud.datatransfer.v1.endpoint.ManagedYDS}
+
+#|
+||Field | Description ||
+|| database_id | **string**
+
+Managed Service for YDB database ID ||
+|| stream | **string**
+
+Stream to read ||
+|#
+
+## OnPremiseYDS {#yandex.cloud.datatransfer.v1.endpoint.OnPremiseYDS}
+
+#|
+||Field | Description ||
+|| database | **string**
+
+Database path in YDB where tables are stored.
+Example: `/ru/transfer_manager/prod/data-transfer` ||
+|| stream | **string**
+
+Stream to read ||
+|| instance | **string**
+
+Instance of YDB. example: ydb-ru-prestable.yandex.net:2135. ||
+|| tls_mode | **[TLSMode](#yandex.cloud.datatransfer.v1.endpoint.TLSMode)**
+
+TLS settings for server connection. Disabled by default. ||
+|| subnet_id | **string**
+
+Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database.
+If omitted, the server has to be accessible via Internet ||
 |#
 
 ## KafkaSource {#yandex.cloud.datatransfer.v1.endpoint.KafkaSource}
@@ -3153,6 +3479,8 @@ One of `YDB_DEFAULT_COMPRESSION_UNSPECIFIED`,
 || is_schema_migration_disabled | **bool**
 
 Whether can change table schema if schema changed on source ||
+|| authentication | **[AuthenticationMethod](#yandex.cloud.datatransfer.v1.endpoint.AuthenticationMethod)** ||
+|| ydb_connection | **[YDBConnection](#yandex.cloud.datatransfer.v1.endpoint.YDBConnection)** ||
 |#
 
 ## KafkaTarget {#yandex.cloud.datatransfer.v1.endpoint.KafkaTarget}
@@ -3387,6 +3715,12 @@ database. If omitted, the server has to be accessible via Internet ||
 
 List of security groups that the transfer associated with this endpoint should
 use ||
+|| authentication | **[YDSAuthenticationMethod](#yandex.cloud.datatransfer.v1.endpoint.YDSAuthenticationMethod)**
+
+Choose one of authentication methods, right now only service account is avaiable ||
+|| ydb_connection | **[YDSConnection](#yandex.cloud.datatransfer.v1.endpoint.YDSConnection)**
+
+Connection settings for managed YDB or for on premise ||
 |#
 
 ## Runtime {#yandex.cloud.datatransfer.v1.Runtime}

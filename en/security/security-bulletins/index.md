@@ -325,7 +325,7 @@ You can do this by using the following tools:
 
 ### Additional information
 
-A checklist for a secure Kubernetes configuration is available [here](../domains/checklist#kubernetes-security).
+A checklist for a secure Kubernetes configuration is available [here](../domains/kubernetes.md).
 
 ## 03/03/2021: CVE-2021-21309: Remote code execution via a vulnerability in {{ RD }}
 

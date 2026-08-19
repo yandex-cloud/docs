@@ -697,4 +697,4 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Автоматическая привязка политики резервного копирования Yandex Cloud Backup к ВМ с помощью Terraform](terraform.md)
+[Автоматическая привязка политики резервного копирования Yandex Cloud Backup к ВМ с помощью Terraform](terraform.md)

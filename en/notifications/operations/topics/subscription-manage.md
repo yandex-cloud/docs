@@ -12,7 +12,7 @@ description: Follow this guide to update or delete a subscription in {{ cns-name
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the topic.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. [Navigate]({{ link-console-main }}/link/cns) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Select **{{ ui-key.yacloud.cns.local.label_topics_vhBR3 }}** on the left.
   1. Select the topic containing the subscription.
   1. Select **{{ ui-key.yacloud.cns.shared.CnsTopicLayout.subscriptions_cp53u }}** on the left.
@@ -22,16 +22,21 @@ description: Follow this guide to update or delete a subscription in {{ cns-name
 - AWS CLI {#aws-cli}
 
   1. View the list of subscriptions for the topic:
+     
      ```bash
      aws sns set-subscription-attributes \
       --subscription-arn **subscription_ARN** <attributes>
      ```
+  
   1. Update the subscription:
+     
      ```bash
      aws sns set-subscription-attributes \
       --subscription-arn **subscription_ARN** <attributes>
      ```
+  
   1. View the new subscription settings:
+     
      ```bash
      aws sns get-subscription-attributes \
       --subscription-arn **subscription_ARN**
@@ -61,7 +66,7 @@ description: Follow this guide to update or delete a subscription in {{ cns-name
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the topic.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. [Navigate]({{ link-console-main }}/link/cns) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Select **{{ ui-key.yacloud.cns.local.label_topics_vhBR3 }}** on the left.
   1. Select the topic containing the subscription.
   1. Select **{{ ui-key.yacloud.cns.shared.CnsTopicLayout.subscriptions_cp53u }}** on the left.

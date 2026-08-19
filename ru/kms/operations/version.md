@@ -20,7 +20,7 @@
   1. [Перейдите]({{ link-console-main }}/link/kms) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. Нажмите на нужный ключ в списке, чтобы открыть страницу с его атрибутами.
-  1. В строке нужной версии нажмите значок ![menu](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.kms.symmetric-key.overview.button_action-set-primary }}**.
+  1. В строке нужной версии нажмите значок ![menu](../../_assets/console-icons/ellipsis.svg) и выберите ![flag](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud.kms.symmetric-key.overview.button_action-set-primary }}**.
 
 - CLI {#cli}
 
@@ -78,7 +78,7 @@
   1. [Перейдите]({{ link-console-main }}/link/kms) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. Нажмите на нужный ключ в списке, чтобы открыть страницу с его атрибутами.
-  1. В строке нужной версии нажмите значок ![menu](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.kms.symmetric-key.overview.button_action-schedule-destruction }}**.
+  1. В строке нужной версии нажмите значок ![menu](../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.kms.symmetric-key.overview.button_action-schedule-destruction }}**.
 
   Версия перейдет в статус `Scheduled for destruction`, а в столбце **{{ ui-key.yacloud.kms.symmetric-key.overview.column_version-destroy }}** будет указан срок, на который запланировано удаление.
 
@@ -138,7 +138,7 @@
   1. [Перейдите]({{ link-console-main }}/link/kms) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. Нажмите на нужный ключ в списке, чтобы открыть страницу с его атрибутами.
-  1. В строке нужной версии нажмите значок ![menu](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.kms.symmetric-key.overview.button_action-cancel-destruction }}**.
+  1. В строке нужной версии нажмите значок ![menu](../../_assets/console-icons/ellipsis.svg) и выберите ![arrow-rotate-left](../../_assets/console-icons/arrow-rotate-left.svg) **{{ ui-key.yacloud.kms.symmetric-key.overview.button_action-cancel-destruction }}**.
   
   Версия вернется в статус `Active`.
 

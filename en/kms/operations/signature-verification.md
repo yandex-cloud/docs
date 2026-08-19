@@ -34,7 +34,7 @@ A signature based on a private key is used for messages of up to 32 KB.
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with the appropriate digital signature key pair.
-      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+      1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
       1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
       1. Navigate to the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_signature }}** tab.
       1. In the line with the key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.asymmetric-keys.action_public-key }}**.
@@ -102,6 +102,7 @@ A signature based on a private key is used for messages of up to 32 KB.
           ```
 
           Where:
+          
           * `--id`: ID of the digital signature key pair.
           * `--signature-output-file`: Path to the file to save the digital signature to.
           * `--message-file`: Path to the previously created file with the `base64`-encoded message.
@@ -122,6 +123,7 @@ A signature based on a private key is used for messages of up to 32 KB.
           ```
 
           Where:
+          
           * `<signature_file_path>`: Path to the signature file you got in the previous step.
           * `<signature_file>`: Path to the new signature file in `DER` format.
 
@@ -146,7 +148,7 @@ A hash-based signature is used for messages or files over 32 KB in size.
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with the appropriate digital signature key pair.
-      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+      1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
       1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
       1. Navigate to the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_signature }}** tab.
       1. In the line with the key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.asymmetric-keys.action_public-key }}**.
@@ -187,10 +189,13 @@ A hash-based signature is used for messages or files over 32 KB in size.
       ```
 
       Where:
+      
       * `<hashing_algorithm>`: Hashing algorithm used when creating a digital signature key pair. The hashing algorithm is specified above in the `SIGNATURE ALGORITHM` field of the results you get with the list of key pairs. The possible values are:
+          
           * `sha256sum`: For SHA-256 algorithms.
           * `sha384sum`: For SHA-384 algorithms.
           * `sha512sum`: For SHA-512 algorithms.
+      
       * `<path_to_source_file>`: Path to the file for hashing.
       * `<path_to_hash_file>`: Path to the file to save the hash to.
 
@@ -206,10 +211,13 @@ A hash-based signature is used for messages or files over 32 KB in size.
       ```
 
       Where:
+      
       * `<hashing_algorithm>`: Hashing algorithm used when creating a signature key pair. The hashing algorithm is specified above in the `SIGNATURE ALGORITHM` field of the results you get with the list of key pairs. The possible values are:
+          
           * `SHA256`: For SHA-256 algorithms.
           * `SHA384`: For SHA-384 algorithms.
           * `SHA512`: For SHA-512 algorithms.
+      
       * `<path_to_source_file>`: Path to the file for hashing.
       * `<path_to_hash_file>`: Path to the file to save the hash to.
 
@@ -244,6 +252,7 @@ A hash-based signature is used for messages or files over 32 KB in size.
           ```
 
           Where:
+          
           * `--id`: ID of the digital signature key pair.
           * `--signature-output-file`: Path to the file to save the digital signature to.
           * `--message-hash-file`: Path to the previously created hash file.

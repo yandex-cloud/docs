@@ -20,24 +20,23 @@ description: Статический маршрут по умолчанию (0.0.
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется создать статический маршрут.
   1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.route-table.create.button_create }}**.
   1. Задайте имя таблицы маршрутизации. Требования к имени:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
-  1. (Опционально) Добавьте описание таблицы маршрутизации.
+  1. (Опционально) Добавьте описание и метки таблицы маршрутизации.
   1. Выберите сеть, в которой требуется создать таблицу маршрутизации.
-  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.route-table-form.label_add-static-route }}**.
+  1. В блоке **{{ ui-key.yacloud.vpc.route-table-form.section_static-routes }}** нажмите кнопку **{{ ui-key.yacloud.vpc.route-table-form.label_add-static-route }}**.
   1. В открывшемся окне введите префикс подсети назначения в нотации CIDR.
-  1. Укажите **{{ ui-key.yacloud.vpc.add-static-route.field_next-hop-address }}** — IP-адрес из [разрешенных диапазонов](../concepts/network.md#subnet).
+  1. Укажите **{{ ui-key.yacloud.vpc.add-static-route.field_next-hop-address }}** — IP-адрес из [разрешенных диапазонов](../concepts/network.md#subnet) или выберите **{{ ui-key.yacloud.vpc.subnet-used-addresses.label_resource-type-vpc_virtualGateway }}** из списка.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.add-static-route.button_add }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.route-table.create.button_create }}**.
 
   Чтобы использовать статические маршруты, необходимо привязать таблицу маршрутизации к подсети:
 
   1. На панели слева выберите ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-  1. В строке нужной подсети нажмите кнопку ![image](../../_assets/console-icons/ellipsis.svg).
-  1. В открывшемся меню выберите пункт **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
+  1. В строке нужной подсети нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
   1. В открывшемся окне выберите созданную таблицу в списке.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
 
@@ -164,7 +163,7 @@ description: Статический маршрут по умолчанию (0.0.
 
      ```hcl
      resource "yandex_vpc_route_table" "test-route-table" {
-     name       = "<имя_таблицы_маршрутизации>"
+       name       = "<имя_таблицы_маршрутизации>"
        network_id = "<идентификатор_сети>"
        static_route {
          destination_prefix = "<префикс_назначения>"
@@ -177,42 +176,25 @@ description: Статический маршрут по умолчанию (0.0.
 
      Подробнее о параметрах ресурса `yandex_vpc_route_table` в {{ TF }} в [документации провайдера]({{ tf-provider-resources-link }}/vpc_route_table).
 
-  1. Проверьте корректность конфигурационных файлов.
+  1. Примените конфигурацию:
 
-     1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
-     1. Выполните проверку с помощью команды:
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-        ```bash
-        terraform plan
-        ```
+     После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+     ```bash
+     yc vpc route-table list
+     ```
 
-  1. Разверните облачные ресурсы.
+     Результат:
 
-     1. Если в конфигурации нет ошибок, выполните команду:
-
-        ```bash
-        terraform apply
-        ```
-
-     1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
-
-        После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
-
-        ```bash
-        yc vpc route-table list
-        ```
-
-        Результат:
-
-        ```text
-        +----------------------+-----------------------+-------------+----------------------+
-        |          ID          |         NAME          | DESCRIPTION |      NETWORK-ID      |
-        +----------------------+-----------------------+-------------+----------------------+
-        | enpahlhr1vnl******** | terraform-route-table |             | enp0asmd9pr9******** |
-        +----------------------+-----------------------+-------------+----------------------+
-        ```
+     ```text
+     +----------------------+-----------------------+-------------+----------------------+
+     |          ID          |         NAME          | DESCRIPTION |      NETWORK-ID      |
+     +----------------------+-----------------------+-------------+----------------------+
+     | enpahlhr1vnl******** | terraform-route-table |             | enp0asmd9pr9******** |
+     +----------------------+-----------------------+-------------+----------------------+
+     ```
 
 - API {#api}
 
@@ -290,7 +272,7 @@ description: Статический маршрут по умолчанию (0.0.
       resource "yandex_vpc_subnet" "example_subnet" {
         name           = "example-subnet"
         network_id     = "enp846vf5fus********"
-        zone           = {{ region-id }}-a
+        zone           = "{{ region-id }}-a"
         v4_cidr_blocks = ["10.2.0.0/16"]
         # Привязка таблицы маршрутизации к подсети
         route_table_id = yandex_vpc_route_table.test_route_table.id

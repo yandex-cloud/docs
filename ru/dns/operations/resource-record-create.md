@@ -13,15 +13,20 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, где находится зона DNS, в которой требуется создать запись.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог с зоной DNS, в которой требуется создать запись.
   1. [Перейдите]({{ link-console-main }}/link/dns) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
-  1. Выберите зону из списка.
+  1. Нажмите на нужную зону.
   1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_record-set-create }}**.
   1. Задайте параметры записи:
-     1. В поле **{{ ui-key.yacloud.common.name }}** укажите доменное имя записи.
+
+     1. В поле **{{ ui-key.yacloud.common.name }}** выберите один из вариантов:
+
+        * **{{ ui-key.yacloud.dns.label_create-subdomain }}** — укажите доменное имя записи.
+        * **{{ ui-key.yacloud.dns.label_fqdn-equal-to-zone }}** — используйте, если хотите, чтобы имя совпадало с именем зоны.
+     1. (Опционально) Добавьте описание.
      1. Выберите [тип записи](../concepts/resource-record.md#rr-types) в выпадающем списке.
-     1. В поле **{{ ui-key.yacloud.dns.label_form-ttl }}** укажите время жизни записи или выберите из предложенных.
      1. Введите **{{ ui-key.yacloud.dns.label_records }}** записи.
+     1. В поле **{{ ui-key.yacloud.dns.label_form-ttl }}** укажите время жизни записи или выберите из предложенных.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}

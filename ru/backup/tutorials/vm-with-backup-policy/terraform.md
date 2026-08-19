@@ -6,4 +6,4 @@ canonical: '{{ link-docs }}/tutorials/archive/vm-with-backup-policy/terraform'
 
 #### Полезные ссылки {#see-also}
 
-* [{#T}](console.md)
+[{#T}](console.md)

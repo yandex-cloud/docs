@@ -8,8 +8,6 @@ Serverless Integrations позволяет:<ul><li>разрабатывать м
 
 EventRouter находятся на стадии <a href="../overview/concepts/launch-stages.md">Preview</a>.
 
-О том, как управлять API-шлюзами, которые поддерживают <a href="https://github.com/OAI/OpenAPI-Specification">спецификацию OpenAPI 3.0</a> и  набор расширений для взаимодействия с сервисами Yandex Cloud,  читайте в <a href="../api-gateway/index.md">документации Yandex API Gateway</a>.
-
 # Yandex Serverless Integrations
 
 ## Начало работы

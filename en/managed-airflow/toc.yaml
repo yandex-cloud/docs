@@ -107,6 +107,8 @@ items:
         href: concepts/instance-types.md
       - name: Maintenance
         href: concepts/maintenance.md
+      - name: Zones of control
+        href: concepts/responsibilities.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

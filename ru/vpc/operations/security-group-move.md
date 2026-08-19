@@ -14,7 +14,7 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где находится группа безопасности.
   1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
-  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке группы, которую требуется переместить, и выберите **{{ ui-key.yacloud.common.move }}**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке группы безопасности, которую требуется переместить, и выберите **{{ ui-key.yacloud.common.move }}**.
   1. В выпадающем списке выберите каталог назначения.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.move }}**.
 
@@ -79,7 +79,7 @@ description: Следуя данной инструкции, вы сможете
 
      Используйте либо параметр `--destination-folder-name`, либо `--destination-folder-id`.
 
-     Если группа безопасности находится не в текущем каталоге (каталоге по умолчанию), укажите исходный каталог с помощью опции `--folder-name` или `--folder-id`.
+     Если группа безопасности находится не в текущем каталоге (каталоге по умолчанию), укажите исходный каталог с помощью параметра `--folder-name` или `--folder-id`.
 
      Результат:
 
@@ -100,7 +100,7 @@ description: Следуя данной инструкции, вы сможете
 
   * Идентификатор группы безопасности, которую нужно перенести, в параметре `securityGroupId`.
 
-    {% include [get-subnet-id](../../_includes/vpc/get-subnet-id.md) %}
+    {% include [get-security-group-id](../../_includes/vpc/get-security-group-id.md) %}
 
   * Идентификатор каталога, в который будет перенесена группа безопасности, в параметре `destinationFolderId`.
 

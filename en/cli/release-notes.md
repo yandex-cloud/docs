@@ -3,9 +3,57 @@ title: List of CLI releases
 description: This page presents CLI releases and their updates.
 ---
 
-# CLI releases
+# {{ yandex-cloud }} CLI releases
 
 ## Current version {#latest-release}
+
+### Version 1.22.0 (30/07/26) {#v-1-22-0}
+
+#### {{ compute-name }} {#v-1-22-0-compute-name}
+
+* Added support for the `secure_boot_template_id` and `vtpm_enabled` keys in the `--hardware-features` parameter for the following commands:
+  * `yc compute image create`
+  * `yc compute disk create`
+  * `yc compute snapshot create`
+
+## Previous releases {#previous-release}
+
+### Version 1.21.0 (29/07/26) {#v-1-21-0}
+
+#### {{ baremetal-name }} {#v-1-21-0-baremetal-name}
+
+* Added the `yc baremetal image resolve` command to get available published images for each family.
+
+#### {{ iam-name }} {#v-1-21-0-iam-name}
+
+* Added the `--aws-profile` and `--aws-credentials-file` parameters to the `yc iam access-key issue-ephemeral` command to write the ephemeral key directly to the AWS credentials file instead of outputting it to STDOUT.
+
+#### {{ mkf-name }} {#v-1-21-0-mkf-name}
+
+* Added support for the `--log-message-timestamp-type` parameter to control the message timestamp type at the Kafka cluster level:
+  * `yc managed-kafka cluster create`
+  * `yc managed-kafka cluster update`
+
+#### {{ mmy-name }} {#v-1-21-0-mmy-name}
+
+* Added the `--source-cluster-id` parameter to the `yc managed-mysql cluster restore` command, which allows you to choose the cluster to restore.
+
+#### {{ mpg-name }} {#v-1-21-0-mpg-name}
+
+* Added the `--restore-pxf` and `--restore-hba` parameters to the `yc managed-greenplum cluster restore` command for PXF settings recovery and user authentication when restoring a {{ GP }} cluster from a backup.
+
+* Added a command group used to fetch performance diagnostic data in {{ mpg-name }}:
+  * `yc managed-postgresql performance-diagnostics list-raw-sessions`
+  * `yc managed-postgresql performance-diagnostics list-raw-statements`
+
+#### {{ sws-name }} {#v-1-21-0-sws-name}
+
+* Added the `yc smartwebsecurity custom-page` group of commands for managing custom pages:
+  * `yc smartwebsecurity custom-page get`
+  * `yc smartwebsecurity custom-page list`
+  * `yc smartwebsecurity custom-page create`
+  * `yc smartwebsecurity custom-page update`
+  * `yc smartwebsecurity custom-page delete`
 
 ### Version 1.20.0 (23/07/26) {#v-1-20-0}
 
@@ -29,9 +77,7 @@ description: This page presents CLI releases and their updates.
 
 #### Changes to the CLI system commands {#v-1-20-0-yc}
 
-* Added signing of macOS binaries with the `com.apple.security.smartcard` entitlement.
-
-## Previous releases {#previous-release}
+* Added signing of macOS binaries with the entitlement `com.apple.security.smartcard`.
 
 ### Version 1.19.0 (21/07/26) {#v-1-19-0}
 

@@ -9,7 +9,7 @@ title: How to get backend group information in {{ alb-full-name }}
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the [backend group](../concepts/backend-group.md).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Navigate]({{ link-console-main }}/link/application-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. Select your backend group.
   1. You will see your group details on the **{{ ui-key.yacloud.common.overview }}** page.
@@ -76,12 +76,16 @@ title: How to get backend group information in {{ alb-full-name }}
       ```
 
       Where:
+      
       * `data "yandex_alb_backend_group"`: Description of the backend group as a data source:
+        
         * `backend_group_id`: Backend group ID.
+      
       * `output "backend_group"`: Output variable with information about the connected HTTP backend:
+        
         * `value`: Return value.
 
-      You can replace `http_backend` with another variable to get the information you need. For more on the properties of the `yandex_alb_backend_group` data source, see [this provider guide]({{ tf-provider-datasources-link }}/alb_backend_group).
+      You can replace `http_backend` with another variable to get the information you need. For more information about the properties of the `yandex_alb_backend_group` data source, see [this provider guide]({{ tf-provider-datasources-link }}/alb_backend_group).
 
   1. Create the resources:
 

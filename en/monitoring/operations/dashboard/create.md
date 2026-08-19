@@ -65,5 +65,5 @@ To search for dashboards:
 1. In the **{{ ui-key.yacloud_monitoring.component.entities-list.common-filter-placeholder }}** field, enter the label key or value, title, name, or description.
 
 #### What's next {#what-is-next}
-- [{#T}](add-widget.md)
-- [Dashboard concepts](../../concepts/visualization/dashboard.md)
+* [{#T}](add-widget.md)
+* [Dashboard concepts](../../concepts/visualization/dashboard.md)

@@ -2,18 +2,18 @@
 
 #|
 || Type of limit | Value ||
-|| Maximum number of desktops per cloud
+|| {{ ui-key.yacloud_quotas.quotas.vdi.desktops.count }}
    `vdi.desktops.count` | 10 ||
-|| Maximum number of desktop images per cloud
+|| {{ ui-key.yacloud_quotas.quotas.vdi.desktopImages.count }}
    `vdi.desktopImages.count` | 8 ||
-|| Maximum total size of desktop images per cloud
+|| {{ ui-key.yacloud_quotas.quotas.vdi.desktopImages.size }}
    `vdi.desktopImages.size` | 1 TB ||
-|| Maximum total number of vCPUs per cloud
+|| {{ ui-key.yacloud_quotas.quotas.vdi.desktopCores.count }}
    `vdi.desktopCores.count` | 40 ||
-|| Maximum total amount of RAM per cloud
+|| {{ ui-key.yacloud_quotas.quotas.vdi.desktopMemory.size }}
    `vdi.desktopMemory.size` | 80 GB ||
-|| Maximum total HDD space per cloud 
+|| {{ ui-key.yacloud_quotas.quotas.vdi.hddDisks.size }} 
    `vdi.hddDisks.size` | 600 GB ||
-|| Maximum total SSD space per cloud 
+|| {{ ui-key.yacloud_quotas.quotas.vdi.ssdDisks.size }} 
    `vdi.ssdDisks.size` | 600 GB ||
 |#

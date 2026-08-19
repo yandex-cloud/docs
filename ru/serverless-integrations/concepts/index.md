@@ -11,8 +11,6 @@ keywords:
   - спецификация YaWL
   - Glue
   - интеграции
-  - API Gateway
-  - API шлюз
   - шина
   - коннектор
   - правило
@@ -36,7 +34,3 @@ keywords:
 {% include [event-router-preview-note](../../_includes/serverless-integrations/event-router-preview-note.md) %}
 
 Настраивайте обмен событиями между вашими сервисами и сервисами {{ yandex-cloud }} с возможностью их фильтрации, трансформации и маршрутизации.
-
-### {{ api-gw-name }} {#api-gateway}
-
-Создавайте API-шлюзы, которые поддерживают [спецификацию OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) и набор расширений для взаимодействия с сервисами {{ yandex-cloud }}. Подробнее в [документации {{ api-gw-name }}](../../api-gateway/).

@@ -37,7 +37,6 @@
 Yandex Cloud поддерживает свой список ролей для каждой функциональности, включенной в состав Serverless Integrations. Подробнее читайте в разделах:
 
 * [Роли для работы с Yandex EventRouter](eventrouter.md).
-* [Роли для работы с Yandex API Gateway](../../api-gateway/security/index.md#service-roles).
 
 ### Примитивные роли {#primitive-roles}
 

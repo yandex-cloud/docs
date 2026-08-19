@@ -228,7 +228,31 @@
               "string"
             ],
             "changefeedCustomName": "string",
-            "changefeedCustomConsumerName": "string"
+            "changefeedCustomConsumerName": "string",
+            "authentication": {
+              // Includes only one of the fields `serviceAccount`
+              "serviceAccount": {
+                "serviceAccountId": "string"
+              }
+              // end of the list of possible fields
+            },
+            "ydbConnection": {
+              // Includes only one of the fields `databaseId`, `onPremise`
+              "databaseId": "string",
+              "onPremise": {
+                "database": "string",
+                "instance": "string",
+                "tlsMode": {
+                  // Includes only one of the fields `enabled`
+                  "enabled": {
+                    "caCertificate": "string"
+                  }
+                  // end of the list of possible fields
+                },
+                "subnetId": "string"
+              }
+              // end of the list of possible fields
+            }
           },
           "ydsSource": {
             "database": "string",
@@ -291,7 +315,33 @@
             "securityGroups": [
               "string"
             ],
-            "consumer": "string"
+            "consumer": "string",
+            "authentication": {
+              // Includes only one of the fields `serviceAccountId`
+              "serviceAccountId": "string"
+              // end of the list of possible fields
+            },
+            "ydbConnection": {
+              // Includes only one of the fields `managedYds`, `onPremise`
+              "managedYds": {
+                "databaseId": "string",
+                "stream": "string"
+              },
+              "onPremise": {
+                "database": "string",
+                "stream": "string",
+                "instance": "string",
+                "tlsMode": {
+                  // Includes only one of the fields `enabled`
+                  "enabled": {
+                    "caCertificate": "string"
+                  }
+                  // end of the list of possible fields
+                },
+                "subnetId": "string"
+              }
+              // end of the list of possible fields
+            }
           },
           "kafkaSource": {
             "connection": {
@@ -664,7 +714,31 @@
             ],
             "isTableColumnOriented": "boolean",
             "defaultCompression": "string",
-            "isSchemaMigrationDisabled": "boolean"
+            "isSchemaMigrationDisabled": "boolean",
+            "authentication": {
+              // Includes only one of the fields `serviceAccount`
+              "serviceAccount": {
+                "serviceAccountId": "string"
+              }
+              // end of the list of possible fields
+            },
+            "ydbConnection": {
+              // Includes only one of the fields `databaseId`, `onPremise`
+              "databaseId": "string",
+              "onPremise": {
+                "database": "string",
+                "instance": "string",
+                "tlsMode": {
+                  // Includes only one of the fields `enabled`
+                  "enabled": {
+                    "caCertificate": "string"
+                  }
+                  // end of the list of possible fields
+                },
+                "subnetId": "string"
+              }
+              // end of the list of possible fields
+            }
           },
           "kafkaTarget": {
             "connection": {
@@ -814,7 +888,33 @@
             "subnetId": "string",
             "securityGroups": [
               "string"
-            ]
+            ],
+            "authentication": {
+              // Includes only one of the fields `serviceAccountId`
+              "serviceAccountId": "string"
+              // end of the list of possible fields
+            },
+            "ydbConnection": {
+              // Includes only one of the fields `managedYds`, `onPremise`
+              "managedYds": {
+                "databaseId": "string",
+                "stream": "string"
+              },
+              "onPremise": {
+                "database": "string",
+                "stream": "string",
+                "instance": "string",
+                "tlsMode": {
+                  // Includes only one of the fields `enabled`
+                  "enabled": {
+                    "caCertificate": "string"
+                  }
+                  // end of the list of possible fields
+                },
+                "subnetId": "string"
+              }
+              // end of the list of possible fields
+            }
           }
           // end of the list of possible fields
         }
@@ -953,7 +1053,31 @@
               "string"
             ],
             "changefeedCustomName": "string",
-            "changefeedCustomConsumerName": "string"
+            "changefeedCustomConsumerName": "string",
+            "authentication": {
+              // Includes only one of the fields `serviceAccount`
+              "serviceAccount": {
+                "serviceAccountId": "string"
+              }
+              // end of the list of possible fields
+            },
+            "ydbConnection": {
+              // Includes only one of the fields `databaseId`, `onPremise`
+              "databaseId": "string",
+              "onPremise": {
+                "database": "string",
+                "instance": "string",
+                "tlsMode": {
+                  // Includes only one of the fields `enabled`
+                  "enabled": {
+                    "caCertificate": "string"
+                  }
+                  // end of the list of possible fields
+                },
+                "subnetId": "string"
+              }
+              // end of the list of possible fields
+            }
           },
           "ydsSource": {
             "database": "string",
@@ -1016,7 +1140,33 @@
             "securityGroups": [
               "string"
             ],
-            "consumer": "string"
+            "consumer": "string",
+            "authentication": {
+              // Includes only one of the fields `serviceAccountId`
+              "serviceAccountId": "string"
+              // end of the list of possible fields
+            },
+            "ydbConnection": {
+              // Includes only one of the fields `managedYds`, `onPremise`
+              "managedYds": {
+                "databaseId": "string",
+                "stream": "string"
+              },
+              "onPremise": {
+                "database": "string",
+                "stream": "string",
+                "instance": "string",
+                "tlsMode": {
+                  // Includes only one of the fields `enabled`
+                  "enabled": {
+                    "caCertificate": "string"
+                  }
+                  // end of the list of possible fields
+                },
+                "subnetId": "string"
+              }
+              // end of the list of possible fields
+            }
           },
           "kafkaSource": {
             "connection": {
@@ -1389,7 +1539,31 @@
             ],
             "isTableColumnOriented": "boolean",
             "defaultCompression": "string",
-            "isSchemaMigrationDisabled": "boolean"
+            "isSchemaMigrationDisabled": "boolean",
+            "authentication": {
+              // Includes only one of the fields `serviceAccount`
+              "serviceAccount": {
+                "serviceAccountId": "string"
+              }
+              // end of the list of possible fields
+            },
+            "ydbConnection": {
+              // Includes only one of the fields `databaseId`, `onPremise`
+              "databaseId": "string",
+              "onPremise": {
+                "database": "string",
+                "instance": "string",
+                "tlsMode": {
+                  // Includes only one of the fields `enabled`
+                  "enabled": {
+                    "caCertificate": "string"
+                  }
+                  // end of the list of possible fields
+                },
+                "subnetId": "string"
+              }
+              // end of the list of possible fields
+            }
           },
           "kafkaTarget": {
             "connection": {
@@ -1539,7 +1713,33 @@
             "subnetId": "string",
             "securityGroups": [
               "string"
-            ]
+            ],
+            "authentication": {
+              // Includes only one of the fields `serviceAccountId`
+              "serviceAccountId": "string"
+              // end of the list of possible fields
+            },
+            "ydbConnection": {
+              // Includes only one of the fields `managedYds`, `onPremise`
+              "managedYds": {
+                "databaseId": "string",
+                "stream": "string"
+              },
+              "onPremise": {
+                "database": "string",
+                "stream": "string",
+                "instance": "string",
+                "tlsMode": {
+                  // Includes only one of the fields `enabled`
+                  "enabled": {
+                    "caCertificate": "string"
+                  }
+                  // end of the list of possible fields
+                },
+                "subnetId": "string"
+              }
+              // end of the list of possible fields
+            }
           }
           // end of the list of possible fields
         }
@@ -2269,6 +2469,46 @@ Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerC
 || securityGroups[] | **string** ||
 || changefeedCustomName | **string** ||
 || changefeedCustomConsumerName | **string** ||
+|| authentication | **[AuthenticationMethod](#yandex.cloud.datatransfer.v1.endpoint.AuthenticationMethod)** ||
+|| ydbConnection | **[YDBConnection](#yandex.cloud.datatransfer.v1.endpoint.YDBConnection)** ||
+|#
+
+## AuthenticationMethod {#yandex.cloud.datatransfer.v1.endpoint.AuthenticationMethod}
+
+#|
+||Field | Description ||
+|| serviceAccount | **[ServiceAccount](#yandex.cloud.datatransfer.v1.endpoint.AuthenticationMethod.ServiceAccount)**
+
+Includes only one of the fields `serviceAccount`. ||
+|#
+
+## ServiceAccount {#yandex.cloud.datatransfer.v1.endpoint.AuthenticationMethod.ServiceAccount}
+
+#|
+||Field | Description ||
+|| serviceAccountId | **string** ||
+|#
+
+## YDBConnection {#yandex.cloud.datatransfer.v1.endpoint.YDBConnection}
+
+#|
+||Field | Description ||
+|| databaseId | **string**
+
+Includes only one of the fields `databaseId`, `onPremise`. ||
+|| onPremise | **[OnPremiseYDB](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseYDB)**
+
+Includes only one of the fields `databaseId`, `onPremise`. ||
+|#
+
+## OnPremiseYDB {#yandex.cloud.datatransfer.v1.endpoint.OnPremiseYDB}
+
+#|
+||Field | Description ||
+|| database | **string** ||
+|| instance | **string** ||
+|| tlsMode | **[TLSMode](#yandex.cloud.datatransfer.v1.endpoint.TLSMode)** ||
+|| subnetId | **string** ||
 |#
 
 ## YDSSource {#yandex.cloud.datatransfer.v1.endpoint.YDSSource}
@@ -2289,6 +2529,8 @@ Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerC
 || subnetId | **string** ||
 || securityGroups[] | **string** ||
 || consumer | **string** ||
+|| authentication | **[YDSAuthenticationMethod](#yandex.cloud.datatransfer.v1.endpoint.YDSAuthenticationMethod)** ||
+|| ydbConnection | **[YDSConnection](#yandex.cloud.datatransfer.v1.endpoint.YDSConnection)** ||
 |#
 
 ## Parser {#yandex.cloud.datatransfer.v1.endpoint.Parser}
@@ -2362,6 +2604,46 @@ Includes only one of the fields `jsonFields`, `fields`. ||
 || key | **boolean** ||
 || required | **boolean** ||
 || path | **string** ||
+|#
+
+## YDSAuthenticationMethod {#yandex.cloud.datatransfer.v1.endpoint.YDSAuthenticationMethod}
+
+#|
+||Field | Description ||
+|| serviceAccountId | **string**
+
+Includes only one of the fields `serviceAccountId`. ||
+|#
+
+## YDSConnection {#yandex.cloud.datatransfer.v1.endpoint.YDSConnection}
+
+#|
+||Field | Description ||
+|| managedYds | **[ManagedYDS](#yandex.cloud.datatransfer.v1.endpoint.ManagedYDS)**
+
+Includes only one of the fields `managedYds`, `onPremise`. ||
+|| onPremise | **[OnPremiseYDS](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseYDS)**
+
+Includes only one of the fields `managedYds`, `onPremise`. ||
+|#
+
+## ManagedYDS {#yandex.cloud.datatransfer.v1.endpoint.ManagedYDS}
+
+#|
+||Field | Description ||
+|| databaseId | **string** ||
+|| stream | **string** ||
+|#
+
+## OnPremiseYDS {#yandex.cloud.datatransfer.v1.endpoint.OnPremiseYDS}
+
+#|
+||Field | Description ||
+|| database | **string** ||
+|| stream | **string** ||
+|| instance | **string** ||
+|| tlsMode | **[TLSMode](#yandex.cloud.datatransfer.v1.endpoint.TLSMode)** ||
+|| subnetId | **string** ||
 |#
 
 ## KafkaSource {#yandex.cloud.datatransfer.v1.endpoint.KafkaSource}
@@ -2688,6 +2970,8 @@ Includes only one of the fields `stringValue`. ||
 - `YDB_DEFAULT_COMPRESSION_DISABLED`
 - `YDB_DEFAULT_COMPRESSION_LZ4` ||
 || isSchemaMigrationDisabled | **boolean** ||
+|| authentication | **[AuthenticationMethod](#yandex.cloud.datatransfer.v1.endpoint.AuthenticationMethod)** ||
+|| ydbConnection | **[YDBConnection](#yandex.cloud.datatransfer.v1.endpoint.YDBConnection)** ||
 |#
 
 ## KafkaTarget {#yandex.cloud.datatransfer.v1.endpoint.KafkaTarget}
@@ -2804,6 +3088,8 @@ Includes only one of the fields `serializerAuto`, `serializerJson`, `serializerD
 || endpoint | **string** ||
 || subnetId | **string** ||
 || securityGroups[] | **string** ||
+|| authentication | **[YDSAuthenticationMethod](#yandex.cloud.datatransfer.v1.endpoint.YDSAuthenticationMethod)** ||
+|| ydbConnection | **[YDSConnection](#yandex.cloud.datatransfer.v1.endpoint.YDSConnection)** ||
 |#
 
 ## Runtime {#yandex.cloud.datatransfer.v1.Runtime}

@@ -78,4 +78,4 @@ export AWS_DEFAULT_REGION="ru-central1"
    python mq_example.py
    ```
 
-По умолчанию Celery создаёт очередь Message Queue с названием `celery` в каталоге, которому принадлежит сервисный аккаунт.
+По умолчанию Celery создает очередь Message Queue с названием `celery` в каталоге, которому принадлежит сервисный аккаунт.

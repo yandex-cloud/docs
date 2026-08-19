@@ -31,7 +31,7 @@ If you no longer want to store logs, [delete the resources allocated to them](#c
     * [Based on allocated resources](../../data-streams/pricing.md#rules): You pay a fixed hourly rate for the established throughput limit and message retention period, and additionally for the number of units of actually written data.
     * [On-demand](../../data-streams/pricing.md#on-demand): You pay for the performed read/write operations, the amount of read or written data, and the actual storage used for messages that are still within their retention period.
 
-* {{ ydb-name }} database, operating in serverless mode: data operations, amount of stored data and backups (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)).
+* {{ ydb-name }} database in serverless mode: data operations, size of stored data and backups (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)).
 * {{ objstorage-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 
 
@@ -51,7 +51,7 @@ If you no longer want to store logs, [delete the resources allocated to them](#c
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder with the log group.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+  1. [Navigate]({{ link-console-main }}/link/logging) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
   1. Next to the log group receiving the logs, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
   1. In the **{{ ui-key.yacloud.data-streams.label_data-stream }}** field, select `logs-stream` you created earlier.
   1. Click **{{ ui-key.yacloud.common.save }}**.

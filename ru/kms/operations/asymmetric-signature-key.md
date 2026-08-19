@@ -18,7 +18,7 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ключевая пара.
   1. [Перейдите]({{ link-console-main }}/link/kms) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. На панели слева выберите ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
-  1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.kms.asymmetric-keys.title_create }}**. В открывшемся окне:
+  1. Нажмите кнопку **{{ ui-key.yacloud.kms.asymmetric-keys.title_create }}**. В открывшемся окне:
       
       1. Укажите имя и при необходимости описание в свободной форме.
       1. В поле **{{ ui-key.yacloud.kms.asymmetric-key.form.title_type }}** выберите `{{ ui-key.yacloud.kms.asymmetric-key.form.label_signature }}`.
@@ -96,7 +96,7 @@ description: Следуя данной инструкции, вы сможете
   1. [Перейдите]({{ link-console-main }}/link/kms) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. На панели слева выберите ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
   1. Перейдите на вкладку **{{ ui-key.yacloud.kms.asymmetric-key.form.label_signature }}**.
-  1. В строке с нужной ключевой парой нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**. В открывшемся окне:
+  1. В строке с нужной ключевой парой нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. В открывшемся окне:
       
       1. Измените необходимые атрибуты ключевой пары.
       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
@@ -160,7 +160,7 @@ description: Следуя данной инструкции, вы сможете
   1. [Перейдите]({{ link-console-main }}/link/kms) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. На панели слева выберите ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
   1. Перейдите на вкладку **{{ ui-key.yacloud.kms.asymmetric-key.form.label_signature }}**.
-  1. В строке с нужной ключевой парой нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+  1. В строке с нужной ключевой парой нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. Подтвердите удаление.
 
 - CLI {#cli}

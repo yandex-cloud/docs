@@ -72,7 +72,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/kms) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
-  1. В строке с нужным ключом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
+  1. В строке с нужным ключом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Изменив атрибуты ключа, нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -174,8 +174,8 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/kms) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
-  1. Чтобы деактивировать ключ, в строке с нужным ключом в статусе `Active` нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.kms.symmetric-keys.button_action-deactivate }}**.
-  1. Чтобы активировать ключ, в строке с нужным ключом в статусе `Inactive` нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.kms.symmetric-keys.button_action-activate }}**.
+  1. Чтобы деактивировать ключ, в строке с нужным ключом в статусе `Active` нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![toggle-off](../../_assets/console-icons/toggle-off.svg) **{{ ui-key.yacloud.kms.symmetric-keys.button_action-deactivate }}**.
+  1. Чтобы активировать ключ, в строке с нужным ключом в статусе `Inactive` нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![toggle-on](../../_assets/console-icons/toggle-on.svg) **{{ ui-key.yacloud.kms.symmetric-keys.button_action-activate }}**.
 
 - CLI {#cli}
 
@@ -265,7 +265,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/kms) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
-  1. В строке с нужным ключом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.kms.symmetric-keys.button_action-rotate }}**.
+  1. В строке с нужным ключом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![arrow-rotate-right](../../_assets/console-icons/arrow-rotate-right.svg) **{{ ui-key.yacloud.kms.symmetric-keys.button_action-rotate }}**.
   1. Подтвердите ротацию (убедитесь, что смена версии по умолчанию не повредит вашей работе).
 
 - CLI {#cli}
@@ -303,7 +303,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/kms) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
-  1. В строке с нужным ключом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+  1. В строке с нужным ключом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}

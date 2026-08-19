@@ -16,7 +16,7 @@ description: This section contains the {{ at-name }} release notes.
 
   Event | Description
   --- | ---
-  `mcp_hub.InvokeMcpTool` | Calling MCP tool
+  `mcp_hub.InvokeMcpTool` | Calling an MCP tool
   `mcp_hub.ListMcpTools` | Getting a list of MCP tools
   `mcp_hub.StartMcpSession` | Running an MCP session
   `searchindex.CreateSearchIndex` | Creating a search index
@@ -405,11 +405,11 @@ description: This section contains the {{ at-name }} release notes.
 
   {% endcut %}
 
-* Moved events for:
+* Moved events for the following services:
 
   {% cut "{{ ydb-name }}" %}
 
-  Moved the `AlterTopic`, `CreateTopic`, `DeleteTopic` events from the [configuration level](./concepts/format.md) to the [service level](./concepts/format-data-plane.md).
+  Moved the `AlterTopic`, `CreateTopic`, `DeleteTopic` events from [management level](./concepts/format.md) to [data level](./concepts/format-data-plane.md).
 
   {% endcut %}
 
@@ -738,7 +738,7 @@ description: This section contains the {{ at-name }} release notes.
 
   Event | Description
   --- | ---
-  `SetDefaultColorPalette` | Customizing the default color palette
+  `SetDefaultColorPalette` | Setting up the default color palette
 
   {% endcut %}
 

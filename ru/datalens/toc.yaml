@@ -868,8 +868,6 @@ items:
         href: dashboard/chart-chart-filtration.md
       - name: Настройки дашборда
         href: dashboard/settings.md
-      - name: Рассылки
-        href: operations/dashboard/add-maillists.md
       - name: Версионирование
         href: dashboard/versioning.md
       - name: Параметры
@@ -964,6 +962,14 @@ items:
         href: reports/versioning.md
       - name: Нейроаналитик в отчетах
         href: reports/insights.md
+  - name: Рассылки
+    items:
+      - name: Обзор
+        href: concepts/maillists.md
+      - name: Рассылки для дашборда
+        href: operations/dashboard/add-maillists.md
+      - name: Рассылки для отчета
+        href: reports/add-report-maillists.md
   - name: HTML-страницы
     items:
       - name: Обзор
@@ -1030,6 +1036,8 @@ items:
         href: settings/restrictions.md
       - name: Навигация
         href: settings/navigation.md
+      - name: Удаленные объекты
+        href: settings/deleted-objects.md
   - name: Галерея в DataLens
     href: concepts/gallery.md
   - name: Правила тарификации

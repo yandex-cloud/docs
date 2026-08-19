@@ -18,24 +18,27 @@ description: Step-by-step guide for editing a backend group.
   {% endnote %}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with your [backend group](../concepts/backend-group.md).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Navigate]({{ link-console-main }}/link/application-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. Click your group name.
   1. Click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Edit group settings:
+     
      * Backend group **{{ ui-key.yacloud.common.name }}** and **{{ ui-key.yc-ui-datasphere.common.description }}**.
      * **{{ ui-key.yacloud.alb.label_session-affinity }}**: If you select this option, the same endpoint will process all requests within one user session.
 
        {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
        `{{ ui-key.yacloud.alb.label_proto-http }}` and `{{ ui-key.yacloud.alb.label_proto-grpc }}` backend groups support the following session affinity modes:
+       
        * `{{ ui-key.yacloud.alb.label_affinity-connection }}`.
        * `{{ ui-key.yacloud.alb.label_affinity-header }}`.
        * `{{ ui-key.yacloud.alb.label_affinity-cookie }}`.
 
        `{{ ui-key.yacloud.alb.label_proto-stream }}` backend groups only support session affinity by [IP address](../../vpc/concepts/address.md).
 
-       For more information about session affinity and its modes, see [this section](../concepts/backend-group.md#session-affinity).
+       For information on session affinity and its modes, see [this section](../concepts/backend-group.md#session-affinity).
+  
   1. Click **{{ ui-key.yacloud.common.save }}** at the bottom of the page.
 
 - CLI {#cli}
@@ -62,6 +65,7 @@ description: Step-by-step guide for editing a backend group.
      ```
 
      Where:
+     
      * `--name`: Backend group name.
      * `--new-name`: Backend group new name. The naming requirements are as follows:
 
@@ -70,10 +74,13 @@ description: Step-by-step guide for editing a backend group.
      * `--description`: Backend group description. This is an optional setting.
      * `--labels key=value`: Labels in `key=value` format. This is an optional setting.
      * `--connection-affinity`: [Session affinity](../../application-load-balancer/concepts/backend-group.md#session-affinity) by the `source-ip` [IP address](../../vpc/concepts/address.md). It can be either `true` or `false`. This is an optional setting. You can also use the following modes:
+       
        * `--cookie-affinity`: Cookie affinity. Available parameters:
+         
          * `name`: Cookie name. This is a required setting.
          * `path`: Path to the website section where the cookie will apply. If no path is set, requests from the same user may go to different backends.
          * `ttl`: Cookie lifetime.
+       
        * `--header-affinity` (by HTTP header): In the `name` parameter, specify the request header name to use for affinity.
 
        But you can only specify one mode. For [Stream](../concepts/backend-group.md#group-types) backend groups, you can only use `--connection-affinity` mode.
@@ -139,6 +146,7 @@ description: Step-by-step guide for editing a backend group.
      ```
 
      Where `yandex_alb_backend_group` includes backend group settings:
+     
      * `name`: Backend group name.
      * `description`: Backend group description. This is an optional setting.
      * `labels`: Labels in `key=value` format. This is an optional setting.
@@ -146,9 +154,11 @@ description: Step-by-step guide for editing a backend group.
 
        * `connection`: Session affinity by the `source_ip` [IP address](../../vpc/concepts/address.md). It can be either `true` or `false`.
        * `connection`: Session affinity by cookie. Specify the following settings in `<parameter_1>=<value>,<parameter_2>=<value>` format:
+         
          * `name`: Cookie name. This is a required setting.
          * `path`: Path to the website section where the cookie will apply. If no path is set, requests from the same user may go to different backends.
          * `ttl`: Cookie lifetime, in seconds.
+       
        * `header`: Session affinity by header. In the `header_name` parameter, specify the request header name to use for affinity.
 
        For `Stream` backend groups consisting of `stream_backend` resources, you can only use the `connection` affinity mode.
@@ -156,6 +166,7 @@ description: Step-by-step guide for editing a backend group.
        {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
      For more on the properties of the `yandex_alb_backend_group` resource, see [this provider guide]({{ tf-provider-alb-backendgroup }}).
+  
   1. Apply the changes:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -181,7 +192,7 @@ description: Step-by-step guide for editing a backend group.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder with your backend.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Navigate]({{ link-console-main }}/link/application-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. Click your group name.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.alb.button_add-backend }}**.
@@ -283,12 +294,14 @@ description: Step-by-step guide for editing a backend group.
      {% include [TF-update-code](../../_includes/application-load-balancer/TF-update-code.md) %}
 
      Where `yandex_alb_backend_group` includes backend group settings:
+     
      * `name`: Backend group name.
      * `http_backend`, `grpc_backend`, or `stream_backend`: [Backend type](../concepts/backend-group.md#group-types). All backends within a group must match the same type: `HTTP`, `gRPC`, or `Stream`.
 
      {% include [TF-backend-settings](../../_includes/application-load-balancer/TF-backend-settings.md) %}
 
      For more on the properties of the `yandex_alb_backend_group` resource, see [this provider guide]({{ tf-provider-alb-backendgroup }}).
+  
   1. Apply the changes:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -314,7 +327,7 @@ description: Step-by-step guide for editing a backend group.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder with your backend.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Navigate]({{ link-console-main }}/link/application-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. Click your group name.
   1. Next to the backend name, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
@@ -449,12 +462,14 @@ description: Step-by-step guide for editing a backend group.
      {% include [TF-update-code](../../_includes/application-load-balancer/TF-update-code.md) %}
 
      Where `yandex_alb_backend_group` includes backend group settings:
+     
      * `name`: Backend group name.
      * `http_backend`, `grpc_backend`, or `stream_backend`: [Backend type](../concepts/backend-group.md#group-types). All backends within a group must match the same type: `HTTP`, `gRPC`, or `Stream`.
 
      {% include [TF-backend-settings](../../_includes/application-load-balancer/TF-backend-settings.md) %}
 
      For more on the properties of the `yandex_alb_backend_group` resource, see [this provider guide]({{ tf-provider-alb-backendgroup }}).
+  
   1. Apply the changes:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -482,7 +497,7 @@ To remove a backend from a group:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder with your backend.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Navigate]({{ link-console-main }}/link/application-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. Click your group name.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the backend name, then select **{{ ui-key.yacloud.common.delete }}**.
@@ -501,6 +516,7 @@ To remove a backend from a group:
      ```
 
   1. To delete a backend, run a command depending on its type:
+     
      * HTTP backend:
 
        ```bash
@@ -570,6 +586,7 @@ To remove a backend from a group:
      ```
 
      For more on the properties of the `yandex_alb_backend_group` resource, see [this provider guide]({{ tf-provider-alb-backendgroup }}).
+  
   1. Apply the changes:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

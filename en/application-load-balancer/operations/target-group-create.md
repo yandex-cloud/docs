@@ -14,11 +14,12 @@ To create a [target group](../concepts/target-group.md):
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your target group.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Navigate]({{ link-console-main }}/link/application-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.alb.label_target-groups }}**.
   1. Click **{{ ui-key.yacloud.alb.button_target-group-create }}**.
   1. Specify the target group name and description.
   1. Under **{{ ui-key.yacloud.alb.label_targets }}**, select a VM from the list or add the target manually:
+     
      1. In the **{{ ui-key.yacloud.alb.column_target }}** field, specify the target's IP and select its [subnet](../../vpc/concepts/network.md#subnet).
      1. Optionally, if the target's [IP address](../../vpc/concepts/address.md) does not belong to [{{ vpc-full-name }}](../../vpc/), select **{{ ui-key.yacloud.alb.label_target-private-ip }}**.
 
@@ -26,6 +27,7 @@ To create a [target group](../concepts/target-group.md):
 
 
      1. Click **{{ ui-key.yacloud.alb.button_add-target }}**.
+  
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -125,8 +127,10 @@ To create a [target group](../concepts/target-group.md):
      ```
 
      Where `yandex_alb_target_group` specifies target group settings:
+     
      * `name`: Target group name.
      * `target`: Target settings:
+       
        * `subnet_id`: ID of the [subnet](../../vpc/concepts/network.md#subnet) hosting the VM. You can get the list of available subnets using the `yc vpc subnet list` [CLI](../../cli/) command.
        * `ip_address`: VM internal IP address. You can get the list of [internal IP addresses](../../vpc/concepts/address.md#internal-addresses) using the following CLI command: `yc vpc subnet list-used-addresses --id <subnet_ID>`.
 
@@ -155,12 +159,15 @@ To create a [target group](../concepts/target-group.md):
 
 
      Where `yandex_alb_target_group` specifies target group settings:
+     
      * `name`: Target group name.
      * `target`: Target settings:
+       
        * `private_ipv4_address`: Setting indicating that the IP address is outside {{ vpc-name }}.
        * `ip_address`: Resource’s private IPv4 address. This IP address must belong to the [RFC 1918 private address range](https://datatracker.ietf.org/doc/html/rfc1918#section-3). For more information, see [Subnets](../../vpc/concepts/network.md#subnet).
 
      For more on the properties of the `yandex_alb_target_group` resource, see [this provider guide]({{ tf-provider-alb-targetgroup }}).
+  
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

@@ -30,7 +30,7 @@ To view a dashboard with the most common metrics for a {{ yandex-cloud }} resour
 
 - {{ monium-name }} UI {#console}
 
-  1. On the [{{ monium-name }}]({{ link-monium }}) home page, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}** on the left.
+  1. On the [{{ monium-name }}]({{ link-monium }}) home page, select ![alt](../../_assets/console-icons/layout-cells-large.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}** on the left.
   1. Navigate to the **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}** tab.
   1. Find the service of interest and select it in the list.
 
