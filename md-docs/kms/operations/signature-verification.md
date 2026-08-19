@@ -52,8 +52,8 @@
       1. [Перейдите](https://console.yandex.cloud/link/kms) в сервис **Key Management Service**.
       1. На панели слева выберите ![image](../../_assets/kms/asymmetric-key.svg) **Асимметричные ключи**.
       1. Перейдите на вкладку **Подпись**.
-      1. В строке с нужной ключевой парой нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Публичный ключ**.
-      1. В открывшемся окне нажмите кнопку **Скачать**, чтобы скачать публичный ключ электронной подписи.
+      1. В строке с нужной ключевой парой нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![shield-keyhole](../../_assets/console-icons/shield-keyhole.svg) **Публичный ключ**.
+      1. В открывшемся окне нажмите кнопку ![floppy-disk](../../_assets/console-icons/floppy-disk.svg) **Скачать**, чтобы скачать публичный ключ электронной подписи.
 
     - CLI {#cli}
 
@@ -201,8 +201,8 @@
       1. [Перейдите](https://console.yandex.cloud/link/kms) в сервис **Key Management Service**.
       1. На панели слева выберите ![image](../../_assets/kms/asymmetric-key.svg) **Асимметричные ключи**.
       1. Перейдите на вкладку **Подпись**.
-      1. В строке с нужной ключевой парой нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Публичный ключ**.
-      1. В открывшемся окне нажмите кнопку **Скачать**, чтобы скачать публичный ключ подписи.
+      1. В строке с нужной ключевой парой нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![shield-keyhole](../../_assets/console-icons/shield-keyhole.svg) **Публичный ключ**.
+      1. В открывшемся окне нажмите кнопку ![floppy-disk](../../_assets/console-icons/floppy-disk.svg) **Скачать**, чтобы скачать публичный ключ подписи.
 
     - CLI {#cli}
 

@@ -14,9 +14,10 @@ You can use {{ kms-name }} to create, update, and destroy asymmetric encryption 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your key pair in.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
   1. In the top-right corner, click **{{ ui-key.yacloud.kms.asymmetric-keys.title_create }}**. In the window that opens:
+      
       1. Enter a name and an optional description.
       1. In the **{{ ui-key.yacloud.kms.asymmetric-key.form.title_type }}** field, select `{{ ui-key.yacloud.kms.asymmetric-keys.title_key-type-encryption }}`.
       1. In the **{{ ui-key.yacloud.kms.asymmetric-key.form.title_algorithm }}** field, select the appropriate encryption algorithm.
@@ -47,6 +48,7 @@ You can use {{ kms-name }} to create, update, and destroy asymmetric encryption 
       ```
 
       Where:
+      
       * `--name`: Name of the encryption key pair.
       * `--folder-id`: ID of the folder where the key pair will be created.
       * `--encryption-algorithm`: Encryption algorithm. Available options:
@@ -81,10 +83,11 @@ After creating an encryption key pair, you can change its name, description, and
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with the appropriate key pair.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
   1. Navigate to the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_encryption }}** tab.
   1. In the line with the key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**. In the window that opens:
+      
       1. Change the required key pair attributes.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -114,6 +117,7 @@ After creating an encryption key pair, you can change its name, description, and
       ```
 
       Where:
+      
       * `--id`: ID of the encryption key pair.
       * `--new-name`: New name for the key pair.
       * `--deletion-protection`: Flag to enable deletion protection. To disable the key pair deletion protection, use the `--no-deletion-protection` flag.
@@ -145,7 +149,7 @@ After creating an encryption key pair, you can change its name, description, and
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with the appropriate key pair.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
   1. Navigate to the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_encryption }}** tab.
   1. In the line with the key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.

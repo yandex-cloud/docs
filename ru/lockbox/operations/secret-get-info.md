@@ -237,7 +237,7 @@ title: Как получить информацию о секрете в {{ lock
     1. [Перейдите]({{ link-console-main }}/link/lockbox) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. В меню слева выберите **{{ ui-key.yacloud.lockbox.routes.label_section-secrets }}**.
     1. Нажмите на имя нужного секрета.
-    1. На панели слева выберите раздел ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+    1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
 
 - CLI {#cli}
 

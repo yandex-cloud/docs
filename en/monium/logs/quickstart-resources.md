@@ -16,7 +16,7 @@ To view the logs:
    
    For the list of services that support log transfer to {{ monium-name }}, see [{#T}](../../overview/concepts/monitoring-logging-tools.md).
 
-1. On the [{{ monium-name }}]({{ link-monium }}) home page, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.logs.title }}** on the left.
+1. On the [{{ monium-name }}]({{ link-monium }}) home page, select ![alt](../../_assets/console-icons/compass.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.all-panel.menu.category.explore }}** → **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.logs.title }}** on the left.
 1. At the top, set the data search period on the timeline.
 1. In the search bar, select query labels:
 

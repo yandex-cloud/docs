@@ -5,20 +5,22 @@ description: Guide on manual instrumentation of LLM applications with GenAI attr
 
 # Manual instrumentation of LLM applications
 
-Manual instrumentation of LLM applications gives you complete control over trace data. You decide which operations to create spans for, which attributes to add, and how to organize the call hierarchy. This is especially useful when:
+Manual instrumentation of LLM applications gives you complete control over traces. You can choose which operations to create spans for, which attributes to add, and how to build the call hierarchy.
+
+Manual instrumentation is useful in the following cases:
 
 - Your framework is not supported by [auto-instrumentation](auto_instrumentation.md).
-- You need to add business context: user ID, session ID, prompt version, A/B test parameters.
+- You need to add business context: User ID, session ID, prompt version, A/B test parameters.
 - You need to mark up complex agent logic: cross-LLM routing, data preprocessing, response post-processing.
-- You need to manually instrument custom tools that lack auto-instrumentation support.
+- You need to instrument modified tools not covered by auto-instrumentation.
 
-Manual instrumentation uses the [OpenTelemetry SDK](https://opentelemetry.io/docs/languages/) and [OpenTelemetry semantic conventions for GenAI](https://opentelemetry.io/docs/specs/semconv/gen-ai/). The examples are in Python.
+Manual instrumentation uses the [OpenTelemetry SDK](https://opentelemetry.io/docs/languages/) and [OpenTelemetry semantic conventions for GenAI](https://github.com/open-telemetry/semantic-conventions-genai). This section gives markup examples for Python.
 
 ## Main conventions {#conventions}
 
 Follow these conventions to make sure traces are displayed correctly:
 
-1. **OpenTelemetry standard.** Use attributes from the [OpenTelemetry standard for GenAI](https://opentelemetry.io/docs/specs/semconv/gen-ai/).
+1. **OpenTelemetry standard.** Use attributes from the [OpenTelemetry standard for GenAI](https://github.com/open-telemetry/semantic-conventions-genai).
 1. **Service isolation.** Each LLM agent must send spans with a unique `service.name` attribute value. This is important for correct data filtering in the monitoring system.
 1. **Required attributes.** Some attributes are required to correctly visualize traces in the interface; see the [table below](#required-attributes).
 
@@ -30,15 +32,15 @@ To ensure traces are correctly displayed in the {{ traces-name }} LLM monitoring
 || **Data** | **Attribute** | **Type** | **Comment** ||
 || Number of input data tokens | `gen_ai.usage.input_tokens` | int | ||
 || Number of tokens per response | `gen_ai.usage.output_tokens` | int | ||
-|| Input messages (prompts, dialog history, tool calling results) | `gen_ai.input.messages` | JSON array | Format: see [Message format](#messages-format) ||
+|| Input messages (prompts, dialog history, tool calling results) | `gen_ai.input.messages` | JSON array | Format: see [Message format](#messages-format). ||
 || System prompt | `gen_ai.system_instructions` or an element with `role == system` in `gen_ai.input.messages` | JSON / string | System message separate from chat history. When using `gen_ai.input.messages`, provide it in an element with `role == system` and the `parts` field ||
-|| Model response | `gen_ai.output.messages` | JSON array | Format: see [Message format](#messages-format) ||
+|| Model response | `gen_ai.output.messages` | JSON array | Format: see [Message format](#messages-format). ||
 || Operation type | `gen_ai.operation.name` | string | Determines span display. The valid values are `chat`, `text_completion`, `create_agent`, `invoke_agent`, `execute_tool`, `embeddings`, and `generate_content`. ||
 || Responding model name | `gen_ai.response.model` | string | ||
 || List of available tools | `gen_ai.tool.definitions` | JSON array | LLM tool signatures. The interface displays the **Available tools** section. ||
 |#
 
-In addition to the specified attributes, the OpenTelemetry standard also describes other useful attributes for GenAI spans, such as `gen_ai.system`, `gen_ai.request.model`, `gen_ai.tool.definitions`, etc. For the full list of attributes with descriptions, see the [OpenTelemetry convention for GenAI](https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-spans/).
+In addition to the specified attributes, the OpenTelemetry standard also describes other useful attributes for GenAI spans, such as `gen_ai.system`, `gen_ai.request.model`, `gen_ai.tool.definitions`, etc. For the full list of attributes with descriptions, see the [OpenTelemetry convention for GenAI](https://github.com/open-telemetry/semantic-conventions-genai).
 
 ### Message format {#messages-format}
 
@@ -83,7 +85,7 @@ You can provide the **system prompt** in two ways: as an element with `role == s
   }
 ]
 ```
-For a detailed input message JSON schema, see [this OpenTelemetry guide](https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-input-messages.json).
+For a detailed input message JSON schema, see [this OpenTelemetry guide](https://github.com/open-telemetry/semantic-conventions-genai/blob/main/model/gen-ai/gen-ai-input-messages.json).
 
 **Output messages** (`gen_ai.output.messages`):
 
@@ -118,7 +120,7 @@ OR
   }
 ]
 ```
-For a detailed output message JSON schema, see [this OpenTelemetry guide](https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-output-messages.json).
+For a detailed output message JSON schema, see [this OpenTelemetry guide](https://github.com/open-telemetry/semantic-conventions-genai/blob/main/model/gen-ai/gen-ai-output-messages.json).
 
 If the model is calling a tool, the output message must contain `parts` with the `tool_call` type:
 
@@ -165,6 +167,149 @@ The result returned by the tool is provided in the following request to the mode
 {% endcut %}
 
 
+### Images in spans {#images}
+
+Images from the model dialog are automatically displayed in the span if they are correctly described in the `gen_ai.input.messages` and `gen_ai.output.messages` attributes. There is no need for separate spans for images because images are already included in the message history.
+
+An image is described as an object belonging to the `parts` array alongside text queries, model responses, tool calls and their responses. An image can form a part of a user's request (`gen_ai.input.messages`) or a model's response (`gen_ai.output.messages`).
+
+Structure of the `parts` array fragment with an image:
+
+```json
+"parts": [
+  ...
+  {
+    "type": "uri",
+    "modality": "image",
+    "uri": "https://cdn.example.com/some_image.jpg",
+    "mime_type": "image/jpeg"
+  },
+  ...
+]
+```
+
+Where:
+
+* `type`: For objects with image description the value is always `uri`.
+* `modality`: For objects with image description the value is always `image`.
+* `uri`: Direct link to the image with the `https://` schema.
+* `mime_type`: [MIME](https://en.wikipedia.org/wiki/Media_type) file type.
+
+    * `image/jpeg`
+    * `image/png`
+    * `image/webp`
+    * `image/gif`
+    * `image/svg+xml`
+
+{% note info %}
+
+All four parameters are required.
+
+{% endnote %}
+
+A single message can contain several parts of different types, e.g., text and image. In the {{ monium-name }} interface, all parts will be displayed in the span in the same order in which they are listed in the `parts` array. Images will be automatically displayed inside the span as previews the moment the span becomes visible on the screen. Click the preview to open the full-size version of the image.
+
+#### Image link requirements {#image-link-format}
+
+{{ monium-name }} does not proxy images provided in LLM traces. The user's browser uploads them directly from the source specified in the link. Therefore, image URLs must meet the following requirements:
+
+* **URL schema**: Only `https://` allowed.
+
+    The browser will block links with the `http://` schema as `mixed content`. `{{ monium-name }}` does not support links to images with the `data:` schema and [Base64]({{ link-base64 }}) encoding.
+
+    {% note tip %}
+
+    You can get a link with the `https://` schema by uploading the image to a {{ objstorage-full-name }} [bucket](*buckets) or to a {{ cdn-full-name }} [resource](*cdn_resource).
+
+    {% endnote %}
+
+* **Accessibility from user's browser**: If the browser does not have access to the image, the image will not be displayed in the {{ monium-name }} span. For example, a link to an intranet resource will not open in the browser on a computer not connected to that intranet.
+
+    [Signed URLs](*signed_url) will continue to open until the signature expires.
+
+#### Examples of messages with images {#image-containing-examples}
+
+{% list tabs %}
+
+- Image in user request
+
+  gen_ai.input.messages:
+
+  ```json
+  [
+    {
+      "role": "user",
+      "parts": [
+        {
+          "type": "text",
+          "content": "What do you see in this picture?"
+        },
+        {
+          "type": "uri",
+          "modality": "image",
+          "uri": "https://example.com/photo.jpg",
+          "mime_type": "image/jpeg"
+        }
+      ]
+    }
+  ]
+  ```
+
+  gen_ai.output.messages:
+
+  ```json
+  [
+    {
+      "role": "assistant",
+      "parts": [
+        {
+          "type": "text",
+          "content": "The picture depicts a sunset over the sea with silhouettes of yachts."
+        }
+      ],
+      "finish_reason": "stop"
+    }
+  ]
+  ```
+
+- Image in the agent's response
+
+  gen_ai.input.messages:
+
+  ```json
+  [
+    {
+      "role": "user",
+      "parts": [
+        {
+          "type": "text",
+          "content": "Draw the interface of an ideal Observability system"
+        }
+      ]
+    }
+  ]
+  ```
+
+  gen_ai.output.messages:
+
+  ```json
+  [
+    {
+      "role": "assistant",
+      "parts": [
+        {
+          "type": "uri",
+          "modality": "image",
+          "uri": "https://cdn.ya.ru/generated/monium.png",
+          "mime_type": "image/png"
+        }
+      ],
+      "finish_reason": "stop"
+    }
+  ]
+  ```
+
+{% endlist %}
 
 ## Tool call spans {#tool-spans}
 
@@ -182,7 +327,7 @@ Recommended attributes for a tool call span:
 || `gen_ai.tool.call.result` | Execution result (serialized into a string via `json.dumps()`) | `{"temperature": 18, "condition": "cloudy"}` ||
 |#
 
-For more examples of proper instrumentation across various scenarios (tool calls, streaming, multimodality), see the [Examples: LLM Calls](https://opentelemetry.io/docs/specs/semconv/gen-ai/non-normative/examples-llm-calls/) section in the OpenTelemetry docs.
+For more examples of proper instrumentation across various scenarios (tool calls, streaming, multimodality), see the [Examples: LLM Calls](https://github.com/open-telemetry/semantic-conventions-genai/blob/b028dceecdad117461a785c3af35315e7184e813/docs/gen-ai/non-normative/examples-llm-calls.md) section in the OpenTelemetry docs.
 
 {% cut "Example of a span featuring a tool call" %}
        
@@ -368,3 +513,13 @@ After the agent finishes running, the {{ traces-name }} interface will display a
 Manual and auto-instrumented spans integrate seamlessly within a single trace. This enables you to implement a hybrid approach: use auto-instrumentation for baseline coverage and add manual spans to provide more context as needed.
 
 For example, if your agent uses the OpenAI SDK with auto-instrumentation, you can manually create a root span for the entire agent operation, and LLM calls will be automatically captured as child spans. This ensures end-to-end visibility of the agent’s wirkflow, from the user request to the final response.
+
+[*buckets]: A bucket is a portion of {{ objstorage-full-name }} allocated for user data. For more information, see [{#T}](../../../storage/concepts/bucket.md).
+
+[*cdn_resource]: A resource is {{ cdn-full-name }}'s main logical entity allowing you to configure and manage content distribution from sources through points of presence. For more information, see [{#T}](../../../cdn/concepts/resource.md).
+
+[*signed_url]: A pre-signed URL is a URL containing request authorization data in its parameters. For more information on how signed URLs are implemented in {{ objstorage-full-name }}, see [this section](../../../storage/concepts/pre-signed-urls.md).
+
+[*cors_cdn]: {{ cdn-full-name }} supports cross-domain requests via CORS (cross-origin resource sharing). For more information, see [{#T}](../../../cdn/concepts/cors.md).
+
+[*cors]: CORS is a standard that allows web pages to access objects on third-party internet resources. A third-party resource is any internet resource that differs from the current one in terms of schema, domain, or port.

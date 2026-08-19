@@ -10,9 +10,9 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, где требуется изменить [облачную сеть](../concepts/network.md).
   1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
-  1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной подсети и выберите **Редактировать**.
+  1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной сети и выберите **Редактировать**.
   1. Внесите нужные изменения.
-  1. Нажмите **Сохранить изменения**.
+  1. Нажмите **Сохранить**.
 
 - CLI {#cli}
 
@@ -24,59 +24,61 @@
 
   1. Посмотрите описание команды CLI для обновления параметров [облачной сети](../concepts/network.md):
 
-      ```bash
-      yc vpc network update --help
-      ```
+     ```bash
+     yc vpc network update --help
+     ```
 
   1. Получите список всех сетей в каталоге по умолчанию:
 
-      ```bash
-      yc vpc network list
-      ```
+     ```bash
+     yc vpc network list
+     ```
 
-      Результат:
-      ```text
-      +----------------------+----------------+
-      |          ID          |      NAME      |
-      +----------------------+----------------+
-      | enpavfmgapum******** | test-network-1 |
-      | enplom7a98s1******** | default        |
-      +----------------------+----------------+
-      ```
+     Результат:
+
+     ```text
+     +----------------------+----------------+
+     |          ID          |      NAME      |
+     +----------------------+----------------+
+     | enpavfmgapum******** | test-network-1 |
+     | enplom7a98s1******** | default        |
+     +----------------------+----------------+
+     ```
 
   1. Выберите идентификатор (`ID`) или имя (`NAME`) нужной сети.
   1. Измените параметры облачной сети, указав ее имя:
 
-      ```bash
-      yc vpc network update enpavfmgapum******** --new-name test-network-renamed
-      ```
+     ```bash
+     yc vpc network update enpavfmgapum******** --new-name test-network-renamed
+     ```
 
-      Результат:
-      ```text
-      id: enpavfmgapum********
-      folder_id: b1g6ci08ma55********
-      created_at: "2018-10-23T14:05:32Z"
-      name: test-network-renamed
-      description: My first network
-      labels:
-        new_label: test_label
-      ```
-     
-      Идентификатор и имя можно передавать не только как позиционный аргумент, но и с помощью параметров `--id` и `--name`:
+     Результат:
 
-      ```bash
-      yc vpc network update \
-        --id enpavfmgapum******** \
-        --new-name test-network-renamed \
-        --labels new_label=test_label
-      ```
+     ```text
+     id: enpavfmgapum********
+     folder_id: b1g6ci08ma55********
+     created_at: "2018-10-23T14:05:32Z"
+     name: test-network-renamed
+     description: My first network
+     labels:
+       new_label: test_label
+     ```
 
-      ```bash
-      yc vpc network update \
-        --name test-network-1 \
-        --new-name test-network-renamed \
-        --labels new_label=test_label
-      ```
+     Идентификатор и имя можно передавать не только как позиционный аргумент, но и с помощью параметров `--id` и `--name`:
+
+     ```bash
+     yc vpc network update \
+       --id enpavfmgapum******** \
+       --new-name test-network-renamed \
+       --labels new_label=test_label
+     ```
+
+     ```bash
+     yc vpc network update \
+       --name test-network-1 \
+       --new-name test-network-renamed \
+       --labels new_label=test_label
+     ```
 
 - Terraform {#tf}
 
@@ -186,6 +188,7 @@
   ```
 
   Результат:
+
   ```text
   id: enpavfmgapum********
   folder_id: b1g6ci08ma55********

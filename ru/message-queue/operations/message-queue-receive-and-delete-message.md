@@ -82,6 +82,6 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создана очередь сообщений.
   1. [Перейдите]({{ link-console-main }}/link/message-queue) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
-  1. Текущее количество сообщений в очереди указано в поле **Сообщений в очереди**.
+  1. Текущее количество сообщений в нужной очереди указано в колонке **{{ ui-key.yacloud.ymq.queue.overview.label_msg-count }}**.
 
 {% endlist %}

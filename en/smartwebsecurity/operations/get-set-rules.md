@@ -10,10 +10,11 @@ description: Follow this guide to get information about a rule set for a WAF pro
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [WAF profile](../concepts/waf.md).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}**.
   1. Select the profile with the rule set you need.
   1. The **{{ ui-key.yacloud.smart-web-security.advanced_waf.sets_priority_section.section_title }}** section will display the information on rule sets:
+     
      * Rule set version.
      * Number of active rules.
      * Anomaly threshold and paranoia level (for the OWASP set).
@@ -40,14 +41,17 @@ description: Follow this guide to get information about a rule set for a WAF pro
       ```
 
       Where:
-
+      
       * `data "yandex_sws_waf_rule_set_descriptor"`: Description of the WAF rule set as a data source:
+        
         * `name`: Name of the WAF rule set.
         * `version`: Rule set version.
+      
       * `output "waf_rules"`: Output variable that contains information about the WAF rule set:
+        
         * `value`: Return value.
 
-      You can replace `rules` with another variable to get the information you need. For more on the properties of the `yandex_sws_waf_rule_set_descriptor` data source, see [this provider guide]({{ tf-provider-datasources-link }}/sws_waf_rule_set_descriptor).
+      You can replace `rules` with another variable to get the information you need. For more information about the properties of the `yandex_sws_waf_rule_set_descriptor` data source, see [this provider guide]({{ tf-provider-datasources-link }}/sws_waf_rule_set_descriptor).
 
   1. Create the resources:
 

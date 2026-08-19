@@ -6,11 +6,10 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [облачная сеть](../concepts/network.md#network).
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [облачная сеть](../concepts/network.md#network).
   1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/timestamps.svg) **Облачные сети**.
   1. Выберите нужную облачную сеть.
-  1. На странице **Обзор** отобразится подробная информация о выбранной сети.
+  1. На вкладке **Обзор** отобразится подробная информация о выбранной сети.
 
 - CLI {#cli}
 
@@ -22,26 +21,26 @@
 
   1. Посмотрите описание команды CLI для получения информации об [облачной сети](../concepts/network.md#network):
 
-      ```bash
-      yc vpc network get --help
-      ```
+     ```bash
+     yc vpc network get --help
+     ```
 
   1. Получите информацию о сети, указав ее имя или идентификатор:
 
-      ```bash
-      yc vpc network get <имя_сети>
-      ```
+     ```bash
+     yc vpc network get <имя_сети>
+     ```
 
-      Результат:
+     Результат:
 
-      ```text
-      id: ne7w0rkfj75j********
-      folder_id: f01derqpemb4********
-      created_at: "2023-10-25T14:59:46Z"
-      name: my-network
-      description: Auto-created network
-      default_security_group_id: 5ecur17yj09k********
-      ```
+     ```text
+     id: ne7w0rkfj75j********
+     folder_id: f01derqpemb4********
+     created_at: "2023-10-25T14:59:46Z"
+     name: my-network
+     description: Auto-created network
+     default_security_group_id: 5ecur17yj09k********
+     ```
 
 - Terraform {#tf}
 
@@ -57,6 +56,7 @@
   Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
   Чтобы получить информацию об [облачной сети](../concepts/network.md#network) с помощью Terraform:
+
   1. Добавьте в конфигурационный файл Terraform блоки `data` и `output`:
 
      ```hcl
@@ -76,6 +76,7 @@
        * `value` — возвращаемое значение.
 
      Вместо `created_at` вы можете выбрать любой другой параметр для получения информации. Подробнее о параметрах источника данных `yandex_vpc_network` в [документации провайдера](../../terraform/data-sources/vpc_network.md).
+
   1. Создайте ресурсы:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -125,7 +126,6 @@
   Чтобы узнать идентификатор облачной сети, воспользуйтесь методом REST API [list](../api-ref/Network/list.md) для ресурса [Network](../api-ref/Network/index.md) или вызовом gRPC API [NetworkService/List](../api-ref/grpc/Network/list.md) и передайте в запросе идентификатор каталога в параметре `folderId`.
 
   О том, как узнать идентификатор каталога, читайте в разделе [Получение идентификатора каталога](../../resource-manager/operations/folder/get-id.md).
-
 
 {% endlist %}
 

@@ -13,16 +13,16 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится зона DNS.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится зона DNS.
   1. [Перейдите]({{ link-console-main }}/link/dns) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
-  1. Выберите нужную зону.
-  1. Перейдите на панель ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}** для выбранной зоны.
+  1. Нажмите на нужную зону.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.common.operations-key-value }}**.
 
       В открывшемся списке отображаются операции с выбранной зоной и записями в ней.
 
 - CLI {#cli}
 
-  {% include [include](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
@@ -62,7 +62,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы получить список операций с зоной, воспользуйтесь методом REST API [listOperations](../api-ref/DnsZone/listOperations.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md), или вызовом gRPC API [DnsZoneService/ListOperations](../api-ref/grpc/DnsZone/listOperations.md).
+  Чтобы получить список операций с зоной, воспользуйтесь методом REST API [listOperations](../api-ref/DnsZone/listOperations.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/ListOperations](../api-ref/grpc/DnsZone/listOperations.md).
 
 {% endlist %}
 
@@ -109,7 +109,7 @@ description: Следуя данной инструкции, вы сможете
 
     - API {#api}
 
-      Воспользуйтесь методом REST API [get](../../api-design-guide/concepts/operation.md#monitoring), или вызовом gRPC API [OperationService/Get](../api-ref/grpc/Operation/get.md).
+      Воспользуйтесь методом REST API [get](../../api-design-guide/concepts/operation.md#monitoring) или вызовом gRPC API [OperationService/Get](../api-ref/grpc/Operation/get.md).
 
     {% endlist %}
 

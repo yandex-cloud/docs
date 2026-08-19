@@ -13,5 +13,3 @@ Yandex Serverless Integrations позволяет настраивать инт�
     EventRouter находится на стадии [Preview](../../overview/concepts/launch-stages.md).
     
     {% endnote %}
-
-* Yandex API Gateway — сконфигурируйте API-шлюз для получения статического ответа, а затем добавьте интеграцию для вызова функции Cloud Functions. Подробнее о возможностях в [документации API Gateway](../../api-gateway/quickstart/index.md).

@@ -13,11 +13,11 @@ For more information, see [{#T}](../../../operations/prometheus/ingestion/promet
 
 {{ unified-agent-short-name }} is supported by the following operating systems:
 
-- Ubuntu 16.04 or higher (you can [install it using any method](#setup)).
-- Debian 9 or higher (Docker image, deb package, or binary file).
-- CentOS 7 or higher (Docker image).
-- Fedora 32 or higher (Docker image).
-- Fedora CoreOS (Docker image).
+* Ubuntu 16.04 or higher (you can [install it using any method](#setup)).
+* Debian 9 or higher (Docker image, deb package, or binary file).
+* CentOS 7 or higher (Docker image).
+* Fedora 32 or higher (Docker image).
+* Fedora CoreOS (Docker image).
 
 ## Before you begin installation {#before-you-begin}
 
@@ -26,14 +26,16 @@ Prior to installing {{ unified-agent-full-name }}, follow these steps:
 1. Create a VM in {{ yandex-cloud }} or a host outside of {{ yandex-cloud }} on one of the [supported operating systems](#supported-os), e.g., Ubuntu 16.04 or higher.
 
 1. Optionally, [install Docker](https://docs.docker.com/install/) if you want to use Docker to run {{ unified-agent-short-name }}. Docker is pre-installed in Fedora CoreOS.
-   - Set up a public IPv4 address (recommended).
-   - [Configure Docker to work with IPv6](https://docs.docker.com/config/daemon/ipv6) and [enable network address translation](https://medium.com/@skleeschulte/how-to-enable-ipv6-for-docker-containers-on-ubuntu-18-04-c68394a219a2) if you cannot use a public IPv4 address.
+   
+   * Set up a public IPv4 address (recommended).
+   * [Configure Docker to work with IPv6](https://docs.docker.com/config/daemon/ipv6) and [enable network address translation](https://medium.com/@skleeschulte/how-to-enable-ipv6-for-docker-containers-on-ubuntu-18-04-c68394a219a2) if you cannot use a public IPv4 address.
 
 1. [Create a service account](../../../../iam/operations/sa/create.md) in the folder you want to write metrics to and [assign it](../../../../iam/operations/sa/assign-role-for-sa.md) the `{{ roles-monitoring-editor }}` role.
 
 1. Set up agent authorization in the {{ monium-name }} API:
-   - If the agent is installed on a VM in {{ yandex-cloud }}, [link the service account you created](../../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) to the VM. This way, the agent will automatically get the service account IAM token from the metadata service.
-   - If the agent is installed on a host outside {{ yandex-cloud }}, [create an authorized key](../../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) for service accounts. For more information about delivering metrics from hosts outside {{ yandex-cloud }}, see [{#T}](../../../operations/unified-agent/non-yc.md).
+   
+   * If the agent is installed on a VM in {{ yandex-cloud }}, [link the service account you created](../../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) to the VM. This way, the agent will automatically get the service account IAM token from the metadata service.
+   * If the agent is installed on a host outside {{ yandex-cloud }}, [create an authorized key](../../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) for service accounts. For more information about delivering metrics from hosts outside {{ yandex-cloud }}, see [{#T}](../../../operations/unified-agent/non-yc.md).
 
 ## Installation {#setup}
 
@@ -259,16 +261,16 @@ Check the collected metrics:
 
 {% list tabs group=instructions %}
 
-- Management console {#console}
+- {{ monium-name }} UI {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where metrics are collected.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_monium }}**.
-  1. In the left-hand panel, select ![image](../../../../_assets/console-icons/rectangle-pulse.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.
+  1. On the [{{ monium-name }}]({{ link-monium }}) home page, select ![alt](../../../../_assets/console-icons/compass.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.all-panel.menu.category.explore }}** → ![alt](../../../../_assets/console-icons/rectangle-pulse.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}** on the left.
   1. In the query editor, in the ![image](../../../../_assets/monitoring/chart.svg) line with the cloud and folder names, specify the following:
+     
      * `service` = `custom`
      * `cluster` = `default`
      * `name` = `memory.Active`
      * `host` = `<VM_name>`.
+  
   1. Click **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}**.
      The chart that appears will display metrics collected by {{ unified-agent-short-name }}.
 
@@ -276,7 +278,7 @@ Check the collected metrics:
 
 #### What's next {#what-is-next}
 
-- [Learn how to run and stop {{ unified-agent-short-name }}](./run-and-stop.md)
-- [Read about {{ unified-agent-short-name }} concepts](./index.md)
-- [Learn more about configuring {{ unified-agent-short-name }}](./configuration.md)
-- [Read the {{ unified-agent-short-name }} operating guidelines](./best-practices.md)
+* [Learn how to run and stop {{ unified-agent-short-name }}](./run-and-stop.md)
+* [Read about {{ unified-agent-short-name }} concepts](./index.md)
+* [Learn more about configuring {{ unified-agent-short-name }}](./configuration.md)
+* [Read the {{ unified-agent-short-name }} operating guidelines](./best-practices.md)

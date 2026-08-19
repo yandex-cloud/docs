@@ -270,7 +270,7 @@ To enable your employees to use {{ yandex-cloud }} resources, add them to the {{
 
     - {{ cloud-center }} UI {#cloud-center}
 
-      1. Go to [{{ org-full-name }}]({{ link-org-cloud-center }}).
+      1. [Navigate]({{ link-org-cloud-center }}) to **{{ org-full-name }}**.
       1. In the left-hand panel, select ![icon-users](../../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}**.
       1. In the top-right corner, click **{{ ui-key.yacloud_org.page.users.action.invite-users }}**.
       1. Enter the email addresses of the users you want to invite to the organization, separated by commas.

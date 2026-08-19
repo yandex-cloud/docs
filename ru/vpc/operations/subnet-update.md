@@ -1,6 +1,11 @@
+---
+title: Изменить подсеть
+description: Следуя данной инструкции, вы сможете изменить подсеть.
+---
+
 # Изменить подсеть
 
-После создания [подсети](../concepts/network.md#subnet) вы можете изменить ее имя, описание и настройки DCHP.
+После создания [подсети](../concepts/network.md#subnet) вы можете изменить ее имя, описание и настройки DHCP.
 
 {% list tabs group=instructions %}
 
@@ -9,7 +14,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется изменить подсеть.
   1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-  1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной подсети и выберите **{{ ui-key.yacloud.common.edit }}**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной подсети и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. Внесите нужные изменения.
   1. Нажмите **{{ ui-key.yacloud.vpc.subnetworks.update.button_update }}**.
 
@@ -21,19 +26,19 @@
 
   1. Посмотрите описание команды CLI для обновления параметров подсети:
 
-      ```
+      ```bash
       yc vpc subnet update --help
       ```
 
   1. Получите список всех подсетей в каталоге по умолчанию:
 
-      ```
+      ```bash
       yc vpc subnet list
       ```
-	    
+
       Результат:
 
-      ```
+      ```text
       +----------------------+-----------------------+----------------------+
       |          ID          |         NAME          |         ...          |
       +----------------------+-----------------------+----------------------+
@@ -46,7 +51,7 @@
   1. Выберите идентификатор (`ID`) или имя (`NAME`) нужной подсети.
   1. Измените параметры подсети, например:
 
-      ```
+      ```bash
       yc vpc subnet update e2l2prrbkbim******** \
         --new-name test-subnet-renamed \
         --labels new_label=test_label
@@ -54,7 +59,7 @@
 
       Результат:
 
-      ```
+      ```text
       id: e2l2prrbkbim********
       folder_id: b1g6ci08ma55********
       created_at: "2018-10-24T13:54:10Z"
@@ -80,47 +85,23 @@
      ...
      resource "yandex_vpc_subnet" "lab-subnet-a" {
        name           = "subnet-1"
-	   description    = "My first subnet"
-       v4_cidr_blocks = ["10.2.0.0/16"]
-       zone           = "{{ region-id }}-a"
-       network_id     = "${yandex_vpc_network.lab-net.id}"
+	     description    = "My first subnet"
+	     v4_cidr_blocks = ["10.2.0.0/16"]
+	     zone           = "{{ region-id }}-a"
+	     network_id     = yandex_vpc_network.lab-net.id
      }
      ...
      ```
 
      Подробнее о параметрах ресурса `yandex_vpc_subnet` в {{ TF }} в [документации провайдера]({{ tf-provider-resources-link }}/vpc_subnet).
 
-  1. Проверьте конфигурацию командой:
+  1. Примените конфигурацию:
 
-     ```
-     terraform validate
-     ```
-     
-     Если конфигурация является корректной, появится сообщение:
-     
-     ```
-     Success! The configuration is valid.
-     ```
-
-  1. Выполните команду:
-
-     ```
-     terraform plan
-     ```
-  
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
-
-  1. Примените изменения конфигурации:
-
-     ```
-     terraform apply
-     ```
-     
-  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
      Проверить изменение подсети можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
-     ```
+     ```bash
      yc vpc subnet get <имя_подсети>
      ```
 
@@ -150,7 +131,7 @@
 
 ## Примеры {#examples}
 
-### Изменение подсети с использованием флага имени {#using-name-flag}
+### Изменение подсети с использованием параметра имени {#using-name-flag}
 
 {% list tabs group=instructions %}
 
@@ -158,7 +139,7 @@
 
   Можно изменять подсеть, используя ее имя вместо идентификатора:
 
-  ```
+  ```bash
   yc vpc subnet update test-subnet-1 \
     --new-name test-subnet-renamed \
     --labels new_label=test_label
@@ -166,7 +147,7 @@
 
   Результат:
 
-  ```
+  ```text
   id: e2l2prrbkbim********
   folder_id: b1g6ci08ma55********
   created_at: "2018-10-24T13:54:10Z"
@@ -182,17 +163,17 @@
 
   Идентификатор и имя подсети можно передавать не только как позиционный аргумент, но и с помощью параметров `--id` и `--name`:
 
-  ```
-  yc vpc network update \
-    --id enpavfmgapum******** \
-    --new-name test-network-renamed \
+  ```bash
+  yc vpc subnet update \
+    --id e2l2prrbkbim******** \
+    --new-name test-subnet-renamed \
     --labels new_label=test_label
   ```
 
-  ```
-  yc vpc network update \
-    --name test-network-1 \
-    --new-name test-network-renamed \
+  ```bash
+  yc vpc subnet update \
+    --name test-subnet-1 \
+    --new-name test-subnet-renamed \
     --labels new_label=test_label
   ```
 

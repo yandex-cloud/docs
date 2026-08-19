@@ -868,8 +868,6 @@ Yandex DataLens — это сервис бизнес-аналитики для �
 
  - [Настройки дашборда](dashboard/settings.md)
 
- - [Рассылки](operations/dashboard/add-maillists.md)
-
  - [Версионирование](dashboard/versioning.md)
 
  - [Параметры](dashboard/dashboard_parameters.md)
@@ -964,6 +962,14 @@ Yandex DataLens — это сервис бизнес-аналитики для �
 
  - [Нейроаналитик в отчетах](reports/insights.md)
 
+## Рассылки
+
+ - [Обзор](concepts/maillists.md)
+
+ - [Рассылки для дашборда](operations/dashboard/add-maillists.md)
+
+ - [Рассылки для отчета](reports/add-report-maillists.md)
+
 ## HTML-страницы
 
  - [Обзор](html-pages/index.md)
@@ -1029,6 +1035,8 @@ Yandex DataLens — это сервис бизнес-аналитики для �
  - [Безопасность](settings/restrictions.md)
 
  - [Навигация](settings/navigation.md)
+
+ - [Удаленные объекты](settings/deleted-objects.md)
 
  - [Галерея в DataLens](concepts/gallery.md)
 

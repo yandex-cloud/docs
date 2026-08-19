@@ -16,7 +16,7 @@ You can add multiple proxy servers, for example, to separate the application's s
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![domain-protection-icon](../../_assets/smartwebsecurity/domain-protection-icon.svg) **{{ ui-key.yacloud.smart-web-security.label_domain-protection }}**.
   1. Click **{{ ui-key.yacloud.smart-web-security.ProxyServers.createProxyServer_jatYQ }}**.
   1. Enter a name for the proxy server.
@@ -32,6 +32,7 @@ You can add multiple proxy servers, for example, to separate the application's s
           1. Select **HTTP codes** and, optionally, **HTTP code classes** to discard logs for.
           1. Specify what percentage of logs to discard.
           1. Add more rules to use different discard percentages for different HTTP codes.
+  
   1. Click **{{ ui-key.yacloud.smart-web-security.ProxyServerFormCreate.createServer_sycVk }}**.
 
 {% include [after-proxy-create](../../_includes/smartwebsecurity/after-proxy-create.md) %}
@@ -44,6 +45,6 @@ The proxy server has an MTU limit of 1,450 bytes for all packets.
 
 {% endnote %}
 
-### Useful links {#see-also}
+#### Useful links {#see-also}
 
 [{#T}](domain-create.md)

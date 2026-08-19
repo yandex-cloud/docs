@@ -16,7 +16,7 @@ There are restrictions (quotas and limits) on a number of resources in {{ monium
 
 - {{ monium-name }} UI {#console}
   
-  1. On the [{{ monium-name }}]({{ link-monium }}) home page, select **Quotas** on the left.
+  1. On the [{{ monium-name }}]({{ link-monium }}) home page, select ![alt](../../_assets/console-icons/sliders.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.all-panel.menu.category.configure }}** → ![alt](../../_assets/console-icons/chart-pie.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.quotas.title }}** on the left.
   1. Select the project in the top left or leave the current one.
   1. On the **Project quotas** tab, view the quota values ​​for resource groups.
   1. To view quotas for individual shards, go to the **Distribution by shards** tab on the **Quotas** page.
@@ -34,7 +34,7 @@ There are restrictions (quotas and limits) on a number of resources in {{ monium
 - {{ monium-name }} UI {#console}
   
   1. Make sure your account has the [monium.admin](../security/index.md#monium-admin) or [monium.editor](../security/index.md#monium-editor) role.
-  1. On the [{{ monium-name }}]({{ link-monium }}) home page, select **Quotas** on the left.
+  1. On the [{{ monium-name }}]({{ link-monium }}) home page, select ![alt](../../_assets/console-icons/sliders.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.all-panel.menu.category.configure }}** → ![alt](../../_assets/console-icons/chart-pie.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.quotas.title }}** on the left.
   1. Select the project in the top left or leave the current one.
   1. On the **Project quotas** tab, in the quota group, click ![image](../../_assets/console-icons/pencil.svg) **Change quota amount**.
   1. In the window that opens, enter new values for the group's quotas.

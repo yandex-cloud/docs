@@ -297,7 +297,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/cdn) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-  1. На вкладке ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.cdn.label_resources-list }}** нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-create }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-create }}**.
   1. Задайте основные настройки CDN-ресурса:
       * В блоке **{{ ui-key.yacloud.cdn.label_section-content }}**:
         * Включите **{{ ui-key.yacloud.cdn.label_access }}**.
@@ -565,7 +565,7 @@
   1. [Перейдите]({{ link-console-main }}/link/cdn) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. Выберите созданный CDN-ресурс (в списке ресурсов будет указано его основное доменное имя — `cdn.ycprojectblue.example`).
   1. Перейдите на вкладку **{{ ui-key.yacloud.cdn.label_resource-content }}**.
-  1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.cdn.button_resource-content-prefetch-cache }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.shared.layout.PageContentActions.button_more_axqoH }}** и выберите ![image](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.cdn.button_resource-content-prefetch-cache }}**.
   1. В поле **{{ ui-key.yacloud.cdn.label_resource-content-prefetch-cache-paths }}** укажите путь к файлу, хранящемуся в источнике, без доменного имени:
 
      ```text

@@ -18,61 +18,61 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно зарезервировать адрес.
-   1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-   1. На панели слева выберите ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
-   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
-   1. В открывшемся окне:
-       * В поле **{{ ui-key.yacloud.vpc.addresses.popup-create_field_zone }}** выберите зону доступности, в которой нужно зарезервировать адрес.
-       * (Опционально) В блоке **{{ ui-key.yacloud.vpc.addresses.popup-create_field_advanced }}** включите опции **{{ ui-key.yacloud.common.field_ddos-protection-provider }}** и **{{ ui-key.yacloud.vpc.addresses.popup-create_field_deletion-protection }}**.
-       * (Опционально) Укажите метки.
-       * (Опционально) Чтобы добавить DNS-запись, разверните список **{{ ui-key.yacloud.vpc.addresses.label_dns-spec-title }}** и нажмите кнопку **{{ ui-key.yacloud.dns.button_add-record }}**. В открывшемся блоке:
-           * Выберите зону DNS.
-           * Укажите FQDN. Вы можете создать новый домен или использовать домен, имя которого совпадает с именем зоны DNS.
-           * В поле **{{ ui-key.yacloud.dns.label_ttl }}** укажите время жизни записи в секундах.
-   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно зарезервировать адрес.
+  1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
+  1. В открывшемся окне:
+     * В поле **{{ ui-key.yacloud.vpc.addresses.popup-create_field_zone }}** выберите зону доступности, в которой нужно зарезервировать адрес.
+     * (Опционально) В блоке **{{ ui-key.yacloud.vpc.addresses.popup-create_field_advanced }}** включите опции **{{ ui-key.yacloud.common.field_ddos-protection-provider }}** и **{{ ui-key.yacloud.vpc.addresses.popup-create_field_deletion-protection }}**.
+     * (Опционально) Укажите метки.
+     * (Опционально) Чтобы добавить DNS-запись, разверните список **{{ ui-key.yacloud.vpc.addresses.label_dns-spec-title }}** и нажмите кнопку **{{ ui-key.yacloud.dns.button_add-record }}**. В открывшемся блоке:
+       * Выберите зону DNS.
+       * Укажите FQDN. Вы можете создать новый домен или использовать домен, имя которого совпадает с именем зоны DNS.
+       * В поле **{{ ui-key.yacloud.dns.label_ttl }}** укажите время жизни записи в секундах.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
 
 - CLI {#cli}
 
-   {% include [include](../../_includes/cli-install.md) %}
+  {% include [include](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. Просмотрите описание команды CLI для резервирования адреса:
+  1. Просмотрите описание команды CLI для резервирования адреса:
 
-      ```bash
-      yc vpc address create --help
-      ```
+     ```bash
+     yc vpc address create --help
+     ```
 
-   1. Зарезервируйте адрес, указав зону доступности:
+  1. Зарезервируйте адрес, указав зону доступности:
 
-      ```bash
-      yc vpc address create --external-ipv4 zone={{ region-id }}-a --deletion-protection
-      ```
+     ```bash
+     yc vpc address create --external-ipv4 zone={{ region-id }}-a --deletion-protection
+     ```
 
-      Где:
+     Где:
 
-      * `--external-ipv4` — описание ipv4-адреса:
-        * `zone` — [зона доступности](../../overview/concepts/geo-scope.md).
-      * `--deletion-protection` — включает защиту статического публичного IP-адреса от удаления. Пока опция включена, IP-адрес удалить невозможно.
+     * `--external-ipv4` — описание IPv4-адреса:
+       * `zone` — [зона доступности](../../overview/concepts/geo-scope.md).
+     * `--deletion-protection` — включает защиту статического публичного IP-адреса от удаления. Пока опция включена, IP-адрес удалить невозможно.
 
-      Результат:
+     Результат:
 
-      ```text
-      id: e9b6un9gkso6********
-      folder_id: b1g7gvsi89m3********
-      created_at: "2021-01-19T17:52:42Z"
-      external_ipv4_address:
-        address: 178.154.253.52
-        zone_id: {{ region-id }}-a
-        requirements: {}
-      reserved: true
-      type: EXTERNAL
-      ip_version: IPV4
-      deletion_protection: true
-      ```
+     ```text
+     id: e9b6un9gkso6********
+     folder_id: b1g7gvsi89m3********
+     created_at: "2021-01-19T17:52:42Z"
+     external_ipv4_address:
+       address: 178.154.253.52
+       zone_id: {{ region-id }}-a
+       requirements: {}
+     reserved: true
+     type: EXTERNAL
+     ip_version: IPV4
+     deletion_protection: true
+     ```
 
-      Статический публичный IP-адрес зарезервирован.
+     Статический публичный IP-адрес зарезервирован.
 
 - {{ TF }} {#tf}
 
@@ -84,7 +84,7 @@ description: Следуя данной инструкции, вы сможете
 
      * `name` — имя статического публичного IP-адреса. Формат имени:
 
-          {% include [name-format](../../_includes/name-format.md) %}
+       {% include [name-format](../../_includes/name-format.md) %}
 
      * `deletion_protection` — защита статического публичного IP-адреса от удаления. Пока опция включена, IP-адрес удалить невозможно. Значение по умолчанию `false`.
      * `external_ipv4_address` — описание ipv4-адреса:
@@ -118,12 +118,12 @@ description: Следуя данной инструкции, вы сможете
 
   Чтобы зарезервировать статический публичный IP-адрес, воспользуйтесь методом REST API [create](../api-ref/Address/create.md) для ресурса [Address](../api-ref/Address/index.md) или вызовом gRPC API [AddressService/Create](../api-ref/grpc/Address/create.md) и передайте в запросе:
 
-    * Идентификатор каталога, в котором будет размещен статический IP-адрес, в параметре `folderId`.
-    * Имя статического публичного IP-адреса в параметре `name`. Формат имени:
+  * Идентификатор каталога, в котором будет размещен статический IP-адрес, в параметре `folderId`.
+  * Имя статического публичного IP-адреса в параметре `name`. Формат имени:
 
-      {% include [name-format](../../_includes/name-format.md) %}
+    {% include [name-format](../../_includes/name-format.md) %}
 
-    * Идентификатор [зоны доступности](../../overview/concepts/geo-scope.md), в которой будет размещен адрес, в параметре `externalIpv4AddressSpec.zoneId`.
+  * Идентификатор [зоны доступности](../../overview/concepts/geo-scope.md), в которой будет размещен адрес, в параметре `externalIpv4AddressSpec.zoneId`.
 
   Чтобы защитить статический публичный IP-адрес от удаления, передайте в запросе параметр `deletionProtection` со значением `true`.
 

@@ -3,7 +3,6 @@
 # This is a template - please update with your actual values
 
 userpool_id: "<user_pool_ID>"
-replication_tokens_path: "<path_to_directory_with_process_tokens>"
 working_directory: "<path_to_agent_working_directory>"
 
 # {{ yandex-cloud }} authentication settings
@@ -35,7 +34,7 @@ drsr:
 # LDAP client settings
 ldap:
   host: "ldaps://<domain_controller_address>:636"
-  certificate_path: "<path_to_certificate>"
+  certificate_path: "<path_to_CA_certificate>"
   insecure_skip_verify: false|true
   use_kerberos: true
 

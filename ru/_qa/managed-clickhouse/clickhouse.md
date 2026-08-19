@@ -81,3 +81,28 @@ SET allow_experimental_object_type=1;
 Чтобы увеличить максимальные значения IOPS и bandwidth и снизить вероятность троттлинга, расширьте размер хранилища при [изменении кластера](../../managed-clickhouse/operations/update.md#change-disk-size).
 
 Если вы используете хранилище с типом диска `network-hdd`, рассмотрите возможность перехода на `network-ssd` или `network-ssd-nonreplicated` путем [восстановления кластера](../../managed-clickhouse/operations/cluster-backups.md#restore) из резервной копии.
+
+#### Как узнать номера шардов? {#shard-num}
+
+Номера шардов в {{ CH }} (`shard_num`) соответствуют лексикографическому порядку имен шардов в {{ mch-name }} (например, `A-shard`, `B-shard`, `shard10`, `shard100`).
+
+Чтобы получить номер и имя каждого шарда, выполните запрос:
+
+```sql
+SELECT DISTINCT
+    shard_num,
+    shard_name
+FROM system.clusters
+WHERE cluster = getMacro('cluster')
+```
+
+Пример результата запроса:
+
+```text
+   ┌─shard_num─┬─shard_name─┐
+1. │         1 │ A-shard    │
+2. │         2 │ B-shard    │
+3. │         3 │ shard10    │
+4. │         4 │ shard100   │
+   └───────────┴────────────┘
+```

@@ -98,7 +98,7 @@
 
 1. Дождитесь, когда L7-балансировщик перейдет в статус `Active`.
 
-1. Перейдите в созданный L7-балансировщик и слева выберите **{{ ui-key.yacloud.alb.label_healthchecks }}**. Убедитесь, что все проверки показывают состояние `HEALTHY`.
+1. Перейдите в созданный L7-балансировщик и откройте вкладку **{{ ui-key.yacloud.alb.label_healthchecks }}**. Убедитесь, что все проверки показывают состояние `HEALTHY`.
 
 1. {% include [test](../_tutorials_includes/migration-from-nlb-to-alb/test.md) %}
 

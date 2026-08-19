@@ -87,7 +87,7 @@ For the user to access {{ yandex-cloud }} resources, invite them to the organiza
 
 - {{ cloud-center }} UI {#cloud-center}
 
-    1. Go to [{{ org-full-name }}]({{ link-org-cloud-center }}).
+    1. [Navigate]({{ link-org-cloud-center }}) to **{{ org-full-name }}**.
     1. In the left-hand panel, select ![icon-users](../../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}**.
     1. In the top-right corner, click ![person-plus](../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud_org.page.users.dropdown.button-text }}** and select ![person-planet-earth](../../_assets/console-icons/person-planet-earth.svg) **{{ ui-key.yacloud_org.page.users.action.invite-users }}**.
     1. Enter the user's email.
@@ -127,7 +127,7 @@ To grant access permissions to all organization users in one go, assign the `All
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), navigate to `test-folder`.
+    1. In the [management console]({{ link-console-main }}), select `test-folder`.
     1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
     1. Click **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
     1. In the window that opens, select **{{ ui-key.yacloud_org.common.resource-acl.label_invitee-accounts }}**.
@@ -194,7 +194,7 @@ Make sure you have access to `test-folder`. Once you open the folder, create a V
   1. Go to the [management console]({{ link-console-main }}) and click your profile image in the left-hand panel.
   1. Select `Example organization`.
   1. In the left-hand panel, select `test-folder`.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Select ![image](../../_assets/console-icons/server.svg) **Virtual machines**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}** and set the VM parameters:
 

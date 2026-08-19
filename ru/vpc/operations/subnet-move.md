@@ -1,3 +1,8 @@
+---
+title: Переместить подсеть в другой каталог
+description: Следуя данной инструкции, вы сможете переместить подсеть в другой каталог.
+---
+
 # Переместить подсеть в другой каталог
 
 [Подсети](../concepts/network.md) можно переносить между каталогами в пределах одного [облака](../../resource-manager/concepts/resources-hierarchy.md).
@@ -9,7 +14,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где находится подсеть.
   1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-  1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной подсети и выберите **{{ ui-key.yacloud.common.move }}**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной подсети и выберите **{{ ui-key.yacloud.common.move }}**.
   1. В открывшемся окне выберите каталог назначения.
   1. Нажмите **{{ ui-key.yacloud.common.move }}**.
 
@@ -39,6 +44,7 @@
       yc vpc subnet list
       ```
       Результат:
+
       ```text
       +----------------------+----------+----------------------+----------------+---------------+------------------+
       |          ID          |   NAME   |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |      RANGE       |
@@ -54,6 +60,7 @@
       ```
 
       Результат:
+
       ```text
       +----------------------+------------------------+--------+--------+
       |          ID          |          NAME          | LABELS | STATUS |
@@ -73,9 +80,10 @@
      ```
      Используйте либо параметр `--destination-folder-name`, либо `--destination-folder-id`.
 
-     Если подсеть находится не в текущем каталоге (каталоге по умолчанию), укажите исходный каталог с помощью опции `--folder-name` или `--folder-id`.
+     Если подсеть находится не в текущем каталоге (каталоге по умолчанию), укажите исходный каталог с помощью параметра `--folder-name` или `--folder-id`.
 
      Результат:
+
      ```text
       id: e9bcd5mq43cn********
       folder_id: b1chgf288nvg********

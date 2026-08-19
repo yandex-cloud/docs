@@ -1,8 +1,5 @@
 * `userpool_id`: ID of the [user pool](../../organization/concepts/user-pools.md) in {{ org-full-name }}.
-* `replication_tokens_path`: Path to the directory storing tokens with info about the current progress of [full synchronization](../../organization/concepts/ad-sync.md#full-sync) processes. This is an optional setting.
-
-    If this parameter is not set, the system will be saving the tokens in the agent's working directory specified in `working_directory` or, if none is specified, in the directory the agent's executable is in.
-* `working_directory`: Path to the directory for other files the agent needs to operate. This is an optional setting.
+* `working_directory`: Path to the directory that stores the files the agent needs to operate. This is an optional setting.
 
     If this parameter is not set, the system will use the directory containing the agent's executable as the working directory. By default, the agent's executable resides in the following directories:
 
@@ -20,7 +17,7 @@
 
     {% note info %}
 
-    If the `cloud_credentials_file_path`, `replication_tokens_path`, and/or `logger.file.filename` parameters specify paths other than that specified in `working_directory`, the system will use the paths specified in the `cloud_credentials_file_path`, `replication_tokens_path`, and/or `logger.file.filename` parameters for the selected entities.
+    If `cloud_credentials_file_path` and/or `logger.file.filename` specify paths different from the one specified in `working_directory`, the system will use the paths specified in `cloud_credentials_file_path` and/or `logger.file.filename` for the selected entities.
 
     {% endnote %}
 

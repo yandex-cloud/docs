@@ -14,6 +14,7 @@ description: With {{ cns-name }}, you can send text messages (SMS) using SMS not
 
 
 To get started with SMS:
+
 1. [Get your cloud ready](#before-you-begin).
 1. [Create an SMS notification channel with a common sender](#create-common-channel).
 1. [Add a test phone number](#add-test-number).

@@ -98,7 +98,7 @@ To follow the steps in this section, you will need:​
 
 - {{ cloud-center }} UI {#cloud-center}
 
-  1. Go to [{{ org-full-name }}]({{ link-org-cloud-center }}).
+  1. [Navigate]({{ link-org-cloud-center }}) to **{{ org-full-name }}**.
 
   1. In the left-hand panel, select ![icon-federation](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
 
@@ -541,7 +541,7 @@ To follow the steps in this section, you will need:​
           terraform plan
           ```
 
-          If the configuration is described correctly, the terminal displays the federation parameters. Otherwise, {{ TF }} will show any detected errors. 
+          If the configuration is described correctly, the terminal displays the federation parameters. {{ TF }} will show any errors detected in the configuration. 
 
   1. Create a federation.
 
@@ -854,7 +854,7 @@ Following user authentication, the IdP server will send the user a SAML message 
 
 * User attributes such as a list of roles, the user's full name, and email address.
 
-You can set up a mapping between the SAML message attributes and the personal data stored on the IdP server. Follow these steps:
+You can set up a mapping between the SAML message attributes and the personal data stored on the IdP server. Proceed as follows:
 
 1. Enable the option for mapping the identity provider roles and {{ org-full-name }}:
 

@@ -10,8 +10,8 @@ The system logs all actions with {{ kms-name }} resources as a list of operation
 
   Below, you can learn how to get a list of operations for a symmetric key. The same steps apply to other resources.
 
-  1. In the [management console]({{ link-console-main }}), open the folder containing the symmetric key.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the symmetric key.
+  1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. Select the key you need.
   1. Go to the ![image](../../_assets/console-icons/list-check.svg) **Operations** panel for the selected key.

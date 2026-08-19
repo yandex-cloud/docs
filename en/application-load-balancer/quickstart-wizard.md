@@ -29,7 +29,7 @@ Below, you can see how to create an infrastructure using a [wizard](concepts/ind
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a load balancer.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Navigate]({{ link-console-main }}/link/application-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Click **{{ ui-key.yacloud.alb.button_load-balancer-create }}** and select **{{ ui-key.yacloud.alb.label_alb-create-wizard }}**.
 
 {% endlist %}
@@ -67,6 +67,7 @@ In our example, the target group will consist of a single VM.
   1. Specify the port: `8080`.
 
   1. Configure health check settings:
+      
       1. **{{ ui-key.yacloud.alb.label_interval }}**: `3`.
       1. **{{ ui-key.yacloud.alb.label_healthy }}**: `2`.
       1. **{{ ui-key.yacloud.alb.label_port }}**: `8080`.
@@ -86,8 +87,10 @@ In our example, the target group will consist of a single VM.
   1. Specify the router name: `test-http-router`.
   1. Toggle **{{ ui-key.yacloud.alb.label_detailed-settings }}** on.
   1. Under **{{ ui-key.yacloud.alb.label_virtual-hosts }}**, specify the following:
+     
      1. Host name: `test-virtual-host`.
      1. Route name: `test-route`.
+  
   1. Do not change the other settings. Click **{{ ui-key.yacloud.alb.button_wizard-create-tg }}**.
 
 {% endlist %}

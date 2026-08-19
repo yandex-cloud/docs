@@ -1,0 +1,3 @@
+You can create an [authorized key](../../iam/concepts/authorization/key.md) with an unlimited lifetime and continuously use it to authenticate in the {{ yandex-cloud }} CLI. Using a long-lived key is less secure than using impersonation.
+
+To get an authorized key, you must initially authenticate in the CLI using a Yandex account, federated account, or local user account from a device that has a browser and GUI. Further CLI operations can be performed on a server without a GUI.

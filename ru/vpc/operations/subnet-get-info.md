@@ -1,5 +1,6 @@
 ---
 title: Как получить информацию о подсети в {{ vpc-full-name }}
+description: Следуя данной инструкции, вы сможете получить информацию о подсети.
 ---
 
 # Получить информацию о подсети
@@ -12,7 +13,7 @@ title: Как получить информацию о подсети в {{ vpc-
   1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.network.overview.section_subnetworks }}**.
   1. Выберите нужную подсеть.
-  1. На странице **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация о подсети.
+  1. На вкладке **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация о подсети.
 
 - CLI {#cli}
 
@@ -67,12 +68,14 @@ title: Как получить информацию о подсети в {{ vpc-
      ```
 
      Где:
+
      * `data "yandex_vpc_subnet"` — описание подсети в качестве источника данных:
        * `subnet_id` — идентификатор подсети.
      * `output "subnet"` — выходная переменная, которая содержит название зоны доступности подсети:
        * `value` — возвращаемое значение.
 
      Вместо `zone` вы можете выбрать любой другой параметр для получения информации. Подробнее о параметрах источника данных `yandex_vpc_subnet` в [документации провайдера]({{ tf-provider-datasources-link }}/vpc_subnet).
+
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -91,7 +94,7 @@ title: Как получить информацию о подсети в {{ vpc-
 
 - API {#api}
 
-  Чтобы получить подробную информацию о [подсети](../concepts/network.md#subnet), воспользуйтесь методом REST API [get](../api-ref/Subnet/get) для ресурса [Subnet](../api-ref/Subnet/index.md), или вызовом gRPC API [SubnetService/Get](../api-ref/grpc/Subnet/get.md).
+  Чтобы получить подробную информацию о [подсети](../concepts/network.md#subnet), воспользуйтесь методом REST API [get](../api-ref/Subnet/get.md) для ресурса [Subnet](../api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Get](../api-ref/grpc/Subnet/get.md).
 
 {% endlist %}
 
