@@ -38,6 +38,91 @@ description: Следуя данной инструкции, вы сможете
 
   1. Нажмите **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
 
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для изменения бакета:
+
+     ```bash
+     yc storage bucket update --help
+     ```
+
+  1. {% include [bucket-list-cli](../../../_includes/storage/bucket-list-cli.md) %}
+  1. Получите идентификатор ключа {{ kms-short-name }}:
+
+     ```bash
+     yc kms symmetric-key list
+     ```
+
+  1. Задайте бакету ключ шифрования:
+
+     ```bash
+     yc storage bucket update --name <имя_бакета> \
+       --encryption key-id=<идентификатор_ключа>
+     ```
+
+     Где:
+
+     * `--name` — имя бакета.
+     * `--encryption key-id` — идентификатор ключа {{ kms-short-name }}, которым будут шифроваться новые объекты бакета.
+
+- AWS CLI {#aws-cli}
+
+  Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
+
+  1. Задайте бакету ключ шифрования:
+
+     ```bash
+     aws s3api put-bucket-encryption \
+       --bucket <имя_бакета> \
+       --server-side-encryption-configuration '{
+         "Rules": [
+           {
+             "ApplyServerSideEncryptionByDefault": {
+               "SSEAlgorithm": "aws:kms",
+               "KMSMasterKeyID": "<идентификатор_ключа>"
+             }
+           }
+         ]
+       }' \
+       --endpoint-url=https://{{ s3-storage-host }}
+     ```
+
+     Где:
+
+     * `--bucket` — имя бакета.
+     * `SSEAlgorithm` — алгоритм шифрования. Поддерживается только значение `aws:kms`.
+     * `KMSMasterKeyID` — идентификатор ключа {{ kms-short-name }}.
+     * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
+
+  1. Убедитесь, что настройки применились:
+
+     ```bash
+     aws s3api get-bucket-encryption \
+       --bucket <имя_бакета> \
+       --endpoint-url=https://{{ s3-storage-host }}
+     ```
+
+     Результат:
+
+     ```json
+     {
+         "ServerSideEncryptionConfiguration": {
+             "Rules": [
+                 {
+                     "ApplyServerSideEncryptionByDefault": {
+                         "SSEAlgorithm": "aws:kms",
+                         "KMSMasterKeyID": "abjbeb2bgg4l********"
+                     }
+                 }
+             ]
+         }
+     }
+     ```
+
 - {{ TF }} {#tf}
 
   {% include [terraform-role](../../../_includes/storage/terraform-role.md) %}
@@ -113,6 +198,12 @@ description: Следуя данной инструкции, вы сможете
 
      Проверить изменения можно в [консоли управления]({{ link-console-main }}).
 
+- API {#api}
+
+  Чтобы задать бакету ключ шифрования, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/Bucket/update.md) или методом S3 API [putBucketEncryption](../../s3/api-ref/bucket/putbucketencryption.md).
+
+  Текущие настройки шифрования можно получить методом S3 API [getBucketEncryption](../../s3/api-ref/bucket/getbucketencryption.md).
+
 {% endlist %}
 
 ## Убрать шифрование бакета {#del}
@@ -129,6 +220,38 @@ description: Следуя данной инструкции, вы сможете
   1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
   1. В поле **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** выберите **{{ ui-key.yacloud.component.symmetric-key-select.label_no-symmetric-key }}**.
   1. Нажмите **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
+
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. {% include [bucket-list-cli](../../../_includes/storage/bucket-list-cli.md) %}
+  1. Уберите ключ шифрования из настроек бакета:
+
+     ```bash
+     yc storage bucket update --name <имя_бакета> --remove-encryption
+     ```
+
+  Новые объекты перестанут шифроваться. Уже загруженные объекты останутся зашифрованными прежним ключом — не удаляйте его, иначе эти объекты нельзя будет расшифровать.
+
+- AWS CLI {#aws-cli}
+
+  Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
+
+  Выполните команду:
+
+  ```bash
+  aws s3api delete-bucket-encryption \
+    --bucket <имя_бакета> \
+    --endpoint-url=https://{{ s3-storage-host }}
+  ```
+
+  Где:
+
+  * `--bucket` — имя бакета.
+  * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
 
 - {{ TF }} {#tf}
 
@@ -170,6 +293,10 @@ description: Следуя данной инструкции, вы сможете
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
      Проверить изменения можно в [консоли управления]({{ link-console-main }}).
+
+- API {#api}
+
+  Чтобы убрать шифрование бакета, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/Bucket/update.md) или методом S3 API [deleteBucketEncryption](../../s3/api-ref/bucket/deletebucketencryption.md).
 
 {% endlist %}
 
