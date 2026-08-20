@@ -8,18 +8,41 @@ This section contains the {{ datalens-name }} Public API release notes. For more
 
 ## Version 2{#version-2}
 
+### 28.07.2026 {#28072026}
+
+Non-breaking changes in the Public API version 2.
+
+1. Added methods for working with HTML pages:
+
+   * [createHtmlPage]({{ api-host-datalens }}/#/HtmlPages/post_rpc_createHtmlPage)
+   * [deleteHtmlPage]({{ api-host-datalens }}/#/HtmlPages/post_rpc_deleteHtmlPage)
+   * [getHtmlPage]({{ api-host-datalens }}/#/HtmlPages/post_rpc_getHtmlPage)
+   * [updateHtmlPage]({{ api-host-datalens }}/#/HtmlPages/post_rpc_updateHtmlPage)
+
+1. Added methods for managing edit locks on {{ datalens-name }} entities, e.g., charts, dashboards, etc.:
+
+   * [createEntryLock]({{ api-host-datalens }}/#/EntryLock/post_rpc_createEntryLock)
+   * [deleteEntryLock]({{ api-host-datalens }}/#/EntryLock/post_rpc_deleteEntryLock)
+   * [extendEntryLock]({{ api-host-datalens }}/#/EntryLock/post_rpc_extendEntryLock)
+
+1. Removed the `[Experimental]` tag from dashboard management methods:
+
+   * [createDashboard]({{ api-host-datalens }}/#/Dashboard/post_rpc_createDashboard)
+   * [deleteDashboard]({{ api-host-datalens }}/#/Dashboard/post_rpc_deleteDashboard)
+   * [getDashboard]({{ api-host-datalens }}/#/Dashboard/post_rpc_getDashboard)
+   * [updateDashboard]({{ api-host-datalens }}/#/Dashboard/post_rpc_updateDashboard)
+
+
 ### 15.06.2026 {#15062026}
 
 Non-breaking changes in the Public API version 2. Added the following methods:
 
-
-* [batchListMembers](https://api.datalens.tech/#/Access/post_rpc_batchListMembers)
-* [deleteFolder](https://api.datalens.tech/#/Folder/post_rpc_deleteFolder)
-* [dlsSuggest](https://api.datalens.tech/#/Folder/post_rpc_dlsSuggest)
-* [getPermissions](https://api.datalens.tech/#/Folder/post_rpc_getPermissions)
-* [modifyPermissions](https://api.datalens.tech/#/Folder/post_rpc_modifyPermissions)
-* [moveFolderEntry](https://api.datalens.tech/#/Folder/post_rpc_moveFolderEntry)
-
+* [batchListMembers]({{ api-host-datalens }}/#/Access/post_rpc_batchListMembers)
+* [deleteFolder]({{ api-host-datalens }}/#/Folder/post_rpc_deleteFolder)
+* [dlsSuggest]({{ api-host-datalens }}/#/Folder/post_rpc_dlsSuggest)
+* [getPermissions]({{ api-host-datalens }}/#/Folder/post_rpc_getPermissions)
+* [modifyPermissions]({{ api-host-datalens }}/#/Folder/post_rpc_modifyPermissions)
+* [moveFolderEntry]({{ api-host-datalens }}/#/Folder/post_rpc_moveFolderEntry)
 
 ### June 11, 2026: Upgrading to version 2 {#11062026}
 

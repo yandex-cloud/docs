@@ -15,7 +15,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [bitrix-website-paid-resources](../_tutorials_includes/bitrix-website-paid-resources.md) %}
 
-## Create and set up a cloud network {#create-network}
+## Set up a cloud network {#create-network}
 
 {% include [bitrix-setup-network](../_tutorials_includes/bitrix-setup-network.md) %}
 
@@ -42,6 +42,6 @@ To stop paying for the resources you created:
 1. [Delete](../../managed-mysql/operations/cluster-delete.md) the `Bitrix{{ MY }}` cluster database.
 
 If you reserved a static public IP address for this VM:
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** in your folder.
-1. Navigate to the **{{ ui-key.yacloud.vpc.switch_addresses }}** tab.
+1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** in your folder.
+1. Open the **{{ ui-key.yacloud.vpc.switch_addresses }}** tab.
 1. Find the required IP address, click ![ellipsis](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.common.delete }}**.

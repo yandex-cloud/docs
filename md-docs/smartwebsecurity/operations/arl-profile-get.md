@@ -10,7 +10,7 @@
   1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
   1. На панели слева выберите ![image](../../_assets/smartwebsecurity/arl.svg) **Профили ARL**.
   1. Выберите нужный профиль.
-  1. На странице **Обзор** отобразится подробная информация о профиле.
+  1. На странице отобразится подробная информация о профиле.
 
 - Terraform {#tf}
 
@@ -40,13 +40,13 @@
      ```
 
      Где:
-     
+
      * `data "yandex_sws_advanced_rate_limiter_profile"` — описание профиля ARL в качестве источника данных:
-       
+
        * `name` — имя профиля ARL.
-     
+
      * `output "profile-created"` — выходная переменная, которая содержит информацию о временной метке создания профиля ARL:
-       
+
        * `value` — возвращаемое значение.
 
      Вместо `created_at` вы можете выбрать любой другой параметр для получения информации. Подробнее о параметрах источника данных `yandex_sws_advanced_rate_limiter_profile` в [документации провайдера](../../terraform/data-sources/sws_advanced_rate_limiter_profile.md).

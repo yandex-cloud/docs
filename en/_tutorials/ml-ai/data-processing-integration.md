@@ -21,7 +21,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-* {{ dataproc-name }} cluster: use of computing resources with a {{ dataproc-name }} markup, use of network drives, retrieval and storage of logs, amount of outgoing traffic (see [{{ dataproc-name }} pricing](../../data-proc/pricing.md)).
+* {{ dataproc-name }} cluster: use of computing resources with a {{ dataproc-name }} markup, use of network drives, retrieval and storage of logs, volume of outgoing traffic (see [{{ dataproc-name }} pricing](../../data-proc/pricing.md)).
 * NAT gateway: hourly use of the gateway and its outgoing traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * {{ objstorage-full-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 
@@ -52,8 +52,8 @@ Create a network the {{ dataproc-name }} cluster will operate in.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to `data-folder` you [created earlier](#create-folder).
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the [management console]({{ link-console-main }}), select the `data-folder` you [created earlier](#create-folder).
+  1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the top-right corner, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, enter a name for the network: `data-network`.
   1. Disable **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
@@ -67,7 +67,8 @@ Create a network the {{ dataproc-name }} cluster will operate in.
 
 - Management console {#console}
 
-    1. In `data-folder`, [navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+    1. In the [management console]({{ link-console-main }}), select `data-folder`.
+    1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
     1. Select the `data-network` cloud network.
     1. Click **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
     1. Enter `data-subnet` as the subnet name.
@@ -83,8 +84,9 @@ Create a network the {{ dataproc-name }} cluster will operate in.
 
 - Management console {#console}
 
-   1. In `data-folder`, [navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-   1. In the left-hand panel, select ![image](../../_assets/console-icons/arrows-opposite-to-dots.svg) **{{ ui-key.yacloud.vpc.switch_gateways }}**.
+   1. In the [management console]({{ link-console-main }}), select `data-folder`.
+   1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/arrows-opposite-to-dots.svg) **{{ ui-key.yacloud.vpc.switch_gateways }}**.
    1. Click **{{ ui-key.yacloud.common.create }}** and set the gateway parameters:
       * Name the gateway, e.g., `nat-for-cluster`.
       * Select the gateway **{{ ui-key.yacloud.vpc.gateways.field_type }}**: **{{ ui-key.yacloud.vpc.gateways.value_gateway-type-egress-nat }}**.
@@ -115,8 +117,8 @@ Create a network the {{ dataproc-name }} cluster will operate in.
 
 - Management console {#console}
 
-   1. Navigate to `data-folder`.
-   1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. In the [management console]({{ link-console-main }}), select `data-folder`.
+   1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Name the [service account](../../iam/concepts/users/service-accounts.md), e.g., `sa-for-data-proc`.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the following [roles](../../iam/concepts/access-control/roles.md) to the service account:
@@ -197,7 +199,7 @@ To set up a connection to {{ dataproc-name }} clusters:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you want to create a bucket in.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}**, and **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** fields, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.

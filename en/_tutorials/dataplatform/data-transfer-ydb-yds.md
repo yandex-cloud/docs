@@ -60,11 +60,11 @@ Set up your infrastructure:
         * {{ ydb-name }} database for the target stream.
         * Transfer.
 
-    1. In the `data-transfer-ydb-yds.tf` file, specify these variables:
+    1. In the `data-transfer-ydb-yds.tf` file, specify the following variables:
 
         * `source_db_name`: {{ ydb-name }} source database name.
         * `target_db_name`: Name of the {{ ydb-name }} database for the target data stream.
-        * `transfer_enabled`: `0` to ensure that no transfer is created before you [create the endpoints](#prepare-transfer).
+        * `transfer_enabled`: Set to `0` not to create a transfer until [endpoints are created](#prepare-transfer).
 
     1. Validate your {{ TF }} configuration files using this command:
 
@@ -91,8 +91,8 @@ Set up your infrastructure:
     - Management console {#console}
 
         1. In the [management console]({{ link-console-main }}), select the folder containing your database.
-        1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
-        1. Select the database from the list and go to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
+        1. [Navigate]({{ link-console-main }}/link/ydb) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+        1. Select a database from the list and open the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
         1. Click **{{ ui-key.yacloud.ydb.browse.button_sql-query }}**.
 
     - {{ ydb-short-name }} CLI {#cli}
@@ -229,7 +229,7 @@ To reduce the consumption of resources, delete those you do not need:
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source and target endpoints](../../data-transfer/operations/endpoint/index.md#delete).
 1. If you created service accounts together with the endpoints, [delete them](../../iam/operations/sa/delete.md).
-1. Delete the rest of the resources depending on how you created them:
+1. Delete the other resources depending on how you created them:
 
    {% list tabs group=instructions %}
 

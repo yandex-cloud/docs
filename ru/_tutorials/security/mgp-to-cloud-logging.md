@@ -36,11 +36,11 @@
 
       1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
 
-         * Выберите сервисный аккаунт с ролью `logging.writer`.
+         * Выберите **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** с ролью `logging.writer`.
          * Включите опцию **{{ ui-key.yacloud.logging.field_logging }}**.
-         * Чтобы логи записывались в лог-группу по умолчанию, выберите значение **{{ ui-key.yacloud.common.folder }}** в поле **{{ ui-key.yacloud.logging.label_destination }}**.
-         * Выберите каталог, лог-группу которого нужно использовать.
-         * Включите опции **{{ ui-key.yacloud.greenplum.LoggingSection.greenplum_pN6jU }}** и **{{ ui-key.yacloud.greenplum.LoggingSection.commandCenter_e9fKV }}**. Уровень логирования можно задать с помощью параметра [Log min messages](../../managed-greenplum/concepts/settings-list.md#setting-log-min-messages) в блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
+         * Чтобы логи записывались в лог-группу по умолчанию, в поле **{{ ui-key.yacloud.logging.label_destination }}** выберите значение **{{ ui-key.yacloud.common.folder }}**.
+         * Выберите **{{ ui-key.yacloud.mdb.forms.base_field_folder }}**, лог-группу которого нужно использовать.
+         * Включите опции **{{ ui-key.yacloud.greenplum.LoggingSection.commandCenter_e9fKV }}** и **{{ ui-key.yacloud.greenplum.LoggingSection.greenplum_pN6jU }}**. Уровень логирования можно задать с помощью параметра [Log min messages](../../managed-greenplum/concepts/settings-list.md#setting-log-min-messages) в блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
 
       1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
@@ -299,7 +299,7 @@
 
       1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
 
-         * Выберите сервисный аккаунт с ролью `logging.writer`.
+         * Выберите **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** с ролью `logging.writer`.
          * Включите опцию **{{ ui-key.yacloud.logging.field_logging }}**.
          * Чтобы логи записывались в пользовательскую лог-группу, выберите значение **{{ ui-key.yacloud.logging.label_loggroup }}** в поле **{{ ui-key.yacloud.logging.label_destination }}**.
          * Выберите лог-группу `my-log-group`.

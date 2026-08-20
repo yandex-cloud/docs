@@ -11,11 +11,10 @@
    Чтобы удалить устройство:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, из которого вы хотите удалить устройство.
-   1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. Выберите в списке нужный реестр.
-   1. В левой части окна выберите раздел **{{ ui-key.yacloud.iot.label_devices }}**.
-   1. Справа от имени удаляемого устройства нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg), в выпадающем списке выберите **{{ ui-key.yacloud.common.delete }}**.
-   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
+   1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}** и выберите нужный реестр.
+   1. Перейдите на вкладку **{{ ui-key.yacloud.iot.label_devices }}**.
+   1. Справа от имени удаляемого устройства нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
+   1. В открывшемся окне нажмите **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
 

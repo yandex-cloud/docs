@@ -88,6 +88,7 @@
   "details": {
     "triggerName": "string",
     "triggerId": "string",
+    // Includes only one of the fields `triggerRule`
     "triggerRule": {
       // Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`
       "timer": {
@@ -634,8 +635,176 @@
       }
       // end of the list of possible fields
     },
+    // end of the list of possible fields
     "labels": "object",
-    "description": "string"
+    "description": "string",
+    // Includes only one of the fields `triggerSource`
+    "triggerSource": {
+      // Includes only one of the fields `timer`, `ymq`, `yds`, `mail`, `billingBudget`, `logging`, `objectStorage`, `containerRegistry`, `iotMessage`, `iotBrokerMessage`, `telegramMessage`
+      "timer": {
+        "cronExpression": "string",
+        "payload": "string"
+      },
+      "ymq": {
+        "queueArn": "string",
+        "serviceAccountId": "string",
+        "batchSettings": {
+          "maxCount": "string",
+          "maxBytes": "string",
+          "cutoff": "string"
+        },
+        "visibilityTimeout": "string"
+      },
+      "yds": {
+        "database": "string",
+        "stream": "string",
+        "consumer": "string",
+        "serviceAccountId": "string",
+        "batchSettings": {
+          "maxCount": "string",
+          "maxBytes": "string",
+          "cutoff": "string"
+        }
+      },
+      "mail": {
+        "email": "string",
+        "attachmentsBucket": {
+          "bucketId": "string",
+          "serviceAccountId": "string"
+        },
+        "batchSettings": {
+          "maxCount": "string",
+          "maxBytes": "string",
+          "cutoff": "string"
+        }
+      },
+      "billingBudget": {
+        "billingAccountId": "string",
+        "budgetId": "string"
+      },
+      "logging": {
+        "logGroupId": "string",
+        "resourceType": [
+          "string"
+        ],
+        "resourceId": [
+          "string"
+        ],
+        "streamName": [
+          "string"
+        ],
+        "levels": [
+          "string"
+        ],
+        "batchSettings": {
+          "maxCount": "string",
+          "maxBytes": "string",
+          "cutoff": "string"
+        }
+      },
+      "objectStorage": {
+        "eventType": [
+          "string"
+        ],
+        "bucketId": "string",
+        "prefix": "string",
+        "suffix": "string",
+        "batchSettings": {
+          "maxCount": "string",
+          "maxBytes": "string",
+          "cutoff": "string"
+        }
+      },
+      "containerRegistry": {
+        "eventType": [
+          "string"
+        ],
+        "registryId": "string",
+        "imageName": "string",
+        "tag": "string",
+        "batchSettings": {
+          "maxCount": "string",
+          "maxBytes": "string",
+          "cutoff": "string"
+        }
+      },
+      "iotMessage": {
+        "registryId": "string",
+        "deviceId": "string",
+        "mqttTopic": "string",
+        "batchSettings": {
+          "maxCount": "string",
+          "maxBytes": "string",
+          "cutoff": "string"
+        }
+      },
+      "iotBrokerMessage": {
+        "brokerId": "string",
+        "mqttTopic": "string",
+        "batchSettings": {
+          "maxCount": "string",
+          "maxBytes": "string",
+          "cutoff": "string"
+        }
+      },
+      "telegramMessage": {
+        "botToken": "string",
+        "allowedUpdates": [
+          "string"
+        ],
+        "force": "boolean"
+      }
+      // end of the list of possible fields
+    },
+    // end of the list of possible fields
+    "triggerActions": [
+      {
+        // Includes only one of the fields `invokeContainer`, `invokeFunction`, `gatewayWebsocketBroadcast`, `startWorkflow`
+        "invokeContainer": {
+          "containerId": "string",
+          "path": "string",
+          "serviceAccountId": "string"
+        },
+        "invokeFunction": {
+          "functionId": "string",
+          "functionTag": "string",
+          "serviceAccountId": "string"
+        },
+        "gatewayWebsocketBroadcast": {
+          "gatewayId": "string",
+          "path": "string",
+          "serviceAccountId": "string"
+        },
+        "startWorkflow": {
+          "workflowId": "string",
+          "serviceAccountId": "string"
+        },
+        // end of the list of possible fields
+        "filter": {
+          // Includes only one of the fields `jq`
+          "jq": "string"
+          // end of the list of possible fields
+        },
+        "transformer": {
+          // Includes only one of the fields `jq`
+          "jq": "string"
+          // end of the list of possible fields
+        },
+        "retryPolicy": {
+          "retryAttempts": "string",
+          "interval": "string"
+        },
+        "deadLetter": {
+          // Includes only one of the fields `deadLetterQueue`
+          "deadLetterQueue": {
+            "queueArn": "string",
+            "serviceAccountId": "string",
+            "messageAttributes": "object"
+          }
+          // end of the list of possible fields
+        }
+      }
+    ]
   },
   "requestParameters": "object",
   "response": "object"
@@ -808,9 +977,15 @@ A list of messages that carry the error details. ||
 ||Field | Description ||
 || triggerName | **string** ||
 || triggerId | **string** ||
-|| triggerRule | **[Rule](#yandex.cloud.serverless.triggers.v1.Trigger.Rule)** ||
+|| triggerRule | **[Rule](#yandex.cloud.serverless.triggers.v1.Trigger.Rule)**
+
+Includes only one of the fields `triggerRule`. ||
 || labels | **object** (map<**string**, **string**>) ||
 || description | **string** ||
+|| triggerSource | **[Source](#yandex.cloud.serverless.triggers.v2.Source)**
+
+Includes only one of the fields `triggerSource`. ||
+|| triggerActions[] | **[Action](#yandex.cloud.serverless.triggers.v2.Action)** ||
 |#
 
 ## Rule {#yandex.cloud.serverless.triggers.v1.Trigger.Rule}
@@ -1275,4 +1450,339 @@ The string length in characters must be 3-63. Value must match the regular expre
 || serviceAccountId | **string**
 
 The maximum string length in characters is 50. ||
+|#
+
+## Source {#yandex.cloud.serverless.triggers.v2.Source}
+
+#|
+||Field | Description ||
+|| timer | **[Timer](#yandex.cloud.serverless.triggers.v2.Timer)**
+
+Includes only one of the fields `timer`, `ymq`, `yds`, `mail`, `billingBudget`, `logging`, `objectStorage`, `containerRegistry`, `iotMessage`, `iotBrokerMessage`, `telegramMessage`. ||
+|| ymq | **[YMQ](#yandex.cloud.serverless.triggers.v2.YMQ)**
+
+Includes only one of the fields `timer`, `ymq`, `yds`, `mail`, `billingBudget`, `logging`, `objectStorage`, `containerRegistry`, `iotMessage`, `iotBrokerMessage`, `telegramMessage`. ||
+|| yds | **[YDS](#yandex.cloud.serverless.triggers.v2.YDS)**
+
+Includes only one of the fields `timer`, `ymq`, `yds`, `mail`, `billingBudget`, `logging`, `objectStorage`, `containerRegistry`, `iotMessage`, `iotBrokerMessage`, `telegramMessage`. ||
+|| mail | **[Mail](#yandex.cloud.serverless.triggers.v2.Mail)**
+
+Includes only one of the fields `timer`, `ymq`, `yds`, `mail`, `billingBudget`, `logging`, `objectStorage`, `containerRegistry`, `iotMessage`, `iotBrokerMessage`, `telegramMessage`. ||
+|| billingBudget | **[BillingBudget](#yandex.cloud.serverless.triggers.v2.BillingBudget)**
+
+Includes only one of the fields `timer`, `ymq`, `yds`, `mail`, `billingBudget`, `logging`, `objectStorage`, `containerRegistry`, `iotMessage`, `iotBrokerMessage`, `telegramMessage`. ||
+|| logging | **[Logging](#yandex.cloud.serverless.triggers.v2.Logging)**
+
+Includes only one of the fields `timer`, `ymq`, `yds`, `mail`, `billingBudget`, `logging`, `objectStorage`, `containerRegistry`, `iotMessage`, `iotBrokerMessage`, `telegramMessage`. ||
+|| objectStorage | **[ObjectStorage](#yandex.cloud.serverless.triggers.v2.ObjectStorage)**
+
+Includes only one of the fields `timer`, `ymq`, `yds`, `mail`, `billingBudget`, `logging`, `objectStorage`, `containerRegistry`, `iotMessage`, `iotBrokerMessage`, `telegramMessage`. ||
+|| containerRegistry | **[ContainerRegistry](#yandex.cloud.serverless.triggers.v2.ContainerRegistry)**
+
+Includes only one of the fields `timer`, `ymq`, `yds`, `mail`, `billingBudget`, `logging`, `objectStorage`, `containerRegistry`, `iotMessage`, `iotBrokerMessage`, `telegramMessage`. ||
+|| iotMessage | **[IoTMessage](#yandex.cloud.serverless.triggers.v2.IoTMessage)**
+
+Includes only one of the fields `timer`, `ymq`, `yds`, `mail`, `billingBudget`, `logging`, `objectStorage`, `containerRegistry`, `iotMessage`, `iotBrokerMessage`, `telegramMessage`. ||
+|| iotBrokerMessage | **[IoTBrokerMessage](#yandex.cloud.serverless.triggers.v2.IoTBrokerMessage)**
+
+Includes only one of the fields `timer`, `ymq`, `yds`, `mail`, `billingBudget`, `logging`, `objectStorage`, `containerRegistry`, `iotMessage`, `iotBrokerMessage`, `telegramMessage`. ||
+|| telegramMessage | **[TelegramMessage](#yandex.cloud.serverless.triggers.v2.TelegramMessage)**
+
+Includes only one of the fields `timer`, `ymq`, `yds`, `mail`, `billingBudget`, `logging`, `objectStorage`, `containerRegistry`, `iotMessage`, `iotBrokerMessage`, `telegramMessage`. ||
+|#
+
+## Timer {#yandex.cloud.serverless.triggers.v2.Timer}
+
+#|
+||Field | Description ||
+|| cronExpression | **string**
+
+The maximum string length in characters is 100. ||
+|| payload | **string**
+
+The maximum string length in characters is 4096. ||
+|#
+
+## YMQ {#yandex.cloud.serverless.triggers.v2.YMQ}
+
+#|
+||Field | Description ||
+|| queueArn | **string** ||
+|| serviceAccountId | **string**
+
+The maximum string length in characters is 50. ||
+|| batchSettings | **[BatchSettings](#yandex.cloud.serverless.triggers.v2.BatchSettings)** ||
+|| visibilityTimeout | **string** (duration) ||
+|#
+
+## BatchSettings {#yandex.cloud.serverless.triggers.v2.BatchSettings}
+
+#|
+||Field | Description ||
+|| maxCount | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| maxBytes | **string** (int64)
+
+Acceptable values are 0 to 65536, inclusive. ||
+|| cutoff | **string** (duration) ||
+|#
+
+## YDS {#yandex.cloud.serverless.triggers.v2.YDS}
+
+#|
+||Field | Description ||
+|| database | **string** ||
+|| stream | **string** ||
+|| consumer | **string** ||
+|| serviceAccountId | **string**
+
+The maximum string length in characters is 50. ||
+|| batchSettings | **[BatchSettings](#yandex.cloud.serverless.triggers.v2.BatchSettings)** ||
+|#
+
+## Mail {#yandex.cloud.serverless.triggers.v2.Mail}
+
+#|
+||Field | Description ||
+|| email | **string** ||
+|| attachmentsBucket | **[ObjectStorageBucketSettings](#yandex.cloud.serverless.triggers.v2.ObjectStorageBucketSettings)** ||
+|| batchSettings | **[BatchSettings](#yandex.cloud.serverless.triggers.v2.BatchSettings)** ||
+|#
+
+## ObjectStorageBucketSettings {#yandex.cloud.serverless.triggers.v2.ObjectStorageBucketSettings}
+
+#|
+||Field | Description ||
+|| bucketId | **string**
+
+The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `. ||
+|| serviceAccountId | **string**
+
+The maximum string length in characters is 50. ||
+|#
+
+## BillingBudget {#yandex.cloud.serverless.triggers.v2.BillingBudget}
+
+#|
+||Field | Description ||
+|| billingAccountId | **string**
+
+The maximum string length in characters is 50. ||
+|| budgetId | **string**
+
+The maximum string length in characters is 50. ||
+|#
+
+## Logging {#yandex.cloud.serverless.triggers.v2.Logging}
+
+#|
+||Field | Description ||
+|| logGroupId | **string**
+
+The maximum string length in characters is 50. ||
+|| resourceType[] | **string**
+
+Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100. ||
+|| resourceId[] | **string**
+
+Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100. ||
+|| streamName[] | **string**
+
+Each value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. The maximum number of elements is 100. ||
+|| levels[] | **enum** (Level)
+
+The maximum number of elements is 10.
+
+- `TRACE`
+- `DEBUG`
+- `INFO`
+- `WARN`
+- `ERROR`
+- `FATAL` ||
+|| batchSettings | **[BatchSettings](#yandex.cloud.serverless.triggers.v2.BatchSettings)** ||
+|#
+
+## ObjectStorage {#yandex.cloud.serverless.triggers.v2.ObjectStorage}
+
+#|
+||Field | Description ||
+|| eventType[] | **enum** (ObjectStorageEventType)
+
+The number of elements must be greater than 0.
+
+- `OBJECT_STORAGE_EVENT_TYPE_CREATE_OBJECT`
+- `OBJECT_STORAGE_EVENT_TYPE_UPDATE_OBJECT`
+- `OBJECT_STORAGE_EVENT_TYPE_DELETE_OBJECT` ||
+|| bucketId | **string** ||
+|| prefix | **string** ||
+|| suffix | **string** ||
+|| batchSettings | **[BatchSettings](#yandex.cloud.serverless.triggers.v2.BatchSettings)** ||
+|#
+
+## ContainerRegistry {#yandex.cloud.serverless.triggers.v2.ContainerRegistry}
+
+#|
+||Field | Description ||
+|| eventType[] | **enum** (ContainerRegistryEventType)
+
+The number of elements must be greater than 0.
+
+- `CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE`
+- `CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE`
+- `CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE_TAG`
+- `CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE_TAG` ||
+|| registryId | **string** ||
+|| imageName | **string** ||
+|| tag | **string** ||
+|| batchSettings | **[BatchSettings](#yandex.cloud.serverless.triggers.v2.BatchSettings)** ||
+|#
+
+## IoTMessage {#yandex.cloud.serverless.triggers.v2.IoTMessage}
+
+#|
+||Field | Description ||
+|| registryId | **string** ||
+|| deviceId | **string** ||
+|| mqttTopic | **string** ||
+|| batchSettings | **[BatchSettings](#yandex.cloud.serverless.triggers.v2.BatchSettings)** ||
+|#
+
+## IoTBrokerMessage {#yandex.cloud.serverless.triggers.v2.IoTBrokerMessage}
+
+#|
+||Field | Description ||
+|| brokerId | **string** ||
+|| mqttTopic | **string** ||
+|| batchSettings | **[BatchSettings](#yandex.cloud.serverless.triggers.v2.BatchSettings)** ||
+|#
+
+## TelegramMessage {#yandex.cloud.serverless.triggers.v2.TelegramMessage}
+
+#|
+||Field | Description ||
+|| botToken | **string** ||
+|| allowedUpdates[] | **string** ||
+|| force | **boolean** ||
+|#
+
+## Action {#yandex.cloud.serverless.triggers.v2.Action}
+
+#|
+||Field | Description ||
+|| invokeContainer | **[InvokeContainer](#yandex.cloud.serverless.triggers.v2.InvokeContainer)**
+
+Includes only one of the fields `invokeContainer`, `invokeFunction`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
+|| invokeFunction | **[InvokeFunction](#yandex.cloud.serverless.triggers.v2.InvokeFunction)**
+
+Includes only one of the fields `invokeContainer`, `invokeFunction`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
+|| gatewayWebsocketBroadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v2.GatewayWebsocketBroadcast)**
+
+Includes only one of the fields `invokeContainer`, `invokeFunction`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
+|| startWorkflow | **[StartWorkflow](#yandex.cloud.serverless.triggers.v2.StartWorkflow)**
+
+Includes only one of the fields `invokeContainer`, `invokeFunction`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
+|| filter | **[Filter](#yandex.cloud.serverless.triggers.v2.Filter)** ||
+|| transformer | **[Transformer](#yandex.cloud.serverless.triggers.v2.Transformer)** ||
+|| retryPolicy | **[RetryPolicy](#yandex.cloud.serverless.triggers.v2.RetryPolicy)** ||
+|| deadLetter | **[DeadLetter](#yandex.cloud.serverless.triggers.v2.DeadLetter)** ||
+|#
+
+## InvokeContainer {#yandex.cloud.serverless.triggers.v2.InvokeContainer}
+
+#|
+||Field | Description ||
+|| containerId | **string**
+
+The maximum string length in characters is 50. ||
+|| path | **string** ||
+|| serviceAccountId | **string** ||
+|#
+
+## InvokeFunction {#yandex.cloud.serverless.triggers.v2.InvokeFunction}
+
+#|
+||Field | Description ||
+|| functionId | **string**
+
+The maximum string length in characters is 50. ||
+|| functionTag | **string** ||
+|| serviceAccountId | **string** ||
+|#
+
+## GatewayWebsocketBroadcast {#yandex.cloud.serverless.triggers.v2.GatewayWebsocketBroadcast}
+
+#|
+||Field | Description ||
+|| gatewayId | **string**
+
+The maximum string length in characters is 50. ||
+|| path | **string** ||
+|| serviceAccountId | **string**
+
+The maximum string length in characters is 50. ||
+|#
+
+## StartWorkflow {#yandex.cloud.serverless.triggers.v2.StartWorkflow}
+
+#|
+||Field | Description ||
+|| workflowId | **string**
+
+The maximum string length in characters is 50. ||
+|| serviceAccountId | **string** ||
+|#
+
+## Filter {#yandex.cloud.serverless.triggers.v2.Filter}
+
+#|
+||Field | Description ||
+|| jq | **string**
+
+The maximum string length in characters is 1024.
+
+Includes only one of the fields `jq`. ||
+|#
+
+## Transformer {#yandex.cloud.serverless.triggers.v2.Transformer}
+
+#|
+||Field | Description ||
+|| jq | **string**
+
+The maximum string length in characters is 65536.
+
+Includes only one of the fields `jq`. ||
+|#
+
+## RetryPolicy {#yandex.cloud.serverless.triggers.v2.RetryPolicy}
+
+#|
+||Field | Description ||
+|| retryAttempts | **string** (int64)
+
+Acceptable values are 1 to 5, inclusive. ||
+|| interval | **string** (duration) ||
+|#
+
+## DeadLetter {#yandex.cloud.serverless.triggers.v2.DeadLetter}
+
+#|
+||Field | Description ||
+|| deadLetterQueue | **[PutQueueMessage](#yandex.cloud.serverless.triggers.v2.PutQueueMessage)**
+
+Includes only one of the fields `deadLetterQueue`. ||
+|#
+
+## PutQueueMessage {#yandex.cloud.serverless.triggers.v2.PutQueueMessage}
+
+#|
+||Field | Description ||
+|| queueArn | **string** ||
+|| serviceAccountId | **string**
+
+The maximum string length in characters is 50. ||
+|| messageAttributes | **object** (map<**string**, **string**>)
+
+The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource. ||
 |#

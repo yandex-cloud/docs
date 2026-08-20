@@ -27,7 +27,7 @@ For more information, see [{#T}](../../security/overview.md).
 
 {% endnote %}
 
-## Static website hosting {#hosting}
+## Setting up static website hosting {#hosting}
 
 {% include [static-site-all-redirection-exception](../../../_includes/storage/static-site-all-redirection-exception.md) %}
 

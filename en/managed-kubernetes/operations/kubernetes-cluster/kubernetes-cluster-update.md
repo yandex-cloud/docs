@@ -107,7 +107,7 @@ Learn how to change a cluster [availability zone](../../../overview/concepts/geo
      * `--auto-upgrade`: Manage automatic {{ managed-k8s-name }} cluster updates.
      * Managing the maintenance window:
        * `--anytime-maintenance-window`: Update at any time.
-       * `--daily-maintenance-window`: Set the start point and duration of the UTC time interval during which the update will start.
+       * `--daily-maintenance-window`: Set the start point and duration of the time interval in UTC during which the update will start.
        * `--weekly-maintenance-window`: Set the day, start point, and duration of the UTC time interval during which the update will start.
 
          These settings are not related to the update duration or its completion time.

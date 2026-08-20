@@ -13,6 +13,10 @@
     1. [Перейдите]({{ link-console-main }}/link/managed-valkey) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.mdb.cluster.logs.label_title }}**.
     1. Укажите период времени, за который нужно отобразить логи: введите его вручную или выберите в календаре, нажав на поле ввода дат.
+    1. Выберите тип отображаемых событий: **{{ ui-key.yacloud.redis.label_log-type-valkey }}** или **{{ ui-key.yacloud.redis.label_log-type-valkey-audit }}** (события аудита).
+
+        Чтобы включить запись логов авторизации и подключений, включите опцию **{{ ui-key.yacloud.redis.field_audit-log }}** в [настройках кластера](update.md#change-additional-settings).
+
     1. При необходимости укажите хосты в строке с полем ввода дат.
 
     Будет отображен список записей в логе за выбранный период времени. Чтобы посмотреть подробную информацию о событии, нажмите на интересующую запись в списке.
@@ -62,7 +66,7 @@
 
     1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. Воспользуйтесь методом [Cluster.ListLogs](../api-ref/Cluster/listLogs.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
@@ -175,7 +179,7 @@
 
     1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. Воспользуйтесь методом [Cluster.StreamLogs](../api-ref/Cluster/streamLogs.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 

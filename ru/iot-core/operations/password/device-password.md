@@ -25,12 +25,12 @@
    Чтобы добавить пароль уже созданному устройству:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите добавить пароль уже созданному устройству.
-   1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. Выберите в списке реестр с нужным устройством.
-   1. В левой части окна выберите раздел **{{ ui-key.yacloud.iot.label_devices }}**.
-   1. Выберите в списке нужное устройство.
+   1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}** и выберите реестр с нужным устройством.
+   1. Перейдите на вкладку **{{ ui-key.yacloud.iot.label_devices }}** и выберите нужное устройство.
    1. В блоке **{{ ui-key.yacloud.iot.label_passwords }}** нажмите кнопку **{{ ui-key.yacloud.iot.button_add-password }}**.
-   1. В поле **{{ ui-key.yacloud.common.password }}** введите пароль, который вы будете использовать для доступа к устройству.<br/>Для создания пароля можно воспользоваться [генератором паролей](https://passwordsgenerator.net/).<br/>Не забудьте сохранить пароль, он вам понадобится.
+   1. В поле **{{ ui-key.yacloud.common.password }}** введите пароль, который вы будете использовать для доступа к устройству.
+      Для создания пароля можно воспользоваться [генератором паролей](https://passwordsgenerator.net/).
+      Не забудьте сохранить пароль — он вам понадобится.
    1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
 - CLI {#cli}
@@ -209,13 +209,9 @@
    Чтобы просмотреть список паролей устройства:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите получить список паролей устройства.
-   1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. Выберите в списке реестр с нужным устройством.
-   1. В левой части окна выберите раздел **{{ ui-key.yacloud.iot.label_devices }}**.
-   1. Выберите в списке нужное устройство.
-   1. На странице **{{ ui-key.yacloud.common.overview }}** перейдите к разделу **{{ ui-key.yacloud.iot.label_passwords }}**.
-
-   В разделе **{{ ui-key.yacloud.iot.label_passwords }}** отобразится список паролей устройства.
+   1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}** и выберите реестр с нужным устройством.
+   1. Перейдите на вкладку **{{ ui-key.yacloud.iot.label_devices }}** и выберите нужное устройство.
+   1. На вкладке **{{ ui-key.yacloud.common.overview }}** перейдите к разделу **{{ ui-key.yacloud.iot.label_passwords }}** — там отобразится список паролей устройства.
 
 - CLI {#cli}
   
@@ -273,12 +269,10 @@
    Чтобы удалить пароль устройства:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите удалить пароль устройства.
-   1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. Выберите в списке реестр с нужным устройством.
-   1. В левой части окна выберите раздел **{{ ui-key.yacloud.iot.label_devices }}**.
-   1. Выберите в списке нужное устройство.
-   1. В строке с нужным паролем нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg), в выпадающем списке выберите **{{ ui-key.yacloud.common.delete }}**.
-   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
+   1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}** и выберите реестр с нужным устройством.
+   1. Перейдите на вкладку **{{ ui-key.yacloud.iot.label_devices }}** и выберите нужное устройство.
+   1. Справа от удаляемого пароля нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.common.delete }}**.
+   1. В открывшемся окне нажмите **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
   

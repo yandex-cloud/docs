@@ -29,31 +29,31 @@ description: Следуя данной инструкции, вы сможете
   1. В списке выберите балансировщик, к которому привязан профиль безопасности.
   1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. В блоке **{{ ui-key.yacloud.alb.section_logs-settings }}**:
-     
-     1. Включите опцию **{{ ui-key.yacloud.alb.label_log-requests }}**.
-     1. Выберите или создайте [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-name }}, в которую будут записываться логи балансировщика.
-     1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_add-discard-rule }}** и настройте его [параметры](../../application-load-balancer/concepts/application-load-balancer.md#discard-logs-rules).
-  
+
+      1. Включите опцию **{{ ui-key.yacloud.alb.label_log-requests }}**.
+      1. Выберите или создайте [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-name }}, в которую будут записываться логи балансировщика.
+      1. Нажмите **{{ ui-key.yacloud.alb.button_add-discard-rule }}** и настройте его [параметры](../../application-load-balancer/concepts/application-load-balancer.md#discard-logs-rules).
+
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
   Другие способы включения логов описаны в разделе [{#T}](../../application-load-balancer/operations/application-load-balancer-manage-logs.md).
 
 - {{ at-name }} {#at}
 
-  События {{ at-name }} можно записывать в бакет {{ objstorage-name }}, лог-группу {{ cloud-logging-name }}, поток данных {{ yds-name }} или шину {{ er-name }}. В этой инструкции настроим запись аудитных событий в лог-группу.
+  События {{ at-name }} можно записывать в [бакет](../../storage/concepts/bucket.md) {{ objstorage-name }}, [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-name }}, [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-name }} или [шину](../../serverless-integrations/concepts/eventrouter/bus.md) {{ er-name }}. В этой инструкции настроим запись аудитных событий в лог-группу.
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится профиль {{ sws-name }}.
   1. [Перейдите]({{ link-console-main }}/link/audit-trails) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
-  1. Введите имя трейла, например `trail-sws`.
-  1. В блоке **{{ ui-key.yacloud.audit-trails.label_destination }}** выберите объект назначения — **{{ ui-key.yacloud.audit-trails.label_cloudLogging }}**.
-  1. Выберите или создайте [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-name }}, в которую будут записываться события {{ sws-name }}.
-  1. В блоке **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}** включите сбор событий и выберите сервис **{{ sws-name }}**.
-
-      Для остальных настроек в этом блоке оставьте значения по умолчанию. Будут записываться все события {{ sws-name }} уровня сервисов в текущем каталоге. События уровня конфигурации записываться не будут.
-  
-  1. В блоке **{{ ui-key.yacloud.audit-trails.label_service-account }}** создайте или выберите аккаунт с ролью `logging.writer`.
+  1. Нажмите **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
+  1. В поле **{{ ui-key.yacloud.audit-trails.label_log-receiver }}** выберите `{{ ui-key.yacloud.audit-trails.label_cloudLogging }}`.
+  1. Выберите лог-группу или [создайте](../../logging/operations/create-group.md) новую.
+  1. Отключите **{{ ui-key.yacloud.audit-trails.label_control-plane-collection-new }}**.
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_data-plane-collection-new }}** очистите список и выберите сервис **{{ ui-key.yacloud.audit-trails.label_smartwebsecurity }}**.
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_service-account }}** выберите аккаунт с [ролью](../../logging/security/index.md#logging-writer) `logging.writer` или [создайте](../../iam/operations/sa/create.md) новый.
+  1. В блоке **{{ ui-key.yacloud.audit-trails.section_general-info }}** введите имя трейла, например `trail-sws`.
   1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+
+  Будут записываться все события {{ sws-name }} уровня сервисов в текущем каталоге. События уровня конфигурации записываться не будут.
 
   Другие способы включения записи событий описаны в разделе [{#T}](../../audit-trails/operations/create-trail.md).
 
@@ -67,11 +67,19 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится профиль {{ sws-name }}.
   1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. Выберите раздел **{{ ui-key.yacloud.common.logs }}**.
-  1. Выберите количество сообщений на одной странице и период: 1 час, 3 часа, 1 день, 1 неделя, 2 недели.
-  1. В строке **Запрос** укажите запрос на [языке фильтрующих выражений](../../logging/concepts/filter.md) и нажмите кнопку **Выполнить**.
+  1. Выберите раздел ![receipt](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}**.
+  1. Выберите период показа логов одним из способов:
 
-     Примеры запросов приведены ниже.
+      * Нажмите обозначение интервала, например **Последний час**, и выберите один из вариантов: от **Последние 5 минут** до **Последний день**.
+
+          Также в полях **От** и **До** можно выбрать нужные даты в календаре и указать время.
+
+      * Выберите предустановленный период: **Сейчас**, **5m**, **30m**, **1h**, **1d**, **2d** или укажите свой.
+      * На временной шкале переместите индикаторы начала и конца периода.
+
+  1. В строке **Запрос** укажите запрос на [языке фильтрующих выражений](../../logging/concepts/filter.md) и нажмите **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}**.
+
+      Примеры запросов приведены ниже.
 
   1. Чтобы посмотреть содержимое лога, разверните его.
 
@@ -87,47 +95,47 @@ description: Следуя данной инструкции, вы сможете
   ### Фильтры для активных правил {#active-rule-filters}
 
   * Показать запросы, заблокированные базовыми правилами с определенными [условиями](../concepts/conditions.md). Например, по списку или региону IP:
-    
-    ```
-    json_payload.smartwebsecurity.matched_rule.rule_type = RULE_CONDITION and json_payload.smartwebsecurity.matched_rule.verdict = DENY
-    ```
-    
+
+      ```text
+      json_payload.smartwebsecurity.matched_rule.rule_type = RULE_CONDITION and json_payload.smartwebsecurity.matched_rule.verdict = DENY
+      ```
+
   * Показать запросы, для которых сработали правила [Smart Protection](../concepts/rules.md#smart-protection-rules) с отправкой на капчу:
-    
-    ```
-    json_payload.smartwebsecurity.matched_rule.rule_type = SMART_PROTECTION and json_payload.smartwebsecurity.matched_rule.verdict = CAPTCHA
-    ```
+
+      ```text
+      json_payload.smartwebsecurity.matched_rule.rule_type = SMART_PROTECTION and json_payload.smartwebsecurity.matched_rule.verdict = CAPTCHA
+      ```
 
   * Показать запросы, заблокированные по профилю [WAF](../concepts/waf.md) — правилами WAF из профиля безопасности:
-    
-    ```
-    json_payload.smartwebsecurity.matched_rule.rule_type = WAF and json_payload.smartwebsecurity.matched_rule.verdict = DENY
-    ```
+
+      ```text
+      json_payload.smartwebsecurity.matched_rule.rule_type = WAF and json_payload.smartwebsecurity.matched_rule.verdict = DENY
+      ```
 
   * Показать запросы, заблокированные правилами профиля [ARL](../concepts/arl.md):
-    
-    ```
-    json_payload.smartwebsecurity.advanced_rate_limiter.verdict = DENY
-    ```
+
+      ```text
+      json_payload.smartwebsecurity.advanced_rate_limiter.verdict = DENY
+      ```
 
   * Показать запросы, для которых сработало конкретное правило ARL — `arl-rule-1`:
-    
-    ```
-    json_payload.smartwebsecurity.advanced_rate_limiter.verdict = DENY and json_payload.smartwebsecurity.advanced_rate_limiter.applied_quota_name = "arl-rule-1"
-    ```
+
+      ```text
+      json_payload.smartwebsecurity.advanced_rate_limiter.verdict = DENY and json_payload.smartwebsecurity.advanced_rate_limiter.applied_quota_name = "arl-rule-1"
+      ```
 
   Таким же образом вы можете добавить в фильтры другие условия и изменять их с учетом особенностей вашего потока трафика.
 
   ### Фильтры для правил в режиме логирования {#dry-run-filters}
 
   * Показать запросы, для которых сработали правила [Smart Protection](../concepts/rules.md#smart-protection-rules) с отправкой на капчу:
-    
-    ```
+
+    ```text
     json_payload.smartwebsecurity.dry_run_matched_rule.rule_type = SMART_PROTECTION and json_payload.smartwebsecurity.dry_run_matched_rule.verdict = CAPTCHA
     ```
 
   * Посмотреть запросы, для которых сработали правила ARL (лимиты на запросы).
-    
+
     Для режима **Только логирование** не подойдет запрос с фильтрацией по вердикту `DENY`, поскольку в этом режиме запросы не блокируются. Вердикт правил будет `ALLOW` даже после превышения лимита. Для отладки правил используйте параметр `dry_run_exceeded_quota_names`. Параметр показывает, какие правила ARL сработали на запросе. Если в этом параметре нет правил — лимиты не превышались.
 
     Пример фрагмента лога с параметром `dry_run_exceeded_quota_names`:
@@ -152,20 +160,28 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится профиль {{ sws-name }}.
   1. [Перейдите]({{ link-console-main }}/link/logging) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
   1. Выберите лог-группу, в которую передаются события {{ at-name }}.
-  1. Выберите количество сообщений на одной странице и период: 1 час, 3 часа, 1 день, 1 неделя, 2 недели.
-  1. В строке **Запрос** укажите запрос на [языке фильтрующих выражений](../../logging/concepts/filter.md) и нажмите кнопку **Выполнить**.
+  1. Выберите период показа логов одним из способов:
 
-     События {{ at-name }} записываются в формате JSON. Чтобы найти определенное [событие](../at-ref.md#data-plane-events), укажите его имя в формате:
+      * Нажмите обозначение интервала, например **Последний час**, и выберите один из вариантов: от **Последние 5 минут** до **Последний день**.
 
-     ```
-     yandex.cloud.audit.smartwebsecurity.<имя_события>
-     ```
+          Также в полях **От** и **До** можно выбрать нужные даты в календаре и указать время.
 
-     Примеры составления запросов приведены в разделе [{#T}](../../audit-trails/tutorials/search-events-audit-logs/examples.md).
+      * Выберите предустановленный период: **Сейчас**, **5m**, **30m**, **1h**, **1d**, **2d** или укажите свой.
+      * На временной шкале переместите индикаторы начала и конца периода.
+
+  1. В строке **Запрос** укажите запрос на [языке фильтрующих выражений](../../logging/concepts/filter.md) и нажмите **Выполнить**.
+
+      События {{ at-name }} записываются в формате JSON. Чтобы найти определенное [событие](../at-ref.md#data-plane-events), укажите его имя в формате:
+
+      ```
+      yandex.cloud.audit.smartwebsecurity.<имя_события>
+      ```
+
+      Примеры составления запросов приведены в разделе [{#T}](../../audit-trails/tutorials/search-events-audit-logs/examples.md).
 
   1. Чтобы посмотреть содержимое лога, разверните его.
 
-Другие способы просмотра логов описаны в разделе [{#T}](../../application-load-balancer/operations/application-load-balancer-get-logs.md).
+  Другие способы просмотра логов описаны в разделе [{#T}](../../application-load-balancer/operations/application-load-balancer-get-logs.md).
 
 {% endlist %}
 

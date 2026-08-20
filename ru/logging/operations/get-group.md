@@ -13,7 +13,7 @@ description: Следуя данной инструкции, вы сможете
   1. [Перейдите]({{ link-console-main }}/link/logging) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/tray.svg) **{{ ui-key.yacloud.logging.label_groups }}**.
   1. Выберите лог-группу.
-  1. На странице **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация о лог-группе.
+  1. На вкладке **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация о лог-группе.
 
 - CLI {#cli}
 

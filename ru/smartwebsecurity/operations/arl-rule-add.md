@@ -15,7 +15,7 @@ description: Следуя данной инструкции, вы сможете
   1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. На панели слева выберите ![image](../../_assets/smartwebsecurity/arl.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_profiles }}**.
   1. Выберите профиль, в который вы хотите добавить правило.
-  1. Нажмите кнопку ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}** и в открывшемся окне:
+  1. Нажмите ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}** и в открывшемся окне:
 
       {% include [add-arl-rule](../../_includes/smartwebsecurity/add-arl-rule.md) %}
 
@@ -43,7 +43,7 @@ description: Следуя данной инструкции, вы сможете
             priority    = <приоритет_правила>
             description = "<описание_правила>"
             dry_run     = true
-  
+
             static_quota {
               action = "DENY"
               limit  = <лимит_правила>
@@ -65,7 +65,7 @@ description: Следуя данной инструкции, вы сможете
             priority    = <приоритет_правила>
             description = "<описание_правила>"
             dry_run     = true
-  
+
             static_quota {
               action = "DENY"
               limit  = <лимит_правила>
@@ -81,13 +81,13 @@ description: Следуя данной инструкции, вы сможете
           }
         }
         ```
-  
+
         {% include [arl-profile-parameters](../../_includes/smartwebsecurity/arl-profile-parameters.md) %}
-  
+
         Подробнее о параметрах ресурса `yandex_sws_advanced_rate_limiter_profile` в [документации провайдера]({{ tf-provider-resources-link }}/sws_advanced_rate_limiter_profile).
-  
+
     1. Примените изменения:
-  
+
          {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
          Проверить изменение ресурсов можно в [консоли управления]({{ link-console-main }}).

@@ -190,7 +190,7 @@ pire_regex_not_match = f.*
       }
     ]'
   ```
-   
+
   Если вы используете файл с правилами, обновите в нем названия полей и значения условий.
 
   Подробнее о командах в справочнике CLI: [security-profile create](../../cli/cli-ref/smartwebsecurity/cli-ref/security-profile/create.md) и [security-profile update](../../cli/cli-ref/smartwebsecurity/cli-ref/security-profile/update.md).
@@ -283,7 +283,7 @@ pire_regex_not_match = f.*
     }
   }
   ```
-  
+
   Подробнее о параметрах ресурса `yandex_sws_security_profile` в [документации провайдера](../../terraform/resources/sws_security_profile.md).
 
 - API {#api}
@@ -395,7 +395,7 @@ pire_regex_not_match = f.*
       ]
     }'
   ```
-  
+
   Подробнее о методах в справочнике REST API: [SecurityProfile.Create](../api-ref/SecurityProfile/create.md) и [SecurityProfile.Update](../api-ref/SecurityProfile/update.md) для ресурса [SecurityProfile](../api-ref/SecurityProfile/index.md).
 
 {% endlist %}

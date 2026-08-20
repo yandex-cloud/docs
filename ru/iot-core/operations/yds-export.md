@@ -21,15 +21,15 @@ description: Следуя данной инструкции, вы сможете
   1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
   1. Выберите в списке нужный реестр.
   1. Перейдите на вкладку **{{ ui-key.yacloud.iot.label_yds-exports }}**.
-  1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.iot.button_add-yds-export }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iot.button_add-yds-export }}**.
   1. Заполните поля:
 
      * **{{ ui-key.yacloud.common.name }}** — имя экспорта.
      * **{{ ui-key.yacloud.iot.label_mqtt-topic-filter }}** — укажите топик, из которого будут экспортироваться сообщения, или фильтр с использованием [символов подстановки](../concepts/topic/usage.md#wildcards). Если поле пустое, экспортируются сообщения из всех топиков реестра и всех топиков устройств внутри реестра.
-     * **{{ ui-key.yacloud.data-streams.label_data-stream }}** — укажите [поток данных](../../data-streams/concepts/glossary.md#stream-concepts), в который будут отправляться сообщения из MQTT-топиков, или [создайте новый](../../data-streams/operations/manage-streams.md#create-data-stream). Если вы создали новый поток, нажмите кнопку **Обновить** для обновления списка потоков.
+     * **{{ ui-key.yacloud.data-streams.label_data-stream }}** — укажите [поток данных](../../data-streams/concepts/glossary.md#stream-concepts), в который будут отправляться сообщения из MQTT-топиков, или [создайте новый](../../data-streams/operations/manage-streams.md#create-data-stream). Если вы создали новый поток, нажмите кнопку **{{ ui-key.yacloud.common.button_refresh }}** для обновления списка потоков.
      * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — укажите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с ролью `yds.writer`.
 
-  1. Нажмите кнопку **Добавить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
 - CLI {#cli}
   

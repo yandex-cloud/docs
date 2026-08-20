@@ -13,7 +13,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать реестр.
   1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-  1. На панели слева выберите иконку **{{ ui-key.yacloud.iot.label_registries }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.iot.label_registries }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.iot.button_create-registry }}**.
   1. В блоке **{{ ui-key.yacloud.common.section-base }}** добавьте:
 
@@ -23,19 +23,21 @@ description: Следуя данной инструкции, вы сможете
 
           {% include [password-save](../../../_includes/iot-core/password-save.md) %}
 
-      * (Опционально) Для присвоения реестру метки заполните поля **{{ ui-key.yacloud.component.key-values-input.label_key }}** и **{{ ui-key.yacloud.component.key-values-input.label_value }}** и нажмите кнопку **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+      * (Опционально) Добавьте [метку](../../../resource-manager/concepts/labels.md).
 
   1. (Опционально) Добавьте [сертификат](../certificates/create-certificates.md):
 
       * Чтобы добавить файл:
 
+        1. Нажмите кнопку **{{ ui-key.yacloud.iot.button_add-certificate }}**.
         1. Выберите способ `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}`.
-        1. Нажмите кнопку **Прикрепить файл**.
+        1. Нажмите кнопку **{{ ui-key.yacloud_components.fileinput.button_attach-file }}**.
         1. Выберите файл с публичным ключом сертификата и нажмите кнопку **Открыть**.
         1. Нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
       * Чтобы добавить текст:
 
+        1. Нажмите кнопку **{{ ui-key.yacloud.iot.button_add-certificate }}**.
         1. Выберите способ `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}`.
         1. Вставьте публичный ключ сертификата в поле **{{ ui-key.yacloud.component.file-content-dialog.field_content }}**.
         1. Нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.

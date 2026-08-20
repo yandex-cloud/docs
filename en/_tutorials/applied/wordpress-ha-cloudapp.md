@@ -54,7 +54,7 @@ The cost of support for the new infrastructure includes:
 
   To create a secret that will store the {{ mmy-full-name }} database password:
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. [Navigate]({{ link-console-main }}/link/lockbox) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Click **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify the secret name: `db-password-secret`.
   1. In the **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** field, select `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
@@ -118,7 +118,7 @@ Install [WordPress High Availability](/marketplace/products/yc/wordpress-ha-app)
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
+  1. [Navigate]({{ link-console-main }}/link/cloud-apps) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
   1. Click **{{ ui-key.yacloud.cloud-apps.button_empty-install-application }}**.
   1. Select **WordPress High Availability** and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
   1. Configure the application:
@@ -135,7 +135,7 @@ Install [WordPress High Availability](/marketplace/products/yc/wordpress-ha-app)
       || **{{ ui-key.yacloud.common.description }}** | — | — | Application instance description. ||
       || **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** | Yes | — | Service account with the `admin` role for the folder. To create a service account with the required permissions during app installation, select `{{ ui-key.yacloud.component.service-account-field.label_sg-auto }}`. ||
       || **DNS zone ID** | Yes | — | ID of the DNS zone to host the application's domain. ||
-      || **Site subdomain** | — | Empty | Domain for access to the main website, formed by adding a subdomain to the DNS zone domain, i.e., `site.example.com` or `example.com` if no subdomain is specified. ||
+      || **Site subdomain** | — | Empty | Domain for access to the main website. This domain is formed by adding a subdomain to the DNS zone domain, e.g., `site.example.com` or `example.com` if no subdomain is specified. ||
       || **Sender** | — | `noreply@<website_domain>` | Email sender. Used to set up SMTP via {{ postbox-name }}. ||
       || **WordPress administrator username** | — | `admin` | Username for the WordPress admin account. ||
       || **WordPress administrator email address** | Yes | — | Email address to use for creating the WordPress admin account, sending system notifications, and resetting the password. ||
@@ -143,9 +143,9 @@ Install [WordPress High Availability](/marketplace/products/yc/wordpress-ha-app)
       || **Subnet in {{ region-id }}-a** | Yes | — | Subnet in the {{ region-id }}-a availability zone for deploying a {{ mmy-name }} cluster and VMs with a file system. ||
       || **Subnet in {{ region-id }}-d** | Yes | — | Subnet in the {{ region-id }}-d availability zone for deploying a {{ mmy-name }} cluster and VMs with a file system. ||
       || **Instance group size** | — | `2` | Number of instances in the group. ||
-      || **Number of vCPUs** | — | `2` | Number of vCPUs. ||
-      || **RAM** | — | `2` | RAM in GB. ||
-      || **Guaranteed vCPU share** | — | `100` | Guaranteed vCPU share in %. Valid values: 20%, 50%, or 100%. ||
+      || **Number of vCPUs** | — | `2` | Number of vCPUs ||
+      || **RAM** | — | `2` | RAM in GB ||
+      || **Guaranteed vCPU share** | — | `100` | Guaranteed vCPU share in %. The possible values are 20%, 50%, or 100%. ||
       || **Public SSH key** | — | — | The key will be added to `authorized_keys` of the WordPress user.
       We recommend specifying a public SSH key to access the VM over SSH. You will need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) an SSH key pair by yourself. ||
       || **File system size** | — | `100` | File system size in GB. ||
@@ -181,7 +181,7 @@ To shut down the resources you created and stop paying for them:
 1. Delete WordPress High Availability:
 
    1. In the [management console]({{ link-console-main }}), select the folder the application is installed in.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
+   1. [Navigate]({{ link-console-main }}/link/cloud-apps) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
    1. Find WordPress High Availability in the list.
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the app and select **{{ ui-key.yacloud.common.delete }}**.
    1. Confirm the app deletion.

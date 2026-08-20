@@ -22,7 +22,7 @@
 
 ## Создать ВМ из публичного образа DSVM {#create-dsvm}
 
-Чтобы создать виртуальную машину из публичного образа[DSVM](https://yandex.cloud/ru/marketplace/products/yc/dsvm):
+Чтобы создать виртуальную машину из публичного образа [DSVM](https://yandex.cloud/ru/marketplace/products/yc/dsvm):
 
 {% list tabs group=instructions %}
 

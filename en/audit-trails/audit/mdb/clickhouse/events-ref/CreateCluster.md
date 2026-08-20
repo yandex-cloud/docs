@@ -1177,6 +1177,7 @@ editable: false
             "insertQuorumParallel": "boolean",
             "selectSequentialConsistency": "boolean",
             "replicationAlterPartitionsSync": "string",
+            "lightweightDeletesSync": "string",
             "maxReplicaDelayForDistributedQueries": "string",
             "fallbackToStaleReplicasForDistributedQueries": "boolean",
             "distributedProductMode": "string",
@@ -1477,6 +1478,7 @@ editable: false
           "insertQuorumParallel": "boolean",
           "selectSequentialConsistency": "boolean",
           "replicationAlterPartitionsSync": "string",
+          "lightweightDeletesSync": "string",
           "maxReplicaDelayForDistributedQueries": "string",
           "fallbackToStaleReplicasForDistributedQueries": "boolean",
           "distributedProductMode": "string",
@@ -2495,6 +2497,7 @@ The maximum string length in characters is 63. ||
 || insertQuorumParallel | **boolean** ||
 || selectSequentialConsistency | **boolean** ||
 || replicationAlterPartitionsSync | **string** (int64) ||
+|| lightweightDeletesSync | **string** (int64) ||
 || maxReplicaDelayForDistributedQueries | **string** (int64) ||
 || fallbackToStaleReplicasForDistributedQueries | **boolean** ||
 || distributedProductMode | **enum** (DistributedProductMode)

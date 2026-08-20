@@ -19,11 +19,13 @@ To balance the load and distribute traffic between {{ k8s }} applications, you c
     {% include [sg-common-warning](./security-groups/sg-common-warning.md) %}
 
 1. Create an ingress controller [service account](../../iam/operations/sa/create.md) and [assign it the following roles for the folder](../../iam/operations/sa/assign-role-for-sa.md):
+   
    * [alb.editor](../../application-load-balancer/security/index.md#alb-editor): To create {{ alb-name }} resources.
    * [vpc.publicAdmin](../../vpc/security/index.md#vpc-public-admin): To manage external network connectivity.
    * [certificate-manager.certificates.downloader](../../certificate-manager/security/index.md#certificate-manager-certificates-downloader): To use certificates registered in [{{ certificate-manager-full-name }}](../../certificate-manager/).
    * [compute.viewer](../../compute/security/index.md#compute-viewer): To use {{ managed-k8s-name }} cluster nodes in the L7 load balancer [target groups](../../application-load-balancer/concepts/target-group.md).
    * [smart-web-security.editor](../../smartwebsecurity/security/index.md#smart-web-security-editor): To connect your {{ sws-full-name }} [security profile](../../smartwebsecurity/concepts/profiles.md) to the L7 load balancer virtual host. This is an optional setting.
+
 1. [Create an authorized access key](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) for the service account in JSON format and save it to the `sa-key.json` file:
 
    ```bash

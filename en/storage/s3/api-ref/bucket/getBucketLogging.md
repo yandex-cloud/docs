@@ -18,17 +18,16 @@ GET /{bucket}?logging HTTP/2
 
 ### Path parameters {#path-parameters}
 
-Parameter | Description
---- | ---
-`bucket` | [Bucket](../../../concepts/bucket.md) name.
+{% include [path-parameters](../../../_includes_service/storage-path-parameters.md) %}
 
 ### Query parameters {#request-params}
 
-Parameter | Description
---- | ---
-`logging` | Required parameter that indicates the type of operation.
+#|
+|| **Parameter** | **Description** ||
+|| `logging` | Required parameter that indicates the type of operation ||
+|#
 
-### Headers {#request-headers}
+### Headings {#request-headers}
 
 Use [common headers](../common-request-headers.md) in your requests.
 
@@ -67,11 +66,18 @@ Response if bucket logging is configured:
 </BucketLoggingStatus>
 ```
 
-Element | Description
---- | ---
-`BucketLoggingStatus` | Root element.
-`TargetBucket` | Name of the target bucket where [objects](../../../concepts/object.md) with logs are saved.<br>Path: `/BucketLoggingStatus/LoggingEnabled/TargetBucket`.<br>Type: String.
-`TargetPrefix` | [Log object key prefix](../../../concepts/server-logs.md#key-prefix).<br>Path: `/BucketLoggingStatus/LoggingEnabled/TargetPrefix`.<br>Type: String.
+#|
+|| **Element** | **Description** ||
+|| `BucketLoggingStatus` | Root element. ||
+|| `TargetBucket` | Name of the target bucket where [objects](../../../concepts/object.md) with logs are saved.
+
+Path: `/BucketLoggingStatus/LoggingEnabled/TargetBucket`.
+Type: String. ||
+|| `TargetPrefix` | [Log object key prefix](../../../concepts/server-logs.md#key-prefix).
+
+Path: `/BucketLoggingStatus/LoggingEnabled/TargetPrefix`.
+Type: String. ||
+|#
 
 #### Related articles {#related-articles}
 

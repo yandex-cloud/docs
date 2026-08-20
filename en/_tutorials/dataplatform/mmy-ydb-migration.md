@@ -178,7 +178,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     - Management console {#console}
 
         1. In the [management console]({{ link-console-main }}), select the folder containing your database.
-        1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+        1. [Navigate]({{ link-console-main }}/link/ydb) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
         1. Select your database from the list.
         1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
         1. Check that the {{ ydb-name }} database contains the `<source_cluster_DB_name>_measurements` table with test data.
@@ -209,7 +209,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     - Management console {#console}
 
         1. In the [management console]({{ link-console-main }}), select the folder containing your database.
-        1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+        1. [Navigate]({{ link-console-main }}/link/ydb) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
         1. Select your database from the list.
         1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
         1. Make sure the `<source_cluster_DB_name>_measurements` table now contains the new data.

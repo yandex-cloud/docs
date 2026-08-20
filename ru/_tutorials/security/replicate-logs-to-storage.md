@@ -56,6 +56,7 @@
     * `AWS Access Key ID [None]:` — [идентификатор ключа](../../iam/concepts/authorization/access-key.md) сервисного аккаунта.
     * `AWS Secret Access Key [None]:` — [секретный ключ](../../iam/concepts/authorization/access-key.md) сервисного аккаунта.
     * `Default region name [None]:` — регион `{{ region-id }}`.
+    * `Default output format [None]:` — формат вывода данных `json`.
 
 {% include [create-bucket](../_tutorials_includes/create-bucket.md) %}
 
@@ -131,7 +132,8 @@
     ```
     Где:
 
-    * `stream` — идентификатор потока данных {{ yds-name }}. 
+    * `stream` — идентификатор потока данных {{ yds-name }}.
+
         >Например, укажите идентификатор потока `/{{ region-id }}/aoeu1kuk2dht********/cc8029jgtuab********/logs-stream`, если:
         >* `logs-stream` — имя потока;
         >* `{{ region-id }}` — регион;

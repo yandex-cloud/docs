@@ -13,30 +13,32 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) с шаблоном.
   1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. На панели слева выберите **Шаблоны ответов**.
-  1. В строке с нужным шаблоном нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
+  1. На панели слева выберите ![square-article](../../_assets/console-icons/square-article.svg) **{{ ui-key.yacloud.smart-web-security.customPages_rriaz }}**.
+  1. В строке с нужным шаблоном нажмите ![options](../../_assets/console-icons/ellipsis.svg) → ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. В открывшемся окне измените параметры:
 
-       * **Имя страницы**.
-       * **Описание**.
-       * **Код ответа** — один из стандартных [HTTP-кодов ответов](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml), для которого клиенту будет возвращена страница по вашему шаблону.
-       * **Формат ответа**: **HTML**, **JSON**, **XML** или **Custom**.
+      * **{{ ui-key.yacloud.smart-web-security.custom-pages.context_name }}**.
+      * **{{ ui-key.yacloud.smart-web-security.CustomPageForm.field_description_vtia9 }}**.
+      * **{{ ui-key.yacloud.smart-web-security.custom-pages.label_status_code }}** — один из стандартных [HTTP-кодов ответов](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml), для которого клиенту будет возвращена страница по вашему шаблону.
+      * **{{ ui-key.yacloud.smart-web-security.custom-pages.label_format }}**: `HTML`, `JSON`, `XML` или `Custom`.
 
           Каждому из форматов будет соответствовать свой HTTP-заголовок [Content-Type](https://www.rfc-editor.org/rfc/rfc9110.html#name-content-type): `text/html`, `application/json`, `application/xml`.
 
-          Чтобы указать произвольный заголовок, выберите **Custom**. Для формата **Custom** можно изменить **Content-Type**.
+          Чтобы указать произвольный заголовок, выберите `Custom`. Для формата `Custom` можно изменить **{{ ui-key.yacloud.smart-web-security.custom-pages.label_content_type }}**.
 
-       * Чтобы добавить HTTP-заголовок, нажмите **Добавить заголовок ответа** и укажите его **Ключ** (название заголовка) и **Значение**. Для одного шаблона можно добавить не более 10 заголовков.
-       
+      * Чтобы добавить HTTP-заголовок, нажмите **{{ ui-key.yacloud.smart-web-security.CustomPageForm.add_header_8Zgm9 }}** и укажите его **{{ ui-key.yacloud.common.label_key }}** (название заголовка) и **{{ ui-key.yacloud.common.value }}**. Для одного шаблона можно добавить не более 10 заголовков.
+
           Чтобы удалить заголовок, нажмите ![options](../../_assets/console-icons/xmark.svg) напротив его строки.
-       
-       * **Тело ответа** — измените содержимое страницы, которое будет возвращено клиенту. Объем ответа должен быть не более `2 КБ` (примерно 2000 символов в кодировке UTF-8). Вводите содержимое в соответствии с выбранным форматом ответа и сохранением разметки.
-       * Добавьте или удалите из тела ответа пресеты — дополнительные параметры, которые могут передаваться клиенту на странице ответа.
 
-  1. Чтобы увидеть финальную страницу на стороне клиента, вверху справа нажмите **Предпросмотр**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+      * **{{ ui-key.yacloud.smart-web-security.custom-pages.label_body }}** — измените содержимое страницы, которое будет возвращено клиенту. Объем ответа должен быть не более `2 КБ` (примерно 2000 символов в кодировке UTF-8). Вводите содержимое в соответствии с выбранным форматом ответа и сохранением разметки.
+      * Добавьте или удалите из тела ответа пресеты — дополнительные параметры, которые могут передаваться клиенту на странице ответа.
+
+  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+
+  Чтобы увидеть итоговую страницу на стороне клиента, на странице шаблона нажмите ![eye](../../_assets/console-icons/eye.svg) **{{ ui-key.yacloud.smart-web-security.CustomPagesActions.label_view_tJsLT }}**.
 
 {% endlist %}
+
 
 ## Получить информацию о шаблоне {#get-template-info}
 
@@ -46,7 +48,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) с шаблоном.
   1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. На панели слева выберите **Шаблоны ответов**.
+  1. На панели слева выберите ![square-article](../../_assets/console-icons/square-article.svg) **{{ ui-key.yacloud.smart-web-security.customPages_rriaz }}**.
   1. Выберите нужный шаблон.
   1. На странице **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация о шаблоне.
 
@@ -61,9 +63,9 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) с шаблоном.
   1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. На панели слева выберите **Шаблоны ответов**.
-  1. В строке с нужным шаблоном нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+  1. На панели слева выберите ![square-article](../../_assets/console-icons/square-article.svg) **{{ ui-key.yacloud.smart-web-security.customPages_rriaz }}**.
+  1. В строке с нужным шаблоном нажмите ![options](../../_assets/console-icons/ellipsis.svg) → ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
 
-   Если шаблон добавлен в профиль или правило, удалить его нельзя. При попытке удаления появится список объектов с этим шаблоном. Перейдите в настройки каждого объекта и выберите другой шаблон.
+      Если шаблон добавлен в профиль или правило, удалить его нельзя. При попытке удаления появится список объектов с этим шаблоном. Перейдите в настройки каждого объекта и выберите другой шаблон.
 
 {% endlist %}

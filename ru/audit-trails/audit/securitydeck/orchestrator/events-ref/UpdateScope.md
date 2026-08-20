@@ -96,7 +96,7 @@ editable: false
     "description": "string",
     "status": "string",
     "connectorId": "string",
-    // Includes only one of the fields `yandexCloudOptions`
+    // Includes only one of the fields `yandexCloudOptions`, `yandex_360Options`, `selectelOptions`
     "yandexCloudOptions": {
       "resources": [
         {
@@ -131,6 +131,14 @@ editable: false
             }
           ]
         }
+      ]
+    },
+    "yandex_360Options": {
+      "organizationId": "string"
+    },
+    "selectelOptions": {
+      "projectIds": [
+        "string"
       ]
     }
     // end of the list of possible fields
@@ -330,7 +338,13 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || connectorId | **string** ||
 || yandexCloudOptions | **[YandexCloudScopeOptions](#yandex.cloud.audit.securitydeck.orchestrator.YandexCloudScopeOptions)**
 
-Includes only one of the fields `yandexCloudOptions`. ||
+Includes only one of the fields `yandexCloudOptions`, `yandex_360Options`, `selectelOptions`. ||
+|| yandex_360Options | **[Yandex360ScopeOptions](#yandex.cloud.audit.securitydeck.orchestrator.Yandex360ScopeOptions)**
+
+Includes only one of the fields `yandexCloudOptions`, `yandex_360Options`, `selectelOptions`. ||
+|| selectelOptions | **[SelectelScopeOptions](#yandex.cloud.audit.securitydeck.orchestrator.SelectelScopeOptions)**
+
+Includes only one of the fields `yandexCloudOptions`, `yandex_360Options`, `selectelOptions`. ||
 |#
 
 ## YandexCloudScopeOptions {#yandex.cloud.audit.securitydeck.orchestrator.YandexCloudScopeOptions}
@@ -382,4 +396,18 @@ Includes only one of the fields `organization`, `cloud`, `folder`. ||
 #|
 ||Field | Description ||
 || folderId | **string** ||
+|#
+
+## Yandex360ScopeOptions {#yandex.cloud.audit.securitydeck.orchestrator.Yandex360ScopeOptions}
+
+#|
+||Field | Description ||
+|| organizationId | **string** ||
+|#
+
+## SelectelScopeOptions {#yandex.cloud.audit.securitydeck.orchestrator.SelectelScopeOptions}
+
+#|
+||Field | Description ||
+|| projectIds[] | **string** ||
 |#

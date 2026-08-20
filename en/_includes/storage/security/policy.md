@@ -48,6 +48,8 @@ Principal
     * `"*"`
     * `"CanonicalUser": "<subject_ID>"`
 
+    {% include [canonical-user-identification](../../../_includes/storage/canonical-user-identification.md) %}
+
 
 Condition
 

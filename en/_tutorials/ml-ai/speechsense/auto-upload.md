@@ -69,7 +69,7 @@ Create two service accounts:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the relevant folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Name the [service account](../../../iam/concepts/users/service-accounts.md): `deploy-sa`.
   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the following roles: [functions.admin](../../../functions/security/index.md#functions-admin), [storage.editor](../../../storage/security/index.md#storage-editor), [iam.editor](../../../iam/roles-reference.md#iam-editor), [mdb.admin](../../../iam/roles-reference.md#mdb-admin), and `serverless.workflows.admin`.
@@ -137,8 +137,8 @@ Create an API key for the `speechsense-sa` service account.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder with the service account.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the [management console]({{ link-console-main }}), select your service account folder.
+  1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Select the `speechsense-sa` service account.
   1. In the top panel, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
@@ -198,7 +198,7 @@ Create an API key for the `speechsense-sa` service account.
   You can also create an API key using the [ApiKeyService.Create](../../../iam/api-ref/grpc/ApiKey/create.md) gRPC API call.
 
 
-{% endlist %}      
+{% endlist %}
 
 ### Create a space {#create-space}
 
@@ -387,7 +387,7 @@ Depending on the type of files to be uploaded to {{ speechsense-name }}, create 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a secret.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. [Navigate]({{ link-console-main }}/link/lockbox) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Click **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify the secret name: `speechsense-secret`.
 
@@ -473,7 +473,7 @@ Depending on the type of files to be uploaded to {{ speechsense-name }}, create 
     - Management console {#console}
 
         1. In the [management console]({{ link-console-main }}), select the relevant folder.
-        1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+        1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
         1. Click the name of the cluster you [created earlier](#infra). By default, it is `speechsense-upload-metadata`.
         1. Select the **{{ ui-key.yacloud.postgresql.cluster.switch_explore-websql }}** tab.
         1. Click the connection name that ends with `-uploader`.
@@ -498,7 +498,7 @@ Make sure the directories are not nested one inside the other.
   To create a directory:
 
     1. In the [management console]({{ link-console-main }}), select the folder with the bucket.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Select the bucket you need.
     1. Click **{{ ui-key.yacloud.storage.bucket.button_create }}** and specify the directory name.
     1. Click **{{ ui-key.yacloud.storage.bucket.popup-create-folder_button_create }}**.
@@ -644,8 +644,8 @@ If there are more than 1,000 files, do not use the management console for upload
   To upload your files:
 
     1. In the [management console]({{ link-console-main }}), select the relevant folder.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-    1. Go to the bucket you want to upload your files to.
+    1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. Open the bucket you want to upload your files to.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
     1. Click the directory name to go to that directory.
     1. Within the directory you need, click ![image](../../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}** on the top panel.
@@ -723,7 +723,7 @@ To check on the workflow:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the relevant folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. [Navigate]({{ link-console-main }}/link/serverless-integrations) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, select ![GraphNode](../../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
   1. Click the workflow name. By default, it is `wf-speechsense-upload`.
   1. Navigate to the **{{ ui-key.yacloud.serverless-workflows.label_workflow-executions }}** tab.
@@ -759,7 +759,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
 1. Delete the {{ mpg-name }} cluster database connection:
 
     1. In the [management console]({{ link-console-main }}), select the folder to delete a connection from.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/timestamps.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-mdb-proxy }}**.
     1. In the `speechsense-upload-metadata-connection` connection row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
     1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
@@ -767,7 +767,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
 1. Delete the {{ sw-name }} workflow:
 
     1. In the [management console]({{ link-console-main }}), select the folder to delete a workflow from.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+    1. [Navigate]({{ link-console-main }}/link/serverless-integrations) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
     1. In the left-hand panel, select ![GraphNode](../../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
     1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to `wf-speechsense-upload` and select ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
     1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.

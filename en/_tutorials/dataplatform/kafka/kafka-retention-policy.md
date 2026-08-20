@@ -112,7 +112,7 @@ The support cost for this solution includes:
 
        {% endnote %}
 
-    1. Add the SSL certificate to the Java trusted certificate store (Java Key Store) so that the {{ KF }} driver can use this certificate for secure connections to the cluster hosts. Set a password in the `--storepass` parameter for additional storage protection:
+    1. Add the SSL certificate to the Java trusted certificate store (Java Key Store) so the {{ KF }} driver could use it for secure connections to cluster hosts. Set a password in the `--storepass` parameter for additional storage protection:
 
        ```powershell
        keytool.exe -importcert -alias {{ crt-alias }} `
@@ -220,7 +220,7 @@ The support cost for this solution includes:
 
 1. Run the [message receive command](#prepare-commands).
 
-2. Wait 10 to 15 seconds and then interrupt it by pressing **Ctrl** + **C**. Make sure the terminal displays the following message:
+1. Wait 10 to 15 seconds and then interrupt it by pressing **Ctrl** + **C**. Make sure the terminal displays the following message:
 
     ```
     Processed a total of 0 messages
@@ -301,7 +301,7 @@ All messages are deleted 60 seconds after they are written to the topic, leading
 
 ## Review the monitoring charts {#check-charts}
 
-Navigate to [{{ monitoring-full-name }}]({{ link-monitoring }}) and review the behavior of the previously created metrics:
+[Navigate]({{ link-monitoring }}) to **{{ monitoring-full-name }}** and analyze the behavior of the metrics you created earlier:
 * `kafka_log_Log_LogStartOffset`: Partition's first offset, which increases with each message written to the topic.
 * `kafka_log_Log_LogEndOffset`: Partition's last offset, which increases with message deletion from the topic.
 * `kafka_group_topic_partition_offset`: Partition's current consumer group offset, which increases as the consumer group reads messages from the topic.

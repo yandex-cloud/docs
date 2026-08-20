@@ -568,15 +568,15 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
   1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. На панели слева выберите ![arl](../../_assets/smartwebsecurity/arl.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_profiles }}** и нажмите кнопку **{{ ui-key.yacloud.smart-web-security.arl.label_create-profile }}**.
+  1. На панели слева выберите ![arl](../../_assets/smartwebsecurity/arl.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_profiles }}** и нажмите **{{ ui-key.yacloud.smart-web-security.arl.label_create-profile }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** задайте имя [профиля ARL](../../smartwebsecurity/concepts/arl.md) `arl-profile-demo`.
-  1. Нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_add-rule }}** и в открывшемся окне:
+  1. Нажмите ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}** и в открывшемся окне:
 
       1. В поле **{{ ui-key.yacloud.common.name }}** задайте имя правила `permit-50-rps-in`.
       1. В поле **Приоритет** укажите `10`.
       1. В поле **Лимит запросов** задайте лимит в `50` запросов за `1 секунду`.
-      1. Значения остальных параметров оставьте без изменений и нажмите кнопку **{{ ui-key.yacloud.smart-web-security.arl.label_save-rule }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+      1. Значения остальных параметров оставьте без изменений и нажмите **{{ ui-key.yacloud.smart-web-security.arl.label_save-rule }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -588,10 +588,10 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
   1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. На панели слева выберите ![waf](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}** и нажмите кнопку **{{ ui-key.yacloud.smart-web-security.waf.label_create-profile }}**.
+  1. На панели слева выберите ![waf](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}** и нажмите **{{ ui-key.yacloud.smart-web-security.waf.label_create-profile }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** задайте имя [профиля WAF](../../smartwebsecurity/concepts/waf.md) `waf-profile-demo`.
   1. По умолчанию в профиле WAF включен набор базовых правил [OWASP Core Rule Set](https://coreruleset.org/). Нажмите на строку с набором правил, чтобы посмотреть правила, которые в него входят.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -604,32 +604,32 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
   1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.action_empty }}** и выберите вариант `{{ ui-key.yacloud.smart-web-security.title_no-template }}`.
+  1. Нажмите **{{ ui-key.yacloud.smart-web-security.action_empty }}** и выберите вариант `{{ ui-key.yacloud.smart-web-security.title_no-template }}`.
   1. В поле **{{ ui-key.yacloud.common.name }}** задайте имя [профиля безопасности](../../smartwebsecurity/concepts/profiles.md) `sws-demo-profile`.
   1. В поле **{{ ui-key.yacloud.smart-web-security.form.label_arl-profile }}** выберите созданный ранее профиль `arl-profile-demo`.
   1. Создайте новое [правило](../../smartwebsecurity/concepts/rules.md) `Web Application Firewall`:
   
-      1. Нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
+      1. Нажмите ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
       1. В поле **{{ ui-key.yacloud.common.name }}** задайте имя правила `waf-rule`.
       1. В поле **Приоритет** укажите значение `200`.
       1. В блоке **Тип правила** выберите `{{ ui-key.yacloud.smart-web-security.overview.label_waf-rule }}` и в появившемся списке выберите созданное ранее правило `waf-profile-demo`.
 
           К создаваемому правилу будет применен набор правил из профиля WAF. Подозрительные запросы будут направляться в [{{ captcha-full-name }}](../../smartcaptcha/index.yaml).
-      1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+      1. Нажмите **{{ ui-key.yacloud.common.add }}**.
 
       Добавленное правило появится в списке правил в блоке **{{ ui-key.yacloud.smart-web-security.form.section_security-rules }}**.
   1. Создайте новое правило `Smart Protection`:
 
-      1. Повторно нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
+      1. Повторно нажмите ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
       1. В поле **{{ ui-key.yacloud.common.name }}** задайте имя правила `smart-rule`.
       1. В поле **Приоритет** укажите значение `300`.
       1. В блоке **Тип правила** выберите `{{ ui-key.yacloud.smart-web-security.overview.label_smart-protection-rule }}`.
 
           Создаваемое правило будет направлять трафик на автоматический анализ с помощью алгоритмов машинного обучения и поведенческого анализа. Подозрительные запросы будут направляться в {{ captcha-full-name }} для дополнительной верификации.
-      1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
-  
+      1. Нажмите **{{ ui-key.yacloud.common.add }}**.
+
       Добавленное правило появится в списке правил в блоке **{{ ui-key.yacloud.smart-web-security.form.section_security-rules }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.action_empty }}**.
+  1. Нажмите **{{ ui-key.yacloud.smart-web-security.action_empty }}**.
 
 {% endlist %}
 
@@ -642,14 +642,14 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
   1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. На панели слева нажмите ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}** и выберите созданный ранее профиль `sws-demo-profile`.
-  1. На панели сверху нажмите кнопку ![plug](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}**.
+  1. На панели сверху нажмите ![plug](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}**.
   1. В открывшемся окне нажмите **{{ ui-key.yacloud.smart-web-security.AttachSecurityProfileDialog.label_add-resource_v4U3g }}** и выберите **{{ ui-key.yacloud.smart-web-security.AttachSecurityProfileDialog.label_virtual-host_tYim5 }}**.
   1. Последовательно установите значения в полях:
 
       1. Выберите балансировщик `demo-alb-bms`.
       1. Выберите HTTP-роутер `http-80`.
       1. Выберите виртуальный хост `http-vh`.
-      1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_connect }}**.
+      1. Нажмите **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_connect }}**.
 
       Информация о подключенном виртуальном хосте появится в разделе ![cubes-3-overlap](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.common.connected_resources }}** на странице с обзором профиля безопасности {{ sws-name }}.
 

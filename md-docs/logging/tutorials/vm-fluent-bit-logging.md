@@ -287,47 +287,47 @@
 
 - Консоль управления {#console}
 
-    1. Проверьте статус сервисов:
+  1. Проверьте статус сервисов:
 
-    ```bash
-    sudo systemctl status logtest
-    sudo systemctl status fluent-bit
-    ```
+      ```bash
+      sudo systemctl status logtest
+      sudo systemctl status fluent-bit
+      ```
 
-    Результат:
+      Результат:
 
-    ```
-    ● fluent-bit.service - Fluent Bit
-         Loaded: loaded (/lib/systemd/system/fluent-bit.service; disabled; vendor preset: enabled)
-         Active: active (running) since Thu 2024-05-30 12:34:56 UTC; 5s ago
-           Docs: https://docs.fluentbit.io/manual/
-       Main PID: 12347 (fluent-bit)
-          Tasks: 4 (limit: 2311)
-         Memory: 18.8M
-            CPU: 156ms
-         CGroup: /system.slice/fluent-bit.service
-                 └─12347 /opt/fluent-bit/bin/fluent-bit -c /etc/fluent-bit/fluent-bit.conf
-    ```
+      ```
+      ● fluent-bit.service - Fluent Bit
+          Loaded: loaded (/lib/systemd/system/fluent-bit.service; disabled; vendor preset: enabled)
+          Active: active (running) since Thu 2024-05-30 12:34:56 UTC; 5s ago
+            Docs: https://docs.fluentbit.io/manual/
+        Main PID: 12347 (fluent-bit)
+            Tasks: 4 (limit: 2311)
+          Memory: 18.8M
+              CPU: 156ms
+          CGroup: /system.slice/fluent-bit.service
+                  └─12347 /opt/fluent-bit/bin/fluent-bit -c /etc/fluent-bit/fluent-bit.conf
+      ```
 
-    1. Просмотрите логи:
+  1. Просмотрите логи:
 
-        ```bash
-        # Логи тестового сервиса
-        sudo journalctl -u logtest -n 10 | cat
+      ```bash
+      # Логи тестового сервиса
+      sudo journalctl -u logtest -n 10 | cat
 
-        # Логи Fluent Bit
-        sudo journalctl -u fluent-bit -n 20 | cat
-        ```
+      # Логи Fluent Bit
+      sudo journalctl -u fluent-bit -n 20 | cat
+      ```
 
-        При корректной работе:
+      При корректной работе:
 
-        1. Оба сервиса должны иметь статус "active (running)".
-        1. В логах тестового сервиса должны появляться сообщения вида:
-           - `Path: /admin?query=90` для успешных запросов.
-           - `Error: /docs?bar=44` для ошибочных запросов.
-        1. В логах Fluent Bit не должно быть ошибок.
+      1. Оба сервиса должны иметь статус "active (running)".
+      1. В логах тестового сервиса должны появляться сообщения вида:
+          - `Path: /admin?query=90` для успешных запросов.
+          - `Error: /docs?bar=44` для ошибочных запросов.
+      1. В логах Fluent Bit не должно быть ошибок.
 
-    1. Проверьте логи в консоли управления:
+  1. Проверьте логи в консоли управления:
 
        1. В [консоли управления](https://console.yandex.cloud) выберите каталог, указанный в `folder_id`.
        1. [Перейдите](https://console.yandex.cloud/link/logging) в сервис **Cloud Logging**.

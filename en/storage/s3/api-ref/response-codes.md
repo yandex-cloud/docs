@@ -24,12 +24,19 @@ In case of an error, {{ objstorage-name }} returns a message with the relevant H
 </Error>
 ```
 
-Tag | Description
------ | -----
-`Code` | Error code.<br/><br/>A list of codes is given below.
-`Message` | Error description in English.
-`RequestId` | ID of request that caused the error.<br/><br/>Same as the `X-Amz-Request-Id` header value.
-`Resource` | Bucket or object the error occurred with.
+#|
+|| **Tag** | **Description** ||
+|| `Code` |
+Error code.
+
+You can find a list of codes below. ||
+|| `Message` | Error description in English. ||
+|| `RequestId` |
+ID of the request that resulted in an error.
+
+It equals the `X-Amz-Request-Id` header value. ||
+|| `Resource` | Bucket or object the error occurred with. ||
+|#
 
 
 ### Error codes {#error_codes}

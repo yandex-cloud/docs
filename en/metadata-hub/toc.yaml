@@ -427,8 +427,10 @@ items:
                 href: operations/data-catalog/create-source.md
               - name: Editing a source
                 href: operations/data-catalog/update-source.md
-              - name: Deleting an origin
+              - name: Deleting a source
                 href: operations/data-catalog/delete-source.md
+              - name: Setting up a backend for a source
+                href: operations/data-catalog/settings-backend-source.md
           - name: Ingestions
             items:
               - name: Getting a list of ingestions

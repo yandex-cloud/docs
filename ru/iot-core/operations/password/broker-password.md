@@ -31,10 +31,12 @@ description: Из статьи вы узнаете, как получить сп
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите добавить пароль уже созданному брокеру.
    1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. На панели слева выберите **{{ ui-key.yacloud.iot.label_brokers }}**.
+   1. На панели слева выберите ![image](../../../_assets/console-icons/gear-branches.svg) **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. Выберите нужный брокер из списка.
    1. В блоке **{{ ui-key.yacloud.iot.label_passwords }}** нажмите кнопку **{{ ui-key.yacloud.iot.button_add-password }}**.
-   1. В поле **{{ ui-key.yacloud.common.password }}** введите пароль, который будете использовать для доступа к брокеру. Для создания пароля можно воспользоваться [генератором паролей](https://passwordsgenerator.net/). Не забудьте сохранить пароль, он вам понадобится.
+   1. В поле **{{ ui-key.yacloud.common.password }}** введите пароль, который будете использовать для доступа к брокеру.
+      Для создания пароля можно воспользоваться [генератором паролей](https://passwordsgenerator.net/).
+      Не забудьте сохранить пароль — он вам понадобится.
    1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
 - CLI {#cli}
@@ -126,9 +128,9 @@ description: Из статьи вы узнаете, как получить сп
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите получить список паролей брокера.
    1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. На панели слева выберите **{{ ui-key.yacloud.iot.label_brokers }}**.
+   1. На панели слева выберите ![image](../../../_assets/console-icons/gear-branches.svg) **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. Выберите нужный брокер из списка.
-   1. На странице **{{ ui-key.yacloud.common.overview }}** перейдите к разделу **{{ ui-key.yacloud.iot.label_passwords }}**.
+   1. На вкладке **{{ ui-key.yacloud.common.overview }}** перейдите к разделу **{{ ui-key.yacloud.iot.label_passwords }}**.
 
 - CLI {#cli}
   
@@ -185,9 +187,9 @@ description: Из статьи вы узнаете, как получить сп
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите удалить пароль брокера.
    1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. На панели слева выберите **{{ ui-key.yacloud.iot.label_brokers }}**.
+   1. На панели слева выберите ![image](../../../_assets/console-icons/gear-branches.svg) **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. Выберите нужный брокер из списка.
-   1. В строке с нужным паролем нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и в выпадающем списке выберите **{{ ui-key.yacloud.common.delete }}**.
+   1. Справа от удаляемого пароля нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.common.delete }}**.
    1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}

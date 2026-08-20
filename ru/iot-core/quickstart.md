@@ -56,20 +56,22 @@ X.509-сертификаты нужны для взаимодействия кл
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать реестр.
     1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-    1. На панели слева выберите иконку **{{ ui-key.yacloud.iot.label_registries }}**.
+    1. На панели слева выберите ![image](../_assets/console-icons/server.svg) **{{ ui-key.yacloud.iot.label_registries }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.iot.button_create-registry }}**.
     1. В блоке **{{ ui-key.yacloud.common.section-base }}** добавьте имя реестра `my-registry`.
     1. Добавьте сертификат:
 
         * Чтобы добавить файл:
 
+            1. Нажмите **{{ ui-key.yacloud.iot.button_add-certificate }}**.
             1. Выберите способ `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}`.
-            1. Нажмите кнопку **Прикрепить файл**.
+            1. Нажмите кнопку **{{ ui-key.yacloud_components.fileinput.button_attach-file }}**.
             1. Выберите файл с публичным ключом сертификата и нажмите кнопку **Открыть**.
             1. Нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
         * Чтобы добавить текст:
 
+            1. Нажмите **{{ ui-key.yacloud.iot.button_add-certificate }}**.
             1. Выберите способ `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}`.
             1. Вставьте публичный ключ сертификата в поле **{{ ui-key.yacloud.component.file-content-dialog.field_content }}**.
             1. Нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
@@ -134,21 +136,23 @@ X.509-сертификаты нужны для взаимодействия кл
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать устройство.
     1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-    1. Выберите в списке реестр `my-registry`.
-    1. В левой части окна выберите раздел **{{ ui-key.yacloud.iot.label_devices }}**.
+    1. На панели слева выберите ![image](../_assets/console-icons/server.svg) **{{ ui-key.yacloud.iot.label_registries }}** и откройте реестр `my-registry`.
+    1. Перейдите на вкладку **{{ ui-key.yacloud.iot.label_devices }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.iot.button_add-device }}**.
     1. В блоке **{{ ui-key.yacloud.common.section-base }}** добавьте имя устройства `my-device`.
     1. Добавьте сертификат:
 
         * Чтобы добавить файл:
 
+            1. Нажмите кнопку **{{ ui-key.yacloud.iot.button_add-certificate }}**.
             1. Выберите способ `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}`.
-            1. Нажмите кнопку **Прикрепить файл**.
+            1. Нажмите кнопку **{{ ui-key.yacloud_components.fileinput.button_attach-file }}**.
             1. Выберите файл с публичным ключом сертификата и нажмите кнопку **Открыть**.
             1. Нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
         * Чтобы добавить текст:
 
+            1. Нажмите кнопку **{{ ui-key.yacloud.iot.button_add-certificate }}**.
             1. Выберите способ `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}`.
             1. Вставьте публичный ключ сертификата в поле **{{ ui-key.yacloud.component.file-content-dialog.field_content }}**.
             1. Нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.

@@ -102,7 +102,7 @@ Set up your infrastructure:
 
 1. [Upload](../../storage/operations/objects/upload.md#simple) the `demo_data1.csv` file to the {{ objstorage-name }} bucket.
 
-## Prepare and activate a transfer {#prepare-transfer}
+## Prepare and activate the transfer {#prepare-transfer}
 
 1. [Create a source endpoint](../../data-transfer/operations/endpoint/source/object-storage.md#endpoint-settings) of the `{{ objstorage-name }}` type with the following settings:
 
@@ -178,7 +178,7 @@ Make sure the transfer works correctly by testing copying and replication.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing your database.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+    1. [Navigate]({{ link-console-main }}/link/ydb) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
     1. Select your database from the list.
     1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
     1. Check that the {{ ydb-name }} database contains the `table1` table with test data.
@@ -220,7 +220,7 @@ Make sure the transfer works correctly by testing copying and replication.
     - Management console {#console}
 
         1. In the [management console]({{ link-console-main }}), select the folder containing your database.
-        1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+        1. [Navigate]({{ link-console-main }}/link/ydb) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
         1. Select your database from the list.
         1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
         1. Check that `table1` now contains the new data.
@@ -266,7 +266,7 @@ To minimize resource consumption, delete the resources you no longer need:
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
 1. [Delete the objects](../../storage/operations/objects/delete.md) from the bucket.
-1. Delete the rest of the resources depending on how you created them:
+1. Delete the other resources depending on how you created them:
 
     {% list tabs group=instructions %}
 

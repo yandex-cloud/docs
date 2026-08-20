@@ -12,22 +12,15 @@ GET /{bucket}?website HTTP/2
 
 ### Path parameters {#path-parameters}
 
-Parameter | Description
------ | -----
-`bucket` | Bucket name.
-
+{% include [path-parameters](../../../_includes_service/storage-path-parameters.md) %}
 
 ### Query parameters {#request-params}
 
-Parameter | Description
------ | -----
-`website` | Required parameter that indicates the type of operation.
+{% include [query-parameters](../../../_includes_service/storage-hosting-query-parameters.md) %}
 
-
-### Headers {#request-headers}
+### Headings {#request-headers}
 
 Use the appropriate [common headers](../common-request-headers.md) in your request.
-
 
 ## Response {#response}
 
@@ -45,6 +38,6 @@ The structure of returned data is the same as the structure of data provided by 
 
 #### Related articles {#related-articles}
 
-* [{#T}](../../../operations/hosting/setup.md)
+[{#T}](../../../operations/hosting/setup.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

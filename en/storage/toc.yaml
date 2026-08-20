@@ -101,9 +101,9 @@ items:
         items:
           - name: Setting up hosting
             href: operations/hosting/setup.md
-          - name: Support for your own domain
+          - name: Supporting your own domain
             href: operations/hosting/own-domain.md
-          - name: Support for multiple domain names
+          - name: Setting up support for multiple domain names
             items:
               - name: Overview
                 href: operations/hosting/multiple-domains/index.md
@@ -346,7 +346,7 @@ items:
             href: tutorials/video-converting-queue/console.md
           - name: '{{ TF }}'
             href: tutorials/video-converting-queue/terraform.md
-      - name: Automating tasks using {{ maf-short-name }}
+      - name: Task automation via {{ maf-short-name }}
         href: tutorials/airflow-auto-tasks.md
       - name: Processing files with usage details in {{ billing-name }}
         href: tutorials/billing.md

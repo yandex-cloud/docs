@@ -12,12 +12,10 @@ DELETE /{bucket} HTTP/2
 
 ### Path parameters {#path-parameters}
 
-Parameter | Description
------ | -----
-`bucket` | Bucket name.
+{% include [path-parameters](../../../_includes_service/storage-path-parameters.md) %}
 
+### Headings {#request-headers}
 
-### Headers {#request-headers}
 Use only [common headers](../common-request-headers.md) in your requests.
 
 ## Response {#response}

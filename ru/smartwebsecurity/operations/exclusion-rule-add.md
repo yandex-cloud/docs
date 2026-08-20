@@ -13,18 +13,14 @@ description: Следуя данной инструкции, вы сможете
   1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. На панели слева выберите ![image](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}**.
   1. Выберите профиль, в который вы хотите добавить [правило-исключение](../concepts/waf.md#exclusion-rules).
-  1. В меню слева выберите ![image](../../_assets/console-icons/file-xmark.svg) **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rules }}** и нажмите кнопку **{{ ui-key.yacloud.smart-web-security.waf.label_create-exclusion-rule }}**.
+  1. Выберите ![image](../../_assets/console-icons/file-xmark.svg) **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rules }}** и нажмите **{{ ui-key.yacloud.smart-web-security.waf.label_create-exclusion-rule }}**.
   1. Введите имя правила-исключения.
   1. (опционально) Введите описание.
   1. (опционально) Включите опцию **{{ ui-key.yacloud.smart-web-security.waf.field_logging }}**, чтобы логировать факты срабатывания правил-исключений.
-
   1. {% include [waf-rule-rules-section](../../_includes/smartwebsecurity/waf-rule-rules-section.md) %}
-  
   1. {% include [waf-rule-request-condition](../../_includes/smartwebsecurity/waf-rule-request-condition.md) %}
-
   1. {% include [waf-rule-traffic-conditions](../../_includes/smartwebsecurity/waf-rule-traffic-conditions.md) %}
-
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - {{ TF }} {#tf}
 
@@ -87,16 +83,16 @@ description: Следуя данной инструкции, вы сможете
       ```
 
       Где:
-      
+
       * `exclusion_rule` — правило-исключение:
-         
+
          * `name` — имя правила-исключения.
          * `condition` — [условия](../concepts/conditions.md), при которых будет срабатывать правило-исключение. В приведенном примере применяется условие по IP-адресу источника трафика.
 
             В блоке `condition` вы можете использовать одновременно несколько разных типов условий.
-         
+
          * `exclude_rules` — параметры правила-исключения:
-            
+
             * `exclude_all` — исключение будет срабатывать для всех правил. Возможные значения `false` или `true`.
             * `rule_ids` — список идентификаторов правил из базового набора, для которых будет срабатывать исключение. Чтобы указать отдельные правила, для параметра `exclude_all` установите значение `false`.
 

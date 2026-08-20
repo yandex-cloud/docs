@@ -66,7 +66,7 @@ Set up your data delivery infrastructure:
         * `source_user_name`: Username for connecting to the source cluster.
         * `source_user_password`: User password.
         * `target_db_name`: {{ ydb-name }} database name.
-        * `transfer_enabled`: Set to `0` to ensure that neither a source endpoint nor a transfer is created before you [manually create a target endpoint](#prepare-transfer).
+        * `transfer_enabled`: Set to `0` not to create a source endpoint and a transfer until [a target endpoint is created manually](#prepare-transfer).
 
     1. Validate your {{ TF }} configuration files using this command:
 
@@ -116,7 +116,7 @@ Set up your data delivery infrastructure:
 
 1. [Prepare the source cluster for transfer](../../data-transfer/operations/prepare.md#source-pg).
 
-## Prepare and activate a transfer {#prepare-transfer}
+## Prepare and activate the transfer {#prepare-transfer}
 
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
@@ -184,7 +184,7 @@ Set up your data delivery infrastructure:
     - Management console {#console}
 
         1. In the [management console]({{ link-console-main }}), select the folder containing your database.
-        1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+        1. [Navigate]({{ link-console-main }}/link/ydb) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
         1. Select your database from the list.
         1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
         1. Check that the {{ ydb-name }} database contains the `public_sensors` table with test data.
@@ -216,7 +216,7 @@ Set up your data delivery infrastructure:
     - Management console {#console}
 
         1. In the [management console]({{ link-console-main }}), select the folder containing your database.
-        1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+        1. [Navigate]({{ link-console-main }}/link/ydb) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
         1. Select your database from the list.
         1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
         1. Check that `public_sensors` now contains the new data.

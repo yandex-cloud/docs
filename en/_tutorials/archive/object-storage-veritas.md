@@ -130,8 +130,8 @@ To create a service account:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder with backups.
-  1. Navigate to **{{ objstorage-short-name }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder containing the bucket with backups.
+  1. [Navigate]({{ link-console-main }}/link/storage) to **{{ objstorage-short-name }}**.
   1. Open the bucket with backups and check whether all relevant files were copied.
 
 {% endlist %}

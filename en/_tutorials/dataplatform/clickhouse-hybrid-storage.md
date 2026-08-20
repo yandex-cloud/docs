@@ -17,7 +17,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost for this solution includes:
 
-* {{ mch-name }} cluster fee: use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* Fee for a {{ mch-name }} cluster: use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
 * Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
@@ -264,8 +264,8 @@ As the SQL result shows, the user interacts with a single logical table. {{ CH }
 To monitor the amount of space [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) table parts occupy in {{ objstorage-name }}, use the `ch_s3_disk_parts_size` metric in {{ monitoring-full-name }}.
 
 1. Open the [management console]({{ link-console-main }}).
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-1. Navigate to the **Metric Explorer** section.
+1. [Navigate]({{ link-console-main }}/link/monitoring) to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. Open the **Metric Explorer** section.
 1. Run this query:
 
     ```text

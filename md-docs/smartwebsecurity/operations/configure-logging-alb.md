@@ -57,31 +57,31 @@
   1. В списке выберите балансировщик, к которому привязан профиль безопасности.
   1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
   1. В блоке **Настройки логов**:
-     
-     1. Включите опцию **Запись логов**.
-     1. Выберите или создайте [лог-группу](../../logging/concepts/log-group.md) Cloud Logging, в которую будут записываться логи балансировщика.
-     1. Нажмите кнопку **Добавить правило отбрасывания логов** и настройте его [параметры](../../application-load-balancer/concepts/application-load-balancer.md#discard-logs-rules).
-  
+
+      1. Включите опцию **Запись логов**.
+      1. Выберите или создайте [лог-группу](../../logging/concepts/log-group.md) Cloud Logging, в которую будут записываться логи балансировщика.
+      1. Нажмите **Добавить правило отбрасывания логов** и настройте его [параметры](../../application-load-balancer/concepts/application-load-balancer.md#discard-logs-rules).
+
   1. Нажмите **Сохранить**.
 
   Другие способы включения логов описаны в разделе [Настроить запись логов L7-балансировщика](../../application-load-balancer/operations/application-load-balancer-manage-logs.md).
 
 - Audit Trails {#at}
 
-  События Audit Trails можно записывать в бакет Object Storage, лог-группу Cloud Logging, поток данных Data Streams или шину EventRouter. В этой инструкции настроим запись аудитных событий в лог-группу.
+  События Audit Trails можно записывать в [бакет](../../storage/concepts/bucket.md) Object Storage, [лог-группу](../../logging/concepts/log-group.md) Cloud Logging, [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) Data Streams или [шину](../../serverless-integrations/concepts/eventrouter/bus.md) EventRouter. В этой инструкции настроим запись аудитных событий в лог-группу.
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится профиль Smart Web Security.
   1. [Перейдите](https://console.yandex.cloud/link/audit-trails) в сервис **Audit Trails**.
-  1. Нажмите кнопку **Создать трейл**.
-  1. Введите имя трейла, например `trail-sws`.
-  1. В блоке **Назначение** выберите объект назначения — **Cloud Logging**.
-  1. Выберите или создайте [лог-группу](../../logging/concepts/log-group.md) Cloud Logging, в которую будут записываться события Smart Web Security.
-  1. В блоке **Сбор событий с уровня сервисов** включите сбор событий и выберите сервис **Smart Web Security**.
-
-      Для остальных настроек в этом блоке оставьте значения по умолчанию. Будут записываться все события Smart Web Security уровня сервисов в текущем каталоге. События уровня конфигурации записываться не будут.
-  
-  1. В блоке **Сервисный аккаунт** создайте или выберите аккаунт с ролью `logging.writer`.
+  1. Нажмите **Создать трейл**.
+  1. В поле **Приёмник логов** выберите `Cloud Logging`.
+  1. Выберите лог-группу или [создайте](../../logging/operations/create-group.md) новую.
+  1. Отключите **Сбор логов с управляющего слоя**.
+  1. В блоке **Сбор логов со слоя данных** очистите список и выберите сервис **Smart Web Security**.
+  1. В блоке **Сервисный аккаунт** выберите аккаунт с [ролью](../../logging/security/index.md#logging-writer) `logging.writer` или [создайте](../../iam/operations/sa/create.md) новый.
+  1. В блоке **Общая информация** введите имя трейла, например `trail-sws`.
   1. Нажмите **Создать**.
+
+  Будут записываться все события Smart Web Security уровня сервисов в текущем каталоге. События уровня конфигурации записываться не будут.
 
   Другие способы включения записи событий описаны в разделе [Создание трейла для загрузки аудитных логов](../../audit-trails/operations/create-trail.md).
 
@@ -95,11 +95,19 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится профиль Smart Web Security.
   1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
-  1. Выберите раздел **Логи**.
-  1. Выберите количество сообщений на одной странице и период: 1 час, 3 часа, 1 день, 1 неделя, 2 недели.
-  1. В строке **Запрос** укажите запрос на [языке фильтрующих выражений](../../logging/concepts/filter.md) и нажмите кнопку **Выполнить**.
+  1. Выберите раздел ![receipt](../../_assets/console-icons/receipt.svg) **Логи**.
+  1. Выберите период показа логов одним из способов:
 
-     Примеры запросов приведены ниже.
+      * Нажмите обозначение интервала, например **Последний час**, и выберите один из вариантов: от **Последние 5 минут** до **Последний день**.
+
+          Также в полях **От** и **До** можно выбрать нужные даты в календаре и указать время.
+
+      * Выберите предустановленный период: **Сейчас**, **5m**, **30m**, **1h**, **1d**, **2d** или укажите свой.
+      * На временной шкале переместите индикаторы начала и конца периода.
+
+  1. В строке **Запрос** укажите запрос на [языке фильтрующих выражений](../../logging/concepts/filter.md) и нажмите **Выполнить запрос**.
+
+      Примеры запросов приведены ниже.
 
   1. Чтобы посмотреть содержимое лога, разверните его.
 
@@ -115,47 +123,47 @@
   ### Фильтры для активных правил {#active-rule-filters}
 
   * Показать запросы, заблокированные базовыми правилами с определенными [условиями](../concepts/conditions.md). Например, по списку или региону IP:
-    
-    ```
-    json_payload.smartwebsecurity.matched_rule.rule_type = RULE_CONDITION and json_payload.smartwebsecurity.matched_rule.verdict = DENY
-    ```
-    
+
+      ```text
+      json_payload.smartwebsecurity.matched_rule.rule_type = RULE_CONDITION and json_payload.smartwebsecurity.matched_rule.verdict = DENY
+      ```
+
   * Показать запросы, для которых сработали правила [Smart Protection](../concepts/rules.md#smart-protection-rules) с отправкой на капчу:
-    
-    ```
-    json_payload.smartwebsecurity.matched_rule.rule_type = SMART_PROTECTION and json_payload.smartwebsecurity.matched_rule.verdict = CAPTCHA
-    ```
+
+      ```text
+      json_payload.smartwebsecurity.matched_rule.rule_type = SMART_PROTECTION and json_payload.smartwebsecurity.matched_rule.verdict = CAPTCHA
+      ```
 
   * Показать запросы, заблокированные по профилю [WAF](../concepts/waf.md) — правилами WAF из профиля безопасности:
-    
-    ```
-    json_payload.smartwebsecurity.matched_rule.rule_type = WAF and json_payload.smartwebsecurity.matched_rule.verdict = DENY
-    ```
+
+      ```text
+      json_payload.smartwebsecurity.matched_rule.rule_type = WAF and json_payload.smartwebsecurity.matched_rule.verdict = DENY
+      ```
 
   * Показать запросы, заблокированные правилами профиля [ARL](../concepts/arl.md):
-    
-    ```
-    json_payload.smartwebsecurity.advanced_rate_limiter.verdict = DENY
-    ```
+
+      ```text
+      json_payload.smartwebsecurity.advanced_rate_limiter.verdict = DENY
+      ```
 
   * Показать запросы, для которых сработало конкретное правило ARL — `arl-rule-1`:
-    
-    ```
-    json_payload.smartwebsecurity.advanced_rate_limiter.verdict = DENY and json_payload.smartwebsecurity.advanced_rate_limiter.applied_quota_name = "arl-rule-1"
-    ```
+
+      ```text
+      json_payload.smartwebsecurity.advanced_rate_limiter.verdict = DENY and json_payload.smartwebsecurity.advanced_rate_limiter.applied_quota_name = "arl-rule-1"
+      ```
 
   Таким же образом вы можете добавить в фильтры другие условия и изменять их с учетом особенностей вашего потока трафика.
 
   ### Фильтры для правил в режиме логирования {#dry-run-filters}
 
   * Показать запросы, для которых сработали правила [Smart Protection](../concepts/rules.md#smart-protection-rules) с отправкой на капчу:
-    
-    ```
+
+    ```text
     json_payload.smartwebsecurity.dry_run_matched_rule.rule_type = SMART_PROTECTION and json_payload.smartwebsecurity.dry_run_matched_rule.verdict = CAPTCHA
     ```
 
   * Посмотреть запросы, для которых сработали правила ARL (лимиты на запросы).
-    
+
     Для режима **Только логирование** не подойдет запрос с фильтрацией по вердикту `DENY`, поскольку в этом режиме запросы не блокируются. Вердикт правил будет `ALLOW` даже после превышения лимита. Для отладки правил используйте параметр `dry_run_exceeded_quota_names`. Параметр показывает, какие правила ARL сработали на запросе. Если в этом параметре нет правил — лимиты не превышались.
 
     Пример фрагмента лога с параметром `dry_run_exceeded_quota_names`:
@@ -180,19 +188,27 @@
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится профиль Smart Web Security.
   1. [Перейдите](https://console.yandex.cloud/link/logging) в сервис **Cloud Logging**.
   1. Выберите лог-группу, в которую передаются события Audit Trails.
-  1. Выберите количество сообщений на одной странице и период: 1 час, 3 часа, 1 день, 1 неделя, 2 недели.
-  1. В строке **Запрос** укажите запрос на [языке фильтрующих выражений](../../logging/concepts/filter.md) и нажмите кнопку **Выполнить**.
+  1. Выберите период показа логов одним из способов:
 
-     События Audit Trails записываются в формате JSON. Чтобы найти определенное [событие](../at-ref.md#data-plane-events), укажите его имя в формате:
+      * Нажмите обозначение интервала, например **Последний час**, и выберите один из вариантов: от **Последние 5 минут** до **Последний день**.
 
-     ```
-     yandex.cloud.audit.smartwebsecurity.<имя_события>
-     ```
+          Также в полях **От** и **До** можно выбрать нужные даты в календаре и указать время.
 
-     Примеры составления запросов приведены в разделе [Примеры запросов для поиска событий в аудитных логах](../../audit-trails/tutorials/search-events-audit-logs/examples.md).
+      * Выберите предустановленный период: **Сейчас**, **5m**, **30m**, **1h**, **1d**, **2d** или укажите свой.
+      * На временной шкале переместите индикаторы начала и конца периода.
+
+  1. В строке **Запрос** укажите запрос на [языке фильтрующих выражений](../../logging/concepts/filter.md) и нажмите **Выполнить**.
+
+      События Audit Trails записываются в формате JSON. Чтобы найти определенное [событие](../at-ref.md#data-plane-events), укажите его имя в формате:
+
+      ```
+      yandex.cloud.audit.smartwebsecurity.<имя_события>
+      ```
+
+      Примеры составления запросов приведены в разделе [Примеры запросов для поиска событий в аудитных логах](../../audit-trails/tutorials/search-events-audit-logs/examples.md).
 
   1. Чтобы посмотреть содержимое лога, разверните его.
 
-Другие способы просмотра логов описаны в разделе [Посмотреть логи L7-балансировщика](../../application-load-balancer/operations/application-load-balancer-get-logs.md).
+  Другие способы просмотра логов описаны в разделе [Посмотреть логи L7-балансировщика](../../application-load-balancer/operations/application-load-balancer-get-logs.md).
 
 {% endlist %}

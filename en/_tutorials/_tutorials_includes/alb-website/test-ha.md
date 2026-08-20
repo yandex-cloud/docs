@@ -1,6 +1,6 @@
 1. Open the [management console]({{ link-console-main }}).
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-1. Navigate to the page of the VM from the previously created group.
+1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. Open the VM page from the group you created earlier.
 1. Copy **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}** from the **{{ ui-key.yacloud.compute.instance.overview.section_network }}** section.
 1. [Connect](../../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH.
 1. Stop the web service to simulate a failure on the web server:

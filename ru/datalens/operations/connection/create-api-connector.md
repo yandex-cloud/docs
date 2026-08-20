@@ -43,5 +43,7 @@ API Connector в {{ datalens-full-name }} позволяет отправлят�
 1. Выберите [воркбук](../../workbooks-collections/index.md), в котором сохранится подключение, или создайте новый. Если вы пользуетесь старой навигацией по папкам, выберите папку для сохранения подключения. Нажмите кнопку **Создать**.
 1. Укажите название подключения и нажмите кнопку **Создать**.
 
+{% include [connection-api-response](../../../_includes/datalens/connection-api-response.md) %}
+
 
 {% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

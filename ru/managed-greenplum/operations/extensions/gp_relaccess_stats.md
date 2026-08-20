@@ -33,14 +33,16 @@ description: Как использовать расширение gp_relaccess_s
     SELECT extname FROM pg_extension;
     ```
 
-    Будет выведен список расширений, установленных в БД.
+    Будет выведен список расширений, установленных в БД.  
+
+1. Обратитесь в [службу технической поддержки]({{ link-console-support }}) для применения расширения.
 
 ## Примеры использования {#examples}
 
 1. Подготовьте таблицу для сбора статистики:
 
     ```sql
-    SELECT relaccess_stats_init();
+    SELECT mdb_toolkit.relaccess_stats_init();
     ```
 
     В таблице `relaccess_stats` будут созданы пустые записи для каждой таблицы и партиции выбранной базы данных.
@@ -48,7 +50,7 @@ description: Как использовать расширение gp_relaccess_s
 1. Обновите статистику:
 
     ```sql
-    SELECT relaccess_stats_update();
+    SELECT mdb_toolkit.relaccess_stats_update();
     ```
 
     В таблицу `relaccess_stats` будут добавлены статистические данные из кеша и каталога `pg_stat`.
@@ -56,7 +58,7 @@ description: Как использовать расширение gp_relaccess_s
 1. Проверьте текущее использование кеша статистики:
 
     ```sql
-    SELECT relaccess.relaccess_stats_fillfactor();
+    SELECT mdb_toolkit.relaccess_stats_fillfactor();
     ```
 
     Будет выведен процент заполнения кеша статистики.
@@ -64,7 +66,7 @@ description: Как использовать расширение gp_relaccess_s
 1. Получите статистические данные из таблицы `relaccess_stats`:
 
     ```sql
-    SELECT * FROM relaccess_stats;
+    SELECT * FROM mdb_toolkit.relaccess_stats;
     ```
 
 {% include [cloudberry-trademark](../../../_includes/mdb/mgp/trademark-cloudberry.md) %}

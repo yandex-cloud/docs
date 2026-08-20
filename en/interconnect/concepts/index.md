@@ -6,6 +6,7 @@
 
 Example of setting up IP network connectivity as part of {{ interconnect-name }}:
 
+![interconnect](../../_assets/interconnect/interconnect-eng.svg)
 
 
 In this example, the customer has the following resources:

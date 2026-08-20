@@ -5,6 +5,7 @@ description: To perform operations through the API in {{ data-catalog-name }}, g
 
 # {{ data-catalog-name }} API authentication
 
+
 Before you can work with the API, you need to get an [IAM token](../../iam/concepts/authorization/iam-token.md):
 
 * [Guide](../../iam/operations/iam-token/create.md) for a Yandex account.

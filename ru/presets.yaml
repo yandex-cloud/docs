@@ -2779,10 +2779,8 @@ default:
         label_service: Yandex Cloud Billing
         title_accounts: Платёжные аккаунты
       common:
-        add: Добавить
         button_cron-1min: Каждую минуту
         monitoring: Мониторинг
-        name: Имя
         resource-acl:
           button_assign-binding: Изменить роли
         units:
@@ -2854,8 +2852,6 @@ default:
         button_save: Сохранить
       fileinput:
         button_attach-file: Прикрепить файл
-      forms:
-        label_value: Значение
       helpfeedbackdialog:
         button_close: Закрыть обращение
       labelset:
@@ -3054,6 +3050,7 @@ default:
           dash-picker:
             new-dashboard: Новый дашборд
         entities-list:
+          action_edit: Редактировать
           common-filter-placeholder: Поиск по вхождению
         juggler-modal:
           form:
@@ -3119,6 +3116,7 @@ default:
       homepage:
         button_alerts-action: Создать алерт
         button_dashboards-action: Создать дашборд
+        title_alerts: Алерты
         title_service-dashboards: Сервисные дашборды
         title_service-features: Возможности сервиса
       logs-metrics:
@@ -3221,6 +3219,9 @@ default:
           apply-and-parse: Выполнить
         hint:
           search-hotkey: 'Хоткей поиска: Cmd/Ctrl + Enter'
+        tokens:
+          placeholder:
+            service: Введите значение метки service
       quicklinks:
         action:
           add-link: Добавить ссылку
@@ -3228,8 +3229,6 @@ default:
         field:
           function: Функция агрегации
       services:
-        label_custom: Custom Metrics
-        label_logging: Cloud Logging
         label_managed-kafka: Managed Service for Kafka
         label_mysql: Managed Service for MySQL
         label_postgresql: Managed Service for PostgreSQL
@@ -4694,6 +4693,7 @@ default:
         label_event-filter-section: Сбор событий с уровня сервисов
         label_eventRouter: EventRouter
         label_log-group: Лог-группа
+        label_log-receiver: Приёмник логов
         label_object-prefix: Префикс объекта
         label_objectStorage: Object Storage
         label_organization-manager:
@@ -4707,10 +4707,12 @@ default:
           folder: Каталог
         label_resource-type: Ресурс
         label_service-account: Сервисный аккаунт
+        label_smartwebsecurity: Smart Web Security
         label_stream-name: Поток данных
         label_trail: Трейл
         label_trails: Трейлы
         logs: Лог диагностики
+        section_general-info: Общая информация
         title_kms-key: Ключ шифрования
       backup:
         action_add-to-recovery-list: Добавить к списку файлов для восстановления
@@ -5257,6 +5259,7 @@ default:
         button_cron-15min: Каждые 15 минут
         button_cron-1min: Каждую минуту
         button_cron-day: Каждый день
+        button_refresh: Обновить
         button_update: Обновить
         button_upload: Загрузить
         cancel: Отменить
@@ -5337,6 +5340,7 @@ default:
           label_megabyte: МБ
           label_time-min_many: минут
           label_time-min_zero: минут
+          label_time-sec: секунда
           label_time-sec_many: секунд
         update: Обновить
         updated-at: Дата изменения
@@ -5352,6 +5356,7 @@ default:
             button_select-subject: Выбрать пользователя
         certificates:
           button_empty-add: Добавить сертификат
+          popup-confirm_button_delete: Удалить
         compute:
           network-select:
             field_address: IP-адрес
@@ -5973,6 +5978,7 @@ default:
         label_search-placeholder: Поиск данных
         label_source-data-tab: Выгруженные данные
         label_source-database-type: Тип источника данных
+        label_source-queries-tab: Запросы
         label_subterms: Дочерние термины
         label_tag-mutual-exclusion: Взаимоисключение
         label_tags-and-classification: Теги и классификации
@@ -6451,6 +6457,7 @@ default:
             label_storage: Object Storage
             label_vdi: Cloud Desktop
             label_vpc: Virtual Private Cloud
+            label_websql: WebSQL
             label_ydb: Managed Service for&nbsp;YDB
             label_ymq: Message Queue
             label_yq_ru: Yandex Query
@@ -6477,6 +6484,7 @@ default:
               column_key_last-used-at: Дата последнего использования
               column_key_masked-secret: API-ключ
               column_key_scope: Область действия
+              field_key-algorithm: Алгоритм шифрования
               field_key-description: Описание
               field_key-expires-at: Срок действия
               field_key-scope: Область действия
@@ -6541,6 +6549,7 @@ default:
         vlan-id_2wghK: VLAN ID
       iot:
         button_add-alias: Добавить алиас
+        button_add-certificate: Добавить сертификат
         button_add-device: Добавить устройство
         button_add-password: Добавить пароль
         button_add-yds-export: Добавить экспорт
@@ -7480,10 +7489,13 @@ default:
           switch_monitoring: Мониторинг
           switch_shards: Шарды
         field_announce-hostnames: Использовать FQDN вместо IP-адресов
+        field_audit-log: Логировать события аудита
         field_tls-support: Поддержка TLS
         hosts:
           dialog:
             button_choose: Сохранить
+        label_log-type-valkey: Логи Valkey
+        label_log-type-valkey-audit: Авторизация и подключения
         local:
           valkey_modules_aQacT: Модули
           valkey_search_vfqdy: Search
@@ -7767,7 +7779,6 @@ default:
         arl:
           column_rule-conditions: Условия на трафик
           column_rule-priority: Приоритет
-          label_add-rule: Добавить правило
           label_connected-security-profiles: Подключенные профили безопасности
           label_create-profile: Создать профиль ARL
           label_profiles: Профили ARL
@@ -7775,6 +7786,8 @@ default:
           label_rule-without-grouping: Без группировки
           label_save-rule: Сохранить правило
           section_rules: Правила
+        ArlRuleAction:
+          label_rule-action-ban-period_2bxZV: Временно блокировать все запросы на
         arlTitle_e3MD8: Advanced Rate Limiter
         attach-dialog:
           action_connect: Подключить
@@ -7792,8 +7805,26 @@ default:
             label_domain_1hgsY: Домен
             label_proxy-server_w9BGG: Прокси-сервер
         baseRulesTitle_xcJEe: Базовые правила
+        createCustomPage_t4SuU: Создать шаблон
         CreateDomain:
           createDomain_b2Ykj: Добавить домен
+        custom-pages:
+          context_name: Имя страницы
+          label_body: Тело ответа
+          label_content_type: Content-Type
+          label_format: Формат ответа
+          label_status_code: Код ответа
+        CustomPageForm:
+          add_header_8Zgm9: Добавить заголовок ответа
+          field_description_vtia9: Описание
+          preset_client_ip_m4Np5: IP-адрес
+          preset_request_time_k9Lx1: Время запроса
+          preset_unique_key_j7Rw2: ID запроса
+        customPages_rriaz: Шаблоны ответов
+        CustomPagesActions:
+          label_view_tJsLT: Просмотр
+        CustomPageSelectField:
+          field_custom-page_3Yccb: Шаблон страницы ответа
         Domain:
           Overview:
             howToActivateProtection_dK3yy: Как активировать защиту?
@@ -7834,6 +7865,7 @@ default:
         MatchListActions:
           button_download_bdcBp: Скачать список
           button_edit-list-items_2JFvu: Изменить список
+          button_rename_r3ma9: Переименовать
         MatchListForm:
           item-type_asn_oyhKw: Номера ASN
           item-type_ip_7TYwL: IP-адреса
@@ -7895,14 +7927,16 @@ default:
           label_paranoia-level: Уровень паранойи
           label_paranoia-option-1: Только 1
           label_profiles: Профили WAF
-          label_request-condition_33CzA: Область применения
           label_save-settings: Сохранить настройки
           title_exclusion-rule-condition-section: Условия на трафик
           title_exclusion-rules: Правила-исключения
           value_exclude-all-no: Выбранные правила
           value_exclude-all-yes: Все правила
+          verdict-all: Вердикт DENY получен в каждом выбранном наборе
+          verdict-at-least-one: Вердикт DENY получен хотя бы в одном выбранном наборе
         WafProfileExclusionRuleForm:
           RulesSection:
+            field_exclude-all_gKv9U: Правила WAF
             title_exclusion-rule-rules-section_cdWEW: Исключаемые проверки
       smartcaptcha:
         button_captcha-settings-create: Создать капчу

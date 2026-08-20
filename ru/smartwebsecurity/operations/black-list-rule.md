@@ -16,26 +16,27 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. На панели слева нажмите ![image](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}** и выберите нужный профиль.
-  1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
-  1. Введите имя правила, например `block-by-list`.
-  1. Задайте **{{ ui-key.yacloud.smart-web-security.overview.column_priority }}** выше, чем у правил Smart Protection. Например, `9100`.
-  1. Включите опцию **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}**.
-  1. Укажите параметры правила:
-  
-     * **{{ ui-key.yacloud.smart-web-security.overview.column_type }}** — `{{ ui-key.yacloud.smart-web-security.overview.label_base-rule }}`.
-     * **{{ ui-key.yacloud.smart-web-security.overview.column_action-type }}** — `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}` или `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-captcha }}`.
-     * **Трафик** — `При условии`.
-     * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** — `{{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}`.
-     * **Условия на IP** — `IP принадлежит списку`.
-     * **IP принадлежит списку** — добавьте [предустановленные списки](../concepts/lists.md#yc-rules) для фильтрации или свои списки черных адресов. Запросы с этих адресов будут блокироваться.
+  1. Нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}** и в открывшемся окне:
 
-     {% note tip %}
+      1. Введите имя правила, например `block-by-list`.
+      1. Задайте **{{ ui-key.yacloud.smart-web-security.overview.column_priority }}** выше, чем у правил Smart Protection. Например, `9100`.
+      1. Включите опцию **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}**.
+      1. Укажите параметры правила:
 
-     Рекомендуем сразу добавить предустановленные списки: `is_ddoser`, `is_tor` и `is_anonimous`.
+          * **{{ ui-key.yacloud.smart-web-security.overview.column_type }}** — `{{ ui-key.yacloud.smart-web-security.overview.label_base-rule }}`.
+          * **{{ ui-key.yacloud.smart-web-security.overview.column_action-type }}** — `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}` или `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-captcha }}`.
+          * **Трафик** — `При условии`.
+          * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** — `{{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}`.
+          * **Условия на IP** — `IP принадлежит списку`.
+          * **IP принадлежит списку** — добавьте [предустановленные списки](../concepts/lists.md#yc-rules) для фильтрации или свои списки черных адресов. Запросы с этих адресов будут блокироваться.
 
-     {% endnote %}
-  
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+          {% note tip %}
+
+          Рекомендуем сразу добавить предустановленные списки: `is_ddoser`, `is_tor` и `is_anonymous`.
+
+          {% endnote %}
+
+      1. Нажмите **{{ ui-key.yacloud.common.add }}**.
 
 {% endlist %}
 

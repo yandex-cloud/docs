@@ -8,7 +8,10 @@ description: A {{ cdn-name }} point of presence is the physical location of CDN 
 _Points of presence_, or PoPs, are geographically distributed physical CDN servers that cache and deliver content to end users. They reside in strategic geographic locations with efficient access to communication links, enabling content delivery via the shortest route with minimal latency.
 
 
-{{ cdn-full-name }} provides access to 65 points of presence with a total throughput exceeding 7 Tbps.
+#|
+|| **Total number of points of presence** | **Total throughput** ||
+|| {{ cdn-pop-count }} {align="center"} | Exceeding {{ cdn-throughput }} Tbps {align="center"} ||
+|#
 
 
 
@@ -40,36 +43,18 @@ PoP server performance also shapes the overall content delivery speed. Stable de
 
 The following cities have at least one PoP:
 
-<iframe frameborder="0" src="https://datalens.yandex/t2rvaw171qr2d?_embedded=1&_no_controls=1" width="100%" height="400px"></iframe>
+<iframe frameborder="0" src="https://datalens.yandex/f73o6nej25s4y?_embedded=1&_no_controls=1" width="100%" height="400px"></iframe>
 
 #|
-|| **Russia** {align="center"} | > | > | > | **Kazakhstan** | **Tajikistan** ||
-|| Alexandrov
-Vladivostok
-Vladikavkaz
-Volgograd
-Voronezh
-Yekaterinburg
-Krasnodar | Krasnoyarsk
-Moscow
-Nizhny Novgorod
-Novosibirsk
-Orenburg
-Petrozavodsk
-Rostov-on-Don | Samara
-Saint Petersburg
-Simferopol
-Sochi
-Stavropol
-Tambov | Tyumen
-Ufa
-Khabarovsk
-Chelyabinsk
-Chita
-Yaroslavl | Aktobe
-Karaganda | Dushanbe ||
-|| ^ | ^ | ^ | ^ | **Kyrgyzstan** | **Uzbekistan** ||
-|| ^ | ^ | ^ | ^ | Manas | Tashkent ||
+|| **Country** {align="center"} | **Cities** {align="center"} ||
+|| **{{ cdn-pops.0.country }}** | &bull;&nbsp;{{ cdn-pops.0.cities.0 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.1 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.2 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.3 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.4 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.5 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.6 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.7 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.8 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.9 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.10 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.11 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.12 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.13 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.14 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.15 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.16 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.17 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.18 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.19 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.20 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.21 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.22 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.23 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.24 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.25 }}&ensp;&bull;&nbsp;{{ cdn-pops.0.cities.26 }}&ensp; ||
+|| **{{ cdn-pops.1.country }}** | &bull;&nbsp;{{ cdn-pops.1.cities.0 }}&ensp; ||
+|| **{{ cdn-pops.2.country }}** | &bull;&nbsp;{{ cdn-pops.2.cities.0 }}&ensp; ||
+|| **{{ cdn-pops.3.country }}** | &bull;&nbsp;{{ cdn-pops.3.cities.0 }}&ensp;&bull;&nbsp;{{ cdn-pops.3.cities.1 }}&ensp; ||
+|| **{{ cdn-pops.4.country }}** | &bull;&nbsp;{{ cdn-pops.4.cities.0 }}&ensp; ||
+|| **{{ cdn-pops.5.country }}** | &bull;&nbsp;{{ cdn-pops.5.cities.0 }}&ensp; ||
+|| **{{ cdn-pops.6.country }}** | &bull;&nbsp;{{ cdn-pops.6.cities.0 }}&ensp; ||
+|| **{{ cdn-pops.7.country }}** | &bull;&nbsp;{{ cdn-pops.7.cities.0 }}&ensp; ||
 |#
 
 
