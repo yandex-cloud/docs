@@ -45,21 +45,27 @@ Which node types are to be used for cluster roles.
 >> - controlplane ([]structure)\
 Node types used as controlplane nodes.
 >>> - configuration-id (string)\
-ID of the configuration.
->>> - count (integer)\
-Number of nodes in the group.
+ID of the configuration. Required when automatically leasing new servers for the group (scenarios 1 and 2). Left blank when the group consists solely of custom servers (scenario 3).
+>>> - node-count (integer)\
+Total number of nodes in the group, including both newly leased and already leased (existing) servers listed in 'server_ids'. Must be greater than or equal to 'len(server_ids)'. The number of new servers leased for the group is 'node_count - len(server_ids)'. Required (non-zero) when automatically leasing new servers for the group;
+>>> - server-ids ([]string)\
+IDs of already leased servers to include in the NodeGroup. WARNING: the OS on these servers will be reinstalled as part of cluster creation, just like for newly leased servers. All data on the servers will be lost.
 >> - combined ([]structure)\
 Node types used as combined nodes.
 >>> - configuration-id (string)\
-ID of the configuration.
->>> - count (integer)\
-Number of nodes in the group.
+ID of the configuration. Required when automatically leasing new servers for the group (scenarios 1 and 2). Left blank when the group consists solely of custom servers (scenario 3).
+>>> - node-count (integer)\
+Total number of nodes in the group, including both newly leased and already leased (existing) servers listed in 'server_ids'. Must be greater than or equal to 'len(server_ids)'. The number of new servers leased for the group is 'node_count - len(server_ids)'. Required (non-zero) when automatically leasing new servers for the group;
+>>> - server-ids ([]string)\
+IDs of already leased servers to include in the NodeGroup. WARNING: the OS on these servers will be reinstalled as part of cluster creation, just like for newly leased servers. All data on the servers will be lost.
 >> - worker ([]structure)\
 Node types used as workder nodes.
 >>> - configuration-id (string)\
-ID of the configuration.
->>> - count (integer)\
-Number of nodes in the group.
+ID of the configuration. Required when automatically leasing new servers for the group (scenarios 1 and 2). Left blank when the group consists solely of custom servers (scenario 3).
+>>> - node-count (integer)\
+Total number of nodes in the group, including both newly leased and already leased (existing) servers listed in 'server_ids'. Must be greater than or equal to 'len(server_ids)'. The number of new servers leased for the group is 'node_count - len(server_ids)'. Required (non-zero) when automatically leasing new servers for the group;
+>>> - server-ids ([]string)\
+IDs of already leased servers to include in the NodeGroup. WARNING: the OS on these servers will be reinstalled as part of cluster creation, just like for newly leased servers. All data on the servers will be lost.
 > - bastion-node (structure)\
 Bastion node.
 >> - configuration-id (string)\
@@ -96,6 +102,10 @@ The unique identifier for the lockbox secret that contains the user password.
 The unique identifier for the lockbox version. If omitted, the current version of the secret will be used.
 >>>> - key (string)\
 The key used to access a specific secret entry.
+> - settings (structure)\
+Cluster settings. Can be set only at cluster creation.
+>> - public-network-access (structure)\
+Access of the cluster to the public network. Disabled by default. Can be set only at cluster creation.
 
 {% endcut %}
 
@@ -127,25 +137,31 @@ The key used to access a specific secret entry.
     combined = [
       {
         configuration-id = string,
-        count = integer
+        node-count = integer,
+        server-ids = string,...
       }, ...
     ],
     controlplane = [
       {
         configuration-id = string,
-        count = integer
+        node-count = integer,
+        server-ids = string,...
       }, ...
     ],
     worker = [
       {
         configuration-id = string,
-        count = integer
+        node-count = integer,
+        server-ids = string,...
       }, ...
     ]
   },
   license = string,
   name = string,
   preset = MINIMAL|FULL,
+  settings = {
+    public-network-access = ENABLED|DISABLED
+  },
   version = string
 }
 ```
@@ -188,25 +204,37 @@ The key used to access a specific secret entry.
     "combined": [
       {
         "configuration-id": "string",
-        "count": "integer"
+        "node-count": "integer",
+        "server-ids": [
+          "string", ...
+        ]
       }, ...
     ],
     "controlplane": [
       {
         "configuration-id": "string",
-        "count": "integer"
+        "node-count": "integer",
+        "server-ids": [
+          "string", ...
+        ]
       }, ...
     ],
     "worker": [
       {
         "configuration-id": "string",
-        "count": "integer"
+        "node-count": "integer",
+        "server-ids": [
+          "string", ...
+        ]
       }, ...
     ]
   },
   "license": "string",
   "name": "string",
   "preset": "MINIMAL|FULL",
+  "settings": {
+    "public-network-access": "ENABLED|DISABLED"
+  },
   "version": "string"
 }
 ```

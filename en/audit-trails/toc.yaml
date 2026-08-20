@@ -736,14 +736,20 @@ items:
             href: audit/cloudregistry/events-ref/CreateLifecyclePolicy.md
           - name: CreateRegistry
             href: audit/cloudregistry/events-ref/CreateRegistry.md
+          - name: CreateScanPolicy
+            href: audit/cloudregistry/events-ref/CreateScanPolicy.md
           - name: DeleteArtifact
             href: audit/cloudregistry/events-ref/DeleteArtifact.md
           - name: DeleteLifecyclePolicy
             href: audit/cloudregistry/events-ref/DeleteLifecyclePolicy.md
           - name: DeleteRegistry
             href: audit/cloudregistry/events-ref/DeleteRegistry.md
+          - name: DeleteScanPolicy
+            href: audit/cloudregistry/events-ref/DeleteScanPolicy.md
           - name: RevokeDelegation
             href: audit/cloudregistry/events-ref/RevokeDelegation.md
+          - name: ScanArtifact
+            href: audit/cloudregistry/events-ref/ScanArtifact.md
           - name: SetArtifactAccessBindings
             href: audit/cloudregistry/events-ref/SetArtifactAccessBindings.md
           - name: SetIpPermissions
@@ -769,6 +775,8 @@ items:
           - name: UpdateRegistryFolderAccessBindings
             href: >-
               audit/cloudregistry/events-ref/UpdateRegistryFolderAccessBindings.md
+          - name: UpdateScanPolicy
+            href: audit/cloudregistry/events-ref/UpdateScanPolicy.md
       - name: compute
         items:
           - name: AddInstanceOneToOneNat
@@ -985,6 +993,10 @@ items:
             href: audit/datalens/events-ref/CopyTemplate.md
           - name: CopyWorkbook
             href: audit/datalens/events-ref/CopyWorkbook.md
+          - name: CreateAirflowCluster
+            href: audit/datalens/events-ref/CreateAirflowCluster.md
+          - name: CreateCloudEnvironment
+            href: audit/datalens/events-ref/CreateCloudEnvironment.md
           - name: CreateCollection
             href: audit/datalens/events-ref/CreateCollection.md
           - name: CreateColorPalette
@@ -997,8 +1009,20 @@ items:
             href: audit/datalens/events-ref/CreateEntityBinding.md
           - name: CreateEntry
             href: audit/datalens/events-ref/CreateEntry.md
+          - name: CreateRestCatalog
+            href: audit/datalens/events-ref/CreateRestCatalog.md
+          - name: CreateRestCatalogNamespace
+            href: audit/datalens/events-ref/CreateRestCatalogNamespace.md
+          - name: CreateSparkCluster
+            href: audit/datalens/events-ref/CreateSparkCluster.md
+          - name: CreateTrinoCluster
+            href: audit/datalens/events-ref/CreateTrinoCluster.md
           - name: CreateWorkbook
             href: audit/datalens/events-ref/CreateWorkbook.md
+          - name: DeleteAirflowCluster
+            href: audit/datalens/events-ref/DeleteAirflowCluster.md
+          - name: DeleteCloudEnvironment
+            href: audit/datalens/events-ref/DeleteCloudEnvironment.md
           - name: DeleteCollections
             href: audit/datalens/events-ref/DeleteCollections.md
           - name: DeleteColorPalette
@@ -1011,8 +1035,16 @@ items:
             href: audit/datalens/events-ref/DeleteEntityBinding.md
           - name: DeleteEntry
             href: audit/datalens/events-ref/DeleteEntry.md
+          - name: DeleteRestCatalog
+            href: audit/datalens/events-ref/DeleteRestCatalog.md
+          - name: DeleteRestCatalogNamespace
+            href: audit/datalens/events-ref/DeleteRestCatalogNamespace.md
           - name: DeleteSharedEntry
             href: audit/datalens/events-ref/DeleteSharedEntry.md
+          - name: DeleteSparkCluster
+            href: audit/datalens/events-ref/DeleteSparkCluster.md
+          - name: DeleteTrinoCluster
+            href: audit/datalens/events-ref/DeleteTrinoCluster.md
           - name: DeleteWorkbooks
             href: audit/datalens/events-ref/DeleteWorkbooks.md
           - name: DisableBillingInstanceService
@@ -1053,6 +1085,8 @@ items:
             href: audit/datalens/events-ref/SwitchPublicationProhibition.md
           - name: SwitchWorkbookFileExportProhibition
             href: audit/datalens/events-ref/SwitchWorkbookFileExportProhibition.md
+          - name: UpdateCloudEnvironment
+            href: audit/datalens/events-ref/UpdateCloudEnvironment.md
           - name: UpdateCollection
             href: audit/datalens/events-ref/UpdateCollection.md
           - name: UpdateCollectionAccessBindings
@@ -1543,6 +1577,8 @@ items:
             href: audit/k8s/events-ref/DeleteStoppedCluster.md
           - name: InstallHelmRelease
             href: audit/k8s/events-ref/InstallHelmRelease.md
+          - name: InstallHelmRelease
+            href: audit/k8s/events-ref/InstallHelmRelease.md
           - name: ScaleMaster
             href: audit/k8s/events-ref/ScaleMaster.md
           - name: SetClusterAccessBindings
@@ -1553,12 +1589,16 @@ items:
             href: audit/k8s/events-ref/StopCluster.md
           - name: UninstallHelmRelease
             href: audit/k8s/events-ref/UninstallHelmRelease.md
+          - name: UninstallHelmRelease
+            href: audit/k8s/events-ref/UninstallHelmRelease.md
           - name: UpdateCluster
             href: audit/k8s/events-ref/UpdateCluster.md
           - name: UpdateClusterAccessBindings
             href: audit/k8s/events-ref/UpdateClusterAccessBindings.md
           - name: UpdateClusterCertificate
             href: audit/k8s/events-ref/UpdateClusterCertificate.md
+          - name: UpdateHelmRelease
+            href: audit/k8s/events-ref/UpdateHelmRelease.md
           - name: UpdateHelmRelease
             href: audit/k8s/events-ref/UpdateHelmRelease.md
           - name: UpdateNodeGroup
@@ -2446,6 +2486,10 @@ items:
             href: audit/organizationmanager/events-ref/CreateApplication.md
           - name: CreateApplication
             href: audit/organizationmanager/events-ref/CreateApplication.md
+          - name: CreateApplication
+            href: audit/organizationmanager/events-ref/CreateApplication.md
+          - name: CreateAsset
+            href: audit/organizationmanager/events-ref/CreateAsset.md
           - name: CreateAsset
             href: audit/organizationmanager/events-ref/CreateAsset.md
           - name: CreateAuthenticationPolicyRule
@@ -2488,6 +2532,10 @@ items:
             href: audit/organizationmanager/events-ref/DeleteApplication.md
           - name: DeleteApplication
             href: audit/organizationmanager/events-ref/DeleteApplication.md
+          - name: DeleteApplication
+            href: audit/organizationmanager/events-ref/DeleteApplication.md
+          - name: DeleteAsset
+            href: audit/organizationmanager/events-ref/DeleteAsset.md
           - name: DeleteAsset
             href: audit/organizationmanager/events-ref/DeleteAsset.md
           - name: DeleteAuthenticationPolicyRule
@@ -2518,6 +2566,8 @@ items:
             href: audit/organizationmanager/events-ref/DeleteOrganization.md
           - name: DeleteOsLoginProfile
             href: audit/organizationmanager/events-ref/DeleteOsLoginProfile.md
+          - name: DeleteRefreshTokenPolicy
+            href: audit/organizationmanager/events-ref/DeleteRefreshTokenPolicy.md
           - name: DeleteSignatureCertificate
             href: audit/organizationmanager/events-ref/DeleteSignatureCertificate.md
           - name: DeleteUser
@@ -2541,6 +2591,8 @@ items:
             href: audit/organizationmanager/events-ref/ReactivateApplication.md
           - name: ReactivateApplication
             href: audit/organizationmanager/events-ref/ReactivateApplication.md
+          - name: ReactivateApplication
+            href: audit/organizationmanager/events-ref/ReactivateApplication.md
           - name: ReactivateFederatedUserAccounts
             href: >-
               audit/organizationmanager/events-ref/ReactivateFederatedUserAccounts.md
@@ -2560,6 +2612,9 @@ items:
           - name: SetApplicationAccessBindings
             href: >-
               audit/organizationmanager/events-ref/SetApplicationAccessBindings.md
+          - name: SetApplicationAccessBindings
+            href: >-
+              audit/organizationmanager/events-ref/SetApplicationAccessBindings.md
           - name: SetDefaultProfile
             href: audit/organizationmanager/events-ref/SetDefaultProfile.md
           - name: SetGroupAccessBindings
@@ -2567,10 +2622,15 @@ items:
           - name: SetOrganizationAccessBindings
             href: >-
               audit/organizationmanager/events-ref/SetOrganizationAccessBindings.md
+          - name: SetTwoFactorAuthenticationPassportRequired
+            href: >-
+              audit/organizationmanager/events-ref/SetTwoFactorAuthenticationPassportRequired.md
           - name: SetUserPassword
             href: audit/organizationmanager/events-ref/SetUserPassword.md
           - name: SetUserpoolAccessBindings
             href: audit/organizationmanager/events-ref/SetUserpoolAccessBindings.md
+          - name: SuspendApplication
+            href: audit/organizationmanager/events-ref/SuspendApplication.md
           - name: SuspendApplication
             href: audit/organizationmanager/events-ref/SuspendApplication.md
           - name: SuspendApplication
@@ -2587,12 +2647,20 @@ items:
             href: audit/organizationmanager/events-ref/UpdateApplication.md
           - name: UpdateApplication
             href: audit/organizationmanager/events-ref/UpdateApplication.md
+          - name: UpdateApplication
+            href: audit/organizationmanager/events-ref/UpdateApplication.md
           - name: UpdateApplicationAccessBindings
             href: >-
               audit/organizationmanager/events-ref/UpdateApplicationAccessBindings.md
           - name: UpdateApplicationAccessBindings
             href: >-
               audit/organizationmanager/events-ref/UpdateApplicationAccessBindings.md
+          - name: UpdateApplicationAccessBindings
+            href: >-
+              audit/organizationmanager/events-ref/UpdateApplicationAccessBindings.md
+          - name: UpdateApplicationAssignments
+            href: >-
+              audit/organizationmanager/events-ref/UpdateApplicationAssignments.md
           - name: UpdateApplicationAssignments
             href: >-
               audit/organizationmanager/events-ref/UpdateApplicationAssignments.md
@@ -2638,6 +2706,8 @@ items:
             href: audit/organizationmanager/events-ref/UpdateOsLoginProfile.md
           - name: UpdateOsLoginSettings
             href: audit/organizationmanager/events-ref/UpdateOsLoginSettings.md
+          - name: UpdateRefreshTokenPolicy
+            href: audit/organizationmanager/events-ref/UpdateRefreshTokenPolicy.md
           - name: UpdateSignatureCertificate
             href: audit/organizationmanager/events-ref/UpdateSignatureCertificate.md
           - name: UpdateSubscribers

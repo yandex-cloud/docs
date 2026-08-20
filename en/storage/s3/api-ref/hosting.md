@@ -5,10 +5,6 @@ description: In this article, you will learn what S3 API methods can be used to 
 
 # All static website hosting methods
 
-Method | Description
------ | -----
-[PutBucketWebsite](hosting/upload.md) | Uploads a bucket configuration for static website hosting to {{ objstorage-name }}.
-[GetBucketWebsite](hosting/get.md) | Returns a bucket configuration for static website hosting from {{ objstorage-name }}.
-[DeleteBucketWebsite](hosting/delete.md) | Deletes a bucket configuration for static website hosting.
+{% include [hosting-methods-table](../../../_includes/storage/s3-api-ref/hosting-methods-table.md) %}
 
 {% include [the-s3-api-see-also-include](../../../_includes/storage/the-s3-api-see-also-include.md) %}

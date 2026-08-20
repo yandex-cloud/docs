@@ -93,9 +93,25 @@
     "name": "string",
     "description": "string",
     "status": "string",
-    // Includes only one of the fields `yandexCloudOptions`
+    // Includes only one of the fields `yandexCloudOptions`, `yandex_360Options`, `selectelOptions`
     "yandexCloudOptions": {
       "serviceAccountId": "string"
+    },
+    "yandex_360Options": {
+      "adminYandexUid": "string",
+      "grantedScopes": [
+        "string"
+      ],
+      "authorizedAt": "string",
+      "serviceApplication": {
+        "clientId": "string",
+        "clientSecret": "string"
+      }
+    },
+    "selectelOptions": {
+      "accountId": "string",
+      "username": "string",
+      "password": "string"
     }
     // end of the list of possible fields
   },
@@ -293,7 +309,13 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 - `UPDATING` ||
 || yandexCloudOptions | **[YandexCloudConnectorOptions](#yandex.cloud.audit.securitydeck.orchestrator.YandexCloudConnectorOptions)**
 
-Includes only one of the fields `yandexCloudOptions`. ||
+Includes only one of the fields `yandexCloudOptions`, `yandex_360Options`, `selectelOptions`. ||
+|| yandex_360Options | **[Yandex360ConnectorOptions](#yandex.cloud.audit.securitydeck.orchestrator.Yandex360ConnectorOptions)**
+
+Includes only one of the fields `yandexCloudOptions`, `yandex_360Options`, `selectelOptions`. ||
+|| selectelOptions | **[SelectelConnectorOptions](#yandex.cloud.audit.securitydeck.orchestrator.SelectelConnectorOptions)**
+
+Includes only one of the fields `yandexCloudOptions`, `yandex_360Options`, `selectelOptions`. ||
 |#
 
 ## YandexCloudConnectorOptions {#yandex.cloud.audit.securitydeck.orchestrator.YandexCloudConnectorOptions}
@@ -301,4 +323,38 @@ Includes only one of the fields `yandexCloudOptions`. ||
 #|
 ||Field | Description ||
 || serviceAccountId | **string** ||
+|#
+
+## Yandex360ConnectorOptions {#yandex.cloud.audit.securitydeck.orchestrator.Yandex360ConnectorOptions}
+
+#|
+||Field | Description ||
+|| adminYandexUid | **string** ||
+|| grantedScopes[] | **string** ||
+|| authorizedAt | **string** (date-time)
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| serviceApplication | **[Yandex360ServiceApplication](#yandex.cloud.audit.securitydeck.orchestrator.Yandex360ServiceApplication)** ||
+|#
+
+## Yandex360ServiceApplication {#yandex.cloud.audit.securitydeck.orchestrator.Yandex360ServiceApplication}
+
+#|
+||Field | Description ||
+|| clientId | **string** ||
+|| clientSecret | **string** ||
+|#
+
+## SelectelConnectorOptions {#yandex.cloud.audit.securitydeck.orchestrator.SelectelConnectorOptions}
+
+#|
+||Field | Description ||
+|| accountId | **string** ||
+|| username | **string** ||
+|| password | **string** ||
 |#

@@ -92,7 +92,11 @@
     "user": {
       "name": "string",
       "password": "string",
-      "resourceGroup": "string"
+      "login": "boolean",
+      "resourceGroup": "string",
+      "settings": {
+        "poolMode": "string"
+      }
     }
   },
   "requestParameters": "object",
@@ -280,7 +284,19 @@ The string length in characters must be 1-63. Value must match the regular expre
 || password | **string**
 
 The maximum string length in characters is 128. ||
+|| login | **boolean** ||
 || resourceGroup | **string**
 
 Value must match the regular expression ``` ^([^\|/*?.,;'<>]+|)$ ```. ||
+|| settings | **[UserSettingsConfig](#yandex.cloud.mdb.greenplum.v1.UserSettingsConfig)** ||
+|#
+
+## UserSettingsConfig {#yandex.cloud.mdb.greenplum.v1.UserSettingsConfig}
+
+#|
+||Field | Description ||
+|| poolMode | **enum** (PoolMode)
+
+- `SESSION`
+- `TRANSACTION` ||
 |#

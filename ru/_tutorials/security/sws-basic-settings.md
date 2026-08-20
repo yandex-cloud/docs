@@ -17,7 +17,7 @@ description: Руководство помогает с нуля настрои�
 
 Каждый инструмент настраивается по этапам: добавление правил, проверка в реальных условиях и корректировка. Рекомендуется настраивать инструменты последовательно, начиная с базовых правил и Smart Protection. Это позволит быстро включить защиту и облегчить отслеживание и корректировку правил.
 
-В этом руководстве вы настроите защиту веб-ресурса с помощью инструментов SWS, которые будут подключаться к профилю безопасности — центральному элементу SWS. Настройка профиля безопасности включает калибровку правил на основе реального трафика веб-приложения. Поэтому предполагается, что у вас уже есть настроенный веб-ресурс в {{ yandex-cloud }} или в другой инфраструктуре. 
+В этом руководстве вы настроите защиту веб-ресурса с помощью инструментов SWS, которые будут подключаться к профилю безопасности — центральному элементу SWS. Настройка профиля безопасности включает калибровку правил на основе реального трафика веб-приложения. Поэтому предполагается, что у вас уже есть настроенный веб-ресурс в {{ yandex-cloud }} или в другой инфраструктуре.
 
 ## Порядок работы {#steps}
 
@@ -102,11 +102,14 @@ description: Руководство помогает с нуля настрои�
     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
     1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
     1. На панели слева выберите ![domain-protection-icon](../../_assets/smartwebsecurity/domain-protection-icon.svg) **{{ ui-key.yacloud.smart-web-security.label_domain-protection }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.ProxyServers.createProxyServer_jatYQ }}**.
+    1. Нажмите **{{ ui-key.yacloud.smart-web-security.ProxyServers.createProxyServer_jatYQ }}**.
     1. Введите произвольное имя для прокси-сервера, например, `test-proxy`.
-    1. Включите опцию **Логировать запросы**.
-    1. Выберите существующую лог-группу или [создайте новую](../../logging/operations/create-group.md).
-    1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.ProxyServerFormCreate.createServer_sycVk }}**.
+    1. (Опционально) Чтобы сохранять подробную информацию об операциях с запросами:
+
+        1. Включите опцию **{{ ui-key.yacloud.smart-web-security.ProxyServerForm.swith-enable-logging_e42nT }}**.
+        1. Выберите существующую лог-группу или [создайте новую](../../logging/operations/create-group.md).
+
+    1. Нажмите **{{ ui-key.yacloud.smart-web-security.ProxyServerFormCreate.createServer_sycVk }}**.
 
         {% include [after-proxy-create](../../_includes/smartwebsecurity/after-proxy-create.md) %}
 
@@ -118,21 +121,21 @@ description: Руководство помогает с нуля настрои�
 
   - Консоль управления {#console}
 
-    1. В меню слева перейдите на вкладку ![globe](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.smart-web-security.label_domain-protection-domains }}** и нажмите кнопку **{{ ui-key.yacloud.smart-web-security.ProxyServer.Domains.createDomain_49MGX }}**.
+    1. Перейдите на вкладку **{{ ui-key.yacloud.smart-web-security.label_domain-protection-domains }}** и нажмите **{{ ui-key.yacloud.smart-web-security.ProxyServer.Domains.createDomain_49MGX }}**.
     1. Введите адрес домена, на котором находится ваше веб-приложение, например, `example.com`.
     1. Нажмите **{{ ui-key.yacloud.common.continue }}**.
-    1. Выберите тип соединения, которое используется в вашем приложении. Рекомендуем выбрать защищенный протокол **{{ ui-key.yacloud.smart-web-security.DomainForm.ConnectionSection.https_qWPJb }}**.
-    1. Если вы используете сервис [{{ certificate-manager-name }}](../../certificate-manager/) и добавляли в него сертификат вашего домена, выберите его из списка. 
-    1. Если вы не используете {{ certificate-manager-name }}, нажмите кнопку **{{ ui-key.yacloud.common.create }}** → **{{ ui-key.yacloud.certificate-manager.CertificateField.userCertificate_bChXn }}**.
+    1. Выберите тип соединения, которое используется в вашем приложении. Рекомендуем выбрать защищенный протокол `{{ ui-key.yacloud.smart-web-security.DomainForm.ConnectionSection.https_qWPJb }}`.
+    1. Если вы используете сервис [{{ certificate-manager-name }}](../../certificate-manager/) и добавляли в него сертификат вашего домена, выберите его из списка.
+    1. Если вы не используете {{ certificate-manager-name }}, нажмите **{{ ui-key.yacloud.common.create }}** → **{{ ui-key.yacloud.certificate-manager.CertificateField.userCertificate_bChXn }}**.
        1. Введите произвольное имя сертификата.
        1. Скопируйте или загрузите файлом приватный ключ, сертификат и цепочку промежуточных сертификатов в формате PEM.
-       1. Нажмите кнопку **{{ ui-key.yacloud.certificate-manager.CertificateImportDialog.createCertificate_x7Ww3 }}**.
+       1. Нажмите **{{ ui-key.yacloud.certificate-manager.CertificateImportDialog.createCertificate_x7Ww3 }}**.
     1. Нажмите **{{ ui-key.yacloud.common.continue }}**.
 
     1. В блоке **{{ ui-key.yacloud.smart-web-security.DomainForm.TargetResourcesSection.targetResources_hqBQm }}** задайте настройки целевых ресурсов:
        1. IP-адрес и порт, на котором работает ваше веб-приложение.
        1. (Опционально) Разверните блок **{{ ui-key.yacloud.smart-web-security.DomainForm.TargetResourcesSection.connectTargetResources_1mGNK }}**, чтобы выбрать протокол, на котором работает ваше веб-приложение.
-    1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.CreateDomain.createDomain_b2Ykj }}**.
+    1. Нажмите **{{ ui-key.yacloud.smart-web-security.CreateDomain.createDomain_b2Ykj }}**.
 
     После создания домена откроется страница обзора параметров домена. В разделе **{{ ui-key.yacloud.smart-web-security.Domain.Overview.howToActivateProtection_dK3yy }}** скопируйте IP-адрес прокси-сервера, он потребуется на следующем шаге.
 
@@ -175,16 +178,16 @@ description: Руководство помогает с нуля настрои�
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находятся защищаемые ресурсы.
   1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. На панели слева выберите ![image](../../_assets/smartwebsecurity/profiles.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
-  1. Нажмите **{{ ui-key.yacloud.smart-web-security.action_empty }}** и выберите **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
+  1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
+  1. Нажмите **{{ ui-key.yacloud.smart-web-security.action_empty }}** и выберите `{{ ui-key.yacloud.smart-web-security.title_default-template }}`.
 
       {% include [pre-configured-profile](../../_includes/smartwebsecurity/pre-configured-profile.md) %}
-   
+
   1. Введите имя профиля, например `site-protection`.
 
   1. Включите тестовый режим для правила Smart Protection `sp-rule-1`:
      1. Для опции **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** выберите `{{ ui-key.yacloud.smart-web-security.form.label_action-allow }}`.
-     1. Напротив правила `sp-rule-1` нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.smart-web-security.overview.action_edit-profile }}**.
+     1. Напротив правила `sp-rule-1` нажмите ![image](../../_assets/console-icons/ellipsis.svg) → ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
      1. Включите опцию **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}**.
      1. Нажмите **{{ ui-key.yacloud.common.save-changes }}**.
 
@@ -193,25 +196,25 @@ description: Руководство помогает с нуля настрои�
       Правила в профиле безопасности применяются по принципу первого сработавшего правила в порядке приоритета. Правила, которые находятся в режиме **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}**, фактически не срабатывают. В логи записывается информация только о возможном срабатывании правил. Поэтому первым сработавшим правилом будет базовое правило по умолчанию с типом действия `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-deny }}`. Это заблокирует весь трафик к вашему ресурсу. Чтобы этого не случилось, переведите базовое правило по умолчанию в режим `{{ ui-key.yacloud.smart-web-security.form.label_action-allow }}`.
 
       Трафик, обработанный правилами в режиме **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}**, тарифицируется. Подробнее в разделе [{#T}](../../smartwebsecurity/pricing.md).
-      
+
       {% endnote %}
 
   1. (Опционально) Настройте политики безопасности для API-вызовов.
-   
-      Если ваш сервис дополнительно обрабатывает запросы к публичному API, настройте отдельное правило Smart Protection с действием `Защита API`. В отличие от полной защиты, в таком режиме запросы не отправляются в {{ captcha-name }} для дополнительной проверки на автоматизированный трафик. Для этого правила тоже включите режим **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}**.
 
-     1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
+      Если ваш сервис дополнительно обрабатывает запросы к публичному API, настройте отдельное правило Smart Protection с действием `{{ ui-key.yacloud.smart-web-security.overview.cell_mode-api }}`. В отличие от полной защиты, в таком режиме запросы не отправляются в {{ captcha-name }} для дополнительной проверки на автоматизированный трафик. Для этого правила тоже включите режим **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}**.
+
+     1. Нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
      1. Введите имя правила, например `api-protection`.
      1. Задайте приоритет выше, чем у правила с полной защитой. Например, `900000`.
      1. Включите опцию **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}**.
      1. Укажите параметры правила:
         * **Тип правила** — `{{ ui-key.yacloud.smart-web-security.overview.label_smart-protection-rule }}`.
-        * **Действие** — `Защита API`.
+        * **Действие** — `{{ ui-key.yacloud.smart-web-security.overview.cell_mode-api }}`.
         * **Трафик** — `При условии`.
-        * **Условия** — `Request URI`.
+        * **Условия** — `{{ ui-key.yacloud.component.condition-column.condition_name-requestUri }}`.
         * **Request path** — относительный путь для запросов к API. Например, ваш основной домен — `example.com`, а запросы к API принимаются по адресу `example.com/api`. Тогда в условии выберите `Начинается с` и укажите относительный путь — `/api`.
-     1. Нажмите **{{ ui-key.yacloud.smart-web-security.action_empty }}**.
-  
+     1. Нажмите **{{ ui-key.yacloud.common.add }}**.
+
   1. В разделе **{{ ui-key.yacloud.component.disallow-data-processing.title_ml-model-training }}** оставьте включенным согласие об использовании информации об HTTP-запросах для улучшения моделей машинного обучения. Иначе в сервис {{ sws-name }} не будут поступать данные для расследования инцидентов безопасности.
   1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
@@ -229,17 +232,17 @@ description: Руководство помогает с нуля настрои�
 
   1. Добавьте свои черные и белые списки адресов.
 
-     1. На панели слева выберите **{{ ui-key.yacloud.smart-web-security.match-lists.label_match-lists }}**.
+     1. На панели слева выберите ![image](../../_assets/console-icons/files.svg) **{{ ui-key.yacloud.smart-web-security.match-lists.label_match-lists }}**.
      1. Нажмите **{{ ui-key.yacloud.smart-web-security.match-lists.label_create-list }}**.
      1. Введите имя списка, например, `my-partners`, и нажмите **{{ ui-key.yacloud.smart-web-security.match-lists.label_create-match-list }}**.
      1. Нажмите **{{ ui-key.yacloud.smart-web-security.MatchListTable.button_add-to-list_1kKXh }}**.
      1. Введите или загрузите список белых адресов, которые не нуждаются в фильтрации.
      1. Нажмите **{{ ui-key.yacloud.common.save-changes }}**.
      1. При необходимости добавьте список черных адресов.
-  
+
   1. Настройте правило блокировки по спискам IP-адресов.
-     1. На панели слева выберите **{{ ui-key.yacloud.smart-web-security.title_profiles }}** и выберите профиль `site-protection`.
-     1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
+     1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}** и выберите профиль `site-protection`.
+     1. Нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
      1. Введите имя правила, например `block-by-list`.
      1. Задайте **{{ ui-key.yacloud.smart-web-security.overview.column_priority }}** выше, чем у правил Smart Protection. Например, `9100`.
      1. Включите опцию **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}**.
@@ -250,13 +253,13 @@ description: Руководство помогает с нуля настрои�
         * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** — `{{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}`.
         * **Условия на IP** — `IP принадлежит списку`.
         * Выберите список `is_ddoser` (IP-адреса, которые участвовали в DDoS-атаках). Запросы с этих адресов будут блокироваться.
-        * Чтобы добавить еще один список, нажмите кнопку **+ или** и выберите список.
-  
-          Добавьте предустановленные списки `is_tor` (IP-адреса сети TOR, которая используется для анонимизации трафика), `is_anonimous` (IP-адреса анонимных сетей, которые часто используются для сокрытия личности) и свои черные списки.
-       1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+        * Чтобы добавить еще один список, нажмите **+ или** и выберите список.
+
+          Добавьте предустановленные списки `is_tor` (IP-адреса сети TOR, которая используется для анонимизации трафика), `is_anonymous` (IP-адреса анонимных сетей, которые часто используются для сокрытия личности) и свои черные списки.
+       1. Нажмите **{{ ui-key.yacloud.common.add }}**.
 
   1. Настройте разрешающее правило, которое будет пропускать все запросы с белых IP-адресов.
-     1. В профиле `site-protection` нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
+     1. В профиле `site-protection` нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
      1. Введите имя правила, например `allow-by-list`.
      1. Задайте **{{ ui-key.yacloud.smart-web-security.overview.column_priority }}** выше, чем у блокирующего правила для черных списков. Например, `9000`.
      1. Включите опцию **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}**.
@@ -267,7 +270,7 @@ description: Руководство помогает с нуля настрои�
         * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** — `{{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}`.
         * **Условия на IP** — `IP принадлежит списку`.
         * Выберите созданные ранее белые списки адресов.
-     1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+     1. Нажмите **{{ ui-key.yacloud.common.add }}**.
 
 {% endlist %}
 
@@ -279,7 +282,7 @@ description: Руководство помогает с нуля настрои�
 
 - Консоль управления {#console}
 
-  1. В профиле `site-protection` нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
+  1. В профиле `site-protection` нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
   1. Введите имя правила, например `block-by-geo`.
   1. Включите опцию **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}**.
   1. Задайте **{{ ui-key.yacloud.smart-web-security.overview.column_priority }}** выше, чем у правил Smart Protection, но ниже, чем у правил по спискам IP-адресов. Например, `9200`.
@@ -290,8 +293,8 @@ description: Руководство помогает с нуля настрои�
       * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** — `{{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}`.
       * **Условия на IP** — `IP принадлежит региону`.
       * Выберите регион, в котором ваш сервис не работает. Например, `CN`, `US`, `IN`.
-  
-         Чтобы добавить еще регион, нажмите кнопку **+ или**.
+
+         Чтобы добавить еще регион, нажмите **+ или**.
 
       {% note tip %}
 
@@ -301,7 +304,7 @@ description: Руководство помогает с нуля настрои�
 
       {% endnote %}
 
-   1. Нажмите кнопку **{{ ui-key.yacloud_billing.common.add }}**.
+   1. Нажмите **{{ ui-key.yacloud.common.add }}**.
 
 {% endlist %}
 
@@ -309,7 +312,7 @@ description: Руководство помогает с нуля настрои�
 
 Разрешающее правило для {{ captcha-name }} необходимо, когда для базового правила по умолчанию установлено действие `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-deny }}` и запросы отправляются на проверку в {{ captcha-name }}.
 
-1. На панели слева нажмите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}** и выберите `site-protection`.
+1. На панели слева нажмите ![image](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}** и выберите `site-protection`.
 1. {% include [allow-captcha](../../_includes/smartwebsecurity/allow-captcha.md) %}
 
 {% include [allow-path-captcha](../../_includes/smartwebsecurity/allow-patch-captcha.md) %}
@@ -337,7 +340,7 @@ description: Руководство помогает с нуля настрои�
   {% include [disable-sp-route](../../_includes/smartwebsecurity/disable-sp-route.md) %}
 
 - API-шлюз {#api-gateway}
-  
+
   Чтобы подключить API-шлюз:
 
   {% include [api-gateway-connect](../../_includes/smartwebsecurity/security-profile-api-gateway-connect.md) %}
@@ -370,7 +373,7 @@ description: Руководство помогает с нуля настрои�
   1. {% include [log-requests](../../_includes/smartwebsecurity/log-requests.md) %}
 
 - API-шлюз {#api-gateway}
-  
+
   1. Убедитесь, что настроено [логирование](../../api-gateway/operations/api-gw-logs-write.md).
   1. [Перейдите]({{ link-console-main }}/link/api-gateway) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Выберите API-шлюз, к которому привязан профиль безопасности.
@@ -403,7 +406,7 @@ description: Руководство помогает с нуля настрои�
 - Консоль управления {#console}
 
   1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. Выберите раздел **{{ ui-key.yacloud.common.monitoring }}**.
+  1. Выберите раздел ![display-pulse](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}**.
   1. Посмотрите информацию на графиках:
      * **Denied by Security Profile RPS** — количество входящих запросов в секунду, которые были проверены и заблокированы профилем безопасности.
      * **Redirected to SmartCaptcha RPS** — количество входящих запросов в секунду, направленных в {{ captcha-name }} для дополнительной верификации.
@@ -412,7 +415,7 @@ description: Руководство помогает с нуля настрои�
 
 Подробное описание графиков смотрите в разделе [{#T}](../../smartwebsecurity/operations/monitoring.md).
 
-## Настройте ограничение нагрузки {##rate-limiter}
+## Настройте ограничение нагрузки {#rate-limiter}
 
 После настройки и тестирования профиля безопасности задайте ограничения для количества запросов. Это сохранит ваш сервис работоспособным при случайных скачках трафика или внезапном увеличении количества запросов при DDoS-атаках.
 
@@ -442,12 +445,14 @@ description: Руководство помогает с нуля настрои�
 
   1. На странице профиля ARL нажмите ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
   1. Введите имя правила, например `arl-rule-1`.
-  1. В поле **{{ ui-key.yacloud.smart-web-security.arl.column_rule-priority }}** задайте приоритет выполнения правила, например `1000`. 
-  
+  1. В поле **{{ ui-key.yacloud.smart-web-security.arl.column_rule-priority }}** задайте приоритет выполнения правила, например `1000`.
+
      Поскольку правила ARL выполняются после всех правил профиля безопасности, этот приоритет действует только на профиль ARL и не пересекается с приоритетом в профиле безопасности.
-  1. Включите режим `dry-run (только логирование)`.
+  1. Включите режим **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry run)**.
   1. В блоке **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rule-condition-section }}** выберите `Весь трафик` или `При условии`.
-  1. (Опционально) Задайте [условия на трафик](../../smartwebsecurity/concepts/conditions.md), по которым будет применяться правило.
+  1. Чтобы задать [условия на трафик](../../smartwebsecurity/concepts/conditions.md), в списке **Условия** выберите один или несколько пунктов:
+
+      {% include [traffic-conditions-list](../../_includes/smartwebsecurity/traffic-conditions-list.md) %}
 
   1. В блоке **Подсчет запросов** выберите, как считать запросы для применения лимита:
 
@@ -455,7 +460,7 @@ description: Руководство помогает с нуля настрои�
       * `По характеристикам` — подсчет количества групп запросов, объединенных одной или несколькими характеристиками.
       1. (Опционально) Включите опцию **Учитывать регистр**, чтобы характеристики с одинаковыми значениями, но в разном регистре, попадали в разные группы.
 
-  1. Укажите лимит запросов и выберите промежуток времени, например, `1000` за `1` минуту.
+  1. Укажите лимит запросов и выберите промежуток времени, например `1000` запросов за `1` минуту.
   1. Нажмите **{{ ui-key.yacloud.smart-web-security.arl.label_save-rule }}**.
 
 {% endlist %}
@@ -466,10 +471,10 @@ description: Руководство помогает с нуля настрои�
 
 - Консоль управления {#console}
 
-  1. На панели слева выберите ![image](../../_assets/smartwebsecurity/profiles.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
+  1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. Откройте профиль безопасности `site-protection`.
-  1. Нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
-  1. В списке профилей ARL выберите `arl-site-protection`.
+  1. Нажмите ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_edit-profile }}**.
+  1. В списке **{{ ui-key.yacloud.smart-web-security.form.label_arl-profile }}** выберите `arl-site-protection`.
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
@@ -485,8 +490,8 @@ description: Руководство помогает с нуля настрои�
 - Консоль управления {#console}
 
   1. Откройте L7-балансировщик, API-шлюз или прокси-сервер, к которому привязан профиль безопасности.
-  1. Выберите раздел **{{ ui-key.yacloud.common.logs }}**.
-  1. В строке **Запрос** укажите запрос для поиска правил ARL и нажмите **Выполнить**.
+  1. Выберите раздел ![receipt](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}**.
+  1. В строке **Запрос** укажите запрос для поиска правил ARL и нажмите **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}**.
 
       Примеры запросов:
 
@@ -507,7 +512,7 @@ description: Руководство помогает с нуля настрои�
 - Консоль управления {#console}
 
   1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. Выберите раздел **{{ ui-key.yacloud.common.monitoring }}**.
+  1. Выберите раздел ![display-pulse](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}**.
   1. Посмотрите информацию на графиках:
      * **Allowed by ARL Profile RPS** — количество входящих запросов в секунду, которое не превышает лимит в профиле ARL.
      * **Denied by ARL Profile RPS** — количество входящих запросов в секунду, превысивших лимит профиля ARL и заблокированных.
@@ -547,7 +552,7 @@ Web Application Firewall (WAF) защищает от эксплуатации р
 
 - Консоль управления {#console}
 
-  1. На странице профиля WAF напротив нужного набора нажмите кнопку ![image](../../_assets/console-icons/gear.svg) **Настроить**.
+  1. На странице профиля WAF напротив нужного набора нажмите ![image](../../_assets/console-icons/gear.svg) **Настроить**.
   1. Для каждой группы правил:
 
       1. Нажмите ![image](../../_assets/console-icons/chevron-down.svg) возле названия группы правил, чтобы раскрыть ее.
@@ -563,9 +568,10 @@ Web Application Firewall (WAF) защищает от эксплуатации р
 
 - Консоль управления {#console}
 
-  1. Перейдите на вкладку ![image](../../_assets/console-icons/file-xmark.svg) **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rules }}** и нажмите **{{ ui-key.yacloud.smart-web-security.waf.label_create-exclusion-rule }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rules }}** и нажмите **{{ ui-key.yacloud.smart-web-security.waf.label_create-exclusion-rule }}**.
   1. Введите имя [правила-исключения](../../smartwebsecurity/concepts/waf.md#exclusion-rules), например `exception-rule-1`.
-  1. В блоке **{{ ui-key.yacloud.smart-web-security.waf.label_request-condition_33CzA }}** укажите правила из активных наборов, для которых будет срабатывать исключение. Вы можете выбрать `{{ ui-key.yacloud.smart-web-security.waf.value_exclude-all-yes }}` или указать конкретные правила из определенных наборов.
+  1. В блоке **{{ ui-key.yacloud.smart-web-security.WafProfileExclusionRuleForm.RulesSection.field_exclude-all_gKv9U }}** укажите правила из активных наборов, для которых будет срабатывать исключение. Вы можете выбрать `{{ ui-key.yacloud.smart-web-security.waf.value_exclude-all-yes }}` или указать конкретные правила из определенных наборов.
+  1. В блоке **Условия применения исключения** выберите область применения правила-исключения. Правило можно применить ко всему запросу или к отдельным частям запроса: `HTTP body`, `Cookie`, `HTTP header`, `Query params`.
   1. В блоке **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rule-condition-section }}** выберите [условия](../../smartwebsecurity/concepts/conditions.md) для срабатывания правила-исключения.
 
       Если оставить поле **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** пустым, правило-исключение будет применено ко всему трафику.
@@ -580,14 +586,15 @@ Web Application Firewall (WAF) защищает от эксплуатации р
 
 - Консоль управления {#console}
 
-  1. На панели слева выберите ![image](../../_assets/smartwebsecurity/profiles.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
+  1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. Откройте профиль безопасности `site-protection`.
-  1. Нажмите кнопку ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
+  1. Нажмите ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
   1. Введите имя правила, например `waf-rule-1`.
   1. Укажите приоритет выполнения правила выше, чем у правил Smart Protection. Например, `1111`.
   1. Включите опцию **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}**.
   1. Выберите **{{ ui-key.yacloud.smart-web-security.overview.column_type }}** — `{{ ui-key.yacloud.smart-web-security.overview.label_waf-rule }}`.
   1. В списке профилей WAF выберите `waf-site-protection`.
+  1. Нажмите **{{ ui-key.yacloud.common.add }}**.
 
 {% endlist %}
 
@@ -598,8 +605,8 @@ Web Application Firewall (WAF) защищает от эксплуатации р
 - Консоль управления {#console}
 
   1. Откройте L7-балансировщик, API-шлюз или прокси-сервер, к которому привязан профиль безопасности.
-  1. Выберите раздел **{{ ui-key.yacloud.common.logs }}**.
-  1. В строке **Запрос** укажите запрос для поиска правил WAF и нажмите **Выполнить**.
+  1. Выберите раздел ![receipt](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}**.
+  1. В строке **Запрос** укажите запрос для поиска правил WAF и нажмите **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}**.
 
       Примеры запросов:
 

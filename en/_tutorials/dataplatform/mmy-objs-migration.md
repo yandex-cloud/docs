@@ -27,7 +27,7 @@ Set up your infrastructure:
 
 - Manually {#manual}
 
-    1. [Create a {{ mmy-name }} source cluster](../../managed-mysql/operations/cluster-create.md) with your preferred configuration.
+    1. [Create a {{ mmy-name }} source cluster](../../managed-mysql/operations/cluster-create.md) of any suitable configuration.
     1. [Create a bucket in {{ objstorage-full-name }}](../../storage/operations/buckets/create.md).
 
 
@@ -61,7 +61,7 @@ Set up your infrastructure:
             * `source_mysql_version`: {{ MY }} version.
             * `source_db_name`: Database name.
             * `source_user` and `source_password`: Database owner username and password.
-        * `transfer_enabled`: Set to `0` to ensure that no transfer is created before you [manually create the target endpoint](#prepare-transfer).
+        * `transfer_enabled`: Set to `0` not to create a transfer until [a target endpoint is created manually](#prepare-transfer).
 
     1. Validate your {{ TF }} configuration files using this command:
 
@@ -180,7 +180,7 @@ Set up your infrastructure:
 1. Make sure the data has been transferred from the {{ mmy-name }} source cluster to the {{ objstorage-name }} bucket:
 
     1. In the [management console]({{ link-console-main }}), select the folder containing your bucket.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Select the bucket from the list.
     1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_files }}** tab.
     1. Make sure the {{ objstorage-name }} bucket contains the `measurements` directory with the `<source_cluster_database_name>_measurements` object with test data.
@@ -197,7 +197,7 @@ To minimize resource consumption, delete the resources you no longer need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete the rest of the resources depending on how you created them:
+1. Delete the other resources depending on how you created them:
 
    {% list tabs group=instructions %}
 

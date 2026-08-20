@@ -363,7 +363,7 @@ To get data via API Connector:
 
   * `apiConnectionId`: ID of the API Connector type connection described on the [Meta](#meta) tab and obtained using the [Editor.getId(arg)](./methods.md#get-id) method.
   * `path`: API path after host.
-  * `method`: Method supporting GET and POST.
+  * `method`: Request method. The possible values are: GET and POST.
   * `body`: Request body.
 
 
@@ -388,7 +388,7 @@ To get data via API Connector:
 
 ## Config {#config}
 
-This tab is used to set visualization settings, e.g., cross-chart filtering settings.
+This tab is used to specify visualization settings, e.g., chart cross-filtering.
 
 Available for the following visualization types: [Chart (Gravity UI Charts)](./widgets/gravity-ui.md) and [Table](./widgets/table.md). Possible contents depend on the specific visualization type.
 
@@ -590,6 +590,7 @@ Available for the following visualization types: [Selector](./widgets/controls.m
     ```
 
   {% endlist %}
+
 
 ### Performing actions {#run-activities}
 

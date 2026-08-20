@@ -19,14 +19,11 @@ PUT /{bucket}?object-lock HTTP/2
 
 ### Path parameters {#path-parameters}
 
-Parameter | Description
------ | -----
-`bucket` | Bucket name.
+{% include [path-parameters](../../../_includes_service/storage-path-parameters.md) %}
 
+### Headings {#request-headers}
 
-### Headers {#request-headers}
 Use only [common headers](../common-request-headers.md) in your requests.
-
 
 ### Data schema {#request-scheme}
 
@@ -43,15 +40,39 @@ Use only [common headers](../common-request-headers.md) in your requests.
 </ObjectLockConfiguration>
 ```
 
-Element | Description
------ | -----
-`ObjectLockConfiguration` | <p>Root element.</p><p>To disable object lock, provide this parameter with an empty value, e.g., `<ObjectLockConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/" />`.</p><p>Path: `ObjectLockConfiguration`.</p>
-`ObjectLockEnabled` | <p>Object lock status:</p><ul><li>`Enabled`: You can use object locks.</li></ul><p>If you do not specify this item, you will get the `InvalidRequest` error message, and object lock will not get enabled.</p><p>Path: `ObjectLockConfiguration\ObjectLockEnabled`.</p>
-`Rule` | <p>Lock settings.</p><p>Path: `ObjectLockConfiguration\Rule`.</p>
-`DefaultRetention` | <p>Default lock settings.</p><p>Path: `ObjectLockConfiguration\Rule\DefaultRetention`.</p>
-`Mode` | <p>Default retention [type](../../../concepts/object-lock.md#types):</p><ul><li>`GOVERNANCE`: Governance-mode retention.</li><li>`COMPLIANCE`: Compliance-mode retention.</li></ul><p>Path: `ObjectLockConfiguration\Rule\DefaultRetention\Mode`.</p>
-`Days` | <p>Default retention period in days since the object version upload. It must be a positive integer. You cannot use it together with `Years`.</p><p>Path: `ObjectLockConfiguration\Rule\DefaultRetention\Days`.</p>
-`Years` | <p>Default retention period in years since the object version upload. It must be a positive integer. You cannot use it together with `Days`.</p><p>Path: `ObjectLockConfiguration\Rule\DefaultRetention\Years`.</p>
+#|
+|| **Element** | **Description** ||
+|| `ObjectLockConfiguration` | Root element.
+
+To disable object lock, provide this parameter with an empty value, e.g., `<ObjectLockConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/" />`.
+
+Path: `ObjectLockConfiguration`. ||
+|| `ObjectLockEnabled` | Object lock status:
+
+* `Enabled`: You can use object locks.
+
+If you do not specify this item, you will get the `InvalidRequest` error message, and object lock will not get enabled.
+
+Path: `ObjectLockConfiguration\ObjectLockEnabled`. ||
+|| `Rule` | Lock settings.
+
+Path: `ObjectLockConfiguration\Rule`. ||
+|| `DefaultRetention` | Default lock settings.
+
+Path: `ObjectLockConfiguration\Rule\DefaultRetention`. ||
+|| `Mode` | Default retention [type](../../../concepts/object-lock.md#types):
+
+* `GOVERNANCE`: Governance-mode retention.
+* `COMPLIANCE`: Compliance-mode retention.
+
+Path: `ObjectLockConfiguration\Rule\DefaultRetention\Mode`. ||
+|| `Days` | Default retention period in days since the object version upload. It must be a positive integer. You cannot use it together with `Years`.
+
+Path: `ObjectLockConfiguration\Rule\DefaultRetention\Days`. ||
+|| `Years` | Default retention period in years since the object version upload. It must be a positive integer. You cannot use it together with `Days`.
+
+Path: `ObjectLockConfiguration\Rule\DefaultRetention\Years`. ||
+|#
 
 ## Response {#response}
 

@@ -1,4 +1,4 @@
-#### Почему ВМ или сервер {{ baremetal-full-name }} не добавляются в {{ backup-name }}? {#cannot-add-vm}
+#### Почему ВМ или сервер {{ baremetal-name }} не добавляются в {{ backup-name }}? {#cannot-add-vm}
 
 Убедитесь, что:
 
@@ -10,7 +10,7 @@
   * Сервисному аккаунту, привязанному к ВМ, назначена [роль](../../backup/security/index.md#backup-editor) `backup.editor`.
   * Для ВМ [корректно](../../backup/concepts/vm-connection/compute.md#vm-network-access) настроена [группа безопасности](../../vpc/concepts/security-groups.md).
 
-  Подробнее в статье [Подключение виртуальных машин Compute Cloud к {{ backup-name }}](../../backup/concepts/vm-connection/compute.md).
+  Подробнее в статье [Подключение виртуальных машин {{ compute-name }} к {{ backup-name }}](../../backup/concepts/vm-connection/compute.md).
 
 - Сервер {{ baremetal-name }} {#baremetal-server}
 
@@ -21,7 +21,6 @@
   Подробнее в статье [Подключение сервера {{ baremetal-name }} к {{ backup-name }}](../../backup/operations/backup-baremetal/backup-baremetal.md).
 
 {% endlist %}
-
 
 #### Как заново подключить к сервису ВМ или сервер {{ baremetal-name }}, удаленные из {{ backup-name }}? {#reconnect-deleted-vm}
 
@@ -40,7 +39,6 @@
 
 {% endlist %}
 
-
 #### Как заново подключить ВМ или сервер {{ baremetal-name }} к {{ backup-name }} после восстановления резервной копии в другую ВМ или другой сервер? {#how-to-renew-connection}
 
 {% list tabs group=backup_resource_type %}
@@ -58,7 +56,6 @@
 #### Почему не удаляются старые резервные копии после переподключения ВМ к {{ backup-name }}? {#old-backups-not-deleted}
 
 {% include [old-backup](../../_includes/backup/old-backups.md) %}
-
 
 #### Ошибка при попытке восстановить ВМ или сервер {{ baremetal-name }} из резервной копии {#recovery-error}
 
@@ -80,7 +77,6 @@ Not all of the items are mapped. Please, check your goal instance and its volume
 
 {% endnote %}
 
-
 #### Ошибка при подключении ВМ на Windows {#windows-connection-issue}
 
 Текст ошибки:
@@ -91,12 +87,10 @@ Iteration 0: The term 'acropsh' is not recognized as the name of a cmdlet, funct
 ```
 
 Убедитесь, что:
-
 * Операционная система ВМ [поддерживается {{ backup-name }}](../../backup/concepts/vm-connection/compute.md#os).
 * Сервисному аккаунту, привязанному к ВМ, назначена [роль](../../backup/security/index.md#backup-editor) `backup.editor`.
 * Разрешен [сетевой доступ для ВМ](../../backup/concepts/vm-connection/compute.md#vm-network-access).
 * В политиках выполнения PowerShell разрешен запуск скриптов. Если запуск запрещен, разрешите его и перезапустите PowerShell. Подробнее в [документации Microsoft](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies).
-
 
 #### Ошибка авторизации при установке агента {{ backup-name }} на ВМ Linux {#install-auth-error}
 
@@ -122,6 +116,40 @@ Failed to parse cloudbackup from instance attributes IAM token and instance regi
 
 Чтобы обновить версии заголовков ядра Linux, воспользуйтесь инструкцией [{#T}](../../backup/operations/backup-baremetal/restore-agent.md).
 
+#### Почему создание резервной копии занимает так много времени? {#long-creation}
+
+Возможные причины:
+* Высокая степень сжатия резервной копии.
+
+  В [спецификации политики резервного копирования](../../backup/concepts/policy.md#specification) описаны степени сжатия:
+  * `COMPRESSION_UNSPECIFIED` — не задано;
+  * `NORMAL` — стандартное сжатие;
+  * `HIGH` — сильное сжатие;
+  * `MAX` — максимальное сжатие;
+  * `OFF` — отключено.
+
+  При повышении степени сжатия алгоритм тратит больше вычислительных ресурсов на поиск избыточности в данных, чтобы упаковать их плотнее. Использование высоких уровней сжатия (`HIGH`, `MAX`) приводит к увеличению времени создания резервной копии.
+
+* Не используется отслеживание содержимого резервных копий (Changed Block Tracking).
+
+  В сервисе {{ backup-name }} эта логика задается через параметр `cbt` в [спецификации политики резервного копирования](../../backup/concepts/policy.md#specification). У него есть несколько вариантов значений:
+  * `CHANGED_BLOCK_TRACKING_UNSPECIFIED` — значение по умолчанию (не задано);
+  * `USE_IF_ENABLED` — использовать, если функция включена;
+  * `ENABLE_AND_USE` — явно включить и использовать;
+  * `DO_NOT_USE` — не использовать вообще.
+
+  Для ускорения создания резервной копии рекомендуется использовать значение `ENABLE_AND_USE`.
+
+  Сама по себе настройка `cbt` задает стратегию, а реальное отслеживание изменений на диске настраивается через другой параметр — `fastBackupEnabled`.
+
+* Параметр `fastBackupEnabled` в значении `false`.
+
+  Параметр определяет, как именно сервис будет понимать, что файл изменился.
+  * Если `fastBackupEnabled: true` — изменения определяют по размеру файла и его временной метке (timestamp). Это и есть суть «быстрого» резервного копирования.
+  * Если `fastBackupEnabled: false` — сервис будет сравнивать все содержимое файла с тем, что уже есть в резервной копии, чтобы понять, есть ли изменения.
+
+* Большой размер диска, над которым проводится резервное копирование.
+
 #### Создание инкрементальных резервных копий ВМ или сервера {{ baremetal-name }} занимает больше времени, чем обычно {#av-interaction}
 
 На время создания [инкрементальных копий](../../backup/concepts/backup.md#types) в рамках политики с включенной [опцией](../../backup/concepts/policy.md#specification) быстрого резервного копирования `fastBackupEnabled` может влиять работа антивируса. Подробнее в [{#T}](../../backup/concepts/av-interaction.md).
@@ -142,6 +170,82 @@ Failed to parse cloudbackup from instance attributes IAM token and instance regi
 
 {% include [cloud-backup-resources-note](../../_includes/backup/cloud-backup-resources-note.md) %}
 
+#### Почему размер бэкапов {{ backup-name }} в консоли не совпадает с фактическим размером самих резервных копий? {#backup-size}
+
+Разница в размере резервных копий вызвана внутренним устройством сервиса, так как подсчет ведется по архивам, а не по самим резервным копиям.
+
+Размер каждого архива можно посмотреть с помощью [интерфейса командной строки {{ yandex-cloud }}](../../cli/quickstart.md) — командой `yc backup backup list-archives`.
+
+Если сложить размеры каждого архива, то получится значение, которое отображается в консоли управления.
+
+{% note info %}
+
+Изменение общего размера после удаления резервных копий отображается не сразу, так как требуется время для внутренних изменений в архиве.
+
+{% endnote %}
+
 #### Если удалить ВМ, ее резервные копии останутся? {#backup-after-delete-vm}
 
 Да, резервные копии останутся после удаления ВМ. Резервные копии привязаны к [политике резервного копирования](../../backup/concepts/policy.md), а не к ВМ.
+
+#### Возникает ошибка с кодом 400 при установке агента {#agent-installation-error}
+
+Полный текст ошибки: 
+
+```text
+Cloud backup service request for registering agent failed: unexpected status code: url=<https://backup.api.cloud.yandex.net/backup/agent/v1/api/registerAgent>, status=400
+```
+
+Вероятно, агент уже привязан к другой ВМ, созданной из образа с установленным агентом.
+
+Для решения попробуйте [переподключить виртуальную машину к {{ backup-name }}](../../backup/operations/refresh-connection.md). 
+
+Если переподключение не помогло, [создайте запрос в техническую поддержку]({{ link-console-support }}).
+
+#### Как посмотреть журналы использования сервиса {{ backup-name }}? {#get-logs}
+
+В системах на базе ядра Linux, например Ubuntu, файлы журналов {{ backup-name }} можно найти по следующим путям:
+* `/var/log/baas-agent-installer/log.txt`
+* `/var/log/trueimage-setup.log`
+* `/var/log/Acronis`
+
+В Windows-системах журнал {{ backup-name }} находится в файле `%AppData%\BackupAgentInstaller*.log`.
+
+Также можно собрать локальный системный отчет:
+* Linux: запустите сценарий bash с привилегиями `root` для сбора отчета: `/usr/lib/Acronis/BackupAndRecovery/systeminfo`.
+* Windows: запустите `C:\Program Files\Common Files\Acronis\AdvReport\systeminfo.exe`.
+
+Более подробно об этом описано [в документации провайдера резервного копирования](https://kb.cyberprotect.ru/articles/sysinfo).
+
+#### Возникает ошибка Unable to install agent при установке {#unable-to-install-agent}
+
+Чаще всего ошибка возникает на этапе сборки модуля ядра `snapapi26`. Это происходит, когда версия устанавливаемого модуля не соответствует версии ядра вашей виртуальной машины.
+
+Чтобы проверить статус агента и убедиться, что он действительно не зарегистрировался в сервисе, выполните в [{{ yandex-cloud }} CLI](../../cli/quickstart.md) команду:
+
+```bash
+yc backup vm get <идентификатор_ВМ> --folder-id <идентификатор_каталога>
+```
+
+Если агент не установлен или не зарегистрирован, команда вернет ошибку или пустой ответ.
+
+Для решения проблемы:
+1. Проверьте логи установки. Подключитесь к ВМ по SSH и изучите следующие файлы. Чаще всего корень проблемы кроется именно там:
+
+    ```text
+    /var/log/baas-agent-installer/log.txt
+    /var/log/trueimage-setup.log (в этом файле обычно и видны ошибки сборки snapapi26)
+    /var/log/Acronis
+    ```
+
+1. Соберите модуль ядра вручную. Если в логах вы видите ошибки, связанные с модулем `snapapi26`, следует собрать его самостоятельно под текущую версию ядра. Подробная инструкция по ручной сборке доступна в [базе знаний провайдера резервного копирования](https://kb.cyberprotect.ru/articles/snapapi-manual).
+
+Если вышеописанные действия не помогли решить проблему, [создайте запрос в техническую поддержку]({{ link-console-support }}). При создании запроса предоставьте следующую информацию:
+* Идентификатор виртуальной машины.
+* Перечисленные выше лог-файлы.
+
+#### ВМ {{ backup-name }} долго находится в статусе «Регистрируется» {#vm-long-register}
+
+Скорее всего, к виртуальной машине не прикреплен сервисный аккаунт. Для корректной работы {{ backup-name }} нужно [прикрепить](../../backup/operations/connect-vm-linux.md#create-sa) к виртуальной машине сервисный аккаунт с минимальной ролью `backup.user`. 
+
+После добавления сервисного аккаунта нужно вручную [установить агент на ВМ](../../backup/operations/connect-vm-linux.md#connect-vm).

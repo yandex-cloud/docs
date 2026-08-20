@@ -83,7 +83,7 @@ Home appliances |	Fabrika Komforta |	Pickup |	1 072 286 |	2 170 431 |	4 178
 * [Renaming table columns and rows](#change-columns-names)
 * [Adding a tooltip to table headers](#hint-column)
 * [Setting the width of table columns and rows](#set-column-width)
-* [Freezing table columns](#column-fixation)
+* [Pinning table columns](#column-fixation)
 * [Managing the number of rows](#pagination-limit)
 * [Adding rows with subtotals](#add-totals)
 * [Setting field fill color](#set-field-color)
@@ -98,7 +98,7 @@ Rows | Dimensions
 Measures | Measures. If you add more than one measure to a section, the **Columns** section will contain the [Measure Names](../concepts/chart/measure-values.md) dimension that defines the location of the measure headers. You can move `Measure Names` to **Rows**.
 Colors | Measure. Affects the fill of all cells containing measures. It may only contain one measure.
 Sorting | Dimensions and measures under **Columns** and **Rows**. Multiple dimensions and measures can be used.<br/><br/>The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon. <br/><br/>{{ datalens-short-name }} first groups columns or rows in the order they are listed in their respective sections, and only then sorts the groups according to the **Sorting** section.<br/>The order of fields in the section affects the sorting order of the table fields.<br/><br/>Sorting by measure affects only the query to the source, not the pivot table.
-Filters | Dimension or measure. Used as a filter.
+Filters | Dimension or measure. It is used as a filter.
 
 ## Creating a pivot table {#create-diagram}
 
@@ -205,6 +205,25 @@ When the option is enabled, the ![image](../../_assets/console-icons/circle-ques
 1. Click **Apply**.
 
 To set the width of any column to `Auto`, click **Reset**.
+
+
+#### Setting up column alignment {#set-column-align}
+
+1. In the top-right corner of the **Columns** section, click ![image](../../_assets/console-icons/gear.svg) (the icon appears when you hover over the section).
+1. In the window that opens, select alignment for each column:
+
+   * `Auto`: Auto alignment.
+   * ![image](../../_assets/console-icons/text-align-left.svg): Left-aligned.
+   * ![image](../../_assets/console-icons/text-align-center.svg): Center-aligned.
+   * ![image](../../_assets/console-icons/text-align-right.svg): Right-aligned.
+
+1. Click **Apply**.
+
+   {% cut "Example of column alignment settings" %}
+
+   ![image](../../_assets/datalens/operations/chart/table-alignment-setting.png =529x184)
+
+   {% endcut %}
 
 
 #### Freezing table columns {#column-fixation}

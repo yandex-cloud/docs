@@ -51,8 +51,8 @@ To create a [cloud network](../../vpc/concepts/network.md) with [subnets](../../
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder where you need to create a cloud network.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you need to create a cloud network.
+  1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the top-right corner, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, enter `my-1c-network`.
   1. Enable **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
@@ -68,10 +68,10 @@ To ensure proper operation of OpenVPN Access Server and the {{ mpg-short-name }}
 
 Traffic<br>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}
 --- | --- | --- | --- | --- | ---
-Inbound | `VPN Server 443` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
-Inbound | `VPN Server 1194` | `1194` | `{{ ui-key.yacloud.common.label_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
-Inbound | `Admin Web UI,`</br>`Client Web UI` | `943` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
-Inbound | `{{ mpg-short-name }}` | `6432` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Ingress | `VPN Server 443` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Ingress | `VPN Server 1194` | `1194` | `{{ ui-key.yacloud.common.label_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Ingress | `Admin Web UI,`</br>`Client Web UI` | `943` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Ingress | `{{ mpg-short-name }}` | `6432` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
 
 ### Start the VPN server {#create-vpn-server}
 
@@ -199,7 +199,7 @@ To create a {{ mpg-name }} cluster optimized for 1C:
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select `s3-c2-m8`. This configuration will be enough to health check the solution. If you expect a heavy workload on your new 1C:Enterprise database, select a higher performance class host.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**, select `network-ssd` and set the size to `114 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-  1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, specify:
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, specify the following:
 
       * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `1c-database`.
       * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `user1`.
@@ -456,8 +456,8 @@ Before getting started with 1C:Enterprise, configure the server roles and add th
 
         - Management console {#console}
 
-          * In the [management console]({{ link-console-main }}), navigate to the folder page.
-          * Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+          * In the [management console]({{ link-console-main }}), select the folder where you created the `1c-pg` cluster.
+          * [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
           * In the window that opens, select the `1c-pg` cluster you created earlier.
           * Select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab in the left-hand menu.
           * In the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** field, hover over the host name (format: `rc1b-cfazv1db********`) and copy the database FQDN by clicking ![copy](../../_assets/copy.svg). The FQDN will be added to the host name, so the **Database server** field should contain a name in `rc1c-cfazv1db********.{{ dns-zone }} port=6432` format.

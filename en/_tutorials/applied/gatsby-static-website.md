@@ -69,7 +69,7 @@ To host a static website in the cloud, [create](../../storage/operations/buckets
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [bucket](../../storage/concepts/bucket.md).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, specify the domain name you registered, e.g., `gatsbytest.ru`.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_size-limit }}** field, specify `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
@@ -284,16 +284,16 @@ To configure access to your website over a secure protocol, get a TLS certificat
   1. Add a Let's Encrypt® [certificate](../../certificate-manager/concepts/managed-certificate.md) to {{ certificate-manager-name }} for your domain the website will be using.
 
       1. In the [management console]({{ link-console-main }}), select the folder to create your certificate in.
-      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+      1. [Navigate]({{ link-console-main }}/link/certificate-manager) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
       1. Click **{{ ui-key.yacloud.certificate-manager.button_empty-action }}** and select **{{ ui-key.yacloud.certificate-manager.action_request }}**.
       1. In the window that opens, specify a name for the certificate being created in the **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** field, e.g., `gatsbytestcert`.
       1. In the **{{ ui-key.yacloud.certificate-manager.request.field_domains }}** field, specify your domain name, e.g., `gatsbytest.ru`.
-      1. Select `{{ ui-key.yacloud.certificate-manager.request.challenge-type_label_dns }}` as the [type of domain rights check](../../certificate-manager/concepts/challenges.md).
+      1. Select [domain ownership verification type](../../certificate-manager/concepts/challenges.md): `{{ ui-key.yacloud.certificate-manager.request.challenge-type_label_dns }}`.
       1. Click **{{ ui-key.yacloud.certificate-manager.request.button_request }}**.
 
-          A new certificate with the `Validating` status will appear in the certificate list. This status means that a Let's Encrypt® certificate was requested and you need to pass a [domain rights check](../../certificate-manager/operations/managed/cert-validate.md) for it to be successfully processed.
+          A new certificate with the `Validating` status will appear in the certificate list. This status means that a Let's Encrypt® certificate was requested and you need to pass [domain ownership verification](../../certificate-manager/operations/managed/cert-validate.md) for it to be successfully processed.
 
-  1. To successfully issue the certificate, pass the domain rights check:
+  1. To have a certificate issued, pass domain ownership verification:
 
       1. From the list of certificates, select `gatsbytestcert`.
       1. In the window that opens, under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**, select `CNAME record`.
@@ -333,7 +333,7 @@ To configure access to your website over a secure protocol, get a TLS certificat
 
       Save the `id` of the created certificate, as you will need it to pass the domain ownership verification.
 
-  1. To successfully issue the certificate, pass a domain rights check:
+  1. To have a certificate issued, pass domain ownership verification:
 
       1. Get values of the resource records required for passing the check:
 
@@ -382,7 +382,7 @@ To configure access to your website over a secure protocol, get a TLS certificat
 
           Save the value of the `value` field from the `CNAME` type section under `challenges.dns_challenge`. You will need this value at the next step.
 
-          A new certificate with the `Validating` status will appear in the certificate list. This status means that a Let's Encrypt® certificate was requested and you need to pass a [domain rights check](../../certificate-manager/operations/managed/cert-validate.md) for it to be successfully processed.
+          A new certificate with the `Validating` status will appear in the certificate list. This status means that a Let's Encrypt® certificate was requested and you need to pass [domain ownership verification](../../certificate-manager/operations/managed/cert-validate.md) for it to be successfully processed.
 
       1. Create a CNAME [resource record](../../dns/concepts/resource-record.md) to pass domain ownership verification:
 
@@ -392,7 +392,7 @@ To configure access to your website over a secure protocol, get a TLS certificat
             --record "_acme-challenge 600 CNAME <dns_challenge_value>"
           ```
 
-          Where `<dns_challenge_value>` is the value saved at the previous step, required to check rights to a domain using a CNAME record.
+          Where `<dns_challenge_value>` is the value saved at the previous step, required for domain ownership verification via a CNAME record.
 
           Result:
 
@@ -440,9 +440,9 @@ To configure access to your website over a secure protocol, get a TLS certificat
 
       To add a certificate, use the [requestNew](../../certificate-manager/api-ref/Certificate/requestNew.md) REST API method for the [Certificate](../../certificate-manager/api-ref/Certificate/) resource or the [CertificateService/RequestNew](../../certificate-manager/api-ref/grpc/Certificate/requestNew.md) gRPC API call.
 
-      A new certificate with the `Validating` status will appear in the certificate list. This status means that a Let's Encrypt® certificate was requested and you need to pass a [domain rights check](../../certificate-manager/operations/managed/cert-validate.md) for it to be successfully processed.
+      A new certificate with the `Validating` status will appear in the certificate list. This status means that a Let's Encrypt® certificate was requested and you need to pass [domain ownership verification](../../certificate-manager/operations/managed/cert-validate.md) for it to be successfully processed.
 
-  1. To successfully issue the certificate, pass a domain rights check:
+  1. To have a certificate issued, pass domain ownership verification.
 
       To get the information required to pass domain ownership verification, use the [get](../../certificate-manager/api-ref/Certificate/get.md) REST API method for the [Certificate](../../certificate-manager/api-ref/Certificate/) resource or the [CertificateService/Get](../../certificate-manager/api-ref/grpc/Certificate/get.md) gRPC API call with the `view=FULL` flag.
 
@@ -460,7 +460,7 @@ To configure access to your website over a secure protocol, get a TLS certificat
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder.
-  1. Navigate to **{{ objstorage-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/storage) to **{{ objstorage-name }}**.
   1. Click the bucket name, `gatsbytest.ru` in our example.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
   1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_https }}** tab.

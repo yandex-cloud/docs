@@ -5,7 +5,7 @@ description: Следуя данной инструкции, вы сможете
 
 # Удалить правило из профиля ARL
 
-Базовые правила, а также правила Smart Protection и WAF [удаляются из профиля безопасности](rule-delete.md). 
+Базовые правила, а также правила Smart Protection и WAF [удаляются из профиля безопасности](rule-delete.md).
 
 {% list tabs group=instructions %}
 
@@ -15,7 +15,7 @@ description: Следуя данной инструкции, вы сможете
   1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. На панели слева выберите ![image](../../_assets/smartwebsecurity/arl.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_profiles }}**.
   1. Выберите профиль, в котором вы хотите удалить правило.
-  1. В блоке **{{ ui-key.yacloud.smart-web-security.arl.section_rules }}** в строке с нужным правилом нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+  1. В блоке **{{ ui-key.yacloud.smart-web-security.arl.section_rules }}** в строке с нужным правилом нажмите ![options](../../_assets/console-icons/ellipsis.svg) → ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. Подтвердите удаление.
 
 - {{ TF }} {#tf}
@@ -29,7 +29,7 @@ description: Следуя данной инструкции, вы сможете
   1. Откройте файл конфигурации {{ TF }} и в описании профиля ARL `yandex_sws_advanced_rate_limiter_profile` удалите блок `advanced_rate_limiter_rule` с правилом безопасности.
 
       {% cut "Пример описания профиля ARL в конфигурации {{ TF }}" %}
-      
+
       ```hcl
       # Профиль ARL
 
@@ -45,7 +45,7 @@ description: Следуя данной инструкции, вы сможете
           priority    = <приоритет_правила>
           description = "<описание_правила>"
           dry_run     = true
-  
+
           static_quota {
             action = "DENY"
             limit  = <лимит_правила>

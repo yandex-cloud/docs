@@ -22,6 +22,7 @@
 * [Yandex BareMetal](events-data-plane.md#baremetal)
 * [Yandex Certificate Manager](events-data-plane.md#certificate-manager)
 * [Yandex Cloud Desktop](events-data-plane.md#clouddesktop)
+* [Yandex Cloud Registry](events-data-plane.md#cloud-registry)
 * [Yandex Cloud DNS](events-data-plane.md#dns)
 * [Yandex Compute Cloud](events-data-plane.md#compute)
 * [Yandex AI Studio](events-data-plane.md#ai-studio)

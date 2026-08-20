@@ -41,8 +41,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Create a database for storing your {{ tracker-short-name }} data {#database-create}
 
-1. Navigate to the [management console]({{ link-console-main }}).
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+1. Open the [management console]({{ link-console-main }}).
+1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 1. Click **{{ ui-key.yacloud.clickhouse.button_create-cluster }}**.
 1. Specify the cluster parameters:
     * {{ ui-key.yacloud.mdb.forms.section_base }}:
@@ -105,8 +105,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Create a function in {{ sf-name }} for importing data {#function-import}
 
-1. Navigate to the [management console]({{ link-console-main }}).
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+1. Open the [management console]({{ link-console-main }}).
+1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
 1. Specify a name for the function and click **{{ ui-key.yacloud.common.create }}**.
 1. In the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** window that opens, select the `Python` runtime environment.

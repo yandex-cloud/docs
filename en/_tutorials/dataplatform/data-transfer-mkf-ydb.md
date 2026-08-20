@@ -17,8 +17,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 * {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). The cost depends on the deployment mode:
 
-	* In serverless mode, you pay for data operations as well as the amount of stored data and backups.
-  	* In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage size, and backups.
+    * In serverless mode, you pay for data operations as well as the amount of stored data and backups.
+    * In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage size, and backups.
 
 * Each transfer: use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
@@ -69,7 +69,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
            * `source_user_password`: User password.
            * `target_db_name`: {{ ydb-name }} database name.
 
-       1. Make sure the {{ TF }} configuration files are correct using this command:
+       1. Validate your {{ TF }} configuration files using this command:
 
            ```bash
            terraform validate
@@ -222,7 +222,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     1. In the `data-transfer-mkf-ydb.tf` file, set the `transfer_enabled` variable to `1` to create your endpoints and transfer.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
@@ -307,7 +307,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         - Management console {#console}
 
            1. In the [management console]({{ link-console-main }}), select the folder containing your database.
-           1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+           1. [Navigate]({{ link-console-main }}/link/ydb) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
            1. Select your database from the list.
            1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
            1. Check that the {{ ydb-name }} database contains a table named `sensors` with the test data from the topic.

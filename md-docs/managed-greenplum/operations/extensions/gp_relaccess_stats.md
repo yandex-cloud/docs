@@ -34,14 +34,16 @@
     SELECT extname FROM pg_extension;
     ```
 
-    Будет выведен список расширений, установленных в БД.
+    Будет выведен список расширений, установленных в БД.  
+
+1. Обратитесь в [службу технической поддержки](https://center.yandex.cloud/support) для применения расширения.
 
 ## Примеры использования {#examples}
 
 1. Подготовьте таблицу для сбора статистики:
 
     ```sql
-    SELECT relaccess_stats_init();
+    SELECT mdb_toolkit.relaccess_stats_init();
     ```
 
     В таблице `relaccess_stats` будут созданы пустые записи для каждой таблицы и партиции выбранной базы данных.
@@ -49,7 +51,7 @@
 1. Обновите статистику:
 
     ```sql
-    SELECT relaccess_stats_update();
+    SELECT mdb_toolkit.relaccess_stats_update();
     ```
 
     В таблицу `relaccess_stats` будут добавлены статистические данные из кеша и каталога `pg_stat`.
@@ -57,7 +59,7 @@
 1. Проверьте текущее использование кеша статистики:
 
     ```sql
-    SELECT relaccess.relaccess_stats_fillfactor();
+    SELECT mdb_toolkit.relaccess_stats_fillfactor();
     ```
 
     Будет выведен процент заполнения кеша статистики.
@@ -65,7 +67,7 @@
 1. Получите статистические данные из таблицы `relaccess_stats`:
 
     ```sql
-    SELECT * FROM relaccess_stats;
+    SELECT * FROM mdb_toolkit.relaccess_stats;
     ```
 
 _Apache® и Apache Cloudberry™ являются зарегистрированными товарными знаками или товарными знаками Apache Software Foundation в США и/или других странах._

@@ -5,7 +5,7 @@
   1. Navigate to [{{ datalens-name }}]({{ link-datalens-main-promo }}).
   1. Click **Start in cloud**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/thunderbolt.svg) **Connections** and click **Create connection**.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}** and set the following in the window that opens:
+  1. [Navigate]({{ link-console-yq }}) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}** and set the following in the window that opens:
       * **Cloud and folder**: Select the cloud and folder where you created the rest of the resources.
       * **Service account**: `forms-integration-sa`.
   1. Click **Save changes**. In the window that opens, specify `forms-datalens-connection` as the connection name, then click **Create**.

@@ -238,3 +238,13 @@
    * `Где хранятся данные о поведении пользователей на сайте?`
    * `Какие данные использовать для анализа конверсии воронки продаж?`
    * `Покажи все зависимости таблицы transactions — нужно понять влияние изменений схемы`
+
+[*глоссарий]: {% include notitle [glossary](../../_popups/metadata-hub/data-catalog.md#glossary) %}
+
+[*домен]: {% include notitle [domain](../../_popups/metadata-hub/data-catalog.md#domain) %}
+
+[*классификация]: {% include notitle [classification](../../_popups/metadata-hub/data-catalog.md#classification) %}
+
+[*тег]: {% include notitle [tag](../../_popups/metadata-hub/data-catalog.md#tag) %}
+
+[*термин]: {% include notitle [term](../../_popups/metadata-hub/data-catalog.md#term) %}

@@ -2,8 +2,8 @@
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. In the [management console]({{ link-console-main }}), select the relevant folder.
+  1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. Enter a name for the bucket in line with the [naming requirements](../../../storage/concepts/bucket.md#naming).
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}**, and **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** fields, select `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.

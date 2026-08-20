@@ -183,4 +183,4 @@ To stop paying for the resources you created:
 1. [Delete](../../../storage/operations/objects/delete.md) all objects from the bucket.
 1. [Delete](../../../storage/operations/buckets/delete.md) the bucket.
 1. [Delete](../../../functions/operations/function/function-delete.md) the `ffmpeg-api` and `ffmpeg-converter` functions.
-1. [Delete](../../../functions/operations/trigger/trigger-delete.md) `ffmpeg-trigger`.
+1. [Delete](../../../functions/operations/trigger/trigger-delete.md) the `ffmpeg-trigger` trigger.

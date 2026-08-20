@@ -292,8 +292,8 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `secured-entry-point`.
   1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. На панели слева выберите ![image](../../_assets/smartwebsecurity/profiles.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}** и нажмите **{{ ui-key.yacloud.smart-web-security.action_empty }}**.
-  1. Выберите **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
+  1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}** и нажмите **{{ ui-key.yacloud.smart-web-security.action_empty }}**.
+  1. Выберите `{{ ui-key.yacloud.smart-web-security.title_default-template }}`.
   1. Введите имя профиля — `sws-profile`.
   1. В поле **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** выберите `{{ ui-key.yacloud.smart-web-security.form.label_action-allow }}`.
   1. Нажмите **{{ ui-key.yacloud.smart-web-security.action_empty }}**.
@@ -670,15 +670,15 @@ http://<публичный_IP-адрес_балансировщика>/<преф
 1. Добавьте запрещающее базовое правило:
 
     1. Перейдите на страницу профиля безопасности `sws-profile`.
-    1. В блоке **{{ ui-key.yacloud.smart-web-security.form.section_security-rules }}** нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_add-rule }}**.
+    1. В блоке **{{ ui-key.yacloud.smart-web-security.form.section_security-rules }}** нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
     1. Введите имя правила: `deny-rule`.
     1. В поле **{{ ui-key.yacloud.smart-web-security.overview.column_priority }}** установите значение `1000`.
-    1. В блоке **{{ ui-key.yacloud.smart-web-security.label_search-rule-type }}** оставьте значение **{{ ui-key.yacloud.smart-web-security.overview.label_base-rule }}**.
-    1. Параметр **{{ ui-key.yacloud.smart-web-security.overview.column_action-type }}** оставьте в положении **{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-deny }}**.
+    1. В блоке **{{ ui-key.yacloud.smart-web-security.label_search-rule-type }}** оставьте значение `{{ ui-key.yacloud.smart-web-security.overview.label_base-rule }}`.
+    1. Параметр **{{ ui-key.yacloud.smart-web-security.overview.column_action-type }}** оставьте в положении `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-deny }}`.
     1. Параметр **Трафик** установите в положение `При условии`.
     1. Далее выберите:
 
-        * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** — `IP`.
+        * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** — `{{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}`.
         * **Условия на IP** — `Совпадает или принадлежит диапазону`.
         * **IP совпадает или принадлежит диапазону** — укажите IP-адрес устройства, с которого проводится тестирование веб-сервиса.
 

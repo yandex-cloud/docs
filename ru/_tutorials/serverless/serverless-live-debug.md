@@ -53,9 +53,7 @@
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сервисный аккаунт.
       1. [Перейдите]({{ link-console-main }}/link/iam) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-      1. Введите имя сервисного аккаунта, например `sa-live-debug`.
-
-          Требования к формату имени:
+      1. В открывшемся окне введите **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** сервисного аккаунта, например `sa-live-debug`. Формат имени:
 
           {% include [name-format](../../_includes/name-format.md) %}
 
@@ -347,7 +345,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-cloud }}) выберите каталог `live-debug`. 
-  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) напротив каталога и выберите **{{ ui-key.yacloud.common.delete }}**.
+  1. Справа от каталога нажмите ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.components.FolderActions.button_action-delete-folder_mu24C }}**.
   1. В поле **{{ ui-key.yacloud.component.iam-delete-folder-or-cloud-dialog.field_folder-delete-after }}** выберите `{{ ui-key.yacloud_billing.component.iam-delete-folder-or-cloud-dialog.label_delete-now }}`.
   1. Нажмите **{{ ui-key.yacloud.common.delete }}**.
 

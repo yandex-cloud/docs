@@ -109,7 +109,8 @@
                 "maxSize": "string"
               }
               // end of the list of possible fields
-            }
+            },
+            "preemptible": "boolean"
           },
           "executor": {
             "resourcePresetId": "string",
@@ -123,7 +124,8 @@
                 "maxSize": "string"
               }
               // end of the list of possible fields
-            }
+            },
+            "preemptible": "boolean"
           }
         },
         "historyServer": {
@@ -436,6 +438,7 @@ The maximum string length in characters is 50. ||
 
 The maximum string length in characters is 50. ||
 || scalePolicy | **[ScalePolicy](#yandex.cloud.spark.v1.ScalePolicy)** ||
+|| preemptible | **boolean** ||
 |#
 
 ## ScalePolicy {#yandex.cloud.spark.v1.ScalePolicy}

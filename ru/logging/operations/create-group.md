@@ -12,7 +12,7 @@ description: Из статьи вы узнаете, как создать лог
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать [лог-группу](../concepts/log-group.md).
     1. [Перейдите]({{ link-console-main }}/link/logging) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.logging.button_create-group }}**.
-    1. (Опционально) Введите имя и описание лог-группы. Формат имени:
+    1. (Опционально) Введите **{{ ui-key.yacloud.common.name }}** и **{{ ui-key.yacloud.common.description }}** лог-группы. Формат имени:
 
         {% include [name-format](../../_includes/name-format.md) %}
 

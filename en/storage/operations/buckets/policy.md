@@ -56,6 +56,8 @@ To apply or update a bucket policy:
 
                 You can select multiple subjects; to do this, select them one by one.
 
+                {% include [canonical-user-identification](../../../_includes/storage/canonical-user-identification.md) %}
+
         * **{{ ui-key.yacloud.storage.bucket.policy.field_action }}** for which you are creating the rule. You can also enable **All actions**.
         * **{{ ui-key.yacloud.storage.bucket.policy.field_resource }}**: Defaults to the selected bucket. To add other resources to the rule, click **{{ ui-key.yacloud.storage.bucket.policy.button_add-resource }}**.
 
@@ -122,6 +124,8 @@ To apply or update a bucket policy:
          You can get the IDs in the following ways:
 
          {% include [acl-grantee](../../../_includes/storage/acl-grantee.md) %}
+
+         {% include [canonical-user-identification](../../../_includes/storage/canonical-user-identification.md) %}
 
        * `Action`: [Action](../../s3/api-ref/policy/actions.md) to allow when the policy is triggered. The possible values are `s3:GetObject`, `s3:PutObject`, and `*` (if you need to apply the policy to all actions).
        * `Resource`: Resource to apply the rule to.
@@ -202,6 +206,8 @@ To apply or update a bucket policy:
          You can get the IDs in the following ways:
 
          {% include [acl-grantee](../../../_includes/storage/acl-grantee.md) %}
+
+         {% include [canonical-user-identification](../../../_includes/storage/canonical-user-identification.md) %}
 
        * `Action`: [Action](../../s3/api-ref/policy/actions.md) to allow when the policy is triggered. The possible values are `s3:GetObject`, `s3:PutObject`, and `*` (if you need to apply the policy to all actions).
        * `Resource`: Resource to apply the rule to.

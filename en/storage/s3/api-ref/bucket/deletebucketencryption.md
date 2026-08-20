@@ -12,11 +12,9 @@ DELETE /{bucket}?encryption HTTP/2
 
 ### Path parameters {#path-parameters}
 
-Parameter | Description
------ | -----
-`bucket` | Bucket name.
+{% include [path-parameters](../../../_includes_service/storage-path-parameters.md) %}
 
-### Headers {#request-headers}
+### Headings {#request-headers}
 
 Use only [common headers](../common-request-headers.md) in your requests.
 
@@ -37,5 +35,3 @@ For a list of possible responses, see [{#T}](../response-codes.md).
 * [Terminating bucket encryption](../../../operations/buckets/encrypt.md#del)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}
-
-

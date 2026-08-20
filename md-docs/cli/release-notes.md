@@ -4,6 +4,14 @@
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.28.0 (20.08.26) {#v-1-28-0}
+
+#### BareMetal {#v-1-28-0-baremetal-name}
+
+* Добавлена возможность заказать кластер Stackland с доступом в публичную сеть. Также добавлена возможность собрать кластер из существующих серверов.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.27.0 (17.08.26) {#v-1-27-0}
 
 #### Yandex MPP Analytics for PostgreSQL {#v-1-27-0-mgp-name}
@@ -15,8 +23,6 @@
 * Добавлен параметр `--shard-autoscaling` в команды для настройки автоскейлинга шардов Valkey:
   * `yc managed-redis cluster create`;
   * `yc managed-redis cluster update`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.25.0 (10.08.26) {#v-1-25-0}
 

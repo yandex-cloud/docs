@@ -108,7 +108,8 @@ editable: false
           "dataLens": "boolean",
           "webSql": "boolean",
           "dataTransfer": "boolean",
-          "yandexQuery": "boolean"
+          "yandexQuery": "boolean",
+          "trino": "boolean"
         },
         "zoneId": "string",
         "subnetId": "string",
@@ -780,6 +781,7 @@ The maximum string length in characters is 50. ||
 || webSql | **boolean** ||
 || dataTransfer | **boolean** ||
 || yandexQuery | **boolean** ||
+|| trino | **boolean** ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.greenplum.v1.Monitoring}

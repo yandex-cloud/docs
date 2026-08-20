@@ -1,15 +1,15 @@
 ---
-title: Custom domain
+title: Supporting your own domain
 description: Follow this guide to set up a custom domain for hosting.
 ---
 
-# Custom domain
+# Supporting your own domain
 
 You can use a custom domain, e.g., `example.com`, to publish your website.
 
 To use a custom domain:
 
-1. [Create](../buckets/create.md) a bucket. 
+1. [Create](../buckets/create.md) a bucket.
 
     {% note warning %}
 

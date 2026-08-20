@@ -38,7 +38,7 @@ The cost includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** and **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** fields, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
@@ -171,7 +171,7 @@ The cost includes:
         * `target_bucket`: Bucket for storing logs.
         * `target_prefix`: [Key prefix](../../storage/concepts/server-logs.md#key-prefix) for objects with logs.
 
-        For more information about the `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket#enable-logging).
+        For more on `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket#enable-logging).
 
         {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -189,7 +189,7 @@ The cost includes:
 ### Create a {{ CH }} cluster {#create-ch-cluster}
 
 
-To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role along with the [{{ roles.mch.editor }} role or higher](../../managed-clickhouse/security.md#roles-list). For more information on assigning roles, see [this {{ iam-name }} guide](../../iam/operations/roles/grant.md).
+To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role along with the [{{ roles.mch.editor }} role or higher](../../managed-clickhouse/security.md#roles-list). For information on assigning roles, see [this {{ iam-name }} guide](../../iam/operations/roles/grant.md).
 
 
 {% list tabs group=instructions %}
@@ -197,7 +197,7 @@ To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Configure your {{ CH }} cluster:
 
@@ -392,7 +392,7 @@ You need a static key to create a table with access to {{ objstorage-name }}. [C
         request_path String,        -- Full query path.
         request_time Int64,         -- Query processing time in milliseconds.
         scheme String,              -- Data transfer protocol type.
-                                    -- The possible values are as follows:
+                                    -- The possible values are:
                                     -- * http: Application layer protocol.
                                     -- * https: Application layer protocol with encryption support.
         ssl_protocol String,        -- Security protocol.
@@ -402,7 +402,7 @@ You need a static key to create a table with access to {{ objstorage-name }}. [C
         user_agent String,          -- Client app (user agent) that run the query.
         version_id String,          -- Object version.
         vhost String                -- Virtual host of the query.
-                                    -- The possible values are as follows:
+                                    -- The possible values are:
                                     -- * {{ s3-storage-host }}.
                                     -- * <bucket_name>.{{ s3-storage-host }}.
                                     -- * {{ s3-web-host }}.

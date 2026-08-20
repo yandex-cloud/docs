@@ -4,7 +4,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите получить список реестров.
   1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-  1. На странице **{{ ui-key.yacloud.iot.label_registries }}** отобразится список реестров.
+  1. На странице ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.iot.label_registries }}** отобразится список реестров.
 
 - CLI {#cli}
 

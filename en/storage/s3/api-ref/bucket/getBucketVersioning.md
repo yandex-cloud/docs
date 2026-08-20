@@ -12,17 +12,17 @@ GET /{bucket}?versioning HTTP/2
 
 ### Path parameters {#path-parameters}
 
-Parameter | Description
------ | -----
-`bucket` | Bucket name.
+{% include [path-parameters](../../../_includes_service/storage-path-parameters.md) %}
 
 ### Query parameters {#request-params}
 
-Parameter | Description
------ | -----
-`versioning` | Required parameter that indicates the type of operation.
+#|
+|| **Parameter** | **Description** ||
+|| `versioning` | Required parameter that indicates the type of operation ||
+|#
 
-### Headers {#request-headers}
+### Headings {#request-headers}
+
 Use [common headers](../common-request-headers.md) in your requests.
 
 ## Response {#response}
@@ -45,10 +45,15 @@ A successful response contains additional data in XML format with the schema des
 </VersioningConfiguration>
 ```
 
-Element | Description
------ | -----
-`VersioningConfiguration` | Root element.
-`Status` | Bucket versioning status.<br/><br/>Path: `/VersioningConfiguration/Status`.<br/>Type: String.<br/>The possible values are: `Enabled | Suspended`
+#|
+|| **Element** | **Description** ||
+|| `VersioningConfiguration` | Root element. ||
+|| `Status` | Bucket versioning status.
+
+Path: `/VersioningConfiguration/Status`.
+Type: String.
+It can be either `Enabled` or| `Suspended`. ||
+|#
 
 #### Related articles {#related-articles}
 

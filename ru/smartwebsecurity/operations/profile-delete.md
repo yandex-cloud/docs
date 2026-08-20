@@ -12,7 +12,7 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [профиль безопасности](../concepts/profiles.md).
   1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
-  1. В строке с нужным профилем нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+  1. В строке с нужным профилем нажмите ![options](../../_assets/console-icons/ellipsis.svg) → ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. Подтвердите удаление.
 
 - CLI {#cli}
@@ -44,9 +44,9 @@ description: Следуя данной инструкции, вы сможете
      ```
 
      {% note info %}
-     
+
      Удаление профиля безопасности может повлиять на доступ к виртуальным хостам, к которым он подключен.
-     
+
      {% endnote %}
 
   Подробнее о команде `yc smartwebsecurity security-profile delete` читайте в [справочнике CLI](../../cli/cli-ref/smartwebsecurity/cli-ref/security-profile/delete.md).
@@ -62,7 +62,7 @@ description: Следуя данной инструкции, вы сможете
   1. Откройте файл конфигурации {{ TF }} и удалите фрагмент с описанием профиля.
 
      {% cut "Пример описания профиля безопасности в конфигурации {{ TF }}" %}
-     
+
      ```hcl
      resource "yandex_sws_security_profile" "demo-profile-simple" {
        name                             = "<имя_профиля_безопасности>"

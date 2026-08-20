@@ -35,7 +35,7 @@ To create an {{ objstorage-name }} bucket for storing source images and recognit
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you will operate.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. Specify the bucket name that meets [these naming conventions](../../storage/concepts/bucket.md#naming).
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** field, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
@@ -266,7 +266,7 @@ To create an {{ objstorage-name }} bucket for storing source images and recognit
 
 ## Create an image archive {#create-archive}
 
-1. [Upload](../../storage/operations/objects/upload.md) to the bucket the images with text you want to recognize.
+1. [Upload](../../storage/operations/objects/upload.md) the images with text you want to recognize to the bucket.
 
    {% include [example-image](../../_includes/vision/example-image.md) %}
 
@@ -446,7 +446,7 @@ To create an {{ objstorage-name }} bucket for storing source images and recognit
 - Management console {#console}
 
   1. In the {{ yandex-cloud }} [management console]({{ link-console-main }}), select the folder containing the bucket with your recognition results.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Open the bucket with the recognition results.
   1. Verify that the bucket contains `my_pictures_text.tar`.
   1. Download and unpack the archive.

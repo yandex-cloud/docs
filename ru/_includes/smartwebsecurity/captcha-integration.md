@@ -1,8 +1,8 @@
 * `По умолчанию` — контролируется на стороне {{ yandex-cloud }}, параметры капчи:
-  * [Основное задание](../../smartcaptcha/concepts/tasks.md#main-task) — **Чекбокс**.
-  * [Дополнительное задание](../../smartcaptcha/concepts/tasks.md#additional-task) — ![image](../../_assets/console-icons/picture.svg) **Силуэты**.
-  * Сложность дополнительного задания — **Легкая**.
-  * Внешний вид — **Стандартный**.
+  * [Основное задание](../../smartcaptcha/concepts/tasks.md#main-task) — `Чекбокс`.
+  * [Дополнительное задание](../../smartcaptcha/concepts/tasks.md#additional-task) — ![image](../../_assets/console-icons/picture.svg) `Силуэты`.
+  * Сложность дополнительного задания — `Легкая`.
+  * Внешний вид — `Стандартный`.
         
   Плата за использование капчи `По умолчанию` включена в стоимость {{ sws-name }}.
 * `Собственная капча` — вы можете [настроить](../../smartcaptcha/operations/create-captcha.md) сложность, типы основного и дополнительного заданий, а также внешний вид капчи.

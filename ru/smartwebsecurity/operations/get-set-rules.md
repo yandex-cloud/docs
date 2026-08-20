@@ -14,7 +14,7 @@ description: Следуя данной инструкции, вы сможете
   1. На панели слева выберите ![image](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}**.
   1. Выберите профиль, в котором находится нужный набор правил.
   1. В разделе **{{ ui-key.yacloud.smart-web-security.advanced_waf.sets_priority_section.section_title }}** отобразится информация о наборах правил:
-     
+
      * Версия набора правил.
      * Количество активных правил.
      * Порог аномальности и уровень паранойи (для набора OWASP).
@@ -42,14 +42,14 @@ description: Следуя данной инструкции, вы сможете
 
       Где:
 
-      
+
       * `data "yandex_sws_waf_rule_set_descriptor"` — описание набора правил WAF в качестве источника данных:
-        
+
         * `name` — имя набора правил WAF.
         * `version` — версия набора правил.
-      
+
       * `output "waf_rules"` — выходная переменная, которая содержит информацию о наборе правил WAF:
-        
+
         * `value` — возвращаемое значение.
 
       Вместо `rules` вы можете выбрать любой другой параметр для получения информации. Подробнее о параметрах источника данных `yandex_sws_waf_rule_set_descriptor` в [документации провайдера]({{ tf-provider-datasources-link }}/sws_waf_rule_set_descriptor).

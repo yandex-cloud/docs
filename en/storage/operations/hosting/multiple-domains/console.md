@@ -1,9 +1,9 @@
 ---
-title: How to set up multiple domain name support for a website using the management console, CLI, or API
-description: Follow this guide to set up multiple domain name support for a website using the {{ yandex-cloud }} management console, CLI, or API.
+title: Setting up support for multiple website domain names using the management console, CLI, or API
+description: Follow this guide to set up support for multiple website domain names using the {{ yandex-cloud }} management console, CLI, or API.
 ---
 
-# Support for multiple domain names using the management console, CLI, or API
+# Setting up support for multiple domain names using the management console, CLI, or API
 
 To create an infrastructure to support [multiple website domain names](index.md) using the {{ yandex-cloud }} management console, CLI, or API:
 1. [Create buckets](#buckets).

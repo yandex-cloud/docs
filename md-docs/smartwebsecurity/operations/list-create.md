@@ -92,7 +92,7 @@
   1. Нажмите строку с нужным списком.
   1. Перейдите на вкладку **IP-адреса**.
   1. Нажмите ![image](../../_assets/console-icons/arrow-down-to-line.svg) **Скачать список**.
-      
+
       Список будет сохранен в формате CSV.
 
 {% endlist %}
@@ -107,7 +107,7 @@
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
   1. На панели слева выберите ![image](../../_assets/console-icons/files.svg) **Списки**.
-  1. В строке с нужным списком нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../_assets/console-icons/pencil.svg) **Редактировать**.
+  1. В строке с нужным списком нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil-to-line](../../_assets/console-icons/pencil-to-line.svg) **Переименовать**.
   1. Измените имя и описание списка, добавьте или удалите метки.
   1. Нажмите **Сохранить изменения**.
 
@@ -125,11 +125,11 @@
   1. Нажмите строку с нужным списком.
   1. Перейдите на вкладку **IP-адреса**.
 
-      * Чтобы изменить описание для одного или нескольких значений, выберите их и нажмите ![image](../../_assets/console-icons/pencil-to-line.svg) **Изменить описание**.
+      * Чтобы изменить описание для одного или нескольких значений, выберите их и на панели внизу нажмите ![image](../../_assets/console-icons/pencil-to-line.svg) **Изменить описание**.
       * Чтобы удалить одно или несколько значений, выберите их и нажмите ![image](../../_assets/console-icons/trash-bin.svg) **Удалить**.
       * Чтобы отредактировать список в текстовом формате или загрузить новый файл со списком:
 
-          1. Нажмите **Изменить список**.
+          1. Нажмите ![pencil-to-square](../../_assets/console-icons/pencil-to-square.svg) **Изменить список**.
           1. Отредактируйте список или загрузите новый файл.
           1. Нажмите **Сохранить изменения**.
 
@@ -143,7 +143,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/files.svg) **Списки** 
+  1. На панели слева выберите ![image](../../_assets/console-icons/files.svg) **Списки**
   1. В строке с нужным списком нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../_assets/console-icons/trash-bin.svg) **Удалить**.
 
 {% endlist %}

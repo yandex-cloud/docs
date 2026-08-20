@@ -13,6 +13,7 @@ GET / HTTP/2
 ```
 
 ### Headers {#request-headers}
+
 Use only [common headers](../common-request-headers.md) in your requests.
 
 ## Response {#response}
@@ -41,13 +42,24 @@ A successful response contains additional data in XML format with the schema des
 </ListAllMyBucketsResult>
 ```
 
-Element | Description
------ | -----
-`Bucket` | Contains a bucket description.<br/><br/>Path: `/ListAllMyBucketsResult/Buckets/Bucket`.
-`Buckets` | Contains a list of buckets.<br/><br/>Path: `/ListAllMyBucketsResult/Buckets`.
-`CreationDate` | Bucket creation time in `yyyy-mm-ddThh:mm:ss.timezone` format.<br/><br/>Path: `/ListAllMyBucketsResult/Buckets/Bucket/CreationDate`.
-`ListAllMyBucketsResult` | Root element of the response.<br/><br/>Path: `/ListAllMyBucketsResult`.
-`Name` | Bucket name.<br/><br/>Path: `/ListAllMyBucketsResult/Buckets/Bucket/Name`.
+#|
+|| **Element** | **Description** ||
+|| `Bucket` | Contains the bucket description.
+
+Path: `/ListAllMyBucketsResult/Buckets/Bucket`. ||
+|| `Buckets` | Contains the bucket list.
+
+Path: `/ListAllMyBucketsResult/Buckets`. ||
+|| `CreationDate` | Bucket creation time in `yyyy-mm-ddThh:mm:ss.timezone` format.
+
+Path: `/ListAllMyBucketsResult/Buckets/Bucket/CreationDate`. ||
+|| `ListAllMyBucketsResult` | Root element of the response.
+
+Path: `/ListAllMyBucketsResult`. ||
+|| `Name` | Bucket name.
+
+Path: `/ListAllMyBucketsResult/Buckets/Bucket/Name`. ||
+|#
 
 #### Related articles {#related-articles}
 

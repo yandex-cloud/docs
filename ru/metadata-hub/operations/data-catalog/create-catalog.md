@@ -32,3 +32,13 @@ description: Следуя данной инструкции, вы сможете
     {% include [ai-on](../../../_includes/metadata-hub/data-catalog-ai-markup-on.md) %}
 
 {% endlist %}
+
+[*глоссарий]: {% include notitle [glossary](../../../_popups/metadata-hub/data-catalog.md#glossary) %}
+
+[*домен]: {% include notitle [domain](../../../_popups/metadata-hub/data-catalog.md#domain) %}
+
+[*классификация]: {% include notitle [classification](../../../_popups/metadata-hub/data-catalog.md#classification) %}
+
+[*тег]: {% include notitle [tag](../../../_popups/metadata-hub/data-catalog.md#tag) %}
+
+[*термин]: {% include notitle [term](../../../_popups/metadata-hub/data-catalog.md#term) %}

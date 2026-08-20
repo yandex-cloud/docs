@@ -31,7 +31,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
   1. Create a cloud network:
 
       1. In the [management console]({{ link-console-main }}), select the folder where you are going to create your infrastructure.
-      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+      1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
       1. At the top right, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
       1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, specify `joomla-network`.
       1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, disable **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
@@ -59,7 +59,7 @@ Create `joomla-sg` and `postgresql-sg` [security groups](../../vpc/concepts/secu
   1. Create a security group named `joomla-sg` for your VM:
 
       1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+      1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
       1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}** and click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
       1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, enter `joomla-sg`.
       1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select `joomla-network` you created earlier.
@@ -93,7 +93,7 @@ Reserve a static [public IP address](../../vpc/concepts/address.md#public-addres
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}** and click **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
    1. In the window that opens, select `{{ region-id }}-b` in the **{{ ui-key.yacloud.vpc.addresses.popup-create_field_zone }}** field and click **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
 
@@ -158,7 +158,7 @@ ns1.{{ dns-ns-host-sld }}.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}** and click **{{ ui-key.yacloud.dns.button_zone-create }}**.
+  1. [Navigate]({{ link-console-main }}/link/dns) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}** and click **{{ ui-key.yacloud.dns.button_zone-create }}**.
   1. Specify the zone settings consistent with your domain:
 
       1. **{{ ui-key.yacloud.dns.label_zone }}**: Domain zone. Its name must end with a trailing dot. For example, `example.com.` matches the `example.com` domain. To create a domain name with non-Latin characters, use the [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding.
@@ -178,7 +178,7 @@ In your DNS zone, create a [type A resource record](../../dns/concepts/resource-
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. [Navigate]({{ link-console-main }}/link/dns) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Select `joomla-zone` you previously created and click **{{ ui-key.yacloud.dns.button_record-set-create }}**.
   1. Specify the record settings:
       1. In the **{{ ui-key.yacloud.common.name }}** field, select `{{ ui-key.yacloud.dns.label_fqdn-equal-to-zone }}`.
@@ -202,7 +202,7 @@ Create a new Let's Encrypt® [certificate](../../certificate-manager/concepts/ma
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+      1. [Navigate]({{ link-console-main }}/link/certificate-manager) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
       1. Click **{{ ui-key.yacloud.certificate-manager.button_empty-action }}** and select `{{ ui-key.yacloud.certificate-manager.action_request }}`.
       1. In the window that opens, specify `joomla-cert` in the **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** field.
       1. In the **{{ ui-key.yacloud.certificate-manager.request.field_domains }}** field, specify your domain name, e.g., `example.com`.
@@ -211,14 +211,14 @@ Create a new Let's Encrypt® [certificate](../../certificate-manager/concepts/ma
 
     {% endlist %}
 
-1. To successfully issue the certificate, pass a domain rights check:
+1. To have a certificate issued, pass domain ownership verification:
 
     {% list tabs group=instructions %}
 
     - Management console {#console}
 
         1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-        1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+        1. [Navigate]({{ link-console-main }}/link/certificate-manager) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
         1. From the list of certificates, select `joomla-cert`.
         1. In the window that opens, under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**, select `CNAME record`.
         1. In the section below, click **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}** and then, **{{ ui-key.yacloud.common.create }}** in the window that opens.
@@ -238,7 +238,7 @@ Create a new Let's Encrypt® [certificate](../../certificate-manager/concepts/ma
   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select the DBMS version: `17`.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select the appropriate [host](../../managed-postgresql/concepts/instance-types.md) class.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**, specify: `10 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-  1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, specify:
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, specify the following:
       * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `joomla_db`.
       * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `joomla`.
       * In the **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** field, select `{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}` and set a password you will use to access the database.

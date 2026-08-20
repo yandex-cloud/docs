@@ -3,9 +3,8 @@
 - Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится реестр.
-   1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. Выберите реестр.
-   1. На странице **{{ ui-key.yacloud.common.overview }}** перейдите к разделу **{{ ui-key.yacloud.iot.label_certificates }}**.
+   1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}** и выберите реестр.
+   1. На вкладке **{{ ui-key.yacloud.common.overview }}** перейдите к разделу **{{ ui-key.yacloud.iot.label_certificates }}**.
 
 - CLI {#cli}
 

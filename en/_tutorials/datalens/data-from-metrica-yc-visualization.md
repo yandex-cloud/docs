@@ -5,7 +5,7 @@
 {% include [datalens-metrica-pro-note](../../_includes/datalens/datalens-metrica-pro-note.md) %}
 
 
-In this tutorial, you will learn how to build conversion funnels, run cohort analysis, calculate the Retention rate for the user base in {{ ml-platform-full-name }}, and visualize the data in {{ datalens-full-name }}.
+In this tutorial, you will learn how to build conversion funnels, run cohort analysis, calculate the retention rate for the user base in {{ ml-platform-full-name }}, and visualize the data in {{ datalens-full-name }}.
 
 We will use Yandex Metrica data as the source.
 
@@ -68,7 +68,7 @@ The cost of the infrastructure deployment includes:
 ### 1.1. Connect {{ CH }} {#ch-connection}
 
 1. In the [management console]({{ link-console-main }}), select the folder to create a {{ CH }} cluster in.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 1. In the window that opens, click **{{ ui-key.yacloud.clickhouse.button_create-cluster }}**.
 1. Configure your {{ CH }} cluster:
    1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, specify a name for the cluster.
@@ -409,7 +409,7 @@ Create a chart with retention based on the `ch_metrica_data_users_visits_cohorts
 1. Click **Edit** → **Tabs**.
 1. Rename the existing tab to `Overview + Funnels`.
 1. Add a new tab and name it `Cohorts`. Click **Save**.
-1. Go to the new `Cohort` tab:
+1. Go to the new `Cohorts` tab:
     1. Add the `ch_metrica_data_users_visits_cohorts_abs` chart to the dashboard.
     1. In the **Name** field, specify `Visits by cohort (absolute)`.
 1. To add a new tab, click **Add** on the left:

@@ -31,14 +31,13 @@ description: Из статьи вы узнаете, как получить сп
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в который вы хотите добавить сертификат брокера.
    1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. На панели слева выберите **{{ ui-key.yacloud.iot.label_brokers }}**.
-   1. Выберите в списке нужный брокер.
-   1. На странице **{{ ui-key.yacloud.common.overview }}** перейдите к разделу **{{ ui-key.yacloud.iot.label_certificates }}** и нажмите кнопку **{{ ui-key.yacloud.component.certificates.button_empty-add }}**.
+   1. На панели слева выберите ![image](../../../_assets/console-icons/gear-branches.svg) **{{ ui-key.yacloud.iot.label_brokers }}** и затем — нужный брокер.
+   1. На вкладке **{{ ui-key.yacloud.common.overview }}** перейдите к разделу **{{ ui-key.yacloud.iot.label_certificates }}** и нажмите **{{ ui-key.yacloud.component.certificates.button_empty-add }}**.
 
       * Чтобы добавить файл:
 
          1. Выберите способ `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}`.
-         1. Нажмите **Прикрепить файл**.
+         1. Нажмите **{{ ui-key.yacloud_components.fileinput.button_attach-file }}**.
          1. Выберите файл сертификата на вашем компьютере, нажмите **Открыть**.
          1. Нажмите **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
@@ -159,11 +158,10 @@ description: Из статьи вы узнаете, как получить сп
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, из которого хотите удалить сертификат брокера.
    1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. На панели слева выберите **{{ ui-key.yacloud.iot.label_brokers }}**.
-   1. Выберите в списке нужный брокер.
-   1. На странице **{{ ui-key.yacloud.common.overview }}** перейдите к разделу **{{ ui-key.yacloud.iot.label_certificates }}**.
-   1. В строке с нужным сертификатом нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и в выпадающем списке выберите **{{ ui-key.yacloud.common.delete }}**.
-   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
+   1. На панели слева выберите ![image](../../../_assets/console-icons/gear-branches.svg) **{{ ui-key.yacloud.iot.label_brokers }}** и затем — нужный брокер.
+   1. На вкладке **{{ ui-key.yacloud.common.overview }}** перейдите к разделу **{{ ui-key.yacloud.iot.label_certificates }}**.
+   1. Справа от имени удаляемого сертификата нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.common.delete }}**.
+   1. В открывшемся окне нажмите **{{ ui-key.yacloud.component.certificates.popup-confirm_button_delete }}**.
 
 - CLI {#cli}
 

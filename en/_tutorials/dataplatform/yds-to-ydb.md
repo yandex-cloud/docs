@@ -59,7 +59,7 @@ Set up your data delivery infrastructure:
 
         * `source_db_name`: Name of the {{ ydb-name }} database for the data stream in {{ yds-name }}.
         * `target_db_name`: {{ ydb-name }} target database name.
-        * `transfer_enabled`: Set to `0` to prevent transfer creation until you [create endpoints manually](#prepare-transfer).
+        * `transfer_enabled`: Set to `0` not to create a transfer until [endpoints are created manually](#prepare-transfer).
 
     1. Validate your {{ TF }} configuration files using this command:
 
@@ -81,7 +81,7 @@ Set up your data delivery infrastructure:
 
 [Create a data stream in {{ yds-name }}](../../data-streams/quickstart/create-stream.md).
 
-## Prepare and activate a transfer {#prepare-transfer}
+## Prepare and activate your transfer {#prepare-transfer}
 
 1. [Create a {{ yds-name }} source endpoint](../../data-transfer/operations/endpoint/index.md#create).
 
@@ -216,7 +216,7 @@ Set up your data delivery infrastructure:
     - Management console {#console}
 
         1. In the [management console]({{ link-console-main }}), select the folder with the database.
-        1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+        1. [Navigate]({{ link-console-main }}/link/ydb) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
         1. Select your database from the list.
         1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
         1. Make sure the `<stream_name>` table now contains the test data.
@@ -247,7 +247,7 @@ To minimize resource consumption, delete the resources you no longer need:
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete](../../data-transfer/operations/endpoint/index.md#delete) the source and target endpoints.
 1. If you created any service accounts, [delete them](../../iam/operations/sa/delete.md).
-1. Delete the rest of the resources depending on how you created them:
+1. Delete the other resources depending on how you created them:
 
    {% list tabs group=instructions %}
 

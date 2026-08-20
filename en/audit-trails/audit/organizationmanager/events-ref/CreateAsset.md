@@ -286,4 +286,15 @@ The number of elements must be greater than 0. ||
 - `X1`
 - `X2` ||
 || url | **string** ||
+|#|
+|| type | **enum** (FileExtension)
+
+- `JPEG`
+- `PNG`
+- `WEBP` ||
+|| scale | **enum** (Scale)
+
+- `X1`
+- `X2` ||
+|| url | **string** ||
 |#

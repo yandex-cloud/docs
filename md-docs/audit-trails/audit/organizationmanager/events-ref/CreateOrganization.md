@@ -90,7 +90,8 @@
     "organizationName": "string",
     "organizationTitle": "string",
     "description": "string",
-    "labels": "object"
+    "labels": "object",
+    "denyUserListing": "boolean"
   },
   "requestParameters": "object",
   "response": "object"
@@ -266,4 +267,5 @@ A list of messages that carry the error details. ||
 || organizationTitle | **string** ||
 || description | **string** ||
 || labels | **object** (map<**string**, **string**>) ||
+|| denyUserListing | **boolean** ||
 |#

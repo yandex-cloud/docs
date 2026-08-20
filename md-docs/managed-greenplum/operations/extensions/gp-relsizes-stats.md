@@ -56,7 +56,7 @@
 
 Чтобы изменить настройки, обратитесь в [службу технической поддержки](https://center.yandex.cloud/support).
 
-## Установка расширения gp_relsizes_stats в кластер Yandex MPP Analytics for PostgreSQL {#extension-install}
+## Установить расширение gp_relsizes_stats в кластер Yandex MPP Analytics for PostgreSQL {#extension-install}
 
 1. [Подключитесь](../connect/index.md) к базе данных от имени владельца или пользователя, имеющего в базе данных разрешение `CREATE`, и выполните команду:
 

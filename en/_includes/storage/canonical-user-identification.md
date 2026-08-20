@@ -1,0 +1,1 @@
+{{ objstorage-name }} identifies the subject during authentication. For more on authentication in its API, see [How to use the S3 API](../../storage/s3/index.md).

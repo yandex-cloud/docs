@@ -26,19 +26,20 @@
 - Интерфейс {{ monitoring-short-name }} {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-  1. Перейдите на вкладку **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}**.
-  1. Напротив названия нужного дашборда нажмите ![image](../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud_monitoring.actions.common.edit }}**.
-  1. В нижнем блоке нажмите **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-graph }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/layout-cells-large.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}**.
+  1. Справа в строке нужного дашборда нажмите ![image](../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud_monitoring.component.entities-list.action_edit }}**.
+  1. Справа вверху нажмите кнопку ![image](../../_assets/console-icons/plus.svg) → ![image](../../_assets/console-icons/chart-column.svg) **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-graph }}**.
   1. Создайте запрос для отслеживания занятого места:
 
-      1. В редакторе запроса нажмите ![image](../../_assets/console-icons/plus.svg).
-      1. В списке сервисов **service=** выберите `{{ ui-key.yacloud_monitoring.services.label_logging }}`.
-      1. В списке метрик **name=** выберите `group.service.ingested_records_per_second`.
-      1. В списке меток выберите нужную лог-группу (**group=**).
-
-  1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.action.add-query }}** и аналогичным способом создайте запрос для отображения максимального размера бакета — в списке метрик **name=** выберите `group.ingest_requests_per_second` и **status=** — `ERROR`.
+      1. В редакторе запроса в строке ![image](../../_assets/monitoring/chart.svg) **{{ ui-key.yacloud_monitoring.querystring.tokens.placeholder.service }}** выберите:
+          * `service` → `logging`;
+          * `name` → `group.service.ingested_records_per_second`;
+          * `group` → лог-группа, по которой вы хотите создать график.
+      
+  1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.action.add-query }}** и аналогичным способом создайте запрос для отображения максимального размера бакета:
+      * `name` → `group.ingest_requests_per_second`;
+      * `level` → `ERROR`.
   1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}**, чтобы проверить отображение графиков.
-
   1. Назовите график и добавьте порог:
 
       1. В области с графиком нажмите ![image](../../_assets/console-icons/gear.svg) **{{ ui-key.yacloud_monitoring.wizard.settings }}**.
@@ -49,6 +50,6 @@
       1. Укажите имя порога `Квота — максимальная скорость записи` и выберите цвет.
       1. Закройте панель настроек графика.
 
-  1. Справа вверху нажмите **{{ ui-key.yacloud_monitoring.actions.common.save }}**.
+  1. Справа вверху нажмите кнопку ![image](../../_assets/console-icons/floppy-disk.svg).
 
 {% endlist %}

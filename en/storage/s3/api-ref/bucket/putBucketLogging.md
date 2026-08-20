@@ -18,15 +18,14 @@ PUT /{bucket}?logging HTTP/2
 
 ### Path parameters {#path-parameters}
 
-Parameter | Description
---- | ---
-`bucket` | [Bucket](../../../concepts/bucket.md) name.
+{% include [path-parameters](../../../_includes_service/storage-path-parameters.md) %}
 
 ### Query parameters {#request-params}
 
-Parameter | Description
---- | ---
-`logging` | Required parameter that indicates the type of operation.
+#|
+|| **Parameter** | **Description** ||
+|| `logging` | Required parameter that indicates the type of operation ||
+|#
 
 ### Data schema {#request-scheme}
 
@@ -42,11 +41,16 @@ Parameter | Description
 </BucketLoggingStatus>
 ```
 
-Element | Description
---- | ---
-`BucketLoggingStatus` | Root element.
-`TargetBucket` | Name of the target bucket where [objects](../../../concepts/object.md) with logs are saved.<br>Type: String.
-`TargetPrefix` | [Log object key prefix](../../../concepts/server-logs.md#key-prefix).<br>Type: String.
+#|
+|| **Element** | **Description** ||
+|| `BucketLoggingStatus` | Root element. ||
+|| `TargetBucket` | Name of the target bucket where [objects](../../../concepts/object.md) with logs are saved.
+
+Type: String. ||
+|| `TargetPrefix` | [Log object key prefix](../../../concepts/server-logs.md#key-prefix).
+
+Type: String. ||
+|#
 
 **To disable bucket logging**:
 

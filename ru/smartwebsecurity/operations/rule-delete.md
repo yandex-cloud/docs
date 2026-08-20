@@ -15,7 +15,7 @@ description: Следуя данной инструкции, вы сможете
   1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. Выберите профиль, в котором вы хотите удалить [правило](../concepts/rules.md).
-  1. На вкладке **{{ ui-key.yacloud.smart-web-security.overview.title_security-rules }}** в строке с нужным правилом нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+  1. На вкладке **{{ ui-key.yacloud.smart-web-security.overview.title_security-rules }}** в строке с нужным правилом нажмите ![options](../../_assets/console-icons/ellipsis.svg) → ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. Подтвердите удаление.
 
 - CLI {#cli}
@@ -29,7 +29,7 @@ description: Следуя данной инструкции, вы сможете
      {% include [security-profile-list-command](../../_includes/smartwebsecurity/security-profile-list-command.md) %}
 
   1. Обновите профиль безопасности, применив к нему измененную [YAML](https://ru.wikipedia.org/wiki/YAML)-конфигурацию правил безопасности, предварительно удалив из нее ненужные правила:
-  
+
      1. Чтобы получить YAML-конфигурацию уже имеющихся в профиле правил безопасности, выполните команду, указав имя или идентификатор профиля безопасности:
 
          ```bash
@@ -195,7 +195,7 @@ description: Следуя данной инструкции, вы сможете
          {% include [change-profile-rules-alert](../../_includes/smartwebsecurity/change-profile-rules-alert.md) %}
 
      1. Чтобы внести изменения в профиль безопасности, выполните команду, указав имя или идентификатор профиля:
-    
+
          ```bash
          yc smartwebsecurity security-profile update <имя_или_идентификатор_профиля_безопасности> \
             --security-rules-file <путь_к_файлу_с_правилами_безопасности>

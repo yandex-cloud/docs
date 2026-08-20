@@ -483,6 +483,14 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `DeleteOrganization` | Удаление организации
 `DeleteOsLoginProfile` | Удаление профиля OS Login
 `DeleteUserSshKey` | Удаление SSH-ключа пользователя
+`application.linked.CreateApplication` | Создание связанного приложения
+`application.linked.DeleteApplication` | Удаление связанного приложения
+`application.linked.ReactivateApplication` | Активация связанного приложения
+`application.linked.SetApplicationAccessBindings` | Назначение прав доступа к связанному приложению
+`application.linked.SuspendApplication` | Деактивация связанного приложения
+`application.linked.UpdateApplication` | Изменение связанного приложения
+`application.linked.UpdateApplicationAccessBindings` | Изменение прав доступа к связанному приложению
+`application.linked.UpdateApplicationAssignments` | Изменение списка пользователей связанного приложения
 `idp.AddUserBlock` | Добавление блока пользователя
 `idp.AddUserpoolDomain` | Привязка домена к пулу пользователей
 `idp.branding.CreateAsset` | Загрузка ресурса для [брендирования](../../organization/concepts/branding.md)
@@ -590,9 +598,11 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `CreateArtifact` | Создание [артефакта](../../cloud-registry/concepts/artifacts/index.md)
 `CreateLifecyclePolicy` | Создание [политики жизненного цикла](../../cloud-registry/concepts/lifecycle-policy.md)
 `CreateRegistry` | Создание реестра
+`CreateScanPolicy` | Создание политики сканирования
 `DeleteArtifact` | Удаление артефактов
 `DeleteLifecyclePolicy` | Удаление политики жизненного цикла
 `DeleteRegistry` | Удаление реестра
+`DeleteScanPolicy` | Удаление политики сканирования
 `RevokeDelegation` | Отзыв прав делегирования у сервисного аккаунта для доступа к ресурсам облака
 `SetArtifactAccessBindings` | Назначение прав доступа для артефакта
 `SetIpPermissions` | Настройка доступа для IP-адресов
@@ -604,6 +614,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `UpdateIpPermissions` | Изменение доступа для IP-адресов
 `UpdateLifecyclePolicy` | Изменение политики жизненного цикла
 `UpdateRegistry` | Изменение реестра
+`UpdateScanPolicy` | Изменение политики сканирования
 `UpdateRegistryAccessBindings` | Изменение прав доступа на реестр
 `UpdateRegistryFolderAccessBindings` | Изменение прав доступа к каталогу реестра
 
@@ -835,6 +846,19 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `DeleteEntry` | Удаление объекта
 `DeleteSharedEntry` | Удаление общего объекта
 `DeleteWorkbooks` | Удаление одного или нескольких воркбуков
+`platform.CreateAirflowCluster` | Создание кластера Airflow
+`platform.CreateCloudEnvironment` | Создание облачного окружения
+`platform.CreateRestCatalog` | Создание REST-каталога
+`platform.CreateRestCatalogNamespace` | Создание пространства имен REST-каталога
+`platform.CreateSparkCluster` | Создание кластера Spark
+`platform.CreateTrinoCluster` | Создание кластера Trino
+`platform.DeleteAirflowCluster` | Удаление кластера Airflow
+`platform.DeleteCloudEnvironment` | Удаление облачного окружения
+`platform.DeleteRestCatalog` | Удаление REST-каталога
+`platform.DeleteRestCatalogNamespace` | Удаление пространства имен REST-каталога
+`platform.DeleteSparkCluster` | Удаление кластера Spark
+`platform.DeleteTrinoCluster` | Удаление кластера Trino
+`platform.UpdateCloudEnvironment` | Изменение облачного окружения
 `DisableBillingInstanceService` | Получение сигнала от Yandex Cloud Billing о неактивности привязанного к DataLens платежного аккаунта
 `DisableFolders` | [Отключение](../../datalens/settings/navigation.md#disable-folder-navigation) навигации по папкам
 `DisableTenantBilling` | Планирование отключения тарифа Business пользователем в начале следующего месяца ^1^
@@ -1198,16 +1222,16 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `DeleteCluster` | Удаление кластера
 `DeleteNodeGroup` | Удаление группы узлов
 `DeleteStoppedCluster` | Удаление остановленного кластера
-`InstallHelmRelease` | Установка версии Helm
+`marketplace.v1.InstallHelmRelease` | Установка приложения из Cloud Marketplace с помощью Helm-чарта
+`marketplace.v1.UninstallHelmRelease` | Удаление приложения, установленного из Cloud Marketplace с помощью Helm-чарта
+`marketplace.v1.UpdateHelmRelease` | Обновление приложения, установленного из Cloud Marketplace с помощью Helm-чарта
 `ScaleMaster` | Масштабирование основного узла
 `SetClusterAccessBindings` | Назначение прав доступа к кластеру
 `StartCluster` | Запуск кластера
 `StopCluster` | Остановка кластера
-`UninstallHelmRelease` | Удаление версии Helm
 `UpdateCluster` | Изменение кластера
 `UpdateClusterAccessBindings` | Изменение прав доступа к кластеру
 `UpdateClusterCertificate` | Изменение [сертификата кластера](../../managed-kubernetes/concepts/release-channels-and-updates.md#certificates)
-`UpdateHelmRelease` | Изменение версии Helm
 `UpdateNodeGroup` | Изменение группы узлов
 
 ## Yandex StoreDoc {#managed-service-for-mongodb}

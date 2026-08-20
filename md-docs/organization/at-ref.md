@@ -35,6 +35,14 @@ yandex.cloud.audit.organizationmanager.<имя_события>
 `DeleteOrganization` | Удаление организации
 `DeleteOsLoginProfile` | Удаление профиля OS Login
 `DeleteUserSshKey` | Удаление SSH-ключа пользователя
+`application.linked.CreateApplication` | Создание связанного приложения
+`application.linked.DeleteApplication` | Удаление связанного приложения
+`application.linked.ReactivateApplication` | Активация связанного приложения
+`application.linked.SetApplicationAccessBindings` | Назначение прав доступа к связанному приложению
+`application.linked.SuspendApplication` | Деактивация связанного приложения
+`application.linked.UpdateApplication` | Изменение связанного приложения
+`application.linked.UpdateApplicationAccessBindings` | Изменение прав доступа к связанному приложению
+`application.linked.UpdateApplicationAssignments` | Изменение списка пользователей связанного приложения
 `idp.AddUserBlock` | Добавление блока пользователя
 `idp.AddUserpoolDomain` | Привязка домена к пулу пользователей
 `idp.branding.CreateAsset` | Загрузка ресурса для [брендирования](concepts/branding.md)

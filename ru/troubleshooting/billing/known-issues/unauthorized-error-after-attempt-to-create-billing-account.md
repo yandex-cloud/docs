@@ -12,9 +12,9 @@ text message: Unauthorized; status: 401; description: Unauthorized;
 
 Проверьте список ролей вашей учетной записи. Возможно, текущая учетная запись не имеет необходимых ролей в текущем облаке.
 
-Чтобы создать платежный аккаунт, необходима роль владельца `{{ roles-cloud-owner }}` для облака, которое выбрано в консоли управления.
+Чтобы создать платежный аккаунт, необходима роль владельца организации `{{ roles-organization-owner }}`.
 
-Вы можете попросить владельца также [выдать вам роль владельца](../../../iam/operations/roles/grant.md) либо создать новое облако или перейти в него.
+Вы можете попросить владельца также [выдать вам роль](../../../iam/operations/roles/grant.md) `{{ roles-organization-owner }}` либо [создать новую организацию](../../../organization/operations/enable-org.md), [перейти в нее](../../../organization/operations/manage-organizations.md#switch-to-another-org) и [создать в ней платежный аккаунт](../../../billing/operations/create-new-account.md).
 
 Если у вас есть нужная роль, но ошибка все еще возникает — обновите страницу.
 

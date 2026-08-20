@@ -74,7 +74,7 @@ done
 
 1. [Создайте соединение](../operations/connection.md#create) с именем `cloud-logging-connection` и типом `Data Streams`.
 1. На странице создания привязки:
-    * Выберите **Автоматически заполнить настройки для Cloud Logging**.
+    * Выберите **Автоматически заполнить настройки для** ![image](../../_assets/console-icons/chevron-down.svg) → `Cloud Logging`.
     * Введите имя привязки `cloud-logging-binding`.
     * Укажите поток данных `cloud-logging-stream`.
     * Задайте формат `json-list`.

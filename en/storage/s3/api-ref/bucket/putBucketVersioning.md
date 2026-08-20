@@ -3,8 +3,9 @@
 Enables or suspends bucket versioning.
 
 Versioning can take one of the two statuses:
-- `Enabled`: Turns on version management for objects in the bucket. All new objects added to the bucket will get a unique version ID.
-- `Suspended`: Suspends version management for objects in the bucket. All new objects added to the bucket will get `null` for the version ID.
+
+* `Enabled`: Turns on version management for objects in the bucket. All new objects added to the bucket will get a unique version ID.
+* `Suspended`: Suspends version management for objects in the bucket. All new objects added to the bucket will get `null` for the version ID.
 
 {% include [versioning-suspend-rule](../../../../_includes/storage/versioning-suspend-rule.md) %}
 
@@ -18,15 +19,14 @@ PUT /{bucket}?versioning HTTP/2
 
 ### Path parameters {#path-parameters}
 
-Parameter | Description
------ | -----
-`bucket` | Bucket name.
+{% include [path-parameters](../../../_includes_service/storage-path-parameters.md) %}
 
 ### Query parameters {#request-params}
 
-Parameter | Description
------ | -----
-`versioning` | Required parameter that indicates the type of operation.
+#|
+|| **Parameter** | **Description** ||
+|| `versioning` | Required parameter that indicates the type of operation ||
+|#
 
 ### Data schema {#request-scheme}
 
@@ -37,11 +37,16 @@ Parameter | Description
 </VersioningConfiguration>
 ```
 
-Element | Description
------ | -----
-`Status` | Bucket versioning status.<br/><br/>Type: String.<br/>The possible values are: `Enabled \| Suspended`
+#|
+|| **Element** | **Description** ||
+|| `Status` | Bucket versioning status.
 
-### Headers {#request-headers}
+Type: String.
+It can be either `Enabled` or| `Suspended`. ||
+|#
+
+### Headings {#request-headers}
+
 Use only [common headers](../common-request-headers.md) in your requests.
 
 ## Response {#response}

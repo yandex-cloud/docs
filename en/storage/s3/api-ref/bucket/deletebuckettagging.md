@@ -14,17 +14,16 @@ DELETE /{bucket}?tagging HTTP/2
 
 ### Path parameters {#path-parameters}
 
-Parameter | Description
---- | ---
-`bucket` | Bucket name.
+{% include [path-parameters](../../../_includes_service/storage-path-parameters.md) %}
 
 ### Query parameters {#request-params}
 
-Parameter | Description
---- | ---
-`tagging` | Required parameter that indicates the type of operation.
+#|
+|| **Parameter** | **Description** ||
+|| `tagging` | Required parameter that indicates the type of operation ||
+|#
 
-### Headers {#request-headers}
+### Headings {#request-headers}
 
 Use [common headers](../common-request-headers.md) in your requests.
 

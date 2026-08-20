@@ -38,7 +38,7 @@ Create and run a data collection task with the {{ yds-full-name }} profile:
         1. In the **Network addresses** field, enter `yandex-cloud`.
     1. Click **Save and run**.
 
-To view logs, go to the events page:
+To view logs, open the events page:
 1. Go the to the **Data collection tasks** page.
 1. Click `YDS-logs-task`.
 1. Click **Collected events** → **Select**.

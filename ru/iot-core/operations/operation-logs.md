@@ -14,9 +14,8 @@
 
   1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится реестр.
   1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.iot.label_registries }}**.
-  1. Выберите нужный реестр.
-  1. Перейдите на панель ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** для выбранного реестра.
+  1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.iot.label_registries }}** и затем — нужный реестр.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.common.operations-key-value }}**.
 
      В открывшемся списке отображаются операции с выбранным реестром.
 

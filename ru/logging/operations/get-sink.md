@@ -13,7 +13,7 @@ description: Следуя данной инструкции, вы сможете
   1. [Перейдите]({{ link-console-main }}/link/logging) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/folder-arrow-down.svg) **{{ ui-key.yacloud.logging.label_sinks }}**.
   1. Выберите приемник.
-  1. На странице **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация о приемнике.
+  1. На открывшейся странице отобразится подробная информация о приемнике.
 
 - CLI {#cli}
 

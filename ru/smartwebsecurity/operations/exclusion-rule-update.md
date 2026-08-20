@@ -13,18 +13,14 @@ description: Следуя данной инструкции, вы сможете
   1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. На панели слева выберите ![image](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}**.
   1. Выберите профиль, в котором вы хотите изменить [правило-исключение](../concepts/waf.md#exclusion-rules).
-  1. В меню слева перейдите на вкладку ![image](../../_assets/console-icons/file-xmark.svg) **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rules }}**.
-  1. В строке с нужным правилом нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rules }}**.
+  1. В строке с нужным правилом нажмите ![options](../../_assets/console-icons/ellipsis.svg) → ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Измените имя и описание правила-исключения.
   1. (опционально) Включите опцию **{{ ui-key.yacloud.smart-web-security.waf.field_logging }}**, чтобы логировать факты срабатывания правил-исключений.
-  
   1. {% include [waf-rule-rules-section](../../_includes/smartwebsecurity/waf-rule-rules-section.md) %}
-  
   1. {% include [waf-rule-request-condition](../../_includes/smartwebsecurity/waf-rule-request-condition.md) %}
-
   1. {% include [waf-rule-traffic-conditions](../../_includes/smartwebsecurity/waf-rule-traffic-conditions.md) %}
-
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - {{ TF }} {#tf}
 

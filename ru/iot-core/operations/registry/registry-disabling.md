@@ -11,6 +11,13 @@
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+  
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите отключить реестр.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}** и выберите реестр.
+  1. Сверху нажмите кнопку ![image](../../../_assets/console-icons/toggle-off.svg) **{{ ui-key.yacloud.common.disable }}**.
+  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.disable }}**.
+
 - CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -61,6 +68,12 @@
 ## Включить реестр {#enable}
 
 {% list tabs group=instructions %}
+
+- Консоль управления {#console}
+  
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите включить реестр.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}** и выберите реестр.
+  1. Сверху нажмите кнопку ![image](../../../_assets/console-icons/toggle-on.svg) **{{ ui-key.yacloud.common.enable }}**.
 
 - CLI {#cli}
 

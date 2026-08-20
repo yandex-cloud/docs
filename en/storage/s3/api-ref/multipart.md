@@ -35,14 +35,6 @@ You can [get a list of incomplete uploads (ListMultipartUploads)](multipart/list
 
 Multipart upload methods:
 
-Method|Description
------|--------
-[CreateMultipartUpload](multipart/startupload.md) | Starts a multipart upload.
-[UploadPart](multipart/uploadpart.md) | Uploads a part of an object.
-[UploadPartCopy](multipart/copypart.md) | Copies part of an object.
-[ListParts](multipart/listparts.md) | Returns a list of uploaded parts.
-[AbortMultipartUpload](multipart/abortupload.md) | Aborts a multipart upload.
-[CompleteMultipartUpload](multipart/completeupload.md) | Completes a multipart upload.
-[ListMultipartUploads](multipart/listuploads.md) | Returns a list of incomplete uploads.
+{% include [multipart-methods-table](../../../_includes/storage/s3-api-ref/multipart-methods-table.md) %}
 
 {% include [the-s3-api-see-also-include](../../../_includes/storage/the-s3-api-see-also-include.md) %}

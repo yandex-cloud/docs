@@ -12,17 +12,13 @@ DELETE /{bucket}?cors HTTP/2
 
 ### Path parameters {#path-parameters}
 
-Parameter | Description
------ | -----
-`bucket` | Bucket name.
+{% include [path-parameters](../../../_includes_service/storage-path-parameters.md) %}
 
 ### Query parameters {#parameters}
 
-Parameter | Description
------ | -----
-`cors` | Required parameter that indicates the type of operation.
+{% include [query-parameters](../../../_includes_service/storage-cors-query-parameters.md) %}
 
-### Headers {#request-headers}
+### Headings {#request-headers}
 
 Use only [common headers](../common-request-headers.md) in your requests.
 

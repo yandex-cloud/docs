@@ -12,14 +12,11 @@ GET /{bucket}?object-lock HTTP/2
 
 ### Path parameters {#path-parameters}
 
-Parameter | Description
------ | -----
-`bucket` | Bucket name.
+{% include [path-parameters](../../../_includes_service/storage-path-parameters.md) %}
 
+### Headings {#request-headers}
 
-### Headers {#request-headers}
 Use only [common headers](../common-request-headers.md) in your requests.
-
 
 ## Response {#response}
 
@@ -30,7 +27,6 @@ Responses can only contain [common headers](../common-response-headers.md).
 ### Response codes {#response-codes}
 
 For a list of possible responses, see [{#T}](../response-codes.md).
-
 
 ### Data schema {#request-scheme}
 
@@ -47,14 +43,34 @@ For a list of possible responses, see [{#T}](../response-codes.md).
 </ObjectLockConfiguration>
 ```
 
-Element | Description
------ | -----
-`ObjectLockEnabled` | <p>Object lock status:</p><ul><li>`Enabled`: You can use object locks.</li></ul><p>If the element is not specified, object locks are disabled.</p><p>Path: `ObjectLockConfiguration\ObjectLockEnabled`.</p>
-`Rule` | <p>Lock settings.</p><p>Path: `ObjectLockConfiguration\Rule`.</p>
-`DefaultRetention` | <p>Default lock settings.</p><p>Path: `ObjectLockConfiguration\Rule\DefaultRetention`.</p>
-`Mode` | <p>Default retention [type](../../../concepts/object-lock.md#types):</p><ul><li>`GOVERNANCE`: Governance-mode retention.</li><li>`COMPLIANCE`: Compliance-mode retention.</li></ul><p>Path: `ObjectLockConfiguration\Rule\DefaultRetention\Mode`.</p>
-`Days` | <p>Default retention period in days since the object version upload. It must be a positive integer.</p><p>Path: `ObjectLockConfiguration\Rule\DefaultRetention\Days`.</p>
-`Years` | <p>Default retention period in years since the object version upload. It must be a positive integer.</p><p>Path: `ObjectLockConfiguration\Rule\DefaultRetention\Years`.</p>
+#|
+|| **Element** | **Description** ||
+|| `ObjectLockEnabled` | Object lock status:
+
+* `Enabled`: You can use object locks.
+
+If the element is not specified, object locks are disabled.
+
+Path: `ObjectLockConfiguration\ObjectLockEnabled`. ||
+|| `Rule` | Lock settings.
+
+Path: `ObjectLockConfiguration\Rule`. ||
+|| `DefaultRetention` | Default lock settings.
+
+Path: `ObjectLockConfiguration\Rule\DefaultRetention`. ||
+|| `Mode` | Default retention [type](../../../concepts/object-lock.md#types):
+
+* `GOVERNANCE`: Governance-mode retention.
+* `COMPLIANCE`: Compliance-mode retention.
+
+Path: `ObjectLockConfiguration\Rule\DefaultRetention\Mode`. ||
+|| `Days` | Default retention period in days since the object version upload. It must be a positive integer.
+
+Path: `ObjectLockConfiguration\Rule\DefaultRetention\Days`. ||
+|| `Years` | Default retention period in years since the object version upload. It must be a positive integer.
+
+Path: `ObjectLockConfiguration\Rule\DefaultRetention\Years`. ||
+|#
 
 #### Related articles {#related-articles}
 

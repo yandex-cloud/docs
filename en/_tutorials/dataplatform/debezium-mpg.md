@@ -148,11 +148,15 @@ In this tutorial, you will learn how to create a virtual machine in {{ yandex-cl
     database.user=user1
     database.password=<user1_password>
     database.dbname=db1
+    
+    # For Debezium 2.0+, use topic.prefix instead of database.server.name
     database.server.name=mpg
     table.include.list=public.measurements
     publication.name=mpg_publication
     slot.name=debezium_slot
     heartbeat.interval.ms=15000
+    
+    # For Debezium 2.0+, use topic.heartbeat.prefix instead of heartbeat.topics.prefix
     heartbeat.topics.prefix=debezium-heartbeat
     snapshot.mode=always
     ```
@@ -172,7 +176,7 @@ In this tutorial, you will learn how to create a virtual machine in {{ yandex-cl
     * `slot.name`: Name of the replication slot Debezium will create for the publication.
     * `heartbeat.interval.ms` and `heartbeat.topics.prefix`: Heartbeat settings [required for](https://debezium.io/documentation/reference/connectors/postgresql.html#postgresql-wal-disk-space) Debezium.
     * `snapshot.mode`: [Type of snapshot created](https://debezium.io/documentation/reference/stable/connectors/postgresql.html#postgresql-connector-snapshot-mode-options) at connector startup. For the connector to run properly, set this parameter to `always`.
-
+      
 ## Prepare the target cluster {#prepare-target}
 
 1. [Create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) to store data from the source cluster:
@@ -247,6 +251,8 @@ In this tutorial, you will learn how to create a virtual machine in {{ yandex-cl
     ```
 
 ## Check that Debezium works properly {#verify-debezium}
+
+{% include [kafkacat-info](../../_includes/mdb/mkf/kafkacat-info.md) %}
 
 1. In a separate terminal, run `kafkacat` in consumer mode:
 
