@@ -5,10 +5,6 @@ description: In this article, you will learn what S3 API methods can be used to 
 
 # All CORS methods
 
-Method | Description
------ | -----
-[PutBucketCors](cors/upload.md) | Uploads a bucket [CORS](../../concepts/cors.md) configuration to {{ objstorage-name }}.
-[GetBucketCors](cors/get.md) | Returns a bucket [CORS](../../concepts/cors.md) configuration from {{ objstorage-name }}.
-[DeleteBucketCors](cors/delete.md) | Deletes a bucket [CORS](../../concepts/cors.md) configuration.
+{% include [cors-methods-table](../../../_includes/storage/s3-api-ref/cors-methods-table.md) %}
 
 {% include [the-s3-api-see-also-include](../../../_includes/storage/the-s3-api-see-also-include.md) %}

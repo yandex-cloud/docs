@@ -253,7 +253,7 @@
 
 ### Создайте версию функции {#func-version}
 
-После создания функции вы автоматически будете перенаправлены на страницу **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}**.
+После создания функции вы автоматически будете перенаправлены на страницу **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}**.
 
 {% list tabs group=instructions %}
 
@@ -274,14 +274,14 @@
         {% endnote %}
 
     1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** укажите `myfunction.msgHandler`.
-    1. Задайте следующие параметры версии:
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** задайте следующие параметры версии:
 
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `10`.
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}** — `128 {{ ui-key.yacloud_portal.common.units.label_megabyte }}`.
 
     1. В поле **{{ ui-key.yacloud.forms.label_service-account-select }}** выберите `my-db-function-service-account`.
 
-    1. Добавьте переменные окружения:
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}** укажите:
 
         * `VERBOSE_LOG` — параметр, отвечающий за вывод подробной информации о выполнении функции. Введите значение `True`.
         * `DB_HOSTNAME` — имя хоста БД {{ PG }} для подключения.
@@ -295,9 +295,9 @@
         1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали кластер.
         1. [Перейдите]({{ link-console-main }}/link/managed-postgresql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
         1. Выберите кластер `my-pg-database`.
-        1. В строке с нужной БД нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
+        1. В строке с нужной БД нажмите ![image](../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
         1. На вкладке **PowerShell** найдите пример строки подключения.
-        1. Перенесите значения переменных `host`, `port`, `dbname` и `user` в соответствующее поле **{{ ui-key.yacloud.common.value }}** переменных окружения функции.
+        1. Перенесите значения переменных `host`, `port`, `dbname` и `user` в соответствующие поля **{{ ui-key.yacloud.component.key-values-input.label_value }}** переменных окружения функции.
 
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
@@ -337,7 +337,7 @@
 
     1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**:
 
-        * Выберите функцию для обработки данных, созданную ранее.
+        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function }}** выберите функцию для обработки данных, созданную ранее.
         * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function-tag }}** укажите `$latest`.
         * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function_service-account }}** укажите `my-db-function-service-account`.
 

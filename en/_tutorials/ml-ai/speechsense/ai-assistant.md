@@ -1,6 +1,6 @@
 # Working with an AI assistant in {{ speechsense-name }}
 
-You can use an [AI assistant]({{ link-docs-ai }}speechsense/concepts/assistants.md) to retrieve information from a dialog by connecting it to audio conversations and chats. This tutorial explains how to connect an agent to chats and uses a conversation between a travel agency and a customer as an example.
+You can use an [AI assistant]({{ link-docs-ai }}speechsense/concepts/assistants.md) to retrieve information from a dialog by connecting it to audio dialogs and chats. This tutorial explains how to connect an agent to chats and uses a conversation between a travel agency and a customer as an example.
 
 To retrieve information you need from a chat using an AI assistant:
 
@@ -23,7 +23,7 @@ The user must have the `billing.accounts.editor`, `billing.accounts.admin`, or `
 
 ### Required paid resources {#paid-resources}
 
-* {{ speechsense-name }}: Number of characters in each chat transcript and conversation analysis by your AI assistant (see [{{ speechsense-name }} pricing]({{ link-docs-ai }}/speechsense/pricing)).
+* {{ speechsense-name }}: Number of characters in each chat transcript and AI assistant-enabled dialog analysis (see [{{ speechsense-name }} pricing]({{ link-docs-ai }}/speechsense/pricing)).
 
 ## Set up your infrastructure {#infrastructure-prepare}
 
@@ -34,7 +34,7 @@ The user must have the `billing.accounts.editor`, `billing.accounts.admin`, or `
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the relevant folder.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+    1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
     1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
     1. Enter a name for the [service account](../../../iam/concepts/users/service-accounts.md), e.g., `speechsense`.
     1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -48,7 +48,7 @@ The user must have the `billing.accounts.editor`, `billing.accounts.admin`, or `
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the relevant folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Select the `speechsense` service account.
   1. In the top panel, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
@@ -156,7 +156,7 @@ The user must have the `billing.accounts.editor`, `billing.accounts.admin`, or `
 
 1. {% include [grpc-api-setup-repo](../../../_includes/mdb/grpc-api-setup-repo.md) %}
 1. {% include [install-grpcio-tools](../../../_includes/speechsense/data/install-grpcio-tools.md) %}
-1. Go to the directory hosting the {{ yandex-cloud }} API repository, create a directory named `upload_data`, and generate the client interface code in it. Then, go to the `upload_data` directory:
+1. In the directory containing the {{ yandex-cloud }} API repository, create a directory named `upload_data`, generate the client interface code in it, and then navigate to the directory:
 
     ```bash
     cd ~/cloudapi/ && \

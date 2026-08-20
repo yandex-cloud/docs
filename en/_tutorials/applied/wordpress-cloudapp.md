@@ -38,8 +38,8 @@ Create a [cloud network](../../vpc/concepts/network.md) with a [subnet](../../vp
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to deploy your infrastructure.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder to deploy the infrastructure in.
+  1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the top-right corner, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, enter a name for the network. The naming requirements are as follows:
 
@@ -131,7 +131,7 @@ Create a [cloud network](../../vpc/concepts/network.md) with a [subnet](../../vp
 
   To create a secret that will store the {{ mmy-name }} database password:
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. [Navigate]({{ link-console-main }}/link/lockbox) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Click **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify the secret name: `db-password-secret`.
   1. In the **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** field, select `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
@@ -212,7 +212,7 @@ Install [WordPress](/marketplace/products/yc/wordpress-app) using {{ cloud-apps-
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
+  1. [Navigate]({{ link-console-main }}/link/cloud-apps) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
   1. Click **{{ ui-key.yacloud.cloud-apps.button_empty-install-application }}**.
   1. Select the **WordPress** app and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
   1. Configure the application:
@@ -229,7 +229,7 @@ Install [WordPress](/marketplace/products/yc/wordpress-app) using {{ cloud-apps-
       || **{{ ui-key.yacloud.common.description }}** | — | — | Application instance description. ||
       || **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** | Yes | — | Service account with the `admin` role for the folder. To create a service account with the required permissions during app installation, select `{{ ui-key.yacloud.component.service-account-field.label_sg-auto }}`. ||
       || **DNS zone ID** | Yes | — | ID of the DNS zone to host the application's domain. ||
-      || **Site subdomain** | — | Empty | Domain for access to the main website, formed by adding a subdomain to the DNS zone domain, i.e., `site.example.com` or `example.com` if no subdomain is specified. ||
+      || **Site subdomain** | — | Empty | Domain for access to the main website. This domain is formed by adding a subdomain to the DNS zone domain, e.g., `site.example.com` or `example.com` if no subdomain is specified. ||
       || **Subdomain of the database admin panel** | — | `db` | Domain for access to the website's admin panel, formed by adding a subdomain to the DNS zone domain, e.g., `db.example.com`. ||
       || **Email sender** | — | `noreply@<website_domain>` | Email sender. Used to set up SMTP via {{ postbox-name }}. ||
       || **WordPress administrator username** | — | `admin` | Username for the WordPress admin account. ||
@@ -238,7 +238,7 @@ Install [WordPress](/marketplace/products/yc/wordpress-app) using {{ cloud-apps-
       || **VPC subnet** | Yes | — | Subnet to deploy your VM in. ||
       || **Number of vCPUs** | — | `2` | Number of vCPUs. ||
       || **RAM in GB** | — | `2` | RAM in GB. ||
-      || **Guaranteed vCPU share** | — | `100` | Guaranteed vCPU share in %. Valid values: 20%, 50%, or 100%. ||
+      || **Guaranteed vCPU share** | — | `100` | Guaranteed vCPU share in %. The possible values are 20%, 50%, or 100%. ||
       || **Public SSH key** | — | — | The key will be added to `authorized_keys` of the WordPress user.
       We recommend specifying a public SSH key to access the VM over SSH. You will need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) an SSH key pair by yourself. ||
       || **Disk type** | — | `network-ssd` | Type of disk to attach to the VM. ||
@@ -274,7 +274,7 @@ To shut down the resources you created and stop paying for them:
 1. Delete the installed WordPress app:
 
    1. In the [management console]({{ link-console-main }}), select the folder the application is installed in.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
+   1. [Navigate]({{ link-console-main }}/link/cloud-apps) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
    1. Find WordPress in the list.
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the app and select **{{ ui-key.yacloud.common.delete }}**.
    1. Confirm the app deletion.

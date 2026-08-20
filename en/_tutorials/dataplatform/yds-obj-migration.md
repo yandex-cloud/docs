@@ -218,7 +218,7 @@ Set up your infrastructure:
 1. Make sure the data from the stream in {{ yds-name }} has moved to the {{ objstorage-name }} bucket:
 
     1. In the [management console]({{ link-console-main }}), select the folder with the bucket.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Select the bucket from the list.
     1. Make sure the bucket contains a file named `<stream_name>/partition=0/<stream_name>+0+0.raw` (`.json` or `.csv`, depending on the selected output format) with the first message.
 
@@ -241,7 +241,7 @@ Set up your infrastructure:
 1. Make sure the {{ objstorage-name }} bucket contains the new data:
 
     1. In the [management console]({{ link-console-main }}), select the folder with the bucket.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Select the bucket from the list.
     1. Make sure the bucket contains a file named `<stream_name>/partition=0/<stream_name>+0+1.raw` (`.json` or `.csv`, depending on the selected output format) with the first message.
 

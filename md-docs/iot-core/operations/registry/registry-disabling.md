@@ -19,6 +19,13 @@
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+  
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы хотите отключить реестр.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **IoT Core** и выберите реестр.
+  1. Сверху нажмите кнопку ![image](../../../_assets/console-icons/toggle-off.svg) **Выключить**.
+  1. В открывшемся окне нажмите кнопку **Выключить**.
+
 - CLI {#cli}
 
   Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
@@ -71,6 +78,12 @@
 ## Включить реестр {#enable}
 
 {% list tabs group=instructions %}
+
+- Консоль управления {#console}
+  
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы хотите включить реестр.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **IoT Core** и выберите реестр.
+  1. Сверху нажмите кнопку ![image](../../../_assets/console-icons/toggle-on.svg) **Включить**.
 
 - CLI {#cli}
 

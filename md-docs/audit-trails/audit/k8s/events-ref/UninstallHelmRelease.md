@@ -2,7 +2,7 @@
 
 # Managed Services for Kubernetes Audit Trails Events: UninstallHelmRelease
 
-## Event JSON schema {#yandex.cloud.audit.k8s.marketplace.v1.UninstallHelmRelease2-schema}
+## Event JSON schema {#yandex.cloud.audit.k8s.UninstallHelmRelease2-schema}
 
 ```json
 {
@@ -86,37 +86,20 @@
     ]
   },
   "details": {
-    "clusterId": "string",
-    // Includes only one of the fields `clusterName`
-    "clusterName": "string",
-    // end of the list of possible fields
-    // Includes only one of the fields `helmReleaseId`
     "helmReleaseId": "string",
-    // end of the list of possible fields
-    // Includes only one of the fields `helmReleaseNamespace`
-    "helmReleaseNamespace": "string",
-    // end of the list of possible fields
-    // Includes only one of the fields `helmReleaseName`
-    "helmReleaseName": "string",
-    // end of the list of possible fields
-    // Includes only one of the fields `productId`
+    "clusterId": "string",
     "productId": "string",
-    // end of the list of possible fields
-    // Includes only one of the fields `productName`
     "productName": "string",
-    // end of the list of possible fields
     "productVersionId": "string",
-    // Includes only one of the fields `status`
-    "status": "string",
-    // end of the list of possible fields
-    "createdAt": "string"
+    "appNamespace": "string",
+    "appName": "string"
   },
   "requestParameters": "object",
   "response": "object"
 }
 ```
 
-## Field description {#yandex.cloud.audit.k8s.marketplace.v1.UninstallHelmRelease2}
+## Field description {#yandex.cloud.audit.k8s.UninstallHelmRelease2}
 
 #|
 ||Field | Description ||
@@ -145,7 +128,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || error | **[Status](#google.rpc.Status)**
 
 The error result of the operation in case of failure or cancellation. ||
-|| details | **[HelmReleaseDetails](#yandex.cloud.audit.k8s.marketplace.v1.HelmReleaseDetails)** ||
+|| details | **[EventDetails](#yandex.cloud.audit.k8s.UninstallHelmRelease.EventDetails)** ||
 || requestParameters | **object** ||
 || response | **object** ||
 |#
@@ -255,6 +238,39 @@ Includes only one of the fields `resourceName`. ||
 || userAgent | **string** ||
 || requestId | **string** ||
 || remotePort | **string** (int64)
+
+Includes only one of the fields `remotePort`. ||
+|#
+
+## Status {#google.rpc.Status}
+
+The error result of the operation in case of failure or cancellation.
+
+#|
+||Field | Description ||
+|| code | **integer** (int32)
+
+Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto). ||
+|| message | **string**
+
+An error message. ||
+|| details[] | **object**
+
+A list of messages that carry the error details. ||
+|#
+
+## EventDetails {#yandex.cloud.audit.k8s.UninstallHelmRelease.EventDetails}
+
+#|
+||Field | Description ||
+|| helmReleaseId | **string** ||
+|| clusterId | **string** ||
+|| productId | **string** ||
+|| productName | **string** ||
+|| productVersionId | **string** ||
+|| appNamespace | **string** ||
+|| appName | **string** ||
+|# (int64)
 
 Includes only one of the fields `remotePort`. ||
 |#

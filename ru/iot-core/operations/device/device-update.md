@@ -15,12 +15,11 @@
    Чтобы изменить имя устройства:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите изменить имя устройства.
-   1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. Выберите в списке нужный реестр.
-   1. В левой части окна выберите раздел **{{ ui-key.yacloud.iot.label_devices }}**.
-   1. Справа от имени нужного устройства нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg), в выпадающем списке выберите **{{ ui-key.yacloud.common.edit }}**.
+   1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}** и выберите нужный реестр.
+   1. Перейдите на вкладку **{{ ui-key.yacloud.iot.label_devices }}**.
+   1. Справа от имени нужного устройства нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
    1. Измените поле **{{ ui-key.yacloud.common.name }}**.
-   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -112,12 +111,11 @@
    Чтобы изменить описание устройства:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите изменить описание устройства.
-   1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. Выберите в списке нужный реестр.
-   1. В левой части окна выберите раздел **{{ ui-key.yacloud.iot.label_devices }}**.
-   1. Справа от имени нужного устройства нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg), в выпадающем списке выберите **{{ ui-key.yacloud.common.edit }}**.
+   1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}** и выберите нужный реестр.
+   1. Перейдите на вкладку **{{ ui-key.yacloud.iot.label_devices }}**.
+   1. Справа от имени нужного устройства нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
    1. Измените поле **{{ ui-key.yacloud.common.description }}**.
-   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 

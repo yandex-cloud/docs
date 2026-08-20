@@ -111,7 +111,7 @@ Set up your infrastructure:
    You can view the FQDN in the management console:
 
       1. Navigate to the cluster page.
-      1. Navigate to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+      1. Open the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** section.
       1. In the row of the host with the `KAFKA` role, copy the value of the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column.
 
    If the cluster is available, you will get this message:
@@ -268,7 +268,7 @@ On a local machine:
    You can view the FQDN in the management console:
 
       1. Navigate to the cluster page.
-      1. Navigate to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+      1. Open the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** section.
       1. In the row of the host with the `KAFKA` role, copy the value of the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column.
 
    If the cluster is available, you will get this message:

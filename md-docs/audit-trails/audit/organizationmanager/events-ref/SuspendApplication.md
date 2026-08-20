@@ -181,7 +181,8 @@
       ]
     },
     "description": "string",
-    "labels": "object"
+    "labels": "object",
+    "visibleInMyApps": "boolean"
   },
   "requestParameters": "object",
   "response": "object"
@@ -366,6 +367,7 @@ A list of messages that carry the error details. ||
 || attributeMapping | **[AttributeMappingDetails](#yandex.cloud.audit.organizationmanager.application.saml.AttributeMappingDetails)** ||
 || description | **string** ||
 || labels | **object** (map<**string**, **string**>) ||
+|| visibleInMyApps | **boolean** ||
 |#
 
 ## ServiceProviderDetails {#yandex.cloud.audit.organizationmanager.application.saml.ServiceProviderDetails}

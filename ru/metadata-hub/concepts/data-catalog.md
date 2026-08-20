@@ -14,9 +14,7 @@ description: Сервис {{ data-catalog-name }} позволяет вам со
 
 {% include [data-catalog-definition](../../_includes/metadata-hub/data-catalog-definition.md) %}
 
-Основная сущность, которой оперирует сервис {{ data-catalog-name }} — _каталог метаданных_. 
-
-Каталог метаданных одновременно является:
+Основная сущность, которой оперирует сервис {{ data-catalog-name }} — _каталог метаданных_.
 
 {% include [data-catalog-concept](../../_includes/metadata-hub/data-catalog-concept.md) %}
 

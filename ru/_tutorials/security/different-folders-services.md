@@ -107,17 +107,17 @@
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог СИБ](../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.action_empty }}**.
-  1. Выберите **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
+  1. Нажмите **{{ ui-key.yacloud.smart-web-security.action_empty }}**.
+  1. Выберите `{{ ui-key.yacloud.smart-web-security.title_default-template }}`.
   1. Введите имя профиля — `sws-ddos`.
   1. В поле **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** выберите `{{ ui-key.yacloud.smart-web-security.form.label_action-allow }}`.
-  1. В блоке **{{ ui-key.yacloud.smart-web-security.form.section_security-rules }}** напротив правила `sp-rule-1` нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
+  1. В блоке **{{ ui-key.yacloud.smart-web-security.form.section_security-rules }}** напротив правила `sp-rule-1` нажмите ![image](../../_assets/console-icons/ellipsis.svg) → ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Включите опцию **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry run)**.
 
      Эта опция используется для тестирования работы профиля. В режиме логирования трафик не блокируется и пользователи не будут отключены от вашего сервиса из-за неправильно настроенного профиля. Проанализируйте работу профиля и настройте [правила](../../smartwebsecurity/concepts/rules.md) в соответствии с потребностями вашего сервиса.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save-changes }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.save-changes }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 

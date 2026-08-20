@@ -43,6 +43,12 @@ description: В данном разделе приведены описания 
 
 {% include [clouddesktop-events-dp](../../_includes/audit-trails/events/clouddesktop-events-dp.md) %}
 
+## {{ cloud-registry-full-name }} {#cloud-registry}
+
+Имя сервиса — `cloudregistry`.
+
+{% include [cloudregistry-events-dp](../../_includes/audit-trails/events/cloudregistry-events-dp.md) %}
+
 ## {{ dns-full-name }} {#dns}
 
 Имя сервиса — `dns`.

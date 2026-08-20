@@ -23,7 +23,8 @@
   },
   "eventStatus": "string",
   "details": {
-    "clusterId": "string"
+    "clusterId": "string",
+    "projectId": "string"
   }
 }
 ```
@@ -77,4 +78,5 @@ Includes only one of the fields `resourceName`. ||
 #|
 ||Field | Description ||
 || clusterId | **string** ||
+|| projectId | **string** ||
 |#

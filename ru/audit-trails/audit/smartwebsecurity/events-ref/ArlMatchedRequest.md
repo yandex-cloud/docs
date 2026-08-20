@@ -286,7 +286,9 @@ A list of messages that carry the error details. ||
 
 - `ALLOW`
 - `DENY`
-- `CAPTCHA` ||
+- `CAPTCHA`
+- `JS_CHALLENGE`
+- `COOKIE_CHALLENGE` ||
 || matchedQuotas[] | **[MatchedQuota](#yandex.cloud.audit.smartwebsecurity.MatchedQuota)** ||
 |#
 

@@ -27,3 +27,105 @@ curl -X 'POST' \
 ```
 
 
+
+
+## MCP server {#mcp-server}
+
+The {{ datalens-name }} [MCP server](https://www.npmjs.com/package/@datalens-tech/mcp) provides LLM agents with access to the public API.
+
+
+The server uses the MCP protocol via stdio. Add it to the MCP client configuration using one of the following methods:
+
+* **Via npx (recommended)**. Run this request for npx to download the published package, no manual installation or compilation required:
+
+  ```bash
+  {
+    "mcpServers": {
+      "datalens": {
+        "command": "npx",
+        "args": ["-y", "@datalens-tech/mcp@latest"],
+        "env": {
+          "DATALENS_ORG_ID": "<org-id>"
+        }
+      }
+    }
+  }
+  ```
+
+* **Using global installation**. Install the package once, then use the `datalens-mcp` command:
+
+  ```bash
+  npm install -g @datalens-tech/mcp
+  ```
+
+  ```bash
+  {
+    "mcpServers": {
+      "datalens": {
+        "command": "datalens-mcp",
+        "env": {
+          "DATALENS_ORG_ID": "<org-id>"
+        }
+      }
+    }
+  }
+  ```
+
+* **From a local build**. Use this option if you cloned the repository. Compile it first:
+
+  ```bash
+  npm ci
+  npm run build
+  ```
+
+  Then point the client to the compiled file:
+
+  ```bash
+  {
+    "mcpServers": {
+      "datalens": {
+        "command": "node",
+        "args": ["/absolute/path/to/datalens-mcp/dist/index.js"],
+        "env": {
+          "DATALENS_ORG_ID": "<org-id>"
+        }
+      }
+    }
+  }
+  ```
+
+Where `DATALENS_ORG_ID` is your organization's ID.
+
+By default, the server runs `yc iam create-token` to get an IAM token.
+
+{% include [cli-install](../../_includes/cli-install.md) %}
+
+Additional `yc` settings:
+
+* `DATALENS_YC_PROFILE`: Use a specific `yc` profile instead of the active one.
+* `DATALENS_YC_BIN`: Full path to the `yc` binary file if not located in `PATH`.
+
+
+If you cannot run `yc` (e.g., in an isolated environment), you can manage the IAM token yourself: install `DATALENS_YC_STATIC_AUTH=1` and put the token in `DATALENS_API_AUTH_HEADER="Bearer <iam-token>"`. The value will be sent on each request, unmodified, and `yc` will never be called.
+
+{% note info %}
+
+IAM tokens expire in 12 hours. With this approach, it is up to you to update `DATALENS_API_AUTH_HEADER` and restart the server before the token expires.
+
+{% endnote %}
+
+
+### Environment requirements {#requirements}
+
+To run an MCP server alongside an agent or MCP client, make sure your environment meets these prerequisites:
+
+
+* [Node.js](https://nodejs.org/) version 18 or higher.
+* `npm` and `npx`, accessible via `PATH` (usually bundled with Node.js).
+* [`yc` CLI](../../cli/quickstart.md) if using the recommended authorization method via {{ yandex-cloud }}. When authorizing with a `yc` static token, the CLI is not required.
+
+
+### Use cases {#example}
+
+* Use cases on [GitHub](https://github.com/datalens-tech/datalens-mcp/blob/HEAD/.env.example)
+

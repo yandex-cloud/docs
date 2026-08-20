@@ -37,6 +37,7 @@ default:
   api-host-certmanager-validation: validation.certificate-manager.api.cloud.yandex.net
   api-host-data-transfer: datatransfer.api.cloud.yandex.net
   api-host-data-transfer-operation: operation.api.cloud.yandex.net/operations
+  api-host-datalens: https://api.datalens.tech
   api-host-iot-broker: iot-broker.api.cloud.yandex.net
   api-host-iot-data: iot-data.api.cloud.yandex.net
   api-host-kms: kms.api.cloud.yandex.net

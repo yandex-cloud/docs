@@ -66,39 +66,37 @@ description: Следуя данной инструкции, вы сможете
 1. На странице сервиса **{{ monitoring-short-name }}** нажмите **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}**.
 1. Введите название алерта, например, `exceeding-blocked-requests`.
 1. В блоке **{{ ui-key.yacloud_monitoring.alert.title_alerts-config }}** опишите запрос для получения `A`:
-   
+
    1. Напротив значка ![image](../../_assets/monitoring/chart-lines2.svg) нажмите ![image](../../_assets/monitoring/plus.svg) и добавьте параметры:
-     
+
      * `service` = `Application Load Balancer`;
      * `name` = `load_balancer.smart_web_security.requests_per_second`;
      * `antirobot_verdict` = `allow`;
      * `load_balancer` = `<имя_балансировщика_нагрузки>`.
-   
+
    1. Напротив значка ![image](../../_assets/monitoring/function.svg) нажмите ![image](../../_assets/monitoring/plus.svg).
    1. Задайте функцию для обработки данных `replace_nan(0)` — замена пропусков данных на значение `0`, чтобы график был непрерывным.
 
 1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.action.add-query }}**.
-
 1. Опишите запрос для получения `B`:
-   
+
    1. Укажите данные для сбора:
-     
+
      * `service` = `Application Load Balancer`;
      * `name` = `load_balancer.smart_web_security.requests_per_second`;
      * `antirobot_verdict` = `deny`;
      * `load_balancer` = `<имя_балансировщика_нагрузки>`.
-   
+
    1. Задайте функцию `replace_nan(0)`.
 
 1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.action.add-query }}**.
-   
 1. Опишите запрос `C` для получения доли `B` от `A` в процентах:
-   
+
    1. Нажмите ![image](../../_assets/monitoring/raw.svg), чтобы переключиться в текстовый режим редактирования запроса.
    1. В строке запроса введите `100 * B / A`.
 
 1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_alert-conditions }}** укажите:
-     
+
      * `Запрос для проверки` — `C`.
      * `Функция агрегации` — `Все значения`.
      * `Warning` — `30` (предупреждение).
@@ -154,41 +152,39 @@ description: Следуя данной инструкции, вы сможете
 1. На странице сервиса **{{ monitoring-short-name }}** нажмите **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}**.
 1. Введите название алерта, например, `inbound-over-ARL`.
 1. В блоке **{{ ui-key.yacloud_monitoring.alert.title_alerts-config }}** опишите запрос для получения `A`:
-   
+
    * Напротив значка ![image](../../_assets/monitoring/chart-lines2.svg) нажмите ![image](../../_assets/monitoring/plus.svg) и добавьте параметры:
-     
+
      * `service` = `Application Load Balancer`;
      * `name` = `load_balancer.smart_web_security.requests_per_second`;
      * `antirobot_verdict` = `allow`;
      * `load_balancer` = `<имя_балансировщика_нагрузки>`.
-   
+
    * Напротив значка ![image](../../_assets/monitoring/function.svg) нажмите ![image](../../_assets/monitoring/plus.svg) и задайте функции для обработки данных:
-     
+
      * `series_sum()` — сумма значений метрик с разными метками для конкретной точки. В нашем примере метка одна — `antirobot_verdict`, но для других метрик эта функция будет полезна.
      * `replace_nan(0)` — замена пропусков данных на значение `0`, чтобы график был непрерывным.
 
 1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.action.add-query }}**.
-
 1. Опишите запрос для получения `B`:
-   
+
    * Укажите данные для сбора:
-     
+
      * `service` = `Application Load Balancer`;
      * `name` = `load_balancer.smart_web_security.arl_requests_per_second`;
      * `arl_verdict` = `allow`;
      * `load_balancer` = `<имя_балансировщика_нагрузки>`.
-   
+
    * Задайте функции `series_sum()` и `replace_nan(0)`.
 
 1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.action.add-query }}**.
-   
 1. Опишите запрос `C` для получения разницы между  `A` и `B` в процентах:
-   
+
    1. Нажмите ![image](../../_assets/monitoring/raw.svg), чтобы переключиться в текстовый режим редактирования запроса.
    1. В строке запроса введите `100 * abs(A - B) / B`.
 
 1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_alert-conditions }}** укажите:
-     
+
      * `Запрос для проверки` — `C`.
      * `Функция агрегации` — `Все значения`.
      * `Warning` — `30` (предупреждение).

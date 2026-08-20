@@ -15,7 +15,7 @@ description: Следуя данной инструкции, вы сможете
   1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. Выберите профиль, в который вы хотите добавить правило.
-  1. Нажмите кнопку ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}** и в открывшемся окне:
+  1. Нажмите ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}** и в открывшемся окне:
 
       {% include [add-rule](../../_includes/smartwebsecurity/add-rule.md) %}
 
@@ -27,30 +27,30 @@ description: Следуя данной инструкции, вы сможете
 
   1. Чтобы посмотреть список имеющихся профилей безопасности в каталоге по умолчанию, выполните команду:
 
-     {% include [security-profile-list-command](../../_includes/smartwebsecurity/security-profile-list-command.md) %}
+      {% include [security-profile-list-command](../../_includes/smartwebsecurity/security-profile-list-command.md) %}
 
   1. Обновите профиль безопасности, применив к нему [YAML](https://ru.wikipedia.org/wiki/YAML)-конфигурацию, содержащую описание как уже имеющихся, так и новых правил безопасности, которые необходимы для профиля:
-  
-     1. Чтобы получить YAML-конфигурацию уже имеющихся в профиле правил безопасности, выполните команду, указав имя или идентификатор профиля безопасности:
 
-         {% include [security-profile-get-command](../../_includes/smartwebsecurity/security-profile-get-command.md) %}
+      1. Чтобы получить YAML-конфигурацию уже имеющихся в профиле правил безопасности, выполните команду, указав имя или идентификатор профиля безопасности:
 
-     1. Скопируйте в любой текстовый редактор и сохраните в файл текущую конфигурацию правил (содержимое блока `security_rules`), добавив в нее новые правила, например:
+          {% include [security-profile-get-command](../../_includes/smartwebsecurity/security-profile-get-command.md) %}
 
-         {% include [profile-create-yaml-example](../../_includes/smartwebsecurity/profile-create-yaml-example.md) %}
+      1. Скопируйте в любой текстовый редактор и сохраните в файл текущую конфигурацию правил (содержимое блока `security_rules`), добавив в нее новые правила, например:
 
-         {% include [change-profile-rules-alert](../../_includes/smartwebsecurity/change-profile-rules-alert.md) %}
+          {% include [profile-create-yaml-example](../../_includes/smartwebsecurity/profile-create-yaml-example.md) %}
 
-     1. Чтобы внести изменения в профиль безопасности, выполните команду, указав имя или идентификатор профиля:
-    
-         ```bash
-         yc smartwebsecurity security-profile update <имя_или_идентификатор_профиля_безопасности> \
-            --security-rules-file <путь_к_файлу_с_правилами_безопасности>
-         ```
+          {% include [change-profile-rules-alert](../../_includes/smartwebsecurity/change-profile-rules-alert.md) %}
 
-         Где `--security-rules-file` — путь к [YAML](https://ru.wikipedia.org/wiki/YAML)-файлу с описанием правил безопасности.
+      1. Чтобы внести изменения в профиль безопасности, выполните команду, указав имя или идентификатор профиля:
 
-         {% include [profile-create-yaml-result](../../_includes/smartwebsecurity/profile-create-yaml-result.md) %}
+          ```bash
+          yc smartwebsecurity security-profile update <имя_или_идентификатор_профиля_безопасности> \
+              --security-rules-file <путь_к_файлу_с_правилами_безопасности>
+          ```
+
+          Где `--security-rules-file` — путь к [YAML](https://ru.wikipedia.org/wiki/YAML)-файлу с описанием правил безопасности.
+
+          {% include [profile-create-yaml-result](../../_includes/smartwebsecurity/profile-create-yaml-result.md) %}
 
   Подробнее о команде `yc smartwebsecurity security-profile update` в [справочнике CLI](../../cli/cli-ref/smartwebsecurity/cli-ref/security-profile/update.md).
 
@@ -112,7 +112,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Создайте ресурсы:
 
-       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
   Проверить изменение ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/):
 

@@ -9,7 +9,7 @@ items:
         href: quickstart.md
       - name: Quotas and limits
         href: concepts/limits.md
-      - name: Courses
+      - name: Training materials
         href: training.md
   - name: Workbooks and collections
     items:
@@ -862,7 +862,7 @@ items:
         href: dashboard/link.md
       - name: Selectors
         href: dashboard/selector.md
-      - name: Cross-chart filtering
+      - name: Chart cross-filtering
         href: dashboard/chart-chart-filtration.md
       - name: Dashboard settings
         href: dashboard/settings.md
@@ -946,7 +946,7 @@ items:
                 href: operations/dashboard/dashboard-ai-reference-tab.md
               - name: Widget display order on a mobile device
                 href: operations/dashboard/display-modes.md
-          - name: Setting up cross-chart filtering
+          - name: Setting up chart cross-filtering
             href: operations/dashboard/add-filtration.md
           - name: Managing access to a dashboard
             href: operations/dashboard/manage-access.md
@@ -962,6 +962,12 @@ items:
         href: reports/versioning.md
       - name: Neuroanalyst in reports
         href: reports/insights.md
+  - name: HTML pages
+    items:
+      - name: Overview
+        href: html-pages/index.md
+      - name: Versioning
+        href: html-pages/versioning.md
   - name: Publishing and embedding
     items:
       - name: Overview
@@ -1541,7 +1547,7 @@ items:
       - name: Measure filter is unsupported for this type of query
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-FILTER-MEASURE_UNSUPPORTED.md
-      - name: Data preparation not finished
+      - name: Data preparation is not complete yet
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-MATERIALIZATION_NOT_FINISHED.md
       - name: Memory limit has been exceeded during query execution
@@ -1562,14 +1568,14 @@ items:
       - name: Requested database column does not exist
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-COLUMN_DOES_NOT_EXIST.md
-      - name: Data preparation not finished
+      - name: Data preparation is not complete yet
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-DATA_PREPARATION_NOT_FINISHED.md
       - name: Subquery exceeds data weight limit
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-DB-CHYT-SUBQ_WEIGHT_LIMIT_EXCEEDED.md
-      - name: Use of QL charts is prohibited at connection level
+      - name: Use of QL charts is prohibited at the connection level
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-CONNECTION_CONFIG-DASHSQL_NOT_ALLOWED.md
@@ -1649,7 +1655,7 @@ items:
       - name: Data type conversion error
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-TYPE_CAST-FAILED.md
-      - name: Accessing a nonexistent object
+      - name: Accessing a non-existent object
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-REFERENCED_ENTRY_NOT_FOUND.md
       - name: Got an unexpected response from an external API
