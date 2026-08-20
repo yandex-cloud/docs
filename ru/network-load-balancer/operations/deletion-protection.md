@@ -17,7 +17,7 @@ description: Чтобы предотвратить случайное удале
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
@@ -87,7 +87,7 @@ description: Чтобы предотвратить случайное удале
 
 ## Отключить защиту от удаления {#disable-deletion-protection}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
 - Консоль управления {#console}
 

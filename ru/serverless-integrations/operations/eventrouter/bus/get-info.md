@@ -45,7 +45,7 @@ description: Следуя данной инструкции, вы сможете
      status: ACTIVE
      ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 

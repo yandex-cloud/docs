@@ -76,7 +76,7 @@ description: Следуя данной инструкции, вы сможете
                type: resource-manager.folder
      ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 

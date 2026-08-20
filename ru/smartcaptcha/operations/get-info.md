@@ -49,7 +49,7 @@ description: Следуя данной инструкции, вы сможете
      challenge_type: IMAGE_TEXT
      ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 

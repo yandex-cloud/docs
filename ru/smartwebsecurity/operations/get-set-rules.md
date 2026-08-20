@@ -19,7 +19,7 @@ description: Следуя данной инструкции, вы сможете
      * Количество активных правил.
      * Порог аномальности и уровень паранойи (для набора OWASP).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
