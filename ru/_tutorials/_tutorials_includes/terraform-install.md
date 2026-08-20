@@ -34,10 +34,11 @@ export PATH=$PATH:/path/to/terraform
 
   Используйте один из способов:
   * [Скачайте дистрибутив {{ TF }}](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
-  * Установите {{ TF }} с помощью пакетного менеджера [Homebrew](https://brew.sh), используя команду:
+  * Установите {{ TF }} с помощью пакетного менеджера [Homebrew](https://brew.sh), используя команды:
 
     ```bash
-    brew install terraform
+    brew tap hashicorp/tap
+    brew install hashicorp/tap/terraform
     ```
 
 {% endlist %}
