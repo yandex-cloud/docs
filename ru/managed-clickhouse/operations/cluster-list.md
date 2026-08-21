@@ -171,14 +171,14 @@ description: Вы можете запросить детальную инфор�
 
 - Консоль управления {#console}
 
-  Чтобы посмотреть операции со всеми кластерами {{ mch-name }}, на панели слева выберите ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.clickhouse.switch_operations }}**. В открывшемся списке также отображаются операции для ресурсов, которые были удалены.
+  Чтобы посмотреть операции со всеми кластерами {{ mch-name }}, на панели слева выберите ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.clickhouse.switch_operations }}**. В открывшемся списке также отображаются операции для ресурсов, которые были удалены.
 
   Можно получить список операций для кластера:
 
   1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится кластер.
   1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.clickhouse.switch_list }}**.
-  1. Выберите нужный кластер и перейдите на вкладку ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.clickhouse.switch_operations }}**.
+  1. Выберите нужный кластер и перейдите на ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.clickhouse.switch_operations }}**.
 
      В открывшемся списке отображаются операции с выбранным кластером.
 

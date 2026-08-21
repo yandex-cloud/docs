@@ -7,7 +7,7 @@ description: Follow this guide to learn how to filter, search, and sort investig
 
 {% include [preview-by-request](../../../_includes/note-preview-by-request.md) %}
 
-This section describes how to work with the investigations list: filter investigations by date, search by name and tags, and sort by modification date.
+This section describes how to work with the investigations list: filter investigations by date, search by name and labels, and sort by modification date.
 
 ## Getting started {#before-you-begin}
 
@@ -48,7 +48,7 @@ To filter investigations by creation date:
 
 {% endlist %}
 
-## Searching by name or tag {#search}
+## Searching by name or label {#search}
 
 To find an investigation:
 
@@ -61,13 +61,14 @@ To find an investigation:
   1. The results will be displayed automatically.
 
   The system will search for keywords in the following fields:
+
   * Investigation name.
   * Investigation description.
-  * Tags.
+  * labels.
 
   {% note tip %}
 
-  Use tags for quick category-based searches, e.g., `prod`, `security-incident`, `february-2024`.
+  Use labels for quick category-based searches, e.g., `prod`, `security-incident`, `february-2024`.
 
   {% endnote %}
 
@@ -98,7 +99,7 @@ The investigations list displays the following details for each investigation:
 * **Name**: Brief description of the investigation's purpose.
 * **Creation date**: Timestamp when the investigation was created.
 * **Last modified date**: Timestamp of the most recent modification.
-* **Tags**: Keywords to group and search for investigations.
+* **Labels**: Keywords to group and search for investigations.
 
 To open an investigation, click its name in the list.
 

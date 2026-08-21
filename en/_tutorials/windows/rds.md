@@ -53,7 +53,7 @@ Create a cloud network named `my-network` with subnets in all availability zones
 
      To create a [cloud network](../../vpc/concepts/network.md):
      1. In the [management console]({{ link-console-main }}), select a folder where you want to create your cloud network.
-     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+     1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
      1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
      1. Specify `my-network` as the network name.
      1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
@@ -185,7 +185,7 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder where you want to create your preemptible VM.
-     1. Navigate to **{{ ui-key.yacloud_billing.iam.folder.dashboard.label_compute }}**.
+     1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud_billing.iam.folder.dashboard.label_compute }}**.
      1. Select the `my-rds-vm` VM.
      1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.instances.button_action-restart }}**.
    
@@ -201,7 +201,7 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
    
    {% endlist %}
 
-1. Connect to `my-rds-vm` via [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` as your username and your password.
+1. Connect to `my-rds-vm` via [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` for username and your password.
 1. Assign Active Directory roles:
 
     {% list tabs group=programming_language %}
@@ -227,7 +227,7 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
       
     {% endlist %}
 
-   Windows will restart automatically. Reconnect to `my-rds-vm`. Use `yantoso\Administrator` as your username and your password. Restart PowerShell.
+   Windows will restart automatically. Reconnect to `my-rds-vm`. Use the `yantoso\Administrator` username and your password. Restart PowerShell.
 
 ## Set up firewall rules {#firewall}
 

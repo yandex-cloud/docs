@@ -10,7 +10,7 @@ You can add, rename, and delete databases, and view their info.
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** tab.
 
 - CLI {#cli}
@@ -83,7 +83,7 @@ You can add, rename, and delete databases, and view their info.
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the cluster name.
   1. If necessary, [create](cluster-users.md#adduser) a new user account for database owner.
   1. Select the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** tab.
@@ -98,7 +98,7 @@ You can add, rename, and delete databases, and view their info.
 
       * Deletion protection
 
-        Possible values:
+        The possible values are:
           - **Same as cluster**
           - **Enabled**
           - **Disabled**
@@ -426,7 +426,7 @@ You can add, rename, and delete databases, and view their info.
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the relevant database row and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Select your preferred option in the **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}** field.
@@ -551,7 +551,7 @@ A database can have deletion protection enabled. To delete it, first [disable de
 - Management console {#console}
 
   To delete a database:
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** tab.
   1. Find the database you need in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in its row, select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**, then confirm the deletion.
 

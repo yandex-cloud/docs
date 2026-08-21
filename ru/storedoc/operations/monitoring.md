@@ -23,7 +23,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storedoc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mongodb.cluster.switch_monitoring }}**.
+  1. Нажмите на имя нужного кластера и выберите ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.mongodb.cluster.switch_monitoring }}**.
       
       На открывшейся странице будут отображены графики, отражающие состояние кластера.
   
@@ -132,7 +132,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storedoc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mongodb.cluster.switch_monitoring }}**.
+  1. Нажмите на имя нужного кластера и выберите ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.mongodb.cluster.switch_monitoring }}**.
   1. Перейдите на вкладку **Хосты** и выберите хост.
 
       На открывшейся странице будут отображены графики, отражающие состояние хостов кластера.
@@ -172,7 +172,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storedoc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mongodb.cluster.switch_monitoring }}**.
+  1. Нажмите на имя нужного кластера и выберите ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.mongodb.cluster.switch_monitoring }}**.
   1. Перейдите на вкладку **Шарды** и выберите шард.
       
       На открывшейся странице будут отображены графики, отражающие состояние выбранного шарда и его хостов.

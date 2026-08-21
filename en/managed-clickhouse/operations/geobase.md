@@ -55,7 +55,7 @@ If you are not using your custom geobase, [remove it](#disconnect).
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
   1. In the **Geobase uri** field, enter a link to the geobase archive in {{ objstorage-full-name }}.
@@ -88,7 +88,7 @@ If you are not using your custom geobase, [remove it](#disconnect).
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create such a file, see the [Creating a cluster](cluster-create.md) section.
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. In the {{ mch-name }} cluster settings, add the `geobase_uri` parameter with the link to the archive containing the geobase being added in {{ objstorage-full-name }}:
 
@@ -110,7 +110,7 @@ If you are not using your custom geobase, [remove it](#disconnect).
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -217,7 +217,7 @@ If you are not using your custom geobase, [remove it](#disconnect).
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
     1. Delete the value in the **Geobase uri** field.

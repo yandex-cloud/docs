@@ -22,7 +22,7 @@
     1. Перейдите на [страницу каталога](https://console.yandex.cloud).
     1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
     1. Откройте страницу нужного кластера Yandex MPP Analytics for PostgreSQL.
-    1. На панели слева выберите ![image](../../../_assets/console-icons/arrow-right-arrow-left.svg) **PXF**.
+    1. Перейдите на вкладку **PXF**.
     1. Нажмите кнопку **Создать источник данных**.
     1. Выберите тип подключения `JDBC`.
     1. Укажите имя источника.

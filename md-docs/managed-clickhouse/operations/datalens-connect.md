@@ -45,7 +45,7 @@
 
   1. Убедитесь, что сервис **DataLens** [активирован](#activate-datalens) в нужном каталоге и доступ к кластеру из него [разрешен](#allow-access).
   1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **DataLens**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![chevron-down](../../_assets/console-icons/chevron-down.svg) **Другое** → **DataLens**.
   1. Нажмите кнопку **Создать подключение**.
 
      {% cut "У меня нет кнопки «Создать подключение»" %}
@@ -79,7 +79,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
   1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **DataLens**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![chevron-down](../../_assets/console-icons/chevron-down.svg) **Другое** → **DataLens**.
 
      {% cut "Моего подключения нет в списке" %}
 
@@ -97,7 +97,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
   1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **DataLens**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![chevron-down](../../_assets/console-icons/chevron-down.svg) **Другое** → **DataLens**.
   1. Выберите подключение из списка.
 
      {% cut "Моего подключения нет в списке" %}
@@ -120,7 +120,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
   1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **DataLens**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![chevron-down](../../_assets/console-icons/chevron-down.svg) **Другое** → **DataLens**.
   1. Выберите подключение из списка.
 
      {% cut "Моего подключения нет в списке" %}

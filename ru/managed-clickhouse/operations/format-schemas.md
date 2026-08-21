@@ -17,7 +17,7 @@ description: Следуя данной инструкции, вы научите
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
    1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}**.
+   1. Нажмите на имя нужного кластера и выберите вкладку ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}**.
 
 - CLI {#cli}
 
@@ -176,7 +176,7 @@ description: Следуя данной инструкции, вы научите
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
     1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.clickhouse.cluster.format-schemas.button-action_add-format-schema }}**.
     1. В диалоговом окне **{{ ui-key.yacloud.clickhouse.cluster.format-schemas.dialog.title_add }}** заполните форму, указав в поле **{{ ui-key.yacloud.clickhouse.cluster.format-schemas.dialog.field_format-schema-uri }}** полученную ранее ссылку на файл со схемой формата.
     1. Нажмите кнопку **{{ ui-key.yacloud.clickhouse.cluster.format-schemas.dialog.label_add }}**.
@@ -330,7 +330,7 @@ description: Следуя данной инструкции, вы научите
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
     1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}**.
     1. Выберите нужную схему, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
 
 - CLI {#cli}
@@ -477,7 +477,7 @@ description: Следуя данной инструкции, вы научите
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
    1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}**.
+   1. Нажмите на имя нужного кластера и выберите вкладку ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}**.
    1. Выберите нужную схему, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
 
 - CLI {#cli}

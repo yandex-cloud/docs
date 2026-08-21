@@ -86,7 +86,7 @@ Make sure the upgrade will not disrupt your applications:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to update the {{ CH }} version.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**. 
+    1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**. 
     1. In the list of clusters, select the one to update.
     1. Click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, select the version in the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field.

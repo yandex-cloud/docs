@@ -315,7 +315,7 @@ Learn more about TXT records in [RFC-1035](https://www.ietf.org/rfc/rfc1035.html
 Some {{ yandex-cloud }} services use {{ dns-name }} resource records and allow you to create them. In the list of {{ dns-name }} resource records, such records are marked with icons of the services they were created in:
 
 * {{ api-gw-full-name }}: [ANAME record](#aname) required to [bind](../../api-gateway/operations/api-gw-domains.md) the domain to the API gateway and marked with the ![logo](../../_assets/api-gateway/api-gateway-logo.svg) sign.
-* {{ certificate-manager-full-name }}: [CNAME record](#cname) required to pass the [domain rights check](../../certificate-manager/concepts/challenges.md) and marked with the ![logo](../../_assets/certificate-manager/certificate-manager-logo.svg) sign.
+* {{ certificate-manager-full-name }}: [CNAME record](#cname) required to pass [domain ownership verification](../../certificate-manager/concepts/challenges.md) and marked with the ![logo](../../_assets/certificate-manager/certificate-manager-logo.svg) sign.
 * {{ objstorage-full-name }}: [ANAME record](#aname) required to [bind](../../storage/operations/hosting/own-domain.md) the domain to the bucket and marked with the ![logo](../../_assets/storage/storage-logo.svg) sign.
 
 You cannot modify service records and you can only delete one at a time. After you delete the resource for which the service resource record was created, you have to [delete](../operations/resource-record-delete.md) this resource record manually.

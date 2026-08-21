@@ -84,7 +84,7 @@ items:
                 href: operations/clickhouse/delete-database.md
               - name: Creating a role
                 href: operations/clickhouse/create-role.md
-              - name: Editing a role
+              - name: Changing a role
                 href: operations/clickhouse/edit-role.md
               - name: Deleting a role
                 href: operations/clickhouse/delete-role.md
@@ -104,7 +104,7 @@ items:
                 href: operations/rest-catalog/create-principal.md
               - name: Deleting a catalog user
                 href: operations/rest-catalog/delete-principal.md
-              - name: Deleting a folder.
+              - name: Deleting a folder
                 href: operations/rest-catalog/delete-catalog.md
           - name: Managed Service for Trino
             items:
@@ -118,7 +118,7 @@ items:
                 href: operations/trino/create-catalog.md
               - name: Updating catalog settings
                 href: operations/trino/edit-catalog.md
-              - name: Deleting a folder.
+              - name: Deleting a folder
                 href: operations/trino/delete-catalog.md
           - name: '{{ yt-name }}'
             items:

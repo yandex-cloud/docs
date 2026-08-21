@@ -17,7 +17,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-Make sure the cloud has enough [quotas](../../compute/concepts/limits.md#compute-quotas) for the total number of `Gen2` GPUs, amount of RAM, number of vCPUs, and SSD size to create the VM. To do this, use [{{ quota-manager-full-name }}](../../quota-manager/).
+Make sure the cloud has enough [quotas](../../compute/concepts/limits.md#compute-quotas) for the total number of `Gen2` GPUs, amount of RAM, number of vCPUs, and SSD size to create the VM. Use [{{ quota-manager-full-name }}](../../quota-manager/) to run this check.
 
 ### Required paid resources {#paid-resources}
 
@@ -47,7 +47,7 @@ The infrastructure support cost includes a fee for continuously running VMs and 
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
    1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the [Ubuntu 20.04 LTS Secure Boot CUDA 12.2](/marketplace/products/yc/ubuntu-2004-lts-secureboot-cuda-12-2) public image.

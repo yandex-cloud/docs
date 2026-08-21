@@ -25,7 +25,7 @@ The cost of resources includes:
 * Fee for using VM instances (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for the number of function calls, computing resources allocated for the function, and outgoing traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
 
-## Download a project {#download}
+## Download the project {#download}
 
 Clone the repository with the project:
 
@@ -40,7 +40,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-trigger-budget
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+    1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
     1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
     1. Enter a name for the service account: `service-account-for-budget`.
     1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the `compute.admin`, `iam.serviceAccounts.user`, and `{{ roles-functions-invoker }}` roles to the service account.
@@ -141,7 +141,7 @@ zip src.zip index.go go.mod
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you created the service account.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Create a function:
         1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
         1. Specify the function name: `function-for-budget`.
@@ -246,7 +246,7 @@ zip src.zip index.go go.mod
 
     1. In the [management console]({{ link-console-main }}), select the folder where you created the service account, function, and budget.
 
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
     1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 

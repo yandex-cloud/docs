@@ -29,7 +29,7 @@
 
 1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
 
-1. Нажмите на имя нужного кластера и выберите вкладку **Мониторинг**.
+1. Нажмите на имя нужного кластера и выберите ![chevron-down](../../_assets/console-icons/chevron-down.svg) **Другое** → **Мониторинг**.
 
 1. Чтобы перейти к работе с метриками, дашбордами или алертами в сервисе Yandex Monitoring, нажмите кнопку **Открыть в Monium** на панели сверху.
 

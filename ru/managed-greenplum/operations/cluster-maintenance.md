@@ -15,7 +15,7 @@ description: Как посмотреть информацию о техниче�
 
   1. Перейдите [на страницу каталога]({{ link-console-main }}).
   1. [Перейдите]({{ link-console-main }}/link/managed-greenplum) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
   1. (Опционально) Выберите статус обслуживания над списком обслуживаний.
 
 {% endlist %}
@@ -28,7 +28,7 @@ description: Как посмотреть информацию о техниче�
 
   1. Перейдите [на страницу каталога]({{ link-console-main }}).
   1. [Перейдите]({{ link-console-main }}/link/managed-greenplum) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
   1. Выберите нужное обслуживание. Откроется страница обслуживания.
   1. Нажмите ссылку **{{ ui-key.yacloud.mdb.maintenance.label_task-logs }}**.
 
@@ -42,7 +42,7 @@ description: Как посмотреть информацию о техниче�
 
   1. Перейдите [на страницу каталога]({{ link-console-main }}).
   1. [Перейдите]({{ link-console-main }}/link/managed-greenplum) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
   1. В строке обслуживания со статусом **{{ ui-key.yacloud.mdb.maintenance.label_task-status-planned }}** нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) **{{ ui-key.yacloud.mdb.maintenance.action_change-task-time }}**.
   1. Выберите тип переноса запланированного обслуживания:
     
@@ -177,7 +177,7 @@ description: Как посмотреть информацию о техниче�
 
   1. Перейдите [на страницу каталога]({{ link-console-main }}).
   1. [Перейдите]({{ link-console-main }}/link/managed-greenplum) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
   1. В строке нужного обслуживания нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт ![image](../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.mdb.maintenance.action_exec-task-now }}**.
 
 - CLI {#cli}
@@ -265,7 +265,7 @@ description: Как посмотреть информацию о техниче�
 
   1. Перейдите [на страницу каталога]({{ link-console-main }}).
   1. [Перейдите]({{ link-console-main }}/link/managed-greenplum) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
   1. В правом верхнем углу страницы нажмите кнопку ![image](../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.mdb.maintenance.action_maintenance-window-setup }}**.
   1. Выберите окно обслуживания:
     

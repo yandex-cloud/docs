@@ -12,8 +12,8 @@ You can connect modules to a [new](cluster-create.md) or [existing](#enable-modu
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder containing your cluster.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
+    1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
     1. Select the cluster.
     1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Under **{{ ui-key.yacloud.redis.local.valkey_modules_aQacT }}**, enable the required {{ VLK }} modules.
@@ -49,8 +49,10 @@ You can connect modules to a [new](cluster-create.md) or [existing](#enable-modu
      ```
 
      Where:
+     
      * `--cluster-name`: {{ mrd-name }} cluster name. You can get it from the [list of clusters in the folder](cluster-list.md#list-clusters).
      * `--valkey-modules`: [{{ VLK }} module](../concepts/modules.md) parameters:
+        
         * `enable-valkey-search`: Enable the `Valkey-Search` module, `true` or `false`.
         * `valkey-search-reader-threads`: Number of request processing threads in the `Valkey-Search` module.
         * `valkey-search-writer-threads`: Number of indexing threads in the `Valkey-Search` module.
@@ -147,8 +149,10 @@ You can connect modules to a [new](cluster-create.md) or [existing](#enable-modu
         * `configSpec.modules`: {{ VLK }} module parameters:
 
             * `valkeySearch.enabled`: Enable the `Valkey-Search` module, `true` or `false`. What you can set up for the module:
+                
                 * `valkeySearch.readerThreads`: Number of request processing threads.
                 * `valkeySearch.writerThreads`: Number of indexing threads.
+            
             * `valkeyJson.enabled`: Enable the `Valkey-JSON` module, `true` or `false`.
             * `valkeyBloom.enabled`: Enable the `Valkey-Bloom` module, `true` or `false`.
 
@@ -213,8 +217,10 @@ You can connect modules to a [new](cluster-create.md) or [existing](#enable-modu
         * `config_spec.modules`: {{ VLK }} module parameters:
 
             * `valkey_search.enabled`: Enable the `Valkey-Search` module, `true` or `false`. What you can set up for the module:
+                
                 * `valkey_search.reader_threads`: Number of request processing threads.
                 * `valkey_search.writer_threads`: Number of indexing threads.
+            
             * `valkey_json.enabled`: Enable the `Valkey-JSON` module, `true` or `false`.
             * `valkey_bloom.enabled`: Enable the `Valkey-Bloom` module, `true` or `false`.
 
@@ -230,8 +236,8 @@ You can connect modules to a [new](cluster-create.md) or [existing](#enable-modu
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder containing your cluster.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
+    1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
     1. Select the cluster.
     1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Under **{{ ui-key.yacloud.redis.local.valkey_modules_aQacT }}**, edit the {{ VLK }} module settings.
@@ -267,8 +273,10 @@ You can connect modules to a [new](cluster-create.md) or [existing](#enable-modu
      ```
 
      Where:
+     
      * `--cluster-name`: {{ mrd-name }} cluster name. You can get it from the [list of clusters in the folder](cluster-list.md#list-clusters).
      * `--valkey-modules`: [{{ VLK }} module](../concepts/modules.md) parameters:
+        
         * `valkey-search-reader-threads`: Number of request processing threads in the `Valkey-Search` module.
         * `valkey-search-writer-threads`: Number of indexing threads in the `Valkey-Search` module.
 

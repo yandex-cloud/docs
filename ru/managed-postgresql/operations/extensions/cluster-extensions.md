@@ -39,7 +39,7 @@
 - Консоль управления {#console}
 
   1. [Перейдите]({{ link-console-main }}/link/managed-postgresql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Нажмите на имя нужного кластера и выберите блок **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}**.
   1. В колонке **{{ ui-key.yacloud.mdb.cluster.databases.column_extensions }}** будет отображаться список расширений, подключенных к каждой базе данных.
 
 - CLI {#cli}

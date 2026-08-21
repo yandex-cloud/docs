@@ -52,7 +52,7 @@ You can specify [{{ CH }} settings at the query level]({{ ch.docs }}{{ lang }}/o
    To configure {{ CH }}:
 
    1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the name of the cluster you need, then go the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** section.
    1. In the appropriate user row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
    1. In the **{{ ui-key.yacloud.mdb.forms.section_additional }}** list, expand **settings** and [configure {{ CH }}](../concepts/settings-list.md#user-level-settings).

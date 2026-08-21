@@ -9,7 +9,7 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}** tab.
 
 - CLI {#cli}
@@ -82,7 +82,7 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}** tab.
   1. Select the shard group to view detailed information.
 
@@ -158,7 +158,7 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.shard-groups.button_add-group }}**.
   1. Fill in the form fields and click **{{ ui-key.yacloud.common.apply }}**.
@@ -190,7 +190,7 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-     For more on how to create such a file, see the [Creating a cluster](cluster-create.md) section.
+     For more on how to create such a file, see [Creating a cluster](cluster-create.md).
   1. Add the `shard_group` section to the {{ mch-name }} cluster description.
 
      ```hcl
@@ -213,7 +213,7 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -302,7 +302,7 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the shard group in question and select **{{ ui-key.yacloud.common.edit }}**.
 
@@ -337,7 +337,7 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-     For more on how to create such a file, see the [Creating a cluster](cluster-create.md) section.
+     For more on how to create this file, see [Creating a cluster](cluster-create.md).
   1. In the {{ mch-name }} cluster description, update the `shard_group` section for the shard group you need:
 
      ```hcl
@@ -360,7 +360,7 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -462,7 +462,7 @@ Tables created on the deleted group remain but become unusable: any attempts to 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the shard group in question and select **{{ ui-key.yacloud.common.delete }}**.
 
@@ -489,7 +489,7 @@ Tables created on the deleted group remain but become unusable: any attempts to 
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-     For more on how to create such a file, see the [Creating a cluster](cluster-create.md) section.
+     For more on how to create this file, see [Creating a cluster](cluster-create.md).
   1. Delete the `shard_group` section for the group in question from the {{ mch-name }} cluster description.
   1. Make sure the settings are correct.
 

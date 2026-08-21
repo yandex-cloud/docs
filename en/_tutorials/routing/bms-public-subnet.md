@@ -57,7 +57,7 @@ Order a [dedicated public subnet](../../baremetal/concepts/public-network.md#pub
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are going to create your infrastructure.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. [Navigate]({{ link-console-main }}/link/baremetal) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![globe](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.baremetal.label_public-subnets_v16CV }}**.
   1. At the top right, click **{{ ui-key.yacloud.baremetal.label_create-public-subnet-full }}**.
   1. In the **{{ ui-key.yacloud.baremetal.field_zone-id }}** field, select the [availability zone](../../overview/concepts/geo-scope.md) where the subnet will be available.
@@ -115,7 +115,7 @@ Server setup and OS installation may take up to 45 minutes. The server will have
 Before configuring the network interface, find out the parameters of the dedicated public subnet the server is connected to: CIDR, default gateway address, and range of available public IP addresses.
 
 1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+1. [Navigate]({{ link-console-main }}/link/baremetal) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
 1. In the left-hand panel, select ![globe](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.baremetal.label_public-subnets_v16CV }}** and open the `my-public-subnet` information page.
 1. Write down the CIDR values, default gateway address, and range of available public IP addresses.
 
@@ -140,7 +140,7 @@ Before configuring the network interface, find out the parameters of the dedicat
 Before you configure a public IP address, the server is not accessible from the Internet, so you will not be able to connect to it via [SSH](../../compute/operations/vm-connect/ssh.md) or [RDP](../../compute/operations/vm-connect/rdp.md). To connect to the server, use the KVM console.
 
 1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+1. [Navigate]({{ link-console-main }}/link/baremetal) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
 1. Next to `my-server`, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.baremetal.label_kvm-console_37Kma }}**.
 
     A window with a KVM console terminal will open.

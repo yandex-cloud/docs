@@ -1,26 +1,34 @@
 ---
-title: Getting a list of routing instance operations
+title: How to get a list of operations for a virtual router
+description: Follow this guide to get a list of operations performed on a virtual router in {{ cr-name }}.
 ---
 
-# How to get a list of routing instance operations
+# Getting a list of operations with a virtual router
 
 {% note info %}
 
-You need the [cloud-router.viewer](../security/index.md#cloudrouter-viewer) role to run this operation.
+You need the [cloud-router.viewer](../security/index.md#cloudrouter-viewer) role for this operation.
 
 {% endnote %}
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [virtual router](../concepts/routing-instance.md).
+  1. [Navigate]({{ link-console-main }}/link/cloud-router) to **{{ ui-key.yacloud.ui.constants.label_cloud-router_kBGNL }}**.
+  1. Select the virtual router.
+  1. Navigate to the **{{ ui-key.yacloud_org.common.operations }}** tab. Optionally, filter the operations by their ID or status.
+
 - CLI {#cli}
 
-  1. See the description of the CLI command to get a list of operations in a [routing instance (RI)](../concepts/routing-instance.md):
+  1. See the description of the CLI command to get a list of [virtual router](../concepts/routing-instance.md) operations:
 
       ```bash
       yc cloudrouter routing-instance list-operations --help
       ```
 
-  1. Get a list of operations in the routing instance:
+  1. Get a list of operations for a virtual router:
 
       ```bash
       yc cloudrouter routing-instance list-operations cca5e**********vie8c
@@ -29,16 +37,17 @@ You need the [cloud-router.viewer](../security/index.md#cloudrouter-viewer) role
       Result:
 
       ```text
-     +----------------------+---------------------+----------------------+---------------------+---------+---------------------------+
-     |          ID          |     CREATED AT      |      CREATED BY      |     MODIFIED AT     | STATUS  |       DESCRIPTION         |
-     +----------------------+---------------------+----------------------+---------------------+---------+---------------------------+
-     | al49a**********ft8lq | 2025-03-23 07:34:27 | bfbud**********v7dfn | 2025-03-23 07:52:59 | DONE    | routing instance add      |
-     |                      |                     |                      |                     |         | private connection        |
-     | al4f3**********koifj | 2025-03-19 13:35:56 | bfbud**********v7dfn | 2025-03-19 15:24:58 | DONE    | routing instance create   |
-     +----------------------+---------------------+----------------------+---------------------+---------+---------------------------+
+      +----------------------+---------------------+----------------------+---------------------+---------+---------------------------+
+      |          ID          |     CREATED AT      |      CREATED BY      |     MODIFIED AT     | STATUS  |       DESCRIPTION         |
+      +----------------------+---------------------+----------------------+---------------------+---------+---------------------------+
+      | al49a**********ft8lq | 2025-03-23 07:34:27 | bfbud**********v7dfn | 2025-03-23 07:52:59 | DONE | routing instance add |
+      |                      |                     |                      |                     |         | private connection        |
+      | al4f3**********koifj | 2025-03-19 13:35:56 | bfbud**********v7dfn | 2025-03-19 15:24:58 | DONE | routing instance create |
+      +----------------------+---------------------+----------------------+---------------------+---------+---------------------------+
       ```
 
       Where:
+
       * `ID`: ID of operation in progress or completed operation.
       * `CREATED AT`: Date and time the operation was created.
       * `CREATED BY`: ID of the user who created the operation.

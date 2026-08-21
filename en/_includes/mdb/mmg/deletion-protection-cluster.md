@@ -1,0 +1,3 @@
+Once cluster deletion protection is enabled, it also applies to all new databases and users for whom deletion protection is not set explicitly. If a database or user has its own deletion protection setting, it will override the cluster setting.
+
+You can configure deletion protection for a database when [creating the database](../../../storedoc/operations/databases.md#add-db) or [updating its settings](../../../storedoc/operations/databases.md#update-db); and for a user, when [creating the user](../../../storedoc/operations/cluster-users.md#adduser) or [updating their settings](../../../storedoc/operations/cluster-users.md#updateuser).

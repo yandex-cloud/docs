@@ -38,7 +38,7 @@ When managing users, you have access to the following actions:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
 
 - CLI {#cli}
@@ -121,7 +121,7 @@ When managing users, you have access to the following actions:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
   1. Specify the database user name.
@@ -180,7 +180,7 @@ When managing users, you have access to the following actions:
       To view the password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the new user. This will open the page of the {{ lockbox-name }} secret containing the password. To view passwords, you need the `lockbox.payloadViewer` role.
 
 
-  * `--permissions`: List of databases the user should have access to.
+  * `--permissions`: List of databases the user must have access to.
 
   For more information about [quotas](../concepts/settings-list.md#quota-settings) and [query-level settings](../concepts/settings-list.md#user-level-settings), see [{#T}](../concepts/settings-list.md).
 
@@ -203,7 +203,7 @@ When managing users, you have access to the following actions:
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create such a file, see the [Creating a cluster](cluster-create.md) section.
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. Add the `yandex_mdb_clickhouse_user` resource:
 
@@ -253,7 +253,7 @@ When managing users, you have access to the following actions:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -427,7 +427,7 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
 
@@ -478,7 +478,7 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create such a file, see the [Creating a cluster](cluster-create.md) section.
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. Locate the `yandex_mdb_clickhouse_user` resource for the user in question.
 
@@ -511,7 +511,7 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -641,6 +641,14 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
+  1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Select the cluster and click ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, enter the new `admin` password.
+  1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+
 - CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
@@ -670,7 +678,7 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create such a file, see the [Creating a cluster](cluster-create.md) section.
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. Edit the `admin_password` field value:
 
@@ -688,7 +696,7 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -790,7 +798,7 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Configure user access to specific databases:
@@ -868,7 +876,7 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create such a file, see the [Creating a cluster](cluster-create.md) section.
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. Locate the `yandex_mdb_clickhouse_user` resource for the user in question.
 
@@ -929,7 +937,7 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -1093,7 +1101,7 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
 
@@ -1117,7 +1125,7 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create such a file, see the [Creating a cluster](cluster-create.md) section.
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. Delete the `yandex_mdb_clickhouse_user` resource with the target user’s description.
 
@@ -1125,7 +1133,7 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -1206,7 +1214,7 @@ Let's say you need to add a new user named `ro-user` with the `Passw0rd` passwor
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the `mych` cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
   1. Enter `ro-user` as the database user name and `Passw0rd` as the password.
@@ -1246,7 +1254,7 @@ Let's say you need to add a new user named `ro-user` with the `Passw0rd` passwor
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create such a file, see the [Creating a cluster](cluster-create.md) section.
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. Add the `yandex_mdb_clickhouse_user` resource:
 

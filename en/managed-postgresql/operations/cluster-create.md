@@ -24,7 +24,7 @@ By default, {{ mpg-name }} sets the maximum possible number of connections for e
 
 ## Roles for creating a cluster {#roles}
 
-To create a {{ mpg-name }} cluster and use it, your {{ yandex-cloud }} account needs the following roles:
+To create and use a {{ mpg-name }} cluster, your {{ yandex-cloud }} account needs the following roles:
 
 * {% include [roles-mpg-editor](../../_includes/mdb/mpg/roles-mpg-editor.md) %}
 * {% include [roles-vpc-user](../../_includes/mdb/roles-vpc-user.md) %}
@@ -48,7 +48,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
   To create a {{ mpg-name }} cluster:
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your database cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Enter a cluster name in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. The cluster name must be unique within the folder.
   1. Select the environment where you want to create your cluster (you cannot change the environment once the cluster is created):
@@ -149,7 +149,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
      {% note warning %}
 
-     We do not recommend creating a single-host cluster. While being cheaper, it will not ensure [high availability](../concepts/high-availability.md#host-configuration).
+     We do not recommend creating a single-host cluster. It is a cheaper option but does not ensure [high availability](../concepts/high-availability.md#host-configuration).
 
      {% endnote %}
 
@@ -165,12 +165,6 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
      Under **Port settings**, specify replica-level load balancing settings:
 
      {% include [lb-settings](../../_includes/mdb/load-balancer-settings.md) %}
-
-     {% note warning %}
-
-     You can enable {{ mdb-lb }} only when creating a cluster.
-
-     {% endnote %}
 
 
   
@@ -302,7 +296,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
      
      To encrypt the disk with a [custom KMS key](../../kms/concepts/key.md), provide `--disk-encryption-key-id <KMS_key_ID>`. Learn more about disk encryption in [Storage](../concepts/storage.md#disk-encryption).
 
-     To allow access to the cluster from [{{ sf-full-name }}](../../functions/), provide `--serverless-access`. Learn more about access setup in [this {{ sf-name }} guide](../../functions/operations/database-connection.md).
+     To allow access to the cluster from [{{ sf-full-name }}](../../functions/), provide `--serverless-access`. For more information on configuring access, see [{{ sf-name }} guides](../../functions/operations/database-connection.md).
 
      To allow access to the cluster from [{{ yq-full-name }}](../../query/index.yaml), provide `--yandexquery-access=true`. This feature is in the [Preview](../../overview/concepts/launch-stages.md) stage and can be enabled upon request.
 

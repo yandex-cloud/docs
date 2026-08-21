@@ -170,7 +170,7 @@
 ## Создайте подключение в DataLens {#connection-create}
 
 1. Откройте [кластер](#database-create) **Managed Service for ClickHouse®**.
-1. В левой части окна выберите раздел ![datalens](../../_assets/console-icons/chart-column.svg) **DataLens**.
+1. Перейдите на вкладку **DataLens**.
 1. Нажмите кнопку **Создать подключение**.
 1. Укажите настройки подключения:
     * **Подключение** — `Выбрать в каталоге`;

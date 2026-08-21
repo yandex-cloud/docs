@@ -42,7 +42,7 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
   1. Find the user you want to update in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in their row, and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Expand the **{{ ui-key.yacloud.mdb.dialogs.button_advanced-settings }}** list and select the roles you want to assign to the user in the **Grants** field.
@@ -60,7 +60,7 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
 
   ```bash
   {{ yc-mdb-pg }} user update <username> \
-         --grants=<role_1>,<role_2> \
+         --grants=<role1>,<role2> \
          --cluster-id <cluster_ID>
   ```
 
@@ -74,7 +74,7 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
   
         To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-        For the complete list of {{ mpg-name }} cluster user configuration fields, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_postgresql_user).
+        For the complete list of adjustable configuration fields for {{ mpg-name }} cluster users, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_postgresql_user).
 
     1. Locate the `yandex_mdb_postgresql_user` resource for the user in question.
     1. Add the `grants` attribute with the list of required roles:
@@ -83,7 +83,7 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
         resource "yandex_mdb_postgresql_user" "<username>" {
           ...
           name   = "<username>"
-          grants = [ "<role_1>","<role_2>" ]
+          grants = [ "<role1>","<role2>" ]
           ...
         }
         ```

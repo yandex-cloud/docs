@@ -27,7 +27,7 @@
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
     1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** на панели слева.
+    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}**.
 
 - CLI {#cli}
 
@@ -99,7 +99,7 @@
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
     1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** на панели слева.
+    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}**.
 
 - CLI {#cli}
 
@@ -181,7 +181,7 @@
 
         1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
         1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-        1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** на панели слева.
+        1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}**.
         1. Нажмите **{{ ui-key.yacloud.clickhouse.cluster.ml-models.button-action_add-ml-model }}**.
 
     1. Настройте параметры модели:
@@ -353,7 +353,7 @@
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
     1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** на панели слева.
+    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}**.
     1. Выберите нужную модель, нажмите на значок ![image](../../_assets/console-icons/ellipsis-vertical.svg) и выберите пункт **{{ ui-key.yacloud.clickhouse.cluster.ml-models.button_action-edit-ml-model }}**.
 
 - CLI {#cli}
@@ -500,7 +500,7 @@
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
     1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** на панели слева.
+    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}**.
     1. Выберите нужную модель, нажмите на значок ![image](../../_assets/console-icons/ellipsis-vertical.svg) и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
 
 - CLI {#cli}

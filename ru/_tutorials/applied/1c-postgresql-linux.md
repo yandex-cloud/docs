@@ -459,7 +459,7 @@
           * В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан кластер `1c-pg`.
           * [Перейдите]({{ link-console-main }}/link/managed-postgresql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
           * В открывшемся окне выберите созданный ранее кластер `1c-pg`.
-          * В меню слева выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}**.
+          * Перейдите на вкладку **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}**.
           * В поле **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** подведите курсор к имени хоста (вида `rc1b-cfazv1db********`) и скопируйте полное доменное имя базы данных, нажав появившийся значок ![copy](../../_assets/copy.svg). К имени хоста добавится полное доменное имя, в результате в поле **Сервер баз данных** должно быть указано имя вида `rc1c-cfazv1db********.{{ dns-zone }} port=6432`.
 
         {% endlist %}

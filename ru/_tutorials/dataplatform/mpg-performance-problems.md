@@ -16,7 +16,7 @@
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог.
 1. [Перейдите]({{ link-console-main }}/link/managed-postgresql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_monitoring }}**.
+1. Нажмите на имя нужного кластера и выберите ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.postgresql.cluster.switch_monitoring }}**.
 1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 1. На графике **Average CPU usage** найдите участок, где график постоянно рос, а потом вышел на плато.
 
@@ -57,7 +57,7 @@
 После того как вы выяснили, в какое время потребление CPU было повышенным, найдите запросы, которые привели к проблеме. Для этого воспользуйтесь [диагностикой производительности](../../managed-postgresql/operations/performance-diagnostics.md) в кластере {{ mpg-name }}:
 
 1. [Включите опцию](../../managed-postgresql/operations/update.md#change-additional-settings) **{{ ui-key.yacloud.mdb.forms.field_diagnostics-enabled }}**, если она еще не включена.
-1. На странице кластера выберите ![image](../../_assets/console-icons/heart-pulse.svg) **{{ ui-key.yacloud.postgresql.cluster.switch_diagnostics }}** на панели слева.
+1. На странице кластера выберите ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.postgresql.cluster.switch_diagnostics }}**.
 1. На открывшейся вкладке найдите участок, где график постоянно рос, а потом вышел на плато. Он должен совпадать по времени с теми же участками графиков, которые вы [нашли в {{ monitoring-full-name }}](#monitoring).
 
    Чтобы найти плато, отрегулируйте период, за который строятся графики.
@@ -78,7 +78,7 @@
 
 Чтобы посмотреть логи:
 
-1. На странице кластера {{ mpg-name }} выберите ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.postgresql.cluster.switch_logs }}** на панели слева.
+1. На странице кластера {{ mpg-name }} выберите ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.postgresql.cluster.switch_logs }}**.
 1. Задайте период, за который было замечено повышенное потребление CPU.
 1. В поле **{{ ui-key.yacloud.mdb.cluster.logs.label_severity }}** выберите **ERROR**, **PANIC** и **FATAL**.
 1. Посмотрите полученный список ошибок. Они показывают, что происходило во время повышенного потребления CPU.

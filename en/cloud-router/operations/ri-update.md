@@ -1,21 +1,9 @@
 ---
-title: How to update routing instance parameters in {{ cr-name }}
-description: Follow this guide to update routing instance parameters in {{ cr-name }}.
+title: How to update virtual router settings in {{ cr-name }}
+description: Follow this guide to update virtual router settings in {{ cr-name }}.
 ---
 
-# Updating routing instance parameters
-
-Currently, you can update the following routing instance parameters:
-* `new-name`: Private connection name
-* `description`: Private connection description
-
-{% note info %}
-
-When updating announcements of IP prefixes or adding (deleting) private connections in a routing instance, we recommend using [separate commands](cr-cic-ops.md#ri), not the `--vpc-net` and `--cic-prc` options of the update command.
-
-{% endnote %}
-
-For example, to update the `description` parameter value of a routing instance, follow the steps below.
+# Updating virtual router settings
 
 {% note info %}
 
@@ -25,15 +13,38 @@ You need the [cloud-router.editor](../security/index.md#cloudrouter-editor) role
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [virtual router](../concepts/routing-instance.md).
+  1. [Navigate]({{ link-console-main }}/link/cloud-router) to **{{ ui-key.yacloud.ui.constants.label_cloud-router_kBGNL }}**.
+  1. In the virtual router row, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. Enter a new name and description for your virtual router.
+  1. Add or delete [labels](../../resource-manager/concepts/labels.md).   
+  1. Enable or disable **{{ ui-key.yacloud.common.deletion-protection }}** to protect your virtual router from accidental deletion.
+  1. Add or delete [private connections](../../interconnect/concepts/priv-con.md) in the **Private connections** field.
+  1. In the **{{ ui-key.yacloud.cloud-router.router.networks_fbzKL }}** field, add or delete [networks](../../vpc/concepts/network.md) and IP prefixes.
+
 - CLI {#cli}
 
-  1. See the description of the CLI command for updating a [routing instance](../concepts/routing-instance.md):
+  Currently, you can update the following virtual router settings via the CLI:
+  * `new-name`: Private connection name.
+  * `description`: Private connection description.
+  
+  {% note info %}
+  
+  When updating IP prefix announcements or adding or deleting private connections in a virtual router, use [separate commands](cr-cic-ops.md#ri) instead of the `--vpc-net` and `--cic-prc` update command options.
+  
+  {% endnote %}
+  
+  For example, to update the virtual router `description`, follow the steps below:
+
+  1. View the description of the CLI command for updating a [virtual router](../concepts/routing-instance.md):
 
       ```bash
       yc cloudrouter routing-instance update  --help
       ```
 
-  1. Update the `description` parameter value for the routing instance:
+  1. Provide a new `description` for the virtual router:
 
       ```bash
       yc cloudrouter routing-instance update c3l87**********1dpin \

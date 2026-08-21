@@ -41,7 +41,7 @@ description: Следуя этой инструкции, вы сможете п�
 
     1. Перейдите [на страницу каталога]({{ link-console-main }}).
     1. [Перейдите]({{ link-console-main }}/link/managed-greenplum) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.common.monitoring }}**.
       
         На открывшейся странице будет отображен дашборд с графиками и сигналами работы кластера {{ mgp-name }}.
 
@@ -145,7 +145,7 @@ description: Следуя этой инструкции, вы сможете п�
 
     1. Перейдите [на страницу каталога]({{ link-console-main }}).
     1. [Перейдите]({{ link-console-main }}/link/managed-greenplum) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** → **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.common.monitoring }}** → **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}**.
     1. Выберите нужный хост.
 
         На открывшейся странице будут отображены графики состояния конкретного хоста кластера.
@@ -212,7 +212,7 @@ description: Следуя этой инструкции, вы сможете п�
 
     1. Перейдите [на страницу каталога]({{ link-console-main }}).
     1. [Перейдите]({{ link-console-main }}/link/managed-greenplum) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** → **{{ ui-key.yacloud.greenplum.cluster.pxf.value_pxf }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.common.monitoring }}** → **{{ ui-key.yacloud.greenplum.cluster.pxf.value_pxf }}**.
 
         На открывшейся странице будут отображены графики состояния PXF.
 
@@ -288,7 +288,7 @@ description: Следуя этой инструкции, вы сможете п�
 
     1. Перейдите [на страницу каталога]({{ link-console-main }}).
     1. [Перейдите]({{ link-console-main }}/link/managed-greenplum) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** → **Ресурсные группы**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.common.monitoring }}** → **Ресурсные группы**.
       
         На открывшейся странице будут отображены графики работы ресурсных групп.
 
@@ -314,7 +314,7 @@ description: Следуя этой инструкции, вы сможете п�
 
     1. Перейдите [на страницу каталога]({{ link-console-main }}).
     1. [Перейдите]({{ link-console-main }}/link/managed-greenplum) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** → **Ресурсные группы по хостам**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.common.monitoring }}** → **Ресурсные группы по хостам**.
       
         На открывшейся странице будут отображены графики работы ресурсных групп по хостам.
 

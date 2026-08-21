@@ -77,7 +77,7 @@ Odyssey connection pooler metrics.
 | `pooler.cpu_limit_warn`<br/>`DGAUGE`, % | Pooler CPU utilization warning threshold. |
 | `pooler.memory_limit_warn`<br/>`DGAUGE`, bytes | Pooler memory consumption warning threshold. |
 | `pooler.bytes_sent`<br/>`DGAUGE`, bytes | Total sent data size. |
-| `pooler.bytes_received`<br/>`DGAUGE`, bytes per second | Data receive speed from clients by pooler. |
+| `pooler.bytes_received`<br/>`DGAUGE`, bytes | Total received data size |
 | `pooler.used_servers`<br/>`DGAUGE`, count | Number of active server connections (pooler → DMBS). |
 | `pooler.free_servers`<br/>`DGAUGE`, count | Number of free server connections in the pool. |
 | `pooler.used_clients`<br/>`DGAUGE`, count | Number of active client connections (client → pooler). |

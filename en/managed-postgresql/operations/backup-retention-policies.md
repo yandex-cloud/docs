@@ -8,7 +8,7 @@
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}** tab.
   1. On the **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** page, select the **{{ ui-key.yacloud.postgresql.cluster.switch_backup-policies }}** tab.
   1. Click **Create policy**.
@@ -57,6 +57,45 @@
       * `--cluster-id`: Cluster ID. You can get it with the [list of clusters](cluster-list.md#list-clusters).
 
       {% include [backup-policy-create-settings](../../_includes/mdb/cli/backup-policy-create-settings.md) %}
+
+- {{ TF }} {#tf}
+
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
+
+        For information on how to create this file, see [Creating a cluster](cluster-create.md).
+
+    1. Add a resource description:
+
+        ```hcl
+        resource "yandex_mdb_postgresql_backup_retention_policy" "<policy_name>" {
+          cluster_id      = "<cluster_ID>"
+          policy_name     = "<policy_name>"
+          description     = "<policy_description>"
+          retain_for_days = <backup_retention_period_in_days>
+
+          cron = {
+            day_of_month = "<day_of_month>"
+            day_of_week  = "<day_of_week>"
+            month        = "<month>"
+          }
+        }
+        ```
+
+        Where:
+
+        * `cluster_id`: Cluster ID. You can get it with the [list of clusters](cluster-list.md#list-clusters).
+
+        {% include [backup-policy-create-settings](../../_includes/mdb/terraform/backup-policy-create-settings.md) %}
+
+    1. Make sure the configuration files are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm updating the resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_postgresql_backup_retention_policy).
 
 - REST API {#api}
 
@@ -142,7 +181,7 @@
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}** tab.
   1. On the **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** page, select the **{{ ui-key.yacloud.postgresql.cluster.switch_backup-policies }}** tab.
 
@@ -234,7 +273,7 @@
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}** tab.
   1. On the **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** page, select the **{{ ui-key.yacloud.postgresql.cluster.switch_backup-policies }}** tab.
 
@@ -262,6 +301,22 @@
       ```
 
       You can get the cluster ID from the [list of clusters](cluster-list.md#list-clusters), and the policy ID from the [list of policies](#list-policies).
+
+- {{ TF }} {#tf}
+
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
+
+        For information on how to create this file, see [Creating a cluster](cluster-create.md).
+
+    1. Delete the `yandex_mdb_postgresql_backup_retention_policy` resource with the name of the policy you want to delete.
+
+    1. Make sure the configuration files are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm updating the resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - REST API {#api}
 

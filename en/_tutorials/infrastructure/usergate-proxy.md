@@ -145,8 +145,8 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with a [subnet](
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to create a group.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a group.
+  1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. Specify the security group name: `usergate-sg`.
@@ -341,8 +341,8 @@ Your gateway will need a static [public IP address](../../vpc/concepts/address.m
 
 - Management console {#console}
   
-  1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to reserve an IP address.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to reserve an address.
+  1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
   1. Click **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
   1. In the window that opens, select [`{{ region-id }}-d`](../../overview/concepts/geo-scope.md) in the **{{ ui-key.yacloud.vpc.addresses.popup-create_field_zone }}** field.
@@ -550,7 +550,7 @@ Set up the UserGate NGFW as a proxy server:
 1. In the left menu, navigate to **Network** ⟶ **Zones**.
 1. Click the `Trusted` zone.
 1. Click **Access control**, enable **Administration console**, and click **Save**.
-1. In the left menu, navigate to **Network** ⟶ **Interfaces**.
+1. In the left-hand menu, navigate to **Network** ⟶ **Interfaces**.
 1. Click the `port0` network interface.
 1. On the **General** tab, select `Trusted` in the **Zone** field and click **Save**.
 1. In the left menu, click **Network policies** ⟶ **Firewall**.
@@ -571,7 +571,7 @@ We recommend using the `Block to botnets`, `Block from botnets`, and `Example bl
 1. Click **Network policies** ⟶ **Firewall**.
 1. Click the name of the preset default policy from the list above.
 1. Navigate to the **Source** tab and change the source zone from `Untrusted` to `Trusted`. 
-1. Navigate to the **Destination** tab and disable the `Untrusted` zone.
+1. Open the **Destination** tab and disable the `Untrusted` zone.
 1. Click **Save**.
 1. Enable the selected rule by selecting it and clicking **Enable** at the top of the screen.
 
@@ -587,7 +587,7 @@ Add more rules to enhance security:
       * **Action**: Deny
 
    1. Navigate to the **Source** tab and select `Trusted`.
-   1. Click **Service**.
+   1. Open the **Service** tab.
    1. Click **Add**.
    1. Select `Quick UDP Internet Connections`, click **Add**, and then **Close**.
    1. Click **Save**.
@@ -601,7 +601,7 @@ Add more rules to enhance security:
       * **Action**: Deny
    
    1. Navigate to the **Source** tab and select `Trusted`.
-   1. Click **Applications**.
+   1. Open the **Applications** tab.
    1. Click **Add** ⟶ **Add applications**.
    1. Select the `Microsoft Update` app and click **Add**.
    1. Select the `WinUpdate` app, click **Add**, and then **Close**.
@@ -628,7 +628,7 @@ You can add more rules to enhance security:
       * **Actions**: Deny
 
    1. Navigate to the **Source** tab and select `Trusted`.
-   1. Click **Categories**.
+   1. Open the **Categories** tab.
    1. Click **Add**.
    1. Type `Social media` in the search bar, click **Add**, and then **Close**.
    1. Click **Save**.

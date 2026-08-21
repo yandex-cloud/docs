@@ -44,7 +44,7 @@
 
     1. Перейдите [на страницу каталога](https://console.yandex.cloud).
     1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **Мониторинг**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **Мониторинг**.
       
         На открывшейся странице будет отображен дашборд с графиками и сигналами работы кластера Yandex MPP Analytics for PostgreSQL.
 
@@ -148,7 +148,7 @@
 
     1. Перейдите [на страницу каталога](https://console.yandex.cloud).
     1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **Мониторинг** → **Хосты**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **Мониторинг** → **Хосты**.
     1. Выберите нужный хост.
 
         На открывшейся странице будут отображены графики состояния конкретного хоста кластера.
@@ -215,7 +215,7 @@
 
     1. Перейдите [на страницу каталога](https://console.yandex.cloud).
     1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **Мониторинг** → **PXF**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **Мониторинг** → **PXF**.
 
         На открывшейся странице будут отображены графики состояния PXF.
 
@@ -291,7 +291,7 @@
 
     1. Перейдите [на страницу каталога](https://console.yandex.cloud).
     1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **Мониторинг** → **Ресурсные группы**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **Мониторинг** → **Ресурсные группы**.
       
         На открывшейся странице будут отображены графики работы ресурсных групп.
 
@@ -317,7 +317,7 @@
 
     1. Перейдите [на страницу каталога](https://console.yandex.cloud).
     1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **Мониторинг** → **Ресурсные группы по хостам**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **Мониторинг** → **Ресурсные группы по хостам**.
       
         На открывшейся странице будут отображены графики работы ресурсных групп по хостам.
 

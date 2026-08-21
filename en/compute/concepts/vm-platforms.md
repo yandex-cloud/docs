@@ -58,7 +58,7 @@ GPU PLATFORM V4</br>(`gpu-standard-v4`) | GPU V4 | Intel® Xeon® Platinum | **M
 The table below shows which {{ compute-name }} platforms are supported in the `{{ region-id }}-d` and `{{ region-id }}-e` [availability zones](../../overview/concepts/geo-scope.md).
 
 #|
-|| {align="center"} platform | Availability zone {align="center"} | > ||
+|| Platform {align="center"} | Availability zone {align="center"} | > ||
 || ^ | `{{ region-id }}-d` | `{{ region-id }}-e` ||
 || **Standard platforms** {align="center"} | > | > ||
 || Intel Broadwell | ![image](../../_assets/common/no.svg) {align="center"} | ![image](../../_assets/common/no.svg) {align="center"} ||

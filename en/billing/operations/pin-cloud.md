@@ -29,14 +29,25 @@ To link or re-link a cloud to a billing account:
 
        * Click ![alt text](../../_assets/console-icons/link.svg) **{{ ui-key.yacloud_billing.billing.account.bind-cloud.button_bind }}** under **{{ ui-key.yacloud_billing.billing.account.dashboard-resources.title_section-billable }}** in the ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_org.billing.account.switch_overview }}** section.
 
+         {% cut "Steps in the UI" %}
+
+         ![image](../../_assets/billing/pin-cloud-account.png)
+
+         {% endcut %}
 
        * In the left-hand panel, select ![image](../../_assets/console-icons/cloud.svg) **{{ ui-key.yacloud_org.billing.account.entities.label_title }}**. In the top-right corner of the page, click ![image](../../_assets/console-icons/link.svg) **{{ ui-key.yacloud_billing.billing.account.bind-cloud.button_bind }}**.
 
+         {% cut "Steps in the UI" %}
+
+         ![image](../../_assets/billing/pin-cloud-billable-entities.png)
+
+         {% endcut %}
 
      1. In the **{{ ui-key.yacloud_org.billing.account.entities.label_type }}** field, pick the entity type you need from the list and select the resource to link to the billing account.
      1. Click **{{ ui-key.yacloud_billing.billing.account.bind-cloud.button_bind }}**; the cloud or service you added will appear in the list.
      1. If you are re-linking the cloud, pay any outstanding charges on the old billing account.
 
+         ![image](../../_assets/billing/pin-cloud-billable-entities-window.png)
 
 - {{ TF }} {#tf}
 

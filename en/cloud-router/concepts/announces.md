@@ -1,6 +1,6 @@
 ## Cloud subnet announcements and communication with {{ vpc-short-name }} {#prc-announce}
 
-To announce virtual network IP prefixes in a `Routing Instance`, you need to know the following:
+To announce virtual network IP prefixes in a virtual router, you need to know the following:
 * The ID (`vpc_net_id`) of the virtual network containing the prefixes that need to be announced.
 * List of announced IPv4 prefixes of virtual network [subnets](../../vpc/concepts/network.md#subnet) and their allocation across [availability zones](../../overview/concepts/geo-scope.md). Typically, prefixes refer to the subnets configured in your cloud. In which case the announced prefixes and the actual subnet address ranges will match.
 
@@ -10,13 +10,13 @@ Please keep in mind that the first IP address (default gateway) and the second I
 
 {% endnote %}
 
-New subnets that will be created in the virtual network later will not be automatically announced to the RI.
+New subnets that will be created in the virtual network later will not be automatically announced in the virtual router.
 
-To add a new subnet to an existing RI, use one of the [available methods](../operations/cr-cic-ops.md#ri). 
+To add a new subnet to an existing virtual router, use one of the [available methods](../operations/cr-cic-ops.md#ri).
 
 {% note warning %}
 
-If your routing instance is connected to a virtual network that uses a [{{ network-load-balancer-short-name }}](../../network-load-balancer/) and an [{{ alb-name }}](../../application-load-balancer/), their listener addresses are announced as `/32` IPv4 prefixes, regardless of the announced IP prefix ranges for subnets within that network.
+If your virtual router is connected to a virtual network that uses a [{{ network-load-balancer-short-name }}](../../network-load-balancer/) and an [{{ alb-name }}](../../application-load-balancer/), their listener addresses are announced as `/32` IPv4 prefixes regardless of the announced IP prefix ranges of that network's subnets.
 
 This enables you to use load balancers to distribute traffic coming from your infrastructure via {{ interconnect-name }} across cloud resources in different {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md).
 

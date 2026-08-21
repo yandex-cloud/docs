@@ -116,7 +116,7 @@ To check rights for the `example.com` domain, follow these steps:
 
 ## Validating rights automatically {#auto}
 
-In some cases, the domain rights check requires no user input.
+In some cases, the domain ownership verification procedure requires no user input.
 
 ### CNAME record applicable to a zone {#auto-cname}
 
@@ -134,7 +134,7 @@ A check is performed automatically if the following conditions are met:
 A check is performed automatically if the following conditions are met:
 
 * The certificate’s status is `Renewing`, which means it is being [renewed](managed-certificate.md#renew).
-* The certificate is used in the [HTTPS configuration](../../storage/operations/hosting/certificate#cert-manager) of a static website in [{{ objstorage-name }}](../../tutorials/web/static/index.md).
+* The certificate was [selected](../../storage/operations/hosting/certificate#cert-manager) for HTTPS configuration of a static [{{ objstorage-name }}](../../tutorials/web/static/index.md) website.
 * For each certificate domain, the following is configured:
     
     * An [alias](../../storage/operations/hosting/own-domain.md) for the static website bucket where the certificate is used.

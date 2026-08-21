@@ -65,7 +65,7 @@ Jenkins will get VM image configuration changes from GitHub and then use Packer 
 To create a VM:
 
 1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
 1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab, click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**, and select the [Jenkins](/marketplace/products/yc/jenkins) image.

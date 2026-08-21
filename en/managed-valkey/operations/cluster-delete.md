@@ -18,8 +18,8 @@ description: After you delete a {{ VLK }} database cluster, its backups are reta
 
 - Management console {#console}
   
-  1. In the [management console]({{ link-console-main }}), go to the folder with the cluster you want to delete.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder you want to delete a cluster from.
+  1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-delete }}**.
   1. In the window that opens, check **Delete cluster** and click **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-delete-cluster_button }}**.
   

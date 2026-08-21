@@ -39,6 +39,8 @@ items:
                 href: operations/api-gw-logs-write.md
           - name: Отключить домен
             href: operations/api-gw-domain-detach.md
+          - name: Остановить и запустить API-шлюз
+            href: operations/api-gw-stop-resume.md
           - name: Миграция в зону {{ region-id }}-d
             href: operations/api-gw-migration.md
           - name: Удалить API-шлюз

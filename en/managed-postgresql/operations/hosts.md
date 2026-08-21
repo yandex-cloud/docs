@@ -13,7 +13,7 @@ You can add and remove cluster hosts, as well as manage their settings. To learn
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
 
 - CLI {#cli}
@@ -46,7 +46,7 @@ You can add and remove cluster hosts, as well as manage their settings. To learn
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -98,7 +98,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
 {% note info %}
 
-With a {{ mdb-lb }} load balancer enabled in the cluster, a new host will be automatically added for load balancing.
+With load balancer enabled in the cluster, a new host will be automatically added to the load balancing pool.
 
 {% endnote %}
 
@@ -107,7 +107,7 @@ With a {{ mdb-lb }} load balancer enabled in the cluster, a new host will be aut
 - Management console {#console}
 
   To create a host:
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the cluster name and navigate to the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
 
@@ -223,7 +223,7 @@ With a {{ mdb-lb }} load balancer enabled in the cluster, a new host will be aut
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -357,7 +357,7 @@ In a {{ mpg-short-name }} cluster, you can configure the [replication](../concep
 - Management console {#console}
 
   To change the cluster host settings:
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
   1. Find the host you need in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in its row, then select **{{ ui-key.yacloud.common.edit }}**.
   1. Specify new host settings:
@@ -582,7 +582,7 @@ If you are deleting the master host, {{ mpg-short-name }} will automatically pro
 - Management console {#console}
 
   To delete a host from a cluster:
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
   1. Find the host you need in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in its row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
 

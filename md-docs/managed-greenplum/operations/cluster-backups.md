@@ -13,12 +13,12 @@
     Чтобы получить список резервных копий кластера:
     1. Перейдите на [страницу каталога](https://console.yandex.cloud).
     1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/archive.svg) **Резервные копии**.
+    1. Нажмите на имя нужного кластера и выберите ![chevron-down](../../_assets/console-icons/chevron-down.svg) **Другое** → **Резервные копии**.
 
     Чтобы получить список всех резервных копий в каталоге:
     1. Перейдите на [страницу каталога](https://console.yandex.cloud).
     1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
-    1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **Резервные копии**.
+    1. На панели слева выберите ![chevron-down](../../_assets/console-icons/chevron-down.svg) **Другое** → **Резервные копии**.
 
 - CLI {#cli}
 
@@ -161,12 +161,12 @@
     Чтобы получить информацию о резервной копии существующего кластера:
     1. Перейдите на [страницу каталога](https://console.yandex.cloud).
     1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/archive.svg) **Резервные копии**.
+    1. Нажмите на имя нужного кластера и выберите ![chevron-down](../../_assets/console-icons/chevron-down.svg) **Другое** → **Резервные копии**.
 
     Чтобы получить информацию о резервной копии удаленного ранее кластера:
     1. Перейдите на [страницу каталога](https://console.yandex.cloud).
     1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
-    1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **Резервные копии**.
+    1. На панели слева выберите ![chevron-down](../../_assets/console-icons/chevron-down.svg) **Другое** → **Резервные копии**.
 
 - REST API {#api}
 
@@ -235,7 +235,7 @@
 
     1. Перейдите на [страницу каталога](https://console.yandex.cloud).
     1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/archive.svg) **Резервные копии**.
+    1. Нажмите на имя нужного кластера и выберите ![chevron-down](../../_assets/console-icons/chevron-down.svg) **Другое** → **Резервные копии**.
     1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Создать резервную копию**.
 
     Сервис начнет создавать резервную копию без дополнительного подтверждения.
@@ -322,7 +322,7 @@
 
     1. Перейдите на [страницу каталога](https://console.yandex.cloud).
     1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/archive.svg) **Резервные копии**.
+    1. Нажмите на имя нужного кластера и выберите ![chevron-down](../../_assets/console-icons/chevron-down.svg) **Другое** → **Резервные копии**.
     1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной резервной копии, затем нажмите **Восстановить кластер**.
     1. Задайте настройки нового кластера. В списке **Каталог** можно выбрать каталог для нового кластера.
     1. В настройке **Дата и время восстановления (UTC)** задайте момент времени, на который нужно восстановить состояние кластера. Введите значение вручную или выберите из выпадающего календаря. Будет использована ближайшая к этому времени точка восстановления.

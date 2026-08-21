@@ -24,7 +24,7 @@ Deleting a cluster will permanently remove all its users and databases, includin
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the cluster you want to remove, select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**, and confirm the deletion.
 
 - CLI {#cli}
