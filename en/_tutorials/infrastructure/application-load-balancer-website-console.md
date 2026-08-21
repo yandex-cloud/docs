@@ -30,7 +30,7 @@ To create a network:
 - Management console {#console}
 
   1. Open the [management console]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. Specify the network **{{ ui-key.yacloud.vpc.networks.create.field_name }}**: `mysite-network`.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, select **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
@@ -49,7 +49,7 @@ To create security groups for the load balancer and an [instance group](../../co
 - Management console {#console}
 
   1. Open the [management console]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**. 
   1. Create a security group for the load balancer:
      1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
@@ -94,7 +94,7 @@ To create an instance group with the minimum configuration:
 - Management console {#console}
 
   1. Open the [management console]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Open the **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}** tab and click **{{ ui-key.yacloud.compute.groups.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
      * Name the instance group, e.g., `website-vm-group`.
@@ -146,7 +146,7 @@ To create a backend group:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you created the instance group.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Navigate]({{ link-console-main }}/link/application-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Open the **{{ ui-key.yacloud.alb.label_backend-groups }}** tab.
   1. Click **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
   1. Name the backend group, e.g., `website-bg`.
@@ -215,7 +215,7 @@ You need to link the `alb-example.com` domain name you want to use for your webs
 - Management console {#console}
 
   1. Open the [management console]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Navigate]({{ link-console-main }}/link/application-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Copy the IP address of the load balancer that you created.
   1. On the website of your DNS hosting provider, navigate to the DNS settings.
   1. Create or edit the [A record](../../dns/concepts/resource-record.md#a) and [CNAME record](../../dns/concepts/resource-record.md#cname) for `alb-example.com`:

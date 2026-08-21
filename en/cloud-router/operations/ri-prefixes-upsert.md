@@ -1,28 +1,36 @@
 ---
-title: How to manage networks and IP prefixes in a {{ cr-name }} routing instance
-description: Follow this guide to update a list of networks and IP prefixes in a {{ cr-name }} routing instance.
+title: How to manage networks and IP prefixes in a {{ cr-name }} virtual router
+description: Follow this guide to update a list of networks and IP prefixes in a {{ cr-name }} virtual router.
 ---
 
-# Managing networks and IP prefixes in a routing instance
+# Managing networks and IP prefixes in a virtual router
 
-## Updating networks and IP prefixes in a routing instance {#update-networks}
-
-You can use the `yc cloudrouter routing-instance update-networks` {{ yandex-cloud }} CLI [command](../cli-ref/routing-instance/update-networks.md) to simultaneously manage multiple [announced IP prefixes](../concepts/announces.md) of {{ vpc-full-name }} cloud [networks](../../vpc/concepts/network.md#network) added to a [routing instance](../concepts/routing-instance.md), as well as add new networks to a routing instance and delete the existing ones. 
+## Updating networks and IP prefixes in a virtual router {#update-networks}
 
 {% include [ri-roles-necessary](../../_includes/cloud-router/ri-roles-necessary.md) %}
 
-### Adding a cloud network to a routing instance {#add-network}
+### Adding a new cloud network to a virtual router {#add-network}
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [virtual router](../concepts/routing-instance.md).
+  1. [Navigate]({{ link-console-main }}/link/cloud-router) to **{{ ui-key.yacloud.ui.constants.label_cloud-router_kBGNL }}**.
+  1. In the virtual router row, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. Under **{{ ui-key.yacloud.cloud-router.router.routing-networks_42RL1 }}**, expand the drop-down list and select the network to add. Use search, if required.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
+
 - CLI {#cli}
+
+  You can use the `yc cloudrouter routing-instance update-networks` {{ yandex-cloud }} CLI [command](../cli-ref/routing-instance/update-networks.md) to simultaneously manage multiple [announced IP prefixes](../concepts/announces.md) of {{ vpc-full-name }} cloud [networks](../../vpc/concepts/network.md#network) added to a [virtual router](../concepts/routing-instance.md), as well as add new networks to a virtual router and delete the existing ones.
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
   1. {% include [ri-update-networks-help](../../_includes/cloud-router/ri-update-networks-help.md) %}
   1. {% include [ri-list-cli](../../_includes/cloud-router/ri-list-cli.md) %}
   1. {% include [ri-update-networks-get](../../_includes/cloud-router/ri-update-networks-get.md) %}
-  1. Add a new network with an announced IP prefix to the routing instance by specifying this network's [ID](../../vpc/operations/network-get-info.md) under `id` in the `--add-vpc-net` parameter:
+  1. Add a new network with an announced IP prefix to the virtual router by specifying this network's [ID](../../vpc/operations/network-get-info.md) under `id` in the `--add-vpc-net` parameter:
 
       ```bash
       yc cloudrouter routing-instance update-networks \
@@ -47,7 +55,7 @@ You can use the `yc cloudrouter routing-instance update-networks` {{ yandex-clou
 
       {% include [ri-async-output-legend](../../_includes/cloud-router/ri-async-output-legend.md) %}
 
-  1. Wait for the operation to [complete](../../cli/cli-ref/operation/cli-ref/get.md) and make sure the routing instance configuration has been updated:
+  1. Wait for the operation to [complete](../../cli/cli-ref/operation/cli-ref/get.md) and make sure the virtual router configuration has been updated:
 
       ```bash
       yc cloudrouter routing-instance get c3lgk007olse******** \
@@ -104,9 +112,17 @@ You can use the `yc cloudrouter routing-instance update-networks` {{ yandex-clou
 
 {% endlist %}
 
-### Deleting an existing cloud network from a routing instance {#remove-network}
+### Deleting an existing cloud network from a virtual router {#remove-network}
 
 {% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the virtual router.
+  1. [Navigate]({{ link-console-main }}/link/cloud-router) to **{{ ui-key.yacloud.ui.constants.label_cloud-router_kBGNL }}**.
+  1. Select the virtual router.
+  1. Under **{{ ui-key.yacloud.cloud-router.router.routing-networks_42RL1 }}**, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the cloud network and select ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
+  1. In the window that opens, confirm the deletion.
 
 - CLI {#cli}
 
@@ -115,7 +131,7 @@ You can use the `yc cloudrouter routing-instance update-networks` {{ yandex-clou
   1. {% include [ri-update-networks-help](../../_includes/cloud-router/ri-update-networks-help.md) %}
   1. {% include [ri-list-cli](../../_includes/cloud-router/ri-list-cli.md) %}
   1. {% include [ri-update-networks-get](../../_includes/cloud-router/ri-update-networks-get.md) %}
-  1. Delete an existing network from the routing instance:
+  1. Delete the existing network from the virtual router:
 
       ```bash
       yc cloudrouter routing-instance update-networks \
@@ -140,7 +156,7 @@ You can use the `yc cloudrouter routing-instance update-networks` {{ yandex-clou
 
       {% include [ri-async-output-legend](../../_includes/cloud-router/ri-async-output-legend.md) %}
 
-  1. Wait for the operation to [complete](../../cli/cli-ref/operation/cli-ref/get.md) and make sure the routing instance configuration has been updated:
+  1. Wait for the operation to [complete](../../cli/cli-ref/operation/cli-ref/get.md) and make sure the virtual router configuration has been updated:
 
       ```bash
       yc cloudrouter routing-instance get c3lgk007olse******** \
@@ -183,9 +199,20 @@ You can use the `yc cloudrouter routing-instance update-networks` {{ yandex-clou
 
 {% endlist %}
 
-### Updating IP prefixes of existing cloud networks in a routing instance {#update-prefixes}
+### Updating IP prefixes of existing cloud networks in a virtual router {#update-prefixes}
 
 {% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the virtual router.
+  1. [Navigate]({{ link-console-main }}/link/cloud-router) to **{{ ui-key.yacloud.ui.constants.label_cloud-router_kBGNL }}**.
+  1. Select the virtual router.
+  1. Under **{{ ui-key.yacloud.cloud-router.router.routing-networks_42RL1 }}**, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the cloud network and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. In the window that opens:
+
+     1. Mark the subnets you want to update IP prefixes in.
+     1. Edit the IP prefixes as appropriate.
+     1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -194,7 +221,7 @@ You can use the `yc cloudrouter routing-instance update-networks` {{ yandex-clou
   1. {% include [ri-update-networks-help](../../_includes/cloud-router/ri-update-networks-help.md) %}
   1. {% include [ri-list-cli](../../_includes/cloud-router/ri-list-cli.md) %}
   1. {% include [ri-update-networks-get](../../_includes/cloud-router/ri-update-networks-get.md) %}
-  1. Update the announced IP prefixes in the routing instance:
+  1. Update the announced IP prefixes in the virtual router:
 
       
       ```bash
@@ -224,7 +251,7 @@ You can use the `yc cloudrouter routing-instance update-networks` {{ yandex-clou
 
       {% include [ri-async-output-legend](../../_includes/cloud-router/ri-async-output-legend.md) %}
 
-  1. Wait for the operation to [complete](../../cli/cli-ref/operation/cli-ref/get.md) and make sure the routing instance configuration has been updated:
+  1. Wait for the operation to [complete](../../cli/cli-ref/operation/cli-ref/get.md) and make sure the virtual router configuration has been updated:
 
       ```bash
       yc cloudrouter routing-instance get c3lgk007olse******** \
@@ -273,36 +300,47 @@ You can use the `yc cloudrouter routing-instance update-networks` {{ yandex-clou
 
 {% endlist %}
 
-## Adding IP prefixes to a routing instance {#upsert-prefixes}
-
-You can use the `yc cloudrouter routing-instance upsert-prefixes` {{ yandex-cloud }} CLI [command](../cli-ref/routing-instance/upsert-prefixes.md) to [announce new IP prefixes](../concepts/announces.md) in a routing instance.
-
-{% note tip %}
-
-If you need to add new IP prefixes to a routing instance while also deleting all or some of its existing prefixes, [use](#update-networks) the `yc cloudrouter routing-instance update-networks` command.
-
-{% endnote %}
+## Adding IP prefixes to a virtual router {#upsert-prefixes}
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the virtual router.
+  1. [Navigate]({{ link-console-main }}/link/cloud-router) to **{{ ui-key.yacloud.ui.constants.label_cloud-router_kBGNL }}**.
+  1. Select the virtual router.
+  1. Under **{{ ui-key.yacloud.cloud-router.router.routing-networks_42RL1 }}**, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the cloud network and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. In the window that opens:
+
+     1. Mark the sections containing the subnets you want to add IP prefixes in.
+     1. Enter the IP prefixes as appropriate.
+     1. Click **{{ ui-key.yacloud.common.save }}**.
+
 - CLI {#cli}
+
+  You can use the `yc cloudrouter routing-instance upsert-prefixes` {{ yandex-cloud }} CLI [command](../cli-ref/routing-instance/upsert-prefixes.md) to [announce new IP prefixes](../concepts/announces.md) in a virtual router.
+  
+  {% note tip %}
+  
+  If you need to add new IP prefixes to a virtual router while also deleting all or some of its existing prefixes, [use](#update-networks) the `yc cloudrouter routing-instance update-networks` command.
+  
+  {% endnote %}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
-  1. See the description of the CLI command for updating a list of IP prefixes in a [routing instance](../concepts/routing-instance.md):
+  1. See the description of the CLI command for updating the list of IP prefixes in a [virtual router](../concepts/routing-instance.md):
 
       ```bash
       yc cloudrouter routing-instance upsert-prefixes --help
       ```
 
-  1. View the routing instance configuration and the list of IP prefixes:
+  1. View the virtual router configuration and the list of IP prefixes:
 
       ```bash
       yc cloudrouter routing-instance get c3l871dpin4f******** \
         --folder-id <folder_ID>
       ```
 
-      Where `--folder-id` is the [ID of the folder](../../resource-manager/operations/folder/get-id.md) containing the routing instance.
+      Where `--folder-id` is the [ID of the folder](../../resource-manager/operations/folder/get-id.md) containing the virtual router.
 
       Result:
 
@@ -324,7 +362,7 @@ If you need to add new IP prefixes to a routing instance while also deleting all
       status: ACTIVE
       created_at: "2025-03-19T13:35:56Z"
       ```
-  1. Add more prefixes to the routing instance IP prefix list:
+  1. Add more prefixes to the virtual router IP prefix list:
 
       {% include [ri-roles-necessary](../../_includes/cloud-router/ri-roles-necessary.md) %}
 
@@ -353,7 +391,7 @@ If you need to add new IP prefixes to a routing instance while also deleting all
 
       {% include [ri-async-output-legend](../../_includes/cloud-router/ri-async-output-legend.md) %}
 
-  1. Wait for the operation to [complete](../../cli/cli-ref/operation/cli-ref/get.md) and make sure the routing instance configuration has been updated:
+  1. Wait for the operation to [complete](../../cli/cli-ref/operation/cli-ref/get.md) and make sure the virtual router configuration has been updated:
 
       ```bash
       yc cloudrouter routing-instance get c3l871dpin4f******** \
@@ -397,36 +435,47 @@ If you need to add new IP prefixes to a routing instance while also deleting all
 
 {% endlist %}
 
-## Deleting IP prefixes from a routing instance {#remove-prefixes}
-
-You can use the `yc cloudrouter routing-instance remove-prefixes` {{ yandex-cloud }} CLI [command](../cli-ref/routing-instance/remove-prefixes.md) to delete [announced IP prefixes](../concepts/announces.md) from a routing instance.
-
-{% note tip %}
-
-If you need to delete existing IP prefixes from a routing instance while also adding new prefixes to it, [use](#update-networks) the `yc cloudrouter routing-instance update-networks` command.
-
-{% endnote %}
+## Deleting IP prefixes from a virtual router {#remove-prefixes}
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the virtual router.
+  1. [Navigate]({{ link-console-main }}/link/cloud-router) to **{{ ui-key.yacloud.ui.constants.label_cloud-router_kBGNL }}**.
+  1. Select the virtual router.
+  1. Under **{{ ui-key.yacloud.cloud-router.router.routing-networks_42RL1 }}**, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the cloud network and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. In the window that opens:
+
+     1. Mark the sections containing the subnets you want to delete IP prefixes from.
+     1. Click ![xmark](../../_assets/console-icons/xmark.svg) next to the prefixes you want to delete.
+     1. Click **{{ ui-key.yacloud.common.save }}**.
+
 - CLI {#cli}
+
+  You can use the `yc cloudrouter routing-instance remove-prefixes` {{ yandex-cloud }} CLI [command](../cli-ref/routing-instance/remove-prefixes.md) to delete [announced IP prefixes](../concepts/announces.md) from a virtual router.
+  
+  {% note tip %}
+  
+  If you need to delete existing IP prefixes from a virtual router while also adding new prefixes to it, [use](#update-networks) the `yc cloudrouter routing-instance update-networks` command.
+  
+  {% endnote %}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
-  1. See the description of the CLI command for deleting IP prefixes from a [routing instance](../concepts/routing-instance.md):
+  1. See the description of the CLI command for deleting IP prefixes from a [virtual router](../concepts/routing-instance.md):
 
       ```bash
       yc cloudrouter routing-instance remove-prefixes --help
       ```
 
-  1. View the routing instance configuration and the list of IP prefixes:
+  1. View the virtual router configuration and the list of IP prefixes:
 
       ```bash
       yc cloudrouter routing-instance get c3l871dpin4f******** \
         --folder-id <folder_ID>
       ```
 
-      Where `--folder-id` is the [ID of the folder](../../resource-manager/operations/folder/get-id.md) containing the routing instance.
+      Where `--folder-id` is the [ID of the folder](../../resource-manager/operations/folder/get-id.md) containing the virtual router.
 
       Result:
 
@@ -459,7 +508,7 @@ If you need to delete existing IP prefixes from a routing instance while also ad
       ```
 
 
-  1. Delete IP prefixes from the routing instance:
+  1. Delete IP prefixes from the virtual router:
 
       {% include [ri-roles-necessary](../../_includes/cloud-router/ri-roles-necessary.md) %}
 
@@ -488,7 +537,7 @@ If you need to delete existing IP prefixes from a routing instance while also ad
 
       {% include [ri-async-output-legend](../../_includes/cloud-router/ri-async-output-legend.md) %}
 
-  1. Wait for the operation to [complete](../../cli/cli-ref/operation/cli-ref/get.md) and make sure the routing instance configuration has been updated:
+  1. Wait for the operation to [complete](../../cli/cli-ref/operation/cli-ref/get.md) and make sure the virtual router configuration has been updated:
 
       ```bash
       yc cloudrouter routing-instance get c3l871dpin4f******** \

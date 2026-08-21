@@ -33,8 +33,6 @@ In {{ baremetal-full-name }}, you install each [server](./servers.md) OS from an
 
 {{ marketplace-short-name }} images include all hardware drivers and system settings required for the OS to run properly on a {{ baremetal-name }} server.
 
-When you [install](../operations/servers/reinstall-os-from-marketplace.md) a server OS from a {{ marketplace-short-name }} image, it is always installed and booted in Legacy [mode](./server-advanced-settings.md#boot-mode).
-
 When installing a server OS from a {{ marketplace-short-name }} image, you can select the image you need directly in the [management console]({{ link-console-main }}) interface. Alternatively, you can specify the image ID or name if you are using the {{ yandex-cloud }} [CLI](../../cli/cli-ref/baremetal/cli-ref/index.md) or [API](../api-ref/authentication.md).
 
 ## Custom images {#user-images}

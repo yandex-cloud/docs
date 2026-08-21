@@ -53,7 +53,7 @@ The infrastructure support cost includes:
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+     1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
      1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
      1. Enter the service account name, e.g., `sa-firezone`.
      1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -374,7 +374,7 @@ To stop paying for the resources you created:
 
 - {{ TF }} {#tf}
 
-  1. On your remote PC, navigate to the `keycloak-config` directory and run the `terraform destroy` command.
-  1. Next, navigate to the `main` directory and run `terraform destroy` again.
+  1. On your workstation, run the `terraform destroy` command in the `keycloak-config` directory.
+  1. Run the `terraform destroy` command in the `main` directory.
 
 {% endlist %}

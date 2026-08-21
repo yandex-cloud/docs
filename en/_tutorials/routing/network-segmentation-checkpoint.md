@@ -134,7 +134,7 @@ We use the Linux terminal to perform the following steps.
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Name your service account, e.g., `sa-terraform`.
 

@@ -2,7 +2,7 @@
 
 {% include [cic-only-warning](../../_includes/interconnect/cic-only-warning.md) %}
 
-Reserved on-prem connection via two private Cloud Interconnect connections to one RI with two *or more* cloud networks and network connectivity between the cloud networks. This fully-connected topology is called `Full Mesh`.
+Reserved on-prem connection via two private Cloud Interconnect connections to one virtual router with two or more cloud networks and network connectivity between the cloud networks. This fully-connected topology is called `Full Mesh`.
 
 ![ri-topology-7](../../_assets/cloud-router/ri-topology-7.svg)
 
@@ -12,9 +12,9 @@ The scenario uses the following components:
 
 * The `On-Prem` network hardware connects to the Yandex Cloud network hardware via [Cloud Interconnect](../../interconnect/concepts/index.md).
 
-* Two private connections, `prc-m9` and `prc-nord`, established via two [points of presence](../../interconnect/concepts/pops.md), `M9` and `NORD`, connect to the `Routing Instance` in Yandex Cloud.
+* Two private connections, `prc-m9` and `prc-nord`, established via two [points of presence](../../interconnect/concepts/pops.md), `M9` and `NORD`, connect to a virtual router in Yandex Cloud.
 
-* From the Yandex Cloud side, these two virtual networks connect to the `Routing Instance`:
+* Two virtual networks connect to the virtual router on the Yandex Cloud side:
 
   * `Net-1` comprised of three subnets: `subnet-a1`, `subnet-b1`, and `subnet-d1`.
   * `Net-2` comprised of three subnets: `subnet-a2`, `subnet-b2`, and `subnet-d2`.

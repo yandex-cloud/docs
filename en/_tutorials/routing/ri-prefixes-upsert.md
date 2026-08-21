@@ -1,4 +1,4 @@
-## Changing VPC IP prefixes in a routing instance {#ri-ip-change}
+## Changing VPC IP prefixes in a virtual router {#ri-ip-change}
 
 To change IP prefixes in a private connection, do the following:
 1. Delete the existing IP prefixes from the private connection. 
@@ -20,7 +20,7 @@ Where:
 
 ### Contacting support to add IP prefixes to a private connection {#prefix-add}
 
-Follow this request format:
+Follow this format:
 
 
 
@@ -31,7 +31,7 @@ Where:
 
 ### Contacting support to delete IP prefixes from a private connection {#prefix-del}
 
-Follow this request format:
+Follow this format:
 
 
 
@@ -55,5 +55,5 @@ Changing IP prefixes may take up to two business days. You will be notified once
 
 {% endnote %}
 
-If there are any IP connectivity issues, contact support for diagnostics and troubleshooting.
+If there are any connectivity issues, contact support for diagnostics and troubleshooting.
 

@@ -644,6 +644,8 @@
         defaultValue: <зависит от type>,
         options: {label: "<string>", value: "<string>"}[],
         placeholder: "<string>",
+        filterable: boolean,
+        filterPlaceholder: "<string>",
         min: number,
         max: number,
         step: number,
@@ -670,6 +672,8 @@
     * (Опционально) `defaultValue` — начальное значение поля. Тип значения зависит от `type`.
     * `options` — список возможных значений в формате `{label, value}` для `select`, `radio` и `radio-tabs`.
     * `placeholder` — подсказка в пустом поле для `text-input` и `number-input`.
+    * `filterable` — признак, который показывает, доступна ли фильтрация данных по этому полю. Возможные значения: `true` или `false`. Доступно для `select`. 
+    * `filterPlaceholder` — подсказка в пустом поле для `select`.
     * `min`, `max`, `step` — ограничения для `number-input`.
 
     Действие при отправке формы (`onSubmit`):
@@ -719,3 +723,5 @@
 * [Практическое руководство с примером использования вкладки Activities в Editor](../../tutorials/create-editor-activities.md)
 
 * [Пример использования вкладки Activities в Editor](https://datalens.yandex/nvkfwnekf9xy9?tab=vZX)
+
+* [Пример реализации Write-back через Activities в Editor и API Connector](https://datalens.yandex/2aztx9jtm06ko?tab=mv#Пример%20Таблицы%20с%20формой%20ввода)

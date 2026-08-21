@@ -82,8 +82,8 @@ Save the private key in a secure location, as you will not be able to connect to
 
 - Management console {#console}
   
-  1. In the [management console]({{ link-console-main }}), select the folder containing your VM.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the new VM.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the VM list, select `cisco-router`.
   1. Go to the ![image](../../_assets/console-icons/terminal.svg) **{{ ui-key.yacloud.compute.instance.switch_console }}** tab and click **{{ ui-key.yacloud.compute.instance.console.connect }}**.
   1. Wait for the operating system to start up completely.

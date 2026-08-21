@@ -54,7 +54,7 @@ Create a cloud network named `exchange-network` with subnets in all availability
      To create a [cloud network](../../vpc/concepts/network.md):
 
      1. In the [management console]({{ link-console-main }}), select a folder where you want to create your cloud network.
-     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+     1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
      1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
      1. Specify `exchange-network` as the network name.
      1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
@@ -249,8 +249,8 @@ You will use a file server with internet access to configure VMs with Active Dir
 
 Active Directory VMs do not have internet access. To configure them, use `fsw-vm` through RDP.
 
-1. Connect to `fsw-vm` through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` as your username and your password.
-1. On `fsw-vm`, run RDP and connect to `ad-vm-a`. Use `Administrator` as your username and your password.
+1. Connect to `fsw-vm` through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` for username and your password.
+1. On `fsw-vm`, run RDP and connect to `ad-vm-a`. Use `Administrator` for username and your password.
 1. Run PowerShell on `ad-vm-a` and set a static address:
 
    ```powershell
@@ -329,8 +329,8 @@ Active Directory VMs do not have internet access. To configure them, use `fsw-vm
 
 ## Configure the second domain controller {#install-ad-2}
 
-1. Connect to `fsw-vm` through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` as your username and your password.
-1. On `fsw-vm`, run RDP and connect to `ad-vm-b`. Use `Administrator` as your username and your password.
+1. Connect to `fsw-vm` through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` for username and your password.
+1. On `fsw-vm`, run RDP and connect to `ad-vm-b`. Use `Administrator` for username and your password.
 1. Create a temporary folder:
 
    ```
@@ -478,7 +478,7 @@ Active Directory VMs do not have internet access. To configure them, use `fsw-vm
    {% endlist %}
 
 1. Connect to `fsw-vm` through RDP.
-1. Run RDP on `fsw-vm` and connect to `vm-exchange-a`. Use `Administrator` as your username and your password. Launch PowerShell.
+1. Run RDP on `fsw-vm` and connect to `vm-exchange-a`. Use `Administrator` for username and your password. Launch PowerShell.
 1. Configure the DNS client:
 
    ```powershell
@@ -575,7 +575,7 @@ Active Directory VMs do not have internet access. To configure them, use `fsw-vm
    {% endlist %}
 
 1. Connect to `fsw-vm` through RDP.
-1. Run RDP on `fsw-vm` and connect to `vm-exchange-b`. Use `Administrator` as your username and your password. Launch PowerShell.
+1. Run RDP on `fsw-vm` and connect to `vm-exchange-b`. Use `Administrator` for username and your password. Launch PowerShell.
 1. Configure the DNS client:
 
    ```powershell
@@ -771,7 +771,7 @@ It will distribute the load across the Exchange servers in various availability 
   To create a [network load balancer](../../network-load-balancer/concepts/index.md):
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your service account.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. [Navigate]({{ link-console-main }}/link/network-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Click **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
   1. Enter the load balancer name: `exchange-lb`.
   1. In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_address-type }}** field, select **{{ ui-key.yacloud.common.label_auto }}**.
@@ -967,7 +967,7 @@ Create a VM named `vm-edge-b`:
 ### Configure the Edge Transport server in the `{{ region-id }}-a` zone {#edge-a}
 
 1. Connect to `fsw-vm` through RDP.
-1. Connect to `vm-edge-a` through RDP. Use `Administrator` as your username and your password. Launch PowerShell.
+1. Connect to `vm-edge-a` through RDP. Use `Administrator` for username and your password. Launch PowerShell.
 1. Create a temporary folder:
 
    ```
@@ -1043,7 +1043,7 @@ Create a VM named `vm-edge-b`:
 ### Configure the Edge Transport server in the `{{ region-id }}-b` zone {#edge-b}
 
 1. Connect to `fsw-vm` through RDP.
-1. Connect to `vm-edge-b` through RDP. Use `Administrator` as your username and your password. Launch PowerShell.
+1. Connect to `vm-edge-b` through RDP. Use `Administrator` for username and your password. Launch PowerShell.
 1. Create a temporary folder:
 
    ```powershell

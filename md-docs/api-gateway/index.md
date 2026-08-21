@@ -44,6 +44,8 @@ Yandex API Gateway — сервис для управления API-шлюзам
 
  - [Отключить домен](operations/api-gw-domain-detach.md)
 
+ - [Остановить и запустить API-шлюз](operations/api-gw-stop-resume.md)
+
  - [Миграция в зону ru-central1-d](operations/api-gw-migration.md)
 
  - [Удалить API-шлюз](operations/api-gw-delete.md)

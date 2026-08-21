@@ -8,7 +8,7 @@ description: Follow this guide to manage {{ ZK }} hosts.
 
 {{ ZK }} is a coordination system you can use to distribute queries among {{ CH }} hosts for [data replication](../concepts/replication.md). For successful replication, your {{ mch-name }} cluster must have [three or five {{ ZK }} hosts](../qa/cluster-settings.md#zookeeper-hosts-number). This cluster will be fault-tolerant.
 
-If you are creating a cluster with two or more {{ CH }} hosts per shard, the system will automatically add three {{ ZK }} hosts to the cluster. At this stage, you can only set up their configuration. If you created a single-host cluster or a cluster with multiple single-host shards, you can add {{ ZK }} hosts later.
+If you are creating a cluster with two or more {{ CH }} hosts per shard and enabled {{ ZK }} [coordination service](../concepts/coordination-system.md), the system will automatically add three {{ ZK }} hosts to the cluster. At this stage, you can only set up their configuration. If you created a single-host cluster or a cluster with multiple single-host shards and enabled coordination service, you can add {{ ZK }} hosts later.
 
 For more information about {{ ZK }} hosts, see [{#T}](../concepts/coordination-system.md#zk).
 
@@ -41,7 +41,7 @@ Intel Broadwell is not supported in the `{{ region-id }}-d` [availability zone](
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
   1. At the top right, click **{{ ui-key.yacloud.mdb.cluster.hosts.button_create-coordinator }}**.
   1. Specify the [host class](../concepts/instance-types.md).
@@ -216,7 +216,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of cor
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}**, select the platform, VM type, and required {{ ZK }} host class.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-disk }}**, set the storage size and disk type for {{ ZK }} hosts.
@@ -270,7 +270,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of cor
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-     For more on how to create such a file, see the [Creating a cluster](cluster-create.md) section.
+     For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
   1. In the {{ ZK }} configuration section, specify the new host class, disk type, and storage size.
 
@@ -503,7 +503,7 @@ If {{ ZK }} hosts have already been created in the cluster, you cannot delete th
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
   1. Hover over the relevant host row and click ![image](../../_assets/console-icons/xmark.svg).
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
@@ -532,7 +532,7 @@ If {{ ZK }} hosts have already been created in the cluster, you cannot delete th
 
    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      For more on how to create such a file, see the [Creating a cluster](cluster-create.md) section.
+      For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
    1. Delete the `{{ ZK }}` host from the `hosts` section.
    1. Make sure the settings are correct.

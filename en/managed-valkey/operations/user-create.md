@@ -14,7 +14,7 @@ description: You can create {{ VLK }} users and manage their permissions in {{ m
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Click the name of your cluster and select the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}** in the top-right corner of the page.
   
@@ -28,20 +28,20 @@ description: You can create {{ VLK }} users and manage their permissions in {{ m
         
         1. Set a user password in one of the following ways:
  
-            * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}**: Enter the password manually. It must be from 8 to 128 characters long.
-            * **{{ ui-key.yacloud.component.password-input.label_button-generate }}**: Generate a password using [{{ connection-manager-full-name }}](../../metadata-hub/concepts/connection-manager.md) and save it in a [{{ lockbox-full-name }} secret](../../lockbox/concepts/secret.md).
+            * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}**: Enter a password manually. It must be from 8 to 128 characters long.
+            * **{{ ui-key.yacloud.component.password-input.label_button-generate }}**: Generate a password using [{{ connection-manager-full-name }}](../../metadata-hub/concepts/connection-manager.md) and store it in a [{{ lockbox-full-name }} secret](../../lockbox/concepts/secret.md).
 
               To view the password, navigate to the cluster page, select the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-full-name }} secret containing the password.
 
-              To view passwords, you need the [lockbox.payloadViewer](../../lockbox/security/index.md#lockbox-payloadViewer) role.
+              You need the [lockbox.payloadViewer](../../lockbox/security/index.md#lockbox-payloadViewer) role to view passwords.
         
 
       * **IAM**: Authorization via [accounts in {{ yandex-cloud }}](../../iam/concepts/users/accounts.md).
         
-        For this authorization method, select the account in the **User** field.
+        For this authorization method, select the right account in the **User** field.
 
 
-  1. Select the **{{ ui-key.yacloud.mdb.cluster.users.field_enable-user }}** option so that the user can connect to the cluster and execute commands.
+  1. Select the **{{ ui-key.yacloud.mdb.cluster.users.field_enable-user }}** option to enable the user to connect to the cluster and execute commands.
   1. Under `Permissions`, specify user permissions:
 
       * `Patterns`: Permissions for key patterns.

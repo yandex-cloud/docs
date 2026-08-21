@@ -26,7 +26,7 @@ You cannot directly change the [Max server memory usage]({{ ch.docs }}{{ lang }}
    To configure {{ CH }}:
 
    1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
    1. Specify the [{{ CH }} settings](../concepts/settings-list.md#server-level-settings).
@@ -128,7 +128,7 @@ You cannot directly change the [Max server memory usage]({{ ch.docs }}{{ lang }}
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm resource changes.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

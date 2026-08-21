@@ -56,7 +56,7 @@ The cost for bucket support includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, specify `sa-win-disk-connect`.
   1. Click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `storage.editor` role.
@@ -106,8 +106,8 @@ The cost for bucket support includes:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
+  1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. In the list that opens, select `sa-win-disk-connect`.
   1. In the top panel, click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}**.
@@ -154,7 +154,7 @@ The cost for bucket support includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}**, and **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** fields, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
@@ -295,7 +295,7 @@ For the bucket to mount automatically when the user logs in, create a [VBScript]
 1. Open your system registry editor, `regedit.exe`, and proceed as follows in the window that opens:
 
     1. Go to the `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run` branch and create a string parameter named `bucket-mounter` in it.
-    1. Change the `bucket-mounter` parameter value to full path to the VBS script file created earlier. For example: `C:\bucket-mounter\bucket_mount.vbs`
+    1. Change the `bucket-mounter` parameter value to full path to the VBS script file created earlier. Here is an example: `C:\bucket-mounter\bucket_mount.vbs`
 
 From now on, your bucket will automatically mount into the OS each time the user logs on to the PC.
 

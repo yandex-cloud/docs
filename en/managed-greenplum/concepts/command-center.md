@@ -58,8 +58,8 @@ The consumption history may contain a large number of completed queries. These q
 
 A group of queries is essentially a list which displays information about each query. The information displayed about a query depends on its duration:
 
-* More than one hour: Full query information is saved. This includes details such as the query timestamp, initiating user, and resource consumption at each database segment.
-* Less than one hour: The information is aggregated the same way as in the [pg_stat_statements]({{ pg.docs.org }}/current/pgstatstatements.html) {{ PG }} view. You can learn only total consumption at a selected time point.
+* More than ten minutes: full query information is saved. This includes details such as the query timestamp, initiating user, and resource consumption at each database segment.
+* Less than ten minutes: information is aggregated. You can learn only total consumption at a selected time point.
 
 You can group queries by one or multiple parameters:
 

@@ -2551,11 +2551,87 @@ gt4.1 ^1^ | 0
 ^1^ Если вы ожидаете большее количество запросов в секунду, обратитесь к вашему аккаунт-менеджеру Yandex Cloud.
 
 
+### SourceCraft {#scr}
+
+### Квоты {#quotas}
+
+Квоты SourceCraft устанавливаются в зависимости от используемого тарифного плана. Подробнее в разделе [Правила тарификации для SourceCraft](https://sourcecraft.dev/portal/docs/ru/sourcecraft/pricing#tariff-differences).
+
+### Лимиты {#limits}
+
+#### Общие лимиты {#common-limits}
+
+#|
+|| **Вид ограничения** {align="center"} | **Значение** {align="center"} | > ||
+|| ^ | **Публичные репозитории** {align="center"} | **Приватные репозитории** {align="center"} ||
+|| Количество репозиториев в организации | 5 000 | 5 000 ||
+|| Количество [вебхуков](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/webhooks) в одном репозитории | 200 | 200 ||
+|| Объем загружаемого в [релиз](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/releases) файла | 100 МБ | 100 МБ ||
+|| Общий объем загруженных файлов в релизах репозиториев в организации | 1 ГБ | 500 МБ ||
+|| Количество синхронизаций зеркалируемого репозитория за 24 часа, включая автоматические и запущенные вручную | 50 | 50 ||
+|#
+
+#### CI/CD {#ci-cd-limits}
+
+Вид ограничения | Значение
+--- | ---
+Общий объем артефактов сборки во всех репозиториях организации | 10 ГБ
+Таймаут на клонирование репозитория в CI-процессе | 60 секунд
+Общий объем артефактов сборки в одном [кубике](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/ci-cd#cubes) | 100 МБ
+Общий объем логов одного кубика | 10 МБ
+Длительность выполнения одного кубика | 1200 секунд
+Количество кубиков в [задании](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/ci-cd#tasks) | 20
+Общий объем логов CI-процессов во всех репозиториях организации | 10 ГБ
+Длительность выполнения одного задания | 3600 секунд
+Количество заданий в [рабочем процессе](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/ci-cd#workflows) | 10
+Количество рабочих процессов в запуске CI | 3
+
+#### SourceCraft Spaces {#spaces-limits}
+
+Вид ограничения | Значение
+--- | ---
+Количество рабочих пространств в организации на пользователя, включая остановленные | 3
+
+
 ### SourceCraft Code Assistant {#ca}
 
 #### Квоты {#ca-quotas}
 
 Квоты SourceCraft Code Assistant устанавливаются в зависимости от используемого тарифного плана. Подробнее на странице [Тарифные планы Code Assistant](https://sourcecraft.dev/portal/docs/ru/sourcecraft/pricing#ca-plans).
+
+
+### Vibecraft {#vc}
+
+#### Квоты {#vc-quotas}
+
+Vibecraft основывается на компонентах SourceCraft и Yandex Cloud, в которых установлены определенные ограничения:
+* [Квоты в SourceCraft Code Assistant](https://sourcecraft.dev/portal/docs/ru/code-assistant/concepts/limits)
+* [Квоты и лимиты в SourceCraft](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/limits)
+* [Квоты и лимиты Yandex Container Registry](../../container-registry/concepts/limits.md)
+* [Квоты и лимиты Yandex Serverless Containers](../../serverless-containers/concepts/limits.md)
+* [Квоты и лимиты Yandex Lockbox](../../lockbox/concepts/limits.md)
+* [Квоты и лимиты Yandex Managed Service for YDB](../../ydb/concepts/limits.md)
+* [Квоты и лимиты Yandex API Gateway](../../api-gateway/concepts/limits.md)
+* [Квоты и лимиты Yandex Cloud DNS](../../dns/concepts/limits.md)
+
+#### Лимиты {#vc-limits}
+
+Вид ограничения | Значение
+--- | ---
+Количество одновременно редактируемых проектов | 3
+Количество опубликованных проектов | 10
+
+{% note tip %}
+
+Помимо лимитов учитывайте квоты SourceCraft и Yandex Cloud.
+
+Если вам необходимо больше ресурсов, увеличьте квоты одним из способов:
+* [Сформируйте запрос на увеличение](https://console.yandex.cloud/cloud?section=quotas).
+* Обратитесь в [техническую поддержку](https://center.yandex.cloud/support) и расскажите, какие потребляемые квоты нужно увеличить и на сколько.
+
+Управлять квотами позволяет сервис [Yandex Cloud Quota Manager](../../quota-manager/quickstart.md).
+
+{% endnote %}
 
 
 ### Yandex SpeechKit {#speechkit}

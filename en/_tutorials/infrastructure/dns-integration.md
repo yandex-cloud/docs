@@ -58,7 +58,7 @@ On the {{ yandex-cloud }} side, you will create a cloud network with a single su
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) in which you are going to create your cloud infrastructure.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** and click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+  1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** and click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, enter a [name](*name) for the cloud network: `my-vpc-network`.
   1. Disable **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
   1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
@@ -72,7 +72,7 @@ On the {{ yandex-cloud }} side, you will create a cloud network with a single su
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}** and click **{{ ui-key.yacloud.vpc.subnetworks.button_action-create }}**.
   1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** field, enter a [name](*name) for the subnet: `subnet2`.
   1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** field, select the `{{ region-id }}-b` [availability zone](../../overview/concepts/geo-scope.md).
@@ -89,7 +89,7 @@ On the {{ yandex-cloud }} side, you will create a cloud network with a single su
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}** and click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}** and click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field, enter a [name](*name) for the cluster: `my-postgresql-cluster`.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, select `{{ ui-key.yacloud.component.password-input.label_button-generate }}` in the **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** field.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select the cloud network you created earlier, i.e., `my-vpc-network`.
@@ -117,8 +117,8 @@ Create an [inbound DNS connection](../../dns/concepts/dns-connection.md#dns-inbo
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the page of the folder you are creating your infrastructure in.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
+  1. [Navigate]({{ link-console-main }}/link/dns) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. In the left-hand panel, select ![nodes-down](../../_assets/console-icons/nodes-down.svg) **{{ ui-key.yacloud.dns.label_inbound-endpoints }}** and click **{{ ui-key.yacloud.dns.DnsInboundEndpointsListScreen.create_button }}**. In the window that opens:
 
       1. In the **{{ ui-key.yacloud.common.name }}** field, specify the [name](*name): `corp-example-net-inbound`.
@@ -257,13 +257,13 @@ For example, you can create a [DNS forwarder](*dns_forwarder) in the corporate s
     Here is an example:
 
     ```bash
-    host rc1d-oсfgp28n0k358fj1.{{ dns-zone }}
+    host rc1d-ocfgp28n0k358fj1.{{ dns-zone }}
     ```
 
     Result:
 
     ```text
-    rc1d-oсfgp28n0k358fj1.{{ dns-zone }} has address 192.168.1.20
+    rc1d-ocfgp28n0k358fj1.{{ dns-zone }} has address 192.168.1.20
     ```
 1. Make sure a corporate network computer can resolve names in public zones, for example:
 

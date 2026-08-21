@@ -30,7 +30,7 @@
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
   1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
 
-  1. Нажмите на имя нужного кластера и выберите вкладку **Мониторинг**. 
+  1. Нажмите на имя нужного кластера и выберите ![chevron-down](../../_assets/console-icons/chevron-down.svg) **Другое** → **Мониторинг**.
 
       На открывшейся странице будут отображены графики работы кластера и хостов ClickHouse®.
 
@@ -205,7 +205,7 @@
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
   1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
 
-  1. Нажмите на имя нужного кластера и выберите вкладку **Мониторинг**.
+  1. Нажмите на имя нужного кластера и выберите ![chevron-down](../../_assets/console-icons/chevron-down.svg) **Другое** → **Мониторинг**.
 
   1. Перейдите на вкладку **Хосты** и выберите хост.
     

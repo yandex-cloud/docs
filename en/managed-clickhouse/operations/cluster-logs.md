@@ -1,6 +1,6 @@
 # Viewing {{ CH }} cluster logs
 
-{{ mch-name }} allows you to [get a cluster log snippet](#get-log) for the selected time period and [view logs in real time](#get-log-stream).
+{{ mch-name }} allows you to [get a cluster log snippet](#get-log) for a selected time period and [view logs in real time](#get-log-stream).
 
 {% include [log-duration](../../_includes/mdb/log-duration.md) %}
 
@@ -11,7 +11,7 @@
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the name of your cluster and select the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.clickhouse.cluster.switch_logs }}** tab.
     1. Specify a time period for the log entries you want to view: enter it manually or select in the calendar using the date input field.
     1. If needed, specify the hosts and logging level in the row containing the date field.
@@ -203,7 +203,7 @@ This method allows you to stream cluster logs in real time.
 
         * `filter`: Log filter. You can use a filter to stream only the logs you need.
 
-            For more information about filters and their syntax, see the [API reference](../api-ref/Cluster/streamLogs.md#query_params).
+            To learn more about filters and their syntax, see the [API reference](../api-ref/Cluster/streamLogs.md#query_params).
 
             {% include [stream-logs-filter](../../_includes/mdb/api/stream-logs-filter.md) %}
 
@@ -261,7 +261,7 @@ This method allows you to stream cluster logs in real time.
 
             {% include [stream-logs-filter](../../_includes/mdb/api/stream-logs-filter.md) %}
 
-            For more information about filters and their syntax, see the [API reference](../api-ref/grpc/Cluster/streamLogs.md).
+            To learn more about filters and their syntax, see the [API reference](../api-ref/grpc/Cluster/streamLogs.md).
 
         
         You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).

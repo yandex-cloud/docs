@@ -42,6 +42,10 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
 
       If you leave this setting unchanged, the cluster will be restored to the state when the backup was completed.
 
+  1. Optionally, under **{{ ui-key.yacloud.mdb.forms.section_additional }}**, enable **{{ ui-key.yacloud.mongodb.ClusterForm.AdditionalSection.field_autocompact-enabled_9Eqw8 }}** to perform automatic compaction to free up disk space.
+      
+      {% include [autocompact-console](../../_includes/mdb/mmg/autocompact-console.md) %}
+
   1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
   To restore a previously deleted cluster from a backup:
@@ -62,6 +66,10 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
   1. To restore the cluster’s state to a specific point in time after the backup was created, configure **{{ ui-key.yacloud.mdb.forms.field_date }}** accordingly. You can either specify the date manually or select it using the date picker.
 
       If you leave this setting unchanged, the cluster will be restored to the state when the backup was completed.
+
+  1. Optionally, under **{{ ui-key.yacloud.mdb.forms.section_additional }}**, enable **{{ ui-key.yacloud.mongodb.ClusterForm.AdditionalSection.field_autocompact-enabled_9Eqw8 }}** to perform automatic compaction to free up disk space.
+      
+      {% include [autocompact-console](../../_includes/mdb/mmg/autocompact-console.md) %}
 
   1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
@@ -124,7 +132,11 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
          --maintenance-window type=<maintenance_type>,`
                              `day=<day_of_week>,`
                              `hour=<sequence_number_of_hour_interval> \
-         --performance-diagnostics=<enable_diagnostics>
+         --performance-diagnostics=<enable_diagnostics> \
+         --autocompact=<allow_automatic_compaction> \
+         --autocompact-bloat-percent <minimum_collection_bloat_percentage> \
+         --autocompact-target-free-space <minimum_amount_of_disk_space_to_free_up_in_MB> \
+         --autocompact-compaction-type <master_host_compaction_settings>
       ```
 
       For a sharded cluster:
@@ -164,7 +176,12 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
          --maintenance-window type=<maintenance_type>,`
                              `day=<day_of_week>,`
                              `hour=<sequence_number_of_hour_interval> \
-         --performance-diagnostics=<enable_diagnostics>
+         --performance-diagnostics=<enable_diagnostics> \
+         --performance-diagnostics=<enable_diagnostics> \
+         --autocompact=<allow_automatic_compaction> \
+         --autocompact-bloat-percent <minimum_collection_bloat_percentage> \
+         --autocompact-target-free-space <minimum_amount_of_disk_space_to_free_up_in_MB> \
+         --autocompact-compaction-type <master_host_compaction_settings>
       ```
 
 
@@ -218,6 +235,12 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
                   "diskSizeLimit": "<maximum_storage_size_in_bytes>"
                 }
               }
+            },
+            "autocompactConfig": {
+              "enabled": <allow_automatic_compaction>,
+              "targetFreeSpace": "<minimum_amount_of_disk_space_to_free_up_in_MB>",
+              "bloatPercent": <minimum_collection_bloat_percentage>,
+              "compactionType": "<master_host_compaction_settings>"
             }
           },
           "hostSpecs": [
@@ -306,6 +329,12 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
                   "disk_size_limit": "<maximum_storage_size_in_bytes>"
                 }
               }
+            },
+            "autocompact_config": {
+              "enabled": <allow_automatic_compaction>,
+              "target_free_space": "<minimum_amount_of_disk_space_to_free_up_in_MB>",
+              "bloat_percent": <minimum_collection_bloat_percentage>,
+              "compaction_type": "<master_host_compaction_settings>"
             }
           },
           "host_specs": [

@@ -11,7 +11,7 @@ description: How to use try_convert in {{ mgp-full-name }}.
 
 The extension only supports the standard {{ GP }} data types. To use other data types, add them using the `add_type_for_try_convert` function.
 
-> For example:
+> Here is an example:
 > 
 > ```sql
 > SELECT add_type_for_try_convert('hstore'::regtype);
@@ -19,21 +19,8 @@ The extension only supports the standard {{ GP }} data types. To use other data 
 
 For more information about this extension, see [this try_convert guide](https://github.com/open-gpdb/gpdb/tree/OPENGPDB_STABLE/contrib/try_convert).
 
-## Installing try_convert in a {{ mgp-name }} cluster {#extension-install}
+To install the extension, contact [support]({{ link-console-support }}).
 
-1. [Connect](../connect/index.md) to the database as the owner or a user with the `CREATE` permission in the database and run this command:
-
-    ```sql
-    CREATE EXTENSION try_convert;
-    ```
-
-1. Make sure the extension has been installed:
-
-    ```sql
-    SELECT extname FROM pg_extension;
-    ```
-
-    This will bring up the list of extensions installed in the database.
 
 ## Use cases {#examples}
 

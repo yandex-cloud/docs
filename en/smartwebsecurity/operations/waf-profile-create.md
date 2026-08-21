@@ -74,6 +74,7 @@ description: Follow this guide to create a {{ sws-full-name }} WAF profile.
             is_blocking = false
           }
         }
+      }
       ```
 
       Where:

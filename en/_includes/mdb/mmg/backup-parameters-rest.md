@@ -1,7 +1,7 @@
 * `folderId`: Folder ID. You can get it from the [list of your cloud folders](../../../resource-manager/operations/folder/get-id.md).
 * `backupId`: Backup ID. To restore a sharded cluster, specify the [sharded backup](../../../storedoc/concepts/backup.md#size) ID. Such backups are larger in size.
 
-    To learn the ID, [get the list of backups in the folder](../../../storedoc/operations/cluster-backups.md#list-backups).
+    To find out the ID, [get a list of backups in the folder](../../../storedoc/operations/cluster-backups.md#list-backups).
 
 * `name`: New cluster’s name.
 * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
@@ -34,6 +34,10 @@
             * `diskSizeLimit`: Maximum storage size, in bytes, that can be set when storage usage reaches one of the specified thresholds.
 
                 If you set it to `0`, automatic storage expansion will be disabled.
+
+    * `autocompactConfig`: Automatic compaction settings:
+          
+        {% include [autocompact-grpc](autocompact-rest.md) %}
 
 * `hostSpecs`: Cluster host settings as an array of elements, one per host. Each element has the following structure:
 

@@ -72,7 +72,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создана необходимая инфраструктура.
   1. [Перейдите]({{ link-console-main }}/link/managed-postgresql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}**.
+  1. Нажмите на имя нужного кластера, затем выберите ![chevron-down](../../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.postgresql.cluster.switch_users }}**.
   1. Нажмите на идентификатор подключения в строке нужного пользователя.
     
       Откроется страница подключения {{ connection-manager-name }} для выбранного пользователя.
@@ -81,7 +81,7 @@
 
       Откроется страница секрета {{ lockbox-name }}, который хранит пароль пользователя {{ PG }}.
 
-  1. На панели слева выберите раздел ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
   1. Выберите сервисный аккаунт `spark-agent`, которому будет предоставлен доступ к секрету.
   1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите `lockbox.payloadViewer`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.

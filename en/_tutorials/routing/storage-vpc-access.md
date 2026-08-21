@@ -206,8 +206,8 @@ The infrastructure support cost includes:
 
 ## Test the solution {#check}
 
-1. In the [management console]({{ link-console-main }}), navigate to the folder with the resources you created.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. In the [management console]({{ link-console-main }}), select the folder you created the resources in earlier.
+1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. Select `test-s3-vm` from the list of VMs.
 1. Navigate to the ![image](../../_assets/console-icons/terminal.svg) **{{ ui-key.yacloud.compute.instance.switch_console }}** tab.
 1. Click **{{ ui-key.yacloud.compute.instance.console.connect }}**.

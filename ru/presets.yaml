@@ -6968,18 +6968,27 @@ default:
         action_goto-partner-url: Привязать к сервису
         action_move: Переместить
         action_purchase-license: Купить подписку
+        action_send-msg: Отправить
         action_specify-vm: Привязать виртуальную машину
         action_to-pay-license: Оплатить
         button_continue: Далее
         button_disallow-analytics-scanning: Запретить Marketplace собирать статистику
         button_k8s-product-use: Перейти к установке
+        button_request-access: Запросить доступ
+        button_request-access-from-publisher: Запросить доступ у издателя
+        button_request-access-to-product: Отправить заявку
         button_use: Использовать
         label_available-products: Доступные для установки приложения
         label_licenses: Подписки
+        label_product-access-request: Заявки на доступ
+        label_product-access-request-status-approved: Одобрена
         label_product-filter-search-placeholder: Поиск продукта
+        label_request-access-billing-account: Платёжный аккаунт
         label_service-name: Marketplace
         label_tariff-type: Тип тарификации
         section_tariff-section: Способ тарификации
+        title_product-request-messages: Сообщения по заявке
+        title_request-access-to-product-dialog: Заявка на доступ к продукту
       mdb:
         AuthMethodColumn:
           value_iam_boWet: IAM
@@ -9502,6 +9511,12 @@ default:
                     YdbConnectionSettings:
                       database:
                         title: База данных
+                      instance:
+                        title: Эндпоинт YDB
+                      managed_connection:
+                        title: База Managed Service for YDB
+                      on_premise_connection:
+                        title: Настроить вручную
                       security_groups:
                         title: Группы безопасности
                       service_account_id:
@@ -9511,6 +9526,11 @@ default:
                         title: Название предсозданного consumer
                       changefeed_custom_name:
                         title: Название предсозданного changefeed
+                    YdbOnPremiseConnectionSettings:
+                      ca_certificate:
+                        title: Сертификат CA
+                      subnet_id:
+                        title: Идентификатор подсети
                     YdbPartitionPolicy:
                       keep_part_count:
                         title: Количество таблиц
@@ -9561,8 +9581,6 @@ default:
                     YDSConnection:
                       database:
                         title: База данных
-                      security_groups:
-                        title: Группы безопасности
                       service_account_id:
                         title: Сервисный аккаунт
                       stream:

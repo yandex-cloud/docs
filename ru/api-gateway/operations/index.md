@@ -21,6 +21,7 @@ description: Из статьи вы узнаете, как работать с {
 * [Посмотреть журнал выполнения](api-gw-logs.md)
 * [Записать логи в журнал выполнения](api-gw-logs-write.md)
 * [{#T}](api-gw-domain-detach.md)
+* [{#T}](api-gw-stop-resume.md)
 * [{#T}](api-gw-migration.md)
 * [{#T}](api-gw-delete.md)
 

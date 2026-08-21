@@ -1,9 +1,9 @@
 ---
-title: How to delete a private connection from a routing instance in {{ cr-name }}
-description: Follow this guide to delete a private connection from a routing instance in {{ cr-name }}.
+title: How to delete a private connection from a virtual router in {{ cr-name }}
+description: Follow this guide to delete a private connection from a virtual router in {{ cr-name }}.
 ---
 
-# Deleting a private connection from a routing instance
+# Deleting a private connection from a virtual router
 
 {% note info %}
 
@@ -13,15 +13,23 @@ You need the [cloud-router.editor](../security/index.md#cloudrouter-editor) role
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [virtual router](../concepts/routing-instance.md).
+  1. [Navigate]({{ link-console-main }}/link/cloud-router) to **{{ ui-key.yacloud.ui.constants.label_cloud-router_kBGNL }}**.
+  1. In the virtual router row, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. In the **Private connections** field, click ![xmark](../../_assets/console-icons/xmark.svg) next to the [private connections](../../interconnect/concepts/priv-con.md) you want to delete.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
+
 - CLI {#cli}
 
-  1. See the description of the CLI command for deleting a [private connection](../../interconnect/concepts/priv-con.md) from a [routing instance](../concepts/routing-instance.md):
+  1. See the description of the CLI command for deleting a [private connection](../../interconnect/concepts/priv-con.md) from a [virtual router](../concepts/routing-instance.md):
 
       ```bash
       yc cloudrouter routing-instance remove-private-connection --help
       ```
 
-  1. Adding a private connection to a routing instance:
+  1. Deleting the private connection from a virtual router:
 
      ```bash
      yc cloudrouter routing-instance remove-private-connection c3l87**********1dpin \
@@ -43,11 +51,12 @@ You need the [cloud-router.editor](../security/index.md#cloudrouter-editor) role
       ```
 
      Where:
-      * `id`: ID of the operation performed with a routing instance.
+
+      * `id`: ID of the operation performed with the virtual router.
       * `created_by`: ID of the subject running the operation.
 
 
-  1. Checking the modified routing instance configuration:
+  1. Checking the modified virtual router configuration:
 
      ```bash
      yc cloudrouter routing-instance get c3l87**********1dpin
@@ -67,14 +76,15 @@ You need the [cloud-router.editor](../security/index.md#cloudrouter-editor) role
      ```
 
      Where:
-       * `id`: Routing instance ID.
-       * `name`: Routing instance name.
-       * `description`: Routing instance description.
-       * `folder_id`: ID of the cloud folder the routing instance was created in.
-       * `region_id`: Region of the cloud the routing instance was created in.
-       * `cic_private_connection_info`: List of private connections in this routing instance.
-       * `status`: Resource state. The target state is `ACTIVE`. When being updated, it may be in the `UPDATING` state.
-       * `created_at`: Date and time of resource creation.
-       * `async`: Running the operation in asynchronous mode. This is the recommended mode for all operations that involve changes to resources.
+
+     * `id`: Virtual router ID.
+     * `name`: Virtual router name.
+     * `description`: Virtual router description.
+     * `folder_id`: ID of the cloud folder the virtual router was created in.
+     * `region_id`: Region of the cloud the virtual router was created in.
+     * `cic_private_connection_info`: List of private connections in the virtual router.
+     * `status`: Resource state. The target state is `ACTIVE`. When being updated, it may be in the `UPDATING` state.
+     * `created_at`: Date and time of resource creation.
+     * `async`: Running the operation in asynchronous mode. This is the recommended mode for all operations that involve changes to resources.
 
 {% endlist %}

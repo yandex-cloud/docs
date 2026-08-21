@@ -10,8 +10,8 @@ You can stop and restart a {{ VLK }} cluster as needed. While your cluster is id
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder containing the cluster you need to stop.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster you need to stop.
+  1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. In the cluster row, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-stop }}**.
   1. Click **{{ ui-key.yacloud.mdb.cluster.stop-dialog.popup-confirm_button }}** to confirm stopping the cluster.
 
@@ -87,8 +87,8 @@ You can restart a cluster if its status is **STOPPED**.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder containing the cluster you need to start.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster you need to start.
+  1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. In the cluster row, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-start }}**.
   1. In the dialog box that opens, click **{{ ui-key.yacloud.mdb.cluster.start-dialog.popup-confirm_button }}** to confirm starting the cluster.
 

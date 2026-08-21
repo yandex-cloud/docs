@@ -30,7 +30,7 @@ The costs for hosting servers include:
 To create a VM:
 
 1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
 1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the [Ubuntu](/marketplace?tab=software&search=Ubuntu&categories=os) image.
@@ -281,6 +281,6 @@ You can check the load on the VM cores by running the `htop` command in a separa
 To stop paying for the deployed server and VM group you created, delete the `master-node` VM and `compute-group`.
 
 If you reserved a static public IP address for this VM:
-1. From your folder, navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-1. Navigate to the **{{ ui-key.yacloud.vpc.switch_addresses }}** tab.
+1. From your folder, [navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+1. Open the **{{ ui-key.yacloud.vpc.switch_addresses }}** tab.
 1. Find the required IP address, click ![ellipsis](../../_assets/options.svg), and select **{{ ui-key.yacloud.common.delete }}**.

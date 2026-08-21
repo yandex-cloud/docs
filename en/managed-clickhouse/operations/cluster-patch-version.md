@@ -12,7 +12,7 @@ To find out the {{ CH }} patch version installed in a {{ mch-name }} cluster, fo
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Find the **{{ ui-key.yacloud.mdb.cluster.overview.label_version }}** field containing the {{ CH }} version and patch version info.
 
 - CLI {#cli}

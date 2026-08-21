@@ -31,7 +31,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 - Management console {#console}
 
   1. Open the [management console]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}** and click **{{ ui-key.yacloud.compute.groups.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
 
@@ -48,7 +48,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
           Click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, specify:
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, specify the following:
 
           * **{{ ui-key.yacloud.compute.disk-form.field_type }}**: `{{ ui-key.yacloud.compute.value_disk-type-network-hdd_cw9XD }}`.
           * **{{ ui-key.yacloud.compute.disk-form.field_size }}**: `3 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
@@ -96,7 +96,7 @@ When creating a network load balancer, you need to add a [listener](../../networ
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you need to create a load balancer.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}** and click **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
+  1. [Navigate]({{ link-console-main }}/link/network-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}** and click **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
   1. Enter a name for the load balancer, e.g., `nlb-1`.
   1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_listeners }}**:
   

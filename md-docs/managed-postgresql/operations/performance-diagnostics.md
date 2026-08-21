@@ -328,7 +328,7 @@ Managed Service for PostgreSQL предоставляет встроенный �
 * Консоль управления {#console}
 
     1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **Диагностика производительности** → **Сессии**.
+    1. Нажмите на имя нужного кластера и выберите ![chevron-down](../../_assets/console-icons/chevron-down.svg) **Другое** → **Диагностика производительности** → **Сессии**.
 
     Для просмотра статистики по сессиям:
 
@@ -396,7 +396,7 @@ Managed Service for PostgreSQL предоставляет встроенный �
 * Консоль управления {#console}
 
     1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **Диагностика производительности** → **Запросы**.
+    1. Нажмите на имя нужного кластера и выберите ![chevron-down](../../_assets/console-icons/chevron-down.svg) **Другое** → **Диагностика производительности** → **Запросы**.
 
     Для просмотра статистики запросов за интервал:
 

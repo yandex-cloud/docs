@@ -59,12 +59,12 @@ Create a [service account](../../iam/concepts/users/service-accounts.md) and ass
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the relevant folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Name the [service account](../../iam/concepts/users/service-accounts.md): `images-puller`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
-  1. At the top of the screen, navigate to the **{{ ui-key.yacloud.iam.folder.switch_dashboard }}** tab.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. At the top of the screen, open the **{{ ui-key.yacloud.iam.folder.switch_dashboard }}** tab.
+  1. [Navigate]({{ link-console-main }}/link/container-registry) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Select the registry and click the row with its name.
   1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. In the top-right corner, click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
@@ -323,7 +323,7 @@ Create a VM with a public IP address and link the service account you created to
 
       For more information about the request body format, see the [API reference](../../compute/api-ref/Instance/create.md).
 
-  1. Create a VM:
+  1. Create the VM:
 
       ```bash
       export IAM_TOKEN=CggaATEVAgA...

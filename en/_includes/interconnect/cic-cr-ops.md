@@ -3,7 +3,7 @@
 Follow these steps when using [Cloud Interconnect](../../interconnect/concepts/index.md) and [Cloud Router](../../cloud-router/concepts/index.md) resources to create hybrid cloud network topologies:
 1. Create a [trunk](../../interconnect/concepts/trunk.md) to establish physical connectivity between the on-prem infrastructure and the cloud. This resource is created in the cloud folder you specify.
 1. Create a [private connection](../../interconnect/concepts/priv-con.md) in your trunk to establish IP and BGP connectivity between the on-prem infrastructure and the cloud. This resource is created in the same folder as the trunk.
-1. Create a [routing instance](../../cloud-router/concepts/routing-instance.md) in the specified folder to build the required network topology, which typically includes [virtual networks (VPCs)](../../vpc/concepts/network.md) and private connections.
+1. Create a [virtual router](../../cloud-router/concepts/routing-instance.md) in the specified folder to build the required network topology, which typically includes [virtual networks (VPCs)](../../vpc/concepts/network.md) and private connections.
 1. Add a private connection to the routing instance.
 1. Add a list of specified subnet IP prefixes from virtual networks (VPCs) to the routing instance.
 1. *Optional*. Add a list of specified static routes to the private connection to form a `VPC Stitching` network topology. 

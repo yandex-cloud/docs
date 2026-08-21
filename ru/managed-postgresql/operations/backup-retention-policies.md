@@ -9,7 +9,7 @@
 - Консоль управления {#console}
 
   1. [Перейдите]({{ link-console-main }}/link/managed-postgresql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
+  1. Нажмите на имя нужного кластера и выберите ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
   1. На странице **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_backup-policies }}**.
   1. Нажмите кнопку **Создать политику**.
   1. Укажите параметры новой политики:
@@ -182,7 +182,7 @@
 - Консоль управления {#console}
 
   1. [Перейдите]({{ link-console-main }}/link/managed-postgresql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
+  1. Нажмите на имя нужного кластера и выберите ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
   1. На странице **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_backup-policies }}**.
 
 
@@ -274,7 +274,7 @@
 - Консоль управления {#console}
 
   1. [Перейдите]({{ link-console-main }}/link/managed-postgresql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
+  1. Нажмите на имя нужного кластера и выберите ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
   1. На странице **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_backup-policies }}**.
 
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке политики, которую вы хотите удалить.

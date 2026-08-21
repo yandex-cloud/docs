@@ -22,7 +22,7 @@ To view detailed information on the health state of a {{ mch-name }} cluster:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_monitoring }}** tab. 
 
@@ -197,7 +197,7 @@ To view detailed information on the state of individual {{ mch-name }} hosts:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_monitoring }}** tab.
 
@@ -302,12 +302,12 @@ To view detailed information on the state of individual {{ mch-name }} hosts:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder with the cluster for which you want to set up alerts.
-  1. Navigate to ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. [Navigate]({{ link-console-main }}/link/monitoring) to ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select:
       * **{{ mch-name }} — Cluster Overview** to set up cluster alerts.
       * **{{ mch-name }} — ZooKeeper** to set up ZooKeeper host alerts.
       * **{{ mch-name }} — Host Overview** to set up host alerts.
-  1. In the relevant metrics chart, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+  1. On the chart of interest with metrics, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
   1. If the chart displays multiple metrics, select the data query for the relevant metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. Learn more about the query language in [this {{ monitoring-full-name }} guide](../../monitoring/concepts/querying.md).
   1. Set the `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}` and `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}` alert thresholds.
   1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
@@ -346,7 +346,7 @@ To check the cluster state and status:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. In the cluster row, hover over the indicator in the **{{ ui-key.yacloud.common.availability }}** column.
 
 {% endlist %}

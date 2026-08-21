@@ -1,6 +1,6 @@
 ---
 title: PostgreSQL cluster and host state monitoring
-description: You can monitor the state of a {{ mpg-name }} cluster and its individual hosts using the monitoring tools in the management console. These tools display diagnostic information as charts. You can also configure {{ monitoring-full-name }} alerts for automated cluster health monitoring.
+description: You can monitor the state of a {{ mpg-name }} cluster and its individual hosts using the monitoring tools in the management console. These tools display diagnostic information as charts. You can also configure {{ monitoring-full-name }} alerts for automated cluster state monitoring.
 ---
 
 # {{ PG }} cluster and host state monitoring
@@ -21,7 +21,7 @@ To identify potential issues in a cluster, [use other cluster diagnostic tools](
 
 To view detailed information on the health state of a {{ mpg-name }} cluster:
 
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
 
 1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_monitoring }}** tab.
 
@@ -40,7 +40,7 @@ You will see the following charts:
        The replication lag is calculated with one-second accuracy. A lag of less than one second cannot be tracked using this metric.
 
        {% endnote %}
-    
+
    * **Average CPU usage**: Average transaction processing and operator execution time.
    * **Maximum CPU usage**: Peak processor core load.
    * **Maximum memory usage**: Peak RAM usage (in bytes). At high loads, the value of the **Free space** metric decreases, while the others increase.
@@ -95,11 +95,12 @@ You will see the following charts:
    * **Network received/sent bytes**: Network data exchange rate, in bytes per second.
 
 
+
 ## Host state monitoring {#monitoring-hosts}
 
 To view detailed information on the state of individual {{ mpg-name }} hosts:
 
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
 1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
 1. Click the line of the host in the list.
 
@@ -129,6 +130,9 @@ The **Disk IOPS** chart shows the increase in the **Read** value during database
 For **Replica** hosts, the **Received** value is normally greater than **Sent** on the **Network Bytes** and **Network Packets** charts.
 
 
+
+
+
 ## Setting up alerts in {{ monitoring-full-name }} {#monitoring-integration}
 
 {% list tabs group=instructions %}
@@ -136,11 +140,11 @@ For **Replica** hosts, the **Received** value is normally greater than **Sent** 
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder with the cluster for which you want to set up alerts.
-    1. Navigate to ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+    1. [Navigate]({{ link-console-main }}/link/monitoring) to ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
     1. Under **{{ ui-key.yacloud_monitoring.homepage.title_service-dashboards }}**, select:
         * **{{ mpg-name }} — Cluster Overview** to set up cluster alerts.
         * **{{ mpg-name }} — Host Overview** to set up host alerts.
-    1. In the relevant chart, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+    1. Click ![options](../../_assets/console-icons/ellipsis.svg) on the relevant chart and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
     1. If the chart displays multiple metrics, select the data query for the relevant metric and click **{{ ui-key.yacloud.common.continue }}**. Learn more about the query language in [this {{ monitoring-full-name }} guide](../../monitoring/concepts/querying.md).
     1. Set the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` and `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` alert thresholds.
     1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
@@ -172,7 +176,7 @@ You can check the current storage size in the [cluster details](cluster-list.md#
 
 To view the health state and status of a cluster:
 
-1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
 1. In the cluster row, hover over the indicator in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
 
 ### Cluster health states {#cluster-health}

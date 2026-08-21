@@ -18,8 +18,8 @@ description: After you delete a {{ CH }} database cluster, its backups are retai
 
 - Management console {#console}
   
-  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
+  1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the cluster in question and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-delete }}**.
   
 - CLI {#cli}

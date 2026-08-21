@@ -2501,6 +2501,7 @@ default:
       channel:
         button_create: Create
         button_new-channel: Create channel
+        button_save: Save
         field_function_title: Cloud function
         field_method: Method
         field_name: Name
@@ -2650,6 +2651,9 @@ default:
       navigation:
         dialogs:
           button_save: Save
+      notification-methods:
+        create-button:
+          channel: Notification Channel
       prometheus:
         action_create: Create workspace
         alert-manager:
@@ -2886,6 +2890,7 @@ default:
         confirm: Confirm
         create: Create
         more: More
+        operations: Operations
         overview: Overview
         resource-acl:
           label_invitee-accounts: Invitee accounts
@@ -4609,6 +4614,11 @@ default:
         title_ip-permissions: Access for IP addresses
         title_registries: Registries
         title_registry-artifacts: Artifacts
+      cloud-router:
+        router:
+          create-router_v4cPC: Create routing instance
+          networks_fbzKL: Networks
+          routing-networks_42RL1: Routed networks and prefixes
       cloud-shell:
         label_service: Cloud Shell
       cloud-tree-list:
@@ -6741,6 +6751,11 @@ default:
           switch_shards: Shards
           switch_users: Users
         ClusterForm:
+          AdditionalSection:
+            field_autocompact-bloat-percent_gCgoZ: Min. collection bloating percentage
+            field_autocompact-compaction-type_jdXAN: Autocompact of master replica
+            field_autocompact-enabled_9Eqw8: Autocompact
+            field_autocompact-target-free-space_tB2yk: Min. total of freed up disk space
           ClusterFormBase:
             section_mongocfg-resources_1cuU2: Mongocfg Resources
             section_mongod-resources_ncXUZ: Mongod Resources
@@ -7589,6 +7604,7 @@ default:
         title_catalogs: Catalogs
       ui:
         constants:
+          label_cloud-router_kBGNL: Cloud Router
           label_interconnect_aUMcv: Cloud Interconnect
         metadata-hub:
           data-catalog:

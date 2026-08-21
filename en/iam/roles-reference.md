@@ -2699,6 +2699,51 @@ Learn more in [Access management in {{ kspm-name }}](../security-deck/security/k
 Learn more in [Access management in {{ cspm-name }}](../security-deck/security/cspm-roles.md).
 
 
+### {{ td-full-name }} ({{ td-name }}) service roles {#td-roles}
+
+#### threat-detector.worker {#threat-detector-worker}
+
+{% include [threat-detector.worker](../_roles/threat-detector/worker.md) %}
+
+#### threat-detector.auditor {#threat-detector-auditor}
+
+{% include [threat-detector.auditor](../_roles/threat-detector/auditor.md) %}
+
+#### threat-detector.viewer {#threat-detector-viewer}
+
+{% include [threat-detector.viewer](../_roles/threat-detector/viewer.md) %}
+
+#### threat-detector.editor {#threat-detector-editor}
+
+{% include [threat-detector.editor](../_roles/threat-detector/editor.md) %}
+
+#### threat-detector.admin {#threat-detector-admin}
+
+{% include [threat-detector.admin](../_roles/threat-detector/admin.md) %}
+
+Learn more in [Access management in {{ td-name }}](../security-deck/security/td-roles.md).
+
+### {{ vuln-man-name }} ({{ vuln-man-short-name }}) service roles {#vm-roles}
+
+#### vulnerability-manager.auditor {#vulnerability-manager-auditor}
+
+{% include [vulnerability-manager.auditor](../_roles/vulnerability-manager/auditor.md) %}
+
+#### vulnerability-manager.viewer {#vulnerability-manager-viewer}
+
+{% include [vulnerability-manager.viewer](../_roles/vulnerability-manager/viewer.md) %}
+
+#### vulnerability-manager.editor {#vulnerability-manager-editor}
+
+{% include [vulnerability-manager.editor](../_roles/vulnerability-manager/editor.md) %}
+
+#### vulnerability-manager.admin {#vulnerability-manager-admin}
+
+{% include [vulnerability-manager.admin](../_roles/vulnerability-manager/admin.md) %}
+
+Learn more in [Access management in {{ vuln-man-short-name }}](../security-deck/security/vm-roles.md).
+
+
 ### Service roles for {{ atr-name }} data analysis {#access-transparency-roles}
 
 #### access-transparency.viewer {#access-transparency-viewer}

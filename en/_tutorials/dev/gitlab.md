@@ -57,7 +57,7 @@ Wait about five minutes until the VM is created and all its services are up and 
 
 ## Configure {{ GL }} {#confgure-gitlab}
 
-1. Navigate to **{{ compute-name }}**.
+1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. Select the VM instance you created, `gitlab`, and copy its public IP address.
 1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH.
 1. Get the {{ GL }} administrator password with the following VM command:
@@ -80,7 +80,7 @@ Wait about five minutes until the VM is created and all its services are up and 
 
 Disable sign-up for other users on the login page:
 1. Go to **Admin area**.
-1. In the left-hand panel, go to **Settings** and select the **General** tab.
+1. In the left-hand panel, select the **Settings** section and the **General** tab.
 1. Under **Sign-up restrictions**, click **Expand**.
 1. Uncheck **Sign-up enabled**.
 1. Click **Save changes**.
@@ -286,6 +286,6 @@ If you click the `failed` progress status and go to **Failed Jobs**, you can see
 To stop paying for your deployed server, delete the `gitlab` VM you created.
 
 If you reserved a static public IP address for this VM:
-1. From your folder, navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+1. From your folder, [navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
 1. Open the **{{ ui-key.yacloud.vpc.switch_addresses }}** tab.
 1. Find the IP address, click ![ellipsis](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.common.delete }}**.

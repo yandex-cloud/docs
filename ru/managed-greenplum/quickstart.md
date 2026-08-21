@@ -92,7 +92,7 @@ description: Следуя данной инструкции, вы сможете
 
 1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
 1. [Перейдите]({{ link-console-main }}/link/managed-greenplum) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-1. Нажмите на имя нужного кластера и выберите вкладку ![image](../_assets/console-icons/flag.svg) **{{ ui-key.yacloud.common.overview }}**.
+1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.common.overview }}**.
 1. Скопируйте идентификатор кластера из блока **{{ ui-key.yacloud.common.section-base }}**.
 
 ## Подключитесь к кластеру {#connect}

@@ -42,3 +42,5 @@
     {% include [maintenance-window](../cli/maintenance-window-description.md) %}
 
 * `--performance-diagnostics`: Enables cluster performance diagnostics, `true` or `false`.
+
+{% include [autocompact-cli](autocompact-cli.md) %}

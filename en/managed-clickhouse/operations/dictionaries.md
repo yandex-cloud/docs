@@ -25,7 +25,7 @@ The number of dictionaries you can connect to a cluster is limited. To learn mor
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}** tab.
 
 - CLI {#cli}
@@ -124,7 +124,7 @@ The number of dictionaries you can connect to a cluster is limited. To learn mor
     {% endnote %}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}** tab.
     1. In the top-right corner, click **{{ ui-key.yacloud.mdb.cluster.dictionaries.button-action_add-dictionary }}**.
     1. [Configure your dictionary](#settings).
@@ -391,7 +391,7 @@ The number of dictionaries you can connect to a cluster is limited. To learn mor
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}** tab.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with the dictionary and select **{{ ui-key.yacloud.common.edit }}**.
     1. Change the [dictionary settings](#settings) as needed.
@@ -607,7 +607,7 @@ The number of dictionaries you can connect to a cluster is limited. To learn mor
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}** tab.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with the dictionary and select **{{ ui-key.yacloud.mdb.cluster.dictionaries.button_action-delete }}**.
 
@@ -776,7 +776,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
     For more information about dictionary sources and their connection parameters, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/sources).
 
-  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_layout-type }}**: Memory layout for the dictionary. The supported layout types include `flat`, `hashed`, `complex_key_hashed`, `range_hashed`, `cache`, `complex_key_cache`, `sparse_hashed`, `complex_key_sparse_hashed`, `complex_key_range_hashed`, `direct`, `complex_key_direct`, and `ip_trie`. For more information about dictionary layouts, see the [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts).
+  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_layout-type }}**: Memory layout for the dictionary. The supported layout types include `flat`, `hashed`, `complex_key_hashed`, `range_hashed`, `cache`, `complex_key_cache`, `sparse_hashed`, `complex_key_sparse_hashed`, `complex_key_range_hashed`, `direct`, `complex_key_direct`, `ip_trie`, `ssd_cache` and `complex_key_ssd_cache`. For more information about dictionary layouts, see the [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts).
   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_size-in-cells }}**: Number of cache cells for the `cache` and `complex_key_cache` layouts. For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts/cache).
   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_allow-read-expired-keys }}**: Set to allow reading expired keys. This setting is used for the `cache` and `complex_key_cache` layouts. For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts/cache).
   * Settings of the update queue for cache update issues, if keys are not found in the dictionary. These settings are used for the `cache` and `complex_key_cache` layouts.
@@ -796,7 +796,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
     For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts/flat).
 
   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_access-to-key-from-attributes }}**: Gets the name of the composite key using the `dictGetString` function. This setting is used for the `ip_trie` layout. Enabling this setting increases RAM usage.
-  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_structure-id }}**: Dictionary key column name. The key column must have the `UInt64` data type. This setting is used for the `flat`, `hashed`, `range_hashed`, `cache`, `sparse_hashed`, and `direct` layouts. For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/attributes#numeric-key).
+  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_structure-id }}**: Dictionary key column name. The key column must have the `UInt64` data type. This setting is used for the `flat`, `hashed`, `range_hashed`, `cache`, `sparse_hashed`, `direct`, and `ssd_cache` layouts. For more details, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/attributes#numeric-key).
   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_structure-attributes }}**: Description of the dictionary's composite key. The key may consist of one or more elements. This setting is used for the `complex_key_*` and `ip_trie` layouts:
 
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-name }}**: Column name.
@@ -898,7 +898,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
   * `--postgresql-invalidate-query`: Query to check for {{ PG }} dictionary changes. {{ CH }} will only update the dictionary if the results of this query change.
 
-  * `--layout-type`: Memory layout for the dictionary. The supported layout types include `flat`, `hashed`, `complex_key_hashed`, `range_hashed`, `cache`, `complex_key_cache`, `sparse_hashed`, `complex_key_sparse_hashed`, `complex_key_range_hashed`, `direct`, `complex_key_direct`, and `ip_trie`. For more information about dictionary layouts, see the [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts).
+  * `--layout-type`: Memory layout for the dictionary. The supported layout types include `flat`, `hashed`, `complex_key_hashed`, `range_hashed`, `cache`, `complex_key_cache`, `sparse_hashed`, `complex_key_sparse_hashed`, `complex_key_range_hashed`, `direct`, `complex_key_direct`, `ip_trie`, `ssd_cache` and `complex_key_ssd_cache`. For more information about dictionary layouts, see the [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts).
   * `--layout-size-in-cells`: Number of cache cells for the `cache` and `complex_key_cache` layouts. For more information about cache, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts/cache).
   * `--layout-allow-read-expired-keys`: Set to allow reading expired keys. This setting is used for the `cache` and `complex_key_cache` layouts. For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts/cache).
   * Settings of the update queue for cache update issues, if keys are not found in the dictionary. These settings are used for the `cache` and `complex_key_cache` layouts.
@@ -918,7 +918,17 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
     For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts/flat).
 
   * `--layout-access-to-key-from-attributes`: Gets the name of the composite key using the `dictGetString` function. This setting is used for the `ip_trie` layout. Enabling this setting increases RAM usage.
-  * `--structure-id`: Dictionary key column name. The key column must have the `UInt64` data type. This setting is used for the `flat`, `hashed`, `range_hashed`, `cache`, `sparse_hashed`, and `direct` layouts. For more information about keys, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/attributes#numeric-key).
+
+  * SSD storage settings for the `ssd_cache` and `complex_key_ssd_cache` layouts:
+    
+    * `--layout-block-size`: Read block size in bytes. The default value is `4096` (4 KB).
+    * `--layout-file-size`: Maximum cache file size in bytes. The default value is `4294967296` (4 GB).
+    * `--layout-read-buffer-size`: Size of the RAM buffer for reading data from SSDs, in bytes. The default value is `65536` (64 KB).
+    * `--layout-write-buffer-size`: Size of the RAM buffer for writing data to SSDs, in bytes. The default value is `4096` (4 KB).
+
+    For more details, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts/ssd-cache).
+  
+  * `--structure-id`: Dictionary key column name. The key column must have the `UInt64` data type. This setting is used for the `flat`, `hashed`, `range_hashed`, `cache`, `sparse_hashed`, `direct`, and `ssd_cache` layouts. For more information about keys, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/attributes#numeric-key).
   * `--structure-key`: Description of the dictionary's composite key. The key may consist of one or more elements. This setting is used for the `complex_key_*` and `ip_trie` layouts:
 
     * `name`: Column name.
@@ -1033,7 +1043,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
       {% endcut %}
 
-    * `layout.type`: Memory layout for the dictionary. The supported layout types include `FLAT`, `HASHED`, `COMPLEX_KEY_HASHED`, `RANGE_HASHED`, `CACHE`, `COMPLEX_KEY_CACHE`, `SPARSE_HASHED`, `COMPLEX_KEY_SPARSE_HASHED`, `COMPLEX_KEY_RANGE_HASHED`, `DIRECT`, `COMPLEX_KEY_DIRECT`, and `IP_TRIE`. For more information about dictionary layouts, see the [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts).
+    * `layout.type`: Memory layout for the dictionary. The supported layout types include `FLAT`, `HASHED`, `COMPLEX_KEY_HASHED`, `RANGE_HASHED`, `CACHE`, `COMPLEX_KEY_CACHE`, `SPARSE_HASHED`, `COMPLEX_KEY_SPARSE_HASHED`, `COMPLEX_KEY_RANGE_HASHED`, `DIRECT`, `COMPLEX_KEY_DIRECT`, `IP_TRIE`, `SSD_CACHE` and `COMPLEX_KEY_SSD_CACHE`. For more information about dictionary layouts, see the [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts).
     * `layout.sizeInCells`: Number of cache cells for the `CACHE` and `COMPLEX_KEY_CACHE` layouts. For more information about cache, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts/cache).
     * `layout.allowReadExpiredKeys`: Set to allow reading expired keys. This setting is used for the `CACHE` and `COMPLEX_KEY_CACHE` layouts. For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts/cache).
     * Settings of the update queue for cache update issues, if keys are not found in the dictionary. They are used for the `CACHE` and `COMPLEX_KEY_CACHE` layouts.
@@ -1053,7 +1063,17 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
       For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts/flat).
 
     * `layout.accessToKeyFromAttributes`: Gets the name of the composite key using the `dictGetString` function. This setting is used for the `IP_TRIE` layout. Enabling this setting increases RAM usage.
-    * `structure.id.name`: Dictionary key column name. The key column must have the `UInt64` data type. This setting is used for the `FLAT`, `HASHED`, `RANGE_HASHED`, `CACHE`, `SPARSE_HASHED`, and `DIRECT` layouts. For more information about keys, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/attributes#numeric-key).
+    
+    * SSD storage settings for the `SSD_CACHE` and `COMPLEX_KEY_SSD_CACHE` layouts:
+    
+      * `layout.blockSize`: Read block size in bytes. The default value is `4096` (4 KB).
+      * `layout.fileSize`: Maximum cache file size in bytes. The default value is `4294967296` (4 GB).
+      * `layout.readBufferSize`: Size of the RAM buffer for reading data from SSDs, in bytes. The default value is `65536` (64 KB).
+      * `layout.writeBufferSize`: Size of the RAM buffer for writing data to SSDs, in bytes. The default value is `4096` (4 KB).
+
+      For more details, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts/ssd-cache).
+
+    * `structure.id.name`: Dictionary key column name. The key column must have the `UInt64` data type. This setting is used for the `FLAT`, `HASHED`, `RANGE_HASHED`, `CACHE`, `SPARSE_HASHED`, `DIRECT`, and `SSD_CACHE` layouts. For more information about keys, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/attributes#numeric-key).
     * `structure.key.attributes`: Description of the dictionary's composite key. The key may consist of one or more elements. This setting is used for the `COMPLEX_KEY_*` and `IP_TRIE` layouts.
 
       * `name`: Column name.
@@ -1160,7 +1180,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
       {% endcut %}
 
-    * `layout.type`: Memory layout for the dictionary. The supported layout types include `FLAT`, `HASHED`, `COMPLEX_KEY_HASHED`, `RANGE_HASHED`, `CACHE`, `COMPLEX_KEY_CACHE`, `SPARSE_HASHED`, `COMPLEX_KEY_SPARSE_HASHED`, `COMPLEX_KEY_RANGE_HASHED`, `DIRECT`, `COMPLEX_KEY_DIRECT`, and `IP_TRIE`. For more information about dictionary layouts, see the [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts).
+    * `layout.type`: Memory layout for the dictionary. The supported layout types include `FLAT`, `HASHED`, `COMPLEX_KEY_HASHED`, `RANGE_HASHED`, `CACHE`, `COMPLEX_KEY_CACHE`, `SPARSE_HASHED`, `COMPLEX_KEY_SPARSE_HASHED`, `COMPLEX_KEY_RANGE_HASHED`, `DIRECT`, `COMPLEX_KEY_DIRECT`, `IP_TRIE`, `SSD_CACHE` and `COMPLEX_KEY_SSD_CACHE`. For more information about dictionary layouts, see the [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts).
     * `layout.size_in_cells`: Number of cache cells for the `CACHE` and `COMPLEX_KEY_CACHE` layouts. For more information about cache, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts/cache).
     * `layout.allow_read_expired_keys`: Set to allow reading expired keys. This setting is used for the `CACHE` and `COMPLEX_KEY_CACHE` layouts. For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts/cache).
     * Settings of the update queue for cache update issues, if keys are not found in the dictionary. These settings are used for the `CACHE` and `COMPLEX_KEY_CACHE` layouts.
@@ -1180,7 +1200,17 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
       For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts/flat).
 
     * `layout.access_to_key_from_attributes`: Gets the name of the composite key using the `dictGetString` function. This setting is used for the `IP_TRIE` layout. Enabling this setting increases RAM usage.
-    * `structure.id.name`: Dictionary key column name. The key column must have the `UInt64` data type. This setting is used for the `FLAT`, `HASHED`, `RANGE_HASHED`, `CACHE`, `SPARSE_HASHED`, and `DIRECT` layouts. For more information about keys, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/attributes#numeric-key).
+
+    * SSD storage settings for the `SSD_CACHE` and `COMPLEX_KEY_SSD_CACHE` layouts:
+    
+      * `layout.block_size`: Read block size in bytes. The default value is `4096` (4 KB).
+      * `layout.file_size`: Maximum cache file size in bytes. The default value is `4294967296` (4 GB).
+      * `layout.read_buffer_size`: Size of the RAM buffer for reading data from SSDs, in bytes. The default value is `65536` (64 KB).
+      * `layout.write_buffer_size`: Size of the RAM buffer for writing data to SSDs, in bytes. The default value is `4096` (4 KB).
+
+      For more details, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts/ssd-cache).
+
+    * `structure.id.name`: Dictionary key column name. The key column must have the `UInt64` data type. This setting is used for the `FLAT`, `HASHED`, `RANGE_HASHED`, `CACHE`, `SPARSE_HASHED`, `DIRECT`, and `SSD_CACHE` layouts. For more information about keys, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/attributes#numeric-key).
     * `structure.key.attributes`: Description of the dictionary's composite key. The key may consist of one or more elements. This setting is used for the `COMPLEX_KEY_*` and `IP_TRIE` layouts.
 
       * `name`: Column name.

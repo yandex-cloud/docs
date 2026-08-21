@@ -5,7 +5,7 @@ You can upgrade a {{ mrd-name }} cluster to any supported version.
 
 ## Supported versions {#version-supported}
 
-All {{ VLK }} versions supported in {{ mrd-name }} remain available as long as they are supported by the vendor. Typically, this is 24 months from the version release date. For more information, see [this {{ VLK }} guide](https://valkey.io/topics/releases/).
+All {{ VLK }} versions supported in {{ mrd-name }} remain available as long as they are supported by the vendor. Typically, this is 24 months from the version release date. For more details, see [this {{ VLK }} guide](https://valkey.io/topics/releases/).
 
 
 ### Viewing a list of available {{ VLK }} versions {#version-list}
@@ -85,8 +85,8 @@ To specify a version number in the CLI, {{ TF }}, and the API, add the `-valkey`
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder containing the cluster to upgrade.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster you need to update.
+  1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Select the cluster you need from the list and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select the new version.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.

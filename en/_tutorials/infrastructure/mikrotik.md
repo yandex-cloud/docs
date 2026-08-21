@@ -26,7 +26,7 @@ When using a Mikrotik Cloud Hosted Router image without a license, the router th
 
 The cost of using a virtual router and a test VM includes:
 
-* Fee for disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for the disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for a public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
@@ -71,7 +71,7 @@ Set a complex administrator password immediately after VM creation. To keep acce
 The router is created with a public IP address, so you need to change the default administrator password for security reasons.
 
 1. In the [management console]({{ link-console-main }}), select a folder.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. Copy the `mikrotik-router` VM public IP address and open it in your browser.
 1. On the page that opens, enter the VM’s internal IP address in the **IP Address** field. 
 1. In the **Password** field, enter the new administrator password, confirm it in the **Confirm Password** field, and click **Apply Configuration**. You can apply other settings later.
