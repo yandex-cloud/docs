@@ -129,8 +129,9 @@ blocks:
 * [{{ mgp-full-name }}](../managed-greenplum/pricing/index.md)
 * [{{ objstorage-full-name }}](../storage/pricing.md)
 * [{{ yq-full-name }}](../query/pricing.md)
-* {{ preview-stage }} [{{ sd-full-name }}](../security-deck/pricing.md)
+* [{{ sd-full-name }}](../security-deck/pricing.md)
 * [{{ serverless-containers-full-name }}](../serverless-containers/pricing.md)
+* [{{ yandex-siem-full-name }}](../siem/pricing.md)
 * [{{ captcha-full-name }}](../smartcaptcha/pricing.md)
 * [{{ sws-full-name }}](../smartwebsecurity/pricing.md)
 * [{{ speechsense-full-name }}]({{ link-docs-ai }}speechsense/pricing)
@@ -150,6 +151,7 @@ blocks:
 * [{{ iam-full-name }}](../iam/pricing.md)
 * [{{ resmgr-full-name }}](../resource-manager/pricing.md)
 * {{ preview-stage }} [{{ si-full-name }}](../serverless-integrations/pricing.md)
+* {{ preview-stage }} [Vibecraft]({{ link-src-docs }}/vibecraft/pricing.md)
 * [{{ websql-full-name }}](../websql/pricing.md)
 
  Тегом {{ preview-stage }} отмечены сервисы на стадии [Preview](../overview/concepts/launch-stages.md). 

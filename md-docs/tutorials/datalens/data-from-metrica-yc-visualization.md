@@ -198,7 +198,7 @@
 ### 3.1. Подключитесь к DataLens {#datalens-connection}
 
 1. В [консоли управления](https://console.yandex.cloud) откройте страницу созданного кластера ClickHouse®.
-1. В левой части окна выберите раздел ![datalens](../../_assets/console-icons/chart-column.svg) **DataLens**.
+1. Перейдите на вкладку **DataLens**.
 1. Нажмите кнопку **Создать подключение**.
 
 ### 3.2. Создайте подключение к ClickHouse® в DataLens {#creation-datalens-connection-to-ch}

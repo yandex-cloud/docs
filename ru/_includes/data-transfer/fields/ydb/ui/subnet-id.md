@@ -1,0 +1,2 @@
+**{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbOnPremiseConnectionSettings.subnet_id.title }}** — укажите идентификатор подсети (или создайте новую подсеть) для выделенного (Dedicated) режима базы данных {{ ydb-name }}. В этом режиме БД разворачивается на собственных вычислительных узлах, которым требуются сетевые ресурсы
+{{ yandex-cloud }}.

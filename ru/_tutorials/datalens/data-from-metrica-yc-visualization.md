@@ -184,7 +184,7 @@
 ### 3.1. Подключитесь к {{ datalens-short-name }} {#datalens-connection}
 
 1. В [консоли управления]({{ link-console-main }}) откройте страницу созданного кластера {{ CH }}.
-1. В левой части окна выберите раздел ![datalens](../../_assets/console-icons/chart-column.svg) **{{ datalens-short-name }}**.
+1. Перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}**.
 1. Нажмите кнопку **Создать подключение**.
 
 ### 3.2. Создайте подключение к {{ CH }} в {{ datalens-short-name }} {#creation-datalens-connection-to-ch}

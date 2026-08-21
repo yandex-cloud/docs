@@ -9,7 +9,7 @@ description: Follow this guide to create a {{ VLK }} cluster with one or multipl
 
 A {{ VLK }} cluster consists of one or more database hosts, with the option to configure replication between them. Replication is enabled by default in any cluster with more than one host: the master host accepts write requests and propagates the changes to its replicas.
 
-For more information on the {{ mrd-name }} cluster structure, see [Resource relationships](../concepts/index.md).
+For information on the {{ mrd-name }} cluster structure, see [Resource relationships](../concepts/index.md).
 
 {% note info %}
 
@@ -57,16 +57,18 @@ There are no restrictions for non-sharded clusters.
 
   To create a {{ mrd-name }} cluster:
 
-  1. In the [management console]({{ link-console-main }}), go to the folder where you want to create your database cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create your database cluster.
+  1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
      * Enter a name for the cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. The cluster name must be unique within the folder.
      * Optionally, add a cluster description.
      * Select your cluster environment. Note that you cannot change the environment once the cluster is created:
+       
        * `PRODUCTION`: For stable versions of your applications.
        * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
+     
      * Select the DBMS version.
      * Optionally, add labels.
      * Enable [cluster sharding](../concepts/sharding.md), if required.
@@ -99,6 +101,7 @@ There are no restrictions for non-sharded clusters.
 
      
      * Select the [disk type](../concepts/storage.md):
+       
        * Either the more flexible network SSD (`network-ssd`) or non-replicated SSD (`network-ssd-nonreplicated`) storage
        * Or the faster local SSD (`local-ssd`) storage
 
@@ -121,6 +124,7 @@ There are no restrictions for non-sharded clusters.
 
   
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select:
+       
        * [Cloud network](../../vpc/concepts/network.md#network) for cluster deployment.
        * Security groups for cluster network traffic. You may need to additionally [set up security groups](connect/index.md#configuring-security-groups) to be able connect to the cluster.
 
@@ -229,9 +233,11 @@ There are no restrictions for non-sharded clusters.
 
 
       Where:
+      
       * `--environment`: Environment, `prestable` or `production`.
       * `--redis-version`: {{ VLK }} version, {{ versions.cli.str }}.
       * `--host`: Host settings:
+         
          * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
 
          
@@ -240,6 +246,7 @@ There are no restrictions for non-sharded clusters.
 
 
          * `replica-priority`: Host priority for promotion to master if the [primary master fails](../concepts/replication.md#master-failover).
+      
       * `--disk-type-id`: Disk type.
 
       * `--websql-access`: Enables running [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. The default value is `false`.
@@ -268,6 +275,7 @@ There are no restrictions for non-sharded clusters.
         {% include [fqdn-option-compatibility-note](../../_includes/mdb/mvk/connect/fqdn-option-compatibility-note.md) %}
 
       * `--valkey-modules`: [{{ VLK }} module](../concepts/modules.md) parameters:
+         
          * `enable-valkey-search`: Enable the `Valkey-Search` module, `true` or `false`.
          * `valkey-search-reader-threads`: Number of request processing threads in the `Valkey-Search` module.
          * `valkey-search-writer-threads`: Number of indexing threads in the `Valkey-Search` module.
@@ -354,6 +362,7 @@ There are no restrictions for non-sharded clusters.
        ```
 
        Where:
+       
        * `environment`: Environment, `PRESTABLE` or `PRODUCTION`.
        * `deletion_protection`: Cluster deletion protection, `true` or `false`.
 
@@ -549,8 +558,10 @@ There are no restrictions for non-sharded clusters.
             * `modules`: [{{ VLK }} module](../concepts/modules.md) parameters:
 
                * `valkeySearch.enabled`: Enable the `Valkey-Search` module, `true` or `false`. What you can set up for the module:
+                   
                    * `valkeySearch.readerThreads`: Number of request processing threads.
                    * `valkeySearch.writerThreads`: Number of indexing threads.
+               
                * `valkeyJson.enabled`: Enable the `Valkey-JSON` module, `true` or `false`.
                * `valkeyBloom.enabled`: Enable the `Valkey-Bloom` module, `true` or `false`.
 
@@ -732,8 +743,10 @@ There are no restrictions for non-sharded clusters.
             * `modules`: [{{ VLK }} module](../concepts/modules.md) parameters:
 
                * `valkey_search.enabled`: Enable the `Valkey-Search` module, `true` or `false`. What you can set up for the module:
+                   
                    * `valkey_search.reader_threads`: Number of request processing threads.
                    * `valkey_search.writer_threads`: Number of indexing threads.
+               
                * `valkey_json.enabled`: Enable the `Valkey-JSON` module, `true` or `false`.
                * `valkey_bloom.enabled`: Enable the `Valkey-Bloom` module, `true` or `false`.
 
@@ -1154,9 +1167,11 @@ To create a {{ VLK }} cluster copy:
     * Folder ID: `{{ tf-folder-id }}`.
     * Network: `mynet` (new).
     * Three subnets in the `mynet` network, one in each availability zone:
+      
       * `subnet-a` with the `10.1.0.0/24` range
       * `subnet-b` with the `10.2.0.0/24` range
       * `subnet-d` with the `10.3.0.0/24` range
+    
     * Three `{{ mrd-host-class }}` class hosts, one in each subnet.
     * New security group `redis-sg` allowing connections via ports `{{ port-mrd }}` and `{{ port-mrd-sentinel }}` ([{{ VLK }} Sentinel](./connect/index.md)) from any subnet addresses.
     * Network SSD storage (`{{ disk-type-example }}`): 16 GB.
@@ -1258,3 +1273,4 @@ To create a {{ VLK }} cluster copy:
     ```
 
 {% endlist %}
+

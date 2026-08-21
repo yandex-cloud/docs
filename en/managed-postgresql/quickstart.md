@@ -50,7 +50,7 @@ To get started:
 ## Create a cluster {#cluster-create}
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create your database cluster.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 1. In the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field, enter a name for the cluster.
 1. Select the `PRODUCTION` environment.

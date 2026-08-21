@@ -53,6 +53,7 @@ Intel Ice Lake with</br>NVIDIA® Tesla® T4</br>(`standard-v3-t4`) | [NVIDIA® T
 {{ t4i-ice-lake }}</br>(`standard-v3-t4i`) | T4i | Intel® Xeon® Gold 6338 | **Макс. кол-во GPU на 1 ВМ**: 1 </br> **Кол-во vCPU на 1 GPU**: 4, 8, 16 или 32 </br> **Объем RAM на 1 GPU**: 16, 32, 64 или 128 ГБ
 GPU PLATFORM V4</br>(`gpu-standard-v4`) | GPU V4 | Intel® Xeon® Platinum | **Макс. кол-во GPU на 1 ВМ**: 8 </br> **Кол-во vCPU на 1 GPU**: 22 или 22,5 </br> **Объем RAM на 1 GPU**: 220 или 225 ГБ
 
+
 ## Ограничения {#restrictions}
 
 В таблице ниже представлена информация о поддержке платформ {{ compute-name }} в [зонах доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d` и `{{ region-id }}-e`.
@@ -86,6 +87,7 @@ GPU PLATFORM V4</br>(`gpu-standard-v4`) | GPU V4 | Intel® Xeon® Platinum | **�
 * [Остановите](../operations/vm-control/vm-stop-and-start.md#stop) ВМ, [измените](../operations/vm-control/vm-update-resources.md#update-vcpu-ram) платформу и [переместите](../operations/vm-control/vm-change-zone.md#relocate-command) ВМ командой [yc compute instance relocate](../cli-ref/instance/relocate.md).
 
 {% endnote %}
+
 
 ### Смотрите также {#see-also}
 

@@ -73,13 +73,13 @@ description: In this tutorial, you will learn how to get {{ captcha-full-name }}
 
       * `data "yandex_smartcaptcha_captcha"`: Description of the CAPTCHA as a data source:
          
-         * `resource_id`: Resource identifier.
+         * `captcha_id`: Captcha ID.
       
-      * `output "ref_description"`: Output variable with the [client key](../concepts/keys.md) (`client_key`) details:
+      * `output "my-client-key"`: Output variable with the [client key](../concepts/keys.md) (`client_key`) details:
          
          * `value`: Return value.
 
-     You can replace `client_key` with another variable to get the information you need. For more information about the properties of the `yandex_smartcaptcha_captcha` data source, see [this provider guide]({{ tf-provider-datasources-link }}/smartcaptcha_captcha).
+     You can replace `client_key` with any other attribute to get the information you need. For more information about the properties of the `yandex_smartcaptcha_captcha` data source, see [this provider guide]({{ tf-provider-datasources-link }}/smartcaptcha_captcha).
 
   1. Create the resources:
 

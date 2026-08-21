@@ -7,9 +7,11 @@ description: In this guide, you will learn how to export logs from {{ cloud-logg
 
 {% note info %}
 
-To start log export, the user or service account must have the `logging.editor` [role](../../iam/roles-reference.md#logging-roles) or higher.
+You can only export logs to {{ objstorage-name }} within the log group’s retention period. After this period expires, the logs are deleted from the log group and cannot be exported.
 
 {% endnote %}
+
+To start log export, the user or service account must have the `logging.editor` [role](../../iam/roles-reference.md#logging-roles) or higher.
 
 {% list tabs group=instructions %}
 

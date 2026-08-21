@@ -305,7 +305,9 @@ Special labels for Odyssey metrics:
 | `pooler-transaction_0.999-<DB_name>-<username>`<br/>`DGAUGE`, milliseconds | Processing time for transactions executed by `<username>` through `<DB_name>`, 99.9th percentile |
 | `pooler-used_clients`<br/>`DGAUGE`, count | Number of client connections in the connection pooler |
 | `pooler-used_servers`<br/>`DGAUGE`, count | Number of server connections in the connection pooler |
-| `pooler-xact_count`<br/>`DGAUGE`, count | Number of running transactions per DB host |
+| `pooler-xact_count`<br/>`DGAUGE`, count | Number of active transactions per database host |
+
+
 
 
 #### Vacuum metrics {#managed-postgresql-vacuum}

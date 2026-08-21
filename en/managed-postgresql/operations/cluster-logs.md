@@ -14,9 +14,9 @@ To identify potential cluster problems, [use other health analysis tools](../tut
 
 - Management console {#console}
 
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+    1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
     1. Click the name of your cluster and select the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.postgresql.cluster.switch_logs }}** tab.
-    1. Specify a time period for the log entries you want to view: enter it manually or select in the calendar using the date input field.
+    1. Specify a time period for the log entries you want to view by entering it manually or selecting it in the calendar using the date input field.
     
         
     1. If needed, you can request the log `POOLER` and specify particular hosts and logging level in the row with the date input field.
@@ -122,7 +122,7 @@ To identify potential cluster problems, [use other health analysis tools](../tut
      * `fromTime`: Start of the time range in [RFC-3339](https://www.ietf.org/rfc/rfc3339.html) format, e.g., `2024-09-18T15:04:05Z`.
      * `toTime`: End of the time range in the same format as `fromTime`.
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/listLogs.md#yandex.cloud.mdb.postgresql.v1.ListClusterLogsResponse) to make sure your request was successful.
 
@@ -305,7 +305,7 @@ This method allows you to stream cluster logs in real time.
 
      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. Check the [server response](../api-ref/grpc/Cluster/streamLogs.md#yandex.cloud.mdb.postgresql.v1.StreamLogRecord) to make sure your request was successful.
+  1. View the [server response](../api-ref/grpc/Cluster/streamLogs.md#yandex.cloud.mdb.postgresql.v1.StreamLogRecord) to make sure your request was successful.
 
      Once you launch the command, it will continue running, displaying new logs in its output in real time.
 

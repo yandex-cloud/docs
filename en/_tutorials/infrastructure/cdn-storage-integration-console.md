@@ -50,7 +50,7 @@ To configure a public DNS zone in the {{ yandex-cloud }} infrastructure:
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select `example-folder`.
-      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+      1. [Navigate]({{ link-console-main }}/link/dns) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
       1. Click **{{ ui-key.yacloud.dns.button_zone-create }}**.
       1. Specify the zone settings consistent with your domain:
 
@@ -109,11 +109,11 @@ This guide describes a scenario where the CDN resource is issued a new Let's Enc
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select `example-folder`.
-      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+      1. [Navigate]({{ link-console-main }}/link/certificate-manager) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
       1. Click **{{ ui-key.yacloud.certificate-manager.button_empty-action }}** and select **{{ ui-key.yacloud.certificate-manager.action_request }}**.
       1. In the window that opens, specify `mymanagedcert` in the **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** field.
       1. In the **{{ ui-key.yacloud.certificate-manager.request.field_domains }}** field, enter a name for your domain, e.g., `example.com`.
-      1. Select the [domain rights check type](../../certificate-manager/concepts/challenges.md): `{{ ui-key.yacloud.certificate-manager.request.challenge-type_label_dns }}`.
+      1. Select [domain ownership verification type](../../certificate-manager/concepts/challenges.md): `{{ ui-key.yacloud.certificate-manager.request.challenge-type_label_dns }}`.
       1. Click **{{ ui-key.yacloud.certificate-manager.request.button_request }}**.
 
     - {{ yandex-cloud }} CLI {#cli}
@@ -153,16 +153,16 @@ This guide describes a scenario where the CDN resource is issued a new Let's Enc
 
     {% endlist %}
 
-    A new certificate with the `Validating` status will appear in the certificate list. This status means that a Let's Encrypt® certificate was requested and you need to pass a [domain rights check](../../certificate-manager/operations/managed/cert-validate.md) for it to be successfully processed.
+    A new certificate with the `Validating` status will appear in the certificate list. This status means that a Let's Encrypt® certificate was requested and you need to pass [domain ownership verification](../../certificate-manager/operations/managed/cert-validate.md) for it to be successfully processed.
 
-1. To successfully issue the certificate, pass a domain rights check:
+1. To have a certificate issued, pass domain ownership verification:
 
     {% list tabs group=instructions %}
 
     - Management console {#console}
 
         1. In the [management console]({{ link-console-main }}), select `example-folder`.
-        1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+        1. [Navigate]({{ link-console-main }}/link/certificate-manager) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
         1. From the list of certificates, select `mymanagedcert`.
         1. In the window that opens, under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**, select `CNAME record` and click **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}** in the section with your domain below.
         1. In the window that opens, confirm creating the resource record.
@@ -226,7 +226,7 @@ This guide describes a scenario where the CDN resource is issued a new Let's Enc
               --record "_acme-challenge 600 CNAME <dns_challenge_value>"
             ```
 
-            Where `<dns_challenge_value>` is the value you saved in the previous step, required for the domain rights check using a CNAME record.
+            Where `<dns_challenge_value>` is the value you saved in the previous step required for domain ownership verification via a CNAME record.
 
             Result:
 
@@ -285,7 +285,7 @@ This guide describes a scenario where the CDN resource is issued a new Let's Enc
 
     {% endnote %}
 
-    If your domain is managed from outside {{ yandex-cloud }}, to create the resource record for the domain rights check, use tools provided by your domain administrator. For more information, see [{#T}](../../certificate-manager/concepts/challenges.md).
+    If your domain is managed from outside {{ yandex-cloud }}, create a resource record for domain ownership verification using tools provided by your domain administrator. For more information, see [{#T}](../../certificate-manager/concepts/challenges.md).
 
 ## Create a cloud network and subnets {#create-network}
 
@@ -297,7 +297,7 @@ All resources will belong to the same [cloud network](../../vpc/concepts/network
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. At the top right, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, specify `example-network`.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, select `{{ ui-key.yacloud.vpc.networks.create.field_is-default }}`.
@@ -417,7 +417,7 @@ To create security groups:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. At the top right, click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, specify `example-sg`.
@@ -512,7 +512,7 @@ To create security groups:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a unique [name](../../storage/concepts/bucket.md#naming) for the bucket.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** and **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** fields, select `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`.
@@ -559,7 +559,7 @@ To create security groups:
     - Management console {#console}
 
         1. In the [management console]({{ link-console-main }}), select `example-folder`.
-        1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+        1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
         1. Select the previously created bucket.
         1. Click ![arrow-up-from-line](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}** and select the `index.html` file for uploading.
         1. In the window that opens, click **{{ ui-key.yacloud.storage.button_upload }}**.
@@ -603,7 +603,7 @@ To create security groups:
 - Management console {#console}
    
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Navigate]({{ link-console-main }}/link/application-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. At the top right, click **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify `example-bg`.
@@ -634,7 +634,7 @@ To create security groups:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Navigate]({{ link-console-main }}/link/application-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
   1. At the top right, click **{{ ui-key.yacloud.alb.button_http-router-create }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify `example-router`.
@@ -735,7 +735,7 @@ To create security groups:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Navigate]({{ link-console-main }}/link/application-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. At the top right, click **{{ ui-key.yacloud.alb.button_load-balancer-create }}** and select **{{ ui-key.yacloud.alb.label_alb-create-form }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify `example-balancer`.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**:
@@ -857,7 +857,7 @@ To create security groups:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Navigate]({{ link-console-main }}/link/cdn) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. Click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
   1. Configure the basic CDN resource settings:
 
@@ -1010,7 +1010,7 @@ To create security groups:
 
   1. [Get](../../cdn/operations/resources/get-resources-info.md#get-cname) the CDN provider domain name value.
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}** and select the DNS zone you created [earlier](#configure-dns).
+  1. [Navigate]({{ link-console-main }}/link/dns) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}** and select the DNS zone you created [earlier](#configure-dns).
   1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**.
   1. Specify the record settings:
 

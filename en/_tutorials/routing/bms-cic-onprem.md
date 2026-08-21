@@ -8,7 +8,7 @@ You can see the solution architecture in the diagram below:
 
 The diagram above shows network connectivity between the {{ baremetal-full-name }} segment resources and customer’s remote on-premise resources connected to {{ yandex-cloud }} via {{ interconnect-name }}.
 
-To establish network connectivity between these resources and the customer's virtual network, you need to add the relevant {{ vpc-name }} subnet IP prefixes to the routing instance. For more on configuring this type of network connectivity, see the [relevant documentation](../../cloud-router/tutorials/bm-vrf-and-vpc-interconnect.md). 
+To set up network connectivity between these resources and the virtual network, you need to add the relevant {{ vpc-name }} subnet IP prefixes to the virtual router. For more on configuring this type of network connectivity, see the [relevant documentation](../../cloud-router/tutorials/bm-vrf-and-vpc-interconnect.md). 
 
 {% note info %}
 
@@ -20,7 +20,7 @@ To set up network connectivity between {{ baremetal-name }} private subnets and 
 
 1. [Get your cloud ready](#before-you-begin).
 1. [Create a cloud infrastructure](#setup-infrastructure).
-1. [Create a routing instance](#create-routing-instance).
+1. [Create a virtual router](#create-routing-instance).
 1. [Create a private connection](#create-private-connection).
 1. [Check network connectivity](#check-connectivity).
 
@@ -35,7 +35,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The cost of supporting an infrastructure for network connectivity between {{ baremetal-name }} and {{ vpc-short-name }} subnets includes:
 
-* Fee for using VM [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for a [public IP address](../../vpc/concepts/address.md#public-addresses) assigned to the VM (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for [VM](../../compute/concepts/vm.md) computing resources and disks (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for renting a {{ baremetal-name }} server (see [{{ baremetal-full-name }} pricing](../../baremetal/pricing.md)).
 
@@ -44,7 +44,7 @@ The cost of supporting an infrastructure for network connectivity between {{ bar
 
 Create the {{ yandex-cloud }} infrastructure you will use to set up network connectivity.
 
-To configure {{ interconnect-name }} in {{ baremetal-name }}, you will need a private routable [subnet](../../baremetal/concepts/private-network.md#private-subnet) and a [VRF segment](../../baremetal/concepts/private-network.md#vrf-segment) in {{ baremetal-name }}, a [cloud network](../../vpc/concepts/network.md#network) with one or more {{ vpc-name }} [subnets](../../vpc/concepts/network.md#subnet), as well as a routing instance with one or more [announced](../../interconnect/concepts/priv-con.md#prc-announce) prefixes of {{ vpc-short-name }} private subnets.
+To configure {{ interconnect-name }} in {{ baremetal-name }}, you will need a private routable [subnet](../../baremetal/concepts/private-network.md#private-subnet) and a [VRF](../../baremetal/concepts/private-network.md#vrf-segment) in {{ baremetal-name }}, a [cloud network](../../vpc/concepts/network.md#network) with one or more {{ vpc-name }} [subnets](../../vpc/concepts/network.md#subnet), as well as a virtual router with one or more [announced](../../interconnect/concepts/priv-con.md#prc-announce) {{ vpc-short-name }} private subnet prefixes.
 
 To check network connectivity, you will need a {{ baremetal-name }} server and a {{ compute-name }} VM.
 
@@ -116,13 +116,13 @@ Server setup and OS installation may take up to 45 minutes. The server will have
 
 {% endnote %}
 
-## Create a routing instance {#create-routing-instance}
+## Create a virtual router {#create-routing-instance}
 
-To set up network connectivity between {{ baremetal-name }} subnets and on-premise subnets, you need to create a `Routing Instance` resource. To create a `Routing Instance`, [contact]({{ link-console-support }}/tickets/create) support.
+To set up network connectivity between {{ baremetal-name }} subnets and on-prem subnets, you need to [create a virtual router](../../cloud-router/operations/ri-create.md).
 
-If your folder already has [{{ interconnect-name }}](../../interconnect/index.yaml) network connectivity (VPC-to-On-Prem) configured, you can either use the existing `Routing Instance` or request a new additional `Routing Instance` to be created for standalone network connectivity.
+If your folder already has [{{ interconnect-name }}](../../interconnect/index.yaml) network connectivity (VPC-to-On-Prem) configured, you can either use an existing virtual router or create a new, additional one for standalone network connectivity.
 
-### Make sure you have a routing instance in your folder {#check-for-ri}
+### Check that you have a virtual router in your folder {#check-for-ri}
 
 1. {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -130,17 +130,13 @@ If your folder already has [{{ interconnect-name }}](../../interconnect/index.ya
 
 1. {% include [check-for-routing-instance](../../_includes/baremetal/check-for-routing-instance.md) %}
 
-1. If you already have a routing instance, you may skip the next step and [proceed](#create-private-connection) to creating a private connection.
+1. If you have a virtual router already, you may skip the next step and [proceed](#create-private-connection) to creating a private connection.
 
-    If you do not have a routing instance or you want to build additional dedicated network connectivity, request a new routing instance.
+    If you have no virtual router or you want to build additional dedicated network connectivity, [create a new one](../../cloud-router/operations/ri-create.md).
 
-### Request a new routing instance {#request-ri}
+## Configure a virtual router {#config-ri}
 
-{% include [request-routing-instance](../../_includes/baremetal/request-routing-instance.md) %}
-
-## Configure the routing instance {#config-ri}
-
-In addition to the list of IP prefixes from the previous step, you should add the following to the routing instance:
+In addition to the list of IP prefixes from the previous step, you should add the following to the virtual router:
 
 1. List of aggregated IP prefixes for private subnets from the Baremetal segment.
 1. List of aggregated IP prefixes for announced subnets from on-premise.
@@ -151,7 +147,7 @@ For example, for the `192.168.1.0/24` subnet IP prefix, the `192.168.0.0/22` pre
 
 ## Create a private connection {#create-private-connection}
 
-Once the routing instance has been created in your folder, create a [private {{ interconnect-name }} connection](../../baremetal/concepts/private-network.md#private-connection-to-vpc) in {{ baremetal-name }}:
+Once the virtual router has been created in your folder, create a [private {{ interconnect-name }} connection](../../baremetal/concepts/private-network.md#private-connection-to-vpc) in {{ baremetal-name }}:
 
 {% include [create-private-connection](../../_includes/baremetal/create-private-connection.md) %}
 

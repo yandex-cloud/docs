@@ -77,7 +77,7 @@ Upload the OPNsense and ESXi installation images to your [{{ objstorage-name }}]
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are going to create your infrastructure.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. [Navigate]({{ link-console-main }}/link/baremetal) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.baremetal.label_images_duoXD }}**.
   1. Click **{{ ui-key.yacloud.baremetal.label_load-image }}**.
   1. Name your OPNsense image. Follow these naming requirements:
@@ -98,7 +98,7 @@ Upload the OPNsense and ESXi installation images to your [{{ objstorage-name }}]
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. [Navigate]({{ link-console-main }}/link/baremetal) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.baremetal.label_subnetworks_uU4LH }}** and click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
   1. In the **{{ ui-key.yacloud.baremetal.field_hardware-pool-id }}** field, select the `{{ region-id }}-m4` server pool.
   1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter the subnet name: `opnsense-private-subnet-m4`.
@@ -132,8 +132,8 @@ Upload the OPNsense and ESXi installation images to your [{{ objstorage-name }}]
 
       1. Under **{{ ui-key.yacloud.baremetal.title_section-server-info }}**, in the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter the server name: `opnsense-master`.
       1. {% include [server-lease-step13](../../_includes/baremetal/instruction-steps/server-lease-step13.md) %}
-  1. Similarly, lease one more server named `opnsense-backup` in the `{{ region-id }}-m4` server pool.
-  1. Similarly, lease two more servers named `vmware-esxi` and `jump-server` in the `{{ region-id }}-m4` server pool. However, when configuring these servers, select `{{ ui-key.yacloud.baremetal.label_public-ip-no }}` in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field under **Network settings**.
+  1. Similarly, rent one more server named `opnsense-backup` in the `{{ region-id }}-m4` server pool.
+  1. Similarly, rent two more servers named `vmware-esxi` and `jump-server` in the `{{ region-id }}-m4` server pool. However, when configuring these servers, select `{{ ui-key.yacloud.baremetal.label_public-ip-no }}` in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field under **Network settings**.
 
 {% endlist %}
 
@@ -412,7 +412,7 @@ The OPNsense server pre-configuration is now complete. To further configure the 
 
 To set up an OPNsense server cluster, you need a jump server with a graphical user interface and access to the private subnet to which the cluster hosts are connected. 
 
-To make the configuration process easier for you, this tutorial uses a previously leased server, `jump-server`, as the jump server, booted into recovery and diagnostics mode from the [Rescue CD](../../baremetal/operations/servers/rescue-boot.md).
+To make the configuration process easier for you, this tutorial uses a previously rented server, `jump-server`, as the jump server, booted into recovery and diagnostics mode from the [Rescue CD](../../baremetal/operations/servers/rescue-boot.md).
 
 {% include [kvm-console-actions-notice](../_tutorials_includes/opnsense-failover-cluster/kvm-console-actions-notice.md) %}
 
@@ -543,7 +543,7 @@ To make the configuration process easier for you, this tutorial uses a previousl
         1. In the **Range** field, specify the range of private subnet IP addresses available for clients through your DHCP server, e.g., **from** `192.168.1.100` **to** `192.168.1.199`.
         1. In the **DNS servers** field, specify the domain name server addresses that your clients will get, e.g., `77.88.8.8`.
         1. In the **Gateway** field, specify the IP address of the CARP interface you configured earlier: `192.168.1.254`.
-        1. In the **Default lease time (seconds)** field, specify the lease period for the provided IP address, in seconds, e.g., `3600`.
+        1. In the **Default lease time (seconds)** field, specify the rent period for the provided IP address, in seconds, e.g., `3600`.
         1. In the **Failover peer IP** field:
 
             {% list tabs group=host_type %}
@@ -651,7 +651,7 @@ Further configuration may involve creating firewall rules. However, for the purp
 
 To create and configure VMs, you need a jump server with a graphical user interface and access to the private subnet with a hypervisor connected. 
 
-To make the configuration process easier for you, this tutorial uses a previously leased server, `jump-server`, as the jump server, booted into recovery and diagnostics mode from the [Rescue CD](../../baremetal/operations/servers/rescue-boot.md).
+To make the configuration process easier for you, this tutorial uses the previously rented `jump-server`, booted into recovery and diagnostics mode from the [Rescue CD](../../baremetal/operations/servers/rescue-boot.md).
 
 {% include [kvm-console-actions-notice](../_tutorials_includes/opnsense-failover-cluster/kvm-console-actions-notice.md) %}
 
@@ -926,4 +926,4 @@ The test results show that your VM has access to the internet.
 ## How to delete the resources you created {#clear-out}
 
 1. [Delete](../../storage/operations/objects/delete.md) the objects you created in the bucket, then [delete](../../storage/operations/buckets/delete.md) the bucket itself.
-1. You cannot delete {{ baremetal-name }} servers. Instead, [cancel](../../baremetal/operations/servers/server-lease-cancel.md) the renewal of their lease.
+1. You cannot delete {{ baremetal-name }} servers. Instead, [cancel](../../baremetal/operations/servers/server-lease-cancel.md) the renewal of their rent.

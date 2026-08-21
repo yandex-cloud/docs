@@ -74,7 +74,7 @@ db.currentOp({ "$ownOps": true })
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
     1. [Перейдите](https://console.yandex.cloud/link/storedoc) в сервис **Yandex StoreDoc**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/receipt.svg) **Логи**.
+    1. Нажмите на имя нужного кластера и выберите ![chevron-down](../../_assets/console-icons/chevron-down.svg) **Другое** → **Логи**.
 
 - CLI {#cli}
 

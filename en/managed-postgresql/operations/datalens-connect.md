@@ -29,7 +29,7 @@ To allow {{ datalens-name }} to connect to your cluster and work with its data, 
 - Management console {#console}
 
   1. Make sure {{ datalens-name }} is [activated](#activate-datalens) in the relevant folder and has [permission](#allow-access) to access the cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
 
      ![screen02](../../_assets/managed-postgresql/operations/datalens-connect/screen02.png)
 
@@ -64,7 +64,7 @@ After creating the connection, you can:
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_datalens }}** tab.
 
      ![screen11](../../_assets/managed-postgresql/operations/datalens-connect/screen11.png)
@@ -77,7 +77,7 @@ After creating the connection, you can:
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_datalens }}** tab.
   1. Select the connection from the list.
 
@@ -97,7 +97,7 @@ After creating the connection, you can:
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_datalens }}** tab.
   1. Select the connection from the list.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) at the top of the page and select **Delete**.

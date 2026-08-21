@@ -12,7 +12,7 @@
 
   1. Перейдите [на страницу каталога](https://console.yandex.cloud).
   1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/bars-play.svg) **Обслуживание**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Обслуживание**.
   1. (Опционально) Выберите статус обслуживания над списком обслуживаний.
 
 {% endlist %}
@@ -25,7 +25,7 @@
 
   1. Перейдите [на страницу каталога](https://console.yandex.cloud).
   1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/bars-play.svg) **Обслуживание**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Обслуживание**.
   1. Выберите нужное обслуживание. Откроется страница обслуживания.
   1. Нажмите ссылку **Логи задания**.
 
@@ -39,7 +39,7 @@
 
   1. Перейдите [на страницу каталога](https://console.yandex.cloud).
   1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/bars-play.svg) **Обслуживание**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Обслуживание**.
   1. В строке обслуживания со статусом **Запланировано** нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) **Перенести**.
   1. Выберите тип переноса запланированного обслуживания:
     
@@ -198,7 +198,7 @@
 
   1. Перейдите [на страницу каталога](https://console.yandex.cloud).
   1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/bars-play.svg) **Обслуживание**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Обслуживание**.
   1. В строке нужного обслуживания нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт ![image](../../_assets/console-icons/triangle-right.svg) **Провести сейчас**.
 
 - CLI {#cli}
@@ -298,7 +298,7 @@
 
   1. Перейдите [на страницу каталога](https://console.yandex.cloud).
   1. [Перейдите](https://console.yandex.cloud/link/managed-greenplum) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/bars-play.svg) **Обслуживание**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Обслуживание**.
   1. В правом верхнем углу страницы нажмите кнопку ![image](../../_assets/console-icons/calendar.svg) **Настроить окно обслуживания**.
   1. Выберите окно обслуживания:
     

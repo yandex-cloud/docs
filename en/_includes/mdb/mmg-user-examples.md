@@ -25,7 +25,8 @@ To add a new `user2` account with read-only access for the `db1` database to an 
   yc managed-mongodb user create user2 \
     --cluster-name <cluster_name> \
     --password <user_password> \
-    --permission database=db1,role=read
+    --permission database=db1,role=read \
+    --deletion-protection=true
   ```
 
 - {{ TF }} {#tf}
@@ -38,9 +39,10 @@ To add a new `user2` account with read-only access for the `db1` database to an 
 
       ```hcl
       resource "yandex_mdb_mongodb_user" "user2" {
-        cluster_id = <cluster_ID>
-        name       = "user2"
-        password   = "<password>"
+        cluster_id          = <cluster_ID>
+        name                = "user2"
+        password            = "<password>"
+        deletion_protection = true
         permission {
           database_name = "db1"
           roles         = [ "read" ]
@@ -98,9 +100,10 @@ To grant read-only access to the `db2` database to an existing `cluster1` user n
 
       ```hcl
       resource "yandex_mdb_mongodb_user" "user1" {
-        cluster_id = <cluster_ID>
-        name       = "user1"
-        password   = "<password>"
+        cluster_id          = <cluster_ID>
+        name                = "user1"
+        password            = "<password>"
+        deletion_protection = true
         permission {
           database_name = "db2"
           roles         = [ "read" ]

@@ -1060,7 +1060,7 @@
 
   Maximum size (in bytes) of the [Write-Ahead Log (WAL)](https://www.postgresql.org/docs/current/wal-intro.html) files stored on the master host during replication.
 
-  The minimum value is `67108864` (64 MB), the maximum is 50% of the [storage](../../../managed-postgresql/concepts/storage.md) size, and the default is `-1` (unlimited). This value must be a multiple of 1,024.
+  The minimum value is `67108864` (64 MB), the maximum is 50% of the [storage](../../../managed-postgresql/concepts/storage.md) size. The default value is 5% of the storage size. This value must be a multiple of 1,024.
 
   {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-13.md) %}
 

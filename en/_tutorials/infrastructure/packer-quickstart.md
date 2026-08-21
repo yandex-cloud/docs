@@ -280,8 +280,8 @@ Make sure you created the image:
 
 - Management console {#console}
 
-  1. Navigate to the [management console]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Open the [management console]({{ link-console-main }}).
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Open the ![image](../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.images_e7RdQ }}** section. Make sure the new disk image is there.
 
 - CLI {#cli}

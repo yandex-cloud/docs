@@ -10,7 +10,7 @@
 
 - Management console {#console}
 
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+    1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
     1. Click the name of your cluster and select the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.mdb.cluster.logs.label_title }}** tab.
     1. Specify a time period for the log entries you want to view: enter it manually or select in the calendar using the date input field.
     1. Select the hosts in the row with the date input field, if required.
@@ -46,10 +46,12 @@
 
         * {% include [logs output limit](../../_includes/cli/logs/limit.md) %}
         * `--columns`: List of output data columns:
+            
             * `hostname`: [Host name](hosts.md#list-hosts).
             * `message`: Message output by the service.
             * `pid`: Server process ID of the current session.
             * `role`: Cluster component role, e.g., `X` or `M` (`Sentinel` and `Master`, respectively).
+        
         * {% include [logs filter](../../_includes/cli/logs/filter.md) %}
         * {% include [logs since time](../../_includes/cli/logs/since.md) %}
         * {% include [logs until time](../../_includes/cli/logs/until.md) %}

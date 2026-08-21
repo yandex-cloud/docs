@@ -59,3 +59,16 @@ Field | Description
 &ensp; `response_rx_time` | Latency between the load balancer receiving the first and last bytes of the backend response
 &ensp; `response_tx_time` | Latency between the load balancer sending the first and last bytes of the response
 `x_forwarded_for` | Value of the incoming request [X-Forwarded-For](https://en.wikipedia.org/wiki/X-Forwarded-For) (XFF) header containing the IP addresses of the forwarding nodes. `client_ip` comes first, followed by IP addresses of any intermediate nodes, if any. Here is an example:<ul><li>`x_forwarded_for: 50.0.0.1` shows that the request came from the client directly, with its `client_ip` added to the header by {{ alb-name }}.</li><li>Conversely, `x_forwarded_for: 50.0.0.1,40.0.0.1` shows that the request passed through a proxy server, with its IP address added after `client_ip` by {{ alb-name }}.</li></ul>
+`smartwebsecurity` | Information about the result of request check in [{{ sws-name }}](../smartwebsecurity/concepts/index.md). Returned if the virtual host has a [connected security profile](../smartwebsecurity/operations/host-connect.md). For more on logging SWS rules, see [{#T}](../smartwebsecurity/operations/configure-logging-alb.md).
+&ensp; `dry_run_matched_rule` | Rule in `Logging only` mode which was triggered by the request. Such rule does not affect the processing of the request.
+&emsp;&emsp; `dry_run` | `Logging only` mode flag. For rules in the `dry_run_matched_rule` field the value is `true`.
+&emsp;&emsp; `rule_name` | {{ sws-name }} rule name.
+&emsp;&emsp; `rule_type` | {{ sws-name }} rule type.
+&emsp;&emsp; `verdict` | Decision based on the rule, e.g., `ALLOW`, `DENY`, or `CAPTCHA`.
+&ensp; `matched_rule` | {{ sws-name }} rule the request processing decision was based on.
+&emsp;&emsp; `dry_run` | `Logging only` mode flag.
+&emsp;&emsp; `rule_name` | {{ sws-name }} rule name.
+&emsp;&emsp; `rule_type` | {{ sws-name }} rule type.
+&emsp;&emsp; `verdict` | Decision based on the rule, e.g., `ALLOW`, `DENY`, or `CAPTCHA`.
+&ensp; `profile_id` | {{ sws-name }} profile ID.
+&ensp; `unique_key` | Unique key of the request in {{ sws-name }}.

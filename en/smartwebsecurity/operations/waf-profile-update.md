@@ -83,6 +83,7 @@ description: Follow this guide to edit basic WAF profile settings.
             is_blocking = false
           }
         }
+      }
       ```
 
      {% endcut %}

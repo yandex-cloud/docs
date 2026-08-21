@@ -16,7 +16,7 @@ The infrastructure deployment cost for this IPsec gateways-based solution includ
 * Fee for continuously running VMs (see [{{ compute-full-name }} pricing](../../../compute/pricing.md)).
 * Fee for a static external IP address (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
 
-### Create an SSH keypair {#create-ssh-keys}
+### Create an SSH key pair {#create-ssh-keys}
 
 To connect to a [VM](../../../compute/concepts/vm.md) over SSH, you will need a key pair: the public key resides on the VM, and the private one is kept by the user. This method is more secure than login and password authentication.
 
@@ -90,8 +90,8 @@ At this stage, you will reserve two static IP addresses for IPsec gateways and c
 
 #### Set up static routing for the main IPsec gateway {#cloud-static}
 
-1. In the [management console]({{ link-console-main }}), navigate to the `cloud-net` network folder.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+1. In the [management console]({{ link-console-main }}), select the folder containing the new network named `cloud-net`.
+1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
 1. Select `cloud-net`.
 1. Navigate to the **{{ ui-key.yacloud.vpc.network.switch_route-table }}** tab and click **{{ ui-key.yacloud.common.create }}**.
 1. In the **{{ ui-key.yacloud.vpc.route-table-form.field_name }}** field, specify `cloud-net-rt`.
@@ -328,8 +328,8 @@ At this stage, you will create and set up an infrastructure for a remote site of
 
 #### Set up remote IPsec gateway static routing {#remote-static}
 
-1. In the [management console]({{ link-console-main }}), navigate to the `remote-net` network folder.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+1. In the [management console]({{ link-console-main }}), select the folder containing the new network named `remote-net`.
+1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
 1. Select `remote-net`.
 1. Navigate to the **{{ ui-key.yacloud.vpc.network.switch_route-table }}** tab and click **{{ ui-key.yacloud.common.create }}**.
 1. In the **{{ ui-key.yacloud.vpc.route-table-form.field_name }}** field, specify `remote-net-rt`.
