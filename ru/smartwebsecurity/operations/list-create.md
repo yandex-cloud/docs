@@ -76,6 +76,45 @@ description: Следуя данной инструкции, вы сможете
 
 Теперь при добавлении правила в [профиле безопасности](rule-add.md) или [ARL](arl-rule-add.md) вы можете выбрать созданный список.
 
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды [CLI](../../cli/quickstart.md) для создания списка:
+
+     ```bash
+     yc smartwebsecurity match-list match-list create --help
+     ```
+
+  1. Создайте список, указав тип и значения:
+
+     ```bash
+     yc smartwebsecurity match-list match-list create \
+       --name <имя_списка> \
+       --description "<описание_списка>" \
+       --item-type <тип_значений> \
+       --items '[{"value": "<значение_1>", "description": "<описание_1>"}, {"value": "<значение_2>"}]'
+     ```
+
+     Где:
+
+     * `--name` — имя списка.
+     * `--description` — описание списка. Необязательный параметр.
+     * `--item-type` — тип значений в списке:
+
+       * `ip` — IP-адреса, диапазоны адресов или префиксы в формате [CIDR](https://ru.wikipedia.org/wiki/Бесклассовая_адресация);
+       * `asn` — номера [автономных систем](https://ru.wikipedia.org/wiki/Автономная_система_(Интернет));
+       * `reg-exp` — [регулярные выражения](../concepts/conditions.md#regular-expressions);
+       * `str` — текстовые строки.
+
+     * `--items` — значения списка в формате JSON: `value` — значение, `description` — его описание. Необязательный параметр, значения можно [добавить позже](#update-values).
+
+  Подробнее о команде `yc smartwebsecurity match-list match-list create` читайте в [справочнике CLI](../../cli/cli-ref/smartwebsecurity/cli-ref/match-list/match-list/create.md).
+
+  Теперь при добавлении правила в [профиле безопасности](rule-add.md) или [ARL](arl-rule-add.md) вы можете выбрать созданный список.
+
 {% endlist %}
 
 
@@ -94,6 +133,26 @@ description: Следуя данной инструкции, вы сможете
 
       Список будет сохранен в формате CSV.
 
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. Получите список имеющихся списков в каталоге по умолчанию:
+
+     ```bash
+     yc smartwebsecurity match-list match-list list
+     ```
+
+  1. Получите значения нужного списка, указав его идентификатор:
+
+     ```bash
+     yc smartwebsecurity match-list match-list get <идентификатор_списка> --format yaml
+     ```
+
+  Подробнее о команде `yc smartwebsecurity match-list match-list get` читайте в [справочнике CLI](../../cli/cli-ref/smartwebsecurity/cli-ref/match-list/match-list/get.md).
+
 {% endlist %}
 
 
@@ -109,6 +168,37 @@ description: Следуя данной инструкции, вы сможете
   1. В строке с нужным списком нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil-to-line](../../_assets/console-icons/pencil-to-line.svg) **{{ ui-key.yacloud.smart-web-security.MatchListActions.button_rename_r3ma9 }}**.
   1. Измените имя и описание списка, добавьте или удалите метки.
   1. Нажмите **{{ ui-key.yacloud.common.save-changes }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды [CLI](../../cli/quickstart.md) для изменения списка:
+
+     ```bash
+     yc smartwebsecurity match-list match-list update --help
+     ```
+
+  1. Получите список имеющихся списков в каталоге по умолчанию:
+
+     ```bash
+     yc smartwebsecurity match-list match-list list
+     ```
+
+  1. Измените параметры списка, указав его идентификатор:
+
+     ```bash
+     yc smartwebsecurity match-list match-list update <идентификатор_списка> \
+       --name <новое_имя_списка> \
+       --description "<новое_описание_списка>" \
+       --labels <ключ_метки>=<значение_метки>
+     ```
+
+     Изменятся только те параметры, которые вы передали в команде.
+
+  Подробнее о команде `yc smartwebsecurity match-list match-list update` читайте в [справочнике CLI](../../cli/cli-ref/smartwebsecurity/cli-ref/match-list/match-list/update.md).
 
 {% endlist %}
 
@@ -132,6 +222,41 @@ description: Следуя данной инструкции, вы сможете
           1. Отредактируйте список или загрузите новый файл.
           1. Нажмите **{{ ui-key.yacloud.common.save-changes }}**.
 
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. Получите список имеющихся списков в каталоге по умолчанию:
+
+     ```bash
+     yc smartwebsecurity match-list match-list list
+     ```
+
+  1. Получите текущие значения нужного списка, указав его идентификатор:
+
+     ```bash
+     yc smartwebsecurity match-list match-list get <идентификатор_списка> --format yaml
+     ```
+
+  1. Передайте новые значения списка:
+
+     ```bash
+     yc smartwebsecurity match-list match-list update <идентификатор_списка> \
+       --items '[{"value": "<значение_1>", "description": "<описание_1>"}, {"value": "<значение_2>"}]'
+     ```
+
+     Где `--items` — значения списка в формате JSON: `value` — значение, `description` — его описание. Необязательный параметр.
+
+     {% note warning %}
+
+     Новые значения полностью заменят прежний список значений.
+
+     {% endnote %}
+
+  Подробнее о команде `yc smartwebsecurity match-list match-list update` читайте в [справочнике CLI](../../cli/cli-ref/smartwebsecurity/cli-ref/match-list/match-list/update.md).
+
 {% endlist %}
 
 ## Удалить список {#delete}
@@ -144,6 +269,32 @@ description: Следуя данной инструкции, вы сможете
   1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/files.svg) **{{ ui-key.yacloud.smart-web-security.match-lists.label_match-lists }}**
   1. В строке с нужным списком нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. Получите список имеющихся списков в каталоге по умолчанию:
+
+     ```bash
+     yc smartwebsecurity match-list match-list list
+     ```
+
+  1. Удалите список, указав его идентификатор:
+
+     ```bash
+     yc smartwebsecurity match-list match-list delete <идентификатор_списка>
+     ```
+
+  1. Чтобы убедиться, что список удален, повторно выполните команду:
+
+     ```bash
+     yc smartwebsecurity match-list match-list list
+     ```
+
+  Подробнее о команде `yc smartwebsecurity match-list match-list delete` читайте в [справочнике CLI](../../cli/cli-ref/smartwebsecurity/cli-ref/match-list/match-list/delete.md).
 
 {% endlist %}
 
