@@ -1,6 +1,6 @@
 ---
 title: Как настроить права доступа к сертификату {{ certificate-manager-full-name }}
-description: Следуя данной инструкции, вы сможете настроить права доступа к сертификату.
+description: Следуя этой инструкции, вы сможете настроить права доступа к сертификату.
 ---
 
 # Настроить права доступа к сертификату
@@ -72,7 +72,7 @@ description: Следуя данной инструкции, вы сможете
           Где:
 
           * `--service-account-id` — [идентификатор сервисного аккаунта](../../iam/operations/sa/get-id.md).
-          * `--role` — назначаемая роль.
+          * `--role` — назначаемая [роль](../security/index.md#roles-list).
 
 - {{ TF }} {#tf}
 
@@ -98,7 +98,7 @@ description: Следуя данной инструкции, вы сможете
       * `role` — назначаемая [роль](../security/index.md#roles-list).
       * `member` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
 
-       Подробнее о параметрах ресурса `yandex_cm_certificate_iam_member` в [документации провайдера]({{ tf-provider-resources-link }}/cm_certificate_iam_member).
+      Подробнее о параметрах ресурса `yandex_cm_certificate_iam_member` в [документации провайдера]({{ tf-provider-resources-link }}/cm_certificate_iam_member).
 
   1. Создайте ресурсы:
 
@@ -196,7 +196,7 @@ description: Следуя данной инструкции, вы сможете
       * `role` — назначаемая [роль](../security/index.md#roles-list).
       * `member` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
 
-       Подробнее о параметрах ресурса `yandex_cm_certificate_iam_member` в [документации провайдера]({{ tf-provider-resources-link }}/cm_certificate_iam_member).
+      Подробнее о параметрах ресурса `yandex_cm_certificate_iam_member` в [документации провайдера]({{ tf-provider-resources-link }}/cm_certificate_iam_member).
 
   1. Создайте ресурсы:
 
@@ -279,10 +279,11 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      Проверить изменения можно с помощью команды [CLI](../../cli/quickstart.md):
+      Проверить изменения можно с помощью команды [CLI](../../cli/):
+
       ```bash
       yc certificate-manager certificate list-access-bindings <идентификатор_сертификата>
-      ``
+      ```
 
 - API {#api}
 

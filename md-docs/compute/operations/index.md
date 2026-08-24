@@ -130,8 +130,7 @@
 * [Создать виртуальную машину из публичного образа](images-with-pre-installed-software/create.md)
 * [Настройка программного обеспечения](images-with-pre-installed-software/setup.md)
 * [Работа с виртуальной машиной на базе публичного образа](images-with-pre-installed-software/operate.md)
-* [Получить список публичных образов](images-with-pre-installed-software/get-list.md)
-* [Получить информацию о публичном образе](images-with-pre-installed-software/get-info.md)
+* [Получить информацию о публичном образе](images-with-pre-installed-software/get-list.md)
 
 ### Yandex Data Science Virtual Machine {#dsvm}
 

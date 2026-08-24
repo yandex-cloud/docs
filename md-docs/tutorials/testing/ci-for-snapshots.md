@@ -296,10 +296,11 @@
 1. В [консоли управления](https://console.yandex.cloud) Yandex Cloud выберите каталог, в котором создана ВМ.
 1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
 1. Найдите ВМ `ci-tutorial-test-app` и выберите ее.
-1. Нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg), выберите ![stop](../../_assets/console-icons/stop.svg) **Остановить** и в открывшемся окне подтвердите остановку.
+1. Нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg), выберите ![stop](../../_assets/console-icons/stop.svg) **Остановить** и в открывшемся окне подтвердите остановку ВМ.
 1. После остановки ВМ выберите вкладку **Диски и хранилища**, затем вкладку **Диски**.
 1. В строке с диском нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **Создать снимок**.
-1. В открывшемся окне введите имя снимка `test-app-snap` и нажмите кнопку **Создать**.
+1. В открывшемся окне введите имя снимка: `test-app-snap`.
+1. Нажмите кнопку **Создать**.
 
 ## Создайте виртуальную машину с GitLab {#create-gitlab-vm}
 

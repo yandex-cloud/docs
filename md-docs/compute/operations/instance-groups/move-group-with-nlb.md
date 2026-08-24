@@ -15,7 +15,7 @@
      1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
      1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
      1. Выберите группу ВМ, которую хотите изменить.
-     1. В правом верхнем углу нажмите ![image](../../../_assets/console-icons/pencil.svg) **Редактировать**.
+     1. Нажмите кнопку [pencil](../../../_assets/console-icons/pencil.svg) **Редактировать**.
      1. В блоке **Распределение** добавьте [зону доступности](../../../overview/concepts/geo-scope.md), в которую вы хотите перенести группу ВМ. 
      1. Если у вас группа ВМ с [ручным масштабированием](../../concepts/instance-groups/scale.md#fixed-scale), в блоке **Масштабирование** укажите размер группы, достаточный для размещения во всех выбранных зонах доступности.
    
@@ -206,7 +206,7 @@
           1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
           1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
           1. Выберите группу ВМ, которую хотите изменить.
-          1. В правом верхнем углу нажмите ![image](../../../_assets/console-icons/pencil.svg) **Редактировать**.
+          1. Нажмите кнопку [pencil](../../../_assets/console-icons/pencil.svg) **Редактировать**.
           1. В блоке **Распределение** отключите старую [зону доступности](../../../overview/concepts/geo-scope.md).
           1. Нажмите **Сохранить**.
         
@@ -527,7 +527,7 @@
           1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
           1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
           1. Выберите группу ВМ, которую хотите изменить.
-          1. В правом верхнем углу нажмите ![image](../../../_assets/console-icons/pencil.svg) **Редактировать**.
+          1. Нажмите кнопку [pencil](../../../_assets/console-icons/pencil.svg) **Редактировать**.
           1. В блоке **Распределение** отключите старую [зону доступности](../../../overview/concepts/geo-scope.md).
           1. Нажмите **Сохранить**.
         

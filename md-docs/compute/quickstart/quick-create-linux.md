@@ -213,7 +213,7 @@
      * **Yandex Managed Service for Prometheus®** — [установить и настроить агент](../../monitoring/operations/prometheus/ingestion/prometheus-agent.md) для сбора дополнительных метрик ВМ и приложений в формате Prometheus:
         * Выберите или создайте воркспейс, в котором будут храниться метрики.
         * (Опционально) Опишите в формате JSON [параметры поставки](../../monitoring/operations/prometheus/ingestion/prometheus-agent.md) собственных метрик.
-   * (Опционально) В блоке **Размещение** выберите [группу размещения](../concepts/placement-groups.md) ВМ.
+   * (Опционально) В блоке **Размещение** выберите [пул резервов ВМ](../concepts/reserved-pools.md) или [группу размещения ВМ](../concepts/placement-groups.md).
 1. Нажмите кнопку **Создать ВМ**.
 
 ВМ появится в списке. При создании ВМ назначаются [IP-адрес](../../vpc/concepts/address.md) и [имя хоста](../../vpc/concepts/address.md#fqdn) (FQDN).
@@ -592,8 +592,8 @@ _© 2025 Linux Foundation. Все права защищены. Linux Foundation 
 
   1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. Выберите ВМ, к которой хотите подключиться.
-  1. Убедитесь, что ВМ находится в статусе `Running`. Если ВМ не запущена, в правом верхнем углу нажмите ![image](../../_assets/console-icons/play.svg) **Запустить** и дождитесь перехода ВМ в статус `Running`.
-  1. Справа вверху нажмите ![image](../../_assets/console-icons/terminal.svg) **Подключиться в Cloud Shell**.
+  1. Убедитесь, что ВМ находится в статусе `Running`. Если ВМ не запущена, нажмите кнопку ![image](../../_assets/console-icons/play.svg) **Запустить** и дождитесь перехода ВМ в статус `Running`.
+  1. Нажмите кнопку ![terminal](../../_assets/console-icons/terminal.svg) **Подключиться в Cloud Shell**.
   1. Введите логин пользователя. По умолчанию введен логин, указанный при создании ВМ.
   1. Вставьте содержимое или загрузите файл закрытого SSH-ключа.
   1. Нажмите **Подключиться**.

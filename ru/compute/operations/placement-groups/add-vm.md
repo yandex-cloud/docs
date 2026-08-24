@@ -13,7 +13,7 @@
   1. На панели слева выберите ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.placement-groups_3CwzD }}**.
   1. Перейдите на вкладку **{{ ui-key.yacloud.compute.placement-groups.label_tab-instances }}**.
   1. Выберите группу размещения, в которую хотите добавить ВМ.
-  1. Перейдите на панель **{{ ui-key.yacloud.compute.placement-group.switch_instances }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.compute.placement-group.switch_instances }}**.
   1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/plus-sign.svg) **{{ ui-key.yacloud.compute.placement-group.instances.button_add-instance }}**.
   1. В открывшемся окне выберите ВМ и нажмите кнопку **{{ ui-key.yacloud.compute.placement-group.instances.popup-add_button_add }}**.
 

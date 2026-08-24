@@ -207,7 +207,8 @@
 
   1. Откройте [консоль управления](https://console.yandex.cloud).
   1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**. Нажмите кнопку **Создать группу виртуальных машин**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
+  1. Нажмите кнопку **Создать группу виртуальных машин**.
   1. В блоке **Базовые параметры**:
 
      * Введите **Имя** группы ВМ: `ddos-group`.
@@ -410,7 +411,8 @@
 
   1. Откройте [консоль управления](https://console.yandex.cloud).
   1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/cubes-3-overlap.svg) **Группы бэкендов**. Нажмите кнопку **Создать группу бэкендов**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/cubes-3-overlap.svg) **Группы бэкендов**.
+  1. Нажмите кнопку **Создать группу бэкендов**.
   1. Укажите **Имя** группы бэкендов: `ddos-backend-group`.
   1. В блоке **Бэкенды** нажмите кнопку **Добавить**.
   1. Укажите **Имя** бэкенда: `backend-1`.
@@ -512,7 +514,8 @@
 
   1. Откройте [консоль управления](https://console.yandex.cloud).
   1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/route.svg) **HTTP-роутеры**. Нажмите кнопку **Создать HTTP-роутер**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/route.svg) **HTTP-роутеры**.
+  1. Нажмите кнопку **Создать HTTP-роутер**.
   1. Укажите **Имя** HTTP-роутера: `ddos-router`.
   1. Нажмите кнопку **Добавить виртуальный хост**.
   1. Укажите **Имя** виртуального хоста: `ddos-host`.

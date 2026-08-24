@@ -17,6 +17,7 @@
 * [Yandex Cloud Postbox](postbox-ref.md)
 * [Yandex Compute Cloud](compute-ref.md)
 * [Yandex Container Registry](container-registry-ref.md)
+* [Yandex Cloud Registry](cloud-registry-ref.md)
 * [Yandex Data Processing](data-processing-ref.md)
 * [Yandex Data Transfer](data-transfer-ref.md)
 * [Yandex Cloud DNS](dns-ref.md)

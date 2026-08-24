@@ -87,6 +87,7 @@ description: В {{ org-full-name }} вы можете аутентифициро
 * `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_trim_3SF6q }}` — удаляет пробелы в начале и в конце значения атрибута.
 * `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_if_empty_e5unh }}` — заменяет текущее значение атрибута, если оно пустое. Можно выбрать значение для замены из списка значений атрибутов или указать свое. Например, если значение `username` пустое, использовать `email`.
 * `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_constant_tvJWi }}` — заменяет текущее значение на указанную константу. Например, вместо любого значения атрибута возвращает `User`.
+* `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_replace_kQ2vN }}` — заменяет указанную подстроку в значении атрибута на другую строку. Например, вместо `user@example.com` при указании подстроки `example.com` и строки замены `company.com` возвращает `user@company.com`.
 
 В дополнение к указанным выше атрибутам пользователя в SAML-ответе может быть передан атрибут групп, значением которого является список [групп](../groups.md), в которые входит пользователь. Для этого атрибута вы можете задать произвольное имя и одно из значений:
 

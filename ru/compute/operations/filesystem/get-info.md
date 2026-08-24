@@ -14,7 +14,7 @@ title: Как получить информацию о файловом хран
   1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.compute.file-storages_pNPw1 }}**.
   1. Выберите нужное файловое хранилище.
-  1. На странице **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация о файловом хранилище.
+  1. На вкладке **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация о файловом хранилище.
 
 - CLI {#cli}
 

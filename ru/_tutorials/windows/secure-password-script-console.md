@@ -104,9 +104,8 @@
    - Консоль управления {#console}
 
      1. На странице ключа перейдите на вкладку **{{ ui-key.yacloud.common.label_access-rights }}**.
-     1. На странице **Права доступа к сервисному аккаунту** найдите аккаунт `win-secret-sa` в списке и нажмите значок ![image](../../_assets/options.svg).
-     1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
-     1. В открывшемся диалоге нажмите кнопку **Добавить роль** и выберите роль `kms.keys.encrypterDecrypter`.
+     1. В списке в строке с сервисным аккаунтом `win-secret-sa` нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.shared.iam.action_assign-roles_8vkmR }}**.
+     1. В открывшемся диалоге нажмите кнопку **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** и выберите роль `kms.keys.encrypterDecrypter`.
 
    - CLI {#cli}
 
@@ -178,10 +177,8 @@
    - Консоль управления {#console}
 
      1. На странице секрета откройте вкладку **{{ ui-key.yacloud.common.label_access-rights }}**.
-     1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
-     1. Найдите аккаунт `win-secret-sa` в списке и нажмите значок ![image](../../_assets/options.svg).
-     1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
-     1. В открывшемся диалоге нажмите кнопку **Добавить роль** и выберите роль `lockbox.payloadViewer`.
+     1. В списке в строке с сервисным аккаунтом `win-secret-sa` нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.shared.iam.action_assign-roles_8vkmR }}**.
+     1. В открывшемся диалоге нажмите кнопку **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** и выберите роль `lockbox.payloadViewer`.
 
    - CLI {#cli}
 

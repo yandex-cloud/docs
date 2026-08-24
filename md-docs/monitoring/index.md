@@ -248,6 +248,8 @@ Yandex Monitoring позволяет собирать и хранить метр
 
  - [Container Registry](metrics-ref/container-registry-ref.md)
 
+ - [Cloud Registry](metrics-ref/cloud-registry-ref.md)
+
  - [Yandex Data Processing](metrics-ref/data-processing-ref.md)
 
  - [Data Transfer](metrics-ref/data-transfer-ref.md)

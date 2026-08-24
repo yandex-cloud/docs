@@ -16,7 +16,7 @@
      * Количество активных правил.
      * Порог аномальности и уровень паранойи (для набора OWASP).
 
-- Terraform
+- Terraform {#tf}
 
   [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
@@ -35,8 +35,8 @@
 
       ```hcl
       data "yandex_sws_waf_rule_set_descriptor" "owasp4" {
-        name    = "OWASP Core Ruleset"
-        version = "4.0.0"
+        name    = "<набор_правил>"
+        version = "<версия>"
       }
 
       output "waf_rules" {
@@ -46,15 +46,27 @@
 
       Где:
 
-
       * `data "yandex_sws_waf_rule_set_descriptor"` — описание набора правил WAF в качестве источника данных:
 
-        * `name` — имя набора правил WAF.
-        * `version` — версия набора правил.
+          * `name` — имя набора правил WAF.
+          * `version` — версия набора правил.
+
+          Доступные наборы и версии:
+
+          * `OWASP Core Ruleset`
+              * `4.8.0`
+              * `4.0.0`
+
+          * `Yandex Ruleset`
+              * `0.1.1`
+              * `0.1.0`
+
+          * `Yandex ML Ruleset`
+              * `latest`
 
       * `output "waf_rules"` — выходная переменная, которая содержит информацию о наборе правил WAF:
 
-        * `value` — возвращаемое значение.
+          * `value` — возвращаемое значение.
 
       Вместо `rules` вы можете выбрать любой другой параметр для получения информации. Подробнее о параметрах источника данных `yandex_sws_waf_rule_set_descriptor` в [документации провайдера](../../terraform/data-sources/sws_waf_rule_set_descriptor.md).
 

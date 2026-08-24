@@ -274,6 +274,8 @@ items:
             href: cli-ref/registry/create.md
           - name: delete
             href: cli-ref/registry/delete.md
+          - name: force-delete
+            href: cli-ref/registry/force-delete.md
           - name: get
             href: cli-ref/registry/get.md
           - name: list
@@ -443,6 +445,8 @@ items:
                 href: cli-ref/v0/registry/create.md
               - name: delete
                 href: cli-ref/v0/registry/delete.md
+              - name: force-delete
+                href: cli-ref/v0/registry/force-delete.md
               - name: get
                 href: cli-ref/v0/registry/get.md
               - name: list

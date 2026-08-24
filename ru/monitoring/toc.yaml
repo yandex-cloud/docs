@@ -241,6 +241,8 @@ items:
         href: metrics-ref/compute-ref.md
       - name: '{{ container-registry-name }}'
         href: metrics-ref/container-registry-ref.md
+      - name: '{{ cloud-registry-name }}'
+        href: metrics-ref/cloud-registry-ref.md
       - name: '{{ dataproc-name }}'
         href: metrics-ref/data-processing-ref.md
       - name: '{{ data-transfer-name }}'

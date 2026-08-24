@@ -1,3 +1,8 @@
+---
+title: Как посмотреть операции с сертификатом {{ certificate-manager-full-name }}
+description: Следуя этой инструкции, вы сможете получить список операций с сертификатом и подробную информацию о каждой из них.
+---
+
 # Посмотреть операции с сертификатом
 
 Все действия с ресурсами сервиса {{ certificate-manager-name }} сохраняются в виде списка операций. Каждой операции присваивается уникальный идентификатор.
@@ -8,7 +13,7 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится сертификат.
+  1. В [консоли управления]({{ link-console-main }}) откройте [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится сертификат.
   1. [Перейдите]({{ link-console-main }}/link/certificate-manager) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
   1. Выберите нужный сертификат.
   1. Перейдите на вкладку **{{ ui-key.yacloud.common.operations-key-value }}**.

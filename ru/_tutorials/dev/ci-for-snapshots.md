@@ -272,10 +272,11 @@
 1. В [консоли управления]({{ link-console-main }}) {{ yandex-cloud }} выберите каталог, в котором создана ВМ.
 1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. Найдите ВМ `ci-tutorial-test-app` и выберите ее.
-1. Нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg), выберите ![stop](../../_assets/console-icons/stop.svg) **{{ ui-key.yacloud.common.stop }}** и в открывшемся окне подтвердите остановку.
+1. Нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg), выберите ![stop](../../_assets/console-icons/stop.svg) **{{ ui-key.yacloud.common.stop }}** и в открывшемся окне подтвердите остановку ВМ.
 1. После остановки ВМ выберите вкладку **{{ ui-key.yacloud.compute.storage_uisyT }}**, затем вкладку **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
 1. В строке с диском нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.disks.button_action-snapshot }}**.
-1. В открывшемся окне введите имя снимка `test-app-snap` и нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+1. В открывшемся окне введите имя снимка: `test-app-snap`.
+1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 ## Создайте виртуальную машину с {{ GL }} {#create-gitlab-vm}
 

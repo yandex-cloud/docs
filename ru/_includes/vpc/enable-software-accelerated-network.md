@@ -16,7 +16,7 @@
   1. Подождите, пока ВМ перейдет в статус `Stopped`, и нажмите ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** выберите опцию **{{ ui-key.yacloud.component.compute.resources.field_sw-accelerated-net }}**.
   1. Нажмите **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
-  1. На панели сверху нажмите ![image](../../_assets/console-icons/play.svg) **{{ ui-key.yacloud.common.start }}** и подтвердите запуск.
+  1. Нажмите кнопку ![play](../../_assets/console-icons/play.svg) **{{ ui-key.yacloud.common.start }}** и в открывшемся окне подтвердите запуск ВМ.
 
 - CLI {#cli}
 

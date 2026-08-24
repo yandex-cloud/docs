@@ -4,13 +4,39 @@
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.29.0 (24.08.26) {#v-1-29-0}
+
+#### Cloud Functions {#v-1-29-0-sf-name}
+
+* Добавлена группа команд `yc serverless trigger v2` для управления триггерами версии 2.
+
+#### Cloud Registry {#v-1-29-0-cloud-registry-name}
+
+* Добавлены команды для запуска миграции папки и просмотра статуса миграции:
+  * `yc cloud-registry migration start-folder`;
+  * `yc cloud-registry migration get-cloud-migration-status-dashboard`.
+
+#### Container Registry {#v-1-29-0-container-registry-name}
+
+* Добавлена команда `yc container registry force-delete`.
+
+#### Managed Service for ClickHouse® {#v-1-29-0-mch-name}
+
+* Добавлен параметр `--external-shard` для управления внешними шардами в группах шардов:
+  * `yc managed-clickhouse shard-groups create`;
+  * `yc managed-clickhouse shard-group update`.
+
+#### Managed Service for PostgreSQL {#v-1-29-0-mpg-name}
+
+* Добавлен параметр `--extended-filter` в команду `yc managed-postgresql performance-diagnostics list-raw-sessions` для фильтрации сессий.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.28.0 (20.08.26) {#v-1-28-0}
 
 #### BareMetal {#v-1-28-0-baremetal-name}
 
 * Добавлена возможность заказать кластер Stackland с доступом в публичную сеть. Также добавлена возможность собрать кластер из существующих серверов.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.27.0 (17.08.26) {#v-1-27-0}
 

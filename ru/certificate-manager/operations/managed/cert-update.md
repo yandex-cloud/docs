@@ -1,3 +1,8 @@
+---
+title: Как обновить сертификат от Let's Encrypt в {{ certificate-manager-full-name }}
+description: Следуя этой инструкции, вы сможете обновить сертификат от Let's Encrypt.
+---
+
 # Обновить сертификат
 
 {{ certificate-manager-name }} запускает процедуру обновления сертификата за 30 дней до окончания срока действия сертификата. Статус сертификата изменится на `Renewing`.
@@ -18,8 +23,8 @@
     1. [Перейдите]({{ link-console-main }}/link/certificate-manager) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
     1. Выберите сертификат в статусе `Renewing`, который необходимо обновить.
     1. В блоке **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}** будет указана информация для прохождения процедуры проверки прав. Подробнее читайте в разделе [{#T}](../../concepts/challenges.md).
-    1. После успешного прохождения проверки прав на домен, статус проверки домена в блоке **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}** изменится на `Valid`.
-    1. После того, как статус проверки прав всех доменов изменится на `Valid`, сертификат будет выпущен и перейдет в статус `Issued`. 
+    1. После успешного прохождения проверки прав на домен статус проверки домена в блоке **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}** изменится на `Valid`.
+    1. После того как статус проверки прав всех доменов изменится на `Valid`, сертификат будет выпущен и перейдет в статус `Issued`.
 
 - API {#api}
 

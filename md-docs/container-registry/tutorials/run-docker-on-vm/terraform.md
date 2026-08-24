@@ -310,7 +310,7 @@ Terraform распространяется под лицензией [Business S
     * `network_name` — имя облачной сети.
     * `subnet_name` — имя подсети.
     * `vm_name` — имя ВМ.
-    * `image_id` — идентификатор образа, из которого будет создана ВМ. Подробнее в разделе [Получить список публичных образов](../../../compute/operations/images-with-pre-installed-software/get-list.md).
+    * `image_id` — идентификатор образа, из которого будет создана ВМ. Подробнее в разделе [Получить информацию о публичном образе](../../../compute/operations/images-with-pre-installed-software/get-list.md).
 
 1. Создайте ресурсы:
 

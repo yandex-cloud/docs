@@ -12,7 +12,7 @@ title: Как получить информацию об образе диска
   1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.images_e7RdQ }}**.
   1. Выберите нужный образ.
-  1. На странице **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация об образе.
+  1. На вкладке **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация об образе.
 
 - CLI {#cli}
 

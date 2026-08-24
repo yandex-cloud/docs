@@ -1,4 +1,4 @@
-Вы можете сохранить цепочку [сертификатов](../../certificate-manager/concepts/index.md) и приватный ключ для самостоятельного использования, например, при конфигурации веб-сервера на [виртуальной машине](../../compute/concepts/vm.md).
+Вы можете сохранить цепочку [сертификатов](../../certificate-manager/concepts/index.md) и приватный ключ для самостоятельного использования, например, при настройке веб-сервера на [виртуальной машине](../../compute/concepts/vm.md).
 
 Чтобы получить содержимое сертификата:
 
@@ -8,7 +8,7 @@
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится сертификат.
     1. [Перейдите]({{ link-console-main }}/link/certificate-manager) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
-    1. В строке с нужным сертификатом нажмите кнопку ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![arrow](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_export }}**.
+    1. В строке с нужным сертификатом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![arrow](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_export }}**.
 
        Экспортировать можно только сертификаты в статусе `Issued`.
     
@@ -44,7 +44,7 @@
           ```text
           -----BEGIN CERTIFICATE-----
           MIIFFjCCAv6gAwIBAg...
-          -----END CERTIFICATE-----`
+          -----END CERTIFICATE-----
           ```
        
        * **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_private_key_only }}**:
@@ -52,19 +52,14 @@
           ```text
           -----BEGIN PRIVATE KEY-----
           MIIEvgIBADANBgk...
-          -----END PRIVATE KEY-----`
+          -----END PRIVATE KEY-----
           ```
 
     1. Нажмите **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_download }}**.
 
 - CLI {#cli}
 
-  Команда отобразит цепочку сертификатов и приватный ключ и сохранит содержимое в файлы `--chain` и `--key` соответственно.
-  
-  * `--id` – идентификатор сертификата, должен быть указан один из флагов: `--id` или `--name`.
-  * `--name` – название сертификата, должен быть указан один из флагов: `--id` или `--name`.
-  * `--chain` – (опционально) файл, куда будет сохранена цепочка сертификатов в формате PEM.
-  * `--key` – (опционально) файл, куда будет сохранен приватный ключ в формате PEM.
+  Выполните команду:
 
   ```bash
   yc certificate-manager certificate content \
@@ -73,15 +68,24 @@
     --key private_key.pem
   ```
 
+  Где:
+
+  * `--id` — идентификатор сертификата. Укажите один из параметров: `--id` или `--name`.
+  * `--name` — название сертификата. Укажите один из параметров: `--id` или `--name`.
+  * `--chain` — (опционально) файл, в который будет сохранена цепочка сертификатов в формате PEM.
+  * `--key` — (опционально) файл, в который будет сохранен приватный ключ в формате PEM.
+
+  Команда отобразит цепочку сертификатов и приватный ключ и сохранит их в файлы, указанные в параметрах `--chain` и `--key`.
+
 - {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  Чтобы получить содержимое пользовательского сертификата с помощью {{ TF }}:
+  Чтобы получить содержимое сертификата с помощью {{ TF }}:
   
-  1. Опишите в конфигурационном файле {{ TF }} параметры ресурсов, которые необходимо создать:
+  1. Опишите в конфигурационном файле {{ TF }} источник данных `yandex_cm_certificate_content` и выходные переменные:
 
      ```hcl
      data "yandex_cm_certificate_content" "cert_by_id" {
@@ -104,20 +108,20 @@
        
        * `certificate_id` — идентификатор сертификата.
      
-     * Блоки `output` — выходные переменные `certificate_chain` с цепочкой сертификатов и приватным ключом `certificate_key`:
+     * Блоки `output` — выходные переменные: `certificate_chain` с цепочкой сертификатов и `certificate_key` с приватным ключом:
        
        * `value` — возвращаемое значение.
        * `sensitive` — пометить как конфиденциальные данные.
 
-     Более подробную информацию о параметрах источника данных `yandex_cm_certificate_content` смотрите в [документации провайдера]({{ tf-provider-datasources-link }}/cm_certificate_content).
+     Более подробная информация о параметрах источника данных `yandex_cm_certificate_content` в [документации провайдера]({{ tf-provider-datasources-link }}/cm_certificate_content).
   
-  1. Создайте ресурсы:
+  1. Примените изменения:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} создаст все требуемые ресурсы. Чтобы проверить результат, выполните команды:
+     Чтобы проверить результат, выполните команды:
      
-     * Получить цепочку сертификата:
+     * Получить цепочку сертификатов:
 
        ```bash
        terraform output certificate_chain

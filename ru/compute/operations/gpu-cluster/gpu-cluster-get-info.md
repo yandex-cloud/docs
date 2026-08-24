@@ -14,7 +14,7 @@ description: Следуя данной инструкции, вы сможете
   1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.gpu-cluster.label_title }}**.
   1. Выберите нужный кластер.
-  1. На странице **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация о кластере GPU.
+  1. На вкладке **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация о кластере GPU.
 
 - CLI {#cli}
 

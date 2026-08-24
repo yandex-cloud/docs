@@ -30,6 +30,34 @@ Description of the shard group. ||
 || `--shards` | `value[,value]`
 
 Shards that should be in group. ||
+|| `--external-shard` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+
+External shard configuration. Each flag invocation adds one external shard. Replaces the entire external_shards list.
+
+Possible property names:
+
+- `name`: External shard name. (required)
+
+- `weight`: Weight of the external shard; an integer. ||
+|| `--external-shard-replica` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+
+External shard replica configuration. Each flag invocation adds one replica to the shard identified by shard=... .
+
+Possible property names:
+
+- `shard`: Name of the external shard that the replica belongs to. (required)
+
+- `host`: Replica host FQDN or IP address. (required)
+
+- `port`: Replica port.
+
+- `secure`: Use TLS for replica connection.
+
+- `user`: Replica user name.
+
+- `password`: Replica user password.
+
+- `priority`: Replica priority. ||
 |#
 
 #### Global Flags

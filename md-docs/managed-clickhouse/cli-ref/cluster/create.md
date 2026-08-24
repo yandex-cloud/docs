@@ -154,6 +154,24 @@ Settings that are applied to all users of the ClickHouse cluster by default. Acc
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#allow_introspection_functions).
 
+- `allow_reorder_prewhere_conditions`: When moving conditions from WHERE to PREWHERE, allow reordering them to optimize filtering
+
+  Default value: **true**.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/reference/settings/session-settings/allow#allow_reorder_prewhere_conditions).
+
+- `async_socket_for_remote`: Enables asynchronous read from socket while executing remote query.
+
+  Default value: **true**.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/reference/settings/session-settings/async#async_socket_for_remote).
+
+- `async_query_sending_for_remote`: Enables asynchronous connection creation and query sending while executing remote query.
+
+  Default value: **true**.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/reference/settings/session-settings/async#async_query_sending_for_remote).
+
 - `connect_timeout`: Connection timeout in milliseconds.
 
   Default value: **10000** (10 seconds).
@@ -609,6 +627,18 @@ This setting applies to every individual query.
   Default value: **0**.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_network_bytes).
+
+- `max_remote_read_network_bandwidth`: The maximum speed of data exchange over the network in bytes per second for read.
+
+  Default value: **0**.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_remote_read_network_bandwidth).
+
+- `max_remote_write_network_bandwidth`: The maximum speed of data exchange over the network in bytes per second for write.
+
+  Default value: **0**.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_remote_write_network_bandwidth).
 
 - `max_temporary_data_on_disk_size_for_query`: The maximum amount of data consumed by temporary files on disk in bytes for all concurrently running queries. **0** means unlimited.
 
@@ -1300,6 +1330,12 @@ Only Keeper requests which failed due to network error, Keeper session timeout o
   Default value: **20**.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#insert_keeper_max_retries).
+
+- `database_atomic_wait_for_drop_and_detach_synchronously`: When executing DROP or DETACH TABLE in Atomic database, wait for table data to be finally dropped or detached.
+
+  Default value: **true**.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#database_atomic_wait_for_drop_and_detach_synchronously).
 
 - `do_not_merge_across_partitions_select_final`: Enable or disable independent processing of partitions for **SELECT** queries with **FINAL**.
 

@@ -1,3 +1,8 @@
+---
+title: Как начать работать с {{ certificate-manager-name }}
+description: Следуя этой инструкции, вы добавите первый сертификат от Let's Encrypt и настроите доступ по HTTPS к статическому сайту в {{ objstorage-full-name }}.
+---
+
 # Как начать работать с {{ certificate-manager-name }}
 
 В этой инструкции вы добавите в {{ certificate-manager-name }} свой первый [сертификат от Let's Encrypt](../concepts/managed-certificate.md) и используете его для [настройки доступа по HTTPS](../../storage/operations/hosting/certificate.md) к статическому сайту, размещенному в {{ objstorage-full-name }}.
@@ -27,7 +32,7 @@
         1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать [бакет](../../storage/concepts/bucket.md).
         1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
         1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
-        1. Введите имя бакета в точности совпадающее с именем домена.
+        1. Введите имя бакета, в точности совпадающее с именем домена.
         1. Выберите тип [доступа](../../storage/concepts/bucket.md#bucket-access) `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`.
         1. Выберите [класс хранилища](../../storage/concepts/storage-class.md) по умолчанию.
         1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}** для завершения операции.
@@ -63,7 +68,9 @@
     1. Нажмите кнопку **{{ ui-key.yacloud.certificate-manager.button_empty-action }}**.
     1. В открывшемся меню выберите **{{ ui-key.yacloud.certificate-manager.action_request }}**.
     1. В открывшемся окне задайте имя сертификата.
-    1. (Опционально) Добавьте описание сертификату.
+    1. (Опционально) Добавьте описание сертификата.
+    1. (Опционально) Включите опцию защиты от удаления.
+    1. (Опционально) Добавьте метки.
     1. В поле **{{ ui-key.yacloud.certificate-manager.request.field_domains }}** укажите домены, для которых нужно выпустить сертификат.
     1. Выберите [тип проверки](../concepts/challenges.md) прав на домен `{{ ui-key.yacloud.certificate-manager.request.challenge-type_label_http }}`. 
     1. Нажмите кнопку **{{ ui-key.yacloud.certificate-manager.request.button_request }}**.
@@ -101,14 +108,14 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. На вкладке ![box](../../_assets/console-icons/box.svg) **{{ ui-key.yacloud.storage.switch_buckets }}** нажмите на бакет с именем домена.
-  1. Справа сверху нажмите ![folder](../../_assets/console-icons/folder.svg) **{{ ui-key.yacloud.storage.bucket.button_create }}** и создайте папку `.well-known`.
+  1. Нажмите ![folder](../../_assets/console-icons/folder.svg) **{{ ui-key.yacloud.storage.bucket.button_create }}** и создайте папку `.well-known`.
   1. В `.well-known` создайте папку `acme-challenge`.
   1. В `acme-challenge` нажмите ![arrow](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.button_upload }}**.
   1. В открывшемся окне выберите файл с записью и нажмите **Открыть**.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.button_upload }}**.
   1. Дождитесь изменения статуса сертификата на `Issued`.
      
-     Подробнее о статусе можно посмотреть на странице сертификата. Для этого напротив поля **ui-key.yacloud.certificate-manager.overview.general_label_validation** нажмите ![receipt](../../_assets/console-icons/receipt.svg) **ui-key.yacloud.certificate-manager.overview.button_validation_show-logs**. 
+     Подробнее о статусе можно посмотреть на странице сертификата. Для этого напротив поля **{{ ui-key.yacloud.certificate-manager.overview.general_label_validation }}** нажмите ![receipt](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.certificate-manager.overview.button_validation_show-logs }}**.
   
   1. Перейдите в папку `acme-challenge`.
   1. Нажмите ![image](../../_assets/options.svg) справа от файла и выберите ![trash](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
@@ -149,9 +156,9 @@
     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
     1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. На вкладке ![box](../../_assets/console-icons/box.svg) **{{ ui-key.yacloud.storage.switch_buckets }}** нажмите на бакет с именем домена.
-    1. На панели слева выберите ![persons-lock](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
-    1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_https }}**.
-    1. Справа вверху нажмите **{{ ui-key.yacloud.storage.bucket.https.button_action-configure }}**.
+    1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
+    1. Выберите раздел **{{ ui-key.yacloud.storage.bucket.switch_https }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.https.button_action-configure }}**.
     1. В поле **{{ ui-key.yacloud.storage.bucket.https.field_source }}** выберите `{{ ui-key.yacloud.storage.bucket.https.value_method-certificate-manager }}`.
     1. В поле **{{ ui-key.yacloud.storage.bucket.https.field_certificate-manager }}** выберите сертификат в появившемся списке.
     1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.https.button_save }}**.

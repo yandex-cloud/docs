@@ -208,7 +208,11 @@ Yandex Cloud Registry — сервис для безопасного хране�
 
  - [Overview](cli-ref/migration/index.md)
 
+ - [get-cloud-migration-status-dashboard](cli-ref/migration/get-cloud-migration-status-dashboard.md)
+
  - [start-cloud](cli-ref/migration/start-cloud.md)
+
+ - [start-folder](cli-ref/migration/start-folder.md)
 
 ### registry
 
@@ -458,7 +462,11 @@ Yandex Cloud Registry — сервис для безопасного хране�
 
  - [Overview](cli-ref/v1/migration/index.md)
 
+ - [get-cloud-migration-status-dashboard](cli-ref/v1/migration/get-cloud-migration-status-dashboard.md)
+
  - [start-cloud](cli-ref/v1/migration/start-cloud.md)
+
+ - [start-folder](cli-ref/v1/migration/start-folder.md)
 
 #### registry
 
@@ -791,5 +799,7 @@ Yandex Cloud Registry — сервис для безопасного хране�
  - [Get](domain/api-ref/Operation/get.md)
 
  - [Cancel](domain/api-ref/Operation/cancel.md)
+
+ - [Метрики Monitoring](metrics.md)
 
  - [Аудитные логи Audit Trails](at-ref.md)

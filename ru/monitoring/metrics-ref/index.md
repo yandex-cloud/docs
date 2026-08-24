@@ -20,6 +20,7 @@ description: На странице приведен список справоч�
 * [{{ postbox-full-name }}](postbox-ref.md)
 * [{{ compute-full-name }}](compute-ref.md)
 * [{{ container-registry-full-name }}](container-registry-ref.md)
+* [{{ cloud-registry-full-name }}](cloud-registry-ref.md)
 * [{{ dataproc-full-name }}](data-processing-ref.md)
 * [{{ data-transfer-full-name }}](data-transfer-ref.md)
 * [{{ dns-full-name }}](dns-ref.md)

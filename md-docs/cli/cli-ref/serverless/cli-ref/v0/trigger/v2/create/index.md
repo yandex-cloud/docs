@@ -1,0 +1,78 @@
+[Документация Yandex Cloud](../../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../../index.md) > [Справочник (англ.)](../../../../../../index.md) > [serverless](../../../../index.md) > [v0](../../../index.md) > [trigger](../../index.md) > [v2](../index.md) > create > Overview
+
+# yc serverless v0 trigger v2 create
+
+Create triggers
+
+#### Command Usage
+
+Syntax:
+
+`yc serverless trigger v2 create <command>`
+
+#### Command Tree
+
+- [yc serverless v0 trigger v2 create billing-budget](billing-budget.md) — Create billing budget trigger
+
+- [yc serverless v0 trigger v2 create container-registry](container-registry.md) — Create container registry trigger
+
+- [yc serverless v0 trigger v2 create internet-of-things](internet-of-things.md) — Create internet of things trigger
+
+- [yc serverless v0 trigger v2 create iot-broker](iot-broker.md) — Create IoT broker trigger
+
+- [yc serverless v0 trigger v2 create logging](logging.md) — Create logging trigger
+
+- [yc serverless v0 trigger v2 create mail](mail.md) — Create Mail trigger
+
+- [yc serverless v0 trigger v2 create message-queue](message-queue.md) — Create message queue trigger
+
+- [yc serverless v0 trigger v2 create object-storage](object-storage.md) — Create object storage trigger
+
+- [yc serverless v0 trigger v2 create telegram](telegram.md) — Create Telegram trigger
+
+- [yc serverless v0 trigger v2 create timer](timer.md) — Create timer trigger
+
+- [yc serverless v0 trigger v2 create yds](yds.md) — Create YDS trigger
+
+#### Global Flags
+
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom configuration file. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--cloud-id` | `string`
+
+Set the ID of the cloud to use. ||
+|| `--folder-id` | `string`
+
+Set the ID of the folder to use. ||
+|| `--folder-name` | `string`
+
+Set the name of the folder to use (will be resolved to id). ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
+|| `--token` | `string`
+
+Set the OAuth token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

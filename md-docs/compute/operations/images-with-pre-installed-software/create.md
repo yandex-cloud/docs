@@ -197,7 +197,7 @@
        * **Yandex Managed Service for Prometheus®** — [установить и настроить агент](../../../monitoring/operations/prometheus/ingestion/prometheus-agent.md) для сбора дополнительных метрик ВМ и приложений в формате Prometheus:
           * Выберите или создайте воркспейс, в котором будут храниться метрики.
           * (Опционально) Опишите в формате JSON [параметры поставки](../../../monitoring/operations/prometheus/ingestion/prometheus-agent.md) собственных метрик.
-     * (Опционально) В блоке **Размещение** выберите [группу размещения](../../concepts/placement-groups.md) ВМ.
+     * (Опционально) В блоке **Размещение** выберите [пул резервов ВМ](../../concepts/reserved-pools.md) или [группу размещения ВМ](../../concepts/placement-groups.md).
   1. Нажмите кнопку **Создать ВМ**.
 
   Создание ВМ занимает несколько минут. Когда ВМ перейдет в статус `RUNNING`, переходите к [настройке программного обеспечения](setup.md). Следить за статусами ВМ можно в списке ВМ каталога.
@@ -224,7 +224,8 @@
      Чтобы получить список доступных образов с помощью CLI, выполните команду:
      
      ```bash
-     yc compute image list --folder-id standard-images
+     yc compute image list \
+       --folder-id standard-images
      ```
      
      Результат:

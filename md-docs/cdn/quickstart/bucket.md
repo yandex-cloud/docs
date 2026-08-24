@@ -59,7 +59,13 @@
    1. [Создайте бакет](../../storage/operations/buckets/create.md).
    1. [Откройте публичный доступ](../../storage/operations/buckets/bucket-availability.md) к объектам в бакете и их списку.
    1. [Загрузите контент](../../storage/operations/objects/upload.md) в бакет.
-      
+
+   {% note tip %}
+   
+   Если в качестве источника используется бакет Object Storage, рекомендуем [включить для него хостинг статического сайта](../../storage/operations/hosting/setup.md).
+   
+   {% endnote %}
+
 ## Создайте CDN-ресурс {#create-cdn-resource}
 
 1. [Перейдите](https://console.yandex.cloud/link/cdn) в сервис **Cloud CDN**.

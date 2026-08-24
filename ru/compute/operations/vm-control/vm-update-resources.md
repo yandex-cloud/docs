@@ -35,10 +35,10 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
   1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. Нажмите на имя нужной ВМ.
-  1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.common.stop }}**.
+  1. Выберите нужную ВМ в списке.
+  1. Нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg), выберите **{{ ui-key.yacloud.common.stop }}** и в открывшемся окне подтвердите остановку ВМ.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instance.stop-dialog.button_stop }}**.
-  1. Подождите пока ВМ перейдет в статус `Stopped` и в правом верхнем углу страницы нажмите ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
+  1. Подождите, пока ВМ перейдет в статус `Stopped`, и нажмите кнопку ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** измените [конфигурацию](../../concepts/performance-levels.md) ВМ. Для этого:
 
       * Перейдите на вкладку **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}**.
@@ -47,8 +47,7 @@ description: Следуя данной инструкции, вы сможете
       * При необходимости сделайте ВМ [прерываемой](../../concepts/preemptible-vm.md).
 
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.start }}** в правом верхнем углу.
-  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instances.popup-confirm_button_start }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.start }}** и в открывшемся окне подтвердите запуск ВМ.
 
 - CLI {#cli}
 
@@ -125,10 +124,9 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
   1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. Нажмите на имя нужной ВМ.
-  1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.common.stop }}**.
-  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instance.stop-dialog.button_stop }}**.
-  1. Подождите пока ВМ перейдет в статус `Stopped` и в правом верхнем углу страницы нажмите ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
+  1. Выберите нужную ВМ в списке.
+  1. Нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg), выберите **{{ ui-key.yacloud.common.stop }}** и в открывшемся окне подтвердите остановку ВМ.
+  1. Подождите, пока ВМ перейдет в статус `Stopped`, и нажмите кнопку ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
 
       * Перейдите на вкладку **{{ ui-key.yacloud.component.compute.resources.label_tab-gpu }}**.
@@ -143,8 +141,7 @@ description: Следуя данной инструкции, вы сможете
       * Выберите одну из предлагаемых конфигураций с необходимым количеством GPU, vCPU и объемом RAM.
 
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
-  1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.common.start }}**.
-  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instances.popup-confirm_button_start }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.start }}** и в открывшемся окне подтвердите запуск ВМ.
 
 - CLI {#cli}
 
@@ -222,10 +219,9 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
   1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. Нажмите на имя нужной ВМ.
-  1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.common.stop }}**.
-  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instance.stop-dialog.button_stop }}**.
-  1. Подождите, пока ВМ перейдет в статус `Stopped`, и в правом верхнем углу страницы нажмите ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
+  1. Выберите нужную ВМ в списке.
+  1. Нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg), выберите **{{ ui-key.yacloud.common.stop }}** и в открывшемся окне подтвердите остановку ВМ.
+  1. Подождите, пока ВМ перейдет в статус `Stopped`, и нажмите кнопку ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
 
       * Перейдите на вкладку **{{ ui-key.yacloud.component.compute.resources.label_tab-gpu }}**.
@@ -240,8 +236,7 @@ description: Следуя данной инструкции, вы сможете
       * Выберите одну из предлагаемых конфигураций с необходимым количеством GPU, vCPU и объемом RAM.
 
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
-  1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.common.start }}**.
-  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instances.popup-confirm_button_start }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.start }}** и в открывшемся окне подтвердите запуск ВМ.
 
 - CLI {#cli}
 
@@ -313,13 +308,11 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
   1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. Нажмите на имя нужной ВМ.
-  1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.common.stop }}**.
-  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instance.stop-dialog.button_stop }}**.
-  1. Подождите пока ВМ перейдет в статус `Stopped` и в правом верхнем углу страницы нажмите ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
+  1. Выберите нужную ВМ в списке.
+  1. Нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg), выберите **{{ ui-key.yacloud.common.stop }}** и в открывшемся окне подтвердите остановку ВМ.
+  1. Подождите, пока ВМ перейдет в статус `Stopped`, и нажмите кнопку ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** откройте вкладку **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** и включите опцию **{{ ui-key.yacloud.component.compute.resources.field_sw-accelerated-net }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
-  1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.common.start }}**.
-  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instances.popup-confirm_button_start }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.start }}** и в открывшемся окне подтвердите запуск ВМ.
 
 {% endlist %}

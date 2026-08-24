@@ -9,6 +9,7 @@
 * [На запросы файлов CDN отвечает кодами 5xx (ошибка сервера)](#responses-5xx)
 * [Почему растут нагрузка на источник и расходы на его работу](#origin-load-growth)
 * [Запросы с методами POST, PUT, PATCH, DELETE недоступны пользователям](#post-responses)
+* [Браузер блокирует CORS-запросы к CDN-ресурсу](#cors-requests)
 * [Изменения настроек не применились к ресурсу](#changes-not-applied)
 * [У CDN-ресурса статус Not active, и контент недоступен пользователям](#resource-not-active)
 * [Что происходит с CDN-ресурсом при блокировке платежного аккаунта за неуплату?](#billing-account-blocked)
@@ -70,6 +71,17 @@ Yandex Cloud не компенсирует косвенные потери, вы
 ## Запросы с методами POST, PUT, PATCH, DELETE недоступны пользователям {#post-responses}
 
 По умолчанию методы `POST`, `PUT`, `PATCH`, `DELETE` недоступны в запросах клиентов. Чтобы узнать о возможности использования этих методов, обратитесь в [техническую поддержку](https://center.yandex.cloud/support). При запросе опишите сценарий использования.
+
+## Браузер блокирует CORS-запросы к CDN-ресурсу {#cors-requests}
+
+Если браузер сообщает, что в ответе нет заголовка `Access-Control-Allow-Origin` или предварительный запрос не прошел проверку доступа, убедитесь, что:
+
+* в [настройках CORS](operations/resources/configure-cors.md) включено добавление заголовка `Access-Control-Allow-Origin`, а домен из заголовка запроса `Origin` разрешен;
+* в настройках CDN-ресурса [разрешен метод](operations/resources/configure-http.md) `OPTIONS`;
+* источник корректно обрабатывает запросы `OPTIONS` и возвращает необходимые CORS-заголовки, например `Access-Control-Allow-Methods` и `Access-Control-Allow-Headers`;
+* если источником служит бакет Object Storage, для него [настроен CORS](../storage/operations/buckets/cors.md).
+
+Настройка CORS для CDN-ресурса добавляет только заголовок `Access-Control-Allow-Origin` в ответ CDN-сервера и не заменяет настройку источника. Подробнее о распределении настроек между CDN-сервером и источником читайте в разделе [CORS в Cloud CDN](concepts/cors.md).
 
 ## Изменения настроек не применились к ресурсу {#changes-not-applied}
 

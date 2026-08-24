@@ -10,7 +10,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в который был добавлен сертификат.
   1. [Перейдите](https://console.yandex.cloud/link/certificate-manager) в сервис **Certificate Manager**.
-  1. В строке с нужным сертификатом нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash](../../../_assets/console-icons/trash-bin.svg) **Удалить**.
+  1. В строке с нужным сертификатом нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash](../../../_assets/console-icons/trash-bin.svg) **Удалить**.
   1. В открывшемся окне нажмите кнопку **Удалить**.
 
 - CLI {#cli}
@@ -24,7 +24,7 @@
   1. Посмотрите описание команды:
 
      ```bash
-     yc certificate-manager certificates delete --help
+     yc certificate-manager certificate delete --help
      ```
 
   1. Посмотрите список сертификатов:
@@ -46,7 +46,7 @@
   1. Выполните команду:
 
      ```bash
-     yc certificate-manager certificates delete \
+     yc certificate-manager certificate delete \
        --id fpq6gvvm6piu********
      ```
 
@@ -89,7 +89,7 @@
        domains     = ["my-domain.ru"]
 
        managed {
-       challenge_type = "DNS_CNAME"
+         challenge_type = "DNS_CNAME"
        }
      }
      ...
