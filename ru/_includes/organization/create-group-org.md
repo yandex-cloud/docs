@@ -16,6 +16,12 @@
 
       {% include [group-name-format](group-name-format.md) %}
 
+  1. (Опционально) Добавьте [метки](../../resource-manager/concepts/labels.md):
+
+     1. Нажмите **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+     1. Введите метку в формате `ключ: значение`.
+     1. Нажмите **Enter**.
+
   1. Нажмите кнопку **{{ ui-key.yacloud_org.groups.action_create-group }}**.
 
 - CLI {#cli}
@@ -36,7 +42,8 @@
       yc organization-manager group create \
         --name <имя_группы> \
         --organization-id <идентификатор_организации> \
-        --description <описание_группы>
+        --description <описание_группы> \
+        --labels <ключ>=<значение>
       ```
 
       Где:
@@ -47,6 +54,7 @@
 
       * `--organization-id` — [идентификатор](../../organization/operations/organization-get-id.md) организации. Необязательный параметр.
       * `--description` — текстовое описание группы пользователей. Необязательный параметр.
+      * `--labels` — список [меток](../../resource-manager/concepts/labels.md) в формате `<ключ>=<значение>`. Можно указать одну или несколько меток через запятую. Необязательный параметр.
 
 - {{ TF }} {#tf}
 

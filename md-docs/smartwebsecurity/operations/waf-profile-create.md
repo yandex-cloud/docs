@@ -40,35 +40,44 @@
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
       ```hcl
-      # В базовом наборе будут активны правила этого уровня паранойи и ниже
       locals {
+        # В базовом наборе будут активны правила этого уровня паранойи и ниже
         waf_paranoia_level = <уровень_паранойи>
       }
 
-      # Источник данных OWASP Core Rule Set
-      data "yandex_sws_waf_rule_set_descriptor" "owasp4" {
-        name    = "OWASP Core Ruleset"
-        version = "4.0.0"
+      # Источник данных — набор правил
+      data "yandex_sws_waf_rule_set_descriptor" "source" {
+        name    = "<имя_набора>"
+        version = "<версия_набора>"
       }
 
-      # WAF профиль
+      # Профиль WAF
       resource "yandex_sws_waf_profile" "default" {
         name = "<имя_WAF_профиля>"
 
-        # Базовый набор правил
-        core_rule_set {
-          inbound_anomaly_score = <порог_аномальности>
-          paranoia_level        = local.waf_paranoia_level
-          rule_set {
-            name    = "OWASP Core Ruleset"
-            version = "4.0.0"
+        # Набор правил
+        rule_set {
+          action     = "<действие>"
+          is_enabled = <true_или_false>
+          priority   = <приоритет>
+
+          # Базовый набор правил
+          core_rule_set {
+            inbound_anomaly_score = <порог_аномальности>
+            paranoia_level        = local.waf_paranoia_level
+            rule_set {
+              name    = "<имя_набора>"
+              version = "<версия_набора>"
+              id      = "<идентификатор_набора>"
+              type    = "<тип_набора>"
+            }
           }
         }
 
         # Активируем правила из базового набора, если их уровень паранойи не выше заданного в переменной waf_paranoia_level
         dynamic "rule" {
           for_each = [
-            for rule in data.yandex_sws_waf_rule_set_descriptor.owasp4.rules : rule
+            for rule in data.yandex_sws_waf_rule_set_descriptor.source.rules : rule
             if rule.paranoia_level <= local.waf_paranoia_level
           ]
           content {
@@ -80,25 +89,108 @@
       }
       ```
 
+     {% cut "Пример описания профиля WAF в конфигурации Terraform" %}
+
+     ```hcl
+     # Объявление локальных переменных
+     locals {
+       # В базовом наборе будут активны правила этого уровня паранойи и ниже
+       waf_paranoia_level = 1
+     
+       # Идентификация набора правил OWASP Core Ruleset
+       ruleset_name    = "OWASP Core Ruleset"
+       ruleset_version = "4.0.0"
+       ruleset_id      = "OWASP_CRS_4_0_0"
+       ruleset_type    = "CORE"
+     }
+     
+     # Источник данных — набор правил
+     data "yandex_sws_waf_rule_set_descriptor" "source" {
+       name    = local.ruleset_name
+       version = local.ruleset_version
+     }
+     
+     # Профиль WAF
+     resource "yandex_sws_waf_profile" "default" {
+       name = "waf-profile-owasp"
+     
+       # Набор правил
+       rule_set {
+         action     = "DENY"
+         is_enabled = true
+         priority   = 1
+     
+         # Базовый набор правил
+         core_rule_set {
+           inbound_anomaly_score = 2
+           paranoia_level        = local.waf_paranoia_level
+           rule_set {
+             name    = local.ruleset_name
+             version = local.ruleset_version
+             id      = local.ruleset_id
+             type    = local.ruleset_type
+           }
+         }
+       }
+     
+       # Активируем правила из базового набора, если их уровень паранойи не выше заданного в переменной waf_paranoia_level
+       dynamic "rule" {
+         for_each = [
+           for rule in data.yandex_sws_waf_rule_set_descriptor.source.rules : rule
+           if rule.paranoia_level <= local.waf_paranoia_level
+         ]
+         content {
+           rule_id     = rule.value.id
+           is_enabled  = true
+           is_blocking = false
+         }
+       }
+     }
+     ```
+
+     {% endcut %}
+
       Где:
 
       * `waf_paranoia_level` — [уровень паранойи](../concepts/waf.md#paranoia) классифицирует правила по степени агрессивности. Чем выше уровень паранойи, тем лучше уровень защиты, но и больше вероятность ложных срабатываний WAF.
       * `data "yandex_sws_waf_rule_set_descriptor"` — источник данных Terraform для набора базовых правил. Из источника данных вы можете получить список правил и их идентификаторы.
-      * `resource "yandex_sws_waf_profile"` — ресурс Terraform для управления WAF профилем.
+      * `resource "yandex_sws_waf_profile"` — ресурс Terraform для управления профилем WAF.
 
-         * `name` — имя WAF профиля.
-         * `core_rule_set` — блок базовых правил:
+         * `name` — имя профиля WAF.
+         * `rule_set` — блок правил:
 
-            * `inbound_anomaly_score` — порог аномальности. Это суммарная [аномальность](../concepts/waf.md#anomaly) сработавших правил, при которой запрос будет заблокирован. Возможные значения от 2 до 10000. Чем выше заданное значение, тем больше вероятность того, что запрос, удовлетворяющий правилам, является атакой.
-            * `paranoia_level` — [уровень паранойи](../concepts/waf.md#paranoia), классифицирует правила по степени агрессивности. Чем выше уровень паранойи, тем лучше защита, но больше вероятность ложных срабатываний. Возможные значения от 1 до 4.
+             * `action` — действие, которое нужно выполнить при срабатывании набора правил:
 
-              {% note info %}
+                * `RULE_SET_ACTION_UNSPECIFIED` — разрешить запрос.
+                * `DENY` — заблокировать запрос.
+                * `CAPTCHA` — отправить запрос в SmartCaptcha.
 
-              Уровень паранойи не влияет на включение или отключение правил, он используется только как рекомендация для пользователя включить все правила со значением `paranoia_level` меньше или равно заданному.
+             * `is_enabled` — флаг включения или отключения набора правил.
+             * `priority` — приоритет набора правил. Возможные значения от 1 до 1000000.
+             * `core_rule_set` — блок базовых правил:
 
-              {% endnote %}
+                * `inbound_anomaly_score` — порог аномальности. Это суммарная [аномальность](../concepts/waf.md#anomaly) сработавших правил, при которой запрос будет заблокирован. Возможные значения от 2 до 10000. Чем выше заданное значение, тем больше вероятность того, что запрос, удовлетворяющий правилам, является атакой.
+                * `paranoia_level` — [уровень паранойи](../concepts/waf.md#paranoia), классифицирует правила по степени агрессивности. Чем выше уровень паранойи, тем лучше защита, но больше вероятность ложных срабатываний. Возможные значения от 1 до 4.
 
-            * `rule_set` — блок с указанием набора правил. Указывается `name` — имя и `version` — версия набора правил.
+                   {% note info %}
+
+                   Уровень паранойи не влияет на включение или отключение правил, он используется только как рекомендация для пользователя включить все правила со значением `paranoia_level` меньше или равно заданному.
+
+                   {% endnote %}
+
+                * `rule_set` — блок с указанием набора правил. Указывается идентификатор, имя, версия и тип набора правил.
+
+                    {% cut "Возможные значения" %}
+
+                    name                 | version  | id                | type
+                    -------------------- | -------- | ----------------- | -----
+                    `OWASP Core Ruleset` | `4.8.0`  | `OWASP_CRS_4_8_0` | `CORE`
+                    `OWASP Core Ruleset` | `4.0.0`  | `OWASP_CRS_4_0_0` | `CORE`
+                    `Yandex Ruleset`     | `0.1.1`  | `YARS_0_1_1`      | `YA`
+                    `Yandex Ruleset`     | `0.1.0`  | `YARS_0_1_0`      | `YA`
+                    `Yandex ML Ruleset`  | `latest` | `YAMS_LATEST`     | `ML`
+
+                    {% endcut %}
 
          * `dynamic "rule"` — динамическая активация правил из базового набора, если их уровень паранойи не выше заданного в переменной `waf_paranoia_level`. Для динамически настроенных правил можно вручную [изменить параметры](configure-set-rules.md). Например, сделать правило блокирующим или сделать активным правило, у которого уровень паранойи выше, чем указан в переменной.
 
@@ -140,7 +232,7 @@
 
   Terraform создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления](https://console.yandex.cloud).
 
-  После создания WAF профиля вы можете [настроить набор базовых правил](configure-set-rules.md) и [правил-исключений](exclusion-rule-add.md).
+  После создания профиля WAF вы можете [изменить](configure-set-rules.md) набор базовых правил и [настроить](exclusion-rule-add.md) набор правил-исключений.
 
 - API {#api}
 

@@ -10,9 +10,9 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в который был добавлен [сертификат](../../concepts/managed-certificate.md).
   1. [Перейдите](https://console.yandex.cloud/link/certificate-manager) в сервис **Certificate Manager**.
-  1. Выберите сертификат, для которого необходимо пройти процедуру проверки и нажмите на него.
+  1. Выберите сертификат, для которого необходимо пройти процедуру проверки, и нажмите на него.
   1. В блоке **Проверка прав на домены** будет указана информация для прохождения процедуры проверки прав.
-  1. После успешного прохождения проверки прав на домен, статус проверки домена в блоке **Проверка прав на домены** изменится на `Valid`.
+  1. После успешного прохождения проверки прав на домен статус проверки домена в блоке **Проверка прав на домены** изменится на `Valid`.
   1. После того как статус проверки прав всех доменов изменится на `Valid`, сертификат будет выпущен и перейдет в статус `Issued`.
 
 - CLI {#cli}
@@ -63,11 +63,11 @@
        message: Create a file in your web server's base directory.
        http_challenge:
          url: http://example.com/.well-known/acme-challenge/3LiH-nrTC7GdMbRgVqttEvdTODeNeaD0TtX********
-            content: 3LiH-nrTC7GdMbRgVqttEvdTODeNeaD0TtXteWgtAH8.ZHCju15sJiKBwT8G5FTl7UtfmJWp1gKNYYP********
+         content: 3LiH-nrTC7GdMbRgVqttEvdTODeNeaD0TtXteWgtAH8.ZHCju15sJiKBwT8G5FTl7UtfmJWp1gKNYYP********
      ```
 
   1. В блоке `http_challenge` указана информация для прохождения процедуры проверки прав.
-  1. После успешного прохождения проверки прав на домен, статус проверки изменится на `Valid`:
+  1. После успешного прохождения проверки прав на домен статус проверки изменится на `Valid`:
 
      ```bash
      yc certificate-manager certificate get \
@@ -175,7 +175,7 @@
        
        * `depends_on` — указывает зависимость от другого ресурса Terraform.
        * `certificate_id` — идентификатор сертификата.
-       * `wait_validation` — флаг ожидания валидации сертификата. Если значение `true`, операция не будет завершена, пока сертификат находится в статусе `VALIDATING`. Значение по умолчанию `false`.
+       * `wait_validation` — признак ожидания валидации сертификата. Если значение `true`, операция не будет завершена, пока сертификат находится в статусе `VALIDATING`. Значение по умолчанию — `false`.
 
      Подробнее о параметрах ресурсов в [документации провайдера Terraform](../../../terraform/index.md).
   
@@ -217,7 +217,7 @@
 
 - API {#api}
 
-  Для получения информации, необходимой для прохождения процедуры проверки прав на домены, воспользуйтесь методом REST API [get](../../api-ref/Certificate/get.md) для ресурса [Certificate](../../api-ref/Certificate/index.md) или вызовом gRPC API [CertificateService/Get](../../api-ref/grpc/Certificate/get.md) с флагом `view=FULL`.
+  Для получения информации, необходимой для прохождения процедуры проверки прав на домены, воспользуйтесь методом REST API [get](../../api-ref/Certificate/get.md) для ресурса [Certificate](../../api-ref/Certificate/index.md) или вызовом gRPC API [CertificateService/Get](../../api-ref/grpc/Certificate/get.md) с параметром `view=FULL`.
 
 {% endlist %}
 

@@ -318,7 +318,7 @@
       1. В [консоли управления]({{ link-console-main }}) выберите нужный в каталог.
       1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. В списке ВМ выберите `test-vm`.
-      1. Перейдите на вкладку ![image](../../_assets/console-icons/terminal.svg) **{{ ui-key.yacloud.compute.instance.switch_console }}**.
+      1. Перейдите на вкладку **{{ ui-key.yacloud.compute.instance.switch_console }}**.
       1. Дождитесь полной загрузки операционной системы.
 
    {% endlist %}
@@ -408,7 +408,7 @@
 
       1. В [консоли управления]({{ link-console-main }}) выберите нужный в каталог.
       1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. Выберите ВМ `nat-a` в списке, нажмите значок ![image](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.common.stop }}**.
+      1. Выберите ВМ `nat-a` в списке и нажмите кнопку ![image](../../_assets/console-icons/play.svg) **{{ ui-key.yacloud.common.start }}**.
       1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instances.popup-confirm_button_start }}**.
 
    - CLI {#cli}

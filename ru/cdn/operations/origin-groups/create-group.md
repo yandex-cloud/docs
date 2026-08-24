@@ -18,6 +18,9 @@ description: Следуя данной инструкции, вы сможете
   1. Введите название группы источников.
   1. Настройте **{{ ui-key.yacloud.cdn.label_section-origins-list }}**:
      * Укажите **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-url }}`, `{{ ui-key.yacloud.cdn.value_source-type-bucket }}` или `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`. Подробнее о типах в разделе [{#T}](../../concepts/origins.md).
+
+       {% include [bucket-website-hosting-tip](../../../_includes/cdn/bucket-website-hosting-tip.md) %}
+
      * Укажите источник.
      * Выберите **{{ ui-key.yacloud.cdn.field_origin-state }}**: `{{ ui-key.yacloud.cdn.value_active }}` или `{{ ui-key.yacloud.cdn.value_backup }}`. Подробнее о приоритетах в разделе [{#T}](../../concepts/origins.md#groups).
      * Добавьте другие источники, если необходимо.
@@ -70,6 +73,8 @@ description: Следуя данной инструкции, вы сможете
 
      Подробнее о команде `yc cdn origin-group create` в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/origin-group/create.md).
 
+     {% include [bucket-website-hosting-tip](../../../_includes/cdn/bucket-website-hosting-tip.md) %}
+
 - {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
@@ -79,6 +84,8 @@ description: Следуя данной инструкции, вы сможете
   1. Опишите в конфигурационном файле параметры ресурса `yandex_cdn_origin_group`.
 
      {% include [create-origin-group-tf](../../../_includes/cdn/create-origin-group-tf.md) %}
+
+     {% include [bucket-website-hosting-tip](../../../_includes/cdn/bucket-website-hosting-tip.md) %}
 
   1. Создайте ресурсы:
 

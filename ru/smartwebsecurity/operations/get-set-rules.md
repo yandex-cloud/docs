@@ -19,7 +19,7 @@ description: Следуя данной инструкции, вы сможете
      * Количество активных правил.
      * Порог аномальности и уровень паранойи (для набора OWASP).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
@@ -31,8 +31,8 @@ description: Следуя данной инструкции, вы сможете
 
       ```hcl
       data "yandex_sws_waf_rule_set_descriptor" "owasp4" {
-        name    = "OWASP Core Ruleset"
-        version = "4.0.0"
+        name    = "<набор_правил>"
+        version = "<версия>"
       }
 
       output "waf_rules" {
@@ -42,15 +42,27 @@ description: Следуя данной инструкции, вы сможете
 
       Где:
 
-
       * `data "yandex_sws_waf_rule_set_descriptor"` — описание набора правил WAF в качестве источника данных:
 
-        * `name` — имя набора правил WAF.
-        * `version` — версия набора правил.
+          * `name` — имя набора правил WAF.
+          * `version` — версия набора правил.
+
+          Доступные наборы и версии:
+
+          * `OWASP Core Ruleset`
+              * `4.8.0`
+              * `4.0.0`
+
+          * `Yandex Ruleset`
+              * `0.1.1`
+              * `0.1.0`
+
+          * `Yandex ML Ruleset`
+              * `latest`
 
       * `output "waf_rules"` — выходная переменная, которая содержит информацию о наборе правил WAF:
 
-        * `value` — возвращаемое значение.
+          * `value` — возвращаемое значение.
 
       Вместо `rules` вы можете выбрать любой другой параметр для получения информации. Подробнее о параметрах источника данных `yandex_sws_waf_rule_set_descriptor` в [документации провайдера]({{ tf-provider-datasources-link }}/sws_waf_rule_set_descriptor).
 
