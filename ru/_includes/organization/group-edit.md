@@ -14,6 +14,12 @@
 
       {% include [group-name-format](group-name-format.md) %}
 
+  1. Обновите [метки](../../resource-manager/concepts/labels.md):
+
+     1. Нажмите **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+     1. Введите метку в формате `ключ: значение`.
+     1. Нажмите **Enter**.
+
   1. Нажмите **{{ ui-key.yacloud_org.actions.save-changes }}**.
 
 - CLI {#cli}
@@ -35,7 +41,8 @@
         --name <имя_группы> \
         --new-name <новое_имя_группы> \
         --organization-id <идентификатор_организации> \
-        --description <описание_группы>
+        --description <описание_группы> \
+        --labels <ключ>=<значение>
       ```
 
       Где:
@@ -45,8 +52,9 @@
         {% include [group-name-format](group-name-format.md) %}
 
       * `--new-name` — новое имя группы пользователей.
-      * `--organization-id` — [идентификатор](../../organization/operations/organization-get-id.md) организации. Необязательный параметр.
-      * `--description` — текстовое описание группы пользователей. Необязательный параметр.
+      * `--organization-id` — [идентификатор](../../organization/operations/organization-get-id.md) организации.
+      * `--description` — текстовое описание группы пользователей.
+      * `--labels` — список [меток](../../resource-manager/concepts/labels.md) в формате `<ключ>=<значение>`. Можно указать одну или несколько меток через запятую.
 
 - {{ TF }} {#tf}
 

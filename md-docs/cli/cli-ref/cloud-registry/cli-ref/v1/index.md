@@ -38,7 +38,11 @@ Syntax:
 
 - [yc cloud-registry v1 migration](migration/index.md) — A set of methods for managing cloud migration.
 
+  - [yc cloud-registry v1 migration get-cloud-migration-status-dashboard](migration/get-cloud-migration-status-dashboard.md) — Returns migration status dashboard for the specified cloud.
+
   - [yc cloud-registry v1 migration start-cloud](migration/start-cloud.md) — Starts migration for all registries in the specified cloud.
+
+  - [yc cloud-registry v1 migration start-folder](migration/start-folder.md) — Starts migration for all registries in the specified folder.
 
 - [yc cloud-registry v1 registry](registry/index.md) — A set of methods for managing Registry resources.
 

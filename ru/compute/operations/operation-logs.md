@@ -22,7 +22,7 @@
   1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../_assets/compute/vm-pic.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Выберите нужную виртуальную машину.
-  1. Перейдите на панель ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.compute.operations_kRLeR }}** для выбранной виртуальной машины.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.compute.operations_kRLeR }}** для выбранной виртуальной машины.
 
      В открывшемся списке отображаются операции с выбранной виртуальной машиной и подключенными к ней ресурсами.
 

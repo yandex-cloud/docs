@@ -2862,6 +2862,7 @@ default:
         product-pricing-type_free: Free
         product-pricing-type_license: Subscription
         product-pricing-type_payg: PAYG
+        related-products_row_vm: Образ ВМ
       notify-subs:
         label_inherited-subscribers: "Подписчики по\_умолчанию"
         label_subscribers-dialog-header: Добавление пользователей
@@ -2949,6 +2950,8 @@ default:
           no-data-key-value: No data
           ok: Ok
           warn: Warn
+        section:
+          type-settings: Настройки алерта
         threshold-status:
           alarm: Alarm
           warn: Warning
@@ -3172,7 +3175,6 @@ default:
           annotations: Аннотации
           evaluation-window-key-value: Окно вычисления
           main-info: Основная информация
-          metrics: Метрики
           no-data: Обработка отсутствия данных
           notification-channels: Уведомления
           time-shift: Задержка вычисления
@@ -3689,11 +3691,14 @@ default:
           AttributeTransformationsSection:
             action_add_transformation_bc8Cd: Добавить трансформацию
             field_if_empty_value_1K7py: Значение
+            field_replace_pattern_hM0Yc: Найти
+            field_replace_replacement_pFtQ8: Заменить на
             field_substring_siBpY: Подстрока
             type_constant_tvJWi: Constant
             type_extract_after_q4x8n: ExtractAfter
             type_extract_before_ju2PE: ExtractBefore
             type_if_empty_e5unh: IfEmpty
+            type_replace_kQ2vN: Replace
             type_to_lowercase_vRG6c: ToLowercase
             type_to_uppercase_uF6Br: ToUppercase
             type_trim_3SF6q: Trim
@@ -5065,6 +5070,7 @@ default:
           field_chain: Цепочка промежуточных сертификатов
           field_privateKey: Приватный ключ
         metadata:
+          field_description: Описание
           field_name: Имя
         overview:
           action_edit-meta: Изменить
@@ -5433,6 +5439,7 @@ default:
         label-set:
           button_add-label: Добавить метку
           label_labels: Метки
+          label_labels_1qrKA: Метки
         maintenance-alert:
           button_reschedule: Перенести
           value_next-available-window: На следующее окно
@@ -5472,8 +5479,6 @@ default:
           button_create-key: Создать ключ
           button_create-key-new: Создать
           label_no-symmetric-key: Не выбрано
-        vpc-security-group-select:
-          label_add-security-group: Добавить группу безопасности
         vpc:
           network-select:
             button_create-network: Создать сеть
@@ -5522,6 +5527,8 @@ default:
             cloudBackup_title_aB1c2: Cloud Backup
           BackupSection:
             section_backup_1MXwy: Резервное копирование
+          BasicSection:
+            field_instance-name_n8rSv: Имя ВМ
           CloudBackupFooter:
             button_create-policy_cBf1a: Создать политику
             placeholder_select-policy_cBf3c: Выберите политику
@@ -5685,7 +5692,6 @@ default:
               cloud-backup-card:
                 label_connection-status: Статус подключения
               title_backup-section: Резервное копирование
-            button_action-edit: Изменить ВМ
             button_action-ssh: Подключиться в Cloud Shell
             button_add-network-interface: Добавить сетевой интерфейс
             button_add-public-ip: Добавить публичный IP-адрес
@@ -8326,6 +8332,8 @@ default:
             column_sg-rules-ports: Порты
             column_sg-rules-protocol: Протокол
             column_sg-rules-source: Источник
+            content-section:
+              button_add-rule: Добавить правило
             forms:
               button_select-all-port-range: Выбрать все
               field_sg-name: Имя

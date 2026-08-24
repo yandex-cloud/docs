@@ -105,7 +105,7 @@ description: Следуя данной инструкции, вы сможете
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится ВМ.
       1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. Напротив вашей ВМ нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.common.stop }}**.
-      1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
+      1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.storage_uisyT }}**.
       1. В строке с загрузочным диском ВМ нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.compute.disks.button_action-image }}**.
       1. Введите имя образа и при необходимости произвольное описание.
       1. Нажмите **{{ ui-key.yacloud.common.create }}**.

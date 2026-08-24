@@ -152,7 +152,8 @@
      Чтобы получить список доступных образов с помощью CLI, выполните команду:
      
      ```bash
-     yc compute image list --folder-id standard-images
+     yc compute image list \
+       --folder-id standard-images
      ```
      
      Результат:

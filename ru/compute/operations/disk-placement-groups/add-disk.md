@@ -25,7 +25,7 @@ description: Следуя данной инструкции, вы сможете
   1. На панели слева выберите ![image](../../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.compute.placement-groups_3CwzD }}**.
   1. Перейдите на вкладку **{{ ui-key.yacloud.compute.placement-groups.label_tab-disks }}**.
   1. Выберите группу размещения, в которую нужно добавить диск.
-  1. Перейдите на панель **{{ ui-key.yacloud.compute.placement-group.switch_disks }}** и нажмите кнопку ![image](../../../_assets/plus-sign.svg) **{{ ui-key.yacloud.compute.placement-group.disks.button_add-disk }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.compute.placement-group.switch_disks }}** и нажмите кнопку **{{ ui-key.yacloud.compute.placement-group.disks.button_add-disk }}**.
   1. В открывшемся окне выберите диск, который хотите добавить.
 
      Для групп со стратегией [размещения разделами](../../concepts/disk-placement-group.md#partition) (partition) задайте номер раздела.

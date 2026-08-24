@@ -35,7 +35,9 @@ description: Следуя данной инструкции, вы сможете
    1. [Создайте бакет](../../storage/operations/buckets/create.md).
    1. [Откройте публичный доступ](../../storage/operations/buckets/bucket-availability.md) к объектам в бакете и их списку.
    1. [Загрузите контент](../../storage/operations/objects/upload.md) в бакет.
-      
+
+   {% include [bucket-website-hosting-tip](../../_includes/cdn/bucket-website-hosting-tip.md) %}
+
 ## Создайте CDN-ресурс {#create-cdn-resource}
 
 1. [Перейдите]({{ link-console-main }}/link/cdn) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.

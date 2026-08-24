@@ -11,9 +11,9 @@
   Чтобы изменить ВМ:
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
   1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}** и нажмите на имя нужной ВМ.
-  1. Нажмите кнопку ![image](../../../_assets/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
-  1. Измените параметры ВМ, например, переименуйте машину, отредактировав поле **{{ ui-key.yacloud.common.name }}**.
+  1. На панели слева выберите ![server](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}** и нажмите на имя нужной ВМ.
+  1. Нажмите кнопку ![pencil](../../../_assets/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. Измените параметры ВМ, например, переименуйте машину, отредактировав значение поля **{{ ui-key.yacloud.compute.components.BasicSection.field_instance-name_n8rSv }}**.
   1. Нажмите **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
 
 - CLI {#cli}

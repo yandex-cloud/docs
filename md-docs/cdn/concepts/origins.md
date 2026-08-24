@@ -10,10 +10,16 @@
 
 Источником может быть:
 
-* [Бакет](../../storage/concepts/bucket.md) из Yandex Object Storage, в том числе настроенный как [хостинг статического сайта](../../storage/concepts/hosting.md).
+* [Бакет](../../storage/concepts/bucket.md) из Yandex Object Storage.
+
+  {% note tip %}
+  
+  Если в качестве источника используется бакет Object Storage, рекомендуем [включить для него хостинг статического сайта](../../storage/operations/hosting/setup.md).
+  
+  {% endnote %}
+
 * [L7-балансировщик нагрузки](../../application-load-balancer/concepts/application-load-balancer.md) из Yandex Application Load Balancer. CDN-серверы будут обращаться к балансировщику по одному из его IP-адресов, который нужно выбрать в настройках источника.
 * Ваш собственный сервер или другой ресурс, доступный по доменному имени. Например, если источник — сервер с доменным именем `files.example.com`, то за файлом `/static/common.css` CDN-серверы будут обращаться к серверу по адресу `files.example.com/static/common.css`.
-
 
 ### Примеры использования {#examples-types}
 

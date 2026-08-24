@@ -128,7 +128,7 @@
    ```
 
    После создания пода:
-   * В [консоли управления](https://console.yandex.cloud) в **Compute Cloud** в разделе **Диски** появится новый [диск](../../../compute/concepts/disk.md) с префиксом `k8s-csi` в имени диска.
+   * В [консоли управления](https://console.yandex.cloud) в **Compute Cloud** в разделе **Диски и хранилища** появится новый [диск](../../../compute/concepts/disk.md) с префиксом `k8s-csi` в имени диска.
    * В событиях объекта `PersistentVolumeClaim` появится информация о выделении диска:
 
      ```bash

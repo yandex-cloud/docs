@@ -199,8 +199,12 @@ items:
         items:
           - name: Overview
             href: cli-ref/migration/index.md
+          - name: get-cloud-migration-status-dashboard
+            href: cli-ref/migration/get-cloud-migration-status-dashboard.md
           - name: start-cloud
             href: cli-ref/migration/start-cloud.md
+          - name: start-folder
+            href: cli-ref/migration/start-folder.md
       - name: registry
         items:
           - name: Overview
@@ -449,8 +453,12 @@ items:
             items:
               - name: Overview
                 href: cli-ref/v1/migration/index.md
+              - name: get-cloud-migration-status-dashboard
+                href: cli-ref/v1/migration/get-cloud-migration-status-dashboard.md
               - name: start-cloud
                 href: cli-ref/v1/migration/start-cloud.md
+              - name: start-folder
+                href: cli-ref/v1/migration/start-folder.md
           - name: registry
             items:
               - name: Overview

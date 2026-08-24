@@ -71,7 +71,7 @@
           Где:
 
           * `--service-account-id` — [идентификатор сервисного аккаунта](../../iam/operations/sa/get-id.md).
-          * `--role` — назначаемая роль.
+          * `--role` — назначаемая [роль](../security/index.md#roles-list).
 
 - Terraform {#tf}
 
@@ -104,7 +104,7 @@
       * `role` — назначаемая [роль](../security/index.md#roles-list).
       * `member` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
 
-       Подробнее о параметрах ресурса `yandex_cm_certificate_iam_member` в [документации провайдера](../../terraform/resources/cm_certificate_iam_member.md).
+      Подробнее о параметрах ресурса `yandex_cm_certificate_iam_member` в [документации провайдера](../../terraform/resources/cm_certificate_iam_member.md).
 
   1. Создайте ресурсы:
 
@@ -241,7 +241,7 @@
       * `role` — назначаемая [роль](../security/index.md#roles-list).
       * `member` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
 
-       Подробнее о параметрах ресурса `yandex_cm_certificate_iam_member` в [документации провайдера](../../terraform/resources/cm_certificate_iam_member.md).
+      Подробнее о параметрах ресурса `yandex_cm_certificate_iam_member` в [документации провайдера](../../terraform/resources/cm_certificate_iam_member.md).
 
   1. Создайте ресурсы:
 
@@ -385,10 +385,11 @@
       
       1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-      Проверить изменения можно с помощью команды [CLI](../../cli/quickstart.md):
+      Проверить изменения можно с помощью команды [CLI](../../cli/index.md):
+
       ```bash
       yc certificate-manager certificate list-access-bindings <идентификатор_сертификата>
-      ``
+      ```
 
 - API {#api}
 

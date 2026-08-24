@@ -18,7 +18,7 @@
 
   1. В консоли управления выберите каталог, которому принадлежит диск.
   1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **Диски**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **Диски и хранилища**.
   1. В строке с нужным диском нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
   1. В открывшемся окне нажмите кнопку **Удалить**.
 

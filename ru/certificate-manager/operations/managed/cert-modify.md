@@ -1,11 +1,11 @@
 ---
 title: Как изменить сертификат от Let's Encrypt в {{ certificate-manager-full-name }}
-description: Следуя данной инструкции, вы сможете изменить сертификат от Let's Encrypt.
+description: Следуя этой инструкции, вы сможете изменить сертификат от Let's Encrypt.
 ---
 
 # Изменить сертификат от Let's Encrypt
 
-После выпуска и добавления в {{ certificate-manager-name }} [сертификата от Let's Encrypt](../../concepts/managed-certificate.md) вы можете изменить его название или описание. Чтобы изменить сертификат:
+После выпуска и добавления в {{ certificate-manager-name }} [сертификата от Let's Encrypt](../../concepts/managed-certificate.md) вы можете изменить его параметры. Чтобы изменить сертификат:
 
 {% list tabs group=instructions %}
 
@@ -15,7 +15,9 @@ description: Следуя данной инструкции, вы сможете
   1. [Перейдите]({{ link-console-main }}/link/certificate-manager) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
   1. Выберите сертификат, который необходимо изменить.
   1. Нажмите кнопку ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.certificate-manager.overview.action_edit-meta }}**.
-  1. Измените название или описание сертификата.
+  1. Измените имя или описание сертификата.
+  1. Включите или выключите опцию защиты от удаления.
+  1. Измените метки сертификата.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -49,7 +51,7 @@ description: Следуя данной инструкции, вы сможете
   1. Выполните команду:
 
      ```bash
-     yc certificate-manager certificates update \
+     yc certificate-manager certificate update \
        --id fpq6gvvm6piu******** \
        --new-name myupdatedmanagedcert \
        --description "description of myupdatedmanagedcert"
@@ -79,7 +81,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. Откройте файл конфигурации {{ TF }} и измените фрагмент с описанием сертификата:
+  1. Откройте файл конфигурации {{ TF }} и измените имя или описание сертификата:
 
      {% cut "Пример описания сертификата" %}
 
@@ -91,7 +93,7 @@ description: Следуя данной инструкции, вы сможете
        domains     = ["my-domain.ru"]
 
        managed {
-       challenge_type = "DNS_CNAME"
+         challenge_type = "DNS_CNAME"
        }
      }
      ...

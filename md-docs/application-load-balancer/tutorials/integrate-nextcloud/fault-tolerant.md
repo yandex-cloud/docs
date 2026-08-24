@@ -80,7 +80,7 @@
    
      1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете создавать инфраструктуру.
      1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
-     1. В правом верхнем углу нажмите **Создать сеть**.
+     1. Нажмите кнопку **Создать сеть**.
      1. В поле **Имя** укажите имя сети `nextcloud-network`.
      1. Убедитесь, что опция **Создать подсети** включена, и нажмите **Создать сеть**.
    
@@ -515,7 +515,7 @@ Nextcloud использует базу данных MySQL® для хранен
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
   1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL** и выберите кластер `nextcloud-db-cluster`.
-  1. В меню слева выберите ![cube](../../../_assets/console-icons/cube.svg) **Хосты**.
+  1. Перейдите на вкладку **Хосты**.
   1. С помощью кнопки **Создать хост** добавьте дополнительные [хосты](../../../managed-mysql/concepts/instance-types.md), так чтобы в кластере было три хоста — по одному в каждой [зоне доступности](../../../overview/concepts/geo-scope.md).
 
         При создании хостов не включайте опцию **Публичный доступ**.
@@ -590,7 +590,7 @@ Nextcloud использует базу данных MySQL® для хранен
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
       1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
-      1. На панели слева выберите ![hard-drive](../../../_assets/console-icons/hard-drive.svg) **Диски**.
+      1. На панели слева выберите ![hard-drive](../../../_assets/console-icons/hard-drive.svg) **Диски и хранилища**.
       1. В строке с нужным диском нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите **Создать снимок**.
       1. В поле **Имя** задайте имя снимка `nextcloud-vm-snapshot`.
       1. Нажмите кнопку **Создать**.

@@ -17,7 +17,6 @@ SDK поддерживают работу с большинством серви
 
 Для некоторых сервисов доступны специальные SDK:
 * [Yandex AI Studio SDK](https://aistudio.yandex.ru/docs/ru/ai-studio/sdk/index) — для сервисов [Yandex AI Studio](https://yandex.cloud/ru/ai-studio).
-* [Python SDK SpeechKit](https://pypi.org/project/yandex-speechkit/)
 * [SDK видеоплеера](../../video/sdk/index.md) — для [Yandex Cloud Video](../../video/index.md).
 * [YDB SDK](https://ydb.tech/docs/ru/reference/ydb-sdk/) — для [Yandex Managed Service for YDB](../../ydb/index.md) и [Yandex Query](../../query/index.md).
 
@@ -40,7 +39,7 @@ SDK поддерживают работу с большинством серви
 * [Kotlin](../../functions/lang/kotlin/sdk.md)
 * [.NET Core](../../functions/lang/csharp/sdk.md)
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Yandex Cloud Console](../../console/index.md)
 * [Yandex Cloud CLI](../../cli/index.md)

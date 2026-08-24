@@ -92,7 +92,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится диск.
   1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **Диски**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **Диски и хранилища**.
   1. В строке с диском нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Создать снимок**.
   1. Введите имя снимка. Требования к имени:
 
@@ -477,7 +477,7 @@
        * **Yandex Managed Service for Prometheus®** — [установить и настроить агент](../../../monitoring/operations/prometheus/ingestion/prometheus-agent.md) для сбора дополнительных метрик ВМ и приложений в формате Prometheus:
           * Выберите или создайте воркспейс, в котором будут храниться метрики.
           * (Опционально) Опишите в формате JSON [параметры поставки](../../../monitoring/operations/prometheus/ingestion/prometheus-agent.md) собственных метрик.
-     * (Опционально) В блоке **Размещение** выберите [группу размещения](../../concepts/placement-groups.md) ВМ.
+     * (Опционально) В блоке **Размещение** выберите [пул резервов ВМ](../../concepts/reserved-pools.md) или [группу размещения ВМ](../../concepts/placement-groups.md).
   1. Нажмите кнопку **Создать ВМ**.
 
   Виртуальная машина появится в списке. При создании виртуальной машине назначаются [IP-адрес](../../../vpc/concepts/address.md) и [имя хоста](../../../vpc/concepts/address.md#fqdn) (FQDN).

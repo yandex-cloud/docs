@@ -2,7 +2,7 @@
 
 # Изменить пользовательский сертификат
 
-После добавления в Certificate Manager [пользовательского сертификата](../../concepts/imported-certificate.md) вы можете изменить его название или описание. Чтобы изменить сертификат:
+После добавления в Certificate Manager [пользовательского сертификата](../../concepts/imported-certificate.md) вы можете изменить его параметры. Чтобы изменить сертификат:
 
 {% list tabs group=instructions %}
 
@@ -12,7 +12,9 @@
   1. [Перейдите](https://console.yandex.cloud/link/certificate-manager) в сервис **Certificate Manager**.
   1. Выберите сертификат, который необходимо изменить.
   1. Нажмите кнопку ![pencil](../../../_assets/console-icons/pencil.svg) **Изменить**.
-  1. Измените название или описание сертификата.
+  1. Измените имя или описание сертификата.
+  1. Включите или выключите опцию защиты от удаления.
+  1. Измените метки сертификата.
   1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
@@ -48,7 +50,7 @@
   1. Выполните команду:
 
      ```bash
-     yc certificate-manager certificates update \
+     yc certificate-manager certificate update \
        --id fpqmg47avvim******** \
        --new-name myupdatedcert \
        --description "description of myupdatedcert"

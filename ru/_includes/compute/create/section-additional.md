@@ -7,4 +7,4 @@
   * **{{ managed-prometheus-name }}** — [установить и настроить агент](../../../monitoring/operations/prometheus/ingestion/prometheus-agent.md) для сбора дополнительных метрик ВМ и приложений в формате {{ prometheus-name }}:
      * Выберите или создайте воркспейс, в котором будут храниться метрики.
      * (Опционально) Опишите в формате JSON [параметры поставки](../../../monitoring/operations/prometheus/ingestion/prometheus-agent.md) собственных метрик.
-* (Опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_placement }}** выберите [группу размещения](../../../compute/concepts/placement-groups.md) ВМ.
+* (Опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_placement }}** выберите [пул резервов ВМ](../../../compute/concepts/reserved-pools.md) или [группу размещения ВМ](../../../compute/concepts/placement-groups.md).

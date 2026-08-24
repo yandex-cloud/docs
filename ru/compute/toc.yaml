@@ -209,10 +209,8 @@ items:
                 href: operations/images-with-pre-installed-software/setup.md
               - name: Работа с ВМ на базе публичного образа
                 href: operations/images-with-pre-installed-software/operate.md
-              - name: Получить список публичных образов
-                href: operations/images-with-pre-installed-software/get-list.md
               - name: Получить информацию о публичном образе
-                href: operations/images-with-pre-installed-software/get-info.md
+                href: operations/images-with-pre-installed-software/get-list.md
           - name: DSVM
             items:
               - name: Обзор
