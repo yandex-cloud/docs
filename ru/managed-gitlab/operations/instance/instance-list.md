@@ -129,7 +129,7 @@ description: Из статьи вы узнаете, как получить сп
 
     Подробнее о команде читайте в [справочнике CLI](../../cli-ref/instance/get.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 

@@ -27,7 +27,7 @@
       yc vpc security-group create --help
       ```
 
-  1. Создайте группу безопасности с [правилами](../../../vpc/concepts/network.md#security-groups-rules), выполнив команду:
+  1. Создайте группу безопасности с [правилами](../../../vpc/concepts/security-groups.md#security-groups-rules), выполнив команду:
 
       ```bash
       yc vpc security-group create \
@@ -171,7 +171,7 @@
 
       * `name` — имя [группы безопасности](../../../vpc/concepts/security-groups.md).
       * `network_id` — идентификатор [сети](../../../vpc/concepts/network.md), в которой находится ВМ.
-      * `egress` — описание [правила](../../../vpc/concepts/network.md#security-groups-rules) для исходящего трафика:
+      * `egress` — описание [правила](../../../vpc/concepts/security-groups.md#security-groups-rules) для исходящего трафика:
 
           * `protocol` — протокол передачи данных.
           * `v4-cidrs` — список CIDR IPv4 и масок подсетей, куда будет поступать трафик.
