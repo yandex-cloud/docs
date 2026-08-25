@@ -97,6 +97,10 @@ description: В статье приведен полный справочник 
 
 {% include [billing.accounts.partnerAdmin](../_roles/billing/accounts/partnerAdmin.md) %}
 
+#### billing.usagerecords.admin {#billing-usagerecords-admin}
+
+{% include [billing.usagerecords.admin](../_roles/billing/usagerecords/admin.md) %}
+
 Подробнее в [Управление доступом в партнерской программе {{ yandex-cloud }}](../partner/security/index.md).
 
 

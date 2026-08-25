@@ -91,6 +91,10 @@ The chart below shows which primitive roles are available in {{ yandex-cloud }} 
 
 {% include [billing.accounts.partnerAdmin](../_roles/billing/accounts/partnerAdmin.md) %}
 
+#### billing.usagerecords.admin {#billing-usagerecords-admin}
+
+{% include [billing.usagerecords.admin](../_roles/billing/usagerecords/admin.md) %}
+
 For more information, see [Managing access in the {{ yandex-cloud }} partner program](../partner/security/index.md).
 
 

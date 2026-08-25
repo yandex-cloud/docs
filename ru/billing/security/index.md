@@ -26,6 +26,10 @@ description: Доступ к платежному аккаунту предос�
 
 ### Сервисные роли {#service-roles}
 
+#### billing.usagerecords.admin {#billing-usagerecords-admin}
+
+{% include [billing.usagerecords.admin](../../_roles/billing/usagerecords/admin.md) %}
+
 #### billing.accounts.member {#billing-accounts-member}
 
 {% include [billing.accounts.member](../../_roles/billing/accounts/member.md) %}

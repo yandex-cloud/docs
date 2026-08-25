@@ -154,4 +154,8 @@ For dedicated hosts, there are two cost components: the [{{ compute-full-name }}
 
 
 
+### Hybrid storage pricing
+
+{% include [usd-yezzey](../../_pricing/managed-greenplum/usd-yezzey.md) %}
+
 {% include [egress-traffic-pricing](../../_includes/egress-traffic-pricing.md) %}

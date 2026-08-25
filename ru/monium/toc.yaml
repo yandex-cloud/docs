@@ -370,6 +370,10 @@ items:
         href: slo/management.md
       - name: Добавление виджета SLO на дашборд
         href: slo/visualisation.md
+  - name: Практические руководства
+    items:
+      - name: SLO-мониторинг веб-сервиса
+        href: slo/slo-blackbox-exporter.md
   - name: '{{ managed-prometheus-name }}'
     items:
       - name: Обзор

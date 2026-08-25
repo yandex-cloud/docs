@@ -9,6 +9,7 @@ To use the `billing.accounts.viewer` role, you need to assign it for a billing a
 * Get and view notifications on consumption.
 * Monitor expenses.
 * [View usage details](../../../billing/operations/check-charges.md).
+* [Execute API queries](../../../billing/operations/get-charges-via-api.md) to get usage details.
 
 {% endcut %}
 
