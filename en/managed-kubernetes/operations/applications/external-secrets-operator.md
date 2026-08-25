@@ -5,8 +5,7 @@ description: Follow this guide to install the External Secrets Operator with {{ 
 
 # Installing the External Secrets Operator with {{ lockbox-name }} support
 
-
-[External Secrets Operator](/marketplace/products/yc/external-secrets) is a {{ k8s }} operator that integrates external secret management systems, such as [{{ lockbox-name }}](../../../lockbox/), AWS Secrets Manager, Azure Key Vault, HashiCorp Vault, Google Secrets Manager, and more. The operator reads external APIs and automatically inserts values into a {{ k8s }} secret.
+[External Secrets Operator](/marketplace/products/yc/external-secrets) is a {{ k8s }} operator integrating external secret management systems, such as [{{ lockbox-name }}](../../../lockbox/), AWS Secrets Manager, Azure Key Vault, HashiCorp Vault, Google Secrets Manager, and more. The operator reads external APIs and automatically inserts values into a {{ k8s }} secret.
 
 The External Secrets Operator with {{ lockbox-name }} support enables you to configure syncing [{{ lockbox-name }} secrets](../../../lockbox/concepts/secret.md) with [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) [secrets](../../concepts/encryption.md).
 
@@ -35,7 +34,7 @@ The External Secrets Operator with {{ lockbox-name }} support enables you to con
 ## Installing the External Secrets Operator through {{ marketplace-full-name }} {#marketplace-install}
 
 1. In the [management console]({{ link-console-main }}), select a folder.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the {{ managed-k8s-name }} cluster you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [External Secrets Operator with {{ lockbox-name }} support](/marketplace/products/yc/external-secrets) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
@@ -70,9 +69,9 @@ The External Secrets Operator with {{ lockbox-name }} support enables you to con
 
 ## Use cases {#examples}
 
-* [{#T}](../../tutorials/kubernetes-lockbox-secrets.md)
+[{#T}](../../tutorials/kubernetes-lockbox-secrets.md)
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [External Secrets Operator description](https://external-secrets.io/v0.8.1/provider/yandex-lockbox/)
 * [{{ lockbox-name }} guides](../../../lockbox/)

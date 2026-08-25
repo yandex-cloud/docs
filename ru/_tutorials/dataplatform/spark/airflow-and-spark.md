@@ -52,7 +52,7 @@
 
 {% list tabs group=instructions %}
 
-* Высокий уровень безопасности
+- Высокий уровень безопасности
 
   Подготовьте инфраструктуру:
 
@@ -91,7 +91,7 @@
 
   1. [Создайте облачную сеть](../../../vpc/operations/network-create.md) с именем `datalake-network`.
 
-     Вместе с ней автоматически создадутся три подсети в разных зонах доступности.
+     Вместе с ней автоматически создадутся три подсети в разных [зонах доступности](../../../overview/concepts/geo-scope.md).
 
   1. Для кластера {{ metastore-name }} [создайте группу безопасности](../../../vpc/operations/security-group-create.md) `metastore-sg` в сети `datalake-network`. Добавьте в группу следующие правила:
 
@@ -149,7 +149,7 @@
      * **Группа безопасности** — `airflow-sg`.
      * **Имя бакета** — `<бакет_для_исходного_кода_Airflow_DAG>`.
 
-* Упрощенная настройка
+- Упрощенная настройка
 
   Подготовьте инфраструктуру:
 
@@ -170,7 +170,7 @@
 
   1. [Создайте облачную сеть](../../../vpc/operations/network-create.md) с именем `datalake-network`.
 
-      Вместе с ней автоматически создадутся три подсети в разных зонах доступности и группа безопасности.
+      Вместе с ней автоматически создадутся три подсети в разных [зонах доступности](../../../overview/concepts/geo-scope.md) и группа безопасности.
 
   1. [Создайте кластер {{ metastore-name }}](../../../metadata-hub/operations/metastore/cluster-create.md) с параметрами:
 
@@ -210,7 +210,7 @@
 
      {% include [pyspark](../../_tutorials_includes/spark/job-with-table-pyspark.md) %}
 
-     { % endcut %}
+     {% endcut %}
 
   1. Создайте в бакете `<бакет_для_исходного_кода_PySpark_задания>` папку `scripts` и [загрузите](../../../storage/operations/objects/upload.md#simple) в нее файл `job_with_table.py`.
 
@@ -222,7 +222,7 @@
 
      {% include [pyspark](../../_tutorials_includes/spark/job-with-table-pyspark.md) %}
 
-     { % endcut %}
+     {% endcut %}
 
   1. Создайте в бакете `<бакет_для_заданий_и_данных>` папку `scripts` и [загрузите](../../../storage/operations/objects/upload.md#simple) в нее файл `job_with_table.py`.
 
@@ -508,7 +508,7 @@ DAG будет состоять из нескольких вершин, кото
      * `JOB_ARGS` — аргументы задания PySpark.
      * `JOB_PROPERTIES` — свойства задания PySpark.
 
-     { % endcut %}
+     {% endcut %}
 
   1. Загрузите DAG в кластер {{ AF }}: создайте в бакете `<бакет_для_заданий_и_данных>` папку `dags` и загрузите в нее файл `dag.py`.
   1. Откройте веб-интерфейс {{ AF }}.
@@ -565,4 +565,3 @@ DAG будет состоять из нескольких вершин, кото
   1. [Облачную сеть](../../../vpc/operations/network-delete.md).
 
 {% endlist %}
-

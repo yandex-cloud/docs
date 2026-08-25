@@ -21,29 +21,8 @@ description: Добавлять правила можно через консо�
 
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке группы, в которой требуется добавить правило, и выберите **{{ ui-key.yacloud.common.edit }}**.
 
-  1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.label_section-rules }}** создайте правила для управления трафиком:
-
-     1. Выберите вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** или **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}**.
-
-     1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
-
-     1. В открывшемся окне в поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** укажите один порт или диапазон портов, куда или откуда будет поступать трафик.
-
-     1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** укажите нужный протокол или оставьте `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`, чтобы разрешить передачу трафика по всем протоколам.
-
-     1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** или **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** выберите назначение правила:
-
-        * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` — правило будет применено к диапазону IP-адресов. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** укажите CIDR и маски подсетей, в которые или из которых будет поступать трафик. Чтобы добавить несколько CIDR, нажимайте кнопку **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
-
-        * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`. Выберите вариант:
-
-           * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` — правило будет применено к ВМ из текущей группы.
-           * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-list }}` — правило будет применено к ВМ из выбранной группы. IP-адреса источника или назначения при обмене трафиком должны быть из [частных диапазонов](../concepts/network.md#subnet). Подробнее в разделе [Концепции](../concepts/security-groups.md#groups).
-
-        * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` — правило, разрешающее проверки состояния ресурсов от [{{ network-load-balancer-name }}](../../network-load-balancer/concepts/health-check.md) или [{{ alb-name }}](../../application-load-balancer/concepts/backend-group.md#health-checks).
-
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
-
+  1. {% include [security-group-add-rule](../../_includes/vpc/security-group-add-rule.md) %}
+  
   1. Повторно нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -52,11 +31,13 @@ description: Добавлять правила можно через консо�
 
   1. Узнайте имя или идентификатор группы, которую требуется изменить:
 
-     ```
+     ```bash
      yc vpc security-groups list
      ```
+
      Результат:
-     ```
+
+     ```text
      +----------------------+---------------------------------+------------------------------------+----------------------+
      |          ID          |              NAME               |          DESCRIPTION               |      NETWORK-ID      |
      +----------------------+---------------------------------+------------------------------------+----------------------+
@@ -68,11 +49,13 @@ description: Добавлять правила можно через консо�
 
   1. Добавьте правило с помощью команды `update-rules` и параметра `--add-rule`:
 
-     ```
+     ```bash
      yc vpc security-group update-rules <имя_или_идентификатор_группы> --add-rule "direction=ingress,port=443,protocol=tcp,v4-cidrs=[10.0.0.0/24,10.10.0.0/24]"
      ```
+
      Результат:
-     ```
+
+     ```text
      done (12s)
      id: enp9rs9i4h9j********
      folder_id: b1gau98l79li********
@@ -97,7 +80,7 @@ description: Добавлять правила можно через консо�
 
      {% note info %}
 
-     Вы можете использовать `predefined=self_security_group` что бы задействовать правило на машины внутри изменяемой группы безопасности.
+     Вы можете использовать `predefined=self_security_group`, чтобы задействовать правило для машин внутри изменяемой группы безопасности.
 
      Подробнее о правиле `Self` читайте в [видах правил групп безопасности](../concepts/security-groups.md#rules-types).
 
@@ -118,14 +101,7 @@ description: Добавлять правила можно через консо�
      resource "yandex_vpc_security_group" "test-sg" {
        name        = "Test security group"
        description = "Description for security group"
-       network_id  = "${yandex_vpc_network.lab-net.id}"
-
-       ingress {
-         protocol       = "TCP"
-         description    = "Rule description 1"
-         v4_cidr_blocks = ["10.0.1.0/24", "10.0.2.0/24"]
-         port           = 8080
-       }
+       network_id = yandex_vpc_network.lab-net.id
 
        egress {
          protocol       = "ANY"
@@ -134,13 +110,20 @@ description: Добавлять правила можно через консо�
          from_port      = 8090
          to_port        = 8099
        }
-	   
-	   egress {
+
+       egress {
          protocol       = "UDP"
          description    = "rule3 description"
          v4_cidr_blocks = ["10.0.1.0/24"]
          from_port      = 8090
          to_port        = 8099
+       }
+
+       ingress {
+         protocol       = "TCP"
+         description    = "Rule description 1"
+         v4_cidr_blocks = ["10.0.1.0/24", "10.0.2.0/24"]
+         port           = 8080
        }
      }
      ...
@@ -148,37 +131,13 @@ description: Добавлять правила можно через консо�
 
      Подробнее о параметрах ресурса `yandex_vpc_security_group` в {{ TF }} в [документации провайдера]({{ tf-provider-resources-link }}/vpc_security_group).
 
-  1. Проверьте конфигурацию командой:
+  1. Примените конфигурацию:
 
-     ```
-     terraform validate
-     ```
-     
-     Если конфигурация является корректной, появится сообщение:
-     
-     ```
-     Success! The configuration is valid.
-     ```
-
-  1. Выполните команду:
-
-     ```
-     terraform plan
-     ```
-  
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
-
-  1. Примените изменения конфигурации:
-
-     ```
-     terraform apply
-     ```
-     
-  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
      Проверить изменение группы безопасности можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
-     ```
+     ```bash
      yc vpc security-group get <имя_группы_безопасности>
      ```
 
@@ -186,11 +145,11 @@ description: Добавлять правила можно через консо�
 
   Вы также можете добавить новое правило в существующую группу безопасности, используя ресурс `yandex_vpc_security_group_rule`.
 
-     {% note warning %}
+  {% note warning %}
 
-     Оба способа равнозначны, но несовместимы друг с другом: одновременное использование ресурсов `yandex_vpc_security_group_rule` и `yandex_vpc_security_group` приведет к конфликту конфигурации правил.
+  Оба способа равнозначны, но несовместимы друг с другом: одновременное использование ресурсов `yandex_vpc_security_group_rule` и `yandex_vpc_security_group` приведет к конфликту конфигурации правил.
 
-     {% endnote %}
+  {% endnote %}
 
   1. Опишите в конфигурационном файле следующие параметры:
 
@@ -230,19 +189,19 @@ description: Добавлять правила можно через консо�
 
   1. Проверьте конфигурацию командой:
 
-     ```
+     ```bash
      terraform validate
      ```
      
      Если конфигурация является корректной, появится сообщение:
      
-     ```
+     ```text
      Success! The configuration is valid.
      ```
 
   1. Выполните команду:
 
-     ```
+     ```bash
      terraform plan
      ```
   
@@ -250,7 +209,7 @@ description: Добавлять правила можно через консо�
 
   1. Примените изменения конфигурации:
 
-     ```
+     ```bash
      terraform apply
      ```
      
@@ -258,7 +217,7 @@ description: Добавлять правила можно через консо�
 
      Проверить изменение группы безопасности можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
-     ```
+     ```bash
      yc vpc security-group get <имя_группы_безопасности>
      ```
 

@@ -15,10 +15,14 @@ items:
             href: operations/cluster-create.md
           - name: Изменение кластера
             href: operations/update.md
+          - name: Управление алиасами кластера
+            href: operations/cluster-aliases.md
           - name: Остановка и запуск кластера
             href: operations/cluster-stop.md
           - name: Управление хостами кластера
             href: operations/hosts.md
+          - name: Управление алиасами хостов
+            href: operations/hosts-aliases.md
           - name: Миграция хостов в другую зону доступности
             href: operations/host-migration.md
           - name: Управление резервными копиями
@@ -193,6 +197,8 @@ items:
         href: tutorials/mysql-to-clickhouse.md
   - name: Управление доступом
     href: security/index.md
+  - name: Инспекции и рекомендации
+    href: advisor.md
   - name: Правила тарификации
     href: pricing.md
   - name: Справочник CLI (англ.)

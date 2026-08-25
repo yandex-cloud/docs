@@ -44,6 +44,8 @@ Certificate ID for the SNI match. ||
 || `--client-certificates-trusted-ca-file` | `string`
 
 Trusted CA filename (PEM) for the specified listener. ||
+|| `--client-certificates-accept-untrusted` | Don't check client certificates' trusted chain for the SNI match. It is additionally allows expired client certificates. ||
+|| `--client-certificates-allow-expired` | Accept expired client certificates for the SNI match. ||
 || `--allow-http10` | Allow HTTP1.0 for SNI match. ||
 || `--rewrite-request-id` | Rewrite incoming x-request-id header with new value for SNI match. ||
 || `--preserve-http1-header-casing` | Preserve HTTP1 header casing for SNI match. ||

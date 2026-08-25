@@ -2,7 +2,7 @@
 
 {% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}
 
-For devices and registries to begin exchanging data and commands, you need to [log in](../../concepts/authorization.md). This section describes how to manage device passwords for the appropriate authorization method.
+For devices and registries to begin exchanging data and commands, you need to [log in](../../concepts/authorization.md). This section describes how to manage device passwords for the relevant authentication method.
 
 {% include [pass-priority-note](../../../_includes/iot-core/pass-priority-note.md) %}
 
@@ -25,7 +25,7 @@ You can add a password to an already created device or set it when creating a de
    To add a password to an existing device:
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to add a password for an existing device.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the registry with the required device from the list.
    1. Select **{{ ui-key.yacloud.iot.label_devices }}** in the left pane of the window.
    1. Select the device from the list.
@@ -37,7 +37,8 @@ You can add a password to an already created device or set it when creating a de
   
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    To add a password: 
+    To add a password:
+
     1. Get a list of devices in the registry: 
     
         ```
@@ -45,6 +46,7 @@ You can add a password to an already created device or set it when creating a de
         ```
 		
 		Result:
+        
 		```
 		+----------------------+--------+
         |          ID          |  NAME  |
@@ -52,7 +54,8 @@ You can add a password to an already created device or set it when creating a de
         | arenak5ciqss******** | second |
         | areqjd6un3af******** | first  |
         +----------------------+--------+
-        ```    
+        ```
+
     1. Add a password to the device:
     
         ```
@@ -60,6 +63,7 @@ You can add a password to an already created device or set it when creating a de
         ```
 		
 		Result:
+
 		```
 		device_id: areqjd6un3af********
         id: areqjd6un3af********
@@ -77,12 +81,13 @@ You can add a password to an already created device or set it when creating a de
   1. In the configuration file, describe the parameters of the resource to create:
 
      * `yandex_iot_core_device`: Device properties:
+
        * `registry_id`: [ID of the registry](../registry/registry-list.md#registry-list) where the device was created.
        * `name`: [Device name](../device/device-list.md#device-list).
        * `description`: Device description.
        * `passwords`: List of passwords for authentication with a [username and password](../../concepts/authorization.md#log-pass).
 
-      Here is an example of the resource structure in the configuration file:
+      Here is an example of a resource structure in the configuration file:
 
       ```hcl
       resource "yandex_iot_core_device" "my_device" {
@@ -98,7 +103,7 @@ You can add a password to an already created device or set it when creating a de
       ```
 
       For more on the properties of the `yandex_iot_core_device` resource, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_device).
-  1. In the command line, change to the folder where you edited the configuration file.
+  1. In the terminal, navigate to the directory where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
       ```bash
@@ -153,6 +158,7 @@ You can add a password to an already created device or set it when creating a de
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
     
     To set a password when creating a device:
+
     1. Get a list of registries in the folder: 
         
         ```
@@ -160,6 +166,7 @@ You can add a password to an already created device or set it when creating a de
 		```
 		
 		Result:
+
 		```
         +----------------------+-------------------+
         |          ID          |       NAME        |
@@ -167,6 +174,7 @@ You can add a password to an already created device or set it when creating a de
         | arenou2oj4ct******** | my-registry       |
         +----------------------+-------------------+
         ```
+
     1. Create a device with a password:       
     
         ```
@@ -174,6 +182,7 @@ You can add a password to an already created device or set it when creating a de
         ```
 		
 		Result:
+
 		```
 		id: arepomfambsg********
         registry_id: arenou2oj4ct********
@@ -200,7 +209,7 @@ You can add a password to an already created device or set it when creating a de
    To view the list of device passwords:
 
    1. In the [management console]({{ link-console-main }}), select the folder to get the list of device passwords for.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the registry with the required device from the list.
    1. Select **{{ ui-key.yacloud.iot.label_devices }}** in the left pane of the window.
    1. Select the device from the list.
@@ -214,7 +223,8 @@ You can add a password to an already created device or set it when creating a de
     
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
     
-    To get a list of passwords:  
+    To get a list of passwords:
+
     1. Get a list of devices in the registry: 
     
         ```
@@ -222,6 +232,7 @@ You can add a password to an already created device or set it when creating a de
         ```
 		
 		Result:
+        
 		```
 		+----------------------+------------------+
         |          ID          |       NAME       |
@@ -231,6 +242,7 @@ You can add a password to an already created device or set it when creating a de
         | areqjd6un3af******** | first            |
         +----------------------+------------------+
         ```
+
     1. Get a list of device passwords: 
     
         ```
@@ -261,7 +273,7 @@ You can add a password to an already created device or set it when creating a de
    To delete a device password:
 
    1. In the [management console]({{ link-console-main }}), select the folder to delete a device password from.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the registry with the required device from the list.
    1. Select **{{ ui-key.yacloud.iot.label_devices }}** in the left pane of the window.
    1. Select the device from the list.
@@ -274,14 +286,16 @@ You can add a password to an already created device or set it when creating a de
     
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
     
-    To delete a password:  
-    1. Get a list of device passwords: 
+    To delete a password:
+
+    1. Get a list of device passwords:
     
         ```
         yc iot device password list --device-name device-with-pass
         ```
 		
 		Result:
+        
 		```
 		+----------------------+---------------------+
         |          ID          |     CREATED AT      |
@@ -289,10 +303,13 @@ You can add a password to an already created device or set it when creating a de
         | areuin5t7pnd******** | 2019-12-16 15:18:39 |
         +----------------------+---------------------+
         ```
-    1. Delete the password: 
+
+    1. Delete the password:
+
         ```
         yc iot device password delete --device-name device-with-pass --password-id areuin5t7pnd********
         ```
+
     1. Make sure that the password was deleted: 
         
         ```
@@ -300,6 +317,7 @@ You can add a password to an already created device or set it when creating a de
         ```
 		
 		Result:
+
 		```
 		+----+------------+
         | ID | CREATED AT |
@@ -317,7 +335,7 @@ You can add a password to an already created device or set it when creating a de
   
   1. Open the {{ TF }} configuration file and delete the password value in the `passwords` section, in the device description fragment. To delete all passwords, delete the entire `passwords` section.
 
-      Example device description in the {{ TF }} configuration:
+      Here is an example of a device description in the {{ TF }} configuration:
 
       ```hcl
       resource "yandex_iot_core_device" "my_device" {
@@ -333,7 +351,7 @@ You can add a password to an already created device or set it when creating a de
       ```
 
       For more on the properties of the `yandex_iot_core_device` resource, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_device).
-  1. In the command line, change to the folder where you edited the configuration file.
+  1. In the terminal, navigate to the directory where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
       ```bash

@@ -70,7 +70,7 @@ description: В этой статье сопоставляются сервис�
 | AWS Security Hub | [{{ sd-full-name }}](../../security-deck/) |
 | AWS Service Quotas | [{{ quota-manager-full-name }}](../../quota-manager/) |
 | AWS Shield,</br>AWS WAF | [{{ sws-full-name }}](../../smartwebsecurity/) |
-| AWS Step Functions | [{{ si-full-name }}: {{ sw-name }}](../../serverless-integrations/quickstart/workflows.md) |
+| AWS Step Functions | [{{ ai-studio-full-name }}: {{ sw-name }}]({{ link-docs-ai }}ai-studio/quickstart/workflows.md) |
 | AWS Transit Gateway | [{{ cr-full-name }}](../../cloud-router/) |
 | AWS WAF Captcha | [{{ captcha-full-name }}](../../smartcaptcha/) |
 | Elastic Load Balancing: Application Load Balancer | [{{ alb-full-name }}](../../application-load-balancer/) |

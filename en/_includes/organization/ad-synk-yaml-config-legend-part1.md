@@ -1,8 +1,5 @@
 * `userpool_id`: ID of the [user pool](../../organization/concepts/user-pools.md) in {{ org-full-name }}.
-* `replication_tokens_path`: Path to the directory storing tokens with info about the current progress of [full synchronization](../../organization/concepts/ad-sync.md#full-sync) processes. This is an optional setting.
-
-    If this parameter is not set, the system will be saving the tokens in the agent's working directory specified in `working_directory` or, if none is specified, in the directory the agent's executable is in.
-* `working_directory`: Path to the directory for other files the agent needs to operate. This is an optional setting.
+* `working_directory`: Path to the directory that stores the files the agent needs to operate. This is an optional setting.
 
     If this parameter is not set, the system will use the directory containing the agent's executable as the working directory. By default, the agent's executable resides in the following directories:
 
@@ -20,7 +17,7 @@
 
     {% note info %}
 
-    If the `cloud_credentials_file_path`, `replication_tokens_path`, and/or `logger.file.filename` parameters specify paths other than that specified in `working_directory`, the system will use the paths specified in the `cloud_credentials_file_path`, `replication_tokens_path`, and/or `logger.file.filename` parameters for the selected entities.
+    If `cloud_credentials_file_path` and/or `logger.file.filename` specify paths different from the one specified in `working_directory`, the system will use the paths specified in `cloud_credentials_file_path` and/or `logger.file.filename` for the selected entities.
 
     {% endnote %}
 
@@ -31,7 +28,15 @@
     * `true`: Synchronization agent will use the VM metadata service to obtain the service account IAM tokens for authentication in the {{ yandex-cloud }} API The `cloud_credentials_file_path` value will be ignored.
 
         To obtain IAM tokens, the agent must run on a {{ compute-full-name }} VM instance to which a service account with the [relevant access permissions](../../organization/concepts/ad-sync.md#yc-setup) is attached.
-    * `false`: Synchronization agent will not obtain IAM tokens; to authenticate in the {{ yandex-cloud }} API, it will use the authorized key specified in `cloud_credentials_file_path`.
+    * `false`: The synchronization agent will not obtain IAM tokens; to authenticate in the {{ yandex-cloud }} API, it will use the authorized key specified in `cloud_credentials_file_path`.
+* `enable_password_writeback`: Manages user [password writeback](../../organization/concepts/ad-sync.md#password-writeback) in {{ microsoft-idp.ad-short }}.
+
+    {% include [pw-writeback-preview-notice](./pw-writeback-preview-notice.md) %}
+
+    The possible values are:
+
+    * `true`: When attempting to change the password of a synchronized user in {{ org-full-name }} ([password change](../../organization/operations/manage-account.md#edit-password) by the user or [password reset](../../organization/operations/user-pools/reset-user-password.md#reset) by the administrator), the agent first attempts to change the password of the corresponding user in {{ microsoft-idp.ad-short }}; only if this operation is successful will the password be changed in {{ org-full-name }}.
+    * `false`: When changing the password of a synchronized user in {{ org-full-name }}, the user's password remains unchanged in {{ microsoft-idp.ad-short }}. If you perform a [full sync](../../organization/concepts/ad-sync.md#full-sync) after changing the password, the agent replaces the updated password in {{ org-full-name }} with the one from {{ microsoft-idp.ad-short }}. This is also the default behavior where writeback is not enabled.
 * `dry_run`: [Dry run](../../organization/concepts/ad-sync.md#dry-run) settings for the agent:
 
     * `enabled: true`: Dry run mode on. The agent does not make any changes to {{ org-full-name }} user or group data. Instead, it tests all operations from the agent’s configuration, and [logs](../../organization/concepts/ad-sync.md#logging) the results of these tests.

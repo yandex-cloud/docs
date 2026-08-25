@@ -400,28 +400,27 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
   1. [Перейдите]({{ link-console-main }}/link/audit-trails) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
-  1. Нажмите **{{ ui-key.yacloud.audit-trails.button_create-trail }}** и в открывшемся окне:
+  1. Нажмите **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_destination }}** задайте параметры объекта назначения:
 
-      1. В поле **{{ ui-key.yacloud.common.name }}** задайте имя трейла `kuma-trail`.
-      1. В блоке **{{ ui-key.yacloud.audit-trails.label_destination }}** задайте параметры объекта назначения:
+      1. **{{ ui-key.yacloud.audit-trails.label_destination }}** — `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
+      1. **{{ ui-key.yacloud.audit-trails.label_bucket }}** — созданный ранее бакет, например `my-audit-logs-for-kuma`.
+      1. **{{ ui-key.yacloud.audit-trails.label_object-prefix }}** — необязательный параметр, участвует в [полном имени](../../audit-trails/concepts/format.md#log-file-name) файла аудитного лога.
 
-          * **{{ ui-key.yacloud.audit-trails.label_destination }}** — `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
-          * **{{ ui-key.yacloud.audit-trails.label_bucket }}** — созданный ранее бакет, например `my-audit-logs-for-kuma`.
-          * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}** — необязательный параметр, участвует в [полном имени](../../audit-trails/concepts/format.md#log-file-name) файла аудитного лога.
-
-          {% include [note-bucket-prefix](../../_includes/audit-trails/note-bucket-prefix.md) %}
+      {% include [note-bucket-prefix](../../_includes/audit-trails/note-bucket-prefix.md) %}
 
       1. Убедитесь, что в поле **{{ ui-key.yacloud.audit-trails.title_kms-key }}** указан ключ шифрования `kuma-key`. Если ключ шифрования не задан, нажмите **{{ ui-key.yacloud.audit-trails.action_add-bucket-key }}** и выберите этот ключ.
 
-      1. В блоке **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}** задайте параметры сбора аудитных логов уровня конфигурации:
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_control-plane-collection-new }}**:
 
-          * **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}** — выберите `{{ ui-key.yacloud.common.enabled }}`.
-          * **{{ ui-key.yacloud.audit-trails.label_resource-type }}** — выберите `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
-          * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}** — не требует заполнения, содержит имя текущего каталога.
+      1. Включите сбор логов.
+      1. **{{ ui-key.yacloud.audit-trails.label_resource-type }}** — выберите `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
+      1. **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}** — не требует заполнения, содержит имя текущего каталога.
 
-      1. В блоке **{{ ui-key.yacloud.audit-trails.label_service-account }}** выше выберите сервисный аккаунт `kuma-trail-sa`.
-      1. В блоке **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}** оставьте значение `{{ ui-key.yacloud.common.disabled }}`.
-      1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_data-plane-collection-new }}** отключите сбор логов.
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_service-account }}** выше выберите сервисный аккаунт `kuma-trail-sa`.
+  1. В поле **{{ ui-key.yacloud.common.name }}** задайте имя трейла `kuma-trail`.
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 

@@ -33,8 +33,8 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете работать с реестром схем.
-  1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ metadata-hub-full-name }}**.
-  1. Hа панели слева выберите ![image](../../../_assets/console-icons/layout-cells.svg) **{{ schema-registry-name }}** / **Пространство имён**.
+  1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/layout-cells.svg) **{{ schema-registry-name }}** / **Пространство имён**.
   1. Нажмите кнопку **Создать пространство имён**. 
   1. Укажите [настройки пространства имен](../../../metadata-hub/operations/create-name-space.md). После сохранения пространства имен, вы сможете использовать его идентификатор для получения URL {{ schema-registry-name }}: `{namespace_id}.{{ schema-registry-endpoint }}`.
 
@@ -50,19 +50,19 @@
   1. [Перейдите]({{ link-console-main }}/link/data-transfer) в сервис **{{ data-transfer-full-name }}**. 
   1. [Создайте эндпоинт-источник {{ KF }}](../../../data-transfer/operations/endpoint/source/kafka.md) со следующими настройками:
 
-      * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — **{{ KF }}**.
-      * **Тип подключения** — **Ручная настройка**.
-      * **Тип инсталляции** — **Кластер {{ mkf-name }}**.
+      * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ KF }}`.
+      * **Тип подключения** — `Ручная настройка`.
+      * **Тип инсталляции** — `Кластер {{ mkf-name }}`.
       * В блоке **Кластер {{ mkf-name }}**:
 
           * **Кластер {{ mkf-name }}** — выберите [созданный ранее](#prepare-infrastructure) кластер {{ mkf-name }}.
-          * **Аутентификация** — **SASL**.
+          * **Аутентификация** — `SASL`.
           * **Имя пользователя** и **Пароль** — имя и пароль пользователя в кластере {{ mkf-name }}.
 
       * В блоке **Расширенные настройки** → **Правила конвертации**:
 
-          * **Правила конвертации** — **Парсер Debezium CDC**.
-          * **Настройки подключения к {{ schema-registry-name }}** — **On Premise {{ schema-registry-name }}**.
+          * **Правила конвертации** — `Парсер Debezium CDC`.
+          * **Настройки подключения к {{ schema-registry-name }}** — `On Premise {{ schema-registry-name }}`.
           * **{{ schema-registry-name }} URL** — [полученный ранее](#create-schema-registry) URL {{ schema-registry-name }}.
 
   1. [Создайте и запустите](../../../data-transfer/operations/transfer.md) трансфер данных.

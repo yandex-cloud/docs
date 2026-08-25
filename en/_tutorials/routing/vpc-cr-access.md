@@ -104,7 +104,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Enter the service account name, e.g., `sa-terraform`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -313,9 +313,9 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
 ## Test the solution {#test-functionality}
 
-1. In the [management console]({{ link-console-main }}), navigate to the folder with the resources you created.
+1. In the [management console]({{ link-console-main }}), select the folder you created the resources in earlier.
 
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 
 1. Select `test-cr-vm` from the list of VMs.
 
@@ -376,7 +376,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
    {% endnote %}
 
-1. Push the required Docker image to the registry:
+1. Push the Docker image to the registry:
 
    ```bash
    docker push {{ registry }}/$REGISTRY_ID/hello-world:demo
@@ -389,9 +389,9 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
    demo: digest: sha256:7e9b6e7ba284****************** size: 525
    ```
 
-1. In the [management console]({{ link-console-main }}), navigate to the folder with the resources you created.
+1. In the [management console]({{ link-console-main }}), select the folder you created the resources in earlier.
 
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+1. [Navigate]({{ link-console-main }}/link/container-registry) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
 
 1. Select `test-registry`.
 
@@ -418,8 +418,8 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
 - Manually {#manual}
 
-    1. In the [management console]({{ link-console-main }}), navigate to the folder with the resources you created.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder you created the resources in earlier.
+    1. [Navigate]({{ link-console-main }}/link/container-registry) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
     1. Select `test-registry`.
     1. Select the `hello-world` repository.
     1. For each Docker image in the repository, click ![image](../../_assets/console-icons/ellipsis.svg).

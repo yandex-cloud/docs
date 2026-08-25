@@ -5,11 +5,13 @@ description: Следуя данной инструкции, вы сможете
 
 # Разметка метаданных
 
+
 {% note info %}
 
 {% include [preview-pp](../../../_includes/preview-pp.md) %}
 
 {% endnote %}
+
 
 Для разметки метаданных вы можете:
 
@@ -28,9 +30,9 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог ресурсов](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан каталог метаданных.
   1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. Hа панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
+  1. В блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
   1. В открывшемся списке выберите каталог метаданных.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.data-catalog.layout.label.search-new-layout_Y7pK2 }}**.
   1. Чтобы назначить домен одному объекту:
      1. Нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке с нужным объектом и выберите **{{ ui-key.yacloud.data-catalog.action_set-domain }}**. Если домен уже назначен и его нужно изменить, нажмите **{{ ui-key.yacloud.data-catalog.action_edit-domain }}**.
      1. Выберите нужный домен из списка во всплывающем окне и нажмите **{{ ui-key.yacloud.common.save }}**.
@@ -55,9 +57,9 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог ресурсов](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан каталог метаданных.
   1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. Hа панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
+  1. В блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
   1. В открывшемся списке выберите каталог метаданных.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.data-catalog.layout.label.search-new-layout_Y7pK2 }}**.
   1. Чтобы добавить или изменить термины для одного объекта:
      1. Нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке с нужным объектом и выберите **{{ ui-key.yacloud.data-catalog.label_add-terms }}**.
      1. Выберите нужные термины из списка во всплывающем окне и нажмите **{{ ui-key.yacloud.common.save }}**.
@@ -82,9 +84,9 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог ресурсов](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан каталог метаданных.
   1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. Hа панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
+  1. В блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
   1. В открывшемся списке выберите каталог метаданных.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.data-catalog.layout.label.search-new-layout_Y7pK2 }}**.
   1. Чтобы добавить или изменить теги для одного объекта:
      1. Нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке с нужным объектом и выберите **{{ ui-key.yacloud.data-catalog.label_add-tags }}**.
      1. Выберите нужные теги из списка во всплывающем окне и нажмите **{{ ui-key.yacloud.common.save }}**.
@@ -107,9 +109,9 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог ресурсов](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан каталог метаданных.
   1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. Hа панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
+  1. В блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
   1. В открывшемся списке выберите каталог метаданных.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.data-catalog.layout.label.search-new-layout_Y7pK2 }}**.
   1. Нажмите на нужный объект в списке.
   1. Чтобы изменить описание объекта с типом, предназначенным для разметки метаданных (тег, термин, классификация, глоссарий, домен), нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
 

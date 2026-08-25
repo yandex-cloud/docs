@@ -9,10 +9,16 @@ When you open a trace in the {{ monium-name }} UI, it gets archived automaticall
 
 ## How archiving works {#how-it-works}
 
-1. You open a trace in the {{ monium-name }} UI.
-1. The system automatically archives that trace.
-1. The archived trace will have an extended retention period.
-1. You can access the archived trace at any time.
+{% list tabs group=instructions %}
+
+- {{ monium-name }} UI {#console}
+
+  1. On the [{{ monium-name }}]({{ link-monium }}) home page, select ![alt](../../../_assets/console-icons/compass.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.all-panel.menu.category.explore }}** → ![alt](../../../_assets/console-icons/hierarchy.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.traces.title }}** on the left.
+  1. Select a trace. The system automatically archives that trace.
+  1. The archived trace will have an extended retention period.
+  1. You can access the archived trace at any time.
+
+{% endlist %}
 
 Archiving is performed automatically, no further actions are required.
 
@@ -20,8 +26,14 @@ Archiving is performed automatically, no further actions are required.
 
 Archived traces are available in the {{ monium-name }} UI:
 
-1. Go to **{{ monium-name }}** → **Traces**.
-1. Search by `trace_id`.
-1. If the trace was previously viewed and archived, it will appear in the search results.
+{% list tabs group=instructions %}
+
+- {{ monium-name }} UI {#console}
+
+  1. On the [{{ monium-name }}]({{ link-monium }}) home page, select ![alt](../../../_assets/console-icons/compass.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.all-panel.menu.category.explore }}** → ![alt](../../../_assets/console-icons/hierarchy.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.traces.title }}** on the left.
+  1. Search by `trace_id`.
+  1. If the trace was previously viewed and archived, it will appear in the search results.
+
+{% endlist %}
 
 Archived traces are also available via a direct link.

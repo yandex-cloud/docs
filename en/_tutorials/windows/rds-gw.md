@@ -47,9 +47,9 @@ Create the `rdgw-network` cloud network with a subnet in the availability zone w
    - Management console {#console}
     
       1. In the [management console]({{ link-console-main }}), select a folder where you want to create your cloud network.
-      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+      1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
       1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
-      1. Specify the network name: `rdgw-network`.
+      1. Specify `rdgw-network` as the network name.
       1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
    
     - CLI {#cli}
@@ -82,7 +82,7 @@ Create the `rdgw-network` cloud network with a subnet in the availability zone w
    
     - Management console {#console}
     
-      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** in the folder where you need to create a subnet.
+      1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** in the folder where you need to create a subnet.
       1. Click the name of your cloud network.
       1. Under **{{ ui-key.yacloud.vpc.network.overview.section_subnetworks }}**, click **{{ ui-key.yacloud.common.create }}**.
       1. Specify `rdgw-subnet` as the subnet name and select the availability zone from the drop-down list (e.g., `{{ region-id }}-d`).
@@ -128,7 +128,7 @@ Create and configure a [security group](../../vpc/concepts/security-groups.md).
 
 - Management console {#console}
 
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** in the folder where you need to create a security group.
+   1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** in the folder where you need to create a security group.
    1. Open the **{{ ui-key.yacloud.vpc.network.security-groups.label_title }}** tab.
    1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
    1. Specify the security group name: `my-rdgw-sg`.
@@ -137,11 +137,11 @@ Create and configure a [security group](../../vpc/concepts/security-groups.md).
       
         | Traffic</br>direction | Description | Port</br>range | Protocol | Type</br>of source | Source/Destination | 
         |---|---|---|---|---|---|
-        | Inbound | icmp | — | ICMP | CIDR | 0.0.0.0/0 |
-        | Inbound | self-security | Any | Any | Security group | Current |
-        | Inbound | tcp | 3389 | TCP | CIDR | 0.0.0.0/0 |
-        | Inbound | rdgw | 443 | TCP | CIDR | 0.0.0.0/0 |
-        | Outbound | default | Any | Any | CIDR | 0.0.0.0/0 |
+        | Ingress | icmp | — | ICMP | CIDR | 0.0.0.0/0 |
+        | Ingress | self-security | Any | Any | Security group | Current |
+        | Ingress | tcp | 3389 | TCP | CIDR | 0.0.0.0/0 |
+        | Ingress | rdgw | 443 | TCP | CIDR | 0.0.0.0/0 |
+        | Egress | default | Any | Any | CIDR | 0.0.0.0/0 |
         
         1. Select the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab.
         1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
@@ -486,7 +486,7 @@ The RDGW VM allows members of the `BUILTIN\Administrators` group to connect to i
 
 1. Import your RDGW certificate file to the `Trusted Roots Certificate Authorities` directory of the computer you will connect to the test VM.
     
-   To connect to the gateway by the VM name, specify its name and external IP address in the `C:\Windows\system32\drivers\etc\hosts` file. For example:
+   To connect to the gateway by the VM name, specify its name and external IP address in the `C:\Windows\system32\drivers\etc\hosts` file. Here is an example:
    
     ```powershell
     87.250.250.242 my-rds-gw

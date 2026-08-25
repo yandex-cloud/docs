@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../index.md) > [Yandex Data Transfer](../../../index.md) > [Пошаговые инструкции](../../index.md) > [Настройка эндпоинтов](../index.md) > MySQL > Приемник
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Data Transfer](../../../index.md) > [Пошаговые инструкции](../../index.md) > [Настройка эндпоинтов](../index.md) > MySQL® > Приемник
 
 # Передача данных в эндпоинт-приемник MySQL®
 
@@ -50,7 +50,7 @@
     
     1. [Создайте пользователя](../../../../managed-mysql/operations/cluster-users.md#adduser) для подключения к приемнику.
         
-        1. [Назначьте пользователю роль](../../../../managed-mysql/operations/grant.md#grant-role) `ALL_PRIVILEGES` для базы-приемника.
+        1. [Назначьте пользователю роль](../../../../managed-mysql/operations/grant.md#grant-privilege) `ALL_PRIVILEGES` для базы-приемника.
 
 - MySQL®
     
@@ -477,7 +477,7 @@ Last binlog file <имя_файла>:<размер_файла> is more than 4GB
 
 ### Не добавляются новые таблицы {#no-new-tables}
 
-​В трансфер типа _**Копирование и репликация**_ не добавляются новые таблицы.
+В трансфер типа _**Копирование и репликация**_ не добавляются новые таблицы.
 
 **Решение:**
 

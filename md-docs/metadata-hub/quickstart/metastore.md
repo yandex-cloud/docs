@@ -2,6 +2,7 @@
 
 # Начало работы с Apache Hive™ Metastore
 
+
 В сервисе Yandex MetaData Hub вы можете [создавать кластеры Apache Hive™ Metastore](#create-metastore-cluster) и [использовать их](#connect-metastore-to-dataproc) для работы с кластерами Yandex Data Processing.
 
 ## Перед началом работы {#before-you-begin}
@@ -23,7 +24,7 @@
        * первый символ — буква, последний — не дефис.
    
    1. (Опционально) Введите описание каталога.
-   1. Выберите опцию **Создать сеть по умолчанию**. Будет создана [сеть](../../vpc/concepts/network.md#network) с подсетями в каждой зоне доступности. Также в этой сети будет создана [группа безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group), внутри которой весь сетевой трафик разрешен.
+   1. Выберите опцию **Создать сеть по умолчанию**. Будет создана [сеть](../../vpc/concepts/network.md#network) с подсетями в каждой [зоне доступности](../../overview/concepts/geo-scope.md). Также в этой сети будет создана [группа безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group), которая разрешает подключение к ресурсам по `SSH` и `RDP`, входящий трафик по `ICMP`, а также любой исходящий трафик.
    1. Нажмите кнопку **Создать**.
    
       ![create-folder2](../../_assets/resource-manager/create-folder-2.png)
@@ -98,7 +99,7 @@
 
     1. В консоли управления перейдите в ранее созданный каталог.
     1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-    1. На панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
+    1. В блоке **Управляйте метаданными** выберите **Metastore-сервер**.
     1. Нажмите кнопку **Создать кластер**.
     1. Введите имя кластера. Оно должно быть уникальным в рамках каталога.
     1. Выберите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), от имени которого кластер Apache Hive™ Metastore будет взаимодействовать с другими сервисами Yandex Cloud, или [создайте](../../iam/operations/sa/create.md) новый.
@@ -128,7 +129,7 @@
         spark:spark.hive.metastore.uris : thrift://<IP-адрес_кластера_Apache Hive™ Metastore>:9083
         ```
 
-        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в консоли управления выберите сервис **Yandex MetaData Hub** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**. Для нужного кластера скопируйте значение из колонки **IP-адрес**.
+        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в консоли управления выберите сервис **Yandex MetaData Hub** и в блоке **Управляйте метаданными** выберите **Metastore-сервер**. Для нужного кластера скопируйте значение из колонки **IP-адрес**.
 
     1. Добавьте в группу безопасности следующее правило для исходящего трафика:
 

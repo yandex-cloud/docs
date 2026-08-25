@@ -9,7 +9,7 @@ description: Из статьи вы узнаете, как в {{ datalens-full-n
 
 _Геополигон_ — это элемент, который состоит из области, ограниченной замкнутой линией, и самой этой линии. Значение показателя выражается через насыщенность цвета или через сам оттенок.
 
-​Фоновая карта используется, когда нужно оценить значение показателя в рамках территориальной единицы. Например, с помощью фоновой карты можно показать плотность населения отдельных районов.
+Фоновая карта используется, когда нужно оценить значение показателя в рамках территориальной единицы. Например, с помощью фоновой карты можно показать плотность населения отдельных районов.
 
 ![choropleth-map](../../_assets/datalens/visualization-ref/choropleth-map/choropleth-map.png =800x)
 
@@ -34,9 +34,7 @@ _Геополигон_ — это элемент, который состоит 
 
 ## Создание фоновой карты {#create-diagram}
 
-
 {% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
-
 
 1. {% include [create-1](../../_includes/datalens/visualization-ref/create-1.md) %}
 1. {% include [create-2](../../_includes/datalens/visualization-ref/create-2.md) %}

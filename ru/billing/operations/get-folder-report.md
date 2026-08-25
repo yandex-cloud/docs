@@ -17,6 +17,9 @@
      * Промежуток времени, за который хотите получить детализацию.
      * Язык отображения названий продуктов — `{{ ui-key.yacloud_org.billing.account.exports.locale_value_ru-lang }}` или `{{ ui-key.yacloud_org.billing.account.exports.locale_value_en-lang }}`.
      * Тип детализации — `{{ ui-key.yacloud_billing.billing.account.exports.label_not-include-resources }}` или `{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}`.
+
+     {% include [detalization-availability](../../_includes/billing/detalization-availability.md) %}
+
   1. Нажмите кнопку **{{ ui-key.yacloud_org.billing.account.detail.popup-export_button_download }}**.
 
 {% endlist %}
@@ -108,11 +111,9 @@
      * Язык отображения названий продуктов – `{{ ui-key.yacloud_org.billing.account.exports.locale_value_ru-lang }}` или `{{ ui-key.yacloud_org.billing.account.exports.locale_value_en-lang }}`.
      * Тип детализации — `{{ ui-key.yacloud_billing.billing.account.exports.label_not-include-resources }}` или `{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}`.
 
-         {% note tip %}
+        Выбирая тип `{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}` для регулярного экспорта детализации, вы сможете просматривать в [поле `resource_id`](#format) ресурсы сервисов {{ datalens-full-name }}, {{ tracker-full-name }} и {{ ml-platform-name }}, например [идентификаторы сообществ {{ ml-platform-name }}](../../datasphere/concepts/community.md).
 
-         Выбирая тип `{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}` для регулярного экспорта детализации, вы сможете просматривать в [поле `resource_id`](#format) ресурсы сервисов {{ datalens-full-name }}, {{ tracker-full-name }} и {{ ml-platform-name }}, например [идентификаторы сообществ {{ ml-platform-name }}](../../datasphere/concepts/community.md).
-
-         {% endnote %}
+        {% include [detalization-availability](../../_includes/billing/detalization-availability.md) %}
 
   1. (Опционально) Чтобы добавить данные за предыдущий период, включите опцию **{{ ui-key.yacloud_org.billing.account.exports.field_period }}**. В появившемся поле **{{ ui-key.yacloud_org.billing.account.exports.field_date }}** выберите дату, с которой вы хотите получить детализацию. Данные доступны с момента создания платежного аккаунта.
 

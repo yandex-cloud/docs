@@ -6,15 +6,16 @@ description: Follow this guide to scan a Docker image for vulnerabilities.
 # Scanning Docker images for vulnerabilities
 
 
-You can [scan](../concepts/vulnerability-scanner.md) [Docker images](../concepts/registry.md) pushed to a [registry](../concepts/docker-image.md) for vulnerabilities. You can do this:
+You can [scan](../concepts/vulnerability-scanner.md) [Docker images](../concepts/docker-image.md) pushed to a [registry](../concepts/registry.md) for vulnerabilities. You can do this:
+
 * [Manually](#manual).
 * [On push](#automatically).
 * [On schedule](#scheduled).
 
 {% note warning %}
 
-* The vulnerability database is constantly updated with sources containing information on vulnerabilities.
-* For some vulnerabilities, there is no information regarding which package versions they will be fixed in. This is because such information is unavailable from current sources.
+* The vulnerability database is continuously updated with vulnerability information from multiple sources.
+* For some vulnerabilities, there is no information on the package versions that will include the fix. This is because such information is not available in the current sources.
 * The number of Docker image scans you can run per [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) is [limited](../concepts/limits.md#container-registry-quotas).
 * Scanning Docker images for vulnerabilities is [charged](../pricing.md#scanner).
 
@@ -26,15 +27,15 @@ You can [scan](../concepts/vulnerability-scanner.md) [Docker images](../concepts
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the parent [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) for the [registry](../concepts/registry.md) containing the Docker image.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [registry](../concepts/registry.md) with the Docker image.
+  1. [Navigate]({{ link-console-main }}/link/container-registry) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Select the registry containing the Docker image or [create](registry/registry-create.md) a new one and [push](docker-image/docker-image-push.md) an image to it.
   1. Open the [repository](../concepts/repository.md) with the Docker image.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the Docker image and select **{{ ui-key.yacloud.cr.image.label_start-scan }}**.
   1. Wait for the scan to complete. During the scan, the Docker image scan status will be `{{ ui-key.yacloud.cr.registry.label_scan-status-RUNNING }}` and, once completed, it will change to `{{ ui-key.yacloud.cr.registry.label_scan-status-READY }}`.
-  1. Review the scan results. To do this, in the row of the relevant Docker image, click the value in the **{{ ui-key.yacloud.cr.image.label_last-scan-time }}** column.
+  1. Check the scan results. To do this, click **{{ ui-key.yacloud.cr.image.label_last-scan-time }}** column value in the row with your Docker image.
 
-  To view Docker image scans, select the relevant image and go to the **{{ ui-key.yacloud.cr.image.label_scan-history }}** tab.
+  To view scan runs for your Docker image, select the image and go to the **{{ ui-key.yacloud.cr.image.label_scan-history }}** tab.
 
 - CLI {#cli}
 
@@ -42,7 +43,7 @@ You can [scan](../concepts/vulnerability-scanner.md) [Docker images](../concepts
 
   {% include [cli-install](../../_includes/default-catalogue.md) %}
 
-  1. Get a list of the Docker images in a registry:
+  1. Get a list of Docker images in the registry:
 
      ```bash
      yc container image list --repository-name=<registry_ID>/<Docker_image_name>
@@ -95,7 +96,7 @@ You can [scan](../concepts/vulnerability-scanner.md) [Docker images](../concepts
      +------------+----------------+---------+-----------------+----------+---------------------------------------------------------------+
      ```
 
-     To view scans by Docker image, run the command:
+     To view scan runs for a Docker image, run this command:
 
      ```bash
      yc container image list-scan-results --repository-name=<registry_ID>/<Docker_image_name>
@@ -117,7 +118,7 @@ You can [scan](../concepts/vulnerability-scanner.md) [Docker images](../concepts
 
   To get the `scanResultId` scan result ID, use the [getLast](../api-ref/Scanner/getLast) REST API method for the [Scanner](../api-ref/Scanner/) resource or the [ScannerService/GetLast](../api-ref/grpc/Scanner/getLast.md) gRPC API call.
 
-  To get detailed information about the scan results, use the [listVulnerabilities](../api-ref/Scanner/listVulnerabilities.md) REST API method for the [Scanner](../api-ref/Scanner/) resource or the [ScannerService/ListVulnerabilities](../api-ref/grpc/Scanner/listVulnerabilities.md) gRPC API call.
+  To get detailed information about scan results, use the [listVulnerabilities](../api-ref/Scanner/listVulnerabilities.md) REST API method for the [Scanner](../api-ref/Scanner/) resource or the [ScannerService/ListVulnerabilities](../api-ref/grpc/Scanner/listVulnerabilities.md) gRPC API call.
 
 {% endlist %}
 
@@ -127,16 +128,16 @@ You can [scan](../concepts/vulnerability-scanner.md) [Docker images](../concepts
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder the registry with Docker images belongs to.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
-  1. Choose a registry or [create](registry/registry-create.md) a new one.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the registry with Docker images.
+  1. [Navigate]({{ link-console-main }}/link/container-registry) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. Select the registry or [create](registry/registry-create.md) a new one.
   1. Navigate to the **{{ ui-key.yacloud.cr.registry.label_vulnerabilities-scanner }}** tab.
   1. Click **{{ ui-key.yacloud.cr.registry.button_change-scan-settings }}**.
   1. Under **{{ ui-key.yacloud.cr.registry.title_scan-on-push }}**, select **{{ ui-key.yacloud.cr.image.label_start-scan }}** and one of the scanning options:
      * `{{ ui-key.yacloud.cr.registry.label_all-repositories }}` to scan all registry repositories.
      * `{{ ui-key.yacloud.cr.registry.label_selected }}` to scan only selected repositories:
        1. Click **{{ ui-key.yacloud.cr.registry.button_select-repositories }}**.
-       1. Select the appropriate repositories from the list.
+       1. Select the repositories from the list.
        1. Click **{{ ui-key.yacloud.common.save }}**.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -146,7 +147,7 @@ You can [scan](../concepts/vulnerability-scanner.md) [Docker images](../concepts
 
   To get the `scanResultId` scan result ID, use the [getLast](../api-ref/Scanner/getLast) REST API method for the [Scanner](../api-ref/Scanner/) resource or the [ScannerService/GetLast](../api-ref/grpc/Scanner/getLast.md) gRPC API call.
 
-  To get detailed information about the scan results, use the [listVulnerabilities](../api-ref/Scanner/listVulnerabilities.md) REST API method for the [Scanner](../api-ref/Scanner/) resource or the [ScannerService/ListVulnerabilitiesListVulnerabilities](../api-ref/grpc/Scanner/listVulnerabilities.md) gRPC API call.
+  To get detailed information about scan results, use the [listVulnerabilities](../api-ref/Scanner/listVulnerabilities.md) REST API method for the [Scanner](../api-ref/Scanner/) resource or the [ScannerService/ListVulnerabilitiesListVulnerabilities](../api-ref/grpc/Scanner/listVulnerabilities.md) gRPC API call.
 
 {% endlist %}
 
@@ -156,9 +157,9 @@ You can [scan](../concepts/vulnerability-scanner.md) [Docker images](../concepts
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder the registry with Docker images belongs to.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
-  1. Choose a registry or [create](registry/registry-create.md) a new one.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the registry with Docker images.
+  1. [Navigate]({{ link-console-main }}/link/container-registry) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. Select the registry or [create](registry/registry-create.md) a new one.
   1. Navigate to the **{{ ui-key.yacloud.cr.registry.label_vulnerabilities-scanner }}** tab.
   1. Click **{{ ui-key.yacloud.cr.registry.button_change-scan-settings }}**.
   1. Under **{{ ui-key.yacloud.cr.registry.title_scheduled-scan }}**, click **{{ ui-key.yacloud.cr.registry.label_add-scan-rule }}**.
@@ -166,9 +167,9 @@ You can [scan](../concepts/vulnerability-scanner.md) [Docker images](../concepts
      * `{{ ui-key.yacloud.cr.registry.label_all-repositories }}` to scan all registry repositories.
      * `{{ ui-key.yacloud.cr.registry.label_selected }}` to scan only selected repositories:
        1. Click **{{ ui-key.yacloud.cr.registry.button_select-repositories }}**.
-       1. Select the appropriate repositories from the list.
+       1. Select the repositories from the list.
        1. Click **{{ ui-key.yacloud.common.save }}**.
-  1. Specify the frequency of Docker image scans.
+  1. Specify how often you want to run Docker image scans.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - API {#api}
@@ -177,6 +178,6 @@ You can [scan](../concepts/vulnerability-scanner.md) [Docker images](../concepts
 
   To get the `scanResultId` scan result ID, use the [getLast](../api-ref/Scanner/getLast) REST API method for the [Scanner](../api-ref/Scanner/) resource or the [ScannerService/GetLast](../api-ref/grpc/Scanner/getLast.md) gRPC API call.
 
-  To get detailed information about the scan results, use the [listVulnerabilities](../api-ref/Scanner/listVulnerabilities.md) REST API method for the [Scanner](../api-ref/Scanner/) resource or the [ScannerService/ListVulnerabilitiesListVulnerabilities](../api-ref/grpc/Scanner/listVulnerabilities.md) gRPC API call.
+  To get detailed information about scan results, use the [listVulnerabilities](../api-ref/Scanner/listVulnerabilities.md) REST API method for the [Scanner](../api-ref/Scanner/) resource or the [ScannerService/ListVulnerabilitiesListVulnerabilities](../api-ref/grpc/Scanner/listVulnerabilities.md) gRPC API call.
 
 {% endlist %}

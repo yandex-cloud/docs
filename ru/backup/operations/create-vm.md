@@ -15,13 +15,7 @@ description: Следуя данной инструкции, вы сможете
 
     {% include [user-console-vm-creation-notice](../../_includes/backup/user-console-vm-creation-notice.md) %}
 
-    {% note warning %}
-
-    С 1 августа 2026 года роли [compute.editor](../../compute/security/index.md#compute-editor) и [compute.admin](../../compute/security/index.md#compute-admin) получают новый набор разрешений от роли [backup.user](../security/index.md#backup-user), позволяющий подключать виртуальные машины к сервису {{ backup-full-name }}, а также привязывать и отвязывать их от [политик резервного копирования](../concepts/policy.md).
-
-    {% include [denyActivation-iam-policy-pre-notice](../../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
-
-    {% endnote %}
+    {% include [backup-user-roles-notice](../../_includes/backup/backup-user-roles-notice.md) %}
 
 1. [Настройте](../concepts/vm-connection/compute.md#vm-network-access) сетевой доступ для ВМ.
 

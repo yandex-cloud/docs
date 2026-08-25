@@ -13,8 +13,8 @@ You can add and remove users, manage individual user settings, and change databa
 
 - Management console {#console}
   
-  1. Open the [folder dashboard]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Locate the cluster you need in the list, click its name, and select the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
   
 - CLI {#cli}
@@ -80,14 +80,101 @@ You can add and remove users, manage individual user settings, and change databa
 
 {% endlist %}
 
+
+## Getting user info {#get-user}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+    1. Locate the cluster you need in the list, click its name, and select the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
+
+        User information is available in the user list.
+
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    To get information about a specific user:
+
+    1. See the description of the CLI command for getting user info:
+
+        ```bash
+        {{ yc-mdb-mg }} user get --help
+        ```
+
+    1. Get user info by running this command:
+
+        ```bash
+        {{ yc-mdb-mg }} user get <username> \
+          --cluster-id=<cluster_ID>
+        ```
+
+        You can get the username with the [list of users](#list-users) in the cluster, and the cluster ID, with the [list of clusters](cluster-list.md#list-clusters) in the folder.
+
+- REST API {#api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Call the [User.Get](../api-ref/User/get.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+        ```bash
+        curl \
+          --request GET \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>/users/<username>'
+        ```
+
+        You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder, and the username, with the [list of users](#list-users) in the cluster.
+
+    1. Check the [server response](../api-ref/User/get.md#yandex.cloud.mdb.mongodb.v1.User) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Call the [UserService.Get](../api-ref/grpc/User/get.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mongodb/v1/user_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+            "cluster_id": "<cluster_ID>",
+            "user_name": "<username>"
+          }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.mongodb.v1.UserService.Get
+          ```
+
+        You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder, and the username, with the [list of users](#list-users) in the cluster.
+
+    1. Check the [server response](../api-ref/grpc/User/get.md#yandex.cloud.mdb.mongodb.v1.User) to make sure your request was successful.
+
+{% endlist %}
+
+
 ## Creating a user {#adduser}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
   
-  1. Open the [folder dashboard]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
   1. Click the cluster name and open the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
 
@@ -131,17 +218,36 @@ You can add and remove users, manage individual user settings, and change databa
      ```
   
   1. Specify user properties in the creation command:
+     
      ```
      {{ yc-mdb-mg }} user create <username> \
        --cluster-name <cluster_name> \
        --password <user_password> \
        --permission database=<DB_name>,role=<role>,role=<other_role>,... \
-       --permission database=<other_DB_name>,role=<role>,...
+       --permission database=<other_DB_name>,role=<role>,... \
+       --deletion-protection=<protect_user_from_deletion>
      ```
   
-     {% include [user-name-and-password-limits](../../_includes/mdb/mmg/note-info-user-name-and-pass-limits.md) %}
+     Where:
+     
+     * `<username>`, `--password`: Username and password.
 
-     You can get the cluster name from the [list of clusters in your folder](cluster-list.md#list-clusters).
+       {% include [user-name-and-password-limits](../../_includes/mdb/mmg/note-info-user-name-and-pass-limits.md) %}
+
+     * `--cluster-name`: Cluster name you can request with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     * `--permission`: User’s database access permissions:
+     
+       * `database`: Name of the database the user can access.
+         
+         You can request the database name with the [list of databases in the cluster](databases.md#list-db).
+       
+       * `role`: User’s role in the database. For the list of possible values, see [Users and roles](../concepts/users-and-roles.md).
+       
+         A user can get several roles in a database. Specify each one in a separate `role` property.
+      
+       Specify a separate `--permission` property for each database you want the user to access.
+     
+     * `--deletion-protection`: User protection from accidental deletion, `true` or `false`. There is no default value; the user will use the one from the corresponding cluster setting. If the protection is enabled (`true`), you cannot delete the user.
 
 - {{ TF }} {#tf}
 
@@ -153,9 +259,10 @@ You can add and remove users, manage individual user settings, and change databa
 
         ```hcl
         resource "yandex_mdb_mongodb_user" "<username>" {
-          cluster_id = <cluster_ID>
-          name       = "<username>"
-          password   = "<password>"
+          cluster_id          = <cluster_ID>
+          name                = "<username>"
+          password            = "<password>"
+          deletion_protection = <protect_user_from_deletion>
           permission {
             database_name = "<DB_name>"
             roles         = [ "<list_of_user_roles>" ]
@@ -163,9 +270,22 @@ You can add and remove users, manage individual user settings, and change databa
         }
         ```
 
-        Where `database_name` is the name of the target database for user access.
+        Where:
+        
+        * `cluster_id`: Cluster ID you can request with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        * `name`, `password`: Username and password.
 
-        {% include [user-name-and-password-limits](../../_includes/mdb/mmg/note-info-user-name-and-pass-limits.md) %}
+          {% include [user-name-and-password-limits](../../_includes/mdb/mmg/note-info-user-name-and-pass-limits.md) %}
+
+        * `deletion_protection`: User protection from accidental deletion, `true` or `false`. There is no default value; the user will use the one from the corresponding cluster setting. If the protection is enabled (`true`), you cannot delete the user.
+        
+        * `permission`: User’s database access permissions:
+          
+          * `database_name`: Name of the database the user can access.
+            
+            You can request the database name with the [list of databases in the cluster](databases.md#list-db).
+
+          * `role`: List of the user’s roles in the database. For the possible values, see [Users and roles](../concepts/users-and-roles.md).
 
     1. Make sure the settings are correct.
 
@@ -202,26 +322,30 @@ You can add and remove users, manage individual user settings, and change databa
                         "<role_1>", "<role_2>", ..., "<role_N>"
                        ]
                      }
-                   ]
+                   ],
+                   "deletionProtection": <protect_user_from_deletion>
                  }
                }'
      ```
 
-     Where `userSpec` are the settings for the new database user:
+     Where:
 
-     * `name`: Username.
-     * `password`: Password.
-
+     * `<cluster_ID>`: Cluster ID you can request with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     * `userSpec.name`, `userSpec.password`: Username and password.
+       
        {% include [user-name-and-password-limits](../../_includes/mdb/mmg/note-info-user-name-and-pass-limits.md) %}
 
-     * `permissions`: User permissions:
+     * `userSpec.permissions`: User permissions:
 
        * `databaseName`: Name of the database the user can access.
+         
+         You can request the database name with the [list of databases in the cluster](databases.md#list-db).
+
        * `roles`: Array of user roles. Each role is provided as a separate string in the array. For the list of possible values, see [Users and roles](../concepts/users-and-roles.md).
 
        In the `permissions` array, add a separate element with permission settings for each database.
-
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     
+     * `userSpec.deletionProtection`: User protection from accidental deletion, `true` or `false`. There is no default value; the user will use the one from the corresponding cluster setting. If the protection is enabled (`true`), you cannot delete the user.
 
   1. Check the [server response](../api-ref/User/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -253,41 +377,51 @@ You can add and remove users, manage individual user settings, and change databa
                       "<role_1>", "<role_2>", ..., "<role_N>"
                    ]   
                  }
-               ]
+               ],
+               "deletion_protection": <protect_user_from_deletion>
              }
            }' \
        {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.mongodb.v1.UserService.Create
      ```
 
-     Where `user_spec` are the settings for the new database user:
+     Where:
+     
+     * `cluster_id`: Cluster ID you can request with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     * `user_spec.name`, `user_spec.password`: Username and password.
 
-     * `name`: Username.
-     * `password`: Password.
+       {% include [user-name-and-password-limits](../../_includes/mdb/mmg/note-info-user-name-and-pass-limits.md) %}
 
-          {% include [user-name-and-password-limits](../../_includes/mdb/mmg/note-info-user-name-and-pass-limits.md) %}
-
-     * `permissions`: User permissions:
+     * `user_spec.permissions`: User permissions:
 
        * `database_name`: Name of the database the user can access.
+         
+         You can request the database name with the [list of databases in the cluster](databases.md#list-db).
+         
        * `roles`: Array of user roles. Each role is provided as a separate string in the array. For the list of possible values, see [Users and roles](../concepts/users-and-roles.md).
 
        In the `permissions` array, add a separate element with permission settings for each database.
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     * `user_spec.deletion_protection`: User protection from accidental deletion, `true` or `false`. There is no default value; the user will use the one from the corresponding cluster setting. If the protection is enabled (`true`), you cannot delete the user.
 
   1. Check the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
-## Changing the user password and role {#updateuser}
+## Changing user settings {#updateuser}
+
+{% note info %}
+
+You cannot change the username.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. Open the [folder dashboard]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
   1. Click the cluster name and open the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
 
@@ -297,7 +431,7 @@ You can add and remove users, manage individual user settings, and change databa
      * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}**: Set your own password. It must be from 8 to 128 characters long.
      * **{{ ui-key.yacloud.component.password-input.label_button-generate }}**: Generate a password using [{{ connection-manager-name }}](cluster-create.md#conn-man).
 
-        To view the new password, navigate to the cluster page, select the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. The new password version is marked as **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
+        To view the new password, navigate to the cluster page, select the **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. The new password version is marked as **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
 
      To view passwords, you need the `lockbox.payloadViewer` role.
 
@@ -316,7 +450,7 @@ You can add and remove users, manage individual user settings, and change databa
   
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
   
-  To change a user's password or role assignments:
+  To change the user settings:
   
   1. See the description of the CLI command for updating a user:
   
@@ -324,16 +458,40 @@ You can add and remove users, manage individual user settings, and change databa
      {{ yc-mdb-mg }} user update --help
      ```
   
-  1. Specify user properties in the `user update` command:
+  1. Specify user properties in the update command:
+     
      ```
      {{ yc-mdb-mg }} user update <username> \
        --cluster-name <cluster_name> \
        --password <user_password> \
        --permission database=<DB_name>,role=<role>,role=<other_role>,... \
-       --permission database=<other_DB_name>,role=<role>,...
+       --permission database=<other_DB_name>,role=<role>,... \
+       --deletion-protection=<protect_user_from_deletion>
      ```
   
-     {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
+     Where:
+     
+     * `<username>`: Username you can request with the [list of users in the cluster](#list-users).
+     * `--cluster-name`: Cluster name you can request with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     * `--password`: Password.
+
+              
+       The password must be from 8 to 128 characters long.
+       
+
+     * `--permission`: User’s database access permissions:
+     
+       * `database`: Name of the database the user can access.
+         
+         You can request the database name with the [list of databases in the cluster](databases.md#list-db).
+       
+       * `role`: User’s role in the database. For the list of possible values, see [Users and roles](../concepts/users-and-roles.md).
+
+         A user can get several roles in a database. Specify each one in a separate `role` property.
+      
+       Specify a separate `--permission` property for each database you want the user to access.
+     
+     * `--deletion-protection`: User protection from accidental deletion, `true` or `false`. There is no default value; the user will use the one from the corresponding cluster setting. If the protection is enabled (`true`), you cannot delete the user.
 
   To grant a user access to a database with a specific set of roles:
 
@@ -370,7 +528,7 @@ You can add and remove users, manage individual user settings, and change databa
 
       This command revokes the user’s access to the specified database.
 
-  You can get the cluster’s name from the [list of clusters in your folder](cluster-list.md#list-clusters), the database name from the [list of your cluster databases](databases.md#list-db), and the user's name from the [list of cluster users](cluster-users.md#list-users).
+  You can get the cluster’s name from the [list of clusters in your folder](cluster-list.md#list-clusters), the database name from the [list of your cluster databases](databases.md#list-db), and the user's name from the [list of cluster users](#list-users).
 
 - {{ TF }} {#tf}
 
@@ -379,21 +537,46 @@ You can add and remove users, manage individual user settings, and change databa
         To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. Locate the `yandex_mdb_mongodb_user` resource.
-    1. Update the `password` and `permission` settings:
+    1. To set a new password, edit the `password` field value:
 
         ```hcl
         resource "yandex_mdb_mongodb_user" "<username>" {
-          cluster_id = <cluster_ID>
-          name       = "<username>"
+          ...
           password   = "<new_password>"
+          ...
+        }
+        ```
+
+               
+        The password must be from 8 to 128 characters long.
+       
+
+    1. To set up permissions for the user, update the list of roles in the `roles` field:
+        
+        ```hcl
+        resource "yandex_mdb_mongodb_user" "<username>" {
+          ...
           permission {
             database_name = "<DB_name>"
             roles         = [ "<new_list_of_user_roles>" ]
           }
+          ...
         }
         ```
 
-        {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
+        For the list of possible roles, see [Users and roles](../concepts/users-and-roles.md).
+    
+    1. To enable or disable user protection from accidental deletion, update the `deletion_protection` field value:
+
+        ```hcl
+        resource "yandex_mdb_mongodb_user" "<username>" {
+          ...
+          deletion_protection = <protect_user_from_deletion>
+          ...
+        }
+        ```
+
+        Where `deletion_protection` stands for user protection from accidental deletion, `true` or `false`. There is no default value; the user will use the one from the corresponding cluster setting. If the protection is enabled (`true`), you cannot delete the user.
 
     1. Make sure the settings are correct.
   
@@ -422,7 +605,7 @@ You can add and remove users, manage individual user settings, and change databa
        --header "Content-Type: application/json" \
        --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>/users/<username>' \
        --data '{
-                "updateMask": "password,permissions.databaseName,permissions.roles",
+                "updateMask": "password,permissions.databaseName,permissions.roles,deletionProtection",
                 "password": "<user_password>",
                 "permissions": [
                   {
@@ -431,23 +614,31 @@ You can add and remove users, manage individual user settings, and change databa
                       "<role_1>", "<role_2>", ..., "<role_N>"
                     ]
                   }
-                ]
+                ],
+                "deletionProtection": <protect_user_from_deletion>
               }'
-     ```                
+     ```
 
      Where:
 
-     * `updateMask`: Comma-separated list of settings you want to update.
+     * `<cluster_ID>`: Cluster ID you can request with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     * `<username>`: Username you can request with the [list of users in the cluster](#list-users).
+     * `updateMask`: Comma-separated string of settings to update.
      * `password`: Password.
 
-        {% include [user-name-and-password-limits](../../_includes/mdb/mmg/note-info-user-name-and-pass-limits.md) %}
+              
+       The password must be from 8 to 128 characters long.
+       
 
      * `permissions`: User permissions:
 
-       * `database_name`: Name of the database the user can access.
+       * `databaseName`: Name of the database the user can access.
+         
+         You can request the database name with the [list of databases in the cluster](databases.md#list-db).
+
        * `roles`: Array of user roles. Each role is provided as a separate string in the array. For the list of possible values, see [Users and roles](../concepts/users-and-roles.md).
- 
-     You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters), and the username from the [list of cluster users](#list-users).
+     
+     * `deletionProtection`: User protection from accidental deletion, `true` or `false`. There is no default value; the user will use the one from the corresponding cluster setting. If the protection is enabled (`true`), you cannot delete the user.
 
   1. Check the [server response](../api-ref/User/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -476,7 +667,8 @@ You can add and remove users, manage individual user settings, and change databa
                "paths": [
                  "password",
                  "permissions.database_name",
-                 "permissions.roles"
+                 "permissions.roles",
+                 "deletion_protection"
                ]
              },
              "password": "<user_password>",
@@ -487,7 +679,8 @@ You can add and remove users, manage individual user settings, and change databa
                    "<role_1>", "<role_2>", ..., "<role_N>"
                  ]
                }
-             ]
+             ],
+             "deletion_protection": <protect_user_from_deletion>
            }' \
        {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.mongodb.v1.UserService.Update
@@ -495,30 +688,44 @@ You can add and remove users, manage individual user settings, and change databa
 
      Where:
 
-     * `update_mask`: Comma-separated list of settings you want to update.
+     * `cluster_id`: Cluster ID you can request with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     * `user_name`: Username you can request with the [list of users in the cluster](#list-users).
+
+     * `update_mask`: List of settings to update as an array of strings (`paths[]`).
      * `password`: Password.
 
-        {% include [user-name-and-password-limits](../../_includes/mdb/mmg/note-info-user-name-and-pass-limits.md) %}
+              
+       The password must be from 8 to 128 characters long.
+       
 
      * `permissions`: User permissions:
 
        * `database_name`: Name of the database the user can access.
+         
+         You can request the database name with the [list of databases in the cluster](databases.md#list-db).
+
        * `roles`: Array of user roles. Each role is provided as a separate string in the array. For the list of possible values, see [Users and roles](../concepts/users-and-roles.md).
-
-     You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters), and the username from the [list of cluster users](#list-users).
-
+     
+     * `deletion_protection`: User protection from accidental deletion, `true` or `false`. There is no default value; the user will use the one from the corresponding cluster setting. If the protection is enabled (`true`), you cannot delete the user.
+     
   1. Check the [server response](../api-ref/grpc/User/update.md#yandex.cloud.operation.Operation) to make sure your request was successful. 
 
 {% endlist %}
 
 ## Deleting a user {#removeuser}
 
+{% note info %}
+
+Before you delete a user, [disable their deletion protection](#updateuser).
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
   
-  1. Open the [folder dashboard]({{ link-console-main }}).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click the cluster name and open the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
   1. Locate the user you need in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in their row, and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
   

@@ -9,7 +9,7 @@ items:
         href: quickstart.md
       - name: Quotas and limits
         href: concepts/limits.md
-      - name: Courses
+      - name: Training materials
         href: training.md
   - name: Workbooks and collections
     items:
@@ -738,7 +738,7 @@ items:
             href: concepts/chart/ql-charts.md
           - name: Creating a QL chart
             href: operations/chart/create-sql-chart.md
-      - name: Charts in Editor
+      - name: Editor charts
         items:
           - name: Overview
             href: charts/editor/index.md
@@ -862,7 +862,7 @@ items:
         href: dashboard/link.md
       - name: Selectors
         href: dashboard/selector.md
-      - name: Cross-chart filtering
+      - name: Chart cross-filtering
         href: dashboard/chart-chart-filtration.md
       - name: Dashboard settings
         href: dashboard/settings.md
@@ -946,7 +946,7 @@ items:
                 href: operations/dashboard/dashboard-ai-reference-tab.md
               - name: Widget display order on a mobile device
                 href: operations/dashboard/display-modes.md
-          - name: Setting up cross-chart filtering
+          - name: Setting up chart cross-filtering
             href: operations/dashboard/add-filtration.md
           - name: Managing access to a dashboard
             href: operations/dashboard/manage-access.md
@@ -962,6 +962,12 @@ items:
         href: reports/versioning.md
       - name: Neuroanalyst in reports
         href: reports/insights.md
+  - name: HTML pages
+    items:
+      - name: Overview
+        href: html-pages/index.md
+      - name: Versioning
+        href: html-pages/versioning.md
   - name: Publishing and embedding
     items:
       - name: Overview
@@ -1047,127 +1053,289 @@ items:
       - name: '{{ datalens-name }} API'
         items:
           - name: Overview
-            href: openapi-ref/index.md
-          - name: createCollection
-            href: openapi-ref/createCollection.md
-          - name: deleteCollection
-            href: openapi-ref/deleteCollection.md
-          - name: deleteCollections
-            href: openapi-ref/deleteCollections.md
-          - name: getCollectionBreadcrumbs
-            href: openapi-ref/getCollectionBreadcrumbs.md
-          - name: getCollection
-            href: openapi-ref/getCollection.md
-          - name: getCollectionContent
-            href: openapi-ref/getCollectionContent.md
-          - name: getRootCollectionPermissions
-            href: openapi-ref/getRootCollectionPermissions.md
-          - name: moveCollection
-            href: openapi-ref/moveCollection.md
-          - name: moveCollections
-            href: openapi-ref/moveCollections.md
-          - name: updateCollection
-            href: openapi-ref/updateCollection.md
-          - name: getConnection
-            href: openapi-ref/getConnection.md
-          - name: createConnection
-            href: openapi-ref/createConnection.md
-          - name: updateConnection
-            href: openapi-ref/updateConnection.md
-          - name: deleteConnection
-            href: openapi-ref/deleteConnection.md
-          - name: getDashboard
-            href: openapi-ref/getDashboard.md
-          - name: createDashboard
-            href: openapi-ref/createDashboard.md
-          - name: updateDashboard
-            href: openapi-ref/updateDashboard.md
-          - name: deleteDashboard
-            href: openapi-ref/deleteDashboard.md
-          - name: getDataset
-            href: openapi-ref/getDataset.md
-          - name: createDataset
-            href: openapi-ref/createDataset.md
-          - name: updateDataset
-            href: openapi-ref/updateDataset.md
-          - name: deleteDataset
-            href: openapi-ref/deleteDataset.md
-          - name: validateDataset
-            href: openapi-ref/validateDataset.md
-          - name: getEntriesRelations
-            href: openapi-ref/getEntriesRelations.md
-          - name: getEntries
-            href: openapi-ref/getEntries.md
-          - name: getQLChart
-            href: openapi-ref/getQlChart.md
-          - name: deleteQLChart
-            href: openapi-ref/deleteQlChart.md
-          - name: updateQLChart
-            href: openapi-ref/updateQlChart.md
-          - name: createQLChart
-            href: openapi-ref/createQlChart.md
-          - name: getWizardChart
-            href: openapi-ref/getWizardChart.md
-          - name: deleteWizardChart
-            href: openapi-ref/deleteWizardChart.md
-          - name: updateWizardChart
-            href: openapi-ref/updateWizardChart.md
-          - name: createWizardChart
-            href: openapi-ref/createWizardChart.md
-          - name: createWorkbook
-            href: openapi-ref/createWorkbook.md
-          - name: deleteWorkbook
-            href: openapi-ref/deleteWorkbook.md
-          - name: deleteWorkbooks
-            href: openapi-ref/deleteWorkbooks.md
-          - name: getWorkbook
-            href: openapi-ref/getWorkbook.md
-          - name: getWorkbooksList
-            href: openapi-ref/getWorkbooksList.md
-          - name: moveWorkbook
-            href: openapi-ref/moveWorkbook.md
-          - name: moveWorkbooks
-            href: openapi-ref/moveWorkbooks.md
-          - name: updateWorkbook
-            href: openapi-ref/updateWorkbook.md
-          - name: getWorkbookEntries
-            href: openapi-ref/getWorkbookEntries.md
-          - name: getEditorChart
-            href: openapi-ref/getEditorChart.md
-          - name: deleteEditorChart
-            href: openapi-ref/deleteEditorChart.md
-          - name: createEditorChart
-            href: openapi-ref/createEditorChart.md
-          - name: updateEditorChart
-            href: openapi-ref/updateEditorChart.md
-          - name: createEmbed
-            href: openapi-ref/createEmbed.md
-          - name: listEmbeds
-            href: openapi-ref/listEmbeds.md
-          - name: deleteEmbed
-            href: openapi-ref/deleteEmbed.md
-          - name: updateEmbed
-            href: openapi-ref/updateEmbed.md
-          - name: getEntriesPermissions
-            href: openapi-ref/getEntriesPermissions.md
-          - name: createEmbeddingSecret
-            href: openapi-ref/createEmbeddingSecret.md
-          - name: listEmbeddingSecrets
-            href: openapi-ref/listEmbeddingSecrets.md
-          - name: deleteEmbeddingSecret
-            href: openapi-ref/deleteEmbeddingSecret.md
-          - name: getEmbeddingSecret
-            href: openapi-ref/getEmbeddingSecret.md
-          - name: getAuditEntriesUpdates
-            href: openapi-ref/getAuditEntriesUpdates.md
-          - name: updateCollectionAccessBindings
-            href: openapi-ref/updateCollectionAccessBindings.md
-          - name: createFolder
-            href: openapi-ref/createFolder.md
-          - name: listDirectory
-            href: openapi-ref/listDirectory.md
-          - name: updateWorkbookAccessBindings
-            href: openapi-ref/updateWorkbookAccessBindings.md
+            href: api-ref/index.md
+          - name: Collection
+            items:
+              - name: Overview
+                href: api-ref/Collection/index.md
+              - href: api-ref/Collection/rpccreateCollection-post.md
+                name: Create collection
+              - href: api-ref/Collection/rpcdeleteCollection-post.md
+                name: Delete collection
+              - href: api-ref/Collection/rpcdeleteCollections-post.md
+                name: Delete collections
+              - href: api-ref/Collection/rpcgetCollectionBreadcrumbs-post.md
+                name: Get collection breadcrumbs
+              - href: api-ref/Collection/rpcgetCollection-post.md
+                name: Get collection
+              - href: api-ref/Collection/rpcgetCollectionsByIds-post.md
+                name: Get collections list by ids
+              - href: api-ref/Collection/rpcgetCollectionContent-post.md
+                name: Get collection content
+              - href: api-ref/Collection/rpcgetRootCollectionPermissions-post.md
+                name: Get root collection permissions
+              - href: api-ref/Collection/rpcmoveCollection-post.md
+                name: Move collection
+              - href: api-ref/Collection/rpcmoveCollections-post.md
+                name: Move collections
+              - href: api-ref/Collection/rpcupdateCollection-post.md
+                name: Update collection
+              - href: api-ref/Collection/rpcupdateCollectionAccessBindings-post.md
+                name: Update collection access bindings
+              - href: api-ref/Collection/rpclistCollectionAccessBindings-post.md
+                name: List collection access bindings
+          - name: Connection
+            items:
+              - name: Overview
+                href: api-ref/Connection/index.md
+              - href: api-ref/Connection/rpcgetConnection-post.md
+                name: Get connection
+              - href: api-ref/Connection/rpccreateConnection-post.md
+                name: Create connection
+              - href: api-ref/Connection/rpcupdateConnection-post.md
+                name: Update connection
+              - href: api-ref/Connection/rpcdeleteConnection-post.md
+                name: Delete connection
+          - name: Dashboard
+            items:
+              - name: Overview
+                href: api-ref/Dashboard/index.md
+              - href: api-ref/Dashboard/rpcgetDashboard-post.md
+                name: Get dashboard
+              - href: api-ref/Dashboard/rpccreateDashboard-post.md
+                name: Create dashboard
+              - href: api-ref/Dashboard/rpcupdateDashboard-post.md
+                name: Update dashboard
+              - href: api-ref/Dashboard/rpcdeleteDashboard-post.md
+                name: Delete dashboard
+          - name: Dataset
+            items:
+              - name: Overview
+                href: api-ref/Dataset/index.md
+              - href: api-ref/Dataset/rpcgetDataset-post.md
+                name: Get dataset
+              - href: api-ref/Dataset/rpccreateDataset-post.md
+                name: Create dataset
+              - href: api-ref/Dataset/rpcupdateDataset-post.md
+                name: Update dataset
+              - href: api-ref/Dataset/rpcdeleteDataset-post.md
+                name: Delete dataset
+              - href: api-ref/Dataset/rpcvalidateDataset-post.md
+                name: Validate dataset
+          - name: Entries
+            items:
+              - name: Overview
+                href: api-ref/Entries/index.md
+              - href: api-ref/Entries/rpcgetEntriesRelations-post.md
+                name: Get entries relations
+              - href: api-ref/Entries/rpcrenameEntry-post.md
+                name: Rename entry
+              - href: api-ref/Entries/rpcgetEntriesPermissions-post.md
+                name: Get entries permissions
+          - name: Navigation
+            items:
+              - name: Overview
+                href: api-ref/Navigation/index.md
+              - href: api-ref/Navigation/rpcgetEntries-post.md
+                name: Get entries
+              - href: api-ref/Navigation/rpclistDirectory-post.md
+                name: List directory
+          - name: QL
+            items:
+              - name: Overview
+                href: api-ref/QL/index.md
+              - href: api-ref/QL/rpcgetQLChart-post.md
+                name: 🚧 [Experimental] Get QL chart
+              - href: api-ref/QL/rpcdeleteQLChart-post.md
+                name: Delete QL chart
+              - href: api-ref/QL/rpcupdateQLChart-post.md
+                name: 🚧 [Experimental] Update QL chart
+              - href: api-ref/QL/rpccreateQLChart-post.md
+                name: 🚧 [Experimental] Create QL chart
+          - name: Wizard
+            items:
+              - name: Overview
+                href: api-ref/Wizard/index.md
+              - href: api-ref/Wizard/rpcgetWizardChart-post.md
+                name: 🚧 [Experimental] Get wizard chart
+              - href: api-ref/Wizard/rpcdeleteWizardChart-post.md
+                name: Delete wizard chart
+              - href: api-ref/Wizard/rpcupdateWizardChart-post.md
+                name: 🚧 [Experimental] Update wizard chart
+              - href: api-ref/Wizard/rpccreateWizardChart-post.md
+                name: 🚧 [Experimental] Create wizard chart
+          - name: Workbook
+            items:
+              - name: Overview
+                href: api-ref/Workbook/index.md
+              - href: api-ref/Workbook/rpccreateWorkbook-post.md
+                name: Create workbook
+              - href: api-ref/Workbook/rpcdeleteWorkbook-post.md
+                name: Delete workbook
+              - href: api-ref/Workbook/rpcdeleteWorkbooks-post.md
+                name: Delete workbooks
+              - href: api-ref/Workbook/rpcgetWorkbook-post.md
+                name: Get workbook
+              - href: api-ref/Workbook/rpcgetWorkbooksList-post.md
+                name: Get workbooks list
+              - href: api-ref/Workbook/rpcgetWorkbooksByIds-post.md
+                name: Get workbook list by ids
+              - href: api-ref/Workbook/rpcmoveWorkbook-post.md
+                name: Move workbook
+              - href: api-ref/Workbook/rpcmoveWorkbooks-post.md
+                name: Move workbooks
+              - href: api-ref/Workbook/rpcupdateWorkbook-post.md
+                name: Update workbook
+              - href: api-ref/Workbook/rpcgetWorkbookEntries-post.md
+                name: Get workbook entries
+              - href: api-ref/Workbook/rpcupdateWorkbookAccessBindings-post.md
+                name: Update workbook access bindings
+              - href: api-ref/Workbook/rpclistWorkbookAccessBindings-post.md
+                name: List workbook access bindings
+          - name: WorkbookExport
+            items:
+              - name: Overview
+                href: api-ref/WorkbookExport/index.md
+              - href: api-ref/WorkbookExport/rpcstartWorkbookExport-post.md
+                name: Start workbook export
+              - href: api-ref/WorkbookExport/rpcgetWorkbookExportStatus-post.md
+                name: Get workbook export status
+              - href: api-ref/WorkbookExport/rpcgetWorkbookExportResult-post.md
+                name: Get workbook export result
+              - href: api-ref/WorkbookExport/rpccancelWorkbookExport-post.md
+                name: Cancel workbook export
+          - name: WorkbookImport
+            items:
+              - name: Overview
+                href: api-ref/WorkbookImport/index.md
+              - href: api-ref/WorkbookImport/rpcstartWorkbookImport-post.md
+                name: Start workbook import
+              - href: api-ref/WorkbookImport/rpcgetWorkbookImportStatus-post.md
+                name: Get workbook import status
+          - name: EntryLock
+            items:
+              - name: Overview
+                href: api-ref/EntryLock/index.md
+              - href: api-ref/EntryLock/rpccreateEntryLock-post.md
+                name: Create entry lock
+              - href: api-ref/EntryLock/rpcextendEntryLock-post.md
+                name: Extend entry lock
+              - href: api-ref/EntryLock/rpcdeleteEntryLock-post.md
+                name: Delete entry lock
+          - name: Editor
+            items:
+              - name: Overview
+                href: api-ref/Editor/index.md
+              - href: api-ref/Editor/rpcgetEditorChart-post.md
+                name: 🚧 [Experimental] Get editor chart
+              - href: api-ref/Editor/rpcdeleteEditorChart-post.md
+                name: Delete editor chart
+              - href: api-ref/Editor/rpccreateEditorChart-post.md
+                name: 🚧 [Experimental] Create editor chart
+              - href: api-ref/Editor/rpcupdateEditorChart-post.md
+                name: 🚧 [Experimental] Update editor chart
+          - name: Embeds
+            items:
+              - name: Overview
+                href: api-ref/Embeds/index.md
+              - href: api-ref/Embeds/rpccreateEmbed-post.md
+                name: Create embed
+              - href: api-ref/Embeds/rpclistEmbeds-post.md
+                name: List embeds
+              - href: api-ref/Embeds/rpcdeleteEmbed-post.md
+                name: Delete embed
+              - href: api-ref/Embeds/rpcupdateEmbed-post.md
+                name: Update embed
+          - name: Permissions
+            items:
+              - name: Overview
+                href: api-ref/Permissions/index.md
+              - href: api-ref/Permissions/rpcgetPermissionsBulk-post.md
+                name: Get entries, workbooks and collections permissions
+          - name: EmbeddingSecrets
+            items:
+              - name: Overview
+                href: api-ref/EmbeddingSecrets/index.md
+              - href: api-ref/EmbeddingSecrets/rpccreateEmbeddingSecret-post.md
+                name: Create embedding secret
+              - href: api-ref/EmbeddingSecrets/rpclistEmbeddingSecrets-post.md
+                name: List embedding secrets
+              - href: api-ref/EmbeddingSecrets/rpcdeleteEmbeddingSecret-post.md
+                name: Delete embedding secret
+              - href: api-ref/EmbeddingSecrets/rpcgetEmbeddingSecret-post.md
+                name: Get embedding secret
+          - name: Reports
+            items:
+              - name: Overview
+                href: api-ref/Reports/index.md
+              - href: api-ref/Reports/rpcgetReport-post.md
+                name: Get report
+              - href: api-ref/Reports/rpccreateReport-post.md
+                name: Create report
+              - href: api-ref/Reports/rpcupdateReport-post.md
+                name: Update report
+              - href: api-ref/Reports/rpcdeleteReport-post.md
+                name: Delete report
+          - name: Audit
+            items:
+              - name: Overview
+                href: api-ref/Audit/index.md
+              - href: api-ref/Audit/rpcgetAuditEntriesUpdates-post.md
+                name: Get updated entries for audit
+              - href: api-ref/Audit/rpcgetAuditEntryPermissionsForUser-post.md
+                name: Get entry permissions for user
+          - name: Folder
+            items:
+              - name: Overview
+                href: api-ref/Folder/index.md
+              - href: api-ref/Folder/rpccreateFolder-post.md
+                name: CreateFolder
+              - href: api-ref/Folder/rpcgetPermissions-post.md
+                name: Get permissions
+              - href: api-ref/Folder/rpcmodifyPermissions-post.md
+                name: Modify permissions
+              - href: api-ref/Folder/rpcdlsSuggest-post.md
+                name: DLS suggest
+              - href: api-ref/Folder/rpcdeleteFolder-post.md
+                name: Delete folder
+              - href: api-ref/Folder/rpcmoveFolderEntry-post.md
+                name: Move folder entry
+          - name: SharedEntry
+            items:
+              - name: Overview
+                href: api-ref/SharedEntry/index.md
+              - href: api-ref/SharedEntry/rpclistSharedEntryAccessBindings-post.md
+                name: List shared entry access bindings
+          - name: Access
+            items:
+              - name: Overview
+                href: api-ref/Access/index.md
+              - href: api-ref/Access/rpcbatchListMembers-post.md
+                name: Batch list members
+          - name: HtmlPages
+            items:
+              - name: Overview
+                href: api-ref/HtmlPages/index.md
+              - href: api-ref/HtmlPages/rpccreateHtmlPage-post.md
+                name: Create HTML page
+              - href: api-ref/HtmlPages/rpcgetHtmlPage-post.md
+                name: Get HTML page
+              - href: api-ref/HtmlPages/rpcupdateHtmlPage-post.md
+                name: Update HTML page
+              - href: api-ref/HtmlPages/rpcdeleteHtmlPage-post.md
+                name: Delete HTML page
+          - name: Licensing
+            items:
+              - name: Overview
+                href: api-ref/Licensing/index.md
+              - href: api-ref/Licensing/rpcgetLicenses-post.md
+                name: Get licenses
+              - href: api-ref/Licensing/rpcgetLicensesLimit-post.md
+                name: Get licenses limit
+              - href: api-ref/Licensing/rpcsetLicenseLimit-post.md
+                name: Set licenses limit
+              - href: api-ref/Licensing/rpcassignLicenses-post.md
+                name: Assign licenses
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Release notes
@@ -1379,7 +1547,7 @@ items:
       - name: Measure filter is unsupported for this type of query
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-FILTER-MEASURE_UNSUPPORTED.md
-      - name: Data preparation not finished
+      - name: Data preparation is not complete yet
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-MATERIALIZATION_NOT_FINISHED.md
       - name: Memory limit has been exceeded during query execution
@@ -1400,14 +1568,14 @@ items:
       - name: Requested database column does not exist
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-COLUMN_DOES_NOT_EXIST.md
-      - name: Data preparation not finished
+      - name: Data preparation is not complete yet
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-DATA_PREPARATION_NOT_FINISHED.md
       - name: Subquery exceeds data weight limit
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-DB-CHYT-SUBQ_WEIGHT_LIMIT_EXCEEDED.md
-      - name: Use of QL charts is prohibited at connection level
+      - name: Use of QL charts is prohibited at the connection level
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-CONNECTION_CONFIG-DASHSQL_NOT_ALLOWED.md
@@ -1487,7 +1655,7 @@ items:
       - name: Data type conversion error
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-TYPE_CAST-FAILED.md
-      - name: Accessing a nonexistent object
+      - name: Accessing a non-existent object
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-REFERENCED_ENTRY_NOT_FOUND.md
       - name: Got an unexpected response from an external API

@@ -14,13 +14,19 @@ description: Из статьи вы узнаете, как привязать в
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите привязать защищаемый ресурс к политике.
   1. [Перейдите]({{ link-console-main }}/link/backup) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
-  1. Перейдите на вкладку ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud_billing.backup.label_policies }}**.
+  1. На панели слева выберите ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud_billing.backup.label_policies }}**.
   1. Выберите политику, к которой вы хотите привязать ВМ или сервер.
   1. В блоке **{{ ui-key.yacloud.backup.title_linked-recourses }}** нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.backup.button_attach-instance }}** и в открывшемся окне:
 
-      1. В зависимости от того, какой ресурс вы хотите привязать к политике, выберите вкладку **{{ ui-key.yacloud.backup.value_vm-recourses }}** или **{{ ui-key.yacloud.backup.value_bms-recourses }}** и в списке выберите нужные ВМ или сервер.
+      1. В зависимости от того, какой ресурс вы хотите привязать к политике, в поле **{{ ui-key.yacloud.backup.field_add-resource_resource-type }}** выберите:
 
-          Если ВМ или сервера, которые вы хотите привязать к политике, нет в списке, убедитесь, что они подключены к {{ backup-name }}.
+          * `{{ ui-key.yacloud.backup.value_vm-recourses }}` — для виртуальных машин {{ compute-name }}.
+          * `{{ ui-key.yacloud.backup.value_bms-recourses }}` — для серверов {{ baremetal-name }}.
+          * `{{ ui-key.yacloud.backup.label_external-vm-instances }}` — для внешних виртуальных машин.
+          * `{{ ui-key.yacloud.backup.label_external-server-instances }}` — для внешних серверов.
+      1. В поле ниже выберите нужный ресурс выбранного ранее типа.
+
+          Если ресурса, который вы хотите привязать к политике, нет в списке, убедитесь, что он подключен к {{ backup-name }}.
       1. Нажмите кнопку **{{ ui-key.yacloud_billing.backup.button_attach-instance-submit }}**.
 
 - CLI {#cli}

@@ -44,7 +44,7 @@ Create a {{ mgp-name }} cluster with public access. You can [connect](./operatio
 To create a cluster:
 
 1. In the management console, select the folder where you want to create your database cluster.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 
 
@@ -91,7 +91,7 @@ For more information on creating a cluster, see [{#T}](./operations/cluster-crea
 Get the cluster ID required to [connect](#connect) to the cluster:
 
 1. In the [management console]({{ link-console-main }}), navigate to the folder page.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
 1. Click the name of your cluster and select the ![image](../_assets/console-icons/flag.svg) **{{ ui-key.yacloud.common.overview }}** tab.
 1. Copy the cluster ID specified under **{{ ui-key.yacloud.common.section-base }}**.
 
@@ -101,8 +101,9 @@ Connect to the cluster you [created](#create-cluster):
 
 {% list tabs group=mgp-quickstart %}
 
-- DBeaver {#gui}
+    For connections to the cluster, use the [Database Bastion](https://docs.yandex-team.ru/bastion-db/connect/greenplum#podklyuchenie-cherez-ide) SSH tunnel.
 
+    
     1. [Install DBeaver](https://dbeaver.com/docs/dbeaver/Installation/) to the host that will be used for the connection.
 
         {% note info %}
@@ -176,6 +177,7 @@ Connect to the cluster you [created](#create-cluster):
 
         1. {% include [dbeaver-how-to-exec-query](../_includes/mdb/mgp/quickstart/dbeaver-how-to-exec-query.md) %}
 
+
 - psql {#cli}
 
     1. [Install](https://www.postgresql.org/download/) the `psql` client to the host you will use to connect to the cluster.
@@ -221,7 +223,9 @@ Connect to the cluster you [created](#create-cluster):
 
 {% endlist %}
 
+
 If your cluster connection and test query are successful, you will see the DBMS version.
+
 
 ## Create a database {#create-db}
 

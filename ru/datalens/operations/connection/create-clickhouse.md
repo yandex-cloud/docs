@@ -49,9 +49,9 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level.md) %}
 
-       Чтобы проверить корректность введенных параметров, нажмите кнопку **Проверить подключение**.
+     ![image](../../../_assets/datalens/operations/connection/connection-clickhouse-org.png)
 
-     ![image](../../../_assets/datalens/connection/ch.png)  
+     Чтобы проверить корректность введенных параметров, нажмите кнопку **Проверить подключение**.
 
    - Указать вручную {#manual}
 
@@ -59,6 +59,7 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [datalens-db-connection-parameters](../../../_includes/datalens/datalens-db-connection-parameters.md) %}
      
+     ![image](../../../_assets/datalens/operations/connection/connection-clickhouse.png)
 
      Чтобы проверить корректность введенных параметров, нажмите кнопку **Проверить подключение**.
 
@@ -73,19 +74,20 @@ description: Следуя данной инструкции, вы сможете
      * **Хост**. Выберите хост из списка доступных в кластере {{ CH }}.
      * **Порт**. Заполняется автоматически в зависимости от выбранного хоста.
      * **Имя пользователя**. Заполняется автоматически из данных выбранного подключения.
+
+       {% include [datalens-db-note](../../../_includes/datalens/datalens-db-note.md) %}
+
      * **Время жизни кеша в секундах**. Укажите время жизни кеша или оставьте значение по умолчанию. Рекомендованное значение — 300 секунд (5 минут).
+
+     {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level-3.md) %}
      
-     {% include [datalens-db-connection-parameters](../../../_includes/datalens/datalens-db-connection-parameters.md) %}
+     ![image](../../../_assets/datalens/operations/connection/connection-clickhouse-manager.png)
 
    {% endlist %}
 
 
 1. Нажмите кнопку **Создать подключение**.
-
-
 1. Выберите [воркбук](../../workbooks-collections/index.md), в котором сохранится подключение, или создайте новый. Если вы пользуетесь старой навигацией по папкам, выберите папку для сохранения подключения. Нажмите кнопку **Создать**.
-
-
 1. Укажите название подключения и нажмите кнопку **Создать**.
 
 

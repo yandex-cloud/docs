@@ -61,7 +61,7 @@ items:
             href: operations/lifecycle-policy/lifecycle-policy-create.md
           - name: Updating a lifecycle policy
             href: operations/lifecycle-policy/lifecycle-policy-update.md
-          - name: Performing lifecycle policy dry runs
+          - name: Performing a lifecycle policy dry run
             href: operations/lifecycle-policy/lifecycle-policy-dry-run.md
           - name: Deleting a lifecycle policy
             href: operations/lifecycle-policy/lifecycle-policy-delete.md
@@ -103,12 +103,12 @@ items:
       - name: Signing and verifying Docker images in {{ managed-k8s-name }}
         href: tutorials/sign-cr-with-cosign.md
       - name: >-
-          Scanning vulnerabilities during continuous deployment of {{
+          Scanning for vulnerabilities during continuous deployment of {{
           managed-k8s-name }} applications using {{ GL }}
         href: tutorials/cr-scanner-with-k8s-and-gitlab.md
       - name: Continuous deployment of containerized applications using {{ GL }}
         href: tutorials/gitlab-containers.md
-      - name: Building a CI/CD pipeline in {{ GL }} with serverless products
+      - name: Building a CI/CD pipeline in {{ GL }} using serverless products
         href: tutorials/ci-cd-serverless.md
       - name: Storing Docker images created in {{ mgl-full-name }} projects
         href: tutorials/image-storage.md
@@ -120,14 +120,14 @@ items:
         href: tutorials/deploy-app-container.md
       - name: Deploying a gRPC service based on a Docker image
         href: tutorials/grpc-node.md
-      - name: Deploying a service in {{ ml-platform-name }} from a Docker image
+      - name: Deploying a service based on a Docker image in {{ ml-platform-name }}
         href: tutorials/node-from-docker.md
       - name: >-
-          Deploying a service in {{ ml-platform-name }} from a Docker image with
-          FastAPI
+          Deploying a service based on a Docker image with FastAPI in {{
+          ml-platform-name }}
         href: tutorials/node-from-docker-fast-api.md
       - name: >-
-          Setting up a {{ mpg-name }} connection from a container in {{
+          Setting up a {{ mpg-name }} connection from {{
           serverless-containers-name }}
         href: tutorials/container-pg-connect.md
       - name: Integration with {{ container-registry-name }}
@@ -268,6 +268,8 @@ items:
             href: cli-ref/registry/create.md
           - name: delete
             href: cli-ref/registry/delete.md
+          - name: force-delete
+            href: cli-ref/registry/force-delete.md
           - name: get
             href: cli-ref/registry/get.md
           - name: list
@@ -437,6 +439,8 @@ items:
                 href: cli-ref/v0/registry/create.md
               - name: delete
                 href: cli-ref/v0/registry/delete.md
+              - name: force-delete
+                href: cli-ref/v0/registry/force-delete.md
               - name: get
                 href: cli-ref/v0/registry/get.md
               - name: list
@@ -502,7 +506,7 @@ items:
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:

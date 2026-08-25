@@ -1,8 +1,9 @@
 # Развертывание сервиса на основе Docker-образа
 
-{{ ml-platform-name }} позволяет разворачивать и эксплуатировать сервисы на основе произвольного Docker-образа. 
 
-В этом практическом руководстве с помощью [ноды из Docker-образа](../../datasphere/concepts/deploy/index.md#docker-node) вы развернете сервис обнаружения объектов на изображении, основанный на [NVIDIA Triton Inference Server](https://github.com/triton-inference-server). 
+{{ ml-platform-name }} позволяет разворачивать и эксплуатировать сервисы на основе произвольного Docker-образа.
+
+В этом практическом руководстве с помощью [ноды из Docker-образа](../../datasphere/concepts/deploy/index.md#docker-node) вы развернете сервис обнаружения объектов на изображении, основанный на [NVIDIA Triton Inference Server](https://github.com/triton-inference-server).
 
 1. [Подготовьте инфраструктуру](#infra).
 1. [Подготовьте Docker-образ для развертывания сервиса](#docker).

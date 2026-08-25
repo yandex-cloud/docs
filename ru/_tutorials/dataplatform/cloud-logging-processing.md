@@ -1,5 +1,6 @@
 # Обработка логов {{ cloud-logging-full-name }}
 
+
 [{{ cloud-logging-full-name }}](../../logging/index.yaml) — это сервис, который позволяет читать и записывать логи сервисов {{ yandex-cloud }} и пользовательских приложений.
 
 Логи можно отправить в [поток](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-full-name }} и далее обработать в реальном времени с помощью {{ yq-full-name }}. Обработанные данные можно:
@@ -65,7 +66,7 @@ done
 
 1. [Создайте соединение](../../query/operations/connection.md#create) с именем `cloud-logging-connection` и типом `{{ ui-key.yql.yq-connection.action_datastreams }}`.
 1. На странице создания привязки:
-    * Выберите **{{ ui-key.yql.yq-binding-form.binding-fields-templates.button.label }} {{ cloud-logging-short-name }}**.
+    * Выберите **{{ ui-key.yql.yq-binding-form.binding-fields-templates.button.label }}** ![image](../../_assets/console-icons/chevron-down.svg) → `{{ cloud-logging-short-name }}`.
     * Введите имя привязки `cloud-logging-binding`.
     * Укажите поток данных `cloud-logging-stream`.
     * Задайте формат `json-list`.

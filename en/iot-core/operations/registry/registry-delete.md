@@ -22,7 +22,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
    To delete a registry:
 
    1. In the [management console]({{ link-console-main }}), select the folder you want to delete the registry from.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. To the right of the name of the registry to delete, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
@@ -43,6 +43,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
 	    ```
 
 	  Result:
+      
 	  ```text
       +----+------+
       | ID | NAME |
@@ -60,7 +61,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
 
   1. Open the {{ TF }} configuration file and delete the fragment with the registry description.
 
-      Example registry description in the {{ TF }} configuration:
+      Here is an example of a registry description in the {{ TF }} configuration:
 
       ```hcl
       resource "yandex_iot_core_registry" "my_registry" {
@@ -72,7 +73,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
       ```
 
       For more on the properties of the `yandex_iot_core_registry` resource, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_registry).
-  1. In the command line, change to the folder where you edited the configuration file.
+  1. In the terminal, navigate to the directory where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
       ```bash
@@ -100,7 +101,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
 
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+      You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
       ```bash
       yc iot registry list

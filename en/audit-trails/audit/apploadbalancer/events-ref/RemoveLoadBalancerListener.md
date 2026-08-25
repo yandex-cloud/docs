@@ -168,8 +168,10 @@ editable: false
             "clientCertificatesVerification": {
               "requireClientCertificate": "boolean",
               // Includes only one of the fields `bytes`
-              "bytes": "string"
+              "bytes": "string",
               // end of the list of possible fields
+              "acceptUntrusted": "boolean",
+              "allowExpired": "boolean"
             }
           },
           "sniHandlers": [
@@ -202,8 +204,10 @@ editable: false
                 "clientCertificatesVerification": {
                   "requireClientCertificate": "boolean",
                   // Includes only one of the fields `bytes`
-                  "bytes": "string"
+                  "bytes": "string",
                   // end of the list of possible fields
+                  "acceptUntrusted": "boolean",
+                  "allowExpired": "boolean"
                 }
               }
             }
@@ -597,6 +601,8 @@ The string length in characters for each value must be greater than 1. The maxim
 || bytes | **string**
 
 Includes only one of the fields `bytes`. ||
+|| acceptUntrusted | **boolean** ||
+|| allowExpired | **boolean** ||
 |#
 
 ## SniMatch {#yandex.cloud.apploadbalancer.v1.SniMatch}

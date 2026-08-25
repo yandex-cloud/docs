@@ -127,8 +127,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан нужный кластер {{ managed-k8s-name }}.
   1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Выберите кластер `kubernetes-cluster-wh`.
-  1. На странице кластера перейдите на вкладку ![nodes-management.svg](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** и нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**.
   1. Введите имя и описание группы узлов {{ managed-k8s-name }}.
   1. В поле **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** выберите версию {{ k8s }} для узлов {{ managed-k8s-name }}.
   1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_scale }}** выберите его тип:
@@ -146,7 +145,7 @@
        * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd-nonreplicated }}` — сетевой диск с повышенной производительностью, реализованной за счет устранения избыточности. Размер такого диска можно менять только с шагом 93 ГБ.
        * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd-io-m3 }}` — обладает теми же скоростными характеристиками, что и `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd-nonreplicated }}`, и одновременно обеспечивает избыточность. Размер такого диска можно менять только с шагом 93 ГБ.
 
-       Подробнее о типах дисков смотрите в [документации {{ compute-full-name }}](../../compute/concepts/disk.md#disks_types).
+       Подробнее о типах дисков смотрите в [документации {{ compute-full-name }}](../../compute/concepts/disk.md#disks-types).
      * Укажите размер дисков для узлов группы {{ managed-k8s-name }}.
   1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}**:
      * В поле **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** выберите способ назначения IP-адреса:

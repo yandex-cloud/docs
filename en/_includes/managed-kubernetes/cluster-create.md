@@ -1,5 +1,5 @@
 1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click **{{ ui-key.yacloud.k8s.clusters.button_create }}**.
 1. Enter a name and description for your {{ managed-k8s-name }} cluster. The {{ managed-k8s-name }} cluster name must be unique within {{ yandex-cloud }}.
 1. Specify a **{{ ui-key.yacloud.k8s.clusters.create.field_service-account }}** to use to create your resources.
@@ -65,8 +65,8 @@
    * In the **{{ ui-key.yacloud.k8s.MaintenanceSection.maintenance-window-field-with-none-option_tx5Wn }}** field, configure the maintenance window:
      * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-disabled }}`: Automatic updates disabled.
      * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-anytime }}`: Updates allowed at any time.
-     * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-daily }}`: Updates will take place within the time interval specified in the **{{ ui-key.yacloud.k8s.clusters.create.field_maintenance-daily }}** field.
-     * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-weekly }}`: Updates will take place within the time interval specified in the **{{ ui-key.yacloud.k8s.clusters.create.label_maintenance-weekly }}** field.
+     * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-daily }}`: Specify the start point and duration of the UTC time interval during which the update will start. This setting is not related to the update duration or its completion time.
+     * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-weekly }}`: Specify the day, start point, and duration of the UTC time interval during which the update will start. This setting is not related to the update duration or its completion time.
 1. Under **{{ ui-key.yacloud.k8s.clusters.create.section_allocation }}**:
    * Optionally, select the [network policy controller](../../managed-kubernetes/concepts/network-policy.md#policy-controllers):
 

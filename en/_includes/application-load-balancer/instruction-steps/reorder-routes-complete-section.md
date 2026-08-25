@@ -3,13 +3,14 @@
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) in which you are going to reorder virtual host.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Navigate]({{ link-console-main }}/link/application-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, click ![route](../../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}** and select the [HTTP router](../../../application-load-balancer/concepts/http-router.md) that contains the virtual host.
   1. On the page that opens, under **{{ ui-key.yacloud.alb.label_virtual-hosts }}**, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) next to the virtual host and select ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. If you want to change the route order, click **{{ ui-key.yacloud.alb.button_routes-sort }}** and in the window that opens:
   
       1. Drag and drop routes to arrange them in desired order.
       1. Click **{{ ui-key.yacloud.common.save }}**.
+  
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -17,6 +18,7 @@
   The {{ yandex-cloud }} CLI currently does not have a dedicated command for reordering routes in a virtual host.
   
   To reorder routes via the CLI, follow these steps:
+  
   1. [Delete](../../../application-load-balancer/operations/manage-routes.md#delete-route) the route in question from the virtual host.
   1. [Add](../../../application-load-balancer/operations/manage-routes.md#create-route) the route again to the appropriate place in the route list.
 
@@ -33,6 +35,7 @@
       {% include [tf-route-reorder-delete-route](./tf-route-reorder-delete-route.md) %}
 
       The properties of the resources are covered in this {{ TF }} provider guide: [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host).
+  
   1. Update the resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

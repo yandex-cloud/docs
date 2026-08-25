@@ -1529,7 +1529,9 @@ Includes only one of the fields `staticQuota`, `dynamicQuota`. ||
 || action | **enum** (Action)
 
 - `DENY`
-- `CAPTCHA` ||
+- `CAPTCHA`
+- `JS_CHALLENGE`
+- `COOKIE_CHALLENGE` ||
 || condition | **[Condition](#yandex.cloud.audit.smartwebsecurity.Condition)** ||
 || limit | **string** (int64) ||
 || period | **string** (int64) ||
@@ -1793,7 +1795,9 @@ Includes only one of the fields `leMatch`, `geMatch`, `eqMatch`, `neMatch`. ||
 || action | **enum** (Action)
 
 - `DENY`
-- `CAPTCHA` ||
+- `CAPTCHA`
+- `JS_CHALLENGE`
+- `COOKIE_CHALLENGE` ||
 || condition | **[Condition](#yandex.cloud.audit.smartwebsecurity.Condition)** ||
 || limit | **string** (int64) ||
 || period | **string** (int64) ||

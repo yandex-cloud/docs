@@ -96,4 +96,4 @@ description: Follow this guide to run an InfiniBand throughput test on a single 
 
 #### Useful links {#see-also}
 
-* [Questions about GPUs](../../../compute/qa/gpu.md)
+[Questions about GPUs](../../../compute/qa/gpu.md)

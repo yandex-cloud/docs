@@ -10,9 +10,10 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storedoc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mongodb.cluster.switch_users }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
   1. Введите имя пользователя `user2` и пароль (от 8 до 128 символов).
+  1. Включите защиту пользователя от удаления.
   1. Выберите базу данных `db1` из выпадающего списка **{{ ui-key.yacloud.mdb.dialogs.button_add-database }}**.
   1. Выберите роль `read` из выпадающего списка напротив базы данных `db1`.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-add_button_add }}**.
@@ -72,8 +73,8 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storedoc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-  1. Нажмите на имя кластера `cluster1` и выберите вкладку ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}**.
-  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке пользователя `user1` и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+  1. Нажмите на имя кластера `cluster1` и выберите вкладку **{{ ui-key.yacloud.mongodb.cluster.switch_users }}**.
+  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке пользователя `user1` и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.button_add-database }}** и выберите базу данных `db2`.
   1. Нажмите ![image](../../_assets/console-icons/plus.svg) и выберите роль `read` из выпадающего списка напротив базы данных `db2`.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.

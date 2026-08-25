@@ -57,4 +57,4 @@ description: Сервис {{ schema-registry-name }} реализует API Conf
 
 * [Справочник API Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/develop/api.html#schemaregistry-api)
 * [Примеры использования API Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/develop/using.html#schemaregistry-using)
-* [Пpактическое руководство по использованию curl для взаимодействия с Schema Registry](https://docs.confluent.io/platform/current/schema-registry/schema_registry_onprem_tutorial.html#tutorial-use-curl-with-schema-registry)
+* [Практическое руководство по использованию curl для взаимодействия с Schema Registry](https://docs.confluent.io/platform/current/schema-registry/schema_registry_onprem_tutorial.html#tutorial-use-curl-with-schema-registry)

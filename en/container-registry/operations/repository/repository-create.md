@@ -41,14 +41,14 @@ To create a repository:
      }
      ```
 
-     Where `--repository-name` is the repository name in `<registry_ID>/<repository_name>` format. You can retrieve [registry](../../concepts/registry.md) ID from the [folder registry list](../registry/registry-list.md#registry-list).
+     Where `--repository-name` is the repository name in `<registry_ID>/<repository_name>` format. You can get the [registry](../../concepts/registry.md) ID from the [list of registries in the folder](../registry/registry-list.md#registry-list).
 
      For more on the properties of the `yandex_container_repository` resource, see [this provider guide]({{ tf-provider-resources-link }}/container_repository).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources. You can check the new resources in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/) command:
+     {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
      ```bash
      yc container repository list --registry-id <registry_ID>

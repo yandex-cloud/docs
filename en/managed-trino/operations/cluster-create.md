@@ -32,7 +32,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a {{ mtr-name }} cluster.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. [Navigate]({{ link-console-main }}/link/managed-trino) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
@@ -57,12 +57,18 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         1. Select a [network](../../vpc/operations/network-create.md), [subnet](../../vpc/operations/subnet-create.md), and [security group](../../vpc/concepts/security-groups.md) for the cluster.
         1. Optionally, enable the **{{ ui-key.yacloud.trino.label_private-access }}** parameter to make the cluster accessible only via a [service connection](../concepts/network.md#private-endpoint).
 
-    1. Under **Retry policy**, specify the [fault-tolerant query execution](../concepts/retry-policy.md) parameters:
+    1. Optionally, under **Retry policy**, specify the [fault-tolerant query execution](../concepts/retry-policy.md) parameters:
         1. Select an **Object type for retry**.
            * **Task**: Retries the intermediate task within the query that caused worker failure.
            * **Query**: Retries all [stages of the query](../concepts/index.md#query-execution) where worker failure occurred.
         1. Optionally, specify additional parameters in `key: value` format in the **Retry parameters** field. Learn more about parameters in [this {{ TR }} guide](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
         1. Optionally, specify additional Exchange Manager storage parameters in `key: value` format in the **Storage parameters** field. Learn more about parameters in [this {{ TR }} guide](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
+
+        {% note warning %}
+        
+        This setting affects query performance.
+        
+        {% endnote %}
 
     1. Configure the [coordinator](../concepts/index.md#coordinator) and [workers](../concepts/index.md#workers).
     1. Optionally, under **{{ ui-key.yacloud.trino.title_catalogs }}**, add [{{ TR }} catalogs](../concepts/index.md#catalog). You can do this either when creating the cluster or later. For more information, see [Creating a {{ TR }} catalog](catalog-create.md).

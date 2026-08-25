@@ -1,8 +1,14 @@
+
+{% note tip %}
+
+{% include [cli-install-without-access](cli-install-without-access.md) %}
+
+{% endnote %}
+
+
 {% list tabs group=operating_system %}
 
 - Linux {#linux}
-
-    {% include [cli-prepare-step-tip](cli-prepare-step-tip.md) %}
 
     1. Run this command:
 
@@ -12,17 +18,13 @@
 
         The script will install the CLI and add the executable file path to the `PATH` environment variable.
 
-        {% note info %}
+        {% note info "Features" %}
 
-        The script will update `PATH` only if you run it in the `bash` or `zsh` command shell.
+        * The script will update the `PATH` variable only if you run it in the `bash` or `zsh` command shell.
 
-        If you run the script in a different shell, add the CLI path to the `PATH` variable yourself.
+          If you run the script in a different shell, add the CLI path to the `PATH` variable yourself.
 
-        {% endnote %}
-
-        {% note warning %}
-
-        For autocompletion to work correctly when using `zsh`, you need the shell version 5.1 or higher. If using `bash` on CentOS and derivative distributions, install the `bash-completion` package.
+        * For autocompletion to work correctly when using `zsh`, you need the shell version 5.1 or higher. If using `bash` on CentOS and derivative distributions, install the `bash-completion` package.
 
         {% endnote %}
 
@@ -30,8 +32,6 @@
 
 - macOS {#macos}
 
-    {% include [cli-prepare-step-tip](cli-prepare-step-tip.md) %}
-
     1. Run this command:
 
         ```bash
@@ -39,15 +39,22 @@
         ```
 
         The script will install the CLI and add the executable file path to the `PATH` environment variable.
+
+        This command runs the installation script using `bash`. The script detects the user's command shell via the `SHELL` variable and adds the configurations for `zsh` to `~/.zshrc`.
+
     1. Restart your terminal for the changes to take effect.
 
 - Windows {#windows}
 
-    {% include [cli-prepare-step-tip](cli-prepare-step-tip.md) %}
+    For Windows, you can install the CLI using PowerShell or `cmd.exe`. In both cases, the installation script runs in PowerShell.
 
-    For Windows, you can install the CLI using PowerShell or command line:
+    {% note warning %}
 
-    - To install using PowerShell:
+    {% include [cli-powershell-execution-policy](cli-powershell-execution-policy.md) %}
+
+    {% endnote %}
+
+    - Installation using PowerShell:
 
         1. Run this command:
 
@@ -55,7 +62,7 @@
             
             
             ```powershell
-            iex (New-Object System.Net.WebClient).DownloadString('https://{{ s3-storage-host }}{{ yc-windows-path }}')
+            Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://{{ s3-storage-host }}{{ yc-windows-path }}')
             ```
 
 
@@ -68,7 +75,7 @@
 
         1. Enter `Y`. After this, you can use the {{ yandex-cloud }} CLI without restarting the command shell.
 
-    - To install using the command line:
+    - Installation from `cmd.exe`:
 
         1. Run this command:
 
@@ -76,12 +83,12 @@
             
             
             ```batch
-            @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://{{ s3-storage-host }}{{ yc-windows-path }}'))" && SET "PATH=%PATH%;%USERPROFILE%\yandex-cloud\bin"
+            @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://{{ s3-storage-host }}{{ yc-windows-path }}'))" && SET "PATH=%PATH%;%USERPROFILE%\yandex-cloud\bin"
             ```
 
 
 
-        1. The installation script will ask whether to add the path to `yc` to the PATH variable:
+        1. When prompted by the installation script, confirm whether to add the `yc` path to the PATH variable:
         
             ```batch
             Add yc installation dir to your PATH? [Y/n]
@@ -89,6 +96,10 @@
 
         1. Enter `Y`.
         1. Restart your terminal for the changes to take effect.
+
+        
+    For more information, see [{#T}](../../overview/concepts/console-syntax-guide.md).
+    
 
 {% endlist %}
 
@@ -283,4 +294,4 @@ The CLI supports command autocompletion for the `bash`, `zsh`, and PowerShell co
 
 {% endlist %}
 
-If you get an error during CLI installation, see [CLI troubleshooting](../../cli/error.md#failure-writing-output-to-destination).
+If you get an error during CLI installation, refer to [{#T}](../../cli/error.md#installation-errors).

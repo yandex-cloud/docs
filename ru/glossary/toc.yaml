@@ -63,6 +63,8 @@ items:
     items:
       - name: Big Data
         href: bigdata.md
+      - name: Дата-центр
+        href: data-center.md
       - name: Data Vault
         href: datavault.md
       - name: S3
@@ -93,6 +95,8 @@ items:
         href: ci-cd.md
       - name: Спринт
         href: sprints.md
+      - name: Диаграмма Ганта
+        href: gantt-chart.md
   - name: Сети и доставка контента
     items:
       - name: CDN

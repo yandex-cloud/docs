@@ -12,7 +12,7 @@ description: Следуя этой инструкции, вы измените �
     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
     1. [Перейдите]({{ link-console-main }}/link/managed-trino) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Нажмите на имя нужного кластера.
-    1. На панели слева выберите ![image](../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.trino.title_catalogs }}**.
+    1. Перейдите на вкладку **{{ ui-key.yacloud.trino.title_catalogs }}**.
     1. В строке с нужным каталогом {{ TR }} нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.common.edit }}**.
     1. Измените параметры каталога {{ TR }} и нажмите кнопку **{{ ui-key.yacloud.common.update }}**.
 
@@ -41,7 +41,7 @@ description: Следуя этой инструкции, вы измените �
             --new-name <новое_имя_каталога_{{ TR }}>
         ```
 
-        Имя каталога {{ TR }} можно запросить со [списком каталогов {{ TR }} в кластере](catalog-list#list-catalogs.md).
+        Имя каталога {{ TR }} можно запросить со [списком каталогов {{ TR }} в кластере](catalog-list.md#list-catalogs).
 
         В команде также можно передать настройки каталога {{ TR }}, которые зависят от типа коннектора. [Подробнее о настройках для разных типов коннекторов](catalog-create.md#catalog-settings).
 

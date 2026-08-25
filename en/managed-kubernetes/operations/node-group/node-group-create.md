@@ -69,7 +69,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
      * `--cluster-name`: Name of the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) to create the node group in.
      * `--cores`: Number of vCPUs for {{ managed-k8s-name }} nodes.
      * `--core-fraction`: [Guaranteed vCPU share](../../../compute/concepts/performance-levels.md) for {{ managed-k8s-name }} nodes.
-     * `--daily-maintenance-window`: [Maintenance](../../concepts/release-channels-and-updates.md#updates) window settings.
+     * `--daily-maintenance-window`: Start point and duration of the UTC time interval during which the [update](../../concepts/release-channels-and-updates.md#updates) will start. This setting is not related to the update duration or its completion time.
      * `--disk-size`: [Disk size](../../../compute/concepts/disk.md#maximum-disk-size) of the {{ managed-k8s-name }} node.
      * `--disk-type`: [Disk type](../../../compute/concepts/disk.md#disks_types) of the {{ managed-k8s-name }} node, `network-nvme` or `network-hdd`.
      * Type of scaling:
@@ -485,7 +485,7 @@ Create a node group for the {{ managed-k8s-name }} cluster with the following te
     * Maximum number of nodes by which you can expand the group when modifying or updating it: `3`.
     * Maximum number of nodes that may be unavailable while the group is being modified or updated: `1`.
 * RAM: 2 GB.
-* [Update](../../concepts/release-channels-and-updates.md#updates) time: From 22:00 to 08:00 UTC.
+* [Update](../../concepts/release-channels-and-updates.md#updates) start window: start time 22:00 UTC, duration not more than ten hours. The window parameters are not related to the duration and completion time of the actual update.
 * [Network acceleration](../../../compute/concepts/software-accelerated-network.md) type: `standard` (no acceleration).
 * Network settings:
   * [Security group ID](../../../vpc/operations/security-group-get-info.md), e.g., `{{ security-group }}`.
@@ -599,7 +599,7 @@ Create a node group for the {{ managed-k8s-name }} cluster with the following te
 
 {% endlist %}
 
-### Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./node-group-create-in-instance-pool.md)
 * [{#T}](../../concepts/index.md#node-group)

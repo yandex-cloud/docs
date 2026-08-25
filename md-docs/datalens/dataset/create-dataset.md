@@ -34,13 +34,11 @@
 
 
 
-
 - Воркбук
 
   1. Перейдите на [страницу коллекций и воркбуков](https://datalens.ru/collections).
   1. Откройте [воркбук](../workbooks-collections/index.md), в котором хотите создать датасет.
   1. В правом верхнем углу нажмите кнопку **Создать** и выберите **Датасет**.
-
 
 - Панель навигации
 
@@ -441,6 +439,10 @@
 
 1. Вверху датасета нажмите ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/trash-bin.svg) **Удалить**.
 1. Нажмите кнопку **Удалить**.
+
+
+Вы можете [восстановить](../workbooks-collections/workbooks-operations.md#restore-objects) датасет, удаленный из воркбука.
+
 
 #### Полезные ссылки {#see-also}
 

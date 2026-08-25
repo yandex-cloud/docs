@@ -2,6 +2,7 @@
 
 # Выгрузить логи в Data Streams
 
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

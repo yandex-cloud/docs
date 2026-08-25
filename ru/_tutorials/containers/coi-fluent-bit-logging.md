@@ -1,5 +1,6 @@
 # Передача логов с {{ coi }} в {{ cloud-logging-full-name }}
 
+
 Обработчик логов [Fluent Bit](https://fluentbit.io/) позволяет транслировать логи с [виртуальных машин](../../compute/concepts/vm.md), созданных из образов {{ coi }}, в сервис [{{ cloud-logging-full-name }}](../../logging/). Для передачи логов используется модуль [Fluent Bit plugin for {{ cloud-logging-full-name }}](https://github.com/yandex-cloud/fluent-bit-plugin-yandex).
 
 Чтобы настроить передачу логов с ВМ, созданной из образа {{ coi }}:
@@ -221,7 +222,7 @@ if __name__ == '__main__':
 
    В секции `SERVICE` указаны настройки приложения Fluent Bit. [Подробнее о настройках](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit).
 
-   В секции `INPUT` указано, откуда и как забирать логи. Для работы с логами в формате Fluentd и Fluent Bit используется протокол `forward`. Fluent Bit слушает логи на порту 24224.
+   В секции `INPUT` указано, откуда и как забирать логи. Для работы с логами в формате Fluentd и Fluent Bit используется протокол `forward`. Fluent Bit слушает логи на порте 24224.
 
    В секции `PARSER` описан парсер `regex`. В нем задано регулярное выражение, с помощью которого обрабатываются записи:
    * `req_id` — уникальный идентификатор запроса.

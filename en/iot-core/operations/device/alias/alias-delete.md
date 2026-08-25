@@ -16,7 +16,7 @@ Aliases are linked to specific devices. To delete an alias, you need to [find th
    To delete an alias:
 
    1. In the [management console]({{ link-console-main }}), select the folder you want to delete the alias from.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the required registry from the list.
    1. Select **{{ ui-key.yacloud.iot.label_devices }}** in the left pane of the window.
    1. To the right of the device name, click ![image](../../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
@@ -36,6 +36,7 @@ Aliases are linked to specific devices. To delete an alias, you need to [find th
     ```
 
 	Result:
+    
 	```bash
 	id: arenak5ciqss********
     registry_id: arenou2oj4ct********
@@ -53,7 +54,7 @@ Aliases are linked to specific devices. To delete an alias, you need to [find th
   
   1. Open the {{ TF }} configuration file and delete the value of the alias in the `aliases` section, where the device description is located. To remove all aliases, delete the entire `aliases` section.
 
-      Example device description in the {{ TF }} configuration:
+      Here is an example of a device description in the {{ TF }} configuration:
 
       ```hcl
       resource "yandex_iot_core_device" "my_device" {
@@ -70,7 +71,7 @@ Aliases are linked to specific devices. To delete an alias, you need to [find th
       ```
 
       For more on the properties of the `yandex_iot_core_device` resource, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_device).
-  1. In the command line, change to the folder where you edited the configuration file.
+  1. In the terminal, navigate to the directory where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
       ```bash

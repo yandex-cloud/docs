@@ -1,10 +1,10 @@
 # Creating a VM from a {{ coi }} with multiple Docker containers
 
-In this tutorial, you will create a VM with multiple Docker containers from a [{{ coi }}](../../cos/concepts/index.md) image. You will be creating your VM using the [Docker Compose specification](../../cos/concepts/coi-specifications.md#compose-spec).
+In this tutorial, you will create a VM from a [{{ coi }}](../../cos/concepts/index.md) with multiple Docker containers inside. You will use a [Docker Compose specification](../../cos/concepts/coi-specifications.md#compose-spec) to create your VM.
 
 ## Getting started {#before-you-begin}
 
-If the required Docker image has been pushed to {{ container-registry-full-name }}, create a [service account](../../iam/operations/sa/create.md) with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the registry in use. A {{ coi }} VM will pull the Docker image from the registry under this account.
+If the Docker image you need is stored in {{ container-registry-full-name }}, create a [service account](../../iam/operations/sa/create.md) with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the registry in question. Your {{ coi }} VM will use this account to pull the Docker image from the registry.
 
 ## Create a VM with multiple Docker containers {#docker-compose}
 
@@ -16,14 +16,14 @@ If the required Docker image has been pushed to {{ container-registry-full-name 
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To create a {{ coi }} VM with multiple Docker containers from:
-  1. View the description of the CLI command for creating a {{ coi }} VM:
+  To create a VM from a {{ coi }} with multiple Docker containers:
+  1. See the description of the CLI command for creating a {{ coi }} VM:
 
      ```bash
      yc compute instance create-with-container --help
      ```
 
-  1. Create a Docker container specification. Save the following data to the `docker-compose.yaml` file:
+  1. Set up a Docker container specification. Save the following data to the `docker-compose.yaml` file:
 
      ```yaml
      version: '3.7'
@@ -56,7 +56,7 @@ If the required Docker image has been pushed to {{ container-registry-full-name 
      Where:
      * `--name`: VM name.
      * `--zone`: Availability zone.
-     * `--ssh-key`: Path to the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file and its name.
+     * `--ssh-key`: Path to the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file and file name.
      * `--create-boot-disk size`: Boot disk size.
 
         {% include [min-disk-size](../../_includes/cos/min-disk-size.md) %}

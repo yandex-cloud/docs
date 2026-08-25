@@ -11,8 +11,8 @@ description: How do I get my activity logs in {{ iot-full-name }}? Find answers 
 
 #### How do I test message delivery? {#check-message-was-delivered}
 
-To make sure the MQTT server has received a [sent message](../operations/publish.md), specify additional debugging parameters in the send message command. As a result, you will get a detailed command output.
+To verify that the MQTT server has received the [published message](../operations/publish.md), specify additional debug options in the publish command. As a result, the command will provide detailed output.
 
-To test {{ iot-full-name }}, use messaging and device subscription at the same time. If you subscribe a [registry](../concepts/index.md#registry) to a [device topic](../concepts/topic/devices-topic.md) and send a message to this topic, the registry will receive the message.
+To test {{ iot-full-name }}, use messaging and device subscription at the same time. If you subscribe a [registry](../concepts/index.md#registry) to a [device topic](../concepts/topic/devices-topic.md) and send a message to that topic, the registry will receive the message.
 
 For more information, see [{#T}](../tutorials/message-delivery-check.md).

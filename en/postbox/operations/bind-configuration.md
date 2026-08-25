@@ -9,7 +9,7 @@ To apply your configuration to an individual email, provide the configuration na
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder with your address and configuration.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
+    1. [Navigate]({{ link-console-main }}/link/postbox) to **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/at.svg) **{{ ui-key.yacloud.postbox.label_identities }}**.
     1. Select an address to link the configuration to.
     1. Click **{{ ui-key.yacloud.common.edit }}**.
@@ -43,6 +43,6 @@ To apply your configuration to an individual email, provide the configuration na
 
 {% endlist %}
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
-* [Create a configuration](create-configuration.md)
+[Create a configuration](create-configuration.md)

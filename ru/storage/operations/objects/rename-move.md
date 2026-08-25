@@ -1,9 +1,9 @@
 ---
-title: Переименование и перемещение объекта в {{ objstorage-full-name }}
+title: Переименовать и переместить объект в {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете переименовать или переместить объект в бакете в {{ objstorage-name }}.
 ---
 
-# Переименование и перемещение объекта
+# Переименовать и переместить объект
 
 
 {% include [encryption-roles](../../../_includes/storage/encryption-roles.md) %}

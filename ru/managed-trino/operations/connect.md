@@ -106,7 +106,7 @@ keywords:
 1. В [консоли управления]({{ link-console-main }}) выберите каталог.
 1. [Перейдите]({{ link-console-main }}/link/managed-trino) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
 1. Откройте ваш кластер {{ mtr-name }}.
-1. Перейдите в раздел **{{ ui-key.yacloud.mdb.cluster.switch_explore-websql }}**.
+1. Перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.switch_explore-websql }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.websql-connections.action_go-to-websql }}**.
 1. В открывшемся редакторе SQL-запросов выполните запрос:
 

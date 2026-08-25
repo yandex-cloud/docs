@@ -12,13 +12,13 @@ description: Follow this guide to mount an ephemeral disk in a function in {{ sf
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Select the function.
   1. In the left-hand menu, select ![image](../../../_assets/console-icons/pencil-to-square.svg) **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}**.
   1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.title_ephemeral-storage }}**:
 
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.label_add-ephemeral-storage }}**.
-      1. Specify the following:
+      1. Specify the following fields:
 
           * **{{ ui-key.yacloud.serverless-functions.item.editor.label_mount-point-name }}**: Name of the mount point. The directory with the mounted ephemeral disk will be accessible at `/function/storage/<mount_point>`.
           * **{{ ui-key.yacloud.serverless-functions.item.editor.label_ephemeral-storage-size }}**: Amount of memory you want to allocate for the ephemeral disk you are mounting.
@@ -114,7 +114,7 @@ description: Follow this guide to mount an ephemeral disk in a function in {{ sf
 
 {% endlist %}
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/mounting.md)
 * [{#T}](../../../serverless-containers/concepts/mounting.md)

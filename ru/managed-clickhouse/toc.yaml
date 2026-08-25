@@ -196,6 +196,10 @@ items:
         href: tutorials/jdbc-ch-to-sql-server-integration.md
       - name: Интеграция с внешней базой данных Oracle через {{ CH }} JDBC Bridge
         href: tutorials/jdbc-ch-to-oracle-integration.md
+      - name: >-
+          Выполнение аналитических запросов в {{ mpg-name }} с обработкой в {{
+          mch-name }}
+        href: tutorials/mpg-pg-clickhouse-extension.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
@@ -245,6 +249,8 @@ items:
         href: concepts/settings-list.md
   - name: Управление доступом
     href: security.md
+  - name: Инспекции и рекомендации
+    href: advisor.md
   - name: Правила тарификации
     href: pricing.md
   - name: Справочник CLI (англ.)

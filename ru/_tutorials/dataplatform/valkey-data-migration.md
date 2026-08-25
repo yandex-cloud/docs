@@ -315,8 +315,6 @@
 
             Во время работы скрипта будут выводиться сообщения об ошибках вставки данных. Это нормальное поведение команды `redis-cli`, связанное с тем, что в шардированном кластере каждый шард хранит только часть данных. Подробнее в разделе [{#T}](../../managed-valkey/concepts/sharding.md).
 
-        {% endcut %}
-
     {% endlist %}
 
 1. Завершите интерактивную сессию `screen`:
@@ -329,7 +327,7 @@
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, где нужно восстановить кластер.
 1. [Перейдите]({{ link-console-main }}/link/managed-redis) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-1. Нажмите на имя нужного кластера и выберите вкладку [{{ ui-key.yacloud.redis.cluster.switch_monitoring }}](../../managed-valkey/operations/monitoring.md).
+1. Нажмите на имя нужного кластера и выберите ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → [{{ ui-key.yacloud.redis.cluster.switch_monitoring }}](../../managed-valkey/operations/monitoring.md).
 
 Обратите внимание на график **DB Keys**, отображающий количество ключей, хранящихся в кластере. Если кластер [шардированный](../../managed-valkey/concepts/sharding.md), на графике будет выводиться количество ключей в каждом шарде. В этом случае количество ключей в кластере равно суммарному количеству ключей в шардах.
 

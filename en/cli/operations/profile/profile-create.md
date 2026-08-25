@@ -3,7 +3,7 @@ title: How to create a profile in the {{ yandex-cloud }} CLI
 description: Follow this guide to create a profile in the CLI.
 ---
 
-# Creating a profile
+# Creating a {{ yandex-cloud }} CLI profile
 
 There are two ways to create a profile:
 
@@ -27,6 +27,16 @@ You can stop profile creation at any time. All the settings you entered before s
 
 
 If you are not connected to the management console yet, log in to the [console]({{ link-console-main }}) and accept the user agreement by clicking **Log in**.
+
+{% include [note-auth-without-gui](../../../_includes/cli/note-auth-without-gui.md) %}
+
+
+{% note tip %}
+
+{% include [cli-proxy-setup](../../../_includes/cli/cli-proxy-setup.md) %}
+
+{% endnote %}
+
 
 {% list tabs group=authentication %}
 

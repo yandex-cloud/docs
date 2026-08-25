@@ -209,8 +209,8 @@ To connect to a cluster using IAM authentication:
 
     - Management console {#console}
 
-      1. Open the [folder dashboard]({{ link-console-main }}).
-      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+      1. In the [management console]({{ link-console-main }}), select a folder.
+      1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
       1. Select the cluster.
       1. Assign the {{ yandex-cloud }} account the `managed-mongodb.clusters.connector` role for the cluster:
          
@@ -285,20 +285,22 @@ To connect to a cluster using IAM authentication:
 
 ## Connecting from graphical IDEs {#connection-ide}
 
+
 {% include [ide-environments](../../../_includes/mdb/mmg-ide-envs.md) %}
 
-
 From graphical IDEs, you can only connect to public cluster hosts using an SSL certificate.
-
 
 {% include [note-connection-ide](../../../_includes/mdb/note-connection-ide.md) %}
 
 ### DataGrip {#datagrip}
 
 1. Create a data source:
+   
    1. Select **File** → **New** → **Data Source** → **{{ MG }}**.
    1. On the **General** tab:
+      
       1. Configure the connection as follows:
+         
          * **User**, **Password**: Database user name and password.
          * **URL**: Connection string.
 
@@ -317,9 +319,12 @@ From graphical IDEs, you can only connect to public cluster hosts using an SSL c
               {% include [see-fdqn-host](../../../_includes/mdb/mmg/fqdn-host.md) %}
 
       1. Click **Download** to download the connection driver.
+   
    1. On the **SSH/SSL** tab:
+      
       1. Enable **Use SSL**.
       1. In the **CA file** field, specify the path to the [SSL certificate for your connection](./index.md#get-ssl-cert).
+
 1. Click **Test Connection**. If the connection is successful, you will see the connection status and information about the DBMS and driver.
 1. Click **OK** to save the data source.
 
@@ -330,10 +335,12 @@ Connections to {{ SD }} clusters are only available in [DBeaver commercial editi
 To connect to your cluster:
 
 1. Create a new database connection:
+   
    1. In the **Database** menu, select **New connection**.
    1. Select **{{ MG }}** from the database list.
    1. Click **Next**.
    1. On the **Main** tab, specify the connection settings:
+      
       1. Under **Address**, change **Type** to `URL` and specify the connection string.
 
            For a non-sharded cluster:
@@ -352,12 +359,16 @@ To connect to your cluster:
 
       1. In the **Device** list, select the `SCRAM-SHA-256` password encryption type for the connection.
       1. Under **Authentication**, specify the database user name and password.
+   
    1. On the **SSL** tab:
+      
       1. Enable **Use SSL**.
       1. In the **Root certificate** field, specify the path to your saved [SSL certificate](./index.md#get-ssl-cert) file.
       1. Under **Settings**, check **Skip hostname validation**.
+
 1. Click **Test connection ...**. If the connection is successful, you will see the connection status, DBMS information, and driver details.
 1. Click **Ready** to save the database connection settings.
+
 
 ## Before you connect from a Docker container {#connection-docker}
 

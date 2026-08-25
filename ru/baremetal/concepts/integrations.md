@@ -105,15 +105,13 @@ description: На странице приведен список сервисо�
 
 ## {{ dns-full-name }} {#cloud-dns}
 
-[{{ dns-full-name }}](../../dns/index.yaml) используется при настройке DNS-форвардера в подсети {{ vpc-name }}. DNS-форвардер принимает запросы из приватного сегмента {{ baremetal-name }} и перенаправляет их к DNS-резолверам {{ vpc-name }}.
-
-Такой форвардер нужен, чтобы разрешать FQDN облачных сервисов из приватной сети {{ baremetal-name }}.
+[{{ dns-full-name }}](../../dns/index.yaml) позволяет разрешать доменные имена из внутренних DNS-зон {{ yandex-cloud }} на серверах {{ baremetal-name }}. Для этого в облачной сети {{ vpc-name }} создается [входящее DNS-подключение](../../dns/concepts/dns-connection.md#dns-inbound), а его IP-адрес указывается в качестве DNS-сервера на сервере {{ baremetal-name }}.
 
 Руководство: [{#T}](../tutorials/bm-vpc-dns-forwarder.md).
 
 ## {{ mpg-full-name }} {#managed-postgresql}
 
-[{{ mpg-full-name }}](../../managed-postgresql/index.yaml) может быть доступен из приватной сети {{ baremetal-name }} по FQDN после настройки сетевой связности с {{ vpc-name }} и DNS-форвардера.
+[{{ mpg-full-name }}](../../managed-postgresql/index.yaml) может быть доступен из приватной сети {{ baremetal-name }} по FQDN после настройки сетевой связности с {{ vpc-name }} и входящего DNS-подключения.
 
 Это позволяет подключать приложения на физических серверах к управляемой базе данных без привязки к изменяемым IP-адресам хостов кластера.
 

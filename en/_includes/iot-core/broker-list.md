@@ -3,7 +3,7 @@
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to get a list of brokers.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+  1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
   1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**. A list of brokers will be displayed on the **{{ ui-key.yacloud.iot.label_brokers }}** page.
 
 - CLI {#cli}

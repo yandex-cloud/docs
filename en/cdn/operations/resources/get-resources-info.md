@@ -9,7 +9,7 @@ title: How to get information about a resource in {{ cdn-full-name }}
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your [resource](../../concepts/resource.md).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Navigate]({{ link-console-main }}/link/cdn) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. Select a CDN resource.
   1. The **{{ ui-key.yacloud.common.overview }}** page will show the resource details.
 
@@ -119,7 +119,7 @@ title: How to get information about a resource in {{ cdn-full-name }}
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your resource.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Navigate]({{ link-console-main }}/link/cdn) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. Select the CDN resource you created.
   1. Under **{{ ui-key.yacloud.common.overview }}** on the **{{ ui-key.yacloud.cdn.label_dns-settings_title }}** page, you will see a domain name in `{{ cname-example-yc }}` format.
 

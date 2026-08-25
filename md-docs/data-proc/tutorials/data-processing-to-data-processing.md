@@ -53,7 +53,7 @@
        1. Создайте бакет для исходных данных и предоставьте сервисному аккаунту кластера разрешение `READ` для этого бакета.
        1. Создайте бакет для результатов обработки и предоставьте сервисному аккаунту кластера разрешение `READ и WRITE` для этого бакета.
     1. [Создайте облачную сеть](../../vpc/operations/network-create.md) с именем `dataproc-network`.
-    1. В сети `dataproc-network` [создайте подсеть](../../vpc/operations/subnet-create.md) в любой зоне доступности.
+    1. В сети `dataproc-network` [создайте подсеть](../../vpc/operations/subnet-create.md) в любой [зоне доступности](../../overview/concepts/geo-scope.md).
     1. [Настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md) для созданной подсети.
     1. [Создайте два кластера Yandex Data Processing](../operations/cluster-create.md) с именами `dataproc-source` и `dataproc-target`, с любой [подходящей конфигурацией хостов](../concepts/instance-types.md) и следующими настройками:
 
@@ -138,7 +138,7 @@
 
 1. [Добавьте в настройки кластеров](../operations/cluster-update.md) Yandex Data Processing свойство `spark:spark.hive.metastore.uris` со значением `thrift://<IP-адрес_кластера_Apache Hive™ Metastore>:9083`.
 
-   Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, откройте [консоль управления](https://console.yandex.cloud), затем [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub** и на левой панели выберите страницу ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**. Для нужного кластера скопируйте значение из колонки **IP-адрес**.
+   Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, откройте [консоль управления](https://console.yandex.cloud), затем [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub** и в блоке **Управляйте метаданными** выберите **Metastore-сервер**. Для нужного кластера скопируйте значение из колонки **IP-адрес**.
 
 ## Создайте тестовую таблицу {#create-table}
 

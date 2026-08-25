@@ -159,7 +159,7 @@ Syntax:
 
 - [yc baremetal v2](v2/index.md) — Manage Baremetal resources
 
-  - [yc baremetal v2 configuration](v2/configuration.md) — A set of methods to retrieve information about Configuration resources.
+
 
 - [yc baremetal vrf](vrf/index.md) — A set of methods for managing VRF resources.
 

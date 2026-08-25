@@ -70,7 +70,7 @@ PUT /{bucket}/{key}?partNumber=PartNumber&uploadId=UploadId HTTP/2
 
 * [Составная (multipart) загрузка](../../../concepts/multipart.md)
 
-* [Загрузка в бакет составных частей объекта](../../../operations/objects/multipart-upload.md#upload-parts)
+* [Загрузить в бакет составные части объекта](../../../operations/objects/multipart-upload.md#upload-parts)
 
 #### Полезные ссылки {#see-also}
 

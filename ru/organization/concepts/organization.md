@@ -37,12 +37,12 @@ _Организация_ — это высший ресурс в иерархи�
 
 Большинство сервисов {{ yandex-cloud }} хранят свои ресурсы в [каталогах](../../resource-manager/concepts/resources-hierarchy.md#folder) внутри [организации](organization.md). Однако некоторые сервисы обособлены от общей ресурсно-ролевой модели. Они работают на уровне организации и могут обмениваться данными с другими сервисами в рамках одной организации. К таким сервисам относятся:
 
-* [{{ tracker-full-name }}]({{ link-tracker }});
-* [{{ datalens-full-name }}]({{ link-datalens-main-promo }});
-* [{{ wiki-full-name }}]({{ link-wiki }});
-* [{{ forms-full-name }}]({{ link-forms-b2b }});
-* [{{ ml-platform-full-name }}]({{ link-datasphere-main }});
-* [{{ speechsense-full-name }}]({{ link-speechsense-main }}).
+* [{{ tracker-full-name }}]({{ link-tracker }})
+* [{{ datalens-full-name }}]({{ link-datalens-main-promo }})
+* [{{ wiki-full-name }}]({{ link-wiki }})
+* [{{ forms-full-name }}]({{ link-forms-b2b }})
+* [{{ ml-platform-full-name }}]({{ link-datasphere-main }})
+* [{{ speechsense-full-name }}]({{ link-speechsense-main }})
 
 Чтобы перейти к управлению сервисами:
 

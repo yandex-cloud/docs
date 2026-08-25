@@ -2,7 +2,6 @@
 
 # Поставка данных в Yandex Managed Service for PostgreSQL с помощью Yandex Data Transfer
 
-
 # Поставка данных из очереди Apache Kafka® в PostgreSQL с помощью Yandex Data Transfer
 
 

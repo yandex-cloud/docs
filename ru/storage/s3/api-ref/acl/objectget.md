@@ -12,17 +12,11 @@ GET /{bucket}/{key}?acl HTTP/2
 
 ### Path параметры {#path-parameters}
 
-Параметр | Описание
------ | -----
-`bucket` | Имя бакета.
-`key` | Ключ объекта.
-
+{% include [path-parameters](../../../_includes_service/storage-multipart-path-parameters.md) %}
 
 ### Query параметры {#request-params}
 
-Параметр | Описание
------ | -----
-`acl` | Обязательный параметр для обозначения типа операции.
+{% include [request-params](../../../_includes_service/storage-request-params.md) %}
 
 ### Заголовки {#request-headers}
 

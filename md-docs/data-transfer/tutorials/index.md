@@ -43,8 +43,8 @@ C помощью Data Transfer вы можете реализовать разл
 
 ## Захват изменений данных {#cdc}
 
-[Change Data Capture](../concepts/cdc.md) (СDC) — это процесс отслеживания изменений в базе данных и поставка этих изменений потребителям, поддерживающий публичный формат сериализации при записи в очередь Debezium.
-СDC используется для создания приложений, которые чувствительны к изменению данных в реальном времени, обмена данными между различными сервисами, в том числе, с разным уровнем доступности, сбора и поставки данных из продакшен-окружения во внутренние хранилища данных для обработки и анализа.
+[Change Data Capture](../concepts/cdc.md) (CDC) — это процесс отслеживания изменений в базе данных и поставка этих изменений потребителям, поддерживающий публичный формат сериализации при записи в очередь Debezium.
+CDC используется для создания приложений, которые чувствительны к изменению данных в реальном времени, обмена данными между различными сервисами, в том числе, с разным уровнем доступности, сбора и поставки данных из продакшен-окружения во внутренние хранилища данных для обработки и анализа.
 
 ![cdc](../../_assets/data-transfer/tutorials/cdc.svg)
 
@@ -90,6 +90,7 @@ C помощью Data Transfer вы можете реализовать разл
 * [MySQL® в ClickHouse®](mysql-to-clickhouse.md)
 * [Яндекс Метрика в ClickHouse®](metrika-to-clickhouse.md)
 * [PostgreSQL в ClickHouse®](rdbms-to-clickhouse.md)
+* [Выполнение аналитических запросов в Managed Service for PostgreSQL с обработкой в Managed Service for ClickHouse® при помощи pg_clickhouse и Data Transfer](mpg-pg-clickhouse-extension.md)
 * [Greenplum® в PostgreSQL](greenplum-to-postgresql.md)
 * [Яндекс Директ в ClickHouse®](direct-to-mch.md)
 * [Object Storage в PostgreSQL](object-storage-to-postgresql.md)

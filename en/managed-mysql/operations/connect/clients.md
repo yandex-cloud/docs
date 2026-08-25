@@ -5,7 +5,7 @@ description: Follow this guide to connect to a {{ MY }} cluster database with th
 
 # Connecting to a {{ MY }} cluster from applications
 
-This section provides settings for connection to {{ mmy-name }} cluster hosts with the help of [command line tools](#command-line-tools), [graphical IDEs](#connection-ide), [{{ websql-full-name }}](#websql), or a [Docker container](#connection-docker). To learn how to connect from the code of your application, see [Code examples](./code-examples.md).
+This section provides settings for connection to {{ mmy-name }} cluster hosts with the help of [command line tools](#command-line-tools), from [graphical IDEs](#connection-ide), from [{{ websql-full-name }}](#websql), or a [Docker container](#connection-docker). To learn how to connect from the code of your application, see [Code examples](./code-examples.md).
 
 ## Command line tools {#command-line-tools}
 
@@ -109,7 +109,7 @@ Set up your {{ mmy-name }} cluster for connection:
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-mysql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Click the cluster name.
   1. Enable public access for the cluster hosts:
      1. Select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
@@ -143,11 +143,10 @@ You can get the cluster name and ID with the [list of clusters in the folder](..
 
 ## Connecting from graphical IDEs {#connection-ide}
 
+
 {% include [ide-environments](../../../_includes/mdb/mdb-ide-envs.md) %}
 
-
 From graphical IDEs, you can only connect to public cluster hosts using an SSL certificate.
-
 
 {% include [note-connection-ide](../../../_includes/mdb/note-connection-ide.md) %}
 
@@ -192,6 +191,7 @@ From graphical IDEs, you can only connect to public cluster hosts using an SSL c
 
 {% endlist %}
 
+
 ### Connecting with IAM authentication {#ide-iam}
 
 To connect to a {{ mmy-name }} database from graphical IDEs with [{{ iam-full-name }} authentication](../../../iam/), run the [{{ yandex-cloud }} CLI](../../../cli/) in listening proxy server mode.
@@ -204,7 +204,7 @@ To connect to a {{ mmy-name }} database:
 
 1. Assign the `managed-mysql.clusters.connector` role to the user account that will connect to the database:
 
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+    1. [Navigate]({{ link-console-main }}/link/managed-mysql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
     1. Click the cluster name.
     1. Select the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
     1. Enter the user account’s email.
@@ -284,14 +284,12 @@ To connect to a {{ mmy-name }} cluster from a Docker container, add the followin
 
 {% list tabs group=connection %}
 
-
 - Connecting without SSL {#without-ssl}
 
   ```bash
   RUN apt-get update && \
       apt-get install mysql-client --yes
   ```
-
 
 - Connecting with SSL {#with-ssl}
 

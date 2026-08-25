@@ -62,7 +62,7 @@
 | Yandex SmartCaptcha                 | [gRPC](../smartcaptcha/api-ref/grpc/index.md)<br>[REST](../smartcaptcha/api-ref/index.md) |
 | Yandex Smart Web Security                     | [gRPC](../smartwebsecurity/api-ref/grpc/index.md)<br>[REST](../smartwebsecurity/api-ref/index.md) |
 | Yandex SpeechKit               | [Синхронное распознавание v2 REST](https://aistudio.yandex.ru/docs/ru/speechkit/stt/api/request-api)<br>[Асинхронное распознавание v2 REST](https://aistudio.yandex.ru/docs/ru/speechkit/stt/api/transcribation-api)<br>[Потоковое распознавание v2 gRPC](https://aistudio.yandex.ru/docs/ru/speechkit/stt/api/streaming-api)<br>[Потоковое распознавание v3 gRPC](https://aistudio.yandex.ru/docs/ru/speechkit/stt-v3/api-ref/grpc/)<br>[Синтез v1 REST](https://aistudio.yandex.ru/docs/ru/speechkit/tts/request)<br>[Синтез v3 gRPC](https://aistudio.yandex.ru/docs/ru/speechkit/tts-v3/api-ref/grpc/) |
-| Yandex SpeechKit Hybrid               | [API SpeechKit Hybrid](https://aistudio.yandex.ru/docs/ru//speechkit-hybrid/auth) |
+| Yandex SpeechKit Hybrid               | [API SpeechKit Hybrid](https://aistudio.yandex.ru/docs/ru/speechkit-hybrid/auth) |
 | Yandex SpeechSense             | [gRPC](https://aistudio.yandex.ru/docs/ru/speechsense/api-ref/grpc/) |
 | Yandex Translate               | [gRPC](https://aistudio.yandex.ru/docs/ru/translate/api-ref/grpc/)<br>[REST](https://aistudio.yandex.ru/docs/ru/translate/api-ref/) |
 | Yandex Vision OCR                  | [gRPC](https://aistudio.yandex.ru/docs/ru/vision/ocr/api-ref/grpc/)<br>[REST](https://aistudio.yandex.ru/docs/ru/vision/ocr/api-ref/) |

@@ -68,7 +68,7 @@ The `split` command has split `video.mp4` into three parts: `part.aa`, `part.ab`
       Where:
 
       * `--bucket`: Name of your bucket.
-      * `--key`: [Key](../../concepts/object.md#key) by which to store the object in the bucket.
+      * `--key`: [Key](../../concepts/object.md#key) by which the object will be stored in the bucket.
 
       Result:
 
@@ -127,7 +127,7 @@ The `split` command has split `video.mp4` into three parts: `part.aa`, `part.ab`
       Where:
 
       * `--bucket`: Name of your bucket.
-      * `--key`: [Key](../../concepts/object.md#key) by which to store the object in the bucket.
+      * `--key`: [Key](../../concepts/object.md#key) by which the object will be stored in the bucket.
 
       Result:
 
@@ -175,7 +175,7 @@ Upload the first part of the object:
       Where:
 
       * `--bucket`: Name of your bucket.
-      * `--key`: [Key](../../concepts/object.md#key) by which to store the object in the bucket.
+      * `--key`: [Key](../../concepts/object.md#key) by which the object will be stored in the bucket.
       * `--upload-id`: Multipart upload ID obtained in the previous step.
       * `--part-number`: Sequential number of the object part uploaded to the bucket.
 
@@ -212,7 +212,7 @@ Upload the first part of the object:
   Where:
 
   * `--bucket`: Name of your bucket.
-  * `--key`: [Key](../../concepts/object.md#key) by which to store the object in the bucket.
+  * `--key`: [Key](../../concepts/object.md#key) by which the object will be stored in the bucket.
   * `--upload-id`: Multipart upload ID obtained in the previous step.
   * `--part-number`: Sequential number of the object part uploaded to the bucket.
 
@@ -269,7 +269,7 @@ Once all the parts are successfully uploaded, complete the multipart upload and 
       Where:
 
       * `--bucket`: Name of your bucket.
-      * `--key`: [Key](../../concepts/object.md#key) by which to store the object in the bucket.
+      * `--key`: [Key](../../concepts/object.md#key) by which the object will be stored in the bucket.
       * `--upload-id`: Multipart upload ID obtained in the previous step.
       * `--multipart-upload`: Object containing the sequential numbers and `etag` values of all uploaded parts in proper order. Here is an example:
 
@@ -305,7 +305,7 @@ Once all the parts are successfully uploaded, complete the multipart upload and 
   Where:
 
   * `--bucket`: Name of your bucket.
-  * `--key`: [Key](../../concepts/object.md#key) by which to store the object in the bucket.
+  * `--key`: [Key](../../concepts/object.md#key) by which the object will be stored in the bucket.
   * `--upload-id`: Multipart upload ID obtained in the previous step.
   * `--multipart-upload`: Object containing the sequential numbers and `etag` values of all uploaded parts in proper order. Here is an example:
 
@@ -369,7 +369,7 @@ You can use [conditions](../../concepts/object.md#conditional-writes) when compl
       Where:
 
       * `--bucket`: Name of your bucket.
-      * `--key`: [Key](../../concepts/object.md#key) by which to store the object in the bucket.
+      * `--key`: [Key](../../concepts/object.md#key) by which the object will be stored in the bucket.
       * `--upload-id`: Multipart upload ID obtained in the previous step.
       * `--multipart-upload`: Object containing the sequential numbers and `etag` values of all uploaded parts in proper order. Here is an example:
 
@@ -422,7 +422,7 @@ You can use [conditions](../../concepts/object.md#conditional-writes) when compl
       Where:
 
       * `--bucket`: Name of your bucket.
-      * `--key`: [Key](../../concepts/object.md#key) by which to store the object in the bucket.
+      * `--key`: [Key](../../concepts/object.md#key) by which the object will be stored in the bucket.
       * `--upload-id`: Multipart upload ID obtained in the previous step.
       * `--multipart-upload`: Object containing the sequential numbers and `etag` values of all uploaded parts in proper order. Here is an example:
 

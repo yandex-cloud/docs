@@ -30,6 +30,7 @@ There are different service packages available in different [regions](region.md)
 | [{{ postbox-full-name }}](../../postbox/index.yaml)                             | Email service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ quota-manager-full-name }}](../../quota-manager/index.yaml)                 | Service for managing your cloud resource quotas | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ cloud-registry-full-name }}](../../cloud-registry/index.yaml)               | Service for storing and managing development artifacts | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| [{{ cr-full-name }}](../../cloud-router/index.yaml)               | Service for managing network topologies of a hybrid cloud in {{ yandex-cloud }} | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | [{{ stackland-full-name }}](../../stackland/index.yaml)                         | {{ preview-stage }} Service for managing AI loads and microservice solutions on-premise | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ video-full-name }}](../../video/index.yaml)                                 | Video hosting and online streaming service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ ca-full-name }}]({{ link-src-docs }}/code-assistant/)                           | AI-driven developer assistant with code autocompletion | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
@@ -56,9 +57,10 @@ There are different service packages available in different [regions](region.md)
 | [{{ mmy-full-name }}](../../managed-mysql/index.yaml)                          | Service for creating and managing {{ MY }} clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | [{{ mos-full-name }}](../../managed-opensearch/index.yaml)                      | Service for creating and managing {{ OS }} clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | [{{ mpg-full-name }}](../../managed-postgresql/index.yaml)                      | Service for creating and managing {{ PG }} clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| [{{ mspqr-full-name }}](../../managed-spqr/index.yaml)                      | Service for creating and managing {{ PG }} clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ mrd-full-name }}™](../../managed-valkey/index.yaml)                          | Service for creating and managing {{ VLK }} clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | [{{ mtr-full-name }}](../../managed-trino/index.yaml)                           | Distributed analytical SQL engine management service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ ydb-full-name }}](../../ydb/index.yaml)                                     | {{ ydb-full-name }} database management service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
+| [{{ ydb-full-name }}](../../ydb/index.yaml)                                     | {{ ydb-full-name }} database management service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | [{{ myt-full-name }}](../../managed-ytsaurus/index.yaml)                                     | Service for creating and managing {{ ytsaurus-name }} clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ marketplace-full-name }}](../../marketplace/index.yaml)                     | Store with out-of-the-box tools for development, data analysis, security, business apps, and more | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | [{{ message-queue-full-name }}](../../message-queue/index.yaml)                 | Service for messaging between applications | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
@@ -80,7 +82,7 @@ There are different service packages available in different [regions](region.md)
 | [{{ speechsense-full-name }}]({{ link-docs-ai }}speechsense/)                     | Speech analytics service for analyzing voice and text communication channels | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ translate-full-name }}]({{ link-docs-ai }}translate/concepts/index)                         | Machine translation service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ vpc-full-name }}](../../vpc/index.yaml)                                     | Cloud network management service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ vision-full-name }}]({{ link-docs-ai }}vision/concepts/ocr/index)                               | Computer vision service for image text and PDF recognition | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
+| [{{ vision-full-name }}]({{ link-docs-ai }}vision/concepts/ocr/index)                               | Computer vision service for image-to-text and PDF recognition | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ websql-full-name }}](../../websql/index.yaml)                               | Service for connecting to managed database clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 
 ## How to enable services {#enable}

@@ -5,7 +5,7 @@
 
 В этом руководстве вы создадите [бота](../../glossary/chat-bot.md) для Telegram, который умеет:
 
-* [синтезировать речь](https://aistudio.yandex.ru/docs/ru//speechkit/tts/index) из текста сообщения и [распознавать речь](https://aistudio.yandex.ru/docs/ru//speechkit/stt/index) в голосовых сообщениях с помощью [Python SDK](https://pypi.org/project/yandex-speechkit/) сервиса Yandex SpeechKit;
+* [синтезировать речь](https://aistudio.yandex.ru/docs/ru/speechkit/tts/index) из текста сообщения и [распознавать речь](https://aistudio.yandex.ru/docs/ru/speechkit/stt/index) в голосовых сообщениях с помощью [Python SDK](https://pypi.org/project/yandex-speechkit/) сервиса Yandex SpeechKit;
 * [распознавать текст](https://aistudio.yandex.ru/docs/ru/vision/concepts/ocr/index) на изображениях с помощью сервиса Yandex Vision OCR.
 
 Аутентификация в сервисах Yandex Cloud выполняется от имени сервисного аккаунта с помощью [IAM-токена](../../iam/concepts/authorization/iam-token.md). IAM-токен содержится в контексте [обработчика функции](../../functions/operations/function-sa.md), которая программирует диалог пользователя с ботом.
@@ -39,7 +39,7 @@
 В стоимость поддержки Telegram-бота входят:
 
 * плата за использование SpeechKit ([тарифы SpeechKit](https://aistudio.yandex.ru/docs/ru/speechkit/pricing));
-* плата за использование Vision OCR ([тарифы для Vision OCR](https://aistudio.yandex.ru/docs/ru/vision/pricing));
+* плата за использование Vision OCR ([тарифы для Vision OCR](https://aistudio.yandex.ru/docs/ru/ai-studio/pricing#rules-image-recognition));
 * плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик ([тарифы для Cloud Functions](../../functions/pricing.md));
 * плата за количество запросов к созданному API-шлюзу и исходящий трафик ([тарифы API Gateway](../pricing.md)).
 
@@ -265,7 +265,9 @@
 
   Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
-  По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+  По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`.
+  
+  Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   1. Создайте функцию `for-recognizer-bot`:
 

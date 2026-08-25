@@ -27,12 +27,14 @@ apiPlayground:
             - `AD_SYNC`: Active Directory synchronization session.
             - `AD_PASSWORD_HASH`: Active Directory password hash session.
             - `AD_USER_CONTROL`: Active Directory user control session.
+            - `LDAP_SYNC`: Generic LDAP synchronization session.
           type: string
           enum:
             - SESSION_TYPE_UNSPECIFIED
             - AD_SYNC
             - AD_PASSWORD_HASH
             - AD_USER_CONTROL
+            - LDAP_SYNC
       required:
         - subjectContainerId
         - agentId
@@ -81,7 +83,8 @@ Required field. Type of synchronization session.
 
 - `AD_SYNC`: Active Directory synchronization session.
 - `AD_PASSWORD_HASH`: Active Directory password hash session.
-- `AD_USER_CONTROL`: Active Directory user control session. ||
+- `AD_USER_CONTROL`: Active Directory user control session.
+- `LDAP_SYNC`: Generic LDAP synchronization session. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

@@ -81,7 +81,9 @@
 
   Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
-  По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+  По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`.
+  
+  Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   1. Посмотрите описание команды CLI для создания секрета:
 
@@ -373,7 +375,7 @@
 
 {% note tip %}
 
-В этом руководстве описано создание рабочего процесса с помощью YaWL-спецификации, но его также можно создать и редактировать с помощью [конструктора](../../serverless-integrations/operations/workflows/constructor/index.md).
+В этом руководстве описано создание рабочего процесса с помощью YaWL-спецификации, но его также можно создать и редактировать с помощью [конструктора](https://aistudio.yandex.ru/docs/ru/ai-studio/operations/workflows/constructor/index).
 
 {% endnote %}
 
@@ -382,7 +384,7 @@
 
 ### Подготовьте YaWL-спецификацию {#prepare-spec-wf}
 
-Сохраните [YaWL-спецификацию](../../serverless-integrations/concepts/workflows/yawl/index.md) рабочего процесса в YAML-файле, например `yawl-spec.yaml`:
+Сохраните [YaWL-спецификацию](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/yawl/index) рабочего процесса в YAML-файле, например `yawl-spec.yaml`:
 
 ```yaml
 yawl: '0.1'
@@ -542,7 +544,7 @@ steps:
 
 - API {#api}
 
-  Чтобы создать рабочий процесс, воспользуйтесь методом REST API [Create](../../serverless-integrations/workflows/api-ref/Workflow/create.md) для ресурса [Workflows](../../serverless-integrations/workflows/api-ref/Workflow/index.md) или вызовом gRPC API [Workflow/Create](../../serverless-integrations/workflows/api-ref/grpc/Workflow/create.md).
+  Чтобы создать рабочий процесс, воспользуйтесь методом REST API [Create](https://aistudio.yandex.ru/docs/ru/ai-studio/workflows/api-ref/Workflow/create) для ресурса [Workflows](https://aistudio.yandex.ru/docs/ru/ai-studio/workflows/api-ref/Workflow/index) или вызовом gRPC API [Workflow/Create](https://aistudio.yandex.ru/docs/ru/ai-studio/workflows/api-ref/grpc/Workflow/create).
 
 {% endlist %}
 
@@ -555,7 +557,7 @@ steps:
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится [рабочий процесс](../../serverless-integrations/concepts/workflows/workflow.md).
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится [рабочий процесс](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow).
   1. [Перейдите](https://console.yandex.cloud/link/serverless-integrations) в сервис **Serverless Integrations**.
   1. На панели слева нажмите ![image](../../_assets/console-icons/graph-node.svg) **Workflows**.
   1. Выберите нужный рабочий процесс.
@@ -564,7 +566,7 @@ steps:
 
 - Yandex Cloud CLI {#cli}
 
-  1. Посмотрите описание команды CLI для изменения [рабочего процесса](../../serverless-integrations/concepts/workflows/workflow.md):
+  1. Посмотрите описание команды CLI для изменения [рабочего процесса](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow):
 
       ```bash
       yc serverless workflow update --help
@@ -589,7 +591,7 @@ steps:
 
 - API {#api}
 
-  Чтобы сделать [рабочий процесс](../../serverless-integrations/concepts/workflows/workflow.md) публичным, воспользуйтесь методом REST API [Update](../../serverless-integrations/workflows/api-ref/Workflow/update.md) для ресурса [Workflows](../../serverless-integrations/workflows/api-ref/Workflow/index.md) или вызовом gRPC API [workflow/Update](../../serverless-integrations/workflows/api-ref/grpc/Workflow/update.md), установив параметр `isPublic: true`.
+  Чтобы сделать [рабочий процесс](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow) публичным, воспользуйтесь методом REST API [Update](https://aistudio.yandex.ru/docs/ru/ai-studio/workflows/api-ref/Workflow/update) для ресурса [Workflows](https://aistudio.yandex.ru/docs/ru/ai-studio/workflows/api-ref/Workflow/index) или вызовом gRPC API [workflow/Update](https://aistudio.yandex.ru/docs/ru/ai-studio/workflows/api-ref/grpc/Workflow/update), установив параметр `isPublic: true`.
 
 {% endlist %}
 
@@ -637,7 +639,7 @@ steps:
 
 - API {#api}
 
-  Чтобы получить ссылку для запуска рабочего процесса, воспользуйтесь методом REST API [get](../../serverless-integrations/workflows/api-ref/Workflow/get.md) для ресурса [Workflow](../../serverless-integrations/workflows/api-ref/Workflow/index.md) или вызовом gRPC API [WorkflowsService/Get](../../serverless-integrations/workflows/api-ref/grpc/Workflow/get.md). Ссылка для запуска будет в поле `execution_url`.
+  Чтобы получить ссылку для запуска рабочего процесса, воспользуйтесь методом REST API [get](https://aistudio.yandex.ru/docs/ru/ai-studio/workflows/api-ref/Workflow/get) для ресурса [Workflow](https://aistudio.yandex.ru/docs/ru/ai-studio/workflows/api-ref/Workflow/index) или вызовом gRPC API [WorkflowsService/Get](https://aistudio.yandex.ru/docs/ru/ai-studio/workflows/api-ref/grpc/Workflow/get). Ссылка для запуска будет в поле `execution_url`.
 
 {% endlist %}
 
@@ -730,7 +732,7 @@ steps:
 
 Чтобы не [платить](#paid-resources) за ресурсы, которые вам больше не нужны, удалите их:
 
-1. [Удалите](../../serverless-integrations/operations/workflows/workflow/delete.md) рабочий процесс.
+1. [Удалите](https://aistudio.yandex.ru/docs/ru/ai-studio/operations/workflows/workflow/delete) рабочий процесс.
 1. [Удалите](../../storage/operations/buckets/delete.md) бакет.
 1. [Удалите](../../lockbox/operations/secret-delete.md) секрет.
 1. Удалите AI-агента в AI Studio.

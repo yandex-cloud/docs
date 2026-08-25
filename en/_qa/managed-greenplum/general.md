@@ -53,9 +53,9 @@ The database software is updated whenever new minor versions are released. Owner
 
 #### What happens when a DBMS version becomes deprecated? {#dbms-deprecated}
 
-One month after a DBMS version becomes deprecated, {{ mgp-short-name }} automatically sends email notifications to the owners of database clusters created with that version.
+One month after a DBMS version becomes deprecated, {{ mgp-short-name }} automatically sends email notifications to the owners of database clusters created with that version. The {{ mgp-name }} cluster information page in the management console displays a warning about the upcoming upgrade and the date it is scheduled for. You can upgrade your cluster immediately or [postpone the upgrade](../../managed-greenplum/operations/cluster-maintenance.md#postpone-planned-maintenance).
 
-For clusters with a deprecated DBMS version, there is no option to create new hosts or restore from backups. Database clusters are automatically upgraded to the next supported version seven days after notification for minor versions and one month after notification for major versions. Deprecated major versions will be upgraded even if you have disabled automatic updates.
+For clusters with a deprecated DBMS version, there is no option to create new hosts or restore from backups. The system automatically upgrades database clusters to the next supported version seven days after the notification. Deprecated major versions will be upgraded even if you have disabled automatic updates.
 
 #### What block size is used on the cluster disks? {#block-size}
 

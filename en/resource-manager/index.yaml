@@ -55,7 +55,7 @@ blocks:
         text: Introduction to the basic terms and concepts
         size: s
         urlTitle: "Yandex\_Cloud resource hierarchy"
-        url: concepts/index
+        url: concepts/resources-hierarchy
         icon: ../_assets/console-icons/bookmark.svg
         controlPosition: content
         animated: false

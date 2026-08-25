@@ -95,6 +95,9 @@ A list of host groups to place VMs of cluster on. ||
 || `--disk-encryption-key-id` | `string`
 
 ID of the KMS key for cluster disk encryption. Empty input will remove the use of encryption. ||
+|| `--source-cluster-id` | `string`
+
+ID of the source cluster to create a cluster from. ||
 || `--maintenance-window` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
 
 Maintenance window settings

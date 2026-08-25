@@ -79,6 +79,6 @@ POST /{bucket}/{key}?uploads HTTP/2
 
 * [{#T}](../../../concepts/multipart.md)
 
-* [Создание составной загрузки в бакете](../../../operations/objects/multipart-upload.md#create-multipart-upload)
+* [Создать составную загрузку в бакете](../../../operations/objects/multipart-upload.md#create-multipart-upload)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

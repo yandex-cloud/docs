@@ -2,7 +2,7 @@
 
 To automatically announce new subnets to {{ interconnect-name }}, you can use **aggregated subnet prefixes** (aggregates). With aggregates, you only need to set up prefix announcements once. From then on, you can add new subnets to your {{ vpc-short-name }} without contacting support.
 
-> For example, when setting up `Routing Instance`, you can specify announcements for aggregated IPv4 prefixes formatted as follows:
+> For example, when setting up a virtual router, you can specify announcements for aggregated IPv4 prefixes formatted as follows:
 >
 > ```
 > {{ region-id }}-a [10.128.0.0/16]

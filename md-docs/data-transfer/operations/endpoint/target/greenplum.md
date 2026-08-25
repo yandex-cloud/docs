@@ -1,32 +1,31 @@
-[Документация Yandex Cloud](../../../../index.md) > [Yandex Data Transfer](../../../index.md) > [Пошаговые инструкции](../../index.md) > [Настройка эндпоинтов](../index.md) > Greenplum® > Приемник
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Data Transfer](../../../index.md) > [Пошаговые инструкции](../../index.md) > [Настройка эндпоинтов](../index.md) > Greenplum®/Apache Cloudberry™ > Приемник
 
-# Передача данных в эндпоинт-приемник Greenplum®
+# Передача данных в эндпоинт-приемник Greenplum®/Apache Cloudberry™
 
-
-С помощью сервиса Yandex Data Transfer вы можете переносить данные в базу Greenplum® и реализовывать различные сценарии переноса, обработки и трансформации данных. Для реализации трансфера:
+С помощью сервиса Yandex Data Transfer вы можете переносить данные в базу Greenplum®/Apache Cloudberry™ и реализовывать различные сценарии переноса, обработки и трансформации данных. Для реализации трансфера:
 
 1. [Ознакомьтесь с возможными сценариями передачи данных](#scenarios).
 1. [Настройте один из поддерживаемых источников данных](#supported-sources).
-1. [Подготовьте базу данных Greenplum®](#prepare) к трансферу.
+1. [Подготовьте базу данных Greenplum®/Apache Cloudberry™](#prepare) к трансферу.
 1. [Настройте эндпоинт-приемник](#endpoint-settings) в Yandex Data Transfer.
 1. [Создайте](../../transfer.md#create) и [запустите](../../transfer.md#activate) трансфер.
 1. Выполняйте необходимые действия по работе с базой и [контролируйте трансфер](../../monitoring.md).
 1. При возникновении проблем, [воспользуйтесь готовыми решениями](../../../troubleshooting/index.md) по их устранению.
 
-## Сценарии передачи данных в Greenplum® {#scenarios}
+## Сценарии передачи данных в Greenplum®/Apache Cloudberry™ {#scenarios}
 
 1. Миграция — перенос данных из одного хранилища в другое. Часто это перенос базы из устаревших локальных баз в управляемые облачные.
 
-    * [Миграция кластера Greenplum®](../../../tutorials/managed-greenplum.md);
-    * [Миграция со сменой хранилища: MySQL® в Greenplum®](../../../tutorials/mmy-to-mgp.md).
-    * [Миграция со сменой хранилища: OpenSearch в Greenplum®](../../../tutorials/opensearch-to-greenplum.md).
+    * [Миграция кластера Greenplum® или Apache Cloudberry™](../../../tutorials/managed-greenplum.md);
+    * [Миграция со сменой хранилища: MySQL® в Greenplum® или Apache Cloudberry™](../../../tutorials/mmy-to-mgp.md);
+    * [Миграция со сменой хранилища: OpenSearch в Greenplum® или Apache Cloudberry™](../../../tutorials/opensearch-to-greenplum.md).
 
 1. Поставка данных — процесс доставки произвольных данных в целевые хранилища. Процесс поставки включает извлечение данных из очереди и их десериализацию с последующей трансформацией данных в формат целевого хранилища.
-    * [Поставка данных из Apache Kafka® в Greenplum®](../../../tutorials/managed-kafka-to-greenplum.md).
+    * [Поставка данных из Apache Kafka® в Greenplum® или Apache Cloudberry™](../../../tutorials/managed-kafka-to-greenplum.md).
 
 1. Загрузка данных в витрины — процесс трансфера подготовленных данных в хранилища с целью последующей визуализации.
 
-    * [Загрузка данных из Object Storage в Greenplum®](../../../tutorials/object-storage-to-greenplum.md).
+    * [Загрузка данных из Object Storage в Greenplum® или Apache Cloudberry™](../../../tutorials/object-storage-to-greenplum.md).
 
 Подробное описание возможных сценариев передачи данных в Yandex Data Transfer читайте в разделе [Практические руководства](../../../tutorials/index.md).
 
@@ -36,7 +35,7 @@
 
 * [PostgreSQL](../source/postgresql.md)
 * [MySQL®](../source/mysql.md)
-* [Greenplum®](../source/greenplum.md)
+* [Greenplum®/Apache Cloudberry™](../source/greenplum.md)
 * [Apache Kafka®](../source/kafka.md)
 * [Airbyte®](../../../transfer-matrix.md#airbyte)
 * [YDS](../source/data-streams.md)
@@ -85,7 +84,7 @@
     
        После старта трансфер подключится к приемнику от имени этого пользователя.
 
-- Greenplum®
+- Greenplum®/Apache Cloudberry™
     
     1. Если вы не планируете использовать для подключения к внешнему кластеру [сервис Cloud Interconnect](../../../../interconnect/concepts/index.md) или [VPN](../../../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом Data Transfer](../../../../overview/concepts/public-ips.md#virtual-private-cloud).
        
@@ -125,7 +124,7 @@
 
 {% endlist %}
 
-## Настройка эндпоинта-приемника Greenplum® {#endpoint-settings}
+## Настройка эндпоинта-приемника Greenplum® или Apache Cloudberry™ {#endpoint-settings}
 
 При [создании](../index.md#create) или [изменении](../index.md#update) эндпоинта вы можете задать:
 

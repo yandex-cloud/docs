@@ -13,7 +13,7 @@ Aliases are linked to specific devices. To create an alias, you need to [find th
    To create an alias:
 
    1. In the [management console]({{ link-console-main }}), select a folder where you wish to create an alias.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the required registry from the list.
    1. On the left side of the window, select the **{{ ui-key.yacloud.iot.label_devices }}** section.
    1. Click ![image](../../../../_assets/console-icons/ellipsis.svg) to the right of the device name and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
@@ -53,7 +53,7 @@ Aliases are linked to specific devices. To create an alias, you need to [find th
     yc iot device create
       --registry-name <registry_name>
       --name <device_name>
-      --topic-aliases <alias_name>='$devices/{id}/<events,_state,_commands_or_config>'
+      --topic-aliases <alias_name>='$devices/{id}/<events,_state,_commands,_or_config>'
     ```
 
 - {{ TF }} {#tf}
@@ -62,17 +62,18 @@ Aliases are linked to specific devices. To create an alias, you need to [find th
 
   {% include [terraform-install](../../../../_includes/terraform-install.md) %}
 
-  To add an alias to a device created using{{ TF }}:
+  To add an alias to a device created using {{ TF }}:
 
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, specify the properties of the resources you want to create:
 
      * `yandex_iot_core_device`: Device properties:
+     
        * `registry_id`: [ID of the registry](../../registry/registry-list.md#registry-list) where the device was created.
        * `name`: [Device name](../device-list.md#device-list).
        * `description`: Device description.
        * `aliases`: Topic aliases.
 
-      Here is an example of the resource structure in the configuration file:
+      Here is an example of a resource structure in the configuration file:
 
       ```hcl
       resource "yandex_iot_core_device" "my_device" {
@@ -89,7 +90,7 @@ Aliases are linked to specific devices. To create an alias, you need to [find th
       ```
 
       For more on the properties of the `yandex_iot_core_device` resource, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_device).
-  1. In the command line, change to the folder where you edited the configuration file.
+  1. In the terminal, navigate to the directory where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
       ```bash

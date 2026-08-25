@@ -8,7 +8,7 @@ The user is responsible for all actions made inside the {{ k8s }} node. The user
 
 {{ yandex-cloud }} is responsible for the {{ k8s }} API security.
 
-The user is responsible for correctly choosing security settings in {{ managed-k8s-name }}, including selecting the [channel](../../managed-kubernetes/concepts/release-channels-and-updates.md) and the update schedule.  
+The user is responsible for correctly choosing security settings in {{ managed-k8s-name }}, including selecting the [channel](../../managed-kubernetes/concepts/release-channels-and-updates.md) and the update schedule.
 
 ## Sensitive data {#critical-data}
 
@@ -88,13 +88,13 @@ There are at least two controller options you can use in {{ yandex-cloud }}:
 
 #### Restricting access to the metadata of VMs in the node group {#metadata-access-restriction}
 
-For all pods, create a network policy to block network traffic to port 169.254.169.254 or use the default-deny policy from the [example](../../managed-kubernetes/operations/calico#enable-isolation). The policy must block workload node group metadata access because these node groups contain sensitive data, such as the token of the service account assigned to the node.
+For all pods, create a network policy to block network traffic to port 169.254.169.254 or use the default-deny policy from the [example](../../managed-kubernetes/operations/calico.md#enable-isolation). The policy must block workload node group metadata access because these node groups contain sensitive data, such as the token of the service account assigned to the node.
 
 ## {{ managed-k8s-name }} authentication and access management {#authentication-and-access-control}
 
 The access of {{ iam-short-name }} accounts to {{ managed-k8s-name }} resources is managed at the following levels:
 
-* [{{ managed-k8s-name }} service roles](../../managed-kubernetes/security/#yc-api) (access to the {{ yandex-cloud }} API): These enable you to control clusters and node groups (for example, create a cluster, create/edit/delete a node group, and so on).
+* [{{ managed-k8s-name }} service roles](../../managed-kubernetes/security/index.md#yc-api) (access to the {{ yandex-cloud }} API): These enable you to control clusters and node groups (for example, create a cluster, create/edit/delete a node group, and so on).
 * Service roles to access the {{ k8s }} API: These let you control cluster resources via the {{ k8s }} API (for example, perform standard actions with {{ k8s }}: create, delete, view namespaces, work with pods, deployments, create roles, and so on). Only the basic global roles are available at cluster level: `k8s.cluster-api.cluster-admin`, `k8s.cluster-api.editor`, and `k8s.cluster-api.viewer`.
 * Primitive roles: These are global primitive {{ iam-short-name }} roles that include service roles (for example, the primitive role admin includes both the service administration role and the administrative role to access the {{ k8s }} API).
 * Standard {{ k8s }} roles: Inside the {{ k8s }} cluster itself, you can use {{ k8s }} tools to create both regular roles and cluster roles. Thus you can control {{ iam-short-name }} accounts in terms of access at the namespace level. To assign {{ iam-short-name }} roles at the namespace level, you can manually create RoleBinding objects in a relevant namespace stating the cloud user's {{ iam-short-name }} ID in the **subjects name** field. Here is an example:
@@ -174,12 +174,10 @@ We recommend that you use SecretManager solutions to work with {{ k8s }} secrets
 
  {{ lockbox-name }} was integrated with {{ k8s }} using the [External Secrets](https://external-secrets.io/latest/) open-source project. In {{ marketplace-name }}, the solution is available in the basic simplified scenario: [External Secrets Operator with Yandex Lockbox support](/marketplace/products/yc/external-secrets).
 
-
 Useful instructions on working with External Secrets:
 
 * [Guide](https://external-secrets.io/latest/provider/yandex-lockbox/) on External Secrets and {{ lockbox-name }} from the project description.
 * [Guide](../../lockbox/tutorials/kubernetes-lockbox-secrets.md) on External Secrets and {{ lockbox-name }} from the {{ yandex-cloud }} documentation.
-
 
 Many methods to differentiate access to secrets using this tool have been [described](https://external-secrets.io/latest/guides/multi-tenancy/#eso-as-a-service).
 

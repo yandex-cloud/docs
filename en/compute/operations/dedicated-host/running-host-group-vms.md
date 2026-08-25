@@ -17,12 +17,12 @@ To create a VM:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
-  1. Navigate to **{{ compute-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. [Set](../vm-create/create-linux-vm.md) the required VM parameters.
   1. Expand **{{ ui-key.yacloud.compute.instances.create.section_additional }}**.
-  1. Next to **{{ ui-key.yacloud.compute.instances.create.field_host-affinity-rules }}**, click **{{ ui-key.yacloud.common.add }}**.
+  1. Next to the **{{ ui-key.yacloud.compute.instances.create.field_host-affinity-rules }}** parameter, click **{{ ui-key.yacloud.common.add }}**.
   1. In the **{{ ui-key.yacloud.compute.instances.create.field_affinity-key-type }}** field, select **{{ ui-key.yacloud.compute.instances.create.value_affinity-key-host-group }}**.
   1. In the **{{ ui-key.yacloud.compute.instances.create.field_affinity-host-groups }}** field, select the groups whose dedicated hosts the VM will be running on.
 

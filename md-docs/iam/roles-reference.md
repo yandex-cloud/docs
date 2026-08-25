@@ -556,7 +556,7 @@
 
 #### ai.playground.user {#ai-playground-user}
 
-Роль `ai.playground.user` позволяет создавать эксперименты, получать список всех доступных моделей и использовать их в AI Playground в консоли управления Yandex Cloud. Для работы с поисковыми индексами в консоли управления дополнительно необходима роль `ai.assistants.editor`.
+Роль `ai.playground.user` позволяет создавать эксперименты, получать список всех доступных моделей и использовать их в Playground в интерфейсе AI Studio. Для работы с поисковыми индексами в консоли управления дополнительно необходима роль `ai.assistants.editor`.
 
 #### ai.languageModels.user {#languageModels-user}
 
@@ -1010,7 +1010,7 @@
 
 #### baremetal.editor {#baremetal-editor}
 
-Роль `baremetal.editor` позволяет управлять серверами BareMetal, приватными подсетями, виртуальными сегментами сети (VRF) и образами операционных систем серверов.
+Роль `baremetal.editor` позволяет управлять серверами BareMetal, приватными подсетями, виртуальными сегментами сети (VRF) и образами операционных систем серверов, а также резервным копированием серверов с помощью сервиса Cloud Backup.
 
 Пользователи с этой ролью могут:
 * просматривать информацию о [серверах](../baremetal/concepts/servers.md) BareMetal, в том числе об их [конфигурации](../baremetal/concepts/server-configurations.md);
@@ -1021,22 +1021,29 @@
 * переустанавливать операционные системы серверов BareMetal;
 * [использовать KVM-консоль](../baremetal/operations/servers/server-kvm.md) серверов;
 * использовать [IPMI](https://en.wikipedia.org/wiki/Intelligent_Platform_Management_Interface) для управления питанием серверов — включать, выключать и перезагружать их;
+* просматривать информацию о подключенных [провайдерах](../backup/concepts/index.md#providers) резервного копирования, а также подключать провайдеров, доступных в Cloud Backup;
+* просматривать информацию о [подключенных](../backup/concepts/vm-connection/index.md) к Cloud Backup защищаемых ресурсах, а также подключать и отключать защищаемые ресурсы от сервиса;
+* просматривать информацию о [политиках резервного копирования](../backup/concepts/policy.md) и привязанных к ним ресурсах;
+* привязывать политики резервного копирования к защищаемым ресурсам, а также отвязывать их;
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к политикам резервного копирования;
 * просматривать информацию о [квотах](../baremetal/concepts/limits.md#baremetal-quotas) сервиса Yandex BareMetal;
+* просматривать информацию о [квотах](../backup/concepts/limits.md#backup-quotas) сервиса Cloud Backup;
+* просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud);
 * просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
 
-Включает разрешения, предоставляемые ролью `baremetal.operator`.
+Включает разрешения, предоставляемые ролями `baremetal.operator` и `backup.user`.
 
-{% note warning %}
+{% note info %}
 
-С 1 августа 2026 года роль `baremetal.editor` получает новый набор разрешений от роли [backup.user](../backup/security/index.md#backup-user), позволяющий подключать серверы к сервису [Yandex Cloud Backup](../backup/index.md), а также привязывать и отвязывать их от [политик резервного копирования](../backup/concepts/policy.md).
+Роль `baremetal.editor` включает разрешения роли [backup.user](../backup/security/index.md#backup-user), позволяющие подключать серверы к сервису [Yandex Cloud Backup](../backup/index.md), а также привязывать и отвязывать их от [политик резервного копирования](../backup/concepts/policy.md).
 
-Если вы не планируете подключать ваши ресурсы к Cloud Backup и не хотите предоставлять вашим пользователям такие разрешения, вы можете заблаговременно отключить эти возможности с помощью [политики авторизации](concepts/access-control/access-policies.md#backup-denyActivation) `backup.denyActivation`, назначенной на каталог, облако или организацию. Подробнее о том, как создать политику авторизации, читайте в разделе [Создание политики авторизации для ресурса](operations/access-policies/assign.md).
+Если вы не планируете подключать ваши ресурсы к Cloud Backup и не хотите предоставлять вашим пользователям такие разрешения, вы можете отключить эти возможности с помощью [политики авторизации](concepts/access-control/access-policies.md#backup-denyActivation) `backup.denyActivation`, назначенной на каталог, облако или организацию. Подробнее о том, как создать политику авторизации, читайте в разделе [Создание политики авторизации для ресурса](operations/access-policies/assign.md).
 
 {% endnote %}
 
 #### baremetal.admin {#baremetal-admin}
 
-Роль `baremetal.admin` позволяет управлять серверами BareMetal, приватными подсетями, виртуальными сегментами сети (VRF) и образами операционных систем серверов.
+Роль `baremetal.admin` позволяет управлять серверами BareMetal, приватными подсетями, виртуальными сегментами сети (VRF) и образами операционных систем серверов, а также резервным копированием серверов с помощью сервиса Cloud Backup.
 
 Пользователи с этой ролью могут:
 * просматривать информацию о [серверах](../baremetal/concepts/servers.md) BareMetal, в том числе об их [конфигурации](../baremetal/concepts/server-configurations.md);
@@ -1047,16 +1054,23 @@
 * переустанавливать операционные системы серверов BareMetal;
 * [использовать KVM-консоль](../baremetal/operations/servers/server-kvm.md) серверов;
 * использовать [IPMI](https://en.wikipedia.org/wiki/Intelligent_Platform_Management_Interface) для управления питанием серверов — включать, выключать и перезагружать их;
+* просматривать информацию о подключенных [провайдерах](../backup/concepts/index.md#providers) резервного копирования, а также подключать провайдеров, доступных в Cloud Backup;
+* просматривать информацию о [подключенных](../backup/concepts/vm-connection/index.md) к Cloud Backup защищаемых ресурсах, а также подключать и отключать защищаемые ресурсы от сервиса;
+* просматривать информацию о [политиках резервного копирования](../backup/concepts/policy.md) и привязанных к ним ресурсах;
+* привязывать политики резервного копирования к защищаемым ресурсам, а также отвязывать их;
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к политикам резервного копирования;
 * просматривать информацию о [квотах](../baremetal/concepts/limits.md#baremetal-quotas) сервиса Yandex BareMetal;
+* просматривать информацию о [квотах](../backup/concepts/limits.md#backup-quotas) сервиса Cloud Backup;
+* просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud);
 * просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
 
 Включает разрешения, предоставляемые ролью `baremetal.editor`.
 
-{% note warning %}
+{% note info %}
 
-С 1 августа 2026 года роль `baremetal.admin` получает новый набор разрешений от роли [backup.user](../backup/security/index.md#backup-user), позволяющий подключать серверы к сервису [Yandex Cloud Backup](../backup/index.md), а также привязывать и отвязывать их от [политик резервного копирования](../backup/concepts/policy.md).
+Роль `baremetal.admin` включает разрешения роли [backup.user](../backup/security/index.md#backup-user), позволяющие подключать серверы к сервису [Yandex Cloud Backup](../backup/index.md), а также привязывать и отвязывать их от [политик резервного копирования](../backup/concepts/policy.md).
 
-Если вы не планируете подключать ваши ресурсы к Cloud Backup и не хотите предоставлять вашим пользователям такие разрешения, вы можете заблаговременно отключить эти возможности с помощью [политики авторизации](concepts/access-control/access-policies.md#backup-denyActivation) `backup.denyActivation`, назначенной на каталог, облако или организацию. Подробнее о том, как создать политику авторизации, читайте в разделе [Создание политики авторизации для ресурса](operations/access-policies/assign.md).
+Если вы не планируете подключать ваши ресурсы к Cloud Backup и не хотите предоставлять вашим пользователям такие разрешения, вы можете отключить эти возможности с помощью [политики авторизации](concepts/access-control/access-policies.md#backup-denyActivation) `backup.denyActivation`, назначенной на каталог, облако или организацию. Подробнее о том, как создать политику авторизации, читайте в разделе [Создание политики авторизации для ресурса](operations/access-policies/assign.md).
 
 {% endnote %}
 
@@ -1179,7 +1193,7 @@
 
 #### backup.user {#backup-user}
 
-Роль `backup.user` позволяет подключать провайдеров резервного копирования, подключать к сервису защищаемые ресурсы, привязывать к защищаемым ресурсам политики резервного копирования и отвязывать их, а также просматривать информацию о ресурсах и квотах сервиса, об облаке и каталоге.
+Роль `backup.user` позволяет подключать провайдеров резервного копирования, подключать к Cloud Backup защищаемые ресурсы, привязывать к защищаемым ресурсам политики резервного копирования и отвязывать их, а также просматривать информацию о ресурсах и квотах сервиса, об облаке и каталоге.
 
 Пользователи с этой ролью могут:
 * просматривать информацию о подключенных [провайдерах](../backup/concepts/index.md#providers) резервного копирования, а также подключать провайдеров, доступных в Cloud Backup;
@@ -2576,7 +2590,7 @@
 
 #### compute.editor {#compute-editor}
 
-Роль `compute.editor` позволяет управлять виртуальными машинами, группами виртуальных машин, дисками, образами, кластерами GPU и другими ресурсами сервиса Compute Cloud.
+Роль `compute.editor` позволяет управлять виртуальными машинами, группами виртуальных машин, дисками, образами, кластерами GPU и другими ресурсами сервиса Compute Cloud, а также управлять резервным копированием виртуальных машин с помощью сервиса Cloud Backup.
 
 {% cut "Пользователи с этой ролью могут:" %}
 
@@ -2622,18 +2636,24 @@
 * просматривать списки операций с ресурсами сервиса Compute Cloud и информацию об операциях, а также отменять выполнение этих операций;
 * просматривать информацию о доступных [платформах](../compute/concepts/vm-platforms.md) и использовать их;
 * просматривать список [зон доступности](../overview/concepts/geo-scope.md), информацию о них и о назначенных правах доступа к ним;
+* просматривать информацию о подключенных [провайдерах](../backup/concepts/index.md#providers) резервного копирования, а также подключать провайдеров, доступных в Cloud Backup;
+* просматривать информацию о [подключенных](../backup/concepts/vm-connection/index.md) к Cloud Backup защищаемых ресурсах, а также подключать и отключать защищаемые ресурсы от сервиса;
+* просматривать информацию о [политиках резервного копирования](../backup/concepts/policy.md) и привязанных к ним ресурсах;
+* привязывать политики резервного копирования к защищаемым ресурсам, а также отвязывать их;
+* просматривать информацию о назначенных правах доступа к политикам резервного копирования;
+* просматривать информацию о [квотах](../backup/concepts/limits.md#backup-quotas) сервиса Cloud Backup;
 * просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud);
 * просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
 
 {% endcut %}
 
-Включает разрешения, предоставляемые ролями `compute.operator`, `compute.osLogin`, `compute.snapshotSchedules.editor`, `compute.disks.user` и `vpc.user`.
+Включает разрешения, предоставляемые ролями `compute.operator`, `compute.osLogin`, `compute.snapshotSchedules.editor`, `compute.disks.user`, `vpc.user` и `backup.user`.
 
-{% note warning %}
+{% note info %}
 
-С 1 августа 2026 года роль `compute.editor` получает новый набор разрешений от роли [backup.user](../backup/security/index.md#backup-user), позволяющий подключать виртуальные машины к сервису [Yandex Cloud Backup](../backup/index.md), а также привязывать и отвязывать их от [политик резервного копирования](../backup/concepts/policy.md).
+Роль `compute.editor` включает разрешения роли [backup.user](../backup/security/index.md#backup-user), позволяющие подключать виртуальные машины к сервису [Yandex Cloud Backup](../backup/index.md), а также привязывать и отвязывать их от [политик резервного копирования](../backup/concepts/policy.md).
 
-Если вы не планируете подключать ваши ресурсы к Cloud Backup и не хотите предоставлять вашим пользователям такие разрешения, вы можете заблаговременно отключить эти возможности с помощью [политики авторизации](concepts/access-control/access-policies.md#backup-denyActivation) `backup.denyActivation`, назначенной на каталог, облако или организацию. Подробнее о том, как создать политику авторизации, читайте в разделе [Создание политики авторизации для ресурса](operations/access-policies/assign.md).
+Если вы не планируете подключать ваши ресурсы к Cloud Backup и не хотите предоставлять вашим пользователям такие разрешения, вы можете отключить эти возможности с помощью [политики авторизации](concepts/access-control/access-policies.md#backup-denyActivation) `backup.denyActivation`, назначенной на каталог, облако или организацию. Подробнее о том, как создать политику авторизации, читайте в разделе [Создание политики авторизации для ресурса](operations/access-policies/assign.md).
 
 {% endnote %}
 
@@ -2694,6 +2714,12 @@
 * просматривать списки операций с ресурсами сервиса Compute Cloud и информацию об операциях, а также отменять выполнение этих операций;
 * просматривать информацию о доступных [платформах](../compute/concepts/vm-platforms.md) и использовать их;
 * просматривать список [зон доступности](../overview/concepts/geo-scope.md), информацию о них и о назначенных правах доступа к ним;
+* просматривать информацию о подключенных [провайдерах](../backup/concepts/index.md#providers) резервного копирования, а также подключать провайдеров, доступных в Cloud Backup;
+* просматривать информацию о [подключенных](../backup/concepts/vm-connection/index.md) к Cloud Backup защищаемых ресурсах, а также подключать и отключать защищаемые ресурсы от сервиса;
+* просматривать информацию о [политиках резервного копирования](../backup/concepts/policy.md) и привязанных к ним ресурсах;
+* привязывать политики резервного копирования к защищаемым ресурсам, а также отвязывать их;
+* просматривать информацию о назначенных правах доступа к политикам резервного копирования;
+* просматривать информацию о [квотах](../backup/concepts/limits.md#backup-quotas) сервиса Cloud Backup;
 * просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud);
 * просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
 
@@ -2701,11 +2727,11 @@
 
 Включает разрешения, предоставляемые ролями `compute.editor` и `compute.osAdminLogin`.
 
-{% note warning %}
+{% note info %}
 
-С 1 августа 2026 года роль `compute.admin` получает новый набор разрешений от роли [backup.user](../backup/security/index.md#backup-user), позволяющий подключать виртуальные машины к сервису [Yandex Cloud Backup](../backup/index.md), а также привязывать и отвязывать их от [политик резервного копирования](../backup/concepts/policy.md).
+Роль `compute.admin` включает разрешения роли [backup.user](../backup/security/index.md#backup-user), позволяющие подключать виртуальные машины к сервису [Yandex Cloud Backup](../backup/index.md), а также привязывать и отвязывать их от [политик резервного копирования](../backup/concepts/policy.md).
 
-Если вы не планируете подключать ваши ресурсы к Cloud Backup и не хотите предоставлять вашим пользователям такие разрешения, вы можете заблаговременно отключить эти возможности с помощью [политики авторизации](concepts/access-control/access-policies.md#backup-denyActivation) `backup.denyActivation`, назначенной на каталог, облако или организацию. Подробнее о том, как создать политику авторизации, читайте в разделе [Создание политики авторизации для ресурса](operations/access-policies/assign.md).
+Если вы не планируете подключать ваши ресурсы к Cloud Backup и не хотите предоставлять вашим пользователям такие разрешения, вы можете отключить эти возможности с помощью [политики авторизации](concepts/access-control/access-policies.md#backup-denyActivation) `backup.denyActivation`, назначенной на каталог, облако или организацию. Подробнее о том, как создать политику авторизации, читайте в разделе [Создание политики авторизации для ресурса](operations/access-policies/assign.md).
 
 {% endnote %}
 
@@ -5335,9 +5361,10 @@
 Пользователи с этой ролью могут:
 * просматривать информацию об [инстансах](../managed-gitlab/concepts/index.md#instance) Managed Service for GitLab, а также создавать, изменять и удалять инстансы;
 * переносить инстансы в другую [зону доступности](../overview/concepts/geo-scope.md);
-* просматривать информацию о [квотах](../managed-gitlab/concepts/limits.md#quotas) сервиса Managed Service for GitLab.
+* просматривать информацию о [квотах](../managed-gitlab/concepts/limits.md#quotas) сервиса Managed Service for GitLab;
+* восстанавливать инстансы из резервных копий.
 
-Включает разрешения, предоставляемые ролью `gitlab.viewer`.
+Включает разрешения, предоставляемые ролями `gitlab.viewer` и `gitlab.backupRestorer`.
 
 Для создания инстансов Managed Service for GitLab дополнительно необходима роль `vpc.user`.
 
@@ -5348,9 +5375,10 @@
 Пользователи с этой ролью могут:
 * просматривать информацию об [инстансах](../managed-gitlab/concepts/index.md#instance) Managed Service for GitLab, а также создавать, изменять и удалять инстансы;
 * переносить инстансы в другую [зону доступности](../overview/concepts/geo-scope.md);
-* просматривать информацию о [квотах](../managed-gitlab/concepts/limits.md#quotas) сервиса Managed Service for GitLab.
+* просматривать информацию о [квотах](../managed-gitlab/concepts/limits.md#quotas) сервиса Managed Service for GitLab;
+* полностью управлять резервными копиями инстанса: создавать, скачивать и удалять их, а также восстанавливать инстансы и создавать новые из резервных копий.
 
-Включает разрешения, предоставляемые ролью `gitlab.editor`.
+Включает разрешения, предоставляемые ролями `gitlab.editor` и `gitlab.backupAdmin`.
 
 Для создания инстансов Managed Service for GitLab дополнительно необходима роль `vpc.user`.
 
@@ -6446,10 +6474,10 @@
 
 #### managed-mongodb.switcher {#managed-mongodb-switcher}
 
-Роль `managed-mongodb.switcher` позволяет переназначать хост-мастер в кластерах Yandex StoreDoc, просматривать информацию о кластерах, хостах, шардах, базах данных и пользователях Yandex StoreDoc, логи работы кластеров, а также данные о квотах и операциях с ресурсами сервиса.
+Роль `managed-mongodb.switcher` позволяет переназначать первичную реплику в кластерах Yandex StoreDoc, просматривать информацию о кластерах, хостах, шардах, базах данных и пользователях Yandex StoreDoc, логи работы кластеров, а также данные о квотах и операциях с ресурсами сервиса.
 
 Пользователи с этой ролью могут:
-* переназначать хост-мастер в [кластерах Yandex StoreDoc](../storedoc/concepts/index.md);
+* переназначать первичную реплику в [кластерах Yandex StoreDoc](../storedoc/concepts/index.md);
 * просматривать информацию о кластерах Yandex StoreDoc и назначенных [правах доступа](concepts/access-control/index.md) к ним;
 * просматривать информацию о заданиях на [техническое обслуживание](../storedoc/concepts/maintenance.md) кластеров Yandex StoreDoc;
 * просматривать информацию о [хостах](../storedoc/concepts/instance-types.md) кластеров Yandex StoreDoc;
@@ -6474,7 +6502,7 @@
 * просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к кластерам Yandex StoreDoc;
 * просматривать информацию о заданиях на [техническое обслуживание](../storedoc/concepts/maintenance.md) кластеров Yandex StoreDoc и изменять такие задания;
 * создавать, изменять и удалять [хосты](../storedoc/concepts/instance-types.md) кластеров Yandex StoreDoc и просматривать информацию о них;
-* переназначать хост-мастер в кластерах Yandex StoreDoc;
+* переназначать первичную реплику в кластерах Yandex StoreDoc;
 * создавать и удалять [шарды](../storedoc/concepts/sharding.md) кластеров Yandex StoreDoc и просматривать информацию о них;
 * создавать и удалять базы данных Yandex StoreDoc и просматривать информацию о них;
 * создавать, изменять и удалять [пользователей](../storedoc/concepts/users-and-roles.md) Yandex StoreDoc и просматривать информацию о них;
@@ -6498,7 +6526,7 @@
 * создавать, использовать, изменять, удалять, запускать и останавливать кластеры Yandex StoreDoc и просматривать информацию о них;
 * просматривать информацию о заданиях на [техническое обслуживание](../storedoc/concepts/maintenance.md) кластеров Yandex StoreDoc и изменять такие задания;
 * создавать, изменять и удалять [хосты](../storedoc/concepts/instance-types.md) кластеров Yandex StoreDoc и просматривать информацию о них;
-* переназначать хост-мастер в кластерах Yandex StoreDoc;
+* переназначать первичную реплику в кластерах Yandex StoreDoc;
 * создавать и удалять [шарды](../storedoc/concepts/sharding.md) кластеров Yandex StoreDoc и просматривать информацию о них;
 * создавать и удалять базы данных Yandex StoreDoc и просматривать информацию о них;
 * создавать, изменять и удалять [пользователей](../storedoc/concepts/users-and-roles.md) Yandex StoreDoc и просматривать информацию о них;
@@ -7692,28 +7720,28 @@
 
 #### serverless.workflows.auditor {#serverless-workflows-auditor}
 
-Роль `serverless.workflows.auditor` позволяет просматривать информацию о [рабочих процессах](../serverless-integrations/concepts/workflows/workflow.md) и назначенных [правах доступа](concepts/access-control/index.md) к ним, просматривать историю [запусков](../serverless-integrations/concepts/workflows/execution.md) рабочих процессов, а также информацию о [квотах](../serverless-integrations/concepts/limits.md#workflows) Yandex Workflows.
+Роль `serverless.workflows.auditor` позволяет просматривать информацию о [рабочих процессах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow) и назначенных [правах доступа](concepts/access-control/index.md) к ним, просматривать историю [запусков](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/execution) рабочих процессов, а также информацию о [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits) Yandex Workflows.
 
 #### serverless.workflows.viewer {#serverless-workflows-viewer}
 
-Роль `serverless.workflows.viewer` позволяет просматривать информацию о [рабочих процессах](../serverless-integrations/concepts/workflows/workflow.md) и назначенных [правах доступа](concepts/access-control/index.md) к ним, просматривать историю [запусков](../serverless-integrations/concepts/workflows/execution.md) рабочих процессов, а также информацию о [квотах](../serverless-integrations/concepts/limits.md#workflows) Yandex Workflows.
+Роль `serverless.workflows.viewer` позволяет просматривать информацию о [рабочих процессах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow) и назначенных [правах доступа](concepts/access-control/index.md) к ним, просматривать историю [запусков](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/execution) рабочих процессов, а также информацию о [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits) Yandex Workflows.
 
 Включает разрешения, предоставляемые ролью `serverless.workflows.auditor`.
 
 #### serverless.workflows.executor {#serverless-workflows-executor}
 
-Роль `serverless.workflows.executor` позволяет запускать, приостанавливать, возобновлять и останавливать [рабочие процессы](../serverless-integrations/concepts/workflows/workflow.md) Yandex Workflows.
+Роль `serverless.workflows.executor` позволяет запускать, приостанавливать, возобновлять и останавливать [рабочие процессы](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow) Yandex Workflows.
 
 #### serverless.workflows.editor {#serverless-workflows-editor}
 
 Роль `serverless.workflows.editor` позволяет управлять рабочими процессами.
 
 Пользователи с этой ролью могут:
-* просматривать информацию о [рабочих процессах](../serverless-integrations/concepts/workflows/workflow.md) и назначенных [правах доступа](concepts/access-control/index.md) к ним;
+* просматривать информацию о [рабочих процессах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow) и назначенных [правах доступа](concepts/access-control/index.md) к ним;
 * создавать, изменять и удалять рабочие процессы;
 * запускать, приостанавливать, возобновлять и останавливать рабочие процессы;
-* просматривать историю [запусков](../serverless-integrations/concepts/workflows/execution.md) рабочих процессов;
-* просматривать информацию о [квотах](../serverless-integrations/concepts/limits.md#workflows) Yandex Workflows.
+* просматривать историю [запусков](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/execution) рабочих процессов;
+* просматривать информацию о [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits) Yandex Workflows.
 
 Включает разрешения, предоставляемые ролями `serverless.workflows.viewer` и `serverless.workflows.executor`.
 
@@ -7722,15 +7750,15 @@
 Роль `serverless.workflows.admin` позволяет управлять рабочими процессами.
 
 Пользователи с этой ролью могут:
-* просматривать информацию о [рабочих процессах](../serverless-integrations/concepts/workflows/workflow.md), а также создавать, изменять и удалять их;
+* просматривать информацию о [рабочих процессах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow), а также создавать, изменять и удалять их;
 * просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к рабочим процессам, а также изменять такие права доступа;
 * запускать, приостанавливать, возобновлять и останавливать рабочие процессы;
-* просматривать историю [запусков](../serverless-integrations/concepts/workflows/execution.md) рабочих процессов;
-* просматривать информацию о [квотах](../serverless-integrations/concepts/limits.md#workflows) Yandex Workflows.
+* просматривать историю [запусков](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/execution) рабочих процессов;
+* просматривать информацию о [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits) Yandex Workflows.
 
 Включает разрешения, предоставляемые ролью `serverless.workflows.editor`.
 
-Подробнее в [Управление доступом в Workflows](../serverless-integrations/security/workflows.md).
+Подробнее в [Управление доступом в Workflows](https://aistudio.yandex.ru/docs/ru/ai-studio/security/index#workflows-roles).
 
 
 ## Yandex SIEM {#yandex-siem-roles}

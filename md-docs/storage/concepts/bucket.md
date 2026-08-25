@@ -141,7 +141,7 @@ Object Storage автоматически отправляет метрики р
 
 Список метрик, передаваемых в Monitoring, представлен в [справочнике](../metrics.md).
 
-Также общую статистику бакета можно [посмотреть с помощь Yandex Cloud CLI](../operations/buckets/get-info.md#get-statistics).
+Также общую статистику бакета можно [посмотреть с помощью Yandex Cloud CLI](../operations/buckets/get-info.md#get-statistics).
 
 
 ## Особенности использования {#details-of-usage}

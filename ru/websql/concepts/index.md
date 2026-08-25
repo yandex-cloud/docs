@@ -19,7 +19,7 @@
 * {{ CH }}: 23 и выше.
 * {{ RD }}/{{ VLK }} (только нешардированные кластеры): 6 и выше.
 * {{ MG }}/{{ SD }}: 6 и выше.
-* [{{ mtr-full-name }}](../../managed-trino/) (сервис находится на стадии [Preview](../../overview/concepts/launch-stages.md)): 454 и выше.
+* [{{ mtr-full-name }}](../../managed-trino/): 454 и выше.
 * {{ GP }}: 6 и выше.
 
 ## Пользовательский интерфейс {#user-interface}

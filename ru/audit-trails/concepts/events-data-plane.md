@@ -43,6 +43,12 @@ description: В данном разделе приведены описания 
 
 {% include [clouddesktop-events-dp](../../_includes/audit-trails/events/clouddesktop-events-dp.md) %}
 
+## {{ cloud-registry-full-name }} {#cloud-registry}
+
+Имя сервиса — `cloudregistry`.
+
+{% include [cloudregistry-events-dp](../../_includes/audit-trails/events/cloudregistry-events-dp.md) %}
+
 ## {{ dns-full-name }} {#dns}
 
 Имя сервиса — `dns`.
@@ -57,7 +63,7 @@ description: В данном разделе приведены описания 
 
 ## {{ ai-studio-full-name }} {#ai-studio}
 
-Имя сервиса — `ai`.
+Имя сервиса — `ai` для всех событий, кроме событий {{ sw-full-name }}. Для событий {{ sw-full-name }} имя сервиса — `serverless.workflows`.
 
 {% include [ai-studio-events-dp](../../_includes/audit-trails/events/ai-studio-events-dp.md) %}
 
@@ -227,8 +233,4 @@ description: В данном разделе приведены описания 
 
 {% include [websql-events-dp](../../_includes/audit-trails/events/websql-events-dp.md) %}
 
-## {{ sw-full-name }} {#workflows}
 
-Имя сервиса — `serverless.workflows`.
-
-{% include [workflows-events-dp](../../_includes/audit-trails/events/workflows-events-dp.md) %}

@@ -1,4 +1,4 @@
-Чтобы создать виртуальную машину из публичного образа[DSVM](/marketplace/products/yc/dsvm):
+Чтобы создать виртуальную машину из публичного образа [DSVM](/marketplace/products/yc/dsvm):
 
 {% list tabs group=instructions %}
 
@@ -12,7 +12,7 @@
   1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
   1. (Опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** настройте загрузочный [диск](../concepts/disk.md):
 
-      * Выберите [тип диска](../concepts/disk.md#disks_types).
+      * Выберите [тип диска](../concepts/disk.md#disks-types).
       * Задайте нужный размер диска.
 
   1. {% include [section-storages-filesystem](../../_includes/compute/create/section-storages-filesystem.md) %}

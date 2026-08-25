@@ -87,7 +87,7 @@ To connect to the VM, specify its public IP address.
 
 To copy the VM's public IP address:
 1. Open the folder page in the [management console]({{ link-console-main }}).
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
 1. Find the created VM and click its name.
 1. Under **{{ ui-key.yacloud.compute.instance.overview.section_network }}**, copy the IP address from the **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}** field.
@@ -267,7 +267,7 @@ Set up an additional password to log in to the `phpMyAdmin` panel. Edit the `php
 	    ```
 
 	    `X.X`: PHP version. Possible values: `5.6`, `7.0`, `7.1`, `7.2`, `7.3`, `7.4`, `8.0`, `8.1`.
-	 1. Edit the parameters:
+	 1. Edit the following properties:
 	    * `upload_max_filesize`: Maximum size of the uploaded file.
 	    * `post_max_size`: Maximum message size for the `POST` method.
 

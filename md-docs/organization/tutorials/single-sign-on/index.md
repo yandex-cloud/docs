@@ -14,6 +14,9 @@
 * Jenkins
     * [SAML](jenkins/saml-jenkins.md)
     * [OpenID Connect](jenkins/oidc-jenkins.md)
+* Loop
+    * [SAML](loop/saml-loop.md)
+    * [OpenID Connect](loop/oidc-loop.md)
 * [Managed Service for GitLab](saml-managed-gitlab.md)
 * [Managed Service for OpenSearch](saml-opensearch.md)
 * [MWS](oidc-mws.md)
@@ -25,8 +28,10 @@
 * [Selectel](saml-selectel.md)
 * [Sentry](saml-sentry.md)
 * [SonarQube](saml-sonarqube.md)
-* VK Cloud
-    * [SAML](vk-cloud/saml-vk-cloud.md)
+* Time
+    * [SAML](time/saml-time.md)
+    * [OpenID Connect](time/oidc-time.md)
+* [VK Cloud](saml-vk-cloud.md)
 * [Zabbix](saml-zabbix.md)
 * [Пассворк](saml-passwork.md)
 * [Яндекс 360](saml-yandex-360.md)

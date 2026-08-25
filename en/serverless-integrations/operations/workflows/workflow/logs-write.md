@@ -5,6 +5,8 @@ description: Follow this guide to configure workflow logging.
 
 # Writing to the workflow execution log
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 {% include [logging-note](../../../../_includes/functions/logging-note.md) %}
 
 {% list tabs group=instructions %}

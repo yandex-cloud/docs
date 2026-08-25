@@ -146,7 +146,6 @@ The consumption type goes into the `systag` label.
 | `pg_log_counter.error_query_canceled`<br/>`DGAUGE`, count | Number of canceled {{ PG }} queries |
 | `pg_log_counter.fatal_connection_failure`<br/>`DGAUGE`, count | Number of fatal {{ PG }} connection errors. |
 | `pg_log_counter.fatal_invalid_password`<br/>`DGAUGE`, count | Number of fatal {{ PG }} connection errors due to an invalid password |
-| `postgres.corruption_found`<br/>`DGAUGE`, 0/1 | Indicator of data corruption in the {{ PG }} cluster<br/> `1` if corruption is detected, `0` if not.<br/>Special labels:<ul><li>`cid`: Cluster ID</li><li>`fqdn`: Host FQDN</li></ul> |
 | `postgres.slru_Clog_blks_hit`<br/>`DGAUGE`, count | Number of SLRU cache hits for the Clog page (transaction commit log) |
 | `postgres.slru_Clog_blks_read`<br/>`DGAUGE`, count | Number of Clog SLRU page reads from the disk |
 | `postgres.slru_Clog_blks_written`<br/>`DGAUGE`, count | Number of Clog SLRU page writes to the disk |
@@ -306,7 +305,9 @@ Special labels for Odyssey metrics:
 | `pooler-transaction_0.999-<DB_name>-<username>`<br/>`DGAUGE`, milliseconds | Processing time for transactions executed by `<username>` through `<DB_name>`, 99.9th percentile |
 | `pooler-used_clients`<br/>`DGAUGE`, count | Number of client connections in the connection pooler |
 | `pooler-used_servers`<br/>`DGAUGE`, count | Number of server connections in the connection pooler |
-| `pooler-xact_count`<br/>`DGAUGE`, count | Number of running transactions per DB host |
+| `pooler-xact_count`<br/>`DGAUGE`, count | Number of active transactions per database host |
+
+
 
 
 #### Vacuum metrics {#managed-postgresql-vacuum}

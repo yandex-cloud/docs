@@ -1,9 +1,9 @@
 ---
-title: How to set up multiple domain name support for a website using {{ TF }}
+title: Setting up multiple domain name support for a website using {{ TF }}
 description: Follow this guide to set up multiple domain name support for a website using {{ TF }}.
 ---
 
-# Support for multiple domain names using {{ TF }}
+# Setting up support for multiple domain names using {{ TF }}
 
 To create an infrastructure to support [multiple website domain names](index.md) using {{ TF }}:
 1. [Delegate the domain name](#delegate-domain).
@@ -21,7 +21,7 @@ You can use [{{ dns-full-name }}](../../../../dns/) to manage the domain.
 ## Create the infrastructure {#deploy}
 
 
-1. Prepare your infrastructure description files:
+1. Set up your infrastructure description files:
 
    {% list tabs group=infrastructure_description %}
 

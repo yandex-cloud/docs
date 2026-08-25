@@ -3,30 +3,48 @@ title: Getting started with the command line interface
 description: Follow this guide to learn how to use the command line interface.
 ---
 
-# Getting started with the command line interface
+# Getting started with the {{ yandex-cloud }} command line interface (CLI)
 
 
 
 The _{{ yandex-cloud }} command line interface (CLI)_ is downloadable software you can use to manage your cloud resources via the command line.
 
+{% include [supported-os](../_includes/cli/supported-os.md) %}
+
+The CLI is convenient for automating processes, including in bash scripts or CI/CD pipelines. You can also use the CLI to manage {{ yandex-cloud }} resources from environments without a graphical interface, such as from inside a {{ compute-full-name }} [VM](../compute/concepts/vm.md).
+
+Most {{ yandex-cloud }} services are supported in the CLI. For the availability of interfaces for each service, see [{#T}](../overview/concepts/interfaces.md).
+
+{% note info %}
+
+In some services, such as [{{ message-queue-full-name }}](../message-queue/concepts/index.md), [{{ postbox-full-name }}](../postbox/concepts/index.md), and [{{ cns-full-name }}](../notifications/concepts/index.md), an HTTP API compatible with the Amazon API is implemented to support various third-party tools and SDKs. These services are not supported in the {{ yandex-cloud }} CLI. To work with them, use third-party tools, such as the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
+
+[{{ objstorage-full-name }}](../storage/concepts/index.md) supports operation both through the {{ yandex-cloud }} CLI and through the AWS CLI.
+
+{% endnote %}
+
+
+Install the CLI on the PC you want to use to manage your {{ yandex-cloud }} resources. Do it by running the commands shown below in the PC terminal.
 
 ## Installation {#install}
 
 {% include [interactive-install-cli-intro](../_includes/cli/interactive-install-cli-intro.md) %}
 
-{% note tip %}
-
-To manually set up the CLI installation directory, autocompletion, and shell startup script, and add the CLI to the `PATH` environment variable, use the [non-interactive CLI installation script](./operations/install-cli.md#non-interactive).
-
-
-You can also manually download and install the executable with the latest stable CLI version. For more information, see [{#T}](./operations/install-cli.md#bin).
-
-
-{% endnote %}
+To _manually_ set up the CLI installation directory, autocompletion, shell startup script, and add the CLI to the `PATH` environment variable, use the [non-interactive CLI installation script](./operations/install-cli.md#non-interactive).
 
 {% include [install-cli](../_includes/cli/install-cli.md) %}
 
 ## Creating a profile {#initialize}
+
+{% include [note-auth-without-gui](../_includes/cli/note-auth-without-gui.md) %}
+
+
+{% note tip %}
+
+{% include [cli-proxy-setup](../_includes/cli/cli-proxy-setup.md) %}
+
+{% endnote %}
+
 
 {% list tabs group=authentication %}
 
@@ -149,8 +167,7 @@ See below for how to create a [cloud network](../vpc/concepts/network.md#network
         ip_version: IPV4
       ```
 
-   1. Connect to the VM over SSH as `yc-user`, using the private key:
-
+   1. Connect to the VM over SSH as `yc-user` using the private key and the VM's public IP address you got earlier:
 
       ```bash
       ssh yc-user@130.193.32.90

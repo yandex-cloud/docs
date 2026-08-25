@@ -1,0 +1,63 @@
+default:
+  cdn-pop-count: 74
+  cdn-pops:
+    '0':
+      cities:
+        '0': Alexandrov
+        '1': Chelyabinsk
+        '2': Chita
+        '3': Irkutsk
+        '4': Khabarovsk
+        '5': Krasnodar
+        '6': Krasnoyarsk
+        '7': Moscow
+        '8': Nizhny Novgorod
+        '9': Novosibirsk
+        '10': Orenburg
+        '11': Petrozavodsk
+        '12': Rostov-on-Don
+        '13': Saint Petersburg
+        '14': Samara
+        '15': Simferopol
+        '16': Sochi
+        '17': Stavropol
+        '18': Tambov
+        '19': Tyumen
+        '20': Ufa
+        '21': Vladikavkaz
+        '22': Vladivostok
+        '23': Volgograd
+        '24': Voronezh
+        '25': Yaroslavl
+        '26': Yekaterinburg
+      country: Russia
+    '1':
+      cities:
+        '0': Minsk
+      country: Belarus
+    '2':
+      cities:
+        '0': Frankfurt
+      country: Germany
+    '3':
+      cities:
+        '0': Aktobe
+        '1': Karaganda
+      country: Kazakhstan
+    '4':
+      cities:
+        '0': Manas
+      country: Kyrgyzstan
+    '5':
+      cities:
+        '0': Amsterdam
+      country: Netherlands
+    '6':
+      cities:
+        '0': Dushanbe
+      country: Tajikistan
+    '7':
+      cities:
+        '0': Tashkent
+      country: Uzbekistan
+  cdn-throughput: 7

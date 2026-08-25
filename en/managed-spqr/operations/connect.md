@@ -9,11 +9,13 @@ keywords:
 
 # Connecting to a {{ SPQR }} cluster
 
+
 You can connect to {{ mspqr-name }} cluster hosts:
 
 * Via the internet, if you configured public access for these hosts. You can only access such hosts over an SSL connection.
 
 * From {{ yandex-cloud }} VMs located in the same [cloud network](../../vpc/concepts/network.md) For hosts without public access, SSL is not required to connect to them from these virtual machines.
+
 
 You can connect to all [host types](../concepts/index.md): `INFRA`, `ROUTER`, `COORDINATOR`, {{ PG }} cluster hosts. The connection is established through port `{{ port-mpg }}`. In the case of `COORDINATOR` hosts and the {{ SPQR }} admin console, you must connect as the `spqr-console` user to the `spqr-console` database. You can use the admin console to configure sharding rules. For more information, see [this SPQR guide](https://pg-sharding.tech/welcome/get_started).
 
@@ -118,7 +120,7 @@ sudo apt update && sudo apt install --yes postgresql-client
 
         Where `target_session_attrs` defines the type of request to the host. For example, `read-write` enables both reading and writing. For more information, see [this SPQR guide](https://docs.pg-sharding.tech/routing/hints#__spqr__target_session_attrs).
 
-        After runing this command, enter the user password to complete your connection.
+        After running this command, enter the user password to complete your connection.
 
     1. To check the connection, run the following query:
 
@@ -141,7 +143,7 @@ sudo apt update && sudo apt install --yes postgresql-client
 
         Where `target_session_attrs` defines the type of request to the host. For example, `read-write` enables both reading and writing. For more information, see [this SPQR guide](https://pg-sharding.tech/routing/hints#spqr-target-session-attrs).
 
-        After runing this command, enter the user password to complete your connection.
+        After running this command, enter the user password to complete your connection.
 
     1. To check the connection, run the following query:
 
@@ -152,6 +154,7 @@ sudo apt update && sudo apt install --yes postgresql-client
 {% endlist %}
 
 ## Connecting from {{ pgadmin }} {#connection-pgadmin}
+
 
 The connection was tested for [{{ pgadmin }}](https://www.pgadmin.org) version 9.1 on Windows 10.
 
@@ -177,3 +180,4 @@ Create a new server connection:
 1. Click **Save** to save the server connection settings.
 
 As a result, the cluster appears in the server list in the navigation menu.
+

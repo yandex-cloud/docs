@@ -58,3 +58,7 @@ Choosing the correct setting for the `Host` header depends on the origins you us
   ```
 
 {% endlist %}
+
+#### Useful links {#see-also}
+
+* [{#T}](../../architecture/static-website-in-yc.md)

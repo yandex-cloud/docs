@@ -1,8 +1,9 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Data Transfer](../index.md) > [Практические руководства](index.md) > Миграция со сменой типа хранения данных > MySQL® в Greenplum®
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Transfer](../index.md) > [Практические руководства](index.md) > Миграция со сменой типа хранения данных > MySQL® в Greenplum®/Apache Cloudberry™
 
 # Миграция данных из Yandex Managed Service for MySQL® в Yandex MPP Analytics for PostgreSQL
 
 # Миграция данных из Yandex Managed Service for MySQL® в Yandex MPP Analytics for PostgreSQL с помощью Yandex Data Transfer
+
 
 Вы можете настроить перенос данных из базы Yandex Managed Service for MySQL® в базу Greenplum® в сервисе Yandex MPP Analytics for PostgreSQL с помощью Yandex Data Transfer. Для этого:
 

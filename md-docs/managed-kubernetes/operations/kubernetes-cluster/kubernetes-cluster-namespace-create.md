@@ -14,8 +14,9 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
-  1. Нажмите на имя нужного кластера и на панели слева выберите ![Namespaces](../../../_assets/console-icons/layers.svg) **Пространства имён**.
-  1. В правом верхнем углу нажмите кнопку **Создать**.
+  1. Выберите кластер Managed Service for Kubernetes.
+  1. Нажмите на вкладку **Другое** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) и выберите **Пространства имён**.
+  1. Нажмите кнопку **Создать пространство имен**.
   1. В открывшемся окне введите **Имя** пространства имен.
 
      {% note info %}
@@ -40,8 +41,9 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
-  1. Нажмите на имя нужного кластера и на панели слева выберите ![Namespaces](../../../_assets/console-icons/layers.svg) **Пространства имён**.
-  1. В строке пространства имен нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
-  1. Подтвердите действие.
+  1. Выберите кластер Managed Service for Kubernetes.
+  1. Нажмите на вкладку **Другое** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) и выберите **Пространства имён**.
+  1. В строке пространства имен нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **Удалить**.
+  1. В открывшемся окне подтвердите действие.
 
 {% endlist %}

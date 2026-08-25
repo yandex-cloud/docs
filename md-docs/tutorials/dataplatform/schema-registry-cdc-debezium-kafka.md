@@ -42,7 +42,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете работать с реестром схем.
   1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-  1. Hа панели слева выберите ![image](../../_assets/console-icons/layout-cells.svg) **Schema Registry** / **Пространство имён**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/layout-cells.svg) **Schema Registry** / **Пространство имён**.
   1. Нажмите кнопку **Создать пространство имён**. 
   1. Укажите [настройки пространства имен](../../metadata-hub/operations/create-name-space.md). После сохранения пространства имен, вы сможете использовать его идентификатор для получения URL Schema Registry: `{namespace_id}.schema-registry.yandexcloud.net:443`.
 
@@ -58,19 +58,19 @@
   1. [Перейдите](https://console.yandex.cloud/link/data-transfer) в сервис **Yandex Data Transfer**. 
   1. [Создайте эндпоинт-источник Apache Kafka®](../../data-transfer/operations/endpoint/source/kafka.md) со следующими настройками:
 
-      * **Тип базы данных** — **Apache Kafka®**.
-      * **Тип подключения** — **Ручная настройка**.
-      * **Тип инсталляции** — **Кластер Managed Service for Apache Kafka®**.
+      * **Тип базы данных** — `Apache Kafka®`.
+      * **Тип подключения** — `Ручная настройка`.
+      * **Тип инсталляции** — `Кластер Managed Service for Apache Kafka®`.
       * В блоке **Кластер Managed Service for Apache Kafka®**:
 
           * **Кластер Managed Service for Apache Kafka®** — выберите [созданный ранее](#prepare-infrastructure) кластер Managed Service for Apache Kafka®.
-          * **Аутентификация** — **SASL**.
+          * **Аутентификация** — `SASL`.
           * **Имя пользователя** и **Пароль** — имя и пароль пользователя в кластере Managed Service for Apache Kafka®.
 
       * В блоке **Расширенные настройки** → **Правила конвертации**:
 
-          * **Правила конвертации** — **Парсер Debezium CDC**.
-          * **Настройки подключения к Schema Registry** — **On Premise Schema Registry**.
+          * **Правила конвертации** — `Парсер Debezium CDC`.
+          * **Настройки подключения к Schema Registry** — `On Premise Schema Registry`.
           * **Schema Registry URL** — [полученный ранее](#create-schema-registry) URL Schema Registry.
 
   1. [Создайте и запустите](../../data-transfer/operations/transfer.md) трансфер данных.

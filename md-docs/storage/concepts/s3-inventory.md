@@ -95,7 +95,7 @@
 
 * `SIZE` — размер в байтах, кроме размера незавершенных частей [составных загрузок](multipart.md), метаданных объекта и маркеров удаления;
 * `LAST_MODIFIED_DATE` — дата создания или последнего изменения;
-* `ETAG` — хэш;
+* `ETAG` — хеш;
 * `STORAGE_CLASS` — [класс хранилища](storage-class.md);
 * `INTELLIGENT_TIERING_ACCESS_TIER` — уровень доступа объекта в [умном хранилище](storage-class.md#features-intelligent-tiering);
 * `IS_MULTIPART_UPLOADED` — маркер составной загрузки;
@@ -184,5 +184,5 @@ source-bucket-name,some-file-key-2,647168,2025-05-25 22:05:28.12345+00,COLD,7f94
 #### Полезные ссылки {#see-also}
 
 * [Управление выгрузкой метаданных объектов (S3 Inventory) в бакете](../operations/buckets/manage-s3-inventory.md)
-* [Скачивание объекта](../operations/objects/download.md)
+* [Скачать объект](../operations/objects/download.md)
 * [Механизм логирования действий с бакетом](server-logs.md)

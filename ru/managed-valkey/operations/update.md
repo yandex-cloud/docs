@@ -1050,7 +1050,7 @@ description: Из статьи вы узнаете, как изменить на
   1. Выберите нужный кластер.
   1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. В разделе **{{ ui-key.yacloud.mdb.forms.section_settings }}** нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
-  1. Настройте доступные параметры в соответствии с [документацией {{ VLK }}](https://valkey.io/documentation).
+  1. Настройте доступные параметры в соответствии с [документацией {{ VLK }}](https://valkey.io/topics/valkey.conf/).
   1. Нажмите кнопку **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
 
 - {{ TF }} {#tf}
@@ -1320,14 +1320,17 @@ description: Из статьи вы узнаете, как изменить на
             --header "Content-Type: application/json" \
             --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<идентификатор_кластера>' \
             --data '{
-                      "updateMask": "configSpec.backupWindowStart,maintenanceWindow,deletionProtection",
+                      "updateMask": "configSpec.backupWindowStart,configSpec.redis.auditLog,maintenanceWindow,deletionProtection",
                       "configSpec": {
                         "backupWindowStart": {
                           "hours": "<часы>",
                           "minutes": "<минуты>",
                           "seconds": "<секунды>",
                           "nanos": "<наносекунды>"
-                        }
+                        },
+                        "redis": {
+                          "auditLog": <включить_логирование_событий_аудита>
+                        },
                       },
                       "maintenanceWindow": {
                         "weeklyMaintenanceWindow": {
@@ -1352,6 +1355,10 @@ description: Из статьи вы узнаете, как изменить на
             * `seconds` — от `0` до `59` секунд;
             * `nanos` — от `0` до `999999999` наносекунд.
 
+        * `configSpec.redis.auditLog` — включить логирование событий аудита о подключении и авторизации: `true` или `false`. Логирование событий аудита может влиять на производительность кластера.
+
+            Эта настройка не влияет на запись стандартных логов {{ VLK }}.
+
         * `maintenanceWindow` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). Передайте один из двух параметров:
 
             * `anytime` — техническое обслуживание происходит в любое время.
@@ -1360,7 +1367,7 @@ description: Из статьи вы узнаете, как изменить на
                 * `day` — день недели: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
                 * `hour` — порядковый номер часового интервала по UTC: от `1` до `24`.
 
-                > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
+                    > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
 
         * `deletionProtection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
@@ -1394,8 +1401,9 @@ description: Из статьи вы узнаете, как изменить на
                   "update_mask": {
                     "paths": [ 
                       "config_spec.backup_window_start",
-                       "maintenance_window",
-                       "deletion_protection"
+                      "config_spec.redis.audit_log",
+                      "maintenance_window",
+                      "deletion_protection"
                     ]
                   },
                   "config_spec": {
@@ -1404,7 +1412,10 @@ description: Из статьи вы узнаете, как изменить на
                       "minutes": "<минуты>",
                       "seconds": "<секунды>",
                       "nanos": "<наносекунды>"
-                    }
+                    },
+                    "redis": {
+                      "audit_log": <включить_логирование_событий_аудита>
+                    },
                   },
                   "maintenance_window": {
                     "weekly_maintenance_window": {
@@ -1431,6 +1442,10 @@ description: Из статьи вы узнаете, как изменить на
             * `seconds` — от `0` до `59` секунд;
             * `nanos` — от `0` до `999999999` наносекунд.
 
+        * `config_spec.redis.audit_log` — включить логирование событий аудита о подключении и авторизации: `true` или `false`. Логирование событий аудита может влиять на производительность кластера.
+
+            Эта настройка не влияет на запись стандартных логов {{ VLK }}.
+
         * `maintenance_window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). Передайте один из двух параметров:
 
             * `anytime` — техническое обслуживание проводится в любое время.
@@ -1439,7 +1454,7 @@ description: Из статьи вы узнаете, как изменить на
                 * `day` — день недели: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
                 * `hour` — порядковый номер часового интервала по UTC: от `1` до `24`.
 
-                > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
+                    > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
 
         * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 

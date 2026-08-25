@@ -54,7 +54,8 @@ description: Следуя данной инструкции, вы сможете
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог.
 1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-1. Нажмите на имя нужного кластера {{ managed-k8s-name }} и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
+1. Выберите [кластер {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster).
+1. Нажмите на вкладку **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) и выберите **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [{{ GLA }}](/marketplace/products/yc/gitlab-agent) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
    * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `gitlab-agent-space`). Если вы оставите пространство имен по умолчанию, {{ GL }} Agent может работать некорректно.
@@ -63,7 +64,7 @@ description: Следуя данной инструкции, вы сможете
    * **Токен доступа агента** — скопируйте в это поле токен доступа {{ GL }}, [полученный ранее](#before-you-begin).
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Дождитесь, пока статус приложения изменится на `Deployed`.
-1. Откройте ваш инстанс {{ GL }} и перейдите на страницу **Infrastucture → {{ k8s }} clusters**. Убедитесь, что агент перешел в состояние `Connected`.
+1. Откройте ваш инстанс {{ GL }} и перейдите на страницу **Infrastructure → {{ k8s }} clusters**. Убедитесь, что агент перешел в состояние `Connected`.
 
 ## Установка с помощью Helm-чарта {#helm-install}
 
@@ -95,7 +96,7 @@ description: Следуя данной инструкции, вы сможете
    kubectl get pods --namespace=<пространство_имен>
    ```
 
-1. Откройте ваш инстанс {{ GL }} и перейдите на страницу **Infrastucture → {{ k8s }} clusters**. Убедитесь, что агент перешел в состояние `Connected`.
+1. Откройте ваш инстанс {{ GL }} и перейдите на страницу **Infrastructure → {{ k8s }} clusters**. Убедитесь, что агент перешел в состояние `Connected`.
 
 ## Примеры использования {#examples}
 

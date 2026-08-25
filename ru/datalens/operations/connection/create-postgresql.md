@@ -43,6 +43,8 @@ description: Из статьи вы узнаете, как подключить�
 
      {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level.md) %}
 
+     ![connection-postgresql](../../../_assets/datalens/operations/connection/connection-postgresql-org.png)
+
        Чтобы проверить корректность введенных параметров, нажмите кнопку **Проверить подключение**.
 
    - Указать вручную {#manual}
@@ -50,6 +52,8 @@ description: Из статьи вы узнаете, как подключить�
      {% include [datalens-db-specify-mannualy](../../../_includes/datalens/datalens-db-specify-mannualy.md) %}
 
      {% include [datalens-db-connection-parameters-postgresql](../../../_includes/datalens/datalens-db-connection-parameters-postgresql.md) %}
+
+     ![connection-postgresql](../../../_assets/datalens/operations/connection/connection-postgresql-manual.png)
 
      Чтобы проверить корректность введенных параметров, нажмите кнопку **Проверить подключение**.
 
@@ -69,6 +73,8 @@ description: Из статьи вы узнаете, как подключить�
      
      {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level.md) %}
 
+     ![connection-postgresql](../../../_assets/datalens/operations/connection/connection-postgresql-manager.png)
+
    {% endlist %}
 
 
@@ -76,13 +82,11 @@ description: Из статьи вы узнаете, как подключить�
 
 1. В открывшемся окне:
 
-   
    1. Выберите [воркбук](../../workbooks-collections/index.md), в котором сохранится подключение, или создайте новый. Если вы пользуетесь старой навигацией по папкам, выберите папку для сохранения подключения.
-
-   1. Укажите название подключения.
-   
+   1. Укажите название подключения.   
    1. Нажмите кнопку **Создать**.
 
+   
    ![screen05](../../../_assets/datalens/operations/connection/create-postgresql/screen05.png)
 
 

@@ -262,6 +262,12 @@ items:
                 href: security/single-sign-on/jenkins/saml-jenkins.md
               - name: OpenID Connect
                 href: security/single-sign-on/jenkins/oidc-jenkins.md
+          - name: Loop
+            items:
+              - name: SAML
+                href: security/single-sign-on/loop/saml-loop.md
+              - name: OpenID Connect
+                href: security/single-sign-on/loop/oidc-loop.md
           - name: '{{ mgl-name }}'
             href: security/single-sign-on/saml-managed-gitlab.md
           - name: '{{ mos-name }}'
@@ -284,10 +290,14 @@ items:
             href: security/single-sign-on/saml-sentry.md
           - name: SonarQube
             href: security/single-sign-on/saml-sonarqube.md
-          - name: VK Cloud
+          - name: Time
             items:
               - name: SAML
-                href: security/single-sign-on/vk-cloud/saml-vk-cloud.md
+                href: security/single-sign-on/time/saml-time.md
+              - name: OpenID Connect
+                href: security/single-sign-on/time/oidc-time.md
+          - name: VK Cloud
+            href: security/single-sign-on/saml-vk-cloud.md
           - name: Zabbix
             href: security/single-sign-on/saml-zabbix.md
           - name: Пассворк
@@ -857,6 +867,8 @@ items:
             href: web/user-agent-statistics.md
           - name: Оформление контента из {{ video-name }} в IFrame
             href: web/video-iframe.md
+          - name: Управление видеоконтентом для курсов Moodle
+            href: web/video-moodle-plugin.md
       - name: 1С
         items:
           - name: Интернет-магазин на «1С-Битрикс»
@@ -1095,6 +1107,10 @@ items:
       - name: Интеграция {{ mch-full-name }} с Oracle через {{ CH }} JDBC Bridge
         href: dataplatform/jdbc-ch-to-oracle-integration.md
       - name: >-
+          Выполнение аналитических запросов в {{ mpg-name }} с обработкой в {{
+          mch-name }}
+        href: dataplatform/mpg-pg-clickhouse-extension.md
+      - name: >-
           Настройка {{ dns-name }} для доступа к кластеру {{ mch-name }} из
           других облачных сетей
         href: dataplatform/clickhouse-dns-peering.md
@@ -1295,6 +1311,10 @@ items:
           Настройка прав доступа к секрету, созданному {{
           connection-manager-name }}, для пользователя {{ mpg-name }}
         href: dataplatform/conn-man-secret-access.md
+      - name: >-
+          Выполнение аналитических запросов в {{ mpg-name }} с обработкой в {{
+          mch-name }}
+        href: dataplatform/mpg-pg-clickhouse-extension.md
       - name: Миграция БД из {{ GP }} в {{ CH }}
         href: dataplatform/greenplum-to-clickhouse.md
       - name: Миграция БД из {{ GP }} в {{ PG }}
@@ -1385,6 +1405,10 @@ items:
           Создание реестра схем для поставки данных в формате Debezium CDC из {{
           KF }}
         href: dataplatform/schema-registry-cdc-debezium-kafka.md
+      - name: >-
+          Выполнение аналитических запросов в {{ mpg-name }} с обработкой в {{
+          mch-name }}
+        href: dataplatform/mpg-pg-clickhouse-extension.md
       - name: Автоматизация работы с помощью {{ maf-full-name }}
         href: dataplatform/airflow-and-spark.md
       - name: Работа с таблицей в {{ objstorage-name }} из PySpark-задания

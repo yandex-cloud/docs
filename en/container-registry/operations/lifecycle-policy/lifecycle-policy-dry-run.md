@@ -4,7 +4,7 @@ A dry run helps verify which [Docker images](../../concepts/docker-image.md) mee
 
 {% note warning %}
 
-The maximum number of Docker images in a single [repository](../../concepts/repository.md) that a single dry run can verify is 50,000. In this case, an active policy with the same rules deletes all Docker images that are suitable for deletion.
+A dry run supports a maximum of 50,000 [Docker images](../../concepts/repository.md) per repository. In this case, an active policy with the same rules will delete all Docker images eligible for deletion.
 
 {% endnote %}
 
@@ -12,20 +12,21 @@ The maximum number of Docker images in a single [repository](../../concepts/repo
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the [registry](../../concepts/registry.md) was created in.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) with the [registry](../../concepts/registry.md).
+  1. [Navigate]({{ link-console-main }}/link/container-registry) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Select the registry and click the row with its name.
   1. Select the repository and click the row with its name.
   1. In the left-hand panel, click ![lifecycle](../../../_assets/console-icons/arrows-rotate-right.svg) **{{ ui-key.yacloud.cr.registry.label_lifecycle }}**.
-  1. Click the name of the lifecycle policy you need.
-  1. In the top-right corner, click ![image](../../../_assets/console-icons/play-fill.svg) **{{ ui-key.yacloud.cr.registry.button_lifecycle-dry-run }}**. Once the test is completed, the **{{ ui-key.yacloud.cr.registry.label_lifecycle-dry-runs }}** section will contain a line with the policy dry run results.
-  1. To get a list of Docker images to be deleted according to the policy rules, click the line with the policy dry run results.
+  1. Click the lifecycle policy name.
+  1. In the top-right corner, click ![image](../../../_assets/console-icons/play-fill.svg) **{{ ui-key.yacloud.cr.registry.button_lifecycle-dry-run }}**. Once the test is complete, the **{{ ui-key.yacloud.cr.registry.label_lifecycle-dry-runs }}** section will contain a line with the policy dry run results.
+  1. To get a list of Docker images to delete according to the policy rules, click the line with the policy dry run results.
 
 - CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
   To test a lifecycle policy:
+
   1. Perform a dry run of the policy:
 
      ```bash
@@ -41,8 +42,8 @@ The maximum number of Docker images in a single [repository](../../concepts/repo
      affected_images_count: "1"
      ```
 
-     To find out the policy ID, get a [list of lifecycle policies in a repository or registry](lifecycle-policy-list.md#lifecycle-policy-list).
-  1. Get a list of policy dry runs:
+     To find out the policy ID, get a [list of lifecycle policies in the repository or registry](lifecycle-policy-list.md#lifecycle-policy-list).
+  1. Get the list of policy dry runs:
 
      ```bash
      yc container repository lifecycle-policy list-dry-run-results crp6lg1868p3********
@@ -58,7 +59,7 @@ The maximum number of Docker images in a single [repository](../../concepts/repo
      +----------------------+----------------------+-----------------------+---------------------+
      ```
 
-  1. Get information about the results of the policy dry run. Use the `RESULT ID` parameter from the previous item:
+  1. Get information about the policy dry run results. Use `RESULT ID` from the previous step:
 
      ```bash
      yc container repository lifecycle-policy get-dry-run-result crpn27glo1k8********
@@ -73,7 +74,7 @@ The maximum number of Docker images in a single [repository](../../concepts/repo
      affected_images_count: "1"
      ```
 
-  1. Get a list of Docker images to be deleted according to the policy rules. Use the `dry_run_lifecycle_policy_result_id` parameter from the previous item:
+  1. Get a list of Docker images to delete according to the policy rules. Use `dry_run_lifecycle_policy_result_id` from the previous step:
 
      ```bash
      yc container repository lifecycle-policy list-dry-run-affected-images crpn27glo1k8********
@@ -92,9 +93,10 @@ The maximum number of Docker images in a single [repository](../../concepts/repo
 - API {#api}
 
   To test a lifecycle policy:
-  1. Perform a policy dry run using the [DryRun](../../api-ref/grpc/LifecyclePolicy/dryRun.md) method of the [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md) resource. Specify the policy ID in the `lifecycle_policy_id` parameter. You can retrieve a list of policies using the [List](../../api-ref/grpc/LifecyclePolicy/list.md) method for the [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md) resource.
-  1. Retrieve a list of policy dry runs using the [ListDryRunResults](../../api-ref/grpc/LifecyclePolicy/listDryRunResults.md) method for the [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md) resource. Specify the policy ID in the `lifecycle_policy_id` parameter.
-  1. Retrieve information regarding a policy dry run using the [GetDryRunResult](../../api-ref/grpc/LifecyclePolicy/getDryRunResult.md) method for the [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md) resource. In the `dry_run_lifecycle_policy_result_id` parameter, specify the ID of the policy dry run results from the previous item.
-  1. Get a list of Docker images to be deleted according to the policy rules. Use the [ListDryRunResultAffectedImages](../../api-ref/grpc/LifecyclePolicy/listDryRunResultAffectedImages.md) method for the [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md) resource. In the `dry_run_lifecycle_policy_result_id` parameter, specify the ID of the policy dry run results.
+  
+  1. Perform a policy dry run using the [DryRun](../../api-ref/grpc/LifecyclePolicy/dryRun.md) method for the [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md) resource. Specify the policy ID in the `lifecycle_policy_id` parameter. You can get the list of policies using the [List](../../api-ref/grpc/LifecyclePolicy/list.md) method for the [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md) resource.
+  1. Get a list of policy dry runs using the [ListDryRunResults](../../api-ref/grpc/LifecyclePolicy/listDryRunResults.md) method for the [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md) resource. Specify the policy ID in the `lifecycle_policy_id` parameter.
+  1. Get information regarding a policy dry run using the [GetDryRunResult](../../api-ref/grpc/LifecyclePolicy/getDryRunResult.md) method for the [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md) resource. In the `dry_run_lifecycle_policy_result_id` parameter, specify the ID of the policy dry run results from the previous step.
+  1. Get a list of Docker images to delete according to the policy rules. Use the [ListDryRunResultAffectedImages](../../api-ref/grpc/LifecyclePolicy/listDryRunResultAffectedImages.md) method for the [LifecyclePolicyService](../../api-ref/grpc/LifecyclePolicy/index.md) resource. In the `dry_run_lifecycle_policy_result_id` parameter, specify the ID of the policy dry run result.
 
 {% endlist %}

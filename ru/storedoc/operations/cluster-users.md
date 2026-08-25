@@ -15,7 +15,7 @@ description: Из статьи вы узнаете, как добавлять и
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storedoc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mongodb.cluster.switch_users }}**.
   
 - CLI {#cli}
   
@@ -80,6 +80,93 @@ description: Из статьи вы узнаете, как добавлять и
 
 {% endlist %}
 
+
+## Получить информацию о пользователе {#get-user}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+    1. [Перейдите]({{ link-console-main }}/link/storedoc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mongodb.cluster.switch_users }}**.
+
+        Информация о пользователе доступна в списке пользователей.
+
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы получить информацию о конкретном пользователе:
+
+    1. Посмотрите описание команды CLI для получения информации о пользователе:
+
+        ```bash
+        {{ yc-mdb-mg }} user get --help
+        ```
+
+    1. Получите информацию о пользователе, выполнив команду:
+
+        ```bash
+        {{ yc-mdb-mg }} user get <имя_пользователя> \
+          --cluster-id=<идентификатор_кластера>
+        ```
+
+        Имя пользователя можно получить со [списком пользователей](#list-users) в кластере, а идентификатор кластера — со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+
+- REST API {#api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Воспользуйтесь методом [User.Get](../api-ref/User/get.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+          --request GET \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>'
+        ```
+
+        Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге, а имя пользователя — со [списком пользователей](#list-users) в кластере.
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/get.md#yandex.cloud.mdb.mongodb.v1.User).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [UserService.Get](../api-ref/grpc/User/get.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mongodb/v1/user_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+            "cluster_id": "<идентификатор_кластера>",
+            "user_name": "<имя_пользователя>"
+          }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.mongodb.v1.UserService.Get
+          ```
+
+        Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге, а имя пользователя — со [списком пользователей](#list-users) в кластере.
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/User/get.md#yandex.cloud.mdb.mongodb.v1.User).
+
+{% endlist %}
+
+
 ## Создать пользователя {#adduser}
 
 {% list tabs group=instructions %}
@@ -89,7 +176,7 @@ description: Из статьи вы узнаете, как добавлять и
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storedoc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mongodb.cluster.switch_users }}**.
 
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
 
@@ -106,6 +193,14 @@ description: Из статьи вы узнаете, как добавлять и
 
         Для этого способа авторизации выберите аккаунт в поле **{{ ui-key.yacloud.common.user }}**.
 
+
+  1. Выберите тип защиты пользователя от непреднамеренного удаления. Возможные значения:
+
+     * **Как у кластера**.
+     * **Включена**.
+     * **Выключена**.
+
+     {% include [deletion-protection-user](../../_includes/mdb/deletion-protection-user.md) %}
 
   1. Настройте [роли](../concepts/users-and-roles.md) пользователя:
 
@@ -162,6 +257,8 @@ description: Из статьи вы узнаете, как добавлять и
      
      * `--deletion-protection` — защита пользователя от непреднамеренного удаления: `true` или `false`. По умолчанию значение не задано, и для пользователя используется значение соответствующей настройки кластера. Если защита включена (`true`), удалить пользователя нельзя.
 
+       {% include [deletion-protection-user](../../_includes/mdb/deletion-protection-user.md) %}
+
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -191,7 +288,9 @@ description: Из статьи вы узнаете, как добавлять и
           {% include [user-name-and-password-limits](../../_includes/mdb/mmg/note-info-user-name-and-pass-limits.md) %}
 
         * `deletion_protection` — защита пользователя от непреднамеренного удаления: `true` или `false`. По умолчанию значение не задано, и для пользователя используется значение соответствующей настройки кластера. Если защита включена (`true`), удалить пользователя нельзя.
-        
+
+          {% include [deletion-protection-user](../../_includes/mdb/deletion-protection-user.md) %}
+
         * `permission` — разрешения пользователя для доступа к базе данных:
           
           * `database_name` — имя базы данных, к которой пользователь получает доступ.
@@ -260,6 +359,8 @@ description: Из статьи вы узнаете, как добавлять и
      
      * `userSpec.deletionProtection` — защита пользователя от непреднамеренного удаления: `true` или `false`. По умолчанию значение не задано, и для пользователя используется значение соответствующей настройки кластера. Если защита включена (`true`), удалить пользователя нельзя.
 
+       {% include [deletion-protection-user](../../_includes/mdb/deletion-protection-user.md) %}
+
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/create.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
@@ -317,6 +418,8 @@ description: Из статьи вы узнаете, как добавлять и
 
      * `user_spec.deletion_protection` — защита пользователя от непреднамеренного удаления: `true` или `false`. По умолчанию значение не задано, и для пользователя используется значение соответствующей настройки кластера. Если защита включена (`true`), удалить пользователя нельзя.
 
+       {% include [deletion-protection-user](../../_includes/mdb/deletion-protection-user.md) %}
+
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
@@ -336,10 +439,10 @@ description: Из статьи вы узнаете, как добавлять и
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storedoc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mongodb.cluster.switch_users }}**.
 
   
-  1. Чтобы изменить пароль пользователя, нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**:
+  1. Чтобы изменить пароль пользователя, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**:
   
      * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}** — ввести свой пароль. Длина пароля — от 8 до 128 символов.
      * **{{ ui-key.yacloud.component.password-input.label_button-generate }}** — сгенерировать пароль с помощью сервиса [{{ connection-manager-name }}](cluster-create.md#conn-man).
@@ -349,9 +452,14 @@ description: Из статьи вы узнаете, как добавлять и
      Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
 
+  1. Чтобы настроить защиту пользователя от непреднамеренного удаления:
+
+     1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+     1. Выберите нужное значение в поле **{{ ui-key.yacloud.mdb.dialogs.field_deletion_protection }}**.
+
   1. Чтобы изменить [роли](../concepts/users-and-roles.md) пользователя:
 
-     1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+     1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
      1. Чтобы добавить роль, нажмите ![image](../../_assets/console-icons/plus.svg) напротив нужной БД и выберите роль.
      1. Чтобы удалить роль, нажмите на значок ![image](../../_assets/console-icons/xmark.svg) возле названия роли.
 
@@ -639,8 +747,8 @@ description: Из статьи вы узнаете, как добавлять и
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storedoc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}**.
-  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mongodb.cluster.switch_users }}**.
+  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
   
 - CLI {#cli}
   

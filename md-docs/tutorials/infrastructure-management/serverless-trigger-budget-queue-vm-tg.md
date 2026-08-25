@@ -10,6 +10,7 @@
 [Триггер для Message Queue](../../functions/concepts/trigger/ymq-trigger.md) будет передавать поступившие в очередь сообщения во вторую функцию Cloud Functions, которая будет отправлять уведомления в Telegram с помощью специально созданного бота.
 
 Чтобы развернуть проект:
+
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте бюджет](#create-budget).
 1. [Создайте очередь Message Queue](#create-queue).
@@ -25,7 +26,6 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
-
 ## Подготовьте облако к работе {#before-you-begin}
 
 Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
@@ -39,6 +39,7 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость ресурсов входят:
+
 * Плата за вычислительные ресурсы ВМ ([тарифы Compute Cloud](../../compute/pricing.md#prices-instance-resources)).
 * Плата за [диски](../../compute/concepts/disk.md) ВМ ([тарифы Compute Cloud](../../compute/pricing.md#prices-storage)).
 * Плата за использование динамического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
@@ -54,7 +55,6 @@
 ```bash
 git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-for-budget
 ```
-
 
 ### Создайте сервисный аккаунт и статический ключ доступа {#create-sa}
 
@@ -75,7 +75,9 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
       Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
-      По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+      По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`.
+      
+      Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
       1. Создайте сервисный аккаунт `service-account-for-budget`:
 
@@ -184,7 +186,6 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
     {% endlist %}
 
-
 ### Создайте облачную сеть и подсеть {#create-network}
 
 {% list tabs group=instructions %}
@@ -200,7 +201,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
   1. На панели слева выберите ![subnets](../../_assets/vpc/subnets.svg) **Подсети**.
   1. Справа сверху нажмите кнопку **Создать**.
   1. В поле **Имя** укажите `sample-subnet-ru-central1-b`.
-  1. В поле **Зона доступности** выберите зону доступности `ru-central1-b`.
+  1. В поле **Зона доступности** выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-b`.
   1. В поле **Сеть** выберите облачную сеть `my-sample-network`.
   1. В поле **CIDR** укажите `192.168.1.0/24`.
   1. Нажмите кнопку **Создать подсеть**.
@@ -225,7 +226,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
       Подробнее о команде `yc vpc network create` читайте в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/network/create.md).
 
-  1. Создайте подсеть `sample-subnet-ru-central1-b` в зоне доступности `ru-central1-b`:
+  1. Создайте подсеть `sample-subnet-ru-central1-b` в [зоне доступности](../../overview/concepts/geo-scope.md) `ru-central1-b`:
 
       ```bash
       yc vpc subnet create sample-subnet-ru-central1-b \
@@ -256,7 +257,6 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
   1. Чтобы создать подсеть, воспользуйтесь методом REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md).
 
 {% endlist %}
-
 
 ## Создайте бюджет {#create-budget}
 
@@ -305,6 +305,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
   1. [Перейдите](https://console.yandex.cloud/link/message-queue) в сервис **Message Queue**.
   1. Нажмите кнопку **Создать очередь**.
   1. В блоке **Базовые параметры** укажите:
+
       * **Имя** — `budget-queue`.  
       * **Тип** — `Стандартная`.
 
@@ -312,6 +313,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
   1. Нажмите кнопку **Создать**.
   1. Нажмите на имя созданной очереди `budget-queue` и в открывшемся окне скопируйте значения полей:
+
       * **URL** — URL очереди.
       * **ARN** — идентификатор очереди.
 
@@ -362,7 +364,6 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
 {% endlist %}
 
-
 ## Создайте функцию Cloud Functions, которую будет вызывать триггер для бюджетов {#create-budget-function}
 
 1. Подготовьте ZIP-архив с кодом функции.
@@ -382,19 +383,23 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
       1. В [консоли управления](https://console.yandex.cloud) выберите ваш каталог.
       1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
       1. Создайте функцию:
+
           1. Нажмите кнопку **Создать функцию**.
           1. Введите имя функции `budget-trigger-handler`.
           1. Нажмите кнопку **Создать**.
 
       1. Создайте версию функции:
+
           1. Выберите среду выполнения `golang119`, выключите опцию **Добавить файлы с примерами кода** и нажмите кнопку **Продолжить**.
           1. Укажите способ загрузки **ZIP-архив** и прикрепите архив `src_bgt.zip`, который создали на предыдущем шаге.
           1. Укажите точку входа `budget_trigger_handler.Handler`.
           1. В блоке **Параметры** укажите:
+
               * **Таймаут** — `5`;
               * **Память** — `512 МБ`;
               * **Сервисный аккаунт** — `service-account-for-budget`;
               * **Переменные окружения**:
+
                   * `FOLDER_ID` — идентификатор каталога, в котором вы хотите останавливать виртуальные машины.
                   * `TAG` — `target-for-stop`.
                   * `AWS_ACCESS_KEY_ID` — значение идентификатора статического ключа доступа, сохраненное ранее.
@@ -447,6 +452,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
           * `--service-account-id` — [идентификатор](../../iam/operations/sa/get-id.md) сервисного аккаунта `service-account-for-budget`, сохраненный ранее. Сервисный аккаунт будет использоваться для вызова функции.
           * `--environment` — переменные окружения:
+
               * `FOLDER_ID` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога, в котором вы хотите останавливать виртуальные машины.
               * `AWS_ACCESS_KEY_ID` — значение идентификатора статического ключа доступа, сохраненное ранее.
               * `AWS_SECRET_ACCESS_KEY` — значение секретного ключа статического ключа доступа, сохраненное ранее.
@@ -491,7 +497,6 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
     {% endlist %}
 
-
 ## Создайте триггер для бюджетов {#create-budget-trigger}
 
 {% list tabs group=instructions %}
@@ -503,6 +508,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
   1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **Триггеры**.
   1. Нажмите кнопку **Создать триггер**.
   1. В блоке **Базовые параметры**:
+
       * В поле **Имя** укажите имя триггера `trigger-for-budget-from-yc`.
       * В поле **Тип** выберите `Бюджет`.
       * В поле **Запускаемый ресурс** выберите `Функция`.
@@ -556,7 +562,6 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
   Чтобы создать триггер для бюджетов, воспользуйтесь методом [create](../../functions/triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../functions/triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../../functions/triggers/api-ref/grpc/Trigger/create.md).
 
 {% endlist %}
-
 
 ## Зарегистрируйте Telegram-бота {#register-bot}
 
@@ -645,19 +650,23 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
       1. В [консоли управления](https://console.yandex.cloud) выберите ваш каталог.
       1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
       1. Создайте функцию:
+
           1. Нажмите кнопку **Создать функцию**.
           1. Введите имя функции `budget-queue-handler`.
           1. Нажмите кнопку **Создать**.
 
       1. Создайте версию функции:
+
           1. Выберите среду выполнения `golang119`, выключите опцию **Добавить файлы с примерами кода** и нажмите кнопку **Продолжить**.
           1. Укажите способ загрузки **ZIP-архив** и прикрепите архив `src_queue.zip`, который создали на предыдущем шаге.
           1. Укажите точку входа `budget_queue_handler.HandleBudgetQueueMessage`.
           1. В блоке **Параметры** укажите:
+
               * **Таймаут** — `5`;
               * **Память** — `512 МБ`;
               * **Сервисный аккаунт** — `service-account-for-budget`;
               * **Переменные окружения**:
+
                   * `TELEGRAM_BOT_API_TOKEN` — API-токен Telegram-бота, сохраненный ранее.
                   * `TELEGRAM_BOT_CHAT_ID` — идентификатор `ChatID` пользователя Telegram, сохраненный ранее.
 
@@ -740,7 +749,6 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
     {% endlist %}
 
-
 ## Создайте триггер для Message Queue {#create-queue-trigger}
 
 {% list tabs group=instructions %}
@@ -752,11 +760,13 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
   1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **Триггеры**.
   1. Нажмите кнопку **Создать триггер**.
   1. В блоке **Базовые параметры**:
+
       * В поле **Имя** укажите имя триггера `budget-queue-trigger`.
       * В поле **Тип** выберите `Message Queue`.
       * В поле **Запускаемый ресурс** выберите `Функция`.
 
   1. В блоке **Настройки сообщений Message Queue** выберите созданные ранее ресурсы:
+  
       * В поле **Очередь сообщений** — `budget-queue`.
       * В поле **Сервисный аккаунт** — `service-account-for-budget`.
 
@@ -813,7 +823,6 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
   Чтобы создать триггер для Message Queue, воспользуйтесь методом [create](../../functions/triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../functions/triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../../functions/triggers/api-ref/grpc/Trigger/create.md).
 
 {% endlist %}
-
 
 ## Создайте виртуальные машины Compute Cloud {#create-vms}
 
@@ -932,7 +941,6 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
 Аналогичным способом создайте еще две виртуальные машины — `target-instance-2` и `target-instance-3`. У последней ВМ для метки `target-for-stop` укажите значение `false`.
 
-
 ## Убедитесь, что по триггеру останавливаются ВМ и отправляются уведомления в Telegram {#test}
 
 Дождитесь, когда будут достигнуты пороговые значения, которые вы указали в бюджете. Убедитесь, что при достижении пороговых значений бюджета виртуальные машины `target-instance-1` и `target-instance-2` остановились, а Telegram-бот отправил вам уведомление о срабатывании триггера для бюджета:
@@ -940,7 +948,6 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 ```text
 Budget trigger was triggered!
 ```
-
 
 ## Как удалить созданные ресурсы {#clear-out}
 

@@ -9,8 +9,8 @@ description: Follow this guide to update a log group.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder containing your [log group](../concepts/log-group.md).
-    1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder with your [log group](../concepts/log-group.md).
+    1. [Navigate]({{ link-console-main }}/link/logging) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
     1. Next to the log group, click ![image](../../_assets/console-icons/ellipsis.svg).
     1. In the menu that opens, click **{{ ui-key.yacloud.common.edit }}**.
     1. Update the log group settings.

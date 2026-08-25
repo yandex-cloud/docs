@@ -18,7 +18,7 @@ You cannot restore a network after it is deleted.
 
   To delete a [cloud network](../concepts/network.md#network):
   1. In the [management console]({{ link-console-main }}), select the folder where you need to delete a cloud network.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the network you need and select **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 

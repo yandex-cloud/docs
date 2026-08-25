@@ -6,7 +6,7 @@
 
      1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
      1. Go to the **{{ ui-key.yacloud.serverless-functions.switch_list }}** section and select the `scan-on-push` function.
-     1. In the window that opens, go to **{{ ui-key.yacloud.serverless-functions.item.switch_logs }}** and specify the time period. The default time period is one hour.
+     1. In the window that opens, open **{{ ui-key.yacloud.serverless-functions.item.switch_logs }}** and specify the period. The default period is one hour.
 
    - CLI {#cli}
 
@@ -46,7 +46,7 @@
 
    - CLI {#cli}
 
-     To view scans by Docker image, run the command:
+     To view scan runs for a Docker image, run this command:
 
      ```bash
      yc container image list-scan-results --repository-name=<registry_ID>/<Docker_image_name>

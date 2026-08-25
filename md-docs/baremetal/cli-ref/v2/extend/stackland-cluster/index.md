@@ -22,6 +22,8 @@ Syntax:
 
 - [yc baremetal v2 extend stackland-cluster list](list.md) — List Stackland clusters in the specified folder.
 
+- [yc baremetal v2 extend stackland-cluster list-stackland-cluster-operations](list-stackland-cluster-operations.md) — Lists operations for the specified Stackland cluster.
+
 - [yc baremetal v2 extend stackland-cluster update](update.md) — Updates the specified Stackland cluster.
 
 #### Global Flags

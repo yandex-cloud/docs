@@ -13,7 +13,7 @@ The registry connection log contains information about operations performed with
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder to view the registry connection log in.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+    1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
     1. Select the registry with the required device from the list.
     1. Select **{{ ui-key.yacloud.common.logs }}** in the left pane of the window.
    
@@ -34,6 +34,7 @@ The registry connection log contains information about operations performed with
         ```
 
         Result:
+
         ```text
         2019-09-19 18:51:02     connected, cert: "94ea0421199ec70f1f3d359a1c167a81********", address: "77.88.**.***:53171", clientID: "YCCmdLine"
         2019-09-19 18:51:02     some of subscriptions failed: not allowed to subscribe: ["$device/areqjd6un3af********/events"]
@@ -56,7 +57,7 @@ The device connection log contains information about operations performed with t
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder to view the device connection log in.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+    1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
     1. Select the registry with the required device from the list.
     1. Select **{{ ui-key.yacloud.iot.label_devices }}** in the left pane of the window.
     1. Select the device from the list.
@@ -79,6 +80,7 @@ The device connection log contains information about operations performed with t
         ```
 
         Result:
+
         ```text
         2019-09-19 18:52:03     connected, cert: "ea7bd563e2352ad87e2aca529cfe3d0c********", address: "77.88.**.***:53189", clientID: "YCCmdLine"
         2019-09-19 18:52:03     disconnected: publish to topic "$device/areqjd6un3af********/events" not allowed

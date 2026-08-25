@@ -38,20 +38,97 @@ A schema may include up to 10,240 characters.
 
 Description of schema parameters:
 
-Parameter | Description
------ | -----
-`Version` | **string** (optional)<br/>Access policy description version.<br/>Examples: `2012-10-17`.
-`Id` | **string** (optional)<br/>General info on the policy. Some {{ yandex-cloud }} services require a unique value.<br/>This is a user-defined parameter.<br/>Examples: `test-policy`, `Anonymous access policy`, `hrtk43sau2s8gqkaje06`.
-`Statement[].` | **array**<br/>Access policy rules.<br/>If a no-rule bucket policy is applied to the bucket, access will be denied to all users. To disable request verification for a bucket policy, [delete](delete.md) it.
-`Statement[].Sid` | **string**<br/>Rule ID (optional).<br/>This is a user-defined parameter.<br/>Examples: `test-rule`, `Statement Allow`, `Statement Deny`.
-`Statement[].Principal` | **string**<br/>ID of the subject of the requested permission (optional). You can request permissions for a [user](../../../../organization/operations/users-get.md), or [service account](../../../../iam/operations/sa/get-id.md).<br/>Possible values:<ul><li>`"*"`</li><li>`"CanonicalUser": "<subject_ID>"`</li></ul>
-`Statement[].NotPrincipal` | **string**<br/>ID of the subject that will not get the requested permission (optional). The possible subjects are: [user](../../../../organization/operations/users-get.md), or [service account](../../../../iam/operations/sa/get-id.md).<br/>Possible value: `"CanonicalUser": "<subject_ID>"`.
-`Statement[].Effect` | **string**<br/>Denies or allows the requested action.<br/>The possible values are `Allow` and `Deny`.
-`Statement[].Action` | **string**<br/>[Action](actions.md) if the policy triggers.<br/>The possible values are `s3:GetObject` and `s3:PutObject`.
-`Statement[].Resource` | **string**<br/>Resource the action will be performed on.<br/>The possible values are: <ul><li>`arn:aws:s3:::<bucket_name>`: Bucket.</li><li>`arn:aws:s3:::<bucket_name>/<object_key>`: Bucket object.</li><li>`arn:aws:s3:::<bucket_name>/<object_key_prefix>*`: All objects in the bucket whose keys start with a prefix, e.g., `arn:aws:s3:::samplebucket/some/path/*`. A prefix can be empty, e.g., `arn:aws:s3:::samplebucket/*`, in which case the rule will apply to all bucket objects.</li></ul> A bucket resource does not include resources of all its objects. To make sure a bucket policy rule refers to the bucket and all the objects, specify them as separate resources, e.g., `arn:aws:s3:::samplebucket` and `arn:aws:s3:::samplebucket/*`.
-`Statement[].Condition{}.` | **string**<br/>[Condition](conditions.md) to check (optional).<br/>If several conditions are set for the rule at the same time, they will apply using the `AND` logic, i.e., to be executed, the rule must satisfy all the specified conditions at the same time.<br/><br/>For the `aws:sourceip` condition, a special procedure for [checking IP addresses of reverse proxy servers](../../../concepts/policy.md#access-via-reverse-proxy) is supported. If you only need to check the original IP address while ignoring proxies, use the `yc:originip` [condition](conditions.md#keys).
-`Statement[].Condition{}.`<br/>`condition_type_string{}.` | **string**<br/>Condition type.<br/>The possible values are `StringEquals` and `Bool`. For a full list of values, see [Comparison operators](conditions.md#condition-operators).
-`Statement[].Condition{}.`<br/>`condition_type_string{}.`<br/>`condition_key_string` | **string**<br/>Condition key.<br/><br/>Defines the condition to check.<br/>The possible values are: `aws:PrincipalType`, `true`.<br/><br/>If several keys are specified for one condition at the same time, these will be checked with using the `AND` logic, i.e., to be executed, the rule must satisfy all the specified properties at the same time.<br/><br/>If several values are specified for one condition key at the same time, these will be checked with the logical `OR`, i.e., for the rule to be executed, the condition key may satisfy any of the specified values.
+#|
+|| **Parameter** | **Description** ||
+|| `Version` | (Optional) **string**
+
+Bucket policy description version.
+
+Examples of values: `2012-10-17`. ||
+|| `Id` | (Optional) **string**
+
+General policy information. Some {{ yandex-cloud }} services require this value to be unique.
+
+The parameter is specified by the user.
+
+Examples of values: `test-policy`, `Anonymous access policy`, `hrtk43sau2s8gqkaje06`. ||
+|| `Statement[].` | **array**
+
+Bucket policy rules.
+
+If a bucket policy with no rules is applied to the bucket, access is denied to all users. To disable request verification for a bucket policy, [delete](delete.md) it. ||
+|| `Statement[].Sid` | **string**
+
+(Optional) Rule ID.
+
+This parameter is specified by the user.
+
+Examples of values: `test-rule`, `Statement Allow`, `Statement Deny`. ||
+|| `Statement[].Principal` | **string**
+
+(Optional) Requested permission subject ID. You can request permissions for a [user](../../../../organization/operations/users-get.md), or [service account](../../../../iam/operations/sa/get-id.md).
+
+The possible values are:
+* `"*"`
+* `"CanonicalUser": "<subject_ID>"`
+
+You can 
+
+{% include [canonical-user-identification](../../../../_includes/storage/canonical-user-identification.md) %} ||
+|| `Statement[].NotPrincipal` | **string**
+
+(Optional) ID of the subject that will not get the requested permission. The possible subjects are: [user](../../../../organization/operations/users-get.md), or [service account](../../../../iam/operations/sa/get-id.md).
+
+The possible value is: `"CanonicalUser": "<subject_ID>"`.
+
+You can  ||
+|| `Statement[].Effect` | **string**
+
+Denies or allows the requested action.
+
+It can be either `Allow` or `Deny`. ||
+|| `Statement[].Action` | **string**
+
+[Action](actions.md) to perform when the policy is triggered.
+
+It can be either `s3:GetObject` or `s3:PutObject`. ||
+|| `Statement[].Resource` | **string**
+
+Resource to perform the action on.
+
+The possible values are:
+* `arn:aws:s3:::<bucket_name>`: Bucket.
+* `arn:aws:s3:::<bucket_name>/<object_key>`: Bucket object.
+* `arn:aws:s3:::<bucket_name>/<object_key_prefix>*`: All objects in the bucket whose keys start with a prefix, e.g., `arn:aws:s3:::samplebucket/some/path/*`. A prefix can be empty, e.g., `arn:aws:s3:::samplebucket/*`, in which case the rule will apply to all bucket objects.
+
+A bucket resource does not include resources of all its objects. To make sure a bucket policy rule refers to the bucket and all the objects, specify them as separate resources, e.g., `arn:aws:s3:::samplebucket` and `arn:aws:s3:::samplebucket/*`. ||
+|| `Statement[].Condition{}.` | **string**
+
+(Optional) [Condition](conditions.md) to check.
+
+If multiple conditions are set for one rule at the same time, they will apply with the logical `AND`, i.e., the rule must satisfy all specified conditions at the same time to be executed.
+
+The `aws:sourceip` condition supports a special procedure for [verifying reverse proxy server IP addresses](../../../concepts/policy.md#access-via-reverse-proxy). If you only need to check the original IP address while ignoring proxies, use the `yc:originip` [condition](conditions.md#keys). ||
+|| `Statement[].Condition{}.`
+`condition_type_string{}.` | **string**
+
+Condition type.
+
+It can be either `StringEquals` or `Bool`. For a full list of values, see [Comparison operators](conditions.md#condition-operators). ||
+|| `Statement[].Condition{}.`
+`condition_type_string{}.`
+`condition_key_string` | **string**
+
+Condition key.
+
+The condition whose value will be checked.
+
+It can be either `aws:PrincipalType` or `true`.
+
+If multiple keys are set for one condition at the same time, these keys will be checked using the logical `AND`, i.e., the rule must satisfy all specified attributes at the same time to be executed.
+
+If multiple values are set for one condition key at the same time, these values will be checked using the logical `OR`, i.e., the condition key may satisfy any of the specified values for the rule to be executed. ||
+|#
 
 #### Related articles {#related-articles}
 

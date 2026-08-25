@@ -7,3 +7,5 @@
 * {{ data-transfer-full-name }}
 * {{ websql-name }}
 * {{ datalens-name }}
+* {{ TR }}
+* {{ AF }}

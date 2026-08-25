@@ -11,15 +11,9 @@ description:
     serverless applications based on orchestration and choreography to
     coordinate and manage  events.</li></ul>
   - >-
-    {{ sw-name }} and {{ er-name }} are at the <a
+    {{ er-name }} are at the <a
     href="https://yandex.cloud/ru/docs/overview/concepts/launch-stages">Preview</a>
     stage.
-  - >-
-    To learn how to manage API gateways supporting <a
-    href="https://github.com/OAI/OpenAPI-Specification">OpenAPI 3.0</a> and 
-    various extensions for compatibility with other {{ yandex-cloud }}
-    services,  see the <a href="https://yandex.cloud/ru/docs/api-gateway/">{{
-    api-gw-full-name }} documentation</a>.
 meta:
   title: '{{ si-full-name }}'
   description: '{{ si-full-name }} enables integrating multiple {{ yandex-cloud }} services.'
@@ -27,21 +21,15 @@ meta:
     - keyword: cloud serverless integrations
     - keyword: '{{ si-name }}'
     - keyword: '{{ si-full-name }}'
-    - keyword: '{{ sw-full-name }}'
     - keyword: '{{ er-full-name }}'
     - keyword: '{{ si-name }}'
-    - keyword: '{{ sw-name }}'
     - keyword: '{{ er-name }}'
     - keyword: integration in {{ yandex-cloud }}
-    - keyword: '{{ yandex-cloud }} workflows'
     - keyword: '{{ yandex-cloud }} event router'
     - keyword: serverless integration
     - keyword: cloud integration
     - keyword: integration in cloud
 links:
-  - title: Getting started with {{ sw-name }}
-    description: Create a workflow and run it.
-    href: quickstart/workflows
   - title: Getting started with {{ er-name }}
     description: Create a bus and use it to transmit data
     href: quickstart/eventrouter
@@ -54,9 +42,6 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
-  - title: '{{ sw-name }} API reference'
-    description: '{{ sw-name }} HTTP API method descriptions'
-    href: workflows/api-ref/
   - title: '{{ er-name }} API reference'
     description: '{{ er-name }} HTTP API method descriptions'
     href: eventrouter/api-ref/

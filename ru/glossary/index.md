@@ -42,6 +42,7 @@
 ## Хранение и обработка данных {#data}
 
 * [{#T}](bigdata.md)
+* [{#T}](data-center.md)
 * [{#T}](datavault.md)
 * [{#T}](s3.md)
 * [{#T}](snapshot.md)
@@ -63,6 +64,7 @@
 * [{#T}](ci-cd.md)
 * [{#T}](sprints.md)
 * [{#T}](kanban.md)
+* [{#T}](gantt-chart.md)
 
 ## Сети и доставка контента {#networks}
 

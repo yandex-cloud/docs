@@ -30,7 +30,9 @@ Gwin — инструмент для управления балансировщ
 
 1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
-    По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+    По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`.
+    
+    Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
 1. [Создайте группы безопасности](../../../managed-kubernetes/operations/connect/security-groups.md) для кластера Managed Service for Kubernetes и входящих в него групп узлов.
 
@@ -111,7 +113,8 @@ Gwin — инструмент для управления балансировщ
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
 1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
-1. Нажмите на имя нужного [кластера Managed Service for Kubernetes](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **Marketplace**.
+1. Выберите [кластер Managed Service for Kubernetes](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
+1. Нажмите на вкладку **Другое** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) и выберите **Marketplace**.
 1. В разделе **Доступные для установки приложения** выберите [Gwin](https://yandex.cloud/ru/marketplace/products/yc/gwin) и нажмите кнопку **Перейти к установке**.
 1. Задайте настройки приложения:
     * **Пространство имен** — создайте новое [пространство имен](../../../managed-kubernetes/concepts/index.md#namespace) (например, `gwin-space`). Если вы оставите пространство имен по умолчанию, Gwin может работать некорректно.
@@ -135,7 +138,7 @@ Gwin — инструмент для управления балансировщ
 
       ```bash
       helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/gwin/charts/gwin-chart \
-        --version v1.8.2 \
+        --version v1.9.1 \
         --untar \
       helm install \
         --namespace <пространство_имен> \
@@ -149,7 +152,7 @@ Gwin — инструмент для управления балансировщ
 
       ```bash
       helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/gwin/charts/gwin-chart \
-        --version v1.8.2 \
+        --version v1.9.1 \
         --untar \
       helm install \
         --namespace <пространство_имен> \

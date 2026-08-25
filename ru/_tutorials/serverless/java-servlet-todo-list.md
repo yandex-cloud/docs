@@ -136,7 +136,7 @@
       1. В блоке **{{ ui-key.yacloud.ydb.overview.section_connection }}** найдите поле **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** и сохраните его значение. Оно понадобится позднее при создании функций.
   1. Создайте таблицу с именем `Tasks`:
 
-      1. Чтобы открыть корневую директорию базы, в меню слева выберите ![folder](../../_assets/console-icons/folder.svg) **{{ ui-key.yacloud.ydb.database.switch_browse }}**.
+      1. Чтобы открыть корневую директорию базы, перейдите на вкладку **{{ ui-key.yacloud.ydb.database.switch_browse }}**.
       1. Чтобы создать запрос к БД, в правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.ydb.browse.button_sql-query }}**. На открывшейся странице **{{ ui-key.yacloud.ydb.sql.label_query }}**:
 
           1. В поле **{{ ui-key.yacloud.ydb.sql.label_query }}** введите:
@@ -408,7 +408,7 @@
 * [Удалите базу данных](../../ydb/operations/manage-databases.md#delete-db).
 * [Удалите](../../storage/operations/objects/delete.md) файл `index.html`, затем [удалите](../../storage/operations/buckets/delete.md) бакет.
 
-[*name]: {% include [name-format](../../_includes/_popups/name-format-general.md) %}
+[*name]: {% include [name-format](../../_popups/name-format-general.md) %}
 
 [*bucket_name]: Имя бакета должно быть уникальным в пределах сервиса {{ objstorage-full-name }}. Подробнее читайте в разделе [{#T}](../../storage/concepts/bucket.md#naming).
 

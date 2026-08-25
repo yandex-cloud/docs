@@ -11,7 +11,7 @@ description: High availability is the ability of a system to continue to operate
 
 A cluster may consist of one or more hosts.
 
-A single-host cluster does not provide high availability. If the master host VM fails, your cluster will be unavailable for reading and writing until the VM recovers completely. Single-host clusters are not covered by the [Service level agreement (SLA)](https://yandex.com/legal/cloud_sla_mdb/en/#definition-of-service-unavailability).
+A single-host cluster does not provide high availability. If the master host VM fails, your cluster will be unavailable for reading and writing until the VM recovers completely. Single-host clusters are not covered by the [Service level agreement (SLA)](https://yandex.com/legal/cloud_sla_mdb/en/#yandex-managed-service-for-sharded-postgresql-that-fall-under-the-service-level).
 
 {% note warning %}
 
@@ -21,7 +21,7 @@ We do not recommend creating a single-host cluster.
 
 A cluster with two hosts located in different availability zones is considered highly available and is subject to the [SLA](https://yandex.com/legal/cloud_sla_mdb/en/). This option is suitable for medium-sized applications in a production environment. The default cluster configuration offered in the management console includes two hosts.
 
-A cluster with three or more hosts located in three different availability zones is considered highly available and is subject to the [SLA](https://yandex.com/legal/cloud_sla_mdb/en/#definition-of-service-unavailability). Such clusters are suitable for production environments subject to high availability and performance requirements.
+A cluster with three or more hosts located in three different availability zones is considered highly available and is subject to the [SLA](https://yandex.com/legal/cloud_sla_mdb/en/#yandex-managed-service-for-sharded-postgresql-that-fall-under-the-service-level). Such clusters are suitable for production environments subject to high availability and performance requirements.
 
 For more information, see [Planning cluster topology](planning-cluster-topology.md).
 

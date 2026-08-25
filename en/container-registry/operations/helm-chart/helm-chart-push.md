@@ -1,6 +1,6 @@
 ---
 title: Pushing a Helm chart to {{ container-registry-name }}
-description: In this tutorial, you will learn how to push Helm charts to {{ container-registry-name }} repositories.
+description: In this guide, you will learn how to push Helm charts to {{ container-registry-name }} repositories.
 ---
 
 # Pushing a Helm chart to a registry
@@ -9,7 +9,7 @@ You can push [Helm Charts](https://helm.sh/docs/topics/charts/) to a {{ containe
 
 {% note info %}
 
-If you are using a Helm version lower than 3.7.1, re-upload the charts to the {{ container-registry-name }} repository when upgrading to a newer version.
+If you are using a Helm version below 3.7.1, re-push the charts to the {{ container-registry-name }} repository when upgrading to a newer version.
 
 {% endnote %}
 
@@ -19,11 +19,11 @@ To push a Helm chart:
 
 - CLI {#cli}
 
-  1. [Install](https://helm.sh/docs/intro/install/) the Helm client version 3.8.0 or higher.
+  1. [Install](https://helm.sh/docs/intro/install/) the Helm client version 3.8.0 or later.
 
      {% note info %}
 
-     When installing Helm, environment variables are not updated automatically. To run `helm` commands, use the installation directory or manually add Helm to environment variables.
+     Installing Helm does not automatically update environment variables. To run `helm` commands, use the installation directory or manually add Helm to environment variables.
 
      {% endnote %}
 
@@ -46,7 +46,8 @@ To push a Helm chart:
           Password: <OAuth_token>
           ```
 
-     * Using an {{ iam-short-name }} token:
+     * With an {{ iam-short-name }} token:
+
        1. [Get an {{ iam-short-name }} token](../../../iam/operations/iam-token/create.md).
        1. Run this command:
 
@@ -77,7 +78,7 @@ To push a Helm chart:
      Creating <Helm_chart_name>
      ```
 
-  1. Build a Helm chart to upload:
+  1. Build a Helm chart to push:
 
      ```bash
      helm package <Helm_chart_name>/. --version <Helm_chart_version>
@@ -122,7 +123,7 @@ To push a Helm chart:
      Creating my-chart
      ```
 
-  1. Build a Helm chart to upload:
+  1. Build a Helm chart to push:
 
      ```bash
      helm package my-chart/. --version 3.11.2

@@ -83,7 +83,7 @@ The cost of resources includes a fee for logging operations and log storage in a
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Name the service account: `grafana-plugin`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `logging.reader`.
@@ -153,7 +153,7 @@ The cost of resources includes a fee for logging operations and log storage in a
      * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md). This is an optional setting. It defaults to the value specified in the provider settings.
      * `role`: Role to assign.
 
-     For more on the properties of the `yandex_iam_service_account` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account).
+     For more on `yandex_iam_service_account` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account).
 
   1. Make sure the configuration files are correct.
 
@@ -197,7 +197,7 @@ The cost of resources includes a fee for logging operations and log storage in a
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. In the list that opens, select the `grafana-plugin` service account.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.
@@ -239,7 +239,7 @@ The cost of resources includes a fee for logging operations and log storage in a
      * `description`: Key description. This is an optional setting.
      * `key_algorithm`: Key generation algorithm. This is an optional setting. The default algorithm is `RSA_2048`. For more information about the acceptable values, see [this API guide](../../iam/api-ref/Key/index.md).
 
-     Here is an example of the configuration file structure:
+     Configuration file structure example:
 
      ```hcl
      resource "yandex_iam_service_account_key" "sa-auth-key" {
@@ -323,8 +323,8 @@ The cost of resources includes a fee for logging operations and log storage in a
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder where you created the `grafana-plugin` service account.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you created the `grafana-plugin` service account.
+  1. [Navigate]({{ link-console-main }}/link/logging) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
   1. Click **{{ ui-key.yacloud.logging.button_create-group }}**.
   1. Enter `grafana-plugin` as the log group name.
   1. Set the log group entry retention period.

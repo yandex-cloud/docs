@@ -10,7 +10,7 @@ While your instance is idle, you only pay for the stored instance data and the s
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-gitlab) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
   1. Find the instance in the list, click ![options](../../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.common.stop }}**.
   1. In the dialog box that opens, confirm that you want to stop the instance by clicking **{{ ui-key.yacloud.common.stop }}**.
 
@@ -65,7 +65,7 @@ You can restart **Stopped** instances.
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-gitlab) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
   1. Find the stopped instance in the list, click ![options](../../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.common.start }}**.
   1. In the dialog box that opens, confirm that you want to start the instance by clicking **{{ ui-key.yacloud.common.start }}**.
 

@@ -71,6 +71,7 @@ description: This article establishes the equivalence between {{ yandex-cloud }}
 | AWS Service Quotas | [{{ quota-manager-full-name }}](../../quota-manager/) |
 | AWS Shield,</br>AWS WAF | [{{ sws-full-name }}](../../smartwebsecurity/) |
 | AWS Step Functions | [{{ si-full-name }}: {{ sw-name }}](../../serverless-integrations/quickstart/workflows.md) |
+| AWS Transit Gateway | [{{ cr-full-name }}](../../cloud-router/) |
 | AWS WAF Captcha | [{{ captcha-full-name }}](../../smartcaptcha/) |
 | Elastic Load Balancing: Application Load Balancer | [{{ alb-full-name }}](../../application-load-balancer/) |
 | Elastic Load Balancing: Network Load Balancer | [{{ network-load-balancer-full-name }}](../../network-load-balancer/) |

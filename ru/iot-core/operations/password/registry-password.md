@@ -25,10 +25,11 @@
    Чтобы добавить пароль уже созданному реестру:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите добавить пароль уже созданному реестру.
-   1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. Выберите в списке нужный реестр.
+   1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}** и выберите нужный реестр.
    1. В блоке **{{ ui-key.yacloud.iot.label_passwords }}** нажмите кнопку **{{ ui-key.yacloud.iot.button_add-password }}**.
-   1. В поле **{{ ui-key.yacloud.common.password }}** введите пароль, который вы будете использовать для доступа к реестру.<br/>Для создания пароля можно воспользоваться [генератором паролей](https://passwordsgenerator.net/).<br/>Не забудьте сохранить пароль, он вам понадобится.
+   1. В поле **{{ ui-key.yacloud.common.password }}** введите пароль, который вы будете использовать для доступа к реестру.
+      Для создания пароля можно воспользоваться [генератором паролей](https://passwordsgenerator.net/).
+      Не забудьте сохранить пароль — он вам понадобится.
    1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
 - CLI {#cli}
@@ -189,9 +190,8 @@
    Чтобы просмотреть список паролей реестра:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите получить список паролей реестра.
-   1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. Выберите в списке нужный реестр.
-   1. На странице **{{ ui-key.yacloud.common.overview }}** перейдите к разделу **{{ ui-key.yacloud.iot.label_passwords }}**.
+   1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}** и выберите нужный реестр.
+   1. На вкладке **{{ ui-key.yacloud.common.overview }}** перейдите к разделу **{{ ui-key.yacloud.iot.label_passwords }}**.
 
 - CLI {#cli}
   
@@ -249,10 +249,10 @@
    Чтобы удалить пароль реестра:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите удалить пароль реестра.
-   1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. Выберите в списке нужный реестр.
-   1. В строке с нужным паролем нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg), в выпадающем списке выберите **{{ ui-key.yacloud.common.delete }}**.
-   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
+   1. [Перейдите]({{ link-console-main }}/link/iot-core) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}** и выберите нужный реестр.
+   1. На вкладке **{{ ui-key.yacloud.common.overview }}** перейдите к разделу **{{ ui-key.yacloud.iot.label_passwords }}**.
+   1. Справа от удаляемого пароля нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.common.delete }}**.
+   1. В открывшемся окне нажмите **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
   

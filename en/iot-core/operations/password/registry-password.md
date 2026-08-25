@@ -2,7 +2,7 @@
 
 {% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}
 
-For devices and registries to begin exchanging data and commands, you need to [log in](../../concepts/authorization.md). This section describes how to manage registry passwords for the appropriate authorization method.
+For devices and registries to begin exchanging data and commands, you need to [log in](../../concepts/authorization.md). This section describes how to manage registry passwords for the relevant authentication method.
 
 {% include [pass-priority-note](../../../_includes/iot-core/pass-priority-note.md) %}
 
@@ -25,7 +25,7 @@ You can add a password to an already created registry or set it when creating a 
    To add a password to an existing registry:
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to ad a password for an existing registry.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the required registry from the list.
    1. Under **{{ ui-key.yacloud.iot.label_passwords }}**, click **{{ ui-key.yacloud.iot.button_add-password }}**.
    1. In the **{{ ui-key.yacloud.common.password }}** field, enter the password you will be using to access your registry.<br/>You can use a [password generator](https://passwordsgenerator.net/) to create a password.<br/>Make sure you save the password, as you will need it later.
@@ -35,7 +35,8 @@ You can add a password to an already created registry or set it when creating a 
   
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    To add a password: 
+    To add a password:
+
     1. Get a list of registries in the folder: 
     
         ```
@@ -49,7 +50,8 @@ You can add a password to an already created registry or set it when creating a 
         +----------------------+-------------------+
         | arenou2oj4ct******** | my-registry       |
         +----------------------+-------------------+
-        ```    
+        ```
+
     1. Add a password to the registry:
     
         ```
@@ -57,6 +59,7 @@ You can add a password to an already created registry or set it when creating a 
         ```
 		
 		Result:
+
 		```
 		registry_id: arenou2oj4ct********
         id: areuu2hgsv6k********
@@ -71,14 +74,15 @@ You can add a password to an already created registry or set it when creating a 
 
   To add a password to a registry created using {{ TF }}:
 
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, specify the properties of the resources you want to create:
 
-     * `yandex_iot_core_registry`: Registry parameters:
+     * `yandex_iot_core_registry`: Registry settings:
+
        * `name`: Registry name.
        * `description`: Registry description.
        * `passwords`: List of registry passwords for authentication with a [username and password](../../concepts/authorization.md#log-pass).
 
-      Here is an example of the resource structure in the configuration file:
+      Here is an example of a resource structure in the configuration file:
 
       ```hcl
       resource "yandex_iot_core_registry" "my_registry" {
@@ -94,7 +98,7 @@ You can add a password to an already created registry or set it when creating a 
       ```
 
       For more on the properties of the `yandex_iot_core_registry` resource, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_registry).
-  1. In the command line, change to the folder where you edited the configuration file.
+  1. In the terminal, navigate to the directory where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
       ```bash
@@ -155,6 +159,7 @@ You can add a password to an already created registry or set it when creating a 
     ```
 	
 	Result:
+
 	```
 	done (1s)
     id: areg96c8loru********
@@ -184,7 +189,7 @@ You can add a password to an already created registry or set it when creating a 
    To view the list of registry passwords:
 
    1. In the [management console]({{ link-console-main }}), select the folder to get the list of registry passwords for.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the required registry from the list.
    1. On the **{{ ui-key.yacloud.common.overview }}** page, go to the **{{ ui-key.yacloud.iot.label_passwords }}** section.
 
@@ -194,14 +199,16 @@ You can add a password to an already created registry or set it when creating a 
     
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
     
-    To get a list of passwords:  
-    1. Get a list of registries in the folder: 
+    To get a list of passwords:
+
+    1. Get a list of registries in the folder:
     
         ```
         yc iot registry list
 		```
 		
 		Result:
+        
 		```
         +----------------------+--------------------+
         |          ID          |        NAME        |
@@ -210,6 +217,7 @@ You can add a password to an already created registry or set it when creating a 
         | arenou2oj4ct******** | my-registry        |
         +----------------------+--------------------+
         ```
+
     1. Get a list of registry passwords: 
     
         ```
@@ -217,6 +225,7 @@ You can add a password to an already created registry or set it when creating a 
         ```
 		
 		Result:
+
 		```
 		+----------------------+---------------------+
         |          ID          |     CREATED AT      |
@@ -240,7 +249,7 @@ You can add a password to an already created registry or set it when creating a 
    To delete a registry password:
 
    1. In the [management console]({{ link-console-main }}), select the folder to delete the registry password from.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the required registry from the list.
    1. In the row with the password, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
@@ -251,14 +260,16 @@ You can add a password to an already created registry or set it when creating a 
     
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
     
-    To delete a password:  
-    1. Get a list of registry passwords: 
+    To delete a password:
+
+    1. Get a list of registry passwords:
     
         ```
         yc iot registry password list --registry-name registry-with-pass
         ```
 		
 		Result:
+        
 		```
 		+----------------------+---------------------+
         |          ID          |     CREATED AT      |
@@ -266,11 +277,13 @@ You can add a password to an already created registry or set it when creating a 
         | are0gffs957e******** | 2019-12-16 15:34:25 |
         +----------------------+---------------------+
         ```
-    1. Delete the password: 
+
+    1. Delete the password:
     
         ```
         yc iot registry password delete --registry-name registry-with-pass --password-id are0gffs957e********
         ```
+
     1. Make sure that the password was deleted: 
         
         ```
@@ -278,6 +291,7 @@ You can add a password to an already created registry or set it when creating a 
         ```
 		
 		Result:
+
 		```
 		+----+------------+
         | ID | CREATED AT |
@@ -295,7 +309,7 @@ You can add a password to an already created registry or set it when creating a 
 
   1. Open the {{ TF }} configuration file and delete the value of the password in the `passwords` section, in the segment with the registry description. To delete all passwords, delete the entire `passwords` section.
 
-      Example registry description in the {{ TF }} configuration:
+      Here is an example of a registry description in the {{ TF }} configuration:
 
       ```hcl
       resource "yandex_iot_core_registry" "my_registry" {
@@ -311,7 +325,7 @@ You can add a password to an already created registry or set it when creating a 
       ```
 
       For more on the properties of the `yandex_iot_core_registry` resource, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_registry).
-  1. In the command line, change to the folder where you edited the configuration file.
+  1. In the terminal, navigate to the directory where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
       ```bash
@@ -349,4 +363,4 @@ You can add a password to an already created registry or set it when creating a 
 
   To delete a registry password, use the [deletePassword](../../api-ref/Registry/deletePassword.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/DeletePassword](../../api-ref/grpc/Registry/deletePassword.md) gRPC API call.
 
-{% endlist %}       
+{% endlist %}

@@ -10,7 +10,7 @@ A set of methods to retrieve information about Configuration resources.
 
 #|
 ||Method | Description ||
-|| [Get](get.md) | Returns the specific Configuration resource. ||
-|| [List](list.md) | Retrieves the list of Configuration resources. ||
-|| [ListConfigurationNetworkInterface](listConfigurationNetworkInterface.md) |  ||
+|| [ListConfigurationRentalPeriods](listConfigurationRentalPeriods.md) | Retrieves the list of RentalPeriods for the specified Configuration resource. ||
+|| [ResolveConfigurationDefaultStorage](resolveConfigurationDefaultStorage.md) | Returns the default storage for the specified configuration. ||
+|| [ResolveConfigurationsDefaultStorages](resolveConfigurationsDefaultStorages.md) | Returns the default storages for the specified configurations. ||
 |#

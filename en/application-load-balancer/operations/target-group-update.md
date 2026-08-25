@@ -11,11 +11,12 @@ To add a VM to a target group:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select your target group [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Navigate]({{ link-console-main }}/link/application-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.alb.label_target-groups }}**.
   1. Click your target group name.
   1. Click **{{ ui-key.yacloud.alb.button_add-targets }}**.
   1. Select a VM from the list or add the target manually:
+     
      1. In the **{{ ui-key.yacloud.alb.column_target }}** field, specify the target's [IP address](../../vpc/concepts/address.md) and select its [subnet](../../vpc/concepts/network.md#subnet).
      1. Optionally, if the target's IP address does not belong to [{{ vpc-full-name }}](../../vpc/), select **{{ ui-key.yacloud.alb.label_target-private-ip }}**.
 
@@ -23,6 +24,7 @@ To add a VM to a target group:
 
 
      1. Click **{{ ui-key.yacloud.alb.button_add-target }}**.
+  
   1. Click **{{ ui-key.yacloud.common.add }}**.
 
 - CLI {#cli}
@@ -117,8 +119,10 @@ To add a VM to a target group:
      ```
 
      Where `yandex_alb_target_group` specifies target group settings:
+     
      * `name`: Target group name.
      * `target`: Target settings:
+       
        * `subnet_id`: ID of the [subnet](../../vpc/concepts/network.md#subnet) hosting the VM. You can get the list of available subnets using the `yc vpc subnet list` [CLI](../../cli/) command.
        * `ip_address`: VM [internal IP address](../../vpc/concepts/address.md#internal-addresses). You can get the list of internal IP addresses using the following CLI command: `yc vpc subnet list-used-addresses --id <subnet_ID>`.
 
@@ -147,8 +151,10 @@ To add a VM to a target group:
 
 
      Where `yandex_alb_target_group` specifies target group settings:
+     
      * `name`: Target group name.
      * `target`: Target settings:
+       
        * `private_ipv4_address`: Setting indicating that the IP address is outside {{ vpc-name }}.
        * `ip_address`: Resource’s private IPv4 address. This IP address must belong to the [RFC 1918 private address range](https://datatracker.ietf.org/doc/html/rfc1918#section-3). For more information, see [Subnets](../../vpc/concepts/network.md#subnet).
 
@@ -180,7 +186,7 @@ To remove a VM from a target group:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder with your target group.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Navigate]({{ link-console-main }}/link/application-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.alb.label_target-groups }}**.
   1. Click the name of the target group in question.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the VM you need, then select **{{ ui-key.yacloud.common.delete }}**.
@@ -264,6 +270,7 @@ To remove a VM from a target group:
      ```
 
      For more on the properties of the `yandex_alb_target_group` resource, see [this provider guide]({{ tf-provider-alb-targetgroup }}).
+  
   1. Apply the changes:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

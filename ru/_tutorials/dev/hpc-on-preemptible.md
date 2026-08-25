@@ -105,8 +105,8 @@
 
 ### Создайте кластер {#create-cluster}
 
-1. В [консоли управления]({{ link-console-main }}) перейдите в раздел **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
-1. Справа от диска ВМ `master-node` нажмите ![image](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.compute.disks.button_action-snapshot }}**. Задайте имя `master-node-snapshot`. После того как снимок будет создан, он появится в разделе **{{ ui-key.yacloud.compute.snapshots_81jHX }}**.
+1. В [консоли управления]({{ link-console-main }}) перейдите в раздел **{{ ui-key.yacloud.compute.storage_uisyT }}**.
+1. Справа от диска ВМ `master-node` нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.disks.button_action-snapshot }}**. Задайте имя `master-node-snapshot`. После того как снимок будет создан, он появится в разделе **{{ ui-key.yacloud.compute.snapshots_81jHX }}**.
 1. Перейдите в раздел **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}** и нажмите **{{ ui-key.yacloud.compute.groups.button_create }}**.
 1. Создайте [группу ВМ](../../compute/concepts/instance-groups/index.md):
    * В поле **{{ ui-key.yacloud.compute.groups.create.field_name }}** укажите имя будущей группы ВМ, например `compute-group`.

@@ -1,4 +1,4 @@
-{{ prometheus-name }} Operator с поддержкой {{ monitoring-full-name }} упрощает установку {{ prometheus-name }} Operator, популярного решения для мониторига кластеров {{ k8s }}, и добавляет интеграцию с системой мониторинга {{ monitoring-full-name }}. С ее помощью можно собирать, хранить и читать метрики из контейнеров, приложений и инфраструктуры. Система использует модель данных {{ prometheus-name }} и язык запросов [{{ promql-name }}](https://prometheus.io/docs/prometheus/latest/querying/basics/).
+{{ prometheus-name }} Operator с поддержкой {{ monitoring-full-name }} упрощает установку {{ prometheus-name }} Operator, популярного решения для мониторинга кластеров {{ k8s }}, и добавляет интеграцию с системой мониторинга {{ monitoring-full-name }}. С ее помощью можно собирать, хранить и читать метрики из контейнеров, приложений и инфраструктуры. Система использует модель данных {{ prometheus-name }} и язык запросов [{{ promql-name }}](https://prometheus.io/docs/prometheus/latest/querying/basics/).
 
 ## Перед началом работы {#before-you-begin}
 

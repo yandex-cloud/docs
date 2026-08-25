@@ -15,7 +15,7 @@ description: Follow this guide to set up a rule for blocking black addresses in 
 
 - Management console {#console}
 
-  1. In the left-hand panel, click ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}** and select the profile.
+  1. In the left-hand panel, click ![image](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}** and select the profile.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
   1. Enter a name for the rule, e.g., `block-by-list`.
   1. Set a higher **{{ ui-key.yacloud.smart-web-security.overview.column_priority }}** than that of the Smart Protection rules, e.g., `9100`.
@@ -34,6 +34,7 @@ description: Follow this guide to set up a rule for blocking black addresses in 
      We recommend that you immediately add these pre-installed blacklists: `is_ddoser`, `is_tor`, and `is_anonimous`.
 
      {% endnote %}
+  
   1. Click **{{ ui-key.yacloud.common.add }}**.
 
 {% endlist %}

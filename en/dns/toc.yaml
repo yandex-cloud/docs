@@ -19,6 +19,8 @@ items:
             href: operations/zone-access.md
           - name: Moving a DNS zone to a different folder
             href: operations/zone-move-folder.md
+          - name: Delegating reverse zone management to {{ dns-name }}
+            href: operations/zone-delegate.md
           - name: Viewing operations with DNS zones
             href: operations/operation-logs.md
           - name: Deleting a DNS zone
@@ -47,6 +49,10 @@ items:
         items:
           - name: Creating an inbound DNS connection
             href: operations/connection-inbound-create.md
+          - name: Updating an inbound DNS connection
+            href: operations/connection-inbound-update.md
+          - name: Deleting an inbound DNS connection
+            href: operations/connection-inbound-delete.md
   - name: Concepts
     items:
       - name: Overview
@@ -73,7 +79,7 @@ items:
         href: tutorials/local-dns-cache.md
       - name: Migrating DNS zones from Yandex 360
         href: tutorials/connect-migration.md
-      - name: Integrating with a corporate DNS service
+      - name: Resolving cloud DNS names in a corporate network
         href: tutorials/dns-integration.md
       - name: Integrating {{ managed-k8s-name }} with a corporate DNS zone
         href: tutorials/custom-dns.md

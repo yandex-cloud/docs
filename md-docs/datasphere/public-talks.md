@@ -40,7 +40,7 @@
 
 * ML в Yandex Cloud: было, есть и будет. [Запись трансляции](https://www.youtube.com/watch?v=90jIHP2F-zA).
 
-* Инференс моделей и гибридный формат работы в Yandex DataSphere. [Запись трансляции](https://www.youtube.com/watch?v=8asQwGQdr0w).
+* Инференс моделей и гибридный формат работы в Yandex DataSphere. [Запись трансляции](https://www.youtube.com/watch?v=8asQwGQdr0w).
 
 ### 2023: Practical ML Conf {#ml-conf-2023}
 

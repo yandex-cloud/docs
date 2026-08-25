@@ -15,7 +15,7 @@ To set up an automatic [disk snapshot](../../concepts/snapshot.md) [schedule](..
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [disk](../../concepts/disk.md).
-  1. Navigate to **{{ compute-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.snapshots_81jHX }}**.
   1. In the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab, click **{{ ui-key.yacloud.compute.snapshots-schedules.button_create-snapshot-schedule }}**.
   1. {% include [section-schedule](../../_includes_service/schedule/section-schedule.md) %}
@@ -25,7 +25,7 @@ To set up an automatic [disk snapshot](../../concepts/snapshot.md) [schedule](..
   1. Click **{{ ui-key.yacloud.common.create }}**.
       Wait until the schedule is created.
 
-  1. On the page that opens, under **{{ ui-key.yacloud.compute.snapshots-schedules.title_snapshot-schedule-disks }}**, click **{{ ui-key.yacloud.compute.snapshots-schedules.action_attach-disk }}**. In the window that opens, choose a disk to add to the schedule and click **{{ ui-key.yacloud.common.save }}**.
+  1. On the page that opens, under **{{ ui-key.yacloud.compute.snapshots-schedules.title_snapshot-schedule-disks }}**, click **{{ ui-key.yacloud.compute.snapshots-schedules.action_attach-disk }}**. In the window that opens, select a disk to add to the schedule and click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -56,7 +56,7 @@ To set up an automatic [disk snapshot](../../concepts/snapshot.md) [schedule](..
      Where:
      * `--expression`: [Cron expression](../../concepts/snapshot-schedule.md#cron). This is a required setting.
      * `--start-at`: Schedule start date and time in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.
-     * `--retention-period`: Snapshot retention period. Specified in duration format, for example: `300ms`, `1.5h`, or `2h45m`. Use either `--retention-period` or `--snapshot-count`.
+     * `--retention-period`: Snapshot retention period. Specified in duration format, e.g., `300ms`, `1.5h`, or `2h45m`. Use either `--retention-period` or `--snapshot-count`.
      * `--snapshot-count`: Maximum number of snapshots per [disk](../../concepts/disk.md). Use either `--snapshot-count` or `--retention-period`.
      * `--description`: Schedule description.
      * `--labels`: Schedule [labels](../../../overview/concepts/services.md#labels) in `key=value` format.

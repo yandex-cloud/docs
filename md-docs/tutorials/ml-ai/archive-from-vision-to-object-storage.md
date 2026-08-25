@@ -32,7 +32,7 @@
 * Плата за вычислительные ресурсы и [диски](../../compute/concepts/disk.md) [ВМ](../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
 * Плата за хранение данных в [бакете](../../storage/concepts/bucket.md) и [операции](../../storage/operations/index.md) с ними ([тарифы Object Storage](../../storage/pricing.md)).
 * Плата за использование динамического или статического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
-* Плата за использование Vision OCR ([тарифы для Vision OCR](https://aistudio.yandex.ru/docs/ru/vision/pricing)).
+* Плата за использование Vision OCR ([тарифы для Vision OCR](https://aistudio.yandex.ru/docs/ru/ai-studio/pricing#rules-image-recognition)).
 
 ## Создайте бакет {#create-bucket}
 
@@ -61,7 +61,7 @@
   1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления](https://console.yandex.cloud) нажмите кнопку **Создать ресурс** и выберите `Виртуальная машина`.
   1. В блоке **Образ загрузочного диска** в поле **Поиск продукта** введите `CentOS 7` и выберите публичный образ [CentOS 7](https://yandex.cloud/ru/marketplace/products/yc/centos-7).
   1. В блоке **Расположение** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет создана ВМ. Если вы не знаете, какая зона доступности вам нужна, оставьте выбранную по умолчанию.
-  1. В блоке **Диски и файловые хранилища** выберите тип [диска](../../compute/concepts/disk.md#disks_types) `SSD` и задайте размер `19 ГБ`.
+  1. В блоке **Диски и файловые хранилища** выберите тип [диска](../../compute/concepts/disk.md#disks-types) `SSD` и задайте размер `19 ГБ`.
   1. В блоке **Вычислительные ресурсы** перейдите на вкладку `Своя конфигурация` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
 
       * **Платформа** — `Intel Cascade Lake`.

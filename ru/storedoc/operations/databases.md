@@ -75,6 +75,84 @@
 
 {% endlist %}
 
+
+## Получить информацию о базе данных {#get-db}
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы получить информацию о конкретной базе данных:
+
+    1. Посмотрите описание команды CLI для получения информации о базе данных:
+
+        ```bash
+        {{ yc-mdb-mg }} database get --help
+        ```
+
+    1. Получите информацию о базе данных, выполнив команду:
+
+        ```bash
+        {{ yc-mdb-mg }} database get <имя_БД> \
+          --cluster-id=<идентификатор_кластера>
+        ```
+
+        Имя базы данных можно получить со [списком баз данных](#list-db) в кластере, а идентификатор кластера — со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+
+- REST API {#api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Воспользуйтесь методом [Database.Get](../api-ref/Database/get.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+          --request GET \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<идентификатор_кластера>/databases/<имя_БД>'
+        ```
+
+        Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге, а имя базы данных — со [списком баз данных](#list-db) в кластере.
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Database/get.md#yandex.cloud.mdb.mongodb.v1.Database).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Воспользуйтесь вызовом [DatabaseService.Get](../api-ref/grpc/Database/get.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mongodb/v1/database_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<идентификатор_кластера>",
+                "database_name": "<имя_БД>"
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.mongodb.v1.DatabaseService.Get
+        ```
+
+        Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге, а имя базы данных — со [списком баз данных](#list-db) в кластере.
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Database/get.md#yandex.cloud.mdb.mongodb.v1.Database).
+
+{% endlist %}
+
+
 ## Создать базу данных {#add-db}
 
 {% include [1000 DBs limit](../../_includes/mdb/1000dbnote.md) %}
@@ -91,6 +169,14 @@
   1. Введите имя для базы данных и нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup-add-db_button_add }}**.
 
       {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
+
+  1. Настройте защиту базы данных от непреднамеренного удаления. Возможные значения:
+
+      * **Как у кластера**.
+      * **Включена**.
+      * **Выключена**.
+
+      {% include [deletion-protection-db](../../_includes/mdb/deletion-protection-db.md) %}
 
   1. [Назначьте роли](cluster-users.md#updateuser), разрешающие доступ к созданной базе данных, нужным пользователям кластера.
 
@@ -118,6 +204,8 @@
 
   * `--deletion-protection` — защита базы данных от непреднамеренного удаления: `true` или `false`. По умолчанию значение не задано, и для базы данных используется значение соответствующей настройки кластера. Если защита включена (`true`), удалить базу данных нельзя.
 
+    {% include [deletion-protection-db](../../_includes/mdb/deletion-protection-db.md) %}
+
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -142,6 +230,8 @@
           {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
 
         * `--deletion-protection` — защита базы данных от непреднамеренного удаления: `true` или `false`. По умолчанию значение не задано, и для базы данных используется значение соответствующей настройки кластера. Если защита включена (`true`), удалить базу данных нельзя.
+
+          {% include [deletion-protection-db](../../_includes/mdb/deletion-protection-db.md) %}
 
     1. Проверьте корректность настроек.
 
@@ -184,6 +274,8 @@
      
      * `databaseSpec.deletionProtection` — защита базы данных от непреднамеренного удаления: `true` или `false`. По умолчанию значение не задано, и для базы данных используется значение соответствующей настройки кластера. Если защита включена (`true`), удалить базу данных нельзя.
 
+       {% include [deletion-protection-db](../../_includes/mdb/deletion-protection-db.md) %}
+
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Database/create.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
@@ -221,6 +313,8 @@
        {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
      
      * `database_spec.deletion_protection` — защита базы данных от непреднамеренного удаления: `true` или `false`. По умолчанию значение не задано, и для базы данных используется значение соответствующей настройки кластера. Если защита включена (`true`), удалить базу данных нельзя.
+
+       {% include [deletion-protection-db](../../_includes/mdb/deletion-protection-db.md) %}
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation).
 
@@ -370,7 +464,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storedoc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mongodb.cluster.switch_databases }}**.
-  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной БД и выберите пункт **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**.
+  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной БД и выберите пункт **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**.
 
 - CLI {#cli}
 

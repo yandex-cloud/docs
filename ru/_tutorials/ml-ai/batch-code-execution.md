@@ -72,7 +72,7 @@
    1. В верхнем меню нажмите **Git** и выберите **Clone**.
    1. В открывшемся окне введите URI репозитория `https://github.com/yandex-cloud-examples/yc-datasphere-batch-execution.git` и нажмите кнопку **Clone**.
    
-   Дождитесь окончания клонирования, это может занять некоторое время. Папка cклонированного репозитория появится в разделе ![folder](../../_assets/datasphere/jupyterlab/folder.svg) **File Browser**.
+   Дождитесь окончания клонирования, это может занять некоторое время. Папка склонированного репозитория появится в разделе ![folder](../../_assets/datasphere/jupyterlab/folder.svg) **File Browser**.
 
 В репозитории содержатся два ноутбука и архитектура нейросети:
 
@@ -231,7 +231,7 @@
             'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
     ```
 
-1. Определите конфигурацию ресурсов, на которой будет выполняться модель — СPU или GPU:
+1. Определите конфигурацию ресурсов, на которой будет выполняться модель — CPU или GPU:
 
     ```python
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')

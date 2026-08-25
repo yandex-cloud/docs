@@ -22,13 +22,15 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
   1. View the description of the command to assign a role for a folder:
 
       ```bash
       yc resource-manager folder add-access-binding --help
       ```
 
-  1. Select a folder, e.g., `my-folder`:
+  1. Get a list of available folders:
 
       ```bash
       yc resource-manager folder list
@@ -44,7 +46,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
       +----------------------+-----------+--------+--------+
       ```
 
-  1. Choose the [role](../../../iam/concepts/access-control/roles.md).
+  1. Get a list of available roles:
 
       ```bash
       yc iam role list
@@ -79,7 +81,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
         default_email: test-user@yandex.ru
       ```
 
-  1. Assign the `editor` role to `test-user` for `my-folder`. In the subject, specify the `userAccount` type and user ID:
+  1. Assign the user a role for the folder. In the subject, specify the `userAccount` type and user ID:
 
       ```bash
       yc resource-manager folder add-access-binding my-folder \
@@ -87,98 +89,69 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
         --subject userAccount:gfei8n54hmfh********
       ```
 
+      Where:
+
+      * `--role`: ID of the role you need to assign.
+      * `--subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
+
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-cli](../../../_includes/iam/subjects-designations-cli.md) %}
+
+          {% endcut %}
+
   To assign a role to a [service account](../../../iam/concepts/users/service-accounts.md), [user group](../../../organization/concepts/groups.md), or [system group](../../../iam/concepts/access-control/system-group.md) instead of a user, see [these examples](../../../iam/operations/roles/grant.md#cloud-or-folder).
 
 - {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  {% note alert %}
+  1. Describe the roles you are assigning in the configuration file:
 
-  Do not create the resource along with `yandex_resourcemanager_folder_iam_policy`, since this may cause conflicts.
+      Here is an example of the configuration file structure:
 
-  {% endnote %}
+      ```hcl
+      data "yandex_resourcemanager_folder" "project1" {
+        folder_id = "<folder_ID>"
+      }
 
-  To assign a role to a folder created using {{ TF }}:
+      resource "yandex_resourcemanager_folder_iam_member" "editor" {
+        folder_id = "${data.yandex_resourcemanager_folder.project1.id}"
+        role      = "editor"
+        member    = "userAccount:<user_ID>"
+      }
+      ```
 
-  1. Describe the parameters of the folder role in a configuration file:
+      Where:
 
-     * `folder_id`: [ID of the folder](get-id.md) to grant permissions for. This is a required setting.
-     * `role`: Role being assigned. This is a required setting.
+      * `folder_id`: [ID of the folder](get-id.md) to grant permissions for. This is a required setting.
+      * `role`: Role you need to assign. In one `yandex_resourcemanager_folder_iam_member` resource, only one role can be assigned.
+      * `member`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role. This is a required setting.
 
-       {% note info %}
+          {% cut "Subject designations" %}
 
-       For each role, you can only use one `yandex_resourcemanager_folder_iam_member` resource.
+          {% include [subjects-designations-terraform](../../../_includes/iam/subjects-designations-terraform.md) %}
 
-       {% endnote %}
+          {% endcut %}
 
-     * `member`: User to assign the role to. This is a required setting. It may have one of the following values:
-       * `userAccount:<user_ID>`: [User ID](../../../organization/operations/users-get.md).
-       * `serviceAccount:<service_account_ID>`: [Service account ID](../../../iam/operations/sa/get-id.md).
-       * `federatedUser:<user_account_ID>`: [User account ID](../../../organization/operations/users-get.md).
-       * `system:group:organization:<organization_ID>:users`: [Organization](../../../organization/quickstart.md) ID to assign a role to the `All users in organization X` [system group](../../../iam/concepts/access-control/system-group.md#allOrganizationUsers).
-       * `system:group:federation:<federation_ID>:users`: [Identity federation](../../../organization/concepts/add-federation.md) ID to assign a role to the `All users in federation N` [system group](../../../iam/concepts/access-control/system-group.md#allFederationUsers).
+      For more on the properties of the `yandex_resourcemanager_folder_iam_member` in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
 
-     {% cut "Example of assigning roles to a folder using {{ TF }}" %}
+  1. Create the resources:
 
-     ```hcl
-     ...
-     data "yandex_resourcemanager_folder" "project1" {
-       folder_id = "<folder_ID>"
-     }
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     resource "yandex_resourcemanager_folder_iam_member" "editor" {
-       folder_id = "${data.yandex_resourcemanager_folder_iam_member.project1.id}"
-       role      = "editor"
-       member    = "userAccount:<login@yandex.ru>"
-     }
-     ...
-     ```
-
-     {% endcut %}
-
-     For more on the properties of the `yandex_resourcemanager_folder_iam_member` in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
-
-  1. Validate your configuration using this command:
-     ```
-     terraform validate
-     ```
-
-     If the configuration is valid, you will get this message:
-
-     ```
-     Success! The configuration is valid.
-     ```
-
-  1. Run this command:
-     ```
-     terraform plan
-     ```
-
-     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
-
-  1. Apply the configuration changes:
-     ```
-     terraform apply
-     ```
-
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
-
-     You can check the folder update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
-
-     ```
-     yc resource-manager folder list-access-bindings <folder_name_or_ID>
-     ```
+      This will assign access permissions for the folder.
 
 - API {#api}
 
-  Use the [updateAccessBindings](../../api-ref/Folder/updateAccessBindings.md) REST API method for the [Folder](../../api-ref/Folder/index.md) resource or the [FolderService/UpdateAccessBindings](../../api-ref/grpc/Folder/updateAccessBindings.md) gRPC API call. You will need the folder ID and the ID of the user to whom you want to assign the role for the folder.
+  Use the [updateAccessBindings](../../api-ref/Folder/updateAccessBindings.md) REST API method for the [Folder](../../api-ref/Folder/index.md) resource or the [FolderService/UpdateAccessBindings](../../api-ref/grpc/Folder/updateAccessBindings.md) gRPC API call. You will need the IDs of the folder and the user you are assigning a role for the folder to.
 
   1. Find out the folder ID using the [list](../../api-ref/Folder/list.md) REST API method:
+
       ```bash
       curl \
         --header "Authorization: Bearer <IAM_token>" \
-        https://resource-manager.{{ api-host }}/resource-manager/v1/folders?cloudId=b1gg8sgd16g7********
+        https://resource-manager.{{ api-host }}/resource-manager/v1/folders?cloudId=<cloud_ID>
       ```
 
       Result:
@@ -197,7 +170,8 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
       }
       ```
 
-  1. Find out the user ID from the login using the [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md) REST API method:
+  1. Find out the user ID by login using the [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md) REST API method:
+
       ```bash
       curl \
         --header "Authorization: Bearer <IAM_token>" \
@@ -216,7 +190,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
       }
       ```
 
-  1. Assign the `editor` role to the user for `my-folder`. Set the `action` property to `ADD` and specify the `userAccount` type and user ID in the `subject` property:
+  1. Assign the user a role for the folder. In the `action` property, enter `ADD` and specify the `userAccount` type and user ID under `subject`:
 
       ```bash
       curl \
@@ -224,16 +198,32 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
         --header 'Content-Type: application/json' \
         --header "Authorization: Bearer <IAM_token>" \
         --data '{
-        "accessBindingDeltas": [{
-            "action": "ADD",
-            "accessBinding": {
-                "roleId": "editor",
+          "accessBindingDeltas": [
+            {
+              "action": "ADD",
+              "accessBinding": {
+                "roleId": "<role>",
                 "subject": {
-                    "id": "gfei8n54hmfh********",
-                    "type": "userAccount"
-        }}}]}' \
-        https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha********:updateAccessBindings
+                  "id": "<user_ID>",
+                  "type": "userAccount"
+                }
+              }
+            }
+          ]
+        }' \
+        https://resource-manager.{{ api-host }}/resource-manager/v1/folders/<folder_ID>:updateAccessBindings
       ```
+
+      Where:
+
+      * `roleId`: Role.
+      * `subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
+
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-api](../../../_includes/iam/subjects-designations-api.md) %}
+
+          {% endcut %}
 
 {% endlist %}
 
@@ -248,25 +238,43 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
 - CLI {#cli}
 
+  The `add-access-binding` command allows you to add only one role. You can assign multiple roles using the `set-access-bindings` command.
+
+  {% include [set-access-bindings-cli](../../../_includes/iam/set-access-bindings-cli.md) %}
+
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  The `add-access-binding` command allows you to add only one role. You can assign multiple roles using the `set-access-binding` command.
-
-  {% note alert %}
-
-  The `set-access-binding` command completely overwrites access permissions for the resource! All roles previously assigned for this resource will be deleted.
-
-  {% endnote %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
   1. Make sure the resource has no important roles assigned before proceeding:
+
       ```bash
-      yc resource-manager folder list-access-bindings my-folder
+      yc resource-manager folder list-access-bindings <folder_name_or_ID>
       ```
-  1. For example, assign a role to multiple users:
+
+  1. To assign a role, run this command:
+
+      ```bash
+      yc resource-manager folder set-access-bindings <folder_name_or_ID> \
+        --access-binding role=<role>,subject=<subject_type>:<subject_ID>
+      ```
+
+      Where:
+
+      * `role`: ID of the role you need to assign.
+      * `subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
+
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-terraform](../../../_includes/iam/subjects-designations-terraform.md) %}
+
+          {% endcut %}
+
+      Provide a separate `--access-binding` parameter for each role. Here is an example:
 
       ```bash
       yc resource-manager folder set-access-bindings my-folder \
-        --access-binding role=editor,subject=userAccount:gfei8n54hmfh********
+        --access-binding role=editor,subject=userAccount:gfei8n54hmfh******** \
         --access-binding role=viewer,subject=userAccount:helj89sfj80a********
       ```
 
@@ -276,86 +284,49 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  {% note alert %}
+  1. Describe the folder access permissions in the configuration file.
 
-  Do not create the resource along with `yandex_resourcemanager_folder_iam_policy`, since this may cause conflicts.
+      Here is an example of the configuration file structure:
 
-  {% endnote %}
+      ```hcl
+      data "yandex_resourcemanager_folder" "project1" {
+        folder_id = "<folder_ID>"
+      }
 
-  To assign several roles to a folder created with {{ TF }}:
+      resource "yandex_resourcemanager_folder_iam_member" "member1" {
+        folder_id = "${data.yandex_resourcemanager_folder.project1.id}"
+        role      = "<role_1>"
+        member    = "userAccount:<user_ID>"
+      }
 
-  1. Describe the parameters of the folder role in a configuration file:
+      resource "yandex_resourcemanager_folder_iam_member" "member2" {
+        folder_id = "${data.yandex_resourcemanager_folder.project1.id}"
+        role      = "<role_2>"
+        member    = "userAccount:<user_ID>"
+      }
+      ```
 
-     * `folder_id`: [ID of the folder](get-id.md) to grant permissions for. This is a required setting.
-     * `role`: Role being assigned. This is a required setting.
+      Where:
 
-       {% note info %}
+      * `folder_id`: [ID of the folder](get-id.md) to grant permissions for. This is a required setting.
+      * `role`: Role you need to assign. In one `yandex_resourcemanager_folder_iam_member` resource, only one role can be assigned.
+      * `member`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role. This is a required setting.
 
-       For each role, you can only use one `yandex_resourcemanager_folder_iam_member` resource.
+          {% cut "Subject designations" %}
 
-       {% endnote %}
+          {% include [subjects-designations-terraform](../../../_includes/iam/subjects-designations-terraform.md) %}
 
-     * `member`: User to assign the role to. To add a user to the list, create an entry in this format: `userAccount:<user_ID>`, where `<user_ID>` is the email address of a Yandex account, e.g., `ivan@yandex.ru`. This is a required setting.
+          {% endcut %}
 
-     {% cut "Example of assigning roles to a folder using {{ TF }}" %}
+  1. Create the resources:
 
-     ```hcl
-     ...
-     data "yandex_resourcemanager_folder" "project1" {
-       folder_id = "<folder_ID>"
-     }
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     resource "yandex_resourcemanager_folder_iam_member" "editor" {
-       folder_id = "${data.yandex_resourcemanager_folder.project1.id}"
-       role      = "editor"
-       member    = "userAccount:<login1@yandex.ru>"
-     }
-     resource "yandex_resourcemanager_folder_iam_member" "operator" {
-       folder_id = "${data.yandex_resourcemanager_folder.project1.id}"
-       role      = "operator"
-       member    = "userAccount:<login1@yandex.ru>"
-     }
-     ...
-     ```
-
-     {% endcut %}
-
-     For more on the properties of the `yandex_resourcemanager_folder_iam_member` in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
-
-  1. Validate your configuration using this command:
-     ```
-     terraform validate
-     ```
-
-     If the configuration is valid, you will get this message:
-
-     ```
-     Success! The configuration is valid.
-     ```
-
-  1. Run this command:
-     ```
-     terraform plan
-     ```
-
-     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
-
-  1. Apply the configuration changes:
-     ```
-     terraform apply
-     ```
-
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
-
-     You can check the folder update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
-
-     ```
-     yc resource-manager folder list-access-bindings <folder_name_or_ID>
-     ```
+      This will assign access permissions for the folder.
 
 - API {#api}
 
-  Assign the `editor` role to one user and the `viewer` role to another user:
+  Assign roles to the users:
 
   ```bash
   curl \
@@ -363,54 +334,53 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
     --header 'Content-Type: application/json' \
     --header "Authorization: Bearer <IAM_token>" \
     --data '{
-    "accessBindingDeltas": [{
-        "action": "ADD",
-        "accessBinding": {
-            "roleId": "editor",
+      "accessBindingDeltas": [
+        {
+          "action": "ADD",
+          "accessBinding": {
+            "roleId": "<role_1>",
             "subject": {
-                "id": "gfei8n54hmfh********",
-                "type": "userAccount"
+              "id": "<user_ID>",
+              "type": "userAccount"
             }
-        }
-    },{
-        "action": "ADD",
-        "accessBinding": {
-            "roleId": "viewer",
+          }
+        },
+        {
+          "action": "ADD",
+          "accessBinding": {
+            "roleId": "<role_2>",
             "subject": {
-                "id": "helj89sfj80a********",
-                "type": "userAccount"
-    }}}]}' \
-    https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha********:updateAccessBindings
+              "id": "<user_ID>",
+              "type": "userAccount"
+            }
+          }
+        }
+      ]
+    }' \
+    https://resource-manager.{{ api-host }}/resource-manager/v1/folders/<folder_ID>:updateAccessBindings
   ```
+
+  Where:
+
+  * `roleId`: Role.
+  * `subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
+
+      {% cut "Subject designations" %}
+
+      {% include [subjects-designations-api](../../../_includes/iam/subjects-designations-api.md) %}
+
+      {% endcut %}
 
   You can also assign roles using the [setAccessBindings](../../api-ref/Folder/setAccessBindings.md) REST API method for the [Folder](../../api-ref/Folder/index.md) resource or the [FolderService/SetAccessBindings](../../api-ref/grpc/Folder/setAccessBindings.md) gRPC API call.
 
-  {% note alert %}
-
-  The `setAccessBindings` method completely overwrites access permissions for the resource! All roles previously assigned for this resource will be deleted.
-
-  {% endnote %}
-
-  ```bash
-  curl \
-    --request POST \
-    --header 'Content-Type: application/json' \
-    --header "Authorization: Bearer <IAM_token>" \
-    --data '{
-    "accessBindings": [{
-        "roleId": "editor",
-        "subject": { "id": "ajei8n54hmfh********", "type": "userAccount" }
-    },{
-        "roleId": "viewer",
-        "subject": { "id": "helj89sfj80a********", "type": "userAccount" }
-    }]}' \
-    https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha********:setAccessBindings
-  ```
+  {% include [set-access-bindings-api](../../../_includes/iam/set-access-bindings-api.md) %}
 
 {% endlist %}
 
 
 ## Folder access for a service account {#access-to-sa}
+
+A service account can be [assigned](../../../iam/operations/sa/assign-role-for-sa.md#binding-role-resource) roles for any cloud and folder within the organization it belongs to.
 
 {% list tabs group=instructions %}
 
@@ -428,77 +398,37 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  {% note alert %}
+  1. Assign the `editor` role to the service account:
 
-  Do not create the resource along with `yandex_resourcemanager_folder_iam_policy`, since this may cause conflicts.
+      ```hcl
+      data "yandex_resourcemanager_folder" "project1" {
+        folder_id = "<folder_ID>"
+      }
 
-  {% endnote %}
+      resource "yandex_resourcemanager_folder_iam_member" "editor" {
+        folder_id = "${data.yandex_resourcemanager_folder.project1.id}"
+        role      = "editor"
+        member    = "serviceAccount:<service_account_ID>"
+      }
+      ```
 
-  To assign a service account a role for a folder created with {{ TF }}:
+      Where:
 
-  1. Describe the parameters of the folder role in a configuration file:
+      * `folder_id`: [Folder ID](get-id.md).
+      * `role`: Role you need to assign.
+      * `member`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role. For a service account, specify `serviceAccount:<service_account_ID>`.
 
-     * `folder_id`: [ID of the folder](get-id.md) to grant permissions for. This is a required setting.
-     * `role`: Role being assigned. This is a required setting.
+          {% cut "Subject designations" %}
 
-       {% note info %}
+          {% include [subjects-designations-terraform](../../../_includes/iam/subjects-designations-terraform.md) %}
 
-       For each role, you can only use one `yandex_resourcemanager_folder_iam_member` resource.
+          {% endcut %}
 
-       {% endnote %}
+  1. Create the resources:
 
-     * `member`: User to assign the role to. To add a user to the list, create a record in this format: `serviceAccount:<service_account_ID>`, where `<service_account_ID>` is the [service account ID](../../../iam/operations/sa/get-id.md). You can list several service accounts. This is a required setting.
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {% cut "Example of assigning roles to a folder using {{ TF }}" %}
-
-     ```hcl
-     ...
-     data "yandex_resourcemanager_folder" "project1" {
-       folder_id = "<folder_ID>"
-     }
-
-     resource "yandex_resourcemanager_folder_iam_member" "editor" {
-       folder_id = "${data.yandex_resourcemanager_folder.project1.id}"
-       role      = "editor"
-       member   = "serviceAccount:<service_account_ID>"
-     }
-     ...
-     ```
-
-     {% endcut %}
-
-     For more on the properties of the `yandex_resourcemanager_folder_iam_member` in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
-
-  1. Validate your configuration using this command:
-     ```
-     terraform validate
-     ```
-
-     If the configuration is valid, you will get this message:
-
-     ```
-     Success! The configuration is valid.
-     ```
-
-  1. Run this command:
-     ```
-     terraform plan
-     ```
-
-     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
-
-  1. Apply the configuration changes:
-     ```
-     terraform apply
-     ```
-
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
-
-     You can check the folder update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
-
-     ```
-     yc resource-manager folder list-access-bindings <folder_name_or_ID>
-     ```
+      This will assign access permissions for the folder.
 
 - API {#api}
 
@@ -532,7 +462,13 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
       * `<folder_name_or_ID>`: Folder name or ID.
       * `--role`: Role ID, e.g., `editor`.
-      * `--subject`: ID of the user account that gets the role.
+      * `--subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
+
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-cli](../../../_includes/iam/subjects-designations-cli.md) %}
+
+          {% endcut %}
 
       For example, assign the `editor` role to the `aje6o61dvog2********` federated user for `my-folder`:
 

@@ -598,7 +598,7 @@
 
  - [Как узнать скорость загрузки и скачивания данных](storage/how-to/upload-download-speed.md)
 
- - [Как настроить заголовки кэширования `Cache-Control` для объектов в бакете при HTTP-запросах](storage/how-to/configure-cache-headings-with-http-queries.md)
+ - [Как настроить заголовки кеширования `Cache-Control` для объектов в бакете при HTTP-запросах](storage/how-to/configure-cache-headings-with-http-queries.md)
 
  - [Как ограничить доступ к бакету для пользователя](storage/how-to/restrict-bucket-access.md)
 
@@ -634,7 +634,7 @@
 
  - [Устранение ошибки `psql error could not translate host name to address nodename nor servname provided, or not known`](managed-postgresql/known-issues/error-could-not-translate-host-name-to-address-nodename-nor-servname-provided-or-not-known.md)
 
- - [Устранение ошибки `max_connections сonn_limit is too high`](managed-postgresql/known-issues/conn-limit-is-too-high.md)
+ - [Устранение ошибки `max_connections conn_limit is too high`](managed-postgresql/known-issues/conn-limit-is-too-high.md)
 
  - [Устранение ошибки `Must be superuser to create this extension`](managed-postgresql/known-issues/must-be-superuser-to-create-this-extension.md)
 
@@ -742,7 +742,7 @@
 
  - [Как включить Egress NAT](vpc/how-to/activate-egress-nat.md)
 
- - [Как осуществить маршутизацию трафика между двумя облачными сетями](vpc/how-to/routing-traffic-between-two-vpcs.md)
+ - [Как осуществить маршрутизацию трафика между двумя облачными сетями](vpc/how-to/routing-traffic-between-two-vpcs.md)
 
  - [Как использовать IPv6-адреса](vpc/how-to/using-ipv6.md)
 

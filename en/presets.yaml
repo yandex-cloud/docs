@@ -37,6 +37,7 @@ default:
   api-host-certmanager-validation: validation.certificate-manager.api.cloud.yandex.net
   api-host-data-transfer: datatransfer.api.cloud.yandex.net
   api-host-data-transfer-operation: operation.api.cloud.yandex.net/operations
+  api-host-datalens: https://api.datalens.tech
   api-host-iot-broker: iot-broker.api.cloud.yandex.net
   api-host-iot-data: iot-data.api.cloud.yandex.net
   api-host-kms: kms.api.cloud.yandex.net
@@ -317,6 +318,7 @@ default:
   link-console-quotas: https://console.yandex.cloud/cloud?section=quotas
   link-console-settings: https://console.yandex.cloud/settings
   link-console-support: https://center.yandex.cloud/support
+  link-console-yq: https://yq.yandex.cloud
   link-datalens-main: https://datalens.ru
   link-datalens-main-promo: https://datalens.ru/promo
   link-datalens-main-skip-promo: https://datalens.ru/?skipPromo=true
@@ -509,7 +511,7 @@ default:
     yc_gwin:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/gwin/charts/gwin-chart
-        tag: v1.8.2
+        tag: v1.9.1
     yc_istio:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/istio/istio
@@ -535,7 +537,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/metric-provider/charts/metric-provider
-        tag: 0.1.14
+        tag: 0.1.14-2
     yc_node-local-dns:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/node-local-dns
@@ -562,7 +564,7 @@ default:
   ml-platform-name: DataSphere
   ml-platform-short-name: DataSphere
   ml-project-size: 10 GB
-  ml-sdk-full-name: Yandex Cloud ML SDK
+  ml-sdk-full-name: Yandex AI Studio SDK
   ml-sdk-name: ML SDK
   mmg-backup-retention: 7
   mmg-backup-retention-max: 35
@@ -2082,14 +2084,12 @@ default:
         label_credit-volumeIncentiveCredit: Volume incentive credit
         label_deselected-all: Clear
         label_selected-all: select all
-        value_empty_clouds_folders: All clouds and folders
+        value_empty_folders: All folders
         value_empty_service_instances: All workspaces
       billing-widget:
         activate_promocode: Activate promo code
         details: Details
         grant: Grants
-      cloud-billing-account:
-        label_card-add: Add card
       create-account:
         label_option_card: Manual top-up
         label_payment_invoice: Bank transfer
@@ -2257,6 +2257,8 @@ default:
         units:
           label_time-sec_many: seconds
       component:
+        bank-card:
+          label_add: Add card
         iam-delete-folder-or-cloud-dialog:
           label_delete-now: Delete now
         key-values-input:
@@ -2461,6 +2463,7 @@ default:
         all-panel:
           menu:
             category:
+              configure: Configure
               explore: Explore
         menu-item:
           alerts:
@@ -2483,10 +2486,12 @@ default:
             title: Notification feed
           notification-methods:
             title: Notification methods
+          project:
+            title: Project settings
           prometheus:
             title: Prometheus
-          services-map:
-            title: Services map
+          quotas:
+            title: Quotas
           shards:
             title: Shards
           slo:
@@ -2496,6 +2501,7 @@ default:
       channel:
         button_create: Create
         button_new-channel: Create channel
+        button_save: Save
         field_function_title: Cloud function
         field_method: Method
         field_name: Name
@@ -2645,6 +2651,9 @@ default:
       navigation:
         dialogs:
           button_save: Save
+      notification-methods:
+        create-button:
+          channel: Notification Channel
       prometheus:
         action_create: Create workspace
         alert-manager:
@@ -2881,6 +2890,7 @@ default:
         confirm: Confirm
         create: Create
         more: More
+        operations: Operations
         overview: Overview
         resource-acl:
           label_invitee-accounts: Invitee accounts
@@ -2923,7 +2933,7 @@ default:
         scan-resource-group:
           button_select_bucket: Select bucket
           button_select_cloud_catalog: Select cloud or catalog
-          file_type_all: All files
+          file_type_all: All formats
           file_type_custom: Custom filter
           file_type_docx_txt: DOC / TXT
           file_type_html_xml: HTML / XML
@@ -3141,6 +3151,16 @@ default:
             overview_b5LJQ: Overview
           AttributeFormDialogNew:
             field_attribute_value_dgUAv: Value
+          AttributeTransformationsSection:
+            action_add_transformation_bc8Cd: Add transformation
+            field_if_empty_value_1K7py: Value
+            field_substring_siBpY: Substring
+            type_constant_tvJWi: Constant
+            type_extract_after_q4x8n: ExtractAfter
+            type_extract_before_ju2PE: ExtractBefore
+            type_if_empty_e5unh: IfEmpty
+            type_to_lowercase_vRG6c: ToLowercase
+            type_trim_3SF6q: Trim
           field_group_all_uY9US: All groups
           field_group_assigned_amGdu: Assigned groups only
           GroupAttributeFormDialog:
@@ -3199,10 +3219,23 @@ default:
             new_limit: New limit
         branding:
           AuthBrandingForm:
+            autoLoginSection:
+              federationFieldLabel: Federation
+              redirectLabel: Redirect to identity federation
+              title: Automatic login
             clearAllAction: Clear all
+            federationLoginSection:
+              addButton: Add
+              buttonTextFieldLabel: Button name
+              federationFieldLabel: Federation
             loginSection:
+              federationLabel: Identity federation
+              loginInputLabel: By login
+              placeholderInlineLabel: Hint
+              ssoLabel: Single-Sign On
               title: Login form
               welcomeLabel: Welcome text
+              yandexIdLabel: Yandex ID
             styleSection:
               colorLabel: Main color
               title: Colors and images
@@ -3271,10 +3304,17 @@ default:
           field_full-name: Full name
           field_password: Password
           field_username: Username
+          password_check_gP9tG: Password check
+          password_uniqueness_13P78: Uniqueness
+          reject_common_passwords_9bpqu: >-
+            You cannot use passwords included in the database of common
+            passwords
           title_password_policy: Password policy
           title_personal-info: Personal information
           title_userpool_members: Users
           title_userpool_overview: Overview
+          UserForm:
+            field_expires-at_2bdWC: Deactivation date
           UserpoolOverviewPage:
             action_set_password_policy_aaDns: Set password policy
           UserpoolPageLayout:
@@ -3347,15 +3387,6 @@ default:
         alert:
           action_alert_analysis: Alert analysis
         alerts:
-          caption_assignee: Assignee
-          caption_category: Threat type
-          caption_classification: Classification
-          caption_created-by: Created by
-          caption_incident: Incident
-          caption_modified-at: Modified at
-          caption_sensor: Source
-          caption_status: Status
-          caption_title: Alert
           sink:
             action_create: Create sink
           title_alert_comments: Comments
@@ -3390,7 +3421,6 @@ default:
         alerts:
           comment_form:
             send: Send
-          filters-button: Filters
         comp:
           SetsTable:
             action_disable_5hgkz: Disable verification
@@ -3457,6 +3487,7 @@ default:
             field_author_8hf4z: Created
             field_reason_qN8a7: Exception reason
             field_rules_vBK4W: Rules
+            field_scope_kCG8J: Resource
             field_type_exclude_cigcD: No check required
             field_type_manual_mbKxp: Manually scanned
         discovery:
@@ -3537,8 +3568,6 @@ default:
             section-title_mode: Effect
             title_audit: Disable lock mode for rule
             title_ignore: Ignore rule
-          TopControlsByErrorsWidget:
-            table_controls_rJ32E: Top rules with alerts
         settings:
           SettingsPageLayout:
             alertSinkLabel_gvxBa: Alert Sinks
@@ -3569,11 +3598,13 @@ default:
           detect-deployment_deployed_ejgvu: Deployed
           detect-overview:
             title-actions-on-trigger_j8dE3: Actions on trigger
+          exception-drawer:
+            tab_history: History
           ExceptionsPage:
             create-exception: New exception
           InvestigationPageLayout:
             fieldDescription_wiAxw: Description
-            fieldModified: Modified
+            fieldModified: Date modified
             information_cZr8L: Information
             newQuery_mzeBV: New query
           InvestigationsPage:
@@ -3584,6 +3615,7 @@ default:
           SiemPageLayout:
             correlationRules: Correlation rules
             exceptions: Exceptions
+          tab_history: History
           template_type_global_qSrVE: Global
           template_type_local_77J2t: Instance
           title_ap766: Save query as template
@@ -3612,9 +3644,11 @@ default:
           TriggeredRunsControl:
             action_check-environment_k3mP9: Check environment for compliance with control rules
             action_download-check-report_q7nR2: Download check report
-          workload-labels-checkbox_Wl4Cb: Pod labels
+          workload-labels-checkbox_Wl4Cb: Workload labels
           workload-names-checkbox_Wn4Cb: Workload names
           workload-types-checkbox_Wt4Cb: Workload types
+          WorkspaceActionsMenu:
+            stop_wvkkb: Deactivate
           WorkspaceEditPageLayout:
             tabGeneralParams_xc2v2: Main parameters
             tabResources_vJuSN: Resources
@@ -3624,6 +3658,8 @@ default:
             billing_account_title_sU1Tj: Payment for resources
             folder_title_px1re: Resource storage folder
             workspace_title_365xt: Workspace name
+          WorkspaceInactiveAlert:
+            activate_Y5mCr: Activate
           WorkspaceKspmResourcesForm:
             section-title_iYCNY: Scope of control
           WorkspaceModuleErrorsTable:
@@ -3756,6 +3792,73 @@ default:
         products: Products
         publisher-users: Access management
         support: Support
+    yacloud_quotas:
+      quotas:
+        vdi:
+          desktopCores:
+            count: Number of vCPU desktops
+          desktopImages:
+            count: Number of desktop images
+            size: Total desktop image size
+          desktopMemory:
+            size: Total desktop RAM capacity
+          desktops:
+            count: Number of desktops
+          hddDisks:
+            size: Total HDD disk capacity
+          ssdDisks:
+            size: Total SDD disk capacity
+        video:
+          channels:
+            count: >-
+              Maximum number of
+              [channels](https://yandex.cloud/en/docs/video/concepts/#channels)
+              per organization
+          episodes:
+            count: >-
+              Number of
+              [episodes](https://yandex.cloud/en/docs/video/concepts/streams#episodes)
+              in all broadcasts
+          parallelStreams:
+            count: >-
+              Number of simultaneous
+              [broadcasts](https://yandex.cloud/en/docs/video/concepts/streams#streams)
+              per organization
+          playlists:
+            count: >-
+              Number of
+              [playlists](https://yandex.cloud/en/docs/video/concepts/playlists)
+              in all channels
+          streams:
+            count: >-
+              Number of
+              [broadcasts](https://yandex.cloud/en/docs/video/concepts/streams)
+              per organization
+          stylePresets:
+            count: >-
+              Number of [player
+              presets](https://yandex.cloud/en/docs/video/concepts/presets) in
+              all channels
+          thumbnails:
+            count: >-
+              Total number of video
+              [thumbnails](https://yandex.cloud/en/docs/video/operations/video/add-thumbnail)
+              in all channels
+          transcodingsWithNeuroFeatures:
+            rate: >-
+              Number of simultaneous video transcoding processes with neural
+              functions, such as
+              [summarization](https://yandex.cloud/en/docs/video/concepts/videos#summarization),
+              [neural
+              translation](https://yandex.cloud/en/docs/video/concepts/videos#stranslation),
+              and
+              [subtitle](https://yandex.cloud/en/docs/video/concepts/videos#subtitles)
+              generation
+          videos:
+            count: >-
+              Total number of
+              [videos](https://yandex.cloud/en/docs/video/concepts/videos) in
+              all channels
     yacloud_video:
       channels:
         action_add-domain: Add domain
@@ -4217,7 +4320,7 @@ default:
         label_public-subnets_v16CV: Public addresses and subnets
         label_servers_sCNgb: Servers
         label_subnetworks_uU4LH: Private subnets
-        label_vrf-interconnect-direct-type: Connection ID
+        label_vrf-interconnect-direct-type: Virtual router ID
         label_vrf-interconnect-select-type: Setup method
         message_confirm-server-prolongate-ended-rent: >-
           The time spent by the server in quarantine is paid after the server is
@@ -4266,8 +4369,6 @@ default:
         button_resource-deactivate-raw-logs: Deactivate
         button_resource-locations-empty-action: Add rule
         button_wizard-create: Create and continue
-        CdnResourceFormWizard:
-          section_wizard-static-response_6DKzY: Response settings
         column_location-rule-pattern: Regular expression
         column_name: Name
         colunm_location-weight: Rule weight
@@ -4337,6 +4438,7 @@ default:
         label_resource-http-headers-request-headers: Origin request headers
         label_resource-http-headers-response-headers: Client response headers
         label_resource-raw-logs: Export logs
+        label_resource-security: Security
         label_resources-list: CDN resources
         label_responses-hit: Responses hit
         label_responses-miss: Response miss
@@ -4346,6 +4448,7 @@ default:
         label_section-content: Content
         label_section-domain: Domain names for content distribution
         label_section-origins-list: Origin
+        label_section-security: Security
         label_shielding: Origin shielding
         label_shielding-location: Location
         label_shielding-settings-title: Shielding settings
@@ -4354,6 +4457,15 @@ default:
         label_status-backup: Backup
         label_use-bucket-site: Use bucket site
         md_value_certificate-le: Let's Encrypt^®^
+        resources:
+          QueriesField:
+            button_add-query-param_x8JXA: Add query parameter
+          QueryParamsOptions:
+            label_query-params-caching_4zewB: Query parameter caching
+            option_cache-all_4pexC: Cache all
+            option_cache-all-except_vEGRW: Cache all except
+            option_cache-only_uJKZC: Cache only
+            option_do-not-cache_4J3Bg: Do not cache
         sections:
           StaticResponseSection:
             field_static-response-enabled_sPsQU: Custom HTTP response
@@ -4502,6 +4614,11 @@ default:
         title_ip-permissions: Access for IP addresses
         title_registries: Registries
         title_registry-artifacts: Artifacts
+      cloud-router:
+        router:
+          create-router_v4cPC: Create routing instance
+          networks_fbzKL: Networks
+          routing-networks_42RL1: Routed networks and prefixes
       cloud-shell:
         label_service: Cloud Shell
       cloud-tree-list:
@@ -4579,6 +4696,7 @@ default:
         type_sms: SMS
         type_web: Push notifications in browser
       common:
+        action_show-all: Show all
         add: Add
         all: All
         apply: Apply
@@ -5374,12 +5492,17 @@ default:
         button_add-record: Add record
         button_record-set-create: Create record
         button_zone-create: Create zone
+        DnsInboundEndpointForm:
+          network_settings_title: Network settings
+        DnsInboundEndpointsListScreen:
+          create_button: Create endpoint
         label_additional-settings: Additional settings
         label_auto-select-zone: Detect automatically
         label_create-subdomain: Create subdomain
         label_dns-internal-settings: DNS settings for internal addresses
         label_form-ttl: TTL (in seconds)
         label_fqdn-equal-to-zone: Matches zone name (@)
+        label_inbound-endpoints: Inbound endpoints
         label_networks: Networks
         label_private: Internal
         label_public: Public
@@ -5388,6 +5511,8 @@ default:
         label_zone: Zone
         label_zone-record-sets: Records
         label_zones-list: Zones
+      entity:
+        ipAddress: IP address
       forms:
         label_form-id: ID
         label_form-list: List
@@ -5744,7 +5869,6 @@ default:
             label_message-queue: Message Queue
             label_metadata-hub: Yandex MetaData Hub
             label_monitoring: Monitoring
-            label_monium: Monium
             label_postbox: Cloud Postbox
             label_schema-registry: Schema Registry
             label_serverless-containers: Serverless Containers
@@ -5898,7 +6022,6 @@ default:
             field_address-type: Public address
             field_cluster-cidr: CIDR cluster
             field_kms-key: Encryption key
-            field_maintenance-daily: Maintenance window start time in UTC
             field_master-type: Type of master
             field_master-version: Kubernetes version
             field_network: Cloud network
@@ -5910,7 +6033,6 @@ default:
             field_subnetwork: Subnet
             field_tunnel-mode: Сilium CNI
             label_logging-enabled: Write logs
-            label_maintenance-weekly: Weekly schedule
             label_master-computing-resources: Computing resources
             label_master-preset-group-cpu-optimized: CPU-optimized
             label_master-preset-group-memory-optimized: Memory-optimized
@@ -6268,6 +6390,13 @@ default:
         AuthMethodColumn:
           value_iam_boWet: IAM
           value_password_gbuZC: Password
+        BackupPolicy:
+          button_create-policy_3Mpxn: Create policy
+          label_backup-policies_s4xXC: Backup policies
+          title_backups_8fQgh: Backup
+          value_type-daily_fZXQ9: Every day
+          value_type-monthly_8xt6g: Monthly
+          value_type-weekly_69MML: By day of the week
         cluster:
           backups:
             action_delete-backup: Delete
@@ -6622,6 +6751,11 @@ default:
           switch_shards: Shards
           switch_users: Users
         ClusterForm:
+          AdditionalSection:
+            field_autocompact-bloat-percent_gCgoZ: Min. collection bloating percentage
+            field_autocompact-compaction-type_jdXAN: Autocompact of master replica
+            field_autocompact-enabled_9Eqw8: Autocompact
+            field_autocompact-target-free-space_tB2yk: Min. total of freed up disk space
           ClusterFormBase:
             section_mongocfg-resources_1cuU2: Mongocfg Resources
             section_mongod-resources_ncXUZ: Mongod Resources
@@ -7049,6 +7183,9 @@ default:
         workflow-viewer_node-output-label: Output
         workflow-viewer_node-settings-label: Settings
         workflow-viewer_trigger-settings-label: Start
+      shared:
+        iam:
+          action_assign-roles_8vkmR: Assign roles
       smart-web-security:
         action_empty: Create profile
         advanced_waf:
@@ -7182,7 +7319,6 @@ default:
           label_anomaly-threshold: Anomaly threshold
           label_create-exclusion-rule: Create exception rule
           label_create-profile: Create WAF profile
-          label_exclusion-rule-exclude-rules: Skip checks
           label_paranoia-level: Paranoia level
           label_paranoia-option-1: Only 1
           label_profiles: WAF profiles
@@ -7190,7 +7326,11 @@ default:
           label_save-settings: Save settings
           title_exclusion-rule-condition-section: Traffic conditions
           title_exclusion-rules: Exclusion rules
+          value_exclude-all-no: Selected rules
           value_exclude-all-yes: All rules
+        WafProfileExclusionRuleForm:
+          RulesSection:
+            title_exclusion-rule-rules-section_cdWEW: Excluded checks
       smartcaptcha:
         button_captcha-settings-create: Create captcha
         CaptchaSettingsForm:
@@ -7352,6 +7492,9 @@ default:
             switch_redirect: Redirect
             title_connected-domains: Domains in Cloud DNS
             title_redirect: Redirect
+        Bucket:
+          NewerNoncurrentVersionsField:
+            field_newer_noncurrent_versions_ezq3T: Versions to store
         buckets:
           button_create: Create bucket
           button_open-multipart-uploads: Show uploads
@@ -7461,6 +7604,7 @@ default:
         title_catalogs: Catalogs
       ui:
         constants:
+          label_cloud-router_kBGNL: Cloud Router
           label_interconnect_aUMcv: Cloud Interconnect
         metadata-hub:
           data-catalog:
@@ -9485,45 +9629,38 @@ default:
         transfer-selected-projects: Transfer selected projects
     yc-ui-talkanalytics:
       assistants:
-        applying: Enable assistant
-        assistants: Assistants
-        prompt: Instructions
+        applying_T3ZVB: Enable assistant
+        assistants_vsZCd: Assistants
+        prompt_4hIv3: Instructions
       common:
-        add: Add
-        create: Create
-        more: More
+        add_694qE: Add
+        create_JTJlL: Create
+        more_Dnm3Y: More
       connections:
-        add-key: Add key
-        column:
-          name: Name in the system
-        connection: Connection
-        connections: Connections
-        create-connection-key-value: Create connection
-        fields:
-          metadata: Shared metadata
-        template:
-          amo-crm:
-            name: AmoCRM
-          bitrix24:
-            name: Bitrix24
-          default:
-            name: Blank form
-        type:
-          chat-key-value: Сhat
-          two-channel-key-value: Two-channel audio
+        add-key_rKBwZ: Add key
+        column_zUZH9: Name in the system
+        connection_SezJG: Connection
+        connections_q5X2U: Connections
+        create-connection_kemb1: Create connection
+        fields_QO3t6: Shared metadata
+        template_0duY8: Blank form
+        template_GOsRJ: Bitrix24
+        template_vfToG: AmoCRM
+        type_13ZZh: Two-channel audio
+        type_NWiH4: Сhat
       dialogs:
-        bot: Bot
-        client: Customer
-        dialogs: Dialogs
-        operator: Agent
+        bot_ySBIh: Bot
+        client_qq11P: Customer
+        dialogs_ouB03: Dialogs
+        operator_aKjP0: Agent
       projects:
-        add-connection: Add connection
-        add-participant: Add participant
-        create-project: Create project
+        add-connection_bxENx: Add connection
+        add-participant_MeT49: Add participant
+        create-project_buUAo: Create project
       spaces:
-        create-space: Create space
+        create-space_FvLT9: Create space
       team:
-        add-from-organization-key-value: Add from organization
+        add-from-organization_2PoId: Add from organization
     yql:
       yq-audit-trails:
         audit-trails-type-toggle:

@@ -12,11 +12,15 @@ PUT /{bucket} HTTP/2
 
 ### Path parameters {#path-parameters}
 
-Parameter | Description
------ | -----
-`bucket` | Bucket name.<br/><br/>When creating a bucket, follow the bucket [naming guidelines](../../../concepts/bucket.md#naming).
+#|
+|| **Parameter** | **Description** ||
+|| `bucket` | Bucket name.
+
+When creating a bucket, follow the [naming conventions](../../../concepts/bucket.md#naming). ||
+|#
 
 ### Headings {#request-headers}
+
 Use [common headers](../common-request-headers.md) in your requests.
 
 The headers below enable you to set the [ACL](../../../concepts/acl.md) for the bucket being created.

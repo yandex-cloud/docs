@@ -31,7 +31,7 @@ When connecting to a {{ k8s }} cluster, the user [logs in to {{ iam-full-name }}
 
 To connect to your cluster:
 
-1. Install [kubectl]({{ k8s-docs }}/tasks/tools/#kubectl).
+1. [Install kubectl]({{ k8s-docs }}/tasks/tools/#kubectl).
 
 1. Add credentials to the `kubectl` configuration file depending on the type of IP address of the cluster you are connecting to:
 

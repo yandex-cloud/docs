@@ -61,7 +61,7 @@
 
    {% note info %}
 
-   Не путайте [классы хранилищ Kubernetes](manage-storage-class.md) и [типы дисков Yandex Compute Cloud](../../../compute/concepts/disk.md#disks_types).
+   Не путайте [классы хранилищ Kubernetes](manage-storage-class.md) и [типы дисков Yandex Compute Cloud](../../../compute/concepts/disk.md#disks-types).
 
    {% endnote %}
 
@@ -241,7 +241,7 @@
      Normal  SuccessfulAttachVolume  20m   attachdetach-controller  AttachVolume.Attach succeeded for volume "<имя_PersistentVolume>"
    ```
 
-После этого рядом с используемым диском в консоли управления в **Compute Cloud** в разделе **Диски** появится надпись **Подключен**.
+После этого рядом с используемым диском в консоли управления в **Compute Cloud** в разделе **Диски и хранилища** появится надпись **Подключен**.
 
 ## Как удалить том {#delete-volume}
 

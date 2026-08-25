@@ -13,15 +13,8 @@ description:
     оркестрацию и хореографию, чтобы организовывать взаимодействие между
     событиями и управлять ими.</li></ul>
   - >-
-    {{ sw-name }} и {{ er-name }} находятся на стадии <a
+    {{ er-name }} находятся на стадии <a
     href="https://yandex.cloud/ru/docs/overview/concepts/launch-stages">Preview</a>.
-  - >-
-    О том, как управлять API-шлюзами, которые поддерживают <a
-    href="https://github.com/OAI/OpenAPI-Specification">спецификацию OpenAPI
-    3.0</a> и  набор расширений для взаимодействия с сервисами {{ yandex-cloud
-    }},  читайте в <a
-    href="https://yandex.cloud/ru/docs/api-gateway/">документации {{
-    api-gw-full-name }}</a>.
 meta:
   title: '{{ si-full-name }}'
   description: >-
@@ -31,21 +24,15 @@ meta:
     - keyword: cloud serverless integrations
     - keyword: '{{ si-name }}'
     - keyword: '{{ si-full-name }}'
-    - keyword: '{{ sw-full-name }}'
     - keyword: '{{ er-full-name }}'
     - keyword: сервис {{ si-name }}
-    - keyword: сервис {{ sw-name }}
     - keyword: сервис {{ er-name }}
     - keyword: интеграция в {{ yandex-cloud }}
-    - keyword: рабочие процессы в {{ yandex-cloud }}
     - keyword: роутер событий в {{ yandex-cloud }}
     - keyword: бессерверная интеграция
     - keyword: облачная интеграция
     - keyword: интеграция в облаке
 links:
-  - title: Начало работы c {{ sw-name }}
-    description: Создайте рабочий процесс и запустите его
-    href: quickstart/workflows
   - title: Начало работы c {{ er-name }}
     description: Создайте шину и передайте через нее данные
     href: quickstart/eventrouter
@@ -58,9 +45,6 @@ links:
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
-  - title: Справочник API {{ sw-name }} (англ.)
-    description: Описание методов HTTP API {{ sw-name }}
-    href: workflows/api-ref/
   - title: Справочник API {{ er-name }} (англ.)
     description: Описание методов HTTP API {{ er-name }}
     href: eventrouter/api-ref/

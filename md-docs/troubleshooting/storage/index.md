@@ -10,7 +10,7 @@
 * [Как работать напрямую с API Object Storage без использования SDK](how-to/curl-api-request-example.md)
 * [Как просматривать и удалять незавершенные загрузки](how-to/incomplete-downloads.md)
 * [Как узнать скорость загрузки и скачивания данных](how-to/upload-download-speed.md)
-* [Как настроить заголовки кэширования `Cache-Control` для объектов в бакете при HTTP-запросах](how-to/configure-cache-headings-with-http-queries.md)
+* [Как настроить заголовки кеширования `Cache-Control` для объектов в бакете при HTTP-запросах](how-to/configure-cache-headings-with-http-queries.md)
 * [Как ограничить доступ к бакету для пользователя](how-to/restrict-bucket-access.md)
 * [Как изменить класс хранения](how-to/change-storage-class.md)
 * [Как восстановить удаленные данные из бакета](how-to/recover-deleted-objects.md)

@@ -107,7 +107,7 @@
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог.
 1. [Перейдите]({{ link-console-main }}/link/managed-postgresql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_diagnostics }}**.
+1. Нажмите на имя нужного кластера, затем выберите ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.postgresql.cluster.switch_diagnostics }}**.
 1. На вкладке **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_sessions }}** в поле **Срез** выберите значение **WAIT_EVENT_TYPE**.
 
     * Обратите внимание на график **Lock**. Он показывает количество запросов, которые в выбранный период находились в состоянии блокировки.
@@ -151,7 +151,7 @@ SELECT * FROM pg_locks pl LEFT JOIN pg_stat_activity psa
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог.
 1. [Перейдите]({{ link-console-main }}/link/managed-postgresql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_monitoring }}**.
+1. Нажмите на имя нужного кластера, затем выберите ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.postgresql.cluster.switch_monitoring }}**.
 1. Изучите график **Total pooler connections**.
 
     {{ mpg-name }} не допускает подключений напрямую к СУБД, вместо этого происходит подключение к менеджеру подключений.
@@ -183,7 +183,7 @@ SELECT * FROM pg_locks pl LEFT JOIN pg_stat_activity psa
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог.
 1. [Перейдите]({{ link-console-main }}/link/managed-postgresql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_monitoring }}**.
+1. Нажмите на имя нужного кластера, затем выберите ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.postgresql.cluster.switch_monitoring }}**.
 1. Проверьте график **Disk capacity in primary, [bytes]**.
 
     Обратите внимание на значение параметра **Used**, показывающего степень заполнения хранилища кластера.

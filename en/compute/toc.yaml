@@ -13,90 +13,110 @@ items:
     items:
       - name: All guides
         href: operations/index.md
-      - name: Creating a VM
+      - name: VMs
         items:
-          - name: Creating a Linux VM
-            href: operations/vm-create/create-linux-vm.md
-          - name: Creating a VM from disks
-            href: operations/vm-create/create-from-disks.md
-          - name: Creating a VM with disks from snapshots
-            href: operations/vm-create/create-from-snapshots.md
-          - name: Creating a VM from a custom image
-            href: operations/vm-create/create-from-user-image.md
-          - name: Creating a VM with a custom configuration script
-            href: operations/vm-create/create-with-cloud-init-scripts.md
-          - name: Creating a VM with metadata from environment variables
-            href: operations/vm-create/create-with-env-variables.md
-          - name: >-
-              Creating a VM instance with access to a {{ lockbox-full-name }}
-              secret
-            href: operations/vm-create/create-with-lockbox-secret.md
-          - name: Creating a VM with a GPU
-            href: operations/vm-create/create-vm-with-gpu.md
-          - name: Creating a VM with Gen 2 hardware
-            href: operations/vm-create/create-gen2-vm.md
-          - name: Making a VM preemptible
-            href: operations/vm-create/create-preemptible-vm.md
-      - name: DSVM
+          - name: Creation
+            items:
+              - name: Creating a Linux VM
+                href: operations/vm-create/create-linux-vm.md
+              - name: Creating a VM from disks
+                href: operations/vm-create/create-from-disks.md
+              - name: Creating a VM with disks from snapshots
+                href: operations/vm-create/create-from-snapshots.md
+              - name: Creating a VM from a custom image
+                href: operations/vm-create/create-from-user-image.md
+              - name: Creating a VM with a custom configuration script
+                href: operations/vm-create/create-with-cloud-init-scripts.md
+              - name: Creating a VM with metadata from environment variables
+                href: operations/vm-create/create-with-env-variables.md
+              - name: >-
+                  Creating a VM instance with access to a {{ lockbox-full-name
+                  }} secret
+                href: operations/vm-create/create-with-lockbox-secret.md
+              - name: Creating a VM with Gen 2 hardware
+                href: operations/vm-create/create-gen2-vm.md
+              - name: Making a VM preemptible
+                href: operations/vm-create/create-preemptible-vm.md
+          - name: Getting information
+            items:
+              - name: Getting VM info
+                href: operations/vm-info/get-info.md
+              - name: Getting the serial port output
+                href: operations/vm-info/get-serial-port-output.md
+          - name: Management
+            items:
+              - name: Stopping and starting a VM
+                href: operations/vm-control/vm-stop-and-start.md
+              - name: Resetting a Windows Server VM user password
+                href: operations/vm-control/vm-reset-password.md
+              - name: Attaching a disk to a VM
+                href: operations/vm-control/vm-attach-disk.md
+              - name: Detaching a disk from a VM
+                href: operations/vm-control/vm-detach-disk.md
+              - name: Moving a VM to a different availability zone
+                href: operations/vm-control/vm-change-zone.md
+              - name: Moving a VM to a different folder
+                href: operations/vm-control/vm-change-folder.md
+              - name: Moving a VM to a different cloud
+                href: operations/vm-control/vm-change-cloud.md
+              - name: Updating a VM
+                href: operations/vm-control/vm-update.md
+              - name: Changing VM computing resources
+                href: operations/vm-control/vm-update-resources.md
+              - name: VM maintenance policy management
+                href: operations/vm-control/vm-update-policies.md
+              - name: Configuring VM access permissions
+                href: operations/vm-control/vm-access.md
+              - name: Linking a service account to a VM
+                href: operations/vm-control/vm-connect-sa.md
+              - name: Deleting a VM
+                href: operations/vm-control/vm-delete.md
+          - name: Operations
+            items:
+              - name: Connecting to a VM over SSH
+                href: operations/vm-connect/ssh.md
+              - name: Connecting to a VM over SSH using {{ cloud-shell-name }}
+                href: operations/vm-connect/cloud-shell.md
+              - name: Exchanging files with VMs
+                href: operations/vm-connect/scp-sftp.md
+              - name: Connecting to a VM via RDP
+                href: operations/vm-connect/rdp.md
+              - name: Connecting to a VM via PowerShell
+                href: operations/vm-connect/powershell.md
+              - name: Using {{ yandex-cloud }} from within a VM
+                href: operations/vm-connect/auth-inside-vm.md
+              - name: Recovering access to a VM
+                href: operations/vm-connect/recovery-access.md
+          - name: '{{ oslogin }}'
+            items:
+              - name: Creating a VM with {{ oslogin }} support
+                href: operations/vm-connect/os-login-create-vm.md
+              - name: Configuring {{ oslogin }} on an existing VM
+                href: operations/vm-connect/enable-os-login.md
+              - name: Exporting an SSH certificate
+                href: operations/vm-connect/os-login-export-certificate.md
+              - name: Connecting to a VM via {{ oslogin }}
+                href: operations/vm-connect/os-login.md
+          - name: Serial console
+            items:
+              - name: Managing serial console access
+                href: operations/serial-console/index.md
+              - name: Connecting to a Linux VM serial console
+                href: operations/serial-console/connect-ssh.md
+              - name: Connecting to a Windows VM serial console
+                href: operations/serial-console/windows-sac.md
+          - name: Password reset agent
+            items:
+              - name: Testing the agent
+                href: operations/vm-guest-agent/check.md
+              - name: Installing the agent
+                href: operations/vm-guest-agent/install.md
+              - name: Resetting the admin password
+                href: operations/vm-guest-agent/reset-password.md
+              - name: Deleting the agent
+                href: operations/vm-guest-agent/uninstall.md
+      - name: Network
         items:
-          - name: Overview
-            href: operations/dsvm/index.md
-          - name: Creating a VM from a public DSVM image
-            href: operations/dsvm/quickstart.md
-      - name: Placement groups
-        items:
-          - name: Creating a placement group
-            href: operations/placement-groups/create.md
-          - name: Deleting a placement group
-            href: operations/placement-groups/delete.md
-          - name: Creating a VM in a placement group
-            href: operations/placement-groups/create-vm-in-pg.md
-          - name: Creating an instance group in a placement group
-            href: operations/placement-groups/create-ig-in-pg.md
-          - name: Adding a VM to a placement group
-            href: operations/placement-groups/add-vm.md
-          - name: Removing a VM from a placement group
-            href: operations/placement-groups/delete-vm.md
-          - name: Getting placement group info
-            href: operations/placement-groups/placement-groups-get-info.md
-          - name: Removing an instance group from a placement group
-            href: operations/placement-groups/delete-ig-from-pg.md
-          - name: Configuring VM placement group access permissions
-            href: operations/placement-groups/access.md
-      - name: Images with pre-installed software
-        items:
-          - name: Creating a VM from a public image
-            href: operations/images-with-pre-installed-software/create.md
-          - name: Configuring software
-            href: operations/images-with-pre-installed-software/setup.md
-          - name: Running a VM from a public image
-            href: operations/images-with-pre-installed-software/operate.md
-          - name: Getting a list of public images
-            href: operations/images-with-pre-installed-software/get-list.md
-          - name: Getting public image info
-            href: operations/images-with-pre-installed-software/get-info.md
-      - name: Getting VM info
-        items:
-          - name: Getting VM info
-            href: operations/vm-info/get-info.md
-          - name: Getting the serial port output
-            href: operations/vm-info/get-serial-port-output.md
-      - name: Managing a VM
-        items:
-          - name: Stopping and starting a VM
-            href: operations/vm-control/vm-stop-and-start.md
-          - name: Resetting a Windows Server VM user password
-            href: operations/vm-control/vm-reset-password.md
-          - name: Attaching a disk to a VM
-            href: operations/vm-control/vm-attach-disk.md
-          - name: Detaching a disk from a VM
-            href: operations/vm-control/vm-detach-disk.md
-          - name: Moving a VM to a different availability zone
-            href: operations/vm-control/vm-change-zone.md
-          - name: Moving a VM to a different folder
-            href: operations/vm-control/vm-change-folder.md
-          - name: Moving a VM to a different cloud
-            href: operations/vm-control/vm-change-cloud.md
           - name: Adding another network interface to a VM
             href: operations/vm-control/attach-network-interface.md
           - name: Deleting a network interface from a VM
@@ -111,111 +131,123 @@ items:
             href: operations/vm-control/vm-transferring-public-ip.md
           - name: Updating the VM internal IP address
             href: operations/vm-control/internal-ip-update.md
-          - name: Updating a VM
-            href: operations/vm-control/vm-update.md
-          - name: Changing VM computing resources
-            href: operations/vm-control/vm-update-resources.md
           - name: Changing VM security groups
             href: operations/vm-control/vm-change-security-groups-set.md
-          - name: VM maintenance policy management
-            href: operations/vm-control/vm-update-policies.md
-          - name: Configuring VM access permissions
-            href: operations/vm-control/vm-access.md
-          - name: Linking a service account to a VM
-            href: operations/vm-control/vm-connect-sa.md
-          - name: Managing maintenance of GPU VMs
-            href: operations/vm-control/gpus-maintenance.md
-          - name: Deleting a VM
-            href: operations/vm-control/vm-delete.md
-      - name: Working with VM instance metadata
+          - name: Enabling a software-accelerated network
+            href: operations/enable-software-accelerated-network.md
+      - name: GPU
         items:
-          - name: Configuring metadata service parameters
-            href: operations/vm-metadata/setup-metadata-service.md
-          - name: Getting VM instance metadata
-            href: operations/vm-metadata/get-vm-metadata.md
-          - name: Getting a VM instance identity document
-            href: operations/vm-metadata/get-identity-document.md
-          - name: Changing VM instance metadata
-            href: operations/vm-metadata/update-vm-metadata.md
-          - name: Creating a VM with a custom configuration script
-            href: operations/vm-create/create-with-cloud-init-scripts.md
-          - name: Creating a VM with metadata from environment variables
-            href: operations/vm-create/create-with-env-variables.md
-          - name: >-
-              Creating a VM instance with access to a {{ lockbox-full-name }}
-              secret
-            href: operations/vm-create/create-with-lockbox-secret.md
-      - name: Using a VM
-        items:
-          - name: Connecting to a VM over SSH
-            href: operations/vm-connect/ssh.md
-          - name: Connecting to a VM over SSH using {{ cloud-shell-name }}
-            href: operations/vm-connect/cloud-shell.md
-          - name: Exchanging files with VMs
-            href: operations/vm-connect/scp-sftp.md
-          - name: Connecting to a VM via RDP
-            href: operations/vm-connect/rdp.md
-          - name: Connecting to a VM via PowerShell
-            href: operations/vm-connect/powershell.md
-          - name: '{{ oslogin }}'
-            items:
-              - name: Creating a VM with {{ oslogin }} support
-                href: operations/vm-connect/os-login-create-vm.md
-              - name: Configuring {{ oslogin }} on an existing VM
-                href: operations/vm-connect/enable-os-login.md
-              - name: Exporting an SSH certificate
-                href: operations/vm-connect/os-login-export-certificate.md
-              - name: Connecting to a VM via {{ oslogin }}
-                href: operations/vm-connect/os-login.md
-          - name: Using {{ yandex-cloud }} from within a VM
-            href: operations/vm-connect/auth-inside-vm.md
+          - name: Creating a VM with a GPU
+            href: operations/vm-create/create-vm-with-gpu.md
           - name: Installing NVIDIA drivers
             href: operations/vm-operate/install-nvidia-drivers.md
-          - name: Recovering access to a VM
-            href: operations/vm-connect/recovery-access.md
-      - name: Managing the password reset agent
+          - name: NVIDIA driver update guide
+            href: operations/gpu-driver-update.md
+          - name: Enabling MIG on a VM with a GPU
+            href: operations/enable-mig.md
+          - name: Managing maintenance of GPU VMs
+            href: operations/vm-control/gpus-maintenance.md
+          - name: GPU clusters
+            items:
+              - name: Creating a GPU cluster
+                href: operations/gpu-cluster/gpu-cluster-create.md
+              - name: Adding a VM to a GPU cluster
+                href: operations/gpu-cluster/gpu-add-to-cluster.md
+              - name: Updating a GPU cluster
+                href: operations/gpu-cluster/gpu-cluster-update.md
+              - name: Getting GPU cluster info
+                href: operations/gpu-cluster/gpu-cluster-get-info.md
+              - name: Configuring GPU cluster access permissions
+                href: operations/gpu-cluster/access.md
+              - name: Deleting a GPU cluster
+                href: operations/gpu-cluster/gpu-cluster-delete.md
+              - name: Testing a GPU cluster physical state
+                href: operations/gpu-cluster/gpu-cluster-test-physical-state.md
+              - name: Running parallel tasks in a GPU cluster
+                href: operations/gpu-cluster/gpu-cluster-mpirun-parallel.md
+              - name: Testing InfiniBand throughput
+                href: operations/gpu-cluster/test-infiniband-bandwidth.md
+      - name: Disks
         items:
-          - name: Testing the agent
-            href: operations/vm-guest-agent/check.md
-          - name: Installing the agent
-            href: operations/vm-guest-agent/install.md
-          - name: Resetting the admin password
-            href: operations/vm-guest-agent/reset-password.md
-          - name: Deleting the agent
-            href: operations/vm-guest-agent/uninstall.md
-      - name: Creating a disk
+          - name: Creation
+            items:
+              - name: Creating an empty disk
+                href: operations/disk-create/empty.md
+              - name: Creating an empty disk with a large block
+                href: operations/disk-create/empty-disk-blocksize.md
+              - name: Creating a non-replicated disk
+                href: operations/disk-create/nonreplicated.md
+              - name: Creating a high-performance SSD
+                href: operations/disk-create/ssd-io.md
+              - name: Recovering a disk from a snapshot
+                href: operations/disk-create/from-snapshot.md
+              - name: Recovering a disk from an image
+                href: operations/disk-create/from-image.md
+          - name: Management
+            items:
+              - name: Updating a disk
+                href: operations/disk-control/update.md
+              - name: Configuring disk snapshot schedules
+                href: operations/disk-control/configure-schedule.md
+              - name: Moving a disk to a different folder
+                href: operations/disk-control/disk-change-folder.md
+              - name: Moving a disk to a different availability zone
+                href: operations/disk-control/disk-change-zone.md
+              - name: Encrypting a disk
+                href: operations/disk-control/disk-encrypt.md
+              - name: Getting disk info
+                href: operations/disk-control/get-info.md
+              - name: Configuring disk access permissions
+                href: operations/disk-control/disk-access.md
+              - name: Deleting a disk
+                href: operations/disk-control/delete.md
+      - name: Images
         items:
-          - name: Creating an empty disk
-            href: operations/disk-create/empty.md
-          - name: Creating an empty disk with a large block
-            href: operations/disk-create/empty-disk-blocksize.md
-          - name: Creating a non-replicated disk
-            href: operations/disk-create/nonreplicated.md
-          - name: Creating a high-performance SSD
-            href: operations/disk-create/ssd-io.md
-          - name: Recovering a disk from a snapshot
-            href: operations/disk-create/from-snapshot.md
-          - name: Recovering a disk from an image
-            href: operations/disk-create/from-image.md
-      - name: Managing a disk
-        items:
-          - name: Updating a disk
-            href: operations/disk-control/update.md
-          - name: Configuring disk snapshot schedules
-            href: operations/disk-control/configure-schedule.md
-          - name: Moving a disk to a different folder
-            href: operations/disk-control/disk-change-folder.md
-          - name: Moving a disk to a different availability zone
-            href: operations/disk-control/disk-change-zone.md
-          - name: Encrypting a disk
-            href: operations/disk-control/disk-encrypt.md
-          - name: Getting disk info
-            href: operations/disk-control/get-info.md
-          - name: Configuring disk access permissions
-            href: operations/disk-control/disk-access.md
-          - name: Deleting a disk
-            href: operations/disk-control/delete.md
-      - name: Disk snapshots
+          - name: With pre-installed software
+            items:
+              - name: Creating a VM from a public image
+                href: operations/images-with-pre-installed-software/create.md
+              - name: Configuring software
+                href: operations/images-with-pre-installed-software/setup.md
+              - name: Running a VM from a public image
+                href: operations/images-with-pre-installed-software/operate.md
+              - name: Getting a list of public images
+                href: operations/images-with-pre-installed-software/get-list.md
+              - name: Getting public image info
+                href: operations/images-with-pre-installed-software/get-info.md
+          - name: DSVM
+            items:
+              - name: Overview
+                href: operations/dsvm/index.md
+              - name: Creating a VM from a public DSVM image
+                href: operations/dsvm/quickstart.md
+          - name: Creation
+            items:
+              - name: Setting up a disk image
+                href: operations/image-create/custom-image.md
+              - name: Uploading a custom image
+                href: operations/image-create/upload.md
+              - name: Creating an image from a disk
+                href: operations/image-create/create-from-disk.md
+              - name: Creating an image from a disk snapshot
+                href: operations/image-create/create-from-snapshot.md
+              - name: Creating an image from another custom image
+                href: operations/image-create/create-from-image.md
+          - name: Management
+            items:
+              - name: Getting a list of images
+                href: operations/image-control/get-list.md
+              - name: Getting image info
+                href: operations/image-control/image-control-get-info.md
+              - name: Importing an image from another cloud or folder
+                href: operations/image-control/import.md
+              - name: Encrypting an image
+                href: operations/image-control/encrypt.md
+              - name: Configuring image access permissions
+                href: operations/image-control/access.md
+              - name: Deleting an image
+                href: operations/image-control/delete.md
+      - name: Snapshots
         items:
           - name: Creating a snapshot
             href: operations/disk-control/create-snapshot.md
@@ -239,44 +271,6 @@ items:
             href: operations/snapshot-control/snapshot-schedule-access.md
           - name: Deleting a snapshot schedule
             href: operations/snapshot-control/delete-schedule.md
-      - name: Disk placement groups
-        items:
-          - name: Creating a disk placement group
-            href: operations/disk-placement-groups/create.md
-          - name: Adding a disk to a placement group
-            href: operations/disk-placement-groups/add-disk.md
-          - name: Getting disk placement group info
-            href: operations/disk-placement-groups/get-info.md
-          - name: Configuring disk placement group access permissions
-            href: operations/disk-placement-groups/access.md
-          - name: Removing a disk from a placement group
-            href: operations/disk-placement-groups/remove-disk.md
-      - name: Creating an image
-        items:
-          - name: Setting up a disk image
-            href: operations/image-create/custom-image.md
-          - name: Uploading a custom image
-            href: operations/image-create/upload.md
-          - name: Creating an image from a disk
-            href: operations/image-create/create-from-disk.md
-          - name: Creating an image from a disk snapshot
-            href: operations/image-create/create-from-snapshot.md
-          - name: Creating an image from another custom image
-            href: operations/image-create/create-from-image.md
-      - name: Managing an image
-        items:
-          - name: Getting a list of images
-            href: operations/image-control/get-list.md
-          - name: Getting image info
-            href: operations/image-control/image-control-get-info.md
-          - name: Importing an image from another cloud or folder
-            href: operations/image-control/import.md
-          - name: Encrypting an image
-            href: operations/image-control/encrypt.md
-          - name: Configuring image access permissions
-            href: operations/image-control/access.md
-          - name: Deleting an image
-            href: operations/image-control/delete.md
       - name: File storages
         items:
           - name: Creating a file storage
@@ -293,92 +287,144 @@ items:
             href: operations/filesystem/filesystem-access.md
           - name: Deleting a file storage
             href: operations/filesystem/delete.md
-      - name: Serial console
+      - name: Metadata
         items:
-          - name: Managing serial console access
-            href: operations/serial-console/index.md
-          - name: Connecting to a Linux VM serial console
-            href: operations/serial-console/connect-ssh.md
-          - name: Connecting to a Windows VM serial console
-            href: operations/serial-console/windows-sac.md
-      - name: Creating an instance group
-        items:
-          - name: Creating a fixed-size instance group
-            href: operations/instance-groups/create-fixed-group.md
-          - name: Creating a fixed-size instance group with a network load balancer
-            href: operations/instance-groups/create-with-balancer.md
-          - name: Creating a fixed-size instance group with an L7 load balancer
-            href: operations/instance-groups/create-with-load-balancer.md
-          - name: Creating an instance group with autoscaling
-            href: operations/instance-groups/create-autoscaled-group.md
-          - name: Creating an instance group with Container Optimized Image
-            href: operations/instance-groups/create-with-coi.md
-          - name: Creating an instance group based on a YAML specification
-            href: operations/instance-groups/create-from-yaml.md
-          - name: Creating an instance group attached to a reserved instance pool
-            href: operations/instance-groups/create-group-with-pool.md
-          - name: Creating an instance group in a placement group
-            href: operations/placement-groups/create-ig-in-pg.md
-          - name: Creating a group of instances with fixed IP addresses
-            href: operations/instance-groups/create-with-fixed-ip.md
-          - name: Creating an instance group connected to a file storage
-            href: operations/instance-groups/create-with-filesystem.md
-          - name: Creating an instance group connected to {{ objstorage-name }}
-            href: operations/instance-groups/create-with-bucket.md
-      - name: Getting instance group info
-        items:
-          - name: Getting a list of instance groups
-            href: operations/instance-groups/get-list.md
-          - name: Getting instance group info
-            href: operations/instance-groups/get-info.md
-          - name: Getting a list of instances in a group
-            href: operations/instance-groups/get-list-instances.md
-      - name: Managing an instance group
-        items:
-          - name: Updating an instance group
-            href: operations/instance-groups/update.md
-          - name: Updating an instance group based on a YAML specification
-            href: operations/instance-groups/update-from-yaml.md
-          - name: Enable deletion protection
-            href: operations/instance-groups/enable-deletion-protection.md
-          - name: Disabling and enabling availability zones for an instance group
-            href: operations/instance-groups/disable-enable-zone.md
-          - name: Moving an instance group to a different availability zone
-            href: operations/instance-groups/move-group.md
+          - name: Configuring metadata service parameters
+            href: operations/vm-metadata/setup-metadata-service.md
+          - name: Getting VM instance metadata
+            href: operations/vm-metadata/get-vm-metadata.md
+          - name: Getting a VM instance identity document
+            href: operations/vm-metadata/get-identity-document.md
+          - name: Changing VM instance metadata
+            href: operations/vm-metadata/update-vm-metadata.md
+          - name: Creating a VM with a custom configuration script
+            href: operations/vm-create/create-with-cloud-init-scripts.md
+          - name: Creating a VM with metadata from environment variables
+            href: operations/vm-create/create-with-env-variables.md
           - name: >-
-              Moving an instance group with a network load balancer to a
-              different availability zone
-            href: operations/instance-groups/move-group-with-nlb.md
-          - name: >-
-              Moving an instance group with an L7 load balancer to a different
-              availability zone
-            href: operations/instance-groups/move-group-with-alb.md
-          - name: Configuring application health checks on a VM instance
-            href: operations/instance-groups/enable-autohealing.md
-          - name: Updating a group
+              Creating a VM instance with access to a {{ lockbox-full-name }}
+              secret
+            href: operations/vm-create/create-with-lockbox-secret.md
+      - name: Placement groups
+        items:
+          - name: VMs
             items:
-              - name: Rolling updates
-                href: operations/instance-groups/deploy/rolling-update.md
-              - name: Zero-downtime updates
-                href: operations/instance-groups/deploy/zero-downtime.md
-          - name: Pausing an instance group
-            href: operations/instance-groups/pause-processes.md
-          - name: Resuming an instance group
-            href: operations/instance-groups/resume-processes.md
-          - name: Sequentially restarting instances in a group
-            href: operations/instance-groups/rolling-restart.md
-          - name: Sequentially recreating instances in a group
-            href: operations/instance-groups/rolling-recreate.md
-          - name: Stopping an instance group
-            href: operations/instance-groups/stop.md
-          - name: Starting an instance group
-            href: operations/instance-groups/start.md
-          - name: Configuring instance group access permissions
-            href: operations/instance-groups/access.md
-          - name: Removing an instance group from a placement group
-            href: operations/placement-groups/delete-ig-from-pg.md
-          - name: Deleting an instance group
-            href: operations/instance-groups/delete.md
+              - name: Creating a placement group
+                href: operations/placement-groups/create.md
+              - name: Deleting a placement group
+                href: operations/placement-groups/delete.md
+              - name: Creating a VM in a placement group
+                href: operations/placement-groups/create-vm-in-pg.md
+              - name: Creating an instance group in a placement group
+                href: operations/placement-groups/create-ig-in-pg.md
+              - name: Adding a VM to a placement group
+                href: operations/placement-groups/add-vm.md
+              - name: Removing a VM from a placement group
+                href: operations/placement-groups/delete-vm.md
+              - name: Getting placement group info
+                href: operations/placement-groups/placement-groups-get-info.md
+              - name: Removing an instance group from a placement group
+                href: operations/placement-groups/delete-ig-from-pg.md
+              - name: Configuring VM placement group access permissions
+                href: operations/placement-groups/access.md
+          - name: Disks
+            items:
+              - name: Creating a disk placement group
+                href: operations/disk-placement-groups/create.md
+              - name: Adding a disk to a placement group
+                href: operations/disk-placement-groups/add-disk.md
+              - name: Getting disk placement group info
+                href: operations/disk-placement-groups/get-info.md
+              - name: Configuring disk placement group access permissions
+                href: operations/disk-placement-groups/access.md
+              - name: Removing a disk from a placement group
+                href: operations/disk-placement-groups/remove-disk.md
+      - name: Instance groups
+        items:
+          - name: Creation
+            items:
+              - name: Creating a fixed-size instance group
+                href: operations/instance-groups/create-fixed-group.md
+              - name: >-
+                  Creating a fixed-size instance group with a network load
+                  balancer
+                href: operations/instance-groups/create-with-balancer.md
+              - name: Creating a fixed-size instance group with an L7 load balancer
+                href: operations/instance-groups/create-with-load-balancer.md
+              - name: Creating an instance group with autoscaling
+                href: operations/instance-groups/create-autoscaled-group.md
+              - name: Creating an instance group with Container Optimized Image
+                href: operations/instance-groups/create-with-coi.md
+              - name: Creating an instance group based on a YAML specification
+                href: operations/instance-groups/create-from-yaml.md
+              - name: >-
+                  Creating an instance group attached to a reserved instance
+                  pool
+                href: operations/instance-groups/create-group-with-pool.md
+              - name: Creating an instance group in a placement group
+                href: operations/placement-groups/create-ig-in-pg.md
+              - name: Creating a group of instances with fixed IP addresses
+                href: operations/instance-groups/create-with-fixed-ip.md
+              - name: Creating an instance group connected to a file storage
+                href: operations/instance-groups/create-with-filesystem.md
+              - name: Creating an instance group connected to {{ objstorage-name }}
+                href: operations/instance-groups/create-with-bucket.md
+          - name: Getting information
+            items:
+              - name: Getting a list of instance groups
+                href: operations/instance-groups/get-list.md
+              - name: Getting instance group info
+                href: operations/instance-groups/get-info.md
+              - name: Getting a list of instances in a group
+                href: operations/instance-groups/get-list-instances.md
+          - name: Management
+            items:
+              - name: Updating an instance group
+                href: operations/instance-groups/update.md
+              - name: Updating an instance group based on a YAML specification
+                href: operations/instance-groups/update-from-yaml.md
+              - name: Enable deletion protection
+                href: operations/instance-groups/enable-deletion-protection.md
+              - name: >-
+                  Disabling and enabling availability zones for an instance
+                  group
+                href: operations/instance-groups/disable-enable-zone.md
+              - name: Moving an instance group to a different availability zone
+                href: operations/instance-groups/move-group.md
+              - name: >-
+                  Moving an instance group with a network load balancer to a
+                  different availability zone
+                href: operations/instance-groups/move-group-with-nlb.md
+              - name: >-
+                  Moving an instance group with an L7 load balancer to a
+                  different availability zone
+                href: operations/instance-groups/move-group-with-alb.md
+              - name: Configuring application health checks on a VM instance
+                href: operations/instance-groups/enable-autohealing.md
+              - name: Updating a group
+                items:
+                  - name: Rolling updates
+                    href: operations/instance-groups/deploy/rolling-update.md
+                  - name: Zero-downtime updates
+                    href: operations/instance-groups/deploy/zero-downtime.md
+              - name: Pausing an instance group
+                href: operations/instance-groups/pause-processes.md
+              - name: Resuming an instance group
+                href: operations/instance-groups/resume-processes.md
+              - name: Sequentially restarting instances in a group
+                href: operations/instance-groups/rolling-restart.md
+              - name: Sequentially recreating instances in a group
+                href: operations/instance-groups/rolling-recreate.md
+              - name: Stopping an instance group
+                href: operations/instance-groups/stop.md
+              - name: Starting an instance group
+                href: operations/instance-groups/start.md
+              - name: Configuring instance group access permissions
+                href: operations/instance-groups/access.md
+              - name: Removing an instance group from a placement group
+                href: operations/placement-groups/delete-ig-from-pg.md
+              - name: Deleting an instance group
+                href: operations/instance-groups/delete.md
       - name: Dedicated hosts
         items:
           - name: Creating a group of dedicated hosts
@@ -389,9 +435,9 @@ items:
             href: operations/dedicated-host/running-host-vms.md
           - name: Configuring access permissions for a dedicated host group
             href: operations/dedicated-host/access.md
-      - name: Reserved instance pools
+      - name: Reserved pools
         items:
-          - name: Creating a reserved instance pool
+          - name: Creating an reserved instance pool
             href: operations/reserved-pools/create-reserved-pool.md
           - name: Updating a reserved instance pool
             href: operations/reserved-pools/update-reserved-pool.md
@@ -399,34 +445,10 @@ items:
             href: operations/reserved-pools/delete-reserved-pool.md
           - name: Managing instances in a pool
             href: operations/reserved-pools/manage-pool-vms.md
-      - name: GPU clusters
-        items:
-          - name: Creating a GPU cluster
-            href: operations/gpu-cluster/gpu-cluster-create.md
-          - name: Adding a VM to a GPU cluster
-            href: operations/gpu-cluster/gpu-add-to-cluster.md
-          - name: Updating a GPU cluster
-            href: operations/gpu-cluster/gpu-cluster-update.md
-          - name: Getting GPU cluster info
-            href: operations/gpu-cluster/gpu-cluster-get-info.md
-          - name: Configuring GPU cluster access permissions
-            href: operations/gpu-cluster/access.md
-          - name: Deleting a GPU cluster
-            href: operations/gpu-cluster/gpu-cluster-delete.md
-          - name: Testing a GPU cluster physical state
-            href: operations/gpu-cluster/gpu-cluster-test-physical-state.md
-          - name: Running parallel tasks in a GPU cluster
-            href: operations/gpu-cluster/gpu-cluster-mpirun-parallel.md
-          - name: Testing InfiniBand throughput
-            href: operations/gpu-cluster/test-infiniband-bandwidth.md
-      - name: Enabling a software-accelerated network
-        href: operations/enable-software-accelerated-network.md
-      - name: Viewing operations on service resources
+      - name: Viewing operations with resources
         href: operations/operation-logs.md
-      - name: Viewing metrics in {{ monitoring-name }}
+      - name: Viewing metrics {{ monitoring-name }}
         href: operations/metrics-pull.md
-      - name: NVIDIA driver update guide
-        href: operations/gpu-driver-update.md
   - name: '{{ cos-full-name }}'
     href: ../cos/index.yaml
   - name: Tutorials
@@ -471,7 +493,7 @@ items:
         href: tutorials/hystax-backup.md
       - name: Deploying a fault-tolerant architecture with preemptible VMs
         href: tutorials/nodejs-cron-restart-vm.md
-      - name: Assigning a domain name to a web server VM
+      - name: Associating a domain name to a web server VM
         items:
           - name: Overview
             href: tutorials/bind-domain-vm/index.md

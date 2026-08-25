@@ -188,16 +188,27 @@ description: Из статьи вы узнаете, как изменить по
   1. Перейдите на вкладку ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}**.
   1. Выберите политику резервного копирования, в которой нужно изменить список [защищаемых ресурсов](../../concepts/index.md#protected-resources).
   1. Измените список привязанных ресурсов:
-     * Чтобы привязать новую ВМ или сервер, нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.backup.button_attach-instance }}** и в открывшемся окне:
+     * Чтобы привязать новый ресурс, нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.backup.button_attach-instance }}** и в открывшемся окне:
 
-        * В зависимости от того, какой ресурс вы хотите привязать к политике, выберите вкладку **{{ ui-key.yacloud.backup.value_vm-recourses }}** или **{{ ui-key.yacloud.backup.value_bms-recourses }}** и в списке выберите нужные ВМ или сервер.
+        * В зависимости от того, какой ресурс вы хотите привязать к политике, в поле **{{ ui-key.yacloud.backup.field_add-resource_resource-type }}** выберите значение:
 
-           Если ВМ или сервера, которые вы хотите привязать к политике, нет в списке, убедитесь, что они подключены к {{ backup-name }}.
+            * `{{ ui-key.yacloud.backup.value_vm-recourses }}` — для виртуальных машин {{ compute-name }}.
+            * `{{ ui-key.yacloud.backup.value_bms-recourses }}` — для серверов {{ baremetal-name }}.
+            * `{{ ui-key.yacloud.backup.label_external-vm-instances }}` — для внешних виртуальных машин.
+            * `{{ ui-key.yacloud.backup.label_external-server-instances }}` — для внешних серверов.
+        * В поле ниже выберите нужный ресурс выбранного ранее типа.
+
+            Если ресурса, который вы хотите привязать к политике, нет в списке, убедитесь, что он подключен к {{ backup-name }}.
         * Нажмите кнопку **{{ ui-key.yacloud_billing.backup.button_attach-instance-submit }}**.
-     * Чтобы отвязать ВМ или сервер от политики:
+     * Чтобы отвязать ресурс от политики:
 
-        * В зависимости от того, какой ресурс вы хотите отвязать от политики резервного копирования, выберите вкладку **{{ ui-key.yacloud.backup.value_vm-recourses }}** или **{{ ui-key.yacloud.backup.value_bms-recourses }}**.
-        * В строке с ВМ или сервером, которые нужно отвязать от политики, нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите соответственно **{{ ui-key.yacloud.backup.action_detach-vm-instance }}** или **{{ ui-key.yacloud.backup.action_detach-baremetal-instance }}**.
+        * В зависимости от того, какой ресурс вы хотите отвязать от политики резервного копирования, перейдите на вкладку:
+
+            * **{{ ui-key.yacloud.backup.label_instances }}** — для виртуальных машин {{ compute-name }}.
+            * **{{ ui-key.yacloud.backup.label_baremetal-instances }}** — для серверов {{ baremetal-name }}.
+            * **{{ ui-key.yacloud.backup.label_external-vm-instances }}** — для внешних виртуальных машин.
+            * **{{ ui-key.yacloud.backup.label_external-server-instances }}** — для внешних серверов.
+        * В строке с ресурсом, который нужно отвязать от политики, нажмите значок ![options](../../../_assets/console-icons/ellipsis.svg) и выберите соответственно **{{ ui-key.yacloud.backup.action_detach-vm-instance }}**, **{{ ui-key.yacloud.backup.action_detach-baremetal-instance }}** или **{{ ui-key.yacloud.backup.action_detach-external-resource }}**.
         * В открывшемся окне подтвердите это действие.
 
 - CLI {#cli}

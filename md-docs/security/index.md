@@ -120,6 +120,12 @@
 
  - [Настройка единого входа в Jenkins по стандарту OIDC](tutorials/single-sign-on/oidc-jenkins.md)
 
+#### Loop
+
+ - [Настройка единого входа в Loop по стандарту SAML](tutorials/single-sign-on/saml-loop.md)
+
+ - [Настройка единого входа в Loop по стандарту OIDC](tutorials/single-sign-on/oidc-loop.md)
+
  - [Настройка единого входа в Managed Service for GitLab по стандарту SAML](tutorials/single-sign-on/saml-managed-gitlab.md)
 
  - [Настройка единого входа в Managed Service for OpenSearch по стандарту SAML](tutorials/single-sign-on/saml-opensearch.md)
@@ -142,7 +148,11 @@
 
  - [Настройка единого входа в SonarQube по стандарту SAML](tutorials/single-sign-on/saml-sonarqube.md)
 
-#### VK Cloud
+#### Time
+
+ - [Настройка единого входа в Time по стандарту SAML](tutorials/single-sign-on/saml-time.md)
+
+ - [Настройка единого входа в Time по стандарту OIDC](tutorials/single-sign-on/oidc-time.md)
 
  - [Настройка единого входа в VK Cloud по стандарту SAML](tutorials/single-sign-on/saml-vk-cloud.md)
 

@@ -28,8 +28,9 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
-  1. Вверху справа нажмите **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}** → **{{ ui-key.yacloud_monitoring.monitoring-alerts.button.create-custom-title }}**.
+  1. Перейдите в сервис [{{ monium-name }}]({{ link-monium }}).
+  1. На панели слева выберите ![shield-exclamation](../../_assets/console-icons/shield-exclamation.svg) **Алерты и SLO**, затем ![megaphone](../../_assets/console-icons/megaphone.svg) **Алерты**.
+  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.common.create }}** ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите `{{ ui-key.yacloud_monitoring.monitoring-alerts.button.create-custom-title }}`.
   1. В поле **{{ ui-key.yacloud_monitoring.alert.title_name }}** укажите `agent_available_new_version`
   1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.alert-config }}**:
       1. Включите режим кода, нажав ![image](../../_assets/console-icons/code.svg).
@@ -54,7 +55,7 @@ description: Следуя данной инструкции, вы сможете
       * **{{ ui-key.yacloud_monitoring.alert.status_alarm }}** — `0`.
 
   1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.notification-channels }}** добавьте нужные каналы уведомлений.
-  1. Нажмите **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -67,8 +68,9 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
-  1. Вверху справа нажмите **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}** → **{{ ui-key.yacloud_monitoring.monitoring-alerts.button.create-custom-title }}**.
+  1. Перейдите в сервис [{{ monium-name }}]({{ link-monium }}).
+  1. На панели слева выберите ![shield-exclamation](../../_assets/console-icons/shield-exclamation.svg) **Алерты и SLO**, затем ![megaphone](../../_assets/console-icons/megaphone.svg) **Алерты**.
+  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.common.create }}** ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите `{{ ui-key.yacloud_monitoring.monitoring-alerts.button.create-custom-title }}`.
   1. В поле **{{ ui-key.yacloud_monitoring.alert.title_name }}** укажите `agent_status_offline`
   1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.alert-config }}**:
       1. Включите режим кода, нажав ![image](../../_assets/console-icons/code.svg).
@@ -93,21 +95,22 @@ description: Следуя данной инструкции, вы сможете
       * **{{ ui-key.yacloud_monitoring.alert.status_alarm }}** — `0`.
 
   1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.notification-channels }}** добавьте нужные каналы уведомлений.
-  1. Нажмите **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
 
-### Неудачная операция бэкапа {#operation-failure}
+### Неудачная операция резервного копирования {#operation-failure}
 
-Чтобы создать алерт для уведомлений о неудачных операциях бэкапа:
+Чтобы создать алерт для уведомлений о неудачных операциях резервного копирования:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
-  1. Вверху справа нажмите **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}** → **{{ ui-key.yacloud_monitoring.monitoring-alerts.button.create-custom-title }}**.
+  1. Перейдите в сервис [{{ monium-name }}]({{ link-monium }}).
+  1. На панели слева выберите ![shield-exclamation](../../_assets/console-icons/shield-exclamation.svg) **Алерты и SLO**, затем ![megaphone](../../_assets/console-icons/megaphone.svg) **Алерты**.
+  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.common.create }}** ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите `{{ ui-key.yacloud_monitoring.monitoring-alerts.button.create-custom-title }}`.
   1. В поле **{{ ui-key.yacloud_monitoring.alert.title_name }}** укажите `agent_operation_failure`
   1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.alert-config }}**:
       1. Включите режим кода, нажав ![image](../../_assets/console-icons/code.svg).
@@ -133,7 +136,7 @@ description: Следуя данной инструкции, вы сможете
       * **{{ ui-key.yacloud_monitoring.alert.status_alarm }}** — `0`.
 
   1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.notification-channels }}** добавьте нужные каналы уведомлений.
-  1. Нажмите **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 

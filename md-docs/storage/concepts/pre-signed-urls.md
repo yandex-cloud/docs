@@ -146,10 +146,10 @@ Hex(Hash-SHA256(<CanonicalRequest>))
 
 Где:
 
-* `AWS4-HMAC-SHA256` — алгоритм хэширования. 
+* `AWS4-HMAC-SHA256` — алгоритм хеширования.
 * `timestamp` — текущее время в формате ISO 8601, например, `20190801T000000Z`. Указанная дата должна по значению (не по формату) совпадать с датой в `scope`.
 * `scope` — `<YYYYMMDD>/ru-central1/s3/aws4_request`.
-* `CanonicalRequest` — сформированный ранее [канонический запрос](#canonical-request). В строку для подписи помещается [SHA256](https://ru.wikipedia.org/wiki/SHA-2)-хэш канонического запроса в шестнадцатеричном представлении.
+* `CanonicalRequest` — сформированный ранее [канонический запрос](#canonical-request). В строку для подписи помещается [SHA256](https://ru.wikipedia.org/wiki/SHA-2)-хеш канонического запроса в шестнадцатеричном представлении.
 
 ### Подписывающий ключ {#signing-key-gen}
 
@@ -205,7 +205,7 @@ Hex(Hash-SHA256(<CanonicalRequest>))
 
 ### Подпись строки с помощью ключа {#signing}
 
-Чтобы получить подпись строки, необходимо использовать механизм `HMAC` с хэширующей функцией `SHA256`, а полученный результат преобразовать в шестнадцатеричное представление.
+Чтобы получить подпись строки, необходимо использовать механизм `HMAC` с хеширующей функцией `SHA256`, а полученный результат преобразовать в шестнадцатеричное представление.
 
 ```
 signature = Hex(sign(SigningKey, StringToSign))
@@ -255,7 +255,7 @@ signature = Hex(sign(SigningKey, StringToSign))
     sign(sign(sign(sign("AWS4" + "ExamP1eSecReTKeykdokKK38800","20190801"),"ru-central1"),"s3"),"aws4_request")
     ```
 
-    Функция `sign` введена для обозначения способа вычисления ключа с помощью механизма [HMAC](https://ru.wikipedia.org/wiki/HMAC) с хэширующей функцией [SHA256](https://ru.wikipedia.org/wiki/SHA-2).
+    Функция `sign` введена для обозначения способа вычисления ключа с помощью механизма [HMAC](https://ru.wikipedia.org/wiki/HMAC) с хеширующей функцией [SHA256](https://ru.wikipedia.org/wiki/SHA-2).
 
 - Подпись:
 
@@ -278,8 +278,8 @@ signature = Hex(sign(SigningKey, StringToSign))
 В подразделе приведены примеры кода для генерации подписанных URL.
 
 Чтобы показать принцип формирования и подписи запросов к Object Storage, в этих примерах не используются [AWS SDK](../tools/sdk/index.md). Примеры с использованием Yandex Cloud CLI, AWS CLI и AWS SDK смотрите на страницах:
-* [Получение подписанной ссылки (pre-signed URL) на скачивание объекта](../operations/objects/link-for-download.md)
-* [Получение подписанной ссылки (pre-signed URL) на загрузку объекта](../operations/objects/link-for-upload.md)
+* [Получить подписанную ссылку (pre-signed URL) на скачивание объекта](../operations/objects/link-for-download.md)
+* [Получить подписанную ссылку (pre-signed URL) на загрузку объекта](../operations/objects/link-for-upload.md)
 
 {% list tabs %}
 

@@ -36,7 +36,7 @@ If you no longer need your VPN server, [delete the created VMs](#clear-out).
 The cost of the OpenVPN infrastructure support includes:
 
 * Fee for disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for using a dynamic or static public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for the OpenVPN Access Server license (when using more than two connections).
 
 ## Create a network and subnets {#create-environment}
@@ -50,7 +50,7 @@ To connect cloud resources to the internet, make sure you have a [network](../..
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cloud network.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
   1. Specify the network name, e.g., `ovpn-network`.
   1. Disable **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.

@@ -18,7 +18,7 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. In the bucket row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
 
       Alternatively, you can click the bucket name, then, on the page that opens, click ![image](../../../_assets/console-icons/ellipsis.svg) at the top right and select **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
@@ -289,7 +289,7 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
 
   **yandex_storage_bucket_grant** {#tf-storage-bucket-grant}
 
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, specify the properties of the resources you want to create:
 
      ```hcl
      resource "yandex_storage_bucket_grant" "my_bucket_grant" {
@@ -332,6 +332,8 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
 
          It is used with the `CanonicalUser` type of permission grantee.
 
+         {% include [canonical-user-identification](../../../_includes/storage/canonical-user-identification.md) %}
+
        * `uri`: Public group ID. It is used with the `Group` type of permission grantee. The possible values are:
          * `http://acs.amazonaws.com/groups/global/AllUsers`: All internet users.
          * `http://acs.amazonaws.com/groups/global/AuthenticatedUsers`: All authenticated {{ yandex-cloud }} users.
@@ -364,7 +366,7 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
 
   **yandex_storage_bucket (obsolete)** {#tf-yandex_storage_bucket}
 
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, specify the properties of the resources you want to create:
 
      ```hcl
      resource "yandex_storage_bucket" "test" {
@@ -406,6 +408,8 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
          {% include [acl-grantee](../../../_includes/storage/acl-grantee.md) %}
 
          It is used with the `CanonicalUser` type of permission grantee.
+
+         {% include [canonical-user-identification](../../../_includes/storage/canonical-user-identification.md) %}
 
        * `uri`: Public group ID. It is used with the `Group` type of permission grantee. The possible values are:
          * `http://acs.amazonaws.com/groups/global/AllUsers`: All internet users.

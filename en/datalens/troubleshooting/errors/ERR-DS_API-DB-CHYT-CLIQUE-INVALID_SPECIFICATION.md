@@ -1,6 +1,6 @@
 ---
 title: '{{ datalens-full-name }} error ERR.DS_API.DB.CHYT.CLIQUE.INVALID_SPECIFICATION'
-description: This page describes the Invalid clique specification. Probably, clique does not exists {{ datalens-full-name }} error.
+description: This page describes the Invalid clique specification {{ datalens-full-name }} error. Probably, clique does not exists.
 ---
 
 # [{{ datalens-full-name }}] Invalid clique specification. Probably, clique does not exists

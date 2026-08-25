@@ -1,8 +1,8 @@
 # Transferring logs from {{ coi }} to {{ cloud-logging-full-name }}
 
-The [Fluent Bit](https://fluentbit.io/) logging processor allows you to transfer logs from [VM instances](../../compute/concepts/vm.md) created from a {{ coi }} to [{{ cloud-logging-full-name }}](../../logging/). To transfer logs, you will use the [Fluent Bit plugin for {{ cloud-logging-full-name }}](https://github.com/yandex-cloud/fluent-bit-plugin-yandex).
+The [Fluent Bit](https://fluentbit.io/) logging processor allows you to transfer logs from [VMs](../../compute/concepts/vm.md) created from a {{ coi }} to [{{ cloud-logging-full-name }}](../../logging/). To transfer logs, you will use the [Fluent Bit plugin for {{ cloud-logging-full-name }}](https://github.com/yandex-cloud/fluent-bit-plugin-yandex).
 
-To configure log transfer from a VM instance created from a {{ coi }}:
+To configure log transfer from a VM created from a {{ coi }}:
 1. [Create a log-generating application](#generate-logs).
 1. [Create a Docker image and push it to the registry](#create-docker).
 1. [Configure Fluent Bit](#fluent-bit).
@@ -38,7 +38,7 @@ handler.setFormatter(formatter)
 
 logger.addHandler(handler)
 
-# Configure the default logging level (optional).
+# Optionally, configure the default logging level.
 logger.setLevel(logging.DEBUG)
 
 # Generate URL-like values.
@@ -90,7 +90,7 @@ if __name__ == '__main__':
     if random.random() > 0.7:
       logger.debug("some additional debug log record %f", random.random(), extra=extra)
 
-    # To avoid log cluttering, wait for 1 second.
+    # To avoid log cluttering, wait for one second.
     time.sleep(1)
 ```
 
@@ -108,7 +108,7 @@ if __name__ == '__main__':
     CMD [ "python", "./logs.py" ]
     ```
 
-    The Dockerfile describes a [Docker image](../../container-registry/concepts/docker-image.md) that contains an application generating logs.
+    The Dockerfile describes a [Docker image](../../container-registry/concepts/docker-image.md) that contains your log-generating application.
 1. Build the Docker image:
 
     ```bash
@@ -116,7 +116,7 @@ if __name__ == '__main__':
       -t {{ registry }}/<registry_ID>/coi:logs
     ```
 
-1. [Log in](../../container-registry/operations/authentication.md) to the [registry](../../container-registry/concepts/registry.md) and upload the Docker image to it:
+1. [Log in](../../container-registry/operations/authentication.md) to the [registry](../../container-registry/concepts/registry.md) and push the Docker image to it:
 
     ```bash
     docker push {{ registry }}/<registry_ID>/coi:logs
@@ -124,13 +124,13 @@ if __name__ == '__main__':
 
 ## Configure Fluent Bit {#fluent-bit}
 
-1. Create a file named `spec.yaml`. It describes the specification of two containers: with an application that generates logs, and with a Fluent Bit agent.
+1. Create a file named `spec.yaml`. It describes the specification of two containers: a log-generating application container and a Fluent Bit agent container.
 
-   Specify the following in the field:
+   Specify the following fields:
    * `image`: Docker image URL. To find it out, in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.cr.image.section_overview }}** page and copy the value of the **{{ ui-key.yacloud.cr.image.label_tag }}** field.
    * `YC_GROUP_ID`: ID of the `default` [log group](../../logging/concepts/log-group.md).
 
-   In the `fluentbit` section, the `image` field shows the current image of a container with the Fluent Bit agent. For a list of all available images, follow [this link](https://github.com/yandex-cloud/fluent-bit-plugin-yandex/releases).
+   In the `fluentbit` section, the `image` field shows the current image of the Fluent Bit agent container. For a list of all available images, follow [this link](https://github.com/yandex-cloud/fluent-bit-plugin-yandex/releases).
 
    ```yaml
    version: '3.7'
@@ -147,7 +147,7 @@ if __name__ == '__main__':
          options:
            # Fluent Bit listens to logs on port 24224.
            fluentd-address: localhost:24224
-           # Tags are used for routing logs.
+           # Tags are used for log routing.
            tag: app.logs
 
      fluentbit:
@@ -164,7 +164,7 @@ if __name__ == '__main__':
          - /etc/fluentbit/parsers.conf:/fluent-bit/etc/parsers.conf
    ```
 
-1. Create a file named `user-data.yaml`. It describes the container log reading rules. If required, change the username and SSH key in the `users` section. [Learn more about generating SSH keys](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+1. Create a file named `user-data.yaml`. It describes the rules for reading container logs. If required, change the username and SSH key in the `users` section. Learn more about generating SSH keys in [this guide](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
    
    ```yaml
@@ -219,21 +219,21 @@ if __name__ == '__main__':
    ```
 
 
-   The `SERVICE` section displays the Fluent Bit settings. [Learn more about the settings](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit).
+   The `SERVICE` section displays the Fluent Bit settings. Learn more about the settings [here](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit).
 
    The `INPUT` section displays where and how to retrieve logs. To work with Fluentd and Fluent Bit logs, the `forward` protocol is used. Fluent Bit listens to logs on port 24224.
 
    The `PARSER` section describes the `regex` parser. It sets a regular expression that processes records:
-   * `req_id`: Unique request ID
-   * `severity`: Logging level
-   * `code`: HTTP response code
-   * `text`: All remaining text
+   * `req_id`: Unique request ID.
+   * `severity`: Logging level.
+   * `code`: HTTP response code.
+   * `text`: All remaining text.
 
    The `FILTER` section shows that only records tagged `app.logs` are searched for. The `log` field of each record is parsed by `regex`, all other fields are saved in `Reserve_Data On`.
 
 ## Create a VM from a {{ coi }} {#create-vm}
 
-Specify the following:
+Specify the following fields:
 * `--zone`: [Availability zone](../../overview/concepts/geo-scope.md), e.g., `{{ region-id }}-a`.
 * `--subnet-name`: Name of the [subnet](../../vpc/concepts/network.md#subnet) in this zone.
 * `--service-account-name`: [Service account](../../iam/concepts/users/service-accounts.md) name.
@@ -258,8 +258,8 @@ yc compute instance create \
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder with the `default` log group whose ID you specified in the `spec.yaml` file.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the `default` log group whose ID you specified in the `spec.yaml` file.
+  1. [Navigate]({{ link-console-main }}/link/logging) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
   1. Select the `default` log group. The page that opens will show the log group entries.
 
 - CLI {#cli}
@@ -268,7 +268,7 @@ yc compute instance create \
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To view records in the log group, run this command:
+  To view the log group entries, run this command:
 
   ```bash
   yc logging read --group-id=<log_group_ID>
@@ -278,7 +278,7 @@ yc compute instance create \
 
 - API {#api}
 
-  You can view the log group records using the [LogReadingService/Read](../../logging/api-ref/grpc/LogReading/read.md) gRPC API call.
+  You can view the log group entries using the [LogReadingService/Read](../../logging/api-ref/grpc/LogReading/read.md) gRPC API call.
 
 {% endlist %}
 

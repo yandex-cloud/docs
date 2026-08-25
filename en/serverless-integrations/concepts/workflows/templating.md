@@ -5,7 +5,6 @@ keywords:
   - workflows
   - workflow
   - WF
-  - runtime process
   - YaWL specification
   - templating
   - templater
@@ -15,7 +14,15 @@ keywords:
 
 # Templating
 
-For the [YaWL specification](yawl/index.md) fields that support templating, values can be generated dynamically using the data obtained from the workflow state. The templating language is `jq`. For more information, see [this jq guide](https://jqlang.github.io/jq/manual/).
+{% include [workflows-ai-studio-note](../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
+For fields that support templating, values can be generated dynamically using the data obtained from the workflow state. The templating language is `jq`. For more information, see [this jq guide](https://jqlang.github.io/jq/manual/).
+
+{{ sw-name }} supports jq templates in two formats:
+* `\( .field )`: Supported in the {{ yandex-cloud }} UI.
+* `not_var{{ .field }}`: Supported in the {{ foundation-models-full-name }} UI.
+
+You can use the workflow's [JSON schema](https://raw.githubusercontent.com/yandex-cloud/json-schema-store/refs/heads/master/serverless/workflows/yawl.json) to create jq templates. In the {{ foundation-models-full-name }} UI, fields that support templating can display the JSON schema as an interactive tree. You can use it to avoid creating jq templates manually.
 
 By default, templating is not used for string values of fields; use [string interpolation](https://jqlang.github.io/jq/manual/#string-interpolation) instead.
 
@@ -94,7 +101,7 @@ Argument order | Type | Required | Description
 --- | --- | --- | ---
 1 | `string` | Yes | Secret ID.
 2 | `string` | Yes | Secret key.
-3 | `string` | No | Secret version ID.
+3 | `string` | None | Secret version ID.
 
 #### Examples of using the `lockboxPayload` jq function {#lockbox-examples}
 

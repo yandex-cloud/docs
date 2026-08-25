@@ -1,3 +1,5 @@
+
+
 Приложения в кластере {{ managed-k8s-full-name }} можно защитить от DDoS-атак и ботов с помощью сервиса [{{ sws-full-name }}](../../smartwebsecurity/concepts/index.md). Для этого опубликуйте приложения через ресурс Ingress, которому назначен [профиль безопасности](../../smartwebsecurity/concepts/profiles.md) {{ sws-name }} и который использует [контроллер Gwin](../../application-load-balancer/tools/gwin/index.md) или [Ingress-контроллер {{ alb-name }}](../../application-load-balancer/tools/k8s-ingress-controller/index.md).
 
 {% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
@@ -368,11 +370,11 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать профиль.
   1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.action_empty }}** и выберите **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
+  1. Нажмите **{{ ui-key.yacloud.smart-web-security.action_empty }}** и выберите `{{ ui-key.yacloud.smart-web-security.title_default-template }}`.
 
       Профиль будет содержать несколько преднастроенных правил безопасности:
 
-      * [Правило Smart Protection](../../smartwebsecurity/concepts/rules.md#smart-protection-rules) с полной защитой для всего трафика. Это правило является приоритетным по отношению к базовому правилу по умолчанию.
+      * [Правило Smart Protection](../../smartwebsecurity/concepts/rules.md#smart-protection-rules) с защитой API для всего трафика. Это правило является приоритетным по отношению к базовому правилу по умолчанию.
       * [Базовое правило](../../smartwebsecurity/concepts/rules.md#base-rules) по умолчанию, которое запрещает весь трафик, не попавший под более приоритетные правила.
 
           {% include [smart-protection-tip](../../_includes/smartwebsecurity/smart-protection-tip.md) %}
@@ -386,7 +388,7 @@
 
   1. Добавьте правило безопасности:
 
-      1. Нажмите кнопку ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
+      1. Нажмите ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
 
       1. Укажите основные настройки правила:
 
@@ -403,15 +405,15 @@
       1. В блоке **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** настройте условия так, чтобы разрешался трафик только с определенного IP-адреса:
 
           1. Выберите область действия правила на трафик `При условии`.
-          1. Выберите условие `IP`.
+          1. Выберите условие `{{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}`.
           1. Выберите условие на IP `Совпадает или принадлежит диапазону`.
           1. Укажите публичный IP-адрес, например `203.0.113.200`.
 
-      1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+      1. Нажмите **{{ ui-key.yacloud.common.add }}**.
 
       В списке правил безопасности появится созданное правило.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
   В списке профилей безопасности появится созданный профиль. Запишите идентификатор этого профиля безопасности — он потребуется позднее.
 

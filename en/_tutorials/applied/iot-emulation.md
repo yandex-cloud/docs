@@ -123,7 +123,7 @@ With {{ TF }}, you can create {{ yandex-cloud }} resources of any type, such as 
    terraform plan
    ```
 
-   You will see a list of resources and their properties. This is a verification step: no resources will be created. Otherwise, {{ TF }} will show any detected errors.
+   You will see a list of resources and their properties. This is a verification step: no resources will be created. {{ TF }} will show any errors detected in the configuration.
 
    {% note alert %}
 
@@ -154,38 +154,10 @@ With {{ TF }}, you can create {{ yandex-cloud }} resources of any type, such as 
 
 ## Delete the resources you created {#clear-out}
 
-{% list tabs group=instructions %}
+To stop paying for the resources you created:
 
-- Management console {#console}
-
-  1. Delete the registry:
-     1. Go to your working [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-     1. To the right of the registry you created, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
-     1. Click **{{ ui-key.yacloud.common.delete }}**.
-  1. Delete the devices:
-     1. Navigate to your working folder.
-     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-     1. Select the registry.
-     1. Navigate to the **{{ ui-key.yacloud.iot.label_devices }}** tab.
-     1. To the right of the device you created, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
-     1. Click **{{ ui-key.yacloud.common.delete }}**.
-  1. Delete the function:
-     1. Navigate to your working folder.
-     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-     1. To the right of the function you created, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.serverless-functions.list.button_action-delete }}**.
-     1. Click **{{ ui-key.yacloud.serverless-functions.list.popup-confirm_button_delete }}**.
-  1. Delete the trigger:
-     1. Navigate to your working folder.
-     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-     1. Navigate to the **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}** tab.
-     1. To the right of the trigger you created, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
-     1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.popup-confirm_button_delete }}**.
-  1. Delete the service account:
-     1. Navigate to your working folder.
-     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-     1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
-     1. In the row with the name of the service account you created, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.iam.folder.service-accounts.button_action-delete }}**.
-     1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.popup-confirm_button_delete }}**.
-
-{% endlist %}
+1. [Delete](../../iot-core/operations/registry/registry-delete.md) the registry.
+1. [Delete](../../iot-core/operations/device/device-delete.md) the devices.
+1. [Delete](../../functions/operations/function/function-delete.md) the function.
+1. [Delete the trigger](../../functions/operations/trigger/trigger-delete.md).
+1. [Delete](../../iam/operations/sa/delete.md) the service account.

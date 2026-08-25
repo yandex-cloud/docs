@@ -12,20 +12,20 @@ description: Follow this guide to create a {{ iot-name }} registry.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you want to create a registry in.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+  1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
   1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_registries }}**.
   1. Click **{{ ui-key.yacloud.iot.button_create-registry }}**.
   1. Under **{{ ui-key.yacloud.common.section-base }}**, add:
 
       * Registry **{{ ui-key.yacloud.common.name }}**, e.g., `my-registry`.
-      * (Optional) **{{ ui-key.yacloud.common.description }}** with additional information about the registry.
+      * Optionally, **{{ ui-key.yacloud.common.description }}** with additional information about the registry.
       * **{{ ui-key.yacloud.common.password }}** that you will use to access the registry. To create a password, you can use [this password generator](https://passwordsgenerator.net/).
 
           {% include [password-save](../../../_includes/iot-core/password-save.md) %}
 
-      * (Optional) To assign a label to the registry, fill in the **{{ ui-key.yacloud.component.key-values-input.label_key }}** and **{{ ui-key.yacloud.component.key-values-input.label_value }}** fields and click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+      * Optionally, to assign a label to the registry, fill in the **{{ ui-key.yacloud.component.key-values-input.label_key }}** and **{{ ui-key.yacloud.component.key-values-input.label_value }}** fields and click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
 
-  1. (Optional) Add a [certificate](../certificates/create-certificates.md):
+  1. Optionally, add a [certificate](../certificates/create-certificates.md):
 
       * To add a file:
 
@@ -69,7 +69,7 @@ description: Follow this guide to create a {{ iot-name }} registry.
       log_group_id: ckghotead**********
       ```
 
-  1. (Optional) Assign the registry a password for authentication with a [username and password](../../concepts/authorization.md#log-pass):
+  1. Optionally, assign the registry a password for authentication with a [username and password](../../concepts/authorization.md#log-pass):
 
       ```bash
       yc iot registry password add --registry-name <registry_name>
@@ -88,7 +88,7 @@ description: Follow this guide to create a {{ iot-name }} registry.
       created_at: "2019-05-27T13:44:06.923Z"
       ```
 
-  1. (Optional) Add to the registry a certificate for authentication with [certificates](../../concepts/authorization.md#certs):
+  1. Optionally, add to the registry a certificate for authentication with [certificates](../../concepts/authorization.md#certs):
 
       ```bash
       yc iot registry certificate add \
@@ -129,7 +129,7 @@ description: Follow this guide to create a {{ iot-name }} registry.
      
   1. In the configuration file, describe the resource you want to create:
 
-     * `yandex_iot_core_registry`: Registry parameters:
+     * `yandex_iot_core_registry`: Registry settings:
 
         * `name`: Registry name.
         * `description`: Registry description.
@@ -143,7 +143,7 @@ description: Follow this guide to create a {{ iot-name }} registry.
 
       {% endnote %}
 
-      Here is an example of the resource structure in the configuration file:
+      Here is an example of a resource structure in the configuration file:
 
       ```
       resource "yandex_iot_core_registry" "my_registry" {

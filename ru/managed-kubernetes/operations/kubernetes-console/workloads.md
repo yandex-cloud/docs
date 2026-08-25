@@ -19,8 +19,17 @@ description: Из статьи вы узнаете, как в {{ yandex-cloud }}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Нажмите на имя нужного кластера и на панели слева выберите ![PersonWorker](../../../_assets/console-icons/person-worker.svg) **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}**.
-  1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.common.create }}** и выберите тип рабочей нагрузки.
+  1. Выберите кластер {{ managed-k8s-name }} и перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}**.
+  1. Перейдите на вкладку с типом рабочей нагрузки, которую нужно создать:
+
+      * **{{ ui-key.yacloud.k8s.workloads.label_pods }}**;
+      * **{{ ui-key.yacloud.k8s.workloads.label_deployments }}**;
+      * **{{ ui-key.yacloud.k8s.workloads.label_daemon-sets }}**;
+      * **{{ ui-key.yacloud.k8s.workloads.label_stateful-sets }}**;
+      * **{{ ui-key.yacloud.k8s.workloads.label_hpa }}**;
+      * **{{ ui-key.yacloud.k8s.workloads.label_jobs }}**;
+      * **{{ ui-key.yacloud.k8s.workloads.label_cron-jobs }}**.
+  1. Нажмите кнопку создания выбранной рабочей нагрузки.
   1. В выпадающем списке выберите **{{ ui-key.yacloud.k8s.cluster.field_namespace }}**, в котором будет создана рабочая нагрузка.
   1. Заполните файл манифеста в соответствии с документацией Kubernetes: [под](https://kubernetes.io/docs/concepts/workloads/pods/), [контроллер Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/), [контроллер DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/), [контроллер StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/), [HPA](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/), [задача](https://kubernetes.io/docs/concepts/workloads/controllers/job/), [cron-задача](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/).
   1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.button_create-resource }}**.
@@ -41,9 +50,17 @@ description: Из статьи вы узнаете, как в {{ yandex-cloud }}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Нажмите на имя нужного кластера и на панели слева выберите ![PersonWorker](../../../_assets/console-icons/person-worker.svg) **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}**.
-  1. Выберите вкладку с типом рабочей нагрузки, которую нужно отредактировать.
-  1. В строке рабочей нагрузки нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
+  1. Выберите кластер {{ managed-k8s-name }} и перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}**.
+  1. Перейдите на вкладку с типом рабочей нагрузки, которую нужно отредактировать:
+
+      * **{{ ui-key.yacloud.k8s.workloads.label_pods }}**;
+      * **{{ ui-key.yacloud.k8s.workloads.label_deployments }}**;
+      * **{{ ui-key.yacloud.k8s.workloads.label_daemon-sets }}**;
+      * **{{ ui-key.yacloud.k8s.workloads.label_stateful-sets }}**;
+      * **{{ ui-key.yacloud.k8s.workloads.label_hpa }}**;
+      * **{{ ui-key.yacloud.k8s.workloads.label_jobs }}**;
+      * **{{ ui-key.yacloud.k8s.workloads.label_cron-jobs }}**.
+  1. В строке рабочей нагрузки нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Внесите изменения в файл манифеста в правой части экрана. Изменения будут выделены цветом.
   1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
@@ -61,9 +78,9 @@ description: Из статьи вы узнаете, как в {{ yandex-cloud }}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Нажмите на имя нужного кластера и на панели слева выберите ![PersonWorker](../../../_assets/console-icons/person-worker.svg) **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}**.
-  1. Выберите вкладку **{{ ui-key.yacloud.k8s.workloads.label_cron-jobs }}**.
-  1. В строке cron-задачи нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.start }}** или **{{ ui-key.yacloud.common.stop }}**.
+  1. Выберите кластер {{ managed-k8s-name }} и перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.workloads.label_cron-jobs }}**.
+  1. В строке cron-задачи нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.start }}** или **{{ ui-key.yacloud.common.stop }}**.
   1. Подтвердите действие.
 
 {% endlist %}
@@ -80,9 +97,17 @@ description: Из статьи вы узнаете, как в {{ yandex-cloud }}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Нажмите на имя нужного кластера и на панели слева выберите ![PersonWorker](../../../_assets/console-icons/person-worker.svg) **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}**.
-  1. Выберите вкладку с типом рабочей нагрузки, которую нужно удалить.
-  1. В строке рабочей нагрузки нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+  1. Выберите кластер {{ managed-k8s-name }} и перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}**.
+  1. Перейдите на вкладку с типом рабочей нагрузки, которую нужно удалить:
+
+      * **{{ ui-key.yacloud.k8s.workloads.label_pods }}**;
+      * **{{ ui-key.yacloud.k8s.workloads.label_deployments }}**;
+      * **{{ ui-key.yacloud.k8s.workloads.label_daemon-sets }}**;
+      * **{{ ui-key.yacloud.k8s.workloads.label_stateful-sets }}**;
+      * **{{ ui-key.yacloud.k8s.workloads.label_hpa }}**;
+      * **{{ ui-key.yacloud.k8s.workloads.label_jobs }}**;
+      * **{{ ui-key.yacloud.k8s.workloads.label_cron-jobs }}**.
+  1. В строке рабочей нагрузки нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. Подтвердите действие.
 
 {% endlist %}

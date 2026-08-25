@@ -1,9 +1,9 @@
 ---
-title: How to set up multiple domain name support for a website using the management console, CLI, or API
-description: Follow this guide to set up multiple domain name support for a website using the {{ yandex-cloud }} management console, CLI, or API.
+title: Setting up support for multiple website domain names using the management console, CLI, or API
+description: Follow this guide to set up support for multiple website domain names using the {{ yandex-cloud }} management console, CLI, or API.
 ---
 
-# Support for multiple domain names using the management console, CLI, or API
+# Setting up support for multiple domain names using the management console, CLI, or API
 
 To create an infrastructure to support [multiple website domain names](index.md) using the {{ yandex-cloud }} management console, CLI, or API:
 1. [Create buckets](#buckets).
@@ -23,7 +23,7 @@ Create buckets and name them according to the domain names, e.g., `example.com` 
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
-      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+      1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. In the top panel, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
       1. On the bucket creation page:
 
@@ -108,7 +108,7 @@ Set up a static website for the bucket and link it to your main `example.com` do
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select a folder.
-      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+      1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. Select the bucket you want to configure hosting for.
       1. In the left-hand panel, select ![image](../../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
       1. Select the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
@@ -142,12 +142,12 @@ Set up a static website for the bucket and link it to your main `example.com` do
 
           {% note warning %}
 
-          {{ dns-name }} usage is chargeable; for more information, see [this pricing page](../../../../dns/pricing.md).
+          {{ dns-name }} is a billable service; for more information, see [this pricing page](../../../../dns/pricing.md).
 
           {% endnote %}
 
           1. In the [management console]({{ link-console-main }}), select a folder.
-          1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+          1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
           1. Select the bucket you want to use your own domain for.
           1. In the left-hand panel, select ![image](../../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}** and go to the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
           1. In **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**, under **{{ ui-key.yacloud.storage.bucket.website.title_connected-domains }}**, click **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}**.
@@ -230,7 +230,7 @@ For the bucket with the additional `example2.com` domain name:
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select a folder.
-      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+      1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. Select the bucket you want to redirect all requests for.
       1. In the left-hand panel, select ![image](../../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
       1. Select the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
@@ -305,4 +305,4 @@ For the bucket with the additional `example2.com` domain name:
 
 #### Useful links {#see-also}
 
-* [{#T}](terraform.md)
+[{#T}](terraform.md)

@@ -107,7 +107,7 @@ _Бакет_ — это выделенная часть хранилища {{ ob
 
 Список метрик, передаваемых в {{ monitoring-name }}, представлен в [справочнике](../metrics.md).
 
-Также общую статистику бакета можно [посмотреть с помощь {{ yandex-cloud }} CLI](../operations/buckets/get-info.md#get-statistics).
+Также общую статистику бакета можно [посмотреть с помощью {{ yandex-cloud }} CLI](../operations/buckets/get-info.md#get-statistics).
 
 
 ## Особенности использования {#details-of-usage}

@@ -21,7 +21,7 @@ After creating a cluster, you can [add](gpu-add-to-cluster.md) [VMs](../../conce
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) for the new GPU cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.gpu-cluster.label_title }}**.
   1. Click **{{ ui-key.yacloud.gpu-cluster.action_create-cluster }}**.
   1. In the window that opens:

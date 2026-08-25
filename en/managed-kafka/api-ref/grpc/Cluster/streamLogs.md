@@ -6,6 +6,8 @@ editable: false
 
 Same as [ListLogs](/docs/managed-kafka/api-ref/grpc/Cluster/listLogs#ListLogs) but using server-side streaming. Also allows for `tail -f` semantics.
 
+
+
 ## gRPC request
 
 **rpc StreamLogs ([StreamClusterLogsRequest](#yandex.cloud.mdb.kafka.v1.StreamClusterLogsRequest)) returns (stream [StreamLogRecord](#yandex.cloud.mdb.kafka.v1.StreamLogRecord))**

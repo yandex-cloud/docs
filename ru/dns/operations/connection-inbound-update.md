@@ -11,10 +11,11 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога, в котором находится нужное входящее DNS-подключение.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится нужное входящее DNS-подключение.
+  1. [Перейдите]({{ link-console-main }}/link/dns) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. На панели слева выберите ![nodes-down](../../_assets/console-icons/nodes-down.svg) **{{ ui-key.yacloud.dns.label_inbound-endpoints }}**.
-  1. В строке с нужным DNS-подключением нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. В открывшемся окне:
+  1. Нажмите на нужное DNS-подключение.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** и измените параметры подключения:
 
       1. (Опционально) В поле **{{ ui-key.yacloud.common.name }}** измените [имя](*name) DNS-подключения.
       1. (Опционально) В поле **{{ ui-key.yacloud.common.description }}** задайте произвольное описание DNS-подключения.
@@ -51,7 +52,7 @@ description: Следуя данной инструкции, вы сможете
       * `--labels` — список [меток](../../resource-manager/concepts/labels.md). Необязательный параметр. Можно указать одну или несколько меток через запятую в формате `<ключ1>=<значение1>,<ключ2>=<значение2>`.
       * `--deletion-protection` — параметр, включающий защиту входящего DNS-подключения от случайного удаления. Необязательный параметр.
 
-          Если вы хотите отключить защиту от удаления, передайте в команде параметр `--deletion-protection=false`
+          Если вы хотите отключить защиту от удаления, передайте в команде параметр `--deletion-protection=false`.
 
       Результат:
 
@@ -115,11 +116,11 @@ description: Следуя данной инструкции, вы сможете
       * `address_id` — идентификатор [зарезервированного](../../vpc/operations/private-ip-reserve.md) [внутреннего](../../vpc/concepts/address.md#internal-addresses) IP-адреса, который будет использоваться для входящего DNS-подключения.
       * `deletion_protection` — параметр, включающий защиту входящего DNS-подключения от случайного удаления. Необязательный параметр.
 
-  1. Создайте ресурсы:
+  1. Примените изменения:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/cli-ref/dns/cli-ref/inbound-endpoint/get.md):
+      {{ TF }} применит изменения. Проверить обновление ресурса можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/cli-ref/dns/cli-ref/inbound-endpoint/get.md):
 
       ```bash
       yc dns inbound-endpoint get <имя_DNS-подключения>
@@ -136,4 +137,4 @@ description: Следуя данной инструкции, вы сможете
 * [{#T}](../concepts/dns-connection.md)
 * [{#T}](../tutorials/dns-integration.md)
 
-[*name]: {% include [name-format](../../_includes/_popups/name-format-general.md) %}
+[*name]: {% include [name-format](../../_popups/name-format-general.md) %}

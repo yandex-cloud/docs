@@ -5,10 +5,22 @@ description: This section contains the {{ sd-name }} release notes.
 
 # {{ sd-full-name }} release notes
 
+## July 2026 {#july-2026}
+
+* In the [{{ cspm-name }}](./concepts/cspm.md), [{{ kspm-name }}](./concepts/kspm.md), and [{{ td-full-name }}](./concepts/threat-detector.md) modules, you can now [configure the display and sorting of security control rules](./operations/cspm/view-rules.md#general-info).
+* Added the [option](./operations/alerts/view.md) to filter alerts by an extended set of attributes.
+* [{{ vuln-man-name }}](./concepts/vulnerability-management.md) was migrated to a paid plan. For more information, see the [pricing policy](pricing.md#modules-rules).
+* Implemented the [blocking mode](./operations/kspm/manage-rule-modes.md) for `admission`-type rules in [{{ kspm-name }}](./concepts/kspm.md), which allows you to prohibit deployment of loads that violate the security policy.
+* [{{ cspm-name }}](./concepts/cspm.md) got a new [rule set](./concepts/standard-compliance/ransomware-prevention.md) to minimize the risks of ransomware attacks and an extended list of rules for infrastructure security compliance verification. The new rules govern the password policy and outbound internet access control.
+* In [{{ dspm-name }}](./concepts/dspm.md):
+  * You can now hook up [custom dictionaries](./concepts/dspm.md#custom-dictionaries) to search for field-specific sensitive data.
+  * Added fixed-price [subscriptions](pricing.md#starter-rules) you may prefer over your pay-as-you-go plan.
+  * Implemented [continuous change scanning](./concepts/dspm.md#change-scaning) to track the emergence and updates of sensitive data.
+
 ## June 2026 {#june-2026}
 
 * {{ sd-full-name }} has entered the [General Availability](../overview/concepts/launch-stages.md) stage. The [Threat Detection](./concepts/threat-detector.md) and Vulnerability Manager modules, along with the AI assistant, remain in [Preview](../overview/concepts/launch-stages.md).
-* Added new rules for infrastructure security compliance verification in [{{ cspm-name }}](./concepts/cspm.md). The new rules govern the use of MFA, key rotation, service account last-authenticated date tracking, and the use of Yandex ID accounts.
+* Added new rules for infrastructure security compliance verification in [{{ cspm-name }}](./concepts/cspm.md). The new rules govern the use of [MFA](./rules-reference/cspm.md#userpool-mfa), [key rotation](./rules-reference/cspm.md#sa-key-rotation), use of [Yandex ID accounts](./rules-reference/cspm.md#yid-organization), tracking of the [last-authenticated date of service accounts](./rules-reference/cspm.md#unused-service-account), and last use of [access keys](./rules-reference/cspm.md#unused-key).
 * In [{{ kspm-name }}](./concepts/kspm.md): 
   * [Exceptions](./operations/kspm/manage-exceptions.md) now support excluding resources from checks based on their type, workload name, and labels.
   * Implemented rule modes of the _admission_ type.
@@ -49,7 +61,6 @@ description: This section contains the {{ sd-name }} release notes.
 
 ## January 2026 {#january-2026}
 
-* Introduced fixed-price subscriptions for [{{ dspm-name }}](./concepts/dspm.md). You can purchase a subscription instead of paying for the actual resource consumption. The subscription pricing will soon be available in the [Pricing policy](pricing.md) section.
 * Implemented an [API](./api-ref/Alert/index.md) to work with alerts.
 
 ## Q4 2025 {#q4-2025}

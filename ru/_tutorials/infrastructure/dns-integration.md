@@ -257,13 +257,13 @@
     Например:
 
     ```bash
-    host rc1d-oсfgp28n0k358fj1.{{ dns-zone }}
+    host rc1d-ocfgp28n0k358fj1.{{ dns-zone }}
     ```
 
     Результат:
 
     ```text
-    rc1d-oсfgp28n0k358fj1.{{ dns-zone }} has address 192.168.1.20
+    rc1d-ocfgp28n0k358fj1.{{ dns-zone }} has address 192.168.1.20
     ```
 1. Убедитесь, что на компьютере в корпоративной сети выполняется разрешение имен в публичных зонах, например:
 
@@ -288,6 +288,6 @@
 * [удалите подсеть](../../vpc/operations/subnet-delete.md);
 * [удалите облачную сеть](../../vpc/operations/network-delete.md).
 
-[*name]: {% include [name-format](../../_includes/_popups/name-format-general.md) %}
+[*name]: {% include [name-format](../../_popups/name-format-general.md) %}
 
 [*dns_forwarder]: DNS-форвардер — это специальный DNS-сервер, который по-разному перенаправляет DNS-запросы в зависимости от доменного имени, указанного в запросе.

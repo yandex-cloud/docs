@@ -26,7 +26,7 @@ description: Следуя этой инструкции, вы сможете с�
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится шаблон.
   1. [Перейдите]({{ link-console-main }}/link/cns) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. На панели слева выберите ![route](../../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.cns.label_channels }}** и выберите канал с [индивидуальным отправителем](../../concepts/sms.md#individual-sender), в котором вы хотите удалить шаблон.
-  1. В меню слева выберите ![square-chart-bar](../../../_assets/console-icons/square-chart-bar.svg) **{{ ui-key.yacloud.cns.local.label_templates_26VqM }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.cns.local.label_templates_26VqM }}**.
   1. В строке с нужным шаблоном нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите **Дерегистрировать**.
   1. В открывшемся окне подтвердите дерегистрацию.
 
@@ -45,7 +45,7 @@ description: Следуя этой инструкции, вы сможете с�
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится шаблон.
   1. [Перейдите]({{ link-console-main }}/link/cns) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. На панели слева выберите ![route](../../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.cns.label_channels }}** и выберите канал с [индивидуальным отправителем](../../concepts/sms.md#individual-sender), в котором вы хотите удалить шаблон.
-  1. В меню слева выберите ![square-chart-bar](../../../_assets/console-icons/square-chart-bar.svg) **{{ ui-key.yacloud.cns.local.label_templates_26VqM }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.cns.local.label_templates_26VqM }}**.
   1. В строке с нужным шаблоном нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
   1. В открывшемся окне подтвердите удаление.
 

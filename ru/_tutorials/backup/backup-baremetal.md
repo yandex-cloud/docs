@@ -57,8 +57,7 @@ description: С помощью этого руководства вы может
   1. Нажмите ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и [назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роли `backup.user` или выше и `baremetal.editor`.
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
   1. Выберите сервисный аккаунт, созданный ранее, нажав на строку с его именем.
-  1. На верхней панели нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}**.
-  1. Выберите пункт **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
+  1. На панели сверху нажмите кнопку ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите `{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}`.
   1. Выберите алгоритм шифрования и нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.action_download-keys-file }}** и нажмите **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_close }}**.
 
@@ -127,18 +126,24 @@ description: С помощью этого руководства вы может
 
   1. {% include [server-lease-cli-step2](../../_includes/baremetal/instruction-steps/server-lease-cli-step2.md) %}
 
+  1. {% include [server-lease-cli-rental-period-list](../../_includes/baremetal/instruction-steps/server-lease-cli-rental-period-list.md) %}
+
+  1. {% include [server-lease-cli-image-list](../../_includes/baremetal/instruction-steps/server-lease-cli-image-list.md) %}
+
+  1. {% include [server-lease-cli-private-subnet-list](../../_includes/baremetal/instruction-steps/server-lease-cli-private-subnet-list.md) %}
+
   1. {% include [server-lease-cli-step3](../../_includes/baremetal/instruction-steps/server-lease-cli-step3.md) %}
 
       Где:
       * {% include [server-lease-cli-pool-id](../../_includes/baremetal/instruction-steps/server-lease-cli-pool-id.md) %}
       * {% include [server-lease-cli-configuration](../../_includes/baremetal/instruction-steps/server-lease-cli-configuration.md) %}
-      * {% include [server-lease-cli-storage](../../_includes/baremetal/instruction-steps/server-lease-cli-storage.md) %}
-
-        {% include [server-lease-backup-partitioning-notice](../../_includes/baremetal/instruction-steps/server-lease-backup-partitioning-notice.md) %}
-
       * {% include [server-lease-cli-os](../../_includes/baremetal/instruction-steps/server-lease-cli-os.md) %}
 
         {% include [server-lease-step7-iso](../../_includes/baremetal/instruction-steps/server-lease-step7-iso.md) %}
+
+      * {% include [server-lease-cli-storage](../../_includes/baremetal/instruction-steps/server-lease-cli-storage.md) %}
+
+        {% include [server-lease-backup-partitioning-notice](../../_includes/baremetal/instruction-steps/server-lease-backup-partitioning-notice.md) %}
 
       * {% include [server-lease-cli-rental-period](../../_includes/baremetal/instruction-steps/server-lease-cli-rental-period.md) %}
 
@@ -306,7 +311,7 @@ description: С помощью этого руководства вы может
   
       При необходимости [создайте](../../backup/operations/policy-vm/create.md) новую политику резервного копирования.
   1. В блоке **{{ ui-key.yacloud.backup.title_linked-recourses }}** нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.backup.button_attach-instance }}**.
-  1. В открывшемся окне выберите вкладку **{{ ui-key.yacloud.backup.value_bms-recourses }}** и в списке серверов выберите нужный сервер.
+  1. В открывшемся окне в поле **{{ ui-key.yacloud.backup.field_add-resource_resource-type }}** выберите `{{ ui-key.yacloud.backup.value_bms-recourses }}` и в списке серверов выберите нужный сервер.
   1. Нажмите кнопку **{{ ui-key.yacloud_billing.backup.button_attach-instance-submit }}**.
 
 - CLI {#cli}
@@ -354,11 +359,11 @@ description: С помощью этого руководства вы может
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится политика резервного копирования.
   1. [Перейдите]({{ link-console-main }}/link/backup) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
-  1. На панели слева выберите ![bms](../../_assets/console-icons/objects-align-justify-horizontal.svg) **{{ ui-key.yacloud.backup.label_baremetal-instances }}**.
-  1. В строке с нужным сервером нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.backup.action_start_backup }}**.
+  1. На панели слева выберите ![server](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.backup.label_connected-resources }}** и перейдите на вкладку **{{ ui-key.yacloud.backup.label_baremetal-instances }}**.
+  1. В строке с нужным сервером нажмите значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.backup.action_start_backup }}**.
   1. В открывшемся окне выберите политику резервного копирования, в соответствии с которой будет создана резервная копия, и нажмите **{{ ui-key.yacloud.common.create }}**.
 
-  Запустится процесс создания резервной копии сервера {{ baremetal-name }}. Прогресс создания копии будет отображаться в строке соответствующего сервера в поле **{{ ui-key.yacloud.backup.column_baremetal-instance-status }}**.
+  Запустится процесс создания резервной копии сервера {{ baremetal-name }}. Прогресс создания копии будет отображаться в строке соответствующего сервера в поле **{{ ui-key.yacloud.backup.column_operation-status }}**.
 
 - CLI {#cli}
 
@@ -402,8 +407,8 @@ description: С помощью этого руководства вы может
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится резервная копия.
   1. [Перейдите]({{ link-console-main }}/link/backup) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
-  1. На панели слева выберите ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.backup.label_backups }}** и откройте вкладку **{{ ui-key.yacloud.backup.value_bms-recourses }}**.
-  1. В строке с резервной копией, из которой нужно восстановить сервер {{ baremetal-name }}, нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.backup.action_bms-recovery }}**.
+  1. На панели слева выберите ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.backup.label_backups }}** и перейдите на вкладку **{{ ui-key.yacloud.backup.value_bms-recourses }}**.
+  1. В строке с резервной копией, из которой нужно восстановить сервер {{ baremetal-name }}, нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.backup.action_bms-recovery }}**.
   1. В открывшемся окне выберите сервер, из которого была создана выбранная резервная копия. В списке этот сервер будет отмечен как `({{ ui-key.yacloud.backup.context_current-bms }})`.
   1. Нажмите кнопку **{{ ui-key.yacloud.backup.action_recovery-start }}**.
 

@@ -6,13 +6,13 @@ description: Before you start using {{ container-registry-name }}, you need to g
 # Authentication in {{ container-registry-name }}
 
 Before you start using {{ container-registry-name }}, you need to [configure Docker](./configure-docker.md) and get authenticated to use the appropriate interface:
+
 * In the **management console**, the minimum required [role](../../iam/concepts/access-control/roles.md) for a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) is `viewer`.
 * In the **Docker CLI** or **{{ managed-k8s-full-name }}**, the minimum required role for a [registry](../concepts/registry.md) or [repository](../concepts/repository.md) is `container-registry.images.puller`.
 
 Assign the required role to the {{ yandex-cloud }} user. Read about [authentication methods](#method) and select the one that works best for you.
 
 For more information about roles, see [{#T}](../security/index.md).
-
 
 ## Authentication methods {#method}
 

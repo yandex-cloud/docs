@@ -26,6 +26,14 @@ Aliases:
 
 
 
+- [yc smartwebsecurity custom-page](custom-page/index.md) — 
+
+
+
+- [yc smartwebsecurity load-balancer](load-balancer/index.md) — 
+
+
+
 - [yc smartwebsecurity match-list](match-list/index.md) — 
 
 

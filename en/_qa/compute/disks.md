@@ -52,23 +52,37 @@ This happens when deleted files leave behind filled sectors on the disk.
 
 To resolve this, create a zero-filled file to overwrite all unused disk space, flush the cache to the disk, and then delete the file entry.
 
-* For Windows: Stop disk operations and use `SDelete`. You can learn more about this utility and download it from the [relevant Microsoft article]({{ ms.docs }}/sysinternals/downloads/sdelete).
-* For Linux: Stop disk operations and run the following commands one by one:
+{% note info %}
 
-   ```bash
-   dd if=/dev/zero | pv > full.disk
-   ```
+This does not work for [encrypted disks](../../compute/concepts/encryption.md#encryption-options), as written zeros get encrypted with the disk key and are not compressed. After the free space is filled with zeros, the snapshot will expand to the full disk size.
 
-   ```bash
-   sync
-   ```
+{% endnote %}
 
-   ```bash
-   rm full.disk
-   ```
+{% list tabs group=operating_system %}
+
+- Windows {#windows}
+
+  Stop disk operations and use the `SDelete` utility. You can learn more about this utility and download it from the [relevant Microsoft article]({{ ms.docs }}/sysinternals/downloads/sdelete).
+
+- Linux {#linux}
+
+  Stop disk operations and run the following commands one by one:
+
+  ```bash
+  dd if=/dev/zero | pv > full.disk
+  ```
+
+  ```bash
+  sync
+  ```
+
+  ```bash
+  rm full.disk
+  ```
+
+{% endlist %}
 
 Now, all unused space becomes actually empty and you can create a disk snapshot. The snapshot size will be nearly the same as the currently used disk space.
-
 
 #### Can I create multiple snapshots of the same disk at a time? {#snapshot-simultaneous}
 

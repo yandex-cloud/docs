@@ -1,5 +1,5 @@
-{% note tip %}
+{% note warning %}
 
-The command will automatically downloads and immediately execute the installation script. To preview the script's contents, download it manually and run it after a check.
+The below command will automatically download and immediately execute the installation script. To preview the script's contents, download it manually and run it after a check.
 
 {% endnote %}

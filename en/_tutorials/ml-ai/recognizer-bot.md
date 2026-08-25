@@ -31,7 +31,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The cost of Telegram bot support includes:
 
 * Fee for using {{ speechkit-name }} (see [{{ speechkit-name }} pricing]({{ link-docs-ai }}speechkit/pricing)).
-* Fee for using {{ vision-name }} (see [{{ vision-name }} pricing]({{ link-docs-ai }}vision/pricing)).
+* Fee for using {{ vision-name }} (see [{{ vision-name }} pricing]({{ link-docs-ai }}ai-studio/pricing#rules-image-recognition)).
 * Fee for the number of function calls, computing resources allocated for the function, and outgoing traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
 * Fee for the number of API gateway requests and outgoing traffic (see [{{ api-gw-name }} pricing](../../api-gateway/pricing.md)).
 
@@ -230,7 +230,7 @@ Create a function that will handle user actions in the chat.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Create a function:
 
      1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
@@ -409,7 +409,7 @@ The Telegram server will notify your bot of new messages via a [webhook](https:/
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create an API gateway.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. [Navigate]({{ link-console-main }}/link/api-gateway) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify `recognizer-bot-api-gw`.
   1. Under **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}**, add the following specification:
@@ -520,7 +520,7 @@ The Telegram server will notify your bot of new messages via a [webhook](https:/
      * `name`: API gateway name.
      * `spec`: API gateway specification.
 
-     For more information about resource properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/api_gateway).
+     For more on the properties of resources in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/api_gateway).
 
   1. Make sure the configuration files are correct.
 

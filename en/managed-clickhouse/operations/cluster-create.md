@@ -28,7 +28,7 @@ The connection and secret will be created for each new database user. To view al
 
 ## Roles for creating a cluster {#roles}
 
-To create a {{ mch-name }} cluster and use it, your {{ yandex-cloud }} account needs the following roles:
+To create and use a {{ mch-name }} cluster, your {{ yandex-cloud }} account needs the following roles:
 
 * {% include [roles-mch-editor](../../_includes/mdb/mch/roles-mch-editor.md) %}
 * {% include [roles-vpc-user](../../_includes/mdb/roles-vpc-user.md) %}
@@ -50,7 +50,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
   To create a {{ mch-name }} cluster with the {{ CK }} coordination service:
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your database cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Enter a cluster name in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. The cluster name must be unique within the folder.
   1. Select the environment where you want to create your cluster (you cannot change the environment once the cluster is created):
@@ -1155,7 +1155,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
   To create a {{ mch-name }} cluster with the {{ ZK }} coordination service:
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your database cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Enter a cluster name in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. The cluster name must be unique within the folder.
   1. Select the environment where you want to create your cluster (you cannot change the environment once the cluster is created):

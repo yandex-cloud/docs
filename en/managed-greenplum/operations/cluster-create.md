@@ -13,7 +13,7 @@ For more information, see [{#T}](../concepts/index.md).
 
 ## Roles for creating a cluster {#roles}
 
-To create a {{ mgp-name }} cluster and use it, your {{ yandex-cloud }} account needs the following roles:
+To create and use a {{ mgp-name }} cluster, your {{ yandex-cloud }} account needs the following roles:
 
 * {% include [roles-mgp-editor](../../_includes/mdb/mgp/roles-mgp-editor.md) %}
 * {% include [roles-vpc-user](../../_includes/mdb/roles-vpc-user.md) %}
@@ -31,7 +31,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
     To create a {{ mgp-name }} cluster:
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a database cluster.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
     1. Enter a name for the cluster. It must be unique within the folder.
     1. Optionally, enter a description for the cluster.

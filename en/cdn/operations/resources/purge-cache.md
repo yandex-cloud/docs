@@ -5,9 +5,9 @@ description: Follow this guide to purge the resource cache.
 
 # Purging the resource cache
 
-{% note warning %}
+{% note info %}
 
-{% include [purge-cache-limits-notice](../../../_includes/cdn/purge-cache-limits-notice.md) %}
+After purging the cache, CDN servers re-request deleted files from the origin as user requests come in. Purging the cache completely can cause a sharp increase in the origin workload and its operation costs. If you need to update individual files, use selective purge.
 
 {% endnote %}
 
@@ -17,7 +17,7 @@ description: Follow this guide to purge the resource cache.
 
   1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Navigate]({{ link-console-main }}/link/cdn) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
   1. Click the resource name.
 
@@ -124,4 +124,3 @@ It may take up to 15 minutes to purge the cache.
 #### Useful links {#see-also}
 
 [{#T}](../../concepts/caching.md)
-

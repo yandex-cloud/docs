@@ -2,14 +2,14 @@
 
 You can get the output from a VM serial port and use it, e.g., for troubleshooting.
 
-To access the output data, you need the `compute.operator` or `{{ roles-viewer }}` [role](../../security/index.md).
+To access the output data, you need the `compute.operator` or `{{ roles-viewer }}` role.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. Select the folder the VM belongs to.
-  1. Navigate to **{{ compute-name }}**.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Click the line with the VM in question.
   1. Go to the **{{ ui-key.yacloud.compute.instance.switch_service-console }}** tab.
   1. To use the **CTRL** + **F** shortcut to search, enable **{{ ui-key.yacloud.compute.instance.service-console.raw-mode }}** in the top-right corner.

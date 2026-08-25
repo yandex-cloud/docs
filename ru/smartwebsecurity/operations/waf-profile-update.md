@@ -12,25 +12,17 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [профиль WAF](../concepts/waf.md).
   1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. На панели слева выберите ![image](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}**.
-  1. В строке с нужным профилем нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.smart-web-security.overview.action_edit-profile }}**.
+  1. В строке с нужным профилем нажмите ![options](../../_assets/console-icons/ellipsis.svg) → ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_edit-profile }}**.
   1. На странице редактирования профиля измените основные параметры:
-      
+
       * **{{ ui-key.yacloud.common.name }}**.
       * **{{ ui-key.yacloud.common.description }}**.
-      * [**{{ ui-key.yacloud.component.label-set.label_labels }}**](../../resource-manager/concepts/labels.md). Чтобы добавить новую метку, нажмите кнопку **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
-  
+      * [**{{ ui-key.yacloud.component.label-set.label_labels }}**](../../resource-manager/concepts/labels.md). Чтобы добавить новую метку, нажмите **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+
   1. Включите или выключите наборы правил для профиля WAF.
   1. Выберите версию набора правил.
-  1. Если включено несколько наборов:
-     
-     * Выберите условие срабатывания профиля:
-       
-       * **Вердикт получен хотя бы в одном наборе** — запрос распознан как угроза хотя бы одним набором правил.
-       * **Вердикт получен в каждом наборе** — запрос распознан как угроза всеми добавленными наборами правил.
-     
-     * Расположите наборы по приоритету, в котором правила набора будут анализировать запрос. Чем выше набор, тем выше приоритет.
-  
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  1. {% include [waf-verdicts](../../_includes/smartwebsecurity/waf-verdicts.md) %}
+  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
   1. При необходимости [настройте правила](configure-set-rules.md) в каждом из добавленных наборов.
 
 - {{ TF }} {#tf}
@@ -39,52 +31,13 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  Чтобы изменить параметры WAF профиля {{ sws-full-name }}, созданного с помощью {{ TF }}:
+  Чтобы изменить параметры профиля WAF {{ sws-full-name }}, созданного с помощью {{ TF }}:
 
-  1. Откройте файл конфигурации {{ TF }} и измените фрагмент с описанием WAF профиля.
+  1. Откройте файл конфигурации {{ TF }} и измените фрагмент с описанием профиля WAF.
 
-     {% cut "Пример описания WAF профиля в конфигурации {{ TF }}" %}
+     {% cut "Пример описания профиля WAF в конфигурации {{ TF }}" %}
 
-      ```hcl
-      # В базовом наборе будут активны правила этого уровня паранойи и ниже
-      locals {
-        waf_paranoia_level = 1
-      }
-
-      # Источник данных OWASP Core Rule Set
-      data "yandex_sws_waf_rule_set_descriptor" "owasp4" {
-        name    = "OWASP Core Ruleset"
-        version = "4.0.0"
-      }
-
-      # WAF профиль
-      resource "yandex_sws_waf_profile" "default" {
-        name = "<имя_WAF_профиля>"
-
-        # Базовый набор правил
-        core_rule_set {
-          inbound_anomaly_score = 2
-          paranoia_level        = local.waf_paranoia_level
-          rule_set {
-            name    = "OWASP Core Ruleset"
-            version = "4.0.0"
-          }
-        }
-
-        # Активируем правила из базового набора, если их уровень паранойи не выше заданного в переменной waf_paranoia_level
-        dynamic "rule" {
-          for_each = [
-            for rule in data.yandex_sws_waf_rule_set_descriptor.owasp4.rules : rule
-            if rule.paranoia_level <= local.waf_paranoia_level
-          ]
-          content {
-            rule_id     = rule.value.id
-            is_enabled  = true
-            is_blocking = false
-          }
-        }
-      }
-      ```
+     {% include [waf-profile-terraform-example](../../_includes/smartwebsecurity/waf-profile-terraform-example.md) %}
 
      {% endcut %}
 

@@ -27,7 +27,7 @@
 
 - Консоль управления
 
-  Посмотреть и удалить незавершенные загрузки из [Консоли управлени](https://console.yandex.cloud) можно [по этой инструкции](../../../storage/operations/objects/deleting-multipart.md).
+  Посмотреть и удалить незавершенные загрузки из [Консоли управления](https://console.yandex.cloud) можно [по этой инструкции](../../../storage/operations/objects/deleting-multipart.md).
 
   Удаление всех объектов из бакета средствами консоли управления описано в материале [по этой ссылке](../../../storage/operations/objects/delete-all.md).
 

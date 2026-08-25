@@ -27,7 +27,7 @@ docker run --network=host-e LOGGING_LEVEL=DEBUG -e LICENSE_MODE=billing_agent <�
 
 Если вы запускаете контейнеры SpeechKit Hybrid с помощью Docker Compose, вы можете задать уровень логирования для каждого контейнера в файле конфигурации. 
 
-Например, следующая конфигурация задаст уровени логирования `INFO` для контейнера `billing_agent`, `NOTICE` для лицензионного сервера и `WARNING` для контейнера `envoy`.
+Например, следующая конфигурация задаст уровни логирования `INFO` для контейнера `billing_agent`, `NOTICE` для лицензионного сервера и `WARNING` для контейнера `envoy`.
 
 ```text
 version: '3'

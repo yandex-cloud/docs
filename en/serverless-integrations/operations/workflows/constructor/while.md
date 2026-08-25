@@ -5,9 +5,13 @@ description: Follow this guide to use the workflow step constructor to add to a 
 
 # Adding the While loop
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 You can use the While control step to set a sequence of steps to apply within a loop. The step will apply while the condition from **{{ ui-key.yacloud.serverless-workflows.workflow-editor_while-step-condition-field }}** is true, but only as many times as set in **{{ ui-key.yacloud.serverless-workflows.workflow-editor_while-step-max-iterations-field }}**. If no condition is set, the step is performed the specified number of times. If the number of iterations is not specified, the loop will continue until the condition is no longer met or the workflow [timeout](../../../concepts/limits.md) is reached.
 
 Each execution branch within the While step (including all [Switch](./switch.md) steps) must contain an [integration](./index.md#integration-steps) step or a [Success](./success.md), [Fail](./fail.md), or [Wait](./wait.md) step.
+
+{% include [templating-note](../../../../_includes/serverless-integrations/templating-note.md) %}
 
 {% list tabs %}
 

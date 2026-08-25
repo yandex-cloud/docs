@@ -46,7 +46,7 @@ This guide deals with connecting to the cluster from the internet.
 ## Create a cluster {#create-cluster}
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+1. [Navigate]({{ link-console-main }}/link/managed-opensearch) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**. For more information, see [Creating a cluster](operations/cluster-create.md).
 1. Configure the cluster.
 
@@ -98,15 +98,15 @@ To connect to your cluster:
 
 ## Connect to {{ OS }} Dashboards {#dashboards-connect}
 
+
 1. In your browser, connect to the [{{ OS }} Dashboards]({{ os.docs }}/dashboards/index/) web interface:
 
-   
    1. Make sure hosts with the `DASHBOARDS` role are publicly accessible.
-
 
    1. Install the [SSL certificate]({{ crt-web-path }}) in your browser's store of trusted root certificates (see the instructions for Mozilla Firefox [here](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate)).
    1. On the cluster page in the management console, click **OpenSearch Dashboards** or go to `https://c-<{{ OS }}_cluster_ID>.rw.{{ dns-zone }}>` in your browser.
    1. Enter `admin` for the username and the password you set when [creating the cluster](#create-cluster).
+
 
 1. Explore a set of sample data:
 

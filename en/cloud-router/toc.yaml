@@ -8,21 +8,21 @@ items:
     items:
       - name: All guides
         href: operations/index.md
-      - name: Getting information about a routing instance
+      - name: Getting information about a virtual router
         href: operations/ri-get-info.md
-      - name: Getting a list of operations in a routing instance
+      - name: Getting a list of operations for a virtual router
         href: operations/ri-operations.md
-      - name: Creating a routing instance
+      - name: Creating a virtual router
         href: operations/ri-create.md
-      - name: Updating parameters of a routing instance
+      - name: Updating virtual router settings
         href: operations/ri-update.md
-      - name: Managing networks and IP prefixes in a routing instance
+      - name: Managing networks and IP prefixes in a virtual router
         href: operations/ri-prefixes-upsert.md
-      - name: Adding a private connection to a routing instance
+      - name: Adding a private connection to a virtual router
         href: operations/ri-priv-con-add.md
-      - name: Deleting a private connection from a routing instance
+      - name: Deleting a private connection from a virtual router
         href: operations/ri-priv-con-del.md
-      - name: Deleting a routing instance
+      - name: Deleting a virtual router
         href: operations/ri-delete.md
       - name: Cloud Interconnect tutorials
         href: ../interconnect/operations/index.md
@@ -35,7 +35,7 @@ items:
         href: operations/cr-cic-ops.md
       - name: Terminology
         href: concepts/terms.md
-      - name: Routing Instance
+      - name: Virtual router
         href: concepts/routing-instance.md
       - name: IP prefix announcements
         href: concepts/announces.md
@@ -56,7 +56,7 @@ items:
         href: scenarios/ri-1_prc-2ha_vpc-1.md
       - name: On-premises with redundancy and multiple cloud networks
         href: scenarios/ri-1_prc-2ha_vpc-few.md
-      - name: Two separate route instances without on-premises redundancy
+      - name: Two separate virtual routers without on-premises redundancy
         href: scenarios/ri-2_prc-1noha_vpc-1.md
       - name: Even redistribution of on-premise traffic (Active-Active)
         href: scenarios/prc-ha-with-active-active.md
@@ -84,10 +84,12 @@ items:
           Establishing network connectivity between a {{ baremetal-name }}
           private subnet and on-premise resources
         href: tutorials/bms-cic-onprem.md
-      - name: Changing a set of VPC IP prefixes in a routing instance
+      - name: Changing VPC IP prefixes in a virtual router
         href: tutorials/ri-prefixes-upsert.md
   - name: Access management
     href: security/index.md
+  - name: Pricing policy
+    href: pricing.md
   - name: CLI reference
     items:
       - name: Overview

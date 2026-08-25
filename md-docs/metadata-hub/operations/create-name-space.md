@@ -18,7 +18,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
   1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
-  1. Hа панели слева выберите ![image](../../_assets/console-icons/layout-cells.svg) **Schema Registry**.
+  1. В блоке **Управляйте метаданными** выберите **Schema Registry**.
   1. Нажмите кнопку **Создать пространство имён**.
   1. В поле **Имя** задайте уникальное имя пространства имен.
   1. (Опционально) Добавьте описание пространства имен.

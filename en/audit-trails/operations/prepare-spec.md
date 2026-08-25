@@ -54,6 +54,7 @@ To create and manage multiple trails, use [{{ TF }}](../tf-ref.md).
   1. Save the information you got into a file, e.g., `my-trail-spec.yaml`.
   1. When editing a trail, rename the `id` field to `trail_id`.
   1. Delete these fields:
+      
       * `folder_id` (only when editing a trail)
       * `created_at`
       * `updated_at`

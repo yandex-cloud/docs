@@ -23,26 +23,31 @@ For read, write, and other database queries, such as `aggregate` operations, you
 
 To get this data:
 
-1. Open the [folder dashboard]({{ link-console-main }}).
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+1. In the [management console]({{ link-console-main }}), select a folder.
+1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 1. Click the name of your cluster and select **{{ ui-key.yacloud.mongodb.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_profiling }}**.
 1. Specify a time range and adjust filters as needed.
 1. Select:
 
    * Data segment:
+
        * `FORM`: By query type
        * `HOSTNAME`: By shard’s [primary host](../concepts/replication.md)
        * `NAMESPACE`: By collection name
        * `SHARD`: By [shard](../concepts/sharding.md)
        * `USER`: By user
+
    * Data grouping:
+
        * `COUNT`: Number of queries.
        * `DOCUMENTS_EXAMINED`: Number of collection documents scanned per query.
        * `DOCUMENTS_RETURNED`: Number of returned documents.
        * `DURATION`: Query execution duration.
        * `KEYS_EXAMINED`: Number of index keys scanned per query.
        * `RESPONSE_LENGTH`: Size of the document returned by the query.
+
    * Aggregation function for the selected metric:
+
        * `AVG`: Average
        * `SUM`: Sum
    
@@ -51,8 +56,8 @@ To get this data:
 
 The system provides collection access statistics and indexing recommendations for specific fields to improve query speed.
 
-1. Open the [folder dashboard]({{ link-console-main }}).
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+1. In the [management console]({{ link-console-main }}), select a folder.
+1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 1. Click the name of your cluster and select **{{ ui-key.yacloud.mongodb.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_indexes }}**.
 1. Specify a time range and adjust filters as needed.
 

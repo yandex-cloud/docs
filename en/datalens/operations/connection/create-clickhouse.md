@@ -106,6 +106,7 @@ You can specify additional connection settings under **Advanced connection setti
   * `1`: Allows only data read queries.
   * `2`: Allows queries to read data and edit settings.
 
+
 ## Specifics of using a connection to {{ CH }} {#ch-connection-specify}
 
 In {{ CH }}, you can create a dataset on top of a `VIEW` that contains the `JOIN` section. To do this, make sure a view is created with the `join_use_nulls` option enabled. We recommend setting `join_use_nulls = 1` in the `SETTINGS` section:

@@ -26,15 +26,18 @@ Not every service provider is a {{ interconnect-name }} partner.
 
 Partner | PoPs | Maximum capacity, Mbps | Notes
 --- | --- | --- | ---
-[RETN](https://retn.ru/) | M9, OST | 10,000 | - |
+[RETN](https://retn.net/) | M9, OST | 10,000 | - |
 [MASTERTEL](https://mastertel.ru/yacloud/) | M9, NORD | 1,000 | - |
 [MSK-IX](https://www.msk-ix.ru/) | M9 | 1,000 | - |
 [ER-Telecom](https://ertelecom.ru/) | M9, NORD | 1,000 | - |
 [Beeline](https://beeline.ru) | M9 | 1,000 | - |
 [Obit](https://www.obit.ru/company/channels/) | M9 | 1,000 | - |
-[Selectel](https://selectel.ru) | M9 | 1,000 | - |
+[Selectel](https://selectel.ru) | M9, OST | 1,000 | - |
 [Ul-com](https://ul-com.ru) | TEHNO | 10,000 | - |
-[NEXTREMUM](https://nextremum.net/ru) | TEHNO | 10,000 | - |
+[NEXTREMUM](https://nextremum.net/ru) | TEHNO, M9 | 10,000 | - |
+[Telecom Exchange](https://cirex.ru) | NORD | 1,000 | - |
+[Timeweb](https://timeweb.com) | M9 | 10,000 | - |
+[China Mobile](https://www.cmi.chinamobile.com) | M9 | 1,000 | - |
 
 Where:
 

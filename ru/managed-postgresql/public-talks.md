@@ -10,6 +10,8 @@ description: Видеозаписи конференций и вебинаров
 
 ### 2026 год {#2026-articles}
 
+* Своя база данных или управляемый сервис: считаем реальную стоимость на горизонте трех лет. [Статья](https://yandex.cloud/ru/blog/database-or-managed-service).
+* Выбираем конфигурацию для нового кластера {{ PG }}. [Статья](https://yandex.cloud/ru/blog/postgresql-configurations).
 * {{ PG }} в 2026 году: архитектура, надежность и гибкость. [Статья](https://yandex.cloud/ru/blog/postgresql-overview).
 
 ### 2025 год {#2025-articles}
@@ -108,7 +110,7 @@ description: Видеозаписи конференций и вебинаров
 
   * [Запись трансляции](https://www.youtube.com/watch?v=5OcUo3J4Wdc).
 
-* Внутреннее устройство платформы баз данных в {{ yandex-cloud }}.
+* Внутреннее устройство платформы баз данных в {{ yandex-cloud }}.
 
   * [Запись трансляции](https://www.youtube.com/watch?v=Cwdg425a_cw).
 

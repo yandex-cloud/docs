@@ -31,7 +31,12 @@ There are two available password complexity options:
 
 ### Password uniqueness {#uniqueness}
 
-The password can be checked against the database of common passwords. If a user tries to set such a password, the system will reject it: these are easily guessed by attackers.
+Password uniqueness settings spell out additional requirements for passwords when they are created or changed.
+
+The following settings are available:
+
+* **{{ ui-key.yacloud_org.organization.userpools.password_check_gP9tG }}**: If the user tries to set such a password, the system will reject it. Such passwords are easily guessed by attackers.
+* **Password history**: Number of the user’s most recent passwords that cannot be reused. For example, if set to 5, the user will not be able to set a password matching any of the last 5 passwords used. The minimum value is 1; the maximum is 10. The default value is 1 (only the current password cannot be reused).
 
 ### Password lifetime {#lifetime}
 
@@ -41,9 +46,9 @@ Password lifetime is the period of time after which users will have to update th
 
 To configure protection against password guessing, you can use the following settings:
 
-* Number of wrong password entries before lockout: 1 to 100.
-* Interval for counting wrong entries in minutes or seconds.
-* Lockout duration in minutes or seconds.
+* **{{ ui-key.yacloud_org.organization.userpools.UserpoolPasswordPolicyForm.attempts_before_lockout_ay7Le }}**: From 1 to 100.
+* **{{ ui-key.yacloud_org.organization.userpools.UserpoolPasswordPolicyForm.failed_attempts_interval_wfd7Z }}** in minutes or seconds.
+* **{{ ui-key.yacloud_org.organization.userpools.UserpoolPasswordPolicyForm.lockout_duration_t1CZB }}** in minutes or seconds.
 
 ## Default password policy {#default-policy}
 
@@ -56,6 +61,7 @@ When you create a user pool, it is assigned the following default password polic
 * Minimum password lifetime: Unlimited.
 * Maximum password lifetime: 365 days.
 * Password check against the database of common passwords is on.
+* The number of recent passwords that cannot be reused: 1.
 * Number of wrong password entries before lockout: 15.
 * Interval for counting wrong entries: 10 minutes.
 * Lockout duration: 10 minutes.

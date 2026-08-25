@@ -22,13 +22,19 @@ Metric delivery is configured the same way as delivery of other telemetry data. 
 
 ## Viewing metrics {#view-metrics}
 
-1. On the [{{ monium-name }} home page,]({{ link-monium }}) select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}** on the left.
-1. At the top, set the search interval using the timeline, a preset interval, or by entering the time value directly.
-1. In the search bar, enter a query to search for application metrics:
-   1. Select the `folder__<folder_ID>` project. By default, the current folder's project is selected.
-   1. Sequentially select the `cluster`, `service`, and the relevant metrics.
-   1. Click **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}**.
-1. To view metric details, hover over the chart.
+{% list tabs group=instructions %}
+
+- {{ monium-name }} UI {#console}
+
+  1. On the [{{ monium-name }} home page]({{ link-monium }}), select ![alt](../../_assets/console-icons/compass.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.all-panel.menu.category.explore }}** → ![alt](../../_assets/console-icons/rectangle-pulse.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}** on the left.
+  1. At the top, set the search interval using the timeline, a preset interval, or by entering the time value directly.
+  1. In the search bar, enter a query to search for application metrics:
+     1. Select the `folder__<folder_ID>` project. By default, the current folder's project is selected.
+     1. Sequentially select the `cluster`, `service`, and the relevant metrics.
+     1. Click **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}**.
+  1. To view metric details, hover over the chart.
+
+{% endlist %}
 
 For additional metric features, see [{#T}](../metrics/metric-explorer.md).
 

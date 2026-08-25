@@ -1,5 +1,6 @@
 # Использование секрета {{ lockbox-name }} в PySpark-задании для подключения к {{ mpg-full-name }}
 
+
 Вы можете использовать секрет [{{ lockbox-name }}](../../../lockbox/concepts/secret.md) для подключения к кластеру [{{ mpg-full-name }}](../../../managed-postgresql/index.yaml) из PySpark-задания в [{{ msp-full-name }}](../../../managed-spark/index.yaml). Для этого [сервисному аккаунту](../../../iam/concepts/users/service-accounts.md) кластера {{ msp-full-name }} необходимо предоставить доступ к секрету. Секрет создается сервисом {{ connection-manager-full-name }} автоматически при создании пользователя {{ mpg-name }}.
 
 Для PySpark-задания используется Python-скрипт, который хранится в бакете {{ objstorage-full-name }}. Скрипт получает пароль пользователя из секрета и использует его для подключения к кластеру {{ mpg-name }}.
@@ -41,7 +42,7 @@
 
 1. [Создайте облачную сеть](../../../vpc/operations/network-create.md) с именем `spark-network`.
 
-    Вместе с ней автоматически будут созданы три подсети в разных зонах доступности.
+    Вместе с ней автоматически будут созданы три подсети в разных [зонах доступности](../../../overview/concepts/geo-scope.md).
 
 1. В сети `spark-network` [создайте группу безопасности](../../../vpc/operations/security-group-create.md) `spark-sg` для кластера {{ msp-full-name }}, разрешающую исходящие TCP-подключения:
     
@@ -71,7 +72,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создана необходимая инфраструктура.
   1. [Перейдите]({{ link-console-main }}/link/managed-postgresql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}**.
+  1. Нажмите на имя нужного кластера, затем выберите ![chevron-down](../../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.postgresql.cluster.switch_users }}**.
   1. Нажмите на идентификатор подключения в строке нужного пользователя.
     
       Откроется страница подключения {{ connection-manager-name }} для выбранного пользователя.
@@ -80,7 +81,7 @@
 
       Откроется страница секрета {{ lockbox-name }}, который хранит пароль пользователя {{ PG }}.
 
-  1. На панели слева выберите раздел ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
   1. Выберите сервисный аккаунт `spark-agent`, которому будет предоставлен доступ к секрету.
   1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите `lockbox.payloadViewer`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.

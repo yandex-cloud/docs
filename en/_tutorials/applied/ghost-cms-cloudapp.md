@@ -54,12 +54,12 @@ Create a [{{ lockbox-name }}](../../lockbox/) secret to store the [{{ mmy-name }
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. [Navigate]({{ link-console-main }}/link/lockbox) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Click **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify the secret name: `db-password-secret`.
   1. In the **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** field, select `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
   1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** field, enter `db_password`.
-  1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** field, set a password for the {{ mmy-name }} database. Password requirements:
+  1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** field, set a password for the {{ mmy-name }} database. Follow these password requirements:
 
       * It must be from 8 to 128 characters long.
       * It must contain numbers, upper-case and lower-case Latin letters, and special characters.
@@ -77,7 +77,7 @@ Create a [{{ lockbox-name }}](../../lockbox/) secret to store the [{{ mmy-name }
     --payload "[{'key': 'db_password', 'text_value': '<password>'}]"
   ```
 
-  Where `text_value` is the {{ mmy-name }} database password. Password requirements:
+  Where `text_value` is the {{ mmy-name }} database password. Follow these password requirements:
 
   * It must be from 8 to 128 characters long.
   * It must contain numbers, upper-case and lower-case Latin letters, and special characters.
@@ -104,7 +104,7 @@ Create a [{{ lockbox-name }}](../../lockbox/) secret to store the [{{ mmy-name }
 
   To create a secret, use the [create](../../lockbox/api-ref/Secret/create.md) REST API method for the [Secret](../../lockbox/api-ref/Secret/index.md) resource or the [SecretService/Create](../../lockbox/api-ref/grpc/Secret/create.md) gRPC API call.
 
-  Specify `db_password` in the `key` parameter for the key to contain the {{ mmy-name }} database password. Password requirements:
+  Specify `db_password` in the `key` parameter for the key to contain the {{ mmy-name }} database password. Follow these password requirements:
 
   * It must be from 8 to 128 characters long.
   * It must contain numbers, upper-case and lower-case Latin letters, and special characters.
@@ -121,7 +121,7 @@ Install [Ghost CMS High Availability](/marketplace/products/yc/ghost-cms-ha) usi
 
 - Management console {#console}
 
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
+  1. [Navigate]({{ link-console-main }}/link/cloud-apps) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
   1. Click **{{ ui-key.yacloud.cloud-apps.button_empty-install-application }}**.
   1. Select **Ghost CMS High Availability** and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
   1. Configure your application:
@@ -144,7 +144,7 @@ Install [Ghost CMS High Availability](/marketplace/products/yc/ghost-cms-ha) usi
       || **RAM** | — | `2` | RAM in GB. ||
       || **Guaranteed vCPU share** | — | `100` | Guaranteed vCPU share in %. The available values are 20%, 50%, or 100%. ||
       || **Public SSH key** | — | — | The key will be added to `authorized_keys` of the `ghost` VM user.
-      We recommend specifying a public SSH key to access the VM over SSH. You need to create a key pair for the SSH connection [by yourself](../../compute/operations/vm-connect/ssh.md). ||
+      We recommend specifying a public SSH key to access the VM over SSH. You need to create a key pair for the SSH connection [on your own](../../compute/operations/vm-connect/ssh.md). ||
       || **Disk type** | — | `network-ssd` | VM disk type. ||
       || **Disk size** | — | `20` | VM disk size in GB. ||
       || **ID of the secret containing the database password** | Yes | — | Secret containing the password to connect to a {{ mmy-name }} cluster. This password should be specified in the `db_password` key. ||
@@ -220,7 +220,7 @@ To shut down the resources you created and stop paying for them:
 1. [Delete](../../storage/operations/objects/delete-all.md) all objects from the {{ objstorage-name }} bucket you created when installing the app.
 1. Delete the installed Ghost CMS High Availability app:
 
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
+    1. [Navigate]({{ link-console-main }}/link/cloud-apps) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
     1. Locate the installed Ghost CMS High Availability app in the list.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the app and select **{{ ui-key.yacloud.common.delete }}**.
     1. Confirm the app deletion.

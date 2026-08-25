@@ -23,7 +23,7 @@ description: In this tutorial, you will learn how to update a backup policy in {
   {% endnote %}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update a [backup policy](../../../backup/concepts/policy.md).
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. [Navigate]({{ link-console-main }}/link/backup) to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. In the left-hand panel, select ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}**.
   1. Click ![options](../../../_assets/console-icons/ellipsis.svg) next to the backup policy you want to update and select **{{ ui-key.yacloud.common.edit }}**.
   1. Edit the backup policy parameters:
@@ -184,7 +184,7 @@ description: In this tutorial, you will learn how to update a backup policy in {
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your backup policy.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. [Navigate]({{ link-console-main }}/link/backup) to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. Navigate to the ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}** tab.
   1. Select the backup policy in which you want to edit the list of [resources to back up](../../concepts/index.md#protected-resources).
   1. Edit the list of linked resources:
@@ -227,7 +227,7 @@ description: In this tutorial, you will learn how to update a backup policy in {
 
        ```bash
        yc backup policy apply <backup_policy_ID> \
-         --instance-ids <IDs_of_resources_to_back_up>
+         --instance-ids <resource_IDs>
        ```
 
        Where `--instance-ids` are the IDs of the [{{ compute-name }} VMs](../../concepts/vm-connection/compute.md), [{{ baremetal-name }} servers](../../concepts/vm-connection/baremetal.md), or [external resources](../../concepts/vm-connection/external-resources.md) connected to {{ backup-name }} which you need to link to the backup policy. Multiple IDs should be comma-separated.
@@ -245,7 +245,7 @@ description: In this tutorial, you will learn how to update a backup policy in {
 
        ```bash
        yc backup policy revoke <backup_policy_ID> \
-         --instance-ids <IDs_of_resources_to_back_up>
+         --instance-ids <resource_IDs>
        ```
 
        Where `--instance-ids` are the IDs of the [{{ compute-name }} VMs](../../concepts/vm-connection/compute.md), [{{ baremetal-name }} servers](../../concepts/vm-connection/baremetal.md), or [external resources](../../concepts/vm-connection/external-resources.md) which you need to unlink from the backup policy. Multiple IDs should be comma-separated.
@@ -286,7 +286,7 @@ description: In this tutorial, you will learn how to update a backup policy in {
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources. You can check the new resources in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
+     {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
      ```bash
       yc backup policy list-applications
@@ -300,4 +300,4 @@ description: In this tutorial, you will learn how to update a backup policy in {
 
 #### Useful links {#see-also}
 
-* [{#T}](delete.md)
+[{#T}](delete.md)

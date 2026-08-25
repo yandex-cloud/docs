@@ -12,7 +12,7 @@
   1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Выберите группу, которую хотите изменить.
-  1. В правом верхнем углу страницы нажмите **{{ ui-key.yacloud.common.edit }}**.
+  1. Нажмите кнопку [pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_health-check }}** включите опцию **{{ ui-key.yacloud.compute.groups.create.field_enable-health-check }}**.
   1. Задайте настройки проверок состояния:
      * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}** — `{{ ui-key.yacloud.common.label_http }}` или `{{ ui-key.yacloud.common.label_tcp }}`.

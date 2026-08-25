@@ -25,7 +25,7 @@
 
 {% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
-Чтобы создайть инфраструктуру с помощью {{ TF }}:
+Чтобы создать инфраструктуру с помощью {{ TF }}:
 
 1. [Установите {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 1. Подготовьте файл с описанием инфраструктуры:
@@ -111,7 +111,7 @@
     "YCNpH34y9fzL6xEap3wkuxYfkc1PTNvr********"
     ```
 
-После создания инфраструктуры [cмонтируйте бакет на сервере](#mount-bucket) и [настройте коллектор KUMA](#setup-collector).
+После создания инфраструктуры [смонтируйте бакет на сервере](#mount-bucket) и [настройте коллектор KUMA](#setup-collector).
 
 
 ## Смонтируйте бакет на сервере {#mount-bucket}

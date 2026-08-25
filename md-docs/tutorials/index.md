@@ -238,6 +238,12 @@
 
  - [OpenID Connect](security/single-sign-on/jenkins/oidc-jenkins.md)
 
+#### Loop
+
+ - [SAML](security/single-sign-on/loop/saml-loop.md)
+
+ - [OpenID Connect](security/single-sign-on/loop/oidc-loop.md)
+
  - [Managed Service for GitLab](security/single-sign-on/saml-managed-gitlab.md)
 
  - [Managed Service for OpenSearch](security/single-sign-on/saml-opensearch.md)
@@ -260,9 +266,13 @@
 
  - [SonarQube](security/single-sign-on/saml-sonarqube.md)
 
-#### VK Cloud
+#### Time
 
- - [SAML](security/single-sign-on/vk-cloud/saml-vk-cloud.md)
+ - [SAML](security/single-sign-on/time/saml-time.md)
+
+ - [OpenID Connect](security/single-sign-on/time/oidc-time.md)
+
+ - [VK Cloud](security/single-sign-on/saml-vk-cloud.md)
 
  - [Zabbix](security/single-sign-on/saml-zabbix.md)
 
@@ -746,6 +756,8 @@
 
  - [Оформление контента из Cloud Video в IFrame](web/video-iframe.md)
 
+ - [Управление видеоконтентом для курсов Moodle](web/video-moodle-plugin.md)
+
 ### 1С
 
 #### Интернет-магазин на «1С-Битрикс»
@@ -926,6 +938,8 @@
 
  - [Интеграция Yandex Managed Service for ClickHouse® с Oracle через ClickHouse® JDBC Bridge](dataplatform/jdbc-ch-to-oracle-integration.md)
 
+ - [Выполнение аналитических запросов в Managed Service for PostgreSQL с обработкой в Managed Service for ClickHouse®](dataplatform/mpg-pg-clickhouse-extension.md)
+
  - [Настройка Cloud DNS для доступа к кластеру Managed Service for ClickHouse® из других облачных сетей](dataplatform/clickhouse-dns-peering.md)
 
  - [Миграция кластера Yandex Data Processing с HDFS в другую зону доступности](dataplatform/hdfs-cluster-migration.md)
@@ -1070,6 +1084,8 @@
 
  - [Настройка прав доступа к секрету, созданному Connection Manager, для пользователя Managed Service for PostgreSQL](dataplatform/conn-man-secret-access.md)
 
+ - [Выполнение аналитических запросов в Managed Service for PostgreSQL с обработкой в Managed Service for ClickHouse®](dataplatform/mpg-pg-clickhouse-extension.md)
+
  - [Миграция БД из Greenplum® в ClickHouse®](dataplatform/greenplum-to-clickhouse.md)
 
  - [Миграция БД из Greenplum® в PostgreSQL](dataplatform/greenplum-to-postgresql.md)
@@ -1129,6 +1145,8 @@
  - [Миграция кластера PostgreSQL](dataplatform/managed-postgresql.md)
 
  - [Создание реестра схем для поставки данных в формате Debezium CDC из Apache Kafka®](dataplatform/schema-registry-cdc-debezium-kafka.md)
+
+ - [Выполнение аналитических запросов в Managed Service for PostgreSQL с обработкой в Managed Service for ClickHouse®](dataplatform/mpg-pg-clickhouse-extension.md)
 
  - [Автоматизация работы с помощью Yandex Managed Service for Apache Airflow™](dataplatform/airflow-and-spark.md)
 

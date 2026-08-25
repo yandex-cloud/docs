@@ -150,6 +150,19 @@ Possible property names:
 - `hour`: Hour of day in UTC time zone (1-24) for maintenance window if window type is weekly.
 
 - `day`: Day of week for maintenance window if window type is weekly. One of MON, TUE, WED, THU, FRI, SAT, SUN. Values: 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun' ||
+|| `--performance-diagnostics` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+
+Performance diagnostics settings
+
+Possible property names:
+
+- `enabled`: Enable or disable performance diagnostics
+
+- `sessions-sampling-interval`: pg_stat_activity sampling interval
+
+- `statements-sampling-interval`: pg_stat_statements sampling interval
+
+- `advanced-mode`: Use advanced performance diagnostics mode ||
 || `--disk-size-autoscaling` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
 
 Disk size autoscaling settings

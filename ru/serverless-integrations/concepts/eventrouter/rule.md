@@ -30,7 +30,7 @@ _Приемник_ — это получатель события. Поддер�
 * [потоки данных](../../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-name }};
 * [очереди](../../../message-queue/concepts/queue.md) {{ message-queue-name }};
 * [контейнеры](../../../serverless-containers/concepts/container.md) {{ serverless-containers-name }};
-* [рабочие процессы](../../concepts/workflows/workflow.md) {{ sw-name }}.
+* [рабочие процессы]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow) {{ sw-name }}.
 
 {{ er-name }} поддерживает гарантию доставки `At least once`. Если временно невозможно доставить или получить подтверждение о доставке, {{ er-name }} будет повторно пытаться отправить событие до истечения времени жизни события. Количество повторных попыток и максимальное время жизни события задаются в настройках приемника. Событие, которое не удалось обработать, перемещается в указанную клиентом очередь Dead Letter Queue.
 

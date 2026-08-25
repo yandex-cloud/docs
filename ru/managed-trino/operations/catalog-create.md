@@ -22,7 +22,7 @@ description: Следуя этой инструкции, вы создадите
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/managed-trino) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Нажмите на имя нужного кластера.
-  1. На панели слева выберите ![image](../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.trino.title_catalogs }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.trino.title_catalogs }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.trino.catalogs.create_action }}**.
   1. В поле **{{ ui-key.yacloud.trino.catalogs.field_catalog-name }}** задайте имя каталога {{ TR }}.
   1. В поле **{{ ui-key.yacloud.trino.catalogs.field_catalog-type }}** выберите тип [коннектора](../concepts/index.md#connector).
@@ -1032,6 +1032,14 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 {% endlist %}
 
 ### Коннектор Hive {#hive}
+
+{% note info %}
+
+В каталогах с Hive-коннектором {{ mtr-name }} переопределяет значение параметра [`hive.hive-views.run-as-invoker`]({{ tr.docs }}/connector/hive.html#hive-views) по умолчанию с `false` на `true`. При таком значении авторизация доступа к данным Hive-представлений (`VIEW`) выполняется от имени пользователя, выполняющего запрос, а не от имени пользователя, который создал представление. Это позволяет корректно применять правила [управления доступом](../concepts/access-control.md) с учетом IAM-групп пользователя, выполняющего запрос.
+
+Если в дополнительных настройках каталога значение параметра `hive.hive-views.run-as-invoker` задано явно, оно не переопределяется.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 

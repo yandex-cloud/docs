@@ -80,10 +80,10 @@ _Блокировка версии объекта_ (object lock) в [верси�
 1. [Заблокируйте существующую версию объекта](../operations/objects/edit-object-lock.md) или [загрузите версию объекта с блокировкой](../operations/objects/upload.md#w-object-lock).
 
 Смотрите также:
-* [Настройка блокировок по умолчанию](../operations/buckets/configure-object-lock.md).
-* [Установка, изменение и снятие блокировок](../operations/objects/edit-object-lock.md).
-* [Удаление версии объекта с блокировкой](../operations/objects/delete.md#w-object-lock).
-* [Восстановление версии объекта в версионируемом бакете](../operations/objects/restore-object-version.md).
+* [Управление блокировками версий объектов (object lock) в бакете](../operations/buckets/configure-object-lock.md).
+* [Блокировать версии объекта (object lock)](../operations/objects/edit-object-lock.md).
+* [Удалить версию объекта с блокировкой (object lock)](../operations/objects/delete.md#w-object-lock).
+* [Восстановить версию объекта](../operations/objects/restore-object-version.md).
 
 
 ## Примеры использования {#examples}

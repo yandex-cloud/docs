@@ -21,7 +21,7 @@ description: Из статьи вы узнаете, как изменить вс
   1. [Перейдите]({{ link-console-main }}/link/serverless-containers) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
   1. Выберите триггер, параметры которого хотите изменить.
-  1. В правом верхнем углу страницы нажмите **{{ ui-key.yacloud.common.edit }}**.
+  1. На панели сверху нажмите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Измените параметры триггера и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_update-trigger }}**.
 
 - CLI {#cli}

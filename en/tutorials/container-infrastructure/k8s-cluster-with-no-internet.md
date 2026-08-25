@@ -1,6 +1,6 @@
 ---
 title: Creating and configuring a {{ managed-k8s-full-name }} cluster with no internet access
-description: Follow this guide to create and configure a {{ managed-k8s-name }} cluster with no internet access.
+description: Follow this tutorial to create and configure a {{ managed-k8s-name }} cluster with no internet access.
 ---
 
 # Creating and configuring a {{ managed-k8s-name }} cluster with no internet access

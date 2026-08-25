@@ -1,9 +1,9 @@
 ---
-title: Delete backup
+title: Deleting a backup
 description: In this tutorial, you will learn how to delete a VM or server backup in {{ backup-full-name }}.
 ---
 
-# Delete backup
+# Deleting a backup
 
 
 {% note tip %}
@@ -27,7 +27,7 @@ Currently, you can delete a backup of an [external resource](../../concepts/vm-c
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the backup.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. [Navigate]({{ link-console-main }}/link/backup) to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. In the left-hand panel, select ![backups](../../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.backup.label_backups }}**.
   1. Depending on the resource you want to delete the backup for, select the **{{ ui-key.yacloud.backup.value_vm-recourses }}** or **{{ ui-key.yacloud.backup.value_bms-recourses }}** tab.
   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) in the row with the backup you need to delete and select ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
@@ -76,4 +76,4 @@ Currently, you can delete a backup of an [external resource](../../concepts/vm-c
 
 #### Useful links {#see-also}
 
-* [{#T}](./batch-delete.md)
+[{#T}](./batch-delete.md)

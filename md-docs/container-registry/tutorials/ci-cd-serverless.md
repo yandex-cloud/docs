@@ -13,7 +13,7 @@
 * `prod` — продакшн, доступный пользователям.
 * `testing` — тестовое, используется для проверки приложения перед релизом в `prod`.
 
-Для каждого из окружений создается отдельный [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) в Yandex Cloud, а так же отдельный набор статических ресурсов — БД, [сервисные аккаунты](../../iam/concepts/users/service-accounts.md) и т. д. Таким образом все окружения изолированы друг от друга на уровне настроек [Yandex Identity and Access Management](../../iam/index.md).
+Для каждого из окружений создается отдельный [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) в Yandex Cloud, а также отдельный набор статических ресурсов — БД, [сервисные аккаунты](../../iam/concepts/users/service-accounts.md) и т. д. Таким образом, все окружения изолированы друг от друга на уровне настроек [Yandex Identity and Access Management](../../iam/index.md).
 
 Дополнительно используется общий каталог `infra` с [реестром](../concepts/registry.md) [Yandex Container Registry](../index.md) — в него публикуются все собранные [Docker-образы](../concepts/docker-image.md) приложения. Публикация образов осуществляется от отдельного сервисного аккаунта `builder`. Сервисные аккаунты окружений `prod` и `testing` имеют ограниченные права в каталоге `infra` и могут только [скачивать Docker-образы](../operations/docker-image/docker-image-pull.md).
 

@@ -41,6 +41,16 @@ blocks:
         controlPosition: content
         animated: false
       - type: basic-card
+        title: Hosting a static website in Yandex Cloud
+        text: >-
+          Overview of solutions for hosting a static website in a fault-tolerant
+          configuration in the Yandex Cloud infrastructure.
+        urlTitle: "Hosting a static website in Yandex\_Cloud"
+        url: static-website-in-yc
+        border: shadow
+        controlPosition: content
+        animated: false
+      - type: basic-card
         title: "Fault tolerance testing in Yandex\_Cloud"
         text: >-
           Recommended practices for fault tolerance testing on a complete

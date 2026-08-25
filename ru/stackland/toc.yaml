@@ -249,6 +249,8 @@ items:
         href: concepts/resource-model.md
       - name: Масштабирование кластера
         href: concepts/cluster-scaling.md
+      - name: Лицензирование
+        href: concepts/licensing.md
       - name: Компоненты
         items:
           - name: Обзор

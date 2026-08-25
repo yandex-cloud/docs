@@ -41,7 +41,7 @@ To search for logs, specify a request like:
 
    After migration, logs will be billed according to the {{ monium-name }} pricing and all platform features will become available.
 
-1. Optionally, rename the projects, clusters, and services. You can leave the current structure: `folder__<folder_ID>` → `default` → `log group name` or provide your own naming. For more information, see [{#T}](../concepts/data-model.md).
+1. Optionally, rename the projects, clusters, and services. You can leave the current structure: `folder__<folder_ID>` → `default` → `log group name` or provide your own naming. For more information, see [Types of telemetry and general concepts](../concepts/data-model.md#telemetry-common).
 
 ## Configuring your agent for OTel delivery {#agent-setup}
 
@@ -147,6 +147,4 @@ You can continue using Fluent Bit or configure delivery via [OTel Collector](../
 
 ## Reading logs via API {#api-reading}
 
-[Log reading via the {{ cloud-logging-name }} API](../../logging/api-ref/grpc/LogReading/read.md) will be supported until March 1, 2027 if you preserve the `folder__<folder_ID>` → `default` → `log group name` structure. The data is available within the storage period of 31 days.
-
-Data reading via the {{ monium-name }} API and its documentation will become available in July 2026. Make sure to migrate read requests to the new API before the old API support is discontinued.
+[Log reading via the {{ cloud-logging-name }} API](../../logging/api-ref/grpc/LogReading/read.md) will be supported until March 1, 2027 if you preserve the `folder__<folder_ID>` → `default` → `log group name` structure. The data is available within the storage period of 31 days. Make sure to migrate read requests to the new API before the old API support is discontinued.

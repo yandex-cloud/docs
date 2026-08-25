@@ -47,7 +47,7 @@
 - {{ TF }} {#tf}
 
   1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
-  
+
   1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
   1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
 
@@ -60,9 +60,9 @@
       * Профиль ARL, устанавливающий лимит запросов и группировку запросов по параметру `token`.
       * Профиль безопасности {{ sws-name }}, который использует профиль ARL и дополнительно устанавливает блокировку по IP-адресу.
       * API-шлюз, настроенный на работу с профилем безопасности {{ sws-name }}.
-  
-  1. В блоке с локальными переменными файла api-gw-sws-integration.tf укажите следующие параметры:
-  
+
+  1. В блоке с локальными переменными файла `api-gw-sws-integration.tf` укажите следующие параметры:
+
       * `api-gw-name` — имя API-шлюза.
       * `create-api-gw = 1`
 
@@ -94,7 +94,7 @@
 
       * **Имя** — `query-limit-rule`;
       * **{{ ui-key.yacloud.smart-web-security.arl.column_rule-priority }}** — `999900`;
-      * **Группировать запросы** — **По характеристикам**;
+      * **Группировать запросы** — `По характеристикам`;
       * **Характеристика** — `Query params`;
       * **Группировать по** — `token`;
       * **Лимит запросов на группу** — `1` за `1 минуту`.
@@ -107,12 +107,12 @@
 
       * **Имя** — `ip-block-rule`;
       * **{{ ui-key.yacloud.smart-web-security.arl.column_rule-priority }}** — `999700`;
-      * **Тип правила** — **Базовое**;
-      * **{{ ui-key.yacloud.smart-web-security.overview.column_action-type }}** — **Разрешить**;
+      * **Тип правила** — `{{ ui-key.yacloud.smart-web-security.overview.label_base-rule }}`;
+      * **{{ ui-key.yacloud.smart-web-security.overview.column_action-type }}** — `{{ ui-key.yacloud.smart-web-security.form.label_action-allow }}`;
       * **{{ ui-key.yacloud.smart-web-security.arl.column_rule-conditions }}**:
 
-          * **Трафик** — **При условии**;
-          * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** — `IP`;
+          * **Трафик** — `При условии`;
+          * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** — `{{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}`;
           * **Условия на IP** — `Совпадает или принадлежит диапазону`;
           * **IP совпадает или принадлежит диапазону** — укажите ваш IP-адрес.
 
@@ -126,7 +126,7 @@
       * `allowed_ips` — список IP-адресов, с которых разрешен доступ к API-шлюзу.
 
   1. В параметре `securityProfileId` спецификации API-шлюза укажите идентификатор профиля безопасности.
-  
+
   1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
       ```bash

@@ -3,13 +3,13 @@
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to connect a VM.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. Enter a name for the [security group](../../../vpc/concepts/security-groups.md), e.g., `backup-sg`.
   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select the [network](../../../vpc/concepts/network.md) the VM resides in.
   1. Under **{{ ui-key.yacloud.vpc.network.security-groups.label_section-rules }}**, navigate to the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** tab and click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
-  1. Add the following outgoing traffic rules one by one:
+  1. Add the following outbound rules one by one:
 
       {% include [outgoing traffic](../outgoing-rules.md) %}
 

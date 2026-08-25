@@ -12,13 +12,7 @@
 
     При создании ВМ с помощью [консоли управления](https://console.yandex.cloud) использовать сервисный аккаунт не обязательно. При этом пользователю, создающему ВМ, должна быть назначена [роль](../security/index.md#backup-user) `backup.user` или выше на каталог, в котором создается ВМ.
 
-    {% note warning %}
-
-    С 1 августа 2026 года роли [compute.editor](../../compute/security/index.md#compute-editor) и [compute.admin](../../compute/security/index.md#compute-admin) получают новый набор разрешений от роли [backup.user](../security/index.md#backup-user), позволяющий подключать виртуальные машины к сервису Yandex Cloud Backup, а также привязывать и отвязывать их от [политик резервного копирования](../concepts/policy.md).
-
-    Если вы не планируете подключать ваши ресурсы к Cloud Backup и не хотите предоставлять вашим пользователям такие разрешения, вы можете заблаговременно отключить эти возможности с помощью [политики авторизации](../../iam/concepts/access-control/access-policies.md#backup-denyActivation) `backup.denyActivation`, назначенной на каталог, облако или организацию. Подробнее о том, как создать политику авторизации, читайте в разделе [Создание политики авторизации для ресурса](../../iam/operations/access-policies/assign.md).
-
-    {% endnote %}
+    Если вы используете роли [compute.editor](../../compute/security/index.md#compute-editor) и выше или [baremetal.editor](../../baremetal/security/index.md#baremetal-editor) и выше, роль `backup.user` можно не назначать. Эти роли уже включают разрешения, предоставляемые `backup.user`.
 
 1. [Настройте](../concepts/vm-connection/compute.md#vm-network-access) сетевой доступ для ВМ.
 
@@ -100,7 +94,7 @@
 
   Когда ВМ перейдет в статус `Running`, на нее начнет устанавливаться агент Cloud Backup. Установка займет от 10 до 30 минут.
 
-  После установки агента Cloud Backup ВМ будет добавлена в сервис **Cloud Backup** на вкладку ![machines](../../_assets/console-icons/server.svg) **Виртуальные машины** и привязана к [политике резервного копирования](../concepts/policy.md).
+  После установки агента Cloud Backup ВМ будет добавлена в сервис **Cloud Backup** на вкладку **Виртуальные машины** раздела **Подключённые ресурсы** и привязана к [политике резервного копирования](../concepts/policy.md).
   
   Если виртуальная машина не привязалась к политике автоматически, [привяжите](policy-vm/attach-and-detach-vm.md) ее вручную.
 

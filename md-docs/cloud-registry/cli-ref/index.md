@@ -22,8 +22,6 @@ Aliases:
 
 - [yc cloud-registry configure-docker](configure-docker.md) — Configure the Docker credential helper for Cloud Registry.
 
-- [yc cloud-registry tools](tools.md) — 
-
 - [yc cloud-registry artifact](artifact/index.md) — A set of methods for managing Artifacts.
 
   - [yc cloud-registry artifact add-access-binding](artifact/add-access-binding.md) — Add access binding for the specified artifact.
@@ -45,6 +43,14 @@ Aliases:
   - [yc cloud-registry artifact update-access-bindings](artifact/update-access-bindings.md) — Updates access bindings for the specified artifact (folder, package, artifact, etc).
 
   - [yc cloud-registry artifact upsert](artifact/upsert.md) — Upserts a folder at the specified path within the registry.
+
+- [yc cloud-registry migration](migration/index.md) — A set of methods for managing cloud migration.
+
+  - [yc cloud-registry migration get-cloud-migration-status-dashboard](migration/get-cloud-migration-status-dashboard.md) — Returns migration status dashboard for the specified cloud.
+
+  - [yc cloud-registry migration start-cloud](migration/start-cloud.md) — Starts migration for all registries in the specified cloud.
+
+  - [yc cloud-registry migration start-folder](migration/start-folder.md) — Starts migration for all registries in the specified folder.
 
 - [yc cloud-registry registry](registry/index.md) — A set of methods for managing Registry resources.
 
@@ -78,6 +84,10 @@ Aliases:
 
   - [yc cloud-registry registry update](registry/update.md) — Updates the specified registry.
 
+- [yc cloud-registry tools](tools/index.md) — 
+
+
+
 - [yc cloud-registry v0](v0/index.md) — (legacy command tree) Manage Cloud Registry resources
 
   - [yc cloud-registry v0 configure-docker](v0/configure-docker.md) — 
@@ -85,8 +95,6 @@ Aliases:
 - [yc cloud-registry v1](v1/index.md) — Manage Cloud Registry resources
 
   - [yc cloud-registry v1 configure-docker](v1/configure-docker.md) — Configure the Docker credential helper for Cloud Registry.
-
-  - [yc cloud-registry v1 tools](v1/tools.md) — 
 
 #### Global Flags
 

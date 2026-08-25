@@ -2,11 +2,11 @@
 
 {% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}
 
-You can edit a registry [name](registry-update.md#update-name) or [description](registry-update.md#update-description) and [manage registry labels](registry-update.md#manage-label).
+You can update a registry [name](registry-update.md#update-name) or [description](registry-update.md#update-description) and [manage registry labels](registry-update.md#manage-label).
 
 {% include [registry-get-id-name](../../../_includes/iot-core/registry-get-id-name.md) %}
 
-## Updating the name of a registry {#update-name}
+## Updating a registry name {#update-name}
 
 {% list tabs group=instructions %}
 
@@ -14,8 +14,8 @@ You can edit a registry [name](registry-update.md#update-name) or [description](
 
    To update the name of a registry:
 
-   1. In the [management console]({{ link-console-main }}), select the folder to update the registry name in.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to update the registry name.
+   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. To the right of the registry name, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
    1. Edit the **{{ ui-key.yacloud.common.name }}** field.
    1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -24,13 +24,14 @@ You can edit a registry [name](registry-update.md#update-name) or [description](
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  Change the registry name:
+  Update the registry name:
 
   ```bash
   yc iot registry update my-registry --new-name test-registry
   ```
 
   Result:
+
   ```text
   id: b91ki3851hab********
   folder_id: aoek49ghmknn********
@@ -44,11 +45,11 @@ You can edit a registry [name](registry-update.md#update-name) or [description](
   
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  To update the name of a registry created using {{ TF }}:
+  To update the name of a registry created with {{ TF }}:
 
-  1. Open the {{ TF }} configuration file and edit the `name` parameter value in the registry description fragment.
+  1. Open the {{ TF }} configuration file and edit the `name` parameter value in the registry description.
 
-      Example registry description in the {{ TF }} configuration:
+      Here is an example of a registry description in the {{ TF }} configuration:
 
       ```hcl
       resource "yandex_iot_core_registry" "my_registry" {
@@ -60,7 +61,7 @@ You can edit a registry [name](registry-update.md#update-name) or [description](
       ```
 
       For more on the properties of the `yandex_iot_core_registry` resource, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_registry).
-  1. In the command line, change to the folder where you edited the configuration file.
+  1. In the terminal, navigate to the directory where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
       ```bash
@@ -88,7 +89,7 @@ You can edit a registry [name](registry-update.md#update-name) or [description](
 
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can verify the updated registry name in the [management console]({{ link-console-main }}) or using the following [CLI](../../../cli/quickstart.md) command:
+      You can check the updated registry name using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
       ```bash
       yc iot registry list
@@ -96,20 +97,20 @@ You can edit a registry [name](registry-update.md#update-name) or [description](
 
 - API {#api}
 
-  To rename a registry, use the [update](../../api-ref/Registry/update.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/Update](../../api-ref/grpc/Registry/update.md) gRPC API call.
+  To update a registry name, use the [update](../../api-ref/Registry/update.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/Update](../../api-ref/grpc/Registry/update.md) gRPC API call.
 
 {% endlist %}
 
-## Updating the description of a registry {#update-description}
+## Updating a registry description {#update-description}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   To update the description of a registry:
+   To update a registry description:
 
-   1. In the [management console]({{ link-console-main }}), select the folder to update the registry description in.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to update the registry description.
+   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. To the right of the registry name, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
    1. Edit the **{{ ui-key.yacloud.common.description }}** field.
    1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -125,6 +126,7 @@ You can edit a registry [name](registry-update.md#update-name) or [description](
   ```
 
   Result:
+
   ```text
   id: b91ki3851hab********
   folder_id: aoek49ghmknn********
@@ -141,11 +143,11 @@ You can edit a registry [name](registry-update.md#update-name) or [description](
   
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  To update the description of a registry created using {{ TF }}:
+  To update the description of a registry created with {{ TF }}:
 
-  1. Open the {{ TF }} configuration file and edit the `description` parameter value in the registry description fragment.
+  1. Open the {{ TF }} configuration file and edit the `description` parameter value in the registry description.
 
-      Example registry description in the {{ TF }} configuration:
+      Here is an example of a registry description in the {{ TF }} configuration:
 
       ```hcl
       resource "yandex_iot_core_registry" "my_registry" {
@@ -157,7 +159,7 @@ You can edit a registry [name](registry-update.md#update-name) or [description](
       ```
 
       For more on the properties of the `yandex_iot_core_registry` resource, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_registry).
-  1. In the command line, change to the folder where you edited the configuration file.
+  1. In the terminal, navigate to the directory where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
       ```bash
@@ -185,7 +187,7 @@ You can edit a registry [name](registry-update.md#update-name) or [description](
 
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can verify the updated registry description in the [management console]({{ link-console-main }}) or using the following [CLI](../../../cli/quickstart.md) command:
+      You can check the updated registry description using the [management console]({{ link-console-main }}) or [CLI](../../../cli/quickstart.md) command:
 
       ```bash
       yc iot registry get <registry_name>
@@ -199,7 +201,7 @@ You can edit a registry [name](registry-update.md#update-name) or [description](
 
 ## Managing registry labels {#manage-label}
 
-You can perform the following actions related to registry labels:
+You can manage registry labels in the following ways:
 
 * [Add](registry-update.md#add-label)
 * [Edit](registry-update.md#update-label)
@@ -213,8 +215,8 @@ You can perform the following actions related to registry labels:
 
    To add a registry label:
 
-   1. In the [management console]({{ link-console-main }}), select the folder to add the registry label to.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to add a registry label.
+   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. To the right of the registry name, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
    1. Fill in the **{{ ui-key.yacloud.component.key-values-input.label_key }}** and **{{ ui-key.yacloud.component.key-values-input.label_value }}** fields and click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
    1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -223,13 +225,14 @@ You can perform the following actions related to registry labels:
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  Add a label to a registry:
+  Add a registry label:
 
   ```bash
   yc iot registry add-labels my-registry --labels new_label=test_label
   ```
 
   Result:
+
   ```text
   id: b91ki3851hab********
   folder_id: aoek49ghmknn********
@@ -245,16 +248,17 @@ You can perform the following actions related to registry labels:
   
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  To add a label to a registry created using {{ TF }}:
+  To add a label to a registry created with {{ TF }}:
 
   1. In the configuration file, describe the resource you want to create:
 
-     * `yandex_iot_core_registry`: Registry parameters:
+     * `yandex_iot_core_registry`: Registry settings:
+
        * `name`: Registry name.
        * `description`: Registry description.
        * `labels`: Registry labels in `key:value` format.
 
-      Here is an example of the resource structure in the configuration file:
+      Here is an example of a resource structure in the configuration file:
 
       ```hcl
       resource "yandex_iot_core_registry" "my_registry" {
@@ -268,7 +272,7 @@ You can perform the following actions related to registry labels:
       ```
 
       For more on the properties of the `yandex_iot_core_registry` resource, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_registry).
-  1. In the command line, change to the folder where you edited the configuration file.
+  1. In the terminal, navigate to the directory where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
       ```bash
@@ -296,7 +300,7 @@ You can perform the following actions related to registry labels:
 
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can verify registry labels using the following [CLI](../../../cli/quickstart.md) command:
+      You can check registry labels using the following [CLI](../../../cli/quickstart.md) command:
 
       ```bash
       yc iot registry get <registry_name>
@@ -304,7 +308,7 @@ You can perform the following actions related to registry labels:
 
 - API {#api}
 
-  To add a label to a registry, use the [update](../../api-ref/Registry/update.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/Update](../../api-ref/grpc/Registry/update.md) gRPC API call.
+  To add a registry label, use the [update](../../api-ref/Registry/update.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/Update](../../api-ref/grpc/Registry/update.md) gRPC API call.
 
 {% endlist %}
 
@@ -314,10 +318,10 @@ You can perform the following actions related to registry labels:
 
 - Management console {#console}
 
-   To update the label of a registry:
+   To update a registry label:
 
-   1. In the [management console]({{ link-console-main }}), select the folder to update the registry label in.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to update a registry label.
+   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. To the right of the registry name, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
    1. Edit the **{{ ui-key.yacloud.component.key-values-input.label_key }}** and **{{ ui-key.yacloud.component.key-values-input.label_value }}** fields.
    1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -326,7 +330,7 @@ You can perform the following actions related to registry labels:
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  Change a registry label:
+  Update a registry label:
 
   {% include [labels-rewrite-warning](../../../_includes/labels-rewrite-warning.md) %}
 
@@ -335,6 +339,7 @@ You can perform the following actions related to registry labels:
   ```
 
   Result:
+
   ```text
   id: b91ki3851hab********
   folder_id: aoek49ghmknn********
@@ -350,11 +355,11 @@ You can perform the following actions related to registry labels:
   
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  To update the label of a registry created using {{ TF }}:
+  To update a label of a registry created with {{ TF }}:
 
-  1. Open the {{ TF }} configuration file and edit the label value in the `labels` section, in the registry description fragment.
+  1. Open the {{ TF }} configuration file and edit the label value in the `labels` section of the registry description.
 
-      Example registry description in the {{ TF }} configuration:
+      Here is an example of a registry description in the {{ TF }} configuration:
 
       ```hcl
       resource "yandex_iot_core_registry" "my_registry" {
@@ -368,7 +373,7 @@ You can perform the following actions related to registry labels:
       ```
 
       For more on the properties of the `yandex_iot_core_registry` resource, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_registry).
-  1. In the command line, change to the folder where you edited the configuration file.
+  1. In the terminal, navigate to the directory where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
       ```bash
@@ -396,7 +401,7 @@ You can perform the following actions related to registry labels:
 
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can verify registry labels using the following [CLI](../../../cli/quickstart.md) command:
+      You can check registry labels using the following [CLI](../../../cli/quickstart.md) command:
 
       ```bash
       yc iot registry get <registry_name>
@@ -416,8 +421,8 @@ You can perform the following actions related to registry labels:
 
    To delete a registry label:
 
-   1. In the [management console]({{ link-console-main }}), select the folder to delete the registry label from.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to delete a registry label.
+   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. To the right of the registry name, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
    1. To the right of the label to delete, click ![image](../../../_assets/console-icons/xmark.svg).
    1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -433,6 +438,7 @@ You can perform the following actions related to registry labels:
   ```
 
   Result:
+
   ```text
   id: b91ki3851hab********
   folder_id: aoek49ghmknn********
@@ -446,11 +452,11 @@ You can perform the following actions related to registry labels:
   
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  To delete the label of a registry created using {{ TF }}:
+  To delete a label of a registry created with {{ TF }}:
 
-  1. Open the {{ TF }} configuration file and delete the label value in the `labels` section, in the registry description fragment. To delete all labels, delete the entire `labels` section.
+  1. Open the {{ TF }} configuration file and delete the label value from the `labels` section of the registry description. To delete all labels, delete the entire `labels` section.
 
-      Example registry description in the {{ TF }} configuration:
+      Here is an example of a registry description in the {{ TF }} configuration:
 
       ```hcl
       resource "yandex_iot_core_registry" "my_registry" {
@@ -464,7 +470,7 @@ You can perform the following actions related to registry labels:
       ```
 
       For more on the properties of the `yandex_iot_core_registry` resource, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_registry).
-  1. In the command line, change to the folder where you edited the configuration file.
+  1. In the terminal, navigate to the directory where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
       ```bash
@@ -492,7 +498,7 @@ You can perform the following actions related to registry labels:
 
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can verify registry labels using the following [CLI](../../../cli/quickstart.md) command:
+      You can check registry labels using the following [CLI](../../../cli/quickstart.md) command:
 
       ```bash
       yc iot registry get <registry_name>

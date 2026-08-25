@@ -19,7 +19,7 @@ Make sure to check out our [pricing policy](../pricing.md#prices-public-ip) for 
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to reserve an address.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
    1. Click **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
    1. In the window that opens:

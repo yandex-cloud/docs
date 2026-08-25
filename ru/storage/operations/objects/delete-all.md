@@ -1,9 +1,9 @@
 ---
-title: Удаление всех объектов из бакета в {{ objstorage-full-name }}
+title: Удалить все объекты из бакета в {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете удалить все объекты из бакета в {{ objstorage-name }}.
 ---
 
-# Удаление всех объектов из бакета
+# Удалить все объекты из бакета
 
 {% include [restore-only-versioning](../../../_includes/storage/restore-only-versioning.md) %}
 

@@ -12,14 +12,14 @@ To create an [origin group](../../concepts/origins.md):
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to host your origin group.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Navigate]({{ link-console-main }}/link/cdn) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}**.
   1. Click **{{ ui-key.yacloud.cdn.button_origins-group-create }}**.
   1. Enter a name for the origin group.
   1. Configure **{{ ui-key.yacloud.cdn.label_section-origins-list }}**:
-     * Specify the **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-url }}`, `{{ ui-key.yacloud.cdn.value_source-type-bucket }}`, or `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`. For more information about types, see [{#T}](../../concepts/origins.md).
+     * Specify the **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-url }}`, `{{ ui-key.yacloud.cdn.value_source-type-bucket }}`, or `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`. For more on types, see [{#T}](../../concepts/origins.md).
      * Specify an origin.
-     * Select the **{{ ui-key.yacloud.cdn.field_origin-state }}**: `{{ ui-key.yacloud.cdn.value_active }}` or `{{ ui-key.yacloud.cdn.value_backup }}`. For more information about priorities, see [{#T}](../../concepts/origins.md#groups).
+     * Select the **{{ ui-key.yacloud.cdn.field_origin-state }}**: `{{ ui-key.yacloud.cdn.value_active }}` or `{{ ui-key.yacloud.cdn.value_backup }}`. For more on priorities, see [{#T}](../../concepts/origins.md#groups).
      * Add other origins if needed.
   1. Select the CDN provider. Always set it to `{{ cdn-full-name }}`.
   1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -47,7 +47,7 @@ To create an [origin group](../../concepts/origins.md):
      Where `--origin` is the [origin](../../concepts/resource.md) specification:
      * `source`: Origin [IP address](../../../vpc/concepts/address.md) or domain name.
      * `enabled`: Flag showing whether the origin is enabled.
-     * `backup`: Flag showing whether the origin as a backup one. For more information about priorities, see [{#T}](../../concepts/origins.md#groups).
+     * `backup`: Flag showing whether the origin as a backup one. For more on priorities, see [{#T}](../../concepts/origins.md#groups).
 
      Result:
 

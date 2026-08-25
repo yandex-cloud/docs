@@ -38,7 +38,7 @@ To prevent data loss, the new host automatically inherits the data schema from e
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
   1. Click **{{ ui-key.yacloud.clickhouse.hosts.dialog.action_add-clickhouse-hosts }}**.
 
@@ -123,7 +123,7 @@ To prevent data loss, the new host automatically inherits the data schema from e
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-     For more on how to create such a file, see the [Creating a cluster](cluster-create.md) section.
+     For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
   1. Add a new host to the `hosts` section:
 
@@ -149,7 +149,7 @@ To prevent data loss, the new host automatically inherits the data schema from e
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -275,7 +275,7 @@ You can change public access settings for any host in a {{ mch-name }} cluster.
 
   To change the cluster host settings:
   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host row and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. In the window that opens, enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** to make the host accessible from outside {{ yandex-cloud }}, if required.
@@ -304,7 +304,7 @@ You can change public access settings for any host in a {{ mch-name }} cluster.
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-     For more on how to create such a file, see the [Creating a cluster](cluster-create.md) section.
+     For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
   1. Under `hosts`, add or change the `assign_public_ip` parameter value for the host:
 
@@ -327,7 +327,7 @@ You can change public access settings for any host in a {{ mch-name }} cluster.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -457,7 +457,7 @@ You cannot delete hosts of different types ({{ CH }} and {{ ZK }}) at the same t
   To delete a single host:
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host row and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
     1. In the window that opens, enable **Delete host** and click **{{ ui-key.yacloud.mdb.cluster.hosts.popup-confirm_button }}**.
@@ -465,7 +465,7 @@ You cannot delete hosts of different types ({{ CH }} and {{ ZK }}) at the same t
   To delete multiple hosts in one go:
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
     1. Select the hosts you want to delete and click **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}** at the bottom of the screen.
     1. In the window that opens, click **{{ ui-key.yacloud.mdb.cluster.hosts.action_delete-host }}**.
@@ -492,7 +492,7 @@ You cannot delete hosts of different types ({{ CH }} and {{ ZK }}) at the same t
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-     For more on how to create such a file, see the [Creating a cluster](cluster-create.md) section.
+     For more on how to create this file, see [Creating a cluster](cluster-create.md).
   
   1. Delete one or multiple `CLICKHOUSE` hosts from the `hosts` section.
   1. Make sure the settings are correct.

@@ -2,7 +2,6 @@
 
 # Поставка данных в Yandex Managed Service for ClickHouse® с помощью Yandex Data Transfer
 
-
 # Поставка данных из очереди Apache Kafka® в ClickHouse® с помощью Yandex Data Transfer
 
 

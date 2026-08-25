@@ -1,0 +1,1 @@
+**{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbOnPremiseConnectionSettings.ca_certificate.title }}** — загрузите файл с PEM-cертификатом центра сертификации X.509, используемый  для аутентификации подключений к базе данных YDB. Если указан, то при подключении используется TLS.

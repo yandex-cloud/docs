@@ -6,6 +6,7 @@ description: Follow this guide to get information about existing Docker images.
 # Getting information about existing Docker images
 
 Find out how to get:
+
 * [List of Docker images in a registry](#docker-image-list).
 * [Detailed information about a Docker image](#docker-image-get).
 
@@ -45,7 +46,7 @@ Find out how to get:
 
 - CLI {#cli}
 
-  Get detailed information about a Docker image using the `id` from the [previous](#docker-image-list) item:
+  Get detailed information about a Docker image using `id` from the [previous](#docker-image-list) step:
 
   ```bash
   yc container image get crphc7nnrvhl********

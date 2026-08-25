@@ -17,27 +17,10 @@ description: In this section, you will learn how to view alerts in {{ sd-full-na
 
       The section that opens displays a list of [alerts](../../concepts/alerts.md).
 
-      For each alert, the table displays the following information:
+  1. Optionally, [configure](#configure) alert display.
 
-      {% include [table-columns-tip](../../../_includes/security-deck/table-columns-tip.md) %}
-
-      * ![traffic-light](../../../_assets/console-icons/traffic-light.svg): Alert criticality level:
-          * ![cspm-rule-notice-icon](../../../_assets/security-deck/cspm-rule-notice-icon.svg): {{ ui-key.yacloud_org.shared.components.severity_info_biSRh }}
-          * ![cspm-low-severity-icon](../../../_assets/security-deck/cspm-low-severity-icon.svg): {{ ui-key.yacloud_org.shared.components.severity_low_tqf9A }}
-          * ![cspm-moderate-severity-icon](../../../_assets/security-deck/cspm-moderate-severity-icon.svg): {{ ui-key.yacloud_org.shared.components.severity_medium_8LZ4w }}
-          * ![cspm-high-severity-icon](../../../_assets/security-deck/cspm-high-severity-icon.svg): {{ ui-key.yacloud_org.shared.components.severity_high_cahHH }}
-
-      * **{{ ui-key.yacloud_org.security-center.alerts.caption_title }}**: Alert header.
-      * **{{ ui-key.yacloud_org.security-center.alerts.caption_category }}**: Threat associated with the alert.
-      * **{{ ui-key.yacloud_org.security-center.alerts.caption_sensor }}**: Module which sent the alert.
-      * **{{ ui-key.yacloud_org.security-center.alerts.caption_status }}**: Alert status.
-      * **{{ ui-key.yacloud_org.security-center.alerts.caption_classification }}**: Activity classification.
-      * **{{ ui-key.yacloud_org.security-center.alerts.caption_assignee }}**: User responsible for the alert.
-      * **{{ ui-key.yacloud_org.security-center.alerts.caption_created-by }}** and **{{ ui-key.yacloud_org.security-center.alerts.caption_modified-at }}**: Date and time the alert was created and last modified.
-      * **{{ ui-key.yacloud_org.security-center.alerts.caption_incident }}**: Incident associated with the alert.
 
 {% endlist %}
-
 
 ## Searching alerts {#search}
 
@@ -48,17 +31,28 @@ description: In this section, you will learn how to view alerts in {{ sd-full-na
   1. Go to [{{ sd-full-name }}]({{ link-sd-main }}).
   1. In the left-hand panel, select ![alerts](../../../_assets/security-deck/alerts.svg) **{{ ui-key.yacloud_org.security-center.label_alerts }}**.
   1. At the top of the window, select the [workspace](../../concepts/workspace.md) for which you want find the alerts.
-  1. Click ![sliders](../../../_assets/console-icons/sliders.svg) **{{ ui-key.yacloud_org.security.alerts.filters-button }}** to expand the filter panel.
-
-      For search and analysis, you can use:
-
-      * Text search by alert headers and descriptions.
-      * Visual grouping by alert type.
-      * Sorting by date and criticality level.
-      * Filters.
+  1. In the search bar, enter a part of the header or description of the alert you want to find.
+  1. Optionally, [configure](#configure) how to display search results.
 
 {% endlist %}
 
+## Customizing alert display {#configure}
+
+{% list tabs group=instructions %}
+
+- {{ sd-name }} UI {#cloud-sd}
+
+  1. Go to [{{ sd-full-name }}]({{ link-sd-main }}).
+  1. In the left-hand panel, select ![alerts](../../../_assets/security-deck/alerts.svg) **{{ ui-key.yacloud_org.security-center.label_alerts }}**.
+  1. At the top of the window, select the [workspace](../../concepts/workspace.md) you want to view alerts for.
+  1. Group alerts by issue or alert type. To the right of the search bar, click ![alt text](../../../_assets/console-icons/layout-split-rows.svg) and select a grouping type.
+  1. Sort alerts by date or severity level. Above the filter panel, click ![alt text](../../../_assets/console-icons/bars-ascending-align-left-arrow-up.svg) and select a sorting type.
+  1. To filter alerts, use the panel above the table. In drop-down lists, select the required values.
+
+     To configure filter visibility, click ![plus](../../../_assets/console-icons/plus.svg) to the right of the filter and select the values to show or hide.
+  1. Configure column visibility. Click ![gear](../../../_assets/console-icons/gear.svg) on the right side of the table header. Select the values you need and click **{{ ui-key.yacloud_org.common.apply }}**.
+
+{% endlist %}
 
 ## Viewing detailed alert information {#detailed-info}
 

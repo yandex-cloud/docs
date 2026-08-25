@@ -88,4 +88,4 @@ If the resource backups were based on a variety of backup policies, you also nee
 
 #### Useful links {#see-also}
 
-* [{#T}](./delete.md)
+[{#T}](./delete.md)

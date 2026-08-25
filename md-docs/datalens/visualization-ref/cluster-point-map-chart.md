@@ -21,6 +21,10 @@
 
 ![point-chart](../../_assets/datalens/visualization-ref/cluster-point-map/cluster-point-map.png =800x)
 
+
+DataLens использует карты и геоданные только от партнеров. Если у вас в данных есть поле с названием городов, регионов или стран, используйте [справочник геоточек/геополигонов](https://geointellect.com/files/geo_for_datalens.zip) нашего партнера Геоинтеллект.
+
+
 ## Секции в визарде {#wizard-sections}
 
 Ограничения:
@@ -40,7 +44,6 @@
 
 ## Создание точечной карты с кластеризацией {#create-diagram}
 
-
 {% note warning %}
 
 Если вы работаете с новой объектной моделью DataLens, включающей [воркбуки и коллекции](../workbooks-collections/index.md):
@@ -54,7 +57,6 @@
 Продолжайте инструкцию с шага 4.
 
 {% endnote %}
-
 
 1. Перейдите на [главную страницу](https://datalens.ru/?skipPromo=true) DataLens.
 1. На панели слева выберите ![chart](../../_assets/console-icons/chart-column.svg) **Чарты**.

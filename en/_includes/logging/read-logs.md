@@ -4,8 +4,8 @@ All times in the log are [UTC](https://en.wikipedia.org/wiki/Coordinated_Univers
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder with the log group.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the log group.
+  1. [Navigate]({{ link-console-main }}/link/logging) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
   1. Click the row with the log group whose records you want to view.
   1. The page that opens will show the log group entries.
 

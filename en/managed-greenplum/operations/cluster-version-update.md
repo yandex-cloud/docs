@@ -7,17 +7,13 @@ description: Follow this guide to change a {{ GP }} cluster version.
 
 You can change the database version of your {{ mgp-name }} cluster.
 
-{% note info %}
-
 {{ GP }} upgrades from version 6.28 to 6.29 are supported.
 
-The following upgrades are not supported:
+The following are not supported:
 
-* Manual upgrades between {{ GP }} patch versions, e.g., from 6.29.1 to 6.29.2. Such upgrades are performed automatically during maintenance.
+* Manual upgrades between {{ GP }} minor versions, e.g., from 6.29.1 to 6.29.2. Such upgrades are performed automatically during maintenance.
 * {{ CB }} version upgrades.
 * Migrations between {{ GP }} and {{ CB }}.
-
-{% endnote %}
 
 To learn about upgrades within the same version and host maintenance, see [Maintenance](../concepts/maintenance.md).
 
@@ -100,7 +96,7 @@ Once your database version is upgraded, you cannot revert the cluster to the pre
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+  1. [Navigate]({{ link-console-main }}/link/managed-greenplum) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
   1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Select the new version number in the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field.
   1. Click **{{ ui-key.yacloud.common.save }}**.

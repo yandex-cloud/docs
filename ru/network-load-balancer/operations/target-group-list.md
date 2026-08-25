@@ -51,7 +51,7 @@
     1. [Перейдите]({{ link-console-main }}/link/network-load-balancer/) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
     1. На панели слева выберите ![trgroups.svg](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
     1. Нажмите на имя нужной группы.
-    1. На странице **Обзор** отобразится подробная информация о целевой группе.
+    1. На странице **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация о целевой группе.
 
 - CLI {#cli}
 

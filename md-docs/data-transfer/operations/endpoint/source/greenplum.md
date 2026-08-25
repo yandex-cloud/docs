@@ -1,9 +1,8 @@
-[Документация Yandex Cloud](../../../../index.md) > [Yandex Data Transfer](../../../index.md) > [Пошаговые инструкции](../../index.md) > [Настройка эндпоинтов](../index.md) > Greenplum® > Источник
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Data Transfer](../../../index.md) > [Пошаговые инструкции](../../index.md) > [Настройка эндпоинтов](../index.md) > Greenplum®/Apache Cloudberry™ > Источник
 
-# Передача данных из эндпоинта-источника Greenplum®
+# Передача данных из эндпоинта-источника Greenplum®/Apache Cloudberry™
 
-
-С помощью сервиса Yandex Data Transfer вы можете переносить данные из базы Greenplum® и реализовывать различные сценарии переноса, обработки и трансформации данных. Для реализации трансфера:
+С помощью сервиса Yandex Data Transfer вы можете переносить данные из базы Greenplum® и Apache Cloudberry™ и реализовывать различные сценарии переноса, обработки и трансформации данных. Для реализации трансфера:
 
 1. [Ознакомьтесь с возможными сценариями передачи данных](#scenarios).
 1. [Подготовьте базу данных Greenplum®](#prepare) к трансферу.
@@ -13,20 +12,20 @@
 1. Выполняйте необходимые действия по работе с базой и [контролируйте трансфер](../../monitoring.md).
 1. При возникновении проблем, [воспользуйтесь готовыми решениями](../../../troubleshooting/index.md) по их устранению.
 
-## Сценарии передачи данных из Greenplum® {#scenarios}
+## Сценарии передачи данных из Greenplum® и Apache Cloudberry™ {#scenarios}
 
 1. Миграция — перенос данных из одного хранилища в другое. Часто это перенос базы из устаревших локальных баз в управляемые облачные.
 
-    * [Миграция кластера Greenplum®](../../../tutorials/managed-greenplum.md).
+    * [Миграция кластера Greenplum® или Apache Cloudberry™](../../../tutorials/managed-greenplum.md).
 
 1. Загрузка данных в витрины — процесс трансфера подготовленных данных в хранилища с целью последующей визуализации.
 
-    * [Загрузка данных из Greenplum® в витрину ClickHouse®](../../../tutorials/greenplum-to-clickhouse.md);
-    * [Загрузка данных из Greenplum®  в витрину PostgreSQL](../../../tutorials/greenplum-to-postgresql.md).
+    * [Загрузка данных из Greenplum® или Apache Cloudberry™ в витрину ClickHouse®](../../../tutorials/greenplum-to-clickhouse.md);
+    * [Загрузка данных из Greenplum® или Apache Cloudberry™  в витрину PostgreSQL](../../../tutorials/greenplum-to-postgresql.md).
 
 Подробное описание возможных сценариев передачи данных в Yandex Data Transfer читайте в разделе [Практические руководства](../../../tutorials/index.md).
 
-## Подготовка базы данных Greenplum® {#prepare}
+## Подготовка базы данных Greenplum® и Apache Cloudberry™ {#prepare}
 
 {% note info %}
 
@@ -62,7 +61,7 @@
         GRANT USAGE ON SCHEMA <название_схемы> TO <имя_пользователя>;
         ```
 
-- Greenplum®
+- Greenplum®/Apache Cloudberry™
     
     1. Если вы не планируете использовать для подключения к внешнему кластеру [сервис Cloud Interconnect](../../../../interconnect/concepts/index.md) или [VPN](../../../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом Data Transfer](../../../../overview/concepts/public-ips.md#virtual-private-cloud).
        
@@ -95,7 +94,7 @@
 
 Data Transfer взаимодействует с Greenplum® по-разному в зависимости от настроек трансфера и содержимого кластера-источника. Подробная информация доступна в разделе [настройка эндпоинта-источника Greenplum®](greenplum.md).
 
-## Настройка эндпоинта-источника Greenplum® {#endpoint-settings}
+## Настройка эндпоинта-источника Greenplum® и Apache Cloudberry™ {#endpoint-settings}
 
 При [создании](../index.md#create) или [изменении](../index.md#update) эндпоинта вы можете задать:
 
@@ -233,7 +232,7 @@ Data Transfer взаимодействует с Greenplum® по-разному 
       * `<имя_схемы>.*` — все таблицы в указанной схеме;
       * `<имя_таблицы>` — таблица в схеме по умолчанию.
 
-      Имена включенных и исключенных таблиц должны соответствовать правилам именования идентификаторов в Greenplum®. Двойные кавычки внутри имени таблицы не поддерживаются. Внешние кавычки используются только как разделители и будут удалены при обработке путей.
+      Имена включенных и исключенных таблиц должны соответствовать правилам именования идентификаторов в Greenplum® и Apache Cloudberry™. Двойные кавычки внутри имени таблицы не поддерживаются. Внешние кавычки используются только как разделители и будут удалены при обработке путей.
 
 {% endlist %}
 
@@ -253,19 +252,19 @@ Data Transfer взаимодействует с Greenplum® по-разному 
 
 {% endlist %}
 
-### Особенности работы с источником Greenplum {#advanced}
+### Особенности работы с источником Greenplum®/Apache Cloudberry™ {#advanced}
 
-Data Transfer поддерживает только Greenplum® версий 6.28 и выше. Greenplum® других версий не поддерживается.
+Data Transfer поддерживает Greenplum® версий 6.28 и выше, и Apache Cloudberry™ версии Cloudberry 2.
 
-Сервис выполняет операции с кластером Greenplum® в транзакциях с [уровнем изоляции](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/ref_guide-sql_commands-SET_TRANSACTION.html) `READ COMMITTED`.
+Сервис выполняет операции с кластером в транзакциях с [уровнем изоляции](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/ref_guide-sql_commands-SET_TRANSACTION.html) `READ COMMITTED`.
 
-Data Transfer поддерживает работу с включенным [параллельным копированием](../../../concepts/sharded.md) для источника Greenplum®.
+Data Transfer поддерживает работу с включенным [параллельным копированием](../../../concepts/sharded.md) для источника Greenplum® и Apache Cloudberry™.
 
-Во время работы с включенным параллельным копированием Data Transfer удерживает открытую транзакцию на хосте-мастере Greenplum®. При прерывании этой транзакции трансфер завершится с ошибкой.
+Во время работы с включенным параллельным копированием Data Transfer удерживает открытую транзакцию на хосте-мастере. При прерывании этой транзакции трансфер завершится с ошибкой.
 
-При отключенном параллельном копировании трансфер переносит данные объектов Greenplum® `TABLE`, `VIEW`, `FOREIGN TABLE`, и `EXTERNAL TABLE`. Данные из этих объектов трактуются как данные из обыкновенных таблиц и обрабатываются приемником соответственно. При включенном параллельном копировании трансфер переносит только таблицы (объекты `TABLE`), причем таблицы с [политикой распределения](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/ref_guide-sql_commands-CREATE_TABLE.html) `DISTRIBUTED REPLICATED` не переносятся.
+При отключенном параллельном копировании трансфер переносит данные объектов Greenplum® или Apache Cloudberry™ `TABLE`, `VIEW`, `FOREIGN TABLE`, и `EXTERNAL TABLE`. Данные из этих объектов трактуются как данные из обыкновенных таблиц и обрабатываются приемником соответственно. При включенном параллельном копировании трансфер переносит только таблицы (объекты `TABLE`), причем таблицы с [политикой распределения](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/ref_guide-sql_commands-CREATE_TABLE.html) `DISTRIBUTED REPLICATED` не переносятся.
 
-Если в трансфере из Greenplum® в Greenplum® не используется прямое чтение с сегментов, количество потоков не может превышать минимальное число сегментов в участвующих кластерах.
+Если в трансфере из Greenplum®/Apache Cloudberry™ в Greenplum®/Apache Cloudberry™ не используется прямое чтение с сегментов, количество потоков не может превышать минимальное число сегментов в участвующих кластерах.
 
 Проверить количество сегментов можно через [консоль управления](https://console.yandex.cloud) или выполнив SQL-запрос:
 
@@ -277,11 +276,11 @@ SELECT COUNT(*) FROM gp_segment_configuration WHERE role='p' AND content >= 0;
 
 ### Консистентность снапшота {#snapshot-consistency}
 
-При запуске трансфера с отключенным параллельным копированием (по умолчанию) сервис выполняет копирование, взаимодействуя только с [хостом-мастером](../../../../managed-greenplum/concepts/index.md) кластера Greenplum®. Доступ к копируемым таблицам осуществляется в [режиме блокировки](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/ref_guide-sql_commands-LOCK.html) `ACCESS SHARE`. Консистентность снапшота обеспечивается средствами Greenplum®.
+При запуске трансфера с отключенным параллельным копированием (по умолчанию) сервис выполняет копирование, взаимодействуя только с [хостом-мастером](../../../../managed-greenplum/concepts/index.md) кластера. Доступ к копируемым таблицам осуществляется в [режиме блокировки](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/ref_guide-sql_commands-LOCK.html) `ACCESS SHARE`. Консистентность снапшота обеспечивается средствами СУБД.
 
-При запуске трансфера с включенным параллельным копированием сервис выполняет копирование, взаимодействуя как с хостом-мастером, так и в режиме прямого доступа (utility mode) с [хостами-сегментами](../../../../managed-greenplum/concepts/index.md) кластера Greenplum®. Доступ к копируемым таблицам осуществляется с блокировкой таблицы в режиме `ACCESS SHARE` или `SHARE`, зависящем от настройки "Обеспечивать строгую консистентность снапшота".
+При запуске трансфера с включенным параллельным копированием сервис выполняет копирование, взаимодействуя как с хостом-мастером, так и в режиме прямого доступа (utility mode) с [хостами-сегментами](../../../../managed-greenplum/concepts/index.md) кластера. Доступ к копируемым таблицам осуществляется с блокировкой таблицы в режиме `ACCESS SHARE` или `SHARE`, зависящем от настройки "Обеспечивать строгую консистентность снапшота".
 
-Трансферу с включенным параллельным копированием для обеспечения консистентности снапшота требуется обеспечить неизменность данных в переносимых таблицах. При блокировке в режиме `ACCESS SHARE` (по умолчанию) неизменность данных не обеспечивается сервисом и должна быть обеспечена извне. При блокировке в режиме `SHARE` неизменность данных в исходных таблицах обеспечивается механизмами Greenplum®.
+Трансферу с включенным параллельным копированием для обеспечения консистентности снапшота требуется обеспечить неизменность данных в переносимых таблицах. При блокировке в режиме `ACCESS SHARE` (по умолчанию) неизменность данных не обеспечивается сервисом и должна быть обеспечена извне. При блокировке в режиме `SHARE` неизменность данных в исходных таблицах обеспечивается механизмами СУБД.
 
 _Greenplum® и Greenplum Database® являются зарегистрированными товарными знаками или товарными знаками Broadcom Inc в США и/или других странах._
 
@@ -292,7 +291,7 @@ _Greenplum® и Greenplum Database® являются зарегистриров
 
 * [PostgreSQL](../target/postgresql.md)
 * [ClickHouse®](../target/clickhouse.md)
-* [Greenplum®](../target/greenplum.md)
+* [Greenplum®/Apache Cloudberry™](../target/greenplum.md)
 * [YTsaurus](yt.md)
 
 Полный список поддерживаемых источников и приемников в Yandex Data Transfer читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).

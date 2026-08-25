@@ -26,7 +26,8 @@
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
 1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
-1. Нажмите на имя нужного [кластера Managed Service for Kubernetes](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **Marketplace**.
+1. Выберите [кластер Managed Service for Kubernetes](../../concepts/index.md#kubernetes-cluster).
+1. Нажмите на вкладку **Другое** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) и выберите **Marketplace**.
 1. В разделе **Доступные для установки приложения** выберите [Kyverno & Kyverno Policies](https://yandex.cloud/ru/marketplace/products/yc/kyverno) и нажмите кнопку **Перейти к установке**.
 1. Задайте настройки приложения:
    * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `kyverno-space`). Если вы оставите пространство имен по умолчанию, Kyverno может работать некорректно.
@@ -89,8 +90,9 @@
 
    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
    1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
-   1. Нажмите на имя нужного [кластера Kubernetes](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **Marketplace**.
-   1. В разделе **Установленные приложения**, в строке приложения [Kyverno & Kyverno Policies](https://yandex.cloud/ru/marketplace/products/yc/kyverno), сначала нажмите кнопку ![image](../../../_assets/marketplace/three_dots.png =22x13), затем — **Удалить**.
+   1. Выберите [кластер Managed Service for Kubernetes](../../concepts/index.md#kubernetes-cluster).
+   1. Нажмите на вкладку **Другое** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) и выберите **Marketplace**.
+   1. В разделе **Установленные приложения** в строке приложения [Kyverno & Kyverno Policies](https://yandex.cloud/ru/marketplace/products/yc/kyverno) нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **Удалить**.
    1. [Подключитесь к кластеру](../connect/index.md#kubectl-connect) с помощью kubectl.
    1. [Очистите конфигурации веб-хуков приложения](https://release-1-8-0.kyverno.io/docs/installation/#clean-up-webhook-configurations), иначе кластер будет работать некорректно.
 

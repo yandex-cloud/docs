@@ -14,10 +14,7 @@ If your cluster uses a <q>1C:Enterprise</q>-optimized {{ PG }} version, specify 
 
 The asynchronous [userver](https://userver.tech/) framework provides a rich set of abstractions for creating utilities, services, and microservices in C++. This framework also provides capabilities for {{ PG }} integration.
 
-Before connecting, access the framework using one of the following methods:
-
-* [Create a {{ compute-full-name }} virtual machine](../../compute/operations/images-with-pre-installed-software/create.md) using the [userver image](https://yandex.cloud/en/marketplace/products/yc/userver). This image contains both the framework and all required dependencies.
-* [Manually install the framework and all required dependencies](https://userver.tech/docs/v2.0/d3/da9/md_en_2userver_2tutorial_2build.html).
+Before connecting, access the framework by [manually installing the framework and all required dependencies](https://userver.tech/docs/v2.0/d3/da9/md_en_2userver_2tutorial_2build.html).
 
 {% list tabs group=connection %}
 

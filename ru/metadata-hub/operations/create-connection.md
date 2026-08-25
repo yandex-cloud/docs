@@ -38,19 +38,15 @@ description: Пошаговые инструкции по работе с {{ con
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
   1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
-  1. Укажите имя подключения.
-  1. (Опционально) Добавьте описание подключения и [метку](../../resource-manager/concepts/labels.md).
+  1. В блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+  1. Нажмите **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
+  1. Укажите **{{ ui-key.yacloud.common.name }}** подключения.
+  1. (Опционально) Добавьте **{{ ui-key.yacloud.common.description }}** подключения и [метки](../../resource-manager/concepts/labels.md).
   1. Выберите **{{ ui-key.yacloud.connection-manager.label_connection-type }}**.
   1. В разделе **Подключение к {{ PG }}** выберите **Кластер {{ mpg-short-name }}** в качестве типа подключения и укажите нужный кластер.
-  1. В разделе **Аутентификация**:
-      1. Укажите **Имя пользователя**, от лица которого будете подключаться к кластеру.
-      1. Выберите способ задания пароля:
-          * **Ввести вручную** — вы сами задаете пароль.
-          * **Сгенерировать** — пароль генерируется автоматически. Вы можете настроить правила генерации пароля [{{ lockbox-short-name }}](../../lockbox/quickstart.md) или оставить правила, заданные по умолчанию.
+  1. {% include [console-auth-cluster](../../_includes/metadata-hub/connection-create-console-auth-cluster.md) %}
   1. (Опционально) Перечислите базы данных, подключениями к которым вы хотите управлять. Подключиться можно только к существующим в этом кластере базам данных. У вас должен быть [настроен доступ к ним](../../managed-postgresql/security/index.md).
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
@@ -201,19 +197,15 @@ description: Пошаговые инструкции по работе с {{ con
 
     1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
     1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-    1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
-    1. Укажите имя подключения.
-    1. (Опционально) Добавьте описание подключения и [метку](../../resource-manager/concepts/labels.md).
+    1. В блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+    1. Нажмите **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
+    1. Укажите **{{ ui-key.yacloud.common.name }}** подключения.
+    1. (Опционально) Добавьте **{{ ui-key.yacloud.common.description }}** подключения и [метки](../../resource-manager/concepts/labels.md).
     1. Выберите **{{ ui-key.yacloud.connection-manager.label_connection-type }}**.
     1. В разделе **Подключение к {{ CH }}** выберите **Кластер {{ mch-short-name }}** в качестве типа подключения и укажите нужный кластер.
-    1. В разделе **Аутентификация**:
-        1. Укажите **Имя пользователя**, от лица которого будете подключаться к кластеру.
-        1. Выберите способ задания пароля:
-            * **Ввести вручную** — вы сами задаете пароль.
-            * **Сгенерировать** — пароль генерируется автоматически. Вы можете настроить правила генерации пароля [{{ lockbox-short-name }}](../../lockbox/quickstart.md) или оставить правила, заданные по умолчанию.
+    1. {% include [console-auth-cluster](../../_includes/metadata-hub/connection-create-console-auth-cluster.md) %}
     1. (Опционально) Перечислите базы данных, подключениями к которым вы хотите управлять. У вас должен быть настроен доступ к ним.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+    1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
@@ -364,19 +356,15 @@ description: Пошаговые инструкции по работе с {{ con
 
    1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
    1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-   1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
-   1. Нажмите кнопку **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
-   1. Укажите имя подключения.
-   1. (Опционально) Добавьте описание подключения и [метку](../../resource-manager/concepts/labels.md).
+   1. В блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+   1. Нажмите **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
+   1. Укажите **{{ ui-key.yacloud.common.name }}** подключения.
+   1. (Опционально) Добавьте **{{ ui-key.yacloud.common.description }}** подключения и [метки](../../resource-manager/concepts/labels.md).
    1. Выберите **{{ ui-key.yacloud.connection-manager.label_connection-type }}**.
    1. В разделе **Подключение к {{ MY }}** выберите **Кластер {{ mmy-short-name }}** в качестве типа подключения и укажите нужный кластер.
-   1. В разделе **Аутентификация**:
-        1. Укажите **Имя пользователя**, от лица которого будете подключаться к кластеру.
-        1. Выберите способ задания пароля:
-            * **Ввести вручную** — вы сами задаете пароль.
-            * **Сгенерировать** — пароль генерируется автоматически. Вы можете настроить правила генерации пароля [{{ lockbox-short-name }}](../../lockbox/quickstart.md) или оставить правила, заданные по умолчанию.
+   1. {% include [console-auth-cluster](../../_includes/metadata-hub/connection-create-console-auth-cluster.md) %}
    1. (Опционально) Перечислите базы данных, подключениями к которым вы хотите управлять. Подключиться можно только к существующим в этом кластере базам данных. У вас должен быть [настроен доступ к ним](../../managed-mysql/security/index.md).
-   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+   1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
@@ -526,17 +514,17 @@ description: Пошаговые инструкции по работе с {{ con
     
     1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
     1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-    1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
-    1. Укажите имя подключения.
-    1. (Опционально) Добавьте описание подключения и [метку](../../resource-manager/concepts/labels.md).
+    1. В блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+    1. Нажмите **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
+    1. Укажите **{{ ui-key.yacloud.common.name }}** подключения.
+    1. (Опционально) Добавьте **{{ ui-key.yacloud.common.description }}** подключения и [метки](../../resource-manager/concepts/labels.md).
     1. В списке **{{ ui-key.yacloud.connection-manager.label_connection-type }}** выберите **{{ VLK }}**.
     1. В разделе **Подключение к {{ VLK }}** выберите **Кластер {{ mrd-short-name }}** в качестве типа подключения и укажите нужный кластер.
-    1. В разделе **Аутентификация** выберите способ задания пароля:
+    1. В разделе **Аутентификация** выберите **Тип пароля**:
          * **Ввести вручную** — введите значение пароля.
          * **Сгенерировать** — укажите опции для создания автоматически сгенерированного пароля [{{ lockbox-short-name }}](../../lockbox/quickstart.md).
     1. (Опционально) Перечислите базы данных, подключениями к которым вы хотите управлять. У вас должен быть настроен доступ к ним.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+    1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
@@ -686,19 +674,15 @@ description: Пошаговые инструкции по работе с {{ con
 
    1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
    1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-   1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
-   1. Нажмите кнопку **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
-   1. Укажите имя подключения.
-   1. (Опционально) Добавьте описание подключения и [метку](../../resource-manager/concepts/labels.md).
+   1. В блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+   1. Нажмите **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
+   1. Укажите **{{ ui-key.yacloud.common.name }}** подключения.
+   1. (Опционально) Добавьте **{{ ui-key.yacloud.common.description }}** подключения и [метки](../../resource-manager/concepts/labels.md).
    1. Выберите **{{ ui-key.yacloud.connection-manager.label_connection-type }}**.
    1. В разделе **Подключение к {{ OS }}** выберите **Кластер {{ mos-short-name }}** в качестве типа подключения и укажите нужный кластер.
-   1. В разделе **Аутентификация**:
-        1. Укажите **Имя пользователя**, от лица которого будете подключаться к кластеру.
-        1. Выберите способ задания пароля:
-            * **Ввести вручную** — вы сами задаете пароль.
-            * **Сгенерировать** — пароль генерируется автоматически. Вы можете настроить правила генерации пароля [{{ lockbox-short-name }}](../../lockbox/quickstart.md) или оставить правила, заданные по умолчанию.
+   1. {% include [console-auth-cluster](../../_includes/metadata-hub/connection-create-console-auth-cluster.md) %}
    1. (Опционально) Перечислите базы данных, подключениями к которым вы хотите управлять. Подключиться можно только к существующим в этом кластере базам данных. У вас должен быть [настроен доступ к ним](../../managed-opensearch/security/index.md).
-   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+   1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
@@ -836,19 +820,15 @@ description: Пошаговые инструкции по работе с {{ con
 
    1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
    1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-   1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
-   1. Нажмите кнопку **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
-   1. Укажите имя подключения.
-   1. (Опционально) Добавьте описание подключения и [метку](../../resource-manager/concepts/labels.md).
+   1. В блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+   1. Нажмите **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
+   1. Укажите **{{ ui-key.yacloud.common.name }}** подключения.
+   1. (Опционально) Добавьте **{{ ui-key.yacloud.common.description }}** подключения и [метки](../../resource-manager/concepts/labels.md).
    1. Выберите **{{ ui-key.yacloud.connection-manager.label_connection-type }}**.
    1. В разделе **Подключение к {{ MG }}** выберите **Кластер {{ mmg-short-name }}** в качестве типа подключения и укажите нужный кластер.
-   1. В разделе **Аутентификация**:
-        1. Укажите **Имя пользователя**, от лица которого будете подключаться к кластеру.
-        1. Выберите способ задания пароля:
-            * **Ввести вручную** — вы сами задаете пароль.
-            * **Сгенерировать** — пароль генерируется автоматически. Вы можете настроить правила генерации пароля [{{ lockbox-short-name }}](../../lockbox/quickstart.md) или оставить правила, заданные по умолчанию.
+   1. {% include [console-auth-cluster](../../_includes/metadata-hub/connection-create-console-auth-cluster.md) %}
    1. (Опционально) Перечислите базы данных, подключениями к которым вы хотите управлять. Подключиться можно только к существующим в этом кластере базам данных. У вас должен быть [настроен доступ к ним](../../storedoc/security/index.md).
-   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+   1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
@@ -998,16 +978,16 @@ description: Пошаговые инструкции по работе с {{ con
 
    1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
    1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-   1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
-   1. Нажмите кнопку **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
-   1. Укажите имя подключения.
-   1. (Опционально) Добавьте описание подключения и [метку](../../resource-manager/concepts/labels.md).
+   1. В блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+   1. Нажмите **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
+   1. Укажите **{{ ui-key.yacloud.common.name }}** подключения.
+   1. (Опционально) Добавьте **{{ ui-key.yacloud.common.description }}** подключения и [метки](../../resource-manager/concepts/labels.md).
    1. Выберите **{{ ui-key.yacloud.connection-manager.label_connection-type }}**.
    1. В разделе **Подключение к {{ KF }}** выберите **Кластер Managed Service for Kafka** в качестве типа подключения и укажите нужный кластер.
    1. При использовании аутентификации:
 
-       * Укажите **Имя пользователя** для подключения.
-       * Задайте пароль одним из способов:
+       * В поле **Пользователь** укажите имя пользователя для подключения.
+       * Выберите **Тип пароля**:
          
          * **Ввести вручную** — пароль вводится в соответствующее поле.
          * **Сгенерировать** — пароль генерируется автоматически. Вы можете настроить правила генерации пароля [{{ lockbox-short-name }}](../../lockbox/quickstart.md) или оставить правила, заданные по умолчанию.
@@ -1015,12 +995,12 @@ description: Пошаговые инструкции по работе с {{ con
        * (Опционально) В списке **Механизмы аутентификации** выберите нужные опции:
          
          * `PLAIN` — аутентификация с передачей логина и пароля в открытом виде.
-         * `SCRAM_SHA256` — аутентификация с хэшированием SHA-256.
-         * `SCRAM_SHA512` — аутентификация с хэшированием SHA-512.
+         * `SCRAM_SHA256` — аутентификация с хешированием SHA-256.
+         * `SCRAM_SHA512` — аутентификация с хешированием SHA-512.
 
          [Подробнее о механизмах и протоколах SASL](../../glossary/sasl.md#mechanisms-and-protocols).
          
-   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+   1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
@@ -1060,8 +1040,8 @@ description: Пошаговые инструкции по работе с {{ con
       * `--supported-mechanisms` — список механизмов аутентификации. Возможные значения:
         
         * `PLAIN` — аутентификация с передачей логина и пароля в открытом виде.
-        * `SCRAM_SHA256` — аутентификация с хэшированием SHA-256.
-        * `SCRAM_SHA512` — аутентификация с хэшированием SHA-512.
+        * `SCRAM_SHA256` — аутентификация с хешированием SHA-256.
+        * `SCRAM_SHA512` — аутентификация с хешированием SHA-512.
 
         [Подробнее о механизмах и протоколах SASL](../../glossary/sasl.md#mechanisms-and-protocols).
 
@@ -1143,8 +1123,8 @@ description: Пошаговые инструкции по работе с {{ con
             * `supported_mechanisms` — список механизмов аутентификации. Возможные значения:
               
               * `PLAIN` — аутентификация с передачей логина и пароля в открытом виде.
-              * `SCRAM_SHA256` — аутентификация с хэшированием SHA-256.
-              * `SCRAM_SHA512` — аутентификация с хэшированием SHA-512.
+              * `SCRAM_SHA256` — аутентификация с хешированием SHA-256.
+              * `SCRAM_SHA512` — аутентификация с хешированием SHA-512.
 
               [Подробнее о механизмах и протоколах SASL](../../glossary/sasl.md#mechanisms-and-protocols).
           
@@ -1182,20 +1162,16 @@ description: Пошаговые инструкции по работе с {{ con
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
   1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
-  1. Укажите имя подключения.
-  1. (Опционально) Добавьте описание подключения и [метку](../../resource-manager/concepts/labels.md).
+  1. В блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+  1. Нажмите **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
+  1. Укажите **{{ ui-key.yacloud.common.name }}** подключения.
+  1. (Опционально) Добавьте **{{ ui-key.yacloud.common.description }}** подключения и [метки](../../resource-manager/concepts/labels.md).
   1. Выберите **{{ ui-key.yacloud.connection-manager.label_connection-type }}**.
   1. В разделе **Подключение к Greenplum** выберите **Кластер Yandex MPP Analytics for PostgreSQL** в качестве типа подключения и укажите нужный кластер.
-  1. В разделе **Аутентификация**:
-      1. Укажите **Имя пользователя** для подключения.
-      1. Выберите способ задания пароля:
-          * **Ввести вручную** — пароль вводится в соответствующее поле.
-          * **Сгенерировать** — пароль генерируется автоматически. Вы можете настроить правила генерации пароля [{{ lockbox-short-name }}](../../lockbox/quickstart.md) или оставить правила, заданные по умолчанию.
+  1. {% include [console-auth-cluster](../../_includes/metadata-hub/connection-create-console-auth-cluster.md) %}
   1. Перечислите базы данных, подключениями к которым вы хотите управлять. Подключиться можно только к существующим в этом кластере базам данных. Убедитесь, что у пользователя есть [необходимые права](../../managed-greenplum/security/index.md) на доступ к ним.
   
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
@@ -1347,27 +1323,22 @@ description: Пошаговые инструкции по работе с {{ con
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
   1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
-  1. Укажите имя подключения.
-  1. (Опционально) Добавьте описание подключения и [метку](../../resource-manager/concepts/labels.md).
+  1. В блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+  1. Нажмите **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
+  1. Укажите **{{ ui-key.yacloud.common.name }}** подключения.
+  1. (Опционально) Добавьте **{{ ui-key.yacloud.common.description }}** подключения и [метки](../../resource-manager/concepts/labels.md).
   1. Выберите **{{ ui-key.yacloud.connection-manager.label_connection-type }}**.
   1. В разделе **Подключение к {{ PG }}** укажите параметры подключения:
-      1. В поле **{{ ui-key.yacloud.connection-manager.label_connection-type }}** выберите **Пользовательская инсталляция**.
+      1. В поле **Тип подключения** выберите **Пользовательская инсталляция**.
       1. В поле **Хосты** укажите адрес хоста c базой данных и номер порта для подключения.
 
           Если вы создаете подключение к пользовательской инсталляции базы данных для использования с [{{ datalens-full-name }}](../../datalens/concepts/index.md), укажите внешний адрес хоста.
 
       1. (Опционально) Включите использование [TLS](../../glossary/tls.md).
           Если в вашей компании есть [центр сертификации (CA)](../../glossary/tls.md#authentication), по умолчанию будет использоваться выпущенный им сертификат. Если в компании нет СА, загрузите TLS-сертификат сервера.
-          
-  1. В разделе **Аутентификация**:
-      1. Укажите **Имя пользователя**, от лица которого будете подключаться к базе данных.
-      1. Выберите способ задания пароля:
-          * **Ввести вручную** — вы сами задаете пароль.
-          * **Сгенерировать** — пароль генерируется автоматически. Вы можете настроить правила генерации пароля [{{ lockbox-short-name }}](../../lockbox/quickstart.md) или оставить правила, заданные по умолчанию.
+  1. {% include [console-auth-db](../../_includes/metadata-hub/connection-create-console-auth-db.md) %}
   1. (Опционально) Перечислите базы данных, подключениями к которым вы хотите управлять. У вас должен быть настроен доступ к ним.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
@@ -1529,26 +1500,22 @@ description: Пошаговые инструкции по работе с {{ con
 
     1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
     1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-    1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
-    1. Укажите имя подключения.
-    1. (Опционально) Добавьте описание подключения и [метку](../../resource-manager/concepts/labels.md).
+    1. В блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+    1. Нажмите **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
+    1. Укажите **{{ ui-key.yacloud.common.name }}** подключения.
+    1. (Опционально) Добавьте **{{ ui-key.yacloud.common.description }}** подключения и [метки](../../resource-manager/concepts/labels.md).
     1. Выберите **{{ ui-key.yacloud.connection-manager.label_connection-type }}**.
     1. В разделе **Подключение к {{ CH }}** укажите параметры подключения:
-        1. В поле **{{ ui-key.yacloud.connection-manager.label_connection-type }}** выберите **Пользовательская инсталляция**.
+        1. В поле **Тип подключения** выберите **Пользовательская инсталляция**.
         1. В поле **Хосты** укажите [FQDN](../../glossary/fqdn.md) или IP-адреса хостов, входящих в шард, номер HTTP- или TCP-порта для подключения и имя [шарда](../../managed-clickhouse/operations/shards.md#list-shards).
 
             Если вы создаете подключение к пользовательской инсталляции базы данных для использования с [{{ datalens-full-name }}](../../datalens/concepts/index.md), укажите внешние IP-адреса хостов.
 
         1. (Опционально) Включите использование [TLS](../../glossary/tls.md).
             Если в вашей компании есть [центр сертификации (CA)](../../glossary/tls.md#authentication), по умолчанию будет использоваться выпущенный им сертификат. Если в компании нет СА, загрузите TLS-сертификат сервера.
-    1. В разделе **Аутентификация**:
-        1. Укажите **Имя пользователя**, от лица которого будете подключаться к базе данных.
-        1. Выберите способ задания пароля:
-            * **Ввести вручную** — вы сами задаете пароль.
-            * **Сгенерировать** — пароль генерируется автоматически. Вы можете настроить правила генерации пароля [{{ lockbox-short-name }}](../../lockbox/quickstart.md) или оставить правила, заданные по умолчанию.
+    1. {% include [console-auth-db](../../_includes/metadata-hub/connection-create-console-auth-db.md) %}
     1. (Опционально) Перечислите базы данных, подключениями к которым вы хотите управлять. У вас должен быть настроен доступ к ним.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+    1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
@@ -1734,13 +1701,13 @@ description: Пошаговые инструкции по работе с {{ con
 
    1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
    1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-   1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
-   1. Нажмите кнопку **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
-   1. Укажите имя подключения.
-   1. (Опционально) Добавьте описание подключения и [метку](../../resource-manager/concepts/labels.md).
+   1. В блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+   1. Нажмите **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
+   1. Укажите **{{ ui-key.yacloud.common.name }}** подключения.
+   1. (Опционально) Добавьте **{{ ui-key.yacloud.common.description }}** подключения и [метки](../../resource-manager/concepts/labels.md).
    1. Выберите **{{ ui-key.yacloud.connection-manager.label_connection-type }}**.
    1. В разделе **Подключение к {{ MY }}** укажите параметры подключения:
-       1. В поле **{{ ui-key.yacloud.connection-manager.label_connection-type }}** выберите **Пользовательская инсталляция**.
+       1. В поле **Тип подключения** выберите **Пользовательская инсталляция**.
        1. В поле **Хосты** укажите адрес хоста c базой данных и номер порта для подключения.
 
            Если вы создаете подключение к пользовательской инсталляции базы данных для использования с [{{ datalens-full-name }}](../../datalens/concepts/index.md), укажите внешний адрес хоста.
@@ -1748,13 +1715,9 @@ description: Пошаговые инструкции по работе с {{ con
        1. (Опционально) Включите использование [TLS](../../glossary/tls.md).
            Если в вашей компании есть [центр сертификации (CA)](../../glossary/tls.md#authentication), по умолчанию будет использоваться выпущенный им сертификат. Если в компании нет СА, загрузите TLS-сертификат сервера.
            
-   1. В разделе **Аутентификация**:
-       1. Укажите **Имя пользователя**, от лица которого будете подключаться к базе данных.
-       1. Выберите способ задания пароля:
-           * **Ввести вручную** — вы сами задаете пароль.
-           * **Сгенерировать** — пароль генерируется автоматически. Вы можете настроить правила генерации пароля [{{ lockbox-short-name }}](../../lockbox/quickstart.md) или оставить правила, заданные по умолчанию.
+   1. {% include [console-auth-db](../../_includes/metadata-hub/connection-create-console-auth-db.md) %}
    1. (Опционально) Перечислите базы данных, подключениями к которым вы хотите управлять. У вас должен быть настроен доступ к ним.
-   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+   1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
@@ -1916,20 +1879,18 @@ description: Пошаговые инструкции по работе с {{ con
     
     1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
     1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-    1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
-    1. Укажите имя подключения.
-    1. (Опционально) Добавьте описание подключения и [метку](../../resource-manager/concepts/labels.md).
+    1. В блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+    1. Нажмите **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
+    1. Укажите **{{ ui-key.yacloud.common.name }}** подключения.
+    1. (Опционально) Добавьте **{{ ui-key.yacloud.common.description }}** подключения и [метки](../../resource-manager/concepts/labels.md).
     1. В списке **{{ ui-key.yacloud.connection-manager.label_connection-type }}** выберите **{{ RD }}**.
     1. В разделе **Подключение к {{ RD }}** укажите параметры подключения:
-       1. В поле **{{ ui-key.yacloud.connection-manager.label_connection-type }}** выберите **Пользовательская инсталляция**.
+       1. В поле **Тип подключения** выберите **Пользовательская инсталляция**.
        1. В поле **Хосты** укажите [FQDN](../../glossary/fqdn.md) или IP-адреса хостов, входящих в шард, номер HTTP- или TCP-порта для подключения и имя шарда.
        1. (Опционально) Включите использование [TLS](../../glossary/tls.md).
-    1. В разделе **Аутентификация** укажите имя пользователя и выберите способ задания пароля: 
-        * **Ввести вручную** — введите значение пароля.
-        * **Сгенерировать** — укажите опции для создания автоматически сгенерированного пароля [{{ lockbox-short-name }}](../../lockbox/quickstart.md).
+    1. {% include [console-auth-db](../../_includes/metadata-hub/connection-create-console-auth-db.md) %}
     1. (Опционально) Перечислите базы данных, подключениями к которым вы хотите управлять. У вас должен быть настроен доступ к ним.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+    1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
@@ -2112,23 +2073,23 @@ description: Пошаговые инструкции по работе с {{ con
     
     1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
     1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-    1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
-    1. Укажите имя подключения.
-    1. (Опционально) Добавьте описание подключения и [метку](../../resource-manager/concepts/labels.md).
+    1. В блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+    1. Нажмите **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
+    1. Укажите **{{ ui-key.yacloud.common.name }}** подключения.
+    1. (Опционально) Добавьте **{{ ui-key.yacloud.common.description }}** подключения и [метки](../../resource-manager/concepts/labels.md).
     1. В списке **{{ ui-key.yacloud.connection-manager.label_connection-type }}** выберите **{{ VLK }}**.
     1. В разделе **Подключение к {{ VLK }}** укажите параметры подключения:
-       1. В поле **{{ ui-key.yacloud.connection-manager.label_connection-type }}** выберите **Пользовательская инсталляция**.
+       1. В поле **Тип подключения** выберите **Пользовательская инсталляция**.
        1. В поле **Хосты** укажите [FQDN](../../glossary/fqdn.md) или IP-адреса хостов, входящих в шард, номер HTTP- или TCP-порта для подключения и имя [шарда](../../managed-valkey/operations/connect/sharded-code-examples.md).
 
            Если вы создаете подключение к пользовательской инсталляции базы данных для использования с [{{ datalens-full-name }}](../../datalens/concepts/index.md), укажите внешние IP-адреса хостов.
 
        1. (Опционально) Включите использование [TLS](../../glossary/tls.md).
-    1. В разделе **Аутентификация** укажите имя пользователя и выберите способ задания пароля: 
+    1. В разделе **Аутентификация** укажите имя пользователя и выберите **Тип пароля**: 
         * **Ввести вручную** — введите значение пароля.
         * **Сгенерировать** — укажите опции для создания автоматически сгенерированного пароля [{{ lockbox-short-name }}](../../lockbox/quickstart.md).
     1. (Опционально) Перечислите базы данных, подключениями к которым вы хотите управлять. У вас должен быть настроен доступ к ним.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+    1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
@@ -2290,21 +2251,17 @@ description: Пошаговые инструкции по работе с {{ con
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
   1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
-  1. Укажите имя подключения.
-  1. (Опционально) Добавьте описание подключения и [метку](../../resource-manager/concepts/labels.md).
+  1. В блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+  1. Нажмите **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
+  1. Укажите **{{ ui-key.yacloud.common.name }}** подключения.
+  1. (Опционально) Добавьте **{{ ui-key.yacloud.common.description }}** подключения и [метки](../../resource-manager/concepts/labels.md).
   1. Выберите **{{ ui-key.yacloud.connection-manager.label_connection-type }}**.
   1. В разделе **Подключение к {{ TR }}** укажите параметры подключения:
       1. В поле **Координатор** укажите адрес хоста [координатора](https://trino.io/docs/current/overview/concepts.html#coordinator) и номер порта для подключения. 
       1. (Опционально) Включите использование [TLS](../../glossary/tls.md).
           Если в вашей компании есть [центр сертификации (CA)](../../glossary/tls.md#authentication), по умолчанию будет использоваться выпущенный им сертификат. Если в компании нет СА, загрузите TLS-сертификат сервера.
-  1. В разделе **Аутентификация**:
-      1. Укажите **Имя пользователя**, от лица которого будете подключаться к базе данных.
-      1. Выберите способ задания пароля:
-          * **Ввести вручную** — вы сами задаете пароль.
-          * **Сгенерировать** — пароль генерируется автоматически. Вы можете настроить правила генерации пароля [{{ lockbox-short-name }}](../../lockbox/quickstart.md) или оставить правила, заданные по умолчанию.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. {% include [console-auth-db](../../_includes/metadata-hub/connection-create-console-auth-db.md) %}
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
@@ -2459,23 +2416,19 @@ description: Пошаговые инструкции по работе с {{ con
 
    1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
    1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-   1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
-   1. Нажмите кнопку **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
-   1. Укажите имя подключения.
-   1. (Опционально) Добавьте описание подключения и [метку](../../resource-manager/concepts/labels.md).
+   1. В блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+   1. Нажмите **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
+   1. Укажите **{{ ui-key.yacloud.common.name }}** подключения.
+   1. (Опционально) Добавьте **{{ ui-key.yacloud.common.description }}** подключения и [метки](../../resource-manager/concepts/labels.md).
    1. Выберите **{{ ui-key.yacloud.connection-manager.label_connection-type }}**.
    1. В разделе **Подключение к {{ OS }}** укажите параметры подключения:
-       1. В поле **{{ ui-key.yacloud.connection-manager.label_connection-type }}** выберите **Пользовательская инсталляция**.
+       1. В поле **Тип подключения** выберите **Пользовательская инсталляция**.
        1. В поле **Хосты** укажите адрес хоста с базой данных и номер порта для подключения.
        1. (Опционально) Включите использование [TLS](../../glossary/tls.md).
            Если в вашей компании есть [центр сертификации (CA)](../../glossary/tls.md#authentication), по умолчанию будет использоваться выпущенный им сертификат. Если в компании нет СА, загрузите TLS-сертификат сервера.
-   1. В разделе **Аутентификация**:
-       1. Укажите **Имя пользователя**, от лица которого будете подключаться к базе данных.
-       1. Выберите способ задания пароля:
-           * **Ввести вручную** — вы сами задаете пароль.
-           * **Сгенерировать** — пароль генерируется автоматически. Вы можете настроить правила генерации пароля [{{ lockbox-short-name }}](../../lockbox/quickstart.md) или оставить правила, заданные по умолчанию.
+   1. {% include [console-auth-db](../../_includes/metadata-hub/connection-create-console-auth-db.md) %}
    1. (Опционально) Перечислите базы данных, подключениями к которым вы хотите управлять. У вас должен быть настроен доступ к ним.
-   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+   1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
@@ -2641,23 +2594,19 @@ description: Пошаговые инструкции по работе с {{ con
 
    1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
    1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-   1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
-   1. Нажмите кнопку **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
-   1. Укажите имя подключения.
-   1. (Опционально) Добавьте описание подключения и [метку](../../resource-manager/concepts/labels.md).
+   1. В блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+   1. Нажмите **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
+   1. Укажите **{{ ui-key.yacloud.common.name }}** подключения.
+   1. (Опционально) Добавьте **{{ ui-key.yacloud.common.description }}** подключения и [метки](../../resource-manager/concepts/labels.md).
    1. Выберите **{{ ui-key.yacloud.connection-manager.label_connection-type }}**.
    1. В разделе **Подключение к {{ MG }}** укажите параметры подключения:
-       1. В поле **{{ ui-key.yacloud.connection-manager.label_connection-type }}** выберите **Пользовательская инсталляция**.
+       1. В поле **Тип подключения** выберите **Пользовательская инсталляция**.
        1. В поле **Хосты** укажите адрес хоста с базой данных и номер порта для подключения.
        1. (Опционально) Включите использование [TLS](../../glossary/tls.md). 
            Если в вашей компании есть [центр сертификации (CA)](../../glossary/tls.md#authentication), по умолчанию будет использоваться выпущенный им сертификат. Если в компании нет СА, загрузите TLS-сертификат сервера.
-   1. В разделе **Аутентификация**:
-       1. Укажите **Имя пользователя**, от лица которого будете подключаться к базе данных.
-       1. Выберите способ задания пароля:
-           * **Ввести вручную** — вы сами задаете пароль.
-           * **Сгенерировать** — пароль генерируется автоматически. Вы можете настроить правила генерации пароля [{{ lockbox-short-name }}](../../lockbox/quickstart.md) или оставить правила, заданные по умолчанию.
+   1. {% include [console-auth-db](../../_includes/metadata-hub/connection-create-console-auth-db.md) %}
    1. (Опционально) Перечислите базы данных, подключениями к которым вы хотите управлять. У вас должен быть настроен доступ к ним.
-   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+   1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
@@ -2819,14 +2768,14 @@ description: Пошаговые инструкции по работе с {{ con
 
    1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
    1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-   1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
-   1. Нажмите кнопку **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
-   1. Укажите имя подключения.
-   1. (Опционально) Добавьте описание подключения и [метку](../../resource-manager/concepts/labels.md).
+   1. В блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+   1. Нажмите **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
+   1. Укажите **{{ ui-key.yacloud.common.name }}** подключения.
+   1. (Опционально) Добавьте **{{ ui-key.yacloud.common.description }}** подключения и [метки](../../resource-manager/concepts/labels.md).
    1. Выберите **{{ ui-key.yacloud.connection-manager.label_connection-type }}**.
    1. В разделе **Подключение к {{ KF }}** укажите параметры подключения:
        
-       * В списке **{{ ui-key.yacloud.connection-manager.label_connection-type }}** выберите **Пользовательская инсталляция**.
+       * В списке **Тип подключения** выберите **Пользовательская инсталляция**.
        * В поле **Хосты** укажите адрес хоста и порт для подключения.
        * (Опционально) Включите использование [TLS](../../glossary/tls.md).
            
@@ -2834,8 +2783,8 @@ description: Пошаговые инструкции по работе с {{ con
    
    1. При использовании аутентификации:
 
-       * Укажите **Имя пользователя** для подключения.
-       * Задайте пароль одним из способов:
+       * В поле **Пользователь** укажите имя пользователя для подключения.
+       * Выберите **Тип пароля**:
          
          * **Ввести вручную** — пароль вводится в соответствующее поле.
          * **Сгенерировать** — пароль генерируется автоматически. Вы можете настроить правила генерации пароля [{{ lockbox-short-name }}](../../lockbox/quickstart.md) или оставить правила, заданные по умолчанию.
@@ -2843,12 +2792,12 @@ description: Пошаговые инструкции по работе с {{ con
        * (Опционально) В списке **Механизмы аутентификации** выберите нужные опции:
          
          * `PLAIN` — аутентификация с передачей логина и пароля в открытом виде.
-         * `SCRAM_SHA256` — аутентификация с хэшированием SHA-256.
-         * `SCRAM_SHA512` — аутентификация с хэшированием SHA-512.
+         * `SCRAM_SHA256` — аутентификация с хешированием SHA-256.
+         * `SCRAM_SHA512` — аутентификация с хешированием SHA-512.
 
          [Подробнее о механизмах и протоколах SASL](../../glossary/sasl.md#mechanisms-and-protocols).
 
-   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+   1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
@@ -2889,8 +2838,8 @@ description: Пошаговые инструкции по работе с {{ con
       * `--supported-mechanisms` — список механизмов аутентификации. Возможные значения:
         
         * `PLAIN` — аутентификация с передачей логина и пароля в открытом виде.
-        * `SCRAM_SHA256` — аутентификация с хэшированием SHA-256.
-        * `SCRAM_SHA512` — аутентификация с хэшированием SHA-512.
+        * `SCRAM_SHA256` — аутентификация с хешированием SHA-256.
+        * `SCRAM_SHA512` — аутентификация с хешированием SHA-512.
 
         [Подробнее о механизмах и протоколах SASL](../../glossary/sasl.md#mechanisms-and-protocols).
 
@@ -2999,8 +2948,8 @@ description: Пошаговые инструкции по работе с {{ con
             * `supported_mechanisms` — список механизмов аутентификации. Возможные значения:
               
               * `PLAIN` — аутентификация с передачей логина и пароля в открытом виде.
-              * `SCRAM_SHA256` — аутентификация с хэшированием SHA-256.
-              * `SCRAM_SHA512` — аутентификация с хэшированием SHA-512.
+              * `SCRAM_SHA256` — аутентификация с хешированием SHA-256.
+              * `SCRAM_SHA512` — аутентификация с хешированием SHA-512.
 
               [Подробнее о механизмах и протоколах SASL](../../glossary/sasl.md#mechanisms-and-protocols).
           
@@ -3038,13 +2987,13 @@ description: Пошаговые инструкции по работе с {{ con
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
   1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
-  1. Укажите имя подключения.
-  1. (Опционально) Добавьте описание подключения и [метку](../../resource-manager/concepts/labels.md).
+  1. В блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+  1. Нажмите **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
+  1. Укажите **{{ ui-key.yacloud.common.name }}** подключения.
+  1. (Опционально) Добавьте **{{ ui-key.yacloud.common.description }}** подключения и [метки](../../resource-manager/concepts/labels.md).
   1. Выберите **{{ ui-key.yacloud.connection-manager.label_connection-type }}**.
   1. В разделе **Подключение к Greenplum** укажите параметры подключения:
-      1. В поле **{{ ui-key.yacloud.connection-manager.label_connection-type }}** выберите **Пользовательская инсталляция**.
+      1. В поле **Тип подключения** выберите **Пользовательская инсталляция**.
       1. В поле **Хосты** укажите адрес хоста с базой данных и номер порта для подключения.
 
           Если вы создаете подключение к пользовательской инсталляции базы данных для использования с [{{ datalens-full-name }}](../../datalens/concepts/index.md), укажите внешний адрес хоста.
@@ -3053,13 +3002,9 @@ description: Пошаговые инструкции по работе с {{ con
           
           Если в вашей компании есть [центр сертификации (CA)](../../glossary/tls.md#authentication), по умолчанию будет использоваться выпущенный им сертификат. Если в компании нет СА, загрузите TLS-сертификат сервера.
           
-  1. В разделе **Аутентификация**:
-      1. Укажите **Имя пользователя** для подключения.
-      1. Выберите способ задания пароля:
-          * **Ввести вручную** — пароль вводится в соответствующее поле.
-          * **Сгенерировать** — пароль генерируется автоматически. Вы можете настроить правила генерации пароля [{{ lockbox-short-name }}](../../lockbox/quickstart.md) или оставить правила, заданные по умолчанию.
+  1. {% include [console-auth-db](../../_includes/metadata-hub/connection-create-console-auth-db.md) %}
   1. Перечислите базы данных, подключениями к которым вы хотите управлять. Убедитесь, что у пользователя есть необходимые права на доступ к ним.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 

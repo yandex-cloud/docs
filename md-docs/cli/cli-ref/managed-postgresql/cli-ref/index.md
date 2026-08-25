@@ -108,6 +108,12 @@ Aliases:
 
   - [yc managed-postgresql hosts update-config](hosts/update-config.md) — Updates PostgreSQL config for the specified hosts
 
+- [yc managed-postgresql performance-diagnostics](performance-diagnostics/index.md) — Export PostgreSQL performance diagnostics data
+
+  - [yc managed-postgresql performance-diagnostics list-raw-sessions](performance-diagnostics/list-raw-sessions.md) — List raw PostgreSQL session states for the specified time range
+
+  - [yc managed-postgresql performance-diagnostics list-raw-statements](performance-diagnostics/list-raw-statements.md) — List raw PostgreSQL statements for the specified time range
+
 - [yc managed-postgresql repack](repack/index.md) — Manage pg_repack tasks in PostgreSQL cluster
 
   - [yc managed-postgresql repack launch](repack/launch.md) — Launch a new pg_repack task in the specified PostgreSQL cluster

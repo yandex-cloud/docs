@@ -25,8 +25,8 @@ Once your {{ AF }} version is upgraded, you cannot revert the cluster to the pre
 
     To upgrade your {{ AF }} or Python version:
 
-    1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate]({{ link-console-main }}/link/managed-airflow) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
     1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select the {{ AF }} and Python version you need.
     1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -71,7 +71,7 @@ Once your {{ AF }} version is upgraded, you cannot revert the cluster to the pre
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        Learn how to create the file in [Creating a cluster](cluster-create.md).
+        To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
 
     1. Add the `airflow_version` or `python_version` parameter to the cluster description or update it if it is already there:
 

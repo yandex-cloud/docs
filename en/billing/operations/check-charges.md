@@ -68,7 +68,7 @@ By default, usage details show the cost of consumed resources. Details in consum
 
 - Cloud folders {#folders}
 
-  You can view usage details for one or more folders, including in different clouds. To do this, select folders whose details you want to display from the **{{ ui-key.yacloud_billing_account.billing-account-detail.value_empty_clouds_folders }}** list.
+  You can view usage details for one or more folders, including in different clouds. To do this, select folders whose details you want to display from the **{{ ui-key.yacloud_billing_account.billing-account-detail.value_empty_folders }}** list.
 
   To get usage details for selected folders filtered by a product or label, click **{{ ui-key.yacloud_billing_account.billing-account-detail.filter_label-products-all }}** or **{{ ui-key.yacloud_billing_account.billing-account-detail.filter_label-labels-all }}** and select the values.
 
@@ -76,7 +76,7 @@ By default, usage details show the cost of consumed resources. Details in consum
 
 - Services {#services}
 
-  You can view usage details for one or more services in different clouds or in different folders of the selected cloud. Do it by selecting the elements you want the info for in the **{{ ui-key.yacloud_billing_account.billing-account-detail.filter_label-services-all }}** and **{{ ui-key.yacloud_billing_account.billing-account-detail.value_empty_clouds_folders }}** lists.
+  You can view usage details for one or more services in different clouds or in different folders of the selected cloud. Do it by selecting the elements you want the info for in the **{{ ui-key.yacloud_billing_account.billing-account-detail.filter_label-services-all }}** and **{{ ui-key.yacloud_billing_account.billing-account-detail.value_empty_folders }}** lists.
 
   You can also get details on [service resource labels](../../resource-manager/concepts/labels.md) by clicking **{{ ui-key.yacloud_billing_account.billing-account-detail.filter_label-labels-all }}** and specifying the required values.
 
@@ -96,7 +96,7 @@ By default, usage details show the cost of consumed resources. Details in consum
 
   To view usage details for selected labels for one or more products across different folders in the selected cloud:
 
-  1. Click **{{ ui-key.yacloud_billing_account.billing-account-detail.value_empty_clouds_folders }}** and select the products and services you want covered.
+  1. Click **{{ ui-key.yacloud_billing_account.billing-account-detail.value_empty_folders }}** and select the products and services you want covered.
   1. Click **{{ ui-key.yacloud_billing_account.billing-account-detail.filter_label-labels-all }}**. In the list that opens, do the following:
 
      * Select the label key and its values.
@@ -111,7 +111,7 @@ By default, usage details show the cost of consumed resources. Details in consum
   
   {% include [usage-details-change-period](../../billing/_includes/usage-details-change-period.md) %}
 
-  To get details for a given period for specific clouds and folders, select the required spaces in the **{{ ui-key.yacloud_billing_account.billing-account-detail.value_empty_clouds_folders }}** list.
+  To get details for a given period for specific clouds and folders, select the required spaces in the **{{ ui-key.yacloud_billing_account.billing-account-detail.value_empty_folders }}** list.
 
   To get details for specific products and [labels](../../resource-manager/concepts/labels.md), click **{{ ui-key.yacloud_billing_account.billing-account-detail.filter_label-products-all }}** or **{{ ui-key.yacloud_billing_account.billing-account-detail.filter_label-labels-all }}** and enter the values.
 

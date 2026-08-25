@@ -3,7 +3,7 @@
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the broker is located.
-   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. Select the broker. Detailed information about the broker will be displayed on the **{{ ui-key.yacloud.common.overview }}** page.
 
@@ -41,6 +41,7 @@
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   To get information about a broker using {{ TF }}:
+  
   1. Add the `data` and `output` sections to the {{ TF }} configuration file:
 
       ```hcl
@@ -54,9 +55,12 @@
       ```
 
       Where:
+
       * `data "yandex_iot_core_broker"`: Description of the broker as a data source:
+
         * `broker_id`: Broker ID.
       * `output "broker_params"`: Output variable that contains information about the broker creation timestamp:
+
         * `value`: Return value.
 
       You can replace `created_at` with another variable to get the information you need. For more on the properties of the `yandex_iot_core_broker` data source, see [this provider guide]({{ tf-provider-datasources-link }}/iot_core_broker).

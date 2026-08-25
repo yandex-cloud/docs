@@ -6,5 +6,4 @@ canonical: '{{ link-docs }}/tutorials/dataplatform/kafka-connect'
 
 # Настройка {{ KFC }} для работы с кластером {{ mkf-name }}
 
-
 {% include [kafka-connect](../../_tutorials/dataplatform/mkf-kafka-connect.md) %}

@@ -5,7 +5,11 @@ description: Follow this guide to use the workflow step constructor to add the W
 
 # Adding the Wait step
 
+{% include [workflows-ai-studio-note](../../../../_includes/serverless-integrations/workflows-ai-studio-note.md) %}
+
 The Wait control step suspends the execution of the workflow for a specified time interval or until a specified timestamp is reached. If the specified time interval is negative or zero, or the specified timestamp is already reached, this step will end immediately.
+
+{% include [templating-note](../../../../_includes/serverless-integrations/templating-note.md) %}
 
 {% list tabs %}
 

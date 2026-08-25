@@ -30,7 +30,7 @@
 - Консоль управления {#console}
 
   1. [Перейдите](https://console.yandex.cloud/link/managed-gitlab) в сервис **Managed Service for&nbsp;GitLab**.
-  1. Нажмите на имя нужного инстанса и выберите вкладку ![image](../../_assets/console-icons/cloud-arrow-up-in.svg) **Данные в Object Storage**.
+  1. Нажмите на имя нужного инстанса и выберите вкладку **Данные в Object Storage**.
 
 {% endlist %}
 
@@ -47,7 +47,7 @@
 - Консоль управления {#console}
 
   1. [Перейдите](https://console.yandex.cloud/link/managed-gitlab) в сервис **Managed Service for&nbsp;GitLab**.
-  1. Нажмите на имя нужного инстанса и выберите вкладку ![image](../../_assets/console-icons/cloud-arrow-up-in.svg) **Данные в Object Storage**.
+  1. Нажмите на имя нужного инстанса и выберите вкладку **Данные в Object Storage**.
   1. Нажмите кнопку **Настроить хранение данных в Object Storage**.
   1. Выберите типы данных для хранения в Object Storage.
     

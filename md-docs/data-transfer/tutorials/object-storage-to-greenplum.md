@@ -1,10 +1,11 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Data Transfer](../index.md) > [Практические руководства](index.md) > Загрузка данных в витрины > Object Storage в Greenplum®
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Transfer](../index.md) > [Практические руководства](index.md) > Загрузка данных в витрины > Object Storage в Greenplum®/Apache Cloudberry™
 
-# Загрузка данных из Object Storage в витрину Greenplum®
+# Загрузка данных из Object Storage в витрину Greenplum®/Apache Cloudberry™
 
 # Загрузка данных из Yandex Object Storage в Yandex MPP Analytics for PostgreSQL с помощью Yandex Data Transfer
 
-Вы можете перенести данные из Yandex Object Storage в таблицу Greenplum® в сервисе Yandex MPP Analytics for PostgreSQL с помощью Yandex Data Transfer. Для этого:
+
+Вы можете перенести данные из Yandex Object Storage в таблицу Greenplum®/Apache Cloudberry™ в сервисе Yandex MPP Analytics for PostgreSQL с помощью Yandex Data Transfer. Для этого:
 
 1. [Подготовьте тестовые данные](#prepare-data).
 1. [Создайте базу данных в кластере-приемнике](#prepare-data).

@@ -538,9 +538,9 @@ description: This section contains the {{ at-name }} release notes.
   Event | Description
   --- | ---
   `AddClusterHosts` | Adding new hosts to a cluster
-  `BackupCluster` | Creating backups
+  `BackupCluster` | Creating a backup
   `CreateCluster` | Creating a cluster
-  `DeleteBackup` | Deleting backups
+  `DeleteBackup` | Deleting a backup
   `DeleteCluster` | Deleting a cluster
   `DeleteClusterHosts` | Deleting hosts from a cluster
   `RescheduleMaintenance` | Changing scheduled maintenance date and time
@@ -685,7 +685,7 @@ description: This section contains the {{ at-name }} release notes.
 
   Event | Description
   --- | ---
-  `tuning.StartTuning` | Start model tuning
+  `tuning.StartTuning` | Start model fine-tuning
 
   {% endcut %}
 
@@ -738,7 +738,7 @@ description: This section contains the {{ at-name }} release notes.
 
   Event | Description
   --- | ---
-  `SetDefaultColorPalette` | Customizing the default color palette
+  `SetDefaultColorPalette` | Setting up the default color palette
 
   {% endcut %}
 
@@ -1756,7 +1756,7 @@ Added new events for the services:
 
   Event | Description
   --- | ---
-  `DeleteBackup` | Deleting backups
+  `DeleteBackup` | Deleting a backup
 
   [Data events](./concepts/format-data-plane.md):
 
@@ -1864,7 +1864,7 @@ Added new events for the services:
 
   Event | Description
   --- | ---
-  `DeleteBackup` | Deleting backups
+  `DeleteBackup` | Deleting a backup
 
   {% endcut %}
 
@@ -2155,7 +2155,7 @@ Added new events for the services:
 
   Event | Description
   --- | ---
-  `DeleteBackup` | Deleting backups
+  `DeleteBackup` | Deleting a backup
 
   {% endcut %}
 
@@ -2466,7 +2466,7 @@ Added new events for the services:
   --- | ---
   `CreateHBARule` | Creating a user authentication rule
   `CreatePXFDatasource` | Creating a connection to an external table
-  `DeleteBackup` | Deleting backups
+  `DeleteBackup` | Deleting a backup
   `DeleteHBARule` | Deleting a user authentication rule
   `DeletePXFDatasource` | Deleting an external table connection
   `UpdateHBARule` | Updating a user authentication rule
@@ -2480,7 +2480,7 @@ Added new events for the services:
 
   Event | Description
   --- | ---
-  `DeleteBackup` | Deleting backups
+  `DeleteBackup` | Deleting a backup
 
   {% endcut %}
 

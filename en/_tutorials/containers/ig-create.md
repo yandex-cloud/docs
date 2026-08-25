@@ -1,7 +1,7 @@
 # Creating an instance group from a {{ coi }}
 
 
-To run multiple instances of the service in Docker containers, you can create an instance group from a [{{ coi }}](../../cos/concepts/index.md). In such groups, you can update Docker containers with VM metadata using the [COI or Docker Compose specification](../../cos/concepts/coi-specifications.md).
+To run multiple service instances in Docker containers, you can create an instance group based on a [{{ coi }}](../../cos/concepts/index.md). In such groups, you can update Docker containers with VM metadata using the [COI or Docker Compose specification](../../cos/concepts/coi-specifications.md).
 
 {% include [warning.md](../../_includes/instance-groups/warning.md) %}
 
@@ -15,7 +15,7 @@ To create an instance group based on a {{ coi }}:
 
 1. {% include [default-catalogue.md](../../_includes/default-catalogue.md) %}
 
-1. View a description of the CLI command to create an instance group:
+1. See the description of the CLI command for creating an instance group:
 
    {% list tabs group=instructions %}
 
@@ -27,7 +27,7 @@ To create an instance group based on a {{ coi }}:
 
    {% endlist %}
 
-1. Check whether the folder contains any networks:
+1. Check whether the folder has any networks:
 
    {% list tabs group=instructions %}
 
@@ -39,7 +39,7 @@ To create an instance group based on a {{ coi }}:
 
    {% endlist %}
 
-   If there are not any, [create one](../../vpc/operations/network-create.md).
+   If it does not, [create one](../../vpc/operations/network-create.md).
 
 1. Create a YAML file and give it a name, e.g., `specification.yaml`.
 
@@ -57,7 +57,7 @@ To create an instance group based on a {{ coi }}:
 
      Where:
 
-     * `name`: Instance group name. The name must be unique within the folder. It can only contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name can be up to 63 characters long.
+     * `name`: Instance group name. The name must be unique within the folder. It can only contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may be up to 63 characters long.
      * `service_account_id`: Service account ID.
 
         To be able to create, update, and delete VMs in the group, [assign](../../iam/operations/sa/assign-role-for-sa.md) the [compute.editor](../../compute/security/index.md#compute-editor) role to the service account.
@@ -109,15 +109,15 @@ To create an instance group based on a {{ coi }}:
      * `mode`: Disk access mode:
          * `READ_ONLY`: Read-only access.
          * `READ_WRITE`: Read/write access.
-     * `image_id`: {{ coi }} public image ID.
+     * `image_id`: Public {{ coi }} ID.
      * `type_id`: Disk type.
      * `size`: Disk size. It must be at least 30 GB.
-     * `network_id`: `default-net` network ID.
-     * `primary_v4_address_spec`: IPv4 specification. Only IPv4 is currently available. You can [allow public access to the group instances](../../compute/concepts/instance-groups/instance-template.md#instance-template) by specifying the IP version for the public IP address.
+     * `network_id`: `default-net` ID.
+     * `primary_v4_address_spec`: IPv4 specification. Only IPv4 is currently available. You can [enable public access to the group instances](../../compute/concepts/instance-groups/instance-template.md#instance-template) by specifying the IP version for the public IP address.
      * `security_group_ids`: List of [security group](../../vpc/concepts/security-groups.md) IDs.
      * `metadata`: Values to write to the VM metadata.
-     * `docker-container-declaration`: Key in the VM metadata that is used with the [COI specification of the Docker container](../../cos/concepts/coi-specifications.md). In the metadata, you can use the [Docker Compose specification](../../cos/concepts/coi-specifications.md#compose-spec). To do this, specify the `docker-compose` key instead of the `docker-container-declaration` key.
-     * `placement_policy`: (Optional) [Instance placement group](../../compute/concepts/placement-groups.md) parameters:
+     * `docker-container-declaration`: VM metadata key that indicates the use of a [Docker container COI specification](../../cos/concepts/coi-specifications.md). In the metadata, you can use a [Docker Compose specification](../../cos/concepts/coi-specifications.md#compose-spec). To do this, specify the `docker-compose` key instead of the `docker-container-declaration` key.
+     * `placement_policy`: Optional [instance placement group](../../compute/concepts/placement-groups.md) settings:
        * `placement_group_id`: Placement group ID.
    * [Policies](../../compute/concepts/instance-groups/policies/index.md):
 
@@ -150,7 +150,7 @@ To create an instance group based on a {{ coi }}:
      service_account_id: <service_account_ID>
      description: "This instance group was created from YAML config."
      instance_template:
-       service_account_id: <service_account_ID> # ID of the service account to access private Docker images.
+       service_account_id: <service_account_ID> # ID of the service account for accessing private Docker images.
        platform_id: standard-v3
        resources_spec:
          memory: 2G
@@ -195,7 +195,7 @@ To create an instance group based on a {{ coi }}:
 
      {% note info %}
 
-     To use the [Docker Compose specification](../../cos/concepts/coi-specifications.md#compose-spec) in `specification.yaml`, specify the `docker-compose` key instead of the `docker-container-declaration` key.
+     To use a [Docker Compose specification](../../cos/concepts/coi-specifications.md#compose-spec) in `specification.yaml`, specify the `docker-compose` key instead of the `docker-container-declaration` key.
 
      {% endnote %}
 
@@ -209,7 +209,7 @@ To create an instance group based on a {{ coi }}:
      {{ yc-compute-ig }} create --file specification.yaml
      ```
 
-     This command creates a group of three similar instances with the following characteristics:
+     This command will create a group of three same-type instances with the following configuration:
      * Name: `container-optimized-group`.
      * Based on the latest version of the public {{ coi }}.
      * With a running Docker container based on `{{ registry }}/mirror/nginx:1.17.4-alpine`.

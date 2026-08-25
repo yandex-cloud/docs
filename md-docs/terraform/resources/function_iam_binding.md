@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Cloud Logging > Resources > function_iam_binding
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Serverless Cloud Functions > Resources > function_iam_binding
 
 # yandex_function_iam_binding (Resource)
 

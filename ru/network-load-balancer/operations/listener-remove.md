@@ -14,8 +14,8 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется удалить обработчик балансировщика.
   1. [Перейдите]({{ link-console-main }}/link/network-load-balancer/) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Выберите сетевой балансировщик, у которого требуется удалить обработчик.
-  1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.section_listeners }}** нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке обработчика, который нужно удалить.
-  1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_delete-listener }}**.
+  1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.section_listeners }}** нажмите ![image](../../_assets/console-icons/ellipsis.svg) в строке обработчика, который нужно удалить.
+  1. В открывшемся меню нажмите ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_delete-listener }}**.
   
 - CLI {#cli}
   

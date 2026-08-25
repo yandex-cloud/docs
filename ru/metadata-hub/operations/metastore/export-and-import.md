@@ -22,7 +22,7 @@ description: Следуя данной инструкции, вы научите
 
    1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
    1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-   1. На панели слева выберите ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
+   1. В блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.metastore.label_metastore }}**.
    1. Нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) для нужного кластера и выберите пункт ![image](../../../_assets/console-icons/arrow-up-from-square.svg) **{{ ui-key.yacloud.metastore.action_export }}**.
    1. В открывшемся окне укажите:
 
@@ -47,7 +47,7 @@ description: Следуя данной инструкции, вы научите
 
    Где:
 
-   * `--bucket` — [cозданный ранее](#before-you-begin) бакет, куда будут экспортированы данные кластера.
+   * `--bucket` — [созданный ранее](#before-you-begin) бакет, куда будут экспортированы данные кластера.
    * `--filepath` — путь к файлу `.sql`, в который будут записаны данные кластера. Если файл с таким названием уже существует, он будет перезаписан.
 
    Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -73,7 +73,7 @@ description: Следуя данной инструкции, вы научите
 
         Где:
 
-         * `bucket` — [cозданный ранее](#before-you-begin) бакет, куда будут экспортированы данные кластера.
+         * `bucket` — [созданный ранее](#before-you-begin) бакет, куда будут экспортированы данные кластера.
          * `filepath` — путь к файлу `.sql`, в который будут записаны данные кластера. Если файл с таким названием уже существует, он будет перезаписан.
 
          Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -108,7 +108,7 @@ description: Следуя данной инструкции, вы научите
 
         Где:
 
-         * `bucket` — [cозданный ранее](#before-you-begin) бакет, куда будут экспортированы данные кластера.
+         * `bucket` — [созданный ранее](#before-you-begin) бакет, куда будут экспортированы данные кластера.
          * `filepath` — путь к файлу `.sql`, в который будут записаны данные кластера. Если файл с таким названием уже существует, он будет перезаписан.
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -119,7 +119,7 @@ description: Следуя данной инструкции, вы научите
 
 ## Импорт данных {#import}
 
-Перед импортом [загрузите файл](../../../storage/operations/objects/upload.md#simple) `.sql` с метаданными в [cозданный ранее](#before-you-begin) бакет. О том, как подготовить файл и как устроен процесс импорта, читайте в разделе [{#T}](../../tutorials/metastore-import.md).
+Перед импортом [загрузите файл](../../../storage/operations/objects/upload.md#simple) `.sql` с метаданными в [созданный ранее](#before-you-begin) бакет. О том, как подготовить файл и как устроен процесс импорта, читайте в разделе [{#T}](../../tutorials/metastore-import.md).
 
 {% list tabs group=instructions %}
 
@@ -129,9 +129,9 @@ description: Следуя данной инструкции, вы научите
 
    1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
    1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-   1. На панели слева выберите ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
+   1. В блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.metastore.label_metastore }}**.
    1. Нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) для нужного кластера и выберите пункт ![image](../../../_assets/console-icons/arrow-down-to-square.svg) **{{ ui-key.yacloud.metastore.action_import }}**.
-   1. В открывшемся окне выберите [cозданный ранее](#before-you-begin) бакет и файл, откуда будут импортированы данные кластера.
+   1. В открывшемся окне выберите [созданный ранее](#before-you-begin) бакет и файл, откуда будут импортированы данные кластера.
    1. Нажмите кнопку **{{ ui-key.yacloud.metastore.dialog.import-export.action_import }}**.
 
 - CLI {#cli}
@@ -150,7 +150,7 @@ description: Следуя данной инструкции, вы научите
 
    Где:
 
-   * `--bucket` — [cозданный ранее](#before-you-begin) бакет, откуда будут импортированы данные кластера.
+   * `--bucket` — [созданный ранее](#before-you-begin) бакет, откуда будут импортированы данные кластера.
    * `--filepath` — путь к файлу `.sql`, из которого будут импортированы данные кластера.
 
    Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -176,7 +176,7 @@ description: Следуя данной инструкции, вы научите
 
         Где:
 
-         * `bucket` — [cозданный ранее](#before-you-begin) бакет, откуда будут импортированы данные кластера.
+         * `bucket` — [созданный ранее](#before-you-begin) бакет, откуда будут импортированы данные кластера.
          * `filepath` — путь к файлу `.sql`, из которого будут импортированы данные кластера.
 
          Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -211,7 +211,7 @@ description: Следуя данной инструкции, вы научите
 
         Где:
 
-         * `bucket` — [cозданный ранее](#before-you-begin) бакет, куда будут экспортированы данные кластера.
+         * `bucket` — [созданный ранее](#before-you-begin) бакет, куда будут экспортированы данные кластера.
          * `filepath` — путь к файлу `.sql`, в который будут записаны данные кластера. Если файл с таким названием уже существует, он будет перезаписан.
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).

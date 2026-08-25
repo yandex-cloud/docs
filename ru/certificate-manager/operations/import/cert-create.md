@@ -20,7 +20,7 @@
 
 - PowerShell {#powershell}
 
-  ```PowerShell
+  ```powershell
   openssl req -x509 -newkey rsa:4096 -nodes `
     -keyout key.pem `
     -out cert.pem `
@@ -56,13 +56,24 @@
   1. Нажмите кнопку **{{ ui-key.yacloud.certificate-manager.button_empty-action }}**.
   1. В открывшемся меню выберите **{{ ui-key.yacloud.certificate-manager.action_import }}**.
   1. В открывшемся окне в поле **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** введите имя пользовательского сертификата.
-  1. (Опционально) В поле **Описание** введите описание пользовательского сертификата.
-  1. В поле **{{ ui-key.yacloud.certificate-manager.import.field_certificate }}** нажмите кнопку **{{ ui-key.yacloud.certificate-manager.import.button_add-certificate }}**.
+  1. (Опционально) В поле **{{ ui-key.yacloud.certificate-manager.metadata.field_description }}** введите описание пользовательского сертификата.
+  1. (Опционально) Включите опцию **{{ ui-key.yacloud.common.deletion-protection }}**.
+  1. (Опционально) Добавьте **{{ ui-key.yacloud.component.label-set.label_labels_1qrKA }}**.
+  1. В поле **{{ ui-key.yacloud.certificate-manager.import.field_certificate }}** нажмите кнопку **{{ ui-key.yacloud.certificate-manager.import.button_add-certificate }}**:
      
      1. Выберите способ добавления `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}`.
      1. Нажмите кнопку **Прикрепить файл**.
         
         1. В открывшемся окне выберите файл самоподписанного сертификата `cert.pem`.
+     
+     1. Нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
+  
+  1. (Опционально) В поле **{{ ui-key.yacloud.certificate-manager.import.field_chain }}** нажмите кнопку **{{ ui-key.yacloud.certificate-manager.import.button_add-chain }}**:
+
+     1. Выберите способ добавления `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}`.
+     1. Нажмите кнопку **Прикрепить файл**.
+        
+        1. В открывшемся окне выберите файл, в котором последовательно собраны все сертификаты из цепочки, например `fullchain.pem`.
      
      1. Нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
   

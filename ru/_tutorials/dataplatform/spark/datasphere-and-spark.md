@@ -1,5 +1,6 @@
 # Использование сервиса {{ msp-full-name }} в {{ ml-platform-name }}
 
+
 В {{ ml-platform-name }} вы можете использовать кластеры [{{ SPRK }}](../../../managed-spark/), развернутые в сервисе {{ msp-full-name }}. Подключение кластеров {{ SPRK }} выполняется с помощью [коннекторов Spark](../../../datasphere/concepts/spark-connector.md). Для выполнения вычислений в кластере запускается задание с типом `SparkConnect`.
 
 Чтобы в {{ ml-platform-name }} настроить интеграцию с сервисом {{ msp-name }}:
@@ -197,5 +198,3 @@
 
 1. [Кластер {{ msp-name }}](../../../managed-spark/operations/cluster-delete.md).
 1. [NAT-шлюз](../../../vpc/operations/delete-nat-gateway.md#delete-nat-gateway).
-
-{% endlist %}

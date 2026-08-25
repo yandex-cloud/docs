@@ -190,6 +190,8 @@ Managed Service for ClickHouse<sup>®</sup> позволяет: <ul><li>Созд
 
  - [Интеграция с внешней базой данных Oracle через ClickHouse® JDBC Bridge](tutorials/jdbc-ch-to-oracle-integration.md)
 
+ - [Выполнение аналитических запросов в Managed Service for PostgreSQL с обработкой в Managed Service for ClickHouse®](tutorials/mpg-pg-clickhouse-extension.md)
+
 ## Концепции
 
  - [Взаимосвязь ресурсов сервиса](concepts/index.md)
@@ -237,6 +239,8 @@ Managed Service for ClickHouse<sup>®</sup> позволяет: <ul><li>Созд
  - [Настройки ClickHouse®](concepts/settings-list.md)
 
  - [Управление доступом](security.md)
+
+ - [Инспекции и рекомендации](advisor.md)
 
  - [Правила тарификации](pricing.md)
 

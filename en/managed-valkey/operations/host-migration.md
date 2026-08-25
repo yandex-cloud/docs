@@ -24,8 +24,8 @@ description: Follow this guide to migrate {{ VLK }} cluster hosts to a different
 
    - Management console {#console}
 
-      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-      1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+      1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+      1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
       1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
       1. Specify the following host settings:
 
@@ -109,7 +109,7 @@ description: Follow this guide to migrate {{ VLK }} cluster hosts to a different
 
    - Management console {#console}
 
-      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+      1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
       1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
       1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
 
@@ -142,4 +142,4 @@ description: Follow this guide to migrate {{ VLK }} cluster hosts to a different
 
    {% endlist %}
 
-1. Wait for the cluster state to change to **Alive**. In the management console, navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**. You can check the cluster state in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
+1. Wait for the cluster state to change to **Alive**. In the [management console]({{ link-console-main }}), select the folder and [navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**. You can check the cluster state in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.

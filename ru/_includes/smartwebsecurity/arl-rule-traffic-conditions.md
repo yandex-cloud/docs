@@ -1,20 +1,11 @@
 В блоке **{{ ui-key.yacloud.smart-web-security.arl.column_rule-conditions }}** определите трафик, для анализа которого будет использоваться правило:
 * `{{ ui-key.yacloud.component.condition-column.condition_full-trafic }}` — правило будет использоваться для анализа всего трафика.
 * `При условии` — правило будет использоваться для анализа трафика, заданного в поле **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}**:
-    * `{{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}` — IP-адрес, диапазон адресов, регион адресов или [список адресов](../../smartwebsecurity/concepts/lists.md);
-    * `{{ ui-key.yacloud.component.condition-column.condition_name-header }}` — строка в заголовке HTTP;
-    * `{{ ui-key.yacloud.component.condition-column.condition_name-requestUri }}` — путь запроса;
-    * `{{ ui-key.yacloud.component.condition-column.condition_name-host }}` — домен, на который пришел запрос;
-    * `{{ ui-key.yacloud.component.condition-column.condition_name-httpMethod }}` — метод запроса;
-    * `{{ ui-key.yacloud.component.condition-column.condition_name-cookie }}` — строка в заголовке cookie.
-    * `Bot name` — имена легитимных ботов, принадлежащих различным компаниям и сервисам.
-    * `Bot category` — категории верифицированных ботов по их назначению или характеру действий.
-    * `Verified bot` — фильтрация по признаку верификации бота (`да` или `нет`).
-    * `Bot score` — фильтрация по уровню роботизированности запроса: от `0` (самый низкий уровень, человек) до `100` (самый высокий уровень, бот).
-    * `FingerPrint` — [отпечаток](../../smartwebsecurity/concepts/botes.md#fingerprint) SSL/TLS‑соединения.
+
+    {% include [traffic-conditions-list](traffic-conditions-list.md) %}
 
     Вы можете задать несколько условий. Для этого в поле **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** выберите все необходимые типы условий.
 
-    Вы также можете задать несколько условий одного типа. Для этого в секции с нужным условием нажмите кнопку ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.condition-column.condition_and }}** или ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.condition-column.condition_or }}**.
+    Вы также можете задать несколько условий одного типа. Для этого в секции с нужным условием нажмите ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.condition-column.condition_and }}** или ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.condition-column.condition_or }}**.
 
     Чтобы удалить условие, нажмите ![options](../../_assets/console-icons/trash-bin.svg).

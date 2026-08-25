@@ -1,6 +1,6 @@
 ---
 title: Migrating {{ managed-k8s-full-name }} resources to a different availability zone
-description: Follow this guide to migrate {{ managed-k8s-name }} resources to a different availability zone.
+description: Follow this tutorial to migrate {{ managed-k8s-name }} resources to a different availability zone.
 ---
 
 # Migrating {{ managed-k8s-full-name }} resources to a different availability zone

@@ -14,6 +14,10 @@
     {% include [Maintenance window](console/maintenance-window-description.md) %}
 
 
+- **{{ ui-key.yacloud.mongodb.ClusterForm.AdditionalSection.field_autocompact-enabled_9Eqw8 }}**: Enable to perform automatic compaction to free up disk space.
+  
+  {% include [autocompact-console](mmg/autocompact-console.md) %}
+
 
 - **{{ ui-key.yacloud.mdb.forms.additional-field-websql-service }}**: This option enables you to [run SQL queries](../../storedoc/operations/websql.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}.
 
@@ -22,5 +26,7 @@
 
 - **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}**: Cluster protection from accidental deletion.
 
-  {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+  {% include [deletion-protection-cluster](../../_includes/mdb/mmg/deletion-protection-cluster.md) %}
+  
+  {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 

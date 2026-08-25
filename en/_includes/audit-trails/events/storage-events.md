@@ -3,6 +3,8 @@ Event name | Description
 `BucketAccessBindingsUpdate` | Updating the bucket access binding logic
 `BucketAclUpdate` | Updating the ACL for a bucket
 `BucketCorsUpdate` | Updating the CORS configuration for a bucket
+`BucketInventoryConfigurationDelete` | Deleting an S3 Inventory configuration for a bucket
+`BucketInventoryConfigurationUpdate` | Updating an S3 Inventory configuration for a bucket
 `BucketCreate` | Creating a bucket
 `BucketDelete` | Deleting a bucket
 `BucketEncryptionUpdate` | Updating bucket encryption settings

@@ -1,0 +1,1 @@
+`--profile-id`: OAuth client (OIDC application) [type](../../organization/concepts/applications/oidc.md#oidc-application-types). This tutorial creates an OAuth client of the `{{ ui-key.yacloud_org.organization.apps.web-title_aeKTZ }}` type.

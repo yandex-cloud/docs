@@ -33,7 +33,7 @@
 
 ### Создайте сервисный аккаунт {#create-sa}
 
-[Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) понадобится, чтобы получить [API-ключ](../../iam/concepts/authorization/api-key.md).
+[Сервисный аккаунт]({{ link-docs }}/iam/concepts/users/service-accounts) понадобится, чтобы получить [API-ключ]({{ link-docs }}/iam/concepts/authorization/api-key).
 
 {% list tabs group=instructions %}
 
@@ -88,7 +88,7 @@
      1. В поле **OpenAI API-ключ** вставьте секретное значение ключа, полученное на предыдущем [шаге](#create-key).
      1. В поле **Модель** укажите URI модели в формате `gpt://<идентификатор_каталога>/<идентификатор_модели>/latest`, где:
 
-         * `<идентификатор_каталога>` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md) `aistudio`;
+         * `<идентификатор_каталога>` — [идентификатор каталога]({{ link-docs }}/resource-manager/operations/folder/get-id) `aistudio`;
          * `<идентификатор_модели>` — [идентификатор модели]({{ link-docs-ai }}ai-studio/concepts/generation/models). Например: `qwen3-235b-a22b-fp8` или `gpt-oss-120b`.
 
          {% note info %}
@@ -107,7 +107,7 @@
      1. В поле **API-key** вставьте секретное значение ключа, полученное на предыдущем [шаге](#create-key).
      1. В поле **Model** укажите URI модели в формате `gpt://<идентификатор_каталога>/<идентификатор_модели>/latest`, где:
 
-         * `<идентификатор_каталога>` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md) `aistudio`;
+         * `<идентификатор_каталога>` — [идентификатор каталога]({{ link-docs }}/resource-manager/operations/folder/get-id) `aistudio`;
          * `<идентификатор_модели>` — [идентификатор модели]({{ link-docs-ai }}ai-studio/concepts/generation/models). Например: `qwen3-235b-a22b-fp8` или `gpt-oss-120b`.
      1. Нажмите **Go!**.
 

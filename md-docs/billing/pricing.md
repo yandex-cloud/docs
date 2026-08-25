@@ -76,7 +76,7 @@ blocks:
         * [SpeechKit Brand Voice](https://aistudio.yandex.ru/docs/ru/speechkit/pricing#brand-voice)
         * [Распознавание речи](https://aistudio.yandex.ru/docs/ru/speechkit/pricing#prices-stt)
     * [Yandex Translate](https://aistudio.yandex.ru/docs/ru/translate/pricing)
-    * [Yandex Vision OCR](https://aistudio.yandex.ru/docs/ru/vision/pricing)
+    * [Yandex Vision OCR](https://aistudio.yandex.ru/docs/ru/ai-studio/pricing#rules-image-recognition)
 * [Yandex API Gateway](../api-gateway/pricing.md)
 * [Yandex Application Load Balancer](../application-load-balancer/pricing.md)
 * [Yandex Audit Trails](../audit-trails/pricing.md)
@@ -131,8 +131,9 @@ blocks:
 * [Yandex MPP Analytics for PostgreSQL](../managed-greenplum/pricing/index.md)
 * [Yandex Object Storage](../storage/pricing.md)
 * [Yandex Query](../query/pricing.md)
-* <code><b><small>Preview</small></b></code> [Yandex Security Deck](../security-deck/pricing.md)
+* [Yandex Security Deck](../security-deck/pricing.md)
 * [Yandex Serverless Containers](../serverless-containers/pricing.md)
+* [Yandex SIEM](../siem/pricing.md)
 * [Yandex SmartCaptcha](../smartcaptcha/pricing.md)
 * [Yandex Smart Web Security](../smartwebsecurity/pricing.md)
 * [Yandex SpeechSense](https://aistudio.yandex.ru/docs/ru/speechsense/pricing)
@@ -152,6 +153,7 @@ blocks:
 * [Yandex Identity and Access Management](../iam/pricing.md)
 * [Yandex Resource Manager](../resource-manager/pricing.md)
 * <code><b><small>Preview</small></b></code> [Yandex Serverless Integrations](../serverless-integrations/pricing.md)
+* <code><b><small>Preview</small></b></code> [Vibecraft](https://sourcecraft.dev/portal/docs/ru/vibecraft/pricing.md)
 * [Yandex WebSQL](../websql/pricing.md)
 
  Тегом <code><b><small>Preview</small></b></code> отмечены сервисы на стадии [Preview](../overview/concepts/launch-stages.md).

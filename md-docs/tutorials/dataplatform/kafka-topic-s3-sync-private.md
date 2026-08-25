@@ -33,7 +33,7 @@
     - Вручную {#manual}
 
         1. [Создайте сеть](../../vpc/operations/network-create.md) с именем `my-private-network`. При создании выключите опцию **Создать подсети**.
-        1. [Создайте подсеть](../../vpc/operations/subnet-create.md) в любой зоне доступности.
+        1. [Создайте подсеть](../../vpc/operations/subnet-create.md) в любой [зоне доступности](../../overview/concepts/geo-scope.md).
         1. [Создайте сервисное подключение к Object Storage](../../vpc/operations/private-endpoint-create.md) в сети `my-private-network` и запишите его идентификатор.
         1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md#create-sa) с именем `storage-pe-admin` и ролью `storage.admin`. Кластер Managed Service for Apache Kafka® будет использовать его для доступа к бакету.
         1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта `storage-pe-admin`.

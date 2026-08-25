@@ -7,6 +7,10 @@ description: Из статьи вы узнаете, как в {{ datalens-full-n
 
 Тепловая карта показывает плотность распределения точек. Области на карте окрашиваются градиентом от зеленого цвета к красному: чем больше точек сгруппированы в области, тем ближе к красному будет ее цвет. 
 
+
+{% include [geointellect-using](../../_includes/datalens/visualization-ref/geointellect-using.md) %}
+
+
 ### Что нужно знать о тепловых картах
 
 + Тепловые карты используются для отображения скоплений большого количества точек.
@@ -38,9 +42,7 @@ description: Из статьи вы узнаете, как в {{ datalens-full-n
 
 ## Создание тепловой карты {#create-diagram}
 
-
 {% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
-
 
 1. {% include [create-1](../../_includes/datalens/visualization-ref/create-1.md) %}
 1. {% include [create-2](../../_includes/datalens/visualization-ref/create-2.md) %}

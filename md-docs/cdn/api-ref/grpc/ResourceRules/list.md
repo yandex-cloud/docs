@@ -222,7 +222,9 @@ The maximum string length in characters is 50. ||
           "content": "string"
         }
       },
-      "weight": "int64"
+      "weight": "int64",
+      "origins_group_id": "int64",
+      "origin_protocol": "OriginProtocol"
     }
   ]
 }
@@ -259,11 +261,24 @@ Required field. Rule pattern.
 Must be a valid regular expression.
 
 The maximum string length in characters is 100. ||
-|| options | **[ResourceOptions](#yandex.cloud.cdn.v1.ResourceOptions)** ||
+|| options | **[ResourceOptions](#yandex.cloud.cdn.v1.ResourceOptions)**
+
+Resource options. ||
 || weight | **int64**
 
 Rules are ordered by weight in ascending order (lower weights execute first)
 Weight must be between 0 and 9999 inclusive ||
+|| origins_group_id | **int64**
+
+ID of origins group. Non zero value overrides parent origin group. ||
+|| origin_protocol | enum **OriginProtocol**
+
+Protocol used for communication with origin.
+
+- `HTTP`: CDN servers will connect to your origin via HTTP.
+- `HTTPS`: CDN servers will connect to your origin via HTTPS.
+- `MATCH`: Connection protocol will be chosen automatically (content on the
+origin source should be available for the CDN both through HTTP and HTTPS). ||
 |#
 
 ## ResourceOptions {#yandex.cloud.cdn.v1.ResourceOptions}
@@ -431,8 +446,8 @@ Use `custom_values` field to specify a custom caching time for a response with s
 || custom_values | **object** (map<**string**, **int64**>)
 
 Caching time for a response with specific codes. These settings have a higher priority than the value field.
-Response code (`304`, `404` for example). Use `any` to specify caching time for all response codes.
-Caching time in seconds (`0s`, `600s` for example). Use `0s` to disable caching for a specific response code. ||
+Key: HTTP response code as a string, in the range 100-599 (e.g. `"304"`, `"404"`). Wildcard values such as `any` are not supported.
+Value: caching time in seconds as a plain integer (e.g. `0`, `600`). Use `0` to disable caching for a specific response code. ||
 |#
 
 ## Int64Option {#yandex.cloud.cdn.v1.ResourceOptions.Int64Option}

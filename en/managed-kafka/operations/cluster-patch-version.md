@@ -11,8 +11,8 @@ To find out the {{ KF }} patch version installed in a {{ mkf-name }} cluster, fo
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Navigate]({{ link-console-main }}/link/managed-kafka) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Find the **{{ ui-key.yacloud.mdb.cluster.overview.label_version }}** field containing the {{ KF }} version and patch version info.
 
 - CLI {#cli}
